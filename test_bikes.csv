@@ -1,4 +1,0 @@
-manufacturer,model,category,subcategory,year,sku,price,currency,original_price,discount_percentage,is_on_sale,frame_material,frame_size,wheel_size,tire_size,gears,drivetrain,brakes,suspension,weight,max_weight_capacity,in_stock,stock_level,available_sizes,available_colors,estimated_delivery,rating,review_count,review_summary,primary_image,image_count,all_images,description,short_description,features,url,scraped_at
-Manufacturer 1,Model 1,Road,,,,1000,USD,,,False,,,,,,,,,,,,,,,,,,,,0,,,,,,2025-06-19T14:27:15.800510
-Manufacturer 2,Model 2,Mountain,,,,1500,USD,,,False,,,,,,,,,,,,,,,,,,,,0,,,,,,2025-06-19T14:27:15.800519
-Manufacturer 3,Model 3,Hybrid,,,,2000,USD,,,False,,,,,,,,,,,,,,,,,,,,0,,,,,,2025-06-19T14:27:15.800526

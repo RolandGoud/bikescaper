@@ -1,269 +1,146 @@
-# Bike Scraper
+# Trek Bikes Scraper
 
-A comprehensive web scraper for collecting detailed bike information from major manufacturer websites including Trek, Specialized, Giant, and Cannondale.
+A comprehensive web scraper for Trek road bikes from the Dutch Trek website (trekbikes.com/nl). This scraper extracts detailed bike specifications, descriptions, and pricing information with intelligent predictions for missing data.
 
 ## Features
 
-- **Multi-manufacturer support**: Scrape from Trek, Specialized, Giant, and Cannondale
-- **Comprehensive data extraction**: Model, price, specifications, availability, reviews, images
-- **Multiple output formats**: CSV, JSON, Excel
-- **Robust scraping**: Handles both standard HTTP requests and JavaScript-heavy sites using Selenium
-- **Rate limiting**: Built-in delays to be respectful to websites
-- **Error handling**: Graceful handling of failed requests and missing data
-- **Configurable**: Easy to add new manufacturers or modify scraping parameters
-- **Command-line interface**: Easy to use from terminal
+- **Complete bike data extraction** from Trek's Dutch website
+- **Detailed specifications** extracted from individual bike pages
+- **Intelligent predictions** for missing fields (framefit, bottom bracket, chain)
+- **Transparent predictions** marked with asterisk (*) for clarity
+- **Color variant detection** for bikes with multiple color options
+- **1x drivetrain detection** with automatic front derailleur classification
+- **Multiple export formats**: JSON, CSV, and Excel
+- **Comprehensive logging** for debugging and monitoring
+- **Automatic file cleanup** to manage storage
 
 ## Installation
 
-1. **Clone or download the project**
-2. **Install Python dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. Clone this repository:
+```bash
+git clone <repository-url>
+cd bikescaper
+```
 
-3. **Install Chrome browser** (required for Selenium-based scrapers)
+2. Install required dependencies:
+```bash
+pip3 install -r requirements.txt
+```
 
 ## Usage
 
-### Basic Usage
-
-Scrape all manufacturers and export to CSV and JSON:
+Run the scraper:
 ```bash
-python bike_scraper.py
+python3 trek_bikes_scraper.py
 ```
 
-### Scrape Specific Manufacturers
-
-Scrape only Trek bikes:
-```bash
-python bike_scraper.py -m trek
-```
-
-Scrape Trek and Specialized:
-```bash
-python bike_scraper.py -m trek specialized
-```
-
-### Output Options
-
-Export to different formats:
-```bash
-python bike_scraper.py -f csv json excel
-```
-
-Specify custom output directory:
-```bash
-python bike_scraper.py -o my_bike_data
-```
-
-### Advanced Options
-
-Enable verbose logging:
-```bash
-python bike_scraper.py -v
-```
-
-List available manufacturers:
-```bash
-python bike_scraper.py --list-manufacturers
-```
-
-## Data Fields Collected
-
-For each bike, the scraper attempts to collect:
-
-### Basic Information
-- Manufacturer
-- Model name
-- Category (Road, Mountain, Hybrid, Electric, etc.)
-- Year
-- SKU/Product code
-
-### Pricing
-- Current price
-- Original price (if on sale)
-- Currency
-- Sale status
-
-### Specifications
-- Frame material
-- Frame sizes available
-- Wheel size
-- Tire size
-- Number of gears
-- Drivetrain components
-- Brake type
-- Suspension type
-- Weight
-- Maximum weight capacity
-
-### Availability
-- Stock status
-- Available sizes
-- Available colors
-- Estimated delivery time
-
-### Reviews
-- Average rating
-- Number of reviews
-- Review summary
-
-### Images
-- Product images
-- Image descriptions
-- Primary image identification
-
-### Additional
-- Product description
-- Key features
-- Product URL
-- Scraping timestamp
+The scraper will:
+1. Extract all road bikes from Trek's Dutch website
+2. Fetch detailed specifications for each bike
+3. Apply intelligent predictions for missing data
+4. Export data to multiple formats in the `data/` directory
 
 ## Output Files
 
-The scraper generates the following files in the output directory (default: `data/`):
+The scraper generates timestamped files and maintains latest versions:
 
-- **bikes_data.csv**: Complete dataset in CSV format
-- **bikes_data.json**: Complete dataset in JSON format
-- **bikes_data.xlsx**: Complete dataset in Excel format (if requested)
-- **bike_scraper.log**: Log file with scraping details
+- `trek_bikes_YYYYMMDD_HHMMSS.json` - Complete data in JSON format
+- `trek_bikes_YYYYMMDD_HHMMSS.csv` - Tabular data for analysis
+- `trek_bikes_YYYYMMDD_HHMMSS.xlsx` - Excel format for easy viewing
+- `trek_bikes_latest.*` - Always contains the most recent data
 
-## Project Structure
+## Data Fields
 
-```
-bike_scraper/
-├── bike_scraper.py      # Main application entry point
-├── base_scraper.py      # Base scraper class with common functionality
-├── manufacturers.py     # Manufacturer-specific scraper implementations
-├── data_models.py       # Data models for bike information
-├── utils.py            # Utility functions for text processing, exports, etc.
-├── config.py           # Configuration settings and manufacturer URLs
-├── requirements.txt    # Python dependencies
-└── README.md          # This file
-```
+### Basic Information
+- `name` - Bike model name
+- `price` - Price in euros
+- `category` - Bike category (e.g., "Performance road bikes")
+- `brand` - Always "Trek"
+- `url` - Relative URL to bike detail page
+- `sku` - Product SKU
+- `variant` - Color variant name
+- `description` - Marketing description
 
-## Supported Manufacturers
+### Specifications
+All specifications are prefixed with `spec_` in CSV/Excel formats:
 
-| Manufacturer | Website | Status | Selenium Required |
-|-------------|---------|--------|------------------|
-| Trek | trekbikes.com | ✅ Active | Yes |
-| Specialized | specialized.com | ✅ Active | Yes |
-| Giant | giant-bicycles.com | ✅ Active | No |
-| Cannondale | cannondale.com | ✅ Active | Yes |
+- **Framefit*** - Riding position (Endurance, H1.5 Race, Comfort, Triatlon)
+- **Bottom bracket*** - Bottom bracket type and threading
+- **Ketting (Chain)*** - Chain specifications
+- **Voorvork** - Fork specifications
+- **Voorderailleur** - Front derailleur (or "geen voor-derailleur" for 1x)
+- **Achterderailleur** - Rear derailleur
+- **Cassette** - Cassette specifications
+- **Voortandwiel** - Chainring specifications
+- And many more technical specifications...
 
-## Configuration
+*Fields marked with asterisk (*) indicate intelligent predictions based on component compatibility.
 
-### Adding New Manufacturers
+## Intelligent Predictions
 
-To add a new manufacturer, edit `config.py` and add an entry to the `MANUFACTURERS` dictionary:
+The scraper includes sophisticated prediction algorithms:
 
-```python
-"new_manufacturer": {
-    "name": "New Manufacturer",
-    "base_url": "https://www.newmanufacturer.com",
-    "bikes_url": "https://www.newmanufacturer.com/bikes",
-    "categories": ["road", "mountain", "electric"],
-    "requires_selenium": False
-}
-```
+### Framefit Prediction
+- **Endurance**: Domane, Checkpoint series
+- **H1.5 Race**: Madone, Émonda, Boone series
+- **Comfort**: FX fitness bikes
+- **Triatlon**: Speed Concept series
 
-Then create a corresponding scraper class in `manufacturers.py`.
+### Bottom Bracket Prediction
+- **SRAM DUB**: High-end bikes with AXS components
+- **SRAM DUB Wide**: Gravel bikes (Checkpoint series)
+- **Praxis T47**: Most carbon Trek bikes
+- **Shimano**: Entry-level and fitness bikes
 
-### Modifying Scraping Parameters
+### Chain Prediction
+Based on drivetrain components:
+- **SRAM chains**: Matched to Apex, Rival, Force, RED components
+- **Shimano chains**: Matched to 105, Ultegra, XT components
+- **Speed-specific**: 10, 11, 12, or 13-speed chains
 
-Edit the `ScrapingConfig` class in `config.py` to adjust:
-- Request delays
-- Timeout values
-- Retry attempts
-- User agent strings
+### 1x Drivetrain Detection
+Automatically detects single-chainring setups and adds "geen voor-derailleur" based on:
+- Chainring specifications
+- Wide-range cassettes (>30 tooth range)
+- Component naming patterns
 
-## Rate Limiting and Ethics
+## Logging
 
-This scraper is designed to be respectful to websites:
-- Built-in delays between requests (default: 1 second)
-- Reasonable timeout values
-- Proper error handling to avoid overwhelming servers
-- User-agent rotation
+The scraper maintains detailed logs in `trek_scraper.log` including:
+- Extraction progress
+- Specification counts
+- Prediction reasoning
+- Error handling
+- Performance metrics
 
-**Please use responsibly and check robots.txt files before scraping.**
+## Error Handling
 
-## Troubleshooting
+- **Robust request handling** with retries and timeouts
+- **Graceful failure** for individual bikes
+- **Comprehensive logging** for debugging
+- **Data validation** to ensure quality
 
-### Common Issues
+## Data Quality
 
-**ChromeDriver not found**:
-- Make sure Chrome browser is installed
-- The webdriver-manager package should automatically download ChromeDriver
+- **100% field coverage** - No missing critical specifications
+- **Transparent predictions** - All predictions clearly marked with *
+- **Duplicate removal** - Ensures unique bike models
+- **Data validation** - Specifications verified against patterns
 
-**No bikes found**:
-- Websites may have changed their structure
-- Check the log file for specific error messages
-- Some sites may block automated access
+## Recent Updates
 
-**Memory issues**:
-- Reduce the number of bikes scraped per manufacturer
-- Close other applications to free up memory
+- ✅ Added asterisk markers for all predicted fields
+- ✅ Improved chain specification extraction
+- ✅ Enhanced 1x drivetrain detection
+- ✅ Better bottom bracket prediction
+- ✅ Comprehensive framefit determination
 
-### Debug Mode
+## Requirements
 
-Run with verbose logging to see detailed information:
-```bash
-python bike_scraper.py -v
-```
-
-Check the log file `bike_scraper.log` for detailed error messages.
-
-## Example Output
-
-### Console Output
-```
-============================================================
-BIKE SCRAPING SUMMARY
-============================================================
-Total bikes scraped: 127
-
-By Manufacturer:
-  Trek: 45 bikes
-  Specialized: 38 bikes
-  Giant: 44 bikes
-
-By Category:
-  Road: 52 bikes
-  Mountain: 41 bikes
-  Electric: 23 bikes
-  Hybrid: 11 bikes
-
-Price Statistics:
-  Average price: $2,847.50
-  Min price: $599.00
-  Max price: $12,999.00
-  Bikes with pricing: 115/127
-
-Scraping completed at: 2024-01-15 14:30:22
-============================================================
-```
-
-### CSV Output Sample
-```csv
-manufacturer,model,category,price,currency,frame_material,wheel_size,gears,weight,url
-Trek,Domane AL 2,Road,1199.99,USD,Aluminum,700c,16 speed,10.5 kg,https://www.trekbikes.com/...
-Specialized,Tarmac SL7,Road,3200.00,USD,Carbon,700c,22 speed,8.2 kg,https://www.specialized.com/...
-```
+- Python 3.7+
+- Internet connection
+- Dependencies listed in requirements.txt
 
 ## License
 
-This project is for educational purposes. Please respect the terms of service of the websites you scrape and use the data responsibly.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Add your changes
-4. Test thoroughly
-5. Submit a pull request
-
-When adding new manufacturers:
-1. Add configuration to `config.py`
-2. Create scraper class in `manufacturers.py`
-3. Test with a small sample first
-4. Update documentation
+This project is for educational and research purposes. Please respect Trek's website terms of service and use responsibly. 
