@@ -1,0 +1,792 @@
+[
+  {
+    "name": "Domane AL 2 Rim",
+    "price": "949.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/33037/",
+    "sku": "33037",
+    "variant": "blue_black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane AL 2 Gen 4",
+    "price": "999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41587/",
+    "sku": "41587",
+    "variant": "greydark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint ALR 3 Gen 3",
+    "price": "1299.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49944/",
+    "sku": "49944",
+    "variant": "reddark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint ALR 3 Gen 2",
+    "price": "1299.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47530/",
+    "sku": "47530",
+    "variant": "red",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint ALR 4 Gen 2",
+    "price": "1499.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41513/",
+    "sku": "41513",
+    "variant": "bluedark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint ALR 4 Gen 3",
+    "price": "1499.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49973/",
+    "sku": "49973",
+    "variant": "pink",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane AL 4 Gen 4",
+    "price": "1599.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41607/",
+    "sku": "41607",
+    "variant": "white",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint ALR 5 Gen 2",
+    "price": "1799.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41640/",
+    "sku": "41640",
+    "variant": "tealdark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "FX Sport 4",
+    "price": "1799.0",
+    "category": "Active &amp; fitness bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/40822/",
+    "sku": "40822",
+    "variant": "greydark",
+    "specifications": {
+      "Framefit": "Comfort*",
+      "Bottom bracket": "Shimano RS500, 86 mm, PressFit*"
+    }
+  },
+  {
+    "name": "Émonda ALR 5",
+    "price": "1999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41426/",
+    "sku": "41426",
+    "variant": "red_reddark",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane AL 5 Gen 4",
+    "price": "1999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41395/",
+    "sku": "41395",
+    "variant": "black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint ALR 5 Gen 3",
+    "price": "1999.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49946/",
+    "sku": "49946",
+    "variant": "bluelight_teal",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "FX Sport SL 5",
+    "price": "1999.0",
+    "category": "Active &amp; fitness bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47263/",
+    "sku": "47263",
+    "variant": "greendark_black",
+    "specifications": {
+      "Framefit": "Comfort*",
+      "Bottom bracket": "Shimano RS500, 86 mm, PressFit*"
+    }
+  },
+  {
+    "name": "Émonda SL 5",
+    "price": "2699.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/36974/",
+    "sku": "36974",
+    "variant": "greydark",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SL 5 Gen 4",
+    "price": "2799.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41348/",
+    "sku": "41348",
+    "variant": "greylight",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "FX Sport SL 6",
+    "price": "2799.0",
+    "category": "Active &amp; fitness bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47256/",
+    "sku": "47256",
+    "variant": "bronze_black",
+    "specifications": {
+      "Framefit": "Comfort*",
+      "Bottom bracket": "Shimano RS500, 86 mm, PressFit*"
+    }
+  },
+  {
+    "name": "FX Sport 6",
+    "price": "2999.0",
+    "category": "Active &amp; fitness bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/35787/",
+    "sku": "35787",
+    "variant": "black",
+    "specifications": {
+      "Framefit": "Comfort*",
+      "Bottom bracket": "Shimano RS500, 86 mm, PressFit*"
+    }
+  },
+  {
+    "name": "Domane+ AL 5",
+    "price": "2999.0",
+    "category": "Electric road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47218/",
+    "sku": "47218",
+    "variant": "blue",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SL 5 Gen 8",
+    "price": "3099.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46218/",
+    "sku": "46218",
+    "variant": "blue",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint SL 5 AXS Gen 3",
+    "price": "3499.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47071/",
+    "sku": "47071",
+    "variant": "black_grey",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Boone 5",
+    "price": "3499.0",
+    "category": "Cyclocross bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41655/",
+    "sku": "41655",
+    "variant": "greylight",
+    "specifications": {
+      "Framefit": "H1.5 Race*"
+    }
+  },
+  {
+    "name": "Checkpoint SL 5 Gen 2",
+    "price": "3699.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41398/",
+    "sku": "41398",
+    "variant": "orange",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint SL 6 AXS Gen 3",
+    "price": "3999.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/55098/",
+    "sku": "55098",
+    "variant": "greendark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SL 6 AXS Gen 8",
+    "price": "4299.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46221/",
+    "sku": "46221",
+    "variant": "black",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SL 6 gen 4",
+    "price": "4299.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47131/",
+    "sku": "47131",
+    "variant": "bluedark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Émonda SL 6",
+    "price": "4499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41352/",
+    "sku": "41352",
+    "variant": "greylight_purple",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint SL 6 AXS Gen 2",
+    "price": "4599.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41397/",
+    "sku": "41397",
+    "variant": "greenlight",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SL 6 Gen 8",
+    "price": "4799.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46219/",
+    "sku": "46219",
+    "variant": "red",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SL 6 AXS gen 4",
+    "price": "4999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/36152/",
+    "sku": "36152",
+    "variant": "bluedark",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SL 7 Gen 4",
+    "price": "5499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/47132/",
+    "sku": "47132",
+    "variant": "black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Émonda SL 7",
+    "price": "5499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/35046/",
+    "sku": "35046",
+    "variant": "blue_black",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SL 7 gen 3",
+    "price": "5669.1",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/35333/",
+    "sku": "35333",
+    "variant": "grey_black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SL 6 Gen 7",
+    "price": "5999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41466/",
+    "sku": "41466",
+    "variant": "grey",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SL 7 Gen 8",
+    "price": "5999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46220/",
+    "sku": "46220",
+    "variant": "grey",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkpoint SL 7 AXS Gen 3",
+    "price": "5999.0",
+    "category": "Checkpoint",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/55097/",
+    "sku": "55097",
+    "variant": "green_black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SLR 7 gen 4",
+    "price": "7499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/57892/",
+    "sku": "57892",
+    "variant": "green",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkmate SLR 7 AXS",
+    "price": "7499.0",
+    "category": "Gravel bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/58668/",
+    "sku": "58668",
+    "variant": "greendark_greenlight",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SL 7 Gen 7",
+    "price": "7999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41467/",
+    "sku": "41467",
+    "variant": "greylight",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SLR 7 AXS Gen 4",
+    "price": "7999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/57915/",
+    "sku": "57915",
+    "variant": "green",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SLR 7 Gen 8",
+    "price": "7999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46687/",
+    "sku": "46687",
+    "variant": "red",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane+ SLR 6 Pro",
+    "price": "8499.0",
+    "category": "Electric road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/36703/",
+    "sku": "36703",
+    "variant": "black_grey",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane+ SLR 7",
+    "price": "8499.0",
+    "category": "Electric road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/36707/",
+    "sku": "36707",
+    "variant": "white_gold",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SLR 7 AXS",
+    "price": "8499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/58135/",
+    "sku": "58135",
+    "variant": "blue",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Speed Concept SLR 7",
+    "price": "8499.0",
+    "category": "Triathlon bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/35577/",
+    "sku": "35577",
+    "variant": "reddark_black",
+    "specifications": {
+      "Framefit": "Triatlon*"
+    }
+  },
+  {
+    "name": "Checkmate SLR 8 AXS",
+    "price": "8999.0",
+    "category": "Gravel bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49169/",
+    "sku": "49169",
+    "variant": "greendark_greenlight",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SLR 8 AXS Gen 4",
+    "price": "8999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49167/",
+    "sku": "49167",
+    "variant": "orange_black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Speed Concept SLR 7 AXS",
+    "price": "8999.0",
+    "category": "Triathlon bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/56332/",
+    "sku": "56332",
+    "variant": "reddark_black",
+    "specifications": {
+      "Framefit": "Triatlon*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SLR 7 AXS Gen 8",
+    "price": "9499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46688/",
+    "sku": "46688",
+    "variant": "white_blue",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SLR 8 AXS Gen 8",
+    "price": "9499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49168/",
+    "sku": "49168",
+    "variant": "white_blue",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Speed Concept SLR 8 AXS",
+    "price": "9499.0",
+    "category": "Triathlon bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49162/",
+    "sku": "49162",
+    "variant": "reddark_black",
+    "specifications": {
+      "Framefit": "Triatlon*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Checkmate SLR 9 AXS",
+    "price": "9999.0",
+    "category": "Gravel bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46152/",
+    "sku": "46152",
+    "variant": "greendark_greenlight",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SLR 9 Gen 4",
+    "price": "10499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/57942/",
+    "sku": "57942",
+    "variant": "green",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane+ SLR 8 AXS",
+    "price": "10599.0",
+    "category": "Electric road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/49166/",
+    "sku": "49166",
+    "variant": "white",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane+ SLR 7 AXS",
+    "price": "10599.0",
+    "category": "Electric road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/41481/",
+    "sku": "41481",
+    "variant": "white_gold",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SLR 9 AXS Gen 4",
+    "price": "10999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/57944/",
+    "sku": "57944",
+    "variant": "green",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Speed Concept SLR 9",
+    "price": "11499.0",
+    "category": "Triathlon bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/35757/",
+    "sku": "35757",
+    "variant": "reddark_black",
+    "specifications": {
+      "Framefit": "Triatlon*"
+    }
+  },
+  {
+    "name": "Madone SLR 9 gen 8",
+    "price": "11499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46707/",
+    "sku": "46707",
+    "variant": "white_blue",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane SLR 9 gen 4",
+    "price": "11499.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/37357/",
+    "sku": "37357",
+    "variant": "orange_black",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Speed Concept SLR 9 AXS",
+    "price": "11999.0",
+    "category": "Triathlon bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/48020/",
+    "sku": "48020",
+    "variant": "reddark_black",
+    "specifications": {
+      "Framefit": "Triatlon*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Madone SLR 9 AXS Gen 8",
+    "price": "11999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/46151/",
+    "sku": "46151",
+    "variant": "white_blue",
+    "specifications": {
+      "Framefit": "H1.5 Race*",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*"
+    }
+  },
+  {
+    "name": "Domane+ SLR 9",
+    "price": "12499.0",
+    "category": "Electric road bikes",
+    "brand": "Trek",
+    "url": "/nl/nl_NL/p/36741/",
+    "sku": "36741",
+    "variant": "white_gold",
+    "specifications": {
+      "Framefit": "Endurance*",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*"
+    }
+  }
+]

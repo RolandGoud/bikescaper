@@ -10371,3 +10371,965 @@
 2025-07-11 13:04:09,692 - INFO - Found 0 matches with direct pattern
 2025-07-11 13:04:09,692 - INFO - Extracted detailed data for 0 products
 2025-07-11 13:04:09,692 - INFO - Successfully scraped 0 unique bike models with 0 total color variants
+2025-07-11 13:06:08,991 - INFO - Fetching content from: https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/c/B200/?sort=price-asc&pageSize=250&q=%3Arelevance%3AfacetFrameset%3AfacetFrameset2
+2025-07-11 13:06:10,488 - INFO - Successfully parsed 71 bikes from impressions
+2025-07-11 13:06:10,488 - INFO - Extracted 71 bikes from dataLayer
+2025-07-11 13:06:10,489 - INFO - Found 0 matches with pattern pattern
+2025-07-11 13:06:10,489 - INFO - Found 0 matches with entity pattern
+2025-07-11 13:06:10,489 - INFO - Found 0 matches with colorSwatchImageUrl pattern
+2025-07-11 13:06:10,489 - INFO - Found 0 matches with direct pattern
+2025-07-11 13:06:10,489 - INFO - Processing bike 1/71: Domane AL 2 Rim
+2025-07-11 13:06:10,490 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/33037/
+2025-07-11 13:06:11,140 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:11,141 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:11,143 - INFO - Extracted 2 specifications
+2025-07-11 13:06:11,143 - INFO - Added 2 specifications for Domane AL 2 Rim
+2025-07-11 13:06:11,143 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/33037/
+2025-07-11 13:06:12,118 - INFO - Processing bike 2/71: Domane AL 2 Gen 4
+2025-07-11 13:06:12,119 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41587/
+2025-07-11 13:06:12,760 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:12,760 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:12,761 - INFO - Extracted 2 specifications
+2025-07-11 13:06:12,761 - INFO - Added 2 specifications for Domane AL 2 Gen 4
+2025-07-11 13:06:12,761 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41587/
+2025-07-11 13:06:14,057 - INFO - Processing bike 3/71: Checkpoint ALR 3 Gen 3
+2025-07-11 13:06:14,057 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49944/
+2025-07-11 13:06:14,827 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:14,828 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:14,828 - INFO - Extracted 2 specifications
+2025-07-11 13:06:14,828 - INFO - Added 2 specifications for Checkpoint ALR 3 Gen 3
+2025-07-11 13:06:14,828 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49944/
+2025-07-11 13:06:15,831 - INFO - Processing bike 4/71: Checkpoint ALR 3 Gen 2
+2025-07-11 13:06:15,831 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47530/
+2025-07-11 13:06:16,396 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:16,396 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:16,397 - INFO - Extracted 2 specifications
+2025-07-11 13:06:16,397 - INFO - Added 2 specifications for Checkpoint ALR 3 Gen 2
+2025-07-11 13:06:16,397 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47530/
+2025-07-11 13:06:17,383 - INFO - Processing bike 5/71: Checkpoint ALR 4 Gen 2
+2025-07-11 13:06:17,383 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41513/
+2025-07-11 13:06:18,027 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:18,027 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:18,028 - INFO - Extracted 2 specifications
+2025-07-11 13:06:18,028 - INFO - Added 2 specifications for Checkpoint ALR 4 Gen 2
+2025-07-11 13:06:18,028 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41513/
+2025-07-11 13:06:19,018 - INFO - Processing bike 6/71: Checkpoint ALR 4 Gen 3
+2025-07-11 13:06:19,019 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49973/
+2025-07-11 13:06:19,739 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:19,740 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:19,741 - INFO - Extracted 2 specifications
+2025-07-11 13:06:19,741 - INFO - Added 2 specifications for Checkpoint ALR 4 Gen 3
+2025-07-11 13:06:19,741 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49973/
+2025-07-11 13:06:20,767 - INFO - Processing bike 7/71: Domane AL 4 Gen 4
+2025-07-11 13:06:20,768 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41607/
+2025-07-11 13:06:21,373 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:21,374 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:21,375 - INFO - Extracted 2 specifications
+2025-07-11 13:06:21,375 - INFO - Added 2 specifications for Domane AL 4 Gen 4
+2025-07-11 13:06:21,375 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41607/
+2025-07-11 13:06:22,419 - INFO - Processing bike 8/71: Checkpoint ALR 5 Gen 2
+2025-07-11 13:06:22,420 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41640/
+2025-07-11 13:06:23,132 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:23,133 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:23,134 - INFO - Extracted 2 specifications
+2025-07-11 13:06:23,134 - INFO - Added 2 specifications for Checkpoint ALR 5 Gen 2
+2025-07-11 13:06:23,134 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41640/
+2025-07-11 13:06:24,135 - INFO - Processing bike 9/71: FX Sport 4
+2025-07-11 13:06:24,136 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/40822/
+2025-07-11 13:06:24,809 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:06:24,810 - INFO - Determined bottom bracket (prediction): Shimano RS500, 86 mm, PressFit
+2025-07-11 13:06:24,811 - INFO - Extracted 2 specifications
+2025-07-11 13:06:24,811 - INFO - Added 2 specifications for FX Sport 4
+2025-07-11 13:06:24,811 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/40822/
+2025-07-11 13:06:25,929 - INFO - Processing bike 10/71: Émonda ALR 5
+2025-07-11 13:06:25,929 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41426/
+2025-07-11 13:06:26,703 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:26,703 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:26,704 - INFO - Extracted 2 specifications
+2025-07-11 13:06:26,704 - INFO - Added 2 specifications for Émonda ALR 5
+2025-07-11 13:06:26,704 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41426/
+2025-07-11 13:06:27,892 - INFO - Processing bike 11/71: Domane AL 5 Gen 4
+2025-07-11 13:06:27,893 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41395/
+2025-07-11 13:06:28,450 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:28,451 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:28,451 - INFO - Extracted 2 specifications
+2025-07-11 13:06:28,451 - INFO - Added 2 specifications for Domane AL 5 Gen 4
+2025-07-11 13:06:28,451 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41395/
+2025-07-11 13:06:29,417 - INFO - Processing bike 12/71: Checkpoint ALR 5 Gen 3
+2025-07-11 13:06:29,417 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49946/
+2025-07-11 13:06:30,104 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:30,104 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:30,105 - INFO - Extracted 2 specifications
+2025-07-11 13:06:30,105 - INFO - Added 2 specifications for Checkpoint ALR 5 Gen 3
+2025-07-11 13:06:30,105 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49946/
+2025-07-11 13:06:31,160 - INFO - Processing bike 13/71: FX Sport SL 5
+2025-07-11 13:06:31,161 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47263/
+2025-07-11 13:06:31,745 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:06:31,746 - INFO - Determined bottom bracket (prediction): Shimano RS500, 86 mm, PressFit
+2025-07-11 13:06:31,746 - INFO - Extracted 2 specifications
+2025-07-11 13:06:31,746 - INFO - Added 2 specifications for FX Sport SL 5
+2025-07-11 13:06:31,746 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47263/
+2025-07-11 13:06:32,724 - INFO - Processing bike 14/71: Émonda SL 5
+2025-07-11 13:06:32,724 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36974/
+2025-07-11 13:06:33,477 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:33,478 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:33,479 - INFO - Extracted 2 specifications
+2025-07-11 13:06:33,479 - INFO - Added 2 specifications for Émonda SL 5
+2025-07-11 13:06:33,479 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36974/
+2025-07-11 13:06:34,480 - INFO - Processing bike 15/71: Domane SL 5 Gen 4
+2025-07-11 13:06:34,480 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41348/
+2025-07-11 13:06:35,644 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:35,648 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:35,649 - INFO - Extracted 2 specifications
+2025-07-11 13:06:35,649 - INFO - Added 2 specifications for Domane SL 5 Gen 4
+2025-07-11 13:06:35,649 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41348/
+2025-07-11 13:06:36,752 - INFO - Processing bike 16/71: FX Sport SL 6
+2025-07-11 13:06:36,752 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47256/
+2025-07-11 13:06:37,241 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:06:37,241 - INFO - Determined bottom bracket (prediction): Shimano RS500, 86 mm, PressFit
+2025-07-11 13:06:37,242 - INFO - Extracted 2 specifications
+2025-07-11 13:06:37,242 - INFO - Added 2 specifications for FX Sport SL 6
+2025-07-11 13:06:37,242 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47256/
+2025-07-11 13:06:38,298 - INFO - Processing bike 17/71: FX Sport 6
+2025-07-11 13:06:38,298 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35787/
+2025-07-11 13:06:38,948 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:06:38,949 - INFO - Determined bottom bracket (prediction): Shimano RS500, 86 mm, PressFit
+2025-07-11 13:06:38,950 - INFO - Extracted 2 specifications
+2025-07-11 13:06:38,950 - INFO - Added 2 specifications for FX Sport 6
+2025-07-11 13:06:38,950 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35787/
+2025-07-11 13:06:40,106 - INFO - Processing bike 18/71: Domane+ AL 5
+2025-07-11 13:06:40,107 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47218/
+2025-07-11 13:06:40,831 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:40,832 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:40,832 - INFO - Extracted 2 specifications
+2025-07-11 13:06:40,833 - INFO - Added 2 specifications for Domane+ AL 5
+2025-07-11 13:06:40,833 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47218/
+2025-07-11 13:06:41,825 - INFO - Processing bike 19/71: Madone SL 5 Gen 8
+2025-07-11 13:06:41,826 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46218/
+2025-07-11 13:06:42,767 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:42,768 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:42,768 - INFO - Extracted 2 specifications
+2025-07-11 13:06:42,768 - INFO - Added 2 specifications for Madone SL 5 Gen 8
+2025-07-11 13:06:42,768 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46218/
+2025-07-11 13:06:43,816 - INFO - Processing bike 20/71: Madone SL 5 Gen 8
+2025-07-11 13:06:43,816 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57653/
+2025-07-11 13:06:44,609 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:44,610 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:44,610 - INFO - Extracted 2 specifications
+2025-07-11 13:06:44,610 - INFO - Added 2 specifications for Madone SL 5 Gen 8
+2025-07-11 13:06:44,610 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57653/
+2025-07-11 13:06:45,639 - INFO - Processing bike 21/71: Domane+ AL 5
+2025-07-11 13:06:45,640 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36141/
+2025-07-11 13:06:46,336 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:46,337 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:46,338 - INFO - Extracted 2 specifications
+2025-07-11 13:06:46,338 - INFO - Added 2 specifications for Domane+ AL 5
+2025-07-11 13:06:46,338 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36141/
+2025-07-11 13:06:47,305 - INFO - Processing bike 22/71: Checkpoint SL 5 AXS Gen 3
+2025-07-11 13:06:47,306 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47071/
+2025-07-11 13:06:48,129 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:48,130 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:48,131 - INFO - Extracted 2 specifications
+2025-07-11 13:06:48,131 - INFO - Added 2 specifications for Checkpoint SL 5 AXS Gen 3
+2025-07-11 13:06:48,131 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47071/
+2025-07-11 13:06:49,188 - INFO - Processing bike 23/71: Boone 5
+2025-07-11 13:06:49,189 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41655/
+2025-07-11 13:06:49,851 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:49,852 - INFO - Extracted 1 specifications
+2025-07-11 13:06:49,852 - INFO - Added 1 specifications for Boone 5
+2025-07-11 13:06:49,852 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41655/
+2025-07-11 13:06:50,851 - INFO - Processing bike 24/71: Checkpoint SL 5 Gen 2
+2025-07-11 13:06:50,851 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41398/
+2025-07-11 13:06:51,636 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:51,637 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:51,638 - INFO - Extracted 2 specifications
+2025-07-11 13:06:51,638 - INFO - Added 2 specifications for Checkpoint SL 5 Gen 2
+2025-07-11 13:06:51,638 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41398/
+2025-07-11 13:06:52,600 - INFO - Processing bike 25/71: Checkpoint SL 6 AXS Gen 3
+2025-07-11 13:06:52,601 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/55098/
+2025-07-11 13:06:53,344 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:53,344 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:53,345 - INFO - Extracted 2 specifications
+2025-07-11 13:06:53,345 - INFO - Added 2 specifications for Checkpoint SL 6 AXS Gen 3
+2025-07-11 13:06:53,345 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/55098/
+2025-07-11 13:06:54,393 - INFO - Processing bike 26/71: Madone SL 6 AXS Gen 8
+2025-07-11 13:06:54,394 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46221/
+2025-07-11 13:06:55,339 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:55,340 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:55,341 - INFO - Extracted 2 specifications
+2025-07-11 13:06:55,341 - INFO - Added 2 specifications for Madone SL 6 AXS Gen 8
+2025-07-11 13:06:55,341 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46221/
+2025-07-11 13:06:56,418 - INFO - Processing bike 27/71: Domane SL 6 gen 4
+2025-07-11 13:06:56,419 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47131/
+2025-07-11 13:06:57,755 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:06:57,756 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:57,757 - INFO - Extracted 2 specifications
+2025-07-11 13:06:57,757 - INFO - Added 2 specifications for Domane SL 6 gen 4
+2025-07-11 13:06:57,757 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47131/
+2025-07-11 13:06:58,802 - INFO - Processing bike 28/71: Émonda SL 6
+2025-07-11 13:06:58,802 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41352/
+2025-07-11 13:06:59,483 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:06:59,483 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:06:59,484 - INFO - Extracted 2 specifications
+2025-07-11 13:06:59,484 - INFO - Added 2 specifications for Émonda SL 6
+2025-07-11 13:06:59,484 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41352/
+2025-07-11 13:07:00,396 - INFO - Processing bike 29/71: Checkpoint SL 6 AXS Gen 2
+2025-07-11 13:07:00,396 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41397/
+2025-07-11 13:07:01,004 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:01,005 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:01,006 - INFO - Extracted 2 specifications
+2025-07-11 13:07:01,006 - INFO - Added 2 specifications for Checkpoint SL 6 AXS Gen 2
+2025-07-11 13:07:01,006 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41397/
+2025-07-11 13:07:02,019 - INFO - Processing bike 30/71: Madone SL 6 AXS Gen 8
+2025-07-11 13:07:02,020 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57663/
+2025-07-11 13:07:02,716 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:02,717 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:02,717 - INFO - Extracted 2 specifications
+2025-07-11 13:07:02,718 - INFO - Added 2 specifications for Madone SL 6 AXS Gen 8
+2025-07-11 13:07:02,718 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57663/
+2025-07-11 13:07:03,752 - INFO - Processing bike 31/71: Madone SL 6 Gen 8
+2025-07-11 13:07:03,752 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46219/
+2025-07-11 13:07:04,477 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:04,478 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:04,478 - INFO - Extracted 2 specifications
+2025-07-11 13:07:04,478 - INFO - Added 2 specifications for Madone SL 6 Gen 8
+2025-07-11 13:07:04,478 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46219/
+2025-07-11 13:07:05,521 - INFO - Processing bike 32/71: Madone SL 6 Gen 8
+2025-07-11 13:07:05,521 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57662/
+2025-07-11 13:07:06,535 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:06,536 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:06,537 - INFO - Extracted 2 specifications
+2025-07-11 13:07:06,537 - INFO - Added 2 specifications for Madone SL 6 Gen 8
+2025-07-11 13:07:06,537 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57662/
+2025-07-11 13:07:07,693 - INFO - Processing bike 33/71: Domane SL 6 AXS gen 4
+2025-07-11 13:07:07,694 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36152/
+2025-07-11 13:07:08,431 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:08,431 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:08,432 - INFO - Extracted 2 specifications
+2025-07-11 13:07:08,432 - INFO - Added 2 specifications for Domane SL 6 AXS gen 4
+2025-07-11 13:07:08,432 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36152/
+2025-07-11 13:07:09,408 - INFO - Processing bike 34/71: Domane SL 7 Gen 4
+2025-07-11 13:07:09,408 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47132/
+2025-07-11 13:07:10,234 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:10,235 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:10,236 - INFO - Extracted 2 specifications
+2025-07-11 13:07:10,236 - INFO - Added 2 specifications for Domane SL 7 Gen 4
+2025-07-11 13:07:10,236 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47132/
+2025-07-11 13:07:11,225 - INFO - Processing bike 35/71: Émonda SL 7
+2025-07-11 13:07:11,226 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35046/
+2025-07-11 13:07:11,815 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:11,816 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:11,816 - INFO - Extracted 2 specifications
+2025-07-11 13:07:11,817 - INFO - Added 2 specifications for Émonda SL 7
+2025-07-11 13:07:11,817 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35046/
+2025-07-11 13:07:12,762 - INFO - Processing bike 36/71: Domane SL 7 gen 3
+2025-07-11 13:07:12,763 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35333/
+2025-07-11 13:07:13,476 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:13,477 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:13,478 - INFO - Extracted 2 specifications
+2025-07-11 13:07:13,478 - INFO - Added 2 specifications for Domane SL 7 gen 3
+2025-07-11 13:07:13,478 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35333/
+2025-07-11 13:07:14,428 - INFO - Processing bike 37/71: Madone SL 6 Gen 7
+2025-07-11 13:07:14,428 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41466/
+2025-07-11 13:07:15,157 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:15,158 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:15,159 - INFO - Extracted 2 specifications
+2025-07-11 13:07:15,159 - INFO - Added 2 specifications for Madone SL 6 Gen 7
+2025-07-11 13:07:15,159 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41466/
+2025-07-11 13:07:16,199 - INFO - Processing bike 38/71: Madone SL 7 Gen 8
+2025-07-11 13:07:16,200 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46220/
+2025-07-11 13:07:16,872 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:16,872 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:16,873 - INFO - Extracted 2 specifications
+2025-07-11 13:07:16,873 - INFO - Added 2 specifications for Madone SL 7 Gen 8
+2025-07-11 13:07:16,873 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46220/
+2025-07-11 13:07:17,920 - INFO - Processing bike 39/71: Madone SL 7 Gen 8
+2025-07-11 13:07:17,920 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57664/
+2025-07-11 13:07:18,992 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:18,993 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:18,993 - INFO - Extracted 2 specifications
+2025-07-11 13:07:18,993 - INFO - Added 2 specifications for Madone SL 7 Gen 8
+2025-07-11 13:07:18,993 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57664/
+2025-07-11 13:07:20,030 - INFO - Processing bike 40/71: Checkpoint SL 7 AXS Gen 3
+2025-07-11 13:07:20,031 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/55097/
+2025-07-11 13:07:20,813 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:20,814 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:20,815 - INFO - Extracted 2 specifications
+2025-07-11 13:07:20,815 - INFO - Added 2 specifications for Checkpoint SL 7 AXS Gen 3
+2025-07-11 13:07:20,815 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/55097/
+2025-07-11 13:07:21,790 - INFO - Processing bike 41/71: Domane SLR 7 gen 4
+2025-07-11 13:07:21,790 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57892/
+2025-07-11 13:07:23,242 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:23,243 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:23,243 - INFO - Extracted 2 specifications
+2025-07-11 13:07:23,243 - INFO - Added 2 specifications for Domane SLR 7 gen 4
+2025-07-11 13:07:23,243 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57892/
+2025-07-11 13:07:24,462 - INFO - Processing bike 42/71: Checkmate SLR 7 AXS
+2025-07-11 13:07:24,463 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/58668/
+2025-07-11 13:07:25,488 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:25,489 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:25,489 - INFO - Extracted 2 specifications
+2025-07-11 13:07:25,489 - INFO - Added 2 specifications for Checkmate SLR 7 AXS
+2025-07-11 13:07:25,489 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/58668/
+2025-07-11 13:07:26,534 - INFO - Processing bike 43/71: Madone SL 7 Gen 7
+2025-07-11 13:07:26,534 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41467/
+2025-07-11 13:07:27,286 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:27,286 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:27,287 - INFO - Extracted 2 specifications
+2025-07-11 13:07:27,287 - INFO - Added 2 specifications for Madone SL 7 Gen 7
+2025-07-11 13:07:27,287 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41467/
+2025-07-11 13:07:28,368 - INFO - Processing bike 44/71: Domane SLR 7 AXS Gen 4
+2025-07-11 13:07:28,369 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57915/
+2025-07-11 13:07:29,400 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:29,401 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:29,402 - INFO - Extracted 2 specifications
+2025-07-11 13:07:29,402 - INFO - Added 2 specifications for Domane SLR 7 AXS Gen 4
+2025-07-11 13:07:29,402 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57915/
+2025-07-11 13:07:30,533 - INFO - Processing bike 45/71: Madone SLR 7 Gen 8
+2025-07-11 13:07:30,533 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46687/
+2025-07-11 13:07:31,381 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:31,383 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:31,383 - INFO - Extracted 2 specifications
+2025-07-11 13:07:31,383 - INFO - Added 2 specifications for Madone SLR 7 Gen 8
+2025-07-11 13:07:31,383 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46687/
+2025-07-11 13:07:32,665 - INFO - Processing bike 46/71: Domane+ SLR 6 Pro
+2025-07-11 13:07:32,666 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36703/
+2025-07-11 13:07:33,654 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:33,654 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:33,655 - INFO - Extracted 2 specifications
+2025-07-11 13:07:33,655 - INFO - Added 2 specifications for Domane+ SLR 6 Pro
+2025-07-11 13:07:33,655 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36703/
+2025-07-11 13:07:34,709 - INFO - Processing bike 47/71: Domane+ SLR 7
+2025-07-11 13:07:34,709 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36707/
+2025-07-11 13:07:36,244 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:36,256 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:36,258 - INFO - Extracted 2 specifications
+2025-07-11 13:07:36,259 - INFO - Added 2 specifications for Domane+ SLR 7
+2025-07-11 13:07:36,259 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36707/
+2025-07-11 13:07:37,365 - INFO - Processing bike 48/71: Domane SLR 7 gen 4
+2025-07-11 13:07:37,365 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/37059/
+2025-07-11 13:07:39,284 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:39,285 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:39,286 - INFO - Extracted 2 specifications
+2025-07-11 13:07:39,286 - INFO - Added 2 specifications for Domane SLR 7 gen 4
+2025-07-11 13:07:39,286 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/37059/
+2025-07-11 13:07:40,637 - INFO - Processing bike 49/71: Madone SLR 7 AXS
+2025-07-11 13:07:40,637 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/58135/
+2025-07-11 13:07:41,537 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:41,537 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:41,538 - INFO - Extracted 2 specifications
+2025-07-11 13:07:41,538 - INFO - Added 2 specifications for Madone SLR 7 AXS
+2025-07-11 13:07:41,538 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/58135/
+2025-07-11 13:07:42,656 - INFO - Processing bike 50/71: Speed Concept SLR 7
+2025-07-11 13:07:42,657 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35577/
+2025-07-11 13:07:43,645 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:07:43,647 - INFO - Extracted 1 specifications
+2025-07-11 13:07:43,647 - INFO - Added 1 specifications for Speed Concept SLR 7
+2025-07-11 13:07:43,647 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35577/
+2025-07-11 13:07:44,726 - INFO - Processing bike 51/71: Checkmate SLR 7 AXS
+2025-07-11 13:07:44,727 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46692/
+2025-07-11 13:07:45,835 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:45,836 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:45,836 - INFO - Extracted 2 specifications
+2025-07-11 13:07:45,836 - INFO - Added 2 specifications for Checkmate SLR 7 AXS
+2025-07-11 13:07:45,836 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46692/
+2025-07-11 13:07:46,924 - INFO - Processing bike 52/71: Checkmate SLR 8 AXS
+2025-07-11 13:07:46,925 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49169/
+2025-07-11 13:07:47,949 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:47,949 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:47,950 - INFO - Extracted 2 specifications
+2025-07-11 13:07:47,950 - INFO - Added 2 specifications for Checkmate SLR 8 AXS
+2025-07-11 13:07:47,950 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49169/
+2025-07-11 13:07:49,041 - INFO - Processing bike 53/71: Domane SLR 8 AXS Gen 4
+2025-07-11 13:07:49,042 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49167/
+2025-07-11 13:07:50,068 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:50,069 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:50,069 - INFO - Extracted 2 specifications
+2025-07-11 13:07:50,069 - INFO - Added 2 specifications for Domane SLR 8 AXS Gen 4
+2025-07-11 13:07:50,069 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49167/
+2025-07-11 13:07:51,162 - INFO - Processing bike 54/71: Domane SLR 7 AXS Gen 4
+2025-07-11 13:07:51,163 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41899/
+2025-07-11 13:07:52,612 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:07:52,613 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:52,614 - INFO - Extracted 2 specifications
+2025-07-11 13:07:52,614 - INFO - Added 2 specifications for Domane SLR 7 AXS Gen 4
+2025-07-11 13:07:52,614 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41899/
+2025-07-11 13:07:53,761 - INFO - Processing bike 55/71: Speed Concept SLR 7 AXS
+2025-07-11 13:07:53,761 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/56332/
+2025-07-11 13:07:54,561 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:07:54,562 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:54,562 - INFO - Extracted 2 specifications
+2025-07-11 13:07:54,562 - INFO - Added 2 specifications for Speed Concept SLR 7 AXS
+2025-07-11 13:07:54,562 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/56332/
+2025-07-11 13:07:55,557 - INFO - Processing bike 56/71: Speed Concept SLR 7 AXS
+2025-07-11 13:07:55,557 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41499/
+2025-07-11 13:07:56,645 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:07:56,646 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:56,646 - INFO - Extracted 2 specifications
+2025-07-11 13:07:56,646 - INFO - Added 2 specifications for Speed Concept SLR 7 AXS
+2025-07-11 13:07:56,646 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41499/
+2025-07-11 13:07:57,686 - INFO - Processing bike 57/71: Madone SLR 7 AXS Gen 8
+2025-07-11 13:07:57,687 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46688/
+2025-07-11 13:07:59,186 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:07:59,187 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:07:59,188 - INFO - Extracted 2 specifications
+2025-07-11 13:07:59,188 - INFO - Added 2 specifications for Madone SLR 7 AXS Gen 8
+2025-07-11 13:07:59,188 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46688/
+2025-07-11 13:08:00,297 - INFO - Processing bike 58/71: Madone SLR 8 AXS Gen 8
+2025-07-11 13:08:00,298 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49168/
+2025-07-11 13:08:01,338 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:08:01,338 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:01,339 - INFO - Extracted 2 specifications
+2025-07-11 13:08:01,339 - INFO - Added 2 specifications for Madone SLR 8 AXS Gen 8
+2025-07-11 13:08:01,339 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49168/
+2025-07-11 13:08:02,367 - INFO - Processing bike 59/71: Speed Concept SLR 8 AXS
+2025-07-11 13:08:02,367 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49162/
+2025-07-11 13:08:03,247 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:08:03,248 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:03,249 - INFO - Extracted 2 specifications
+2025-07-11 13:08:03,249 - INFO - Added 2 specifications for Speed Concept SLR 8 AXS
+2025-07-11 13:08:03,249 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49162/
+2025-07-11 13:08:04,278 - INFO - Processing bike 60/71: Checkmate SLR 9 AXS
+2025-07-11 13:08:04,279 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46152/
+2025-07-11 13:08:05,428 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:05,429 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:05,430 - INFO - Extracted 2 specifications
+2025-07-11 13:08:05,430 - INFO - Added 2 specifications for Checkmate SLR 9 AXS
+2025-07-11 13:08:05,430 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46152/
+2025-07-11 13:08:06,462 - INFO - Processing bike 61/71: Domane SLR 9 Gen 4
+2025-07-11 13:08:06,463 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57942/
+2025-07-11 13:08:07,918 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:07,919 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:07,920 - INFO - Extracted 2 specifications
+2025-07-11 13:08:07,920 - INFO - Added 2 specifications for Domane SLR 9 Gen 4
+2025-07-11 13:08:07,920 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57942/
+2025-07-11 13:08:09,105 - INFO - Processing bike 62/71: Domane+ SLR 8 AXS
+2025-07-11 13:08:09,106 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49166/
+2025-07-11 13:08:10,415 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:10,416 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:10,418 - INFO - Extracted 2 specifications
+2025-07-11 13:08:10,420 - INFO - Added 2 specifications for Domane+ SLR 8 AXS
+2025-07-11 13:08:10,420 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49166/
+2025-07-11 13:08:11,454 - INFO - Processing bike 63/71: Domane+ SLR 7 AXS
+2025-07-11 13:08:11,455 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41481/
+2025-07-11 13:08:12,780 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:12,781 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:12,782 - INFO - Extracted 2 specifications
+2025-07-11 13:08:12,782 - INFO - Added 2 specifications for Domane+ SLR 7 AXS
+2025-07-11 13:08:12,782 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41481/
+2025-07-11 13:08:13,822 - INFO - Processing bike 64/71: Domane SLR 9 AXS Gen 4
+2025-07-11 13:08:13,823 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57944/
+2025-07-11 13:08:15,168 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:15,169 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:15,170 - INFO - Extracted 2 specifications
+2025-07-11 13:08:15,170 - INFO - Added 2 specifications for Domane SLR 9 AXS Gen 4
+2025-07-11 13:08:15,170 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57944/
+2025-07-11 13:08:17,078 - INFO - Processing bike 65/71: Speed Concept SLR 9
+2025-07-11 13:08:17,079 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35757/
+2025-07-11 13:08:18,304 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:08:18,305 - INFO - Extracted 1 specifications
+2025-07-11 13:08:18,305 - INFO - Added 1 specifications for Speed Concept SLR 9
+2025-07-11 13:08:18,305 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35757/
+2025-07-11 13:08:19,443 - INFO - Processing bike 66/71: Madone SLR 9 gen 8
+2025-07-11 13:08:19,443 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46707/
+2025-07-11 13:08:20,803 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:08:20,804 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:20,805 - INFO - Extracted 2 specifications
+2025-07-11 13:08:20,805 - INFO - Added 2 specifications for Madone SLR 9 gen 8
+2025-07-11 13:08:20,805 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46707/
+2025-07-11 13:08:22,004 - INFO - Processing bike 67/71: Domane SLR 9 gen 4
+2025-07-11 13:08:22,005 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/37357/
+2025-07-11 13:08:23,891 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:23,892 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:23,892 - INFO - Extracted 2 specifications
+2025-07-11 13:08:23,892 - INFO - Added 2 specifications for Domane SLR 9 gen 4
+2025-07-11 13:08:23,892 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/37357/
+2025-07-11 13:08:25,293 - INFO - Processing bike 68/71: Speed Concept SLR 9 AXS
+2025-07-11 13:08:25,294 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/48020/
+2025-07-11 13:08:26,231 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:08:26,231 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:26,232 - INFO - Extracted 2 specifications
+2025-07-11 13:08:26,232 - INFO - Added 2 specifications for Speed Concept SLR 9 AXS
+2025-07-11 13:08:26,232 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/48020/
+2025-07-11 13:08:27,307 - INFO - Processing bike 69/71: Madone SLR 9 AXS Gen 8
+2025-07-11 13:08:27,307 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46151/
+2025-07-11 13:08:28,643 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:08:28,644 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:28,645 - INFO - Extracted 2 specifications
+2025-07-11 13:08:28,645 - INFO - Added 2 specifications for Madone SLR 9 AXS Gen 8
+2025-07-11 13:08:28,645 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46151/
+2025-07-11 13:08:29,958 - INFO - Processing bike 70/71: Domane SLR 9 AXS Gen 4
+2025-07-11 13:08:29,958 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/48021/
+2025-07-11 13:08:31,202 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:31,203 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:31,204 - INFO - Extracted 2 specifications
+2025-07-11 13:08:31,204 - INFO - Added 2 specifications for Domane SLR 9 AXS Gen 4
+2025-07-11 13:08:31,204 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/48021/
+2025-07-11 13:08:32,514 - INFO - Processing bike 71/71: Domane+ SLR 9
+2025-07-11 13:08:32,515 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36741/
+2025-07-11 13:08:34,264 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:08:34,265 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:08:34,265 - INFO - Extracted 2 specifications
+2025-07-11 13:08:34,265 - INFO - Added 2 specifications for Domane+ SLR 9
+2025-07-11 13:08:34,265 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36741/
+2025-07-11 13:08:35,913 - INFO - Extracted detailed data for 71 products
+2025-07-11 13:08:35,914 - INFO - Successfully scraped 61 unique bike models with 0 total color variants
+2025-07-11 13:08:35,923 - INFO - Saved 61 bikes to data/trek_bikes_20250711_130835.json
+2025-07-11 13:08:35,943 - INFO - Saved 61 bikes to data/trek_bikes_20250711_130835.csv
+2025-07-11 13:08:36,052 - INFO - Saved 61 bikes to data/trek_bikes_20250711_130835.xlsx
+2025-07-11 13:08:36,064 - INFO - Also saved latest versions as data/trek_bikes_latest.json, data/trek_bikes_latest.csv, and data/trek_bikes_latest.xlsx
+2025-07-11 13:13:01,139 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:13:01,141 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:13:53,959 - INFO - Fetching content from: https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/c/B200/?sort=price-asc&pageSize=250&q=%3Arelevance%3AfacetFrameset%3AfacetFrameset2
+2025-07-11 13:13:55,661 - INFO - Successfully parsed 71 bikes from impressions
+2025-07-11 13:13:55,661 - INFO - Extracted 71 bikes from dataLayer
+2025-07-11 13:13:55,662 - INFO - Found 0 matches with pattern pattern
+2025-07-11 13:13:55,662 - INFO - Found 0 matches with entity pattern
+2025-07-11 13:13:55,662 - INFO - Found 0 matches with colorSwatchImageUrl pattern
+2025-07-11 13:13:55,662 - INFO - Found 0 matches with direct pattern
+2025-07-11 13:13:55,662 - INFO - Processing bike 1/71: Domane AL 2 Rim
+2025-07-11 13:13:55,662 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/33037/
+2025-07-11 13:13:56,126 - INFO - Extracted 26 specifications
+2025-07-11 13:13:56,126 - INFO - Added 26 specifications for Domane AL 2 Rim
+2025-07-11 13:13:56,126 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/33037/
+2025-07-11 13:13:57,056 - INFO - Processing bike 2/71: Domane AL 2 Gen 4
+2025-07-11 13:13:57,061 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41587/
+2025-07-11 13:13:57,924 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:13:57,924 - INFO - Extracted 28 specifications
+2025-07-11 13:13:57,924 - INFO - Added 28 specifications for Domane AL 2 Gen 4
+2025-07-11 13:13:57,924 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41587/
+2025-07-11 13:13:59,031 - INFO - Processing bike 3/71: Checkpoint ALR 3 Gen 3
+2025-07-11 13:13:59,032 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49944/
+2025-07-11 13:13:59,797 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:13:59,797 - INFO - Extracted 29 specifications
+2025-07-11 13:13:59,797 - INFO - Added 29 specifications for Checkpoint ALR 3 Gen 3
+2025-07-11 13:13:59,798 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49944/
+2025-07-11 13:14:00,787 - INFO - Processing bike 4/71: Checkpoint ALR 3 Gen 2
+2025-07-11 13:14:00,787 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47530/
+2025-07-11 13:14:01,498 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:01,499 - INFO - Determined bottom bracket (prediction): SRAM DUB Wide, T47 met schroefdraad, interne lagers
+2025-07-11 13:14:01,499 - INFO - Extracted 26 specifications
+2025-07-11 13:14:01,499 - INFO - Added 26 specifications for Checkpoint ALR 3 Gen 2
+2025-07-11 13:14:01,499 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47530/
+2025-07-11 13:14:02,472 - INFO - Processing bike 5/71: Checkpoint ALR 4 Gen 2
+2025-07-11 13:14:02,472 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41513/
+2025-07-11 13:14:03,198 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:03,198 - INFO - Extracted 29 specifications
+2025-07-11 13:14:03,198 - INFO - Added 29 specifications for Checkpoint ALR 4 Gen 2
+2025-07-11 13:14:03,198 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41513/
+2025-07-11 13:14:04,234 - INFO - Processing bike 6/71: Checkpoint ALR 4 Gen 3
+2025-07-11 13:14:04,234 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49973/
+2025-07-11 13:14:04,948 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:04,949 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: wide cassette range (39 teeth)
+2025-07-11 13:14:04,949 - INFO - Extracted 30 specifications
+2025-07-11 13:14:04,949 - INFO - Added 30 specifications for Checkpoint ALR 4 Gen 3
+2025-07-11 13:14:04,949 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49973/
+2025-07-11 13:14:06,010 - INFO - Processing bike 7/71: Domane AL 4 Gen 4
+2025-07-11 13:14:06,011 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41607/
+2025-07-11 13:14:06,668 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:06,668 - INFO - Extracted 28 specifications
+2025-07-11 13:14:06,668 - INFO - Added 28 specifications for Domane AL 4 Gen 4
+2025-07-11 13:14:06,668 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41607/
+2025-07-11 13:14:07,686 - INFO - Processing bike 8/71: Checkpoint ALR 5 Gen 2
+2025-07-11 13:14:07,686 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41640/
+2025-07-11 13:14:08,386 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:08,386 - INFO - Extracted 31 specifications
+2025-07-11 13:14:08,386 - INFO - Added 31 specifications for Checkpoint ALR 5 Gen 2
+2025-07-11 13:14:08,386 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41640/
+2025-07-11 13:14:09,462 - INFO - Processing bike 9/71: FX Sport 4
+2025-07-11 13:14:09,462 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/40822/
+2025-07-11 13:14:10,217 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:14:10,218 - INFO - Determined bottom bracket (prediction): Shimano RS500, 86 mm, PressFit
+2025-07-11 13:14:10,218 - INFO - Extracted 25 specifications
+2025-07-11 13:14:10,218 - INFO - Added 25 specifications for FX Sport 4
+2025-07-11 13:14:10,218 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/40822/
+2025-07-11 13:14:11,303 - INFO - Processing bike 10/71: Émonda ALR 5
+2025-07-11 13:14:11,304 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41426/
+2025-07-11 13:14:12,163 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:12,163 - INFO - Extracted 31 specifications
+2025-07-11 13:14:12,163 - INFO - Added 31 specifications for Émonda ALR 5
+2025-07-11 13:14:12,163 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41426/
+2025-07-11 13:14:13,240 - INFO - Processing bike 11/71: Domane AL 5 Gen 4
+2025-07-11 13:14:13,240 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41395/
+2025-07-11 13:14:13,841 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:13,841 - INFO - Extracted 28 specifications
+2025-07-11 13:14:13,841 - INFO - Added 28 specifications for Domane AL 5 Gen 4
+2025-07-11 13:14:13,842 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41395/
+2025-07-11 13:14:14,796 - INFO - Processing bike 12/71: Checkpoint ALR 5 Gen 3
+2025-07-11 13:14:14,796 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49946/
+2025-07-11 13:14:15,497 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:15,497 - INFO - Extracted 30 specifications
+2025-07-11 13:14:15,497 - INFO - Added 30 specifications for Checkpoint ALR 5 Gen 3
+2025-07-11 13:14:15,497 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49946/
+2025-07-11 13:14:16,498 - INFO - Processing bike 13/71: FX Sport SL 5
+2025-07-11 13:14:16,499 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47263/
+2025-07-11 13:14:17,153 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:14:17,154 - INFO - Determined bottom bracket (prediction): Shimano RS500, 86 mm, PressFit
+2025-07-11 13:14:17,155 - INFO - Determined chain from drivetrain (prediction): SRAM PC-1130, 11-speed
+2025-07-11 13:14:17,155 - INFO - Extracted 28 specifications
+2025-07-11 13:14:17,156 - INFO - Added 28 specifications for FX Sport SL 5
+2025-07-11 13:14:17,156 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47263/
+2025-07-11 13:14:18,121 - INFO - Processing bike 14/71: Émonda SL 5
+2025-07-11 13:14:18,122 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36974/
+2025-07-11 13:14:19,060 - INFO - Extracted 28 specifications
+2025-07-11 13:14:19,060 - INFO - Added 28 specifications for Émonda SL 5
+2025-07-11 13:14:19,060 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36974/
+2025-07-11 13:14:20,198 - INFO - Processing bike 15/71: Domane SL 5 Gen 4
+2025-07-11 13:14:20,198 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41348/
+2025-07-11 13:14:21,741 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:21,742 - INFO - Extracted 34 specifications
+2025-07-11 13:14:21,742 - INFO - Added 34 specifications for Domane SL 5 Gen 4
+2025-07-11 13:14:21,742 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41348/
+2025-07-11 13:14:22,806 - INFO - Processing bike 16/71: FX Sport SL 6
+2025-07-11 13:14:22,806 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47256/
+2025-07-11 13:14:23,495 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:14:23,495 - INFO - Extracted 28 specifications
+2025-07-11 13:14:23,495 - INFO - Added 28 specifications for FX Sport SL 6
+2025-07-11 13:14:23,495 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47256/
+2025-07-11 13:14:24,495 - INFO - Processing bike 17/71: FX Sport 6
+2025-07-11 13:14:24,496 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35787/
+2025-07-11 13:14:25,253 - INFO - Determined framefit (prediction): Comfort
+2025-07-11 13:14:25,253 - INFO - Extracted 28 specifications
+2025-07-11 13:14:25,253 - INFO - Added 28 specifications for FX Sport 6
+2025-07-11 13:14:25,253 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35787/
+2025-07-11 13:14:26,454 - INFO - Processing bike 18/71: Domane+ AL 5
+2025-07-11 13:14:26,455 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47218/
+2025-07-11 13:14:27,232 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:27,232 - INFO - Extracted 28 specifications
+2025-07-11 13:14:27,233 - INFO - Added 28 specifications for Domane+ AL 5
+2025-07-11 13:14:27,233 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47218/
+2025-07-11 13:14:28,234 - INFO - Processing bike 19/71: Madone SL 5 Gen 8
+2025-07-11 13:14:28,235 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46218/
+2025-07-11 13:14:29,143 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:29,144 - INFO - Extracted 27 specifications
+2025-07-11 13:14:29,144 - INFO - Added 27 specifications for Madone SL 5 Gen 8
+2025-07-11 13:14:29,144 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46218/
+2025-07-11 13:14:30,228 - INFO - Processing bike 20/71: Madone SL 5 Gen 8
+2025-07-11 13:14:30,229 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57653/
+2025-07-11 13:14:31,268 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:31,268 - INFO - Extracted 25 specifications
+2025-07-11 13:14:31,268 - INFO - Added 25 specifications for Madone SL 5 Gen 8
+2025-07-11 13:14:31,268 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57653/
+2025-07-11 13:14:32,393 - INFO - Processing bike 21/71: Domane+ AL 5
+2025-07-11 13:14:32,394 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36141/
+2025-07-11 13:14:33,147 - INFO - Extracted 29 specifications
+2025-07-11 13:14:33,147 - INFO - Added 29 specifications for Domane+ AL 5
+2025-07-11 13:14:33,147 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36141/
+2025-07-11 13:14:34,122 - INFO - Processing bike 22/71: Checkpoint SL 5 AXS Gen 3
+2025-07-11 13:14:34,123 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47071/
+2025-07-11 13:14:34,841 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:34,841 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: 1x setup in checkpoint category
+2025-07-11 13:14:34,841 - INFO - Extracted 32 specifications
+2025-07-11 13:14:34,841 - INFO - Added 32 specifications for Checkpoint SL 5 AXS Gen 3
+2025-07-11 13:14:34,841 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47071/
+2025-07-11 13:14:35,907 - INFO - Processing bike 23/71: Boone 5
+2025-07-11 13:14:35,908 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41655/
+2025-07-11 13:14:36,619 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:36,619 - INFO - Extracted 27 specifications
+2025-07-11 13:14:36,619 - INFO - Added 27 specifications for Boone 5
+2025-07-11 13:14:36,619 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41655/
+2025-07-11 13:14:37,592 - INFO - Processing bike 24/71: Checkpoint SL 5 Gen 2
+2025-07-11 13:14:37,593 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41398/
+2025-07-11 13:14:38,255 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:38,255 - INFO - Extracted 34 specifications
+2025-07-11 13:14:38,256 - INFO - Added 34 specifications for Checkpoint SL 5 Gen 2
+2025-07-11 13:14:38,256 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41398/
+2025-07-11 13:14:39,276 - INFO - Processing bike 25/71: Checkpoint SL 6 AXS Gen 3
+2025-07-11 13:14:39,277 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/55098/
+2025-07-11 13:14:40,059 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:40,059 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:14:40,060 - INFO - Determined chain from drivetrain (prediction): SRAM Rival, 13-speed
+2025-07-11 13:14:40,060 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: 1x setup in checkpoint category
+2025-07-11 13:14:40,060 - INFO - Extracted 25 specifications
+2025-07-11 13:14:40,060 - INFO - Added 25 specifications for Checkpoint SL 6 AXS Gen 3
+2025-07-11 13:14:40,060 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/55098/
+2025-07-11 13:14:41,178 - INFO - Processing bike 26/71: Madone SL 6 AXS Gen 8
+2025-07-11 13:14:41,179 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46221/
+2025-07-11 13:14:41,977 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:41,978 - INFO - Determined chain from drivetrain (prediction): SRAM Rival, 12-speed
+2025-07-11 13:14:41,978 - INFO - Extracted 29 specifications
+2025-07-11 13:14:41,978 - INFO - Added 29 specifications for Madone SL 6 AXS Gen 8
+2025-07-11 13:14:41,978 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46221/
+2025-07-11 13:14:43,096 - INFO - Processing bike 27/71: Domane SL 6 gen 4
+2025-07-11 13:14:43,097 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47131/
+2025-07-11 13:14:43,935 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:43,935 - INFO - Extracted 28 specifications
+2025-07-11 13:14:43,935 - INFO - Added 28 specifications for Domane SL 6 gen 4
+2025-07-11 13:14:43,935 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47131/
+2025-07-11 13:14:44,998 - INFO - Processing bike 28/71: Émonda SL 6
+2025-07-11 13:14:44,999 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41352/
+2025-07-11 13:14:45,787 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:45,787 - INFO - Extracted 31 specifications
+2025-07-11 13:14:45,787 - INFO - Added 31 specifications for Émonda SL 6
+2025-07-11 13:14:45,787 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41352/
+2025-07-11 13:14:46,735 - INFO - Processing bike 29/71: Checkpoint SL 6 AXS Gen 2
+2025-07-11 13:14:46,736 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41397/
+2025-07-11 13:14:47,423 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:47,423 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: wide cassette range (34 teeth)
+2025-07-11 13:14:47,424 - INFO - Extracted 31 specifications
+2025-07-11 13:14:47,424 - INFO - Added 31 specifications for Checkpoint SL 6 AXS Gen 2
+2025-07-11 13:14:47,424 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41397/
+2025-07-11 13:14:48,554 - INFO - Processing bike 30/71: Madone SL 6 AXS Gen 8
+2025-07-11 13:14:48,555 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57663/
+2025-07-11 13:14:49,345 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:49,345 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:14:49,346 - INFO - Determined chain from drivetrain (prediction): SRAM Rival, 12-speed
+2025-07-11 13:14:49,346 - INFO - Extracted 24 specifications
+2025-07-11 13:14:49,346 - INFO - Added 24 specifications for Madone SL 6 AXS Gen 8
+2025-07-11 13:14:49,346 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57663/
+2025-07-11 13:14:50,357 - INFO - Processing bike 31/71: Madone SL 6 Gen 8
+2025-07-11 13:14:50,358 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46219/
+2025-07-11 13:14:51,199 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:51,199 - INFO - Extracted 31 specifications
+2025-07-11 13:14:51,199 - INFO - Added 31 specifications for Madone SL 6 Gen 8
+2025-07-11 13:14:51,199 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46219/
+2025-07-11 13:14:52,253 - INFO - Processing bike 32/71: Madone SL 6 Gen 8
+2025-07-11 13:14:52,254 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57662/
+2025-07-11 13:14:53,129 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:14:53,129 - INFO - Extracted 24 specifications
+2025-07-11 13:14:53,130 - INFO - Added 24 specifications for Madone SL 6 Gen 8
+2025-07-11 13:14:53,130 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57662/
+2025-07-11 13:14:54,247 - INFO - Processing bike 33/71: Domane SL 6 AXS gen 4
+2025-07-11 13:14:54,247 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36152/
+2025-07-11 13:14:55,076 - INFO - Determined chain from drivetrain (prediction): SRAM Rival, 12-speed
+2025-07-11 13:14:55,076 - INFO - Extracted 28 specifications
+2025-07-11 13:14:55,076 - INFO - Added 28 specifications for Domane SL 6 AXS gen 4
+2025-07-11 13:14:55,076 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36152/
+2025-07-11 13:14:56,070 - INFO - Processing bike 34/71: Domane SL 7 Gen 4
+2025-07-11 13:14:56,070 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/47132/
+2025-07-11 13:14:56,793 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:14:56,793 - INFO - Extracted 28 specifications
+2025-07-11 13:14:56,793 - INFO - Added 28 specifications for Domane SL 7 Gen 4
+2025-07-11 13:14:56,793 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/47132/
+2025-07-11 13:14:57,835 - INFO - Processing bike 35/71: Émonda SL 7
+2025-07-11 13:14:57,836 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35046/
+2025-07-11 13:14:58,623 - INFO - Extracted 29 specifications
+2025-07-11 13:14:58,623 - INFO - Added 29 specifications for Émonda SL 7
+2025-07-11 13:14:58,623 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35046/
+2025-07-11 13:14:59,580 - INFO - Processing bike 36/71: Domane SL 7 gen 3
+2025-07-11 13:14:59,581 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35333/
+2025-07-11 13:15:00,369 - INFO - Extracted 31 specifications
+2025-07-11 13:15:00,369 - INFO - Added 31 specifications for Domane SL 7 gen 3
+2025-07-11 13:15:00,369 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35333/
+2025-07-11 13:15:01,341 - INFO - Processing bike 37/71: Madone SL 6 Gen 7
+2025-07-11 13:15:01,342 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41466/
+2025-07-11 13:15:02,292 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:02,292 - INFO - Extracted 29 specifications
+2025-07-11 13:15:02,292 - INFO - Added 29 specifications for Madone SL 6 Gen 7
+2025-07-11 13:15:02,292 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41466/
+2025-07-11 13:15:03,343 - INFO - Processing bike 38/71: Madone SL 7 Gen 8
+2025-07-11 13:15:03,344 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46220/
+2025-07-11 13:15:04,143 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:04,143 - INFO - Determined chain from drivetrain (prediction): SRAM PC-1130, 11-speed
+2025-07-11 13:15:04,143 - INFO - Extracted 25 specifications
+2025-07-11 13:15:04,143 - INFO - Added 25 specifications for Madone SL 7 Gen 8
+2025-07-11 13:15:04,143 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46220/
+2025-07-11 13:15:05,161 - INFO - Processing bike 39/71: Madone SL 7 Gen 8
+2025-07-11 13:15:05,161 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57664/
+2025-07-11 13:15:06,118 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:06,118 - INFO - Extracted 26 specifications
+2025-07-11 13:15:06,118 - INFO - Added 26 specifications for Madone SL 7 Gen 8
+2025-07-11 13:15:06,119 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57664/
+2025-07-11 13:15:07,223 - INFO - Processing bike 40/71: Checkpoint SL 7 AXS Gen 3
+2025-07-11 13:15:07,224 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/55097/
+2025-07-11 13:15:08,038 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:08,039 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:15:08,040 - INFO - Determined chain from drivetrain (prediction): SRAM Force E1, 12/13-speed
+2025-07-11 13:15:08,040 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: 1x setup in checkpoint category
+2025-07-11 13:15:08,040 - INFO - Extracted 26 specifications
+2025-07-11 13:15:08,040 - INFO - Added 26 specifications for Checkpoint SL 7 AXS Gen 3
+2025-07-11 13:15:08,040 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/55097/
+2025-07-11 13:15:09,152 - INFO - Processing bike 41/71: Domane SLR 7 gen 4
+2025-07-11 13:15:09,152 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57892/
+2025-07-11 13:15:10,812 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:10,813 - INFO - Extracted 29 specifications
+2025-07-11 13:15:10,813 - INFO - Added 29 specifications for Domane SLR 7 gen 4
+2025-07-11 13:15:10,813 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57892/
+2025-07-11 13:15:12,130 - INFO - Processing bike 42/71: Checkmate SLR 7 AXS
+2025-07-11 13:15:12,130 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/58668/
+2025-07-11 13:15:13,460 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:13,461 - INFO - Extracted 26 specifications
+2025-07-11 13:15:13,461 - INFO - Added 26 specifications for Checkmate SLR 7 AXS
+2025-07-11 13:15:13,461 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/58668/
+2025-07-11 13:15:14,590 - INFO - Processing bike 43/71: Madone SL 7 Gen 7
+2025-07-11 13:15:14,591 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41467/
+2025-07-11 13:15:15,345 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:15,345 - INFO - Extracted 30 specifications
+2025-07-11 13:15:15,345 - INFO - Added 30 specifications for Madone SL 7 Gen 7
+2025-07-11 13:15:15,345 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41467/
+2025-07-11 13:15:16,363 - INFO - Processing bike 44/71: Domane SLR 7 AXS Gen 4
+2025-07-11 13:15:16,364 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57915/
+2025-07-11 13:15:17,920 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:17,920 - INFO - Extracted 28 specifications
+2025-07-11 13:15:17,920 - INFO - Added 28 specifications for Domane SLR 7 AXS Gen 4
+2025-07-11 13:15:17,920 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57915/
+2025-07-11 13:15:19,215 - INFO - Processing bike 45/71: Madone SLR 7 Gen 8
+2025-07-11 13:15:19,217 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46687/
+2025-07-11 13:15:21,070 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:21,071 - INFO - Extracted 30 specifications
+2025-07-11 13:15:21,071 - INFO - Added 30 specifications for Madone SLR 7 Gen 8
+2025-07-11 13:15:21,071 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46687/
+2025-07-11 13:15:22,267 - INFO - Processing bike 46/71: Domane+ SLR 6 Pro
+2025-07-11 13:15:22,268 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36703/
+2025-07-11 13:15:23,334 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:15:23,335 - INFO - Extracted 33 specifications
+2025-07-11 13:15:23,335 - INFO - Added 33 specifications for Domane+ SLR 6 Pro
+2025-07-11 13:15:23,335 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36703/
+2025-07-11 13:15:24,492 - INFO - Processing bike 47/71: Domane+ SLR 7
+2025-07-11 13:15:24,493 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36707/
+2025-07-11 13:15:26,094 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:15:26,094 - INFO - Extracted 34 specifications
+2025-07-11 13:15:26,094 - INFO - Added 34 specifications for Domane+ SLR 7
+2025-07-11 13:15:26,094 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36707/
+2025-07-11 13:15:27,181 - INFO - Processing bike 48/71: Domane SLR 7 gen 4
+2025-07-11 13:15:27,182 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/37059/
+2025-07-11 13:15:29,397 - INFO - Extracted 33 specifications
+2025-07-11 13:15:29,397 - INFO - Added 33 specifications for Domane SLR 7 gen 4
+2025-07-11 13:15:29,397 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/37059/
+2025-07-11 13:15:30,804 - INFO - Processing bike 49/71: Madone SLR 7 AXS
+2025-07-11 13:15:30,805 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/58135/
+2025-07-11 13:15:32,135 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:32,136 - INFO - Extracted 27 specifications
+2025-07-11 13:15:32,136 - INFO - Added 27 specifications for Madone SLR 7 AXS
+2025-07-11 13:15:32,136 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/58135/
+2025-07-11 13:15:33,317 - INFO - Processing bike 50/71: Speed Concept SLR 7
+2025-07-11 13:15:33,318 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35577/
+2025-07-11 13:15:34,851 - INFO - Extracted 32 specifications
+2025-07-11 13:15:34,851 - INFO - Added 32 specifications for Speed Concept SLR 7
+2025-07-11 13:15:34,851 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35577/
+2025-07-11 13:15:36,002 - INFO - Processing bike 51/71: Checkmate SLR 7 AXS
+2025-07-11 13:15:36,004 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46692/
+2025-07-11 13:15:37,329 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:37,329 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: wide cassette range (34 teeth)
+2025-07-11 13:15:37,329 - INFO - Extracted 28 specifications
+2025-07-11 13:15:37,329 - INFO - Added 28 specifications for Checkmate SLR 7 AXS
+2025-07-11 13:15:37,329 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46692/
+2025-07-11 13:15:38,346 - INFO - Processing bike 52/71: Checkmate SLR 8 AXS
+2025-07-11 13:15:38,346 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49169/
+2025-07-11 13:15:39,543 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:39,543 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: wide cassette range (34 teeth)
+2025-07-11 13:15:39,543 - INFO - Extracted 27 specifications
+2025-07-11 13:15:39,543 - INFO - Added 27 specifications for Checkmate SLR 8 AXS
+2025-07-11 13:15:39,543 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49169/
+2025-07-11 13:15:40,654 - INFO - Processing bike 53/71: Domane SLR 8 AXS Gen 4
+2025-07-11 13:15:40,654 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49167/
+2025-07-11 13:15:41,853 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:41,853 - INFO - Extracted 29 specifications
+2025-07-11 13:15:41,853 - INFO - Added 29 specifications for Domane SLR 8 AXS Gen 4
+2025-07-11 13:15:41,853 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49167/
+2025-07-11 13:15:43,094 - INFO - Processing bike 54/71: Domane SLR 7 AXS Gen 4
+2025-07-11 13:15:43,095 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41899/
+2025-07-11 13:15:45,239 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:45,240 - INFO - Extracted 31 specifications
+2025-07-11 13:15:45,240 - INFO - Added 31 specifications for Domane SLR 7 AXS Gen 4
+2025-07-11 13:15:45,240 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41899/
+2025-07-11 13:15:46,536 - INFO - Processing bike 55/71: Speed Concept SLR 7 AXS
+2025-07-11 13:15:46,537 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/56332/
+2025-07-11 13:15:47,557 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:15:47,557 - INFO - Extracted 29 specifications
+2025-07-11 13:15:47,557 - INFO - Added 29 specifications for Speed Concept SLR 7 AXS
+2025-07-11 13:15:47,557 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/56332/
+2025-07-11 13:15:48,679 - INFO - Processing bike 56/71: Speed Concept SLR 7 AXS
+2025-07-11 13:15:48,679 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41499/
+2025-07-11 13:15:50,002 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:15:50,003 - INFO - Extracted 31 specifications
+2025-07-11 13:15:50,003 - INFO - Added 31 specifications for Speed Concept SLR 7 AXS
+2025-07-11 13:15:50,003 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41499/
+2025-07-11 13:15:51,101 - INFO - Processing bike 57/71: Madone SLR 7 AXS Gen 8
+2025-07-11 13:15:51,102 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46688/
+2025-07-11 13:15:52,125 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:52,125 - INFO - Extracted 28 specifications
+2025-07-11 13:15:52,125 - INFO - Added 28 specifications for Madone SLR 7 AXS Gen 8
+2025-07-11 13:15:52,125 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46688/
+2025-07-11 13:15:53,294 - INFO - Processing bike 58/71: Madone SLR 8 AXS Gen 8
+2025-07-11 13:15:53,295 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49168/
+2025-07-11 13:15:54,368 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:15:54,368 - INFO - Extracted 28 specifications
+2025-07-11 13:15:54,368 - INFO - Added 28 specifications for Madone SLR 8 AXS Gen 8
+2025-07-11 13:15:54,368 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49168/
+2025-07-11 13:15:55,486 - INFO - Processing bike 59/71: Speed Concept SLR 8 AXS
+2025-07-11 13:15:55,486 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49162/
+2025-07-11 13:15:56,394 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:15:56,394 - INFO - Extracted 30 specifications
+2025-07-11 13:15:56,394 - INFO - Added 30 specifications for Speed Concept SLR 8 AXS
+2025-07-11 13:15:56,394 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49162/
+2025-07-11 13:15:58,044 - INFO - Processing bike 60/71: Checkmate SLR 9 AXS
+2025-07-11 13:15:58,045 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46152/
+2025-07-11 13:15:59,257 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:15:59,257 - INFO - Extracted 27 specifications
+2025-07-11 13:15:59,257 - INFO - Added 27 specifications for Checkmate SLR 9 AXS
+2025-07-11 13:15:59,258 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46152/
+2025-07-11 13:16:00,341 - INFO - Processing bike 61/71: Domane SLR 9 Gen 4
+2025-07-11 13:16:00,341 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57942/
+2025-07-11 13:16:01,912 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:16:01,912 - INFO - Extracted 28 specifications
+2025-07-11 13:16:01,912 - INFO - Added 28 specifications for Domane SLR 9 Gen 4
+2025-07-11 13:16:01,912 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57942/
+2025-07-11 13:16:03,141 - INFO - Processing bike 62/71: Domane+ SLR 8 AXS
+2025-07-11 13:16:03,142 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/49166/
+2025-07-11 13:16:04,470 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:16:04,470 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:16:04,470 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: wide cassette range (34 teeth)
+2025-07-11 13:16:04,471 - INFO - Extracted 32 specifications
+2025-07-11 13:16:04,471 - INFO - Added 32 specifications for Domane+ SLR 8 AXS
+2025-07-11 13:16:04,471 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/49166/
+2025-07-11 13:16:05,533 - INFO - Processing bike 63/71: Domane+ SLR 7 AXS
+2025-07-11 13:16:05,534 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/41481/
+2025-07-11 13:16:07,055 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:16:07,056 - INFO - Determined bottom bracket (prediction): SRAM DUB, T47 met schroefdraad, interne lagers
+2025-07-11 13:16:07,056 - INFO - Added 'geen voor-derailleur' for 1x setup - detected by: wide cassette range (34 teeth)
+2025-07-11 13:16:07,056 - INFO - Extracted 33 specifications
+2025-07-11 13:16:07,056 - INFO - Added 33 specifications for Domane+ SLR 7 AXS
+2025-07-11 13:16:07,056 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/41481/
+2025-07-11 13:16:08,079 - INFO - Processing bike 64/71: Domane SLR 9 AXS Gen 4
+2025-07-11 13:16:08,080 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/57944/
+2025-07-11 13:16:09,950 - INFO - Determined framefit (prediction): Endurance
+2025-07-11 13:16:09,950 - INFO - Extracted 28 specifications
+2025-07-11 13:16:09,950 - INFO - Added 28 specifications for Domane SLR 9 AXS Gen 4
+2025-07-11 13:16:09,950 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/57944/
+2025-07-11 13:16:11,110 - INFO - Processing bike 65/71: Speed Concept SLR 9
+2025-07-11 13:16:11,111 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/35757/
+2025-07-11 13:16:12,450 - INFO - Extracted 31 specifications
+2025-07-11 13:16:12,450 - INFO - Added 31 specifications for Speed Concept SLR 9
+2025-07-11 13:16:12,450 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/35757/
+2025-07-11 13:16:13,572 - INFO - Processing bike 66/71: Madone SLR 9 gen 8
+2025-07-11 13:16:13,573 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46707/
+2025-07-11 13:16:15,194 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:16:15,194 - INFO - Extracted 29 specifications
+2025-07-11 13:16:15,195 - INFO - Added 29 specifications for Madone SLR 9 gen 8
+2025-07-11 13:16:15,195 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46707/
+2025-07-11 13:16:16,552 - INFO - Processing bike 67/71: Domane SLR 9 gen 4
+2025-07-11 13:16:16,553 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/37357/
+2025-07-11 13:16:18,566 - INFO - Extracted 33 specifications
+2025-07-11 13:16:18,567 - INFO - Added 33 specifications for Domane SLR 9 gen 4
+2025-07-11 13:16:18,567 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/37357/
+2025-07-11 13:16:19,876 - INFO - Processing bike 68/71: Speed Concept SLR 9 AXS
+2025-07-11 13:16:19,876 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/48020/
+2025-07-11 13:16:21,040 - INFO - Determined framefit (prediction): Triatlon
+2025-07-11 13:16:21,040 - INFO - Extracted 30 specifications
+2025-07-11 13:16:21,040 - INFO - Added 30 specifications for Speed Concept SLR 9 AXS
+2025-07-11 13:16:21,040 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/48020/
+2025-07-11 13:16:22,064 - INFO - Processing bike 69/71: Madone SLR 9 AXS Gen 8
+2025-07-11 13:16:22,065 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/46151/
+2025-07-11 13:16:23,714 - INFO - Determined framefit (prediction): H1.5 Race
+2025-07-11 13:16:23,714 - INFO - Extracted 28 specifications
+2025-07-11 13:16:23,714 - INFO - Added 28 specifications for Madone SLR 9 AXS Gen 8
+2025-07-11 13:16:23,714 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/46151/
+2025-07-11 13:16:25,054 - INFO - Processing bike 70/71: Domane SLR 9 AXS Gen 4
+2025-07-11 13:16:25,055 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/48021/
+2025-07-11 13:16:26,554 - INFO - Extracted 28 specifications
+2025-07-11 13:16:26,554 - INFO - Added 28 specifications for Domane SLR 9 AXS Gen 4
+2025-07-11 13:16:26,554 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/48021/
+2025-07-11 13:16:27,771 - INFO - Processing bike 71/71: Domane+ SLR 9
+2025-07-11 13:16:27,772 - INFO - Fetching specifications from: https://www.trekbikes.com/nl/nl_NL/p/36741/
+2025-07-11 13:16:28,830 - INFO - Determined bottom bracket (prediction): Praxis, T47 met schroefdraad, interne lagers
+2025-07-11 13:16:28,830 - INFO - Extracted 34 specifications
+2025-07-11 13:16:28,830 - INFO - Added 34 specifications for Domane+ SLR 9
+2025-07-11 13:16:28,830 - INFO - Fetching description from: https://www.trekbikes.com/nl/nl_NL/p/36741/
+2025-07-11 13:16:29,920 - INFO - Extracted detailed data for 71 products
+2025-07-11 13:16:29,920 - INFO - Successfully scraped 61 unique bike models with 0 total color variants
+2025-07-11 13:16:29,926 - INFO - Cleaned up 3 old timestamped files (kept most recent as archive)
+2025-07-11 13:16:29,931 - INFO - Saved 61 bikes to data/trek_bikes_20250711_131629.json
+2025-07-11 13:16:29,943 - INFO - Saved 61 bikes to data/trek_bikes_20250711_131629.csv
+2025-07-11 13:16:30,070 - INFO - Saved 61 bikes to data/trek_bikes_20250711_131629.xlsx
+2025-07-11 13:16:30,118 - INFO - Also saved latest versions as data/trek_bikes_latest.json, data/trek_bikes_latest.csv, and data/trek_bikes_latest.xlsx

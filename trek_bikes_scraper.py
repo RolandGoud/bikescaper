@@ -43,47 +43,50 @@ class TrekBikeScraper:
         """Extract bike data from dataLayer JavaScript"""
         bikes = []
         
-        # Find all script tags containing dataLayer
-        scripts = soup.find_all('script')
-        for script in scripts:
-            if script.string and 'dataLayer' in script.string:
-                script_content = script.string
+        # Get the raw HTML content to search for dataLayer data
+        # This handles cases where script tags might have unusual names or attributes
+        html_content = str(soup)
+        
+        # Look for impressions array in the raw content
+        impressions_match = re.search(r'"impressions"\s*:\s*(\[.*?\])', html_content, re.DOTALL)
+        if impressions_match:
+            try:
+                impressions_json = impressions_match.group(1)
+                # Clean up the JSON - remove extra whitespace and ensure proper formatting
+                impressions_json = re.sub(r'\s+', ' ', impressions_json)
+                impressions_json = impressions_json.strip()
                 
-                # Look for impressions array in ecommerce dataLayer
-                impressions_match = re.search(r'"impressions"\s*:\s*(\[.*?\])', script_content, re.DOTALL)
-                if impressions_match:
-                    try:
-                        impressions_json = impressions_match.group(1)
-                        # Clean up the JSON - remove extra whitespace and ensure proper formatting
-                        impressions_json = re.sub(r'\s+', ' ', impressions_json)
-                        impressions_json = impressions_json.strip()
-                        
-                        impressions = json.loads(impressions_json)
-                        self.logger.info(f"Successfully parsed {len(impressions)} bikes from impressions")
-                        
-                        for impression in impressions:
-                            if isinstance(impression, dict):
-                                bike_info = {
-                                    'name': impression.get('name', ''),
-                                    'price': impression.get('price', ''),
-                                    'category': impression.get('category', ''),
-                                    'brand': impression.get('brand', 'Trek'),
-                                    'url': f"/nl/nl_NL/p/{impression.get('id', '')}/",
-                                    'sku': impression.get('id', ''),
-                                    'variant': impression.get('variant', '')
-                                }
-                                if bike_info['name']:
-                                    bikes.append(bike_info)
-                                    
-                    except json.JSONDecodeError as e:
-                        self.logger.error(f"Failed to parse impressions JSON: {e}")
-                        # Log a sample of the problematic JSON for debugging
-                        sample = impressions_json[:200] if 'impressions_json' in locals() else 'N/A'
-                        self.logger.error(f"JSON sample: {sample}")
-                        continue
+                impressions = json.loads(impressions_json)
+                self.logger.info(f"Successfully parsed {len(impressions)} bikes from impressions")
                 
-                # Fallback: Look for ecommerce items array
-                if not bikes:
+                for impression in impressions:
+                    if isinstance(impression, dict):
+                        bike_info = {
+                            'name': impression.get('name', ''),
+                            'price': impression.get('price', ''),
+                            'category': impression.get('category', ''),
+                            'brand': impression.get('brand', 'Trek'),
+                            'url': f"/nl/nl_NL/p/{impression.get('id', '')}/",
+                            'sku': impression.get('id', ''),
+                            'variant': impression.get('variant', '')
+                        }
+                        if bike_info['name']:
+                            bikes.append(bike_info)
+                            
+            except json.JSONDecodeError as e:
+                self.logger.error(f"Failed to parse impressions JSON: {e}")
+                # Log a sample of the problematic JSON for debugging
+                sample = impressions_json[:200] if 'impressions_json' in locals() else 'N/A'
+                self.logger.error(f"JSON sample: {sample}")
+        
+        # Fallback: Try traditional script tag parsing
+        if not bikes:
+            scripts = soup.find_all('script')
+            for script in scripts:
+                if script.string and 'dataLayer' in script.string:
+                    script_content = script.string
+                    
+                    # Look for ecommerce items array
                     ecommerce_match = re.search(r'ecommerce["\']?\s*:\s*{[^}]*items["\']?\s*:\s*(\[.*?\])', script_content, re.DOTALL)
                     if ecommerce_match:
                         try:
@@ -155,6 +158,7 @@ class TrekBikeScraper:
             soup = BeautifulSoup(response.content, 'html.parser')
             
             specifications = {}
+            import re
             
             # Extract specifications from tables
             spec_tables = soup.find_all('table')
@@ -163,9 +167,34 @@ class TrekBikeScraper:
                 for row in rows:
                     cells = row.find_all(['td', 'th'])
                     if len(cells) >= 2:
+                        # Try different methods to extract text
                         key = cells[0].get_text(strip=True)
-                        value = cells[1].get_text(strip=True)
-                        if key and value and key != value:
+                        if not key:
+                            key = cells[0].text.strip()
+                        if not key:
+                            # Extract text from HTML, removing tags but keeping content
+                            key_html = str(cells[0])
+                            key = re.sub(r'<[^>]+>', ' ', key_html).strip()
+                            key = re.sub(r'\s+', ' ', key).strip()
+                        
+                        value = cells[1].get_text(strip=True) 
+                        if not value:
+                            value = cells[1].text.strip()
+                        if not value:
+                            # Extract text from HTML, removing tags but keeping content
+                            value_html = str(cells[1])
+                            # Remove HTML tags but keep the text content
+                            value = re.sub(r'<[^>]+>', ' ', value_html).strip()
+                            # Clean up extra whitespace
+                            value = re.sub(r'\s+', ' ', value).strip()
+                        
+                        # Clean up the key - remove common prefixes and suffixes
+                        if key.startswith('*'):
+                            key = key[1:].strip()
+                        if ':' in key and key.endswith(':'):
+                            key = key[:-1].strip()
+                        
+                        if key and value and key != value and len(key) < 100 and len(value) < 500:
                             specifications[key] = value
             
             # Extract specifications from definition lists
