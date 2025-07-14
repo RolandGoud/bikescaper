@@ -39,6 +39,42 @@ class TrekBikeScraper:
         )
         self.logger = logging.getLogger(__name__)
 
+    def format_color_name(self, variant):
+        """Format color variant name for better readability"""
+        if not variant:
+            return ''
+        
+        # Replace underscores with slashes and capitalize
+        formatted = variant.replace('_', '/').replace('dark', ' Dark').replace('light', ' Light')
+        
+        # Capitalize each word
+        words = formatted.split('/')
+        formatted_words = []
+        for word in words:
+            word = word.strip()
+            if word:
+                # Handle special cases
+                if word.lower() == 'reddark':
+                    formatted_words.append('Red Dark')
+                elif word.lower() == 'bluedark':
+                    formatted_words.append('Blue Dark')
+                elif word.lower() == 'greydark':
+                    formatted_words.append('Grey Dark')
+                elif word.lower() == 'greendark':
+                    formatted_words.append('Green Dark')
+                elif word.lower() == 'tealdark':
+                    formatted_words.append('Teal Dark')
+                elif word.lower() == 'bluelight':
+                    formatted_words.append('Blue Light')
+                elif word.lower() == 'greenlight':
+                    formatted_words.append('Green Light')
+                elif word.lower() == 'greylight':
+                    formatted_words.append('Grey Light')
+                else:
+                    formatted_words.append(word.capitalize())
+        
+        return '/'.join(formatted_words)
+
     def extract_bikes_from_datalayer(self, soup):
         """Extract bike data from dataLayer JavaScript"""
         bikes = []
@@ -66,9 +102,10 @@ class TrekBikeScraper:
                             'price': impression.get('price', ''),
                             'category': impression.get('category', ''),
                             'brand': impression.get('brand', 'Trek'),
-                            'url': f"/nl/nl_NL/p/{impression.get('id', '')}/",
+                            'url': f"https://www.trekbikes.com/nl/nl_NL/p/{impression.get('id', '')}/",
                             'sku': impression.get('id', ''),
-                            'variant': impression.get('variant', '')
+                            'variant': impression.get('variant', ''),
+                            'color': self.format_color_name(impression.get('variant', ''))
                         }
                         if bike_info['name']:
                             bikes.append(bike_info)
@@ -100,9 +137,10 @@ class TrekBikeScraper:
                                         'price': item.get('price', ''),
                                         'category': item.get('item_category', ''),
                                         'brand': item.get('item_brand', 'Trek'),
-                                        'url': f"/nl/nl_NL/p/{item.get('item_id', '')}/",
+                                        'url': f"https://www.trekbikes.com/nl/nl_NL/p/{item.get('item_id', '')}/",
                                         'sku': item.get('item_id', ''),
-                                        'variant': item.get('item_variant', '')
+                                        'variant': item.get('item_variant', ''),
+                                        'color': self.format_color_name(item.get('item_variant', ''))
                                     }
                                     if bike_info['name']:
                                         bikes.append(bike_info)
@@ -247,6 +285,37 @@ class TrekBikeScraper:
                         specifications['Ketting'] = chain_info + "*"
                         self.logger.info(f"Determined chain from drivetrain (prediction): {chain_info}")
             
+            # Clean up Frame specification to show only material
+            if 'Frame' in specifications:
+                specifications['Frame'] = self.extract_frame_material(specifications['Frame'])
+            elif 'Frame plus vork' in specifications:
+                # Some bikes (like Madone models) have frame specs under "Frame plus vork"
+                specifications['Frame'] = self.extract_frame_material(specifications['Frame plus vork'])
+                self.logger.info(f"Used 'Frame plus vork' for frame material: {specifications['Frame']}")
+            
+            # Clean up Gewichtslimiet specification to show only weight limit
+            if 'Gewichtslimiet' in specifications:
+                specifications['Gewichtslimiet'] = self.extract_weight_limit(specifications['Gewichtslimiet'])
+            
+            # Clean up Gewicht specification to remove lbs indications
+            if 'Gewicht' in specifications:
+                specifications['Gewicht'] = self.clean_weight_specification(specifications['Gewicht'])
+                # Standardize frame size notation (add cm to numeric sizes)
+                specifications['Gewicht'] = self.standardize_frame_size_in_weight(specifications['Gewicht'])
+            
+            # Clean up Shifter specification to remove frame size information
+            if 'Shifter' in specifications:
+                # Extract shifter speed before cleaning
+                shifter_speed = self.extract_shifter_speed(specifications['Shifter'])
+                if shifter_speed:
+                    specifications['Shifter_speed'] = shifter_speed
+                
+                # Clean frame size information
+                specifications['Shifter'] = self.clean_shifter_specification(specifications['Shifter'])
+                
+                # Remove speed information from shifter spec
+                specifications['Shifter'] = self.clean_shifter_speed_from_spec(specifications['Shifter'])
+            
             # Detect 1x setups and add front derailleur info
             self.detect_1x_setup(specifications, bike_info)
             
@@ -319,6 +388,233 @@ class TrekBikeScraper:
                     return chain_info[:100] if len(chain_info) > 100 else chain_info
         
         return None
+
+    def extract_weight_limit(self, weight_limit_spec):
+        """Extract only the weight limit value from full weight limit specification"""
+        if not weight_limit_spec:
+            return weight_limit_spec
+            
+        # Convert to string and clean up
+        weight_limit_spec = str(weight_limit_spec).strip()
+        
+        # Look for weight patterns in the text
+        import re
+        
+        # Pattern to match weight limits like "125 kg", "150 kg", etc.
+        weight_patterns = [
+            r'(\d+(?:[.,]\d+)?\s*kg)',
+            r'(\d+(?:[.,]\d+)?\s*lbs?)',
+        ]
+        
+        for pattern in weight_patterns:
+            match = re.search(pattern, weight_limit_spec, re.IGNORECASE)
+            if match:
+                return match.group(1)
+        
+        # If no pattern found, return original
+        return weight_limit_spec
+
+    def clean_weight_specification(self, weight_spec):
+        """Remove lbs indications from weight specification, keep only kg"""
+        if not weight_spec:
+            return weight_spec
+            
+        # Convert to string and clean up
+        weight_spec = str(weight_spec).strip()
+        
+        # Look for patterns like "8.43 kg / 18.59 lbs" and keep only the kg part
+        import re
+        
+        # Pattern to match kg value followed by optional lbs part
+        # This will match things like "8.43 kg / 18.59 lbs" and extract just "8.43 kg"
+        kg_pattern = r'(\d+(?:[.,]\d+)?\s*kg)(?:\s*/\s*\d+(?:[.,]\d+)?\s*lbs)?'
+        
+        # Find all kg values and remove any lbs parts
+        matches = re.findall(kg_pattern, weight_spec, re.IGNORECASE)
+        
+        if matches:
+            # Replace the original kg/lbs pattern with just the kg part
+            cleaned_spec = weight_spec
+            for match in matches:
+                # Find the full pattern (kg + lbs) and replace with just kg
+                full_pattern = r'\d+(?:[.,]\d+)?\s*kg\s*/\s*\d+(?:[.,]\d+)?\s*lbs'
+                cleaned_spec = re.sub(full_pattern, match, cleaned_spec, flags=re.IGNORECASE)
+            
+            return cleaned_spec
+        
+        # If no kg/lbs pattern found, return original
+        return weight_spec
+
+    def standardize_frame_size_in_weight(self, weight_spec):
+        """Standardize frame size notation in weight specification by adding cm to numeric sizes"""
+        if not weight_spec:
+            return weight_spec
+            
+        # Convert to string and clean up
+        weight_spec = str(weight_spec).strip()
+        
+        import re
+        
+        # Pattern to match numeric frame sizes without cm (like "56 -" but not "56 cm -")
+        # This will match patterns like "56 -" or "58 -" but not "56 cm -" or "ML -" or "M -"
+        numeric_size_pattern = r'(\d+)\s*-\s*(\d+(?:[.,]\d+)?\s*kg)'
+        
+        # Check if there's already a cm in the string
+        if 'cm' not in weight_spec:
+            # Replace numeric sizes with cm added
+            def add_cm(match):
+                size = match.group(1)
+                weight_part = match.group(2)
+                return f"{size} cm - {weight_part}"
+            
+            weight_spec = re.sub(numeric_size_pattern, add_cm, weight_spec)
+        
+        return weight_spec
+
+    def clean_shifter_specification(self, shifter_spec):
+        """Remove frame size information from shifter specification"""
+        if not shifter_spec:
+            return shifter_spec
+            
+        # Convert to string and clean up
+        shifter_spec = str(shifter_spec).strip()
+        
+        import re
+        
+        # Pattern to match frame size information at the beginning
+        # This will remove patterns like:
+        # - "Maat: 47, 50, 52, 54, 56, 58, 60, 62 "
+        # - "Maat: XS, S, M, ML, L, XL "
+        size_patterns = [
+            r'^Maat:\s*(?:\d+(?:\s*,\s*\d+)*)\s+',  # Numeric sizes
+            r'^Maat:\s*(?:[A-Z]+(?:\s*,\s*[A-Z]+)*)\s+',  # Letter sizes (XS, S, M, ML, L, XL)
+        ]
+        
+        # Remove any size pattern from the beginning
+        for pattern in size_patterns:
+            cleaned_spec = re.sub(pattern, '', shifter_spec, flags=re.IGNORECASE)
+            if cleaned_spec != shifter_spec:
+                # Pattern matched, use the cleaned version
+                shifter_spec = cleaned_spec
+                break
+        
+        return shifter_spec.strip()
+
+    def extract_shifter_speed(self, shifter_spec):
+        """Extract speed information from shifter specification"""
+        if not shifter_spec:
+            return None
+            
+        # Convert to string and clean up
+        shifter_spec = str(shifter_spec).strip()
+        
+        import re
+        
+        # Patterns to match speed information
+        speed_patterns = [
+            r'(\d+)\s*speed',           # "8 speed", "10 Speed"
+            r'(\d+)-speed',             # "9-speed", "11-speed"
+            r'(\d+)\s*versnellingen',   # "10 versnellingen"
+        ]
+        
+        for pattern in speed_patterns:
+            match = re.search(pattern, shifter_spec, re.IGNORECASE)
+            if match:
+                return f"{match.group(1)}-speed"
+        
+        # For high-end bikes without explicit speed info, try to infer from components
+        # SRAM RED AXS E1 is typically 12-speed
+        if 'SRAM RED AXS E1' in shifter_spec:
+            return "12-speed"
+        
+        # SRAM AXS systems are typically 12-speed for road bikes
+        if 'SRAM AXS' in shifter_spec and 'draadloze' in shifter_spec:
+            return "12-speed"
+        
+        # Shimano Dura-Ace Di2 systems are typically 11 or 12-speed
+        if 'Shimano Dura-Ace' in shifter_spec and 'Di2' in shifter_spec:
+            return "11-speed"  # Conservative estimate for older Di2 systems
+        
+        return None
+
+    def clean_shifter_speed_from_spec(self, shifter_spec):
+        """Remove speed information from shifter specification"""
+        if not shifter_spec:
+            return shifter_spec
+            
+        # Convert to string and clean up
+        shifter_spec = str(shifter_spec).strip()
+        
+        import re
+        
+        # Patterns to remove speed information
+        speed_patterns = [
+            r',?\s*\d+\s*speed\s*,?',           # ", 8 speed,", "10 Speed"
+            r',?\s*\d+-speed\s*,?',             # ", 9-speed,", "11-speed"
+            r',?\s*\d+\s*versnellingen\s*,?',   # ", 10 versnellingen,"
+        ]
+        
+        for pattern in speed_patterns:
+            shifter_spec = re.sub(pattern, '', shifter_spec, flags=re.IGNORECASE)
+        
+        # Clean up any double commas or spaces
+        shifter_spec = re.sub(r',\s*,', ',', shifter_spec)
+        shifter_spec = re.sub(r'\s+', ' ', shifter_spec)
+        shifter_spec = shifter_spec.strip(' ,')
+        
+        return shifter_spec
+
+    def extract_frame_material(self, frame_spec):
+        """Extract only the core frame material from full frame specification"""
+        if not frame_spec:
+            return frame_spec
+            
+        # Convert to string and clean up
+        frame_spec = str(frame_spec).strip()
+        
+        # Common frame material patterns
+        patterns = [
+            # OCLV Carbon patterns
+            r'(\d+\s+[Ss]eries\s+OCLV\s+Carbon)',
+            r'(OCLV\s+Carbon\s+\d+)',
+            r'(OCLV\s+Carbon)',
+            # Alpha Aluminium patterns  
+            r'(Ultralicht\s+\d+\s+[Ss]eries\s+Alpha\s+Aluminium)',
+            r'(\d+\s+[Ss]eries\s+Alpha\s+Aluminium)',
+            r'(Alpha\s+Aluminium\s+\d+)',
+            r'(Alpha\s+Aluminium)',
+            # Other materials
+            r'(Carbon\s+fiber)',
+            r'(Steel)',
+            r'(Titanium)',
+            r'(Chromoly)',
+        ]
+        
+        # Try each pattern
+        for pattern in patterns:
+            import re
+            match = re.search(pattern, frame_spec, re.IGNORECASE)
+            if match:
+                material = match.group(1)
+                # Capitalize properly
+                material = ' '.join(word.capitalize() for word in material.split())
+                self.logger.info(f"Extracted frame material: {material} from: {frame_spec[:50]}...")
+                return material
+        
+        # If no pattern matches, try to extract the first meaningful part
+        # Split by comma and take the first part
+        first_part = frame_spec.split(',')[0].strip()
+        if first_part and len(first_part) < 100:
+            # Clean up common prefixes/suffixes
+            first_part = re.sub(r'^(Frame[:\s]*)', '', first_part, flags=re.IGNORECASE)
+            first_part = first_part.strip()
+            if first_part:
+                self.logger.info(f"Using first part as frame material: {first_part}")
+                return first_part
+        
+        # Fallback: return original if nothing else works
+        self.logger.warning(f"Could not extract frame material from: {frame_spec[:50]}...")
+        return frame_spec
 
     def determine_framefit(self, bike_info):
         """Determine framefit based on bike name and category"""
@@ -429,6 +725,7 @@ class TrekBikeScraper:
     def detect_1x_setup(self, specifications, bike_info):
         """Detect 1x drivetrain setups and add appropriate front derailleur info"""
         chainring = specifications.get('Voortandwiel', '').lower()
+        crankstel = specifications.get('Crankstel', '').lower()
         cassette = specifications.get('Cassette', '').lower()
         rear_derailleur = specifications.get('Achterderailleur', '').lower()
         bike_name = bike_info.get('name', '').lower()
@@ -436,26 +733,210 @@ class TrekBikeScraper:
         is_1x = False
         detection_reason = ""
         
-        # Check for 1x indicators
-        if 'x' in chainring and not '2x' in chainring:
+        # First, check if this is clearly a 2x system - if so, don't classify as 1x
+        if self.is_2x_system(crankstel):
+            # This is a 2x system, skip 1x classification
+            pass
+        # Check for explicit 1x indicators in chainring
+        elif 'x' in chainring and not '2x' in chainring:
             is_1x = True
             detection_reason = "1x-only chainring specification"
-        elif any(keyword in cassette for keyword in ['10-50', '10-52', '11-50', '11-52', '10-44', '10-42']):
-            # Wide range cassettes typically indicate 1x
+        
+        # Check for single chainring patterns in crankstel
+        elif self.is_single_chainring_crankstel(crankstel):
+            is_1x = True
+            detection_reason = "single chainring in crankstel"
+        
+        # Check for wide range cassettes (typical for 1x systems)
+        elif self.is_wide_range_cassette(cassette):
             cassette_range = re.search(r'(\d+)-(\d+)', cassette)
             if cassette_range:
                 min_teeth = int(cassette_range.group(1))
                 max_teeth = int(cassette_range.group(2))
-                if max_teeth - min_teeth >= 30:  # Wide range
-                    is_1x = True
-                    detection_reason = f"wide cassette range ({max_teeth - min_teeth} teeth)"
-        elif 'checkpoint' in bike_name and ('1x' in rear_derailleur or 'axs' in rear_derailleur):
-            is_1x = True
-            detection_reason = "1x setup in checkpoint category"
+                is_1x = True
+                detection_reason = f"wide cassette range ({max_teeth - min_teeth} teeth)"
         
+        # Check for 1x-specific rear derailleurs
+        elif self.is_1x_rear_derailleur(rear_derailleur):
+            is_1x = True
+            detection_reason = "1x-specific rear derailleur"
+        
+        # Check for bike categories that are typically 1x (only if crankstel doesn't contradict)
+        elif self.is_1x_bike_category(bike_name):
+            is_1x = True
+            detection_reason = "1x setup in bike category"
+        
+        # If we detected a 1x system, set the front derailleur
         if is_1x:
-            specifications['Voorderailleur'] = 'geen voor-derailleur'
-            self.logger.info(f"Added 'geen voor-derailleur' for 1x setup - detected by: {detection_reason}")
+            specifications['Voorderailleur'] = '1x, geen voorderailleur'
+            self.logger.info(f"Added '1x, geen voorderailleur' for 1x setup - detected by: {detection_reason}")
+        
+        # If Voorderailleur is empty and we haven't detected 1x, check if it should be empty
+        elif not specifications.get('Voorderailleur', '').strip():
+            # For bikes without front derailleur info, check if it might be a 1x that we missed
+            if self.likely_1x_system(crankstel, cassette, rear_derailleur, bike_name):
+                specifications['Voorderailleur'] = '1x, geen voorderailleur'
+                self.logger.info(f"Added '1x, geen voorderailleur' for likely 1x system based on component analysis")
+            # Check if this is a 2x system that should have a front derailleur
+            elif self.is_2x_system(crankstel):
+                specifications['Voorderailleur'] = '2x systeem, voorderailleur aanwezig'
+                self.logger.info(f"Added '2x systeem, voorderailleur aanwezig' for 2x system based on crankstel analysis")
+            else:
+                # Log that we found an empty front derailleur that doesn't seem to be 1x or 2x
+                self.logger.warning(f"Empty Voorderailleur for {bike_info.get('name', 'Unknown')} - may need manual review")
+    
+    def is_single_chainring_crankstel(self, crankstel):
+        """Check if crankstel indicates a single chainring setup"""
+        if not crankstel:
+            return False
+        
+        # First, check for double chainring patterns (2x systems)
+        double_chainring_patterns = [
+            r'\d+/\d+',   # "50/34" pattern
+            r'\d+x\d+',   # "46x30" pattern (Trek uses this format!)
+        ]
+        
+        for pattern in double_chainring_patterns:
+            if re.search(pattern, crankstel, re.IGNORECASE):
+                return False  # This is a 2x system, not 1x
+        
+        # Look for single chainring patterns
+        single_chainring_patterns = [
+            r'\b40t\b.*ring',           # "40T ring"
+            r'\b42t\b.*ring',           # "42T ring"
+            r'\b40t\b.*kettingblad',    # "40T kettingblad"
+            r'\b42t\b.*kettingblad',    # "42T kettingblad"
+            r'narrow-wide.*kettingblad', # "narrow-wide kettingblad"
+            r'apex 1',                  # "SRAM Apex 1"
+            r'force.*1',                # "SRAM Force 1"
+            r'single.*chainring',       # "single chainring"
+        ]
+        
+        for pattern in single_chainring_patterns:
+            if re.search(pattern, crankstel, re.IGNORECASE):
+                return True
+        
+        # Check for single number followed by T (like "40T")
+        single_chainring = re.search(r'\b(\d+)t\b', crankstel, re.IGNORECASE)
+        if single_chainring:
+            teeth = int(single_chainring.group(1))
+            # Single chainrings are typically 38-46T for road/gravel
+            if 38 <= teeth <= 46:
+                return True
+        
+        return False
+    
+    def is_wide_range_cassette(self, cassette):
+        """Check if cassette indicates a wide range typical of 1x systems"""
+        if not cassette:
+            return False
+        
+        # Wide range cassette patterns for 1x systems
+        wide_range_patterns = [
+            r'10-50', r'10-52', r'11-50', r'11-52',  # Very wide ranges
+            r'10-44', r'10-46', r'11-44', r'11-46',  # Wide ranges
+            r'10-48', r'11-48',                      # Common 1x ranges
+            r'10-42', r'11-42',                      # Moderate 1x ranges
+        ]
+        
+        for pattern in wide_range_patterns:
+            if re.search(pattern, cassette, re.IGNORECASE):
+                return True
+        
+        # Check for numerical range
+        cassette_range = re.search(r'(\d+)-(\d+)', cassette)
+        if cassette_range:
+            min_teeth = int(cassette_range.group(1))
+            max_teeth = int(cassette_range.group(2))
+            range_size = max_teeth - min_teeth
+            
+            # Wide range indicates 1x (typically >30 teeth range)
+            if range_size >= 30:
+                return True
+        
+        return False
+    
+    def is_1x_rear_derailleur(self, rear_derailleur):
+        """Check if rear derailleur is 1x-specific"""
+        if not rear_derailleur:
+            return False
+        
+        # 1x-specific rear derailleur patterns
+        onex_patterns = [
+            r'apex 1',              # "SRAM Apex 1"
+            r'apex.*xplr',          # "SRAM Apex XPLR"
+            r'force.*xplr',         # "SRAM Force XPLR"
+            r'red.*xplr',           # "SRAM RED XPLR"
+            r'rival.*xplr',         # "SRAM Rival XPLR"
+            r'grx.*1x',             # "Shimano GRX 1x"
+            r'cues.*gs',            # "Shimano CUES GS" (often 1x)
+        ]
+        
+        for pattern in onex_patterns:
+            if re.search(pattern, rear_derailleur, re.IGNORECASE):
+                return True
+        
+        return False
+    
+    def is_1x_bike_category(self, bike_name):
+        """Check if bike category typically uses 1x systems"""
+        # Gravel and some fitness bikes often use 1x
+        onex_categories = [
+            'checkpoint.*alr.*[345]',   # Checkpoint ALR 3, 4, 5 often 1x
+            'fx.*sport',                # FX Sport bikes often 1x
+            'checkmate',                # Checkmate is typically 1x
+            'boone.*5',                 # Boone 5 often 1x
+        ]
+        
+        for pattern in onex_categories:
+            if re.search(pattern, bike_name, re.IGNORECASE):
+                return True
+        
+        return False
+    
+    def likely_1x_system(self, crankstel, cassette, rear_derailleur, bike_name):
+        """Determine if a bike is likely a 1x system based on multiple indicators"""
+        score = 0
+        
+        # Check individual components
+        if self.is_single_chainring_crankstel(crankstel):
+            score += 3
+        
+        if self.is_wide_range_cassette(cassette):
+            score += 2
+        
+        if self.is_1x_rear_derailleur(rear_derailleur):
+            score += 2
+        
+        if self.is_1x_bike_category(bike_name):
+            score += 1
+        
+        # Check for specific component combinations
+        if 'cues' in rear_derailleur and ('11-48' in cassette or '11-50' in cassette):
+            score += 2
+        
+        if 'apex' in rear_derailleur and ('11-42' in cassette or '11-44' in cassette):
+            score += 2
+        
+        # Score >= 3 indicates likely 1x system
+        return score >= 3
+    
+    def is_2x_system(self, crankstel):
+        """Check if crankstel indicates a 2x (double chainring) setup"""
+        if not crankstel:
+            return False
+        
+        # Look for double chainring patterns like "50/34", "52/36", "48/35", "46x30"
+        double_chainring_patterns = [
+            r'\d+/\d+',   # "50/34" pattern
+            r'\d+x\d+',   # "46x30" pattern (Trek uses this format!)
+        ]
+        
+        for pattern in double_chainring_patterns:
+            if re.search(pattern, crankstel):
+                return True
+        
+        return False
 
     def extract_description(self, bike_info):
         """Extract bike description from detail page"""
@@ -639,6 +1120,7 @@ class TrekBikeScraper:
                 'url': bike.get('url', ''),
                 'sku': bike.get('sku', ''),
                 'variant': bike.get('variant', ''),
+                'color': bike.get('color', ''),
                 'description': bike.get('description', '')
             }
             
@@ -674,6 +1156,29 @@ class TrekBikeScraper:
             df.to_excel(latest_excel, index=False, engine='openpyxl')
         
         self.logger.info(f"Also saved latest versions as {latest_json}, {latest_csv}, and {latest_excel}")
+
+    def analyze_color_variants(self, bikes):
+        """Analyze and group bikes by model to show color variants"""
+        model_colors = {}
+        
+        for bike in bikes:
+            name = bike.get('name', '')
+            color = bike.get('color', '')
+            variant = bike.get('variant', '')
+            
+            if name:
+                if name not in model_colors:
+                    model_colors[name] = []
+                
+                color_info = {
+                    'color': color,
+                    'variant': variant,
+                    'price': bike.get('price', ''),
+                    'url': bike.get('url', '')
+                }
+                model_colors[name].append(color_info)
+        
+        return model_colors
 
     def print_summary(self, bikes):
         """Print a summary of scraped bikes"""
@@ -728,25 +1233,35 @@ class TrekBikeScraper:
         for category, count in sorted(categories.items()):
             print(f"  {category}: {count} models")
         
-        # Show bikes with multiple colors
-        if multi_color_models > 0:
-            print(f"\nBikes with multiple color options:")
-            color_bikes = [(name, count) for name, count in name_counts.items() if count > 1]
-            color_bikes.sort(key=lambda x: x[1], reverse=True)
+        # Show color variants analysis
+        model_colors = self.analyze_color_variants(bikes)
+        models_with_multiple_colors = {name: colors for name, colors in model_colors.items() if len(colors) > 1}
+        
+        if models_with_multiple_colors:
+            print(f"\n🎨 Color Variants Analysis:")
+            print(f"Models with multiple colors: {len(models_with_multiple_colors)}")
             
-            for name, count in color_bikes[:5]:  # Show top 5
-                colors = []
-                for bike in bikes:
-                    if bike.get('name') == name:
-                        variant = bike.get('variant', '')
-                        if variant:
-                            colors.append(variant)
-                
-                if colors:
-                    print(f"  {name}: {count} colors ({', '.join(colors)})")
+            for name, colors in list(models_with_multiple_colors.items())[:5]:  # Show top 5
+                color_names = [c['color'] for c in colors if c['color']]
+                print(f"  {name}: {len(colors)} colors")
+                for color_info in colors:
+                    if color_info['color']:
+                        print(f"    - {color_info['color']} ({color_info['variant']})")
             
-            if len(color_bikes) > 5:
-                print(f"  ... and {len(color_bikes) - 5} more models with multiple colors")
+            if len(models_with_multiple_colors) > 5:
+                print(f"  ... and {len(models_with_multiple_colors) - 5} more models with multiple colors")
+        
+        # Show all unique colors
+        all_colors = set()
+        for bike in bikes:
+            color = bike.get('color', '')
+            if color:
+                all_colors.add(color)
+        
+        print(f"\n🎨 All Available Colors ({len(all_colors)}):")
+        for color in sorted(all_colors):
+            count = sum(1 for bike in bikes if bike.get('color') == color)
+            print(f"  {color}: {count} bikes")
         
         # Show most expensive bikes
         if prices:
