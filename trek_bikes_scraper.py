@@ -16,6 +16,7 @@ import time
 import os
 from urllib.parse import urljoin, urlparse
 import glob
+from collections import defaultdict
 
 class TrekBikeScraper:
     def __init__(self):
@@ -38,6 +39,12 @@ class TrekBikeScraper:
             ]
         )
         self.logger = logging.getLogger(__name__)
+        
+        # Image download settings
+        self.download_images = True  # Set to False to disable image downloading
+        self.images_base_dir = "images"
+        self.max_image_size_mb = 10  # Skip images larger than this
+        self.supported_formats = ['.jpg', '.jpeg', '.png', '.webp']
 
     def format_color_name(self, variant):
         """Format color variant name for better readability"""
@@ -976,6 +983,324 @@ class TrekBikeScraper:
             self.logger.error(f"Error extracting description for {bike_info.get('name', 'Unknown')}: {e}")
             return ""
 
+    def extract_hero_carousel_images(self, bike_info):
+        """Extract all hero carousel images from bike detail page including color variants"""
+        if not bike_info.get('url'):
+            return []
+            
+        detail_url = urljoin(self.base_url, bike_info['url'])
+        
+        try:
+            response = self.session.get(detail_url, timeout=10)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            hero_images = []
+            html_content = str(soup)
+            
+            # Decode HTML entities to handle encoded quotes properly
+            import html as html_module
+            decoded_content = html_module.unescape(html_content)
+            
+            # Comprehensive patterns to find all carousel images
+            image_patterns = [
+                # Enhanced structured data patterns
+                r'"heroCarousel"\s*:\s*\[([^\]]+)\]',
+                r'"productImages"\s*:\s*\[([^\]]+)\]',
+                r'"imageGallery"\s*:\s*\[([^\]]+)\]',
+                r'"gallery"\s*:\s*\[([^\]]+)\]',
+                r'"images"\s*:\s*\[([^\]]+)\]',
+                r'"slides"\s*:\s*\[([^\]]+)\]',
+                r'"carouselSlides"\s*:\s*\[([^\]]+)\]',
+                
+                # Color variant specific patterns
+                r'"colorSwatchImageUrl"\s*:\s*\[([^\]]+)\]',
+                r'"variantImages"\s*:\s*\[([^\]]+)\]',
+                r'"colorVariants"\s*:\s*\[([^\]]+)\]',
+                
+                # Individual image patterns
+                r'"heroImage"\s*:\s*"([^"]*media\.trekbikes\.com[^"]*)"',
+                r'"primaryImage"\s*:\s*"([^"]*media\.trekbikes\.com[^"]*)"',
+                r'"firstVariantImage"\s*:\s*"([^"]*media\.trekbikes\.com[^"]*)"',
+                r'"thumbnailImage"\s*:\s*"([^"]*media\.trekbikes\.com[^"]*)"',
+                
+                # URL patterns with various prefixes
+                r'"[a-zA-Z_]*[Uu]rl"\s*:\s*"([^"]*media\.trekbikes\.com[^"]*)"',
+                r'"[a-zA-Z_]*[Ii]mage[a-zA-Z_]*"\s*:\s*"([^"]*media\.trekbikes\.com[^"]*)"',
+                
+                # Enhanced alternative image arrays
+                r'"primaryImages"\s*:\s*\[([^\]]+)\]',
+                r'"galleryImages"\s*:\s*\[([^\]]+)\]',
+                r'"productGallery"\s*:\s*\[([^\]]+)\]',
+                r'"heroImages"\s*:\s*\[([^\]]+)\]',
+            ]
+            
+            # Process structured data patterns (arrays) - use decoded content
+            for pattern in image_patterns[:13]:  # First 13 are array patterns
+                matches = re.findall(pattern, decoded_content, re.DOTALL)
+                for match in matches:
+                    # Extract all image URLs from the array content
+                    image_urls = re.findall(r'"([^"]*media\.trekbikes\.com[^"]*)"', match)
+                    for url in image_urls:
+                        # Clean up malformed URLs that have color prefixes
+                        if '=' in url and '//' in url:
+                            url = url.split('=', 1)[-1]
+                            
+                        if url.startswith('//'):
+                            url = 'https:' + url
+                        elif not url.startswith('http'):
+                            url = 'https://' + url
+                            
+                        # Skip malformed URLs
+                        if not url.startswith('https://media.trekbikes.com'):
+                            continue
+                            
+                        hero_images.append(url)
+            
+            # Process individual image patterns - use decoded content
+            for pattern in image_patterns[13:16]:  # Individual image patterns
+                matches = re.findall(pattern, decoded_content)
+                for match in matches:
+                    # Clean up malformed URLs that have color prefixes
+                    if '=' in match and '//' in match:
+                        match = match.split('=', 1)[-1]
+                        
+                    if match.startswith('//'):
+                        match = 'https:' + match
+                    elif not match.startswith('http'):
+                        match = 'https://' + match
+                        
+                    # Skip malformed URLs
+                    if not match.startswith('https://media.trekbikes.com'):
+                        continue
+                        
+                    hero_images.append(match)
+            
+            # Process URL and image patterns with various prefixes - use decoded content
+            for pattern in image_patterns[16:18]:  # URL patterns
+                matches = re.findall(pattern, decoded_content)
+                for match in matches:
+                    if '=' in match and '//' in match:
+                        match = match.split('=', 1)[-1]
+                        
+                    if match.startswith('//'):
+                        match = 'https:' + match
+                    elif not match.startswith('http'):
+                        match = 'https://' + match
+                        
+                    if not match.startswith('https://media.trekbikes.com'):
+                        continue
+                        
+                    hero_images.append(match)
+            
+            # Process alternative image arrays - use decoded content
+            for pattern in image_patterns[18:]:  # Alternative image arrays
+                matches = re.findall(pattern, decoded_content, re.DOTALL)
+                for match in matches:
+                    image_urls = re.findall(r'"([^"]*media\.trekbikes\.com[^"]*)"', match)
+                    for url in image_urls:
+                        # Clean up malformed URLs that have color prefixes
+                        if '=' in url and '//' in url:
+                            url = url.split('=', 1)[-1]
+                            
+                        if url.startswith('//'):
+                            url = 'https:' + url
+                        elif not url.startswith('http'):
+                            url = 'https://' + url
+                            
+                        if not url.startswith('https://media.trekbikes.com'):
+                            continue
+                            
+                        hero_images.append(url)
+            
+            # Also search for any high-quality Trek images in the page - use decoded content
+            all_trek_images = re.findall(r'([^"]*media\.trekbikes\.com[^"]*)', decoded_content)
+            for img_url in all_trek_images:
+                # Clean up malformed URLs that have color prefixes
+                if '=' in img_url and '//' in img_url:
+                    # Extract the actual URL after the = sign
+                    img_url = img_url.split('=', 1)[-1]
+                
+                if img_url.startswith('//'):
+                    img_url = 'https:' + img_url
+                elif not img_url.startswith('http'):
+                    img_url = 'https://' + img_url
+                    
+                # Skip malformed URLs
+                if not img_url.startswith('https://media.trekbikes.com'):
+                    continue
+                    
+                hero_images.append(img_url)
+            
+            # Filter for high-quality images and remove unwanted types
+            quality_images = []
+            for img_url in hero_images:
+                # Must be a Trek media URL
+                if 'media.trekbikes.com' not in img_url:
+                    continue
+                    
+                # Skip tiny thumbnails and low-quality images
+                if any(skip in img_url.lower() for skip in ['thumb', 'icon', 'logo', 'badge', 'w_50', 'w_100', 'w_150', 'h_50', 'h_100']):
+                    continue
+                
+                # Skip default placeholder images
+                if any(skip in img_url for skip in ['default-no-image', 'CyclingTips']):
+                    continue
+                
+                # Prefer high-quality images
+                is_high_quality = any(quality in img_url for quality in [
+                    'w_1360', 'w_1200', 'w_690', 'w_800', 'w_1000',
+                    'Primary', 'Hero', 'Detail', 'Gallery', 'Portrait',
+                    'h_1020', 'h_800', 'h_600'
+                ])
+                
+                # Accept medium quality if we don't have many images yet
+                is_medium_quality = any(medium in img_url for medium in [
+                    'w_400', 'w_500', 'w_600', 'h_300', 'h_400', 'h_518'
+                ])
+                
+                if is_high_quality or (is_medium_quality and len(quality_images) < 10):
+                    quality_images.append(img_url)
+            
+            # Remove duplicates while preserving order
+            unique_images = []
+            seen_urls = set()
+            seen_paths = set()  # Track image paths to avoid same image with different transformations
+            
+            for img_url in quality_images:
+                # Extract the base image path to avoid duplicates with different sizes
+                base_path = re.sub(r'/image/upload/[^/]+/', '/image/upload/', img_url)
+                
+                if img_url not in seen_urls and base_path not in seen_paths:
+                    unique_images.append(img_url)
+                    seen_urls.add(img_url)
+                    seen_paths.add(base_path)
+            
+            if unique_images:
+                self.logger.info(f"Found {len(unique_images)} hero carousel images for {bike_info.get('name', 'Unknown')}")
+                for i, img_url in enumerate(unique_images, 1):
+                    self.logger.debug(f"  Image {i}: {img_url}")
+            else:
+                self.logger.warning(f"No hero carousel images found for {bike_info.get('name', 'Unknown')}")
+            
+            return unique_images
+            
+        except Exception as e:
+            self.logger.error(f"Error extracting hero carousel images for {bike_info.get('name', 'Unknown')}: {e}")
+            return []
+
+
+    def download_image(self, image_url, save_path):
+        """Download a single image from URL to save_path"""
+        try:
+            # Check if file already exists
+            if os.path.exists(save_path):
+                self.logger.info(f"Image already exists, skipping: {os.path.basename(save_path)}")
+                return True
+            
+            # Download the image
+            response = self.session.get(image_url, stream=True, timeout=30)
+            response.raise_for_status()
+            
+            # Check file size
+            content_length = response.headers.get('content-length')
+            if content_length:
+                size_mb = int(content_length) / (1024 * 1024)
+                if size_mb > self.max_image_size_mb:
+                    self.logger.warning(f"Skipping large image ({size_mb:.1f}MB): {image_url}")
+                    return False
+            
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(save_path), exist_ok=True)
+            
+            # Save the image
+            with open(save_path, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
+            
+            file_size = os.path.getsize(save_path) / (1024 * 1024)
+            self.logger.info(f"Downloaded image ({file_size:.1f}MB): {os.path.basename(save_path)}")
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Error downloading image {image_url}: {e}")
+            return False
+
+    def get_image_filename_from_url(self, image_url):
+        """Extract a clean filename from image URL"""
+        # Parse the URL to get the path
+        parsed_url = urlparse(image_url)
+        path = parsed_url.path
+        
+        # Extract filename from path
+        filename = os.path.basename(path)
+        
+        # If no filename or no extension, create one from the path
+        if not filename or '.' not in filename:
+            # Use the last part of the path before query parameters
+            path_parts = [part for part in path.split('/') if part]
+            if path_parts:
+                filename = path_parts[-1]
+                # Add .jpg extension if no extension present
+                if '.' not in filename:
+                    filename += '.jpg'
+            else:
+                filename = 'image.jpg'
+        
+        # Clean up filename - remove special characters
+        filename = re.sub(r'[^\w\-_\.]', '_', filename)
+        
+        return filename
+
+    def save_bike_images(self, bike_info, hero_images):
+        """Save all hero carousel images for a bike with proper organization"""
+        if not hero_images or not self.download_images:
+            return []
+        
+        bike_name = bike_info.get('name', 'Unknown')
+        brand = bike_info.get('brand', 'Trek')
+        
+        # Clean bike name for folder structure
+        clean_bike_name = re.sub(r'[^\w\-_\s]', '', bike_name)
+        clean_bike_name = re.sub(r'\s+', '_', clean_bike_name.strip())
+        
+        # Create brand folder path
+        brand_folder = os.path.join(self.images_base_dir, brand)
+        bike_folder = os.path.join(brand_folder, clean_bike_name)
+        
+        downloaded_images = []
+        
+        for i, image_url in enumerate(hero_images):
+            try:
+                # Get filename from URL
+                original_filename = self.get_image_filename_from_url(image_url)
+                
+                # Create numbered filename to handle multiple images
+                name_part, ext_part = os.path.splitext(original_filename)
+                if len(hero_images) > 1:
+                    numbered_filename = f"{name_part}_{i+1:02d}{ext_part}"
+                else:
+                    numbered_filename = original_filename
+                
+                # Full save path
+                save_path = os.path.join(bike_folder, numbered_filename)
+                
+                # Download the image
+                if self.download_image(image_url, save_path):
+                    downloaded_images.append({
+                        'url': image_url,
+                        'local_path': save_path,
+                        'filename': numbered_filename
+                    })
+                
+            except Exception as e:
+                self.logger.error(f"Error saving image {i+1} for {bike_name}: {e}")
+        
+        if downloaded_images:
+            self.logger.info(f"Downloaded {len(downloaded_images)} images for {bike_name}")
+        
+        return downloaded_images
+
     def scrape_trek_bikes(self):
         """Main scraping method"""
         # Trek road bikes URL (Dutch site)
@@ -1032,6 +1357,16 @@ class TrekBikeScraper:
                     word_count = len(description.split())
                     bike_info['description'] = description
                     self.logger.info(f"Added description ({word_count} words) for {bike_name}")
+                
+                # Extract and download hero carousel images
+                self.logger.info(f"Fetching hero carousel images from: {urljoin(self.base_url, bike_info.get('url', ''))}")
+                hero_images = self.extract_hero_carousel_images(bike_info)
+                if hero_images:
+                    # Download the images
+                    downloaded_images = self.save_bike_images(bike_info, hero_images)
+                    if downloaded_images:
+                        bike_info['hero_images'] = downloaded_images
+                        self.logger.info(f"Downloaded {len(downloaded_images)} hero carousel images for {bike_name}")
                 
                 detailed_bikes.append(bike_info)
                 
@@ -1130,6 +1465,18 @@ class TrekBikeScraper:
                 # Clean up specification key names for CSV headers
                 clean_key = f"spec_{spec_key.replace(' ', '_').replace('/', '_')}"
                 row[clean_key] = spec_value
+            
+            # Add hero images
+            hero_images = bike.get('hero_images', [])
+            if hero_images:
+                for i, img_info in enumerate(hero_images):
+                    if isinstance(img_info, dict):
+                        row[f'hero_image_{i+1}_url'] = img_info.get('url', '')
+                        row[f'hero_image_{i+1}_path'] = img_info.get('local_path', '')
+                        row[f'hero_image_{i+1}_filename'] = img_info.get('filename', '')
+                    else:
+                        # Handle case where it's just a URL string
+                        row[f'hero_image_{i+1}_url'] = str(img_info)
             
             csv_data.append(row)
         
@@ -1285,6 +1632,55 @@ class TrekBikeScraper:
         
         print("=" * 50)
 
+    def print_image_summary(self, bikes):
+        """Print summary of image download statistics"""
+        print("\n" + "=" * 50)
+        print("IMAGE DOWNLOAD SUMMARY")
+        print("=" * 50)
+        
+        total_bikes = len(bikes)
+        bikes_with_images = 0
+        total_images_downloaded = 0
+        total_image_urls_found = 0
+        
+        brand_stats = defaultdict(lambda: {'bikes': 0, 'images': 0})
+        
+        for bike in bikes:
+            bike_name = bike.get('name', 'Unknown')
+            brand = bike.get('brand', 'Trek')
+            hero_images = bike.get('hero_images', [])
+            
+            if hero_images:
+                bikes_with_images += 1
+                total_images_downloaded += len(hero_images)
+                brand_stats[brand]['bikes'] += 1
+                brand_stats[brand]['images'] += len(hero_images)
+        
+        print(f"Total bikes processed: {total_bikes}")
+        print(f"Bikes with images downloaded: {bikes_with_images}")
+        print(f"Total hero carousel images downloaded: {total_images_downloaded}")
+        
+        if total_bikes > 0:
+            coverage_percentage = (bikes_with_images / total_bikes) * 100
+            print(f"Image coverage: {coverage_percentage:.1f}%")
+        
+        if brand_stats:
+            print("\nBy Brand:")
+            for brand, stats in brand_stats.items():
+                avg_images = stats['images'] / stats['bikes'] if stats['bikes'] > 0 else 0
+                print(f"  {brand}: {stats['bikes']} bikes, {stats['images']} images (avg: {avg_images:.1f} per bike)")
+        
+        # Show folder structure
+        if os.path.exists(self.images_base_dir):
+            print(f"\nImages saved in: {os.path.abspath(self.images_base_dir)}/")
+            for brand in brand_stats.keys():
+                brand_path = os.path.join(self.images_base_dir, brand)
+                if os.path.exists(brand_path):
+                    bike_folders = [d for d in os.listdir(brand_path) if os.path.isdir(os.path.join(brand_path, d))]
+                    print(f"  {brand}/: {len(bike_folders)} bike folders")
+        
+        print("=" * 50)
+
 def main():
     """Main function"""
     scraper = TrekBikeScraper()
@@ -1299,6 +1695,7 @@ def main():
         
         # Print summary
         scraper.print_summary(bikes)
+        scraper.print_image_summary(bikes) # Added this line to print image summary
     else:
         print("No bikes were scraped. Check the logs for errors.")
 

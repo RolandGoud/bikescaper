@@ -1,0 +1,552 @@
+2025-07-15 17:29:21,271 - INFO - === Trek Images Reorganization Script ===
+2025-07-15 17:29:21,271 - INFO - JSON data file: data/trek_bikes_latest.json
+2025-07-15 17:29:21,271 - INFO - Images base directory: images
+2025-07-15 17:29:21,271 - INFO - Dry run mode: True
+2025-07-15 17:29:21,271 - INFO - 
+1. Loading bike data...
+2025-07-15 17:29:21,279 - INFO - Loaded 61 bikes from data/trek_bikes_latest.json
+2025-07-15 17:29:21,279 - INFO - 
+2. Creating name to SKU mapping...
+2025-07-15 17:29:21,281 - INFO - Created mapping for 61 unique bike names
+2025-07-15 17:29:21,281 - INFO - Example 1: 'Domane_AL_2_Rim' -> ['33037_A']
+2025-07-15 17:29:21,281 - INFO - Example 2: 'Domane_AL_2_Gen_4' -> ['41587_A']
+2025-07-15 17:29:21,281 - INFO - Example 3: 'Checkpoint_ALR_3_Gen_3' -> ['49944_A']
+2025-07-15 17:29:21,281 - INFO - Example 4: 'Checkpoint_ALR_3_Gen_2' -> ['47530_B']
+2025-07-15 17:29:21,281 - INFO - Example 5: 'Checkpoint_ALR_4_Gen_2' -> ['41513_A']
+2025-07-15 17:29:21,281 - INFO - 
+3. Reorganizing image folders...
+2025-07-15 17:29:21,281 - INFO - Starting reorganization in: images/Trek
+2025-07-15 17:29:21,281 - INFO - Dry run mode: True
+2025-07-15 17:29:21,283 - INFO - Found 60 existing folders
+2025-07-15 17:29:21,283 - INFO - 
+Processing folder: Madone_SLR_8_AXS_Gen_8
+2025-07-15 17:29:21,283 - INFO -   Single variant: Madone_SLR_8_AXS_Gen_8 -> 49168_A
+2025-07-15 17:29:21,283 - INFO -   [DRY RUN] Would move: Madone_SLR_8_AXS_Gen_8 -> 49168_A
+2025-07-15 17:29:21,283 - INFO - 
+Processing folder: Speed_Concept_SLR_7_AXS
+2025-07-15 17:29:21,283 - INFO -   Single variant: Speed_Concept_SLR_7_AXS -> 56332_A
+2025-07-15 17:29:21,284 - INFO -   [DRY RUN] Would move: Speed_Concept_SLR_7_AXS -> 56332_A
+2025-07-15 17:29:21,284 - INFO - 
+Processing folder: Speed_Concept_SLR_7
+2025-07-15 17:29:21,284 - INFO -   Single variant: Speed_Concept_SLR_7 -> 35577_A
+2025-07-15 17:29:21,284 - INFO -   [DRY RUN] Would move: Speed_Concept_SLR_7 -> 35577_A
+2025-07-15 17:29:21,284 - INFO - 
+Processing folder: Speed_Concept_SLR_9
+2025-07-15 17:29:21,284 - INFO -   Single variant: Speed_Concept_SLR_9 -> 35757_A
+2025-07-15 17:29:21,284 - INFO -   [DRY RUN] Would move: Speed_Concept_SLR_9 -> 35757_A
+2025-07-15 17:29:21,284 - INFO - 
+Processing folder: Checkpoint_SL_6_AXS_Gen_2
+2025-07-15 17:29:21,284 - INFO -   Single variant: Checkpoint_SL_6_AXS_Gen_2 -> 41397_B
+2025-07-15 17:29:21,284 - INFO -   [DRY RUN] Would move: Checkpoint_SL_6_AXS_Gen_2 -> 41397_B
+2025-07-15 17:29:21,284 - INFO - 
+Processing folder: Domane_SLR_8_AXS_Gen_4
+2025-07-15 17:29:21,285 - INFO -   Single variant: Domane_SLR_8_AXS_Gen_4 -> 49167_A
+2025-07-15 17:29:21,285 - INFO -   [DRY RUN] Would move: Domane_SLR_8_AXS_Gen_4 -> 49167_A
+2025-07-15 17:29:21,285 - INFO - 
+Processing folder: Checkpoint_SL_6_AXS_Gen_3
+2025-07-15 17:29:21,285 - INFO -   Single variant: Checkpoint_SL_6_AXS_Gen_3 -> 55098_A
+2025-07-15 17:29:21,285 - INFO -   [DRY RUN] Would move: Checkpoint_SL_6_AXS_Gen_3 -> 55098_A
+2025-07-15 17:29:21,285 - INFO - 
+Processing folder: Domane_SLR_9
+2025-07-15 17:29:21,285 - INFO -   Single variant: Domane_SLR_9 -> 36741_B
+2025-07-15 17:29:21,286 - INFO -   [DRY RUN] Would move: Domane_SLR_9 -> 36741_B
+2025-07-15 17:29:21,286 - INFO - 
+Processing folder: Domane_SLR_7
+2025-07-15 17:29:21,286 - INFO -   Single variant: Domane_SLR_7 -> 36707_B
+2025-07-15 17:29:21,286 - INFO -   [DRY RUN] Would move: Domane_SLR_7 -> 36707_B
+2025-07-15 17:29:21,286 - INFO - 
+Processing folder: Domane_SLR_7_gen_4
+2025-07-15 17:29:21,286 - INFO -   Single variant: Domane_SLR_7_gen_4 -> 57892_C
+2025-07-15 17:29:21,286 - INFO -   [DRY RUN] Would move: Domane_SLR_7_gen_4 -> 57892_C
+2025-07-15 17:29:21,286 - INFO - 
+Processing folder: FX_Sport_SL_6
+2025-07-15 17:29:21,286 - INFO -   Single variant: FX_Sport_SL_6 -> 47256_A
+2025-07-15 17:29:21,287 - INFO -   [DRY RUN] Would move: FX_Sport_SL_6 -> 47256_A
+2025-07-15 17:29:21,287 - INFO - 
+Processing folder: FX_Sport_6
+2025-07-15 17:29:21,287 - INFO -   Single variant: FX_Sport_6 -> 35787_A
+2025-07-15 17:29:21,287 - INFO -   [DRY RUN] Would move: FX_Sport_6 -> 35787_A
+2025-07-15 17:29:21,288 - INFO - 
+Processing folder: Domane_SLR_6_Pro
+2025-07-15 17:29:21,288 - INFO -   Single variant: Domane_SLR_6_Pro -> 36703_A
+2025-07-15 17:29:21,288 - INFO -   [DRY RUN] Would move: Domane_SLR_6_Pro -> 36703_A
+2025-07-15 17:29:21,288 - INFO - 
+Processing folder: Checkmate_SLR_8_AXS
+2025-07-15 17:29:21,288 - INFO -   Single variant: Checkmate_SLR_8_AXS -> 49169_A
+2025-07-15 17:29:21,288 - INFO -   [DRY RUN] Would move: Checkmate_SLR_8_AXS -> 49169_A
+2025-07-15 17:29:21,288 - INFO - 
+Processing folder: Madone_SLR_7_Gen_8
+2025-07-15 17:29:21,288 - INFO -   Single variant: Madone_SLR_7_Gen_8 -> 46687_B
+2025-07-15 17:29:21,288 - INFO -   [DRY RUN] Would move: Madone_SLR_7_Gen_8 -> 46687_B
+2025-07-15 17:29:21,288 - INFO - 
+Processing folder: Madone_SL_6_AXS_Gen_8
+2025-07-15 17:29:21,288 - INFO -   Single variant: Madone_SL_6_AXS_Gen_8 -> 46221_A
+2025-07-15 17:29:21,288 - INFO -   [DRY RUN] Would move: Madone_SL_6_AXS_Gen_8 -> 46221_A
+2025-07-15 17:29:21,288 - INFO - 
+Processing folder: Émonda_SL_5
+2025-07-15 17:29:21,288 - INFO -   Single variant: Émonda_SL_5 -> 36974_A
+2025-07-15 17:29:21,288 - INFO -   [DRY RUN] Would move: Émonda_SL_5 -> 36974_A
+2025-07-15 17:29:21,289 - INFO - 
+Processing folder: Domane_AL_5
+2025-07-15 17:29:21,289 - INFO -   Single variant: Domane_AL_5 -> 47218_A
+2025-07-15 17:29:21,289 - INFO -   [DRY RUN] Would move: Domane_AL_5 -> 47218_A
+2025-07-15 17:29:21,289 - INFO - 
+Processing folder: Checkmate_SLR_9_AXS
+2025-07-15 17:29:21,289 - INFO -   Single variant: Checkmate_SLR_9_AXS -> 46152_A
+2025-07-15 17:29:21,289 - INFO -   [DRY RUN] Would move: Checkmate_SLR_9_AXS -> 46152_A
+2025-07-15 17:29:21,289 - INFO - 
+Processing folder: Madone_SLR_9_AXS_Gen_8
+2025-07-15 17:29:21,289 - INFO -   Single variant: Madone_SLR_9_AXS_Gen_8 -> 46151_A
+2025-07-15 17:29:21,289 - INFO -   [DRY RUN] Would move: Madone_SLR_9_AXS_Gen_8 -> 46151_A
+2025-07-15 17:29:21,290 - INFO - 
+Processing folder: Domane_SLR_7_AXS
+2025-07-15 17:29:21,290 - INFO -   Single variant: Domane_SLR_7_AXS -> 41481_B
+2025-07-15 17:29:21,290 - INFO -   [DRY RUN] Would move: Domane_SLR_7_AXS -> 41481_B
+2025-07-15 17:29:21,290 - INFO - 
+Processing folder: Boone_5
+2025-07-15 17:29:21,290 - INFO -   Single variant: Boone_5 -> 41655_B
+2025-07-15 17:29:21,290 - INFO -   [DRY RUN] Would move: Boone_5 -> 41655_B
+2025-07-15 17:29:21,291 - INFO - 
+Processing folder: Madone_SLR_7_AXS
+2025-07-15 17:29:21,291 - INFO -   Single variant: Madone_SLR_7_AXS -> 58135_A
+2025-07-15 17:29:21,291 - INFO -   [DRY RUN] Would move: Madone_SLR_7_AXS -> 58135_A
+2025-07-15 17:29:21,291 - INFO - 
+Processing folder: Domane_AL_2_Rim
+2025-07-15 17:29:21,291 - INFO -   Single variant: Domane_AL_2_Rim -> 33037_A
+2025-07-15 17:29:21,291 - INFO -   [DRY RUN] Would move: Domane_AL_2_Rim -> 33037_A
+2025-07-15 17:29:21,291 - INFO - 
+Processing folder: Domane_SLR_9_AXS_Gen_4
+2025-07-15 17:29:21,291 - INFO -   Single variant: Domane_SLR_9_AXS_Gen_4 -> 57944_C
+2025-07-15 17:29:21,291 - INFO -   [DRY RUN] Would move: Domane_SLR_9_AXS_Gen_4 -> 57944_C
+2025-07-15 17:29:21,291 - INFO - 
+Processing folder: Checkpoint_SL_7_AXS_Gen_3
+2025-07-15 17:29:21,291 - INFO -   Single variant: Checkpoint_SL_7_AXS_Gen_3 -> 55097_A
+2025-07-15 17:29:21,291 - INFO -   [DRY RUN] Would move: Checkpoint_SL_7_AXS_Gen_3 -> 55097_A
+2025-07-15 17:29:21,291 - INFO - 
+Processing folder: Domane_SL_6_AXS_gen_4
+2025-07-15 17:29:21,292 - INFO -   Single variant: Domane_SL_6_AXS_gen_4 -> 36152_A
+2025-07-15 17:29:21,292 - INFO -   [DRY RUN] Would move: Domane_SL_6_AXS_gen_4 -> 36152_A
+2025-07-15 17:29:21,292 - INFO - 
+Processing folder: Domane_SL_6_gen_4
+2025-07-15 17:29:21,292 - INFO -   Single variant: Domane_SL_6_gen_4 -> 47131_A
+2025-07-15 17:29:21,292 - INFO -   [DRY RUN] Would move: Domane_SL_6_gen_4 -> 47131_A
+2025-07-15 17:29:21,292 - INFO - 
+Processing folder: Madone_SL_6_Gen_8
+2025-07-15 17:29:21,292 - INFO -   Single variant: Madone_SL_6_Gen_8 -> 46219_B
+2025-07-15 17:29:21,292 - INFO -   [DRY RUN] Would move: Madone_SL_6_Gen_8 -> 46219_B
+2025-07-15 17:29:21,292 - INFO - 
+Processing folder: Domane_AL_5_Gen_4
+2025-07-15 17:29:21,292 - INFO -   Single variant: Domane_AL_5_Gen_4 -> 41395_A
+2025-07-15 17:29:21,292 - INFO -   [DRY RUN] Would move: Domane_AL_5_Gen_4 -> 41395_A
+2025-07-15 17:29:21,292 - INFO - 
+Processing folder: Checkpoint_ALR_4_Gen_2
+2025-07-15 17:29:21,292 - INFO -   Single variant: Checkpoint_ALR_4_Gen_2 -> 41513_A
+2025-07-15 17:29:21,292 - INFO -   [DRY RUN] Would move: Checkpoint_ALR_4_Gen_2 -> 41513_A
+2025-07-15 17:29:21,292 - INFO - 
+Processing folder: Domane_SLR_7_AXS_Gen_4
+2025-07-15 17:29:21,292 - INFO -   Single variant: Domane_SLR_7_AXS_Gen_4 -> 57915_C
+2025-07-15 17:29:21,292 - INFO -   [DRY RUN] Would move: Domane_SLR_7_AXS_Gen_4 -> 57915_C
+2025-07-15 17:29:21,292 - INFO - 
+Processing folder: Madone_SL_6_Gen_7
+2025-07-15 17:29:21,293 - INFO -   Single variant: Madone_SL_6_Gen_7 -> 41466_A
+2025-07-15 17:29:21,293 - INFO -   [DRY RUN] Would move: Madone_SL_6_Gen_7 -> 41466_A
+2025-07-15 17:29:21,293 - INFO - 
+Processing folder: Émonda_ALR_5
+2025-07-15 17:29:21,293 - INFO -   Single variant: Émonda_ALR_5 -> 41426_A
+2025-07-15 17:29:21,293 - INFO -   [DRY RUN] Would move: Émonda_ALR_5 -> 41426_A
+2025-07-15 17:29:21,293 - INFO - 
+Processing folder: Madone_SLR_7_AXS_Gen_8
+2025-07-15 17:29:21,293 - INFO -   Single variant: Madone_SLR_7_AXS_Gen_8 -> 46688_A
+2025-07-15 17:29:21,293 - INFO -   [DRY RUN] Would move: Madone_SLR_7_AXS_Gen_8 -> 46688_A
+2025-07-15 17:29:21,293 - INFO - 
+Processing folder: Checkpoint_ALR_4_Gen_3
+2025-07-15 17:29:21,293 - INFO -   Single variant: Checkpoint_ALR_4_Gen_3 -> 49973_A
+2025-07-15 17:29:21,293 - INFO -   [DRY RUN] Would move: Checkpoint_ALR_4_Gen_3 -> 49973_A
+2025-07-15 17:29:21,293 - INFO - 
+Processing folder: Domane_SLR_8_AXS
+2025-07-15 17:29:21,293 - INFO -   Single variant: Domane_SLR_8_AXS -> 49166_B
+2025-07-15 17:29:21,293 - INFO -   [DRY RUN] Would move: Domane_SLR_8_AXS -> 49166_B
+2025-07-15 17:29:21,294 - INFO - 
+Processing folder: Émonda_SL_7
+2025-07-15 17:29:21,294 - INFO -   Single variant: Émonda_SL_7 -> 35046_A
+2025-07-15 17:29:21,294 - INFO -   [DRY RUN] Would move: Émonda_SL_7 -> 35046_A
+2025-07-15 17:29:21,294 - INFO - 
+Processing folder: FX_Sport_SL_5
+2025-07-15 17:29:21,294 - INFO -   Single variant: FX_Sport_SL_5 -> 47263_A
+2025-07-15 17:29:21,294 - INFO -   [DRY RUN] Would move: FX_Sport_SL_5 -> 47263_A
+2025-07-15 17:29:21,294 - INFO - 
+Processing folder: Checkpoint_SL_5_Gen_2
+2025-07-15 17:29:21,294 - INFO -   Single variant: Checkpoint_SL_5_Gen_2 -> 41398_C
+2025-07-15 17:29:21,294 - INFO -   [DRY RUN] Would move: Checkpoint_SL_5_Gen_2 -> 41398_C
+2025-07-15 17:29:21,294 - INFO - 
+Processing folder: Émonda_SL_6
+2025-07-15 17:29:21,294 - INFO -   Single variant: Émonda_SL_6 -> 41352_B
+2025-07-15 17:29:21,295 - INFO -   [DRY RUN] Would move: Émonda_SL_6 -> 41352_B
+2025-07-15 17:29:21,295 - INFO - 
+Processing folder: FX_Sport_4
+2025-07-15 17:29:21,295 - INFO -   Single variant: FX_Sport_4 -> 40822_A
+2025-07-15 17:29:21,295 - INFO -   [DRY RUN] Would move: FX_Sport_4 -> 40822_A
+2025-07-15 17:29:21,295 - INFO - 
+Processing folder: Madone_SL_7_Gen_7
+2025-07-15 17:29:21,295 - INFO -   Single variant: Madone_SL_7_Gen_7 -> 41467_B
+2025-07-15 17:29:21,295 - INFO -   [DRY RUN] Would move: Madone_SL_7_Gen_7 -> 41467_B
+2025-07-15 17:29:21,295 - INFO - 
+Processing folder: Madone_SL_5_Gen_8
+2025-07-15 17:29:21,295 - INFO -   Single variant: Madone_SL_5_Gen_8 -> 46218_A
+2025-07-15 17:29:21,295 - INFO -   [DRY RUN] Would move: Madone_SL_5_Gen_8 -> 46218_A
+2025-07-15 17:29:21,295 - INFO - 
+Processing folder: Checkpoint_ALR_5_Gen_3
+2025-07-15 17:29:21,295 - INFO -   Single variant: Checkpoint_ALR_5_Gen_3 -> 49946_A
+2025-07-15 17:29:21,296 - INFO -   [DRY RUN] Would move: Checkpoint_ALR_5_Gen_3 -> 49946_A
+2025-07-15 17:29:21,296 - INFO - 
+Processing folder: Domane_SL_5_Gen_4
+2025-07-15 17:29:21,296 - INFO -   Single variant: Domane_SL_5_Gen_4 -> 41348_B
+2025-07-15 17:29:21,296 - INFO -   [DRY RUN] Would move: Domane_SL_5_Gen_4 -> 41348_B
+2025-07-15 17:29:21,296 - INFO - 
+Processing folder: Domane_AL_4_Gen_4
+2025-07-15 17:29:21,296 - INFO -   Single variant: Domane_AL_4_Gen_4 -> 41607_B
+2025-07-15 17:29:21,296 - INFO -   [DRY RUN] Would move: Domane_AL_4_Gen_4 -> 41607_B
+2025-07-15 17:29:21,296 - INFO - 
+Processing folder: Checkmate_SLR_7_AXS
+2025-07-15 17:29:21,296 - INFO -   Single variant: Checkmate_SLR_7_AXS -> 58668_A
+2025-07-15 17:29:21,296 - INFO -   [DRY RUN] Would move: Checkmate_SLR_7_AXS -> 58668_A
+2025-07-15 17:29:21,296 - INFO - 
+Processing folder: Madone_SLR_9_gen_8
+2025-07-15 17:29:21,297 - INFO -   Single variant: Madone_SLR_9_gen_8 -> 46707_A
+2025-07-15 17:29:21,297 - INFO -   [DRY RUN] Would move: Madone_SLR_9_gen_8 -> 46707_A
+2025-07-15 17:29:21,297 - INFO - 
+Processing folder: Madone_SL_7_Gen_8
+2025-07-15 17:29:21,297 - INFO -   Single variant: Madone_SL_7_Gen_8 -> 46220_A
+2025-07-15 17:29:21,297 - INFO -   [DRY RUN] Would move: Madone_SL_7_Gen_8 -> 46220_A
+2025-07-15 17:29:21,298 - INFO - 
+Processing folder: Domane_SL_7_gen_3
+2025-07-15 17:29:21,298 - INFO -   Single variant: Domane_SL_7_gen_3 -> 35333_A
+2025-07-15 17:29:21,298 - INFO -   [DRY RUN] Would move: Domane_SL_7_gen_3 -> 35333_A
+2025-07-15 17:29:21,299 - INFO - 
+Processing folder: Checkpoint_SL_5_AXS_Gen_3
+2025-07-15 17:29:21,299 - INFO -   Single variant: Checkpoint_SL_5_AXS_Gen_3 -> 47071_A
+2025-07-15 17:29:21,299 - INFO -   [DRY RUN] Would move: Checkpoint_SL_5_AXS_Gen_3 -> 47071_A
+2025-07-15 17:29:21,299 - INFO - 
+Processing folder: Domane_SL_7_Gen_4
+2025-07-15 17:29:21,299 - INFO -   Single variant: Domane_SL_7_Gen_4 -> 47132_A
+2025-07-15 17:29:21,299 - INFO -   [DRY RUN] Would move: Domane_SL_7_Gen_4 -> 47132_A
+2025-07-15 17:29:21,299 - INFO - 
+Processing folder: Checkpoint_ALR_5_Gen_2
+2025-07-15 17:29:21,299 - INFO -   Single variant: Checkpoint_ALR_5_Gen_2 -> 41640_A
+2025-07-15 17:29:21,299 - INFO -   [DRY RUN] Would move: Checkpoint_ALR_5_Gen_2 -> 41640_A
+2025-07-15 17:29:21,299 - INFO - 
+Processing folder: Speed_Concept_SLR_9_AXS
+2025-07-15 17:29:21,299 - INFO -   Single variant: Speed_Concept_SLR_9_AXS -> 48020_A
+2025-07-15 17:29:21,299 - INFO -   [DRY RUN] Would move: Speed_Concept_SLR_9_AXS -> 48020_A
+2025-07-15 17:29:21,300 - INFO - 
+Processing folder: Speed_Concept_SLR_8_AXS
+2025-07-15 17:29:21,300 - INFO -   Single variant: Speed_Concept_SLR_8_AXS -> 49162_A
+2025-07-15 17:29:21,300 - INFO -   [DRY RUN] Would move: Speed_Concept_SLR_8_AXS -> 49162_A
+2025-07-15 17:29:21,300 - INFO - 
+Processing folder: Checkpoint_ALR_3_Gen_3
+2025-07-15 17:29:21,300 - INFO -   Single variant: Checkpoint_ALR_3_Gen_3 -> 49944_A
+2025-07-15 17:29:21,300 - INFO -   [DRY RUN] Would move: Checkpoint_ALR_3_Gen_3 -> 49944_A
+2025-07-15 17:29:21,300 - INFO - 
+Processing folder: Domane_AL_2_Gen_4
+2025-07-15 17:29:21,300 - INFO -   Single variant: Domane_AL_2_Gen_4 -> 41587_A
+2025-07-15 17:29:21,300 - INFO -   [DRY RUN] Would move: Domane_AL_2_Gen_4 -> 41587_A
+2025-07-15 17:29:21,300 - INFO - 
+Processing folder: Checkpoint_ALR_3_Gen_2
+2025-07-15 17:29:21,300 - INFO -   Single variant: Checkpoint_ALR_3_Gen_2 -> 47530_B
+2025-07-15 17:29:21,300 - INFO -   [DRY RUN] Would move: Checkpoint_ALR_3_Gen_2 -> 47530_B
+2025-07-15 17:29:21,301 - INFO - 
+Processing folder: Domane_SLR_9_Gen_4
+2025-07-15 17:29:21,301 - INFO -   Single variant: Domane_SLR_9_Gen_4 -> 57942_C
+2025-07-15 17:29:21,301 - INFO -   [DRY RUN] Would move: Domane_SLR_9_Gen_4 -> 57942_C
+2025-07-15 17:29:21,301 - INFO - 
+Reorganization complete!
+2025-07-15 17:29:21,301 - INFO - Folders moved: 60
+2025-07-15 17:29:21,301 - INFO - Folders skipped: 0
+2025-07-15 17:29:21,301 - INFO - 
+4. Updating JSON data with new paths...
+2025-07-15 17:29:21,310 - INFO - [DRY RUN] Would update 61 bike records in data/trek_bikes_latest.json
+2025-07-15 17:29:21,310 - INFO - 
+=== Summary ===
+2025-07-15 17:29:21,311 - INFO - Bike models processed: 61
+2025-07-15 17:29:21,311 - INFO - Folders moved: 60
+2025-07-15 17:29:21,311 - INFO - Folders skipped: 0
+2025-07-15 17:29:21,311 - INFO - JSON records updated: 61
+2025-07-15 17:29:21,311 - INFO - 
+⚠️  This was a DRY RUN. No files were actually moved.
+2025-07-15 17:29:21,311 - INFO - To perform the actual reorganization, set dry_run=False in the script.
+2025-07-15 17:29:41,428 - INFO - === Trek Images Reorganization Script ===
+2025-07-15 17:29:41,428 - INFO - JSON data file: data/trek_bikes_latest.json
+2025-07-15 17:29:41,428 - INFO - Images base directory: images
+2025-07-15 17:29:41,428 - INFO - Dry run mode: False
+2025-07-15 17:29:41,428 - INFO - 
+1. Loading bike data...
+2025-07-15 17:29:41,431 - INFO - Loaded 61 bikes from data/trek_bikes_latest.json
+2025-07-15 17:29:41,431 - INFO - 
+2. Creating name to SKU mapping...
+2025-07-15 17:29:41,431 - INFO - Created mapping for 61 unique bike names
+2025-07-15 17:29:41,432 - INFO - Example 1: 'Domane_AL_2_Rim' -> ['33037_A']
+2025-07-15 17:29:41,432 - INFO - Example 2: 'Domane_AL_2_Gen_4' -> ['41587_A']
+2025-07-15 17:29:41,432 - INFO - Example 3: 'Checkpoint_ALR_3_Gen_3' -> ['49944_A']
+2025-07-15 17:29:41,432 - INFO - Example 4: 'Checkpoint_ALR_3_Gen_2' -> ['47530_B']
+2025-07-15 17:29:41,432 - INFO - Example 5: 'Checkpoint_ALR_4_Gen_2' -> ['41513_A']
+2025-07-15 17:29:41,432 - INFO - 
+3. Reorganizing image folders...
+2025-07-15 17:29:41,432 - INFO - Starting reorganization in: images/Trek
+2025-07-15 17:29:41,432 - INFO - Dry run mode: False
+2025-07-15 17:29:41,433 - INFO - Found 60 existing folders
+2025-07-15 17:29:41,433 - INFO - 
+Processing folder: Madone_SLR_8_AXS_Gen_8
+2025-07-15 17:29:41,433 - INFO -   Single variant: Madone_SLR_8_AXS_Gen_8 -> 49168_A
+2025-07-15 17:29:41,434 - INFO -   ✅ Moved: Madone_SLR_8_AXS_Gen_8 -> 49168_A
+2025-07-15 17:29:41,434 - INFO - 
+Processing folder: Speed_Concept_SLR_7_AXS
+2025-07-15 17:29:41,434 - INFO -   Single variant: Speed_Concept_SLR_7_AXS -> 56332_A
+2025-07-15 17:29:41,434 - INFO -   ✅ Moved: Speed_Concept_SLR_7_AXS -> 56332_A
+2025-07-15 17:29:41,434 - INFO - 
+Processing folder: Speed_Concept_SLR_7
+2025-07-15 17:29:41,434 - INFO -   Single variant: Speed_Concept_SLR_7 -> 35577_A
+2025-07-15 17:29:41,434 - INFO -   ✅ Moved: Speed_Concept_SLR_7 -> 35577_A
+2025-07-15 17:29:41,434 - INFO - 
+Processing folder: Speed_Concept_SLR_9
+2025-07-15 17:29:41,434 - INFO -   Single variant: Speed_Concept_SLR_9 -> 35757_A
+2025-07-15 17:29:41,434 - INFO -   ✅ Moved: Speed_Concept_SLR_9 -> 35757_A
+2025-07-15 17:29:41,434 - INFO - 
+Processing folder: Checkpoint_SL_6_AXS_Gen_2
+2025-07-15 17:29:41,435 - INFO -   Single variant: Checkpoint_SL_6_AXS_Gen_2 -> 41397_B
+2025-07-15 17:29:41,435 - INFO -   ✅ Moved: Checkpoint_SL_6_AXS_Gen_2 -> 41397_B
+2025-07-15 17:29:41,435 - INFO - 
+Processing folder: Domane_SLR_8_AXS_Gen_4
+2025-07-15 17:29:41,435 - INFO -   Single variant: Domane_SLR_8_AXS_Gen_4 -> 49167_A
+2025-07-15 17:29:41,435 - INFO -   ✅ Moved: Domane_SLR_8_AXS_Gen_4 -> 49167_A
+2025-07-15 17:29:41,435 - INFO - 
+Processing folder: Checkpoint_SL_6_AXS_Gen_3
+2025-07-15 17:29:41,435 - INFO -   Single variant: Checkpoint_SL_6_AXS_Gen_3 -> 55098_A
+2025-07-15 17:29:41,435 - INFO -   ✅ Moved: Checkpoint_SL_6_AXS_Gen_3 -> 55098_A
+2025-07-15 17:29:41,435 - INFO - 
+Processing folder: Domane_SLR_9
+2025-07-15 17:29:41,435 - INFO -   Single variant: Domane_SLR_9 -> 36741_B
+2025-07-15 17:29:41,435 - INFO -   ✅ Moved: Domane_SLR_9 -> 36741_B
+2025-07-15 17:29:41,435 - INFO - 
+Processing folder: Domane_SLR_7
+2025-07-15 17:29:41,435 - INFO -   Single variant: Domane_SLR_7 -> 36707_B
+2025-07-15 17:29:41,436 - INFO -   ✅ Moved: Domane_SLR_7 -> 36707_B
+2025-07-15 17:29:41,436 - INFO - 
+Processing folder: Domane_SLR_7_gen_4
+2025-07-15 17:29:41,436 - INFO -   Single variant: Domane_SLR_7_gen_4 -> 57892_C
+2025-07-15 17:29:41,436 - INFO -   ✅ Moved: Domane_SLR_7_gen_4 -> 57892_C
+2025-07-15 17:29:41,436 - INFO - 
+Processing folder: FX_Sport_SL_6
+2025-07-15 17:29:41,436 - INFO -   Single variant: FX_Sport_SL_6 -> 47256_A
+2025-07-15 17:29:41,436 - INFO -   ✅ Moved: FX_Sport_SL_6 -> 47256_A
+2025-07-15 17:29:41,436 - INFO - 
+Processing folder: FX_Sport_6
+2025-07-15 17:29:41,436 - INFO -   Single variant: FX_Sport_6 -> 35787_A
+2025-07-15 17:29:41,436 - INFO -   ✅ Moved: FX_Sport_6 -> 35787_A
+2025-07-15 17:29:41,437 - INFO - 
+Processing folder: Domane_SLR_6_Pro
+2025-07-15 17:29:41,437 - INFO -   Single variant: Domane_SLR_6_Pro -> 36703_A
+2025-07-15 17:29:41,437 - INFO -   ✅ Moved: Domane_SLR_6_Pro -> 36703_A
+2025-07-15 17:29:41,437 - INFO - 
+Processing folder: Checkmate_SLR_8_AXS
+2025-07-15 17:29:41,438 - INFO -   Single variant: Checkmate_SLR_8_AXS -> 49169_A
+2025-07-15 17:29:41,438 - INFO -   ✅ Moved: Checkmate_SLR_8_AXS -> 49169_A
+2025-07-15 17:29:41,438 - INFO - 
+Processing folder: Madone_SLR_7_Gen_8
+2025-07-15 17:29:41,438 - INFO -   Single variant: Madone_SLR_7_Gen_8 -> 46687_B
+2025-07-15 17:29:41,438 - INFO -   ✅ Moved: Madone_SLR_7_Gen_8 -> 46687_B
+2025-07-15 17:29:41,438 - INFO - 
+Processing folder: Madone_SL_6_AXS_Gen_8
+2025-07-15 17:29:41,438 - INFO -   Single variant: Madone_SL_6_AXS_Gen_8 -> 46221_A
+2025-07-15 17:29:41,438 - INFO -   ✅ Moved: Madone_SL_6_AXS_Gen_8 -> 46221_A
+2025-07-15 17:29:41,438 - INFO - 
+Processing folder: Émonda_SL_5
+2025-07-15 17:29:41,438 - INFO -   Single variant: Émonda_SL_5 -> 36974_A
+2025-07-15 17:29:41,439 - INFO -   ✅ Moved: Émonda_SL_5 -> 36974_A
+2025-07-15 17:29:41,439 - INFO - 
+Processing folder: Domane_AL_5
+2025-07-15 17:29:41,439 - INFO -   Single variant: Domane_AL_5 -> 47218_A
+2025-07-15 17:29:41,439 - INFO -   ✅ Moved: Domane_AL_5 -> 47218_A
+2025-07-15 17:29:41,439 - INFO - 
+Processing folder: Checkmate_SLR_9_AXS
+2025-07-15 17:29:41,440 - INFO -   Single variant: Checkmate_SLR_9_AXS -> 46152_A
+2025-07-15 17:29:41,440 - INFO -   ✅ Moved: Checkmate_SLR_9_AXS -> 46152_A
+2025-07-15 17:29:41,440 - INFO - 
+Processing folder: Madone_SLR_9_AXS_Gen_8
+2025-07-15 17:29:41,440 - INFO -   Single variant: Madone_SLR_9_AXS_Gen_8 -> 46151_A
+2025-07-15 17:29:41,440 - INFO -   ✅ Moved: Madone_SLR_9_AXS_Gen_8 -> 46151_A
+2025-07-15 17:29:41,440 - INFO - 
+Processing folder: Domane_SLR_7_AXS
+2025-07-15 17:29:41,440 - INFO -   Single variant: Domane_SLR_7_AXS -> 41481_B
+2025-07-15 17:29:41,441 - INFO -   ✅ Moved: Domane_SLR_7_AXS -> 41481_B
+2025-07-15 17:29:41,441 - INFO - 
+Processing folder: Boone_5
+2025-07-15 17:29:41,441 - INFO -   Single variant: Boone_5 -> 41655_B
+2025-07-15 17:29:41,441 - INFO -   ✅ Moved: Boone_5 -> 41655_B
+2025-07-15 17:29:41,441 - INFO - 
+Processing folder: Madone_SLR_7_AXS
+2025-07-15 17:29:41,441 - INFO -   Single variant: Madone_SLR_7_AXS -> 58135_A
+2025-07-15 17:29:41,441 - INFO -   ✅ Moved: Madone_SLR_7_AXS -> 58135_A
+2025-07-15 17:29:41,441 - INFO - 
+Processing folder: Domane_AL_2_Rim
+2025-07-15 17:29:41,441 - INFO -   Single variant: Domane_AL_2_Rim -> 33037_A
+2025-07-15 17:29:41,441 - INFO -   ✅ Moved: Domane_AL_2_Rim -> 33037_A
+2025-07-15 17:29:41,441 - INFO - 
+Processing folder: Domane_SLR_9_AXS_Gen_4
+2025-07-15 17:29:41,441 - INFO -   Single variant: Domane_SLR_9_AXS_Gen_4 -> 57944_C
+2025-07-15 17:29:41,442 - INFO -   ✅ Moved: Domane_SLR_9_AXS_Gen_4 -> 57944_C
+2025-07-15 17:29:41,442 - INFO - 
+Processing folder: Checkpoint_SL_7_AXS_Gen_3
+2025-07-15 17:29:41,442 - INFO -   Single variant: Checkpoint_SL_7_AXS_Gen_3 -> 55097_A
+2025-07-15 17:29:41,443 - INFO -   ✅ Moved: Checkpoint_SL_7_AXS_Gen_3 -> 55097_A
+2025-07-15 17:29:41,443 - INFO - 
+Processing folder: Domane_SL_6_AXS_gen_4
+2025-07-15 17:29:41,443 - INFO -   Single variant: Domane_SL_6_AXS_gen_4 -> 36152_A
+2025-07-15 17:29:41,443 - INFO -   ✅ Moved: Domane_SL_6_AXS_gen_4 -> 36152_A
+2025-07-15 17:29:41,443 - INFO - 
+Processing folder: Domane_SL_6_gen_4
+2025-07-15 17:29:41,443 - INFO -   Single variant: Domane_SL_6_gen_4 -> 47131_A
+2025-07-15 17:29:41,444 - INFO -   ✅ Moved: Domane_SL_6_gen_4 -> 47131_A
+2025-07-15 17:29:41,444 - INFO - 
+Processing folder: Madone_SL_6_Gen_8
+2025-07-15 17:29:41,444 - INFO -   Single variant: Madone_SL_6_Gen_8 -> 46219_B
+2025-07-15 17:29:41,444 - INFO -   ✅ Moved: Madone_SL_6_Gen_8 -> 46219_B
+2025-07-15 17:29:41,444 - INFO - 
+Processing folder: Domane_AL_5_Gen_4
+2025-07-15 17:29:41,444 - INFO -   Single variant: Domane_AL_5_Gen_4 -> 41395_A
+2025-07-15 17:29:41,444 - INFO -   ✅ Moved: Domane_AL_5_Gen_4 -> 41395_A
+2025-07-15 17:29:41,444 - INFO - 
+Processing folder: Checkpoint_ALR_4_Gen_2
+2025-07-15 17:29:41,444 - INFO -   Single variant: Checkpoint_ALR_4_Gen_2 -> 41513_A
+2025-07-15 17:29:41,445 - INFO -   ✅ Moved: Checkpoint_ALR_4_Gen_2 -> 41513_A
+2025-07-15 17:29:41,445 - INFO - 
+Processing folder: Domane_SLR_7_AXS_Gen_4
+2025-07-15 17:29:41,445 - INFO -   Single variant: Domane_SLR_7_AXS_Gen_4 -> 57915_C
+2025-07-15 17:29:41,445 - INFO -   ✅ Moved: Domane_SLR_7_AXS_Gen_4 -> 57915_C
+2025-07-15 17:29:41,445 - INFO - 
+Processing folder: Madone_SL_6_Gen_7
+2025-07-15 17:29:41,445 - INFO -   Single variant: Madone_SL_6_Gen_7 -> 41466_A
+2025-07-15 17:29:41,445 - INFO -   ✅ Moved: Madone_SL_6_Gen_7 -> 41466_A
+2025-07-15 17:29:41,445 - INFO - 
+Processing folder: Émonda_ALR_5
+2025-07-15 17:29:41,445 - INFO -   Single variant: Émonda_ALR_5 -> 41426_A
+2025-07-15 17:29:41,446 - INFO -   ✅ Moved: Émonda_ALR_5 -> 41426_A
+2025-07-15 17:29:41,446 - INFO - 
+Processing folder: Madone_SLR_7_AXS_Gen_8
+2025-07-15 17:29:41,446 - INFO -   Single variant: Madone_SLR_7_AXS_Gen_8 -> 46688_A
+2025-07-15 17:29:41,447 - INFO -   ✅ Moved: Madone_SLR_7_AXS_Gen_8 -> 46688_A
+2025-07-15 17:29:41,447 - INFO - 
+Processing folder: Checkpoint_ALR_4_Gen_3
+2025-07-15 17:29:41,447 - INFO -   Single variant: Checkpoint_ALR_4_Gen_3 -> 49973_A
+2025-07-15 17:29:41,447 - INFO -   ✅ Moved: Checkpoint_ALR_4_Gen_3 -> 49973_A
+2025-07-15 17:29:41,447 - INFO - 
+Processing folder: Domane_SLR_8_AXS
+2025-07-15 17:29:41,447 - INFO -   Single variant: Domane_SLR_8_AXS -> 49166_B
+2025-07-15 17:29:41,448 - INFO -   ✅ Moved: Domane_SLR_8_AXS -> 49166_B
+2025-07-15 17:29:41,448 - INFO - 
+Processing folder: Émonda_SL_7
+2025-07-15 17:29:41,448 - INFO -   Single variant: Émonda_SL_7 -> 35046_A
+2025-07-15 17:29:41,448 - INFO -   ✅ Moved: Émonda_SL_7 -> 35046_A
+2025-07-15 17:29:41,448 - INFO - 
+Processing folder: FX_Sport_SL_5
+2025-07-15 17:29:41,448 - INFO -   Single variant: FX_Sport_SL_5 -> 47263_A
+2025-07-15 17:29:41,448 - INFO -   ✅ Moved: FX_Sport_SL_5 -> 47263_A
+2025-07-15 17:29:41,448 - INFO - 
+Processing folder: Checkpoint_SL_5_Gen_2
+2025-07-15 17:29:41,449 - INFO -   Single variant: Checkpoint_SL_5_Gen_2 -> 41398_C
+2025-07-15 17:29:41,449 - INFO -   ✅ Moved: Checkpoint_SL_5_Gen_2 -> 41398_C
+2025-07-15 17:29:41,449 - INFO - 
+Processing folder: Émonda_SL_6
+2025-07-15 17:29:41,449 - INFO -   Single variant: Émonda_SL_6 -> 41352_B
+2025-07-15 17:29:41,449 - INFO -   ✅ Moved: Émonda_SL_6 -> 41352_B
+2025-07-15 17:29:41,449 - INFO - 
+Processing folder: FX_Sport_4
+2025-07-15 17:29:41,449 - INFO -   Single variant: FX_Sport_4 -> 40822_A
+2025-07-15 17:29:41,450 - INFO -   ✅ Moved: FX_Sport_4 -> 40822_A
+2025-07-15 17:29:41,450 - INFO - 
+Processing folder: Madone_SL_7_Gen_7
+2025-07-15 17:29:41,450 - INFO -   Single variant: Madone_SL_7_Gen_7 -> 41467_B
+2025-07-15 17:29:41,450 - INFO -   ✅ Moved: Madone_SL_7_Gen_7 -> 41467_B
+2025-07-15 17:29:41,450 - INFO - 
+Processing folder: Madone_SL_5_Gen_8
+2025-07-15 17:29:41,450 - INFO -   Single variant: Madone_SL_5_Gen_8 -> 46218_A
+2025-07-15 17:29:41,450 - INFO -   ✅ Moved: Madone_SL_5_Gen_8 -> 46218_A
+2025-07-15 17:29:41,450 - INFO - 
+Processing folder: Checkpoint_ALR_5_Gen_3
+2025-07-15 17:29:41,450 - INFO -   Single variant: Checkpoint_ALR_5_Gen_3 -> 49946_A
+2025-07-15 17:29:41,450 - INFO -   ✅ Moved: Checkpoint_ALR_5_Gen_3 -> 49946_A
+2025-07-15 17:29:41,450 - INFO - 
+Processing folder: Domane_SL_5_Gen_4
+2025-07-15 17:29:41,450 - INFO -   Single variant: Domane_SL_5_Gen_4 -> 41348_B
+2025-07-15 17:29:41,450 - INFO -   ✅ Moved: Domane_SL_5_Gen_4 -> 41348_B
+2025-07-15 17:29:41,450 - INFO - 
+Processing folder: Domane_AL_4_Gen_4
+2025-07-15 17:29:41,450 - INFO -   Single variant: Domane_AL_4_Gen_4 -> 41607_B
+2025-07-15 17:29:41,451 - INFO -   ✅ Moved: Domane_AL_4_Gen_4 -> 41607_B
+2025-07-15 17:29:41,451 - INFO - 
+Processing folder: Checkmate_SLR_7_AXS
+2025-07-15 17:29:41,451 - INFO -   Single variant: Checkmate_SLR_7_AXS -> 58668_A
+2025-07-15 17:29:41,451 - INFO -   ✅ Moved: Checkmate_SLR_7_AXS -> 58668_A
+2025-07-15 17:29:41,451 - INFO - 
+Processing folder: Madone_SLR_9_gen_8
+2025-07-15 17:29:41,451 - INFO -   Single variant: Madone_SLR_9_gen_8 -> 46707_A
+2025-07-15 17:29:41,451 - INFO -   ✅ Moved: Madone_SLR_9_gen_8 -> 46707_A
+2025-07-15 17:29:41,451 - INFO - 
+Processing folder: Madone_SL_7_Gen_8
+2025-07-15 17:29:41,452 - INFO -   Single variant: Madone_SL_7_Gen_8 -> 46220_A
+2025-07-15 17:29:41,452 - INFO -   ✅ Moved: Madone_SL_7_Gen_8 -> 46220_A
+2025-07-15 17:29:41,452 - INFO - 
+Processing folder: Domane_SL_7_gen_3
+2025-07-15 17:29:41,452 - INFO -   Single variant: Domane_SL_7_gen_3 -> 35333_A
+2025-07-15 17:29:41,452 - INFO -   ✅ Moved: Domane_SL_7_gen_3 -> 35333_A
+2025-07-15 17:29:41,452 - INFO - 
+Processing folder: Checkpoint_SL_5_AXS_Gen_3
+2025-07-15 17:29:41,452 - INFO -   Single variant: Checkpoint_SL_5_AXS_Gen_3 -> 47071_A
+2025-07-15 17:29:41,452 - INFO -   ✅ Moved: Checkpoint_SL_5_AXS_Gen_3 -> 47071_A
+2025-07-15 17:29:41,452 - INFO - 
+Processing folder: Domane_SL_7_Gen_4
+2025-07-15 17:29:41,452 - INFO -   Single variant: Domane_SL_7_Gen_4 -> 47132_A
+2025-07-15 17:29:41,452 - INFO -   ✅ Moved: Domane_SL_7_Gen_4 -> 47132_A
+2025-07-15 17:29:41,452 - INFO - 
+Processing folder: Checkpoint_ALR_5_Gen_2
+2025-07-15 17:29:41,452 - INFO -   Single variant: Checkpoint_ALR_5_Gen_2 -> 41640_A
+2025-07-15 17:29:41,452 - INFO -   ✅ Moved: Checkpoint_ALR_5_Gen_2 -> 41640_A
+2025-07-15 17:29:41,453 - INFO - 
+Processing folder: Speed_Concept_SLR_9_AXS
+2025-07-15 17:29:41,453 - INFO -   Single variant: Speed_Concept_SLR_9_AXS -> 48020_A
+2025-07-15 17:29:41,453 - INFO -   ✅ Moved: Speed_Concept_SLR_9_AXS -> 48020_A
+2025-07-15 17:29:41,453 - INFO - 
+Processing folder: Speed_Concept_SLR_8_AXS
+2025-07-15 17:29:41,453 - INFO -   Single variant: Speed_Concept_SLR_8_AXS -> 49162_A
+2025-07-15 17:29:41,453 - INFO -   ✅ Moved: Speed_Concept_SLR_8_AXS -> 49162_A
+2025-07-15 17:29:41,454 - INFO - 
+Processing folder: Checkpoint_ALR_3_Gen_3
+2025-07-15 17:29:41,454 - INFO -   Single variant: Checkpoint_ALR_3_Gen_3 -> 49944_A
+2025-07-15 17:29:41,454 - INFO -   ✅ Moved: Checkpoint_ALR_3_Gen_3 -> 49944_A
+2025-07-15 17:29:41,454 - INFO - 
+Processing folder: Domane_AL_2_Gen_4
+2025-07-15 17:29:41,454 - INFO -   Single variant: Domane_AL_2_Gen_4 -> 41587_A
+2025-07-15 17:29:41,454 - INFO -   ✅ Moved: Domane_AL_2_Gen_4 -> 41587_A
+2025-07-15 17:29:41,454 - INFO - 
+Processing folder: Checkpoint_ALR_3_Gen_2
+2025-07-15 17:29:41,454 - INFO -   Single variant: Checkpoint_ALR_3_Gen_2 -> 47530_B
+2025-07-15 17:29:41,454 - INFO -   ✅ Moved: Checkpoint_ALR_3_Gen_2 -> 47530_B
+2025-07-15 17:29:41,454 - INFO - 
+Processing folder: Domane_SLR_9_Gen_4
+2025-07-15 17:29:41,454 - INFO -   Single variant: Domane_SLR_9_Gen_4 -> 57942_C
+2025-07-15 17:29:41,455 - INFO -   ✅ Moved: Domane_SLR_9_Gen_4 -> 57942_C
+2025-07-15 17:29:41,455 - INFO - 
+Reorganization complete!
+2025-07-15 17:29:41,455 - INFO - Folders moved: 60
+2025-07-15 17:29:41,455 - INFO - Folders skipped: 0
+2025-07-15 17:29:41,455 - INFO - 
+4. Updating JSON data with new paths...
+2025-07-15 17:29:41,459 - INFO - Created backup: data/trek_bikes_latest_backup.json
+2025-07-15 17:29:41,466 - INFO - Updated 61 bike records in data/trek_bikes_latest.json
+2025-07-15 17:29:41,467 - INFO - 
+=== Summary ===
+2025-07-15 17:29:41,467 - INFO - Bike models processed: 61
+2025-07-15 17:29:41,467 - INFO - Folders moved: 60
+2025-07-15 17:29:41,467 - INFO - Folders skipped: 0
+2025-07-15 17:29:41,467 - INFO - JSON records updated: 61
+2025-07-15 17:29:41,467 - INFO - 
+✅ Reorganization completed successfully!

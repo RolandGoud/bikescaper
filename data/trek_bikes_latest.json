@@ -36,7 +36,14 @@
       "Balhoofdstel": "FSA geïntegreerd, afgedicht industrielager, 1-1/8\"",
       "Rem": "Maat: 47, 50, 52, 54, 56, 58, 60, 62 Lichtmetaal dual-pivot",
       "Shifter_speed": "8-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneAL2_21_33037_A_Portrait",
+        "local_path": "images/Trek/33037_A/DomaneAL2_21_33037_A_Portrait_05.jpg",
+        "filename": "DomaneAL2_21_33037_A_Portrait_05.jpg"
+      }
+    ]
   },
   {
     "name": "Domane AL 2 Gen 4",
@@ -77,7 +84,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "8-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneAL2-24-41587-A-Portrait",
+        "local_path": "images/Trek/41587_A/DomaneAL2-24-41587-A-Portrait_05.jpg",
+        "filename": "DomaneAL2-24-41587-A-Portrait_05.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint ALR 3 Gen 3",
@@ -120,7 +134,14 @@
       "Framefit": "Endurance*",
       "Shifter_speed": "10-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointALR3-26-49944-A-Primary",
+        "local_path": "images/Trek/49944_A/CheckpointALR3-26-49944-A-Primary_12.jpg",
+        "filename": "CheckpointALR3-26-49944-A-Primary_12.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint ALR 3 Gen 2",
@@ -159,7 +180,14 @@
       "Framefit": "Endurance*",
       "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers*",
       "Shifter_speed": "9-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointALR3-25-47530-A-Primary",
+        "local_path": "images/Trek/47530_B/CheckpointALR3-25-47530-A-Primary_12.jpg",
+        "filename": "CheckpointALR3-25-47530-A-Primary_12.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint ALR 4 Gen 2",
@@ -202,7 +230,14 @@
       "Framefit": "Endurance*",
       "Shifter_speed": "11-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointALR4-24-41513-A-Portrait",
+        "local_path": "images/Trek/41513_A/CheckpointALR4-24-41513-A-Portrait_11.jpg",
+        "filename": "CheckpointALR4-24-41513-A-Portrait_11.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint ALR 4 Gen 3",
@@ -245,7 +280,14 @@
       "Framefit": "Endurance*",
       "Shifter_speed": "11-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointALR4-26-49973-A-Primary",
+        "local_path": "images/Trek/49973_A/CheckpointALR4-26-49973-A-Primary_11.jpg",
+        "filename": "CheckpointALR4-26-49973-A-Primary_11.jpg"
+      }
+    ]
   },
   {
     "name": "Domane AL 4 Gen 4",
@@ -286,7 +328,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "10-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneAL4-24-41607-A-Portrait",
+        "local_path": "images/Trek/41607_B/DomaneAL4-24-41607-A-Portrait_06.jpg",
+        "filename": "DomaneAL4-24-41607-A-Portrait_06.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint ALR 5 Gen 2",
@@ -332,7 +381,14 @@
       "Frame": "300 Series Alpha Aluminium",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointALR5-24-41640-A-Portrait",
+        "local_path": "images/Trek/41640_A/CheckpointALR5-24-41640-A-Portrait_11.jpg",
+        "filename": "CheckpointALR5-24-41640-A-Portrait_11.jpg"
+      }
+    ]
   },
   {
     "name": "FX Sport 4",
@@ -371,7 +427,14 @@
       "Bottom bracket": "Shimano RS500, 86 mm, PressFit*",
       "Shifter_speed": "10-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/FXSport4Carbon-24-40822-A-Portrait",
+        "local_path": "images/Trek/40822_A/FXSport4Carbon-24-40822-A-Portrait_37.jpg",
+        "filename": "FXSport4Carbon-24-40822-A-Portrait_37.jpg"
+      }
+    ]
   },
   {
     "name": "Émonda ALR 5",
@@ -415,7 +478,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/EmondaALR5-24-41426-A-Portrait",
+        "local_path": "images/Trek/41426_A/EmondaALR5-24-41426-A-Portrait_09.jpg",
+        "filename": "EmondaALR5-24-41426-A-Portrait_09.jpg"
+      }
+    ]
   },
   {
     "name": "FX Sport SL 5",
@@ -457,7 +527,14 @@
       "Ketting": "SRAM PC-1130, 11-speed*",
       "Shifter_speed": "11-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/FXSport5Carbon-25-47263-A-Primary",
+        "local_path": "images/Trek/47263_A/FXSport5Carbon-25-47263-A-Primary_04.jpg",
+        "filename": "FXSport5Carbon-25-47263-A-Primary_04.jpg"
+      }
+    ]
   },
   {
     "name": "Domane AL 5 Gen 4",
@@ -498,7 +575,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneAL5-24-41395-A-Portrait",
+        "local_path": "images/Trek/41395_A/DomaneAL5-24-41395-A-Portrait_06.jpg",
+        "filename": "DomaneAL5-24-41395-A-Portrait_06.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint ALR 5 Gen 3",
@@ -542,7 +626,14 @@
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointALR5-26-49946-A-Primary",
+        "local_path": "images/Trek/49946_A/CheckpointALR5-26-49946-A-Primary_11.jpg",
+        "filename": "CheckpointALR5-26-49946-A-Primary_11.jpg"
+      }
+    ]
   },
   {
     "name": "Émonda SL 5",
@@ -583,7 +674,14 @@
       "Remschijf": "Shimano RT70, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Shifter_speed": "11-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/EmondaSL5_23_36974_A_Portrait",
+        "local_path": "images/Trek/36974_A/EmondaSL5_23_36974_A_Portrait_05.jpg",
+        "filename": "EmondaSL5_23_36974_A_Portrait_05.jpg"
+      }
+    ]
   },
   {
     "name": "FX Sport SL 6",
@@ -624,7 +722,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Comfort*",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/FXSport6Carbon-25-47256-A-Primary",
+        "local_path": "images/Trek/47256_A/FXSport6Carbon-25-47256-A-Primary_04.jpg",
+        "filename": "FXSport6Carbon-25-47256-A-Primary_04.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SL 5 Gen 4",
@@ -671,7 +776,14 @@
       "Tas": "Bontrager BITS Internal Frame opbergtas",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSL5-24-41348-A-Portrait",
+        "local_path": "images/Trek/41348_B/DomaneSL5-24-41348-A-Portrait_11.jpg",
+        "filename": "DomaneSL5-24-41348-A-Portrait_11.jpg"
+      }
+    ]
   },
   {
     "name": "FX Sport 6",
@@ -713,7 +825,14 @@
       "Framefit": "Comfort*",
       "Shifter_speed": "11-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/FXSport6Carbon_22_35787_A_Portrait",
+        "local_path": "images/Trek/35787_A/FXSport6Carbon_22_35787_A_Portrait_37.jpg",
+        "filename": "FXSport6Carbon_22_35787_A_Portrait_37.jpg"
+      }
+    ]
   },
   {
     "name": "Domane+ AL 5",
@@ -754,7 +873,8 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": []
   },
   {
     "name": "Madone SL 5 Gen 8",
@@ -794,7 +914,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 180 mm voor, 160 mm achter",
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSL5-25-46218-A-Primary",
+        "local_path": "images/Trek/46218_A/MadoneSL5-25-46218-A-Primary_26.jpg",
+        "filename": "MadoneSL5-25-46218-A-Primary_26.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint SL 5 AXS Gen 3",
@@ -838,7 +965,14 @@
       "Schijfdiameter": "Maximale diameter remschijven: 180 mm voor en achter",
       "Framefit": "Endurance*",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointSL5AXS-26-47071-A-Primary",
+        "local_path": "images/Trek/47071_A/CheckpointSL5AXS-26-47071-A-Primary_10.jpg",
+        "filename": "CheckpointSL5AXS-26-47071-A-Primary_10.jpg"
+      }
+    ]
   },
   {
     "name": "Boone 5",
@@ -879,7 +1013,14 @@
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/Boone5-24-41655-A-Portrait",
+        "local_path": "images/Trek/41655_B/Boone5-24-41655-A-Portrait_05.jpg",
+        "filename": "Boone5-24-41655-A-Portrait_05.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint SL 5 Gen 2",
@@ -926,7 +1067,14 @@
       "Tas": "Bontrager BITS Internal Frame opbergtas",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointSL5-24-41398-A-Portrait",
+        "local_path": "images/Trek/41398_C/CheckpointSL5-24-41398-A-Portrait_10.jpg",
+        "filename": "CheckpointSL5-24-41398-A-Portrait_10.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint SL 6 AXS Gen 3",
@@ -963,7 +1111,62 @@
       "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*",
       "Ketting": "SRAM Rival, 13-speed*",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointSL6AXS-26-55098-A-Primary",
+        "local_path": "images/Trek/55098_A/CheckpointSL6AXS-26-55098-A-Primary_10.jpg",
+        "filename": "CheckpointSL6AXS-26-55098-A-Primary_10.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Domane SL 6 gen 4",
+    "price": "4299.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "https://www.trekbikes.com/nl/nl_NL/p/47131/",
+    "sku": "47131",
+    "variant": "bluedark",
+    "color": "Blue dark",
+    "specifications": {
+      "Frame": "500 Series Oclv Carbon",
+      "Voorvork": "Domane SL carbon, taps toelopende carbon stuurbuis, interne remkabelgeleiding, spatbordbevestigingen, flat-mount schijfrembevestiging, 12 x 100 mm steekas",
+      "Gewicht": "56 cm - 8.90 kg (met TLR sealant, zonder binnenbanden)",
+      "Gewichtslimiet": "125 kg",
+      "Shifter": "Shimano 105 R7170",
+      "Voorderailleur": "Shimano 105 R7150 Di2, aanlasnok, down-swing",
+      "Achterderailleur": "Shimano 105 R7150 Di2, max. tandwielgrootte 36T",
+      "Crankstel": "Maat: 44, 47 Shimano 105 R7100, 50/34, 165 mm lengte",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
+      "Cassette": "Shimano 105 7101, 11-34, 12-speed",
+      "Ketting": "Shimano SLX M7100, 12-speed",
+      "Maximale maat kettingblad": "1x: 48T, 2x: 52/36",
+      "Wiel voor": "Bontrager Paradigm Comp 25, Tubeless Ready, 25 mm velgbreedte, 100 x 12 mm steekas",
+      "Wiel achter": "Bontrager Paradigm Comp 25, Tubeless Ready, 25 mm velgbreedte, Shimano 11/12-speed freewheelnaaf, 142 x 12 mm steekas",
+      "As voorwiel": "Bontrager Switch steekas, afneembare hendel",
+      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
+      "Buitenband": "Bontrager R3 Hard-Case Lite, Tubeless Ready, aramide hieldraad, 120 tpi, 700 x 32 mm",
+      "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
+      "Velglint": "Bontrager TLR",
+      "Maximale bandenmaat": "38mm zonder spatborden, 35mm met spatborden",
+      "Zadel": "Maat: 44, 47, 50, 52 Verse Short Comp, stalen rails, 155 mm breedte",
+      "Zadelpen": "Maat: 44, 47, 50, 52, 54, 56 KVF aero carbon zadelpen, 20 mm offset, 280 mm lengte",
+      "Stuur": "Maat: 44, 47 Bontrager Elite IsoZone VR-SF, lichtmetaal, 31,8 mm, interne Di2-kabelgeleiding, 75 mm reach, 128 mm drop, 36 cm breedte",
+      "Stuurlint": "Bontrager Supertack geperforeerd stuurlint",
+      "Stuurpen": "Maat: 44 Trek RCS Pro, -7 graden, 60 mm lengte",
+      "Remschijf": "Shimano RT70, centerlock, 160 mm",
+      "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
+      "Framefit": "Endurance*",
+      "Shifter_speed": "12-speed"
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSL6-25-47131-A-Primary",
+        "local_path": "images/Trek/47131_A/DomaneSL6-25-47131-A-Primary_12.jpg",
+        "filename": "DomaneSL6-25-47131-A-Primary_12.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SL 6 AXS Gen 8",
@@ -1005,48 +1208,14 @@
       "Framefit": "H1.5 Race*",
       "Ketting": "SRAM Rival, 12-speed*",
       "Shifter_speed": "12-speed"
-    }
-  },
-  {
-    "name": "Domane SL 6 gen 4",
-    "price": "4299.0",
-    "category": "Performance road bikes",
-    "brand": "Trek",
-    "url": "https://www.trekbikes.com/nl/nl_NL/p/47131/",
-    "sku": "47131",
-    "variant": "bluedark",
-    "color": "Blue dark",
-    "specifications": {
-      "Frame": "500 Series Oclv Carbon",
-      "Voorvork": "Domane SL carbon, taps toelopende carbon stuurbuis, interne remkabelgeleiding, spatbordbevestigingen, flat-mount schijfrembevestiging, 12 x 100 mm steekas",
-      "Gewicht": "56 cm - 8.90 kg (met TLR sealant, zonder binnenbanden)",
-      "Gewichtslimiet": "125 kg",
-      "Shifter": "Shimano 105 R7170",
-      "Voorderailleur": "Shimano 105 R7150 Di2, aanlasnok, down-swing",
-      "Achterderailleur": "Shimano 105 R7150 Di2, max. tandwielgrootte 36T",
-      "Crankstel": "Maat: 44, 47 Shimano 105 R7100, 50/34, 165 mm lengte",
-      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
-      "Cassette": "Shimano 105 7101, 11-34, 12-speed",
-      "Ketting": "Shimano SLX M7100, 12-speed",
-      "Maximale maat kettingblad": "1x: 48T, 2x: 52/36",
-      "Wiel voor": "Bontrager Paradigm Comp 25, Tubeless Ready, 25 mm velgbreedte, 100 x 12 mm steekas",
-      "Wiel achter": "Bontrager Paradigm Comp 25, Tubeless Ready, 25 mm velgbreedte, Shimano 11/12-speed freewheelnaaf, 142 x 12 mm steekas",
-      "As voorwiel": "Bontrager Switch steekas, afneembare hendel",
-      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
-      "Buitenband": "Bontrager R3 Hard-Case Lite, Tubeless Ready, aramide hieldraad, 120 tpi, 700 x 32 mm",
-      "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
-      "Velglint": "Bontrager TLR",
-      "Maximale bandenmaat": "38mm zonder spatborden, 35mm met spatborden",
-      "Zadel": "Maat: 44, 47, 50, 52 Verse Short Comp, stalen rails, 155 mm breedte",
-      "Zadelpen": "Maat: 44, 47, 50, 52, 54, 56 KVF aero carbon zadelpen, 20 mm offset, 280 mm lengte",
-      "Stuur": "Maat: 44, 47 Bontrager Elite IsoZone VR-SF, lichtmetaal, 31,8 mm, interne Di2-kabelgeleiding, 75 mm reach, 128 mm drop, 36 cm breedte",
-      "Stuurlint": "Bontrager Supertack geperforeerd stuurlint",
-      "Stuurpen": "Maat: 44 Trek RCS Pro, -7 graden, 60 mm lengte",
-      "Remschijf": "Shimano RT70, centerlock, 160 mm",
-      "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
-      "Framefit": "Endurance*",
-      "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSL6AXS-25-46221-A-Primary",
+        "local_path": "images/Trek/46221_A/MadoneSL6AXS-25-46221-A-Primary_27.jpg",
+        "filename": "MadoneSL6AXS-25-46221-A-Primary_27.jpg"
+      }
+    ]
   },
   {
     "name": "Émonda SL 6",
@@ -1090,7 +1259,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/EmondaSL6-24-41352-A-Portrait",
+        "local_path": "images/Trek/41352_B/EmondaSL6-24-41352-A-Portrait_05.jpg",
+        "filename": "EmondaSL6-24-41352-A-Portrait_05.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint SL 6 AXS Gen 2",
@@ -1134,7 +1310,14 @@
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointSL6eTap-24-41397-B-Portrait",
+        "local_path": "images/Trek/41397_B/CheckpointSL6eTap-24-41397-B-Portrait_11.jpg",
+        "filename": "CheckpointSL6eTap-24-41397-B-Portrait_11.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SL 6 Gen 8",
@@ -1178,7 +1361,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 180 mm voor, 160 mm achter",
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSL6-25-46219-A-Primary",
+        "local_path": "images/Trek/46219_B/MadoneSL6-25-46219-A-Primary_25.jpg",
+        "filename": "MadoneSL6-25-46219-A-Primary_25.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SL 6 AXS gen 4",
@@ -1219,7 +1409,14 @@
       "Schijfdiameter": "Maximale maten remschijf: 160mm voor &amp; achter",
       "Ketting": "SRAM Rival, 12-speed*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSL6eTap_23_36152_A_Portrait",
+        "local_path": "images/Trek/36152_A/DomaneSL6eTap_23_36152_A_Portrait_13.jpg",
+        "filename": "DomaneSL6eTap_23_36152_A_Portrait_13.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SL 7 Gen 4",
@@ -1260,7 +1457,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSL7-25-47132-A-Primary",
+        "local_path": "images/Trek/47132_A/DomaneSL7-25-47132-A-Primary_13.jpg",
+        "filename": "DomaneSL7-25-47132-A-Primary_13.jpg"
+      }
+    ]
   },
   {
     "name": "Émonda SL 7",
@@ -1302,7 +1506,14 @@
       "Remschijf": "Shimano MT800, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maten remschijf: 160mm voor &amp; achter",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/EmondaSL7_22_35046_A_Portrait",
+        "local_path": "images/Trek/35046_A/EmondaSL7_22_35046_A_Portrait_05.jpg",
+        "filename": "EmondaSL7_22_35046_A_Portrait_05.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SL 7 gen 3",
@@ -1346,7 +1557,60 @@
       "Schijfdiameter": "Maximale maten remschijf: 160mm voor &amp; achter",
       "Tas": "Bontrager BITS Internal Frame opbergtas",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSL7_22_35333_A_Portrait",
+        "local_path": "images/Trek/35333_A/DomaneSL7_22_35333_A_Portrait_13.jpg",
+        "filename": "DomaneSL7_22_35333_A_Portrait_13.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Madone SL 7 Gen 8",
+    "price": "5999.0",
+    "category": "Performance road bikes",
+    "brand": "Trek",
+    "url": "https://www.trekbikes.com/nl/nl_NL/p/46220/",
+    "sku": "46220",
+    "variant": "grey",
+    "color": "Grey",
+    "specifications": {
+      "Frame": "500 Series Oclv Carbon",
+      "Voorvork": "Madone Gen 8 full carbon, tapered carbon steerer, internal brake routing, flat mount disc, 12x100mm chamfered thru axle",
+      "Gewicht": "ML - 7.88 kg (met TLR sealant, zonder binnenbanden)",
+      "Gewichtslimiet": "125 kg",
+      "Shifter": "Shimano Ultegra R8170 Di2",
+      "Crankstel": "Maat: XS, S Shimano Ultegra R8100, 50/34, 165 mm lengte",
+      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
+      "Cassette": "Shimano Ultegra R8101, 11-34, 12-speed",
+      "Maximale maat kettingblad": "1x: 54T, 2x: 56/43",
+      "Wiel voor": "Bontrager Aeolus Pro 51, OCLV Carbon, Tubeless Ready, 100 x 12 mm steekas",
+      "Wiel achter": "Bontrager Aeolus Pro 51, OCLV carbon, Tubeless Ready, Shimano 11/12-speed freewheelbody, 142 x 12 mm steekas",
+      "As voorwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
+      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
+      "Velg": "Bontrager Aeolus Pro 51, OCLV Carbon, Tubeless Ready",
+      "Buitenband": "Bontrager R3 Hard-Case Lite, Tubeless Ready, aramide hieldraad, 170 tpi, 700 x 28 mm",
+      "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
+      "Maximale bandenmaat": "32 mm (feitelijk gemeten, bekijk de handleiding voor details)",
+      "Zadel": "Maat: XS, S Bontrager Aeolus Elite, austenite rails, 155 mm breedte",
+      "Zadelpen": "Maat: XS, S, M, XL Madone aero carbon zadelpen, 0 mm offset, korte versie",
+      "Stuur": "Maat: XS Bontrager RSL Aero, OCLV Carbon, 31,8 mm, interne Di2-kabelgeleiding, 80 mm reach, 124 mm drop, 35 cm breedte bij hendels, 38 cm breedte onderin stuurbeugel",
+      "Stuurpen": "Maat: XS Trek RCS Pro, -7 graden, 80 mm lengte",
+      "Remschijf": "Shimano CL800, centerlock, 160 mm",
+      "Schijfdiameter": "Maximale maat remschijven: 180 mm voor, 160 mm achter",
+      "Framefit": "H1.5 Race*",
+      "Ketting": "SRAM PC-1130, 11-speed*",
+      "Shifter_speed": "12-speed",
+      "Voorderailleur": "2x systeem, voorderailleur aanwezig"
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSL7-25-46220-A-Primary",
+        "local_path": "images/Trek/46220_A/MadoneSL7-25-46220-A-Primary_27.jpg",
+        "filename": "MadoneSL7-25-46220-A-Primary_27.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SL 6 Gen 7",
@@ -1388,46 +1652,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed"
-    }
-  },
-  {
-    "name": "Madone SL 7 Gen 8",
-    "price": "5999.0",
-    "category": "Performance road bikes",
-    "brand": "Trek",
-    "url": "https://www.trekbikes.com/nl/nl_NL/p/46220/",
-    "sku": "46220",
-    "variant": "grey",
-    "color": "Grey",
-    "specifications": {
-      "Frame": "500 Series Oclv Carbon",
-      "Voorvork": "Madone Gen 8 full carbon, tapered carbon steerer, internal brake routing, flat mount disc, 12x100mm chamfered thru axle",
-      "Gewicht": "ML - 7.88 kg (met TLR sealant, zonder binnenbanden)",
-      "Gewichtslimiet": "125 kg",
-      "Shifter": "Shimano Ultegra R8170 Di2",
-      "Crankstel": "Maat: XS, S Shimano Ultegra R8100, 50/34, 165 mm lengte",
-      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
-      "Cassette": "Shimano Ultegra R8101, 11-34, 12-speed",
-      "Maximale maat kettingblad": "1x: 54T, 2x: 56/43",
-      "Wiel voor": "Bontrager Aeolus Pro 51, OCLV Carbon, Tubeless Ready, 100 x 12 mm steekas",
-      "Wiel achter": "Bontrager Aeolus Pro 51, OCLV carbon, Tubeless Ready, Shimano 11/12-speed freewheelbody, 142 x 12 mm steekas",
-      "As voorwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
-      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
-      "Velg": "Bontrager Aeolus Pro 51, OCLV Carbon, Tubeless Ready",
-      "Buitenband": "Bontrager R3 Hard-Case Lite, Tubeless Ready, aramide hieldraad, 170 tpi, 700 x 28 mm",
-      "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
-      "Maximale bandenmaat": "32 mm (feitelijk gemeten, bekijk de handleiding voor details)",
-      "Zadel": "Maat: XS, S Bontrager Aeolus Elite, austenite rails, 155 mm breedte",
-      "Zadelpen": "Maat: XS, S, M, XL Madone aero carbon zadelpen, 0 mm offset, korte versie",
-      "Stuur": "Maat: XS Bontrager RSL Aero, OCLV Carbon, 31,8 mm, interne Di2-kabelgeleiding, 80 mm reach, 124 mm drop, 35 cm breedte bij hendels, 38 cm breedte onderin stuurbeugel",
-      "Stuurpen": "Maat: XS Trek RCS Pro, -7 graden, 80 mm lengte",
-      "Remschijf": "Shimano CL800, centerlock, 160 mm",
-      "Schijfdiameter": "Maximale maat remschijven: 180 mm voor, 160 mm achter",
-      "Framefit": "H1.5 Race*",
-      "Ketting": "SRAM PC-1130, 11-speed*",
-      "Shifter_speed": "12-speed",
-      "Voorderailleur": "2x systeem, voorderailleur aanwezig"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSL6-24-41466-A-Portrait",
+        "local_path": "images/Trek/41466_A/MadoneSL6-24-41466-A-Portrait_27.jpg",
+        "filename": "MadoneSL6-24-41466-A-Portrait_27.jpg"
+      }
+    ]
   },
   {
     "name": "Checkpoint SL 7 AXS Gen 3",
@@ -1448,7 +1680,6 @@
       "Maximale maat kettingblad": "1x:44 2x: 46/30",
       "Wiel voor": "Bontrager Aeolus Elite 35V, OCLV Carbon, Tubeless Ready, 35 mm velghoogte, 100 x 12 mm steekas",
       "Wiel achter": "Bontrager Aeolus Elite 35V, OCLV Carbon, Tubeless Ready, 35 mm velghoogte, SRAM XD-R freewheelbody, 142 x 12 mm steekas",
-      "Naaf voor": "Bontrager lichtmetaal, afgedichte lagers, centerlock disc, 100 x 12 mm steekas",
       "As voorwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
       "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
       "Buitenband": "Bontrager Girona Pro, Tubeless Ready, GR-lekbescherming, aramide hieldraad, 60 tpi, 700 x 42 mm",
@@ -1465,7 +1696,14 @@
       "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*",
       "Ketting": "SRAM Force E1, 12/13-speed*",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckpointSL7AXS-26-55097-A-Primary",
+        "local_path": "images/Trek/55097_A/CheckpointSL7AXS-26-55097-A-Primary_10.jpg",
+        "filename": "CheckpointSL7AXS-26-55097-A-Primary_10.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SLR 7 gen 4",
@@ -1500,14 +1738,21 @@
       "Maximale bandenmaat": "38 mm zonder spatborden, 35 mm met spatborden (feitelijk gemeten, bekijk de handleiding voor details)",
       "Zadel": "Verse Short Pro, carbon rails, 145 mm breedte",
       "Zadelpen": "Maat: 47, 50, 52, 54, 56 KVF aero carbon zadelpen, 20 mm offset, 280 mm lengte",
-      "Stuur": "Maat: 47 Bontrager Pro IsoCore VR-SF, 38 cm",
+      "Stuur": "Maat: 47 Bontrager Aero Pro, OCLV Carbon, 31,8 mm, interne Di2-kabelgeleiding, stuurdiepte 80 mm, stuurval 124 mm, breedte 38 cm",
       "Stuurlint": "Trek EcoTack",
       "Stuurpen": "Maat: 47 Trek RCS Pro, -7 graden, 70 mm lengte",
       "Remschijf": "Shimano CL800, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSLR7-26-57892-A-Primary",
+        "local_path": "images/Trek/57892_C/DomaneSLR7-26-57892-A-Primary_39.jpg",
+        "filename": "DomaneSLR7-26-57892-A-Primary_39.jpg"
+      }
+    ]
   },
   {
     "name": "Checkmate SLR 7 AXS",
@@ -1526,7 +1771,7 @@
       "Shifter": "SRAM Force AXS",
       "Achterderailleur": "SRAM Force XPLR AXS, max. tandwielgrootte 46T",
       "Crankstel": "Maat: XS, S SRAM Force XPLR met AXS vermogensmeter, 42T, DUB Wide, lengte 165 mm",
-      "Bottom bracket": "Maat: XS, S, M, ML, L, XL SRAM DUB Wide, T47 met schroefdraad, interne lagers",
+      "Bottom bracket": "SRAM DUB Wide, T47 met schroefdraad, interne lagers",
       "Cassette": "SRAM Force XPLR XG-1371, 10-46, 13-speed",
       "Ketting": "SRAM Force E1, 12/13-speed",
       "Maximale maat kettingblad": "Bekijk de servicehandleiding",
@@ -1536,18 +1781,23 @@
       "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
       "Buitenband": "Bontrager Girona RSL, Tubeless Ready, GR-lekbescherming, aramide hieldraad, 220 tpi, 700 x 42 mm",
       "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
-      "Velglint": "Bontrager TLR",
       "Maximale bandenmaat": "45 mm zonder spatborden, 38 mm met spatborden (feitelijk gemeten, bekijk de handleiding voor details)",
-      "Zadel": "Bontrager Aeolus Pro, carbon rails, 145 mm breedte",
       "Zadelpen": "KVF aero carbon zadelpen, 5 mm offset, 280 mm lengte",
       "Stuur/stuurpen (geïntegreerd)": "Maat: XS Trek Aero RSL geïntegreerde stuur/stuurpen, OCLV Carbon, race-geometrie, 80 mm reach, 124 mm drop, 37 cm breedte bij hendels, drop-breedte 40 cm, stuurpenlengte 70 mm",
       "Stuurlint": "Trek EcoTack",
-      "Remschijf": "Maat: XS, S, M, ML, L, XL SRAM Paceline X, afgerond, centerlock, 160 mm",
+      "Remschijf": "SRAM Paceline X, afgerond, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maten remschijf: 180 mm vooraan en achteraan",
       "Framefit": "Endurance*",
       "Shifter_speed": "13-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckmateSLR7AXS-26-58668-A-Primary",
+        "local_path": "images/Trek/58668_A/CheckmateSLR7AXS-26-58668-A-Primary_14.jpg",
+        "filename": "CheckmateSLR7AXS-26-58668-A-Primary_14.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SL 7 Gen 7",
@@ -1590,7 +1840,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "H1.5 Race*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSL7-24-41467-A-Portrait",
+        "local_path": "images/Trek/41467_B/MadoneSL7-24-41467-A-Portrait_27.jpg",
+        "filename": "MadoneSL7-24-41467-A-Portrait_27.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SLR 7 AXS Gen 4",
@@ -1624,14 +1881,21 @@
       "Maximale bandenmaat": "38 mm zonder spatborden, 35 mm met spatborden (feitelijk gemeten, bekijk de handleiding voor details)",
       "Zadel": "Verse Short Pro, carbon rails, 145 mm breedte",
       "Zadelpen": "Maat: 47, 50, 52, 54, 56 KVF aero carbon zadelpen, 20 mm offset, 280 mm lengte",
-      "Stuur": "Maat: 47 Bontrager Pro IsoCore VR-SF, 38 cm",
+      "Stuur": "Maat: 47 Bontrager Aero Pro, OCLV Carbon, 31,8 mm, interne Di2-kabelgeleiding, stuurdiepte 80 mm, stuurval 124 mm, breedte 38 cm",
       "Stuurlint": "Trek EcoTack",
       "Stuurpen": "Maat: 47 Trek RCS Pro, -7 graden, 70 mm lengte",
       "Remschijf": "SRAM Paceline X, afgerond, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSLR7AXS-26-57915-A-Primary",
+        "local_path": "images/Trek/57915_C/DomaneSLR7AXS-26-57915-A-Primary_39.jpg",
+        "filename": "DomaneSLR7AXS-26-57915-A-Primary_39.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SLR 7 Gen 8",
@@ -1667,7 +1931,7 @@
       "Binnenband": "Pirelli P Zero SmarTube, TPU",
       "Maximale bandenmaat": "32 mm (feitelijk gemeten, bekijk de handleiding voor details)",
       "Zadel": "Maat: XS, S Bontrager Aeolus P2 Pro, carbon rails, 155 mm breedte",
-      "Zadelpen": "Maat: XS, S, M, ML, L, XL Madone aero carbon zadelpen, 0 mm offset, korte versie",
+      "Zadelpen": "Madone aero carbon zadelpen, 0 mm offset, korte versie",
       "Stuur/stuurpen (geïntegreerd)": "Maat: XS Trek Aero RSL geïntegreerde stuur/stuurpen, OCLV Carbon, race-geometrie, 80 mm reach, 124 mm drop, 35 cm breedte bij hendels, drop-breedte 38 cm, stuurpenlengte 80 mm",
       "Stuurlint": "Trek EcoTack",
       "Remschijf": "Shimano CL800, centerlock, 160 mm",
@@ -1675,7 +1939,14 @@
       "Framefit": "H1.5 Race*",
       "Frame": "900 Series Oclv Carbon",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSLR7-25-46687-A-Primary",
+        "local_path": "images/Trek/46687_B/MadoneSLR7-25-46687-A-Primary_36.jpg",
+        "filename": "MadoneSLR7-25-46687-A-Primary_36.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SLR 7 AXS",
@@ -1716,7 +1987,14 @@
       "Framefit": "H1.5 Race*",
       "Frame": "900 Series Oclv Carbon",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSLR7AXS-26-58135-A-Primary",
+        "local_path": "images/Trek/58135_A/MadoneSLR7AXS-26-58135-A-Primary_40.jpg",
+        "filename": "MadoneSLR7AXS-26-58135-A-Primary_40.jpg"
+      }
+    ]
   },
   {
     "name": "Speed Concept SLR 7",
@@ -1758,10 +2036,17 @@
       "Rem": "Shimano Dura-Ace hydraulische schijfrem, flat-mount",
       "Remschijf": "Shimano CL800, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
-      "Bidonhouder": "Maat: S, M, L, XL Speed Concept bidonhouder op de onderbuis",
+      "Bidonhouder": "Speed Concept Downtube Bottle Cage",
       "Bidon": "Speed Concept bidon op de onderbuis",
       "Shifter_speed": "11-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/SpeedConceptSLR7_22_35577_A_Portrait",
+        "local_path": "images/Trek/35577_A/SpeedConceptSLR7_22_35577_A_Portrait_25.jpg",
+        "filename": "SpeedConceptSLR7_22_35577_A_Portrait_25.jpg"
+      }
+    ]
   },
   {
     "name": "Domane+ SLR 6 Pro",
@@ -1807,7 +2092,8 @@
       "Schijfdiameter": "Maximale maten remschijf: 180mm voor, 160mm achter",
       "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": []
   },
   {
     "name": "Domane+ SLR 7",
@@ -1854,47 +2140,8 @@
       "Schijfdiameter": "Maximale maten remschijf: 180mm voor, 160mm achter",
       "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*",
       "Shifter_speed": "12-speed"
-    }
-  },
-  {
-    "name": "Checkmate SLR 8 AXS",
-    "price": "8999.0",
-    "category": "Gravel bikes",
-    "brand": "Trek",
-    "url": "https://www.trekbikes.com/nl/nl_NL/p/49169/",
-    "sku": "49169",
-    "variant": "greendark_greenlight",
-    "color": "Green dark/Green light",
-    "specifications": {
-      "Frame": "800 Series Oclv Carbon",
-      "Voorvork": "Checkmate SLR full carbon, taps toelopende carbon stuurbuis, weggewerkte spatbordbevestigingen, flat-mount schijfrem, 12 x 100 mm steekas",
-      "Gewicht": "ML- 8,00 kg (met TLR dichtmiddel, zonder binnenbanden)",
-      "Gewichtslimiet": "125 kg",
-      "Accu": "SRAM eTap accu (met lader)",
-      "Shifter": "SRAM RED eTap AXS",
-      "Achterderailleur": "SRAM RED XPLR eTap AXS, max. tandwielgrootte 44T",
-      "Crankstel": "Maat: XS, S SRAM RED AXS met vermogensmeter, 40T, DUB, 165 mm lengte",
-      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers",
-      "Cassette": "SRAM XG-1271, 10-44, 12-speed",
-      "Ketting": "SRAM RED D1, 12-speed",
-      "Maximale maat kettingblad": "Bekijk de servicehandleiding",
-      "Wiel voor": "Bontrager Aeolus Pro 3V, OCLV Carbon, Tubeless Ready, 25 mm velgbreedte, 100 x 12 mm steekas",
-      "Wiel achter": "Bontrager Aeolus Pro 3V, OCLV Carbon, Tubeless Ready, 25 mm velgbreedte, SRAM XD-R freewheelbody, 142 x 12 mm steekas",
-      "As voorwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
-      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
-      "Buitenband": "Bontrager Girona RSL GR, Tubeless Ready, aramide hieldraad, 220 tpi, 700x38 mm",
-      "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
-      "Velglint": "Bontrager TLR",
-      "Maximale bandenmaat": "45 mm zonder spatborden, 38 mm met spatborden (feitelijk gemeten, bekijk de handleiding voor details)",
-      "Zadel": "Maat: XS, S Bontrager Aeolus P2 Pro, carbon rails, 155 mm breedte",
-      "Zadelpen": "Maat: XS, S, M, XL KVF aero carbon zadelpen, 5 mm offset, 280 mm lengte",
-      "Stuur/stuurpen (geïntegreerd)": "Maat: XS Trek Aero RSL geïntegreerde stuur/stuurpen, OCLV Carbon, race-geometrie, 80 mm reach, 124 mm drop, 37 cm breedte bij hendels, drop-breedte 40 cm, stuurpenlengte 70 mm",
-      "Remschijf": "SRAM CenterLine X, centerlock, afgeronde rand, 160 mm",
-      "Schijfdiameter": "Maximale maat remschijven: 180 mm voor en achter",
-      "Framefit": "Endurance*",
-      "Shifter_speed": "12-speed",
-      "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": []
   },
   {
     "name": "Domane SLR 8 AXS Gen 4",
@@ -1936,7 +2183,61 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSLR8AXS-25-49167-A-Primary",
+        "local_path": "images/Trek/49167_A/DomaneSLR8AXS-25-49167-A-Primary_41.jpg",
+        "filename": "DomaneSLR8AXS-25-49167-A-Primary_41.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Checkmate SLR 8 AXS",
+    "price": "8999.0",
+    "category": "Gravel bikes",
+    "brand": "Trek",
+    "url": "https://www.trekbikes.com/nl/nl_NL/p/49169/",
+    "sku": "49169",
+    "variant": "greendark_greenlight",
+    "color": "Green dark/Green light",
+    "specifications": {
+      "Frame": "800 Series Oclv Carbon",
+      "Voorvork": "Checkmate SLR full carbon, taps toelopende carbon stuurbuis, weggewerkte spatbordbevestigingen, flat-mount schijfrem, 12 x 100 mm steekas",
+      "Gewicht": "ML- 8,00 kg (met TLR dichtmiddel, zonder binnenbanden)",
+      "Gewichtslimiet": "125 kg",
+      "Accu": "SRAM eTap accu (met lader)",
+      "Shifter": "SRAM RED eTap AXS",
+      "Achterderailleur": "SRAM RED XPLR eTap AXS, max. tandwielgrootte 44T",
+      "Crankstel": "Maat: XS, S SRAM RED AXS met vermogensmeter, 40T, DUB, 165 mm lengte",
+      "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers",
+      "Cassette": "SRAM XG-1271, 10-44, 12-speed",
+      "Ketting": "SRAM RED D1, 12-speed",
+      "Maximale maat kettingblad": "Bekijk de servicehandleiding",
+      "Wiel voor": "Bontrager Aeolus Pro 3V, OCLV Carbon, Tubeless Ready, 25 mm velgbreedte, 100 x 12 mm steekas",
+      "Wiel achter": "Bontrager Aeolus Pro 3V, OCLV Carbon, Tubeless Ready, 25 mm velgbreedte, SRAM XD-R freewheelbody, 142 x 12 mm steekas",
+      "As voorwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
+      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
+      "Buitenband": "Bontrager Girona RSL GR, Tubeless Ready, aramide hieldraad, 220 tpi, 700x38 mm",
+      "Buitenband - onderdelen": "Bontrager TLR-dichtmiddel, 175 ml",
+      "Velglint": "Bontrager TLR",
+      "Maximale bandenmaat": "45 mm zonder spatborden, 38 mm met spatborden (feitelijk gemeten, bekijk de handleiding voor details)",
+      "Zadel": "Maat: XS, S Bontrager Aeolus P2 Pro, carbon rails, 155 mm breedte",
+      "Zadelpen": "Maat: XS, S, M, XL KVF aero carbon zadelpen, 5 mm offset, 280 mm lengte",
+      "Stuur/stuurpen (geïntegreerd)": "Maat: XS Trek Aero RSL geïntegreerde stuur/stuurpen, OCLV Carbon, race-geometrie, 80 mm reach, 124 mm drop, 37 cm breedte bij hendels, drop-breedte 40 cm, stuurpenlengte 70 mm",
+      "Remschijf": "SRAM CenterLine X, centerlock, afgeronde rand, 160 mm",
+      "Schijfdiameter": "Maximale maat remschijven: 180 mm voor en achter",
+      "Framefit": "Endurance*",
+      "Shifter_speed": "12-speed",
+      "Voorderailleur": "1x, geen voorderailleur"
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckmateSLR8AXS-25-49169-A-Primary",
+        "local_path": "images/Trek/49169_A/CheckmateSLR8AXS-25-49169-A-Primary_14.jpg",
+        "filename": "CheckmateSLR8AXS-25-49169-A-Primary_14.jpg"
+      }
+    ]
   },
   {
     "name": "Speed Concept SLR 7 AXS",
@@ -1974,11 +2275,18 @@
       "Remschijf": "SRAM Paceline X, afgerond, centerlock, 160 mm",
       "Remgreep": "SRAM S-900 Aero",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
-      "Bidonhouder": "Maat: S, M, L, XL Speed Concept bidonhouder op de onderbuis",
+      "Bidonhouder": "Speed Concept Downtube Bottle Cage",
       "Bidon": "Speed Concept bidon op de onderbuis",
       "Framefit": "Triatlon*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/SpeedConceptSLR7AXS-26-56332-A-Primary",
+        "local_path": "images/Trek/56332_A/SpeedConceptSLR7AXS-26-56332-A-Primary_26.jpg",
+        "filename": "SpeedConceptSLR7AXS-26-56332-A-Primary_26.jpg"
+      }
+    ]
   },
   {
     "name": "Speed Concept SLR 8 AXS",
@@ -2017,11 +2325,18 @@
       "Remschijf": "SRAM CenterLine X, centerlock, afgeronde rand, 160 mm",
       "Remgreep": "SRAM S-900 Aero",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
-      "Bidonhouder": "Maat: S, M, L, XL Speed Concept bidonhouder op de onderbuis",
+      "Bidonhouder": "Speed Concept Downtube Bottle Cage",
       "Bidon": "Speed Concept bidon op de onderbuis",
       "Framefit": "Triatlon*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/SpeedConceptSLR8AXSRED-25-49162-A-Portrait",
+        "local_path": "images/Trek/49162_A/SpeedConceptSLR8AXSRED-25-49162-A-Portrait_27.jpg",
+        "filename": "SpeedConceptSLR8AXSRED-25-49162-A-Portrait_27.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SLR 7 AXS Gen 8",
@@ -2063,7 +2378,14 @@
       "Framefit": "H1.5 Race*",
       "Frame": "900 Series Oclv Carbon",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSLR7AXS-25-46688-A-Primary",
+        "local_path": "images/Trek/46688_A/MadoneSLR7AXS-25-46688-A-Primary_39.jpg",
+        "filename": "MadoneSLR7AXS-25-46688-A-Primary_39.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SLR 8 AXS Gen 8",
@@ -2105,7 +2427,14 @@
       "Framefit": "H1.5 Race*",
       "Frame": "900 Series Oclv Carbon",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSLR8AXSRed-25-49168-A-Primary",
+        "local_path": "images/Trek/49168_A/MadoneSLR8AXSRed-25-49168-A-Primary_41.jpg",
+        "filename": "MadoneSLR8AXSRed-25-49168-A-Primary_41.jpg"
+      }
+    ]
   },
   {
     "name": "Checkmate SLR 9 AXS",
@@ -2138,7 +2467,7 @@
       "Velglint": "Bontrager TLR",
       "Maximale bandenmaat": "45 mm zonder spatborden, 38 mm met spatborden (feitelijk gemeten, bekijk de handleiding voor details)",
       "Zadel": "Maat: XS, S Aeolus RSL, carbon rails, 155mm breedte",
-      "Zadelpen": "Maat: XS, S, M, ML, L, XL KVF aero carbon zadelpen, 5 mm offset, 280 mm lengte",
+      "Zadelpen": "KVF aero carbon zadelpen, 5 mm offset, 280 mm lengte",
       "Stuur/stuurpen (geïntegreerd)": "Maat: XS Trek Aero RSL geïntegreerde stuur/stuurpen, OCLV Carbon, race-geometrie, 80 mm reach, 124 mm drop, 37 cm breedte bij hendels, drop-breedte 40 cm, stuurpenlengte 70 mm",
       "Stuurlint": "Maat: XS, S, M, ML, L, XL Trek EcoTack",
       "Remschijf": "SRAM Paceline X, afgerond, centerlock, 160 mm",
@@ -2146,7 +2475,14 @@
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/CheckmateSLR9AXS-26-46152-A-Primary",
+        "local_path": "images/Trek/46152_A/CheckmateSLR9AXS-26-46152-A-Primary_14.jpg",
+        "filename": "CheckmateSLR9AXS-26-46152-A-Primary_14.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SLR 9 Gen 4",
@@ -2187,7 +2523,14 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSLR9-26-57942-A-Primary",
+        "local_path": "images/Trek/57942_C/DomaneSLR9-26-57942-A-Primary_39.jpg",
+        "filename": "DomaneSLR9-26-57942-A-Primary_39.jpg"
+      }
+    ]
   },
   {
     "name": "Domane+ SLR 8 AXS",
@@ -2232,7 +2575,8 @@
       "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": []
   },
   {
     "name": "Domane+ SLR 7 AXS",
@@ -2278,7 +2622,8 @@
       "Bottom bracket": "SRAM DUB, T47 met schroefdraad, interne lagers*",
       "Shifter_speed": "12-speed",
       "Voorderailleur": "1x, geen voorderailleur"
-    }
+    },
+    "hero_images": []
   },
   {
     "name": "Domane SLR 9 AXS Gen 4",
@@ -2319,7 +2664,14 @@
       "Tas": "Bontrager BITS Internal Frame opbergtas",
       "Framefit": "Endurance*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/DomaneSLR9AXS-26-57944-A-Primary",
+        "local_path": "images/Trek/57944_C/DomaneSLR9AXS-26-57944-A-Primary_39.jpg",
+        "filename": "DomaneSLR9AXS-26-57944-A-Primary_39.jpg"
+      }
+    ]
   },
   {
     "name": "Speed Concept SLR 9",
@@ -2360,10 +2712,17 @@
       "Rem": "Shimano Dura-Ace hydraulische schijfrem, flat-mount",
       "Remschijf": "Shimano CL900, centerlock, 160 mm",
       "Schijfdiameter": "Maximale maten remschijf: 160 mm voor &amp; achter",
-      "Bidonhouder": "Maat: S, M, L, XL Speed Concept bidonhouder op de onderbuis",
+      "Bidonhouder": "Speed Concept Downtube Bottle Cage",
       "Bidon": "Speed Concept bidon op de onderbuis",
       "Shifter_speed": "11-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/SpeedConceptSLR9_22_35757_A_Portrait",
+        "local_path": "images/Trek/35757_A/SpeedConceptSLR9_22_35757_A_Portrait_25.jpg",
+        "filename": "SpeedConceptSLR9_22_35757_A_Portrait_25.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SLR 9 gen 8",
@@ -2406,7 +2765,14 @@
       "Framefit": "H1.5 Race*",
       "Frame": "900 Series Oclv Carbon",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSLR9-25-46707-A-Primary",
+        "local_path": "images/Trek/46707_A/MadoneSLR9-25-46707-A-Primary_37.jpg",
+        "filename": "MadoneSLR9-25-46707-A-Primary_37.jpg"
+      }
+    ]
   },
   {
     "name": "Domane SLR 9 gen 4",
@@ -2452,7 +2818,8 @@
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
       "Tas": "Bontrager BITS Internal Frame opbergtas",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": []
   },
   {
     "name": "Speed Concept SLR 9 AXS",
@@ -2491,11 +2858,18 @@
       "Remschijf": "SRAM Paceline X, afgerond, centerlock, 160 mm",
       "Remgreep": "SRAM S-900 Aero",
       "Schijfdiameter": "Maximale maat remschijven: 160 mm voor en achter",
-      "Bidonhouder": "Maat: S, M, L, XL Speed Concept bidonhouder op de onderbuis",
+      "Bidonhouder": "Speed Concept Downtube Bottle Cage",
       "Bidon": "Speed Concept bidon op de onderbuis",
       "Framefit": "Triatlon*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/SpeedConceptSLR9AXS-25-48020-A-Primary_V2",
+        "local_path": "images/Trek/48020_A/SpeedConceptSLR9AXS-25-48020-A-Primary_V2_25.jpg",
+        "filename": "SpeedConceptSLR9AXS-25-48020-A-Primary_V2_25.jpg"
+      }
+    ]
   },
   {
     "name": "Madone SLR 9 AXS Gen 8",
@@ -2529,7 +2903,7 @@
       "Binnenband": "Pirelli P Zero SmarTube, TPU",
       "Maximale bandenmaat": "32 mm (feitelijk gemeten, bekijk de handleiding voor details)",
       "Zadel": "Maat: XS, S Aeolus RSL, carbon rails, 155mm breedte",
-      "Zadelpen": "Maat: XS, S, M, ML, L, XL Madone aero carbon zadelpen, 0 mm offset, korte versie",
+      "Zadelpen": "Madone aero carbon zadelpen, 0 mm offset, korte versie",
       "Stuur/stuurpen (geïntegreerd)": "Maat: XS Trek Aero RSL geïntegreerde stuur/stuurpen, OCLV Carbon, race-geometrie, 80 mm reach, 124 mm drop, 35 cm breedte bij hendels, drop-breedte 38 cm, stuurpenlengte 80 mm",
       "Stuurlint": "Trek EcoTack",
       "Remschijf": "SRAM Paceline X, afgerond, centerlock, 160 mm",
@@ -2537,7 +2911,14 @@
       "Framefit": "H1.5 Race*",
       "Frame": "900 Series Oclv Carbon",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": [
+      {
+        "url": "https://media.trekbikes.com/image/upload/w_1200/MadoneSLR9AXS-25-46151-A-Primary",
+        "local_path": "images/Trek/46151_A/MadoneSLR9AXS-25-46151-A-Primary_34.jpg",
+        "filename": "MadoneSLR9AXS-25-46151-A-Primary_34.jpg"
+      }
+    ]
   },
   {
     "name": "Domane+ SLR 9",
@@ -2584,6 +2965,7 @@
       "Schijfdiameter": "Maximale maat remschijven: 180 mm voor, 160 mm achter",
       "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers*",
       "Shifter_speed": "12-speed"
-    }
+    },
+    "hero_images": []
   }
 ]
