@@ -7,6 +7,7 @@ Converts Trek bikes CSV to WordPress-ready format with specifications as custom 
 import pandas as pd
 import sys
 import os
+import shutil
 import glob
 from datetime import datetime
 
@@ -89,42 +90,73 @@ def convert_to_wordpress_format(input_file, output_file, verbose=True):
     return wp_df
 
 def clean_old_wordpress_files(keep_count=3, verbose=True):
-    """Clean up old WordPress CSV files, keeping only the most recent ones"""
-    pattern = 'data/trek_bikes_wordpress_*.csv'
-    files = glob.glob(pattern)
+    """Archive old WordPress CSV files, keeping only the most recent ones in working directory"""
+    wp_dir = 'data/wordpress_imports'
+    archive_dir = 'data/archive/wordpress_imports'
     
-    if len(files) > keep_count:
-        # Sort by modification time, newest first
-        files.sort(key=os.path.getmtime, reverse=True)
+    # Handle both Trek and Canyon WordPress files
+    patterns = [
+        f'{wp_dir}/trek_bikes_wordpress_*.csv',
+        f'{wp_dir}/canyon_bikes_wordpress_*.csv'
+    ]
+    
+    all_files = []
+    for pattern in patterns:
+        files = glob.glob(pattern)
+        all_files.extend(files)
+    
+    if len(all_files) > keep_count:
+        # Ensure archive directory exists
+        os.makedirs(archive_dir, exist_ok=True)
         
-        files_removed = 0
-        # Remove older files
-        for old_file in files[keep_count:]:
+        # Sort by modification time, newest first
+        all_files.sort(key=os.path.getmtime, reverse=True)
+        
+        files_archived = 0
+        # Move older files to archive
+        for old_file in all_files[keep_count:]:
             try:
-                os.remove(old_file)
-                files_removed += 1
+                filename = os.path.basename(old_file)
+                archive_path = os.path.join(archive_dir, filename)
+                
+                # If file already exists in archive, add timestamp to avoid conflicts
+                if os.path.exists(archive_path):
+                    name, ext = os.path.splitext(filename)
+                    archive_path = os.path.join(archive_dir, f"{name}_archived_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}")
+                
+                shutil.move(old_file, archive_path)
+                files_archived += 1
                 if verbose:
-                    print(f"Removed old WordPress file: {old_file}")
+                    print(f"Archived old WordPress file: {old_file} → {archive_path}")
             except OSError as e:
                 if verbose:
-                    print(f"Warning: Could not remove {old_file}: {e}")
+                    print(f"Warning: Could not archive {old_file}: {e}")
         
-        if verbose and files_removed > 0:
-            print(f"✅ Cleaned up {files_removed} old WordPress CSV files (kept {keep_count} most recent)")
+        if verbose and files_archived > 0:
+            print(f"✅ Archived {files_archived} old WordPress CSV files (kept {keep_count} most recent)")
     elif verbose:
-        print(f"📁 Found {len(files)} WordPress CSV files (no cleanup needed)")
+        print(f"📁 Found {len(all_files)} WordPress CSV files (no archiving needed)")
 
-def convert_latest_to_wordpress(verbose=True):
+def convert_latest_to_wordpress(brand="trek", verbose=True):
     """Convert the latest CSV file to WordPress format automatically"""
-    input_file = "data/trek_bikes_latest.csv"
+    if brand.lower() == "canyon":
+        input_file = "data/canyon_bikes_latest.csv"
+        output_prefix = "canyon_bikes_wordpress"
+    else:
+        input_file = "data/trek_bikes_latest.csv"
+        output_prefix = "trek_bikes_wordpress"
     
     if not os.path.exists(input_file):
         if verbose:
             print(f"❌ Warning: {input_file} not found - skipping WordPress conversion")
         return None
     
+    # Ensure WordPress imports directory exists
+    wp_dir = 'data/wordpress_imports'
+    os.makedirs(wp_dir, exist_ok=True)
+    
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    output_file = f"data/trek_bikes_wordpress_{timestamp}.csv"
+    output_file = f"{wp_dir}/{output_prefix}_{timestamp}.csv"
     
     try:
         if verbose:
@@ -145,8 +177,13 @@ def convert_latest_to_wordpress(verbose=True):
 
 def main():
     input_file = "data/trek_bikes_latest.csv"
+    
+    # Ensure WordPress imports directory exists
+    wp_dir = 'data/wordpress_imports'
+    os.makedirs(wp_dir, exist_ok=True)
+    
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    output_file = f"data/trek_bikes_wordpress_{timestamp}.csv"
+    output_file = f"{wp_dir}/trek_bikes_wordpress_{timestamp}.csv"
     
     try:
         result_df = convert_to_wordpress_format(input_file, output_file)

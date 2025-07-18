@@ -14,6 +14,7 @@ import logging
 from datetime import datetime
 import time
 import os
+import shutil
 from urllib.parse import urljoin, urlparse
 import glob
 from collections import defaultdict
@@ -1401,54 +1402,66 @@ class TrekBikeScraper:
             return []
 
     def clean_old_files(self, keep_count=3):
-        """Clean up old timestamped files, keeping only the most recent ones"""
-        patterns = [
-            'data/trek_bikes_*.json',
-            'data/trek_bikes_*.csv', 
-            'data/trek_bikes_*.xlsx',
-            'data/trek_bikes_wordpress_*.csv'
+        """Move old timestamped files to archive, keeping only the most recent ones in working directories"""
+        patterns_and_archive_dirs = [
+            ('data/Trek/trek_bikes_*.json', 'data/archive/Trek'),
+            ('data/Trek/trek_bikes_*.csv', 'data/archive/Trek'), 
+            ('data/Trek/trek_bikes_*.xlsx', 'data/archive/Trek'),
+            ('data/wordpress_imports/trek_bikes_wordpress_*.csv', 'data/archive/wordpress_imports')
         ]
         
-        files_removed = 0
+        files_archived = 0
         
-        for pattern in patterns:
+        for pattern, archive_dir in patterns_and_archive_dirs:
             files = glob.glob(pattern)
-            # Filter out the 'latest' files and 'wordpress' files for the first 3 patterns
-            if 'wordpress' in pattern:
-                timestamped_files = files  # Keep all WordPress files for their own cleanup
-            else:
-                timestamped_files = [f for f in files if 'latest' not in f and 'wordpress' not in f]
+            # All files in brand and wordpress folders are timestamped (no 'latest' files there)
+            timestamped_files = files
             
             if len(timestamped_files) > keep_count:
+                # Ensure archive directory exists
+                os.makedirs(archive_dir, exist_ok=True)
+                
                 # Sort by modification time, newest first
                 timestamped_files.sort(key=os.path.getmtime, reverse=True)
                 
-                # Remove older files
+                # Move older files to archive
                 for old_file in timestamped_files[keep_count:]:
                     try:
-                        os.remove(old_file)
-                        files_removed += 1
+                        import shutil
+                        filename = os.path.basename(old_file)
+                        archive_path = os.path.join(archive_dir, filename)
+                        
+                        # If file already exists in archive, add timestamp to avoid conflicts
+                        if os.path.exists(archive_path):
+                            name, ext = os.path.splitext(filename)
+                            archive_path = os.path.join(archive_dir, f"{name}_archived_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}")
+                        
+                        shutil.move(old_file, archive_path)
+                        files_archived += 1
+                        self.logger.info(f"Archived old file: {old_file} → {archive_path}")
                     except OSError as e:
-                        self.logger.warning(f"Could not remove {old_file}: {e}")
+                        self.logger.warning(f"Could not archive {old_file}: {e}")
         
-        if files_removed > 0:
-            self.logger.info(f"Cleaned up {files_removed} old timestamped files (kept {keep_count} most recent as archive)")
+        if files_archived > 0:
+            self.logger.info(f"Archived {files_archived} old timestamped files (kept {keep_count} most recent in working directories)")
 
     def save_data(self, bikes, timestamp=None):
         """Save scraped data to JSON, CSV, and Excel files"""
         if not timestamp:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         
-        # Ensure data directory exists
-        os.makedirs('data', exist_ok=True)
+        # Ensure directories exist
+        brand_dir = 'data/Trek'
+        os.makedirs(brand_dir, exist_ok=True)
+        os.makedirs('data', exist_ok=True)  # Keep data root for 'latest' files
         
         # Clean up old files first
         self.clean_old_files()
         
-        # Save timestamped versions
-        json_file = f'data/trek_bikes_{timestamp}.json'
-        csv_file = f'data/trek_bikes_{timestamp}.csv'
-        excel_file = f'data/trek_bikes_{timestamp}.xlsx'
+        # Save timestamped versions in brand folder
+        json_file = f'{brand_dir}/trek_bikes_{timestamp}.json'
+        csv_file = f'{brand_dir}/trek_bikes_{timestamp}.csv'
+        excel_file = f'{brand_dir}/trek_bikes_{timestamp}.xlsx'
         
         # Save JSON
         with open(json_file, 'w', encoding='utf-8') as f:

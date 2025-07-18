@@ -1,146 +1,199 @@
-# Trek Bikes Scraper
+# Bike Scraper Suite
 
-A comprehensive web scraper for Trek road bikes from the Dutch Trek website (trekbikes.com/nl). This scraper extracts detailed bike specifications, descriptions, and pricing information with intelligent predictions for missing data.
+A comprehensive bike scraping system with **automatic WordPress integration** and **organized file management**.
 
-## Features
+## 🚀 **Available Scrapers**
 
-- **Complete bike data extraction** from Trek's Dutch website
-- **Detailed specifications** extracted from individual bike pages
-- **Intelligent predictions** for missing fields (framefit, bottom bracket, chain)
-- **Transparent predictions** marked with asterisk (*) for clarity
-- **Color variant detection** for bikes with multiple color options
-- **1x drivetrain detection** with automatic front derailleur classification
-- **Multiple export formats**: JSON, CSV, and Excel
-- **Comprehensive logging** for debugging and monitoring
-- **Automatic file cleanup** to manage storage
+### 1. 🚲 **Trek Bikes Scraper** (`trek_bikes_scraper.py`)
+- **Source**: Trek Dutch website (complete road bikes catalog)
+- **Data**: 60+ bike models with full specifications
+- **Status**: ✅ **Production Ready** - Fully tested and optimized
 
-## Installation
+### 2. 🏔️ **Canyon Bikes Scraper** (`canyon_bikes_scraper.py`) - NEW!
+- **Source**: Canyon Dutch website (road bikes catalog)
+- **Data**: Road bikes across all series (Endurace, Ultimate, Aeroad, etc.)
+- **Status**: 🧪 **Beta** - Core functionality working, fine-tuning in progress
 
-1. Clone this repository:
-```bash
-git clone <repository-url>
-cd bikescaper
+## 📁 **Organized File Structure**
+
+Both scrapers automatically organize output files by brand:
+
+```
+data/
+├── trek_bikes_latest.*              # Trek current data
+├── canyon_bikes_latest.*            # Canyon current data (NEW!)
+├── Trek/                           # Trek timestamped exports
+│   ├── trek_bikes_YYYYMMDD_HHMMSS.json
+│   ├── trek_bikes_YYYYMMDD_HHMMSS.csv
+│   └── trek_bikes_YYYYMMDD_HHMMSS.xlsx
+├── Canyon/                         # Canyon timestamped exports (NEW!)
+│   ├── canyon_bikes_YYYYMMDD_HHMMSS.json
+│   ├── canyon_bikes_YYYYMMDD_HHMMSS.csv
+│   └── canyon_bikes_YYYYMMDD_HHMMSS.xlsx
+├── wordpress_imports/              # WordPress-ready files
+│   ├── trek_bikes_wordpress_*.csv
+│   └── canyon_bikes_wordpress_*.csv (NEW!)
+├── archive/                        # Historical data preservation
+│   ├── Trek/                       # Archived Trek exports
+│   ├── Canyon/                     # Archived Canyon exports (NEW!)
+│   └── wordpress_imports/          # Archived WordPress files
+└── images/
+    ├── Trek/                       # Trek bike images
+    └── Canyon/                     # Canyon bike images (NEW!)
 ```
 
-2. Install required dependencies:
-```bash
-pip3 install -r requirements.txt
-```
+## ⚡ **Quick Start**
 
-## Usage
-
-Run the scraper:
+### Trek Bikes (Production Ready)
 ```bash
 python3 trek_bikes_scraper.py
 ```
+✅ **Automatically creates**:
+- Brand exports in `data/Trek/`
+- WordPress CSV in `data/wordpress_imports/`
+- Downloaded images in `images/Trek/`
+- Archives old files automatically
 
-The scraper will:
-1. Extract all road bikes from Trek's Dutch website
-2. Fetch detailed specifications for each bike
-3. Apply intelligent predictions for missing data
-4. Export data to multiple formats in the `data/` directory
+### Canyon Bikes (Beta)
+```bash
+python3 canyon_bikes_scraper.py
+```
+✅ **Automatically creates**:
+- Brand exports in `data/Canyon/`
+- WordPress CSV in `data/wordpress_imports/`
+- Downloaded images in `images/Canyon/`
+- Archives old files automatically
 
-## Output Files
+## 🔄 **WordPress Integration**
 
-The scraper generates timestamped files and maintains latest versions:
+Both scrapers include **automatic WordPress conversion**:
 
-- `trek_bikes_YYYYMMDD_HHMMSS.json` - Complete data in JSON format
-- `trek_bikes_YYYYMMDD_HHMMSS.csv` - Tabular data for analysis
-- `trek_bikes_YYYYMMDD_HHMMSS.xlsx` - Excel format for easy viewing
-- `trek_bikes_latest.*` - Always contains the most recent data
+- **Trek files**: `trek_bikes_wordpress_YYYYMMDD_HHMMSS.csv`
+- **Canyon files**: `canyon_bikes_wordpress_YYYYMMDD_HHMMSS.csv`
+- **Specifications**: Converted to WordPress custom fields
+- **Ready for**: "My CSV Importer" plugin
+- **Archive system**: Keeps 3 most recent, archives older versions
 
-## Data Fields
+### Manual WordPress Conversion
+```bash
+# Convert Trek data
+python3 -c "from wordpress_csv_converter import convert_latest_to_wordpress; convert_latest_to_wordpress('trek')"
 
-### Basic Information
-- `name` - Bike model name
-- `price` - Price in euros
-- `category` - Bike category (e.g., "Performance road bikes")
-- `brand` - Always "Trek"
-- `url` - Relative URL to bike detail page
-- `sku` - Product SKU
-- `variant` - Color variant name
-- `description` - Marketing description
+# Convert Canyon data  
+python3 -c "from wordpress_csv_converter import convert_latest_to_wordpress; convert_latest_to_wordpress('canyon')"
+```
 
-### Specifications
-All specifications are prefixed with `spec_` in CSV/Excel formats:
+## 📊 **Data Extracted**
 
-- **Framefit*** - Riding position (Endurance, H1.5 Race, Comfort, Triatlon)
-- **Bottom bracket*** - Bottom bracket type and threading
-- **Ketting (Chain)*** - Chain specifications
-- **Voorvork** - Fork specifications
-- **Voorderailleur** - Front derailleur (or "geen voor-derailleur" for 1x)
-- **Achterderailleur** - Rear derailleur
-- **Cassette** - Cassette specifications
-- **Voortandwiel** - Chainring specifications
-- And many more technical specifications...
+### Common Data (Both Scrapers)
+- ✅ **Bike name and model**
+- ✅ **Pricing information**
+- ✅ **Category classification** 
+- ✅ **Technical specifications**
+- ✅ **Product descriptions**
+- ✅ **High-resolution images**
+- ✅ **Brand and series info**
 
-*Fields marked with asterisk (*) indicate intelligent predictions based on component compatibility.
+### Trek-Specific Features
+- ✅ **Complete dataLayer extraction**
+- ✅ **Color variant detection**
+- ✅ **Intelligent specification parsing**
+- ✅ **Frame geometry analysis**
+- ✅ **Drivetrain classification**
 
-## Intelligent Predictions
+### Canyon-Specific Features  
+- ✅ **Multi-series navigation** (Endurace, Ultimate, Aeroad, etc.)
+- ✅ **Hierarchical scraping** (Categories → Series → Individual bikes)
+- ✅ **Dutch language parsing**
+- 🔧 **Price extraction** (in development)
+- 🔧 **Enhanced specifications** (in development)
 
-The scraper includes sophisticated prediction algorithms:
+## 🗄️ **Archive System**
 
-### Framefit Prediction
-- **Endurance**: Domane, Checkpoint series
-- **H1.5 Race**: Madone, Émonda, Boone series
-- **Comfort**: FX fitness bikes
-- **Triatlon**: Speed Concept series
+- **Automatic**: Runs with each scraper execution
+- **Preserves**: Complete historical record
+- **Organizes**: By brand and file type
+- **Manages**: Disk space efficiently
+- **Keeps**: 3 most recent in working directories
 
-### Bottom Bracket Prediction
-- **SRAM DUB**: High-end bikes with AXS components
-- **SRAM DUB Wide**: Gravel bikes (Checkpoint series)
-- **Praxis T47**: Most carbon Trek bikes
-- **Shimano**: Entry-level and fitness bikes
+## 📋 **Requirements**
 
-### Chain Prediction
-Based on drivetrain components:
-- **SRAM chains**: Matched to Apex, Rival, Force, RED components
-- **Shimano chains**: Matched to 105, Ultegra, XT components
-- **Speed-specific**: 10, 11, 12, or 13-speed chains
+```bash
+pip install -r requirements.txt
+```
 
-### 1x Drivetrain Detection
-Automatically detects single-chainring setups and adds "geen voor-derailleur" based on:
-- Chainring specifications
-- Wide-range cassettes (>30 tooth range)
-- Component naming patterns
+**Dependencies:**
+- `requests` - HTTP requests
+- `beautifulsoup4` - HTML parsing  
+- `pandas` - Data manipulation
+- `openpyxl` - Excel file handling
 
-## Logging
+## 🎯 **Use Cases**
 
-The scraper maintains detailed logs in `trek_scraper.log` including:
-- Extraction progress
-- Specification counts
-- Prediction reasoning
-- Error handling
-- Performance metrics
+### 🏪 **E-commerce**
+- Import bike catalogs to WordPress/WooCommerce
+- Automated inventory updates
+- Multi-brand product management
 
-## Error Handling
+### 📊 **Market Research**
+- Price monitoring and analysis
+- Specification comparisons
+- Market trend tracking
 
-- **Robust request handling** with retries and timeouts
-- **Graceful failure** for individual bikes
-- **Comprehensive logging** for debugging
-- **Data validation** to ensure quality
+### 🛠️ **Development**
+- API data source for bike databases
+- Product recommendation systems
+- Inventory management tools
 
-## Data Quality
+## 📈 **Roadmap**
 
-- **100% field coverage** - No missing critical specifications
-- **Transparent predictions** - All predictions clearly marked with *
-- **Duplicate removal** - Ensures unique bike models
-- **Data validation** - Specifications verified against patterns
+### Canyon Scraper Improvements
+- 🔧 Enhanced price extraction
+- 🔧 Advanced specification parsing
+- 🔧 Color variant detection
+- 🔧 Additional bike categories
 
-## Recent Updates
+### Multi-Brand Expansion
+- 🚀 Specialized scraper
+- 🚀 Giant scraper  
+- 🚀 Cannondale scraper
+- 🚀 Unified multi-brand interface
 
-- ✅ Added asterisk markers for all predicted fields
-- ✅ Improved chain specification extraction
-- ✅ Enhanced 1x drivetrain detection
-- ✅ Better bottom bracket prediction
-- ✅ Comprehensive framefit determination
+### WordPress Enhancements
+- 🚀 WooCommerce direct integration
+- 🚀 Custom field grouping
+- 🚀 Image optimization
+- 🚀 SEO optimization
 
-## Requirements
+## 🤝 **Contributing**
 
-- Python 3.7+
-- Internet connection
-- Dependencies listed in requirements.txt
+The scraper architecture is designed for easy extension:
 
-## License
+1. **Copy base scraper**: Use `trek_bikes_scraper.py` as template
+2. **Adapt selectors**: Update CSS selectors for target website
+3. **Customize extraction**: Modify data extraction methods
+4. **Update file paths**: Change brand folder names
+5. **Test integration**: Ensure WordPress converter compatibility
 
-This project is for educational and research purposes. Please respect Trek's website terms of service and use responsibly. 
+## 📝 **Documentation**
+
+- 📖 **WordPress Import Guide**: `WordPress_Import_Instructions.md`
+- 🧪 **Testing**: Built-in test functions in each scraper
+- 📊 **Logging**: Comprehensive logging to `*_scraper.log` files
+
+## ⚠️ **Important Notes**
+
+- **Respectful scraping**: Built-in delays between requests
+- **Error handling**: Comprehensive exception management  
+- **Data preservation**: No data loss with archive system
+- **WordPress ready**: All exports immediately usable
+- **Modular design**: Easy to extend and customize
+
+## 🎉 **Status Summary**
+
+| Scraper | Status | WordPress | Archive | Images | Specs |
+|---------|--------|-----------|---------|--------|-------|
+| **Trek** | ✅ Production | ✅ Auto | ✅ Auto | ✅ Full | ✅ Complete |
+| **Canyon** | 🧪 Beta | ✅ Auto | ✅ Auto | ✅ Full | 🔧 In Progress |
+
+Both scrapers provide **complete end-to-end solutions** from data scraping to WordPress-ready import files with professional file organization and comprehensive data preservation! 

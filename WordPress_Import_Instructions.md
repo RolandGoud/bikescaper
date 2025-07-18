@@ -10,21 +10,41 @@ This document explains how to import the Trek bikes data into WordPress using th
 - No manual conversion needed - just run the scraper as usual
 - Conversion happens silently in the background after data export
 
-### 🧹 **Automatic Cleanup**
-- Keeps only the **3 most recent versions** of all files
-- Automatically removes older files to save disk space
+### 🗄️ **Automatic Archive System**
+- Keeps **3 most recent versions** in working directories
+- Automatically **moves older files to archive** (no data loss!)
+- Preserves complete history in organized archive folders
 - Applies to both regular export files and WordPress files
 - Runs every time the scraper executes
 
-### 📁 **File Management**
-- **Latest files**: Always available as `trek_bikes_latest.*`
-- **Timestamped archives**: 3 most recent versions kept
-- **WordPress files**: `trek_bikes_wordpress_YYYYMMDD_HHMMSS.csv`
+### 📁 **Organized File Structure with Archive System**
+```
+data/
+├── trek_bikes_latest.*           # Always current data
+├── Trek/                         # Brand-specific exports (3 most recent)
+│   ├── trek_bikes_YYYYMMDD_HHMMSS.json
+│   ├── trek_bikes_YYYYMMDD_HHMMSS.csv
+│   └── trek_bikes_YYYYMMDD_HHMMSS.xlsx
+├── wordpress_imports/            # WordPress-ready files (3 most recent)
+│   └── trek_bikes_wordpress_YYYYMMDD_HHMMSS.csv
+└── archive/                      # 🗄️ Preserved historical data
+    ├── Trek/                     # Older brand exports
+    │   ├── trek_bikes_YYYYMMDD_HHMMSS.json
+    │   ├── trek_bikes_YYYYMMDD_HHMMSS.csv
+    │   └── trek_bikes_YYYYMMDD_HHMMSS.xlsx
+    └── wordpress_imports/        # Older WordPress files
+        └── trek_bikes_wordpress_YYYYMMDD_HHMMSS.csv
+```
+
+- **Latest files**: Always in `data/` root for easy access
+- **Working directories**: Keep 3 most recent files for active use
+- **Archive system**: Automatically preserves ALL older versions
+- **No data loss**: Complete historical record maintained
 
 ## Files Created
-- **Original CSV**: `data/trek_bikes_latest.csv` (always current)
-- **WordPress CSV**: `data/trek_bikes_wordpress_[timestamp].csv` (auto-generated)
-- **Archives**: Timestamped versions (3 most recent kept)
+- **Current data**: `data/trek_bikes_latest.*` (always current)
+- **Brand exports**: `data/Trek/trek_bikes_[timestamp].*` (timestamped archives)
+- **WordPress imports**: `data/wordpress_imports/trek_bikes_wordpress_[timestamp].csv` (ready for import)
 
 ## Quick Start (NEW Workflow!)
 
@@ -37,11 +57,12 @@ python3 trek_bikes_scraper.py
 - ✅ Scrape the latest bike data
 - ✅ Save regular export files (JSON, CSV, Excel)
 - ✅ **Automatically generate WordPress-ready CSV**
-- ✅ **Clean up old files (keeping 3 most recent)**
+- ✅ **Archive old files (keeping 3 most recent in working dirs)**
+- ✅ **Preserve complete history in archive folders**
 - ✅ Log all activities
 
 ### 2. Find Your WordPress File
-Look for the newest file matching: `data/trek_bikes_wordpress_*.csv`
+Look for the newest file in: `data/wordpress_imports/trek_bikes_wordpress_*.csv`
 
 ### 3. Import to WordPress
 Use the auto-generated WordPress CSV file with your import plugin.
@@ -121,7 +142,7 @@ result = convert_latest_to_wordpress()
 ### 2. WordPress Import Process
 1. Go to **Tools > Import** in WordPress admin
 2. Choose **CSV** importer
-3. Upload the newest file: `trek_bikes_wordpress_[timestamp].csv`
+3. Upload the newest file from: `data/wordpress_imports/trek_bikes_wordpress_[timestamp].csv`
 4. Map the columns:
    - `post_title` → Post Title
    - `post_content` → Post Content
@@ -149,19 +170,22 @@ You may need to:
 ## File Management Details
 
 ### 🗂️ **Archive Strategy**
-- **Keep Count**: 3 most recent versions of each file type
-- **File Types Managed**: 
-  - `trek_bikes_*.json` (data exports)
-  - `trek_bikes_*.csv` (data exports)  
-  - `trek_bikes_*.xlsx` (data exports)
-  - `trek_bikes_wordpress_*.csv` (WordPress files)
-- **Latest Files**: Never deleted (always current)
+- **Working Files**: 3 most recent versions in active directories
+- **File Organization**: 
+  - `data/trek_bikes_latest.*` - Always current (never archived)
+  - `data/Trek/trek_bikes_*.json|csv|xlsx` - Brand exports (3 most recent)
+  - `data/wordpress_imports/trek_bikes_wordpress_*.csv` - WordPress files (3 most recent)
+  - `data/archive/Trek/` - ALL older brand export versions
+  - `data/archive/wordpress_imports/` - ALL older WordPress versions
+- **Automatic Archiving**: Preserves complete history, no data loss
+- **Conflict Resolution**: Duplicate filenames get timestamp suffix
 
 ### 📊 **Logging**
 All operations are logged to `trek_scraper.log`:
 - WordPress conversion status
-- File cleanup activities
-- Error handling
+- File archiving activities (what moved where)
+- Archive folder creation
+- Error handling and conflict resolution
 
 ## Custom Field Groups Suggestion
 
@@ -214,11 +238,18 @@ You might want to organize the custom fields into logical groups:
 
 ### Manual Operations:
 ```bash
-# Force WordPress conversion
+# Force WordPress conversion (saves to data/wordpress_imports/)
 python3 -c "from wordpress_csv_converter import convert_latest_to_wordpress; convert_latest_to_wordpress()"
 
-# Manual cleanup (keep 3 most recent)
+# Manual archiving of WordPress files (keep 3 most recent in working dir)
 python3 -c "from wordpress_csv_converter import clean_old_wordpress_files; clean_old_wordpress_files(3)"
+
+# Check organized file structure
+ls -la data/Trek/                    # Brand exports (3 most recent)
+ls -la data/wordpress_imports/       # WordPress files (3 most recent)
+ls -la data/archive/Trek/            # Archived brand exports (all history)
+ls -la data/archive/wordpress_imports/  # Archived WordPress files (all history)
+ls -la data/trek_bikes_latest.*      # Current data
 ```
 
 ## Data Summary
@@ -227,14 +258,17 @@ python3 -c "from wordpress_csv_converter import clean_old_wordpress_files; clean
 - **Custom Fields Created**: ~62 total custom fields
 - **Images**: Up to 5 images per product with both URLs and local paths
 - **Auto-Generation**: WordPress CSV created after every scrape
-- **File Management**: Automatic cleanup keeps 3 most recent versions
+- **Archive System**: Automatic archiving preserves complete history
+- **File Management**: Clean working directories + comprehensive archives
 
 ## 🎯 **Benefits of New Automated System**
 - ✅ **Zero Manual Work**: WordPress files generated automatically
 - ✅ **Always Current**: WordPress CSV matches latest scrape data
-- ✅ **Disk Space Managed**: Old files automatically cleaned up
-- ✅ **Version History**: 3 most recent versions always available
+- ✅ **Organized Structure**: Brand exports and WordPress files in dedicated folders
+- ✅ **Complete History Preserved**: Archive system keeps ALL older versions
+- ✅ **Clean Working Directories**: 3 most recent files for easy access
+- ✅ **No Data Loss**: Automatic archiving instead of deletion
 - ✅ **Error Handling**: All operations logged for troubleshooting
 - ✅ **Backwards Compatible**: Manual conversion still available
 
-The scraper now provides a complete end-to-end solution from data scraping to WordPress-ready import files! 
+The scraper now provides a complete end-to-end solution from data scraping to WordPress-ready import files with comprehensive archive system for complete data preservation! 
