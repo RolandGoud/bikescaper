@@ -18,6 +18,13 @@ from urllib.parse import urljoin, urlparse
 import glob
 from collections import defaultdict
 
+# Import WordPress converter
+try:
+    from wordpress_csv_converter import convert_latest_to_wordpress
+    WORDPRESS_CONVERTER_AVAILABLE = True
+except ImportError:
+    WORDPRESS_CONVERTER_AVAILABLE = False
+
 class TrekBikeScraper:
     def __init__(self):
         self.base_url = "https://www.trekbikes.com"
@@ -1393,20 +1400,24 @@ class TrekBikeScraper:
             self.logger.error(f"Error scraping Trek bikes: {e}")
             return []
 
-    def clean_old_files(self, keep_count=2):
+    def clean_old_files(self, keep_count=3):
         """Clean up old timestamped files, keeping only the most recent ones"""
         patterns = [
             'data/trek_bikes_*.json',
             'data/trek_bikes_*.csv', 
-            'data/trek_bikes_*.xlsx'
+            'data/trek_bikes_*.xlsx',
+            'data/trek_bikes_wordpress_*.csv'
         ]
         
         files_removed = 0
         
         for pattern in patterns:
             files = glob.glob(pattern)
-            # Filter out the 'latest' files
-            timestamped_files = [f for f in files if 'latest' not in f]
+            # Filter out the 'latest' files and 'wordpress' files for the first 3 patterns
+            if 'wordpress' in pattern:
+                timestamped_files = files  # Keep all WordPress files for their own cleanup
+            else:
+                timestamped_files = [f for f in files if 'latest' not in f and 'wordpress' not in f]
             
             if len(timestamped_files) > keep_count:
                 # Sort by modification time, newest first
@@ -1421,7 +1432,7 @@ class TrekBikeScraper:
                         self.logger.warning(f"Could not remove {old_file}: {e}")
         
         if files_removed > 0:
-            self.logger.info(f"Cleaned up {files_removed} old timestamped files (kept most recent as archive)")
+            self.logger.info(f"Cleaned up {files_removed} old timestamped files (kept {keep_count} most recent as archive)")
 
     def save_data(self, bikes, timestamp=None):
         """Save scraped data to JSON, CSV, and Excel files"""
@@ -1503,6 +1514,20 @@ class TrekBikeScraper:
             df.to_excel(latest_excel, index=False, engine='openpyxl')
         
         self.logger.info(f"Also saved latest versions as {latest_json}, {latest_csv}, and {latest_excel}")
+        
+        # Automatically generate WordPress-ready CSV
+        if WORDPRESS_CONVERTER_AVAILABLE and csv_data:
+            try:
+                self.logger.info("Generating WordPress-ready CSV...")
+                wp_file = convert_latest_to_wordpress(verbose=False)
+                if wp_file:
+                    self.logger.info(f"WordPress CSV generated: {wp_file}")
+                else:
+                    self.logger.warning("WordPress CSV generation failed")
+            except Exception as e:
+                self.logger.error(f"Error generating WordPress CSV: {e}")
+        elif not WORDPRESS_CONVERTER_AVAILABLE:
+            self.logger.warning("WordPress converter not available (wordpress_csv_converter.py not found)")
 
     def analyze_color_variants(self, bikes):
         """Analyze and group bikes by model to show color variants"""
