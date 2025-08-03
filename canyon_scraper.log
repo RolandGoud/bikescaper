@@ -9853,3 +9853,698 @@
 2025-07-18 12:06:44,335 - INFO - Also saved latest versions as data/canyon_bikes_latest.json, data/canyon_bikes_latest.csv, and data/canyon_bikes_latest.xlsx
 2025-07-18 12:06:44,335 - INFO - Generating WordPress-ready CSV...
 2025-07-18 12:06:44,381 - INFO - WordPress CSV generated: data/wordpress_imports/canyon_bikes_wordpress_20250718_120644.csv
+2025-08-03 08:10:54,820 - INFO - Fetching content from: https://www.canyon.com/nl-nl/racefietsen/?srule=sort_master_availability_in-stock-prio&searchredirect=false&start=0&sz=200
+2025-08-03 08:10:56,368 - INFO - Found 100 total bike links
+2025-08-03 08:10:56,368 - INFO - Found 47 unique bikes to process
+2025-08-03 08:10:56,368 - INFO - Processing bike 1/47: Endurace AllRoad
+2025-08-03 08:10:56,368 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/allroad/endurace-allroad/4164.html
+2025-08-03 08:10:56,823 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4164&dwvar_4164_pv_rahmenfarbe=R138_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:10:57,065 - INFO - Extracted 11 component specifications from onderdelen
+2025-08-03 08:10:57,065 - INFO - Merged 11 specifications from onderdelen
+2025-08-03 08:10:57,159 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:10:57,159 - INFO - Image already exists, skipping: 2025_TOP-3_endurace_all-road-5_4164_R138_P01_frame.jpg
+2025-08-03 08:10:57,159 - INFO - Image already exists, skipping: 2025_TOP-2_endurace_all-road-5_4164_R138_P01_tyre-clearance.jpg
+2025-08-03 08:10:57,160 - INFO - Image already exists, skipping: 2025_TOP-4_endurace_all-road-5_4164_R138_P01_rack-rivets.jpg
+2025-08-03 08:10:57,160 - INFO - Image already exists, skipping: 2025_TOP-1_endurace_all-road-5_4164_R138_P01_tt-rivets.jpg
+2025-08-03 08:10:57,160 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:10:57,160 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:10:57,160 - INFO - Image already exists, skipping: 2025_FULL_endurace_all-road-5_4164_R138_P01.jpg
+2025-08-03 08:10:57,160 - INFO - Image already exists, skipping: 2025_FULL_endurace_all-road-5_4164_R138_P01.jpg
+2025-08-03 08:10:57,160 - INFO - Successfully processed Endurace AllRoad
+2025-08-03 08:10:58,161 - INFO - Processing bike 2/47: Endurace Young Hero
+2025-08-03 08:10:58,161 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/youth-kids/road-youth-endurace/endurace-young-hero/4285.html
+2025-08-03 08:11:00,185 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4285&dwvar_4285_pv_rahmenfarbe=R074_P90&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:00,383 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:00,383 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: 2026_TOP-1_endurace_yh_4285_R074_P90_cf.jpg
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: 2026_TOP-4_endurace_yh_4285_R074_P90_cassette.jpg
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: 2026_TOP-2_endurace_yh_4285_R074_P90_front-triangle.jpg
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: 2026_TOP-3_endurace_yh_4285_R074_P90_frame.jpg
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: 2026_FULL_endurace_yh_4285_R074_P90.jpg
+2025-08-03 08:11:00,465 - INFO - Image already exists, skipping: 2026_FULL_endurace_yh_4285_R074_P90.jpg
+2025-08-03 08:11:00,466 - INFO - Successfully processed Endurace Young Hero
+2025-08-03 08:11:01,466 - INFO - Processing bike 3/47: Ultimate Young Hero
+2025-08-03 08:11:01,466 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-young-hero/4284.html
+2025-08-03 08:11:03,074 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4284&dwvar_4284_pv_rahmenfarbe=R101_P90&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:03,625 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:03,625 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: 2026_TOP-2_ultimate_cf-yh_4284_R101_P90_front-triangle.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-yh_4284_R101_P90.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: 2026_TOP-3_ultimate_cf-yh_4284_R101_P90_frame.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: 2026_TOP-4_ultimate_cf-yh_4284_R101_P90_cassette.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-yh_4284_R101_P90.jpg
+2025-08-03 08:11:03,705 - INFO - Image already exists, skipping: 2026_TOP-1_ultimate_cf-yh_4284_R101_P90_cf.jpg
+2025-08-03 08:11:03,706 - INFO - Successfully processed Ultimate Young Hero
+2025-08-03 08:11:04,706 - INFO - Processing bike 4/47: CustomizenBike of the Week
+2025-08-03 08:11:04,706 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-di2/4039.html?dwvar_4039_pv_rahmenfarbe=R108_P01
+2025-08-03 08:11:05,844 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4039&dwvar_4039_pv_rahmenfarbe=R108_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:06,417 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:11:06,418 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:11:06,523 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:06,523 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cfr-di2-01.jpg
+2025-08-03 08:11:06,548 - INFO - Downloaded image (0.0MB): roadcc-recommends-Aug2024.png
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: PD2024_RD.png
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cfr-di2_4039_R108_P01.jpg
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:06,548 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:06,549 - INFO - Successfully processed CustomizenBike of the Week
+2025-08-03 08:11:07,549 - INFO - Processing bike 5/47: CustomizenPowermeter
+2025-08-03 08:11:07,549 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-axs/4040.html?dwvar_4040_pv_rahmenfarbe=R108_P01
+2025-08-03 08:11:08,644 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4040&dwvar_4040_pv_rahmenfarbe=R108_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:09,182 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:09,182 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: roadcc-recommends-Aug2024.png
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: PD2024_RD.png
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cfr-axs_4040_R108_P01.jpg
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cfr-AXS-02.jpg
+2025-08-03 08:11:09,288 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:09,289 - INFO - Successfully processed CustomizenPowermeter
+2025-08-03 08:11:10,289 - INFO - Processing bike 6/47: Endurace Cf 6
+2025-08-03 08:11:10,289 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-6/4273.html?dwvar_4273_pv_rahmenfarbe=R076_P09
+2025-08-03 08:11:10,987 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4273&dwvar_4273_pv_rahmenfarbe=R076_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:11,596 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:11,596 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: 2026_TOP-2_endurace_cf-6_4273_R076_P09_carbon.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-6_4273_R076_P09.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: 2026_TOP-4_endurace_cf-6_4273_R076_P09_tyres.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: 2026_TOP-3_endurace_cf-6_4273_R076_P09_tyre-clearance.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-6_4273_R076_P09.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: 2026_TOP-1_endurace_cf-6_4273_R076_P09_rivets.jpg
+2025-08-03 08:11:11,682 - INFO - Image already exists, skipping: thumb-unbox-and-assemble-your-endurace-cf-slx-2022.jpg
+2025-08-03 08:11:11,683 - INFO - Successfully processed Endurace Cf 6
+2025-08-03 08:11:12,683 - INFO - Processing bike 7/47: NieuwPowermeter
+2025-08-03 08:11:12,683 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-axs-speed/4037.html?dwvar_4037_pv_rahmenfarbe=R107_P04
+2025-08-03 08:11:13,435 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4037&dwvar_4037_pv_rahmenfarbe=R107_P04&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:13,931 - INFO - Extracted 11 component specifications from onderdelen
+2025-08-03 08:11:13,932 - INFO - Merged 11 specifications from onderdelen
+2025-08-03 08:11:14,026 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:14,026 - INFO - Image already exists, skipping: 2026_TOP-1_aeroad_cf-slx-8-axs_4037_R107_P04_peloton-performance.jpg
+2025-08-03 08:11:14,026 - INFO - Image already exists, skipping: 2026_TOP-2_aeroad_cf-slx-8-axs_4037_R107_P04_adaptive-cockpit.jpg
+2025-08-03 08:11:14,026 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:11:14,027 - INFO - Image already exists, skipping: 2026_TOP-5_aeroad_cf-slx-8-axs_4037_R107_P04_headset-bearings.jpg
+2025-08-03 08:11:14,027 - INFO - Image already exists, skipping: 2026_TOP-4_aeroad_cf-slx-8-axs_4037_R107_P04_aero-seatpost.jpg
+2025-08-03 08:11:14,027 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:11:14,027 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cf-slx-8-axs_4037_R107_P04.jpg
+2025-08-03 08:11:14,027 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:14,027 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:14,027 - INFO - Successfully processed NieuwPowermeter
+2025-08-03 08:11:15,028 - INFO - Processing bike 8/47: Endurace Cf Slx 7 Di2
+2025-08-03 08:11:15,028 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-7-di2/4276.html?dwvar_4276_pv_rahmenfarbe=R077_P11
+2025-08-03 08:11:15,807 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4276&dwvar_4276_pv_rahmenfarbe=R077_P11&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:16,412 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:16,412 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:16,499 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:16,499 - INFO - Image already exists, skipping: 2026_TOP-5_endurace_cf-slx-7-di2_4276_R077_P11_adaptive-cockpit-v2.jpg
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: 2026_TOP-2_endurace_cf-slx-7-di2_4276_R077_P11_carbon.jpg
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: 2026_TOP-3_endurace_cf-slx-7-di2_4276_R077_P11_integrated-storage.jpg
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: 2026_TOP-4_endurace_cf-slx-7-di2_4276_R077_P11_seatpost.jpg
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-slx-7-di2_4276_R077_P11.jpg
+2025-08-03 08:11:16,500 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-slx-7-di2_4276_R077_P11.jpg
+2025-08-03 08:11:16,500 - INFO - Successfully processed Endurace Cf Slx 7 Di2
+2025-08-03 08:11:17,501 - INFO - Processing bike 9/47: NieuwPowermeter
+2025-08-03 08:11:17,501 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-di2/4133.html?dwvar_4133_pv_rahmenfarbe=R085_P16
+2025-08-03 08:11:20,858 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4133&dwvar_4133_pv_rahmenfarbe=R085_P16&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:21,443 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:21,443 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:21,534 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:21,534 - INFO - Image already exists, skipping: brand-canyon-speedmax-cfr-MY24-02.jpg
+2025-08-03 08:11:21,534 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cfr-di2_4133_R085_P16.jpg
+2025-08-03 08:11:21,534 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:21,534 - INFO - Image already exists, skipping: brand-canyon-speedmax-cf-slx-MY24-01.jpg
+2025-08-03 08:11:21,534 - INFO - Image already exists, skipping: thumb-speedmax-Unbox-and-assemble-your-Speedmax-CFR-2022.jpg
+2025-08-03 08:11:21,535 - INFO - Successfully processed NieuwPowermeter
+2025-08-03 08:11:22,535 - INFO - Processing bike 10/47: Ultimate Cf 7 Di2
+2025-08-03 08:11:22,535 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-7-di2/4065.html?dwvar_4065_pv_rahmenfarbe=R101_P06
+2025-08-03 08:11:23,511 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4065&dwvar_4065_pv_rahmenfarbe=R101_P06&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:24,079 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:11:24,079 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:11:24,175 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:24,196 - INFO - Downloaded image (0.0MB): 2026_FULL_ultimate_cf-sl-7-di2_4065_R101_P06.jpg
+2025-08-03 08:11:24,221 - INFO - Downloaded image (0.0MB): 2026_TOP-1_ultimate_cf-sl-7-di2_4065_R101_P06_perfect-balance.jpg
+2025-08-03 08:11:24,221 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:11:24,221 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-sl-7-di2_4065_R101_P06.jpg
+2025-08-03 08:11:24,221 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:24,221 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CF-SL-01.jpg
+2025-08-03 08:11:24,221 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:11:24,244 - INFO - Downloaded image (0.0MB): 2026_TOP-2_ultimate_cf-sl-7-di2_4065_R101_P06_cockpit.jpg
+2025-08-03 08:11:24,269 - INFO - Downloaded image (0.0MB): 2026_TOP-3_ultimate_cf-sl-7-di2_4065_R101_P06_aero-drops.jpg
+2025-08-03 08:11:24,270 - INFO - Successfully processed Ultimate Cf 7 Di2
+2025-08-03 08:11:25,270 - INFO - Processing bike 11/47: PowermeterLimited Edition
+2025-08-03 08:11:25,270 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-tensor/3969.html?dwvar_3969_pv_rahmenfarbe=R108_P05
+2025-08-03 08:11:26,008 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3969&dwvar_3969_pv_rahmenfarbe=R108_P05&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:26,494 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:11:26,494 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:11:26,588 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:26,588 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:11:26,588 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:26,588 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:26,588 - INFO - Image already exists, skipping: 2025_FULL_aeroad_cfr-mvdp_3969_R108_P05.jpg
+2025-08-03 08:11:26,589 - INFO - Successfully processed PowermeterLimited Edition
+2025-08-03 08:11:27,589 - INFO - Processing bike 12/47: Nieuwe voorraad
+2025-08-03 08:11:27,589 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-7/4063.html?dwvar_4063_pv_rahmenfarbe=R101_P06
+2025-08-03 08:11:28,329 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4063&dwvar_4063_pv_rahmenfarbe=R101_P06&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:28,867 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:28,867 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:28,933 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:28,933 - INFO - Image already exists, skipping: 2026_TOP-1_ultimate_cf-sl-7_4063_R101_P06_balance.jpg
+2025-08-03 08:11:28,933 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:11:28,933 - INFO - Image already exists, skipping: 2026_TOP-2_ultimate_cf-sl-7_4063_R101_P06_cockpit.jpg
+2025-08-03 08:11:28,933 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:28,934 - INFO - Image already exists, skipping: 2026_TOP-4_ultimate_cf-sl-7_4063_R101_P06_carbon.jpg
+2025-08-03 08:11:28,934 - INFO - Image already exists, skipping: 2026_TOP-5_ultimate_cf-sl-7_4063_R101_P06_aero.jpg
+2025-08-03 08:11:28,934 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-sl-7_4063_R101_P06.jpg
+2025-08-03 08:11:28,934 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-sl-7_4063_R101_P06.jpg
+2025-08-03 08:11:28,934 - INFO - Image already exists, skipping: 2026_TOP-6_ultimate_cf-sl-7_4063_R101_P06_seatpost-clamp.jpg
+2025-08-03 08:11:28,934 - INFO - Successfully processed Nieuwe voorraad
+2025-08-03 08:11:29,935 - INFO - Processing bike 13/47: -10%Powermeter
+2025-08-03 08:11:29,935 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-axs/3869.html?dwvar_3869_pv_rahmenfarbe=R085_P04
+2025-08-03 08:11:32,233 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3869&dwvar_3869_pv_rahmenfarbe=R085_P04&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:32,807 - INFO - Extracted 10 component specifications from onderdelen
+2025-08-03 08:11:32,807 - INFO - Merged 10 specifications from onderdelen
+2025-08-03 08:11:32,873 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:32,873 - INFO - Image already exists, skipping: brand-canyon-speedmax-cfr-MY24-02.jpg
+2025-08-03 08:11:32,873 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:32,873 - INFO - Image already exists, skipping: brand-canyon-speedmax-cf-slx-MY24-01.jpg
+2025-08-03 08:11:32,873 - INFO - Image already exists, skipping: thumb-speedmax-Unbox-and-assemble-your-Speedmax-CFR-2022.jpg
+2025-08-03 08:11:32,873 - INFO - Image already exists, skipping: full_2025_3869_speedmax-cfr-axs_R085_P04_P5.jpg
+2025-08-03 08:11:32,874 - INFO - Successfully processed -10%Powermeter
+2025-08-03 08:11:33,874 - INFO - Processing bike 14/47: Enkel beschikbaar in maat 3XS | 2XSPowermeter
+2025-08-03 08:11:33,874 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-di2/4277.html?dwvar_4277_pv_rahmenfarbe=R077_P11
+2025-08-03 08:11:34,663 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4277&dwvar_4277_pv_rahmenfarbe=R077_P11&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:35,212 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:35,212 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:35,302 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: 2026_TOP-5_endurace_cf-slx-7-di2_4276_R077_P11_adaptive-cockpit-v2.jpg
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-slx-8-di2_4277_R077_P11.jpg
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-slx-8-di2_4277_R077_P11.jpg
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: 2026_TOP-4_endurace_cf-slx-8-di2_4277_R077_P11_seatpost.jpg
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: 2026_TOP-3_endurace_cf-slx-8-di2_4277_R077_P11_integrated-storage.jpg
+2025-08-03 08:11:35,303 - INFO - Image already exists, skipping: 2026_TOP-2_endurace_cf-slx-8-di2_4277_R077_P11_carbon.jpg
+2025-08-03 08:11:35,304 - INFO - Successfully processed Enkel beschikbaar in maat 3XS | 2XSPowermeter
+2025-08-03 08:11:36,304 - INFO - Processing bike 15/47: Enkel beschikbaar in maat 2XL
+2025-08-03 08:11:36,304 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7-di2/4275.html?dwvar_4275_pv_rahmenfarbe=R076_P09
+2025-08-03 08:11:37,239 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4275&dwvar_4275_pv_rahmenfarbe=R076_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:37,773 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:11:37,773 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: 2026_TOP-1_endurace_cf-7-di2_4275_R076_P09_carbon.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: 2026_TOP-4_endurace_cf-7-di2_4275_R076_P09_seatpost.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-7-di2_4275_R076_P09.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: 2026_TOP-2_endurace_cf-7-di2_4275_R076_P09_tyre-clearance.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-7-di2_4275_R076_P09.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: 2026_TOP-3_endurace_cf-7-di2_4275_R076_P09_cable-integration.jpg
+2025-08-03 08:11:37,860 - INFO - Image already exists, skipping: thumb-unbox-and-assemble-your-endurace-cf-slx-2022.jpg
+2025-08-03 08:11:37,861 - INFO - Successfully processed Enkel beschikbaar in maat 2XL
+2025-08-03 08:11:38,861 - INFO - Processing bike 16/47: Enkel beschikbaar in maat 2XL
+2025-08-03 08:11:38,862 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7/4274.html?dwvar_4274_pv_rahmenfarbe=R076_P09
+2025-08-03 08:11:39,784 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4274&dwvar_4274_pv_rahmenfarbe=R076_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:40,279 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:40,279 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:40,366 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:40,390 - INFO - Downloaded image (0.0MB): 2026_TOP-3_endurace_cf-7_4274_R076_P09_tyire-clearance.jpg
+2025-08-03 08:11:40,415 - INFO - Downloaded image (0.0MB): 2026_TOP-4_endurace_cf-7_4274_R076_P09_cable-integration.jpg
+2025-08-03 08:11:40,415 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:40,415 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:40,437 - INFO - Downloaded image (0.0MB): 2026_FULL_endurace_cf-7_4274_R076_P09.jpg
+2025-08-03 08:11:40,460 - INFO - Downloaded image (0.0MB): 2026_TOP-1_endurace_cf-7_4274_R076_P09_rivets.jpg
+2025-08-03 08:11:40,460 - INFO - Image already exists, skipping: 2026_FULL_endurace_cf-7_4274_R076_P09.jpg
+2025-08-03 08:11:40,460 - INFO - Image already exists, skipping: thumb-unbox-and-assemble-your-endurace-cf-slx-2022.jpg
+2025-08-03 08:11:40,482 - INFO - Downloaded image (0.0MB): 2026_TOP-2_endurace_cf-7_4274_R076_P09_carbon.jpg
+2025-08-03 08:11:40,483 - INFO - Successfully processed Enkel beschikbaar in maat 2XL
+2025-08-03 08:11:41,483 - INFO - Processing bike 17/47: Powermeter
+2025-08-03 08:11:41,483 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cfr/endurace-cfr-di2/4279.html?dwvar_4279_pv_rahmenfarbe=R072_P10
+2025-08-03 08:11:42,272 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4279&dwvar_4279_pv_rahmenfarbe=R072_P10&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:42,516 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:11:42,516 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:11:42,608 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:42,632 - INFO - Downloaded image (0.0MB): 2026_FULL_endurace_cfr-di2_4279_R072_P10.jpg
+2025-08-03 08:11:42,632 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:42,632 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:42,632 - INFO - Successfully processed Powermeter
+2025-08-03 08:11:43,633 - INFO - Processing bike 18/47: Powermeter
+2025-08-03 08:11:43,633 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2/4069.html?dwvar_4069_pv_rahmenfarbe=R102_P09
+2025-08-03 08:11:46,784 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4069&dwvar_4069_pv_rahmenfarbe=R102_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:47,270 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:11:47,270 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-di2-1.jpg
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cfr-di2_4069_R102_P09.jpg
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:47,364 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:47,365 - INFO - Successfully processed Powermeter
+2025-08-03 08:11:48,365 - INFO - Processing bike 19/47: Powermeter
+2025-08-03 08:11:48,365 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-axs/4071.html?dwvar_4071_pv_rahmenfarbe=R102_P09
+2025-08-03 08:11:49,151 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4071&dwvar_4071_pv_rahmenfarbe=R102_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:49,653 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:49,654 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:49,748 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-di2-1.jpg
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:11:49,749 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cfr-axs_4071_R102_P09.jpg
+2025-08-03 08:11:49,749 - INFO - Successfully processed Powermeter
+2025-08-03 08:11:50,750 - INFO - Processing bike 20/47: Inflite Cf Sl 6
+2025-08-03 08:11:50,750 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-6/3843.html?dwvar_3843_pv_rahmenfarbe=R063_P26
+2025-08-03 08:11:52,557 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3843&dwvar_3843_pv_rahmenfarbe=R063_P26&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:53,088 - INFO - Extracted 11 component specifications from onderdelen
+2025-08-03 08:11:53,088 - INFO - Merged 11 specifications from onderdelen
+2025-08-03 08:11:53,150 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:53,150 - INFO - Image already exists, skipping: Unboxing-inflite-my24-cfr.jpg
+2025-08-03 08:11:53,150 - INFO - Image already exists, skipping: 3843_TOP-4_inflite-cf-sl-6_R063-02_P26_seatpost.jpg
+2025-08-03 08:11:53,150 - INFO - Image already exists, skipping: 3843_TOP-2_inflite-cf-sl-6_R063-02_P26_tt-kink.jpg
+2025-08-03 08:11:53,151 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:53,151 - INFO - Image already exists, skipping: full_2025_3843_inflite-cf-sl-6_R063-02_P26_P5.jpg
+2025-08-03 08:11:53,151 - INFO - Image already exists, skipping: 3843_TOP-3_inflite-cf-sl-6_R063-02_P26_mud-surface.jpg
+2025-08-03 08:11:53,151 - INFO - Image already exists, skipping: 3843_TOP-5_inflite-cf-sl-6_R063-02_ciu.jpg
+2025-08-03 08:11:53,151 - INFO - Image already exists, skipping: 3843_TOP-1_inflite-cf-sl-6_R063-02_P26_balance.jpg
+2025-08-03 08:11:53,151 - INFO - Image already exists, skipping: full_2025_3843_inflite-cf-sl-6_R063-02_P26_P5.jpg
+2025-08-03 08:11:53,151 - INFO - Successfully processed Inflite Cf Sl 6
+2025-08-03 08:11:54,152 - INFO - Processing bike 21/47: Powermeter
+2025-08-03 08:11:54,152 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-slx/inflite-cf-slx-7/3844.html?dwvar_3844_pv_rahmenfarbe=R063_P30
+2025-08-03 08:11:54,852 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3844&dwvar_3844_pv_rahmenfarbe=R063_P30&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:11:55,417 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:11:55,417 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:11:55,480 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:11:55,480 - INFO - Image already exists, skipping: 3844_TOP-3_inflite-cf-slx-7_R063-02_P30_tt-kink.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: full_2025_3844_inflite-cf-slx-7_R063-02_P30_P5.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: Unboxing-inflite-my24-cfr.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: full_2025_3844_inflite-cf-slx-7_R063-02_P30_P5.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: 3844_TOP-2_inflite-cf-slx-7_R063-02_P30_cockpit.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: 3844_TOP-1_inflite-cf-slx-7_R063-02_P30_balance.jpg
+2025-08-03 08:11:55,481 - INFO - Image already exists, skipping: 3844_TOP-4_inflite-cf-slx-7_R063-02_P30_mud-surface.jpg
+2025-08-03 08:11:55,481 - INFO - Successfully processed Powermeter
+2025-08-03 08:11:56,482 - INFO - Processing bike 22/47: -15%Powermeter
+2025-08-03 08:11:56,482 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2/3859.html?dwvar_3859_pv_rahmenfarbe=R102_P05
+2025-08-03 08:11:59,728 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3859&dwvar_3859_pv_rahmenfarbe=R102_P05&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:00,276 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:00,276 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:00,363 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:00,363 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:00,364 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-di2-1.jpg
+2025-08-03 08:12:00,364 - INFO - Image already exists, skipping: full_2025_3859_ultimate-cfr-di2_R102_P05_P5.jpg
+2025-08-03 08:12:00,364 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:12:00,364 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:00,364 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:12:00,364 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:00,364 - INFO - Successfully processed -15%Powermeter
+2025-08-03 08:12:01,365 - INFO - Processing bike 23/47: SRAM AXSNieuw
+2025-08-03 08:12:01,365 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-axs/4067.html?dwvar_4067_pv_rahmenfarbe=R100_P08
+2025-08-03 08:12:02,517 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4067&dwvar_4067_pv_rahmenfarbe=R100_P08&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:02,986 - INFO - Extracted 11 component specifications from onderdelen
+2025-08-03 08:12:02,986 - INFO - Merged 11 specifications from onderdelen
+2025-08-03 08:12:03,077 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:03,129 - INFO - Downloaded image (0.0MB): 2026_TOP-6_ultimate_cf-slx-8-axs_4067_R100_P08_tx25.jpg
+2025-08-03 08:12:03,129 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:03,150 - INFO - Downloaded image (0.0MB): 2026_TOP-4_ultimate_cf-slx-8-axs_4067_R100_P08_aero.jpg
+2025-08-03 08:12:03,171 - INFO - Downloaded image (0.0MB): 2026_TOP-5_ultimate_cf-slx-8-axs_4067_R100_P08_seatclamp.jpg
+2025-08-03 08:12:03,171 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:03,171 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:03,193 - INFO - Downloaded image (0.0MB): 2026_FULL_ultimate_cf-slx-8-axs_4067_R100_P08.jpg
+2025-08-03 08:12:03,193 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:12:03,193 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CF-SLX-01.jpg
+2025-08-03 08:12:03,194 - INFO - Successfully processed SRAM AXSNieuw
+2025-08-03 08:12:04,194 - INFO - Processing bike 24/47: NieuwPowermeter
+2025-08-03 08:12:04,194 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-7-di2/4454.html?dwvar_4454_pv_rahmenfarbe=R073_P11
+2025-08-03 08:12:04,907 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4454&dwvar_4454_pv_rahmenfarbe=R073_P11&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:05,433 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:12:05,433 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: 2026_TOP-2_speedmax_cf-7-di2_4454_R073_P11_hydration-system.jpg
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: 2026_TOP-3_speedmax_cf-7-di2_4454_R073_P11_aero-seatstays.jpg
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: 2026_TOP-1_speedmax_cf-7-di2_4454_R073_P11_carbon-cockpit.jpg
+2025-08-03 08:12:05,522 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cf-7-di2_4454_R073_P11.jpg
+2025-08-03 08:12:05,523 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cf-7-di2_4454_R073_P11.jpg
+2025-08-03 08:12:05,523 - INFO - Image already exists, skipping: 2026_TOP-4_speedmax_cf-7-di2_4454_R073_P11_bento-box.jpg
+2025-08-03 08:12:05,523 - INFO - Successfully processed NieuwPowermeter
+2025-08-03 08:12:06,523 - INFO - Processing bike 25/47: Powermeter
+2025-08-03 08:12:06,524 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-tt/3728.html?dwvar_3728_pv_rahmenfarbe=R090_P01
+2025-08-03 08:12:08,286 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3728&dwvar_3728_pv_rahmenfarbe=R090_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:08,760 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:08,760 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:08,823 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:08,824 - INFO - Image already exists, skipping: Speedmax-CFR-TT-adv-pdp-01.jpg
+2025-08-03 08:12:08,824 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:08,824 - INFO - Image already exists, skipping: Speedmax-CFR-TT-adv-pdp-02.jpg
+2025-08-03 08:12:08,824 - INFO - Image already exists, skipping: 2024_FULL_speedmax_cfr-tt_3728_R090_P01.jpg
+2025-08-03 08:12:08,824 - INFO - Image already exists, skipping: thumb-speedmax-Unbox-and-assemble-your-Speedmax-CFR-2022.jpg
+2025-08-03 08:12:08,824 - INFO - Successfully processed Powermeter
+2025-08-03 08:12:09,825 - INFO - Processing bike 26/47: NieuwPowermeter
+2025-08-03 08:12:09,825 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-8-di2/4455.html?dwvar_4455_pv_rahmenfarbe=R073_P11
+2025-08-03 08:12:12,068 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4455&dwvar_4455_pv_rahmenfarbe=R073_P11&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:12,303 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:12:12,303 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: 2026_TOP-1_speedmax_cf-8-di2_4455_R073_P11_carbon-cockpit.jpg
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: 2026_TOP-2_speedmax_cf-8-di2_4455_R073_P11_hyrdraton-system.jpg
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cf-8-di2_4455_R073_P11.jpg
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: 2026_TOP-4_speedmax_cf-8-di2_4455_R073_P11_bento-box.jpg
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: 2026_TOP-3_speedmax_cf-8-di2_4455_R073_P11_aero-seatstays.jpg
+2025-08-03 08:12:12,391 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cf-8-di2_4455_R073_P11.jpg
+2025-08-03 08:12:12,392 - INFO - Successfully processed NieuwPowermeter
+2025-08-03 08:12:13,392 - INFO - Processing bike 27/47: Nieuw
+2025-08-03 08:12:13,392 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-di2/4135.html?dwvar_4135_pv_rahmenfarbe=R091_P14
+2025-08-03 08:12:14,320 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4135&dwvar_4135_pv_rahmenfarbe=R091_P14&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:14,787 - INFO - Extracted 11 component specifications from onderdelen
+2025-08-03 08:12:14,787 - INFO - Merged 11 specifications from onderdelen
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cf-slx-8-di2_4135_R091_P14.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: 2026_TOP-3_speedmax_cf-slx-8-di2_4135_R091_P14_seatstay.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: 2026_TOP-2_speedmax_cf-slx-8-di2_4135_R091_P14_race-ready.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: 2026_FULL_speedmax_cf-slx-8-di2_4135_R091_P14.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: 2026_TOP-1_speedmax_cf-slx-8-di2_4135_R091_P14_adjustable-cockpit.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: thumb-speedmax-Unbox-and-assemble-your-Speedmax-CFR-2022.jpg
+2025-08-03 08:12:14,881 - INFO - Image already exists, skipping: 2026_TOP-4_speedmax_cf-slx-8-di2_4135_R091_P14_bb-box.jpg
+2025-08-03 08:12:14,882 - INFO - Successfully processed Nieuw
+2025-08-03 08:12:15,882 - INFO - Processing bike 28/47: Inflite Cf Sl 5
+2025-08-03 08:12:15,882 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-5/3549.html?dwvar_3549_pv_rahmenfarbe=R063_P26
+2025-08-03 08:12:16,611 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3549&dwvar_3549_pv_rahmenfarbe=R063_P26&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:17,188 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:12:17,188 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: 3549_TOP-4_inflite-cf-sl-5_P26_seatclamp.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: Unboxing-inflite-my24-cfr.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: 3549_TOP-2_inflite-cf-sl-5_P26_comfort-kink.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: full_2025_3549_inflite-cf-sl-5_P26_P5.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: full_2025_3549_inflite-cf-sl-5_P26_P5.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: 3549_TOP-3_inflite-cf-sl-5_P26_mud-surface.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:17,252 - INFO - Image already exists, skipping: 3549_TOP-1_inflite-cf-sl-5_P26_perfectly-balanced.jpg
+2025-08-03 08:12:17,253 - INFO - Successfully processed Inflite Cf Sl 5
+2025-08-03 08:12:18,253 - INFO - Processing bike 29/47: -9%Powermeter
+2025-08-03 08:12:18,253 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-axs/3866.html?dwvar_3866_pv_rahmenfarbe=R091_P12
+2025-08-03 08:12:18,924 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3866&dwvar_3866_pv_rahmenfarbe=R091_P12&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:19,448 - INFO - Extracted 10 component specifications from onderdelen
+2025-08-03 08:12:19,448 - INFO - Merged 10 specifications from onderdelen
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: 3866_TOP-2_speedmax-cf-slx-8-axs_R091_P12_hydration-system.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: 3866_TOP-4_speedmax-cf-slx-8-axs_R091_P12_bb-storage.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: full_2025_3866_speedmax-cf-slx-8-axs_R091_P12_P5.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: brand-canyon-speedmax-cf-slx-MY24-01.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: thumb-speedmax-Unbox-and-assemble-your-Speedmax-CFR-2022.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: 3866_TOP-1_speedmax-cf-slx-8-axs_R091_P12_cockpit.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: full_2025_3866_speedmax-cf-slx-8-axs_R091_P12_P5.jpg
+2025-08-03 08:12:19,512 - INFO - Image already exists, skipping: brand-canyon-speedmax-cf-slx-MY24-02.jpg
+2025-08-03 08:12:19,513 - INFO - Successfully processed -9%Powermeter
+2025-08-03 08:12:20,513 - INFO - Processing bike 30/47: Limited editionPowermeter
+2025-08-03 08:12:20,513 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-ltd/3863.html?dwvar_3863_pv_rahmenfarbe=R102_P08
+2025-08-03 08:12:21,228 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3863&dwvar_3863_pv_rahmenfarbe=R102_P08&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:21,722 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:21,722 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: Adv-pdp-ultimate-my25-CFR-LTD-01.jpg
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:12:21,808 - INFO - Image already exists, skipping: 3863_ultimate-cfr-ltd_R102_P08_P5.jpg
+2025-08-03 08:12:21,809 - INFO - Successfully processed Limited editionPowermeter
+2025-08-03 08:12:22,809 - INFO - Processing bike 31/47: Powermeter
+2025-08-03 08:12:22,809 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-axs-aero/3712.html?dwvar_3712_pv_rahmenfarbe=R077_P10
+2025-08-03 08:12:23,641 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3712&dwvar_3712_pv_rahmenfarbe=R077_P10&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:24,161 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:24,161 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:24,228 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: 3712-1_TOP-4_endurace-cf-slx8-axs_R077-2_P10_seatpost.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: 3712-1_TOP-3_endurace-cf-slx8-axs_R077-2_P10_tt-storage.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: Adv-Pdp-canyon-Endurace-CFR-04.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: 3712-1_TOP-2_endurace-cf-slx8-axs_R077-2_P10_cockpit.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: full_2024_3712-1_endurace-cf-slx8-axs_R077-2_P10_P5.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: full_2024_3712-1_endurace-cf-slx8-axs_R077-2_P10_P5.jpg
+2025-08-03 08:12:24,229 - INFO - Image already exists, skipping: Adv-Pdp-canyon-Endurace-CFR-03.jpg
+2025-08-03 08:12:24,230 - INFO - Successfully processed Powermeter
+2025-08-03 08:12:25,230 - INFO - Processing bike 32/47: Enkel beschikbaar in maat L | XL-9%
+2025-08-03 08:12:25,230 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-di2/3867.html?dwvar_3867_pv_rahmenfarbe=R091_P12
+2025-08-03 08:12:25,967 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3867&dwvar_3867_pv_rahmenfarbe=R091_P12&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:26,461 - INFO - Extracted 11 component specifications from onderdelen
+2025-08-03 08:12:26,461 - INFO - Merged 11 specifications from onderdelen
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: 3867_TOP-4_speedmax-cf-slx-8-di2_R091_P12_bb-storage.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: 3867_TOP-3_speedmax-cf-slx-8-di2_R091_P12_bento-box.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: full_2025_3867_speedmax-cf-slx-8-di2_R091_P12_P5.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: 3867_TOP-2_speedmax-cf-slx-8-di2_R091_P12_hydration-system.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: brand-canyon-speedmax-cf-slx-MY24-01.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: 3867_TOP-1_speedmax-cf-slx-8-di2_R091_P12_cockpit.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: thumb-speedmax-Unbox-and-assemble-your-Speedmax-CFR-2022.jpg
+2025-08-03 08:12:26,526 - INFO - Image already exists, skipping: brand-canyon-speedmax-cf-slx-MY24-02.jpg
+2025-08-03 08:12:26,527 - INFO - Successfully processed Enkel beschikbaar in maat L | XL-9%
+2025-08-03 08:12:27,527 - INFO - Processing bike 33/47: Powermeter
+2025-08-03 08:12:27,527 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-di2/4066.html?dwvar_4066_pv_rahmenfarbe=R100_P08
+2025-08-03 08:12:28,322 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4066&dwvar_4066_pv_rahmenfarbe=R100_P08&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:28,849 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:12:28,850 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: 2026_TOP-2_ultimate_cf-slx-8-di2_4066_R100_P08_cockpit.jpg
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-slx-8-di2_4066_R100_P08.jpg
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: 2026_TOP-1_ultimate_cf-slx-8-di2_4066_R100_P08_carbon.jpg
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: 2026_TOP-3_ultimate_cf-slx-8-di2_4066_R100_P08_aero-drops.jpg
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: 2026_TOP-5_ultimate_cf-slx-8-di2_4066_R100_P08_seatpost.jpg
+2025-08-03 08:12:28,942 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:28,943 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:28,943 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:12:28,943 - INFO - Successfully processed Powermeter
+2025-08-03 08:12:29,943 - INFO - Processing bike 34/47: Enkel beschikbaar in maat S-10%
+2025-08-03 08:12:29,944 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-7-di2/3865.html?dwvar_3865_pv_rahmenfarbe=R073_P06
+2025-08-03 08:12:30,633 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3865&dwvar_3865_pv_rahmenfarbe=R073_P06&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:31,158 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:31,158 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:31,224 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: 3865_TOP-2_speedmax-cf-7-di2_R073_P06_seatstay.jpg
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: full_2025_3865_speedmax-cf-7-di2_R073_P06_P5.jpg
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: 3865_TOP-1_speedmax-cf-7-di2_R073_P06_cockpit.jpg
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: full_2025_3865_speedmax-cf-7-di2_R073_P06_P5.jpg
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: 3865_TOP-3_speedmax-cf-7-di2_R073_P06_hydration-system.jpg
+2025-08-03 08:12:31,225 - INFO - Image already exists, skipping: 3865_TOP-4_speedmax-cf-7-di2_R073_P06_bento-box.jpg
+2025-08-03 08:12:31,226 - INFO - Successfully processed Enkel beschikbaar in maat S-10%
+2025-08-03 08:12:32,226 - INFO - Processing bike 35/47: Enkel beschikbaar in maat 3XS | 2XSPowermeter
+2025-08-03 08:12:32,226 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cfr/endurace-cfr-axs/4278.html?dwvar_4278_pv_rahmenfarbe=R072_P09
+2025-08-03 08:12:35,415 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4278&dwvar_4278_pv_rahmenfarbe=R072_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:35,930 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:12:35,931 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:12:36,025 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:36,025 - INFO - Image already exists, skipping: 2026_FULL_endurace_cfr-axs_4278_R072_P09.jpg
+2025-08-03 08:12:36,025 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:36,025 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:36,026 - INFO - Successfully processed Enkel beschikbaar in maat 3XS | 2XSPowermeter
+2025-08-03 08:12:37,026 - INFO - Processing bike 36/47: Ultimate Cfr Disc Frame And Brake Kit
+2025-08-03 08:12:37,026 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-disc-frame-and-brake-kit/4226.html?dwvar_4226_pv_rahmenfarbe=R102_P09
+2025-08-03 08:12:39,428 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4226&dwvar_4226_pv_rahmenfarbe=R102_P09&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:39,778 - INFO - Extracted 4 component specifications from onderdelen
+2025-08-03 08:12:39,778 - INFO - Merged 4 specifications from onderdelen
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-di2-1.jpg
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:12:39,876 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cfr-frs_4226_R102_P09.jpg
+2025-08-03 08:12:39,877 - INFO - Successfully processed Ultimate Cfr Disc Frame And Brake Kit
+2025-08-03 08:12:40,877 - INFO - Processing bike 37/47: Speedmax Cfr Track
+2025-08-03 08:12:40,877 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/speedmax-track/speedmax-cfr-track/3923.html?dwvar_3923_pv_rahmenfarbe=R115_P01
+2025-08-03 08:12:42,903 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3923&dwvar_3923_pv_rahmenfarbe=R115_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:43,475 - INFO - Extracted 7 component specifications from onderdelen
+2025-08-03 08:12:43,475 - INFO - Merged 7 specifications from onderdelen
+2025-08-03 08:12:43,554 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:43,554 - INFO - Image already exists, skipping: full_2023_speedmax_3923_speedmax-track-cfr_P01_P5.jpg
+2025-08-03 08:12:43,554 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:43,554 - INFO - Image already exists, skipping: brand-canyon-speedmax-cfr-track-MY24-01.jpg
+2025-08-03 08:12:43,554 - INFO - Image already exists, skipping: brand-canyon-speedmax-cfr-track-MY24-02.jpg
+2025-08-03 08:12:43,555 - INFO - Successfully processed Speedmax Cfr Track
+2025-08-03 08:12:44,555 - INFO - Processing bike 38/47: Nieuw
+2025-08-03 08:12:44,555 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-disc-frame-and-brake-kit/4227.html?dwvar_4227_pv_rahmenfarbe=R108_P01
+2025-08-03 08:12:45,321 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4227&dwvar_4227_pv_rahmenfarbe=R108_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:45,699 - INFO - Extracted 4 component specifications from onderdelen
+2025-08-03 08:12:45,699 - INFO - Merged 4 specifications from onderdelen
+2025-08-03 08:12:45,796 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:45,796 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cfr-di2-01.jpg
+2025-08-03 08:12:45,796 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:12:45,796 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:12:45,796 - INFO - Image already exists, skipping: brand-highlight-raw-carbon-frames.jpg
+2025-08-03 08:12:45,797 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:45,797 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cfr-frs_4227_R108_P01.jpg
+2025-08-03 08:12:45,797 - INFO - Successfully processed Nieuw
+2025-08-03 08:12:46,798 - INFO - Processing bike 39/47: Ultimate Cfr Disc Frame And Brake Kit
+2025-08-03 08:12:46,798 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-disc-frame-and-brake-kit/3565.html?dwvar_3565_pv_rahmenfarbe=R102_P04
+2025-08-03 08:12:47,515 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3565&dwvar_3565_pv_rahmenfarbe=R102_P04&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:48,056 - INFO - Extracted 5 component specifications from onderdelen
+2025-08-03 08:12:48,056 - INFO - Merged 5 specifications from onderdelen
+2025-08-03 08:12:48,135 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:48,135 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:48,135 - INFO - Image already exists, skipping: full_2023_3565_ultimate-cfr-disc-frs_P04_P5.jpg
+2025-08-03 08:12:48,136 - INFO - Successfully processed Ultimate Cfr Disc Frame And Brake Kit
+2025-08-03 08:12:49,136 - INFO - Processing bike 40/47: BinnenkortNieuw
+2025-08-03 08:12:49,136 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-7-di2-aero/4248.html?dwvar_4248_pv_rahmenfarbe=R101_P06
+2025-08-03 08:12:49,668 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4248&dwvar_4248_pv_rahmenfarbe=R101_P06&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:50,300 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:50,301 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:50,417 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:50,417 - INFO - Image already exists, skipping: unbox-and-assemble-your-ultimate-2023.jpg
+2025-08-03 08:12:50,441 - INFO - Downloaded image (0.0MB): 2026_FULL_ultimate_cf-7-di2-spd_4248_R101_P06.jpg
+2025-08-03 08:12:50,461 - INFO - Downloaded image (0.0MB): 2026_TOP-4_ultimate_cf-7-di2-spd_4248_R101_P06_cf.jpg
+2025-08-03 08:12:50,484 - INFO - Downloaded image (0.0MB): 2026_TOP-5_ultimate_cf-7-di2-spd_4248_R101_P06_aero.jpg
+2025-08-03 08:12:50,484 - INFO - Image already exists, skipping: 2026_FULL_ultimate_cf-7-di2-spd_4248_R101_P06.jpg
+2025-08-03 08:12:50,484 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:50,484 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CF-SL-01.jpg
+2025-08-03 08:12:50,484 - INFO - Image already exists, skipping: Adv-pdp-ultimate-CFR-AXS-02.jpg
+2025-08-03 08:12:50,504 - INFO - Downloaded image (0.0MB): 2026_TOP-3_ultimate_cf-sl-7-di2_4065_R101_P06_aero-drops.jpg
+2025-08-03 08:12:50,506 - INFO - Successfully processed BinnenkortNieuw
+2025-08-03 08:12:51,506 - INFO - Processing bike 41/47: BinnenkortPowermeter
+2025-08-03 08:12:51,506 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-di2/4036.html?dwvar_4036_pv_rahmenfarbe=R107_P01
+2025-08-03 08:12:54,601 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4036&dwvar_4036_pv_rahmenfarbe=R107_P01&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:55,169 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:55,169 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:55,269 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:55,269 - INFO - Image already exists, skipping: 2026_TOP-2_aeroad_cfr-di2_4039_R108_P01_adaptive-cockpit.jpg
+2025-08-03 08:12:55,269 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:12:55,269 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cf-slx-8-di2_4036_R107_P01.jpg
+2025-08-03 08:12:55,269 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:12:55,269 - INFO - Image already exists, skipping: 2026_TOP-6_aeroad_cf-slx-8-di2_4036_R107_P01_integrated-tool.jpg
+2025-08-03 08:12:55,270 - INFO - Image already exists, skipping: 2026_TOP-3_aeroad_cf-slx-8-di2_4036_R107_P01_adjustable-cockpit.jpg
+2025-08-03 08:12:55,270 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:55,270 - INFO - Image already exists, skipping: 2026_TOP-5_aeroad_cf-slx-8-di2_4036_R107_P01_headset-bearings.jpg
+2025-08-03 08:12:55,270 - INFO - Image already exists, skipping: 2026_TOP-1_aeroad_cf-slx-8-di2_4036_R107_P01_peleton-performance.jpg
+2025-08-03 08:12:55,270 - INFO - Successfully processed BinnenkortPowermeter
+2025-08-03 08:12:56,271 - INFO - Processing bike 42/47: BinnenkortNieuw
+2025-08-03 08:12:56,271 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-axs-speed/4035.html?dwvar_4035_pv_rahmenfarbe=R107_P04
+2025-08-03 08:12:56,677 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4035&dwvar_4035_pv_rahmenfarbe=R107_P04&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:56,878 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:12:56,879 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: 2026_TOP-3_aeroad_cf-slx-7-axs_4035_R107_P04_adjustable-cockpit.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: 2026_TOP-1_aeroad_cf-slx-7-axs_4035_R107_P04_peleton-performance.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cf-slx-7-axs_4035_R107_P04.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: 2026_FULL_aeroad_cf-slx-7-axs_4035_R107_P04.jpg
+2025-08-03 08:12:56,976 - INFO - Image already exists, skipping: 2026_TOP-2_aeroad_cf-slx-7-axs_4035_R107_P04_adaptive-cockpit.jpg
+2025-08-03 08:12:56,977 - INFO - Successfully processed BinnenkortNieuw
+2025-08-03 08:12:57,977 - INFO - Processing bike 43/47: BinnenkortNieuw
+2025-08-03 08:12:57,977 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-di2/4034.html?dwvar_4034_pv_rahmenfarbe=R107_P05
+2025-08-03 08:12:58,468 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4034&dwvar_4034_pv_rahmenfarbe=R107_P05&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:12:59,041 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:12:59,041 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:12:59,222 - INFO - Downloaded image (0.0MB): 2026_FULL_aeroad_cf-slx-7-di2_4034_R107_P05.jpg
+2025-08-03 08:12:59,222 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:12:59,222 - INFO - Image already exists, skipping: Adv-pdp-aeroad-cf-slx-02.jpg
+2025-08-03 08:12:59,222 - INFO - Image already exists, skipping: MY25_ARD-CFR-Di2_3967_UB.jpg
+2025-08-03 08:12:59,276 - INFO - Downloaded image (0.0MB): 2026_TOP-6_aeroad_cf-slx-7-di2_4034_R107_P05_integrated-tool.jpg
+2025-08-03 08:12:59,276 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:12:59,277 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:12:59,328 - INFO - Downloaded image (0.0MB): 2026_TOP-2_aeroad_cf-slx-7-di2_4034_R107_P05_adjustable-cockpit.jpg
+2025-08-03 08:12:59,405 - INFO - Downloaded image (0.0MB): 2026_TOP-3_aeroad_cf-slx-7-di2_4034_R107_P05_adjustable-cockpit_2.jpg
+2025-08-03 08:12:59,493 - INFO - Downloaded image (0.0MB): 2026_TOP-4_aeroad_cf-slx-7-di2_4034_R107_P05_aero-seatpost.jpg
+2025-08-03 08:12:59,494 - INFO - Successfully processed BinnenkortNieuw
+2025-08-03 08:13:00,494 - INFO - Processing bike 44/47: Binnenkort
+2025-08-03 08:13:00,494 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7-di2/4017.html?dwvar_4017_pv_rahmenfarbe=R076_P08
+2025-08-03 08:13:00,894 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4017&dwvar_4017_pv_rahmenfarbe=R076_P08&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:13:01,413 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:13:01,413 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: 2025_TOP-1_endurace_cf-7-di2_4017_R076_R076_P08_top-tube-rivets.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: 2025_TOP-3_endurace_cf-7-di2_4017_R076_R076_P08_tyre-clearance.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: Adv-Pdp-canyon-Endurace-CFR-04.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: 2025_TOP-2_endurace_cf-7-di2_4017_R076_R076_P08_geo.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: 2025_TOP-4_endurace_cf-7-di2_4017_R076_R076_P08_seatpost.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: full_2025_4017_endurace-cf-7-di2_R076_P08_P5.jpg
+2025-08-03 08:13:01,496 - INFO - Image already exists, skipping: Adv-Pdp-canyon-Endurace-CFR-03.jpg
+2025-08-03 08:13:01,497 - INFO - Successfully processed Binnenkort
+2025-08-03 08:13:02,497 - INFO - Processing bike 45/47: BinnenkortPowermeter
+2025-08-03 08:13:02,498 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-slx/inflite-cf-slx-8/3845.html?dwvar_3845_pv_rahmenfarbe=R063_P31
+2025-08-03 08:13:04,606 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3845&dwvar_3845_pv_rahmenfarbe=R063_P31&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:13:05,096 - INFO - Extracted 12 component specifications from onderdelen
+2025-08-03 08:13:05,096 - INFO - Merged 12 specifications from onderdelen
+2025-08-03 08:13:05,159 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: Unboxing-inflite-my24-cfr.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: 3845_TOP-1_inflite-cf-slx-8_R063-02_P31_balance.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: 3845_TOP-4_inflite-cf-slx-8_R063-02_P31_mud-surface.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: full_2025_3845_inflite-cf-slx-8_R063-02_P31_P5.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: full_2025_3845_inflite-cf-slx-8_R063-02_P31_P5.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: 3845_TOP-3_inflite-cf-slx-8_R063-02_P31_tt-kink.jpg
+2025-08-03 08:13:05,160 - INFO - Image already exists, skipping: 3845_TOP-2_inflite-cf-slx-8_R063-02_P31_cockpit.jpg
+2025-08-03 08:13:05,161 - INFO - Successfully processed BinnenkortPowermeter
+2025-08-03 08:13:06,161 - INFO - Processing bike 46/47: Binnenkort
+2025-08-03 08:13:06,161 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cfr/inflite-cfr-team/4051.html?dwvar_4051_pv_rahmenfarbe=R059_P33
+2025-08-03 08:13:08,640 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=4051&dwvar_4051_pv_rahmenfarbe=R059_P33&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:13:09,101 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:13:09,101 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:13:09,190 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:13:09,190 - INFO - Image already exists, skipping: canyon-inlite-cfr-pdp-enhanced-02.jpg
+2025-08-03 08:13:09,190 - INFO - Image already exists, skipping: Unboxing-inflite-my24-cfr.jpg
+2025-08-03 08:13:09,190 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:13:09,190 - INFO - Image already exists, skipping: DI_LogoNEU_2025_pos_RGB.png
+2025-08-03 08:13:09,190 - INFO - Image already exists, skipping: 2026_FULL_inflite_cfr-team_4051_R059_P33.jpg
+2025-08-03 08:13:09,191 - INFO - Image already exists, skipping: canyon-inlite-cfr-pdp-enhanced-01.jpg
+2025-08-03 08:13:09,191 - INFO - Successfully processed Binnenkort
+2025-08-03 08:13:10,191 - INFO - Processing bike 47/47: BinnenkortPowermeter
+2025-08-03 08:13:10,192 - INFO - Fetching bike details from: https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cfr/inflite-cfr/3846.html?dwvar_3846_pv_rahmenfarbe=R059_P31
+2025-08-03 08:13:15,626 - INFO - Fetching onderdelen from: https://www.canyon.com/on/demandware.store/Sites-RoW-Site/nl_NL/Product-IncludeComponents?pid=3846&dwvar_3846_pv_rahmenfarbe=R059_P31&hasComponents=true&hasComponentHighlights=true&hasProductSpareParts=true&tab=all
+2025-08-03 08:13:16,118 - INFO - Extracted 13 component specifications from onderdelen
+2025-08-03 08:13:16,118 - INFO - Merged 13 specifications from onderdelen
+2025-08-03 08:13:16,183 - INFO - Image already exists, skipping: Splitit.png
+2025-08-03 08:13:16,183 - INFO - Image already exists, skipping: canyon-inlite-cfr-pdp-enhanced-02.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: Unboxing-inflite-my24-cfr.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: full_2025_3846_inflite-cfr_R059-03_P31_P5.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: 3846_TOP-1_inflite-cfr_R059-02_P31_lines.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: 3846_TOP-2_inflite-cfr_R059-02_P31_comfort.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: 3846_TOP-4_inflite-cfr_R059-02_P31_ceramicspeed.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: pdpModalTriggerCompare.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: 3846_TOP-3_inflite-cfr_R059-02_P31_mud-surface.jpg
+2025-08-03 08:13:16,184 - INFO - Image already exists, skipping: canyon-inlite-cfr-pdp-enhanced-01.jpg
+2025-08-03 08:13:16,185 - INFO - Successfully processed BinnenkortPowermeter
+2025-08-03 08:13:17,185 - INFO - Successfully processed 47 Canyon bikes
+2025-08-03 08:13:17,185 - INFO - Successfully scraped 42 unique Canyon bike models
+2025-08-03 08:13:17,186 - INFO - Archived old file: data/Canyon/canyon_bikes_20250718_115513.json → data/archive/Canyon/canyon_bikes_20250718_115513.json
+2025-08-03 08:13:17,186 - INFO - Archived old file: data/Canyon/canyon_bikes_20250718_114803.csv → data/archive/Canyon/canyon_bikes_20250718_114803.csv
+2025-08-03 08:13:17,187 - INFO - Archived old file: data/Canyon/canyon_bikes_20250718_114803.xlsx → data/archive/Canyon/canyon_bikes_20250718_114803.xlsx
+2025-08-03 08:13:17,187 - INFO - Archived 3 old timestamped files (kept 3 most recent in working directories)
+2025-08-03 08:13:17,191 - INFO - Saved 42 bikes to data/Canyon/canyon_bikes_20250803_081317.json
+2025-08-03 08:13:17,198 - INFO - Saved 42 bikes to data/Canyon/canyon_bikes_20250803_081317.csv
+2025-08-03 08:13:17,304 - INFO - Saved 42 bikes to data/Canyon/canyon_bikes_20250803_081317.xlsx
+2025-08-03 08:13:17,364 - INFO - Also saved latest versions as data/canyon_bikes_latest.json, data/canyon_bikes_latest.csv, and data/canyon_bikes_latest.xlsx
+2025-08-03 08:13:17,364 - INFO - Generating WordPress-ready CSV...
+2025-08-03 08:13:17,379 - INFO - WordPress CSV generated: data/wordpress_imports/canyon_bikes_wordpress_20250803_081317.csv
