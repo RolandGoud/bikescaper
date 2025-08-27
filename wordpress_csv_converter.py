@@ -2,6 +2,9 @@
 """
 WordPress CSV Converter
 Converts Trek bikes CSV to WordPress-ready format with specifications as custom fields
+
+NOTE: For multi-brand WordPress imports, use unified_wordpress_converter.py instead!
+This script is for individual brand conversions from latest CSV files.
 """
 
 import pandas as pd

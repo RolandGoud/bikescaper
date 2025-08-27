@@ -1694,6 +1694,23 @@ class CanyonBikeScraper:
             except Exception as e:
                 self.logger.warning(f"Could not extract onderdelen specifications: {e}")
             
+            # Determine FrameFit category if not already set
+            if not required_specs.get('Framefit'):
+                # Get page URL to determine bike model
+                page_url = soup.find('link', {'rel': 'canonical'})
+                bike_url = page_url.get('href') if page_url else ''
+                framefit = self.determine_canyon_framefit(bike_url)
+                if framefit:
+                    required_specs['Framefit'] = framefit
+                    self.logger.info(f"Determined FrameFit: {framefit}")
+            
+            # Extract weight limit from bikeClassification section if not already set
+            if not required_specs.get('Gewichtslimiet'):
+                weight_limit = self.extract_canyon_weight_limit(soup)
+                if weight_limit:
+                    required_specs['Gewichtslimiet'] = weight_limit
+                    self.logger.info(f"Extracted weight limit: {weight_limit}")
+            
             # Clean up empty values and return only non-empty specs
             cleaned_specs = {k: v for k, v in required_specs.items() if v and v.strip()}
             
@@ -2203,7 +2220,7 @@ class CanyonBikeScraper:
         # Save CSV
         if csv_data:
             df = pd.DataFrame(csv_data)
-            df.to_csv(csv_file, index=False, encoding='utf-8')
+            df.to_csv(csv_file, index=False, encoding='utf-8', quoting=1)  # QUOTE_ALL for proper CSV format
             self.logger.info(f"Saved {len(bikes)} bikes to {csv_file}")
             
             # Save Excel
@@ -2219,7 +2236,7 @@ class CanyonBikeScraper:
             json.dump(bikes, f, ensure_ascii=False, indent=2)
         
         if csv_data:
-            df.to_csv(latest_csv, index=False, encoding='utf-8')
+            df.to_csv(latest_csv, index=False, encoding='utf-8', quoting=1)  # QUOTE_ALL for proper CSV format
             df.to_excel(latest_excel, index=False, engine='openpyxl')
         
         self.logger.info(f"Also saved latest versions as {latest_json}, {latest_csv}, and {latest_excel}")
@@ -2512,6 +2529,29 @@ class CanyonBikeScraper:
                     if name_item:
                         component_name = name_item.get_text(strip=True)
                         
+                        # Find all feature descriptions for this component
+                        feature_items = item.find_all('li', class_='allComponents__specItemListItem--feature')
+                        features = [feature.get_text(strip=True) for feature in feature_items if feature.get_text(strip=True)]
+                        
+                        # For cockpit/stuur, use only the component name (clean and simple)
+                        if component_title.lower() == 'cockpit':
+                            component_description = component_name
+                        # For frame, extract material from features
+                        elif component_title.lower() == 'frame' and features:
+                            # Look for material information in features
+                            material = None
+                            for feature in features:
+                                if 'materiaal:' in feature.lower():
+                                    # Extract material after "Materiaal:"
+                                    import re
+                                    match = re.search(r'materiaal:\s*([^.]+)', feature, re.IGNORECASE)
+                                    if match:
+                                        material = match.group(1).strip()
+                                        break
+                            component_description = material if material else component_name
+                        else:
+                            component_description = component_name
+                        
                         # Map component titles to our specification fields
                         title_to_field = {
                             'schakel / remhendel': 'Shifter',
@@ -2527,6 +2567,10 @@ class CanyonBikeScraper:
                             'pedalen': 'Pedaal',
                             'kettingblad': 'Maximale_maat_kettingblad',
                             'chainring': 'Maximale_maat_kettingblad',
+                            'wiel': 'Wiel',  # We'll handle wheel components specially
+                            'wheel': 'Wiel',
+                            'steekas': 'Steekas',  # We'll handle axle components specially
+                            'through axle': 'Steekas',
                             'voornaaf': 'Naaf_voor',
                             'naaf voor': 'Naaf_voor', 
                             'front hub': 'Naaf_voor',
@@ -2548,6 +2592,7 @@ class CanyonBikeScraper:
                             'zadelpen': 'Zadelpen',
                             'seatpost': 'Zadelpen',
                             'stuur': 'Stuur',
+                            'cockpit': 'Stuur',
                             'handlebar': 'Stuur',
                             'handlebars': 'Stuur',
                             'stuurlint': 'Stuurlint',
@@ -2560,17 +2605,25 @@ class CanyonBikeScraper:
                             'rem': 'Rem',
                             'remmen': 'Rem',
                             'brake': 'Rem',
-                            'brakes': 'Rem'
+                            'brakes': 'Rem',
+                            'frame': 'Frame',
+                            'kader': 'Frame'
                         }
                         
                         # Check if this component title matches any of our fields
                         for title_pattern, spec_field in title_to_field.items():
                             if title_pattern in component_title:
+                                # Special handling for frame material - store in both Frame and Material
+                                if component_title.lower() == 'frame' and component_description:
+                                    specs['Frame'] = component_description
+                                    specs['Material'] = component_description
+                                    break
+                                    
                                 # Special handling for shifter - prefer the most complete one and clean up speed info
-                                if spec_field == 'Shifter':
+                                elif spec_field == 'Shifter':
                                     # Remove speed information from shifter names
                                     import re
-                                    cleaned_name = re.sub(r',\s*\d+[-\s]*speed\b', '', component_name, flags=re.IGNORECASE)
+                                    cleaned_name = re.sub(r',\s*\d+[-\s]*speed\b', '', component_description, flags=re.IGNORECASE)
                                     cleaned_name = re.sub(r',\s*\d+s\b', '', cleaned_name, flags=re.IGNORECASE)
                                     cleaned_name = re.sub(r'\b\d+[-\s]*speed\b', '', cleaned_name, flags=re.IGNORECASE)
                                     cleaned_name = re.sub(r'\b\d+s\b', '', cleaned_name, flags=re.IGNORECASE)
@@ -2578,9 +2631,74 @@ class CanyonBikeScraper:
                                     
                                     if spec_field not in specs or len(cleaned_name) > len(specs[spec_field]):
                                         specs[spec_field] = cleaned_name
+                                        
+                                # Special handling for crankstel - extract chainring info from features
+                                elif spec_field == 'Crankstel':
+                                    if spec_field not in specs:
+                                        specs[spec_field] = component_description
+                                    # Extract chainring info from crankset features
+                                    import re
+                                    for feature in features:
+                                        if 'aantal tandwielen' in feature.lower() or 'chainrings' in feature.lower():
+                                            specs['Maximale_maat_kettingblad'] = feature
+                                            break
+                                        
+                                # Special handling for wheels - extract hub and rim info
+                                elif spec_field == 'Wiel':
+                                    # Determine if this is front or rear wheel based on axle size
+                                    import re
+                                    is_front_wheel = False
+                                    is_rear_wheel = False
+                                    
+                                    for feature in features:
+                                        if '12x100' in feature or 'front' in feature.lower():
+                                            is_front_wheel = True
+                                        elif '12x142' in feature or 'rear' in feature.lower():
+                                            is_rear_wheel = True
+                                    
+                                    # Store hub info
+                                    if is_front_wheel and 'Naaf_voor' not in specs:
+                                        specs['Naaf_voor'] = component_description
+                                    elif is_rear_wheel and 'Naaf_achter' not in specs:
+                                        specs['Naaf_achter'] = component_description
+                                    
+                                    # Extract rim info from features
+                                    for feature in features:
+                                        if 'velghoogte' in feature.lower() or 'rim height' in feature.lower():
+                                            if 'Velg' not in specs:
+                                                specs['Velg'] = feature
+                                            break
+                                        elif 'velg' in feature.lower() and 'mm' in feature:
+                                            if 'Velg' not in specs:
+                                                specs['Velg'] = feature
+                                            break
+                                            
+                                # Special handling for through axles
+                                elif spec_field == 'Steekas':
+                                    # Determine if this is front or rear axle
+                                    import re
+                                    for feature in features:
+                                        if '12x100' in feature:
+                                            if 'As_voorwiel' not in specs:
+                                                specs['As_voorwiel'] = feature
+                                        elif '12x142' in feature:
+                                            if 'As_achter' not in specs:  # Note: We might need this field
+                                                specs['As_achter'] = feature
+                                    
+                                    # Also check component name for axle dimensions
+                                    if '12x100' in component_description and 'As_voorwiel' not in specs:
+                                        specs['As_voorwiel'] = component_description
+                                    elif '12x142' in component_description and 'As_achter' not in specs:
+                                        specs['As_achter'] = component_description
+                                        
                                 else:
                                     if spec_field not in specs:  # Don't overwrite if already found
-                                        specs[spec_field] = component_name
+                                        # Special cleaning for Stuur field - keep only part before first " - "
+                                        if spec_field == 'Stuur' and ' - ' in component_description:
+                                            cleaned_description = component_description.split(' - ')[0].strip()
+                                            specs[spec_field] = cleaned_description
+                                        else:
+                                            specs[spec_field] = component_description
                                 break
             
             # Also look for speed count (gear count) in the text
@@ -2625,6 +2743,76 @@ class CanyonBikeScraper:
         except Exception as e:
             self.logger.error(f"Error extracting onderdelen specifications: {e}")
             return {}
+
+    def determine_canyon_framefit(self, bike_url):
+        """Determine FrameFit category based on Canyon bike model from URL"""
+        if not bike_url:
+            return None
+        
+        bike_url_lower = bike_url.lower()
+        
+        # Canyon model categorization for FrameFit - verfijnde indeling
+        
+        # FRAMESETS - Frame and brake kit producten
+        if 'frame-and-brake-kit' in bike_url_lower or 'frs' in bike_url_lower:
+            return 'framesets'
+            
+        # TRACK - Gespecialiseerde track bikes
+        if 'track' in bike_url_lower:
+            return 'track'
+            
+        # YOUTH - Young Hero modellen voor jongeren
+        if 'young-hero' in bike_url_lower:
+            return 'youth'
+            
+        # ALLROAD - AllRoad en versatile endurance modellen
+        if 'allroad' in bike_url_lower or 'all-road' in bike_url_lower:
+            return 'allroad'
+        elif 'endurace' in bike_url_lower and ('aero' in bike_url_lower or 'grc' in bike_url_lower or 'arc' in bike_url_lower):
+            return 'allroad'
+            
+        # RACE - Aeroad en Ultimate (zonder Young Hero)
+        elif 'aeroad' in bike_url_lower:
+            return 'race'  # Aeroad = Pure aerodynamische race bikes
+        elif 'ultimate' in bike_url_lower:
+            return 'race'  # Ultimate = Lightweight race bikes voor klimmers en race prestaties
+            
+        # ENDURANCE - Reguliere Endurace modellen
+        elif 'endurace' in bike_url_lower:
+            return 'endurance'  # Endurace = Comfort-georienteerde endurance bikes
+            
+        # TRIATHLON - Speedmax (zonder Track)
+        elif 'speedmax' in bike_url_lower:
+            return 'triathlon'  # Speedmax = Time trial en triathlon gespecialiseerde bikes
+            
+        # COMFORT - Inflite cyclocross en gravel bikes
+        elif 'inflite' in bike_url_lower:
+            return 'comfort'  # Inflite = Cyclocross en gravel bikes
+        else:
+            return None  # Unknown model
+
+    def extract_canyon_weight_limit(self, soup):
+        """Extract weight limit from Canyon bike classification section"""
+        try:
+            # Look for weight limit in bikeClassification section
+            classification_text = soup.find('p', class_='bikeClassification__bodyText')
+            if classification_text:
+                text_content = classification_text.get_text()
+                
+                # Extract weight limit using regex
+                import re
+                kg_match = re.search(r'(\d+)\s*kg', text_content)
+                if kg_match:
+                    weight_limit = kg_match.group(1)
+                    return f"{weight_limit} kg"
+            
+            return None
+            
+        except Exception as e:
+            self.logger.warning(f"Error extracting weight limit: {e}")
+            return None
+
+
 
 def main():
     """Main function"""

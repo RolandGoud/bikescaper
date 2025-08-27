@@ -1507,7 +1507,7 @@ class TrekBikeScraper:
         # Save CSV
         if csv_data:
             df = pd.DataFrame(csv_data)
-            df.to_csv(csv_file, index=False, encoding='utf-8')
+            df.to_csv(csv_file, index=False, encoding='utf-8', quoting=1)  # QUOTE_ALL for proper CSV format
             self.logger.info(f"Saved {len(bikes)} bikes to {csv_file}")
             
             # Save Excel
@@ -1523,7 +1523,7 @@ class TrekBikeScraper:
             json.dump(bikes, f, ensure_ascii=False, indent=2)
         
         if csv_data:
-            df.to_csv(latest_csv, index=False, encoding='utf-8')
+            df.to_csv(latest_csv, index=False, encoding='utf-8', quoting=1)  # QUOTE_ALL for proper CSV format
             df.to_excel(latest_excel, index=False, engine='openpyxl')
         
         self.logger.info(f"Also saved latest versions as {latest_json}, {latest_csv}, and {latest_excel}")
