@@ -92,5 +92,9 @@ def load(conn):
 
 
 if __name__ == "__main__":
-    conn = db.connect(sys.argv[1] if len(sys.argv) > 1 else None)
-    print(f"Loaded {load(conn)} models into {db.DB_PATH}")
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    conn = db.connect(args[0] if args else None)
+    if "--if-empty" in sys.argv and conn.execute("SELECT COUNT(*) FROM models").fetchone()[0]:
+        print("Models already loaded; skipping seed")
+    else:
+        print(f"Loaded {load(conn)} models into {db.DB_PATH}")
