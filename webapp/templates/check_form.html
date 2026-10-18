@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% from "_macros.html" import check_form %}
+{% block title %}Check a listing · Bike Compare{% endblock %}
+{% block body %}
+<main class="wrap page">
+  <h1 style="font-size: 44px">Check a listing</h1>
+  {{ check_form(form, error, dark=false) }}
+</main>
+{% endblock %}

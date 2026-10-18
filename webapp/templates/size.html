@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Size finder · Bike Compare{% endblock %}
+{% block body %}
+<main class="wrap page">
+  <div class="stack" style="gap: 8px">
+    <h1 style="font-size: 44px">Size finder</h1>
+    <p class="muted">Pick a brand and enter your height to see which frame sizes fit.</p>
+  </div>
+  <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
+    <label class="field">Brand
+      <select name="brand">{% for b in brands %}<option {{ 'selected' if b.name == brand }}>{{ b.name }}</option>{% endfor %}</select>
+    </label>
+    <label class="field">Your height (cm)
+      <input name="height" type="number" min="120" max="220" value="{{ height }}">
+    </label>
+    <button class="btn" type="submit">Find my size</button>
+  </form>
+  <section class="card">
+    <h2>{{ brand }} sizes for {{ height }} cm</h2>
+    <div class="sizes">
+      {% for s in rows %}<div class="{{ 'on' if s.fit else ('near' if s.near) }}">{{ s.size }}<br>{{ s.low }}–{{ s.high }}</div>{% endfor %}
+    </div>
+    <p class="small muted">Dark blue fits, light blue is borderline. {{ 'Generic chart for this brand' if brand in charted else 'Generic chart, not ' ~ brand ~ "'s own" }}; the reworked scraper will collect each model's own chart and geometry.</p>
+  </section>
+</main>
+{% endblock %}
