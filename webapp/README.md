@@ -19,16 +19,21 @@ Set `BIKECOMPARE_DB` to use a different database file.
 ## Run it in Docker (e.g. on a UGREEN NAS)
 
 ```bash
-docker compose up -d --build          # http://<host>:8085
+docker compose up -d --build          # http://<host>:8280
 ```
 
-On a UGREEN NAS (UGOS Pro): copy or clone this repo into a shared folder, open the Docker app,
-go to Project > Create, point it at that folder so it picks up `docker-compose.yml`, and deploy.
-Or SSH into the NAS, `cd` to the folder and run the command above.
+**On a UGREEN NAS (UGOS Pro), easiest:** open the Docker app, go to Project > Create, paste the
+contents of `nas/docker-compose.yml` and deploy. That file needs nothing next to it: on first
+start the container downloads the code from GitHub. Newer code: stop the project, delete the
+`bikecompare-code` volume and start it again.
+
+The root `docker-compose.yml` instead builds from a full copy of this repo, so the whole repo
+folder has to be on the NAS (Project > Create pointed at that folder, or
+`docker compose up -d --build` over SSH).
 
 The catalogue is loaded on first start. Saved checks live in the `bikecompare-data` volume, so
 they survive restarts and rebuilds. To reload the catalogue after new scrapes:
-`docker compose exec bikecompare python -m webapp.seed`. To change the port, edit `8085` in
+`docker compose exec bikecompare python -m webapp.seed`. To change the port, edit `8280` in
 `docker-compose.yml`. The image is about 500 MB because it includes the bike photos.
 
 ## What's in it
