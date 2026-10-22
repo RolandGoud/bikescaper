@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, tier_badge %}
+{% from "_macros.html" import photo, brand_label, tier_badge %}
 {% block title %}{{ _('Models') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -28,8 +28,8 @@
   <div class="filters">
     <a class="pill {{ 'on' if not brand }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current, tier=tier) }}">{{ _('All brands') }}</a>
     {% for b in brands %}
-      {% if b.scraper %}<a class="pill {{ 'on' if brand == b.name }}" href="{{ url_for('catalog', type=kind, brand=b.name, q=q or None, current=current, tier=tier) }}">{{ b.name }}</a>
-      {% else %}<span class="pill soon" title="{{ _('Coming next') }}">{{ b.name }}</span>{% endif %}
+      {% if b.scraper %}<a class="pill brand {{ 'on' if brand == b.name }}" href="{{ url_for('catalog', type=kind, brand=b.name, q=q or None, current=current, tier=tier) }}">{{ brand_label(b) }}</a>
+      {% else %}<span class="pill brand soon" title="{{ _('Coming next') }}">{{ brand_label(b) }}</span>{% endif %}
     {% endfor %}
     <a class="pill {{ 'on' if current }}" style="margin-left: auto" href="{{ url_for('catalog', type=kind, brand=brand, q=q or None, current=None if current else 1, tier=tier) }}">{{ _('Only bikes still sold') }}</a>
   </div>
@@ -45,10 +45,11 @@
     <div class="model-grid">
       {% for m in items %}
       <a class="model-card" href="{{ url_for('model_page', slug=m.slug) }}">
-        <div class="photo">{{ photo(m) }}{% if m.status == 'discontinued' %}<span class="status discontinued overlay">{{ _(status_labels[m.status]) }}</span>{% endif %}</div>
-        <div class="body with-logo">
-          {% if logos.get(m.brand) %}<img class="brand-logo" src="{{ url_for('static', filename=logos[m.brand]) }}" alt="{{ m.brand }}">{% else %}<span class="brand-tag">{{ m.brand }}</span>{% endif %}
-          <div><span style="font-weight: 700">{{ m.name }}</span><br><span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span><br>{{ tier_badge(m.tier, small=true) }}</div>
+        <div class="photo">{{ photo(m) }}{% if logos.get(m.brand) %}<span class="brand-mark" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% else %}<span class="brand-mark text">{{ m.brand }}</span>{% endif %}{% if m.status == 'discontinued' %}<span class="status discontinued overlay">{{ _(status_labels[m.status]) }}</span>{% endif %}</div>
+        <div class="body">
+          <span style="font-weight: 700">{{ m.name }}</span>
+          <span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span>
+          {{ tier_badge(m.tier, small=true) }}
         </div>
       </a>
       {% endfor %}

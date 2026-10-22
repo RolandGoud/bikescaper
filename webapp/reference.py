@@ -111,11 +111,11 @@ ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 BRANDS = [
     {"name": "Trek", "site": "https://www.trekbikes.com/nl/nl_NL/", "scraper": True, "logo": "logos/trek.svg"},
     {"name": "Canyon", "site": "https://www.canyon.com/nl-nl/", "scraper": True, "logo": "logos/canyon.svg"},
-    {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": True, "aliases": ["s-works"]},
-    {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": True},
-    {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": True},
-    {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": True},
-    {"name": "Factor", "site": "https://eu.factorbikes.com/", "scraper": True},
+    {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": True, "aliases": ["s-works"], "logo": "logos/specialized.svg"},
+    {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": True, "logo": "logos/giant.svg"},
+    {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": True, "logo": "logos/cannondale.svg"},
+    {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": True, "logo": "logos/cube.svg"},
+    {"name": "Factor", "site": "https://eu.factorbikes.com/", "scraper": True, "logo": "logos/factor.svg"},
     {"name": "Scott", "site": "https://www.scott-sports.com/nl/en/", "scraper": False},
     {"name": "Orbea", "site": "https://www.orbea.com/nl-nl/", "scraper": False},
 ]
