@@ -72,6 +72,33 @@ def fetch_listing(url):
     return listing
 
 
+def ad_id(url):
+    """The ad's number, e.g. "a1512951815" (or an old "m..." id), from any of its links."""
+    m = re.search(r"/([am]\d{6,})(?:[-./?#]|$)", urlsplit(with_scheme(url)).path + "/")
+    return m.group(1) if m else None
+
+
+def ad_status(url):
+    """"live", "removed", or None when we couldn't tell (site down, blocked, not an ad link).
+
+    Asks for the short link (https://www.marktplaats.nl/a123...): it redirects to the ad wherever
+    the site files it now, and a saved long link can 404 after the site renames a category.
+    """
+    item = ad_id(url)
+    if not item or not supported(with_scheme(url)):
+        return None
+    short = f"https://{urlsplit(with_scheme(url)).hostname.lower()}/{item}"
+    request = urllib.request.Request(short, headers={"User-Agent": USER_AGENT, "Accept-Language": "nl"})
+    try:
+        with _opener.open(request, timeout=TIMEOUT) as response:
+            # Sent somewhere that isn't this ad (a category page, the home page): it's gone.
+            return "live" if item in response.geturl() else "removed"
+    except urllib.error.HTTPError as e:
+        return "removed" if e.code in (404, 410) else None
+    except (FetchError, urllib.error.URLError, TimeoutError, OSError):
+        return None
+
+
 def parse_listing(html):
     config = _config(html)
     data = config.get("listing") or {}

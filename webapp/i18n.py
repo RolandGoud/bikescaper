@@ -132,7 +132,14 @@ NL = {
     "The site didn't answer in time.": "De site reageerde niet op tijd.",
     "That link doesn't look like an ad.": "Die link lijkt geen advertentie te zijn.",
     "Photos from the ad": "Foto's uit de advertentie",
+    "Removed": "Verwijderd",
+    "Removed from the site on {date}": "Verwijderd van de site op {date}",
+    "We found the ad gone from the site on {date}.": "Op {date} zagen we dat de advertentie van de site is verdwenen.",
     "Photo {n} from the ad": "Foto {n} uit de advertentie",
+    "Photo {n} of {total}": "Foto {n} van {total}",
+    "Close": "Sluiten",
+    "Previous photo": "Vorige foto",
+    "Next photo": "Volgende foto",
     "Mooie racefiets, carbon frame, hydraulische schijfremmen...":
         "Mooie racefiets, carbon frame, hydraulische schijfremmen...",
 

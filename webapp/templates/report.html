@@ -10,6 +10,7 @@
     <div class="photo">{{ photo(r.model) }}</div>
     <div class="info">
       <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ _('checked {date}', date=listing.created_at[:10]) }}</div>
+      {% if listing.removed_at %}<div><span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span></div>{% endif %}
       <h1>“{{ listing.title }}”</h1>
       <div class="price">{{ listing.asking_price|eur }}</div>
       {% if r.model %}
@@ -30,7 +31,7 @@
         </form>
       </div>
       {% endif %}
-      {% if listing.photos %}<div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer"></a>{% endfor %}</div>{% endif %}
+      {% if listing.photos %}<div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div>{% endif %}
       {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
     </div>
   </section>
@@ -145,4 +146,16 @@
   {% endif %}
   {% endif %}
 </main>
+{% if listing.photos %}
+{# Clicking an ad photo opens all of them here; without JS the links open the photo itself. #}
+<dialog class="lightbox" aria-label="{{ _('Photos from the ad') }}" data-photos='{{ listing.photos|tojson }}'
+        data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}">
+  <img alt="" referrerpolicy="no-referrer">
+  <div class="lb-count" aria-live="polite"></div>
+  <button class="lb-close" type="button" aria-label="{{ _('Close') }}">×</button>
+  <button class="lb-prev" type="button" aria-label="{{ _('Previous photo') }}">‹</button>
+  <button class="lb-next" type="button" aria-label="{{ _('Next photo') }}">›</button>
+</dialog>
+<script src="{{ url_for('static', filename='lightbox.js') }}" defer></script>
+{% endif %}
 {% endblock %}
