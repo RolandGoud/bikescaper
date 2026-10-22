@@ -10,6 +10,7 @@ import re
 import sys
 
 from . import db
+from .reference import COLOUR_WORDS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -47,6 +48,51 @@ def pick_image(bike):
     if bike["brand"] == "Trek":
         return trek_image_by_name(bike)
     return None
+
+
+def swatch(name):
+    """A CSS colour for a colour name, two-tone for "Black/Grey"; None when no word is recognised."""
+    parts = []
+    for part in (name or "").lower().split("/"):
+        words = re.findall(r"[a-z]+", part)
+        hexes = [h for w, h in COLOUR_WORDS if w in words]
+        if not hexes:
+            continue
+        r, g, b = (int(hexes[0][i:i + 2], 16) for i in (1, 3, 5))
+        shade = 0.6 if "dark" in words else 1.4 if "light" in words else 1
+        parts.append("#%02x%02x%02x" % tuple(min(255, int(c * shade)) for c in (r, g, b)))
+    if not parts:
+        return None
+    return parts[0] if len(parts) == 1 else f"linear-gradient(135deg, {parts[0]} 50%, {parts[1]} 50%)"
+
+
+_CANYON_FILES = None
+
+
+def canyon_colour_image(sku, colour_id):
+    """Canyon's side view of one colourway: a FULL shot naming the product number and colour id."""
+    global _CANYON_FILES
+    if _CANYON_FILES is None:
+        _CANYON_FILES = sorted(
+            (os.path.relpath(os.path.join(d, f), os.path.join(ROOT, "images")) for d, _dirs, files
+             in os.walk(os.path.join(ROOT, "images", "Canyon")) for f in files
+             if ("FULL" in f or f.startswith("full_")) and f.lower().endswith((".jpg", ".jpeg", ".webp"))),
+            reverse=True)  # newest model year first
+    found = [p for p in _CANYON_FILES if f"_{sku}_" in os.path.basename(p) and colour_id in os.path.basename(p)]
+    return found[0] if found else None
+
+
+def colorways(bike, image):
+    """[{name, swatch, image}] per colour the brand lists; the model's own photo when it has one colour."""
+    names = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
+    ids = bike.get("color_ids") or []
+    ways = []
+    for i, name in enumerate(names):
+        photo = canyon_colour_image(bike.get("sku"), ids[i]) if bike["brand"] == "Canyon" and i < len(ids) else None
+        if len(names) == 1:
+            photo = photo or image
+        ways.append({"name": name, "swatch": swatch(name), "image": photo})
+    return ways
 
 
 def _canyon_key(text):
@@ -156,14 +202,16 @@ def refresh_status(conn):
 
 
 def refresh_images(conn):
-    """Re-pick the photo of every model already in the database, keeping saved checks intact."""
+    """Re-pick the photo and colourways of every model already in the database, keeping saved checks intact."""
     count = 0
     for brand, rel in SOURCES:
         with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
             for bike in json.load(fh):
                 bike.setdefault("brand", brand)
-                cur = conn.execute("UPDATE models SET image = ? WHERE slug = ?",
-                                   (pick_image(bike), slugify(f"{brand} {bike['name']}")))
+                image = pick_image(bike)
+                cur = conn.execute("UPDATE models SET image = ?, colorways = ? WHERE slug = ?",
+                                   (image, json.dumps(colorways(bike, image), ensure_ascii=False),
+                                    slugify(f"{brand} {bike['name']}")))
                 count += cur.rowcount
     conn.commit()
     return count
@@ -173,9 +221,10 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     bike.setdefault("brand", brand)
     colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
     price = float(bike["price"]) if bike.get("price") not in (None, "") else None
+    image = pick_image(bike)
     cur = conn.execute(
         f"{verb} INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
-        " specs, image, seen_on, source_file) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+        " specs, image, seen_on, source_file, colorways) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
         (
             brand,
             bike["name"].strip(),
@@ -186,9 +235,10 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
             bike.get("url"),
             json.dumps(colors, ensure_ascii=False),
             json.dumps(bike.get("specifications") or {}, ensure_ascii=False),
-            pick_image(bike),
+            image,
             snapshot_date(rel),
             rel,
+            json.dumps(colorways(bike, image), ensure_ascii=False),
         ),
     )
     return cur.rowcount
