@@ -84,6 +84,18 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .btn.blue { background: var(--blue); color: #fff; }
 .btn.blue:hover { background: var(--blue-dark); color: #fff; }
 .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line-strong); }
+/* link or manual: the unchecked mode's fields are hidden; the grid sees the rest as its own children */
+.mode-fields { display: contents; }
+.check-form:has(#mode-link:checked) .manual-fields, .check-form:has(#mode-manual:checked) .link-fields { display: none; }
+.mode-switch { flex-direction: row; gap: 0; padding: 4px; border-radius: 8px; background: #2A2B33; justify-self: start; }
+.light .mode-switch { background: var(--line); }
+.mode-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.mode-switch label { padding: 8px 16px; border-radius: 6px; cursor: pointer; color: #DCDCE4; font-weight: 600; }
+.light .mode-switch label { color: var(--muted); }
+.mode-switch input:checked + label { background: #fff; color: var(--ink); }
+.mode-switch input:focus-visible + label { outline: 2px solid var(--orange); outline-offset: 2px; }
+.ad-photos { display: flex; gap: 8px; overflow-x: auto; }
+.ad-photos img { height: 88px; width: auto; border-radius: 6px; flex: none; }
 .error { background: var(--bad-bg); color: var(--bad); padding: 10px 14px; border-radius: 6px; font-weight: 600; }
 
 /* cards */

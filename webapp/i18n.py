@@ -114,6 +114,21 @@ NL = {
     "Optional, saved with the check": "Optioneel, wordt bij de check bewaard",
     "Check this bike": "Check deze fiets",
     "Paste at least the ad's title.": "Plak in elk geval de titel van de advertentie.",
+    "How do you want to add the ad?": "Hoe wil je de advertentie toevoegen?",
+    "Paste a link": "Plak een link",
+    "Enter manually": "Zelf invullen",
+    "Marktplaats or 2dehands. We read the title, text, price and photos for you.":
+        "Marktplaats of 2dehands. Wij lezen de titel, tekst, prijs en foto's voor je uit.",
+    "Paste the link to the ad.": "Plak de link naar de advertentie.",
+    "{reason} Fill in the details yourself instead.": "{reason} Vul de gegevens dan zelf in.",
+    "We can only read links from Marktplaats and 2dehands for now.":
+        "We kunnen voorlopig alleen links van Marktplaats en 2dehands uitlezen.",
+    "That ad no longer exists.": "Die advertentie bestaat niet meer.",
+    "The site didn't let us read the ad.": "De site liet ons de advertentie niet uitlezen.",
+    "The site didn't answer in time.": "De site reageerde niet op tijd.",
+    "That link doesn't look like an ad.": "Die link lijkt geen advertentie te zijn.",
+    "Photos from the ad": "Foto's uit de advertentie",
+    "Photo {n} from the ad": "Foto {n} uit de advertentie",
     "Mooie racefiets, carbon frame, hydraulische schijfremmen...":
         "Mooie racefiets, carbon frame, hydraulische schijfremmen...",
 

@@ -26,27 +26,42 @@
 </a>
 {%- endmacro %}
 
+{# Paste a link and we read the ad, or type it in. Two radios switch the fields with CSS, so it works without JS. #}
 {% macro check_form(form, error, dark=true) -%}
+{% set mode = form.mode or 'link' %}
 <form class="check-form{{ '' if dark else ' light' }}" method="post" action="{{ url_for('new_check') }}">
+  <div class="mode-switch field wide" role="radiogroup" aria-label="{{ _('How do you want to add the ad?') }}">
+    <input type="radio" name="mode" value="link" id="mode-link" {{ 'checked' if mode == 'link' }}><label for="mode-link">{{ _('Paste a link') }}</label>
+    <input type="radio" name="mode" value="manual" id="mode-manual" {{ 'checked' if mode == 'manual' }}><label for="mode-manual">{{ _('Enter manually') }}</label>
+  </div>
   {% if error %}<div class="error field wide" role="alert">{{ error }}</div>{% endif %}
-  <label class="field wide">{{ _('Ad title') }} <span class="hint">{{ _('From the Marktplaats ad') }}</span>
-    <input name="title" required value="{{ form.title or '' }}" placeholder="Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat">
-  </label>
-  <label class="field wide">{{ _('Ad text') }} <span class="hint">{{ _('We read the year, size, groupset and condition from it') }}</span>
-    <textarea name="description" placeholder="Mooie racefiets, carbon frame, hydraulische schijfremmen...">{{ form.description or '' }}</textarea>
-  </label>
-  <label class="field">{{ _('Asking price (€)') }}
-    <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2450">
-  </label>
-  <label class="field">{{ _('Place') }}
-    <input name="location" value="{{ form.location or '' }}" placeholder="Utrecht">
-  </label>
+  <div class="mode-fields link-fields">
+    <label class="field wide">{{ _('Link to the ad') }} <span class="hint">{{ _('Marktplaats or 2dehands. We read the title, text, price and photos for you.') }}</span>
+      <input name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
+    </label>
+  </div>
+  <div class="mode-fields manual-fields">
+    <label class="field wide">{{ _('Ad title') }} <span class="hint">{{ _('From the Marktplaats ad') }}</span>
+      <input name="title" value="{{ form.title or '' }}" placeholder="Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat">
+    </label>
+    <label class="field wide">{{ _('Ad text') }} <span class="hint">{{ _('We read the year, size, groupset and condition from it') }}</span>
+      <textarea name="description" placeholder="Mooie racefiets, carbon frame, hydraulische schijfremmen...">{{ form.description or '' }}</textarea>
+    </label>
+    <label class="field">{{ _('Asking price (€)') }}
+      <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2450">
+    </label>
+    <label class="field">{{ _('Place') }}
+      <input name="location" value="{{ form.location or '' }}" placeholder="Utrecht">
+    </label>
+  </div>
   <label class="field">{{ _('Your height (cm)') }}
     <input name="rider_height" inputmode="numeric" value="{{ form.rider_height or '' }}" placeholder="{{ _('Optional, e.g. 178') }}">
   </label>
-  <label class="field wide">{{ _('Link to the ad') }} <span class="hint">{{ _('Optional, saved with the check') }}</span>
-    <input name="listing_url" type="url" value="{{ form.listing_url or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
-  </label>
+  <div class="mode-fields manual-fields">
+    <label class="field wide">{{ _('Link to the ad') }} <span class="hint">{{ _('Optional, saved with the check') }}</span>
+      <input name="listing_url" type="url" value="{{ form.listing_url or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
+    </label>
+  </div>
   <div class="field wide"><button class="btn" type="submit">{{ _('Check this bike') }}</button></div>
 </form>
 {%- endmacro %}
