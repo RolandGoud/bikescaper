@@ -15,7 +15,7 @@
         <div><div class="k">{{ _('Seen in catalogue') }}</div><div class="v">{{ m.seen_on }}</div></div>
         <div><div class="k">{{ _('Colours') }}</div><div class="v" style="font-size: 15px">{{ m.colors|join(', ') or '–' }}</div></div>
       </div>
-      <div class="row"><a class="btn ghost" href="{{ m.url }}" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
+      <div class="row"><a class="btn ghost" href="{{ m.url }}" target="_blank" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
     </div>
   </section>
