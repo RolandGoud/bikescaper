@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo %}
+{% from "_macros.html" import asking_box with context %}
 {% block title %}{{ _('Check report') }}: {{ listing.title }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -124,10 +125,10 @@
       <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
       <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
       <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
-      <div><div class="k">{{ _('Similar ads now') }}</div><div class="v">{{ _('[coming later]') }}</div></div>
     </div>
     {% endif %}
     <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
+    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
   </section>
 
   {% if r.questions %}
