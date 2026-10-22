@@ -37,9 +37,11 @@ CREATE TABLE IF NOT EXISTS checks (
     asking_price REAL,
     location TEXT,
     rider_height INTEGER,
-    model_id INTEGER REFERENCES models(id)   -- user-corrected match, NULL = automatic
+    model_id INTEGER REFERENCES models(id),  -- user-corrected match, NULL = automatic
+    photos TEXT           -- JSON list of photo URLs read from the ad's link, NULL when typed in
 );
 """
+ADDED_CHECK_COLUMNS = [("photos", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT")]
 
@@ -55,6 +57,10 @@ def connect(path=None):
     for column, kind in ADDED_COLUMNS:
         if column not in have:
             conn.execute(f"ALTER TABLE models ADD COLUMN {column} {kind}")
+    have = {r["name"] for r in conn.execute("PRAGMA table_info(checks)")}
+    for column, kind in ADDED_CHECK_COLUMNS:
+        if column not in have:
+            conn.execute(f"ALTER TABLE checks ADD COLUMN {column} {kind}")
     return conn
 
 
