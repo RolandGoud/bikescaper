@@ -19,6 +19,20 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
 STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
+# Our own links are relative (url_for), so any link to http(s):// leaves the site.
+EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
+
+
+def open_in_new_tab(tag):
+    """Give an external <a> tag target="_blank" and a rel with noopener, keeping what it already has."""
+    if " target=" not in tag:
+        tag = tag[:-1] + ' target="_blank">'
+    rel = re.search(r' rel="([^"]*)"', tag)
+    if not rel:
+        tag = tag[:-1] + ' rel="noopener">'
+    elif "noopener" not in rel.group(1).split():
+        tag = tag.replace(rel.group(0), f' rel="noopener {rel.group(1)}"')
+    return tag
 
 
 def create_app(db_path=None):
@@ -68,6 +82,14 @@ def create_app(db_path=None):
             lang = request.accept_languages.best_match(list(LANGUAGES)) or DEFAULT_LANGUAGE
         g.lang = lang
         current_language.set(lang)
+
+    @app.after_request
+    def external_links_in_new_tab(response):
+        """Every link off the site opens in a new tab, whichever template or feature made it."""
+        if response.mimetype == "text/html" and not response.direct_passthrough:
+            html = response.get_data(as_text=True)
+            response.set_data(EXTERNAL_LINK.sub(lambda m: open_in_new_tab(m.group(0)), html))
+        return response
 
     @app.after_request
     def remember_language(response):
