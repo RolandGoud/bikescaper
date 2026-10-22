@@ -28,6 +28,24 @@ def supported(url):
     return any(host == h or host.endswith("." + h) for h in HOSTS)
 
 
+def with_scheme(url):
+    """People often copy a link without "https://"; the form and the fetch both need one."""
+    url = (url or "").strip()
+    return url if re.match(r"https?://", url, re.I) else "https://" + url
+
+
+class _SameSitesRedirects(urllib.request.HTTPRedirectHandler):
+    """Follow a redirect only to the supported sites, checked before the request is sent."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not supported(newurl):
+            raise FetchError("We can only read links from Marktplaats and 2dehands for now.")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+_opener = urllib.request.build_opener(_SameSitesRedirects)
+
+
 def clean_url(url):
     """The ad's own address, without tracking parameters."""
     parts = urlsplit(url.strip())
@@ -35,17 +53,13 @@ def clean_url(url):
 
 
 def fetch_listing(url):
-    url = (url or "").strip()
-    if not re.match(r"https?://", url):
-        url = "https://" + url
+    url = with_scheme(url)
     if not supported(url):
         raise FetchError("We can only read links from Marktplaats and 2dehands for now.")
     url = clean_url(url)
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept-Language": "nl"})
     try:
-        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
-            if not supported(response.geturl()):
-                raise FetchError("We can only read links from Marktplaats and 2dehands for now.")
+        with _opener.open(request, timeout=TIMEOUT) as response:
             html = response.read(MAX_BYTES).decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         if e.code in (404, 410):

@@ -40,6 +40,14 @@ def test_only_known_sites_are_fetched():
         fetch_ad.fetch_listing("http://192.168.1.10/admin")
 
 
+def test_redirects_off_the_sites_are_not_followed():
+    handler = fetch_ad._SameSitesRedirects()
+    req = fetch_ad.urllib.request.Request("https://www.marktplaats.nl/v/a/b/a1-x")
+    with pytest.raises(fetch_ad.FetchError):
+        handler.redirect_request(req, None, 302, "Found", {}, "http://192.168.1.10/admin")
+    assert handler.redirect_request(req, None, 301, "Moved", {}, "https://www.marktplaats.nl/v/a/b/a1-y")
+
+
 def test_clean_url_drops_tracking():
     assert (fetch_ad.clean_url("http://WWW.Marktplaats.nl/v/a/b/a1-x?c=abc&correlationId=1#top")
             == "https://www.marktplaats.nl/v/a/b/a1-x")
@@ -79,3 +87,6 @@ def test_failed_fetch_falls_back_to_manual(tmp_path, monkeypatch):
     assert 'id="mode-manual" checked' in page
     assert 'name="listing_url" type="url" value="https://www.marktplaats.nl/v/a/b/a1-x"' in page
     assert client.post("/check", data={"mode": "link", "ad_link": " "}).status_code == 400
+    # a link pasted without https:// comes back as a valid URL, or the browser would refuse the manual form
+    page = client.post("/check", data={"mode": "link", "ad_link": "www.marktplaats.nl/v/a/b/a1-x"}).data.decode()
+    assert 'name="listing_url" type="url" value="https://www.marktplaats.nl/v/a/b/a1-x"' in page

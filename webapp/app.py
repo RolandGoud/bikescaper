@@ -115,7 +115,7 @@ def create_app(db_path=None):
                 ad = fetch_ad.fetch_listing(url)
             except fetch_ad.FetchError as e:
                 # Fall back to typing it in, with the link kept so it's saved with the check.
-                form.update(mode="manual", listing_url=url)
+                form.update(mode="manual", listing_url=fetch_ad.with_scheme(url))
                 return again(gettext("{reason} Fill in the details yourself instead.", reason=gettext(str(e))))
             return save_check(ad["listing_url"], ad["title"], ad["description"], ad["asking_price"],
                               ad["location"], height, ad["photos"])
