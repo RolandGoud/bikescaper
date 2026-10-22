@@ -16,6 +16,8 @@ from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
+STATUS_LABELS = {"current": "Still sold", "maybe": "Possibly discontinued", "discontinued": "Discontinued",
+                 "unknown": "Status unknown"}
 
 
 def create_app(db_path=None):
@@ -77,7 +79,8 @@ def create_app(db_path=None):
 
     @app.context_processor
     def globals_():
-        return {"brands": BRANDS, "charted": SIZE_CHARTS, "lang": g.get("lang", DEFAULT_LANGUAGE),
+        return {"brands": BRANDS, "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
+                "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
@@ -142,15 +145,18 @@ def create_app(db_path=None):
         brand = request.args.get("brand")
         q = (request.args.get("q") or "").strip().lower()
         kind = request.args.get("type")
-        items = [dict(m, discipline=checks.discipline_of(m)) for m in models()
-                 if (not brand or m["brand"] == brand) and (not q or q in m["name"].lower())]
+        current = request.args.get("current")
+        items = [dict(m, discipline=checks.discipline_of(m), status=checks.catalogue_status(m)[0])
+                 for m in models() if (not brand or m["brand"] == brand) and (not q or q in m["name"].lower())]
+        items = [m for m in items if not current or m["status"] == "current"]
         counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
         items = [m for m in items if not kind or m["discipline"] == kind]
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
                                       key=lambda m: (m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
-                               counts=counts, kind=kind, brand=brand, q=q, count=len(items), nav="models")
+                               counts=counts, kind=kind, brand=brand, q=q, current=current, count=len(items),
+                               nav="models")
 
     @app.route("/models/<slug>")
     def model_page(slug):
@@ -162,7 +168,7 @@ def create_app(db_path=None):
         siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
                     and m["brand"] == model["brand"] and m["id"] != model["id"]]
         return render_template("model.html", m=model, years=years, siblings=siblings,
-                               specs=checks.spec_groups(model),
+                               specs=checks.spec_groups(model), status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                sizes=checks.size_options(model["brand"]), nav="models")
 

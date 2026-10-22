@@ -2,6 +2,7 @@
 
 Run from the repo root:  python -m webapp.seed
 """
+import glob
 import html
 import json
 import os
@@ -107,6 +108,53 @@ def trek_image_by_name(bike):
     return best[-1] if best else None
 
 
+def scrape_history(brand):
+    """{model name (lowercase): date last listed} and the dates of every scrape of this brand's catalogue.
+
+    Reads every dated JSON export in data/<brand>/; several exports on one day count as one scrape.
+    """
+    seen, dates = {}, set()
+    for path in sorted(glob.glob(os.path.join(ROOT, "data", brand, "*.json"))):
+        date = snapshot_date(os.path.basename(path))
+        if not date:
+            continue
+        try:
+            with open(path, encoding="utf-8") as fh:
+                bikes = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        if not isinstance(bikes, list) or not bikes:
+            continue
+        dates.add(date)
+        for bike in bikes:
+            name = (bike.get("name") or "").strip().lower()
+            if name and seen.get(name, "") < date:
+                seen[name] = date
+    return seen, sorted(dates)
+
+
+def catalogue_status(brand, name, history):
+    """(last_seen, latest_scrape, missed_scrapes) for one model."""
+    seen, dates = history
+    last = seen.get(name.strip().lower())
+    if not dates or not last:
+        return None, dates[-1] if dates else None, None
+    return last, dates[-1], sum(1 for d in dates if d > last)
+
+
+def refresh_status(conn):
+    """Update every model's catalogue status from the scrapes on disk, keeping saved checks intact."""
+    histories = {brand: scrape_history(brand) for brand, _rel in SOURCES}
+    count = 0
+    for row in conn.execute("SELECT id, brand, name FROM models").fetchall():
+        if row["brand"] in histories:
+            conn.execute("UPDATE models SET last_seen = ?, latest_scrape = ?, missed_scrapes = ? WHERE id = ?",
+                         (*catalogue_status(row["brand"], row["name"], histories[row["brand"]]), row["id"]))
+            count += 1
+    conn.commit()
+    return count
+
+
 def refresh_images(conn):
     """Re-pick the photo of every model already in the database, keeping saved checks intact."""
     count = 0
@@ -121,36 +169,67 @@ def refresh_images(conn):
     return count
 
 
+def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
+    bike.setdefault("brand", brand)
+    colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
+    price = float(bike["price"]) if bike.get("price") not in (None, "") else None
+    cur = conn.execute(
+        f"{verb} INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
+        " specs, image, seen_on, source_file) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+        (
+            brand,
+            bike["name"].strip(),
+            slugify(f"{brand} {bike['name']}"),
+            html.unescape(bike.get("category") or ""),
+            price,
+            str(bike.get("sku") or ""),
+            bike.get("url"),
+            json.dumps(colors, ensure_ascii=False),
+            json.dumps(bike.get("specifications") or {}, ensure_ascii=False),
+            pick_image(bike),
+            snapshot_date(rel),
+            rel,
+        ),
+    )
+    return cur.rowcount
+
+
+def add_other_scrapes(conn):
+    """Add models that only other scrapes list (dropped since, or new), newest scrape first.
+
+    Discontinued models matter here: second-hand ads are full of them. Existing rows are left alone,
+    so saved checks keep their matches.
+    """
+    count = 0
+    have = {r[0] for r in conn.execute("SELECT slug FROM models")}
+    for brand, _rel in SOURCES:
+        paths = [p for p in glob.glob(os.path.join(ROOT, "data", brand, "*.json"))
+                 if snapshot_date(os.path.basename(p))]
+        for path in sorted(paths, key=lambda p: snapshot_date(os.path.basename(p)), reverse=True):
+            try:
+                with open(path, encoding="utf-8") as fh:
+                    bikes = json.load(fh)
+            except (OSError, ValueError):
+                continue
+            for bike in bikes if isinstance(bikes, list) else []:
+                slug = slugify(f"{brand} {bike.get('name') or ''}")
+                if bike.get("name") and slug not in have:
+                    have.add(slug)
+                    count += insert_bike(conn, brand, bike, os.path.relpath(path, ROOT), "INSERT OR IGNORE")
+    conn.commit()
+    return count
+
+
 def load(conn):
     conn.execute("DELETE FROM models")
     count = 0
     for brand, rel in SOURCES:
         with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
-            bikes = json.load(fh)
-        for bike in bikes:
-            bike.setdefault("brand", brand)
-            colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
-            price = float(bike["price"]) if bike.get("price") not in (None, "") else None
-            conn.execute(
-                "INSERT OR REPLACE INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
-                " specs, image, seen_on, source_file) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-                (
-                    brand,
-                    bike["name"].strip(),
-                    slugify(f"{brand} {bike['name']}"),
-                    html.unescape(bike.get("category") or ""),
-                    price,
-                    str(bike.get("sku") or ""),
-                    bike.get("url"),
-                    json.dumps(colors, ensure_ascii=False),
-                    json.dumps(bike.get("specifications") or {}, ensure_ascii=False),
-                    pick_image(bike),
-                    snapshot_date(rel),
-                    rel,
-                ),
-            )
-            count += 1
+            for bike in json.load(fh):
+                count += insert_bike(conn, brand, bike, rel)
     conn.commit()
+    count += add_other_scrapes(conn)
+    refresh_status(conn)
     return count
 
 
@@ -158,6 +237,7 @@ if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     conn = db.connect(args[0] if args else None)
     if "--if-empty" in sys.argv and conn.execute("SELECT COUNT(*) FROM models").fetchone()[0]:
-        print(f"Models already loaded; refreshed photos of {refresh_images(conn)} models")
+        print(f"Models already loaded; refreshed photos of {refresh_images(conn)} models,"
+              f" added {add_other_scrapes(conn)} from other scrapes, updated status of {refresh_status(conn)}")
     else:
         print(f"Loaded {load(conn)} models into {db.DB_PATH}")
