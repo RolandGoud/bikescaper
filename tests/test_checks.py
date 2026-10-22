@@ -594,3 +594,22 @@ def test_links_off_the_site_open_in_a_new_tab(tmp_path):
             seen += 1
         assert not re.search(r'<a\s[^>]*href="/[^"]*"[^>]*target="_blank"', html), url  # our own links stay in the same tab
     assert seen >= 4  # product page, brand sites, the ad and its photo
+
+
+def test_certainty_comes_back_when_our_match_is_picked_again(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": "2450"})
+    page = client.get("/check/1?lang=nl").data.decode()
+    ours = re.search(r'<option value="(\d+)" selected', page).group(1)
+    other = re.search(r'<option value="(\d+)" >', page).group(1)
+    level = re.search(r"zekerheid: (\w+)", page).group(1)  # whatever ours is, it must come back
+
+    client.post("/check/1/match", data={"model_id": other})
+    page = client.get("/check/1?lang=nl").data.decode()
+    assert "Gekozen door jou" in page and "zekerheid" not in page
+
+    client.post("/check/1/match", data={"model_id": ours})
+    page = client.get("/check/1?lang=nl").data.decode()
+    assert f"zekerheid: {level}" in page and "Gekozen door jou" not in page
