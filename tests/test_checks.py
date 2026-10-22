@@ -468,3 +468,23 @@ def test_named_wheels_on_a_model_without_wheel_data(models):
     wheels = next(row for row in specs["rows"] if row["key"] == "wheels")
     assert wheels["status"] == checks.UNKNOWN
     checks.seller_questions(model, claims, {"status": checks.OK}, specs, {"status": checks.OK})
+
+
+def test_missing_brand_snapshot_is_downloaded(tmp_path, monkeypatch):
+    # An older NAS compose file unpacks only data/Trek and data/Canyon; the seed fetches the rest.
+    import io
+    import json as _json
+    monkeypatch.setattr(seed, "ROOT", str(tmp_path))
+    monkeypatch.setattr(seed, "COLLECTED", ["Cube"])
+    snapshot = [{"name": "Attain SLX", "price": 1499}]
+
+    def fake_urlopen(url, timeout=None):
+        if "api.github.com" in url:
+            return io.BytesIO(_json.dumps([{"name": "cube_bikes_20261022_151753.json"}, {"name": "x.csv"}]).encode())
+        assert url.endswith("/data/Cube/cube_bikes_20261022_151753.json")
+        return io.BytesIO(_json.dumps(snapshot).encode())
+
+    monkeypatch.setattr(seed.urllib.request, "urlopen", fake_urlopen)
+    assert seed.fetch_missing_snapshots("main") == 1
+    assert seed.latest_snapshot("Cube") == "data/Cube/cube_bikes_20261022_151753.json"
+    assert seed.fetch_missing_snapshots("main") == 0  # already there
