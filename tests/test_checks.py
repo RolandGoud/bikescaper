@@ -213,9 +213,8 @@ def test_catalogue_status(models):
     assert checks.catalogue_status(by_name["Canyon Endurace CF 7"], TODAY)[0] == "current"
     # Gen 7 was sold until 2024
     assert checks.catalogue_status(by_name["Trek Madone SL 6 Gen 7"], TODAY)[0] == "discontinued"
-    # Listed in July 2025, gone from the August 2025 scrape: one miss can be the scraper
-    assert checks.catalogue_status(by_name["Canyon Endurace 7 RAW"], TODAY)[0] == "maybe"
-    gone = dict(by_name["Canyon Endurace 7 RAW"], missed_scrapes=2)
+    # Listed in July 2025, gone from the August 2025 scrape
+    gone = by_name["Canyon Endurace 7 RAW"]
     assert checks.catalogue_status(gone, TODAY)[0] == "discontinued"
     assert checks.catalogue_status(dict(gone, missed_scrapes=None), TODAY)[0] == "unknown"
 
@@ -225,9 +224,9 @@ def test_status_on_pages(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
     page = client.get("/models/canyon-endurace-7-raw?lang=en").data.decode()
-    assert "Possibly discontinued" in page and "2025-07-18" in page
+    assert "Discontinued" in page and "2025-07-18" in page
     page = client.get("/models?lang=nl").data.decode()
-    assert "Mogelijk uit productie" in page and "Endurace 7 RAW" in page
+    assert "Uit productie" in page and "Endurace 7 RAW" in page
     page = client.get("/models?lang=en&current=1").data.decode()
     assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and "Domane SL 6 gen 4" in page
 

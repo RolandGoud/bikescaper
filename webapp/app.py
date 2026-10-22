@@ -16,7 +16,7 @@ from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
-STATUS_LABELS = {"current": "Still sold", "maybe": "Possibly discontinued", "discontinued": "Discontinued",
+STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 
 
