@@ -144,6 +144,29 @@ def family_of(model_name):
     return toks[0] if toks else ""
 
 
+def catalogue_status(model, today=None):
+    """Whether the brand still sells the model: (status, message).
+
+    status is "current", "maybe" (missing from the newest scrape only, which can be a scraper
+    miss), "discontinued" (its generation ended, or missing from two or more scrapes in a row)
+    or "unknown" (no scrape history).
+    """
+    today = today or date.today()
+    years = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
+    missed, last = model.get("missed_scrapes"), model.get("last_seen")
+    if years and years[1] and years[1] < today.year:
+        return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=years[1])
+    if missed is None:
+        return "unknown", Msg("Not checked against the catalogue yet.")
+    if missed >= 2:
+        return "discontinued", Msg("Discontinued: missing from the last {n} catalogue scrapes, last seen {date}.",
+                                   n=missed, date=last)
+    if missed == 1:
+        return "maybe", Msg("Possibly discontinued: missing from the newest catalogue scrape ({latest}),"
+                            " last seen {date}.", latest=model["latest_scrape"], date=last)
+    return "current", Msg("In the {brand} catalogue on {date}.", brand=model["brand"], date=last)
+
+
 def discipline_of(model):
     """The brand-independent discipline key (reference.DISCIPLINES) for a catalogue model, or "other"."""
     toks = set(_tokens(model["name"]))

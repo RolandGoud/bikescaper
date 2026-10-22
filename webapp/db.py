@@ -21,7 +21,10 @@ CREATE TABLE IF NOT EXISTS models (
     specs TEXT,           -- JSON object, as scraped (Dutch labels)
     image TEXT,           -- path under images/, or NULL
     seen_on TEXT,         -- date of the catalogue snapshot (YYYY-MM-DD)
-    source_file TEXT
+    source_file TEXT,
+    last_seen TEXT,       -- date of the newest catalogue scrape that listed the model
+    latest_scrape TEXT,   -- date of the brand's newest catalogue scrape
+    missed_scrapes INTEGER  -- scrapes since last_seen that no longer listed it
 );
 CREATE TABLE IF NOT EXISTS checks (
     id INTEGER PRIMARY KEY,
@@ -35,6 +38,7 @@ CREATE TABLE IF NOT EXISTS checks (
     model_id INTEGER REFERENCES models(id)   -- user-corrected match, NULL = automatic
 );
 """
+ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER")]
 
 
 def connect(path=None):
@@ -43,6 +47,11 @@ def connect(path=None):
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    # Databases made before a column existed get it added; the seed fills it in.
+    have = {r["name"] for r in conn.execute("PRAGMA table_info(models)")}
+    for column, kind in ADDED_COLUMNS:
+        if column not in have:
+            conn.execute(f"ALTER TABLE models ADD COLUMN {column} {kind}")
     return conn
 
 

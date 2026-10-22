@@ -12,7 +12,7 @@
       <div class="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       <div class="facts">
         <div><div class="k">{{ _('Model years') }}</div><div class="v">{% if years %}{{ years[0] }}–{{ years[1] or _('now') }}{% else %}{{ _('[not collected yet]') }}{% endif %}</div></div>
-        <div><div class="k">{{ _('Seen in catalogue') }}</div><div class="v">{{ m.seen_on }}</div></div>
+        <div><div class="k">{{ _('Status') }}</div><div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div><div class="small muted">{{ status[1] }}</div></div>
         <div><div class="k">{{ _('Colours') }}</div><div class="v" style="font-size: 15px">{{ m.colors|join(', ') or '–' }}</div></div>
       </div>
       <div class="row"><a class="btn ghost" href="{{ m.url }}" target="_blank" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
