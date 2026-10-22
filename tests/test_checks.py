@@ -260,3 +260,13 @@ def test_model_page_colour_selector(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/canyon-endurace-allroad?lang=en").data.decode()
     assert page.count('data-name="') == 2 and 'data-name="Metal Berry"' in page and "R138_P02" in page
+
+
+def test_model_years(models):
+    by_slug = {m["slug"]: m for m in models}
+    assert checks.model_years(by_slug["trek-madone-sl-6-gen-7"], TODAY)[:2] == (2023, 2024)
+    first, last, _note = checks.model_years(by_slug["canyon-endurace-allroad"], TODAY)
+    assert first >= 2024 and last is None  # still sold
+    gone = dict(by_slug["canyon-endurace-allroad"], missed_scrapes=2)
+    assert checks.model_years(gone, TODAY)[1] == gone["photo_years"][-1]
+    assert checks.model_years(dict(gone, photo_years=[]), TODAY) is None

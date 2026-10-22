@@ -204,6 +204,7 @@ NL = {
     "Mountain": "Mountainbike",
     "E-bike": "E-bike",
     "Other": "Overig",
+    "From the model years in {brand}'s own photos; earlier years may be missing.": "Uit de modeljaren in de eigen foto's van {brand}; eerdere jaren kunnen ontbreken.",
     "No photo of this colour yet.": "Nog geen foto van deze kleur.",
     "Status": "Status",
     "Still sold": "Nog te koop",

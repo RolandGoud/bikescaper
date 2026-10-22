@@ -11,7 +11,7 @@
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
       <div class="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       <div class="facts">
-        <div><div class="k">{{ _('Model years') }}</div><div class="v">{% if years %}{{ years[0] }}–{{ years[1] or _('now') }}{% else %}{{ _('[not collected yet]') }}{% endif %}</div></div>
+        <div><div class="k">{{ _('Model years') }}</div><div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>{% if years %}<div class="small muted">{{ years[2] }}</div>{% endif %}</div>
         <div><div class="k">{{ _('Status') }}</div><div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div><div class="small muted">{{ status[1] }}</div></div>
         <div><div class="k">{{ _('Colours') }}</div>
           {% if m.colorways %}

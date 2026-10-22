@@ -144,6 +144,23 @@ def family_of(model_name):
     return toks[0] if toks else ""
 
 
+def model_years(model, today=None):
+    """(first, last or None for still sold, source message), or None when nothing tells us.
+
+    The hand-entered generation table wins; otherwise the model years in the brand's photo file
+    names, running to "now" while the newest scrape still lists the model.
+    """
+    years = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
+    if years:
+        return years[0], years[1], Msg(GENERATIONS_NOTE)
+    seen = model.get("photo_years") or []
+    if not seen:
+        return None
+    still_sold = catalogue_status(model, today)[0] == "current"
+    return seen[0], None if still_sold else seen[-1], Msg(
+        "From the model years in {brand}'s own photos; earlier years may be missing.", brand=model["brand"])
+
+
 def catalogue_status(model, today=None):
     """Whether the brand still sells the model: (status, message).
 
