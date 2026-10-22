@@ -16,7 +16,8 @@
       <div class="match-box">
         <span>{{ _('Matched to') }}</span>
         <a href="{{ url_for('model_page', slug=r.model.slug) }}" style="font-weight: 700">{{ r.model.brand }} {{ r.model.name }}</a>
-        <span class="mono muted">{{ _('{level} confidence', level=r.confidence) }}</span>
+        {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>
+        {% elif r.confidence %}<span class="mono muted">{{ _('{level} confidence', level=r.confidence) }}</span>{% endif %}
         <form method="post" action="{{ url_for('change_match', check_id=listing.id) }}">
           <label class="sr-only" for="model_id">{{ _('Change match') }}</label>
           <select id="model_id" name="model_id">

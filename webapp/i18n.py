@@ -155,7 +155,7 @@ NL = {
     "high": "hoog",
     "medium": "gemiddeld",
     "low": "laag",
-    "chosen by you": "door jou gekozen",
+    "Chosen by you": "Gekozen door jou",
     "Change match": "Ander model kiezen",
     "All models": "Alle modellen",
     "Open the ad": "Advertentie openen",

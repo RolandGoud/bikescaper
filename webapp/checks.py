@@ -797,9 +797,11 @@ def run_check(models, listing, today=None):
         chosen = next((m for m in models if m["id"] == listing["model_id"]), None)
     if chosen is None and ranked:
         chosen = ranked[0][1]
-    level = "chosen by you" if listing.get("model_id") else confidence(ranked)
+    # Picking our own suggestion again brings back our confidence; another model is the visitor's call.
+    chosen_by_you = bool(chosen and ranked and listing.get("model_id") and chosen["id"] != ranked[0][1]["id"])
+    level = confidence(ranked) if not chosen_by_you else None
     report = {"claims": claims, "candidates": [m for _, m in ranked[:8]],
-              "confidence": Msg(level) if level else None, "model": chosen}
+              "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen}
     if chosen is None:
         return report
     report["age"] = check_age(chosen, claims, today)
