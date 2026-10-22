@@ -167,6 +167,19 @@ def slug(text):
     return re.sub(r"[^A-Za-z0-9]+", "_", text).strip("_")
 
 
+def frame(img, ratio=16 / 9, margin=0.05):
+    """Crop a product photo on white to the bike and pad it to the 16:9 tiles, so every brand fills its tile alike."""
+    from PIL import Image, ImageOps
+    box = ImageOps.invert(img.convert("L")).point(lambda v: 255 if v > 12 else 0).getbbox()
+    if not box:
+        return img
+    bike = img.crop(box)
+    w = max(bike.width, bike.height * ratio) * (1 + 2 * margin)
+    out = Image.new("RGB", (round(w), round(w / ratio)), "white")
+    out.paste(bike, ((out.width - bike.width) // 2, (out.height - bike.height) // 2))
+    return out
+
+
 def save_image(fetcher, brand, name, url, width=1000):
     """Download one product photo as a JPEG under images/<Brand>/ and return its path under images/."""
     if not url:
@@ -186,7 +199,7 @@ def save_image(fetcher, brand, name, url, width=1000):
             bg = Image.new("RGB", img.size, "white")
             bg.paste(img, mask=img.split()[-1])
             img = bg
-        img = img.convert("RGB")
+        img = frame(img.convert("RGB"))
         if img.width > width:
             img = img.resize((width, round(img.height * width / img.width)), Image.LANCZOS)
         os.makedirs(os.path.dirname(path), exist_ok=True)
