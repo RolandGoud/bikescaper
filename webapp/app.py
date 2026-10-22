@@ -7,11 +7,12 @@ Run from the repo root:
 import json
 import os
 import re
+import sys
 from datetime import date
 
 from flask import Flask, abort, g, redirect, render_template, request, send_from_directory, url_for
 
-from . import checks, db, fetch_ad, prices
+from . import checks, db, fetch_ad, prices, recheck
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -284,3 +285,6 @@ def create_app(db_path=None):
 
 
 app = create_app()
+if "gunicorn" in os.path.basename(sys.argv[0]):
+    # On the server, re-check pasted ad links in the background and mark removed ads.
+    recheck.start_background(app.config["DB_PATH"])
