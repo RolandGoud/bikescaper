@@ -26,6 +26,7 @@ def create_app(db_path=None):
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["split_title"] = checks.split_title
 
     def conn():
         if "conn" not in g:
@@ -52,6 +53,7 @@ def create_app(db_path=None):
 
     def listing_dict(row, height=None):
         listing = dict(row)
+        listing["photos"] = json.loads(listing["photos"]) if listing.get("photos") else []
         if height:
             listing["rider_height"] = height
         return listing
@@ -100,7 +102,7 @@ def create_app(db_path=None):
     @app.route("/")
     def home():
         recent = conn().execute("SELECT * FROM checks ORDER BY id DESC LIMIT 3").fetchall()
-        cards = [(r, checks.run_check(models(), listing_dict(r))) for r in recent]
+        cards = [(listing_dict(r), checks.run_check(models(), listing_dict(r))) for r in recent]
         return render_template("home.html", cards=cards, nav="check")
 
     @app.route("/check", methods=["GET", "POST"])
@@ -147,13 +149,11 @@ def create_app(db_path=None):
             abort(404)
         height = request.args.get("height", type=int)
         result = checks.run_check(models(), listing_dict(row, height))
-        listing = dict(row)
-        listing["photos"] = json.loads(listing["photos"]) if listing.get("photos") else []
         asking = None
         if result["model"]:
             asking = prices.asking_price(prices.known_ads(conn(), models()), result["model"]["id"],
                                          prices.period_of(request.args.get("period", type=int)), leave_out=check_id)
-        return render_template("report.html", listing=listing, r=result, height=height or row["rider_height"],
+        return render_template("report.html", listing=listing_dict(row), r=result, height=height or row["rider_height"],
                                all_models=models(), asking=asking, nav="check")
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
@@ -166,7 +166,7 @@ def create_app(db_path=None):
     @app.route("/listings")
     def listings():
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        cards = [(r, checks.run_check(models(), listing_dict(r))) for r in rows]
+        cards = [(listing_dict(r), checks.run_check(models(), listing_dict(r))) for r in rows]
         status = request.args.get("result")
         if status:
             cards = [c for c in cards if c[1].get("model") and status in
