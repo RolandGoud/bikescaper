@@ -225,3 +225,11 @@ def test_asking_price_counts_an_ad_once():
     from datetime import date
     got = prices.asking_price(ads, 7, 90, today=date(2026, 10, 22), leave_out=1)
     assert got["count"] == 1 and got["median"] == 2000
+
+
+def test_ad_key_takes_the_site_from_the_host():
+    def key(url):
+        return fetch_ad.ad_key({"listing_url": url, "title": "", "asking_price": 0})
+    assert key("https://www.marktplaats.nl/v/fietsen/racefietsen/m200000-van-2dehands") == "marktplaats:m200000"
+    assert key("WWW.2DEHANDS.BE/a/fietsen/m200000-x") == "2dehands:m200000"
+    assert key("https://www.2ememain.be/a/velos/m200000-x") == "2dehands:m200000"

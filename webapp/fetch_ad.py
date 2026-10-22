@@ -104,7 +104,8 @@ def ad_key(row):
     (so any form of the link counts), otherwise exactly the same title and asking price."""
     url = row["listing_url"]
     if url and supported(with_scheme(url)) and ad_id(url):
-        site = "2dehands" if "2dehands" in url or "2ememain" in url else "marktplaats"
+        host = (urlsplit(with_scheme(url)).hostname or "").lower()
+        site = "marktplaats" if "marktplaats" in host else "2dehands"
         return f"{site}:{ad_id(url)}"
     return "typed:" + " ".join((row["title"] or "").lower().split()) + f"|{row['asking_price']}"
 
