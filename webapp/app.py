@@ -162,6 +162,8 @@ def create_app(db_path=None):
         siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
                     and m["brand"] == model["brand"] and m["id"] != model["id"]]
         return render_template("model.html", m=model, years=years, siblings=siblings,
+                               specs=checks.spec_groups(model),
+                               discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                sizes=checks.size_options(model["brand"]), nav="models")
 
     @app.route("/size")

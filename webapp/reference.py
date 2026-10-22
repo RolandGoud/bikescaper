@@ -84,6 +84,7 @@ DISCIPLINES = [
     ("fitness", "Fitness & city"),
     ("mtb", "Mountain"),
     ("ebike", "E-bike"),
+    ("frames", "Frames"),
 ]
 
 # Model families per discipline: the first word of the model name, as checks.family_of reads it.
@@ -141,14 +142,16 @@ FAMILY_DISCIPLINES = {
         "Cube": ["reaction", "ams", "stereo"],
     },
 }
-# Words in a model name that put it in a discipline whatever its family: "Addict Gravel",
-# "Domane+", "Turbo Creo", "Synapse Neo", "Agree Hybrid".
+# Words in a model name that put it in a discipline whatever its family, checked in this order:
+# "Aeroad CFR Disc Frame and Brake Kit", "Addict Gravel", "Domane+", "Turbo Creo", "Synapse Neo".
 NAME_WORDS = {
+    "frames": ["frame", "frameset", "framekit"],
     "ebike": ["plus", "turbo", "neo", "hybrid", "gain"],
     "gravel": ["gravel", "cx", "cyclocross"],
 }
 # Last resort for a family not listed above: words in the brand's own category name.
 CATEGORY_WORDS = {
+    "frames": ["frameset", "frames"],
     "ebike": ["electric", "e-bike", "elektrisch"],
     "gravel": ["gravel", "cyclocross", "veldrijden"],
     "tt": ["triathlon", "time trial", "tijdrit"],
@@ -156,3 +159,77 @@ CATEGORY_WORDS = {
     "mtb": ["mountain", "mtb"],
     "road": ["road", "race", "aero", "endurance", "racefiets"],
 }
+
+# Spec sheet groups for the model page, in display order. (key, label); the label is translated.
+SPEC_GROUPS = [
+    ("frame", "Frame & fork"),
+    ("drivetrain", "Drivetrain"),
+    ("brakes", "Brakes"),
+    ("wheels", "Wheels & tyres"),
+    ("cockpit", "Cockpit"),
+    ("saddle", "Saddle & seatpost"),
+    ("electric", "Motor & battery"),
+    ("weight", "Weight"),
+    ("extras", "Accessories"),
+    ("other", "Other"),
+]
+# Spec labels as the scrapers store them -> (group, English label, Dutch label). Labels that mean
+# the same thing (Canyon's "Weight" and "Gewicht") share an English label and are shown once.
+SPEC_LABELS = {
+    "Frame": ("frame", "Frame", "Frame"),
+    "Frame plus vork": ("frame", "Frameset", "Frame plus vork"),
+    "Material": ("frame", "Frame material", "Framemateriaal"),
+    "Framefit": ("frame", "Frame fit", "Framefit"),
+    "Voorvork": ("frame", "Fork", "Voorvork"),
+    "Balhoofdstel": ("frame", "Headset", "Balhoofdstel"),
+    "As voorwiel": ("frame", "Front axle", "As voorwiel"),
+    "As achterwiel": ("frame", "Rear axle", "As achterwiel"),
+    "Maximale bandenmaat": ("frame", "Max tyre width", "Maximale bandenmaat"),
+    "Maximaal geschikte veerweg": ("frame", "Max suspension travel", "Maximaal geschikte veerweg"),
+    "Shifter": ("drivetrain", "Shifters", "Shifters"),
+    "Shifter_speed": ("drivetrain", "Speeds", "Versnellingen"),
+    "Voorderailleur": ("drivetrain", "Front derailleur", "Voorderailleur"),
+    "Achterderailleur": ("drivetrain", "Rear derailleur", "Achterderailleur"),
+    "Crankstel": ("drivetrain", "Crankset", "Crankstel"),
+    "Kettingblad": ("drivetrain", "Chainring", "Kettingblad"),
+    "Maximale maat kettingblad": ("drivetrain", "Max chainring size", "Maximale maat kettingblad"),
+    "Bottom bracket": ("drivetrain", "Bottom bracket", "Trapas"),
+    "Bottom_bracket": ("drivetrain", "Bottom bracket", "Trapas"),
+    "Cassette": ("drivetrain", "Cassette", "Cassette"),
+    "Ketting": ("drivetrain", "Chain", "Ketting"),
+    "Pedaal": ("drivetrain", "Pedals", "Pedalen"),
+    "Rem": ("brakes", "Brakes", "Remmen"),
+    "Remgreep": ("brakes", "Brake levers", "Remgrepen"),
+    "Remschijf": ("brakes", "Brake rotors", "Remschijven"),
+    "Schijfdiameter": ("brakes", "Rotor size", "Schijfdiameter"),
+    "Wiel voor": ("wheels", "Front wheel", "Wiel voor"),
+    "Wiel achter": ("wheels", "Rear wheel", "Wiel achter"),
+    "Naaf voor": ("wheels", "Front hub", "Naaf voor"),
+    "Naaf achter": ("wheels", "Rear hub", "Naaf achter"),
+    "Velg": ("wheels", "Rims", "Velgen"),
+    "Spaken": ("wheels", "Spokes", "Spaken"),
+    "Velglint": ("wheels", "Rim tape", "Velglint"),
+    "Buitenband": ("wheels", "Tyres", "Banden"),
+    "Buitenband - onderdelen": ("wheels", "Tyre extras", "Banden - onderdelen"),
+    "Binnenband": ("wheels", "Inner tubes", "Binnenbanden"),
+    "Stuur": ("cockpit", "Handlebar", "Stuur"),
+    "Stuurpen": ("cockpit", "Stem", "Stuurpen"),
+    "Stuur/stuurpen (geïntegreerd)": ("cockpit", "Integrated bar & stem", "Stuur/stuurpen (geïntegreerd)"),
+    "Stuurlint": ("cockpit", "Bar tape", "Stuurlint"),
+    "Handvatten": ("cockpit", "Grips", "Handvatten"),
+    "Stuur - onderdelen": ("cockpit", "Handlebar extras", "Stuur - onderdelen"),
+    "Computer": ("cockpit", "Computer", "Computer"),
+    "Zadel": ("saddle", "Saddle", "Zadel"),
+    "Zadelpen": ("saddle", "Seatpost", "Zadelpen"),
+    "Motor": ("electric", "Motor", "Motor"),
+    "Accu": ("electric", "Battery", "Accu"),
+    "Oplader": ("electric", "Charger", "Oplader"),
+    "Gewicht": ("weight", "Weight", "Gewicht"),
+    "Weight": ("weight", "Weight", "Gewicht"),
+    "Gewichtslimiet": ("weight", "Weight limit", "Gewichtslimiet"),
+    "Tas": ("extras", "Bag", "Tas"),
+    "Bidonhouder": ("extras", "Bottle cage", "Bidonhouder"),
+    "Bidon": ("extras", "Bottle", "Bidon"),
+}
+# Without a motor, a battery and charger belong to electronic shifting (Di2, AXS), not to an e-bike.
+NO_MOTOR_GROUP = {"electric": "drivetrain"}

@@ -2,13 +2,15 @@
 
 Everything works on text the user pasted: we never fetch the listing page.
 """
+import html
 import re
 import unicodedata
 from datetime import date
 
 from .i18n import Msg, join
 from .reference import (BRAND_NAMES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
-                        GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, SIZE_CHARTS, SIZE_NOTE)
+                        GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, SIZE_CHARTS, SIZE_NOTE,
+                        SPEC_GROUPS, SPEC_LABELS)
 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
 
@@ -157,6 +159,20 @@ def discipline_of(model):
         if any(w in category for w in words):
             return key
     return "other"
+
+
+def spec_groups(model):
+    """The model's spec sheet as [(group label, [(english label, dutch label, value)])], in SPEC_GROUPS order."""
+    rows, seen = {}, set()
+    for raw, value in model["specs"].items():
+        group, en, nl = SPEC_LABELS.get(raw, ("other", raw.replace("_", " "), raw.replace("_", " ")))
+        if "Motor" not in model["specs"]:
+            group = NO_MOTOR_GROUP.get(group, group)
+        if en in seen or not str(value).strip():
+            continue
+        seen.add(en)
+        rows.setdefault(group, []).append((en, nl, html.unescape(str(value))))
+    return [(label, rows[key]) for key, label in SPEC_GROUPS if key in rows]
 
 
 def match_models(models, title, description="", claims=None):
