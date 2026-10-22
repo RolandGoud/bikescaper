@@ -51,8 +51,9 @@
   </section>
   <section class="card">
     <h2>{{ _('Sizes') }}</h2>
-    <div class="sizes">{% for k, (lo, hi) in sizes.items() %}<div>{{ k }}<br>{{ lo }}–{{ hi }}</div>{% endfor %}</div>
-    <p class="small muted">{{ _("Rider height in cm, from a generic chart. Geometry per size isn't collected yet.") }}</p>
+    <div class="sizes">{% for k, (lo, hi) in size_chart.sizes.items() %}<div>{{ k }}<br>{{ lo }}–{{ hi }}{% if size_chart.geometry[k] %}<br><span class="small">{{ size_chart.geometry[k][0]|int }} / {{ size_chart.geometry[k][1]|int }}</span>{% endif %}</div>{% endfor %}</div>
+    <p class="small muted">{{ _('Rider height in cm.') }} {% if size_chart.geometry %}{{ _('Under each size: stack / reach in mm.') }} {% endif %}{{ size_note }}
+      <a href="{{ url_for('size_finder', model=m.slug) }}">{{ _('Open the size finder') }}</a></p>
   </section>
   {% if siblings %}
   <section class="stack">

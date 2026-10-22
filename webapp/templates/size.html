@@ -4,11 +4,21 @@
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
     <h1 style="font-size: 44px">{{ _('Size finder') }}</h1>
-    <p class="muted">{{ _('Pick a brand and enter your height to see which frame sizes fit.') }}</p>
+    <p class="muted">{{ _('Pick a brand and model and enter your height to see which frame sizes fit.') }}</p>
   </div>
   <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
     <label class="field">{{ _('Brand') }}
-      <select name="brand">{% for b in brands %}<option {{ 'selected' if b.name == brand }}>{{ b.name }}</option>{% endfor %}</select>
+      <select name="brand" onchange="this.form.model.value = ''; this.form.submit()">{% for b in brands %}<option {{ 'selected' if b.name == brand }}>{{ b.name }}</option>{% endfor %}</select>
+    </label>
+    <label class="field">{{ _('Model') }}
+      <select name="model">
+        <option value="">{{ _('All models (brand chart)') }}</option>
+        {% for family, family_lines in lines|groupby('family') %}
+        <optgroup label="{{ family|capitalize }}">
+          {% for l in family_lines %}<option value="{{ l.key }}" {{ 'selected' if line and l.key == line.key }}>{{ l.label }}{{ ' · ' ~ _('brand chart') if l.chart.source == 'generic' }}</option>{% endfor %}
+        </optgroup>
+        {% endfor %}
+      </select>
     </label>
     <label class="field">{{ _('Your height (cm)') }}
       <input name="height" type="number" min="120" max="220" value="{{ height }}">
@@ -16,11 +26,19 @@
     <button class="btn" type="submit">{{ _('Find my size') }}</button>
   </form>
   <section class="card">
-    <h2>{{ _('{brand} sizes for {height} cm', brand=brand, height=height) }}</h2>
+    <h2>{{ _('{model} sizes for {height} cm', model=line.label if line else brand, height=height) }}</h2>
     <div class="sizes">
-      {% for s in rows %}<div class="{{ 'on' if s.fit else ('near' if s.near) }}">{{ s.size }}<br>{{ s.low }}–{{ s.high }}</div>{% endfor %}
+      {% for s in rows %}<div class="{{ 'on' if s.fit else ('near' if s.near) }}">{{ s.size }}<br>{{ s.low }}–{{ s.high }}{% if s.geometry %}<br><span class="small">{{ s.geometry[0]|int }} / {{ s.geometry[1]|int }}</span>{% endif %}</div>{% endfor %}
     </div>
-    <p class="small muted">{{ _('Dark blue fits, light blue is borderline.') }} {{ _('Generic chart for this brand') if brand in charted else _("Generic chart, not {brand}'s own", brand=brand) }}; {{ _("the reworked scraper will collect each model's own chart and geometry.") }}</p>
+    <p class="small muted">{{ _('Dark blue fits, light blue is borderline.') }}
+      {% if chart.geometry %}{{ _('Under each size: stack / reach in mm.') }}{% endif %}
+      {% if line %}{{ note }}{% else %}{{ _('Generic chart for this brand') if brand in charted else _("Generic chart, not {brand}'s own", brand=brand) }}; {{ _('pick a model for its own chart.') }}{% endif %}{% if chart.url %} <a href="{{ chart.url }}" rel="noopener">{{ _('{brand} product page', brand=brand) }}</a>{% endif %}</p>
+    {% if line and line.models|length > 1 %}
+    <p class="small muted">{{ _('Same chart for {count} models:', count=line.models|length) }}
+      {% for m in line.models %}<a href="{{ url_for('model_page', slug=m.slug) }}">{{ m.name }}</a>{{ ', ' if not loop.last }}{% endfor %}</p>
+    {% endif %}
+    <p class="small muted">{% if own.brand %}{{ _('{own} of {total} {brand} models have their own size chart.', own=own.brand, total=total, brand=brand) }}{% endif %}
+      {% if own.geometry %}{{ _('{own} of {total} {brand} models have their own sizes and geometry.', own=own.geometry, total=total, brand=brand) }}{% endif %}</p>
   </section>
 </main>
 {% endblock %}

@@ -3,6 +3,8 @@
 Everything works on text the user pasted: we never fetch the listing page.
 """
 import html
+import json
+import os
 import re
 import unicodedata
 from datetime import date
@@ -532,10 +534,113 @@ def size_options(brand):
     return SIZE_CHARTS.get(brand, GENERIC_SIZE_CHART)
 
 
+MODEL_CHARTS_FILE = os.path.join(os.path.dirname(__file__), "size_charts.json")
+_model_charts = {}
+
+
+def model_charts():
+    """Each model's own size chart by slug, as brand_scrapers/sizing.py collected them."""
+    try:
+        mtime = os.path.getmtime(MODEL_CHARTS_FILE)
+    except OSError:
+        return {}
+    if _model_charts.get("mtime") != mtime:
+        try:
+            with open(MODEL_CHARTS_FILE, encoding="utf-8") as fh:
+                charts = json.load(fh).get("models") or {}
+        except (OSError, ValueError):
+            charts = {}
+        _model_charts.update(mtime=mtime, charts=charts)
+    return _model_charts["charts"]
+
+
+SIZE_SOURCE_NOTES = {
+    "brand": "{brand}'s own size chart for this model.",
+    "geometry": "This model's own sizes and geometry; {brand} publishes rider heights only in its general size guide.",
+    "generic": SIZE_NOTE,
+}
+
+
+LETTER_SIZES = ["3XS", "2XS", "XS", "S", "M", "ML", "L", "XL", "2XL", "3XL"]
+
+
+def _size_order(label):
+    if label.isdigit():
+        return 0, int(label)
+    return 1, LETTER_SIZES.index(label) if label in LETTER_SIZES else len(LETTER_SIZES)
+
+
+def model_size_chart(model):
+    """The model's own chart when we have it, else the brand chart.
+
+    {"sizes": {label: (low, high)}, "geometry": {label: (stack, reach)}, "source": brand|geometry|generic, "url"}
+    """
+    own = model_charts().get(model.get("slug") or "")
+    brand_chart = size_options(model["brand"])
+    if own and own["source"] == "geometry":
+        # Only geometry published: the model's own sizes, with the rider heights of the brand's size guide.
+        sizes = {k: brand_chart[k] for k in own["sizes"] if k in brand_chart}
+    else:
+        sizes = {k: (v["low"], v["high"]) for k, v in (own or {}).get("sizes", {}).items() if v.get("low")}
+    sizes = dict(sorted(sizes.items(), key=lambda kv: _size_order(kv[0])))
+    if not sizes:
+        return {"sizes": brand_chart, "geometry": {}, "source": "generic", "url": None}
+    return {"sizes": sizes, "source": own["source"], "url": own.get("url"),
+            "geometry": {k: (v["stack"], v["reach"]) for k, v in own["sizes"].items()
+                         if v.get("stack") and v.get("reach")}}
+
+
+def size_note(chart, brand):
+    return Msg(SIZE_SOURCE_NOTES[chart["source"]], brand=brand)
+
+
+def _line_label(names):
+    """The words all names share, in order: 'Domane SL 5 Gen 4' + 'Domane SL 6 Gen 4' -> 'Domane SL Gen 4'."""
+    words = [n.replace(" - ", " ").split() for n in names]
+    common = [w for w in words[0] if all(w.lower() in map(str.lower, other) for other in words[1:])]
+    return " ".join(common) or names[0]
+
+
+def size_lines(models, brand):
+    """A brand's models grouped by family and size chart, for the size finder's model picker.
+
+    Builds that share a frame share a chart, so 'Madone SLR 7' and 'Madone SLR 9' become one line.
+    Models without their own chart are grouped per family on the brand chart.
+    """
+    groups = {}
+    for m in models:
+        if m["brand"] != brand:
+            continue
+        chart = model_size_chart(m)
+        own = {k: chart["sizes"][k] + chart["geometry"].get(k, ()) for k in chart["sizes"]}
+        key = (family_of(m["name"]), json.dumps(own, sort_keys=True) if chart["source"] != "generic" else "")
+        groups.setdefault(key, {"family": key[0], "chart": chart, "models": []})["models"].append(m)
+    lines = []
+    for group in groups.values():
+        names = sorted(m["name"] for m in group["models"])
+        group["models"].sort(key=lambda m: m["name"])
+        group["key"] = group["models"][0]["slug"]
+        group["label"] = _line_label(names) if len(names) > 1 else names[0]
+        lines.append(group)
+    seen, per_family = {}, {}
+    for line in lines:
+        seen[line["label"]] = seen.get(line["label"], 0) + 1
+        per_family[line["family"]] = per_family.get(line["family"], 0) + 1
+    for line in lines:
+        sizes = list(line["chart"]["sizes"])
+        bare = " " not in line["label"] and per_family[line["family"]] > 1  # just 'Madone' next to other Madones
+        if (seen[line["label"]] > 1 or bare) and line["chart"]["source"] != "generic":
+            line["label"] += f" ({sizes[0]}–{sizes[-1]})" if len(sizes) > 1 else f" ({sizes[0]})"
+    return sorted(lines, key=lambda l: (l["family"], l["chart"]["source"] == "generic", l["label"]))
+
+
 def check_size(model, claims, rider_height=None):
-    chart = size_options(model["brand"])
+    own = model_size_chart(model)
     size = claims["size"]
-    notes = [Msg(SIZE_NOTE)]
+    if size and size not in own["sizes"] and own["source"] != "generic":
+        own = {"sizes": size_options(model["brand"]), "geometry": {}, "source": "generic", "url": None}
+    chart = own["sizes"]
+    notes = [size_note(own, model["brand"])]
     rows = [{"size": k, "low": lo, "high": hi, "selected": k == size}
             for k, (lo, hi) in chart.items() if k.isdigit() == bool(size and size.isdigit())] if size else []
     if not size:
