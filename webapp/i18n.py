@@ -133,6 +133,10 @@ NL = {
     "That link doesn't look like an ad.": "Die link lijkt geen advertentie te zijn.",
     "Photos from the ad": "Foto's uit de advertentie",
     "Photo {n} from the ad": "Foto {n} uit de advertentie",
+    "Photo {n} of {total}": "Foto {n} van {total}",
+    "Close": "Sluiten",
+    "Previous photo": "Vorige foto",
+    "Next photo": "Volgende foto",
     "Mooie racefiets, carbon frame, hydraulische schijfremmen...":
         "Mooie racefiets, carbon frame, hydraulische schijfremmen...",
 
