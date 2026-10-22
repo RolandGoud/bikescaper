@@ -233,3 +233,18 @@ SPEC_LABELS = {
 }
 # Without a motor, a battery and charger belong to electronic shifting (Di2, AXS), not to an e-bike.
 NO_MOTOR_GROUP = {"electric": "drivetrain"}
+
+# Swatch colours for colour names: the first word found wins; "dark" and "light" shade it.
+# Brands' fancy names (Kaze, Aurora, team replicas) have no word here and show as a striped
+# swatch, or as a crop of that colour's photo when we have one.
+COLOUR_WORDS = [
+    ("midnight", "#1f2433"), ("black", "#1b1b1f"), ("stealth", "#26272b"), ("obsidian", "#23232a"),
+    ("phantom", "#202024"), ("vapor", "#2a2b30"), ("mirage", "#2b2b30"), ("carbon", "#2e2f33"),
+    ("white", "#f4f4f2"), ("crystal", "#eef0f2"), ("silver", "#c3c7cc"), ("mercury", "#b9bdc2"),
+    ("chrome", "#c9ccd1"), ("grey", "#8a8d93"), ("gray", "#8a8d93"), ("lillet", "#a7a29a"),
+    ("navy", "#1f2f5a"), ("movistar", "#1d3f8f"), ("blue", "#2a5db0"), ("sky", "#6fa3d8"),
+    ("teal", "#1f8a8a"), ("cactus", "#6f8f5a"), ("acid", "#a8c62c"), ("green", "#3c8d4a"),
+    ("red", "#c0282d"), ("blaze", "#d2452a"), ("berry", "#8e2a54"), ("pink", "#e58aa8"),
+    ("coral", "#ea7a6a"), ("orange", "#e36b1e"), ("sugar", "#b4652e"), ("bronze", "#9c6b3f"),
+    ("tan", "#c7a77b"), ("champagne", "#d8c7a0"), ("gold", "#c9a13b"), ("purple", "#6b4fa0"),
+]

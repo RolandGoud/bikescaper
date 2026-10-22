@@ -204,6 +204,7 @@ NL = {
     "Mountain": "Mountainbike",
     "E-bike": "E-bike",
     "Other": "Overig",
+    "No photo of this colour yet.": "Nog geen foto van deze kleur.",
     "Status": "Status",
     "Still sold": "Nog te koop",
     "Possibly discontinued": "Mogelijk uit productie",

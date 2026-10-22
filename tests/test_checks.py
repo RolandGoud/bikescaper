@@ -245,3 +245,18 @@ def test_old_database_gets_status_columns(tmp_path):
     seed.refresh_status(conn)
     row = conn.execute("SELECT last_seen, missed_scrapes FROM models").fetchone()
     assert tuple(row) == ("2025-07-18", 1)
+
+
+def test_colour_swatches(models):
+    allroad = next(m for m in models if m["slug"] == "canyon-endurace-allroad")
+    assert [c["name"] for c in allroad["colorways"]] == ["Silver Mercury", "Metal Berry"]
+    assert all(c["swatch"] and c["image"] and "R138_P0" in c["image"] for c in allroad["colorways"])
+    assert seed.swatch("Black/Grey").startswith("linear-gradient(")
+    assert seed.swatch("Blue dark") != seed.swatch("Blue") and seed.swatch("Kaze") is None
+
+
+def test_model_page_colour_selector(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/canyon-endurace-allroad?lang=en").data.decode()
+    assert page.count('data-name="') == 2 and 'data-name="Metal Berry"' in page and "R138_P02" in page

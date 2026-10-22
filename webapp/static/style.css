@@ -163,6 +163,10 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .status.current { background: var(--ok-bg); color: var(--ok); }
 .status.maybe { background: var(--warn-bg); color: var(--warn); }
 .status.discontinued { background: var(--bad-bg); color: var(--bad); }
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+.swatch { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-strong); padding: 0; cursor: pointer; background-color: var(--faint); background-size: 400%; background-position: 50% 55%; }
+.swatch.plain:not([style*="url"]) { background: repeating-linear-gradient(45deg, var(--faint) 0 4px, #fff 4px 8px); }
+.swatch[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 2px; }
 .model-card .brand-tag { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
 .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
 .model-card { text-decoration: none; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }

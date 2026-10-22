@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS models (
     source_file TEXT,
     last_seen TEXT,       -- date of the newest catalogue scrape that listed the model
     latest_scrape TEXT,   -- date of the brand's newest catalogue scrape
-    missed_scrapes INTEGER  -- scrapes since last_seen that no longer listed it
+    missed_scrapes INTEGER, -- scrapes since last_seen that no longer listed it
+    colorways TEXT        -- JSON list of {name, swatch, image}; image is NULL without a photo of that colour
 );
 CREATE TABLE IF NOT EXISTS checks (
     id INTEGER PRIMARY KEY,
@@ -38,7 +39,8 @@ CREATE TABLE IF NOT EXISTS checks (
     model_id INTEGER REFERENCES models(id)   -- user-corrected match, NULL = automatic
 );
 """
-ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER")]
+ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
+                 ("colorways", "TEXT")]
 
 
 def connect(path=None):
@@ -60,6 +62,7 @@ def model_from_row(row):
         return None
     m = dict(row)
     m["colors"] = json.loads(m["colors"] or "[]")
+    m["colorways"] = json.loads(m.get("colorways") or "[]")
     m["specs"] = json.loads(m["specs"] or "{}")
     return m
 

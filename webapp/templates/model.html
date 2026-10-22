@@ -5,7 +5,7 @@
 <main class="wrap page">
   <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name }}</div>
   <section class="card listing-head">
-    <div class="photo">{{ photo(m) }}</div>
+    <div class="photo" id="model-photo">{{ photo(m) }}</div>
     <div class="info">
       <div class="mono muted">{{ m.brand|upper }} · {{ _(discipline) }}</div>
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
@@ -13,7 +13,20 @@
       <div class="facts">
         <div><div class="k">{{ _('Model years') }}</div><div class="v">{% if years %}{{ years[0] }}–{{ years[1] or _('now') }}{% else %}{{ _('[not collected yet]') }}{% endif %}</div></div>
         <div><div class="k">{{ _('Status') }}</div><div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div><div class="small muted">{{ status[1] }}</div></div>
-        <div><div class="k">{{ _('Colours') }}</div><div class="v" style="font-size: 15px">{{ m.colors|join(', ') or '–' }}</div></div>
+        <div><div class="k">{{ _('Colours') }}</div>
+          {% if m.colorways %}
+          <div class="swatches" role="group" aria-label="{{ _('Colours') }}">
+            {% for c in m.colorways %}
+            <button type="button" class="swatch{{ ' plain' if not c.swatch }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"
+                    title="{{ c.name }}" data-name="{{ c.name }}"
+                    {% if c.image %}data-image="{{ url_for('images', path=c.image) }}"{% endif %}
+                    style="{% if c.swatch %}background: {{ c.swatch }}{% elif c.image %}background-image: url('{{ url_for('images', path=c.image) }}'){% endif %}"></button>
+            {% endfor %}
+          </div>
+          <div class="small" id="colour-name">{{ m.colorways[0].name }}</div>
+          <div class="small muted" id="colour-note" hidden>{{ _('No photo of this colour yet.') }}</div>
+          {% else %}<div class="v" style="font-size: 15px">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
+        </div>
       </div>
       <div class="row"><a class="btn ghost" href="{{ m.url }}" target="_blank" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
@@ -43,4 +56,16 @@
   </section>
   {% endif %}
 </main>
+<script>
+  // Colour swatches: show the colour's name, and its photo when we have one.
+  document.querySelectorAll(".swatch").forEach(function (button) {
+    button.addEventListener("click", function () {
+      document.querySelectorAll(".swatch").forEach(function (b) { b.setAttribute("aria-pressed", b === button); });
+      document.getElementById("colour-name").textContent = button.dataset.name;
+      var img = document.querySelector("#model-photo img");
+      document.getElementById("colour-note").hidden = !!button.dataset.image;
+      if (img && button.dataset.image) { img.src = button.dataset.image; img.alt = button.dataset.name; }
+    });
+  });
+</script>
 {% endblock %}
