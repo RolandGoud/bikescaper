@@ -48,6 +48,7 @@
     </div>{% endif %}
     <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
     <div class="small muted">{{ _('Asking {price}', price=row.asking_price|eur) }}{% if row.location %} · {{ row.location }}{% endif %}</div>
+    {% if row.times_checked and row.times_checked > 1 %}<div class="small muted">{{ _('Checked {n}× · last on {date}', n=row.times_checked, date=row.created_at[:10]) }}</div>{% endif %}
     {{ chips(r) }}
   </div>
 </a>

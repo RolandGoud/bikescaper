@@ -167,3 +167,61 @@ def test_only_one_process_rechecks_at_a_time(tmp_path, monkeypatch):
     assert passes == []
     recheck.run_locked(path)
     assert passes == [1]
+
+
+def test_same_ad_checked_twice_is_one_card(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    rows = [  # oldest first
+        ("https://www.marktplaats.nl/v/fietsen/racefietsen/a1512951815-trek?c=1", "Trek Domane SL6 2022", 2500, 170),
+        ("http://marktplaats.nl/a1512951815", "Trek Domane SL6 2022 (prijs verlaagd)", 2300, 190),  # same ad
+        (None, "Giant TCR Advanced 2 2021 maat M", 1500, None),
+        (None, "giant  TCR advanced 2 2021 maat m", 1500, None),   # same typed ad
+        (None, "Giant TCR Advanced 2 2021 maat M", 1400, None),    # other price: another ad
+    ]
+    for url, title, price, height in rows:
+        conn.execute("INSERT INTO checks (listing_url, title, asking_price, rider_height) VALUES (?,?,?,?)",
+                     (url, title, price, height))
+    conn.commit()
+    client = app.test_client()
+
+    page = client.get("/listings?lang=nl").data.decode()
+    assert page.count('class="listing-card"') == 3
+    assert page.count("2× gecheckt") == 2
+    assert "€2.300" in page and "€2.500" not in page  # the card shows the newest check
+    assert 'href="/check/2"' in page and 'href="/check/1"' not in page
+
+    # each person's own report still exists, with their own height
+    assert "Deze advertentie is 2 keer gecheckt." in client.get("/check/1?lang=nl").data.decode()
+    assert "Deze advertentie is 2 keer gecheckt." in client.get("/check/2?lang=nl").data.decode()
+    assert "keer gecheckt" not in client.get("/check/5?lang=nl").data.decode()
+
+    home = client.get("/?lang=nl").data.decode()
+    assert home.count('class="listing-card"') == 3
+
+
+def test_asking_price_counts_an_ad_once():
+    from webapp import prices
+
+    class Rows:
+        def __init__(self, rows):
+            self.rows = rows
+
+        def execute(self, sql, args):
+            return sorted(self.rows, key=lambda r: -r["id"])
+
+    def row(i, url, price):
+        return {"id": i, "listing_url": url, "title": "Trek Domane", "asking_price": price,
+                "model_id": 7, "created_at": "2026-10-20 10:00:00", "description": ""}
+
+    ads = prices.known_ads(Rows([row(1, "https://www.marktplaats.nl/a1512951815", 2500),
+                                 row(2, "https://www.marktplaats.nl/v/x/y/a1512951815-z", 2300),
+                                 row(3, "https://www.marktplaats.nl/a1600000000", 2000)]),
+                           [{"id": 7}])
+    assert sorted(a["price"] for a in ads) == [2000, 2300]
+    # viewing the older check of the same ad still leaves that ad out
+    from datetime import date
+    got = prices.asking_price(ads, 7, 90, today=date(2026, 10, 22), leave_out=1)
+    assert got["count"] == 1 and got["median"] == 2000
