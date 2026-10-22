@@ -270,3 +270,7 @@ select { max-width: 100%; }
   .field-label, .field-label select, .filter-row .search { width: 100%; margin-left: 0; }
   .filter-row .search input { flex: 1; width: auto; }
 }
+/* Second-hand asking price: period pills next to the heading. */
+.asking { display: flex; flex-direction: column; gap: 12px; }
+.asking .row { gap: 6px; }
+.pill.small-pill { padding: 6px 12px; font-size: 13px; }
