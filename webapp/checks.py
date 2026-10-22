@@ -7,10 +7,10 @@ import re
 import unicodedata
 from datetime import date
 
-from .i18n import Msg, join
+from .i18n import Msg, join, join_list
 from .reference import (BRAND_ALIASES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
-                        GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, SIZE_CHARTS, SIZE_NOTE,
-                        SPEC_GROUPS, SPEC_LABELS)
+                        GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
+                        SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS, WEIGHT_TIERS)
 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
 
@@ -35,11 +35,11 @@ SIZE_LABELS = r"3xs|2xs|xxs|xs|s|m|l|xl|xxl|2xl"
 def detect_groupset(text):
     low = _plain(text)
     found = None
-    for key, name, pattern, rank in GROUPSETS:
+    for key, name, pattern, tier in GROUPSETS:
         if re.search(pattern, low):
-            # Prefer the highest-ranked match: "105 crankset, Ultegra shifters" reads as Ultegra.
-            if found is None or rank > found["rank"]:
-                found = {"key": key, "name": name, "rank": rank}
+            # Prefer the highest tier: "105 crankset, Ultegra shifters" reads as Ultegra.
+            if found is None or tier > found["tier"]:
+                found = {"key": key, "name": name, "tier": tier}
     if found:
         found["electronic"] = bool(re.search(ELECTRONIC, low))
         found["label"] = found["name"] + (" (electronic)" if found["electronic"] else "")
@@ -115,6 +115,23 @@ def detect_brand(text):
     return None
 
 
+PART_WORDS = {"wheels": r"wiel|wheel|velg|laufrad", "tyres": r"band|tyre|tire"}
+
+
+def detect_part(text, part):
+    """The first clause of the ad that names this part and a part we can rate: {"label", "tier"} or None.
+
+    Only clauses that mention the part ("Zipp 404 wielen", "GP5000 banden") are read, so "carbon frame"
+    doesn't count as carbon wheels.
+    """
+    for clause in re.split(r"[\n.,;!?]+", text or ""):
+        if re.search(PART_WORDS[part], _plain(clause)):
+            tier = part_tier((part,), clause)
+            if tier:
+                return {"label": clause.split(":")[-1].strip(), "tier": tier}
+    return None
+
+
 def read_claims(title, description=""):
     text = f"{title}\n{description or ''}"
     year, purchase = detect_year(text)
@@ -126,6 +143,8 @@ def read_claims(title, description=""):
         "groupset": detect_groupset(text),
         "material": detect_material(title) or detect_material(description),
         "brakes": detect_brakes(text),
+        "wheels": detect_part(text, "wheels"),
+        "tyres": detect_part(text, "tyres"),
         "condition": detect_condition(text),
         "mentions_upgrades": bool(re.search(r"upgrade|geupgrade|vervangen|nieuwe wielen|ander[e]? wielen|omgebouwd",
                                             _plain(text))),
@@ -209,6 +228,82 @@ def spec_groups(model):
         seen.add(en)
         rows.setdefault(group, []).append((en, nl, html.unescape(str(value))))
     return [(label, rows[key]) for key, label in SPEC_GROUPS if key in rows]
+
+
+# ---------------------------------------------------------------- tiers
+
+def part_tier(parts, text):
+    """The tier (1-5) of a part from its spec text, trying each part table in turn, or None."""
+    low = _plain(html.unescape(text or ""))
+    for part in parts:
+        if part == "groupset":
+            found = detect_groupset(low)
+            if found:
+                return found["tier"]
+            continue
+        for tier, pattern in PART_TIERS[part]:
+            if re.search(pattern, low):
+                return tier
+    return None
+
+
+def weight_kg(text):
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*kg", text or "")
+    return float(m.group(1).replace(",", ".")) if m else None
+
+
+def weight_tier(model, text):
+    limits, kg = WEIGHT_TIERS.get(discipline_of(model)), weight_kg(text)
+    if not limits or not kg:
+        return None
+    return 5 - sum(kg > limit for limit in limits)
+
+
+def _round(x):
+    return int(x + 0.5)
+
+
+def spec_tiers(model):
+    """Tiers for the model's spec sheet: {"rows": {english label: tier}, "groups": {group label: tier},
+    "overall": tier or None, "lagging": [group labels two or more tiers below the overall]}.
+
+    A group's tier is the rounded mean of its rated rows; the overall tier weighs the groups by
+    TIER_WEIGHTS. The frame group counts the frame itself, not the fork, when the frame is rated.
+    Without a rated frame or drivetrain there is no overall tier.
+    """
+    rows, by_group, frame = {}, {}, []
+    for raw, value in model["specs"].items():
+        group, en, _nl = SPEC_LABELS.get(raw, ("other", raw, raw))
+        if "Motor" not in model["specs"]:
+            group = NO_MOTOR_GROUP.get(group, group)
+        if en in rows:
+            continue
+        if group == "weight" and en == "Weight":
+            tier = weight_tier(model, str(value))
+        elif raw in SPEC_PARTS:
+            text = f"{value} {model['name']}" if SPEC_PARTS[raw] == ("frame",) else str(value)
+            tier = part_tier(SPEC_PARTS[raw], text)
+        else:
+            tier = None
+        if tier:
+            rows[en] = tier
+            by_group.setdefault(group, []).append(tier)
+            if SPEC_PARTS.get(raw) == ("frame",):
+                frame.append(tier)
+    if frame:
+        by_group["frame"] = frame
+    groups = {key: _round(sum(ts) / len(ts)) for key, ts in by_group.items()}
+    weighted = [(TIER_WEIGHTS[k], t) for k, t in groups.items() if k in TIER_WEIGHTS]
+    overall = None
+    if "frame" in groups or "drivetrain" in groups:
+        overall = _round(sum(w * t for w, t in weighted) / sum(w for w, _t in weighted))
+    labels = dict(SPEC_GROUPS)
+    return {"rows": rows, "groups": {labels[k]: t for k, t in groups.items()}, "overall": overall,
+            "lagging": [labels[k] for k, t in groups.items() if overall and t <= overall - 2]}
+
+
+def model_tier(model):
+    return spec_tiers(model)["overall"]
 
 
 def match_models(models, title, description="", claims=None):
@@ -344,14 +439,23 @@ def check_age(model, claims, today=None):
             "notes": [n for n in [seen, Msg(GENERATIONS_NOTE)] if n]}
 
 
-def _row(key, part, original, listing, status, result):
+def _row(key, part, original, listing, status, result, step=0):
     return {"key": key, "part": Msg(part), "original": original, "listing": listing, "status": status,
-            "result": Msg(result)}
+            "result": Msg(result) if isinstance(result, str) else result, "step": step}
+
+
+def _compare_tiers(key, part, original, listing, ref_tier, ad_tier):
+    """A row saying whether the ad's part is an upgrade or a downgrade of the original."""
+    step = ad_tier - ref_tier
+    if step > 0:
+        return _row(key, part, original, listing, OK, Msg("Upgrade, tier {a} to {b}", a=ref_tier, b=ad_tier), step)
+    if step < 0:
+        return _row(key, part, original, listing, BAD, Msg("Downgrade, tier {a} to {b}", a=ref_tier, b=ad_tier), step)
+    return _row(key, part, original, listing, WARN, "Same tier, different part")
 
 
 def check_specs(model, claims):
     rows = []
-    bad = warn = 0
     not_stated = Msg("Not stated")
 
     ref_group = detect_groupset(groupset_text(model))
@@ -360,14 +464,12 @@ def check_specs(model, claims):
     if not ref_group or not claimed:
         rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"] if claimed else not_stated,
                          WARN if ref_group else UNKNOWN, "Ask seller" if ref_group else "Can't compare"))
-        warn += 1
-    elif claimed["key"] != ref_group["key"]:
-        rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], BAD, "Differs"))
-        bad += 1
+    elif claimed["key"] != ref_group["key"] or claimed["tier"] != ref_group["tier"]:
+        rows.append(_compare_tiers("groupset", "Groupset", ref_group_label, claimed["label"], ref_group["tier"],
+                                   claimed["tier"]))
     elif claimed["electronic"] != ref_group["electronic"] and claimed["electronic"]:
         rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], WARN,
                          "Electronic in ad, mechanical original"))
-        warn += 1
     else:
         rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], OK, "Matches"))
 
@@ -381,21 +483,40 @@ def check_specs(model, claims):
             rows.append(_row(key, part, shown or Msg("Not in our data"), ad_shown, UNKNOWN, "Can't compare"))
         elif not ad_val:
             rows.append(_row(key, part, shown or Msg(ref_val), not_stated, WARN, "Ask seller"))
-            warn += 1
         elif ad_val == ref_val:
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, OK, "Matches"))
         else:
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, BAD, "Differs"))
-            bad += 1
 
-    for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg")), ("tyres", "Tyres", ("Buitenband",)),
-                            ("crankset", "Crankset", ("Crankstel",)), ("saddle", "Saddle", ("Zadel",))):
+    for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
+                              ("tyres", "Tyres", ("Buitenband", "Voorband"))):
+        ref_val, ad = spec(model, *keys), claims.get(key)
+        ref_tier = part_tier((key,), ref_val) if ref_val else None
+        if ad and ref_tier:
+            if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
+                rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier"))
+            else:
+                rows.append(_compare_tiers(key, part, ref_val, ad["label"], ref_tier, ad["tier"]))
+        elif ad:
+            rows.append(_row(key, part, ref_val or Msg("Not in our data"), ad["label"], UNKNOWN, "Can't compare"))
+        elif ref_val:
+            rows.append(_row(key, part, ref_val, Msg("Check photos"), UNKNOWN, "Compare photos"))
+    for key, part, keys in (("crankset", "Crankset", ("Crankstel",)), ("saddle", "Saddle", ("Zadel",))):
         ref_val = spec(model, *keys)
         if ref_val:
             rows.append(_row(key, part, ref_val, Msg("Check photos"), UNKNOWN, "Compare photos"))
 
-    if bad:
-        status, headline = BAD, Msg("{n} parts differ" if bad > 1 else "{n} part differs", n=bad)
+    down = sum(1 for r in rows if r["step"] < 0)
+    up = sum(1 for r in rows if r["step"] > 0)
+    differ = sum(1 for r in rows if r["status"] == BAD and not r["step"])
+    warn = sum(1 for r in rows if r["status"] == WARN)
+    counts = [Msg("{n} part differs" if differ == 1 else "{n} parts differ", n=differ) if differ else None,
+              Msg("{n} part downgraded" if down == 1 else "{n} parts downgraded", n=down) if down else None,
+              Msg("{n} part upgraded" if up == 1 else "{n} parts upgraded", n=up) if up else None]
+    if differ or down:
+        status, headline = BAD, join_list(counts)
+    elif up:
+        status, headline = OK, join_list(counts)
     elif warn:
         status, headline = WARN, Msg("Not enough detail")
     else:
@@ -460,11 +581,11 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
     # Rough curve: about 25% off in the first year, then about 12% a year.
     factor = 0.80 if age == 0 else 0.75 * (0.88 ** (age - 1))
     factor *= CONDITION_FACTOR.get(claims["condition"], 1.0)
-    downgrade = any(r["key"] == "groupset" and r["status"] == BAD for r in spec_result["rows"])
-    if downgrade:
-        ref = detect_groupset(groupset_text(model))
-        if ref and claims["groupset"] and claims["groupset"]["rank"] < ref["rank"]:
-            factor *= 0.9
+    # Downgraded parts lower the value: 10% for the groupset, 5% for wheels or tyres. Upgrades rarely
+    # raise a used bike's price, so they don't count.
+    downgraded = [r for r in spec_result["rows"] if r.get("step", 0) < 0]
+    for r in downgraded:
+        factor *= 0.9 if r["key"] == "groupset" else 0.95
     mid = original * factor
     low, high = round(mid * 0.9, -1), round(mid * 1.1, -1)
     condition = Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None
@@ -473,6 +594,8 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} Dutch price, which can differ from what this bike cost new.",
                             year=model["seen_on"][:4] if model.get("seen_on") else today.year)]}
+    if downgraded:
+        result["notes"].append(Msg("Lowered for the downgraded parts."))
     if other_generation:
         result["notes"].append(Msg("The claimed year is before this generation, so the bike may be an older "
                                    "generation with a different new price."))
@@ -516,6 +639,9 @@ def seller_questions(model, claims, age, specs, size):
         elif row["status"] == BAD:
             qs.append(Msg("The original has {original} for the {part}. Can you explain the difference?",
                           original=row["original"], part=row["part"]))
+        elif row.get("step", 0) > 0:
+            qs.append(Msg("Do you still have the original {part} ({original})?", part=row["part"],
+                          original=str(row["original"]).split(",")[0]))
         elif row["key"] == "wheels" and row["status"] == UNKNOWN:
             qs.append(Msg("Are these the original wheels ({wheels})?", wheels=row["original"].split(",")[0]))
     if size["status"] in (WARN, UNKNOWN):

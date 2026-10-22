@@ -12,7 +12,7 @@ from flask import Flask, abort, g, redirect, render_template, request, send_from
 
 from . import checks, db
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
-from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS
+from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
@@ -24,6 +24,7 @@ def create_app(db_path=None):
     app = Flask(__name__)
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
+    app.jinja_env.globals["tier_names"] = TIERS
 
     def conn():
         if "conn" not in g:
@@ -147,9 +148,14 @@ def create_app(db_path=None):
         q = (request.args.get("q") or "").strip().lower()
         kind = request.args.get("type")
         current = request.args.get("current")
-        items = [dict(m, discipline=checks.discipline_of(m), status=checks.catalogue_status(m)[0])
+        tier = request.args.get("tier", type=int)
+        items = [dict(m, discipline=checks.discipline_of(m), status=checks.catalogue_status(m)[0],
+                      tier=checks.model_tier(m))
                  for m in models() if (not brand or m["brand"] == brand) and (not q or q in m["name"].lower())]
         items = [m for m in items if not current or m["status"] == "current"]
+        tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
+                       for t in TIERS}
+        items = [m for m in items if not tier or m["tier"] == tier]
         counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
         items = [m for m in items if not kind or m["discipline"] == kind]
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
@@ -157,7 +163,7 @@ def create_app(db_path=None):
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
                                counts=counts, kind=kind, brand=brand, q=q, current=current, count=len(items),
-                               nav="models")
+                               tier=tier, tier_counts=tier_counts, nav="models")
 
     @app.route("/models/<slug>")
     def model_page(slug):
@@ -167,7 +173,8 @@ def create_app(db_path=None):
         siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
                     and m["brand"] == model["brand"] and m["id"] != model["id"]]
         return render_template("model.html", m=model, years=checks.model_years(model), siblings=siblings,
-                               specs=checks.spec_groups(model), status=checks.catalogue_status(model),
+                               specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
+                               status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                sizes=checks.size_options(model["brand"]), nav="models")
 
@@ -202,7 +209,8 @@ def create_app(db_path=None):
         for m in models():
             seen.setdefault(m["brand"], set()).add(m["seen_on"])
         return render_template("how.html", nav=None, count=len(models()),
-                               seen={b: max(d for d in dates if d) for b, dates in seen.items() if any(dates)})
+                               seen={b: max(d for d in dates if d) for b, dates in seen.items() if any(dates)},
+                               tier_examples=TIER_EXAMPLES)
 
     @app.route("/images/<path:path>")
     def images(path):

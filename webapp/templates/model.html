@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo %}
+{% from "_macros.html" import photo, tier_badge, tier_dot %}
 {% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -12,6 +12,10 @@
       <div class="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       <div class="facts">
         <div><div class="k">{{ _('Model years') }}</div><div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>{% if years %}<div class="small muted">{{ years[2] }}</div>{% endif %}</div>
+        <div><div class="k">{{ _('Spec tier') }}</div>
+          <div class="v">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div>
+          {% if tiers.lagging %}<div class="small muted">{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}</div>{% endif %}
+        </div>
         <div><div class="k">{{ _('Status') }}</div><div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div><div class="small muted">{{ status[1] }}</div></div>
         <div><div class="k">{{ _('Colours') }}</div>
           {% if m.colorways %}
@@ -34,12 +38,13 @@
   </section>
   <section class="card">
     <h2>{{ _('Spec sheet') }}</h2>
-    <p class="small muted">{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=m.seen_on) }}</p>
+    <p class="small muted">{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=m.seen_on) }}
+      {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></p>
     <div class="spec-groups">
       {% for group, rows in specs %}
       <div class="spec-group">
-        <h3>{{ _(group) }}</h3>
-        <div class="kv">{% for en, nl, v in rows %}<div>{{ nl if lang == 'nl' else en }}</div><div>{{ v }}</div>{% endfor %}</div>
+        <h3>{{ _(group) }}{{ tier_badge(tiers.groups[group], small=true) if tiers.groups[group] }}</h3>
+        <div class="kv">{% for en, nl, v in rows %}<div>{{ nl if lang == 'nl' else en }}</div><div class="rated">{{ v }}{{ tier_dot(tiers.rows[en]) }}</div>{% endfor %}</div>
       </div>
       {% endfor %}
     </div>

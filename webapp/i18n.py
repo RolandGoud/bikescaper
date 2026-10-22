@@ -51,6 +51,12 @@ def join(*parts):
     return Msg(" ".join("{p%d}" % i for i in range(len(parts))), **{f"p{i}": p for i, p in enumerate(parts)})
 
 
+def join_list(parts):
+    """Join messages with a comma, dropping empty ones."""
+    parts = [p for p in parts if p]
+    return Msg(", ".join("{p%d}" % i for i in range(len(parts))), **{f"p{i}": p for i, p in enumerate(parts)})
+
+
 NL = {
     # navigation and layout
     "Check a listing": "Advertentie checken",
@@ -346,10 +352,53 @@ NL = {
     "{n} part differs": "{n} onderdeel wijkt af",
     "{n} parts differ": "{n} onderdelen wijken af",
     "Not enough detail": "Te weinig details",
+    "Upgrade, tier {a} to {b}": "Upgrade, niveau {a} naar {b}",
+    "Downgrade, tier {a} to {b}": "Downgrade, niveau {a} naar {b}",
+    "Same tier, different part": "Zelfde niveau, ander onderdeel",
+    "Same tier": "Zelfde niveau",
+    "{n} part downgraded": "{n} onderdeel lager",
+    "{n} parts downgraded": "{n} onderdelen lager",
+    "{n} part upgraded": "{n} onderdeel beter",
+    "{n} parts upgraded": "{n} onderdelen beter",
+    "Lowered for the downgraded parts.": "Verlaagd vanwege de mindere onderdelen.",
+    "Do you still have the original {part} ({original})?": "Heb je de originele {part} nog ({original})?",
     "Matches the original": "Klopt met het origineel",
     "The seller mentions changed parts.": "De verkoper noemt vervangen onderdelen.",
     "Compared with the {brand} spec sheet from {date}.": "Vergeleken met de specificaties van {brand} van {date}.",
     "our catalogue": "onze catalogus",
+
+    # spec tiers
+    "Basic": "Basis",
+    "Entry": "Instap",
+    "Mid": "Midden",
+    "Performance": "Performance",
+    "Top": "Top",
+    "Spec tier": "Specniveau",
+    "Spec tiers": "Specniveaus",
+    "Spec tier {tier} of 5": "Specniveau {tier} van 5",
+    "Not rated": "Niet beoordeeld",
+    "Lower on": "Lager op",
+    "All tiers": "Alle niveaus",
+    "Each part is rated from tier 1 (basic) to 5 (top).": "Elk onderdeel krijgt een niveau van 1 (basis) tot 5 (top).",
+    "How tiers work": "Zo werken de niveaus",
+    "Every part on a model's spec sheet is rated on the same five tiers, whatever the brand. The frame, groupset, wheels, tyres, brakes, rotors, cockpit, saddle, seatpost, motor and weight each get a tier; parts we don't recognise yet are left unrated.":
+        "Elk onderdeel op de specificaties van een model krijgt een niveau op dezelfde vijfpuntsschaal, welk merk het ook is. "
+        "Frame, groep, wielen, banden, remmen, remschijven, stuur, zadel, zadelpen, motor en gewicht krijgen elk een niveau; "
+        "onderdelen die we nog niet herkennen blijven zonder niveau.",
+    "The bike's overall tier weighs the frame (30%), drivetrain (25%), wheels and tyres (20%), weight (10%), motor (10%, e-bikes only) and brakes, cockpit and saddle (5% each). In a listing check, a part that differs from the original is shown as an upgrade or a downgrade by comparing tiers.":
+        "Het totaalniveau van de fiets weegt het frame (30%), de aandrijving (25%), wielen en banden (20%), gewicht (10%), "
+        "motor (10%, alleen e-bikes) en remmen, stuur en zadel (elk 5%). Bij een advertentiecheck zie je aan de niveaus "
+        "of een afwijkend onderdeel beter of minder is dan het origineel.",
+    "Shimano Claris or Sora, entry aluminium or steel frame, basic alloy wheels.":
+        "Shimano Claris of Sora, eenvoudig aluminium of stalen frame, eenvoudige aluminium wielen.",
+    "Shimano Tiagra or CUES, SRAM Apex, aluminium frame, entry alloy wheels.":
+        "Shimano Tiagra of CUES, SRAM Apex, aluminium frame, instap aluminium wielen.",
+    "Shimano 105, SRAM Rival, entry carbon frame (Trek OCLV 500, Canyon CF), better alloy or entry carbon wheels.":
+        "Shimano 105, SRAM Rival, instap carbon frame (Trek OCLV 500, Canyon CF), betere aluminium of instap carbon wielen.",
+    "Shimano Ultegra, SRAM Force, performance carbon (OCLV 800, CF SLX), carbon wheels such as Aeolus Pro.":
+        "Shimano Ultegra, SRAM Force, performance carbon (OCLV 800, CF SLX), carbon wielen zoals Aeolus Pro.",
+    "Shimano Dura-Ace, SRAM Red, the brand's top carbon (OCLV 900, CFR), flagship wheels such as Aeolus RSL.":
+        "Shimano Dura-Ace, SRAM Red, het beste carbon van het merk (OCLV 900, CFR), topwielen zoals Aeolus RSL.",
 
     # checks: size
     "Size not stated": "Maat niet vermeld",
