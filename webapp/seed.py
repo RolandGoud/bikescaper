@@ -159,7 +159,7 @@ def canyon_matches(name):
 def trek_image_by_name(bike):
     """Trek image files start with the model name without spaces, then the model year: DomaneSLR7-26-57892-A-Primary_01.
 
-    Prefer the newest year, the first colour (A) and a Primary (side view) shot.
+    Prefer the newest year and the first colour (A).
     """
     name = re.sub(r"\s*gen\s*\d+", "", bike["name"], flags=re.I)
     prefix = compact(name)
@@ -168,9 +168,10 @@ def trek_image_by_name(bike):
         for f in files:
             m = re.match(r"([A-Za-z0-9]+)[-_](\d{2})[-_]\d+[-_]([A-Z])[-_](\w+?)_(\d+)\.jpg$", f)
             # Some files add a word: FXSport6Carbon, MadoneSLR8AXSRed, DOMANEPLUSSLR8AXSUS.
-            if m and m.group(1).lower() in (prefix, prefix + "carbon", prefix + "red", prefix + "us"):
+            # Only Primary files are studio side views; Portrait ones are styled photos on a dark set.
+            if m and m.group(1).lower() in (prefix, prefix + "carbon", prefix + "red", prefix + "us") and m.group(4).lower() == "primary":
                 rel = os.path.relpath(os.path.join(dirpath, f), os.path.join(ROOT, "images"))
-                rank = (-int(m.group(2)), m.group(4).lower() != "primary", m.group(3), int(m.group(5)), rel)
+                rank = (-int(m.group(2)), m.group(3), int(m.group(5)), rel)
                 if best is None or rank < best:
                     best = rank
     return best[-1] if best else None
