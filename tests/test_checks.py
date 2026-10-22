@@ -656,4 +656,12 @@ def test_colourway_year():
     assert checks.colourway_year({"image": "Trek/EmondaSL5_23_36974_A_Primary_03.jpg"}) == 2023
     assert checks.colourway_year({"image": "Trek/x/DomaneSL6-26-57639-A-Primary_02.jpg"}) == 2026
     assert checks.colourway_year({"image": "Canyon/E/2026_FULL_endurace_cf-7_4274_R076_P10.jpg"}) == 2026
+    assert checks.colourway_year({"image": "Canyon/E/full_2024_3705_endurace-7_P05_P5.jpg"}) == 2024
     assert checks.colourway_year({"image": None}) is None
+
+
+def test_105_rules_yield_to_a_higher_group(models):
+    r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2, 105 cassette")
+    assert r["year_estimate"] is None or "105" not in en(r["year_estimate"]["evidence"][0])
+    r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2 11-speed, 105 cassette")
+    assert "Ultegra" in en(r["year_estimate"]["evidence"][0])

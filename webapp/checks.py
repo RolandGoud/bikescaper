@@ -475,12 +475,14 @@ def check_age(model, claims, today=None):
 
 
 def colourway_year(colourway):
-    """The model year in a colourway photo's file name (Trek "-26-" or "_23_", Canyon "2026_FULL_"), or None."""
+    """The model year in a colourway photo's file name (Trek "-26-" or "_23_", Canyon "2026_FULL_" or "full_2025_"),
+    or None."""
     name = os.path.basename(colourway.get("image") or "")
-    m = re.search(r"(20[1-3]\d)_full_", name.lower()) or re.search(r"[-_]([1-3]\d)[-_]\d{4,}", name)
+    m = (re.search(r"(20[1-3]\d)_full_|^full_(20[1-3]\d)_", name.lower())
+         or re.search(r"[-_]([1-3]\d)[-_]\d{4,}", name))
     if not m:
         return None
-    year = int(m.group(1))
+    year = int(next(g for g in m.groups() if g))
     return year if year > 2000 else 2000 + year
 
 

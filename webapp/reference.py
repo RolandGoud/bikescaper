@@ -110,6 +110,9 @@ ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 # follows a groupset's launch by a season, and leftover stock runs a year past its replacement.
 SPEED_12 = r"(?:\b12\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*12\b)"
 SPEED_11 = r"(?:\b11\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*11\b)"
+# The 105 rules read the name, so they only apply when no higher Shimano group is named: "Ultegra Di2 with
+# a 105 cassette" is an Ultegra bike.
+ONLY_105 = r"(?s:^(?!.*\b(?:ultegra|dura[\s-]?ace)\b))"
 GROUPSET_YEARS = [
     # (regex on lowercased text, first, last, name shown in the report)
     (r"\b(?:[a-z]{2}-)?r92[057]\d\b", 2022, None, "Shimano Dura-Ace R9200 (12-speed)"),
@@ -127,11 +130,11 @@ GROUPSET_YEARS = [
     (r"\b(?:grx\s*)?(?:[a-z]{2}-)?rx(?:82\d|83\d|61\d|62\d)\b|\bgrx\b.{0,40}" + SPEED_12, 2024, None,
      "Shimano GRX (12-speed)"),
     (r"\b(?:grx\s*)?(?:[a-z]{2}-)?rx[468][018]\d\b|\bgrx\b", 2020, None, "Shimano GRX"),
-    (r"\b105\b.{0,25}\bdi2\b|\bdi2\b.{0,25}\b105\b", 2023, None, "Shimano 105 Di2 (12-speed)"),
-    (r"\b105\b.{0,40}" + SPEED_12 + r"|" + SPEED_12 + r".{0,40}\b105\b", 2024, None, "Shimano 105 (12-speed)"),
+    (ONLY_105 + r"(?s:.*?)(?-s:\b105\b.{0,25}\bdi2\b|\bdi2\b.{0,25}\b105\b)", 2023, None, "Shimano 105 Di2 (12-speed)"),
+    (ONLY_105 + r"(?s:.*?)(?-s:\b105\b.{0,40}" + SPEED_12 + r"|" + SPEED_12 + r".{0,40}\b105\b)", 2024, None, "Shimano 105 (12-speed)"),
     (r"\b(?:ultegra|dura[\s-]?ace)\b.{0,40}" + SPEED_12 + r"|" + SPEED_12 + r".{0,40}\b(?:ultegra|dura[\s-]?ace)\b",
      2022, None, "Shimano Ultegra/Dura-Ace (12-speed)"),
-    (r"\b105\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b105\b", None, 2024, "Shimano 105 (11-speed)"),
+    (ONLY_105 + r"(?s:.*?)(?-s:\b105\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b105\b)", None, 2024, "Shimano 105 (11-speed)"),
     (r"\b(?:ultegra|dura[\s-]?ace)\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b(?:ultegra|dura[\s-]?ace)\b",
      None, 2023, "Shimano Ultegra/Dura-Ace (11-speed)"),
     (r"\bapex\b.{0,25}\baxs\b|\baxs\b.{0,25}\bapex\b", 2023, None, "SRAM Apex AXS"),
