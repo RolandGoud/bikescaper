@@ -1,3 +1,4 @@
+import re
 from datetime import date
 
 import pytest
@@ -570,3 +571,26 @@ def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
 ])
 def test_ad_title_is_split_into_name_and_facts(title, name, year, size, colour):
     assert checks.split_title(title) == {"name": name, "year": year, "size": size, "colour": colour}
+
+
+def test_links_off_the_site_open_in_a_new_tab(tmp_path):
+    from webapp.app import open_in_new_tab
+    assert open_in_new_tab('<a href="https://x.nl/a">') == '<a href="https://x.nl/a" target="_blank" rel="noopener">'
+    assert open_in_new_tab('<a href="https://x.nl" rel="nofollow">') == '<a href="https://x.nl" rel="noopener nofollow" target="_blank">'
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    ad = "https://www.marktplaats.nl/v/fietsen/racefietsen/m123-trek-domane"
+    conn.execute("INSERT INTO checks (title, asking_price, listing_url, photos) VALUES (?, ?, ?, ?)",
+                 ("Trek Domane SL 6 Gen 4 2023 maat 56", 3250, ad, '["https://images.marktplaats.com/x/1.JPG"]'))
+    conn.commit()
+    client = app.test_client()
+    pages = ["/", "/listings", "/models", "/models/trek-domane-sl-6-gen-4", "/check/1", "/how-it-works", "/value", "/size"]
+    seen = 0
+    for url in pages:
+        html = client.get(url + "?lang=en").get_data(as_text=True)
+        for tag in re.findall(r'<a\s[^>]*href="https?://[^>]*>', html):
+            assert 'target="_blank"' in tag and "noopener" in tag, (url, tag)
+            seen += 1
+        assert not re.search(r'<a\s[^>]*href="/[^"]*"[^>]*target="_blank"', html), url  # our own links stay in the same tab
+    assert seen >= 4  # product page, brand sites, the ad and its photo
