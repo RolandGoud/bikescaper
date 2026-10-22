@@ -154,6 +154,37 @@ def read_claims(title, description=""):
     }
 
 
+# Colour words sellers use in titles, Dutch and English, with the Dutch -e forms.
+AD_COLOURS = (r"zwart|wit|grijs|grijze|blauw|rood|rode|groen|geel|gele|oranje|paars|roze|zilver|goud|brons|bruin|beige"
+              r"|antraciet|black|white|grey|gray|blue|red|green|yellow|orange|purple|pink|silver|gold|bronze|brown")
+AD_COLOUR = rf"(?:(?:mat|matte?|glans|glossy|donker|licht|dark|light)[\s-]?)?(?:{AD_COLOURS})e?"
+
+
+def split_title(title):
+    """An ad title split into the bike's name and the year, size and colour the seller put in it.
+
+    "Trek Domane SL 6 Gen 4 2023 maat 56 zwart/rood" gives name "Domane SL 6 Gen 4", year 2023, size "56",
+    colour "zwart/rood". The brand is left out of the name; the card shows it as a logo.
+    """
+    year, _purchase = detect_year(title)
+    size = detect_size(title)
+    colour = re.search(rf"\b{AD_COLOUR}(?:\s*[/&-]\s*{AD_COLOUR})?\b", title, re.I)
+    name = title
+    for alias in BRAND_ALIASES:
+        name = re.sub(rf"\b{re.escape(alias)}\b", " ", name, flags=re.I)
+    if year:
+        name = re.sub(rf"\b(?:bouwjaar|modeljaar|model\s*jaar|jaar|year|uit)?\s*:?\s*\b{year}\b", " ", name, flags=re.I)
+    if size:
+        name = re.sub(rf"\b(?:maat|size|framemaat|frame\s*maat|frame)\s*:?\s*{re.escape(size)}(?:\s*cm)?\b"
+                      rf"|\b{re.escape(size)}\s*cm\b", " ", name, flags=re.I)
+    if colour:
+        name = name.replace(colour.group(0), " ")
+    name = re.sub(r"\s+([,;])", r"\1", re.sub(r"\s{2,}", " ", name))
+    name = re.sub(r"^[\s,;:|/-]+|[\s,;:|/-]+$", "", re.sub(r"([,;:|/-]\s*){2,}", ", ", name))
+    return {"name": name or title, "year": year, "size": size,
+            "colour": colour.group(0).lower() if colour else None}
+
+
 # ---------------------------------------------------------------- matching
 
 def generation_of(model_name):

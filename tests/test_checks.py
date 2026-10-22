@@ -542,3 +542,31 @@ def test_size_finder_picks_a_model(tmp_path):
     assert "own size chart for this model" in page and "selected" in page
     page = client.get("/size?brand=Giant&height=181&lang=en").data.decode()
     assert "pick a model for its own chart" in page
+
+
+def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    ad_photo = "https://images.marktplaats.com/api/v1/x/images/aa/1?rule=eps_85.JPG"
+    conn.execute("INSERT INTO checks (title, asking_price, photos) VALUES (?, ?, ?)",
+                 ("Trek Domane SL 6 Gen 4 2023 maat 56", 3250, f'["{ad_photo}"]'))
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Trek Domane AL 4 Gen 4 2024", 1050))
+    conn.commit()
+    client = app.test_client()
+    for url in ["/", "/listings"]:
+        page = client.get(url + "?lang=en").get_data(as_text=True)
+        # Only the check made from a link has a photo of its own, so only that card merges two photos.
+        assert page.count('class="photo duo"') == 1, url
+        assert ad_photo.replace("&", "&amp;") in page and 'class="duo-range"' in page
+
+
+@pytest.mark.parametrize("title, name, year, size, colour", [
+    ("Trek Domane SL 6 Gen 4 2023 maat 56", "Domane SL 6 Gen 4", 2023, "56", None),
+    ("Canyon Aeroad CF SLX 8 AXS 2021 maat L", "Aeroad CF SLX 8 AXS", 2021, "L", None),
+    ("Giant TCR Advanced Pro 1 zwart/rood 58cm bouwjaar 2021", "TCR Advanced Pro 1", 2021, "58", "zwart/rood"),
+    ("S-Works Tarmac SL7 mat zwart size L", "Tarmac SL7", None, "L", "mat zwart"),
+    ("Racefiets Trek Emonda ALR 5 - 2019 - 54 cm - blauw", "Racefiets Emonda ALR 5", 2019, "54", "blauw"),
+])
+def test_ad_title_is_split_into_name_and_facts(title, name, year, size, colour):
+    assert checks.split_title(title) == {"name": name, "year": year, "size": size, "colour": colour}

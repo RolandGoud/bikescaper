@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_dot %}
+{% from "_macros.html" import asking_box with context %}
 {% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -36,6 +37,7 @@
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
     </div>
   </section>
+  <section class="card">{{ asking_box(asking) }}</section>
   <section class="card">
     <h2>{{ _('Spec sheet') }}</h2>
     <p class="small muted">{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=m.seen_on) }}

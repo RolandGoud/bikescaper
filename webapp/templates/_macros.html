@@ -14,12 +14,39 @@
 {% endif %}
 {%- endmacro %}
 
+{# The seller's own photo and the brand's catalogue photo of the matched model in one tile, split by a
+   slanted cut that the mouse, a finger or the arrow keys slide across (static/duo.js). #}
+{% macro duo_photo(ad_photo, model) -%}
+<div class="photo duo" style="--cut: 50%">
+  <img class="ad" src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer">
+  <div class="factory">{{ photo(model) }}</div>
+  <span class="duo-label ad">{{ _('Ad') }}</span>
+  <span class="duo-label brand">{{ _('Catalogue') }}</span>
+  {{ brand_mark(model.brand) }}
+  <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
+  <span class="duo-handle" aria-hidden="true"></span>
+</div>
+{%- endmacro %}
+
+{# The brand's logo on a photo, top left, as on the Models tiles; brands without a logo show their name. #}
+{% macro brand_mark(brand) -%}
+{% if logos.get(brand) %}<span class="brand-mark" role="img" aria-label="{{ brand }}" style="--logo: url('{{ url_for('static', filename=logos[brand]) }}')"></span>{% elif brand %}<span class="brand-mark text">{{ brand }}</span>{% endif %}
+{%- endmacro %}
+
+{# The ad's title without the brand (that's the logo), and the year, size and colour from it as facts below. #}
 {% macro listing_card(row, r) -%}
+{% set ad = split_title(row.title) %}
+{% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
-  <div class="photo">{{ photo(r.model) }}</div>
+  {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
   <div class="body">
-    <div style="font-weight: 600">{{ row.title }}</div>
-    <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.brand ~ ' ' ~ r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
+    <div class="ad-name">{{ ad.name }}</div>
+    {% if ad.year or ad.size or ad.colour %}<div class="ad-facts">
+      {% if ad.year %}<span>{{ ad.year }}</span>{% endif %}
+      {% if ad.size %}<span>{{ _('Size {size}', size=ad.size) }}</span>{% endif %}
+      {% if ad.colour %}<span>{{ ad.colour|capitalize }}</span>{% endif %}
+    </div>{% endif %}
+    <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
     <div class="small muted">{{ _('Asking {price}', price=row.asking_price|eur) }}{% if row.location %} · {{ row.location }}{% endif %}</div>
     {{ chips(r) }}
   </div>
@@ -78,4 +105,31 @@
 {# A brand's logo, coloured like the text around it; brands without a logo show their name. #}
 {% macro brand_label(b) -%}
 {% if b.logo %}<span class="pill-logo" role="img" aria-label="{{ b.name }}" title="{{ b.name }}" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% else %}{{ b.name }}{% endif %}
+{%- endmacro %}
+
+{# Import with context: the period links use this_page. #}
+{% macro asking_box(a, compare=None) -%}
+<div class="asking" id="asking">
+  <div class="row" style="justify-content: space-between; align-items: baseline">
+    <h3>{{ _('Second-hand asking price') }}</h3>
+    <div class="row" role="group" aria-label="{{ _('Period') }}">
+      {% for p in periods %}<a class="pill small-pill {{ 'on' if p == a.days }}" href="{{ this_page(period=p) }}#asking">{{ _('{n} days', n=p) }}</a>{% endfor %}
+    </div>
+  </div>
+  {% if a.enough %}
+  <div class="facts">
+    <div><div class="k">{{ _('Median') }}</div><div class="v">{{ a.median|eur }}</div></div>
+    <div><div class="k">{{ _('Average') }}</div><div class="v">{{ a.mean|eur }}</div></div>
+    <div><div class="k">{{ _('Range') }}</div><div class="v">{{ a.low|eur }}–{{ a.high|eur }}</div></div>
+  </div>
+  <p class="small muted">{{ _('Based on {n} ads from the last {days} days.', n=a.count, days=a.days) }}
+    {% if compare %}{% set diff = ((compare - a.median) / a.median * 100)|round|int %}
+    {% if diff > 0 %}{{ _('This ad asks {pct}% more than the median.', pct=diff) }}{% elif diff < 0 %}{{ _('This ad asks {pct}% less than the median.', pct=-diff) }}{% else %}{{ _('This ad asks the median.') }}{% endif %}{% endif %}</p>
+  {% elif a.count %}
+  <p>{{ _('Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.', n=a.count, days=a.days, low=a.low|eur, high=a.high|eur, needed=a.needed) }}</p>
+  {% else %}
+  <p>{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}</p>
+  {% endif %}
+  <p class="small muted">{{ _('From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.') }}</p>
+</div>
 {%- endmacro %}
