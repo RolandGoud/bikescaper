@@ -50,3 +50,8 @@
   <div class="field wide"><button class="btn" type="submit">{{ _('Check this bike') }}</button></div>
 </form>
 {%- endmacro %}
+
+{# A brand's logo, coloured like the text around it; brands without a logo show their name. #}
+{% macro brand_label(b) -%}
+{% if b.logo %}<span class="pill-logo" role="img" aria-label="{{ b.name }}" title="{{ b.name }}" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% else %}{{ b.name }}{% endif %}
+{%- endmacro %}

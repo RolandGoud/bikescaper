@@ -275,6 +275,15 @@ def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models?lang=en&brand=Canyon").data.decode()
-    assert 'class="brand-logo" src="/static/logos/canyon.svg"' in page
+    assert '<span class="brand-mark" role="img" aria-label="Canyon" style="--logo: url(\'/static/logos/canyon.svg\')"></span>' in page
     assert 'class="status discontinued overlay"' in page  # Endurace 7 RAW
     assert app.test_client().get("/static/logos/trek.svg").status_code == 200
+
+
+def test_brand_pills_show_logos(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/models?lang=en").data.decode()
+    for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"):
+        assert f'class="pill-logo" role="img" aria-label="{name}"' in page
+        assert app.test_client().get(f"/static/logos/{name.lower()}.svg").status_code == 200
+    assert ">Scott</span>" in page  # no logo yet, so the name stays

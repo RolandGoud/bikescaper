@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import check_form, listing_card %}
+{% from "_macros.html" import check_form, listing_card, brand_label %}
 {% block body %}
 <section class="hero">
   <div class="wrap">
@@ -38,8 +38,8 @@
   </div>
   <div class="row">
     {% for b in brands %}
-      {% if b.scraper %}<a class="pill" href="{{ url_for('catalog', brand=b.name) }}">{{ b.name }}</a>
-      {% else %}<span class="pill" style="border-style: dashed; color: var(--muted); font-weight: 500" title="{{ _('Coming next') }}">{{ b.name }}</span>{% endif %}
+      {% if b.scraper %}<a class="pill brand" href="{{ url_for('catalog', brand=b.name) }}">{{ brand_label(b) }}</a>
+      {% else %}<span class="pill brand soon" title="{{ _('Coming next') }}">{{ brand_label(b) }}</span>{% endif %}
     {% endfor %}
   </div>
 </section>

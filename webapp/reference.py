@@ -62,13 +62,13 @@ ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 BRANDS = [
     {"name": "Trek", "site": "https://www.trekbikes.com/nl/nl_NL/", "scraper": True, "logo": "logos/trek.svg"},
     {"name": "Canyon", "site": "https://www.canyon.com/nl-nl/", "scraper": True, "logo": "logos/canyon.svg"},
-    {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": False},
-    {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": False},
-    {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": False},
+    {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": False, "logo": "logos/specialized.svg"},
+    {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": False, "logo": "logos/giant.svg"},
+    {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": False, "logo": "logos/cannondale.svg"},
     {"name": "Scott", "site": "https://www.scott-sports.com/nl/nl/", "scraper": False},
     {"name": "Orbea", "site": "https://www.orbea.com/nl-nl/", "scraper": False},
-    {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": False},
-    {"name": "Factor", "site": "https://factorbikes.com/", "scraper": False},
+    {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": False, "logo": "logos/cube.svg"},
+    {"name": "Factor", "site": "https://factorbikes.com/", "scraper": False, "logo": "logos/factor.svg"},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
 
