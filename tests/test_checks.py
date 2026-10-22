@@ -435,3 +435,27 @@ def test_tiers_on_pages(tmp_path):
     assert "Spec tier" in page and "Top" in page
     listing = client.get("/models?tier=5&lang=en").get_data(as_text=True)
     assert "Domane SLR 9" in listing and "Domane AL 2" not in listing
+
+
+@pytest.mark.parametrize("text,tier", [("Shimano GRX 400", 2), ("Shimano GRX RX400", 2), ("GRX 600 groep", 3),
+                                       ("Shimano GRX 800", 4), ("Shimano GRX Di2", 3)])
+def test_grx_series(text, tier):
+    assert checks.detect_groupset(text)["tier"] == tier
+
+
+def test_wheel_names_dont_rate_the_tyres():
+    c = checks.read_claims("Trek Domane", "Aeolus RSL 37 wielen en Schwalbe One banden")
+    assert c["wheels"]["tier"] == 5 and c["tyres"]["tier"] == 3
+
+
+def test_rim_brakes_are_not_wheels():
+    assert checks.read_claims("Trek Domane", "carbon racefiets met velgremmen")["wheels"] is None
+
+
+def test_named_wheels_on_a_model_without_wheel_data(models):
+    model = next(m for m in models if m["name"] == "Ultimate CF SLX 8 Di2")  # Canyon lists no wheels
+    claims = checks.read_claims("Canyon Ultimate CF SLX 8 Di2", "Zipp 404 wielen")
+    specs = checks.check_specs(model, claims)
+    wheels = next(row for row in specs["rows"] if row["key"] == "wheels")
+    assert wheels["status"] == checks.UNKNOWN
+    checks.seller_questions(model, claims, {"status": checks.OK}, specs, {"status": checks.OK})

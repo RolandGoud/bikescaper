@@ -115,7 +115,7 @@ def detect_brand(text):
     return None
 
 
-PART_WORDS = {"wheels": r"wiel|wheel|velg|laufrad", "tyres": r"band|tyre|tire"}
+PART_WORDS = {"wheels": r"wiel|wheel|velg(?!rem)|laufrad", "tyres": r"band|tyre|tire"}
 
 
 def detect_part(text, part):
@@ -124,7 +124,8 @@ def detect_part(text, part):
     Only clauses that mention the part ("Zipp 404 wielen", "GP5000 banden") are read, so "carbon frame"
     doesn't count as carbon wheels.
     """
-    for clause in re.split(r"[\n.,;!?]+", text or ""):
+    # "Zipp 404 wielen en GP5000 banden" is two clauses, so the wheel name doesn't rate the tyres.
+    for clause in re.split(r"[\n.,;!?]+|\s(?:en|and|met|with)\s", text or ""):
         if re.search(PART_WORDS[part], _plain(clause)):
             tier = part_tier((part,), clause)
             if tier:
@@ -643,7 +644,7 @@ def seller_questions(model, claims, age, specs, size):
             qs.append(Msg("Do you still have the original {part} ({original})?", part=row["part"],
                           original=str(row["original"]).split(",")[0]))
         elif row["key"] == "wheels" and row["status"] == UNKNOWN:
-            qs.append(Msg("Are these the original wheels ({wheels})?", wheels=row["original"].split(",")[0]))
+            qs.append(Msg("Are these the original wheels ({wheels})?", wheels=str(row["original"]).split(",")[0]))
     if size["status"] in (WARN, UNKNOWN):
         qs.append(Msg("What frame size is printed on the frame?"))
     if claims["condition"] is None:
