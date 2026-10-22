@@ -360,6 +360,31 @@ NL = {
     "Model years entered by hand from launch dates; not yet checked against the brand's archive.":
         "Modeljaren met de hand ingevoerd op basis van introductiedata; nog niet gecontroleerd in het archief van het merk.",
 
+    # checks: year from the ad's details
+    "From the ad's details:": "Volgens de details in de advertentie:",
+    "{part}: bikes from {years}.": "{part}: fietsen uit {years}.",
+    "{family} gen {gen}: sold from {years}.": "{family} gen {gen}: verkocht vanaf {years}.",
+    "Rim brakes on a carbon road bike: {year} or older.": "Velgremmen op een carbon racefiets: {year} of ouder.",
+    "Colour '{colour}' is in {brand}'s {year} photos.": "Kleur '{colour}' staat in de foto's van {brand} uit {year}.",
+    "Details disagree": "Details spreken elkaar tegen",
+    "The parts and colour point to different years; some parts may have been swapped.":
+        "De onderdelen en kleur wijzen naar verschillende jaren; misschien zijn er onderdelen vervangen.",
+    "Probably {years}": "Waarschijnlijk {years}",
+    "The ad doesn't give a year, but its details point to {years}.":
+        "De advertentie noemt geen jaar, maar de details wijzen naar {years}.",
+    "Fits {years}": "Past bij {years}",
+    "{claimed} fits the ad's details.": "{claimed} past bij de details in de advertentie.",
+    "Just outside {years}": "Net buiten {years}",
+    "{claimed} is one year off what the details allow: maybe the purchase year.":
+        "{claimed} zit een jaar naast wat de details toelaten: misschien het aankoopjaar.",
+    "Doesn't fit {years}": "Past niet bij {years}",
+    "The seller says {claimed}, but the ad's details point to {years}.":
+        "De verkoper zegt {claimed}, maar de details in de advertentie wijzen naar {years}.",
+    "{year} or later": "{year} of later",
+    "{year} or earlier": "{year} of eerder",
+    "The ad mentions upgrades, so a part may be newer than the bike.":
+        "De advertentie noemt upgrades, dus een onderdeel kan nieuwer zijn dan de fiets.",
+
     # checks: specs
     "Groupset": "Groep",
     "Frame": "Frame",

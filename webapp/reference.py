@@ -104,6 +104,44 @@ GROUPSETS = [
 ]
 ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 
+# Model years of complete bikes sold with a groupset generation (first, last; None = open).
+# Read from the part codes or the speed count in the ad; first match wins, so codes come before
+# the looser "12-speed" rules. Entered by hand from launch dates: a bike's model year usually
+# follows a groupset's launch by a season, and leftover stock runs a year past its replacement.
+SPEED_12 = r"(?:\b12\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*12\b)"
+SPEED_11 = r"(?:\b11\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*11\b)"
+GROUPSET_YEARS = [
+    # (regex on lowercased text, first, last, name shown in the report)
+    (r"\b(?:[a-z]{2}-)?r92[057]\d\b", 2022, None, "Shimano Dura-Ace R9200 (12-speed)"),
+    (r"\b(?:[a-z]{2}-)?r81[057]\d\b", 2022, None, "Shimano Ultegra R8100 (12-speed)"),
+    (r"\b(?:[a-z]{2}-)?r71[57]\d\b", 2023, None, "Shimano 105 Di2 R7150 (12-speed)"),
+    (r"\b(?:[a-z]{2}-)?r71[02]\d\b", 2024, None, "Shimano 105 R7100 (12-speed)"),
+    (r"\b(?:[a-z]{2}-)?r91[057]\d\b", 2017, 2022, "Shimano Dura-Ace R9100 (11-speed)"),
+    (r"\b(?:[a-z]{2}-)?r80[0257]\d\b", 2017, 2023, "Shimano Ultegra R8000 (11-speed)"),
+    (r"\b(?:[a-z]{2}-)?r70[027]\d\b", 2019, 2024, "Shimano 105 R7000 (11-speed)"),
+    (r"\bdura[\s-]?ace\s*90[0-7]0\b", 2014, 2017, "Shimano Dura-Ace 9000 (11-speed)"),
+    (r"\bultegra\s*68[0-7]0\b", 2015, 2018, "Shimano Ultegra 6800 (11-speed)"),
+    (r"\b105\s*58[0-7]0\b", 2015, 2019, "Shimano 105 5800 (11-speed)"),
+    (r"\bultegra\s*67[0-7]0\b", 2010, 2014, "Shimano Ultegra 6700 (10-speed)"),
+    (r"\b105\s*57[0-7]0\b", 2010, 2015, "Shimano 105 5700 (10-speed)"),
+    (r"\b(?:grx\s*)?(?:[a-z]{2}-)?rx(?:82\d|83\d|61\d|62\d)\b|\bgrx\b.{0,40}" + SPEED_12, 2024, None,
+     "Shimano GRX (12-speed)"),
+    (r"\b(?:grx\s*)?(?:[a-z]{2}-)?rx[468][018]\d\b|\bgrx\b", 2020, None, "Shimano GRX"),
+    (r"\b105\b.{0,25}\bdi2\b|\bdi2\b.{0,25}\b105\b", 2023, None, "Shimano 105 Di2 (12-speed)"),
+    (r"\b105\b.{0,40}" + SPEED_12 + r"|" + SPEED_12 + r".{0,40}\b105\b", 2024, None, "Shimano 105 (12-speed)"),
+    (r"\b(?:ultegra|dura[\s-]?ace)\b.{0,40}" + SPEED_12 + r"|" + SPEED_12 + r".{0,40}\b(?:ultegra|dura[\s-]?ace)\b",
+     2022, None, "Shimano Ultegra/Dura-Ace (12-speed)"),
+    (r"\b105\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b105\b", None, 2024, "Shimano 105 (11-speed)"),
+    (r"\b(?:ultegra|dura[\s-]?ace)\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b(?:ultegra|dura[\s-]?ace)\b",
+     None, 2023, "Shimano Ultegra/Dura-Ace (11-speed)"),
+    (r"\bapex\b.{0,25}\baxs\b|\baxs\b.{0,25}\bapex\b", 2023, None, "SRAM Apex AXS"),
+    (r"\brival\b.{0,25}\baxs\b|\baxs\b.{0,25}\brival\b", 2022, None, "SRAM Rival AXS"),
+    (r"\bforce\b.{0,25}\baxs\b|\baxs\b.{0,25}\bforce\b", 2020, None, "SRAM Force AXS"),
+    (r"\bsram\s+red\b.{0,25}\baxs\b|\bred\s+(?:etap\s+)?axs\b", 2019, None, "SRAM Red AXS"),
+]
+# Carbon road bikes from the big brands went disc-only around 2021-2022.
+RIM_BRAKE_LAST_YEAR = 2022
+
 # Brands the site covers. `site` is the brand's own site the catalogue is read
 # from. Trek and Canyon have their own scrapers; the next five are collected by
 # brand_scrapers/. Scott and Orbea block requests from servers, so they wait for a

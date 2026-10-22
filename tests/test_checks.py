@@ -622,3 +622,38 @@ def test_size_systems_split_frame_and_letter_sizes(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/size?brand=Trek&height=178&lang=en").data.decode()
     assert page.count('class="sizes"') == 2 and "Letter sizes" in page
+
+
+def test_year_estimate_from_groupset(models):
+    r = run(models, "Trek Domane SL 6 gen 4 2021", "Shimano 105 Di2 2x12, schijfremmen")
+    e = r["year_estimate"]
+    assert e["first"] == 2023 and e["status"] == checks.BAD
+    assert en(e["headline"]) == "Doesn't fit 2023 or later"
+    r = run(models, "Trek Domane SL 6 gen 4", "Shimano 105 Di2 2x12, schijfremmen")
+    assert en(r["year_estimate"]["headline"]) == "Probably 2023 or later"
+
+
+def test_year_estimate_combines_clues(models):
+    r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2 11-speed, velgremmen, carbon")
+    e = r["year_estimate"]
+    assert (e["first"], e["last"], e["status"]) == (None, 2022, checks.OK)
+    r = run(models, "Trek Domane SL 5 gen 4 2022", "Shimano 105 R7000")
+    e = r["year_estimate"]
+    assert (e["first"], e["last"], e["status"]) == (2023, 2024, checks.WARN)
+
+
+def test_year_estimate_from_named_colourway(models):
+    r = run(models, "Canyon Endurace CF 7 Lillet Grey 2020")
+    e = r["year_estimate"]
+    assert (e["first"], e["last"], e["status"]) == (2025, 2027, checks.BAD)
+    assert "Lillet Grey" in en(e["evidence"][0])
+    # Plain colour words like "Grey light" date nothing.
+    e = run(models, "Trek Domane SL 5 Gen 4 grey light")["year_estimate"]
+    assert not any("Colour" in en(x) for x in e["evidence"])
+
+
+def test_colourway_year():
+    assert checks.colourway_year({"image": "Trek/EmondaSL5_23_36974_A_Primary_03.jpg"}) == 2023
+    assert checks.colourway_year({"image": "Trek/x/DomaneSL6-26-57639-A-Primary_02.jpg"}) == 2026
+    assert checks.colourway_year({"image": "Canyon/E/2026_FULL_endurace_cf-7_4274_R076_P10.jpg"}) == 2026
+    assert checks.colourway_year({"image": None}) is None
