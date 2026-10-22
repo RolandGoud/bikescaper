@@ -8,6 +8,7 @@ import json
 import os
 import re
 import sys
+import urllib.request
 
 from . import db
 from .reference import COLOUR_WORDS
@@ -32,7 +33,44 @@ def latest_snapshot(brand):
     return f"data/{brand}/{files[-1]}" if files else None
 
 
-SOURCES = FIXED_SOURCES + [(brand, path) for brand in COLLECTED if (path := latest_snapshot(brand))]
+def collected_sources():
+    return FIXED_SOURCES + [(brand, path) for brand in COLLECTED if (path := latest_snapshot(brand))]
+
+
+SOURCES = collected_sources()
+REPO = "RolandGoud/bikescaper"
+
+
+def fetch_missing_snapshots(branch=None):
+    """Download the newest snapshot of each collected brand whose data/<Brand>/ folder is missing.
+
+    An older NAS compose file unpacks only data/Trek and data/Canyon; this lets a plain restart
+    still load the other brands. Photos come with images/, which every compose file unpacks.
+    """
+    branch = branch or os.environ.get("BRANCH") or "main"
+    fetched = 0
+    for brand in COLLECTED:
+        if latest_snapshot(brand):
+            continue
+        try:
+            api = f"https://api.github.com/repos/{REPO}/contents/data/{brand}?ref={branch}"
+            with urllib.request.urlopen(api, timeout=30) as resp:
+                listing = json.load(resp)
+            names = sorted(f["name"] for f in listing
+                           if re.match(rf"{brand.lower()}_bikes_\d{{8}}_\d{{6}}\.json$", f["name"]))
+            if not names:
+                continue
+            url = f"https://raw.githubusercontent.com/{REPO}/{branch}/data/{brand}/{names[-1]}"
+            with urllib.request.urlopen(url, timeout=60) as resp:
+                data = resp.read()
+            json.loads(data)  # don't save a half or broken download
+            os.makedirs(os.path.join(ROOT, "data", brand), exist_ok=True)
+            with open(os.path.join(ROOT, "data", brand, names[-1]), "wb") as fh:
+                fh.write(data)
+            fetched += 1
+        except (OSError, ValueError) as exc:
+            print(f"Couldn't download the {brand} catalogue: {exc}")
+    return fetched
 
 
 def slugify(text):
@@ -324,6 +362,8 @@ def load(conn):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if fetch_missing_snapshots():
+        SOURCES = collected_sources()
     conn = db.connect(args[0] if args else None)
     if "--if-empty" in sys.argv and conn.execute("SELECT COUNT(*) FROM models").fetchone()[0]:
         print(f"Models already loaded; refreshed photos of {refresh_images(conn)} models,"
