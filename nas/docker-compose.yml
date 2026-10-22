@@ -16,6 +16,12 @@ services:
       BRANCH: main
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
+      # To let people mail themselves their check report, fill these in and remove the #:
+      # SMTP_HOST: smtp.gmail.com
+      # SMTP_PORT: "587"
+      # SMTP_USER: you@gmail.com
+      # SMTP_PASSWORD: your-app-password
+      # MAIL_FROM: you@gmail.com
     command:
       - sh
       - -c

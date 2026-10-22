@@ -132,6 +132,23 @@ NL = {
     "The site didn't answer in time.": "De site reageerde niet op tijd.",
     "That link doesn't look like an ad.": "Die link lijkt geen advertentie te zijn.",
     "Photos from the ad": "Foto's uit de advertentie",
+    "Download as PDF": "Download als pdf",
+    "Mail me this report": "Mail mij dit rapport",
+    "you@example.com": "jij@voorbeeld.nl",
+    "Send": "Versturen",
+    "Sent. Check your inbox (and spam folder).": "Verstuurd. Kijk in je inbox (en je spammap).",
+    "That doesn't look like an email address.": "Dat lijkt geen e-mailadres.",
+    "Too many emails for now. Try again in an hour, or download the PDF.":
+        "Even te veel e-mails. Probeer het over een uur nog eens, of download de pdf.",
+    "The email couldn't be sent. Download the PDF instead.": "De e-mail kon niet worden verstuurd. Download de pdf.",
+    "Your Bike Compare check: {title}": "Je Bike Compare-check: {title}",
+    "Here is your check report for “{title}”, checked on {date}. The PDF is attached; the report online: {url}":
+        "Hier is je checkrapport voor “{title}”, gecheckt op {date}. De pdf zit in de bijlage; het rapport online: {url}",
+    "Summary": "Samenvatting",
+    "We couldn't match this ad to a model in our catalogue.": "We konden deze advertentie niet aan een model uit onze catalogus koppelen.",
+    "Online report: {url}": "Rapport online: {url}",
+    "Bike Compare · not affiliated with Marktplaats or any bike brand.":
+        "Bike Compare · niet verbonden aan Marktplaats of een fietsmerk.",
     "Removed": "Verwijderd",
     "Removed from the site on {date}": "Verwijderd van de site op {date}",
     "We found the ad gone from the site on {date}.": "Op {date} zagen we dat de advertentie van de site is verdwenen.",
