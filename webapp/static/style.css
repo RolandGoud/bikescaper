@@ -197,6 +197,22 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .kv { display: grid; grid-template-columns: minmax(140px, 220px) 1fr; border-top: 1px solid var(--faint); }
 .kv div { padding: 10px 0; border-bottom: 1px solid var(--faint); font-size: 15px; }
 .kv div:nth-child(odd) { font-weight: 600; padding-right: 16px; }
+/* Spec tiers: five bars, filled up to the tier. */
+.tier { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; white-space: nowrap; }
+.tier .bars { display: inline-flex; gap: 2px; align-items: flex-end; }
+.tier .bars i { width: 6px; background: var(--faint); border-radius: 1px; }
+.tier .bars i:nth-child(1) { height: 6px; } .tier .bars i:nth-child(2) { height: 9px; } .tier .bars i:nth-child(3) { height: 12px; }
+.tier .bars i:nth-child(4) { height: 15px; } .tier .bars i:nth-child(5) { height: 18px; }
+.tier .bars i.on { background: var(--blue); }
+.tier.small { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); gap: 6px; }
+.tier.small .bars i { width: 4px; }
+.spec-group h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.kv div.rated { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.tier-dot { flex: none; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; font-weight: 600; background: var(--faint); color: var(--muted); }
+.tier-dot.t3 { background: #C9CEFF; color: var(--blue-dark); }
+.tier-dot.t4 { background: #7F8AFF; color: #fff; }
+.tier-dot.t5 { background: var(--blue); color: #fff; }
+.tier-dot.t2 { background: #E4E8FF; color: var(--blue-dark); }
 
 footer.site-footer { border-top: 1px solid var(--line); background: #fff; }
 footer.site-footer .wrap { padding-top: 24px; padding-bottom: 24px; display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; color: var(--muted); }

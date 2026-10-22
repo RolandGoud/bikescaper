@@ -58,25 +58,49 @@ SIZE_CHARTS = {
 }
 SIZE_NOTE = "Generic chart for this brand, not this model's own size chart yet."
 
-# Groupsets from entry level up. `rank` lets the value check spot a downgrade.
+# Spec tiers, the same five steps for every part and every brand.
+TIERS = {1: "Basic", 2: "Entry", 3: "Mid", 4: "Performance", 5: "Top"}
+# What a typical road bike part looks like at each tier, for the How it works page.
+TIER_EXAMPLES = {
+    1: "Shimano Claris or Sora, entry aluminium or steel frame, basic alloy wheels.",
+    2: "Shimano Tiagra or CUES, SRAM Apex, aluminium frame, entry alloy wheels.",
+    3: "Shimano 105, SRAM Rival, entry carbon frame (Trek OCLV 500, Canyon CF), better alloy or entry carbon wheels.",
+    4: "Shimano Ultegra, SRAM Force, performance carbon (OCLV 800, CF SLX), carbon wheels such as Aeolus Pro.",
+    5: "Shimano Dura-Ace, SRAM Red, the brand's top carbon (OCLV 900, CFR), flagship wheels such as Aeolus RSL.",
+}
+
+# Groupsets with their tier. Sub-series of one groupset share a key (GRX 600 and GRX 800 are both
+# "grx"), so the listing check sees the same groupset but can still tell a step up or down.
 GROUPSETS = [
-    # (key, display name, regex on lowercased text, rank)
+    # (key, display name, regex on lowercased text, tier)
     ("claris", "Shimano Claris", r"\bclaris\b", 1),
-    ("sora", "Shimano Sora", r"\bsora\b", 2),
+    ("sora", "Shimano Sora", r"\bsora\b", 1),
     ("cues", "Shimano CUES", r"\bcues\b", 2),
-    ("tiagra", "Shimano Tiagra", r"\btiagra\b", 3),
-    ("grx", "Shimano GRX", r"\bgrx\b", 4),
-    ("105", "Shimano 105", r"(?<![\d.,x])105(?![\d.,]|\s*(?:mm|kg|cm))", 4),
-    ("ultegra", "Shimano Ultegra", r"\bultegra\b", 5),
-    ("dura-ace", "Shimano Dura-Ace", r"\bdura[\s-]?ace\b", 6),
-    ("apex", "SRAM Apex", r"\bapex\b", 3),
-    ("rival", "SRAM Rival", r"\brival\b", 4),
-    ("force", "SRAM Force", r"\bforce\b", 5),
-    ("red", "SRAM Red", r"\bsram\s+red\b|\bred\s+(?:axs|etap)\b", 6),
+    ("tiagra", "Shimano Tiagra", r"\btiagra\b", 2),
+("grx", "Shimano GRX", r"\b(?:grx\s*)?(?:rd-|fc-|st-|br-)?rx4\d\d\b|\bgrx\s*4\d\d\b", 2),
+    ("grx", "Shimano GRX", r"\b(?:grx\s*)?(?:rd-|fc-|st-|br-)?rx[56]\d\d\b|\bgrx\s*[56]\d\d\b", 3),
+    ("grx", "Shimano GRX", r"\b(?:grx\s*)?(?:rd-|fc-|st-|br-)?rx8\d\d\b|\bgrx\s*8\d\d\b", 4),
+    # GRX without a series code reads as the middle one.
+    ("grx", "Shimano GRX", r"\bgrx\b(?!\s*(?:(?:rd-|fc-|st-|br-)?rx)?\s*\d)", 3),
+    ("105", "Shimano 105", r"(?<![\d.,x])105(?![\d.,]|\s*(?:mm|kg|cm))", 3),
+    ("ultegra", "Shimano Ultegra", r"\bultegra\b", 4),
+    ("dura-ace", "Shimano Dura-Ace", r"\bdura[\s-]?ace\b", 5),
+    ("apex", "SRAM Apex", r"\bapex\b", 2),
+    ("rival", "SRAM Rival", r"\brival\b", 3),
+    ("force", "SRAM Force", r"\bforce\b", 4),
+    ("red", "SRAM Red", r"\bsram\s+red\b|\bred\s+(?:axs|etap|e1|xplr)\b", 5),
     ("centaur", "Campagnolo Centaur", r"\bcentaur\b", 3),
-    ("chorus", "Campagnolo Chorus", r"\bchorus\b", 5),
-    ("ekar", "Campagnolo Ekar", r"\bekar\b", 5),
-    ("record", "Campagnolo Record", r"\b(?:super\s+)?record\b", 6),
+    ("chorus", "Campagnolo Chorus", r"\bchorus\b", 4),
+    ("ekar", "Campagnolo Ekar", r"\bekar\b", 4),
+    ("record", "Campagnolo Record", r"\b(?:super\s+)?record\b", 5),
+    ("deore", "Shimano Deore", r"\bdeore\b(?!\s*xt)", 2),
+    ("slx", "Shimano SLX", r"\bshimano\s+slx\b|\bslx\s*-?m\d{4}", 3),
+    ("xt", "Shimano XT", r"\b(?:shimano|deore)\s+xt\b|\bxt\s*-?m\d{4}", 4),
+    ("xtr", "Shimano XTR", r"\bxtr\b", 5),
+    ("sx", "SRAM SX/NX Eagle", r"\b[sn]x\s+eagle\b", 1),
+    ("gx", "SRAM GX", r"\bgx\b", 3),
+    ("x0", "SRAM X0", r"\bx0\b|\bxo1\b", 4),
+    ("xx", "SRAM XX", r"\bxx(?:1|\s*sl)?\b", 5),
 ]
 ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 
@@ -300,6 +324,150 @@ SPEC_LABELS = {
 }
 # Without a motor, a battery and charger belong to electronic shifting (Di2, AXS), not to an e-bike.
 NO_MOTOR_GROUP = {"electric": "drivetrain"}
+
+# Tiers for the other parts: (tier, regex on lowercased text without accents). The first pattern that
+# matches wins, so specific names come before generic words ("Aeolus Pro ... OCLV Carbon" is an Aeolus
+# Pro, not just carbon). Placements come from each brand's own hierarchy and are a first pass: move a
+# pattern when a part lands in the wrong tier.
+PART_TIERS = {
+    # Read with the model name, which carries Canyon's carbon grade ("Ultimate CF SLX 8").
+    "frame": [
+        (5, r"\b900\s+series\s+oclv|oclv\s*900|\bcfr\b|\bfact\s*12r|s-?works|advanced\s+sl\b|lab\s*71|hmx[\s-]*sl\b"
+            r"|pitch-based"),
+        (4, r"\b[678]00\s+series\s+oclv|oclv\s*[678]00|\bcf\s*slx\b|\bfact\s*1[01]r|advanced\s+pro\b|hi-?mod|\bhmx\b"
+            r"|\bomx\b|c:?68x|titani?um|titaan|pan-based|toray|textreme"),
+        (3, r"\b[345]00\s+series\s+oclv|oclv\s*[345]00|\bcf\s*sl\b|\bcf\b|\bfact\s*[89]r|\badvanced\b|ballistec"
+            r"|\bhmf\b|\bomr\b|c:?62|carbon|\boclv\b"),
+        (1, r"\b[12]00\s+series\s+alpha|\bsteel\b|\bstaal\b|hi-?ten"),
+        (2, r"alumini?um|\balloy\b|lichtmetaal|\balr\b|\bal\b|caad|smartform|aluxx|alpha"),
+    ],
+    "fork": [
+        (5, r"\bslr\b|\brsl\b|full foil"),
+        (4, r"carbon\s+stuurbuis|carbon\s+steerer|uit een stuk|one-piece|full carbon"),
+        (3, r"carbon|\bcf\b"),
+        (1, r"\bsteel\b|\bstaal\b"),
+        (2, r"alumini?um|\balloy\b|lichtmetaal"),
+    ],
+    # Cassettes, chains and cranksets that don't name their groupset.
+    "drivetrain": [
+        (5, r"xg-?1290|xg-?1299|xg-?1391|hg-?901|cs-?r9\d0\d|m9100"),
+        (4, r"xg-?1270|xg-?1271|xg-?1371|hg-?701|cs-?r8\d0\d|m8100|rotor|aldhu|\bsrm\b"),
+        (3, r"xg-?1250|xg-?1251|xg-?1351|hg-?710|hg-?700|hg-?601|m7100|m7000|praxis.*carbon|carbon"),
+        (2, r"pg-?1231|pg-?1130|pc-?1130|hg-?500|hg-?54\b|lg500|lg700|microshift|m6100|miche|praxis"),
+        (1, r"hg-?400|hg-?53\b|hg-?71\b|hg-?31\b|lg300|fsa\s+omega|fsa\s+vero|prowheel|rs200"),
+    ],
+    # Brake calipers and levers that don't name their groupset. Canyon lists rotors here too.
+    "brakes": [
+        (5, r"cl900|mt900|rt900"),
+        (4, r"cl800|mt800|rt800|paceline"),
+        (3, r"rt-?70\b|cl700|centerline\s*x"),
+        (1, r"mechani|tektro|dual-pivot|velgrem|\bmt20\d\b|rt-?10\b|rt-?26\b"),
+        (2, r"hydraul|centerline|rt-?5\d\b|rt-?6\d\b"),
+    ],
+    "rotors": [
+        (5, r"cl900|mt900|rt900"),
+        (4, r"cl800|mt800|rt800|paceline"),
+        (3, r"rt-?70\b|cl700|centerline\s*x"),
+        (2, r"centerline|rt-?5\d\b|rt-?6\d\b"),
+        (1, r"rt-?10\b|rt-?26\b|tektro"),
+    ],
+    "wheels": [
+        (5, r"aeolus\s+rsl|\brsl\b|[ae]rc\s*1[14]00|\bclx\b|\bnsw\b|cosmic\s+ultimate|\benve\b|reynolds|princeton"
+            r"|black\s+inc|cadex"),
+        (4, r"aeolus\s+pro|[ae]rc\s*1[68]00|grc\s*1[14]00|rapide\s+c|\bc38\b|terra\s+cl|alpinist\s+cl|zipp\s*(?:303|353|404|454)"
+            r"|firecrest|cosmic\s+slr|racing\s+zero|\bslr\s*[01]\b|reserve|newmen\s+advanced"),
+        (3, r"aeolus\s+elite|zipp|[pe]r?\s*1600|ksyrium|racing\s+[34]\b|\bslr\s*2\b|grc\s*1[68]00|carbon|\boclv\b"),
+        (2, r"paradigm\s+(?:sl|elite|pro)\b|racing\s+[56]\b|aksium|r\s*470|[pe]\s*1800|x\s*1900|g\s*540|newmen"),
+        (1, r"paradigm|racing\s+7|formula|bontrager\s+tubeless\s+ready"),
+    ],
+    "hubs": [
+        (5, r"dt\s*swiss\s*(?:180|240)"),
+        (4, r"dt\s*swiss\s*350|aeolus\s+pro"),
+        (3, r"dt\s*swiss\s*370"),
+        (1, r"formula|affinity|bontrager\s+lichtmetaal"),
+    ],
+    "tyres": [
+        (5, r"\btt\b|aero\s*111|\brs\b|pro\s+one\s+(?:aero|tt)|corsa\s+pro|aeolus\s+rsl|girona\s+rsl|\brsl\b"
+            r"|s-?works\s+turbo|cotton|gavia\s+course\s+0"),
+        (4, r"5000|grand\s+prix|pro\s+one|p\s*zero\s+race|\br[34]\b|team\s+issue|girona\s+pro|kwaremont\s+pro|x-one"
+            r"|g-one\s+rs?\b|\bcorsa\b|turbo|cadex|gavia\s+course"),
+        (3, r"schwalbe\s+one|(?<!-)\bone\b|\br2\b|g-one\s+allround|grand\s+sport\s+race|\bpro\b|gavia\s+fondo|vulpine"),
+        (2, r"g-one\s+comp|gr1\s+expert|\bexpert\b|roadsport|gavia\s+ac|rubino"),
+        (1, r"\br1\b|lugano|ultra\s+sport|gr1\s+comp|\bcomp\b|\bcity\b"),
+    ],
+    "handlebar": [
+        (5, r"\brsl\b|cp00[1-9]\d|rapide\s+cockpit"),
+        (4, r"carbon|\boclv\b|\bcf\b|contact\s+slr"),
+        (3, r"\bpro\b|contact\s+sl\b"),
+        (1, r"\bcomp\b|satellite"),
+        (2, r"\belite\b|lichtmeta|\balloy\b|alumini?um"),
+    ],
+    "stem": [
+        (5, r"\brsl\b"),
+        (4, r"rcs\s+pro|carbon"),
+        (3, r"\bpro\b"),
+        (1, r"\bcomp\b"),
+        (2, r"\belite\b|lichtmeta|\balloy\b|alumini?um"),
+    ],
+    "integrated": [
+        (5, r"carbon|\boclv\b|\brsl\b|\bcf\b"),
+        (4, r"."),
+    ],
+    "saddle": [
+        (5, r"\b3d\b|mirror|adaptive|\brsl\b"),
+        (4, r"carbon|carbonio|\bcf\b|\br1\b|\bpro\b"),
+        (3, r"holle|hollow|austenite|titan|\bti\b|\br3\b|\belite\b|\bslr\b|\bflite\b|fleet\s+sl\b"),
+        (1, r"stalen|\bsteel\b|selle\s+royal|\bh1\b"),
+        (2, r"chromo|\br5\b|\bcomp\b|\bwatt\b|model\s+x|transiro|aliante|montrose"),
+    ],
+    "seatpost": [
+        (5, r"speed\s+concept|^(?=.*carbon)(?=.*(?:aero|seatmast))"),
+        (4, r"carbon|\bcf\b"),
+        (1, r"\bcomp\b|6061"),
+        (2, r"lichtmeta|\balloy\b|alumini?um"),
+    ],
+    # E-bike motors. A light-assist motor is a choice, not a downgrade, so both classes reach the top.
+    "motor": [
+        (5, r"hpr\s*50|hpr\s*60|cx\s+race|avinox"),
+        (4, r"performance\s+line\s+cx|\bcx\b|ep8|ep801|fazua|ride\s*60|sl\s*1\.\d|mahle\s+x20|\bx20\b"),
+        (3, r"performance\s+line|\bep6|ep600|e7000|steps"),
+        (2, r"active\s+line|naafmotor|hub\s+motor|\bx35\b|hyena|bafang"),
+    ],
+}
+# Spec labels -> the part tables tried in order; "groupset" reads the groupset name first.
+SPEC_PARTS = {
+    "Frame": ("frame",), "Frame plus vork": ("frame",), "Material": ("frame",),
+    "Voorvork": ("fork",),
+    "Shifter": ("groupset",), "Voorderailleur": ("groupset",), "Achterderailleur": ("groupset",),
+    "Crankstel": ("groupset", "drivetrain"), "Cassette": ("groupset", "drivetrain"),
+    "Ketting": ("groupset", "drivetrain"),
+    "Frameset": ("frame",),
+    "Aandrijving": ("groupset",), "Aandrijving/wielen": ("groupset",),
+    "Rem": ("groupset", "brakes"), "Achterrem": ("groupset", "brakes"), "Remgreep": ("groupset", "brakes"),
+    "Remschijf": ("rotors",),
+    "Wiel voor": ("wheels",), "Wiel achter": ("wheels",), "Velg": ("wheels",),
+    "Wheelset": ("wheels",),
+    "Naaf voor": ("hubs",), "Naaf achter": ("hubs",), "Naven": ("hubs",),
+    # Canyon sometimes puts the wheels in the tyre field ("DT Swiss ARC 1400 DICUT").
+    "Buitenband": ("tyres", "wheels"), "Voorband": ("tyres",), "Achterband": ("tyres",),
+    "Stuur": ("handlebar",), "Stuurpen": ("stem",), "Stuur/stuurpen (geïntegreerd)": ("integrated",),
+    "Zadel": ("saddle",), "Zadelpen": ("seatpost",),
+    "Motor": ("motor",),
+}
+# Weight tiers by discipline, from the brand's stated weight: the upper limit in kg for tiers 5, 4, 3 and 2;
+# anything heavier is tier 1. Frames and mountain bikes aren't rated on weight yet.
+WEIGHT_TIERS = {
+    "road": (7.0, 7.8, 8.8, 10.0),
+    "gravel": (8.0, 8.8, 9.6, 10.5),
+    "tt": (8.8, 9.3, 9.8, 10.5),
+    "fitness": (9.5, 10.5, 11.5, 13.0),
+    "ebike": (12.0, 13.5, 15.0, 17.0),
+}
+# How much each spec group counts toward the bike's overall tier. The frame group is rated on the frame
+# alone when it has one, so a carbon fork doesn't lift an aluminium frame. Groups without a tier are left out
+# and the rest re-weighted.
+TIER_WEIGHTS = {"frame": 30, "drivetrain": 25, "wheels": 20, "weight": 10, "electric": 10, "brakes": 5,
+                "cockpit": 5, "saddle": 5}
 
 # Swatch colours for colour names: the first word found wins; "dark" and "light" shade it.
 # Brands' fancy names (Kaze, Aurora, team replicas) have no word here and show as a striped

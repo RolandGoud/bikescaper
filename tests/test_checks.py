@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from webapp import checks, db, seed
+from webapp import checks, db, i18n, seed
 from webapp.app import create_app
 
 TODAY = date(2026, 10, 18)
@@ -13,6 +13,14 @@ def models(tmp_path_factory):
     conn = db.connect(str(tmp_path_factory.mktemp("db") / "test.sqlite3"))
     seed.load(conn)
     return db.all_models(conn)
+
+
+def en(msg):
+    token = i18n.current_language.set("en")
+    try:
+        return str(msg)
+    finally:
+        i18n.current_language.reset(token)
 
 
 def run(models, title, description="", price=None, height=None):
@@ -61,7 +69,9 @@ def test_purchase_year_before_launch_is_a_warning(models):
     assert r["model"]["name"].lower() == "domane sl 6 gen 4"
     assert r["age"]["status"] == checks.WARN
     groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
-    assert groupset["status"] == checks.BAD  # the original has 105, not Ultegra
+    assert groupset["status"] == checks.OK  # the original has 105, so Ultegra is an upgrade
+    assert groupset["step"] == 1
+    assert en(r["specs"]["headline"]) == "1 part upgraded"
     assert r["size"]["fit"]["status"] == checks.OK
 
 
@@ -121,7 +131,6 @@ def test_language_switch(tmp_path):
 
 
 def test_every_message_has_a_dutch_translation(models):
-    from webapp import i18n
     r = run(models, "Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
     msgs = [r["confidence"]]
     for key in ("age", "specs", "size", "value"):
@@ -321,3 +330,141 @@ def test_new_brands_have_their_own_size_chart():
     from webapp.reference import SIZE_CHARTS
     for brand in ("Specialized", "Giant", "Cannondale", "Cube", "Factor"):
         assert checks.size_options(brand) is SIZE_CHARTS[brand]
+
+
+@pytest.mark.parametrize("parts,text,tier", [
+    (("groupset",), "Shimano Claris R2000", 1),
+    (("groupset",), "Shimano Tiagra 4700", 2),
+    (("groupset",), "SRAM Rival eTap AXS", 3),
+    (("groupset",), "Shimano Ultegra R8150 Di2", 4),
+    (("groupset",), "SRAM RED XPLR eTap AXS", 5),
+    (("groupset",), "Shimano GRX RX820", 4),
+    (("groupset",), "Shimano GRX RX610", 3),
+    (("frame",), "100 Series Alpha Aluminium", 1),
+    (("frame",), "500 Series OCLV Carbon", 3),
+    (("frame",), "800 Series OCLV-carbon", 4),
+    (("frame",), "Carbon Ultimate CF SLX 8 Di2", 4),
+    (("frame",), "Carbon Aeroad CFR Di2", 5),
+    (("frame",), "Aluminium Endurace AL 7", 2),
+    (("wheels",), "Bontrager Aeolus Pro 51, OCLV Carbon, Tubeless Ready", 4),
+    (("wheels",), "Bontrager Aeolus RSL 37, OCLV Carbon", 5),
+    (("wheels",), "Bontrager Paradigm SL, Tubeless Ready", 2),
+    (("tyres", "wheels"), "DT Swiss ARC 1400 DICUT db 55", 5),
+    (("tyres",), "Schwalbe G-One Comp K-Guard", 2),
+    (("tyres",), "Continental Grand Prix 5000 S TR, 28mm", 4),
+    (("tyres",), "Pirelli P ZERO Race TLR RS", 5),
+    (("rotors",), "Shimano RT10, centerlock, 160 mm", 1),
+    (("rotors",), "SRAM Paceline, afgerond, centerlock, 160 mm", 4),
+    (("groupset", "brakes"), "Tektro C550, mechanische schijfrem", 1),
+    (("groupset", "brakes"), "Shimano 105 hydraulische schijfrem, flat-mount", 3),
+    (("saddle",), "Verse Short Elite, holle roestvaststalen rails", 3),
+    (("saddle",), "Bontrager Verse Comp, stalen rails", 1),
+    (("seatpost",), "Bontrager lichtmetalen seatmast cap, 10 mm offset", 2),
+    (("seatpost",), "KVF aero carbon zadelpen, 20 mm offset", 5),
+    (("motor",), "TQ-HPR50, 50 Nm koppel", 5),
+    (("stem",), "Bontrager Elite, 31,8 mm", 2),
+    (("tyres",), "Bontrager Girona Pro", 4),
+    (("tyres",), "Stuurlint", None),
+    (("frame",), "Aethos 2 FACT 10r Carbon Aethos 2 Pro", 4),
+    (("frame",), "Advanced SL-grade composite Revolt Advanced SL 0", 5),
+    (("frame",), "CAAD14, SmartForm C1 Premium Alloy", 2),
+    (("frame",), "Agree C:62 SLT Di2", 3),
+    (("frame",), "TeXtreme, Toray, Nippon Graphite Pitch-Based Fiber", 5),
+    (("wheels",), "Roval Rapide CLX II", 5),
+    (("wheels",), "Giant SLR 0 40 Carbon Disc WheelSystem", 4),
+    (("tyres",), "S-Works Turbo, 700x30", 5),
+])
+def test_part_tiers(parts, text, tier):
+    assert checks.part_tier(parts, text) == tier
+
+
+def test_every_model_with_a_spec_sheet_has_an_overall_tier(models):
+    for m in models:
+        tiers = checks.spec_tiers(m)
+        if tiers["groups"].get("Frame & fork") or tiers["groups"].get("Drivetrain"):
+            assert tiers["overall"] in range(1, 6), m["name"]
+
+
+def test_overall_tier_follows_the_price(models):
+    by_name = {m["name"]: checks.model_tier(m) for m in models}
+    assert by_name["Domane AL 2 Gen 4"] < by_name["Domane SL 5 Gen 4"] < by_name["Domane SLR 9 gen 4"]
+    assert by_name["Endurace AllRoad"] < by_name["Ultimate CF SLX 8 Di2"] < by_name["Ultimate CFR Di2"]
+
+
+def test_tiers_rise_with_price_across_brands(models):
+    import statistics
+    medians = [statistics.median(m["price_eur"] for m in models if checks.model_tier(m) == t and m["price_eur"])
+               for t in range(2, 6)]
+    assert medians == sorted(medians)
+
+
+def test_frame_group_is_rated_on_the_frame_not_the_fork(models):
+    m = next(m for m in models if m["name"] == "Domane AL 2 Gen 4")
+    tiers = checks.spec_tiers(m)
+    assert tiers["rows"]["Fork"] == 4 and tiers["rows"]["Frame"] == 1
+    assert tiers["groups"]["Frame & fork"] == 1
+
+
+def test_weight_tier_depends_on_discipline(models):
+    road = next(m for m in models if m["name"] == "Ultimate CFR Di2")
+    assert checks.weight_tier(road, "6.78 kg") == 5
+    assert checks.weight_tier(road, "56 cm - 10,61 kg (met TLR sealant)") == 1
+
+
+def test_downgraded_groupset_lowers_the_value(models):
+    same = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano Ultegra Di2, carbon, schijfremmen", 5000)
+    down = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano 105 groep, carbon, schijfremmen", 5000)
+    groupset = next(row for row in down["specs"]["rows"] if row["key"] == "groupset")
+    assert groupset["status"] == checks.BAD and groupset["step"] == -1
+    assert en(groupset["result"]) == "Downgrade, tier 4 to 3"
+    assert down["specs"]["status"] == checks.BAD
+    assert down["value"]["high"] < same["value"]["high"]
+
+
+def test_wheels_named_in_the_ad_are_compared_by_tier(models):
+    r = run(models, "Trek Domane SL 5 Gen 4 2024", "Shimano 105, upgrade: Aeolus RSL 37 wielen, GP5000 banden")
+    wheels = next(row for row in r["specs"]["rows"] if row["key"] == "wheels")
+    tyres = next(row for row in r["specs"]["rows"] if row["key"] == "tyres")
+    assert wheels["step"] == 3 and wheels["status"] == checks.OK
+    assert tyres["status"] == checks.OK
+    assert "upgraded" in en(r["specs"]["headline"])
+    assert any("original Wheels" in en(q) for q in r["questions"])
+
+
+def test_carbon_frame_is_not_carbon_wheels():
+    assert checks.read_claims("Trek Domane", "carbon frame, nieuwe wielen")["wheels"] is None
+
+
+def test_tiers_on_pages(tmp_path):
+    app = create_app(str(tmp_path / "t.sqlite3"))
+    with app.app_context():
+        seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models/trek-domane-slr-9-gen-4?lang=en").get_data(as_text=True)
+    assert "Spec tier" in page and "Top" in page
+    listing = client.get("/models?tier=5&lang=en").get_data(as_text=True)
+    assert "Domane SLR 9" in listing and "Domane AL 2" not in listing
+
+
+@pytest.mark.parametrize("text,tier", [("Shimano GRX 400", 2), ("Shimano GRX RX400", 2), ("GRX 600 groep", 3),
+                                       ("Shimano GRX 800", 4), ("Shimano GRX Di2", 3)])
+def test_grx_series(text, tier):
+    assert checks.detect_groupset(text)["tier"] == tier
+
+
+def test_wheel_names_dont_rate_the_tyres():
+    c = checks.read_claims("Trek Domane", "Aeolus RSL 37 wielen en Schwalbe One banden")
+    assert c["wheels"]["tier"] == 5 and c["tyres"]["tier"] == 3
+
+
+def test_rim_brakes_are_not_wheels():
+    assert checks.read_claims("Trek Domane", "carbon racefiets met velgremmen")["wheels"] is None
+
+
+def test_named_wheels_on_a_model_without_wheel_data(models):
+    model = next(m for m in models if m["name"] == "Ultimate CF SLX 8 Di2")  # Canyon lists no wheels
+    claims = checks.read_claims("Canyon Ultimate CF SLX 8 Di2", "Zipp 404 wielen")
+    specs = checks.check_specs(model, claims)
+    wheels = next(row for row in specs["rows"] if row["key"] == "wheels")
+    assert wheels["status"] == checks.UNKNOWN
+    checks.seller_questions(model, claims, {"status": checks.OK}, specs, {"status": checks.OK})

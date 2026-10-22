@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, brand_label %}
+{% from "_macros.html" import photo, brand_label, tier_badge %}
 {% block title %}{{ _('Models') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -12,25 +12,32 @@
       {% if brand %}<input type="hidden" name="brand" value="{{ brand }}">{% endif %}
       {% if kind %}<input type="hidden" name="type" value="{{ kind }}">{% endif %}
       {% if current %}<input type="hidden" name="current" value="1">{% endif %}
+      {% if tier %}<input type="hidden" name="tier" value="{{ tier }}">{% endif %}
       <label class="sr-only" for="q">{{ _('Search models') }}</label>
       <input id="q" name="q" value="{{ q }}" placeholder="{{ _('Search, e.g. Domane') }}" style="width: 240px">
       <button class="btn ghost" type="submit">{{ _('Search') }}</button>
     </form>
   </div>
   <div class="filters">
-    <a class="pill {{ 'on' if not kind }}" href="{{ url_for('catalog', brand=brand, q=q or None, current=current) }}">{{ _('All types') }}</a>
+    <a class="pill {{ 'on' if not kind }}" href="{{ url_for('catalog', brand=brand, q=q or None, current=current, tier=tier) }}">{{ _('All types') }}</a>
     {% for key, label in disciplines %}
-      {% if counts[key] %}<a class="pill {{ 'on' if kind == key }}" href="{{ url_for('catalog', type=key, brand=brand, q=q or None, current=current) }}">{{ _(label) }}<span class="count">{{ counts[key] }}</span></a>
+      {% if counts[key] %}<a class="pill {{ 'on' if kind == key }}" href="{{ url_for('catalog', type=key, brand=brand, q=q or None, current=current, tier=tier) }}">{{ _(label) }}<span class="count">{{ counts[key] }}</span></a>
       {% else %}<span class="pill soon" title="{{ _('Coming with the next brands') }}">{{ _(label) }}</span>{% endif %}
     {% endfor %}
   </div>
   <div class="filters">
-    <a class="pill {{ 'on' if not brand }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current) }}">{{ _('All brands') }}</a>
+    <a class="pill {{ 'on' if not brand }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current, tier=tier) }}">{{ _('All brands') }}</a>
     {% for b in brands %}
-      {% if b.scraper %}<a class="pill brand {{ 'on' if brand == b.name }}" href="{{ url_for('catalog', type=kind, brand=b.name, q=q or None, current=current) }}">{{ brand_label(b) }}</a>
+      {% if b.scraper %}<a class="pill brand {{ 'on' if brand == b.name }}" href="{{ url_for('catalog', type=kind, brand=b.name, q=q or None, current=current, tier=tier) }}">{{ brand_label(b) }}</a>
       {% else %}<span class="pill brand soon" title="{{ _('Coming next') }}">{{ brand_label(b) }}</span>{% endif %}
     {% endfor %}
-    <a class="pill {{ 'on' if current }}" style="margin-left: auto" href="{{ url_for('catalog', type=kind, brand=brand, q=q or None, current=None if current else 1) }}">{{ _('Only bikes still sold') }}</a>
+    <a class="pill {{ 'on' if current }}" style="margin-left: auto" href="{{ url_for('catalog', type=kind, brand=brand, q=q or None, current=None if current else 1, tier=tier) }}">{{ _('Only bikes still sold') }}</a>
+  </div>
+  <div class="filters" aria-label="{{ _('Spec tier') }}">
+    <a class="pill {{ 'on' if not tier }}" href="{{ url_for('catalog', type=kind, brand=brand, q=q or None, current=current) }}">{{ _('All tiers') }}</a>
+    {% for t, name in tier_names.items() %}
+      <a class="pill {{ 'on' if tier == t }}" href="{{ url_for('catalog', type=kind, brand=brand, q=q or None, current=current, tier=t) }}">{{ t }} · {{ _(name) }}<span class="count">{{ tier_counts[t] }}</span></a>
+    {% endfor %}
   </div>
   {% for key, label, items in groups %}
   <section class="stack">
@@ -42,6 +49,7 @@
         <div class="body">
           <span style="font-weight: 700">{{ m.name }}</span>
           <span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span>
+          {{ tier_badge(m.tier, small=true) }}
         </div>
       </a>
       {% endfor %}

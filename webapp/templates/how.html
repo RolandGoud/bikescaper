@@ -8,6 +8,14 @@
     <p>{{ _("You paste an ad's title and text. We read the seller's claims (brand, model, year, size, groupset, frame material, brakes and condition), find the closest model in our catalogue, and compare each claim with the original.") }}</p>
     <p>{{ _('We never open the ad for you: the check only uses what you paste.') }}</p>
   </section>
+  <section class="card" id="tiers">
+    <h2>{{ _('Spec tiers') }}</h2>
+    <p>{{ _("Every part on a model's spec sheet is rated on the same five tiers, whatever the brand. The frame, groupset, wheels, tyres, brakes, rotors, cockpit, saddle, seatpost, motor and weight each get a tier; parts we don't recognise yet are left unrated.") }}</p>
+    <div class="kv">
+      {% for t, name in tier_names.items() %}<div>{{ t }} · {{ _(name) }}</div><div>{{ _(tier_examples[t]) }}</div>{% endfor %}
+    </div>
+    <p>{{ _("The bike's overall tier weighs the frame (30%), drivetrain (25%), wheels and tyres (20%), weight (10%), motor (10%, e-bikes only) and brakes, cockpit and saddle (5% each). In a listing check, a part that differs from the original is shown as an upgrade or a downgrade by comparing tiers.") }}</p>
+  </section>
   <section class="card" id="sources">
     <h2>{{ _('Data sources') }}</h2>
     <p>{{ _("{count} models from the brands' own sites, collected by the bikescaper. Road, gravel and time trial bikes only; e-bikes and mountain bikes aren't in yet.", count=count) }}</p>

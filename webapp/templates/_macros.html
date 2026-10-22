@@ -51,6 +51,15 @@
 </form>
 {%- endmacro %}
 
+
+{% macro tier_badge(t, small=false) -%}
+{% if t %}<span class="tier{{ ' small' if small }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}"><span class="bars" aria-hidden="true">{% for i in range(1, 6) %}<i class="{{ 'on' if i <= t }}"></i>{% endfor %}</span>{{ t }} · {{ _(tier_names[t]) }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro tier_dot(t) -%}
+{% if t %}<span class="tier-dot t{{ t }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}: {{ _(tier_names[t]) }}">{{ t }}</span>{% endif %}
+{%- endmacro %}
+
 {# A brand's logo, coloured like the text around it; brands without a logo show their name. #}
 {% macro brand_label(b) -%}
 {% if b.logo %}<span class="pill-logo" role="img" aria-label="{{ b.name }}" title="{{ b.name }}" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% else %}{{ b.name }}{% endif %}
