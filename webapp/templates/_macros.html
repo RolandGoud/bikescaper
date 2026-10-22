@@ -106,3 +106,30 @@
 {% macro brand_label(b) -%}
 {% if b.logo %}<span class="pill-logo" role="img" aria-label="{{ b.name }}" title="{{ b.name }}" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% else %}{{ b.name }}{% endif %}
 {%- endmacro %}
+
+{# Import with context: the period links use this_page. #}
+{% macro asking_box(a, compare=None) -%}
+<div class="asking" id="asking">
+  <div class="row" style="justify-content: space-between; align-items: baseline">
+    <h3>{{ _('Second-hand asking price') }}</h3>
+    <div class="row" role="group" aria-label="{{ _('Period') }}">
+      {% for p in periods %}<a class="pill small-pill {{ 'on' if p == a.days }}" href="{{ this_page(period=p) }}#asking">{{ _('{n} days', n=p) }}</a>{% endfor %}
+    </div>
+  </div>
+  {% if a.enough %}
+  <div class="facts">
+    <div><div class="k">{{ _('Median') }}</div><div class="v">{{ a.median|eur }}</div></div>
+    <div><div class="k">{{ _('Average') }}</div><div class="v">{{ a.mean|eur }}</div></div>
+    <div><div class="k">{{ _('Range') }}</div><div class="v">{{ a.low|eur }}–{{ a.high|eur }}</div></div>
+  </div>
+  <p class="small muted">{{ _('Based on {n} ads from the last {days} days.', n=a.count, days=a.days) }}
+    {% if compare %}{% set diff = ((compare - a.median) / a.median * 100)|round|int %}
+    {% if diff > 0 %}{{ _('This ad asks {pct}% more than the median.', pct=diff) }}{% elif diff < 0 %}{{ _('This ad asks {pct}% less than the median.', pct=-diff) }}{% else %}{{ _('This ad asks the median.') }}{% endif %}{% endif %}</p>
+  {% elif a.count %}
+  <p>{{ _('Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.', n=a.count, days=a.days, low=a.low|eur, high=a.high|eur, needed=a.needed) }}</p>
+  {% else %}
+  <p>{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}</p>
+  {% endif %}
+  <p class="small muted">{{ _('From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.') }}</p>
+</div>
+{%- endmacro %}
