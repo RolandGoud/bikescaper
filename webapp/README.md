@@ -44,7 +44,7 @@ they survive restarts and rebuilds. To reload the catalogue after new scrapes:
 | Check report | `/check/<id>` | Model match (with "change match"), age, spec comparison, size fit, value estimate, questions for the seller. |
 | Listings | `/listings` | Every saved check, filterable by result. |
 | Models | `/models`, `/models/<slug>` | The seeded catalogue with spec sheets. |
-| Size finder | `/size` | Height to frame size per brand. |
+| Size finder | `/size` | Height to frame size per model line (builds sharing a frame are grouped), from `webapp/size_charts.json`; brand chart when a model has none. |
 | Value estimator | `/value` | Fair price from new price, model year and condition. |
 | How it works | `/how-it-works` | Method, data sources and limits. |
 
@@ -73,6 +73,6 @@ so they need a run from a home connection with a real browser. See `docs/scraper
 ## Known limits
 
 - Model years exist only for a few Trek generations, entered by hand.
-- Size charts are generic per brand; geometry isn't collected.
+- Rider heights per model come from Trek, Canyon and Cannondale; Specialized, Giant, Cube and Factor only publish sizes and geometry per model, so their heights come from the brand size guide. Refresh with `python -m brand_scrapers.sizing`.
 - The value is a simple age and condition curve; comparable ads aren't used.
 - Only the 2025 catalogue is covered, so older generations can't be matched yet.

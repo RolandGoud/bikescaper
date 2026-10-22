@@ -203,24 +203,32 @@ def create_app(db_path=None):
             abort(404)
         siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
                     and m["brand"] == model["brand"] and m["id"] != model["id"]]
+        size_chart = checks.model_size_chart(model)
         return render_template("model.html", m=model, years=checks.model_years(model), siblings=siblings,
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
-                               sizes=checks.size_options(model["brand"]),
+                               size_chart=size_chart, size_note=checks.size_note(size_chart, model["brand"]),
                                asking=prices.asking_price(prices.known_ads(conn(), models()), model["id"],
                                                           prices.period_of(request.args.get("period", type=int))),
                                nav="models")
 
     @app.route("/size")
     def size_finder():
-        brand = request.args.get("brand") or "Trek"
+        slug = request.args.get("model")
+        picked = db.get_model(conn(), slug=slug) if slug else None
+        brand = request.args.get("brand") or (picked and picked["brand"]) or "Trek"
         height = request.args.get("height", type=int) or 178
-        chart = checks.size_options(brand)
-        rows = [{"size": k, "low": lo, "high": hi, "fit": lo <= height <= hi,
-                 "near": lo - 4 <= height <= hi + 4} for k, (lo, hi) in chart.items()]
-        return render_template("size.html", brand=brand, height=height, rows=rows,
-                               nav="size")
+        lines = checks.size_lines(models(), brand)
+        line = next((l for l in lines if picked and any(m["slug"] == slug for m in l["models"])), None)
+        chart = line["chart"] if line else {"sizes": checks.size_options(brand), "geometry": {}, "source": "generic"}
+        rows = [{"size": k, "low": lo, "high": hi, "fit": lo <= height <= hi, "near": lo - 4 <= height <= hi + 4,
+                 "geometry": chart["geometry"].get(k)} for k, (lo, hi) in chart["sizes"].items()]
+        own = {source: sum(len(l["models"]) for l in lines if l["chart"]["source"] == source)
+               for source in ("brand", "geometry")}
+        return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,
+                               chart=chart, note=checks.size_note(chart, brand), own=own,
+                               total=sum(len(l["models"]) for l in lines), nav="size")
 
     @app.route("/value")
     def value():

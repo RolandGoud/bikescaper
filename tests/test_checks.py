@@ -501,6 +501,49 @@ def test_missing_brand_snapshot_is_downloaded(tmp_path, monkeypatch):
     assert seed.fetch_missing_snapshots("main") == 0  # already there
 
 
+def test_models_use_their_own_size_chart(models):
+    by_slug = {m["slug"]: m for m in models}
+    own = checks.model_charts()
+    assert own, "webapp/size_charts.json is missing"
+    for slug, chart in own.items():
+        if slug in by_slug and any(s.get("low") for s in chart["sizes"].values()):
+            got = checks.model_size_chart(by_slug[slug])
+            assert got["source"] == chart["source"] and got["sizes"], slug
+    published = [m for m in models if checks.model_size_chart(m)["source"] == "brand"]
+    assert {m["brand"] for m in published} >= {"Trek", "Canyon", "Cannondale"}
+    unknown = dict(models[0], slug="no-such-model")
+    assert checks.model_size_chart(unknown)["source"] == "generic"
+
+
+def test_size_check_falls_back_to_the_brand_chart_for_unknown_sizes(models):
+    model = next(m for m in models if checks.model_size_chart(m)["source"] == "brand" and m["brand"] == "Canyon")
+    letters = checks.check_size(model, {"size": "M"}, 180)
+    assert letters["fit"] is not None and "own size chart" in en(letters["notes"][0])
+    numbers = checks.check_size(model, {"size": "56"}, 180)  # Canyon sizes by letter
+    assert "Generic chart" in en(numbers["notes"][0])
+
+
+def test_size_lines_group_builds_that_share_a_chart(models):
+    lines = checks.size_lines(models, "Canyon")
+    assert sum(len(l["models"]) for l in lines) == sum(1 for m in models if m["brand"] == "Canyon")
+    assert any(len(l["models"]) > 1 for l in lines)
+    for line in lines:
+        assert len({str(sorted(checks.model_size_chart(m)["sizes"].items())) for m in line["models"]}) == 1 \
+            or line["chart"]["source"] == "generic"
+
+
+def test_size_finder_picks_a_model(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    conn = db.connect(app.config["DB_PATH"])
+    model = next(m for m in db.all_models(conn) if checks.model_size_chart(m)["source"] == "brand")
+    page = client.get(f"/size?model={model['slug']}&height=180&lang=en").data.decode()
+    assert "own size chart for this model" in page and "selected" in page
+    page = client.get("/size?brand=Giant&height=181&lang=en").data.decode()
+    assert "pick a model for its own chart" in page
+
+
 def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     conn = db.connect(app.config["DB_PATH"])

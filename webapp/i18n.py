@@ -263,21 +263,27 @@ NL = {
     "Spec sheet": "Specificaties",
     "As listed on the {brand} NL site on {date}.": "Zoals vermeld op de Nederlandse site van {brand} op {date}.",
     "Sizes": "Maten",
-    "Rider height in cm, from a generic chart. Geometry per size isn't collected yet.":
-        "Lichaamslengte in cm, uit een algemene tabel. Geometrie per maat is nog niet verzameld.",
+    "Under each size: stack / reach in mm.": "Onder elke maat: stack / reach in mm.",
     "Other {family} models": "Andere {family}-modellen",
 
     # size finder
-    "Pick a brand and enter your height to see which frame sizes fit.":
-        "Kies een merk en vul je lengte in om te zien welke framematen passen.",
+    "Pick a brand and model and enter your height to see which frame sizes fit.":
+        "Kies een merk en model en vul je lengte in om te zien welke framematen passen.",
+    "Model": "Model",
+    "All models (brand chart)": "Alle modellen (tabel van het merk)",
+    "brand chart": "tabel van het merk",
+    "{model} sizes for {height} cm": "Maten van {model} bij {height} cm",
+    "pick a model for its own chart.": "kies een model voor de eigen tabel.",
+    "Same chart for {count} models:": "Dezelfde tabel voor {count} modellen:",
+    "{own} of {total} {brand} models have their own size chart.":
+        "{own} van de {total} modellen van {brand} hebben een eigen maattabel.",
+    "{own} of {total} {brand} models have their own sizes and geometry.":
+        "{own} van de {total} modellen van {brand} hebben eigen maten en geometrie.",
     "Brand": "Merk",
     "Find my size": "Vind mijn maat",
-    "{brand} sizes for {height} cm": "Maten van {brand} bij {height} cm",
     "Dark blue fits, light blue is borderline.": "Donkerblauw past, lichtblauw is twijfel.",
     "Generic chart for this brand": "Algemene tabel voor dit merk",
     "Generic chart, not {brand}'s own": "Algemene tabel, niet die van {brand} zelf",
-    "the reworked scraper will collect each model's own chart and geometry.":
-        "de nieuwe scraper gaat per model de eigen maattabel en geometrie verzamelen.",
 
     # value page
     "Value estimator": "Waardeschatter",
@@ -313,7 +319,8 @@ NL = {
     "Limits of this prototype": "Beperkingen van dit prototype",
     "Model years are entered by hand for a few Trek generations only.":
         "Modeljaren zijn alleen voor een paar Trek-generaties met de hand ingevoerd.",
-    "Size charts are generic per brand, not per model.": "Maattabellen zijn algemeen per merk, niet per model.",
+    "Trek, Canyon and Cannondale publish each model's own size chart. Specialized, Giant, Cube and Factor publish the sizes and geometry per model, but rider heights only in a general size guide.":
+        "Trek, Canyon en Cannondale publiceren per model een eigen maattabel. Specialized, Giant, Cube en Factor geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel.",
     "The value is a simple age and condition curve. Comparable ads aren't used yet.":
         "De waarde is een eenvoudige berekening op leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "Only current-catalogue models are covered; older generations come with the reworked scraper.":
@@ -431,6 +438,9 @@ NL = {
     "Fits riders of about {lo} to {hi} cm.": "Past bij een lengte van ongeveer {lo} tot {hi} cm.",
     "Generic chart for this brand, not this model's own size chart yet.":
         "Algemene tabel voor dit merk, nog niet de maattabel van dit model zelf.",
+    "{brand}'s own size chart for this model.": "De eigen maattabel van {brand} voor dit model.",
+    "This model's own sizes and geometry; {brand} publishes rider heights only in its general size guide.":
+        "De eigen maten en geometrie van dit model; {brand} geeft de lichaamslengte alleen in de algemene maattabel.",
 
     # checks: value
     "No original price": "Geen nieuwprijs",
