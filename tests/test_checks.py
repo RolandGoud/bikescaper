@@ -516,3 +516,14 @@ def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
         # Only the check made from a link has a photo of its own, so only that card merges two photos.
         assert page.count('class="photo duo"') == 1, url
         assert ad_photo.replace("&", "&amp;") in page and 'class="duo-range"' in page
+
+
+@pytest.mark.parametrize("title, name, year, size, colour", [
+    ("Trek Domane SL 6 Gen 4 2023 maat 56", "Domane SL 6 Gen 4", 2023, "56", None),
+    ("Canyon Aeroad CF SLX 8 AXS 2021 maat L", "Aeroad CF SLX 8 AXS", 2021, "L", None),
+    ("Giant TCR Advanced Pro 1 zwart/rood 58cm bouwjaar 2021", "TCR Advanced Pro 1", 2021, "58", "zwart/rood"),
+    ("S-Works Tarmac SL7 mat zwart size L", "Tarmac SL7", None, "L", "mat zwart"),
+    ("Racefiets Trek Emonda ALR 5 - 2019 - 54 cm - blauw", "Racefiets Emonda ALR 5", 2019, "54", "blauw"),
+])
+def test_ad_title_is_split_into_name_and_facts(title, name, year, size, colour):
+    assert checks.split_title(title) == {"name": name, "year": year, "size": size, "colour": colour}

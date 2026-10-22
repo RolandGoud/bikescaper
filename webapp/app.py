@@ -26,6 +26,7 @@ def create_app(db_path=None):
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["split_title"] = checks.split_title
 
     def conn():
         if "conn" not in g:

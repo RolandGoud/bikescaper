@@ -21,18 +21,32 @@
   <img class="ad" src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer">
   <div class="factory">{{ photo(model) }}</div>
   <span class="duo-label ad">{{ _('Ad') }}</span>
-  <span class="duo-label brand">{% if logos.get(model.brand) %}<span class="pill-logo" role="img" aria-label="{{ model.brand }}" style="--logo: url('{{ url_for('static', filename=logos[model.brand]) }}')"></span>{% else %}{{ model.brand }}{% endif %}</span>
+  <span class="duo-label brand">{{ _('Catalogue') }}</span>
+  {{ brand_mark(model.brand) }}
   <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
   <span class="duo-handle" aria-hidden="true"></span>
 </div>
 {%- endmacro %}
 
+{# The brand's logo on a photo, top left, as on the Models tiles; brands without a logo show their name. #}
+{% macro brand_mark(brand) -%}
+{% if logos.get(brand) %}<span class="brand-mark" role="img" aria-label="{{ brand }}" style="--logo: url('{{ url_for('static', filename=logos[brand]) }}')"></span>{% elif brand %}<span class="brand-mark text">{{ brand }}</span>{% endif %}
+{%- endmacro %}
+
+{# The ad's title without the brand (that's the logo), and the year, size and colour from it as facts below. #}
 {% macro listing_card(row, r) -%}
+{% set ad = split_title(row.title) %}
+{% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
-  {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
+  {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
   <div class="body">
-    <div style="font-weight: 600">{{ row.title }}</div>
-    <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.brand ~ ' ' ~ r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
+    <div class="ad-name">{{ ad.name }}</div>
+    {% if ad.year or ad.size or ad.colour %}<div class="ad-facts">
+      {% if ad.year %}<span>{{ ad.year }}</span>{% endif %}
+      {% if ad.size %}<span>{{ _('Size {size}', size=ad.size) }}</span>{% endif %}
+      {% if ad.colour %}<span>{{ ad.colour|capitalize }}</span>{% endif %}
+    </div>{% endif %}
+    <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
     <div class="small muted">{{ _('Asking {price}', price=row.asking_price|eur) }}{% if row.location %} · {{ row.location }}{% endif %}</div>
     {{ chips(r) }}
   </div>
