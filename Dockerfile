@@ -16,6 +16,5 @@ COPY images images
 VOLUME /data
 EXPOSE 8000
 
-# Alongside the site, a loop re-checks pasted ad links once a day and marks removed ads.
 # Load the catalogue on first start only, so saved checks and corrected matches survive restarts.
-CMD ["sh", "-c", "python -m webapp.seed --if-empty && (python -m webapp.recheck --forever &) && exec gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - webapp.app:app"]
+CMD ["sh", "-c", "python -m webapp.seed --if-empty && exec gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - webapp.app:app"]

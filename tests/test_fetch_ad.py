@@ -149,3 +149,20 @@ def test_removed_badge(tmp_path):
     assert "Verwijderd van de site op 2026-10-21" in client.get("/check/1?lang=nl").data.decode()
     for url in ["/?lang=en", "/listings?lang=en"]:
         assert 'class="removed-tag">Removed</span>' in client.get(url).data.decode(), url
+
+
+def test_only_one_process_rechecks_at_a_time(tmp_path, monkeypatch):
+    import fcntl
+
+    from webapp import recheck
+
+    path = str(tmp_path / "app.sqlite3")
+    db.connect(path).close()
+    passes = []
+    monkeypatch.setattr(recheck, "run", lambda conn: passes.append(1) or 0)
+    with open(path + ".recheck.lock", "w") as held:
+        fcntl.flock(held, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        recheck.run_locked(path)  # another worker holds the lock: skip
+    assert passes == []
+    recheck.run_locked(path)
+    assert passes == [1]
