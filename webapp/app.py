@@ -8,11 +8,12 @@ import json
 import os
 import re
 import sys
+import threading
 from datetime import date
 
 from flask import Flask, abort, g, redirect, render_template, request, send_from_directory, url_for
 
-from . import checks, db, fetch_ad, prices, recheck
+from . import ad_photos, checks, db, fetch_ad, prices, recheck
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -55,6 +56,7 @@ def create_app(db_path=None):
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["size_systems"] = checks.size_systems
     app.jinja_env.globals["split_title"] = checks.split_title
 
     def conn():
@@ -80,10 +82,34 @@ def create_app(db_path=None):
         except ValueError:
             return None
 
+    storing = set()  # checks whose photos are being downloaded in this process
+
+    def store_photos_later(check_id):
+        """Copy the ad's photos to our own disk in the background; the page shows the links meanwhile."""
+        if check_id in storing:
+            return
+        storing.add(check_id)
+        path = app.config["DB_PATH"]
+
+        def work():
+            c = db.connect(path)
+            try:
+                ad_photos.store(c, path, check_id)
+            except Exception as e:  # the next page view tries again
+                print(f"storing photos of check {check_id} failed: {e}", file=sys.stderr, flush=True)
+            finally:
+                c.close()
+                storing.discard(check_id)
+
+        threading.Thread(target=work, name=f"photos-{check_id}", daemon=True).start()
+
     def listing_dict(row, height=None, count=1):
         listing = dict(row)
         listing["times_checked"] = count
-        listing["photos"] = json.loads(listing["photos"]) if listing.get("photos") else []
+        photos = json.loads(listing["photos"]) if listing.get("photos") else []
+        if any(not ad_photos.is_stored(p) for p in photos) and app.config.get("STORE_AD_PHOTOS", True):
+            store_photos_later(listing["id"])  # also picks up checks made before photos were stored
+        listing["photos"] = [p if not ad_photos.is_stored(p) else url_for("ad_photo", name=p) for p in photos]
         if height:
             listing["rider_height"] = height
         return listing
@@ -179,6 +205,8 @@ def create_app(db_path=None):
             (url, title, description, price, location, height, json.dumps(photos) if photos else None),
         )
         conn().commit()
+        if photos and app.config.get("STORE_AD_PHOTOS", True):
+            store_photos_later(cur.lastrowid)
         return redirect(url_for("report", check_id=cur.lastrowid))
 
     @app.route("/check/<int:check_id>")
@@ -267,6 +295,8 @@ def create_app(db_path=None):
         chart = line["chart"] if line else {"sizes": checks.size_options(brand), "geometry": {}, "source": "generic"}
         rows = [{"size": k, "low": lo, "high": hi, "fit": lo <= height <= hi, "near": lo - 4 <= height <= hi + 4,
                  "geometry": chart["geometry"].get(k)} for k, (lo, hi) in chart["sizes"].items()]
+        by_size = {r["size"]: r for r in rows}
+        rows = [(heading, [by_size[k] for k in keys]) for heading, keys in checks.size_systems(by_size)]
         own = {source: sum(len(l["models"]) for l in lines if l["chart"]["source"] == source)
                for source in ("brand", "geometry")}
         return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,
@@ -296,6 +326,12 @@ def create_app(db_path=None):
         return render_template("how.html", nav=None, count=len(models()),
                                seen={b: max(d for d in dates if d) for b, dates in seen.items() if any(dates)},
                                tier_examples=TIER_EXAMPLES)
+
+    @app.route("/ad-photos/<path:name>")
+    def ad_photo(name):
+        response = send_from_directory(ad_photos.folder(app.config["DB_PATH"]), name)
+        response.cache_control.max_age = 30 * 24 * 3600  # a stored photo never changes
+        return response
 
     @app.route("/images/<path:path>")
     def images(path):
