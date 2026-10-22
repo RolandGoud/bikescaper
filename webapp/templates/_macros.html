@@ -53,7 +53,7 @@
 
 
 {% macro tier_badge(t, small=false) -%}
-{% if t %}<span class="tier{{ ' small' if small }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}"><span class="bars" aria-hidden="true">{% for i in range(1, 6) %}<i class="{{ 'on' if i <= t }}"></i>{% endfor %}</span>{{ t }} · {{ _(tier_names[t]) }}</span>{% endif %}
+{% if t %}<span class="tier t{{ t }}{{ ' small' if small }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}">{{ _(tier_names[t]) }}</span>{% endif %}
 {%- endmacro %}
 
 {% macro tier_dot(t) -%}
