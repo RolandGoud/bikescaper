@@ -187,10 +187,10 @@ h2 .count { font-size: 18px; font-weight: 600; }
 /* Photos fill a 16:9 tile whatever their own size. */
 .photo { position: relative; overflow: hidden; }
 .photo img { position: absolute; inset: 0; }
-/* Every bike photo sits on Canyon's studio grey. Trek shoots on white, so multiply turns that white into the same grey. */
+/* Every bike photo sits on Canyon's studio grey. The other brands shoot on white, so multiply turns that white into the same grey. */
 .photo img.on-white { mix-blend-mode: multiply; }
 /* Trek frames the bike small in a 4:3 shot; enlarge it to fill the tile like the Canyon shots. */
-.photo img.on-white { transform: translateY(-3%) scale(1.12); transform-origin: 50% 100%; }
+.photo img.trek { transform: translateY(-3%) scale(1.12); transform-origin: 50% 100%; }
 .model-card .body { padding: 14px; display: flex; flex-direction: column; gap: 4px; }
 .spec-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 28px 40px; align-items: start; }
 .spec-group h3 { font-family: var(--mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 8px; }

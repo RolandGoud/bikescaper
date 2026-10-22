@@ -90,7 +90,7 @@ def parse(page, url):
                 if raw:
                     prices.append(raw)
         if not image and colour.get("plpImageID"):
-            image = f"https://resources.specialized.com/image/{colour['plpImageID']}?q=80&w=1200&fm=jpg"
+            image = f"https://resources.specialized.com/image/{colour['plpImageID']}?q=80&w=1200&fm=png"  # PNG keeps the transparency; their JPEG turns it black
     cats = [c.get("name") for c in product.get("categories") or []]
     paths = " ".join(c.get("url") or "" for c in product.get("categories") or [])
     return {
