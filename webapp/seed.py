@@ -82,6 +82,22 @@ def canyon_colour_image(sku, colour_id):
     return found[0] if found else None
 
 
+def photo_years(bike):
+    """Model years in the brand's own photo file names for this model (Trek "-26-", Canyon "2026_FULL_")."""
+    if bike["brand"] == "Canyon":
+        return sorted({int(year) for _key, year, _path in canyon_matches(bike["name"])})
+    if bike["brand"] == "Trek":
+        prefix = compact(re.sub(r"\s*gen\s*\d+", "", bike["name"], flags=re.I))
+        years = set()
+        for _dirpath, _dirs, files in os.walk(os.path.join(ROOT, "images", "Trek")):
+            for f in files:
+                m = re.match(r"([A-Za-z0-9]+)[-_](\d{2})[-_]\d+[-_][A-Z][-_]", f)
+                if m and m.group(1).lower() in (prefix, prefix + "carbon", prefix + "red", prefix + "us"):
+                    years.add(2000 + int(m.group(2)))
+        return sorted(years)
+    return []
+
+
 def colorways(bike, image):
     """[{name, swatch, image}] per colour the brand lists; the model's own photo when it has one colour."""
     names = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
@@ -121,6 +137,12 @@ def canyon_shots():
 
 
 def canyon_image(name):
+    found = canyon_matches(name)
+    return sorted(found, key=lambda s: (-int(s[1]), s[2]))[0][2] if found else None
+
+
+def canyon_matches(name):
+    """Canyon side views filed under this model: (key, year, path)."""
     key = _canyon_key(name)
     exact = [s for s in canyon_shots() if s[0] == key]
     # "Endurace AllRoad" has only all-road-5 pictures; take the closest longer name.
@@ -130,8 +152,8 @@ def canyon_image(name):
     shorter = [s for s in shorter if len(s[0]) == max(len(t[0]) for t in shorter)]
     for found in (exact, near, shorter):
         if found:
-            return sorted(found, key=lambda s: (-int(s[1]), s[2]))[0][2]
-    return None
+            return found
+    return []
 
 
 def trek_image_by_name(bike):
@@ -203,16 +225,16 @@ def refresh_status(conn):
 
 
 def refresh_images(conn):
-    """Re-pick the photo and colourways of every model already in the database, keeping saved checks intact."""
+    """Re-pick the photo, colourways and photo years of every model already in the database, keeping saved checks intact."""
     count = 0
     for brand, rel in SOURCES:
         with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
             for bike in json.load(fh):
                 bike.setdefault("brand", brand)
                 image = pick_image(bike)
-                cur = conn.execute("UPDATE models SET image = ?, colorways = ? WHERE slug = ?",
+                cur = conn.execute("UPDATE models SET image = ?, colorways = ?, photo_years = ? WHERE slug = ?",
                                    (image, json.dumps(colorways(bike, image), ensure_ascii=False),
-                                    slugify(f"{brand} {bike['name']}")))
+                                    json.dumps(photo_years(bike)), slugify(f"{brand} {bike['name']}")))
                 count += cur.rowcount
     conn.commit()
     return count
@@ -225,7 +247,7 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     image = pick_image(bike)
     cur = conn.execute(
         f"{verb} INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
-        " specs, image, seen_on, source_file, colorways) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        " specs, image, seen_on, source_file, colorways, photo_years) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         (
             brand,
             bike["name"].strip(),
@@ -240,6 +262,7 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
             snapshot_date(rel),
             rel,
             json.dumps(colorways(bike, image), ensure_ascii=False),
+            json.dumps(photo_years(bike)),
         ),
     )
     return cur.rowcount

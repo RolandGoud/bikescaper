@@ -25,7 +25,8 @@ CREATE TABLE IF NOT EXISTS models (
     last_seen TEXT,       -- date of the newest catalogue scrape that listed the model
     latest_scrape TEXT,   -- date of the brand's newest catalogue scrape
     missed_scrapes INTEGER, -- scrapes since last_seen that no longer listed it
-    colorways TEXT        -- JSON list of {name, swatch, image}; image is NULL without a photo of that colour
+    colorways TEXT,       -- JSON list of {name, swatch, image}; image is NULL without a photo of that colour
+    photo_years TEXT      -- JSON list of model years named in the brand's photo files
 );
 CREATE TABLE IF NOT EXISTS checks (
     id INTEGER PRIMARY KEY,
@@ -40,7 +41,7 @@ CREATE TABLE IF NOT EXISTS checks (
 );
 """
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
-                 ("colorways", "TEXT")]
+                 ("colorways", "TEXT"), ("photo_years", "TEXT")]
 
 
 def connect(path=None):
@@ -63,6 +64,7 @@ def model_from_row(row):
     m = dict(row)
     m["colors"] = json.loads(m["colors"] or "[]")
     m["colorways"] = json.loads(m.get("colorways") or "[]")
+    m["photo_years"] = json.loads(m.get("photo_years") or "[]")
     m["specs"] = json.loads(m["specs"] or "{}")
     return m
 

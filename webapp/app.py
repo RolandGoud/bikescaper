@@ -16,7 +16,7 @@ from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
-STATUS_LABELS = {"current": "Still sold", "maybe": "Possibly discontinued", "discontinued": "Discontinued",
+STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 
 
@@ -79,7 +79,8 @@ def create_app(db_path=None):
 
     @app.context_processor
     def globals_():
-        return {"brands": BRANDS, "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
+        return {"brands": BRANDS, "logos": {b["name"]: b["logo"] for b in BRANDS if b.get("logo")},
+                "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
@@ -163,11 +164,9 @@ def create_app(db_path=None):
         model = db.get_model(conn(), slug=slug)
         if model is None:
             abort(404)
-        gen = checks.generation_of(model["name"])
-        years = checks.GENERATIONS.get((model["brand"], checks.family_of(model["name"]), gen))
         siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
                     and m["brand"] == model["brand"] and m["id"] != model["id"]]
-        return render_template("model.html", m=model, years=years, siblings=siblings,
+        return render_template("model.html", m=model, years=checks.model_years(model), siblings=siblings,
                                specs=checks.spec_groups(model), status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                sizes=checks.size_options(model["brand"]), nav="models")

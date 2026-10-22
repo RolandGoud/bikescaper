@@ -60,8 +60,8 @@ ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 # collector should read; only Trek and Canyon have a working scraper so far.
 # The URLs for the newer brands are unverified starting points.
 BRANDS = [
-    {"name": "Trek", "site": "https://www.trekbikes.com/nl/nl_NL/", "scraper": True},
-    {"name": "Canyon", "site": "https://www.canyon.com/nl-nl/", "scraper": True},
+    {"name": "Trek", "site": "https://www.trekbikes.com/nl/nl_NL/", "scraper": True, "logo": "logos/trek.svg"},
+    {"name": "Canyon", "site": "https://www.canyon.com/nl-nl/", "scraper": True, "logo": "logos/canyon.svg"},
     {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": False},
     {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": False},
     {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": False},

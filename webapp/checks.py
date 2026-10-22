@@ -144,12 +144,28 @@ def family_of(model_name):
     return toks[0] if toks else ""
 
 
+def model_years(model, today=None):
+    """(first, last or None for still sold, source message), or None when nothing tells us.
+
+    The hand-entered generation table wins; otherwise the model years in the brand's photo file
+    names, running to "now" while the newest scrape still lists the model.
+    """
+    years = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
+    if years:
+        return years[0], years[1], Msg(GENERATIONS_NOTE)
+    seen = model.get("photo_years") or []
+    if not seen:
+        return None
+    still_sold = catalogue_status(model, today)[0] == "current"
+    return seen[0], None if still_sold else seen[-1], Msg(
+        "From the model years in {brand}'s own photos; earlier years may be missing.", brand=model["brand"])
+
+
 def catalogue_status(model, today=None):
     """Whether the brand still sells the model: (status, message).
 
-    status is "current", "maybe" (missing from the newest scrape only, which can be a scraper
-    miss), "discontinued" (its generation ended, or missing from two or more scrapes in a row)
-    or "unknown" (no scrape history).
+    status is "current", "discontinued" (its generation ended, or the brand's newest scrape no
+    longer lists it) or "unknown" (no scrape history).
     """
     today = today or date.today()
     years = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
@@ -158,12 +174,9 @@ def catalogue_status(model, today=None):
         return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=years[1])
     if missed is None:
         return "unknown", Msg("Not checked against the catalogue yet.")
-    if missed >= 2:
-        return "discontinued", Msg("Discontinued: missing from the last {n} catalogue scrapes, last seen {date}.",
-                                   n=missed, date=last)
-    if missed == 1:
-        return "maybe", Msg("Possibly discontinued: missing from the newest catalogue scrape ({latest}),"
-                            " last seen {date}.", latest=model["latest_scrape"], date=last)
+    if missed:
+        return "discontinued", Msg("Discontinued: missing from the newest catalogue scrape ({latest}),"
+                                   " last seen {date}.", latest=model["latest_scrape"], date=last)
     return "current", Msg("In the {brand} catalogue on {date}.", brand=model["brand"], date=last)
 
 
