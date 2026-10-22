@@ -6,6 +6,7 @@ import re
 import unicodedata
 from datetime import date
 
+from .i18n import Msg, join
 from .reference import (BRAND_NAMES, ELECTRONIC, GENERATIONS, GENERATIONS_NOTE, GENERIC_SIZE_CHART, GROUPSETS,
                         SIZE_CHARTS, SIZE_NOTE)
 
@@ -225,106 +226,114 @@ def ref_brakes(model):
 
 # ---------------------------------------------------------------- checks
 
+def eur(value):
+    return "€{:,.0f}".format(value).replace(",", ".")
+
+
 def check_age(model, claims, today=None):
     today = today or date.today()
     gen = generation_of(model["name"])
     years = GENERATIONS.get((model["brand"], family_of(model["name"]), gen))
-    seen = f"On sale in the {model['brand']} NL catalogue on {model['seen_on']}." if model.get("seen_on") else None
+    seen = Msg("On sale in the {brand} NL catalogue on {date}.", brand=model["brand"],
+               date=model["seen_on"]) if model.get("seen_on") else None
     claimed = claims["year"]
     timeline = []
     if years:
         first, last = years
         end = last or today.year
-        for y in range(min(first, claimed or first) , max(end, claimed or end) + 1):
+        for y in range(min(first, claimed or first), max(end, claimed or end) + 1):
             timeline.append({"year": y, "sold": first <= y <= end, "claimed": y == claimed})
     if claimed is None:
-        return {"status": WARN, "headline": "Year not stated",
-                "detail": "The ad doesn't give a year. Ask for the invoice or the serial number.",
-                "timeline": timeline, "notes": [n for n in [seen, years and GENERATIONS_NOTE] if n]}
+        return {"status": WARN, "headline": Msg("Year not stated"),
+                "detail": Msg("The ad doesn't give a year. Ask for the invoice or the serial number."),
+                "timeline": timeline, "notes": [n for n in [seen, years and Msg(GENERATIONS_NOTE)] if n]}
     if not years:
-        return {"status": UNKNOWN, "headline": f"Seller says {claimed}",
-                "detail": "We don't have the model years for this bike yet, so we can't confirm the age.",
+        return {"status": UNKNOWN, "headline": Msg("Seller says {year}", year=claimed),
+                "detail": Msg("We don't have the model years for this bike yet, so we can't confirm the age."),
                 "timeline": [], "notes": [n for n in [seen] if n]}
     first, last = years
-    gen_label = f"{model['name']}"
     if claimed < first - 1:
-        status, headline = BAD, "Older than this model"
-        detail = (f"Seller says {claimed}, but this generation was first sold as the {first} model. "
-                  "Either the year is wrong or it's an older generation we don't have yet.")
+        status, headline = BAD, Msg("Older than this model")
+        detail = Msg("Seller says {claimed}, but this generation was first sold as the {first} model. "
+                     "Either the year is wrong or it's an older generation we don't have yet.",
+                     claimed=claimed, first=first)
     elif claimed == first - 1:
-        status, headline = WARN, "Probably the purchase year"
-        detail = (f"This generation went on sale as the {first} model, in {first - 1}. "
-                  f"{claimed} is likely when it was bought, not the model year.")
+        status, headline = WARN, Msg("Probably the purchase year")
+        detail = Msg("This generation went on sale as the {first} model, in {launch}. "
+                     "{claimed} is likely when it was bought, not the model year.",
+                     first=first, launch=first - 1, claimed=claimed)
     elif last and claimed > last + 1:
-        status, headline = WARN, "After this model was replaced"
-        detail = f"This generation was last sold as the {last} model. A {claimed} bike would be leftover stock."
+        status, headline = WARN, Msg("After this model was replaced")
+        detail = Msg("This generation was last sold as the {last} model. A {claimed} bike would be leftover stock.",
+                     last=last, claimed=claimed)
     else:
-        status, headline = OK, "Adds up"
-        detail = f"{gen_label} was sold as new in {claimed}."
+        status, headline = OK, Msg("Adds up")
+        detail = Msg("{name} was sold as new in {claimed}.", name=model["name"], claimed=claimed)
     if claims["year_is_purchase"]:
-        detail += " The seller gives this as the purchase year."
+        detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
-            "notes": [n for n in [seen, GENERATIONS_NOTE] if n]}
+            "notes": [n for n in [seen, Msg(GENERATIONS_NOTE)] if n]}
+
+
+def _row(key, part, original, listing, status, result):
+    return {"key": key, "part": Msg(part), "original": original, "listing": listing, "status": status,
+            "result": Msg(result)}
 
 
 def check_specs(model, claims):
     rows = []
     bad = warn = 0
+    not_stated = Msg("Not stated")
 
     ref_group = detect_groupset(groupset_text(model))
-    ref_group_label = spec(model, "Shifter") or (ref_group and ref_group["label"]) or "Not in our data"
+    ref_group_label = spec(model, "Shifter") or (ref_group and ref_group["label"]) or Msg("Not in our data")
     claimed = claims["groupset"]
     if not ref_group or not claimed:
-        rows.append({"part": "Groupset", "original": ref_group_label,
-                     "listing": claimed["label"] if claimed else "Not stated",
-                     "status": WARN if ref_group else UNKNOWN,
-                     "result": "Ask seller" if ref_group else "Can't compare"})
+        rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"] if claimed else not_stated,
+                         WARN if ref_group else UNKNOWN, "Ask seller" if ref_group else "Can't compare"))
         warn += 1
     elif claimed["key"] != ref_group["key"]:
-        rows.append({"part": "Groupset", "original": ref_group_label, "listing": claimed["label"],
-                     "status": BAD, "result": "Differs"})
+        rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], BAD, "Differs"))
         bad += 1
     elif claimed["electronic"] != ref_group["electronic"] and claimed["electronic"]:
-        rows.append({"part": "Groupset", "original": ref_group_label, "listing": claimed["label"],
-                     "status": WARN, "result": "Electronic in ad, mechanical original"})
+        rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], WARN,
+                         "Electronic in ad, mechanical original"))
         warn += 1
     else:
-        rows.append({"part": "Groupset", "original": ref_group_label, "listing": claimed["label"],
-                     "status": OK, "result": "Matches"})
+        rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], OK, "Matches"))
 
-    for part, ref_val, ad_val in (
-        ("Frame", ref_material(model), claims["material"]),
-        ("Brakes", ref_brakes(model), claims["brakes"]),
+    for key, part, ref_val, ad_val in (
+        ("frame", "Frame", ref_material(model), claims["material"]),
+        ("brakes", "Brakes", ref_brakes(model), claims["brakes"]),
     ):
-        shown = spec(model, "Frame", "Material") if part == "Frame" else spec(model, "Rem")
+        shown = spec(model, "Frame", "Material") if key == "frame" else spec(model, "Rem")
+        ad_shown = Msg(ad_val) if ad_val else not_stated
         if not ref_val:
-            rows.append({"part": part, "original": shown or "Not in our data", "listing": ad_val or "Not stated",
-                         "status": UNKNOWN, "result": "Can't compare"})
+            rows.append(_row(key, part, shown or Msg("Not in our data"), ad_shown, UNKNOWN, "Can't compare"))
         elif not ad_val:
-            rows.append({"part": part, "original": shown or ref_val, "listing": "Not stated",
-                         "status": WARN, "result": "Ask seller"})
+            rows.append(_row(key, part, shown or Msg(ref_val), not_stated, WARN, "Ask seller"))
             warn += 1
         elif ad_val == ref_val:
-            rows.append({"part": part, "original": shown or ref_val, "listing": ad_val, "status": OK, "result": "Matches"})
+            rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, OK, "Matches"))
         else:
-            rows.append({"part": part, "original": shown or ref_val, "listing": ad_val, "status": BAD, "result": "Differs"})
+            rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, BAD, "Differs"))
             bad += 1
 
-    for part, keys in (("Wheels", ("Wiel voor", "Velg")), ("Tyres", ("Buitenband",)),
-                       ("Crankset", ("Crankstel",)), ("Saddle", ("Zadel",))):
+    for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg")), ("tyres", "Tyres", ("Buitenband",)),
+                            ("crankset", "Crankset", ("Crankstel",)), ("saddle", "Saddle", ("Zadel",))):
         ref_val = spec(model, *keys)
         if ref_val:
-            rows.append({"part": part, "original": ref_val, "listing": "Check photos", "status": UNKNOWN,
-                         "result": "Compare photos"})
+            rows.append(_row(key, part, ref_val, Msg("Check photos"), UNKNOWN, "Compare photos"))
 
     if bad:
-        status, headline = BAD, f"{bad} part{'s' if bad > 1 else ''} differ{'s' if bad == 1 else ''}"
+        status, headline = BAD, Msg("{n} parts differ" if bad > 1 else "{n} part differs", n=bad)
     elif warn:
-        status, headline = WARN, "Not enough detail"
+        status, headline = WARN, Msg("Not enough detail")
     else:
-        status, headline = OK, "Matches the original"
-    detail = ("The seller mentions changed parts. " if claims["mentions_upgrades"] else "") + \
-        f"Compared with the {model['brand']} spec sheet from {model.get('seen_on') or 'our catalogue'}."
+        status, headline = OK, Msg("Matches the original")
+    detail = join(claims["mentions_upgrades"] and Msg("The seller mentions changed parts."),
+                  Msg("Compared with the {brand} spec sheet from {date}.", brand=model["brand"],
+                      date=model.get("seen_on") or Msg("our catalogue")))
     return {"status": status, "headline": headline, "detail": detail, "rows": rows}
 
 
@@ -335,36 +344,41 @@ def size_options(brand):
 def check_size(model, claims, rider_height=None):
     chart = size_options(model["brand"])
     size = claims["size"]
+    notes = [Msg(SIZE_NOTE)]
     rows = [{"size": k, "low": lo, "high": hi, "selected": k == size}
             for k, (lo, hi) in chart.items() if k.isdigit() == bool(size and size.isdigit())] if size else []
     if not size:
-        return {"status": WARN, "headline": "Size not stated", "detail": "Ask the seller for the frame size.",
-                "rows": [], "fit": None, "notes": [SIZE_NOTE]}
+        return {"status": WARN, "headline": Msg("Size not stated"), "detail": Msg("Ask the seller for the frame size."),
+                "rows": [], "fit": None, "notes": notes}
     if size not in chart:
-        return {"status": UNKNOWN, "headline": f"Size {size}",
-                "detail": f"{model['brand']} doesn't use size {size} in our chart. Ask the seller to check the frame sticker.",
-                "rows": rows, "fit": None, "notes": [SIZE_NOTE]}
+        return {"status": UNKNOWN, "headline": Msg("Size {size}", size=size),
+                "detail": Msg("{brand} doesn't use size {size} in our chart. Ask the seller to check the frame sticker.",
+                              brand=model["brand"], size=size),
+                "rows": rows, "fit": None, "notes": notes}
     lo, hi = chart[size]
     fit = None
     if rider_height:
         if lo <= rider_height <= hi:
-            fit = {"status": OK, "text": "Good fit"}
+            fit = {"status": OK, "text": Msg("Good fit")}
         elif lo - 4 <= rider_height <= hi + 4:
-            fit = {"status": WARN, "text": "Borderline, test ride it"}
+            fit = {"status": WARN, "text": Msg("Borderline, test ride it")}
         else:
-            fit = {"status": BAD, "text": "Wrong size for you"}
-    return {"status": fit["status"] if fit else OK, "headline": f"Size {size}",
-            "detail": f"Fits riders of about {lo} to {hi} cm.", "rows": rows, "fit": fit, "notes": [SIZE_NOTE]}
+            fit = {"status": BAD, "text": Msg("Wrong size for you")}
+    return {"status": fit["status"] if fit else OK, "headline": Msg("Size {size}", size=size),
+            "detail": Msg("Fits riders of about {lo} to {hi} cm.", lo=lo, hi=hi), "rows": rows, "fit": fit,
+            "notes": notes}
 
 
 CONDITION_FACTOR = {"like-new": 1.05, None: 1.0, "used": 0.92, "damaged": 0.6}
+CONDITION_LABEL = {"like-new": "like new", "used": "used", "damaged": "damaged"}
 
 
 def check_value(model, claims, asking, spec_result, age_result, today=None):
     today = today or date.today()
     original = model.get("price_eur")
     if not original:
-        return {"status": UNKNOWN, "headline": "No original price", "detail": "We don't have a new price for this model."}
+        return {"status": UNKNOWN, "headline": Msg("No original price"),
+                "detail": Msg("We don't have a new price for this model.")}
     gen = generation_of(model["name"])
     years = GENERATIONS.get((model["brand"], family_of(model["name"]), gen))
     model_year = claims["year"]
@@ -377,38 +391,43 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
     # Rough curve: about 25% off in the first year, then about 12% a year.
     factor = 0.80 if age == 0 else 0.75 * (0.88 ** (age - 1))
     factor *= CONDITION_FACTOR.get(claims["condition"], 1.0)
-    downgrade = any(r["part"] == "Groupset" and r["status"] == BAD for r in spec_result["rows"])
+    downgrade = any(r["key"] == "groupset" and r["status"] == BAD for r in spec_result["rows"])
     if downgrade:
         ref = detect_groupset(groupset_text(model))
         if ref and claims["groupset"] and claims["groupset"]["rank"] < ref["rank"]:
             factor *= 0.9
     mid = original * factor
     low, high = round(mid * 0.9, -1), round(mid * 1.1, -1)
+    condition = Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
-              "condition": claims["condition"], "asking": asking,
-              "notes": ["Rough estimate: new price, age and condition only. Comparable ads aren't used yet.",
-                        f"New price is the {model['seen_on'][:4] if model.get('seen_on') else 'catalogue'} Dutch price, "
-                        "which can differ from what this bike cost new."]}
+              "condition": condition, "asking": asking,
+              "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
+                        Msg("New price is the {year} Dutch price, which can differ from what this bike cost new.",
+                            year=model["seen_on"][:4] if model.get("seen_on") else today.year)]}
     if other_generation:
-        result["notes"].append("The claimed year is before this generation, so the bike may be an older generation "
-                               "with a different new price.")
+        result["notes"].append(Msg("The claimed year is before this generation, so the bike may be an older "
+                                   "generation with a different new price."))
     if not asking:
-        result.update(status=UNKNOWN, headline=f"Fair €{low:,.0f} to €{high:,.0f}".replace(",", "."),
-                      detail="Add the asking price to see how it compares.")
+        result.update(status=UNKNOWN, headline=Msg("Fair {low} to {high}", low=eur(low), high=eur(high)),
+                      detail=Msg("Add the asking price to see how it compares."))
         return result
     if asking > high * 1.05:
-        diff = asking - high
-        result.update(status=WARN, headline=f"About €{diff:,.0f} high".replace(",", "."))
+        result.update(status=WARN, headline=Msg("About {diff} high", diff=eur(asking - high)))
     elif asking < low * 0.6:
-        result.update(status=BAD, headline="Suspiciously cheap")
+        result.update(status=BAD, headline=Msg("Suspiciously cheap"))
     elif asking < low * 0.95:
-        result.update(status=OK, headline="Below the fair range")
+        result.update(status=OK, headline=Msg("Below the fair range"))
     else:
-        result.update(status=OK, headline="Fair price")
-    result["detail"] = f"Fair range €{low:,.0f} to €{high:,.0f} for a {model_year} bike".replace(",", ".") + \
-        (f" in {claims['condition'].replace('-', ' ')} condition." if claims["condition"] else ".")
+        result.update(status=OK, headline=Msg("Fair price"))
+    if condition:
+        detail = Msg("Fair range {low} to {high} for a {year} bike in {condition} condition.",
+                     low=eur(low), high=eur(high), year=model_year, condition=condition)
+    else:
+        detail = Msg("Fair range {low} to {high} for a {year} bike.", low=eur(low), high=eur(high), year=model_year)
     if result["status"] == BAD:
-        result["detail"] += " A price this low can mean a stolen bike or a scam. Ask for the invoice and meet in person."
+        detail = join(detail, Msg("A price this low can mean a stolen bike or a scam. "
+                                  "Ask for the invoice and meet in person."))
+    result["detail"] = detail
     lo_axis, hi_axis = 0, max(original, asking) * 1.05
     span = hi_axis - lo_axis
     result["bar"] = {"low": 100 * low / span, "width": 100 * (high - low) / span, "asking": min(99.5, 100 * asking / span),
@@ -419,19 +438,21 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
 def seller_questions(model, claims, age, specs, size):
     qs = []
     if age["status"] in (WARN, BAD, UNKNOWN):
-        qs.append("Can you send a photo of the serial number under the bottom bracket?")
-        qs.append("Do you have the original invoice? Which year did you buy it?")
+        qs.append(Msg("Can you send a photo of the serial number under the bottom bracket?"))
+        qs.append(Msg("Do you have the original invoice? Which year did you buy it?"))
     for row in specs["rows"]:
-        if row["part"] == "Groupset" and row["status"] == BAD:
-            qs.append(f"The original came with {row['original']}. Was the groupset changed, and do you still have the original parts?")
+        if row["key"] == "groupset" and row["status"] == BAD:
+            qs.append(Msg("The original came with {original}. Was the groupset changed, and do you still have the "
+                          "original parts?", original=row["original"]))
         elif row["status"] == BAD:
-            qs.append(f"The original has {row['original'].lower()} for the {row['part'].lower()}. Can you explain the difference?")
-        elif row["part"] == "Wheels" and row["status"] == UNKNOWN:
-            qs.append(f"Are these the original wheels ({row['original'].split(',')[0]})?")
+            qs.append(Msg("The original has {original} for the {part}. Can you explain the difference?",
+                          original=row["original"], part=row["part"]))
+        elif row["key"] == "wheels" and row["status"] == UNKNOWN:
+            qs.append(Msg("Are these the original wheels ({wheels})?", wheels=row["original"].split(",")[0]))
     if size["status"] in (WARN, UNKNOWN):
-        qs.append("What frame size is printed on the frame?")
+        qs.append(Msg("What frame size is printed on the frame?"))
     if claims["condition"] is None:
-        qs.append("Has it been in a crash, and are there any cracks or deep scratches on the frame?")
+        qs.append(Msg("Has it been in a crash, and are there any cracks or deep scratches on the frame?"))
     return qs[:6]
 
 
@@ -444,8 +465,9 @@ def run_check(models, listing, today=None):
         chosen = next((m for m in models if m["id"] == listing["model_id"]), None)
     if chosen is None and ranked:
         chosen = ranked[0][1]
+    level = "chosen by you" if listing.get("model_id") else confidence(ranked)
     report = {"claims": claims, "candidates": [m for _, m in ranked[:8]],
-              "confidence": "chosen by you" if listing.get("model_id") else confidence(ranked), "model": chosen}
+              "confidence": Msg(level) if level else None, "model": chosen}
     if chosen is None:
         return report
     report["age"] = check_age(chosen, claims, today)

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl">
+<html lang="{{ lang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,22 +12,29 @@
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="{{ url_for('home') }}"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#FF5A1F" stroke-width="2.5" aria-hidden="true"><circle cx="7" cy="18" r="5"/><circle cx="21" cy="18" r="5"/><path d="M7 18l5-9h6l3 9M12 9l4 9"/></svg>Bike Compare</a>
-    <nav aria-label="Main">
-      <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}">Check a listing</a>
-      <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}">Listings</a>
-      <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}">Models</a>
-      <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}">Size finder</a>
-      <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}">Value</a>
-    </nav>
+    <div class="header-right">
+      <nav aria-label="{{ _('Main') }}">
+        <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}">{{ _('Check a listing') }}</a>
+        <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}">{{ _('Listings') }}</a>
+        <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}">{{ _('Models') }}</a>
+        <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}">{{ _('Size finder') }}</a>
+        <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}">{{ _('Value') }}</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="{{ _('Language') }}">
+        {% for code, name in languages.items() %}
+        <a href="{{ lang_url(code) }}" hreflang="{{ code }}" lang="{{ code }}" title="{{ name }}" class="{{ 'on' if code == lang }}" {% if code == lang %}aria-current="true"{% endif %}>{{ code|upper }}</a>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </header>
 {% block body %}{% endblock %}
 <footer class="site-footer">
   <div class="wrap">
-    <span>Bike Compare · prototype</span>
-    <a href="{{ url_for('how') }}">How it works</a>
-    <a href="{{ url_for('how') }}#sources">Data sources</a>
-    <span>Not affiliated with Marktplaats or any bike brand.</span>
+    <span>{{ _('Bike Compare · prototype') }}</span>
+    <a href="{{ url_for('how') }}">{{ _('How it works') }}</a>
+    <a href="{{ url_for('how') }}#sources">{{ _('Data sources') }}</a>
+    <span>{{ _('Not affiliated with Marktplaats or any bike brand.') }}</span>
   </div>
 </footer>
 </body>

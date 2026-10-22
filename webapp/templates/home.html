@@ -2,28 +2,30 @@
 {% from "_macros.html" import check_form, listing_card %}
 {% block body %}
 <section class="hero">
-  <svg class="hero-bike" aria-hidden="true" viewBox="0 0 600 360" fill="none" stroke="#FF5A1F" stroke-width="10"><circle cx="130" cy="240" r="110"/><circle cx="470" cy="240" r="110"/><path d="M130 240l110-170h150l80 170M240 70l90 170h-200M330 240l60-170M215 40h60M370 50h50"/></svg>
   <div class="wrap">
-    <div class="kicker">Second-hand bike check · Netherlands</div>
-    <h1>Is that used bike <span>really</span> what the seller says?</h1>
-    <p class="lede">Paste the ad. We match it to the original model and tell you if the age, specs, size and asking price add up.</p>
+    <div class="hero-intro">
+      <div class="kicker">{{ _('Second-hand bike check · Netherlands') }}</div>
+      <h1>{{ _('Is that bike <span>really</span> what the seller says?')|safe }}</h1>
+      <p class="lede">{{ _('Paste the ad. We match it to the original model and tell you if the age, specs, size and asking price add up.') }}</p>
+      <svg class="hero-bike" aria-hidden="true" viewBox="0 0 600 360" fill="none" stroke="#FF5A1F" stroke-width="10"><circle cx="130" cy="240" r="110"/><circle cx="470" cy="240" r="110"/><path d="M130 240l110-170h150l80 170M240 70l90 170h-200M330 240l60-170M215 40h60M370 50h50"/></svg>
+    </div>
     {{ check_form({}, None) }}
   </div>
 </section>
 
 <section class="wrap stack" style="padding-top: 64px; padding-bottom: 24px; gap: 28px">
-  <h2>What a check tells you</h2>
+  <h2>{{ _('What a check tells you') }}</h2>
   <div class="grid">
-    <div class="tile"><div class="mono">01 · AGE</div><h3>Is it as old as stated?</h3><p class="muted">We compare the claimed year with the years the model was sold.</p></div>
-    <div class="tile"><div class="mono">02 · SPECS</div><h3>Are the parts original?</h3><p class="muted">Groupset, frame and brakes are checked against the factory spec sheet.</p></div>
-    <div class="tile"><div class="mono">03 · SIZE</div><h3>Will it fit you?</h3><p class="muted">The frame size is turned into a rider height range.</p></div>
-    <div class="tile"><div class="mono">04 · VALUE</div><h3>Is the price fair?</h3><p class="muted">A fair price range from the new price, age and condition.</p></div>
+    <div class="tile"><div class="mono">{{ _('01 · AGE') }}</div><h3>{{ _('Is it as old as stated?') }}</h3><p class="muted">{{ _('We compare the claimed year with the years the model was sold.') }}</p></div>
+    <div class="tile"><div class="mono">{{ _('02 · SPECS') }}</div><h3>{{ _('Are the parts original?') }}</h3><p class="muted">{{ _('Groupset, frame and brakes are checked against the factory spec sheet.') }}</p></div>
+    <div class="tile"><div class="mono">{{ _('03 · SIZE') }}</div><h3>{{ _('Will it fit you?') }}</h3><p class="muted">{{ _('The frame size is turned into a rider height range.') }}</p></div>
+    <div class="tile"><div class="mono">{{ _('04 · VALUE') }}</div><h3>{{ _('Is the price fair?') }}</h3><p class="muted">{{ _('A fair price range from the new price, age and condition.') }}</p></div>
   </div>
 </section>
 
 {% if cards %}
 <section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
-  <div class="row" style="justify-content: space-between"><h2>Recently checked</h2><a href="{{ url_for('listings') }}" style="font-weight: 600">See all listings</a></div>
+  <div class="row" style="justify-content: space-between"><h2>{{ _('Recently checked') }}</h2><a href="{{ url_for('listings') }}" style="font-weight: 600">{{ _('See all listings') }}</a></div>
   <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
     {% for row, r in cards %}{{ listing_card(row, r) }}{% endfor %}
   </div>
@@ -32,13 +34,13 @@
 
 <section class="wrap row" style="padding-top: 40px; padding-bottom: 72px; justify-content: space-between; gap: 24px">
   <div class="stack" style="gap: 8px; flex: 1 1 420px">
-    <h2 style="font-size: 24px">Brands we cover</h2>
-    <p class="muted">Reference data comes from the brands' own Dutch catalogues. Dashed brands are coming next.</p>
+    <h2 style="font-size: 24px">{{ _('Brands we cover') }}</h2>
+    <p class="muted">{{ _("Reference data comes from the brands' own Dutch catalogues. Dashed brands are coming next.") }}</p>
   </div>
   <div class="row">
     {% for b in brands %}
       {% if b.scraper %}<a class="pill" href="{{ url_for('catalog', brand=b.name) }}">{{ b.name }}</a>
-      {% else %}<span class="pill" style="border-style: dashed; color: var(--muted); font-weight: 500">{{ b.name }}</span>{% endif %}
+      {% else %}<span class="pill" style="border-style: dashed; color: var(--muted); font-weight: 500" title="{{ _('Coming next') }}">{{ b.name }}</span>{% endif %}
     {% endfor %}
   </div>
 </section>

@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo %}
-{% block title %}Models · Bike Compare{% endblock %}
+{% block title %}{{ _('Models') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
-    <h1 style="font-size: 44px">Models</h1>
-    <p class="muted">{{ count }} models from the brands' Dutch catalogues.</p>
+    <h1 style="font-size: 44px">{{ _('Models') }}</h1>
+    <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
   </div>
   <form class="filters" method="get">
-    <a class="pill {{ 'on' if not brand }}" href="{{ url_for('catalog', q=q or None) }}">All brands</a>
+    <a class="pill {{ 'on' if not brand }}" href="{{ url_for('catalog', q=q or None) }}">{{ _('All brands') }}</a>
     {% for b in brands %}
       {% if b.scraper %}<a class="pill {{ 'on' if brand == b.name }}" href="{{ url_for('catalog', brand=b.name, q=q or None) }}">{{ b.name }}</a>
-      {% else %}<span class="pill" style="border-style: dashed; color: var(--muted); font-weight: 500" title="Coming next">{{ b.name }}</span>{% endif %}
+      {% else %}<span class="pill" style="border-style: dashed; color: var(--muted); font-weight: 500" title="{{ _('Coming next') }}">{{ b.name }}</span>{% endif %}
     {% endfor %}
     {% if brand %}<input type="hidden" name="brand" value="{{ brand }}">{% endif %}
-    <label class="sr-only" for="q">Search models</label>
-    <input id="q" name="q" value="{{ q }}" placeholder="Search, e.g. Domane" style="margin-left: auto; width: 240px">
-    <button class="btn ghost" type="submit">Search</button>
+    <label class="sr-only" for="q">{{ _('Search models') }}</label>
+    <input id="q" name="q" value="{{ q }}" placeholder="{{ _('Search, e.g. Domane') }}" style="margin-left: auto; width: 240px">
+    <button class="btn ghost" type="submit">{{ _('Search') }}</button>
   </form>
   {% for (b, cat), items in categories|dictsort %}
   <section class="stack">
@@ -25,13 +25,13 @@
       {% for m in items %}
       <a class="model-card" href="{{ url_for('model_page', slug=m.slug) }}">
         <div class="photo">{{ photo(m) }}</div>
-        <div class="body"><span style="font-weight: 700">{{ m.name }}</span><span class="small muted">New {{ m.price_eur|eur }}</span></div>
+        <div class="body"><span style="font-weight: 700">{{ m.name }}</span><span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span></div>
       </a>
       {% endfor %}
     </div>
   </section>
   {% else %}
-  <div class="card"><p>No models match.</p></div>
+  <div class="card"><p>{{ _('No models match.') }}</p></div>
   {% endfor %}
 </main>
 {% endblock %}

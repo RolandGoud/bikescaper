@@ -1,46 +1,46 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo %}
-{% block title %}Check: {{ listing.title }} · Bike Compare{% endblock %}
+{% block title %}{{ _('Check report') }}: {{ listing.title }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
-  <div class="crumbs"><a href="{{ url_for('listings') }}">Listings</a> / Check report</div>
+  <div class="crumbs"><a href="{{ url_for('listings') }}">{{ _('Listings') }}</a> / {{ _('Check report') }}</div>
 
   <section class="card listing-head">
-    <div class="photo">{{ photo(r.model, 'Catalogue photo of the matched model') }}</div>
+    <div class="photo">{{ photo(r.model) }}</div>
     <div class="info">
-      <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else 'PASTED AD' }}{% if listing.location %} · {{ listing.location }}{% endif %} · checked {{ listing.created_at[:10] }}</div>
+      <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ _('checked {date}', date=listing.created_at[:10]) }}</div>
       <h1>“{{ listing.title }}”</h1>
       <div class="price">{{ listing.asking_price|eur }}</div>
       {% if r.model %}
       <div class="match-box">
-        <span>Matched to</span>
+        <span>{{ _('Matched to') }}</span>
         <a href="{{ url_for('model_page', slug=r.model.slug) }}" style="font-weight: 700">{{ r.model.brand }} {{ r.model.name }}</a>
-        <span class="mono muted">{{ r.confidence }} confidence</span>
+        <span class="mono muted">{{ _('{level} confidence', level=r.confidence) }}</span>
         <form method="post" action="{{ url_for('change_match', check_id=listing.id) }}">
-          <label class="sr-only" for="model_id">Change match</label>
+          <label class="sr-only" for="model_id">{{ _('Change match') }}</label>
           <select id="model_id" name="model_id">
             {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
-            <optgroup label="All models">
+            <optgroup label="{{ _('All models') }}">
             {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}">{{ m.brand }} {{ m.name }}</option>{% endfor %}
             </optgroup>
           </select>
-          <button class="btn ghost" type="submit">Change match</button>
+          <button class="btn ghost" type="submit">{{ _('Change match') }}</button>
         </form>
       </div>
       {% endif %}
-      {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">Open the ad</a></div>{% endif %}
+      {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
     </div>
   </section>
 
   {% if not r.model %}
   <section class="card">
-    <h2>No matching model</h2>
+    <h2>{{ _('No matching model') }}</h2>
     {% if r.claims.brand and r.claims.brand not in covered %}
-      <p>We don't have {{ r.claims.brand }} models in the catalogue yet. It's on the list of brands to collect next.</p>
+      <p>{{ _("We don't have {brand} models in the catalogue yet. It's on the list of brands to collect next.", brand=r.claims.brand) }}</p>
     {% else %}
-      <p>We couldn't find the brand and model in the title or text. Bike Compare covers {{ covered|join(' and ') }} for now; make sure the ad names the model, for example “Trek Domane SL 6”.</p>
+      <p>{{ _("We couldn't find the brand and model in the title or text. Bike Compare covers {brands} for now; make sure the ad names the model, for example “Trek Domane SL 6”.", brands=covered|join(' ' ~ _('and') ~ ' ')) }}</p>
     {% endif %}
-    <p><a href="{{ url_for('catalog') }}">Browse the models we have</a></p>
+    <p><a href="{{ url_for('catalog') }}">{{ _('Browse the models we have') }}</a></p>
   </section>
   {% else %}
 
@@ -48,7 +48,7 @@
     {% for key, label in [('age','AGE'), ('specs','SPECS'), ('size','SIZE'), ('value','VALUE')] %}
     {% set v = r[key] %}
     <a href="#{{ key }}" class="verdict {{ v.status }}-bg">
-      <span class="mono {{ v.status }}">{{ label }}</span>
+      <span class="mono {{ v.status }}">{{ _(label) }}</span>
       <span class="big {{ v.status }}">{{ v.headline }}</span>
       <span class="why">{{ v.detail }}</span>
     </a>
@@ -56,27 +56,27 @@
   </section>
 
   <section id="age" class="card">
-    <h2>Age check</h2>
+    <h2>{{ _('Age check') }}</h2>
     {% if r.age.timeline %}
     <div class="timeline">
       {% for y in r.age.timeline %}
-      <div class="{{ 'bad-bg' if y.claimed and not y.sold else ('ok-bg' if y.sold else 'unknown-bg') }}">{{ y.year }}<br>{{ 'claimed' if y.claimed else ('sold' if y.sold else '–') }}</div>
+      <div class="{{ 'bad-bg' if y.claimed and not y.sold else ('ok-bg' if y.sold else 'unknown-bg') }}">{{ y.year }}<br>{{ _('claimed') if y.claimed else (_('sold') if y.sold else '–') }}</div>
       {% endfor %}
     </div>
     {% endif %}
     <p><span class="{{ r.age.status }}" style="font-weight: 700">{{ r.age.headline }}:</span> {{ r.age.detail }}</p>
-    <p><span class="unknown" style="font-weight: 700">Serial number:</span> ask for a photo of the sticker under the bottom bracket.</p>
+    <p><span class="unknown" style="font-weight: 700">{{ _('Serial number:') }}</span> {{ _('ask for a photo of the sticker under the bottom bracket.') }}</p>
     <div class="notes">{% for n in r.age.notes %}<span>{{ n }}</span>{% endfor %}</div>
   </section>
 
   <section id="specs" class="card">
     <div class="row" style="justify-content: space-between; align-items: baseline">
-      <h2>Spec comparison</h2>
+      <h2>{{ _('Spec comparison') }}</h2>
       <span class="small muted">{{ r.specs.detail }}</span>
     </div>
     <div class="spec-table">
       <table>
-        <thead><tr><th>PART</th><th>ORIGINAL</th><th>IN THE AD</th><th>RESULT</th></tr></thead>
+        <thead><tr><th>{{ _('PART') }}</th><th>{{ _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th><th>{{ _('RESULT') }}</th></tr></thead>
         <tbody>
         {% for s in r.specs.rows %}
           <tr><td>{{ s.part }}</td><td>{{ s.original }}</td><td>{{ s.listing }}</td><td class="{{ s.status }}">{{ s.result }}</td></tr>
@@ -87,44 +87,44 @@
   </section>
 
   <section id="size" class="card">
-    <h2>Size fit</h2>
+    <h2>{{ _('Size fit') }}</h2>
     {% if r.size.rows %}
     <div class="sizes">
       {% for s in r.size.rows %}<div class="{{ 'on' if s.selected }}">{{ s.size }}<br>{{ s.low }}–{{ s.high }}</div>{% endfor %}
     </div>
-    <div class="small muted">Rider height in cm.</div>
+    <div class="small muted">{{ _('Rider height in cm.') }}</div>
     {% endif %}
     <p>{{ r.size.detail }}</p>
     <form class="inline-form" method="get" action="{{ url_for('report', check_id=listing.id) }}">
-      <label for="height" style="font-weight: 600">Your height</label>
+      <label for="height" style="font-weight: 600">{{ _('Your height') }}</label>
       <input id="height" name="height" type="number" min="120" max="220" value="{{ height or '' }}" placeholder="178">
       <span>cm</span>
-      <button class="btn ghost" type="submit">Check fit</button>
+      <button class="btn ghost" type="submit">{{ _('Check fit') }}</button>
       {% if r.size.fit %}<span class="{{ r.size.fit.status }}" style="font-weight: 700">{{ r.size.fit.text }}</span>{% endif %}
-      <a href="{{ url_for('size_finder', brand=r.model.brand, height=height or 178) }}" style="margin-left: auto">Open the size finder</a>
+      <a href="{{ url_for('size_finder', brand=r.model.brand, height=height or 178) }}" style="margin-left: auto">{{ _('Open the size finder') }}</a>
     </form>
     <div class="notes">{% for n in r.size.notes %}<span>{{ n }}</span>{% endfor %}</div>
   </section>
 
   <section id="value" class="card">
-    <h2>Value estimate</h2>
+    <h2>{{ _('Value estimate') }}</h2>
     {% set v = r.value %}
     {% if v.bar %}
     <div class="stack" style="gap: 8px">
-      <div class="value-bar" role="img" aria-label="Fair range {{ v.low|eur }} to {{ v.high|eur }}, asking {{ v.asking|eur }}">
+      <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=v.asking|eur) }}">
         <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
         <div class="ask" style="left: {{ v.bar.asking }}%"></div>
       </div>
-      <div class="value-legend"><span><i style="background: var(--orange-soft)"></i>Fair {{ v.low|eur }}–{{ v.high|eur }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>Asking {{ v.asking|eur }}</span><span class="muted">Scale €0 to {{ v.bar.max|eur }}</span></div>
+      <div class="value-legend"><span><i style="background: var(--orange-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span><span class="muted">{{ _('Scale €0 to {max}', max=v.bar.max|eur) }}</span></div>
     </div>
     {% endif %}
     <p>{{ v.detail }}</p>
     {% if v.original %}
     <div class="facts">
-      <div><div class="k">New price</div><div class="v">{{ v.original|eur }}</div></div>
-      <div><div class="k">Model year used</div><div class="v">{{ v.model_year }}</div></div>
-      <div><div class="k">Condition from the ad</div><div class="v">{{ (v.condition or 'not stated')|replace('-', ' ') }}</div></div>
-      <div><div class="k">Similar ads now</div><div class="v">[coming later]</div></div>
+      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
+      <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
+      <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
+      <div><div class="k">{{ _('Similar ads now') }}</div><div class="v">{{ _('[coming later]') }}</div></div>
     </div>
     {% endif %}
     <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
@@ -132,11 +132,11 @@
 
   {% if r.questions %}
   <section class="card dark">
-    <h2>Ask the seller</h2>
+    <h2>{{ _('Ask the seller') }}</h2>
     <ol class="questions" id="questions">
       {% for q in r.questions %}<li>“{{ q }}”</li>{% endfor %}
     </ol>
-    <button class="btn" type="button" style="align-self: flex-start" onclick="navigator.clipboard.writeText([...document.querySelectorAll('#questions li')].map(li => li.textContent).join('\n')); this.textContent = 'Copied'">Copy questions</button>
+    <button class="btn" type="button" style="align-self: flex-start" data-copied="{{ _('Copied') }}" onclick="navigator.clipboard.writeText([...document.querySelectorAll('#questions li')].map(li => li.textContent).join('\n')); this.textContent = this.dataset.copied">{{ _('Copy questions') }}</button>
   </section>
   {% endif %}
   {% endif %}

@@ -1,16 +1,16 @@
 {% macro photo(model, alt='') -%}
-{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy">{% else %}<span>[no photo yet]</span>{% endif %}
+{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy">{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
 {%- endmacro %}
 
 {% macro chips(r) -%}
 {% if r.model %}
 <div class="chips">
-  <span class="chip {{ r.age.status }}-bg">Age: {{ r.age.headline|lower }}</span>
-  <span class="chip {{ r.specs.status }}-bg">Specs: {{ r.specs.headline|lower }}</span>
-  <span class="chip {{ r.value.status }}-bg">Price: {{ r.value.headline|lower }}</span>
+  <span class="chip {{ r.age.status }}-bg">{{ _('Age: {v}', v=r.age.headline|string|lower) }}</span>
+  <span class="chip {{ r.specs.status }}-bg">{{ _('Specs: {v}', v=r.specs.headline|string|lower) }}</span>
+  <span class="chip {{ r.value.status }}-bg">{{ _('Price: {v}', v=r.value.headline|string|lower) }}</span>
 </div>
 {% else %}
-<div class="chips"><span class="chip unknown-bg">No matching model yet</span></div>
+<div class="chips"><span class="chip unknown-bg">{{ _('No matching model yet') }}</span></div>
 {% endif %}
 {%- endmacro %}
 
@@ -19,8 +19,8 @@
   <div class="photo">{{ photo(r.model) }}</div>
   <div class="body">
     <div style="font-weight: 600">{{ row.title }}</div>
-    <div class="small muted">{% if r.model %}Matched to {{ r.model.brand }} {{ r.model.name }}{% else %}Not matched{% endif %}</div>
-    <div class="small muted">Asking {{ row.asking_price|eur }}{% if row.location %} · {{ row.location }}{% endif %}</div>
+    <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.brand ~ ' ' ~ r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
+    <div class="small muted">{{ _('Asking {price}', price=row.asking_price|eur) }}{% if row.location %} · {{ row.location }}{% endif %}</div>
     {{ chips(r) }}
   </div>
 </a>
@@ -29,24 +29,24 @@
 {% macro check_form(form, error, dark=true) -%}
 <form class="check-form{{ '' if dark else ' light' }}" method="post" action="{{ url_for('new_check') }}">
   {% if error %}<div class="error field wide" role="alert">{{ error }}</div>{% endif %}
-  <label class="field wide">Ad title <span class="hint">Copy the title from the Marktplaats ad.</span>
+  <label class="field wide">{{ _('Ad title') }} <span class="hint">{{ _('From the Marktplaats ad') }}</span>
     <input name="title" required value="{{ form.title or '' }}" placeholder="Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat">
   </label>
-  <label class="field wide">Ad text <span class="hint">Paste the description. We read the year, size, groupset and condition from it.</span>
+  <label class="field wide">{{ _('Ad text') }} <span class="hint">{{ _('We read the year, size, groupset and condition from it') }}</span>
     <textarea name="description" placeholder="Mooie racefiets, carbon frame, hydraulische schijfremmen...">{{ form.description or '' }}</textarea>
   </label>
-  <label class="field">Asking price (€)
+  <label class="field">{{ _('Asking price (€)') }}
     <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2450">
   </label>
-  <label class="field">Place
+  <label class="field">{{ _('Place') }}
     <input name="location" value="{{ form.location or '' }}" placeholder="Utrecht">
   </label>
-  <label class="field">Your height (cm) <span class="hint">Optional</span>
-    <input name="rider_height" inputmode="numeric" value="{{ form.rider_height or '' }}" placeholder="178">
+  <label class="field">{{ _('Your height (cm)') }}
+    <input name="rider_height" inputmode="numeric" value="{{ form.rider_height or '' }}" placeholder="{{ _('Optional, e.g. 178') }}">
   </label>
-  <label class="field wide">Link to the ad <span class="hint">Optional. We save it with the check but don't open it.</span>
+  <label class="field wide">{{ _('Link to the ad') }} <span class="hint">{{ _('Optional, saved with the check') }}</span>
     <input name="listing_url" type="url" value="{{ form.listing_url or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
   </label>
-  <div class="field wide"><button class="btn" type="submit">Check this bike</button></div>
+  <div class="field wide"><button class="btn" type="submit">{{ _('Check this bike') }}</button></div>
 </form>
 {%- endmacro %}

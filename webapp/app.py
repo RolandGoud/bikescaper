@@ -11,6 +11,7 @@ from datetime import date
 from flask import Flask, abort, g, redirect, render_template, request, send_from_directory, url_for
 
 from . import checks, db
+from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, SIZE_CHARTS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -19,6 +20,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 def create_app(db_path=None):
     app = Flask(__name__)
     app.config["DB_PATH"] = db_path or db.DB_PATH
+    app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
 
     def conn():
         if "conn" not in g:
@@ -49,9 +51,33 @@ def create_app(db_path=None):
             listing["rider_height"] = height
         return listing
 
+    @app.before_request
+    def pick_language():
+        # ?lang= switches and is remembered in a cookie; otherwise follow the browser, defaulting to Dutch.
+        lang = request.args.get("lang")
+        if lang not in LANGUAGES:
+            lang = request.cookies.get("lang")
+        if lang not in LANGUAGES:
+            lang = request.accept_languages.best_match(list(LANGUAGES)) or DEFAULT_LANGUAGE
+        g.lang = lang
+        current_language.set(lang)
+
+    @app.after_request
+    def remember_language(response):
+        if request.args.get("lang") in LANGUAGES:
+            response.set_cookie("lang", request.args["lang"], max_age=365 * 24 * 3600, samesite="Lax")
+        return response
+
+    def lang_url(code):
+        args = {k: v for k, v in request.args.items() if k != "lang"}
+        if request.endpoint and request.method == "GET":
+            return url_for(request.endpoint, **(request.view_args or {}), **args, lang=code)
+        return url_for("home", lang=code)
+
     @app.context_processor
     def globals_():
-        return {"brands": BRANDS, "charted": SIZE_CHARTS,
+        return {"brands": BRANDS, "charted": SIZE_CHARTS, "lang": g.get("lang", DEFAULT_LANGUAGE),
+                "languages": LANGUAGES, "lang_url": lang_url,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
     @app.template_filter("eur")
@@ -72,7 +98,7 @@ def create_app(db_path=None):
         title = (form.get("title") or "").strip()
         if not title:
             return render_template("check_form.html", nav="check", form=form,
-                                   error="Paste at least the ad's title."), 400
+                                   error=gettext("Paste at least the ad's title.")), 400
         cur = conn().execute(
             "INSERT INTO checks (listing_url, title, description, asking_price, location, rider_height)"
             " VALUES (?,?,?,?,?,?)",
