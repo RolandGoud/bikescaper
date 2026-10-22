@@ -1,12 +1,11 @@
 # Bike Compare test environment for a NAS, in one file.
-# Nothing else is needed next to this file: on first start the container downloads
-# the code from GitHub, installs it and loads the bike catalogue.
+# Nothing else is needed next to this file: on every start the container downloads
+# the latest code from GitHub, installs it and loads the bike catalogue.
 #
 # UGREEN NAS: Docker app > Project > Create, paste this file, deploy.
 # The site is then at http://<nas-ip>:8280 (the first start takes a few minutes).
 #
-# To get newer code: stop the project, delete the "bikecompare-code" volume, start again.
-# Saved checks are in "bikecompare-data" and are kept.
+# To get newer code: restart the container. Saved checks are in "bikecompare-data" and are kept.
 
 services:
   bikecompare:
@@ -22,19 +21,27 @@ services:
       - -c
       - |
         set -e
-        if [ ! -f webapp/app.py ]; then
-          echo "Downloading Bike Compare from GitHub..."
-          python -c "
-        import io, os, tarfile, urllib.request
+        # Fetch the latest code from GitHub on every start, so a restart is an update.
+        # If GitHub can't be reached, keep running the code from the last start.
+        echo "Downloading Bike Compare ($$BRANCH) from GitHub..."
+        python -c "
+        import io, os, shutil, sys, tarfile, urllib.request
         url = 'https://codeload.github.com/RolandGoud/bikescaper/tar.gz/refs/heads/' + os.environ['BRANCH']
+        try:
+            data = urllib.request.urlopen(url, timeout=120).read()
+        except Exception as exc:
+            if os.path.exists('/app/webapp/app.py'):
+                sys.exit(f'Download failed ({exc}); starting the code from last time')
+            raise
         keep = ('webapp/', 'data/Trek/', 'data/Canyon/', 'images/')
-        tar = tarfile.open(fileobj=io.BytesIO(urllib.request.urlopen(url).read()))
+        tar = tarfile.open(fileobj=io.BytesIO(data))
         members = [m for m in tar.getmembers() if m.isfile() and m.name.split('/', 1)[-1].startswith(keep)]
         for m in members:
             m.name = m.name.split('/', 1)[1]
+        for d in ('webapp', 'data', 'images'):
+            shutil.rmtree(os.path.join('/app', d), ignore_errors=True)
         tar.extractall('/app', members=members, filter='data')
-        "
-        fi
+        " || true
         pip install --no-cache-dir --quiet --root-user-action=ignore -r webapp/requirements.txt
         python -m webapp.seed --if-empty
         exec gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - webapp.app:app

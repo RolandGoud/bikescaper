@@ -130,3 +130,14 @@ def test_every_message_has_a_dutch_translation(models):
     for m in msgs:
         if isinstance(m, i18n.Msg) and "{p0}" not in m.text:
             assert m.text in i18n.NL, m.text
+
+
+def test_model_photos_are_side_views():
+    from webapp.seed import pick_image
+    # Canyon: the *_FULL_* product shot, not a close-up or an award badge from the same page.
+    assert "_FULL_aeroad_cfr-axs_" in pick_image({"brand": "Canyon", "name": "Aeroad CFR AXS"})
+    assert "_FULL_aeroad_cf-slx-7-axs_" in pick_image({"brand": "Canyon", "name": "Aeroad CF SLX 7 AXS SPEED"})
+    assert "_FULL_ultimate_cf-yh_" in pick_image({"brand": "Canyon", "name": "Ultimate CF Young Hero"})
+    # Trek: a file for this exact model, never one for a sibling.
+    assert "/DomaneSL6-" in "/" + pick_image({"brand": "Trek", "name": "Domane SL 6 gen 4"}).split("/")[-1]
+    assert pick_image({"brand": "Trek", "name": "Domane SL 6 AXS gen 4"}) is None
