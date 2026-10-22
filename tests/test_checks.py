@@ -198,3 +198,11 @@ def test_model_page_shows_spec_groups(tmp_path):
     assert "Drivetrain" in page and "Rear derailleur" in page
     page = client.get("/models/trek-domane-sl-6-gen-4?lang=nl").data.decode()
     assert "Aandrijving" in page and "Achterderailleur" in page
+
+
+def test_brand_links_open_in_a_new_tab(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models/trek-domane-sl-6-gen-4").data.decode()
+    assert 'href="https://www.trekbikes.com' in page and 'target="_blank" rel="noopener"' in page
