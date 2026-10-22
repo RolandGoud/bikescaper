@@ -141,3 +141,31 @@ def test_model_photos_are_side_views():
     # Trek: a file for this exact model, never one for a sibling.
     assert "/DomaneSL6-" in "/" + pick_image({"brand": "Trek", "name": "Domane SL 6 gen 4"}).split("/")[-1]
     assert pick_image({"brand": "Trek", "name": "Domane SL 6 AXS gen 4"}) is None
+
+
+def test_every_catalogue_model_has_a_discipline(models):
+    # A new brand's families must be added to reference.FAMILY_DISCIPLINES, not left under "Other".
+    unplaced = [f"{m['brand']} {m['name']}" for m in models if checks.discipline_of(m) == "other"]
+    assert not unplaced
+
+
+def test_disciplines_ignore_brand_categories(models):
+    by_name = {f"{m['brand']} {m['name']}": checks.discipline_of(m) for m in models}
+    assert by_name["Trek Madone SL 6 Gen 8"] == by_name["Canyon Ultimate CF SLX 8 Di2"] == "road"
+    assert by_name["Trek Domane+ SLR 7"] == "ebike"
+    assert checks.discipline_of({"brand": "Canyon", "name": "Speedmax CF 7", "category": "Aero"}) == "tt"
+    assert checks.discipline_of({"brand": "Scott", "name": "Addict Gravel 20", "category": ""}) == "gravel"
+    assert checks.discipline_of({"brand": "Specialized", "name": "Turbo Creo 2", "category": ""}) == "ebike"
+    assert checks.discipline_of({"brand": "Ridley", "name": "Kanzo Fast", "category": "Gravel"}) == "gravel"
+
+
+def test_models_page_groups_by_discipline(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models?lang=en").data.decode()
+    assert "Time trial &amp; triathlon" in page and "Performance road bikes" not in page
+    page = client.get("/models?lang=en&type=tt").data.decode()
+    assert "Speedmax" in page and "Madone" not in page
+    page = client.get("/models?lang=nl&type=tt&brand=Trek").data.decode()
+    assert "Tijdrit &amp; triatlon" in page and "Speedmax" not in page

@@ -74,3 +74,85 @@ BRAND_NAMES = [b["name"] for b in BRANDS]
 
 # Used for brands without their own chart yet.
 GENERIC_SIZE_CHART = {**SIZE_CHARTS["Trek"], "2XS": (148, 155), "2XL": (193, 200)}
+
+# The same disciplines for every brand, so the Models page groups bikes alike whatever
+# each brand calls its own categories. (key, label); the label is translated on the page.
+DISCIPLINES = [
+    ("road", "Road"),
+    ("gravel", "Gravel & cyclocross"),
+    ("tt", "Time trial & triathlon"),
+    ("fitness", "Fitness & city"),
+    ("mtb", "Mountain"),
+    ("ebike", "E-bike"),
+]
+
+# Model families per discipline: the first word of the model name, as checks.family_of reads it.
+# Trek and Canyon are checked against their catalogue; the other brands are taken from their
+# current line-ups and should be confirmed once their scrapers run.
+FAMILY_DISCIPLINES = {
+    "road": {
+        "Trek": ["madone", "emonda", "domane"],
+        "Canyon": ["aeroad", "ultimate", "endurace"],
+        "Specialized": ["tarmac", "aethos", "allez", "roubaix"],
+        "Giant": ["propel", "tcr", "defy"],
+        "Cannondale": ["systemsix", "supersix", "caad", "synapse"],
+        "Scott": ["foil", "addict", "speedster"],
+        "Orbea": ["orca", "avant"],
+        "Cube": ["litening", "agree", "attain"],
+        "Factor": ["ostro", "o", "monza"],
+    },
+    "gravel": {
+        "Trek": ["checkpoint", "checkmate", "boone"],
+        "Canyon": ["grail", "grizl", "inflite"],
+        "Specialized": ["diverge", "crux"],
+        "Giant": ["revolt", "tcx"],
+        "Cannondale": ["topstone", "superx"],
+        "Orbea": ["terra"],
+        "Cube": ["nuroad", "cross"],
+        "Factor": ["explorer"],
+    },
+    "tt": {
+        "Trek": ["speed"],
+        "Canyon": ["speedmax"],
+        "Specialized": ["shiv"],
+        "Giant": ["trinity"],
+        "Scott": ["plasma"],
+        "Orbea": ["ordu"],
+        "Cube": ["aerium"],
+        "Factor": ["hanzo"],
+    },
+    "fitness": {
+        "Trek": ["fx"],
+        "Canyon": ["roadlite"],
+        "Specialized": ["sirrus"],
+        "Giant": ["escape", "fastroad"],
+        "Cannondale": ["quick"],
+        "Scott": ["sub"],
+        "Orbea": ["vector"],
+    },
+    "mtb": {
+        "Trek": ["marlin", "procaliber", "supercaliber", "fuel", "slash"],
+        "Canyon": ["exceed", "lux", "neuron", "spectral", "strive"],
+        "Specialized": ["epic", "chisel", "stumpjumper", "enduro"],
+        "Giant": ["talon", "xtc", "anthem", "trance", "reign"],
+        "Cannondale": ["trail", "scalpel", "habit", "jekyll"],
+        "Scott": ["scale", "spark", "genius", "ransom"],
+        "Orbea": ["alma", "oiz", "occam", "rallon"],
+        "Cube": ["reaction", "ams", "stereo"],
+    },
+}
+# Words in a model name that put it in a discipline whatever its family: "Addict Gravel",
+# "Domane+", "Turbo Creo", "Synapse Neo", "Agree Hybrid".
+NAME_WORDS = {
+    "ebike": ["plus", "turbo", "neo", "hybrid", "gain"],
+    "gravel": ["gravel", "cx", "cyclocross"],
+}
+# Last resort for a family not listed above: words in the brand's own category name.
+CATEGORY_WORDS = {
+    "ebike": ["electric", "e-bike", "elektrisch"],
+    "gravel": ["gravel", "cyclocross", "veldrijden"],
+    "tt": ["triathlon", "time trial", "tijdrit"],
+    "fitness": ["fitness", "city", "hybrid", "stad"],
+    "mtb": ["mountain", "mtb"],
+    "road": ["road", "race", "aero", "endurance", "racefiets"],
+}
