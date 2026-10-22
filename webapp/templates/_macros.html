@@ -1,5 +1,5 @@
 {% macro photo(model, alt='') -%}
-{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy">{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
+{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy"{% if model.brand == 'Trek' %} class="on-white"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
 {%- endmacro %}
 
 {% macro chips(r) -%}

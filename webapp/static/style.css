@@ -2,6 +2,7 @@
   --ink: #101114;
   --ground: #F4F4F6;
   --card: #FFFFFF;
+  --photo-bg: #F2F2F2;  /* the grey behind Canyon's product shots */
   --line: #DCDCE4;
   --line-strong: #A9A9B8;
   --muted: #50505E;
@@ -92,8 +93,8 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .tile .mono { color: var(--blue); }
 .listing-card { text-decoration: none; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
 .listing-card:hover { color: var(--ink); border-color: var(--line-strong); }
-.listing-card .photo { height: 160px; background: var(--faint); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
-.listing-card .photo img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.listing-card .photo { aspect-ratio: 16 / 9; background: var(--photo-bg); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
+.listing-card .photo img { width: 100%; height: 100%; object-fit: contain; }
 .listing-card .body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; }
 .chip { padding: 4px 8px; border-radius: 4px; }
@@ -108,7 +109,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .crumbs { font-size: 14px; color: var(--muted); }
 .badge { padding: 2px 8px; border-radius: 4px; background: var(--faint); font-weight: 600; }
 .listing-head { display: flex; flex-wrap: wrap; gap: 28px; flex-direction: row; }
-.listing-head .photo { flex: 0 1 320px; min-height: 220px; background: #fff; border: 1px solid var(--faint); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; overflow: hidden; }
+.listing-head .photo { flex: 0 1 320px; aspect-ratio: 16 / 9; align-self: flex-start; background: var(--photo-bg); border: 1px solid var(--faint); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; overflow: hidden; }
 .listing-head .photo img { width: 100%; height: 100%; object-fit: contain; }
 .listing-head .info { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 .listing-head h1 { font-size: 30px; line-height: 1.2; text-transform: none; font-family: var(--body); font-weight: 700; }
@@ -163,8 +164,15 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .model-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
 .model-card { text-decoration: none; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
 .model-card:hover { color: var(--ink); border-color: var(--blue); }
-.model-card .photo { height: 140px; display: flex; align-items: center; justify-content: center; background: #fff; color: var(--muted); font-size: 13px; border-bottom: 1px solid var(--faint); }
+.model-card .photo { aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: var(--photo-bg); color: var(--muted); font-size: 13px; border-bottom: 1px solid var(--faint); }
 .model-card .photo img { width: 100%; height: 100%; object-fit: contain; }
+/* Photos fill a 16:9 tile whatever their own size. */
+.photo { position: relative; overflow: hidden; }
+.photo img { position: absolute; inset: 0; }
+/* Every bike photo sits on Canyon's studio grey. Trek shoots on white, so multiply turns that white into the same grey. */
+.photo img.on-white { mix-blend-mode: multiply; }
+/* Trek frames the bike small in a 4:3 shot; enlarge it to fill the tile like the Canyon shots. */
+.photo img.on-white { transform: translateY(-3%) scale(1.12); transform-origin: 50% 100%; }
 .model-card .body { padding: 14px; display: flex; flex-direction: column; gap: 4px; }
 .kv { display: grid; grid-template-columns: minmax(140px, 220px) 1fr; border-top: 1px solid var(--faint); }
 .kv div { padding: 10px 0; border-bottom: 1px solid var(--faint); font-size: 15px; }
