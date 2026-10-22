@@ -14,7 +14,7 @@ services:
     container_name: bikecompare
     working_dir: /app
     environment:
-      BRANCH: claude/site-prototype
+      BRANCH: main
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
     command:
