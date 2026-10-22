@@ -72,3 +72,19 @@ def test_runs_at_most_once_a_day(tmp_path, monkeypatch):
     daily_checks.run_locked(path, now + timedelta(hours=5))
     daily_checks.run_locked(path, now + timedelta(hours=21))
     assert len(passes) == 2
+
+
+def test_s_works_counts_as_its_family(conn):
+    models = db.all_models(conn)
+    ad = {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000004-s-works",
+          "title": "Specialized S-Works Tarmac SL9 Dura-Ace Di2", "price": 9000}
+    assert daily_checks.pick(models, "Specialized Tarmac", [ad], set()) == ad
+
+
+def test_stores_photos_right_after_the_pass(tmp_path, monkeypatch):
+    path = str(tmp_path / "app.sqlite3")
+    stored = []
+    monkeypatch.setattr(daily_checks, "run", lambda conn: [7, 8])
+    monkeypatch.setattr(daily_checks.ad_photos, "store", lambda conn, db_path, check_id: stored.append(check_id))
+    daily_checks.run_locked(path)
+    assert stored == [7, 8]

@@ -63,7 +63,8 @@ def pick(models, family, ads, seen):
             continue
         ranked = checks.match_models(models, ad["title"])
         top = ranked[0][1] if ranked else None
-        if (top and top["brand"] == brand and checks.family_of(top["name"]) == checks.family_of(name)
+        # The family anywhere in the name, so "S-Works Tarmac SL9" counts as a Tarmac.
+        if (top and top["brand"] == brand and checks.family_of(name) in checks._tokens(top["name"])
                 and checks.confidence(ranked) in ("high", "medium")):
             return ad
     return None
@@ -128,6 +129,11 @@ def run_locked(db_path, now=None):
         conn = db.connect(db_path)
         try:
             saved = run(conn)
+            for check_id in saved:  # keep the photos now, as a pasted link does, not on a first page view
+                try:
+                    ad_photos.store(conn, db_path, check_id)
+                except Exception as e:  # a page view of the check tries again
+                    print(f"storing photos of check {check_id} failed: {e}", file=sys.stderr, flush=True)
             if saved:
                 print(f"daily checks: saved {len(saved)}", flush=True)
         finally:
