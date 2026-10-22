@@ -4,7 +4,7 @@
   if (!box || !box.showModal) return;  // no <dialog>: the links just open the photo
   const photos = JSON.parse(box.dataset.photos);
   const img = box.querySelector("img"), count = box.querySelector(".lb-count");
-  let at = 0;
+  let at = 0, openedAt = 0;
 
   const show = (i) => {
     at = (i + photos.length) % photos.length;
@@ -19,6 +19,7 @@
       e.preventDefault();
       show(Number(link.dataset.photo));
       box.showModal();
+      openedAt = e.timeStamp;
     });
   });
   box.querySelector(".lb-prev").addEventListener("click", () => show(at - 1));
@@ -30,7 +31,8 @@
     if (e.key === "ArrowLeft") show(at - 1);
     else if (e.key === "ArrowRight") show(at + 1);
   });  // Esc closes a <dialog> by itself
-  box.addEventListener("click", (e) => { if (e.target === box) box.close(); });  // click beside the photo
+  // A click beside the photo closes it, but not the second click of a double-click that opened it.
+  box.addEventListener("click", (e) => { if (e.target === box && e.timeStamp - openedAt > 400) box.close(); });
 
   let startX = null;
   img.addEventListener("pointerdown", (e) => { startX = e.clientX; });

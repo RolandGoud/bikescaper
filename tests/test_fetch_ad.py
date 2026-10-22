@@ -55,6 +55,7 @@ def test_clean_url_drops_tracking():
 
 def test_check_from_link(tmp_path, monkeypatch):
     app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False  # no downloads in tests; test_stores_ad_photos covers them
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
 
@@ -167,3 +168,44 @@ def test_only_one_process_rechecks_at_a_time(tmp_path, monkeypatch):
     assert passes == []
     recheck.run_locked(path)
     assert passes == [1]
+
+
+def test_stores_ad_photos(tmp_path):
+    import json
+
+    from webapp import ad_photos
+
+    path = str(tmp_path / "app.sqlite3")
+    conn = db.connect(path)
+    links = ["https://admarkt-cdn.marktplaats.com/images/aa/1?rule=eps_85.JPG",
+             "https://images.marktplaats.com/images/bb/2?rule=eps_85.JPG",
+             "https://evil.example/3.jpg"]                      # not an ad image server
+    conn.execute("INSERT INTO checks (title, photos) VALUES ('t', ?)", (json.dumps(links),))
+    conn.commit()
+    assert ad_photos.missing(conn) == [1]
+
+    calls = []
+
+    def fake(url):
+        calls.append(url)
+        return None if "/2?" in url else (b"jpeg bytes", ".jpg")   # the second one fails this time
+
+    assert ad_photos.store(conn, path, 1, download=lambda u: fake(u) if ad_photos._allowed(u) else None) == 1
+    stored = json.loads(conn.execute("SELECT photos FROM checks").fetchone()[0])
+    assert stored == ["1/01.jpg", links[1], links[2]]
+    assert open(tmp_path / "ad-photos" / "1" / "01.jpg", "rb").read() == b"jpeg bytes"
+    assert calls == links[:2]
+
+    # the next try only fetches what's still a link, and keeps the numbering
+    ad_photos.store(conn, path, 1, download=lambda u: (b"png", ".png") if ad_photos._allowed(u) else None)
+    stored = json.loads(conn.execute("SELECT photos FROM checks").fetchone()[0])
+    assert stored == ["1/01.jpg", "1/02.png", links[2]]
+
+    # the site serves them, and pages use our copy
+    app = create_app(path)
+    app.config["STORE_AD_PHOTOS"] = False
+    client = app.test_client()
+    assert client.get("/ad-photos/1/01.jpg").data == b"jpeg bytes"
+    assert client.get("/ad-photos/../app.sqlite3").status_code == 404
+    page = client.get("/check/1").data.decode()
+    assert 'src="/ad-photos/1/01.jpg"' in page and 'src="/ad-photos/1/02.png"' in page
