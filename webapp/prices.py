@@ -19,23 +19,25 @@ MIN_PRICE = 100   # below this an asking price is a placeholder, not a price
 def known_ads(conn, models):
     """Every priced ad with the model it belongs to: [{model_id, price, seen, check_id, check_ids}]."""
     by_id = {m["id"]: m for m in models}
-    ads, seen_ads = [], {}
+    ads, seen_ads, all_checks = [], {}, {}
     # The same ad checked again counts once, at its newest price; all its checks are remembered
-    # so a report can leave its own ad out whichever of those checks it shows.
-    for row in conn.execute("SELECT * FROM checks WHERE asking_price >= ? ORDER BY id DESC", (MIN_PRICE,)):
+    # (also the ones without a usable price) so a report can leave its own ad out whichever of
+    # those checks it shows.
+    for row in conn.execute("SELECT * FROM checks ORDER BY id DESC"):
         key = fetch_ad.ad_key(row)
-        if key in seen_ads:
-            seen_ads[key]["check_ids"].add(row["id"])
+        all_checks.setdefault(key, set()).add(row["id"])
+        if key in seen_ads or (row["asking_price"] or 0) < MIN_PRICE:
             continue
         model = by_id.get(row["model_id"])
         if model is None:
             ranked = checks.match_models(models, row["title"], row["description"] or "")
             if not ranked or checks.confidence(ranked) not in ("high", "medium"):
-                seen_ads[key] = {"check_ids": {row["id"]}}  # unmatched: its older checks don't count either
+                seen_ads[key] = None  # unmatched: its older checks don't count either
                 continue
             model = ranked[0][1]
         ad = {"model_id": model["id"], "price": row["asking_price"],
-              "seen": date.fromisoformat(row["created_at"][:10]), "check_id": row["id"], "check_ids": {row["id"]}}
+              "seen": date.fromisoformat(row["created_at"][:10]), "check_id": row["id"],
+              "check_ids": all_checks[key]}  # the same set, so older checks still get added
         seen_ads[key] = ad
         ads.append(ad)
     return ads

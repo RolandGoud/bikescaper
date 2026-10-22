@@ -210,7 +210,7 @@ def test_asking_price_counts_an_ad_once():
         def __init__(self, rows):
             self.rows = rows
 
-        def execute(self, sql, args):
+        def execute(self, sql, args=()):
             return sorted(self.rows, key=lambda r: -r["id"])
 
     def row(i, url, price):
@@ -219,13 +219,16 @@ def test_asking_price_counts_an_ad_once():
 
     ads = prices.known_ads(Rows([row(1, "https://www.marktplaats.nl/a1512951815", 2500),
                                  row(2, "https://www.marktplaats.nl/v/x/y/a1512951815-z", 2300),
-                                 row(3, "https://www.marktplaats.nl/a1600000000", 2000)]),
+                                 row(3, "https://www.marktplaats.nl/a1600000000", 2000),
+                                 row(4, "https://www.marktplaats.nl/a1600000000", 1)]),  # "bieden" now
                            [{"id": 7}])
     assert sorted(a["price"] for a in ads) == [2000, 2300]
     # viewing the older check of the same ad still leaves that ad out
     from datetime import date
     got = prices.asking_price(ads, 7, 90, today=date(2026, 10, 22), leave_out=1)
     assert got["count"] == 1 and got["median"] == 2000
+    # a check of the same ad without a usable price leaves it out too
+    assert prices.asking_price(ads, 7, 90, today=date(2026, 10, 22), leave_out=4)["count"] == 1
 
 
 def test_ad_key_takes_the_site_from_the_host():
