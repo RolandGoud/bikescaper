@@ -295,7 +295,18 @@ def test_brand_pills_show_logos(tmp_path):
     for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"):
         assert f'class="pill-logo" role="img" aria-label="{name}"' in page
         assert app.test_client().get(f"/static/logos/{name.lower()}.svg").status_code == 200
-    assert ">Scott</span>" in page  # no logo yet, so the name stays
+    assert "Scott" not in page  # no bikes yet, so the Models filters leave it out
+    home = app.test_client().get("/?lang=en").data.decode()
+    assert ">Scott</span>" in home  # no logo yet, so the name stays
+
+
+def test_selected_filters_link_back_to_all(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models?lang=en&type=road&brand=Canyon").data.decode()
+    assert '<option value="road" selected>' in page
+    assert 'class="pill brand on" href="/models?type=road"' in page  # Canyon logo clears the brand
+    assert "Mountain" not in page  # no mountain bikes yet
 
 
 # ---------------------------------------------------------------- brands from brand_scrapers
