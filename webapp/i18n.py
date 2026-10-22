@@ -197,8 +197,6 @@ NL = {
     "like new": "als nieuw",
     "used": "gebruikt",
     "damaged": "beschadigd",
-    "Similar ads now": "Vergelijkbare advertenties",
-    "[coming later]": "[volgt later]",
     "Ask the seller": "Vraag de verkoper",
     "Copy questions": "Vragen kopiëren",
     "Copied": "Gekopieerd",
@@ -467,4 +465,21 @@ NL = {
     "What frame size is printed on the frame?": "Welke framemaat staat er op het frame?",
     "Has it been in a crash, and are there any cracks or deep scratches on the frame?":
         "Is hij gevallen, en zitten er scheuren of diepe krassen in het frame?",
+
+    # second-hand asking price
+    "Second-hand asking price": "Vraagprijs tweedehands",
+    "Period": "Periode",
+    "{n} days": "{n} dagen",
+    "Median": "Mediaan",
+    "Average": "Gemiddeld",
+    "Range": "Spreiding",
+    "Based on {n} ads from the last {days} days.": "Op basis van {n} advertenties uit de laatste {days} dagen.",
+    "This ad asks {pct}% more than the median.": "Deze advertentie vraagt {pct}% meer dan de mediaan.",
+    "This ad asks {pct}% less than the median.": "Deze advertentie vraagt {pct}% minder dan de mediaan.",
+    "This ad asks the median.": "Deze advertentie vraagt precies de mediaan.",
+    "Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
+        "Pas {n} advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
+    "No ads for this model in the last {days} days yet.": "Nog geen advertenties voor dit model in de laatste {days} dagen.",
+    "From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.":
+        "Uit de advertenties die op deze site zijn gecheckt, geteld bij het model waaraan ze zijn gekoppeld. Prijzen onder €100 tellen niet mee.",
 }

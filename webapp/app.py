@@ -12,7 +12,7 @@ from datetime import date
 
 from flask import Flask, abort, g, redirect, render_template, request, send_from_directory, url_for
 
-from . import checks, db, fetch_ad, recheck
+from . import checks, db, fetch_ad, prices, recheck
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -80,12 +80,18 @@ def create_app(db_path=None):
             return url_for(request.endpoint, **(request.view_args or {}), **args, lang=code)
         return url_for("home", lang=code)
 
+    def this_page(**changes):
+        """This page's address with some query arguments changed, e.g. a different period."""
+        args = {**request.args.to_dict(), **changes}
+        return url_for(request.endpoint, **(request.view_args or {}), **args)
+
     @app.context_processor
     def globals_():
         return {"brands": BRANDS, "logos": {b["name"]: b["logo"] for b in BRANDS if b.get("logo")},
                 "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
-                "languages": LANGUAGES, "lang_url": lang_url,
+                "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page,
+                "periods": prices.PERIODS,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
     @app.template_filter("eur")
@@ -144,8 +150,12 @@ def create_app(db_path=None):
         result = checks.run_check(models(), listing_dict(row, height))
         listing = dict(row)
         listing["photos"] = json.loads(listing["photos"]) if listing.get("photos") else []
+        asking = None
+        if result["model"]:
+            asking = prices.asking_price(prices.known_ads(conn(), models()), result["model"]["id"],
+                                         prices.period_of(request.args.get("period", type=int)), leave_out=check_id)
         return render_template("report.html", listing=listing, r=result, height=height or row["rider_height"],
-                               all_models=models(), nav="check")
+                               all_models=models(), asking=asking, nav="check")
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
     def change_match(check_id):
@@ -198,7 +208,10 @@ def create_app(db_path=None):
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
-                               sizes=checks.size_options(model["brand"]), nav="models")
+                               sizes=checks.size_options(model["brand"]),
+                               asking=prices.asking_price(prices.known_ads(conn(), models()), model["id"],
+                                                          prices.period_of(request.args.get("period", type=int))),
+                               nav="models")
 
     @app.route("/size")
     def size_finder():

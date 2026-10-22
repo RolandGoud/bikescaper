@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo %}
+{% from "_macros.html" import asking_box with context %}
 {% block title %}{{ _('Check report') }}: {{ listing.title }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -101,6 +102,7 @@
       <label for="height" style="font-weight: 600">{{ _('Your height') }}</label>
       <input id="height" name="height" type="number" min="120" max="220" value="{{ height or '' }}" placeholder="178">
       <span>cm</span>
+      {% if request.args.period %}<input type="hidden" name="period" value="{{ request.args.period }}">{% endif %}
       <button class="btn ghost" type="submit">{{ _('Check fit') }}</button>
       {% if r.size.fit %}<span class="{{ r.size.fit.status }}" style="font-weight: 700">{{ r.size.fit.text }}</span>{% endif %}
       <a href="{{ url_for('size_finder', brand=r.model.brand, height=height or 178) }}" style="margin-left: auto">{{ _('Open the size finder') }}</a>
@@ -126,10 +128,10 @@
       <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
       <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
       <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
-      <div><div class="k">{{ _('Similar ads now') }}</div><div class="v">{{ _('[coming later]') }}</div></div>
     </div>
     {% endif %}
     <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
+    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
   </section>
 
   {% if r.questions %}
