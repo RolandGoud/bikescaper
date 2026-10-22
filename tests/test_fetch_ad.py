@@ -70,6 +70,7 @@ def test_check_from_link(tmp_path, monkeypatch):
     page = client.get(resp.headers["Location"] + "?lang=en").data.decode()
     assert "Trek Domane SL6 2022 maat 56" in page and "€2.450" in page and "Utrecht" in page
     assert "eps_85.JPG" in page and "https://www.marktplaats.nl/v/a/b/a1-x" in page
+    assert '<dialog class="lightbox"' in page and 'data-photo="0"' in page and "lightbox.js" in page
 
 
 def test_failed_fetch_falls_back_to_manual(tmp_path, monkeypatch):
