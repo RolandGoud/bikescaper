@@ -11,7 +11,10 @@
 <body>
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="{{ url_for('home') }}"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#FF5A1F" stroke-width="2.5" aria-hidden="true"><circle cx="7" cy="18" r="5"/><circle cx="21" cy="18" r="5"/><path d="M7 18l5-9h6l3 9M12 9l4 9"/></svg>Bike Compare</a>
+    <div class="brand">
+      <a class="logo" href="{{ url_for('home') }}"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#FF5A1F" stroke-width="2.5" aria-hidden="true"><circle cx="7" cy="18" r="5"/><circle cx="21" cy="18" r="5"/><path d="M7 18l5-9h6l3 9M12 9l4 9"/></svg>Bike Compare</a>
+      <div class="tagline">{{ _('Second-hand bike check · Netherlands') }}</div>
+    </div>
     <div class="header-right">
       <nav aria-label="{{ _('Main') }}">
         <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}">{{ _('Check a listing') }}</a>

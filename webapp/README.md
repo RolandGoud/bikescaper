@@ -23,15 +23,14 @@ docker compose up -d --build          # http://<host>:8280
 ```
 
 **On a UGREEN NAS (UGOS Pro), easiest:** open the Docker app, go to Project > Create, paste the
-contents of `nas/docker-compose.yml` and deploy. That file needs nothing next to it: on first
-start the container downloads the code from GitHub. Newer code: stop the project, delete the
-`bikecompare-code` volume and start it again.
+contents of `nas/docker-compose.yml` and deploy. That file needs nothing next to it: on every
+start the container downloads the latest `main` from GitHub, so restarting it is how you update.
 
 The root `docker-compose.yml` instead builds from a full copy of this repo, so the whole repo
 folder has to be on the NAS (Project > Create pointed at that folder, or
 `docker compose up -d --build` over SSH).
 
-The catalogue is loaded on first start. Saved checks live in the `bikecompare-data` volume, so
+The catalogue is loaded on first start; later starts only re-pick the model photos. Saved checks live in the `bikecompare-data` volume, so
 they survive restarts and rebuilds. To reload the catalogue after new scrapes:
 `docker compose exec bikecompare python -m webapp.seed`. To change the port, edit `8280` in
 `docker-compose.yml`. The image is about 500 MB because it includes the bike photos.
