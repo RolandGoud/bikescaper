@@ -499,3 +499,20 @@ def test_missing_brand_snapshot_is_downloaded(tmp_path, monkeypatch):
     assert seed.fetch_missing_snapshots("main") == 1
     assert seed.latest_snapshot("Cube") == "data/Cube/cube_bikes_20261022_151753.json"
     assert seed.fetch_missing_snapshots("main") == 0  # already there
+
+
+def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    ad_photo = "https://images.marktplaats.com/api/v1/x/images/aa/1?rule=eps_85.JPG"
+    conn.execute("INSERT INTO checks (title, asking_price, photos) VALUES (?, ?, ?)",
+                 ("Trek Domane SL 6 Gen 4 2023 maat 56", 3250, f'["{ad_photo}"]'))
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Trek Domane AL 4 Gen 4 2024", 1050))
+    conn.commit()
+    client = app.test_client()
+    for url in ["/", "/listings"]:
+        page = client.get(url + "?lang=en").get_data(as_text=True)
+        # Only the check made from a link has a photo of its own, so only that card merges two photos.
+        assert page.count('class="photo duo"') == 1, url
+        assert ad_photo.replace("&", "&amp;") in page and 'class="duo-range"' in page

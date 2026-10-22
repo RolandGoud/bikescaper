@@ -14,9 +14,22 @@
 {% endif %}
 {%- endmacro %}
 
+{# The seller's own photo and the brand's catalogue photo of the matched model in one tile, split by a
+   slanted cut that the mouse, a finger or the arrow keys slide across (static/duo.js). #}
+{% macro duo_photo(ad_photo, model) -%}
+<div class="photo duo" style="--cut: 50%">
+  <img class="ad" src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer">
+  <div class="factory">{{ photo(model) }}</div>
+  <span class="duo-label ad">{{ _('Ad') }}</span>
+  <span class="duo-label brand">{% if logos.get(model.brand) %}<span class="pill-logo" role="img" aria-label="{{ model.brand }}" style="--logo: url('{{ url_for('static', filename=logos[model.brand]) }}')"></span>{% else %}{{ model.brand }}{% endif %}</span>
+  <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
+  <span class="duo-handle" aria-hidden="true"></span>
+</div>
+{%- endmacro %}
+
 {% macro listing_card(row, r) -%}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
-  <div class="photo">{{ photo(r.model) }}</div>
+  {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
   <div class="body">
     <div style="font-weight: 600">{{ row.title }}</div>
     <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.brand ~ ' ' ~ r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>

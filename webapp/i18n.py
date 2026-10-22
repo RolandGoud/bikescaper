@@ -96,6 +96,9 @@ NL = {
         "Een eerlijke prijs op basis van nieuwprijs, leeftijd en staat.",
     "Recently checked": "Net gecheckt",
     "See all listings": "Alle advertenties",
+    "Ad": "Advertentie",
+    "Photo from the ad": "Foto uit de advertentie",
+    "Slide between the ad photo and the catalogue photo": "Schuif tussen de advertentiefoto en de catalogusfoto",
     "Brands we cover": "Merken",
     "Reference data comes from the brands' own Dutch catalogues. Dashed brands are coming next.":
         "De gegevens komen uit de Nederlandse catalogi van de merken zelf. Gestippelde merken volgen nog.",
