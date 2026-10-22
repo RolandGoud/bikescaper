@@ -4,13 +4,14 @@ Run from the repo root:
     python -m webapp.seed
     flask --app webapp.app run --debug
 """
+import json
 import os
 import re
 from datetime import date
 
 from flask import Flask, abort, g, redirect, render_template, request, send_from_directory, url_for
 
-from . import checks, db
+from . import checks, db, fetch_ad
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -100,17 +101,35 @@ def create_app(db_path=None):
     def new_check():
         if request.method == "GET":
             return render_template("check_form.html", nav="check", form={}, error=None)
-        form = request.form
+        form = request.form.to_dict()
+        height = number(form.get("rider_height"), int)
+
+        def again(error):
+            return render_template("check_form.html", nav="check", form=form, error=error), 400
+
+        if form.get("mode") == "link":
+            url = (form.get("ad_link") or "").strip()
+            if not url:
+                return again(gettext("Paste the link to the ad."))
+            try:
+                ad = fetch_ad.fetch_listing(url)
+            except fetch_ad.FetchError as e:
+                # Fall back to typing it in, with the link kept so it's saved with the check.
+                form.update(mode="manual", listing_url=url)
+                return again(gettext("{reason} Fill in the details yourself instead.", reason=gettext(str(e))))
+            return save_check(ad["listing_url"], ad["title"], ad["description"], ad["asking_price"],
+                              ad["location"], height, ad["photos"])
         title = (form.get("title") or "").strip()
         if not title:
-            return render_template("check_form.html", nav="check", form=form,
-                                   error=gettext("Paste at least the ad's title.")), 400
+            return again(gettext("Paste at least the ad's title."))
+        return save_check(form.get("listing_url") or None, title, form.get("description") or "",
+                          number(form.get("asking_price")), form.get("location") or None, height)
+
+    def save_check(url, title, description, price, location, height, photos=None):
         cur = conn().execute(
-            "INSERT INTO checks (listing_url, title, description, asking_price, location, rider_height)"
-            " VALUES (?,?,?,?,?,?)",
-            (form.get("listing_url") or None, title, form.get("description") or "",
-             number(form.get("asking_price")), form.get("location") or None,
-             number(form.get("rider_height"), int)),
+            "INSERT INTO checks (listing_url, title, description, asking_price, location, rider_height, photos)"
+            " VALUES (?,?,?,?,?,?,?)",
+            (url, title, description, price, location, height, json.dumps(photos) if photos else None),
         )
         conn().commit()
         return redirect(url_for("report", check_id=cur.lastrowid))
@@ -122,7 +141,9 @@ def create_app(db_path=None):
             abort(404)
         height = request.args.get("height", type=int)
         result = checks.run_check(models(), listing_dict(row, height))
-        return render_template("report.html", listing=dict(row), r=result, height=height or row["rider_height"],
+        listing = dict(row)
+        listing["photos"] = json.loads(listing["photos"]) if listing.get("photos") else []
+        return render_template("report.html", listing=listing, r=result, height=height or row["rider_height"],
                                all_models=models(), nav="check")
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
