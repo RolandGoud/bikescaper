@@ -282,9 +282,10 @@ NL = {
         "en vergelijken elke bewering met het origineel.",
     "We never open the ad for you: the check only uses what you paste.":
         "We openen de advertentie nooit zelf: de check gebruikt alleen wat jij plakt.",
-    "{count} models from the brands' own Dutch sites, collected by the bikescaper in July and August 2025.":
-        "{count} modellen van de Nederlandse sites van de merken zelf, verzameld door de bikescaper in juli en augustus 2025.",
-    "Collected": "Verzameld",
+    "{count} models from the brands' own sites, collected by the bikescaper. Road, gravel and time trial bikes only; e-bikes and mountain bikes aren't in yet.":
+        "{count} modellen van de sites van de merken zelf, verzameld door de bikescaper. Alleen race-, gravel- en "
+        "tijdritfietsen; e-bikes en mountainbikes zitten er nog niet in.",
+    "Collected on {date}": "Verzameld op {date}",
     "Planned": "Gepland",
     "Limits of this prototype": "Beperkingen van dit prototype",
     "Model years are entered by hand for a few Trek generations only.":

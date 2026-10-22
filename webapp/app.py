@@ -198,7 +198,11 @@ def create_app(db_path=None):
 
     @app.route("/how-it-works")
     def how():
-        return render_template("how.html", nav=None, count=len(models()))
+        seen = {}
+        for m in models():
+            seen.setdefault(m["brand"], set()).add(m["seen_on"])
+        return render_template("how.html", nav=None, count=len(models()),
+                               seen={b: max(d for d in dates if d) for b, dates in seen.items() if any(dates)})
 
     @app.route("/images/<path:path>")
     def images(path):

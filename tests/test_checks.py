@@ -278,3 +278,37 @@ def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
     assert 'class="brand-logo" src="/static/logos/canyon.svg"' in page
     assert 'class="status discontinued overlay"' in page  # Endurace 7 RAW
     assert app.test_client().get("/static/logos/trek.svg").status_code == 200
+
+
+# ---------------------------------------------------------------- brands from brand_scrapers
+
+def test_every_collected_brand_is_loaded(models):
+    from webapp.reference import BRANDS
+    loaded = {m["brand"] for m in models}
+    for brand in BRANDS:
+        assert (brand["name"] in loaded) == brand["scraper"], brand["name"]
+
+
+def test_s_works_names_specialized():
+    assert checks.read_claims("S-Works Tarmac SL7 maat 54")["brand"] == "Specialized"
+
+
+@pytest.mark.parametrize("title,description,brand,family", [
+    ("Specialized Tarmac SL9 Expert Ultegra Di2 maat 54", "carbon, schijfremmen", "Specialized", "tarmac"),
+    ("Giant TCR Advanced Pro 0 Di2 maat M", "Shimano Ultegra Di2", "Giant", "tcr"),
+    ("Cannondale SuperSix EVO 3 maat 56", "SRAM Force AXS", "Cannondale", "supersix"),
+    ("Cube Attain C:62 SLX 56 cm", "105 Di2", "Cube", "attain"),
+    ("Factor Monza Ultegra maat 54", "", "Factor", "monza"),
+])
+def test_matching_new_brands(models, title, description, brand, family):
+    r = run(models, title, description, height=178)
+    assert r["model"] is not None, title
+    assert r["model"]["brand"] == brand
+    assert checks.family_of(r["model"]["name"]) == family
+    assert r["size"]["fit"] is not None
+
+
+def test_new_brands_have_their_own_size_chart():
+    from webapp.reference import SIZE_CHARTS
+    for brand in ("Specialized", "Giant", "Cannondale", "Cube", "Factor"):
+        assert checks.size_options(brand) is SIZE_CHARTS[brand]
