@@ -7,7 +7,7 @@
   <section class="card listing-head">
     <div class="photo">{{ photo(m) }}</div>
     <div class="info">
-      <div class="mono muted">{{ m.brand|upper }} · {{ m.category }}</div>
+      <div class="mono muted">{{ m.brand|upper }} · {{ _(discipline) }}</div>
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
       <div class="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       <div class="facts">
@@ -15,14 +15,21 @@
         <div><div class="k">{{ _('Seen in catalogue') }}</div><div class="v">{{ m.seen_on }}</div></div>
         <div><div class="k">{{ _('Colours') }}</div><div class="v" style="font-size: 15px">{{ m.colors|join(', ') or '–' }}</div></div>
       </div>
-      <div class="row"><a class="btn ghost" href="{{ m.url }}" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
+      <div class="row"><a class="btn ghost" href="{{ m.url }}" target="_blank" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
     </div>
   </section>
   <section class="card">
     <h2>{{ _('Spec sheet') }}</h2>
     <p class="small muted">{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=m.seen_on) }}</p>
-    <div class="kv">{% for k, v in m.specs.items() %}<div>{{ k|replace('_', ' ') }}</div><div>{{ v }}</div>{% endfor %}</div>
+    <div class="spec-groups">
+      {% for group, rows in specs %}
+      <div class="spec-group">
+        <h3>{{ _(group) }}</h3>
+        <div class="kv">{% for en, nl, v in rows %}<div>{{ nl if lang == 'nl' else en }}</div><div>{{ v }}</div>{% endfor %}</div>
+      </div>
+      {% endfor %}
+    </div>
   </section>
   <section class="card">
     <h2>{{ _('Sizes') }}</h2>

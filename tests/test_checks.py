@@ -169,3 +169,40 @@ def test_models_page_groups_by_discipline(tmp_path):
     assert "Speedmax" in page and "Madone" not in page
     page = client.get("/models?lang=nl&type=tt&brand=Trek").data.decode()
     assert "Tijdrit &amp; triatlon" in page and "Speedmax" not in page
+
+
+def test_framesets_have_their_own_discipline(models):
+    kits = [m for m in models if "Frame and Brake Kit" in m["name"]]
+    assert kits and all(checks.discipline_of(m) == "frames" for m in kits)
+    assert checks.discipline_of({"brand": "Trek", "name": "Madone SLR Gen 8 Frameset", "category": ""}) == "frames"
+
+
+def test_spec_sheet_is_grouped(models):
+    trek = next(m for m in models if m["slug"] == "trek-domane-sl-6-gen-4")
+    groups = dict(checks.spec_groups(trek))
+    assert list(groups)[:4] == ["Frame & fork", "Drivetrain", "Brakes", "Wheels & tyres"]
+    assert any(en == "Rear derailleur" for en, _nl, _v in groups["Drivetrain"])
+    canyon = next(m for m in models if m["brand"] == "Canyon" and "Weight" in m["specs"])
+    weights = [en for _g, rows in checks.spec_groups(canyon) for en, _nl, _v in rows if en == "Weight"]
+    assert weights == ["Weight"]  # Canyon's "Gewicht" and "Weight" are shown once
+    labels = {raw for m in models for raw in m["specs"]}
+    from webapp.reference import SPEC_LABELS
+    assert not labels - set(SPEC_LABELS), "map new spec labels in reference.SPEC_LABELS"
+
+
+def test_model_page_shows_spec_groups(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models/trek-domane-sl-6-gen-4?lang=en").data.decode()
+    assert "Drivetrain" in page and "Rear derailleur" in page
+    page = client.get("/models/trek-domane-sl-6-gen-4?lang=nl").data.decode()
+    assert "Aandrijving" in page and "Achterderailleur" in page
+
+
+def test_brand_links_open_in_a_new_tab(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models/trek-domane-sl-6-gen-4").data.decode()
+    assert 'href="https://www.trekbikes.com' in page and 'target="_blank" rel="noopener"' in page

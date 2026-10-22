@@ -12,7 +12,7 @@
     <h2>{{ _('Data sources') }}</h2>
     <p>{{ _("{count} models from the brands' own Dutch sites, collected by the bikescaper in July and August 2025.", count=count) }}</p>
     <div class="kv">
-      {% for b in brands %}<div>{{ b.name }}</div><div>{{ _('Collected') if b.scraper else _('Planned') }} · <a href="{{ b.site }}" rel="noopener">{{ b.site }}</a></div>{% endfor %}
+      {% for b in brands %}<div>{{ b.name }}</div><div>{{ _('Collected') if b.scraper else _('Planned') }} · <a href="{{ b.site }}" target="_blank" rel="noopener">{{ b.site }}</a></div>{% endfor %}
     </div>
   </section>
   <section class="card">

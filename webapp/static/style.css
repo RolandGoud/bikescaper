@@ -174,6 +174,8 @@ h2 .count { font-size: 18px; font-weight: 600; }
 /* Trek frames the bike small in a 4:3 shot; enlarge it to fill the tile like the Canyon shots. */
 .photo img.on-white { transform: translateY(-3%) scale(1.12); transform-origin: 50% 100%; }
 .model-card .body { padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+.spec-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 28px 40px; align-items: start; }
+.spec-group h3 { font-family: var(--mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 8px; }
 .kv { display: grid; grid-template-columns: minmax(140px, 220px) 1fr; border-top: 1px solid var(--faint); }
 .kv div { padding: 10px 0; border-bottom: 1px solid var(--faint); font-size: 15px; }
 .kv div:nth-child(odd) { font-weight: 600; padding-right: 16px; }
