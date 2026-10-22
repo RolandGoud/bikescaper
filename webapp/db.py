@@ -40,10 +40,12 @@ CREATE TABLE IF NOT EXISTS checks (
     model_id INTEGER REFERENCES models(id),  -- user-corrected match, NULL = automatic
     photos TEXT,          -- JSON list of photo URLs read from the ad's link, NULL when typed in
     last_checked_at TEXT, -- when the ad's link was last re-checked (UTC)
-    removed_at TEXT       -- when we first found the ad gone from the site, NULL while it's up
+    removed_at TEXT,      -- when we first found the ad gone from the site, NULL while it's up
+    source TEXT           -- NULL = a visitor's check, "daily" = made by webapp.daily_checks
 );
 """
-ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT")]
+ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
+                       ("source", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT")]
 
