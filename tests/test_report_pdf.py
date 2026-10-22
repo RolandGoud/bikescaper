@@ -51,6 +51,10 @@ def test_email_report(tmp_path, monkeypatch):
     for _ in range(2):
         client.post("/check/1/email", data={"email": "jan@example.nl", "height": "180"})
     assert "mailed=limit" in client.post("/check/1/email", data={"email": "jan@example.nl", "height": "180"}).headers["Location"]
+    # a made-up forwarding header doesn't get around the limit
+    spoofed = client.post("/check/1/email", data={"email": "jan@example.nl", "height": "180"},
+                          headers={"X-Forwarded-For": "203.0.113.9"})
+    assert "mailed=limit" in spoofed.headers["Location"]
     assert len(sent) == 3
 
 

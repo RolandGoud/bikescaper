@@ -12,6 +12,7 @@ import threading
 from datetime import date
 
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import ad_photos, checks, db, fetch_ad, mail, prices, recheck, report_pdf
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
@@ -39,6 +40,8 @@ def open_in_new_tab(tag):
 
 def create_app(db_path=None):
     app = Flask(__name__)
+    if os.environ.get("BEHIND_PROXY"):  # only then is X-Forwarded-For set by us, not by the visitor
+        app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
@@ -235,7 +238,7 @@ def create_app(db_path=None):
             abort(404)
         if not mail.valid(to):
             return back("invalid")
-        ip = request.headers.get("X-Forwarded-For", request.remote_addr or "").split(",")[0].strip()
+        ip = request.remote_addr or ""
         if not mail.allowed(ip):
             return back("limit")
         listing, pdf = pdf_of(check_id, height)
