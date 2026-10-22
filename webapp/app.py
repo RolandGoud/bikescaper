@@ -42,6 +42,7 @@ def create_app(db_path=None):
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["size_systems"] = checks.size_systems
     app.jinja_env.globals["split_title"] = checks.split_title
 
     def conn():
@@ -274,6 +275,8 @@ def create_app(db_path=None):
         chart = line["chart"] if line else {"sizes": checks.size_options(brand), "geometry": {}, "source": "generic"}
         rows = [{"size": k, "low": lo, "high": hi, "fit": lo <= height <= hi, "near": lo - 4 <= height <= hi + 4,
                  "geometry": chart["geometry"].get(k)} for k, (lo, hi) in chart["sizes"].items()]
+        by_size = {r["size"]: r for r in rows}
+        rows = [(heading, [by_size[k] for k in keys]) for heading, keys in checks.size_systems(by_size)]
         own = {source: sum(len(l["models"]) for l in lines if l["chart"]["source"] == source)
                for source in ("brand", "geometry")}
         return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,
