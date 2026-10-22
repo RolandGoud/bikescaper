@@ -601,6 +601,14 @@ def _size_order(label):
     return 1, LETTER_SIZES.index(label) if label in LETTER_SIZES else len(LETTER_SIZES)
 
 
+def size_systems(labels):
+    """Split size labels into frame sizes in cm and letter sizes: [(heading, labels)], empty groups left out."""
+    labels = list(labels)
+    groups = [("Frame size (cm)", [k for k in labels if k.isdigit()]),
+              ("Letter sizes", [k for k in labels if not k.isdigit()])]
+    return [g for g in groups if g[1]]
+
+
 def model_size_chart(model):
     """The model's own chart when we have it, else the brand chart.
 

@@ -271,6 +271,8 @@ NL = {
     "As listed on the {brand} NL site on {date}.": "Zoals vermeld op de Nederlandse site van {brand} op {date}.",
     "Sizes": "Maten",
     "Under each size: stack / reach in mm.": "Onder elke maat: stack / reach in mm.",
+    "Frame size (cm)": "Framemaat (cm)",
+    "Letter sizes": "Lettermaten",
     "Other {family} models": "Andere {family}-modellen",
 
     # size finder
