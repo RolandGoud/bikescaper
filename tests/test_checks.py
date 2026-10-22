@@ -269,3 +269,12 @@ def test_model_years(models):
     gone = dict(by_slug["canyon-endurace-allroad"], missed_scrapes=2)
     assert checks.model_years(gone, TODAY)[1] == gone["photo_years"][-1]
     assert checks.model_years(dict(gone, photo_years=[]), TODAY) is None
+
+
+def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models?lang=en&brand=Canyon").data.decode()
+    assert 'class="brand-logo" src="/static/logos/canyon.svg"' in page
+    assert 'class="status discontinued overlay"' in page  # Endurace 7 RAW
+    assert app.test_client().get("/static/logos/trek.svg").status_code == 200

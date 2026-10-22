@@ -79,7 +79,8 @@ def create_app(db_path=None):
 
     @app.context_processor
     def globals_():
-        return {"brands": BRANDS, "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
+        return {"brands": BRANDS, "logos": {b["name"]: b["logo"] for b in BRANDS if b.get("logo")},
+                "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
