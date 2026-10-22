@@ -90,3 +90,62 @@ def test_failed_fetch_falls_back_to_manual(tmp_path, monkeypatch):
     # a link pasted without https:// comes back as a valid URL, or the browser would refuse the manual form
     page = client.post("/check", data={"mode": "link", "ad_link": "www.marktplaats.nl/v/a/b/a1-x"}).data.decode()
     assert 'name="listing_url" type="url" value="https://www.marktplaats.nl/v/a/b/a1-x"' in page
+
+
+def test_ad_id_from_any_link():
+    assert fetch_ad.ad_id("https://www.marktplaats.nl/v/fietsen-en-brommers/racefietsen/a1512951815-bianchi") == "a1512951815"
+    assert fetch_ad.ad_id("www.2dehands.be/v/x/y/a167600933-trek?c=1") == "a167600933"
+    assert fetch_ad.ad_id("https://www.marktplaats.nl/a/x/y/m1900000000-oud.html") == "m1900000000"
+    assert fetch_ad.ad_id("https://www.marktplaats.nl/a1512951815") == "a1512951815"
+    assert fetch_ad.ad_id("https://www.marktplaats.nl/l/fietsen-en-brommers/") is None
+
+
+def test_recheck_marks_removed_ads(tmp_path):
+    from datetime import datetime, timedelta
+
+    from webapp import recheck
+
+    conn = db.connect(str(tmp_path / "app.sqlite3"))
+    now = datetime(2026, 10, 22, 12, 0)
+    old = recheck._stamp(now - timedelta(days=200))
+    rows = [("https://www.marktplaats.nl/v/a/b/a100000-gone", None),     # 1: removed
+            ("https://www.marktplaats.nl/v/a/b/a200000-live", None),     # 2: still up
+            ("https://www.2dehands.be/v/a/b/a300000-unsure", None),      # 3: site didn't answer
+            (None, None),                                           # 4: typed in, no link
+            ("https://example.com/a400000-other", None),                 # 5: another site
+            ("https://www.marktplaats.nl/v/a/b/a500000-old", old)]       # 6: past the watch window
+    for url, created in rows:
+        conn.execute("INSERT INTO checks (listing_url, title, created_at) VALUES (?, 't', COALESCE(?, datetime('now')))",
+                     (url, created))
+    asked = []
+
+    def status(url):
+        asked.append(url)
+        return {"a100000": "removed", "a200000": "live"}.get(fetch_ad.ad_id(url))
+
+    assert recheck.run(conn, now=now, status=status, pause=0) == 1
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a100000", "a200000", "a300000"]
+    got = {r["id"]: (r["last_checked_at"], r["removed_at"]) for r in conn.execute("SELECT * FROM checks")}
+    assert got[1] == ("2026-10-22 12:00:00", "2026-10-22 12:00:00")
+    assert got[2] == ("2026-10-22 12:00:00", None)
+    assert got[3] == (None, None)
+    # Checked ones wait a day; removed ones are never asked again; the unsure one is retried.
+    asked.clear()
+    recheck.run(conn, now=now + timedelta(hours=2), status=status, pause=0)
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a300000"]
+    asked.clear()
+    recheck.run(conn, now=now + timedelta(hours=21), status=status, pause=0)
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a200000", "a300000"]
+
+
+def test_removed_badge(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, removed_at) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/a1-x', 'Trek Domane SL6 2022', '2026-10-21 08:00:00')")
+    conn.commit()
+    client = app.test_client()
+    assert "Verwijderd van de site op 2026-10-21" in client.get("/check/1?lang=nl").data.decode()
+    for url in ["/?lang=en", "/listings?lang=en"]:
+        assert 'class="removed-tag">Removed</span>' in client.get(url).data.decode(), url

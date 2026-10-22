@@ -18,7 +18,7 @@
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   <div class="photo">{{ photo(r.model) }}</div>
   <div class="body">
-    <div style="font-weight: 600">{{ row.title }}</div>
+    <div style="font-weight: 600">{% if row.removed_at %}<span class="removed-tag">{{ _('Removed') }}</span> {% endif %}{{ row.title }}</div>
     <div class="small muted">{% if r.model %}{{ _('Matched to {name}', name=r.model.brand ~ ' ' ~ r.model.name) }}{% else %}{{ _('Not matched') }}{% endif %}</div>
     <div class="small muted">{{ _('Asking {price}', price=row.asking_price|eur) }}{% if row.location %} · {{ row.location }}{% endif %}</div>
     {{ chips(r) }}
