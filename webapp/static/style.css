@@ -238,3 +238,24 @@ select { max-width: 100%; }
 .lang-switch a { padding: 8px 10px; color: #DCDCE4; text-decoration: none; min-width: 40px; text-align: center; }
 .lang-switch a:hover { color: #fff; background: #23242B; }
 .lang-switch a.on { background: var(--orange); color: var(--ink); font-weight: 500; }
+
+/* Models filter box: brand logo pills, then type and tier dropdowns, the still-sold switch and search. */
+.filter-box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.logo-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.field-label { display: flex; flex-direction: column; gap: 4px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.field-label select { height: 44px; min-width: 190px; font-family: var(--body); font-size: 15px; font-weight: 600; text-transform: none; letter-spacing: 0; }
+.filter-row .search { display: flex; gap: 10px; margin-left: auto; }
+.filter-row .search input { height: 44px; width: 240px; }
+.filter-row .search .btn { height: 44px; min-height: 44px; }
+.switch { display: inline-flex; align-items: center; gap: 8px; height: 44px; font-weight: 600; font-size: 14px; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch i { position: relative; width: 36px; height: 20px; border-radius: 999px; background: var(--line-strong); }
+.switch i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: left 0.15s; }
+.switch input:checked + i { background: var(--blue); }
+.switch input:checked + i::after { left: 18px; }
+.switch input:focus-visible + i { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .field-label, .field-label select, .filter-row .search { width: 100%; margin-left: 0; }
+  .filter-row .search input { flex: 1; width: auto; }
+}

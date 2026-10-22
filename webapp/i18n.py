@@ -374,6 +374,8 @@ NL = {
     "Performance": "Performance",
     "Top": "Top",
     "Spec tier": "Specniveau",
+    "Type": "Type",
+    "Show": "Toon",
     "Spec tiers": "Specniveaus",
     "Spec tier {tier} of 5": "Specniveau {tier} van 5",
     "Not rated": "Niet beoordeeld",
