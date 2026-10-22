@@ -38,7 +38,7 @@
     {% if r.claims.brand and r.claims.brand not in covered %}
       <p>{{ _("We don't have {brand} models in the catalogue yet. It's on the list of brands to collect next.", brand=r.claims.brand) }}</p>
     {% else %}
-      <p>{{ _("We couldn't find the brand and model in the title or text. Bike Compare covers {brands} for now; make sure the ad names the model, for example “Trek Domane SL 6”.", brands=covered|join(' ' ~ _('and') ~ ' ')) }}</p>
+      <p>{{ _("We couldn't find the brand and model in the title or text. Bike Compare covers {brands} for now; make sure the ad names the model, for example “Trek Domane SL 6”.", brands=covered[:-1]|join(', ') ~ ' ' ~ _('and') ~ ' ' ~ covered[-1]) }}</p>
     {% endif %}
     <p><a href="{{ url_for('catalog') }}">{{ _('Browse the models we have') }}</a></p>
   </section>

@@ -8,7 +8,7 @@ import unicodedata
 from datetime import date
 
 from .i18n import Msg, join
-from .reference import (BRAND_NAMES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
+from .reference import (BRAND_ALIASES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, SIZE_CHARTS, SIZE_NOTE,
                         SPEC_GROUPS, SPEC_LABELS)
 
@@ -109,8 +109,8 @@ def detect_condition(text):
 
 def detect_brand(text):
     low = _plain(text)
-    for brand in BRAND_NAMES:
-        if re.search(rf"\b{brand.lower()}\b", low):
+    for alias, brand in BRAND_ALIASES.items():
+        if re.search(rf"\b{re.escape(alias)}\b", low):
             return brand
     return None
 

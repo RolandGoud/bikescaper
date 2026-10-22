@@ -14,13 +14,13 @@ overwritten, so the catalogue builds history over time.
 |---|---|---|
 | Trek | https://www.trekbikes.com/nl/nl_NL/ | Scraper exists (`trek_bikes_scraper.py`); add model year, sizes, geometry |
 | Canyon | https://www.canyon.com/nl-nl/ | Scraper exists (`canyon_bikes_scraper.py`); add model year, sizes, geometry |
-| Specialized | https://www.specialized.com/nl/nl | To build |
-| Giant | https://www.giant-bicycles.com/nl | To build |
-| Cannondale | https://www.cannondale.com/nl-nl | To build |
-| Scott | https://www.scott-sports.com/nl/nl/ | To build |
-| Orbea | https://www.orbea.com/nl-nl/ | To build |
-| Cube | https://www.cube.eu/nl-nl/ | To build |
-| Factor | https://factorbikes.com/ | To build; no Dutch site known, prices may be in EUR via the EU store |
+| Specialized | https://www.specialized.com/nl/nl | Built (`brand_scrapers/specialized.py`): Next.js product data |
+| Giant | https://www.giant-bicycles.com/nl | Built (`brand_scrapers/giant.py`): NL sitemap, model years 2025+, 4 s crawl delay |
+| Cannondale | https://www.cannondale.com/nl-nl | Built (`brand_scrapers/cannondale.py`): sitemap + schema.org product JSON |
+| Scott | https://www.scott-sports.com/nl/en/ | Blocked: Imperva returns 403 to servers and headless Chromium; needs a run from a home connection |
+| Orbea | https://www.orbea.com/nl-nl/ | Blocked: Cloudflare challenge for servers and headless Chromium; needs a run from a home connection |
+| Cube | https://www.cube.eu/nl-nl/ | Built (`brand_scrapers/cube.py`): family pages, one product per colour |
+| Factor | https://eu.factorbikes.com/ | Built (`brand_scrapers/factor.py`): EU store (eu.factorbikes.com), euro prices |
 
 Before building each adapter: check the site's terms and robots.txt, and whether the brand
 offers a dealer or product feed instead.

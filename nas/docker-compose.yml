@@ -33,7 +33,8 @@ services:
             if os.path.exists('/app/webapp/app.py'):
                 sys.exit(f'Download failed ({exc}); starting the code from last time')
             raise
-        keep = ('webapp/', 'data/Trek/', 'data/Canyon/', 'images/')
+        keep = ('webapp/', 'images/') + tuple(f'data/{b}/' for b in
+                ('Trek', 'Canyon', 'Specialized', 'Giant', 'Cannondale', 'Cube', 'Factor'))
         tar = tarfile.open(fileobj=io.BytesIO(data))
         members = [m for m in tar.getmembers() if m.isfile() and m.name.split('/', 1)[-1].startswith(keep)]
         for m in members:
