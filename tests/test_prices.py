@@ -63,6 +63,7 @@ def test_model_page_and_report_show_the_asking_price(app):
     # The report leaves its own ad out: five others are left, still enough.
     page = client.get("/check/1?lang=en&period=365").data.decode()
     assert "Based on 5 ads from the last 365 days." in page and "less than the median" in page
+    assert 'name="period" value="365"' in page  # the height form keeps the period
 
 
 def test_empty_model_says_so(app):
