@@ -1,0 +1,13 @@
+.git
+**/__pycache__
+**/*.pyc
+**/.DS_Store
+instance
+tests
+*.log
+*.xlsx
+*.csv
+debug_*
+data/archive
+data/wordpress_imports
+data/~$*

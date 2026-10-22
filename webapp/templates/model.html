@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "_macros.html" import photo %}
+{% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
+{% block body %}
+<main class="wrap page">
+  <div class="crumbs"><a href="{{ url_for('catalog') }}">Models</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name }}</div>
+  <section class="card listing-head">
+    <div class="photo">{{ photo(m) }}</div>
+    <div class="info">
+      <div class="mono muted">{{ m.brand|upper }} · {{ m.category }}</div>
+      <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
+      <div class="price">New {{ m.price_eur|eur }}</div>
+      <div class="facts">
+        <div><div class="k">Model years</div><div class="v">{% if years %}{{ years[0] }}–{{ years[1] or 'now' }}{% else %}[not collected yet]{% endif %}</div></div>
+        <div><div class="k">Seen in catalogue</div><div class="v">{{ m.seen_on }}</div></div>
+        <div><div class="k">Colours</div><div class="v" style="font-size: 15px">{{ m.colors|join(', ') or '–' }}</div></div>
+      </div>
+      <div class="row"><a class="btn ghost" href="{{ m.url }}" rel="noopener">{{ m.brand }} product page</a>
+        <a class="btn" href="{{ url_for('value', model=m.slug) }}">Estimate a used price</a></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Spec sheet</h2>
+    <p class="small muted">As listed on the {{ m.brand }} NL site on {{ m.seen_on }}.</p>
+    <div class="kv">{% for k, v in m.specs.items() %}<div>{{ k|replace('_', ' ') }}</div><div>{{ v }}</div>{% endfor %}</div>
+  </section>
+  <section class="card">
+    <h2>Sizes</h2>
+    <div class="sizes">{% for k, (lo, hi) in sizes.items() %}<div>{{ k }}<br>{{ lo }}–{{ hi }}</div>{% endfor %}</div>
+    <p class="small muted">Rider height in cm, from a generic chart. Geometry per size isn't collected yet.</p>
+  </section>
+  {% if siblings %}
+  <section class="stack">
+    <h2>Other {{ m.name.split(' ')[0] }} models</h2>
+    <div class="row">{% for s in siblings %}<a class="pill" href="{{ url_for('model_page', slug=s.slug) }}">{{ s.name }}</a>{% endfor %}</div>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}

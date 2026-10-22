@@ -1,0 +1,18 @@
+# Local test environment for the Bike Compare prototype.
+# On a UGREEN NAS: put this repo in a shared folder, then in the Docker app
+# create a Project from this file (or run `docker compose up -d --build` over SSH).
+# The site is then at http://<nas-ip>:8280
+
+services:
+  bikecompare:
+    build: .
+    image: bikecompare:local
+    container_name: bikecompare
+    ports:
+      - "8280:8000"
+    volumes:
+      - bikecompare-data:/data   # the database with saved checks
+    restart: unless-stopped
+
+volumes:
+  bikecompare-data:

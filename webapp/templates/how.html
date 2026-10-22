@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}How it works · Bike Compare{% endblock %}
+{% block body %}
+<main class="wrap page" style="max-width: 860px">
+  <h1 style="font-size: 44px">How it works</h1>
+  <section class="card">
+    <h2>The check</h2>
+    <p>You paste an ad's title and text. We read the seller's claims (brand, model, year, size, groupset, frame material, brakes and condition), find the closest model in our catalogue, and compare each claim with the original.</p>
+    <p>We never open the ad for you: the check only uses what you paste.</p>
+  </section>
+  <section class="card" id="sources">
+    <h2>Data sources</h2>
+    <p>{{ count }} models from the brands' own Dutch sites, collected by the bikescaper in July and August 2025.</p>
+    <div class="kv">
+      {% for b in brands %}<div>{{ b.name }}</div><div>{% if b.scraper %}Collected{% else %}Planned{% endif %} · <a href="{{ b.site }}" rel="noopener">{{ b.site }}</a></div>{% endfor %}
+    </div>
+  </section>
+  <section class="card">
+    <h2>Limits of this prototype</h2>
+    <ul class="stack" style="gap: 8px; margin: 0; padding-left: 20px">
+      <li>Model years are entered by hand for a few Trek generations only.</li>
+      <li>Size charts are generic per brand, not per model.</li>
+      <li>The value is a simple age and condition curve. Comparable ads aren't used yet.</li>
+      <li>Only current-catalogue models are covered; older generations come with the reworked scraper.</li>
+    </ul>
+  </section>
+</main>
+{% endblock %}
