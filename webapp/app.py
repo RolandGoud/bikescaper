@@ -12,9 +12,10 @@ from flask import Flask, abort, g, redirect, render_template, request, send_from
 
 from . import checks, db
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
-from .reference import BRANDS, SIZE_CHARTS
+from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+OTHER = [("other", "Other")]  # models no discipline rule recognises yet
 
 
 def create_app(db_path=None):
@@ -140,12 +141,16 @@ def create_app(db_path=None):
     def catalog():
         brand = request.args.get("brand")
         q = (request.args.get("q") or "").strip().lower()
-        items = [m for m in models() if (not brand or m["brand"] == brand) and (not q or q in m["name"].lower())]
-        categories = {}
-        for m in items:
-            categories.setdefault((m["brand"], m["category"] or "Other"), []).append(m)
-        return render_template("models.html", categories=categories, brand=brand, q=q, count=len(items),
-                               nav="models")
+        kind = request.args.get("type")
+        items = [dict(m, discipline=checks.discipline_of(m)) for m in models()
+                 if (not brand or m["brand"] == brand) and (not q or q in m["name"].lower())]
+        counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
+        items = [m for m in items if not kind or m["discipline"] == kind]
+        groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
+                                      key=lambda m: (m["price_eur"] or 0, m["brand"], m["name"])))
+                  for key, label in DISCIPLINES + OTHER]
+        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
+                               counts=counts, kind=kind, brand=brand, q=q, count=len(items), nav="models")
 
     @app.route("/models/<slug>")
     def model_page(slug):

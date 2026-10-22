@@ -7,8 +7,8 @@ import unicodedata
 from datetime import date
 
 from .i18n import Msg, join
-from .reference import (BRAND_NAMES, ELECTRONIC, GENERATIONS, GENERATIONS_NOTE, GENERIC_SIZE_CHART, GROUPSETS,
-                        SIZE_CHARTS, SIZE_NOTE)
+from .reference import (BRAND_NAMES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
+                        GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, SIZE_CHARTS, SIZE_NOTE)
 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
 
@@ -140,6 +140,23 @@ def generation_of(model_name):
 def family_of(model_name):
     toks = _tokens(model_name)
     return toks[0] if toks else ""
+
+
+def discipline_of(model):
+    """The brand-independent discipline key (reference.DISCIPLINES) for a catalogue model, or "other"."""
+    toks = set(_tokens(model["name"]))
+    for key, words in NAME_WORDS.items():
+        if toks & set(words):
+            return key
+    family = family_of(model["name"])
+    for key, brands in FAMILY_DISCIPLINES.items():
+        if family in brands.get(model["brand"], []):
+            return key
+    category = _plain(model.get("category"))
+    for key, words in CATEGORY_WORDS.items():
+        if any(w in category for w in words):
+            return key
+    return "other"
 
 
 def match_models(models, title, description="", claims=None):
