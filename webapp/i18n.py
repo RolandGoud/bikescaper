@@ -67,8 +67,8 @@ NL = {
 
     # home
     "Second-hand bike check · Netherlands": "Tweedehands fietscheck · Nederland",
-    "Is that used bike <span>really</span> what the seller says?":
-        "Is die tweedehands fiets <span>echt</span> wat de verkoper zegt?",
+    "Is that bike <span>really</span> what the seller says?":
+        "Is die fiets <span>echt</span> wat de verkoper zegt?",
     "Paste the ad. We match it to the original model and tell you if the age, specs, size and asking price add up.":
         "Plak de advertentie. Wij zoeken het originele model erbij en vertellen je of de leeftijd, "
         "onderdelen, maat en vraagprijs kloppen.",
