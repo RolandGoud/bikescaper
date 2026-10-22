@@ -31,6 +31,30 @@ SIZE_CHARTS = {
         "3XS": (150, 158), "2XS": (155, 163), "XS": (163, 170), "S": (170, 176),
         "M": (176, 182), "L": (182, 188), "XL": (188, 194), "2XL": (194, 200),
     },
+    # The brands below: entered by hand from each brand's road size guide, for the
+    # sizes their 2025-2027 road and gravel bikes use.
+    "Specialized": {
+        "44": (148, 158), "49": (155, 165), "52": (163, 170), "54": (168, 175), "56": (173, 180),
+        "58": (178, 185), "61": (183, 193), "64": (190, 200),
+        "XS": (152, 163), "S": (160, 170), "M": (168, 178), "L": (175, 185), "XL": (183, 193),
+    },
+    "Giant": {
+        "XS": (155, 165), "S": (165, 175), "M": (175, 183), "ML": (180, 188), "L": (183, 191), "XL": (188, 196),
+    },
+    "Cannondale": {
+        "44": (150, 157), "48": (155, 163), "50": (158, 166), "51": (160, 168), "52": (163, 170),
+        "54": (166, 174), "56": (172, 180), "58": (178, 186), "61": (184, 193),
+        "XS": (152, 160), "S": (158, 168), "M": (166, 178), "L": (175, 185), "XL": (183, 193),
+    },
+    "Cube": {
+        "47": (155, 163), "50": (160, 168), "53": (167, 175), "56": (174, 182), "58": (180, 188),
+        "60": (186, 194), "62": (192, 200),
+        "XS": (155, 163), "S": (160, 168), "M": (167, 175), "L": (174, 182), "XL": (180, 188), "2XL": (186, 194),
+    },
+    "Factor": {
+        "45": (152, 160), "49": (158, 166), "52": (163, 171), "54": (168, 176), "56": (173, 181),
+        "58": (178, 186), "61": (183, 193),
+    },
 }
 SIZE_NOTE = "Generic chart for this brand, not this model's own size chart yet."
 
@@ -56,21 +80,23 @@ GROUPSETS = [
 ]
 ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 
-# Brands the site covers. `site` is the brand's own Dutch site the catalogue
-# collector should read; only Trek and Canyon have a working scraper so far.
-# The URLs for the newer brands are unverified starting points.
+# Brands the site covers. `site` is the brand's own site the catalogue is read
+# from. Trek and Canyon have their own scrapers; the next five are collected by
+# brand_scrapers/. Scott and Orbea block requests from servers, so they wait for a
+# run from a home connection. `aliases` are other words in an ad that name the brand.
 BRANDS = [
     {"name": "Trek", "site": "https://www.trekbikes.com/nl/nl_NL/", "scraper": True, "logo": "logos/trek.svg"},
     {"name": "Canyon", "site": "https://www.canyon.com/nl-nl/", "scraper": True, "logo": "logos/canyon.svg"},
-    {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": False},
-    {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": False},
-    {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": False},
-    {"name": "Scott", "site": "https://www.scott-sports.com/nl/nl/", "scraper": False},
+    {"name": "Specialized", "site": "https://www.specialized.com/nl/nl", "scraper": True, "aliases": ["s-works"]},
+    {"name": "Giant", "site": "https://www.giant-bicycles.com/nl", "scraper": True},
+    {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": True},
+    {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": True},
+    {"name": "Factor", "site": "https://eu.factorbikes.com/", "scraper": True},
+    {"name": "Scott", "site": "https://www.scott-sports.com/nl/en/", "scraper": False},
     {"name": "Orbea", "site": "https://www.orbea.com/nl-nl/", "scraper": False},
-    {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": False},
-    {"name": "Factor", "site": "https://factorbikes.com/", "scraper": False},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
+BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}
 
 # Used for brands without their own chart yet.
 GENERIC_SIZE_CHART = {**SIZE_CHARTS["Trek"], "2XS": (148, 155), "2XL": (193, 200)}
@@ -89,18 +115,18 @@ DISCIPLINES = [
 
 # Model families per discipline: the first word of the model name, as checks.family_of reads it.
 # Trek and Canyon are checked against their catalogue; the other brands are taken from their
-# current line-ups and should be confirmed once their scrapers run.
+# current line-ups, checked against the brand_scrapers snapshots of October 2026.
 FAMILY_DISCIPLINES = {
     "road": {
         "Trek": ["madone", "emonda", "domane"],
         "Canyon": ["aeroad", "ultimate", "endurace"],
         "Specialized": ["tarmac", "aethos", "allez", "roubaix"],
-        "Giant": ["propel", "tcr", "defy"],
+        "Giant": ["propel", "tcr", "defy", "contend"],
         "Cannondale": ["systemsix", "supersix", "caad", "synapse"],
         "Scott": ["foil", "addict", "speedster"],
         "Orbea": ["orca", "avant"],
         "Cube": ["litening", "agree", "attain"],
-        "Factor": ["ostro", "o", "monza"],
+        "Factor": ["ostro", "o", "monza", "one", "bugatti"],
     },
     "gravel": {
         "Trek": ["checkpoint", "checkmate", "boone"],
@@ -110,7 +136,7 @@ FAMILY_DISCIPLINES = {
         "Cannondale": ["topstone", "superx"],
         "Orbea": ["terra"],
         "Cube": ["nuroad", "cross"],
-        "Factor": ["explorer"],
+        "Factor": ["explorer", "aluto", "sarana", "elara"],
     },
     "tt": {
         "Trek": ["speed"],
@@ -120,7 +146,8 @@ FAMILY_DISCIPLINES = {
         "Scott": ["plasma"],
         "Orbea": ["ordu"],
         "Cube": ["aerium"],
-        "Factor": ["hanzo"],
+        "Factor": ["hanzo", "slick"],
+        "Cannondale": ["superslice"],
     },
     "fitness": {
         "Trek": ["fx"],
@@ -230,6 +257,46 @@ SPEC_LABELS = {
     "Tas": ("extras", "Bag", "Tas"),
     "Bidonhouder": ("extras", "Bottle cage", "Bidonhouder"),
     "Bidon": ("extras", "Bottle", "Bidon"),
+    # Labels from the brand_scrapers brands (Specialized, Giant, Cannondale, Cube, Factor).
+    "Frameset": ("frame", "Frameset", "Frame plus vork"),
+    "Head Tube Diameter": ("frame", "Head tube diameter", "Diameter balhoofdbuis"),
+    "Cable Routing": ("frame", "Cable routing", "Kabelgeleiding"),
+    "Axle": ("frame", "Axles", "Assen"),
+    "Axle type": ("frame", "Axles", "Assen"),
+    "Hub Width": ("wheels", "Hub width", "Naafbreedte"),
+    "Demper": ("frame", "Suspension", "Vering"),
+    "Vering": ("frame", "Suspension", "Vering"),
+    "Opslag": ("frame", "Storage", "Opbergvak"),
+    "SWAT": ("frame", "Storage", "Opbergvak"),
+    "Aandrijving": ("drivetrain", "Drivetrain", "Aandrijving"),
+    "Aandrijving/wielen": ("drivetrain", "Drivetrain", "Aandrijving"),
+    "Achterrem": ("brakes", "Rear brake", "Achterrem"),
+    "Remtype": ("brakes", "Brake type", "Remtype"),
+    "Brake interface": ("brakes", "Rotor mount", "Schijfbevestiging"),
+    "Max Rotor Size": ("brakes", "Max rotor size", "Maximale schijfmaat"),
+    "Wielen": ("wheels", "Wheels", "Wielen"),
+    "Wheelset": ("wheels", "Wheels", "Wielen"),
+    "Naven": ("wheels", "Hubs", "Naven"),
+    "Rim height": ("wheels", "Rim depth", "Velghoogte"),
+    "Rim width": ("wheels", "Rim width", "Velgbreedte"),
+    "Wielmaat": ("wheels", "Wheel size", "Wielmaat"),
+    "Bandenmaat": ("wheels", "Tyre size", "Bandenmaat"),
+    "Voorband": ("wheels", "Front tyre", "Voorband"),
+    "Achterband": ("wheels", "Rear tyre", "Achterband"),
+    "Weights": ("wheels", "Wheel weight", "Gewicht wielen"),
+    "Opzetstuur": ("cockpit", "Aero extensions", "Opzetstuur"),
+    "Arm Rest Kit": ("cockpit", "Arm rests", "Armsteunen"),
+    "Zadelpenklem": ("saddle", "Seat clamp", "Zadelpenklem"),
+    "Saddle Rail Clamps": ("saddle", "Saddle rail clamps", "Zadelklemmen"),
+    "Framegewicht": ("weight", "Frame weight", "Framegewicht"),
+    "Extra's": ("extras", "Extras", "Extra's"),
+    "Uitrusting": ("extras", "Extras", "Extra's"),
+    "Voorlicht": ("extras", "Front light", "Voorlicht"),
+    "Achterlicht": ("extras", "Rear light", "Achterlicht"),
+    "Spatborden": ("extras", "Mudguards", "Spatborden"),
+    "Bagagedrager": ("extras", "Rack", "Bagagedrager"),
+    "Standaard": ("extras", "Kickstand", "Standaard"),
+    "Bel": ("extras", "Bell", "Bel"),
 }
 # Without a motor, a battery and charger belong to electronic shifting (Di2, AXS), not to an e-bike.
 NO_MOTOR_GROUP = {"electric": "drivetrain"}

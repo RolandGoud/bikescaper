@@ -1,4 +1,4 @@
-"""Load the existing bikescaper output (Trek and Canyon NL) into the site database.
+"""Load the bikescaper output into the site database.
 
 Run from the repo root:  python -m webapp.seed
 """
@@ -16,10 +16,23 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 # The richest snapshot per brand. The Trek file from 18 July 2025 has full spec
 # sheets; the later August export lost most of them.
-SOURCES = [
+FIXED_SOURCES = [
     ("Trek", "data/Trek/trek_bikes_20250718_100005.json"),
     ("Canyon", "data/Canyon/canyon_bikes_20250803_081317.json"),
 ]
+# Brands collected by brand_scrapers/: the newest snapshot of each.
+COLLECTED = ["Specialized", "Giant", "Cannondale", "Cube", "Factor"]
+
+
+def latest_snapshot(brand):
+    folder = os.path.join(ROOT, "data", brand)
+    if not os.path.isdir(folder):
+        return None
+    files = sorted(f for f in os.listdir(folder) if re.match(rf"{brand.lower()}_bikes_\d{{8}}_\d{{6}}\.json$", f))
+    return f"data/{brand}/{files[-1]}" if files else None
+
+
+SOURCES = FIXED_SOURCES + [(brand, path) for brand in COLLECTED if (path := latest_snapshot(brand))]
 
 
 def slugify(text):
@@ -43,6 +56,8 @@ def pick_image(bike):
     award badges and pictures of other models, so the first saved picture is
     often wrong. Pick by filename instead.
     """
+    if bike.get("image"):  # brand_scrapers saves one product shot per model
+        return bike["image"]
     if bike["brand"] == "Canyon":
         return canyon_image(bike["name"])
     if bike["brand"] == "Trek":
