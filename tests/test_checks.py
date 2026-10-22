@@ -60,7 +60,7 @@ def test_purchase_year_before_launch_is_a_warning(models):
     r = run(models, "Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
     assert r["model"]["name"].lower() == "domane sl 6 gen 4"
     assert r["age"]["status"] == checks.WARN
-    groupset = next(row for row in r["specs"]["rows"] if row["part"] == "Groupset")
+    groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
     assert groupset["status"] == checks.BAD  # the original has 105, not Ultegra
     assert r["size"]["fit"]["status"] == checks.OK
 
@@ -93,9 +93,40 @@ def test_pages_render(tmp_path):
     client = app.test_client()
     resp = client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56", "asking_price": "€ 2.450,-"})
     assert resp.status_code == 302
-    report = client.get(resp.headers["Location"])
+    report = client.get(resp.headers["Location"] + "?lang=en")
     assert report.status_code == 200 and b"Age check" in report.data and "€2.450".encode() in report.data
     for url in ["/", "/listings", "/models", "/models/trek-domane-sl-6-gen-4", "/size?brand=Giant&height=181",
                 "/value?model=trek-domane-sl-6-gen-4&year=2023", "/how-it-works", "/check"]:
         assert client.get(url).status_code == 200, url
     assert client.post("/check", data={"title": ""}).status_code == 400
+
+
+def test_language_switch(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": "2450"})
+
+    # Dutch by default, English when the browser asks for it
+    assert "Advertentie checken".encode() in client.get("/").data
+    assert b"Check a listing" in client.get("/", headers={"Accept-Language": "en-GB,en;q=0.9"}).data
+
+    # ?lang= switches and sticks through a cookie, including the check results
+    page = client.get("/check/1?lang=en").data
+    assert b'<html lang="en">' in page and b"Probably the purchase year" in page
+    page = client.get("/check/1").data
+    assert b"Probably the purchase year" in page
+    page = client.get("/check/1?lang=nl").data
+    assert b'<html lang="nl">' in page and b"Waarschijnlijk het aankoopjaar" in page and b"Groep" in page
+
+
+def test_every_message_has_a_dutch_translation(models):
+    from webapp import i18n
+    r = run(models, "Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
+    msgs = [r["confidence"]]
+    for key in ("age", "specs", "size", "value"):
+        msgs += [r[key]["headline"], r[key]["detail"], *r[key].get("notes", [])]
+    msgs += [row[f] for row in r["specs"]["rows"] for f in ("part", "result")] + r["questions"]
+    for m in msgs:
+        if isinstance(m, i18n.Msg) and "{p0}" not in m.text:
+            assert m.text in i18n.NL, m.text

@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% from "_macros.html" import listing_card %}
-{% block title %}Listings · Bike Compare{% endblock %}
+{% block title %}{{ _('Listings') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
-    <h1 style="font-size: 44px">Checked listings</h1>
-    <p class="muted">Every ad someone has checked here. Collecting ads automatically comes later, once we know what each site allows.</p>
+    <h1 style="font-size: 44px">{{ _('Checked listings') }}</h1>
+    <p class="muted">{{ _('Every ad someone has checked here. Collecting ads automatically comes later, once we know what each site allows.') }}</p>
   </div>
-  <div class="filters" aria-label="Filter by result">
-    <a class="pill {{ 'on' if not status }}" href="{{ url_for('listings') }}">All</a>
-    <a class="pill {{ 'on' if status == 'bad' }}" href="{{ url_for('listings', result='bad') }}">Something doesn't add up</a>
-    <a class="pill {{ 'on' if status == 'warn' }}" href="{{ url_for('listings', result='warn') }}">Needs a question</a>
+  <div class="filters" aria-label="{{ _('Filter by result') }}">
+    <a class="pill {{ 'on' if not status }}" href="{{ url_for('listings') }}">{{ _('All') }}</a>
+    <a class="pill {{ 'on' if status == 'bad' }}" href="{{ url_for('listings', result='bad') }}">{{ _("Something doesn't add up") }}</a>
+    <a class="pill {{ 'on' if status == 'warn' }}" href="{{ url_for('listings', result='warn') }}">{{ _('Needs a question') }}</a>
   </div>
   {% if cards %}
   <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))">
     {% for row, r in cards %}{{ listing_card(row, r) }}{% endfor %}
   </div>
   {% else %}
-  <div class="card"><p>No checks yet. <a href="{{ url_for('home') }}">Check your first listing</a>.</p></div>
+  <div class="card"><p>{{ _('No checks yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
   {% endif %}
 </main>
 {% endblock %}

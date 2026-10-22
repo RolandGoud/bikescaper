@@ -48,6 +48,10 @@ they survive restarts and rebuilds. To reload the catalogue after new scrapes:
 | Value estimator | `/value` | Fair price from new price, model year and condition. |
 | How it works | `/how-it-works` | Method, data sources and limits. |
 
+The site is in Dutch and English. It follows the browser's language (Dutch when unsure), and the
+NL/EN switch in the header changes it and remembers the choice in a cookie. Texts live in
+`webapp/i18n.py`: English is the key, with the Dutch translation next to it.
+
 Code: `webapp/checks.py` reads the seller's claims and runs the checks, `webapp/reference.py` holds
 hand-entered reference data (brands, Trek generation years, generic size charts, groupsets),
 `webapp/seed.py` loads the scraped JSON.

@@ -1,41 +1,41 @@
 {% extends "base.html" %}
-{% block title %}Value estimator · Bike Compare{% endblock %}
+{% block title %}{{ _('Value estimator') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
-    <h1 style="font-size: 44px">Value estimator</h1>
-    <p class="muted">A rough fair price for a used bike from its new price, age and condition.</p>
+    <h1 style="font-size: 44px">{{ _('Value estimator') }}</h1>
+    <p class="muted">{{ _('A rough fair price for a used bike from its new price, age and condition.') }}</p>
   </div>
   <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
-    <label class="field" style="flex: 1 1 300px">Model
+    <label class="field" style="flex: 1 1 300px">{{ _('Model') }}
       <select name="model">{% for m in models %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}</select>
     </label>
-    <label class="field">Model year
+    <label class="field">{{ _('Model year') }}
       <input name="year" type="number" min="2000" max="{{ this_year }}" value="{{ year or '' }}" placeholder="{{ this_year - 2 }}">
     </label>
-    <label class="field">Condition
+    <label class="field">{{ _('Condition') }}
       <select name="condition">
-        <option value="" {{ 'selected' if not condition }}>Normal use</option>
-        <option value="like-new" {{ 'selected' if condition == 'like-new' }}>Like new</option>
-        <option value="used" {{ 'selected' if condition == 'used' }}>Visible wear</option>
-        <option value="damaged" {{ 'selected' if condition == 'damaged' }}>Damaged</option>
+        <option value="" {{ 'selected' if not condition }}>{{ _('Normal use') }}</option>
+        <option value="like-new" {{ 'selected' if condition == 'like-new' }}>{{ _('Like new') }}</option>
+        <option value="used" {{ 'selected' if condition == 'used' }}>{{ _('Visible wear') }}</option>
+        <option value="damaged" {{ 'selected' if condition == 'damaged' }}>{{ _('Damaged') }}</option>
       </select>
     </label>
-    <label class="field">Asking price (€)
-      <input name="asking" inputmode="decimal" value="{{ asking|int if asking else '' }}" placeholder="Optional">
+    <label class="field">{{ _('Asking price (€)') }}
+      <input name="asking" inputmode="decimal" value="{{ asking|int if asking else '' }}" placeholder="{{ _('Optional') }}">
     </label>
-    <button class="btn" type="submit">Estimate</button>
+    <button class="btn" type="submit">{{ _('Estimate') }}</button>
   </form>
   {% if result %}
   <section class="card">
     <h2>{{ model.brand }} {{ model.name }}</h2>
     <div class="verdict {{ result.status }}-bg">
-      <span class="big {{ result.status }}">{{ result.low|eur }} to {{ result.high|eur }}</span>
+      <span class="big {{ result.status }}">{{ _('{low} to {high}', low=result.low|eur, high=result.high|eur) }}</span>
       <span class="why">{{ result.headline if result.asking else '' }} {{ result.detail }}</span>
     </div>
     <div class="facts">
-      <div><div class="k">New price</div><div class="v">{{ result.original|eur }}</div></div>
-      <div><div class="k">Age</div><div class="v">{{ result.age }} year{{ 's' if result.age != 1 }}</div></div>
+      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ result.original|eur }}</div></div>
+      <div><div class="k">{{ _('Age') }}</div><div class="v">{{ _('{n} year' if result.age == 1 else '{n} years', n=result.age) }}</div></div>
     </div>
     <div class="notes">{% for n in result.notes %}<span>{{ n }}</span>{% endfor %}</div>
   </section>
