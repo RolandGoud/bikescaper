@@ -326,3 +326,7 @@ select { max-width: 100%; }
 .asking { display: flex; flex-direction: column; gap: 12px; }
 .asking .row { gap: 6px; }
 .pill.small-pill { padding: 6px 12px; font-size: 13px; }
+
+/* Home: the 12 newest checked ads, four across on wide screens, and a button the full width below. */
+.recent-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.wide-btn { width: 100%; margin-top: 8px; }

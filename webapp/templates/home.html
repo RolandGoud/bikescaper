@@ -24,10 +24,11 @@
 
 {% if cards %}
 <section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
-  <div class="row" style="justify-content: space-between"><h2>{{ _('Recently checked') }}</h2><a href="{{ url_for('listings') }}" style="font-weight: 600">{{ _('See all listings') }}</a></div>
-  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
+  <h2>{{ _('Recently checked') }}</h2>
+  <div class="grid recent-grid">
     {% for row, r in cards %}{{ listing_card(row, r) }}{% endfor %}
   </div>
+  <a class="btn wide-btn" href="{{ url_for('listings') }}">{{ _('Show all {count} checked ads', count=total) }}</a>
 </section>
 {% endif %}
 
