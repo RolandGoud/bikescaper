@@ -99,6 +99,17 @@ def ad_status(url):
         return None
 
 
+def ad_key(row):
+    """What makes two checks the same ad: the ad number for a link from Marktplaats or 2dehands
+    (so any form of the link counts), otherwise exactly the same title and asking price."""
+    url = row["listing_url"]
+    if url and supported(with_scheme(url)) and ad_id(url):
+        host = (urlsplit(with_scheme(url)).hostname or "").lower()
+        site = "marktplaats" if "marktplaats" in host else "2dehands"
+        return f"{site}:{ad_id(url)}"
+    return "typed:" + " ".join((row["title"] or "").lower().split()) + f"|{row['asking_price']}"
+
+
 def parse_listing(html):
     config = _config(html)
     data = config.get("listing") or {}
