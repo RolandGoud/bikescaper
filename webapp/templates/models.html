@@ -10,6 +10,9 @@
   <div class="stack" style="gap: 8px">
     <h1 style="font-size: 44px">{{ _('Models') }}</h1>
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
+    {% if groupset %}<p class="row small"><span class="chip ok-bg">{{ _('With {groupset}', groupset=groupset_name or groupset) }}</span>
+      <a href="{{ url_for('catalog', brand=picked or None, type=kind, q=q or None, current=current, tier=tier) }}">{{ _('All groupsets') }}</a>
+      <a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a></p>{% endif %}
   </div>
   {# One filter box: "All brands" and the brand logos (each click turns that brand on or off), then type, tier,
      still sold and search.
@@ -19,15 +22,16 @@
       {# "All brands" is on until a brand is picked; each brand pill then turns its own brand on or off, so several
          can be on. "All brands", turning the last brand off, or turning every brand on drops the brand filter. #}
       {% set shown = brands|selectattr('scraper')|map(attribute='name')|list %}
-      <a class="pill brand all {{ 'on' if not picked }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current, tier=tier) }}"{% if not picked %} aria-current="true"{% endif %}>{{ _('All brands') }}</a>
+      <a class="pill brand all {{ 'on' if not picked }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current, tier=tier, groupset=groupset) }}"{% if not picked %} aria-current="true"{% endif %}>{{ _('All brands') }}</a>
       {% for b in brands if b.scraper %}
       {% set on = b.name in picked %}
       {% set toggled = shown|select('in', picked|reject('equalto', b.name)|list if on else picked + [b.name])|list %}
-      <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled if toggled|length < shown|length else None, q=q or None, current=current, tier=tier) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
+      <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled if toggled|length < shown|length else None, q=q or None, current=current, tier=tier, groupset=groupset) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
       {% endfor %}
     </nav>
     <form class="filter-row" method="get">
       {% for b in picked %}<input type="hidden" name="brand" value="{{ b }}">{% endfor %}
+      {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
       <label class="field-label">{{ _('Type') }}
         <select name="type" onchange="this.form.requestSubmit()">
           <option value="">{{ _('All types') }} ({{ count }})</option>
