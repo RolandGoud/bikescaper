@@ -452,6 +452,28 @@ def test_wheels_named_in_the_ad_are_compared_by_tier(models):
     assert any("original Wheels" in en(q) for q in r["questions"])
 
 
+def test_comparison_rows_carry_both_tiers(models):
+    r = run(models, "Trek Domane SL 5 Gen 4 2024", "Shimano Ultegra, carbon frame, Schwalbe Lugano banden")
+    rows = {row["key"]: row for row in r["specs"]["rows"]}
+    assert (rows["groupset"]["ref_tier"], rows["groupset"]["ad_tier"]) == (3, 4)
+    assert rows["tyres"]["ad_tier"] == 1 and rows["tyres"]["step"] < 0
+    assert rows["frame"]["ref_tier"] and rows["frame"]["ad_tier"] is None
+    assert rows["saddle"]["ref_tier"] == 1
+
+
+def test_report_shows_tiers_and_part_icons(tmp_path):
+    app = create_app(str(tmp_path / "t.sqlite3"))
+    with app.app_context():
+        seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL 5 Gen 4 2023 maat 56 Ultegra", "asking_price": "1900",
+                                "description": "carbon frame, Schwalbe Lugano banden"})
+    page = client.get("/check/1?lang=en").get_data(as_text=True)
+    assert 'class="part-icon"' in page
+    assert 'class="tier small t4 up"' in page and 'class="tier small t1 down"' in page
+    assert "RESULT" not in page
+
+
 def test_carbon_frame_is_not_carbon_wheels():
     assert checks.read_claims("Trek Domane", "carbon frame, nieuwe wielen")["wheels"] is None
 

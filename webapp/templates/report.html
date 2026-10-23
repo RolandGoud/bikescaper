@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo %}
+{% from "_macros.html" import photo, tier_badge, tier_move, part_icon %}
 {% from "_macros.html" import asking_box, duo_photo with context %}
 {% block title %}{{ _('Check report') }}: {{ listing.title }} · Bike Compare{% endblock %}
 {% block body %}
@@ -96,10 +96,16 @@
     </div>
     <div class="spec-table">
       <table>
-        <thead><tr><th>{{ _('PART') }}</th><th>{{ _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th><th>{{ _('RESULT') }}</th></tr></thead>
+        <thead><tr><th>{{ _('PART') }}</th><th>{{ _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th></tr></thead>
         <tbody>
         {% for s in r.specs.rows %}
-          <tr><td>{{ s.part }}</td><td>{{ s.original }}</td><td>{{ s.listing }}</td><td class="{{ s.status }}">{{ s.result }}</td></tr>
+          <tr>
+            <td><span class="part-name">{{ part_icon(s.key) }}{{ s.part }}</span></td>
+            <td data-label="{{ _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}</div>{% endif %}</td>
+            <td data-label="{{ _('IN THE AD') }}">{{ s.listing }}
+              <div class="part-tier part-verdict {{ s.status }}">{{ tier_move(s.ad_tier, s.step) }}<span>{{ s.result }}</span></div>
+            </td>
+          </tr>
         {% endfor %}
         </tbody>
       </table>
