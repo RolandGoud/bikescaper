@@ -18,18 +18,18 @@
     <form class="filter-row" method="get">
       {% if brand %}<input type="hidden" name="brand" value="{{ brand }}">{% endif %}
       <label class="field-label">{{ _('Type') }}
-        <select name="type" onchange="this.form.submit()">
+        <select name="type" onchange="this.form.requestSubmit()">
           <option value="">{{ _('All types') }} ({{ count }})</option>
           {% for key, label in disciplines %}{% if counts[key] or kind == key %}<option value="{{ key }}" {{ 'selected' if kind == key }}>{{ _(label) }} ({{ counts[key] }})</option>{% endif %}{% endfor %}
         </select>
       </label>
       <label class="field-label">{{ _('Spec tier') }}
-        <select name="tier" onchange="this.form.submit()">
+        <select name="tier" onchange="this.form.requestSubmit()">
           <option value="">{{ _('All tiers') }}</option>
           {% for t, name in tier_names.items() %}<option value="{{ t }}" {{ 'selected' if tier == t }}>{{ t }} · {{ _(name) }} ({{ tier_counts[t] }})</option>{% endfor %}
         </select>
       </label>
-      <label class="switch"><input type="checkbox" name="current" value="1" {{ 'checked' if current }} onchange="this.form.submit()"><i></i>{{ _('Only bikes still sold') }}</label>
+      <label class="switch"><input type="checkbox" name="current" value="1" {{ 'checked' if current }} onchange="this.form.requestSubmit()"><i></i>{{ _('Only bikes still sold') }}</label>
       <span class="search">
         <label class="sr-only" for="q">{{ _('Search models') }}</label>
         <input id="q" name="q" value="{{ q }}" placeholder="{{ _('Search, e.g. Domane') }}">
@@ -57,4 +57,5 @@
   <div class="card"><p>{{ _('No models match.') }}</p></div>
   {% endfor %}
 </main>
+<script src="{{ url_for('static', filename='models.js') }}" defer></script>
 {% endblock %}
