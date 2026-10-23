@@ -22,8 +22,10 @@
   <div class="factory">{{ photo(model) }}</div>
   {{ brand_mark(model.brand) }}
   <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
-  {# The handle: the cut line with one pill on it, ad label left, a bike in the middle, catalogue label right. #}
-  <span class="duo-handle" aria-hidden="true"><span class="duo-knob"><span class="duo-label ad">{{ _('Ad') }}</span><svg class="duo-bike" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="7" cy="18" r="5"/><circle cx="21" cy="18" r="5"/><path d="M7 18l5-9h6l3 9M12 9l4 9"/></svg><span class="duo-label brand">{{ _('Catalogue') }}</span></span></span>
+  {# The handle is the cut line itself; the labels sit at the bottom, slanted like the cut, either side of it. #}
+  <span class="duo-handle" aria-hidden="true"></span>
+  <span class="duo-label ad"><span>{{ _('Ad') }}</span></span>
+  <span class="duo-label brand"><span>{{ _('Catalogue') }}</span></span>
 </div>
 {%- endmacro %}
 
