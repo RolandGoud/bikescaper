@@ -24,6 +24,7 @@ def test_ad_colours(title, description, colours):
     ("surfblue 'n' black", ["blue", "black"]),
     ("Royal Plum (Matt) - Fantasy Purple C. View (Gloss)", ["purple"]),
     ("Chalk", ["white"]),
+    ("Blaze Purple", ["purple"]),
     ("Satin Solidity Metallic", []),
 ])
 def test_brand_colour_names(name, families):
@@ -66,6 +67,18 @@ def test_report_says_which_colour(tmp_path):
     assert "Addict_30_colour_nebula_purple.jpg" in page
 
 
+def test_swatch_is_the_frame_colour_in_the_photo():
+    purple = seed.photo_colour("Scott/Addict_30_colour_nebula_purple.jpg")
+    assert colour_match.hex_family(purple) == "purple"
+    assert colour_match.hex_family(seed.photo_colour("Scott/Addict_30_colour_carbon_black.jpg")) in ("black", "grey")
+    assert colour_match.hex_family(seed.photo_colour("Scott/Addict_20_colour_cumulus_white.jpg")) == "white"
+    ways = seed.colorways({"brand": "Scott", "name": "Addict 30", "color_names": ["nebula purple", "sand green"],
+                           "color_images": ["Scott/Addict_30_colour_nebula_purple.jpg", "Scott/Addict_30_colour_sand_green.jpg"],
+                           "color_image_urls": ["u1", "u1"]}, None)
+    assert ways[0]["swatch"] == purple
+    assert ways[1]["image"] is None  # the same photo as the first colour's: not of this colour
+
+
 def test_colourways_use_the_saved_colour_photos():
     bike = {"brand": "Scott", "name": "Addict 30", "color_names": ["carbon black", "nebula purple", "Kaze"],
             "color_images": ["Scott/Addict_30_colour_carbon_black.jpg", None, "Scott/missing.jpg"],
@@ -77,11 +90,14 @@ def test_colourways_use_the_saved_colour_photos():
 
 
 def test_giant_colour_photo_is_the_side_view_of_that_colour():
-    files = ["ACarbon", "ACarbon-D2", "ACarbon_Rear", "BIllusionWhite-D1", "BIllusionWhite", "BIllusionWhite_B"]
-    page = " ".join(f"{letter * 20}/MY25TCRAdvanced2-KOM_Color{f}.jpg" for letter, f in zip("abcdef", files))
-    assert giant.colour_photo(page, 0).endswith("/" + "a" * 20 + "/MY25TCRAdvanced2-KOM_ColorACarbon.jpg")
-    assert giant.colour_photo(page, 1).endswith("/" + "e" * 20 + "/MY25TCRAdvanced2-KOM_ColorBIllusionWhite.jpg")
-    assert giant.colour_photo(page, 2) is None
+    # The page also shows other models, and lists Mach Blue first though its photos are colour B.
+    files = ["MY27PropelAdvanced2_ColorAWhite", "MY27PropelAdvanced2_ColorBMachBlue", "MY27PropelAdvanced2_ColorBMachBlue-D2",
+             "MY27PropelAdvanced1_ColorACarbon", "MY27PropelAdvanced2_ColorAWhite_Rear", "MY25PropelAdvancedPro0-Di2_ColorBMercury"]
+    page = " ".join(f"{letter * 20}/{f}.jpg" for letter, f in zip("abcdef", files))
+    assert giant.colour_photo(page, "Propel Advanced 2", "Mach Blue").endswith("/" + "b" * 20 + "/MY27PropelAdvanced2_ColorBMachBlue.jpg")
+    assert giant.colour_photo(page, "Propel Advanced 2", "White").endswith("/" + "a" * 20 + "/MY27PropelAdvanced2_ColorAWhite.jpg")
+    assert giant.colour_photo(page, "Propel Advanced 2", "Carbon") is None  # Propel Advanced 1's
+    assert giant.colour_photo(page, "Propel Advanced Pro 0 Di2", "Mercury").endswith("_ColorBMercury.jpg")
 
 
 def test_factor_photo_per_colour():

@@ -2,6 +2,7 @@
 
 Run from the repo root:  python -m webapp.seed
 """
+import functools
 import glob
 import html
 import json
@@ -95,7 +96,9 @@ def pick_image(bike):
     often wrong. Pick by filename instead.
     """
     if bike.get("image"):  # brand_scrapers saves one product shot per model
-        return bike["image"]
+        # and one per colour: show the first colour's, the one the model page's first swatch names
+        first = (bike.get("color_images") or [None])[0]
+        return first if first and os.path.exists(os.path.join(ROOT, "images", first)) else bike["image"]
     if bike["brand"] == "Canyon":
         return canyon_image(bike["name"])
     if bike["brand"] == "Trek":
@@ -152,14 +155,17 @@ def photo_years(bike):
 
 
 def colorways(bike, image):
-    """[{name, swatch, image, hex}] per colour the brand lists; the model's own photo when it has one colour.
+    """[{name, swatch, image, hex, photo_hex}] per colour the brand lists; the model's own photo when it has one colour.
 
-    The photos are Canyon's own files, or the ones brand_scrapers saved per colour (color_images);
-    hex is the swatch colour the brand shows, where it gives one (Specialized).
+    The photos are Canyon's own files, or the ones brand_scrapers saved per colour (color_images); a
+    photo that another colour of the model already has is left out, it's not of this colour. hex is
+    the swatch colour the brand shows, where it gives one (Specialized); photo_hex the frame's colour
+    in the photo. The swatch is the brand's colour, else the photo's, else one read from the name.
     """
     names = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
     ids = bike.get("color_ids") or []
     saved = bike.get("color_images") or []
+    urls = bike.get("color_image_urls") or []
     hexes = bike.get("color_hexes") or []
     ways = []
     for i, name in enumerate(names):
@@ -167,11 +173,67 @@ def colorways(bike, image):
             photo = canyon_colour_image(bike.get("sku"), ids[i]) if i < len(ids) else None
         else:
             photo = saved[i] if i < len(saved) and saved[i] and os.path.exists(os.path.join(ROOT, "images", saved[i])) else None
+            if photo and i < len(urls) and urls[i] in urls[:i]:
+                photo = None
         if len(names) == 1:
             photo = photo or image
         brand_hex = hexes[i] if i < len(hexes) else None
-        ways.append({"name": name, "swatch": brand_hex or swatch(name), "image": photo, "hex": brand_hex})
+        photo_hex = photo_colour(photo)
+        ways.append({"name": name, "swatch": brand_hex or photo_hex or swatch(name), "image": photo,
+                     "hex": brand_hex, "photo_hex": photo_hex})
     return ways
+
+
+def photo_colour(image):
+    try:
+        return _photo_colour(image, os.path.getmtime(os.path.join(ROOT, "images", image))) if image else None
+    except OSError:
+        return None
+
+
+@functools.lru_cache(maxsize=4096)
+def _photo_colour(image, _mtime):
+    """The frame's colour in a catalogue photo, as #rrggbb; None without a usable photo.
+
+    Looks at the top of the frame, between the wheels and above the cranks, where the paint is. When a
+    fifth of that is coloured, the commonest hue wins; else it's a white, grey or black bike, and the
+    light or the dark pixels win, whichever there are enough of.
+    """
+    try:
+        import numpy as np
+        from PIL import Image
+        with Image.open(os.path.join(ROOT, "images", image)) as img:
+            img = img.convert("RGB")
+            img.thumbnail((320, 320))
+    except (OSError, ValueError):
+        return None
+    a = np.asarray(img, dtype=np.float32)
+    corners = np.concatenate([a[:3, :3].reshape(-1, 3), a[-3:, -3:].reshape(-1, 3),
+                              a[:3, -3:].reshape(-1, 3), a[-3:, :3].reshape(-1, 3)])
+    diff = np.abs(a - np.median(corners, axis=0)).max(axis=2)
+    ys, xs = np.nonzero(diff > 30)
+    if len(xs) < 50:
+        return None
+    x0, y0, w, h = xs.min(), ys.min(), xs.max() - xs.min(), ys.max() - ys.min()
+    top = (slice(int(y0 + .08 * h), int(y0 + .48 * h)), slice(int(x0 + .3 * w), int(x0 + .7 * w)))
+    px = a[top][diff[top] > 10] / 255
+    if len(px) < 30:
+        return None
+    mx = px.max(axis=1)
+    spread = np.maximum(mx - px.min(axis=1), 1e-6)
+    coloured = (spread / np.maximum(mx, 1e-6) > 0.22) & (mx > 0.2)
+    if coloured.mean() >= 0.2:
+        c, cmx, d = px[coloured], mx[coloured], spread[coloured]
+        r, g, b = c[:, 0], c[:, 1], c[:, 2]
+        hue = np.where(cmx == r, ((g - b) / d) % 6, np.where(cmx == g, (b - r) / d + 2, (r - g) / d + 4)) / 6
+        bins = (hue * 24).astype(int) % 24
+        counts = np.bincount(bins, minlength=24)
+        peak = (counts + np.roll(counts, 1) + np.roll(counts, -1)).argmax()
+        colour = np.median(c[np.isin(bins, [(peak - 1) % 24, peak, (peak + 1) % 24])], axis=0)
+    else:
+        light = px[mx > 0.6]
+        colour = np.median(light if len(light) >= 0.35 * len(px) else px[mx <= 0.6], axis=0)
+    return "#%02x%02x%02x" % tuple(int(round(v * 255)) for v in colour)
 
 
 def _canyon_key(text):
