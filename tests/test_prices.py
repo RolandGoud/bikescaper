@@ -69,3 +69,24 @@ def test_model_page_and_report_show_the_asking_price(app):
 def test_empty_model_says_so(app):
     page = app.test_client().get(f"/models/{DOMANE}?lang=en").data.decode()
     assert "No ads for this model in the last 90 days yet." in page
+
+
+def test_model_page_lists_matched_ads_also_removed_ones(app):
+    conn = db.connect(app.config["DB_PATH"])
+    url = "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2100000001-trek-domane"
+    conn.execute("INSERT INTO checks (listing_url, title, asking_price) VALUES (?,?,?)",
+                 (url, "Trek Domane SL 6 Gen 4 maat 56", 2500))
+    conn.execute("INSERT INTO checks (listing_url, title, asking_price, source) VALUES (?,?,?,?)",
+                 (url, "Trek Domane SL 6 Gen 4 maat 56", 2400, "daily"))  # the same ad again
+    conn.execute("INSERT INTO checks (title, asking_price, removed_at) VALUES (?,?,?)",
+                 ("Trek Domane SL 6 Gen 4 rood", 50, "2026-10-20 08:00:00"))
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Mooie racefiets", 900))
+    conn.commit()
+    client = app.test_client()
+    page = client.get(f"/models/{DOMANE}?lang=en").data.decode()
+    assert 'Matched ads <span class="muted count">2</span>' in page
+    assert "Trek Domane SL 6 Gen 4 rood" in page and "Removed" in page
+    assert "not in the asking price" in page  # the €50 one
+    assert "Mooie racefiets" not in page
+    models_page = client.get("/models?lang=en&q=domane sl 6 gen 4").data.decode()
+    assert "Matched to 2 ads" in models_page
