@@ -4,7 +4,9 @@ The home page hero backgrounds (`webapp/static/hero/*.jpg`) are ten openly licen
 Wikimedia Commons, cropped to 1920x1080 (three of them also shifted or mirrored so the riders sit
 on the left, behind the headline). `webapp/app.py` picks one at random per visit from every `.jpg`
 in that folder and shows a credit line ("Photo: author · licence", linking to the source) at the
-bottom right of the hero. Every photo needs an entry in `webapp/static/hero/credits.json`.
+bottom right of the hero. Every photo needs an entry in `webapp/static/hero/credits.json`; an
+optional `position` there sets its CSS `background-position` (the Ventoux photo uses `center top`
+so the tower is not cut off).
 
 | Photo | Author | Licence | Change |
 |---|---|---|---|
