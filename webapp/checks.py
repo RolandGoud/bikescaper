@@ -581,8 +581,16 @@ def estimate_year(model, models, claims, text):
             clues.append((year - 1, year + 1, Msg("Colour '{colour}' is in {brand}'s {year} photos.",
                                                   colour=name, brand=model["brand"], year=year)))
             break
-    if not clues:
-        return None
+    # Nothing in the ad: fall back on the years we know the matched model was sold. That only dates the
+    # model we matched, which may be a newer generation than the bike, so it never overrules a stated year.
+    fallback = not clues
+    if fallback:
+        known = model_years(model)
+        if not known:
+            return {"status": UNKNOWN, "first": None, "last": None, "evidence": [], "headline": Msg("Can't tell"),
+                    "detail": Msg("Nothing in the ad or in our catalogue dates this bike yet.")}
+        clues += [(known[0], known[1], Msg("{name} was sold from {years}.", name=model["name"],
+                                           years=_span(known[0], known[1]))), (None, None, known[2])]
     first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
     last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
     evidence = [c[2] for c in clues]
@@ -592,12 +600,21 @@ def estimate_year(model, models, claims, text):
                 "detail": Msg("The parts and colour point to different years; some parts may have been swapped.")}
     claimed = claims["year"]
     span = _span(first, last)
+    inside = claimed and (first is None or claimed >= first) and (last is None or claimed <= last)
+    if fallback and claimed and not inside:
+        return {"status": UNKNOWN, "first": first, "last": last, "evidence": evidence,
+                "headline": Msg("Can't check {claimed}", claimed=claimed),
+                "detail": Msg("The ad has no year clues, and we only know {name} from {years}: "
+                              "it may be an older generation.", name=model["name"], years=span)}
     if claimed is None:
         status, headline = UNKNOWN, Msg("Probably {years}", years=span)
-        detail = Msg("The ad doesn't give a year, but its details point to {years}.", years=span)
-    elif (first is None or claimed >= first) and (last is None or claimed <= last):
+        detail = (Msg("The ad gives no year and no year clues; we know {name} from {years}.", name=model["name"],
+                      years=span) if fallback else
+                  Msg("The ad doesn't give a year, but its details point to {years}.", years=span))
+    elif inside:
         status, headline = OK, Msg("Fits {years}", years=span)
-        detail = Msg("{claimed} fits the ad's details.", claimed=claimed)
+        detail = (Msg("{claimed} fits the years we know {name} from.", claimed=claimed, name=model["name"])
+                  if fallback else Msg("{claimed} fits the ad's details.", claimed=claimed))
     elif (first and claimed == first - 1) or (last and claimed == last + 1):
         status, headline = WARN, Msg("Just outside {years}", years=span)
         detail = Msg("{claimed} is one year off what the details allow: maybe the purchase year.", claimed=claimed)
@@ -868,6 +885,10 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     # Without a year in the ad, value it at the oldest year we think is right: the oldest year the ad's
     # details allow, else the first year of the generation or of the brand's photos, else the catalogue year.
     estimated, at_most = None, False
+    # A stated year the ad's details rule out: value it at the oldest year they allow instead.
+    replaced = None
+    if model_year and year_estimate and year_estimate.get("status") == BAD:
+        replaced, model_year = model_year, None
     if model_year is None and year_estimate and year_estimate.get("status") != WARN:
         estimated = year_estimate.get("first")
         if not estimated and year_estimate.get("last"):
@@ -894,7 +915,10 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} Dutch price, which can differ from what this bike cost new.",
                             year=model["seen_on"][:4] if model.get("seen_on") else today.year)]}
-    if estimated:
+    if estimated and replaced:
+        result["notes"].append(Msg("The stated {claimed} doesn't fit the ad's details, so it's valued as a {year} bike.",
+                                   claimed=replaced, year=estimated))
+    elif estimated:
         result["notes"].append(Msg("The ad gives no year; the bike is probably from {year} or earlier, so it's "
                                    "valued as a {year} bike." if at_most else
                                    "The ad gives no year; the bike is probably from {year} or later, so it's "

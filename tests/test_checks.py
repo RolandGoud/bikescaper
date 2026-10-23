@@ -753,3 +753,21 @@ def test_condition_reads_negated_damage_and_the_ads_condition_field():
     assert checks.detect_condition("Kleine schade aan de lak") == "damaged"
     assert checks.detect_condition("Specificaties\nConditie: Gebruikt") == "used"
     assert checks.detect_condition("Conditie: Zo goed als nieuw") == "like-new"
+
+
+def test_year_is_always_estimated(models):
+    # No clue in the ad: the matched model's years, which can't rule out a stated year (it may be an older
+    # generation we don't have).
+    e = run(models, "Trek Domane SL 6 2019")["year_estimate"]
+    assert e["first"] == 2023 and en(e["headline"]) == "Can't check 2019"
+    assert run(models, "Trek Domane SL 6 2024")["year_estimate"]["status"] == checks.OK
+    e = run(models, "Trek Emonda SL 6 2021")["year_estimate"]
+    assert e["status"] == checks.UNKNOWN and en(e["headline"]) == "Can't check 2021"
+    assert en(run(models, "Trek Emonda SL 6")["year_estimate"]["headline"]) == "Probably 2024"
+
+
+def test_value_replaces_a_stated_year_the_details_rule_out(models):
+    r = run(models, "Trek Domane SL 6 gen 4 2019", "Shimano 105 Di2 2x12", price=2000)
+    assert r["value"]["model_year"] == 2023
+    assert any("stated 2019 doesn't fit" in en(n) for n in r["value"]["notes"])
+    assert run(models, "Trek Domane SL 6 gen 4 2024", "Shimano 105 Di2 2x12", price=2000)["value"]["model_year"] == 2024

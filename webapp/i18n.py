@@ -393,7 +393,10 @@ NL = {
         "Modeljaren met de hand ingevoerd op basis van introductiedata; nog niet gecontroleerd in het archief van het merk.",
 
     # checks: year from the ad's details
-    "From the ad's details:": "Volgens de details in de advertentie:",
+    "Year estimate:": "Geschat jaar:",
+    "The ad gives no year and no year clues; we know {name} from {years}.":
+        "De advertentie noemt geen jaar en geeft geen aanwijzingen; we kennen de {name} van {years}.",
+    "{claimed} fits the years we know {name} from.": "{claimed} past bij de jaren waarin we de {name} kennen.",
     "{part}: bikes from {years}.": "{part}: fietsen uit {years}.",
     "{family} gen {gen}: sold from {years}.": "{family} gen {gen}: verkocht vanaf {years}.",
     "Rim brakes on a carbon road bike: {year} or older.": "Velgremmen op een carbon racefiets: {year} of ouder.",
@@ -454,6 +457,16 @@ NL = {
         "De advertentie noemt geen jaar; de fiets is waarschijnlijk van {year} of later, dus we rekenen met {year}.",
     "The ad gives no year; the bike is probably from {year} or earlier, so it's valued as a {year} bike.":
         "De advertentie noemt geen jaar; de fiets is waarschijnlijk van {year} of eerder, dus we rekenen met {year}.",
+    "The stated {claimed} doesn't fit the ad's details, so it's valued as a {year} bike.":
+        "Het opgegeven {claimed} past niet bij de details in de advertentie, dus we rekenen met {year}.",
+    "Can't tell": "Niet te zeggen",
+    "Nothing in the ad or in our catalogue dates this bike yet.":
+        "Niets in de advertentie of in onze catalogus geeft nog een jaar voor deze fiets.",
+    "{name} was sold from {years}.": "De {name} werd verkocht vanaf {years}.",
+    "Can't check {claimed}": "{claimed} niet te controleren",
+    "The ad has no year clues, and we only know {name} from {years}: it may be an older generation.":
+        "De advertentie geeft geen aanwijzingen voor het jaar, en we kennen de {name} alleen van {years}: "
+        "het kan een oudere generatie zijn.",
     "Lowered for the downgraded parts.": "Verlaagd vanwege de mindere onderdelen.",
     "Do you still have the original {part} ({original})?": "Heb je de originele {part} nog ({original})?",
     "Matches the original": "Klopt met het origineel",
