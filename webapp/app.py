@@ -430,6 +430,9 @@ def create_app(db_path=None):
         found = checks.detect_groupset(checks.groupset_text(model))
         return found and found["key"]
 
+    def logo_if_there(path):
+        return path if path and os.path.exists(os.path.join(app.static_folder, path)) else None
+
     @app.route("/groupsets")
     def groupset_paths():
         """Each brand's groupsets from basic to top, and what it takes to upgrade from the one you have."""
@@ -451,7 +454,8 @@ def create_app(db_path=None):
         return render_template("groupsets.html", kind=kind, current=current, paths=paths, show=show, route=route,
                                route_keys=[g["key"] for g, _p in route],
                                by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind, brand),
-                               brand=brand, brands=list(groupsets.LADDERS), disciplines=kinds,
+                               brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b))}
+                                                     for b in groupsets.LADDERS], disciplines=kinds,
                                effort=groupsets.EFFORT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS, counts=counts,
                                catalog_names={key: name for key, name, _p, _t in GROUPSETS},

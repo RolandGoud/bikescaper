@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import tier_badge %}
+{% from "_macros.html" import brand_label, tier_badge %}
 {% block title %}{{ _('Groupset upgrade paths') }} · Bike Compare{% endblock %}
 {% macro brakes(g) -%}
 {{ _('Rim or disc') if g.brakes|length > 1 else (_('Disc') if g.brakes[0] == 'disc' else _('Rim')) }}
@@ -47,7 +47,7 @@
   </div>
   <div class="filter-box">
     <nav class="logo-pills" aria-label="{{ _('Brand') }}">
-      {% for b in brands %}<a class="pill {{ 'on' if b == brand }}" href="{{ url_for('groupset_paths', brand=b, type=kind, show=show if show == 'route' else None) }}"{% if b == brand %} aria-current="true"{% endif %}>{{ b }}</a>{% endfor %}
+      {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind, show=show if show == 'route' else None) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>{% endfor %}
     </nav>
     <nav class="logo-pills" aria-label="{{ _('Type') }}">
       {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key, show=show if show == 'route' else None) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
