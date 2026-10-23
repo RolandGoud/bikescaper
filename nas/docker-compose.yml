@@ -5,7 +5,9 @@
 # UGREEN NAS: Docker app > Project > Create, paste this file, deploy.
 # The site is then at http://<nas-ip>:8280 (the first start takes a few minutes).
 #
-# To get newer code: restart the container. Saved checks are in "bikecompare-data" and are kept.
+# New code on GitHub is picked up by itself: every 10 minutes the container checks for a new
+# commit, installs it and reloads the site without stopping it. A restart also updates.
+# Saved checks are in "bikecompare-data" and are kept.
 
 services:
   bikecompare:
@@ -14,6 +16,7 @@ services:
     working_dir: /app
     environment:
       BRANCH: main
+      UPDATE_MINUTES: "10"   # how often to check GitHub for new code; "0" turns it off
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
       # To let people mail themselves their check report, fill these in and remove the #:
@@ -30,30 +33,25 @@ services:
       - -c
       - |
         set -e
-        # Fetch the latest code from GitHub on every start, so a restart is an update.
-        # If GitHub can't be reached, keep running the code from the last start.
+        # Get the updater (nas/autoupdate.py) and with it the latest code from GitHub, so a
+        # restart is an update. If GitHub can't be reached, keep running the code from last time.
         echo "Downloading Bike Compare ($$BRANCH) from GitHub..."
         python -c "
-        import io, os, shutil, sys, tarfile, urllib.request
-        url = 'https://codeload.github.com/RolandGoud/bikescaper/tar.gz/refs/heads/' + os.environ['BRANCH']
+        import os, urllib.request
+        url = ('https://raw.githubusercontent.com/RolandGoud/bikescaper/'
+               + os.environ['BRANCH'] + '/nas/autoupdate.py')
         try:
-            data = urllib.request.urlopen(url, timeout=120).read()
+            code = urllib.request.urlopen(url, timeout=60).read()
+            compile(code, 'autoupdate.py', 'exec')
+            open('/app/autoupdate.py', 'wb').write(code)
         except Exception as exc:
-            if os.path.exists('/app/webapp/app.py'):
-                sys.exit(f'Download failed ({exc}); starting the code from last time')
-            raise
-        keep = ('webapp/', 'images/') + tuple(f'data/{b}/' for b in
-                ('Trek', 'Canyon', 'Specialized', 'Giant', 'Cannondale', 'Cube', 'Factor'))
-        tar = tarfile.open(fileobj=io.BytesIO(data))
-        members = [m for m in tar.getmembers() if m.isfile() and m.name.split('/', 1)[-1].startswith(keep)]
-        for m in members:
-            m.name = m.name.split('/', 1)[1]
-        for d in ('webapp', 'data', 'images'):
-            shutil.rmtree(os.path.join('/app', d), ignore_errors=True)
-        tar.extractall('/app', members=members, filter='data')
-        " || true
+            print(f'Could not get the updater ({exc}); using the one from last time')
+        "
+        python /app/autoupdate.py --now
         pip install --no-cache-dir --quiet --root-user-action=ignore -r webapp/requirements.txt
         python -m webapp.seed --if-empty
+        # Check GitHub for a new commit every UPDATE_MINUTES and switch to it without downtime.
+        python /app/autoupdate.py --watch &
         exec gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - webapp.app:app
     ports:
       - "8280:8000"
