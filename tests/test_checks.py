@@ -685,3 +685,13 @@ def test_models_page_takes_several_brands(tmp_path):
     assert 'href="/models?brand=Canyon" aria-current="true"' in page
     assert 'href="/models?brand=Trek&amp;brand=Canyon&amp;brand=Specialized"' in page
     assert page.count('name="brand"') == 2 and "brand=Trek&amp;brand=Canyon&amp;lang=nl" in page
+
+
+def test_models_page_has_every_brand_on_by_default(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/models?lang=en").data.decode()
+    assert page.count('class="pill brand on"') == 7
+    # a click on Trek shows every brand but Trek
+    assert 'href="/models?brand=Canyon&amp;brand=Specialized&amp;brand=Giant&amp;brand=Cannondale&amp;brand=Cube&amp;brand=Factor"' in page
+    page = app.test_client().get("/models?lang=en&brand=Trek").data.decode()
+    assert page.count('class="pill brand on"') == 1 and 'href="/models" aria-current="true"' in page
