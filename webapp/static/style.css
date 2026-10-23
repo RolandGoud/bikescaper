@@ -116,6 +116,9 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
   .lb-prev { left: calc(50% - 64px); }
   .lb-next { right: calc(50% - 64px); }
 }
+.report-out { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; border-top: 1px solid var(--line); padding-top: 16px; }
+.report-out p { flex-basis: 100%; margin: 0; }
+.report-out input[type=email] { width: 260px; max-width: 100%; }
 .error { background: var(--bad-bg); color: var(--bad); padding: 10px 14px; border-radius: 6px; font-weight: 600; }
 
 /* cards */

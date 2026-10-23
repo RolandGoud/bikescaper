@@ -19,6 +19,15 @@ services:
       UPDATE_MINUTES: "10"   # how often to check GitHub for new code; "0" turns it off
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
+      # To let people mail themselves their check report, fill these in and remove the #:
+      # SMTP_HOST: smtp.gmail.com
+      # SMTP_PORT: "587"
+      # SMTP_USER: you@gmail.com
+      # SMTP_PASSWORD: your-app-password
+      # MAIL_FROM: you@gmail.com
+      # Only when the site is reached through a reverse proxy (e.g. the NAS's own), so the mail
+      # limit sees each visitor's address instead of the proxy's:
+      # BEHIND_PROXY: "1"
     command:
       - sh
       - -c

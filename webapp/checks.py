@@ -11,8 +11,9 @@ from datetime import date
 
 from .i18n import Msg, join, join_list
 from .reference import (BRAND_ALIASES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
-                        GENERIC_SIZE_CHART, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
-                        SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS, WEIGHT_TIERS)
+                        GENERIC_SIZE_CHART, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
+                        RIM_BRAKE_LAST_YEAR, SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
+                        WEIGHT_TIERS)
 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
 
@@ -473,6 +474,97 @@ def check_age(model, claims, today=None):
             "notes": [n for n in [seen, Msg(GENERATIONS_NOTE)] if n]}
 
 
+def colourway_year(colourway):
+    """The model year in a colourway photo's file name (Trek "-26-" or "_23_", Canyon "2026_FULL_" or "full_2025_"),
+    or None."""
+    name = os.path.basename(colourway.get("image") or "")
+    m = (re.search(r"(20[1-3]\d)_full_|^full_(20[1-3]\d)_", name.lower())
+         or re.search(r"[-_]([1-3]\d)[-_]\d{4,}", name))
+    if not m:
+        return None
+    year = int(next(g for g in m.groups() if g))
+    return year if year > 2000 else 2000 + year
+
+
+GENERIC_COLOUR = re.compile(rf"^(?:{AD_COLOURS}|mat|matte?|gloss|glossy|satin|metallic|dark|light|donker|licht"
+                            r"|deep|bright|and|en)$")
+
+
+def _named_colourways(model, models):
+    """Colourways of this model and its siblings (same brand and family) whose name is more than plain colour words."""
+    found = {}
+    for m in [model] + [m for m in models if m["brand"] == model["brand"] and family_of(m["name"]) == family_of(model["name"])]:
+        for cw in m.get("colorways") or []:
+            words = re.findall(r"[a-z]+", _plain(cw.get("name")))
+            year = colourway_year(cw)
+            if year and words and not all(GENERIC_COLOUR.match(w) for w in words):
+                found.setdefault(" ".join(words), (cw["name"], year))
+    return found.values()
+
+
+def estimate_year(model, models, claims, text):
+    """The model years the ad's own details allow, and whether the claimed year fits them.
+
+    Each clue gives a window (first, last; None = open): the groupset generation, a frame generation the
+    seller names, rim brakes, and a named colourway we have a dated photo of. The estimate is where they
+    overlap. Photos aren't read: without a vision model their colours are mostly the background.
+    """
+    low = _plain(text)
+    clues = []
+    for pattern, first, last, name in GROUPSET_YEARS:
+        if re.search(pattern, low):
+            clues.append((first, last, Msg("{part}: bikes from {years}.", part=name, years=_span(first, last))))
+            break
+    gen = re.search(r"\bgen(?:eratie|eration)?\s*(\d)\b", low)
+    years = gen and GENERATIONS.get((model["brand"], family_of(model["name"]), int(gen.group(1))))
+    if years:
+        clues.append((years[0], years[1], Msg("{family} gen {gen}: sold from {years}.", family=model["name"].split()[0],
+                                              gen=gen.group(1), years=_span(*years))))
+    if claims["brakes"] == "Rim" and (claims["material"] == "Carbon" or ref_material(model) == "Carbon"):
+        clues.append((None, RIM_BRAKE_LAST_YEAR, Msg("Rim brakes on a carbon road bike: {year} or older.",
+                                                     year=RIM_BRAKE_LAST_YEAR)))
+    for name, year in _named_colourways(model, models):
+        if re.search(rf"\b{re.escape(_plain(name))}\b", low):
+            clues.append((year - 1, year + 1, Msg("Colour '{colour}' is in {brand}'s {year} photos.",
+                                                  colour=name, brand=model["brand"], year=year)))
+            break
+    if not clues:
+        return None
+    first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
+    last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
+    evidence = [c[2] for c in clues]
+    if first and last and first > last:
+        return {"status": WARN, "first": None, "last": None, "evidence": evidence,
+                "headline": Msg("Details disagree"),
+                "detail": Msg("The parts and colour point to different years; some parts may have been swapped.")}
+    claimed = claims["year"]
+    span = _span(first, last)
+    if claimed is None:
+        status, headline = UNKNOWN, Msg("Probably {years}", years=span)
+        detail = Msg("The ad doesn't give a year, but its details point to {years}.", years=span)
+    elif (first is None or claimed >= first) and (last is None or claimed <= last):
+        status, headline = OK, Msg("Fits {years}", years=span)
+        detail = Msg("{claimed} fits the ad's details.", claimed=claimed)
+    elif (first and claimed == first - 1) or (last and claimed == last + 1):
+        status, headline = WARN, Msg("Just outside {years}", years=span)
+        detail = Msg("{claimed} is one year off what the details allow: maybe the purchase year.", claimed=claimed)
+    else:
+        status, headline = BAD, Msg("Doesn't fit {years}", years=span)
+        detail = Msg("The seller says {claimed}, but the ad's details point to {years}.", claimed=claimed, years=span)
+    if claims["mentions_upgrades"]:
+        evidence.append(Msg("The ad mentions upgrades, so a part may be newer than the bike."))
+    return {"status": status, "first": first, "last": last, "headline": headline, "detail": detail,
+            "evidence": evidence}
+
+
+def _span(first, last):
+    if first and last:
+        return str(first) if first == last else f"{first}\u2013{last}"
+    if first:
+        return Msg("{year} or later", year=first)
+    return Msg("{year} or earlier", year=last)
+
+
 def _row(key, part, original, listing, status, result, step=0):
     return {"key": key, "part": Msg(part), "original": original, "listing": listing, "status": status,
             "result": Msg(result) if isinstance(result, str) else result, "step": step}
@@ -813,6 +905,8 @@ def run_check(models, listing, today=None):
     if chosen is None:
         return report
     report["age"] = check_age(chosen, claims, today)
+    report["year_estimate"] = estimate_year(chosen, models, claims,
+                                            f"{listing['title']}\n{listing.get('description') or ''}")
     report["specs"] = check_specs(chosen, claims)
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today)

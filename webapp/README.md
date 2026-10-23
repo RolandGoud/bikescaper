@@ -75,6 +75,7 @@ so they need a run from a home connection with a real browser. See `docs/scraper
 ## Known limits
 
 - Model years exist only for a few Trek generations, entered by hand.
+- The age check also estimates the model year from the ad's details: groupset generation, a named frame generation, rim brakes and a named colourway we have a dated photo of (`GROUPSET_YEARS` in `webapp/reference.py`). The ad's photos aren't read: without a vision model their colours are mostly the background.
 - Rider heights per model come from Trek, Canyon and Cannondale; Specialized, Giant, Cube and Factor only publish sizes and geometry per model, so their heights come from the brand size guide. Refresh with `python -m brand_scrapers.sizing`.
 - The value is a simple age and condition curve; comparable ads aren't used.
 - Only the 2025 catalogue is covered, so older generations can't be matched yet.
