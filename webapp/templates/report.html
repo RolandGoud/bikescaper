@@ -104,8 +104,10 @@
             <td><span class="part-name">{{ part_icon(s.key) }}{{ s.part }}</span></td>
             <td data-label="{{ _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}</div>{% endif %}</td>
             <td data-label="{{ _('IN THE AD') }}">{{ s.listing if s.listing }}
-              <div class="part-tier part-verdict {{ s.status }}{{ ' alone' if not s.listing }}">{% if s.status == 'ok' and not s.step %}{{ tier_move(s.ad_tier or s.ref_tier, match=true) }}{% else %}{{ tier_move(s.ad_tier, s.step) }}{% endif %}
-              {%- if s.listing is none and listing.photos %}<a class="open-photos" href="#ad-photos">{{ s.result }} →</a>
+              <div class="part-tier part-verdict {{ s.status }}{{ ' alone' if not s.listing }}">{% set matched = s.status == 'ok' and not s.step and (s.ad_tier or s.ref_tier) %}
+              {%- if matched %}{{ tier_move(s.ad_tier or s.ref_tier, match=true) }}{% else %}{{ tier_move(s.ad_tier, s.step) }}{% endif %}
+              {%- if matched %}<span class="sr-only">{{ s.result }}</span>{# the check mark says it matches #}
+              {%- elif s.listing is none and listing.photos %}<a class="open-photos" href="#ad-photos">{{ s.result }} →</a>
               {%- elif s.listing is none and listing.listing_url %}<a href="{{ listing.listing_url }}" rel="noopener nofollow">{{ s.result }} →</a>
               {%- else %}<span>{{ s.result }}</span>{% endif %}</div>
             </td>
