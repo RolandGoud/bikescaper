@@ -14,6 +14,7 @@
   --ok-bg: #E4E8FF; --ok: #2B3BFF;
   --warn-bg: #FBEBD9; --warn: #8A4200;
   --bad-bg: #F8E1DE; --bad: #A3241B;
+  --up: #1E8A4C;
   --unknown-bg: #E8E8EE; --unknown: #50505E;
   --display: "Barlow Condensed", sans-serif;
   --body: "Barlow", sans-serif;
@@ -220,8 +221,10 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .part-tier .tier { display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 10px; border: 2px solid transparent; line-height: 1; }
 .part-verdict { font-size: 14px; font-weight: 600; line-height: 1.3; }
 
-.part-tier .tier.up { border-color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--card); }
+/* The fill keeps the tier's colour; only the border and the verdict say which way the part moved. */
+.part-tier .tier.up { border-color: var(--up); box-shadow: inset 0 0 0 1.5px var(--card); }
 .part-tier .tier.down { border-color: var(--bad); box-shadow: inset 0 0 0 1.5px var(--card); }
+.part-verdict.ok:has(.tier.up) { color: var(--up); }
 .tier .arrow { width: 11px; height: 11px; fill: currentColor; }
 @media (max-width: 640px) {
   .spec-table table { min-width: 0; }
