@@ -402,20 +402,50 @@ def create_app(db_path=None):
                                chart=chart, note=checks.size_note(chart, brand), own=own,
                                total=sum(len(l["models"]) for l in lines), nav="size")
 
-    @app.route("/value")
+    def estimate(model, year, condition, asking, today=None):
+        claims = {"year": year, "condition": condition, "groupset": None}
+        return checks.check_value(model, claims, asking, {"rows": []}, {"status": checks.OK}, today=today)
+
+    @app.route("/value", methods=["GET", "POST"])
     def value():
-        slug = request.args.get("model")
-        model = db.get_model(conn(), slug=slug) if slug else None
-        year = request.args.get("year", type=int)
-        condition = request.args.get("condition") or None
-        asking = number(request.args.get("asking"))
-        result = None
-        if model:
-            claims = {"year": year, "condition": condition, "groupset": None}
-            age = {"status": checks.OK}
-            result = checks.check_value(model, claims, asking, {"rows": []}, age)
-        return render_template("value.html", models=models(), model=model, year=year, condition=condition,
-                               asking=asking, result=result, this_year=date.today().year, nav="value")
+        if request.method == "POST":
+            # Every estimate is saved, so the page can list them below the form; the redirect keeps a
+            # reload from saving it twice.
+            model = db.get_model(conn(), slug=request.form.get("model"))
+            if model is None:
+                return redirect(url_for("value", brand=request.form.get("brand")))
+            condition = request.form.get("condition") or None
+            cur = conn().execute("INSERT INTO estimates (model_id, year, condition, asking_price) VALUES (?,?,?,?)",
+                                 (model["id"], number(request.form.get("year"), int),
+                                  condition if condition in checks.CONDITION_LABEL else None,
+                                  number(request.form.get("asking"))))
+            conn().commit()
+            return redirect(url_for("value", estimate=cur.lastrowid))
+        by_id = {m["id"]: m for m in models()}
+        rows = conn().execute("SELECT * FROM estimates ORDER BY id DESC").fetchall()
+        shown = next((r for r in rows if r["id"] == request.args.get("estimate", type=int)), None)
+        if shown:
+            model, year, condition, asking = by_id.get(shown["model_id"]), shown["year"], shown["condition"], shown["asking_price"]
+        else:
+            slug = request.args.get("model")
+            model = db.get_model(conn(), slug=slug) if slug else None
+            year = request.args.get("year", type=int)
+            condition = request.args.get("condition") or None
+            asking = number(request.args.get("asking"))
+        result = estimate(model, year, condition, asking) if model else None
+        brand = model["brand"] if model else request.args.get("brand")
+        known = prices.known_ads(conn(), models())
+        history = []
+        for r in rows:
+            m = by_id.get(r["model_id"])
+            if m is None:  # its model left the catalogue
+                continue
+            made = date.fromisoformat(r["created_at"][:10])
+            history.append({"row": r, "model": m, "result": estimate(m, r["year"], r["condition"], r["asking_price"], made),
+                            "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)})
+        return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
+                               asking=asking, result=result, shown=shown, history=history,
+                               this_year=date.today().year, nav="value")
 
     @app.route("/how-it-works")
     def how():

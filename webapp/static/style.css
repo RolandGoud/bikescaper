@@ -396,3 +396,13 @@ select { max-width: 100%; }
   .check-row-head .open { margin-left: 0; flex-basis: 100%; }
   .check-col dl { grid-template-columns: minmax(84px, 32%) 1fr; gap: 6px 10px; }
 }
+
+/* Value estimator: Brand, Model, Model year, Condition, Asking price and the button on one line */
+.value-form .field { flex: 1 1 110px; }
+.value-form .field input, .value-form .field select { width: 100%; }
+.value-form .brand-field { flex: 1 1 140px; }
+.value-form .model-field { flex: 2 1 200px; }
+.value-form .year-field { flex: 0.6 1 90px; }
+.value-form .condition-field { flex: 1.3 1 180px; }
+.value-form .btn { flex: none; }
+@media (max-width: 640px) { .value-form .field, .value-form .btn { flex: 1 1 100%; } }

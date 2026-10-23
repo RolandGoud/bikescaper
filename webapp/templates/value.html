@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_macros.html" import photo, brand_mark with context %}
 {% block title %}{{ _('Value estimator') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -6,14 +7,19 @@
     <h1 style="font-size: 44px">{{ _('Value estimator') }}</h1>
     <p class="muted">{{ _('A rough fair price for a used bike from its new price, age and condition.') }}</p>
   </div>
-  <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
-    <label class="field" style="flex: 1 1 300px">{{ _('Model') }}
-      <select name="model">{% for m in models %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}</select>
+  <form class="card value-form" method="post" action="{{ url_for('value') }}" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
+    {% set ns = namespace(brands=[]) %}{% for m in models if m.brand not in ns.brands %}{% set ns.brands = ns.brands + [m.brand] %}{% endfor %}
+    {% set picked = brand if brand in ns.brands else ns.brands[0] %}
+    <label class="field brand-field">{{ _('Brand') }}
+      <select name="brand">{% for b in ns.brands %}<option value="{{ b }}" {{ 'selected' if b == picked }}>{{ b }}</option>{% endfor %}</select>
     </label>
-    <label class="field">{{ _('Model year') }}
+    <label class="field model-field">{{ _('Model') }}
+      <select name="model">{% for b in ns.brands %}<optgroup label="{{ b }}" data-brand="{{ b }}">{% for m in models if m.brand == b %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.name }}</option>{% endfor %}</optgroup>{% endfor %}</select>
+    </label>
+    <label class="field year-field">{{ _('Model year') }}
       <input name="year" type="number" min="2000" max="{{ this_year }}" value="{{ year or '' }}" placeholder="{{ this_year - 2 }}">
     </label>
-    <label class="field">{{ _('Condition') }}
+    <label class="field condition-field">{{ _('Condition') }}
       <select name="condition">
         <option value="" {{ 'selected' if not condition }}>{{ _('Normal use') }}</option>
         <option value="like-new" {{ 'selected' if condition == 'like-new' }}>{{ _('Like new') }}</option>
@@ -40,5 +46,52 @@
     <div class="notes">{% for n in result.notes %}<span>{{ n }}</span>{% endfor %}</div>
   </section>
   {% endif %}
+  {% if history %}
+  <section class="stack" style="gap: 16px">
+    <div class="stack" style="gap: 4px">
+      <h2 style="font-size: 28px">{{ _('Earlier estimates') }} <span class="muted">{{ history|length }}</span></h2>
+      <p class="muted">{{ _('Every estimate made here, newest first: what was put in, and what came out on that day.') }}</p>
+    </div>
+    <div class="check-rows">
+      {% for h in history %}{% set r = h.result %}
+      <article class="check-row{{ ' current' if shown and h.row.id == shown.id }}">
+        <header class="check-row-head">
+          <span class="mono">#{{ h.row.id }} · {{ h.row.created_at[:16] }}</span>
+          {% if shown and h.row.id == shown.id %}<span class="badge">{{ _('Shown above') }}</span>{% endif %}
+          <a class="open" href="{{ url_for('value', estimate=h.row.id) }}">{{ _('Open estimate') }} →</a>
+        </header>
+        <div class="check-row-body">
+          <a class="check-row-photo" href="{{ url_for('model_page', slug=h.model.slug) }}" tabindex="-1" aria-hidden="true">
+            <div class="photo">{{ photo(h.model) }}{{ brand_mark(h.model.brand) }}</div>
+          </a>
+          <section class="check-col">
+            <h2>{{ _('Request') }}</h2>
+            <dl>
+              <dt>{{ _('Brand') }}</dt><dd>{{ h.model.brand }}</dd>
+              <dt>{{ _('Model') }}</dt><dd class="strong"><a href="{{ url_for('model_page', slug=h.model.slug) }}">{{ h.model.name }}</a></dd>
+              <dt>{{ _('Model year') }}</dt><dd>{{ h.row.year or '–' }}</dd>
+              <dt>{{ _('Condition') }}</dt><dd>{{ {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(h.row.condition, _('Normal use')) }}</dd>
+              <dt>{{ _('Asking price') }}</dt><dd>{{ h.row.asking_price|eur }}</dd>
+            </dl>
+          </section>
+          <section class="check-col">
+            <h2>{{ _('Result') }}</h2>
+            <dl>
+              <dt>{{ _('Fair value') }}</dt>
+              <dd>{% if r.low %}<strong>{{ r.low|eur }}–{{ r.high|eur }}</strong> <span class="muted small">({{ _('as a {year} bike', year=r.model_year) }})</span>{% else %}–{% endif %}
+                {% if h.row.asking_price %}<span class="chip {{ r.status }}-bg">{{ r.headline }}</span>{% endif %}</dd>
+              <dt>{{ _('New price') }}</dt><dd>{{ r.original|eur if r.original else '–' }}</dd>
+              {% if r.age is defined %}<dt>{{ _('Age') }}</dt><dd>{{ _('{n} year' if r.age == 1 else '{n} years', n=r.age) }}</dd>{% endif %}
+              <dt>{{ _('Second-hand median') }}</dt>
+              <dd>{% if h.asking.enough %}{{ h.asking.median|eur }} <span class="muted small">({{ _('{n} ads, {days} days', n=h.asking.count, days=h.asking.days) }})</span>{% elif h.asking.count %}<span class="muted">{{ _('Only {n} ads', n=h.asking.count) }}</span>{% else %}<span class="muted">{{ _('No ads yet') }}</span>{% endif %}</dd>
+            </dl>
+          </section>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 </main>
+<script src="{{ url_for('static', filename='value.js') }}" defer></script>
 {% endblock %}

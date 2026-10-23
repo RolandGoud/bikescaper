@@ -43,6 +43,14 @@ CREATE TABLE IF NOT EXISTS checks (
     removed_at TEXT,      -- when we first found the ad gone from the site, NULL while it's up
     source TEXT           -- NULL = a visitor's check, "daily" = made by webapp.daily_checks
 );
+CREATE TABLE IF NOT EXISTS estimates (
+    id INTEGER PRIMARY KEY,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    model_id INTEGER NOT NULL REFERENCES models(id),
+    year INTEGER,         -- model year as typed in, NULL = not given
+    condition TEXT,       -- NULL = normal use, else a key of checks.CONDITION_LABEL
+    asking_price REAL     -- NULL = not given
+);
 """
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
                        ("source", "TEXT")]
