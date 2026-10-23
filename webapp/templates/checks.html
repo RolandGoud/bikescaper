@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% from "_macros.html" import photo, duo_photo, brand_mark with context %}
+{% block title %}{{ _('All checks') }} · Bike Compare{% endblock %}
+{% block body %}
+{% macro check_row(row, r, asking) -%}
+{% set brand = r.model.brand if r.model else r.claims.brand %}
+<article class="check-row">
+  <header class="check-row-head">
+    <span class="mono">#{{ row.id }} · {{ row.created_at[:16] }}</span>
+    {% if row.source %}<span class="badge">{{ _('Daily example') }}</span>{% endif %}
+    {% if row.times_checked > 1 %}<span class="badge">{{ _('This ad: {n}× checked', n=row.times_checked) }}</span>{% endif %}
+    {% if row.removed_at %}<span class="removed-tag">{{ _('Removed') }}</span>{% endif %}
+    <a class="open" href="{{ url_for('report', check_id=row.id) }}">{{ _('Open report') }} →</a>
+  </header>
+  <div class="check-row-body">
+    <a class="check-row-photo" href="{{ url_for('report', check_id=row.id) }}" tabindex="-1" aria-hidden="true">
+      {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% elif row.photos %}<div class="photo"><img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
+    </a>
+    <section class="check-col">
+      <h2>{{ _('Request') }}</h2>
+      <dl>
+        <dt>{{ _('Ad') }}</dt>
+        <dd>{% if row.listing_url %}<a href="{{ row.listing_url }}" rel="noopener nofollow">{{ row.listing_url.split('/')[2] if '//' in row.listing_url else row.listing_url }}</a>{% else %}<span class="muted">{{ _('No link') }}</span>{% endif %}
+          <span class="muted"> · {{ _('read from the link') if row.photos else _('typed in') }}</span></dd>
+        <dt>{{ _('Title') }}</dt><dd class="strong">{{ row.title }}</dd>
+        {% if row.description %}<dt>{{ _('Ad text') }}</dt><dd class="clamp">{{ row.description }}</dd>{% endif %}
+        <dt>{{ _('Asking price') }}</dt><dd>{{ row.asking_price|eur }}</dd>
+        <dt>{{ _('Place') }}</dt><dd>{{ row.location or '–' }}</dd>
+        <dt>{{ _('Rider height') }}</dt><dd>{{ _('{n} cm', n=row.rider_height) if row.rider_height else '–' }}</dd>
+        {% if row.photos %}<dt>{{ _('Photos') }}</dt><dd>{{ row.photos|length }}</dd>{% endif %}
+      </dl>
+    </section>
+    <section class="check-col">
+      <h2>{{ _('Result') }}</h2>
+      {% if r.model %}
+      <dl>
+        <dt>{{ _('Matched model') }}</dt>
+        <dd class="strong"><a href="{{ url_for('model_page', slug=r.model.slug) }}">{{ r.model.brand }} {{ r.model.name }}</a>
+          <span class="muted small">{% if r.chosen_by_you %}· {{ _('picked by the visitor') }}{% elif r.confidence %}· {{ _('{level} confidence', level=r.confidence) }}{% endif %}</span></dd>
+        <dt>{{ _('New price') }}</dt><dd>{{ r.model.price_eur|eur }}</dd>
+        <dt>{{ _('Fair value') }}</dt>
+        <dd>{% if r.value.low %}<strong>{{ r.value.low|eur }}–{{ r.value.high|eur }}</strong> <span class="muted small">({{ _('as a {year} bike', year=r.value.model_year) }})</span>{% else %}–{% endif %}
+          <span class="chip {{ r.value.status }}-bg">{{ r.value.headline }}</span></dd>
+        <dt>{{ _('Second-hand median') }}</dt>
+        <dd>{% if asking and asking.enough %}{{ asking.median|eur }} <span class="muted small">({{ _('{n} ads, {days} days', n=asking.count, days=asking.days) }})</span>{% elif asking and asking.count %}<span class="muted">{{ _('Only {n} other ads', n=asking.count) }}</span>{% else %}<span class="muted">{{ _('No other ads yet') }}</span>{% endif %}</dd>
+        <dt>{{ _('Year') }}</dt>
+        <dd><span class="chip {{ r.age.status }}-bg">{{ r.age.headline }}</span>{% if r.year_estimate %} <span class="chip {{ r.year_estimate.status }}-bg">{{ _('From the ad\'s details:') }} {{ r.year_estimate.headline }}</span>{% endif %}</dd>
+        <dt>{{ _('Specs') }}</dt><dd><span class="chip {{ r.specs.status }}-bg">{{ r.specs.headline }}</span></dd>
+        <dt>{{ _('Size') }}</dt><dd><span class="chip {{ r.size.status }}-bg">{{ r.size.headline }}{% if r.size.fit %} · {{ r.size.fit.text }}{% endif %}</span></dd>
+        <dt>{{ _('Ad status') }}</dt>
+        <dd>{% if row.removed_at %}<span class="bad">{{ _('Removed, found gone on {date}', date=row.removed_at[:10]) }}</span>{% elif row.last_checked_at %}{{ _('Still online on {date}', date=row.last_checked_at[:10]) }}{% elif row.listing_url %}<span class="muted">{{ _('Not re-checked yet') }}</span>{% else %}<span class="muted">{{ _('No link to re-check') }}</span>{% endif %}</dd>
+      </dl>
+      {% else %}
+      <div class="chips"><span class="chip unknown-bg">{{ _('No matching model yet') }}</span></div>
+      <p class="small muted">{{ _('Without a model there is no value estimate. The report lets you pick one.') }}</p>
+      {% endif %}
+    </section>
+  </div>
+</article>
+{%- endmacro %}
+<main class="wrap page">
+  <div class="stack" style="gap: 8px">
+    <h1 style="font-size: 44px">{{ _('All checks') }}</h1>
+    <p class="muted">{{ _('Every value check one by one, newest first: what was put in, and what came out.') }}</p>
+  </div>
+  <div class="filters" aria-label="{{ _('Views') }}">
+    <a class="pill" href="{{ url_for('listings') }}">{{ _('One card per ad') }}</a>
+    <a class="pill on" href="{{ url_for('all_checks') }}" aria-current="page">{{ _('Every check') }}</a>
+  </div>
+  <div class="filters" aria-label="{{ _('Filter by who checked') }}">
+    <a class="pill small-pill {{ 'on' if not source }}" href="{{ url_for('all_checks') }}">{{ _('All') }}<span class="count">{{ total }}</span></a>
+    <a class="pill small-pill {{ 'on' if source == 'visitors' }}" href="{{ url_for('all_checks', source='visitors') }}">{{ _('By visitors') }}<span class="count">{{ counts.visitors }}</span></a>
+    <a class="pill small-pill {{ 'on' if source == 'daily' }}" href="{{ url_for('all_checks', source='daily') }}">{{ _('Daily examples') }}<span class="count">{{ counts.daily }}</span></a>
+  </div>
+  {% if items %}
+  <div class="check-rows">
+    {% for row, r, asking in items %}{{ check_row(row, r, asking) }}{% endfor %}
+  </div>
+  {% else %}
+  <div class="card"><p>{{ _('No checks yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
+  {% endif %}
+</main>
+{% endblock %}
