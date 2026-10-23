@@ -175,9 +175,8 @@ NL = {
     "No ads matched to this model yet.": "Nog geen advertenties aan dit model gekoppeld.",
     "Not matched": "Niet gekoppeld",
     "Asking {price}": "Vraagprijs {price}",
-    "Age: {v}": "Leeftijd: {v}",
-    "Specs: {v}": "Onderdelen: {v}",
-    "Price: {v}": "Prijs: {v}",
+    "Parts": "Onderdelen",
+    "Price": "Prijs",
     "No matching model yet": "Nog geen passend model",
     "[no photo yet]": "[nog geen foto]",
 

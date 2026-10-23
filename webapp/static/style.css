@@ -145,7 +145,18 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .listing-card:hover { color: var(--ink); border-color: var(--line-strong); }
 .listing-card .photo { aspect-ratio: 16 / 9; background: var(--photo-bg); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
 .listing-card .photo img { width: 100%; height: 100%; object-fit: contain; }
-.listing-card .body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.listing-card .body { flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+/* The verdicts sit at the bottom of the card, so they line up across a row of cards. */
+.tile-verdicts { margin-top: auto; border-top: 1px solid var(--faint); }
+.tile-verdict { display: grid; grid-template-columns: 82px 1fr; gap: 6px; align-items: start; padding: 7px 0; border-bottom: 1px solid var(--faint); font-size: 14px; }
+.tile-verdict:has(> .verdict-outcome:only-child) { grid-template-columns: 1fr; }
+.verdict-topic { padding-top: 2px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.verdict-outcome { display: flex; gap: 7px; font-weight: 600; line-height: 1.3; }
+.verdict-outcome i { flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 11px; font-style: normal; font-weight: 800; color: #fff; }
+.verdict-outcome.ok { color: var(--ok); } .verdict-outcome.ok i { background: var(--ok); }
+.verdict-outcome.warn { color: var(--warn); } .verdict-outcome.warn i { background: #D9822B; }
+.verdict-outcome.bad { color: var(--bad); } .verdict-outcome.bad i { background: var(--bad); }
+.verdict-outcome.unknown { color: var(--unknown); } .verdict-outcome.unknown i { background: #9A9AAA; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; }
 .removed-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; background: var(--bad); color: #fff; font-size: 12px; max-width: 100%; box-shadow: 0 0 0 2px var(--bad-bg); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; vertical-align: middle; line-height: 1.5; }
 .chip { padding: 4px 8px; border-radius: 4px; }
