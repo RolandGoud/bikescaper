@@ -55,14 +55,29 @@ def test_placement_puts_the_bike_on_the_catalogue_bike_without_gaps(tmp_path):
 def test_worked_out_once_in_the_background_then_kept(tmp_path):
     ad = tmp_path / "ad.jpg"
     fake_ad(CATALOGUE, ad, True)
-    assert bike_fit.style(str(ad), CATALOGUE) is None  # not yet: the tile shows the photo as it is
+    # not lined up yet, but already the right way round
+    assert bike_fit.style(str(ad), CATALOGUE) == {"flip": True}
+    key = bike_fit._key(CATALOGUE, None)
     for _ in range(100):
-        if os.path.exists(str(ad) + ".fit.json"):
+        if key in bike_fit._read(str(ad)):
             break
         time.sleep(0.1)
     kept = bike_fit.style(str(ad), CATALOGUE)
-    assert kept and kept["flip"]
-    assert list(json.load(open(str(ad) + ".fit.json")).values()) == [kept]
+    assert kept and kept["flip"] and "width" in kept
+    assert json.load(open(str(ad) + ".fit.json")) == {key: kept, bike_fit.DIRECTION: True}
+
+
+def test_stays_mirrored_while_another_catalogue_photo_is_lined_up(tmp_path):
+    # The report shows the catalogue bike in the ad's colour: another photo, so another placement to
+    # work out. Meanwhile the ad photo must not turn back to facing left.
+    ad = tmp_path / "ad.jpg"
+    fake_ad(CATALOGUE, ad, True)
+    with open(str(ad) + ".fit.json", "w") as f:
+        json.dump({bike_fit._key(CATALOGUE, None): bike_fit.work_out(str(ad), CATALOGUE)}, f)
+    assert bike_fit.style(str(ad), OTHER) == {"flip": True}
+    right = tmp_path / "right.jpg"
+    fake_ad(CATALOGUE, right, False)
+    assert bike_fit.style(str(right), OTHER) is None
 
 
 def test_merged_tile_draws_the_ad_photo_lined_up(tmp_path):
