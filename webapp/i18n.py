@@ -96,6 +96,7 @@ NL = {
         "Een eerlijke prijs op basis van nieuwprijs, leeftijd en staat.",
     "Recently checked": "Net gecheckt",
     "See all listings": "Alle advertenties",
+    "Show all {count} checked ads": "Bekijk alle {count} gecheckte advertenties",
     "Ad": "Advertentie",
     "Catalogue": "Catalogus",
     "Photo from the ad": "Foto uit de advertentie",

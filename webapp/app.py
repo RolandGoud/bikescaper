@@ -185,9 +185,9 @@ def create_app(db_path=None):
     @app.route("/")
     def home():
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
-                 for r, n in group_checks(rows)[:3]]
-        return render_template("home.html", cards=cards, nav="check")
+        ads = group_checks(rows)
+        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
+        return render_template("home.html", cards=cards, total=len(ads), nav="check")
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
@@ -338,8 +338,10 @@ def create_app(db_path=None):
         model = db.get_model(conn(), slug=slug)
         if model is None:
             abort(404)
-        siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
-                    and m["brand"] == model["brand"] and m["id"] != model["id"]]
+        siblings = sorted((dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m)) for m in models()
+                           if checks.family_of(m["name"]) == checks.family_of(model["name"])
+                           and m["brand"] == model["brand"] and m["id"] != model["id"]),
+                          key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
         size_chart = checks.model_size_chart(model)
         known = prices.known_ads(conn(), models())
         priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}

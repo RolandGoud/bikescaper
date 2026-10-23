@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, brand_label, tier_badge %}
+{% from "_macros.html" import brand_label %}
+{% from "_macros.html" import model_card with context %}
 {% block title %}{{ _('Models') }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -45,15 +46,7 @@
     <h2>{{ _(label) }} <span class="muted count">{{ items|length }}</span></h2>
     <div class="model-grid">
       {% for m in items %}
-      <a class="model-card" href="{{ url_for('model_page', slug=m.slug) }}">
-        <div class="photo">{{ photo(m) }}{% if logos.get(m.brand) %}<span class="brand-mark" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% else %}<span class="brand-mark text">{{ m.brand }}</span>{% endif %}{% if m.status == 'discontinued' %}<span class="status discontinued overlay">{{ _(status_labels[m.status]) }}</span>{% endif %}</div>
-        <div class="body">
-          <span style="font-weight: 700">{{ m.name }}</span>
-          <span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span>
-          {{ tier_badge(m.tier, small=true) }}
-          {% if m.matched %}<span class="small muted">{{ _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) }}</span>{% endif %}
-        </div>
-      </a>
+      {{ model_card(m) }}
       {% endfor %}
     </div>
   </section>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_dot %}
-{% from "_macros.html" import asking_box with context %}
+{% from "_macros.html" import asking_box, model_card with context %}
 {% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -85,7 +85,7 @@
   {% if siblings %}
   <section class="stack">
     <h2>{{ _('Other {family} models', family=m.name.split(' ')[0]) }}</h2>
-    <div class="row">{% for s in siblings %}<a class="pill" href="{{ url_for('model_page', slug=s.slug) }}">{{ s.name }}</a>{% endfor %}</div>
+    <div class="model-grid">{% for s in siblings %}{{ model_card(s) }}{% endfor %}</div>
   </section>
   {% endif %}
 </main>
