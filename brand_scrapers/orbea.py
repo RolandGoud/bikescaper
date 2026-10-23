@@ -11,7 +11,7 @@ import json
 import re
 
 from .browser import BrowserFetcher
-from .common import clean, is_ebike, log, normalize_specs, parse_price
+from .common import clean, is_ebike, log, normalize_specs, parse_price, size_name
 
 BRAND = "Orbea"
 BASE = "https://www.orbea.com/nl-nl"
@@ -79,7 +79,7 @@ def parse(page, url, family):
         "model_year": product.get("year"),
         "specifications": normalize_specs(pairs),
         "color_names": [clean(c.get("name")) for c in colours if c.get("name")],
-        "sizes": [s.get("name") or code for code, s in (product.get("sizes") or {}).items()],
+        "sizes": list(dict.fromkeys(size_name(s.get("name") or code) for code, s in (product.get("sizes") or {}).items())),
         "image_url": image,
         "_ebike": attrs.get("BIKE_TYPE", "BIKE") != "BIKE" or attrs.get("PRODUCT_TYPE", "BIKE") != "BIKE",
     }

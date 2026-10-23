@@ -17,8 +17,8 @@ overwritten, so the catalogue builds history over time.
 | Specialized | https://www.specialized.com/nl/nl | Built (`brand_scrapers/specialized.py`): Next.js product data |
 | Giant | https://www.giant-bicycles.com/nl | Built (`brand_scrapers/giant.py`): NL sitemap, model years 2025+, 4 s crawl delay |
 | Cannondale | https://www.cannondale.com/nl-nl | Built (`brand_scrapers/cannondale.py`): sitemap + schema.org product JSON |
-| Scott | https://www.scott-sports.com/nl/en/ | Blocked: Imperva returns 403 to servers and headless Chromium; needs a run from a home connection |
-| Orbea | https://www.orbea.com/nl-nl/ | Blocked: Cloudflare challenge for servers and headless Chromium; needs a run from a home connection |
+| Scott | https://www.scott-sports.com/nl/en/ | Built (`brand_scrapers/scott.py`): /nl/en/ sitemap and JSON-LD, fetched with a visible Chrome window from a home PC (Imperva blocks servers and headless browsers) |
+| Orbea | https://www.orbea.com/nl-nl/ | Built (`brand_scrapers/orbea.py`): family pages and embedded product data, fetched with a visible Chrome window from a home PC (Cloudflare blocks servers and headless browsers) |
 | Cube | https://www.cube.eu/nl-nl/ | Built (`brand_scrapers/cube.py`): family pages, one product per colour |
 | Factor | https://eu.factorbikes.com/ | Built (`brand_scrapers/factor.py`): EU store (eu.factorbikes.com), euro prices |
 

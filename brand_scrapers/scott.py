@@ -11,7 +11,7 @@ import json
 import re
 
 from .browser import BrowserFetcher
-from .common import clean, is_ebike, log, normalize_specs, parse_price
+from .common import clean, is_ebike, log, normalize_specs, parse_price, size_name
 
 BRAND = "Scott"
 BASE = "https://www.scott-sports.com/nl/en"
@@ -101,8 +101,9 @@ def parse(page, url):
         price = parse_price((variant.get("offers") or {}).get("price"))
         if price:
             prices.append(price)
-        if variant.get("size") and variant["size"] not in sizes:
-            sizes.append(variant["size"])
+        size = size_name(variant["size"]) if variant.get("size") else None
+        if size and size not in sizes:
+            sizes.append(size)
         colour = clean(variant.get("color"))
         if colour and colour not in colours:
             colours.append(colour)

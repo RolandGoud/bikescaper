@@ -3,7 +3,7 @@
 A first working version of the Bike Compare site: paste a second-hand bike ad and get a
 check report on age, specs, size and value, matched against the road and gravel catalogue
 that bikescaper collected from the brands' own sites: Trek and Canyon in July and August 2025,
-Specialized, Giant, Cannondale, Cube and Factor in October 2026.
+Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea in October 2026.
 
 ## Run it
 
@@ -61,16 +61,18 @@ hand-entered reference data (brands, Trek generation years, generic size charts,
 ## Brands
 
 Trek and Canyon come from their own scrapers (`trek_bikes_scraper.py`, `canyon_bikes_scraper.py`).
-Specialized, Giant, Cannondale, Cube and Factor come from `brand_scrapers/`, one adapter per
+Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea come from `brand_scrapers/`, one adapter per
 brand; refresh them with `python -m brand_scrapers` (or name brands: `python -m brand_scrapers
 giant cube`). It writes a new snapshot to `data/<Brand>/` and one photo per model to
 `images/<Brand>/`, and the seed picks the newest snapshot. On the NAS the catalogue reloads by
 itself on the next start when a new snapshot is in `main`.
 
 Only road, gravel, cyclocross and time trial bikes are collected, like the Trek and Canyon data.
-Factor has no Dutch site, so its prices come from the EU store. Scott and Orbea are recognised in
-ads and listed as coming next: their sites block requests from servers (Imperva and Cloudflare),
-so they need a run from a home connection with a real browser. See `docs/scraper-plan.md`.
+Factor has no Dutch site, so its prices come from the EU store. Scott and Orbea block requests
+from servers and headless browsers (Imperva and Cloudflare), so `brand_scrapers/browser.py` opens a
+visible Chrome window through Playwright: run `python -m brand_scrapers scott orbea` on a home PC
+with `pip install playwright`. Their rider heights come from the brands' general size guides.
+See `docs/scraper-plan.md`.
 
 ## Known limits
 
