@@ -391,3 +391,4 @@ app = create_app()
 if "gunicorn" in os.path.basename(sys.argv[0]):
     # On the server, re-check pasted ad links in the background and mark removed ads.
     recheck.start_background(app.config["DB_PATH"])
+this is broken(
