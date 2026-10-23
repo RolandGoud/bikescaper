@@ -248,10 +248,6 @@ NL = {
     # listings page
     "Checked listings": "Gecheckte advertenties",
     "Every ad checked on this site.": "Alle advertenties die op deze site gecheckt zijn.",
-    "Filter by result": "Filter op resultaat",
-    "All": "Alles",
-    "Something doesn't add up": "Er klopt iets niet",
-    "Needs a question": "Vraag het na",
     "No checks yet.": "Nog geen checks.",
     "Check your first listing": "Check je eerste advertentie",
 

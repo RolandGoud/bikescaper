@@ -774,3 +774,11 @@ def test_value_replaces_a_stated_year_the_details_rule_out(models):
     assert r["value"]["model_year"] == 2023
     assert any("stated 2019 doesn't fit" in en(n) for n in r["value"]["notes"])
     assert run(models, "Trek Domane SL 6 gen 4 2024", "Shimano 105 Di2 2x12", price=2000)["value"]["model_year"] == 2024
+
+
+def test_listings_have_no_result_filter(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/listings?lang=nl").data.decode()
+    assert "Er klopt iets niet" not in page and "Vraag het na" not in page
+    assert "Elke check" in page  # the view switch stays
