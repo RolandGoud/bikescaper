@@ -1,0 +1,797 @@
+{
+ "checked_on": "2026-10-23",
+ "models": {
+  "Aerium C:68X Frameset": {
+   "2026": {
+    "captured": "2026-07-10",
+    "ts": "20260710173617",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-de/cube-aerium-c-68x-frameset-nebula-n-white/831500"
+   }
+  },
+  "Aerium C:68X TT Frameset": {
+   "2025": {
+    "captured": "2025-09-06",
+    "image": "Cube/years/aeriumc68xttframeset_2025.jpg",
+    "price": 3499.0,
+    "specs": {
+     "Balhoofdstel": "FSA, 1 1/8\" integrated",
+     "Extra's": "CUBE Concept Front Hydration / Concept Gear Unit",
+     "Frame": "Aerium C:68® Monocoque Advanced Twin Mold Technology, UCI approved, Twin Head Tube, Full Integrated Cable Routing, Flat Mount Disc, 12x142mm, AXH",
+     "Gewicht": "4,3 kg",
+     "Opzetstuur": "Profile Design 43 ASC Carbon",
+     "Stuur/stuurpen (geïntegreerd)": "CUBE Aerium C:68 TT Cockpit System, 400mm",
+     "Stuurlint": "ACID Bartape RC 2.5",
+     "Voorvork": "Aerium C:68® TT, Integrated Cable Routing, Flat Mount Disc, 12x100mm",
+     "Zadelpen": "CUBE Aerium C:68® TT Aero"
+    },
+    "ts": "20250906144543",
+    "url": "https://www.cube.eu/nl-nl/cube-aerium-c-68x-tt-frameset-carbon-n-prism/131110"
+   },
+   "2026": {
+    "captured": "2026-05-15",
+    "price": 3499.0,
+    "specs": {
+     "Balhoofdstel": "FSA, 1 1/8\" integrated",
+     "Extra's": "CUBE Concept Front Hydration / Concept Gear Unit",
+     "Frame": "Aerium C:68® Monocoque Advanced Twin Mold Technology, UCI approved, Twin Head Tube, Full Integrated Cable Routing, Flat Mount Disc, 12x142mm, AXH",
+     "Gewicht": "4,3 kg",
+     "Opzetstuur": "Profile Design 43 ASC Carbon",
+     "Stuur/stuurpen (geïntegreerd)": "CUBE Aerium C:68 TT Cockpit System, 400mm",
+     "Stuurlint": "ACID Bartape RC 2.5",
+     "Voorvork": "Aerium C:68® TT, Integrated Cable Routing, Flat Mount Disc, 12x100mm",
+     "Zadelpen": "CUBE Aerium C:68® TT Aero"
+    },
+    "ts": "20260515221929",
+    "url": "https://www.cube.eu/nl-nl/cube-aerium-c-68x-tt-frameset-carbon-n-prism/131110"
+   }
+  },
+  "Agree C:62 ONE": {
+   "2025": {
+    "captured": "2025-08-30",
+    "image": "Cube/years/agreec62one_2025.jpg",
+    "ts": "20250830092439",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-agree-c-62-one-foggrey-n-grey/826100"
+   }
+  },
+  "Agree C:62 Pro": {
+   "2026": {
+    "captured": "2026-02-09",
+    "image": "Cube/years/agreec62pro_2026.jpg",
+    "price": 3922.11,
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 ST-R8170",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano SM-BB71-41B, 86mm Pressfit",
+     "Buitenband": "Conti Grand Prix, Kevlar, 30-622",
+     "Cassette": "Shimano Ultegra CS-R8101, 11-34T",
+     "Crankstel": "Shimano Ultegra FC-R8100, Hollowtech II, 50x34T",
+     "Frame": "C:62® Advanced Twin Mold Technology, Full Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Storage Box Option, AXH, 12x142mm",
+     "Gewicht": "8,0 kg",
+     "Ketting": "Shimano CN-M8100",
+     "Rem": "Shimano Ultegra BR-R8170, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Stuur": "Newmen Advanced Wing Bar, Carbon",
+     "Stuurlint": "ACID Bartape RC 2.5",
+     "Stuurpen": "CUBE Aero Stem w/ Cable Routing",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150-F",
+     "Voorvork": "CUBE CSL Evo Aero C:62® Technology, 1 1/8\" - 1 1/4\" Tapered, Flat Mount, 12x100mm",
+     "Wiel voor": "Newmen Advanced A.50 Carbon, 21/21 Spokes, 12x100mm/12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance Pro",
+     "Zadelpen": "Agree C:62 Aero, Comfort Flex"
+    },
+    "ts": "20260209202107",
+    "url": "https://www.cube.eu/nl/cube-agree-c-62-pro-bali-n-prism/126210"
+   }
+  },
+  "Agree C:62 Race": {
+   "2020": {
+    "captured": "2020-08-10",
+    "ts": "20200810113447",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-race-bluegreynorange-2020/"
+   },
+   "2022": {
+    "captured": "2022-06-25",
+    "image": "Cube/years/agreec62race_2022.jpg",
+    "ts": "20220625101339",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/agree/cube-agree-c62-race-fadingbluencarbon/"
+   },
+   "2023": {
+    "captured": "2023-08-09",
+    "image": "Cube/years/agreec62race_2023.jpg",
+    "ts": "20230809132018",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-agree-c-62-race-fireorange-n-black/678210"
+   },
+   "2025": {
+    "captured": "2025-08-24",
+    "image": "Cube/years/agreec62race_2025.jpg",
+    "ts": "20250824214800",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-agree-c-62-race-flashlime-n-black/826300"
+   }
+  },
+  "Agree C:62 SLX": {
+   "2025": {
+    "captured": "2025-08-25",
+    "image": "Cube/years/agreec62slx_2025.jpg",
+    "ts": "20250825090133",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-agree-c-62-slx-pigeonblue-n-art/826410"
+   }
+  },
+  "Attain C:62 Race": {
+   "2025": {
+    "captured": "2025-03-02",
+    "ts": "20250302185953",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-attain-c-62-race-blackline/825400"
+   }
+  },
+  "Attain C:62 SLT": {
+   "2025": {
+    "captured": "2025-07-13",
+    "ts": "20250713145247",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-attain-c-62-slt-carbon-n-rainbow/825600"
+   },
+   "2026": {
+    "captured": "2026-10-13",
+    "image": "Cube/years/attainc62slt_2026.jpg",
+    "price": 2999.0,
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 RD-R8150-DGS. 12-Speed",
+     "Balhoofdstel": "Acros, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano SM-BB71-41B, 86mm Pressfit",
+     "Brake system": "Shimano Ultegra BR-R8170, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Buitenband": "Continental Grand Prix 5000 S-TR, Kevlar, 32-622, Tubeless Ready",
+     "Cassette": "Shimano Ultegra CS-R8101, 11-34T",
+     "Colour": "carbon´n´white",
+     "Crankstel": "Shimano Ultegra FC-R8100, Hollowtech II, 50x34T",
+     "Extras": "ACID Frame Bag PRO 0,6",
+     "Frame": "C:62® Twin Mold Technology, Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Storage Box Option, AXH, 12x142mm",
+     "Framegewicht": "1150g",
+     "Gewicht": "7,8 kg",
+     "Handlebar tape": "ACID Bartape RC 3.0",
+     "Integrated bar/ stem": "IC Race Cockpit System, w/ Cable Routing, Aero Spacer System, Garmin Mount Interface",
+     "Ketting": "Shimano CN-M8100",
+     "Material": "C:62® Carbon",
+     "Rigid fork": "CUBE CSL Race C:62 Disc, Full Carbon, 1 1/8\" - 1 1/4\" Tapered, Flat Mount, 12x100mm",
+     "SRP*": "2999 EUR",
+     "Seat post": "Newmen Advanced, Carbon, 27.2mm",
+     "Shift/ brake levers": "Shimano Ultegra Di2 ST-R8170",
+     "Size": "47cm, 50cm, 53cm, 56cm, 58cm, 60cm, 62cm",
+     "Tyre clearance": "36mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150-F",
+     "Wiel voor": "Newmen Advanced A.50 SJ Carbon, 21/21 Spokes, Centerlock, 12x100mm/12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance SLT Carbon"
+    },
+    "ts": "20261013100526",
+    "url": "https://www.cube.eu/nl-en/cube-attain-c-62-slt-carbon-n-white/1131900"
+   }
+  },
+  "Attain C:62 SLX": {
+   "2025": {
+    "captured": "2025-03-19",
+    "ts": "20250319142927",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-attain-c-62-slx-lagoon-n-black/825510"
+   }
+  },
+  "Attain Pro": {
+   "2020": {
+    "captured": "2020-09-22",
+    "ts": "20200922142936",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/attain/cube-attain-pro-blacknorange-2020/"
+   },
+   "2021": {
+    "captured": "2021-04-08",
+    "ts": "20210408161341",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/road-race/attain/cube-attain-pro-blacknflashyellow/"
+   },
+   "2025": {
+    "captured": "2025-08-30",
+    "image": "Cube/years/attainpro_2025.jpg",
+    "ts": "20250830091042",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-attain-pro-hyperpurple-n-helio/825110"
+   }
+  },
+  "Attain Race": {
+   "2025": {
+    "captured": "2025-08-27",
+    "image": "Cube/years/attainrace_2025.jpg",
+    "ts": "20250827024816",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-attain-race-night-n-black/825200"
+   }
+  },
+  "Attain SLX": {
+   "2023": {
+    "captured": "2023-02-13",
+    "image": "Cube/years/attainslx_2023.jpg",
+    "ts": "20230213010151",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-attain-slx-deepred-n-red/676410"
+   },
+   "2025": {
+    "captured": "2025-02-22",
+    "ts": "20250222152305",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-attain-slx-goblin-n-yellow/825310"
+   },
+   "2026": {
+    "captured": "2026-04-17",
+    "image": "Cube/years/attainslx_2026.jpg",
+    "ts": "20260417100146",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-cs/cube-attain-slx-coal-n-prism/125300"
+   }
+  },
+  "Cross Race C:62 Pro": {
+   "2025": {
+    "captured": "2025-09-16",
+    "image": "Cube/years/crossracec62pro_2025.jpg",
+    "ts": "20250916185459",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-de/cube-cross-race-c-62-pro-carbon-n-orange/832100"
+   }
+  },
+  "Cross Race C:68X TE": {
+   "2022": {
+    "captured": "2022-09-28",
+    "ts": "20220928034036",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/cyclocross/cross-race/cube-cross-race-c68x-te-carbonnflashyellow/"
+   }
+  },
+  "Litening AERO C:68X Race": {
+   "2025": {
+    "captured": "2025-08-25",
+    "image": "Cube/years/liteningaeroc68xrace_2025.jpg",
+    "ts": "20250825013416",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-litening-aero-c-68x-race-blackline/827100"
+   },
+   "2026": {
+    "captured": "2026-05-06",
+    "image": "Cube/years/liteningaeroc68xrace_2026.jpg",
+    "ts": "20260506114916",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-de/cube-litening-aero-c-68x-race-blackline/127100"
+   }
+  },
+  "Litening AERO C:68X SLT": {
+   "2025": {
+    "captured": "2025-08-15",
+    "image": "Cube/years/liteningaeroc68xslt_2025.jpg",
+    "ts": "20250815144304",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-litening-aero-c-68x-slt-solareclipse-n-carbon/827300"
+   }
+  },
+  "Litening AERO C:68X SLX": {
+   "2025": {
+    "captured": "2025-08-27",
+    "image": "Cube/years/liteningaeroc68xslx_2025.jpg",
+    "ts": "20250827093843",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-litening-aero-c-68x-slx-chromeblue-n-liquidblue/827200"
+   }
+  },
+  "Litening AIR C:68X Frameset": {
+   "2025": {
+    "captured": "2025-08-25",
+    "image": "Cube/years/liteningairc68xframeset_2025.jpg",
+    "ts": "20250825011520",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-litening-air-c-68x-frameset-team-replica/828500"
+   }
+  },
+  "Litening AIR C:68X Pro": {
+   "2025": {
+    "captured": "2025-08-04",
+    "image": "Cube/years/liteningairc68xpro_2025.jpg",
+    "ts": "20250804155023",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-litening-air-c-68x-pro-foggrey-n-white/828100"
+   }
+  },
+  "Litening AIR C:68X Race": {
+   "2025": {
+    "captured": "2025-08-25",
+    "image": "Cube/years/liteningairc68xrace_2025.jpg",
+    "ts": "20250825163305",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-litening-air-c-68x-race-dazzle-n-black/828210"
+   }
+  },
+  "Litening AIR C:68X SLT": {
+   "2025": {
+    "captured": "2025-08-25",
+    "image": "Cube/years/liteningairc68xslt_2025.jpg",
+    "ts": "20250825170714",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-en/cube-litening-air-c-68x-slt-liquidlava-n-black/828400"
+   },
+   "2026": {
+    "captured": "2026-02-09",
+    "image": "Cube/years/liteningairc68xslt_2026.jpg",
+    "price": 8768.49,
+    "specs": {
+     "Achterderailleur": "Shimano Dura Ace Di2 ST-R9270",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Acros Threadfit Ceramic",
+     "Buitenband": "Conti Grand Prix 5000 S-TR, Kevlar, 28-622, Tubeless Ready",
+     "Cassette": "Shimano Dura Ace CS-R9200, 11-34T",
+     "Crankstel": "Shimano Dura Ace FC-R9200-P, Powermeter, Hollowtech ll, 52x36T",
+     "Extra's": "Schwalbe Aerothan Clikvalve Inner Tubes",
+     "Frame": "Litening C:68X® Air Monocoque Advanced Twin Mold Technology, Aero-Weight Optimized Tubes, Full Internal Cable Routing, Flat Mount Disc",
+     "Gewicht": "6,6 kg",
+     "Ketting": "Shimano CN-M9100",
+     "Rem": "Shimano Dura Ace BR-R9270, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Stuur/stuurpen (geïntegreerd)": "IC Aero Cockpit System, Integrated Cable Routing, Aero Spacer System, Garmin Mount Interface",
+     "Stuurlint": "ACID Bartape RC 2.5",
+     "Voorderailleur": "Shimano Dura Ace Di2 FD-R9250-F, Braze-On",
+     "Voorvork": "Litening C:68X® Air, Integrated Cable Routing, Flat Mount Disc",
+     "Wiel voor": "Newmen Streem C.35/38 VONOA Carbon, 15/18 Carbon Spokes, 12x100mm/12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance SLT Carbon",
+     "Zadelpen": "Litening C:68X® Aero, Comfort Flex"
+    },
+    "ts": "20260209213336",
+    "url": "https://www.cube.eu/nl/cube-litening-air-c-68x-slt-golddust-n-prism/128400"
+   }
+  },
+  "Nuroad C:62 EX": {
+   "2024": {
+    "captured": "2024-11-29",
+    "image": "Cube/years/nuroadc62ex_2024.jpg",
+    "ts": "20241129102339",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-nuroad-c-62-ex-pigeonblue-n-art/830310"
+   },
+   "2025": {
+    "captured": "2025-09-06",
+    "image": "Cube/years/nuroadc62ex_2025.jpg",
+    "price": 2999.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX Di2 RD-RX827-SGS, 12-Speed",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano SM-BB71-41B, 86mm Pressfit",
+     "Brake system": "Shimano GRX BR-RX820, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Buitenband": "Conti Terra Trail, Shield Wall, 45-622",
+     "Cassette": "Shimano SLX CS-M7100, 10-51T",
+     "Colour": "oldgrey´n´prism",
+     "Crankstel": "Shimano GRX FC-RX820-1, Hollowtech II, 40T",
+     "Extras": "ACID Pack Pro 0,7 Top Tube Bag",
+     "Frame": "C:62® Advanced Twin Mold Technology, Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Fender/Rack & Kickstand Option, 12x142mm, UDH™",
+     "Gewicht": "8,5 kg",
+     "Handlebar tape": "ACID Bartape CC 3.0",
+     "Ketting": "Shimano CN-M7100",
+     "Rigid fork": "CUBE C:62® Technology, 1 1/8\" - 1 1/2\" Tapered, Integrated Cable Routing, Flat Mount Disc, Fender & Lowrider Mounts, Internal Light Cable Option, 12x100mm",
+     "SRP*": "2999 EUR",
+     "Seat post": "Newmen Advanced, Carbon, 27.2mm",
+     "Shift/ brake levers": "Shimano GRX Di2 ST-RX825",
+     "Size": "XS, S, M, L, XL",
+     "Stuur": "Newmen Advanced Gravel Bar 318, Carbon, 31.8mm",
+     "Stuurpen": "CUBE CIS Stem w/ Cable Routing, FPI-Link",
+     "Wiel voor": "Newmen Advanced G.34, 21/21 Spokes, 12x100mm/12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance Pro"
+    },
+    "ts": "20250906115003",
+    "url": "https://www.cube.eu/nl-en/cube-nuroad-c-62-ex-oldgrey-n-prism/130300"
+   }
+  },
+  "Nuroad C:62 Race": {
+   "2023": {
+    "captured": "2023-06-11",
+    "image": "Cube/years/nuroadc62race_2023.jpg",
+    "ts": "20230611081221",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-nuroad-c-62-race-frozenteal-n-black/680310"
+   },
+   "2026": {
+    "captured": "2026-02-27",
+    "image": "Cube/years/nuroadc62race_2026.jpg",
+    "price": 3599.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX Di2 ST-RX825",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano SM-BB71-41B, 86mm Pressfit",
+     "Buitenband": "Schwalbe G-One RS Pro, TLR, 45-622",
+     "Cassette": "Shimano Ultegra CS-R8101, 11-34T",
+     "Crankstel": "Shimano GRX FC-RX820-2, Hollowtech II, 48x31T, 4iiii Precision 3+ Powermeter one side",
+     "Extra's": "ACID Pack Pro 0,7 Top Tube Bag",
+     "Frame": "C:62® Advanced Twin Mold Technology, Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Fender/Rack & Kickstand Option, 12x142mm, UDH™",
+     "Gewicht": "8,3 kg",
+     "Ketting": "Shimano CN-M8100",
+     "Rem": "Shimano GRX BR-RX820, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Stuur/stuurpen (geïntegreerd)": "ICR Cockpit System, Integrated Cable Routing, Aero Spacer System, Garmin Mount Interface",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Voorderailleur": "Shimano GRX Di2 FD-RX825-F",
+     "Voorvork": "CUBE C:62® Technology, 1 1/8\" - 1 1/2\" Tapered, Integrated Cable Routing, Flat Mount Disc, Fender & Lowrider Mounts, Internal Light Cable Option, 12x100mm",
+     "Wiel voor": "Newmen Advanced SL X.R.36 Carbon, 24/24 Spokes, 12x100mm/12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance SLT X",
+     "Zadelpen": "Newmen Advanced, Carbon, 27.2mm"
+    },
+    "ts": "20260227200331",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-c-62-race-nebula-n-blue/130400"
+   }
+  },
+  "Nuroad C:62 SLX": {
+   "2023": {
+    "captured": "2023-04-10",
+    "image": "Cube/years/nuroadc62slx_2023.jpg",
+    "ts": "20230410183919",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-nuroad-c-62-slx-olive-n-green/680320"
+   },
+   "2024": {
+    "captured": "2024-11-29",
+    "image": "Cube/years/nuroadc62slx_2024.jpg",
+    "ts": "20241129100950",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-nuroad-c-62-slx-solareclipse-n-aurum/830500"
+   }
+  },
+  "Nuroad EX": {
+   "2025": {
+    "captured": "2025-09-13",
+    "image": "Cube/years/nuroadex_2025.jpg",
+    "price": 1399.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX ST-RX610",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8\" (OD 44mm), Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Buitenband": "Schwalbe G-One Allround Performance Line 45x622",
+     "Cassette": "Shimano Deore CS-M6100, 10-51T",
+     "Crankstel": "Shimano GRX FC-RX610, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Gravel Comfort Geometry, Flat Mount Disc, Fender & Rack Option, 12x142mm, AXH",
+     "Gewicht": "10,2 kg",
+     "Ketting": "Shimano CN-M6100",
+     "Rem": "Shimano GRX ST-RX610 / BR-RX410, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE Performance Stem SLX, FPI-Link, 31.8mm",
+     "Voorvork": "CUBE Nuroad Flat Mount Disc, Full Carbon, 1 1/8\" - 1 1/4\" Tapered, Fender & Lowrider Mounts, 12x100mm",
+     "Wiel voor": "Newmen Performance X.R.25, 28/28 Spokes, 12x100mm / 12x142mm, Tubeless Ready",
+     "Zadel": "ACID Venec Lite",
+     "Zadelpen": "CUBE Performance Post, 27.2mm"
+    },
+    "ts": "20250913053614",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-ex-cotton-n-grey/129400"
+   }
+  },
+  "Nuroad ONE": {
+   "2025": {
+    "captured": "2025-09-04",
+    "image": "Cube/years/nuroadone_2025.jpg",
+    "price": 899.0,
+    "specs": {
+     "Achterderailleur": "Shimano Cues BL/ST-U3030",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8\" (OD 44mm), Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Buitenband": "Schwalbe G-One Comp, ActiveL, 40-622",
+     "Cassette": "Shimano Cues CS-LG300, 11-46T",
+     "Crankstel": "Shimano Cues FC-U6030-1, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Gravel Comfort Geometry, Flat Mount Disc, Fender & Rack Option, QR",
+     "Gewicht": "11,3 kg",
+     "Ketting": "KMC xGlide",
+     "Rem": "Tektro MD-C510, Flat Mount (160/160)",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE Performance Stem, 31.8mm",
+     "Voorvork": "CUBE Nuroad Flat Mount Disc, Full Carbon, 1 1/8\" - 1 1/4\" Tapered, Fender & Lowrider Mounts, QR",
+     "Wiel voor": "ACID Pro GR 2.5 Disc, 32/32 Spokes, QR/QR, Tubeless Ready",
+     "Zadel": "ACID Venec Lite",
+     "Zadelpen": "CUBE Performance Post, 27.2mm"
+    },
+    "ts": "20250904161913",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-one-ruby-n-puce/129210"
+   }
+  },
+  "Nuroad ONE FE": {
+   "2025": {
+    "captured": "2025-09-09",
+    "image": "Cube/years/nuroadonefe_2025.jpg",
+    "price": 999.0,
+    "specs": {
+     "Achterderailleur": "Shimano Cues RD-U4000-GS, 9-Speed",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8\" (OD 44mm), Bottom Integrated 1 1/4\"",
+     "Bell": "ACID Alpha",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Brake system": "Tektro MD-C510, Flat Mount (160/160)",
+     "Buitenband": "Schwalbe G-One Comp, ActiveL, 40-622",
+     "Carrier": "ACID Semi-Integrated Carrier, ACID RILink Adapter Compatible",
+     "Cassette": "Shimano Cues CS-LG300, 11-46T",
+     "Colour": "grovegreen´n´black",
+     "Crankstel": "Shimano Cues FC-U6030-1, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Gravel Comfort Geometry, Flat Mount Disc, Fender & Rack Option, QR",
+     "Front light": "ACID Pro-D 50 CMPT",
+     "Gewicht": "13,4 kg",
+     "Handlebar tape": "ACID Bartape CC 3.0",
+     "Ketting": "KMC xGlide",
+     "Kickstand": "ACID FM Pure Kickstand",
+     "Mudguards": "ACID 50 BB-Mount",
+     "Naaf achter": "Shimano FH-QB400-HM, QR, 6-Bolt",
+     "Naaf voor": "Shimano DH-3D32, Hub Dynamo, QR",
+     "Rear light": "ACID Mudguard Rear Light PRO-D, 6V, AC",
+     "Rigid fork": "CUBE Nuroad Flat Mount Disc, Full Carbon, 1 1/8\" - 1 1/4\" Tapered, Fender & Lowrider Mounts, QR",
+     "SRP*": "999 EUR",
+     "Seat post": "CUBE Performance Post, 27.2mm",
+     "Shift/ brake levers": "Shimano Cues BL/ST-U3030",
+     "Size": "XS, S, M, L, XL",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurpen": "CUBE Performance Stem, 31.8mm",
+     "Velg": "ACID EX25, 32H, Disc, Tubeless Ready",
+     "Zadel": "ACID Venec Lite"
+    },
+    "ts": "20250909152041",
+    "url": "https://www.cube.eu/nl-en/cube-nuroad-one-fe-grovegreen-n-black/129220"
+   },
+   "2026": {
+    "captured": "2026-02-14",
+    "image": "Cube/years/nuroadonefe_2026.jpg",
+    "price": 999.0,
+    "specs": {
+     "Achterderailleur": "Shimano Cues BL/ST-U3030",
+     "Achterlicht": "ACID Mudguard Rear Light PRO-D, 6V, AC",
+     "Bagagedrager": "ACID Semi-Integrated Carrier, ACID RILink Adapter Compatible",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8\" (OD 44mm), Bottom Integrated 1 1/4\"",
+     "Bel": "ACID Alpha",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Buitenband": "Schwalbe G-One Comp, ActiveL, 40-622",
+     "Cassette": "Shimano Cues CS-LG300, 11-46T",
+     "Crankstel": "Shimano Cues FC-U6030-1, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Gravel Comfort Geometry, Flat Mount Disc, Fender & Rack Option, QR",
+     "Gewicht": "13,4 kg",
+     "Ketting": "KMC xGlide",
+     "Naaf achter": "Shimano FH-QB400-HM, QR, 6-Bolt",
+     "Naaf voor": "Shimano DH-3D32, Hub Dynamo, QR",
+     "Rem": "Tektro MD-C510, Flat Mount (160/160)",
+     "Spatborden": "ACID 50 BB-Mount",
+     "Standaard": "ACID FM Pure Kickstand",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE Performance Stem, 31.8mm",
+     "Velg": "ACID EX25, 32H, Disc, Tubeless Ready",
+     "Voorlicht": "ACID Pro-D 50 CMPT",
+     "Voorvork": "CUBE Nuroad Flat Mount Disc, Full Carbon, 1 1/8\" - 1 1/4\" Tapered, Fender & Lowrider Mounts, QR",
+     "Zadel": "ACID Venec Lite",
+     "Zadelpen": "CUBE Performance Post, 27.2mm"
+    },
+    "ts": "20260214114520",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-one-fe-grovegreen-n-black/129220"
+   }
+  },
+  "Nuroad Pro": {
+   "2020": {
+    "captured": "2020-11-30",
+    "image": "Cube/years/nuroadpro_2020.jpg",
+    "ts": "20201130024110",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-desertnblack/"
+   },
+   "2021": {
+    "captured": "2021-06-17",
+    "image": "Cube/years/nuroadpro_2021.jpg",
+    "ts": "20210617212724",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-desertnblack/"
+   },
+   "2022": {
+    "captured": "2022-06-11",
+    "image": "Cube/years/nuroadpro_2022.jpg",
+    "ts": "20220611114927",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/gravel/nuroad/cube-nuroad-pro-inkgreynblack/"
+   },
+   "2026": {
+    "captured": "2026-02-08",
+    "image": "Cube/years/nuroadpro_2026.jpg",
+    "price": 1099.0,
+    "specs": {
+     "Achterderailleur": "Shimano Cues ST-U6030",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8\" (OD 44mm), Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Buitenband": "Schwalbe G-One Allround, Kevlar, 40-622",
+     "Cassette": "Shimano Cues CS-LG400, 11-50T",
+     "Crankstel": "Shimano Cues FC-U6030-1, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Gravel Comfort Geometry, Flat Mount Disc, Fender & Rack Option, 12x142mm, AXH",
+     "Gewicht": "10,8 kg",
+     "Ketting": "KMC xGlide",
+     "Rem": "Shimano Cues BR-U6030, Hydr. Disc Brake, Flat Mount (180/180)",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE Performance Stem SLX, FPI-Link, 31.8mm",
+     "Voorvork": "CUBE Nuroad Flat Mount Disc, Full Carbon, 1 1/8\" - 1 1/4\" Tapered, Fender & Lowrider Mounts, 12x100mm",
+     "Wiel voor": "ACID Pro GR 2.5 Disc, 28/28 Spokes, 12x100mm/12x142mm, Tubeless Ready",
+     "Zadel": "ACID Venec Lite",
+     "Zadelpen": "CUBE Performance Post, 27.2mm"
+    },
+    "ts": "20260208232811",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-pea-n-grey/129310"
+   }
+  },
+  "Nuroad Pro FE": {
+   "2021": {
+    "captured": "2021-04-12",
+    "image": "Cube/years/nuroadprofe_2021.jpg",
+    "ts": "20210412162231",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-fe-blacknpetrol/"
+   },
+   "2022": {
+    "captured": "2022-05-21",
+    "ts": "20220521152630",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/gravel/nuroad/cube-nuroad-pro-fe-inkgreynblack/"
+   },
+   "2025": {
+    "captured": "2025-03-23",
+    "ts": "20250323111354",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320"
+   }
+  },
+  "Nuroad Race": {
+   "2024": {
+    "captured": "2024-11-02",
+    "ts": "20241102221157",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-race-rubyred-n-gloss/829510"
+   }
+  },
+  "Nuroad Race FE": {
+   "2020": {
+    "captured": "2020-10-19",
+    "image": "Cube/years/nuroadracefe_2020.jpg",
+    "ts": "20201019154027",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/"
+   },
+   "2021": {
+    "captured": "2021-03-09",
+    "image": "Cube/years/nuroadracefe_2021.jpg",
+    "ts": "20210309214947",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/"
+   },
+   "2025": {
+    "captured": "2025-09-04",
+    "image": "Cube/years/nuroadracefe_2025.jpg",
+    "price": 1599.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX ST-RX610",
+     "Achterlicht": "ACID Mudguard Rear Light PRO-D, 6V, AC",
+     "Bagagedrager": "ACID Carrier SIC 2.0 Rail Boost",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bel": "Knog Oi",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Buitenband": "Schwalbe G-One Overland 365, Kevlar, TLR, 45-622",
+     "Cassette": "Shimano 105 CS-HG710, 11-36T",
+     "Crankstel": "Shimano GRX FC-RX820, 48x31T",
+     "Frame": "Aluminium 6061 T6 Superlite, Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Fender & Rack Option, 12x142mm, UDH™",
+     "Gewicht": "12,9 kg",
+     "Ketting": "Shimano CN-M6100",
+     "Rem": "Shimano GRX ST-RX610 / BR-RX410, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Spatborden": "ACID 50",
+     "Standaard": "ACID FM Pure Kickstand",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE CIS Stem w/ Cable Routing, FPI-Link",
+     "Voorderailleur": "Shimano GRX FD-RX820-F",
+     "Voorlicht": "ACID Pro-D100",
+     "Voorvork": "CUBE C:62® Technology, 1 1/8\" - 1 1/2\" Tapered, Integrated Cable Routing, Flat Mount Disc, Fender & Lowrider Mounts, Internal Light Cable Option, 12x100mm",
+     "Wiel voor": "ACID Pro GR 2.5 Disc, 28/28 Spokes, 12x100mm/12x142mm, Tubeless Ready, Shutter PD-7-07 front Dynamo",
+     "Zadel": "ACID Nuance Lite",
+     "Zadelpen": "CUBE Performance Post, 27.2mm"
+    },
+    "ts": "20250904085100",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-race-fe-royalgreen-n-black/129470"
+   }
+  },
+  "Nuroad Rookie ONE": {
+   "2026": {
+    "captured": "2026-08-13",
+    "image": "Cube/years/nuroadrookieone_2026.jpg",
+    "price": 799.0,
+    "specs": {
+     "Achterderailleur": "Shimano Cues BL/ST-U4030",
+     "Balhoofdstel": "Acros, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/2\"",
+     "Bottom bracket": "Prowheel BSA PW-MB68",
+     "Buitenband": "Schwalbe G-One Bite Comp, ActiveL, Draht, 45-622",
+     "Cassette": "Shimano Cues CS-LG300, 11-46T",
+     "Crankstel": "ACID Gravel Pro, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Gravel Comfort Geometry, Flat Mount Disc, Fender & Rack Option, QR",
+     "Gewicht": "11,9 kg",
+     "Ketting": "KMC xGlide",
+     "Material": "Aluminium Superlite",
+     "Maximale bandenmaat": "50mm",
+     "Rem": "Shimano Cues BR-U6030, Hydr. Disc Brake, Flat Mount (180/160)",
+     "Stuur": "CUBE Compact Race Bar 31.8 5° 120 NF",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE CIS Stem +/- 6°, FPI-Link",
+     "Voorvork": "CUBE Nuroad Flat Mount Disc, Aluminium, 1 1/2\" - 1 1/2\" Tapered, Fender & Lowrider Mounts, QR",
+     "Wiel voor": "ACID GR 2.5 Disc, 32/32 Spokes, QR/QR, Tubeless Ready",
+     "Zadel": "ACID Nuance Lite",
+     "Zadelpen": "CUBE Performance Post, 27.2mm"
+    },
+    "ts": "20260813083358",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-rookie-one-cappuccino-n-brown/1153100"
+   }
+  },
+  "Nuroad SLX": {
+   "2025": {
+    "captured": "2025-09-18",
+    "image": "Cube/years/nuroadslx_2025.jpg",
+    "price": 1699.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX ST-RX820",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Buitenband": "Schwalbe G-One R, Kevlar, TLR, 45-622",
+     "Cassette": "Shimano SLX CS-M7100, 10-51T",
+     "Crankstel": "Shimano GRX FC-RX610, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Fender & Rack Option, 12x142mm, UDH™",
+     "Gewicht": "10,3 kg",
+     "Ketting": "Shimano CN-M7100",
+     "Rem": "Shimano GRX BR-RX820, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Stuur": "Newmen Advanced Gravel Bar 318, Carbon, 31.8mm",
+     "Stuurlint": "ACID Bartape CC 3.0",
+     "Stuurpen": "CUBE CIS Stem w/ Cable Routing, FPI-Link",
+     "Voorvork": "CUBE C:62® Technology, 1 1/8\" - 1 1/2\" Tapered, Integrated Cable Routing, Flat Mount Disc, Fender & Lowrider Mounts, Internal Light Cable Option, 12x100mm",
+     "Wiel voor": "Newmen Performance X.R.25, 28/28 Spokes, 12x100mm / 12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance Lite",
+     "Zadelpen": "Newmen Advanced, Carbon, 27.2mm"
+    },
+    "ts": "20250918062938",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-slx-molotov-n-black/129510"
+   },
+   "2026": {
+    "captured": "2026-04-13",
+    "image": "Cube/years/nuroadslx_2026.jpg",
+    "price": 1699.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX822-SGS, 12-Speed",
+     "Balhoofdstel": "ACROS, Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/2\"",
+     "Bottom bracket": "Shimano BB-RS500PB, Pressfit",
+     "Brake system": "Shimano GRX BR-RX820, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Buitenband": "Schwalbe G-One R, Kevlar, TLR, 45-622",
+     "Cassette": "Shimano SLX CS-M7100, 10-51T",
+     "Colour": "molotov´n´black",
+     "Crankstel": "Shimano GRX FC-RX610, 40T",
+     "Frame": "Aluminium 6061 T6 Superlite, Internal Cable Routing, Integrated Seat Post Clamp, Flat Mount Disc, Fender & Rack Option, 12x142mm, UDH™",
+     "Gewicht": "10,3 kg",
+     "Handlebar tape": "ACID Bartape CC 3.0",
+     "Ketting": "Shimano CN-M7100",
+     "Rigid fork": "CUBE C:62® Technology, 1 1/8\" - 1 1/2\" Tapered, Integrated Cable Routing, Flat Mount Disc, Fender & Lowrider Mounts, Internal Light Cable Option, 12x100mm",
+     "SRP*": "1699 EUR",
+     "Seat post": "Newmen Advanced, Carbon, 27.2mm",
+     "Shift/ brake levers": "Shimano GRX ST-RX820",
+     "Size": "XS, S, M, L, XL, XXL",
+     "Stuur": "Newmen Advanced Gravel Bar 318, Carbon, 31.8mm",
+     "Stuurpen": "CUBE CIS Stem w/ Cable Routing, FPI-Link",
+     "Wiel voor": "Newmen Performance X.R.25, 28/28 Spokes, 12x100mm / 12x142mm, Tubeless Ready",
+     "Zadel": "ACID Nuance Lite"
+    },
+    "ts": "20260413180732",
+    "url": "https://www.cube.eu/nl-en/cube-nuroad-slx-molotov-n-black/129510"
+   }
+  }
+ },
+ "source": "Wayback Machine copies of the brand's NL site",
+ "years": [
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ]
+}

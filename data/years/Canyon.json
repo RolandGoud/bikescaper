@@ -1,0 +1,1121 @@
+{
+ "checked_on": "2026-10-23",
+ "models": {
+  "Aeroad CF SLX 7 AXS SPEED": {
+   "2025": {
+    "captured": "2025-09-19",
+    "image": "Canyon/years/aeroadcfslx7axsspeed_2025.jpg",
+    "price": 4799.0,
+    "specs": {
+     "Achterderailleur": "SRAM Rival AXS Groupset",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "SRAM DUB Pressfit",
+     "Buitenband": "Continental Grand Prix 5000 S TR, 28mm",
+     "Cassette": "SRAM Rival XG-1250, 12-speed, 10-30T",
+     "Crankstel": "SRAM Rival",
+     "Frame": "Canyon Aeroad CF SLX",
+     "Framefit": "race",
+     "Gewicht": "7.94 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "SRAM Rival E1",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1600",
+     "Naaf_voor": "DT Swiss ARC 1600 Spline",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "SRAM Paceline",
+     "Shifter": "SRAM Rival AXS HRD",
+     "Shifter_speed": "12 speed",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte65 mm",
+     "Voorderailleur": "SRAM Rival AXS E1",
+     "Weight": "7.94 kg",
+     "Zadel": "Canyon EP2352-01 Saddle Clamp for saddles with 7x7 mm steel rails"
+    },
+    "ts": "20250919182912",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-axs-speed/4035.html"
+   },
+   "2026": {
+    "captured": "2026-02-27",
+    "image": "Canyon/years/aeroadcfslx7axsspeed_2026.jpg",
+    "ts": "20260227060524",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-axs-speed/4035.html"
+   }
+  },
+  "Aeroad CF SLX 7 Di2": {
+   "2025": {
+    "captured": "2025-09-23",
+    "image": "Canyon/years/aeroadcfslx7di2_2025.jpg",
+    "price": 4499.0,
+    "specs": {
+     "Achterderailleur": "Shimano 105 Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB-RS500",
+     "Buitenband": "Continental Grand Prix 5000 S TR, 28mm",
+     "Cassette": "Shimano 105 R7101 11-34 12s",
+     "Crankstel": "Shimano 105 Crankset",
+     "Framefit": "race",
+     "Gewicht": "7.84 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano CN-M7100 12s",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1600",
+     "Naaf_voor": "DT Swiss ARC 1600",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Bremsscheibe",
+     "Shifter": "Shimano 105 R7170 Di2",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte55 mm",
+     "Voorderailleur": "Shimano 105 Di2 FD-R7150",
+     "Weight": "7.84 kg",
+     "Zadel": "Canyon EP2352-01 Saddle Clamp for saddles with 7x7 mm steel rails"
+    },
+    "ts": "20250923184431",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-di2/4034.html"
+   },
+   "2026": {
+    "captured": "2026-03-06",
+    "image": "Canyon/years/aeroadcfslx7di2_2026.jpg",
+    "ts": "20260306083327",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-di2/4034.html"
+   }
+  },
+  "Aeroad CF SLX 8 AXS SPEED": {
+   "2025": {
+    "captured": "2025-09-16",
+    "image": "Canyon/years/aeroadcfslx8axsspeed_2025.jpg",
+    "price": 6589.0,
+    "specs": {
+     "Achterderailleur": "SRAM Force AXS E1",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "SRAM DUB Pressfit",
+     "Buitenband": "Pirelli P Zero Race RS",
+     "Cassette": "SRAM Force",
+     "Crankstel": "SRAM Force Powermeter",
+     "Frame": "Canyon Aeroad CF SLX",
+     "Framefit": "race",
+     "Gewicht": "7.6 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "SRAM Force E1",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "Zipp 404 Firecrest Hookless",
+     "Naaf_voor": "Zipp 404 Firecrest Hookless",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "SRAM Paceline",
+     "Shifter": "SRAM Force AXS HRD",
+     "Shifter_speed": "12 speed",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte58 mm",
+     "Voorderailleur": "SRAM Force",
+     "Weight": "7.6 kg",
+     "Zadel": "Canyon EP2352-01 Saddle Clamp for saddles with 7x7 mm steel rails"
+    },
+    "ts": "20250916164729",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-axs-speed/4037.html"
+   }
+  },
+  "Aeroad CF SLX 8 Di2": {
+   "2023": {
+    "captured": "2023-07-13",
+    "ts": "20230713170409",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-di2/3955.html"
+   },
+   "2024": {
+    "captured": "2024-03-12",
+    "ts": "20240312023527",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-di2/3955.html"
+   },
+   "2025": {
+    "captured": "2025-03-22",
+    "image": "Canyon/years/aeroadcfslx8di2_2025.jpg",
+    "ts": "20250322114504",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-di2/3965.html"
+   },
+   "2026": {
+    "captured": "2026-05-08",
+    "ts": "20260508092742",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-di2/3965.html"
+   }
+  },
+  "Aeroad CFR AXS": {
+   "2024": {
+    "captured": "2024-02-14",
+    "ts": "20240214032830",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-axs/3691.html"
+   },
+   "2025": {
+    "captured": "2025-03-27",
+    "ts": "20250327061035",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-axs/3970.html"
+   },
+   "2026": {
+    "captured": "2026-07-12",
+    "ts": "20260712000226",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/aeroad-cfr-axs/3691.html"
+   }
+  },
+  "Aeroad CFR Di2": {
+   "2024": {
+    "captured": "2024-02-19",
+    "ts": "20240219123136",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-di2/3952.html"
+   },
+   "2025": {
+    "captured": "2025-08-08",
+    "image": "Canyon/years/aeroadcfrdi2_2025.jpg",
+    "price": 10149.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB92",
+     "Buitenband": "Continental Grand Prix 5000 S TR, 28mm",
+     "Cassette": "Shimano Dura-Ace CS-R9200",
+     "Crankstel": "Shimano Dura-Ace Di2 Powermeter",
+     "Frame": "Canyon Aeroad CFR",
+     "Framefit": "race",
+     "Gewicht": "7.04 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1100 DICUT db 55",
+     "Naaf_voor": "DT Swiss ARC 1100 DICUT db 55",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Dura-Ace RT-CL900",
+     "Shifter": "Shimano Dura Ace Di2  ST-R9270",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte55 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "7.04 kg",
+     "Zadel": "Selle Italia SLR Boost Superflow S saddle Carbon Rails"
+    },
+    "ts": "20250808133101",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-di2/4039.html"
+   },
+   "2026": {
+    "captured": "2026-06-13",
+    "ts": "20260613191225",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/aeroad-cfr-di2/3952.html"
+   }
+  },
+  "Aeroad CFR Disc Frame and Brake Kit": {
+   "2022": {
+    "captured": "2022-08-01",
+    "ts": "20220801020153",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-disc-frame-and-brake-kit/3048.html"
+   },
+   "2024": {
+    "captured": "2024-06-25",
+    "ts": "20240625052742",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-disc-frame-and-brake-kit/3943.html"
+   },
+   "2025": {
+    "captured": "2025-09-23",
+    "image": "Canyon/years/aeroadcfrdiscframeandbrakekit_2025.jpg",
+    "price": 5099.0,
+    "specs": {
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Frame": "Canyon Aeroad CFR",
+     "Framefit": "framesets",
+     "Gewicht": "2.94 kg",
+     "Gewichtslimiet": "120 kg",
+     "Material": "Carbon",
+     "Shifter": "Shimano Dura Ace Di2  ST-R9270",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Weight": "2.94 kg",
+     "Zadel": "Canyon SP0077"
+    },
+    "ts": "20250923184352",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-disc-frame-and-brake-kit/4227.html"
+   }
+  },
+  "Aeroad CFR Tensor": {
+   "2025": {
+    "captured": "2025-08-13",
+    "image": "Canyon/years/aeroadcfrtensor_2025.jpg",
+    "price": 10699.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Ceramicspeed BB86 Coated",
+     "Buitenband": "Pirelli P ZERO Race TLR RS",
+     "Cassette": "Shimano Dura-Ace CS-R9200",
+     "Crankstel": "Shimano Dura-Ace Di2 Powermeter",
+     "Frame": "Canyon Aeroad CFR",
+     "Framefit": "race",
+     "Gewicht": "7.36 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "Shimano Dura-Ace WH-R9270-C50-TL-R",
+     "Naaf_voor": "Shimano Dura-Ace WH-R9270-C50-TL-F",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Dura-Ace RT-CL900",
+     "Shifter": "Shimano Dura Ace Di2  ST-R9270",
+     "Stuur": "Canyon CP0048",
+     "Velg": "Velghoogte50 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "7.36 kg",
+     "Zadel": "Selle Italia Flite Boost Kit Carbonio Superflow MVDP"
+    },
+    "ts": "20250813002959",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-tensor/3969.html"
+   }
+  },
+  "Endurace AllRoad": {
+   "2025": {
+    "captured": "2025-07-09",
+    "image": "Canyon/years/enduraceallroad_2025.jpg",
+    "price": 999.0,
+    "specs": {
+     "Achterderailleur": "Shimano CUES U6020-10",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB-RS500",
+     "Buitenband": "Schwalbe G-One Comp K-Guard",
+     "Cassette": "Shimano CUES LG300",
+     "Crankstel": "Shimano CUES 6030",
+     "Frame": "Canyon Endurace AL Disc",
+     "Framefit": "allroad",
+     "Gewicht": "10.72 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano CUES LG500",
+     "Material": "Aluminium",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "Alex Rims GX26P / Shimano TC500 12x142",
+     "Naaf_voor": "Alex Rims GX26P",
+     "Rem": "Shimano RT10",
+     "Shifter": "Shimano Cues U6030",
+     "Stuur": "CAYN ST0039",
+     "Velg": "Velghoogte25 mm",
+     "Voorderailleur": "Shimano CUES 6030",
+     "Weight": "10.72 kg",
+     "Zadel": "Canyon Clamp SL"
+    },
+    "ts": "20250709155253",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/allroad/endurace-allroad/4164.html"
+   },
+   "2026": {
+    "captured": "2026-04-14",
+    "image": "Canyon/years/enduraceallroad_2026.jpg",
+    "ts": "20260414054652",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/allround/endurace-allroad/4164.html"
+   }
+  },
+  "Endurace CF 6": {
+   "2025": {
+    "captured": "2025-09-19",
+    "image": "Canyon/years/enduracecf6_2025.jpg",
+    "ts": "20250919050811",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-6/4273.html"
+   },
+   "2026": {
+    "captured": "2026-04-28",
+    "image": "Canyon/years/enduracecf6_2026.jpg",
+    "ts": "20260428181132",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-6/4273.html"
+   }
+  },
+  "Endurace CF 7": {
+   "2024": {
+    "captured": "2024-05-25",
+    "image": "Canyon/years/enduracecf7_2024.jpg",
+    "ts": "20240525231934",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7/2735.html"
+   },
+   "2025": {
+    "captured": "2025-03-20",
+    "ts": "20250320184148",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7/3707.html"
+   },
+   "2026": {
+    "captured": "2026-05-16",
+    "ts": "20260516180142",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/endurace-cf-7/3707.html"
+   }
+  },
+  "Endurace CF 7 Di2": {
+   "2026": {
+    "captured": "2026-04-28",
+    "image": "Canyon/years/enduracecf7di2_2026.jpg",
+    "ts": "20260428181132",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7-di2/4275.html"
+   }
+  },
+  "Endurace CF SLX 7 Di2": {
+   "2025": {
+    "captured": "2025-09-03",
+    "image": "Canyon/years/enduracecfslx7di2_2025.jpg",
+    "price": 4039.0,
+    "specs": {
+     "Achterderailleur": "Shimano 105 Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB72",
+     "Buitenband": "Schwalbe Pro One Evo 32 mm",
+     "Cassette": "Shimano CS-HG710 11-36 12s",
+     "Crankstel": "Shimano 105 R7100",
+     "Frame": "Canyon Endurace CF SLX",
+     "Framefit": "endurance",
+     "Gewicht": "8.18 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano CN-M7100 12s",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ERC 1600 Dicut HG",
+     "Naaf_voor": "DT Swiss ERC 1600 Dicut",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Flat Mount Adapter +20mm",
+     "Shifter": "Shimano 105 R7170 Di2",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte35 mm",
+     "Voorderailleur": "Shimano 105 Di2 FD-R7150",
+     "Weight": "8.18 kg",
+     "Zadel": "Fizik Aliante R5"
+    },
+    "ts": "20250903195644",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-7-di2/4276.html"
+   },
+   "2026": {
+    "captured": "2026-07-12",
+    "image": "Canyon/years/enduracecfslx7di2_2026.jpg",
+    "ts": "20260712181057",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-7-di2/4430.html"
+   }
+  },
+  "Endurace CF SLX 8 AXS Aero": {
+   "2025": {
+    "captured": "2025-03-26",
+    "image": "Canyon/years/enduracecfslx8axsaero_2025.jpg",
+    "ts": "20250326154153",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-axs-aero/3712.html"
+   },
+   "2026": {
+    "captured": "2026-03-12",
+    "ts": "20260312143915",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-axs-aero/3712.html"
+   }
+  },
+  "Endurace CF SLX 8 Di2": {
+   "2023": {
+    "captured": "2023-11-28",
+    "ts": "20231128043124",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-di2/2739.html"
+   },
+   "2024": {
+    "captured": "2024-09-16",
+    "ts": "20240916231747",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-di2/2739.html"
+   },
+   "2025": {
+    "captured": "2025-03-19",
+    "image": "Canyon/years/enduracecfslx8di2_2025.jpg",
+    "price": 4989.0,
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB72",
+     "Buitenband": "Schwalbe Pro One TLE, 30mm",
+     "Cassette": "Shimano CS-R8101 11-34 12s",
+     "Crankstel": "Shimano Ultegra FC-R8100 4iiii Precision Powermeter",
+     "Frame": "Canyon Endurace CF SLX Disc",
+     "Framefit": "endurance",
+     "Gewicht": "7.88 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XT",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ERC 1400 Dicut",
+     "Naaf_voor": "DT Swiss ERC 1400 Dicut",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Flat Mount Adapter +20mm",
+     "Shifter": "Shimano Ultegra Di2 R8170",
+     "Stuur": "Canyon CP0018 Aerocockpit",
+     "Velg": "Velghoogte35 mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
+     "Weight": "7.88 kg",
+     "Zadel": "Fizik Tempo Argo R3"
+    },
+    "ts": "20250319022340",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-di2/3711.html"
+   }
+  },
+  "Endurace CFR AXS": {
+   "2026": {
+    "captured": "2026-04-28",
+    "image": "Canyon/years/enduracecfraxs_2026.jpg",
+    "ts": "20260428181133",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cfr/endurace-cfr-axs/4435.html"
+   }
+  },
+  "Endurace CFR Di2": {
+   "2025": {
+    "captured": "2025-08-18",
+    "image": "Canyon/years/enduracecfrdi2_2025.jpg",
+    "price": 9149.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB92",
+     "Buitenband": "Schwalbe Pro One Evo 32 mm",
+     "Cassette": "Shimano Dura-Ace R9200, 12-speed, 11-34",
+     "Crankstel": "Shimano Dura Ace Frontcrank Powermeter",
+     "Frame": "Canyon Endurace CFR",
+     "Framefit": "endurance",
+     "Gewicht": "7.3 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ERC1100",
+     "Naaf_voor": "DT Swiss ERC 1100 Dicut",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Flat Mount Adapter +20mm",
+     "Shifter": "Shimano BR-R9270",
+     "Shifter_speed": "12 speed",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte45 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "7.3 kg",
+     "Zadel": "Canyon Clamp SL"
+    },
+    "ts": "20250818101621",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cfr/endurace-cfr-di2/4279.html"
+   },
+   "2026": {
+    "captured": "2026-02-15",
+    "image": "Canyon/years/enduracecfrdi2_2026.jpg",
+    "ts": "20260215015400",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cfr/endurace-cfr-di2/4279.html"
+   }
+  },
+  "Endurace Young Hero": {
+   "2025": {
+    "captured": "2025-09-01",
+    "image": "Canyon/years/enduraceyounghero_2025.jpg",
+    "price": 1299.0,
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra R4720",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Miche EVO MAX PF",
+     "Buitenband": "Schwalbe G-One Allround 35mm",
+     "Cassette": "Miche Primato",
+     "Crankstel": "Miche crankset and cassette",
+     "Frame": "Canyon Endurace AL Disc",
+     "Framefit": "youth",
+     "Gewicht": "9.48 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "KMC Connection Link 10s",
+     "Material": "Aluminium",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss Endurance LN",
+     "Naaf_voor": "DT Swiss Endurance LN",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Flat Mount Adapter +20mm",
+     "Shifter": "Shimano Tiagra R4725",
+     "Stuur": "Canyon ST0035",
+     "Velg": "Velghoogte22 mm",
+     "Voorderailleur": "Shimano Tiagra 4700",
+     "Weight": "9.48 kg",
+     "Zadel": "Canyon Clamp SL"
+    },
+    "ts": "20250901104942",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/youth-kids/road-youth-endurace/endurace-young-hero/4285.html"
+   },
+   "2026": {
+    "captured": "2026-04-28",
+    "image": "Canyon/years/enduraceyounghero_2026.jpg",
+    "ts": "20260428181131",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/youth-road-bikes/road-youth-endurace/endurace-young-hero/4285.html"
+   }
+  },
+  "Inflite CF SL 5": {
+   "2025": {
+    "captured": "2025-05-24",
+    "ts": "20250524193910",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-5/3549.html"
+   },
+   "2026": {
+    "captured": "2026-04-18",
+    "image": "Canyon/years/inflitecfsl5_2026.jpg",
+    "ts": "20260418165445",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-5/3549.html"
+   }
+  },
+  "Inflite CF SL 6": {
+   "2020": {
+    "captured": "2020-07-09",
+    "image": "Canyon/years/inflitecfsl6_2020.jpg",
+    "ts": "20200709011047",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/road-bikes/cyclocross-bikes/inflite/inflite-cf-sl-6/2441.html"
+   },
+   "2022": {
+    "captured": "2022-05-03",
+    "ts": "20220503132450",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-6/3020.html"
+   },
+   "2024": {
+    "captured": "2024-05-25",
+    "ts": "20240525152219",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-6/3789.html"
+   },
+   "2025": {
+    "captured": "2025-05-14",
+    "image": "Canyon/years/inflitecfsl6_2025.jpg",
+    "price": 3049.0,
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX820 12s",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Token Ninja Lite BB4124",
+     "Buitenband": "Schwalbe X-One R Evo",
+     "Cassette": "Shimano CS-HG710 11-36 12s",
+     "Crankstel": "Shimano FC-RX610",
+     "Frame": "Canyon Inflite CF SL Disc",
+     "Framefit": "comfort",
+     "Gewicht": "8.62 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Canyon EP0703-02 Chainguide with screws",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen1",
+     "Naaf_achter": "DT Swiss C1800 Spline",
+     "Naaf_voor": "DT Swiss C1800 Spline",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano RT-CL700",
+     "Shifter": "Shimano GRX BL-RX610",
+     "Stuur": "Canyon Cockpit CP0030",
+     "Velg": "Velghoogte23 mm",
+     "Weight": "8.62 kg",
+     "Zadel": "Selle Italia SLR Boost"
+    },
+    "ts": "20250514144546",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-6/3843.html"
+   },
+   "2026": {
+    "captured": "2026-04-14",
+    "image": "Canyon/years/inflitecfsl6_2026.jpg",
+    "ts": "20260414091911",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-sl/inflite-cf-sl-6/3843.html"
+   }
+  },
+  "Inflite CF SLX 7": {
+   "2025": {
+    "captured": "2025-05-24",
+    "image": "Canyon/years/inflitecfslx7_2025.jpg",
+    "ts": "20250524164757",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-slx/inflite-cf-slx-7/3844.html"
+   },
+   "2026": {
+    "captured": "2026-04-14",
+    "image": "Canyon/years/inflitecfslx7_2026.jpg",
+    "ts": "20260414153820",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-slx/inflite-cf-slx-7/3844.html"
+   }
+  },
+  "Inflite CF SLX 8": {
+   "2025": {
+    "captured": "2025-05-14",
+    "image": "Canyon/years/inflitecfslx8_2025.jpg",
+    "ts": "20250514024615",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-slx/inflite-cf-slx-8/3845.html"
+   },
+   "2026": {
+    "captured": "2026-04-10",
+    "ts": "20260410092830",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cf-slx/inflite-cf-slx-8/3845.html"
+   }
+  },
+  "Inflite CFR": {
+   "2025": {
+    "captured": "2025-03-15",
+    "ts": "20250315144410",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cfr/inflite-cfr/3846.html"
+   },
+   "2026": {
+    "captured": "2026-04-15",
+    "ts": "20260415221157",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cfr/inflite-cfr/3846.html"
+   }
+  },
+  "Inflite CFR Team": {
+   "2025": {
+    "captured": "2025-10-09",
+    "image": "Canyon/years/inflitecfrteam_2025.jpg",
+    "ts": "20251009114831",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cfr/inflite-cfr-team/4051.html"
+   },
+   "2026": {
+    "captured": "2026-01-14",
+    "image": "Canyon/years/inflitecfrteam_2026.jpg",
+    "ts": "20260114054816",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/cyclocross-fietsen/inflite/cfr/inflite-cfr-team/4051.html"
+   }
+  },
+  "Speedmax CF 7 Di2": {
+   "2025": {
+    "captured": "2025-05-12",
+    "ts": "20250512030142",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/speedmax-cf-7-di2/50041956.html"
+   },
+   "2026": {
+    "captured": "2026-05-09",
+    "ts": "20260509232123",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-7-di2/3865.html"
+   }
+  },
+  "Speedmax CF SLX 8 Di2": {
+   "2025": {
+    "captured": "2025-08-06",
+    "image": "Canyon/years/speedmaxcfslx8di2_2025.jpg",
+    "ts": "20250806154417",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-di2/4135.html"
+   },
+   "2026": {
+    "captured": "2026-01-11",
+    "image": "Canyon/years/speedmaxcfslx8di2_2026.jpg",
+    "ts": "20260111214906",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-di2/4135.html"
+   }
+  },
+  "Speedmax CFR AXS": {
+   "2025": {
+    "captured": "2025-03-19",
+    "ts": "20250319094403",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-axs/3869.html"
+   },
+   "2026": {
+    "captured": "2026-05-12",
+    "ts": "20260512044253",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-axs/3869.html"
+   }
+  },
+  "Speedmax CFR Di2": {
+   "2025": {
+    "captured": "2025-08-15",
+    "image": "Canyon/years/speedmaxcfrdi2_2025.jpg",
+    "price": 11199.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB92",
+     "Buitenband": "Continental Grand Prix 5000 S TR, 28mm",
+     "Cassette": "Shimano Dura-Ace CS-R9200",
+     "Crankstel": "Shimano Dura Ace Frontcrank Powermeter",
+     "Frame": "Canyon Speedmax CFR",
+     "Framefit": "triathlon",
+     "Gewicht": "9.26 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1100",
+     "Naaf_voor": "DT Swiss ARC 1100",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Dura-Ace RT-CL900",
+     "Shifter": "Shimano Dura-Ace Di2 ST-R9180",
+     "Shifter_speed": "2 speed",
+     "Stuur": "Canyon CP0021 Triathlon Rise long",
+     "Velg": "Velghoogte85 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "9.26 kg",
+     "Zadel": "Canyon Seatclamp for S31/S32"
+    },
+    "ts": "20250815094609",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-di2/4133.html"
+   }
+  },
+  "Speedmax CFR TT": {
+   "2023": {
+    "captured": "2023-09-28",
+    "ts": "20230928065426",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-tt/3484.html"
+   },
+   "2024": {
+    "captured": "2024-04-25",
+    "ts": "20240425111142",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-tt/3484.html"
+   },
+   "2025": {
+    "captured": "2025-07-08",
+    "image": "Canyon/years/speedmaxcfrtt_2025.jpg",
+    "price": 12199.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Ceramicspeed BB86 Coated",
+     "Buitenband": "Continental GP5000 TT TR",
+     "Cassette": "Shimano Dura-Ace CS-R9200",
+     "Crankstel": "Shimano Dura Ace Frontcrank Powermeter",
+     "Frame": "Canyon Speedmax CFR TT Disc",
+     "Framefit": "triathlon",
+     "Gewicht": "8.7 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1100 Disc, SH11",
+     "Naaf_voor": "DT Swiss ARC 1100 Dicut",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Flat Mount Adapter +20mm",
+     "Shifter": "Shimano Dura-Ace Di2 ST-R9180",
+     "Stuur": "Canyon V19 Short",
+     "Velg": "Velghoogte80 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "8.7 kg",
+     "Zadel": "Canyon Seatclamp for S31/S32"
+    },
+    "ts": "20250708051642",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-tt/3728.html"
+   },
+   "2026": {
+    "captured": "2026-04-12",
+    "image": "Canyon/years/speedmaxcfrtt_2026.jpg",
+    "price": 12199.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Ceramicspeed BB86 Coated",
+     "Buitenband": "Continental GP5000 TT TR",
+     "Cassette": "Shimano Dura-Ace CS-R9200",
+     "Crankstel": "Shimano Dura Ace Frontcrank Powermeter",
+     "Frame": "Canyon Speedmax CFR TT Disc",
+     "Framefit": "triathlon",
+     "Gewicht": "8.7 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1100 Disc, SH11",
+     "Naaf_voor": "DT Swiss ARC 1100 Dicut",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Flat Mount Adapter +20mm",
+     "Shifter": "Shimano Dura-Ace Di2 ST-R9180",
+     "Stuur": "Canyon V19 Short",
+     "Velg": "Velghoogte80 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "8.7 kg",
+     "Zadel": "Canyon Seatclamp for S31/S32"
+    },
+    "ts": "20260412202512",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-tt/3728.html"
+   }
+  },
+  "Speedmax CFR Track": {
+   "2024": {
+    "captured": "2024-09-20",
+    "ts": "20240920180542",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/speedmax-track/speedmax-cfr-track/3923.html"
+   },
+   "2025": {
+    "captured": "2025-09-17",
+    "image": "Canyon/years/speedmaxcfrtrack_2025.jpg",
+    "price": 20350.0,
+    "specs": {
+     "Bottom_bracket": "Ceramicspeed Coated BB",
+     "Buitenband": "Continental 5000 S TR",
+     "Cassette": "Kappstein Pro Line 15t",
+     "Crankstel": "SRM Origin Track  Powermeter",
+     "Frame": "Canyon Speedmax Track CFR",
+     "Framefit": "track",
+     "Gewicht": "7.96 kg",
+     "Ketting": "Shimano CN-HG901 11s",
+     "Material": "Carbon",
+     "Pedaal": "Niet inbegrepen",
+     "Stuur": "Canyon CP0040 Basebar",
+     "Weight": "7.96 kg",
+     "Zadel": "Canyon Seatclamp for S31/S32"
+    },
+    "ts": "20250917152357",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/speedmax-track/speedmax-cfr-track/3923.html"
+   }
+  },
+  "Ultimate CF 7 Di2 AERO": {
+   "2025": {
+    "captured": "2025-09-16",
+    "image": "Canyon/years/ultimatecf7di2aero_2025.jpg",
+    "price": 4249.0,
+    "specs": {
+     "Achterderailleur": "Shimano 105 Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB-RS500",
+     "Buitenband": "Schwalbe One Tire 28mm",
+     "Cassette": "Shimano 105 R7101 11-34 12s",
+     "Crankstel": "Shimano 105 Crankset",
+     "Frame": "Canyon Ultimate CF",
+     "Framefit": "race",
+     "Gewicht": "8.16 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano CN-M7100 12s",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1600",
+     "Naaf_voor": "DT Swiss ARC 1600",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Bremsscheibe",
+     "Shifter": "Shimano 105 R7170 Di2",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte55 mm",
+     "Voorderailleur": "Shimano 105 Di2 FD-R7150",
+     "Weight": "8.16 kg",
+     "Zadel": "Canyon EP2352-01 Saddle Clamp for saddles with 7x7 mm steel rails"
+    },
+    "ts": "20250916060527",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-7-di2-aero/4248.html"
+   }
+  },
+  "Ultimate CF SLX 8 Di2": {
+   "2022": {
+    "captured": "2022-12-28",
+    "ts": "20221228120208",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-di2/3320.html"
+   },
+   "2024": {
+    "captured": "2024-03-31",
+    "ts": "20240331060755",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-di2/3559.html"
+   },
+   "2025": {
+    "captured": "2025-06-24",
+    "image": "Canyon/years/ultimatecfslx8di2_2025.jpg",
+    "price": 6099.0,
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB72",
+     "Buitenband": "Pirelli P Zero Race RS",
+     "Cassette": "Shimano CS-R8101 11-34 12s",
+     "Crankstel": "Shimano Ultegra R8100 12speed",
+     "Frame": "Canyon Ultimate CF SLX",
+     "Framefit": "race",
+     "Gewicht": "7.28 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XT",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1400 Dicut",
+     "Naaf_voor": "DT Swiss ARC 1400 Dicut",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Ultegra RT-CL800",
+     "Shifter": "Shimano Ultegra Di2 R8170",
+     "Shifter_speed": "12 speed",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte38 mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
+     "Weight": "7.28 kg",
+     "Zadel": "Canyon EP2352-01 Saddle Clamp for saddles with 7x7 mm steel rails"
+    },
+    "ts": "20250624160225",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-di2/4066.html"
+   },
+   "2026": {
+    "captured": "2026-03-05",
+    "image": "Canyon/years/ultimatecfslx8di2_2026.jpg",
+    "ts": "20260305141110",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-di2/4066.html"
+   }
+  },
+  "Ultimate CF Young Hero": {
+   "2025": {
+    "captured": "2025-08-10",
+    "image": "Canyon/years/ultimatecfyounghero_2025.jpg",
+    "price": 2049.0,
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000 GS",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Miche EVO MAX PF",
+     "Buitenband": "Schwalbe Pro One TLE tire 28mm",
+     "Cassette": "Miche  Light Primato",
+     "Crankstel": "Miche crankset and cassette",
+     "Frame": "Canyon Ultimate CF",
+     "Framefit": "youth",
+     "Gewicht": "8.32 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "KMC Connection Link 11s",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss Performance LN 650b wheelset",
+     "Naaf_voor": "DT Swiss Performance LN",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano SM-RT64",
+     "Shifter": "SRAM S-900 Aero HRD",
+     "Stuur": "Canyon ST0035",
+     "Velg": "Velghoogte20 mm",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Weight": "8.32 kg",
+     "Zadel": "Canyon GP0223-02 Clamp Set 7x7"
+    },
+    "ts": "20250810104828",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-young-hero/4284.html"
+   },
+   "2026": {
+    "captured": "2026-03-06",
+    "image": "Canyon/years/ultimatecfyounghero_2026.jpg",
+    "ts": "20260306181340",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-sl/ultimate-cf-young-hero/4284.html"
+   }
+  },
+  "Ultimate CFR AXS": {
+   "2025": {
+    "captured": "2025-08-19",
+    "image": "Canyon/years/ultimatecfraxs_2025.jpg",
+    "price": 10149.0,
+    "specs": {
+     "Achterderailleur": "SRAM Red AXS Rear Derailleur",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "SRAM DUB Pressfit",
+     "Buitenband": "Pirelli P Zero Race RS",
+     "Cassette": "SRAM Red",
+     "Crankstel": "SRAM Red E1 172.5 mm",
+     "Frame": "Canyon Ultimate CFR",
+     "Framefit": "race",
+     "Gewicht": "6.78 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "SRAM Red",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC1100",
+     "Naaf_voor": "DT Swiss ARC 1100 Dicut db",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "SRAM Paceline X",
+     "Shifter": "SRAM Red AXS HRD",
+     "Stuur": "CP0048 PACE T-Bar",
+     "Velg": "Velghoogte38 mm",
+     "Voorderailleur": "SRAM Red",
+     "Weight": "6.78 kg",
+     "Zadel": "Selle Italia SLR Boost Superflow S saddle Carbon Rails"
+    },
+    "ts": "20250819213314",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-axs/4071.html"
+   },
+   "2026": {
+    "captured": "2026-04-10",
+    "image": "Canyon/years/ultimatecfraxs_2026.jpg",
+    "ts": "20260410231221",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-axs/4071.html"
+   }
+  },
+  "Ultimate CFR Di2": {
+   "2024": {
+    "captured": "2024-04-16",
+    "image": "Canyon/years/ultimatecfrdi2_2024.jpg",
+    "ts": "20240416173933",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2/3325.html"
+   },
+   "2025": {
+    "captured": "2025-07-17",
+    "image": "Canyon/years/ultimatecfrdi2_2025.jpg",
+    "price": 8119.0,
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace Di2",
+     "As_voorwiel": "Afmeting As12x100 mm",
+     "Bottom_bracket": "Shimano Pressfit BB92",
+     "Buitenband": "Pirelli P Zero Race TLR",
+     "Cassette": "Shimano Dura-Ace R9200, 12-speed, 11-34",
+     "Crankstel": "Shimano Dura-Ace Di2 Powermeter",
+     "Frame": "Canyon Ultimate CFR",
+     "Framefit": "race",
+     "Gewicht": "6.76 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "Shimano XTR",
+     "Material": "Carbon",
+     "Maximale_maat_kettingblad": "Aantal tandwielen2",
+     "Naaf_achter": "DT Swiss ARC 1100 Dicut db",
+     "Naaf_voor": "DT Swiss ARC 1100 Dicut db",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Dura-Ace RT-CL900",
+     "Shifter": "Shimano Dura Ace Di2  ST-R9270",
+     "Shifter_speed": "12 speed",
+     "Stuur": "Canyon CP0018 Aerocockpit",
+     "Velg": "Velghoogte38 mm",
+     "Voorderailleur": "Shimano Dura-Ace Di2 FD-R9250",
+     "Weight": "6.76 kg",
+     "Zadel": "Canyon GP0224-02 Adapter seatstay 7x9"
+    },
+    "ts": "20250717063724",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2/3859.html"
+   },
+   "2026": {
+    "captured": "2026-04-16",
+    "image": "Canyon/years/ultimatecfrdi2_2026.jpg",
+    "ts": "20260416080619",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2/4069.html"
+   }
+  },
+  "Ultimate CFR Disc Frame and Brake Kit": {
+   "2024": {
+    "captured": "2024-04-18",
+    "ts": "20240418013851",
+    "unreadable": true,
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-disc-frame-and-brake-kit/3326.html"
+   }
+  }
+ },
+ "source": "Wayback Machine copies of the brand's NL site",
+ "years": [
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ]
+}
