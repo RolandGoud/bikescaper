@@ -583,6 +583,9 @@ select { max-width: 100%; }
 .fact .v { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; }
 .fact .v select, .fact .v input { height: 40px; font-size: 15px; }
 .fact .v input[name="service"] { flex: 1; min-width: 200px; }
+.fact .year-guess { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.fact .year-guess .pill { padding: 6px 12px; font-size: 13px; cursor: pointer; }
+.fact .year-guess .small { flex-basis: 100%; }
 .fact .src { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
 .toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 6px; overflow: hidden; }
 .toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }

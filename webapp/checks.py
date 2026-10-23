@@ -670,7 +670,7 @@ def estimate_year(model, models, claims, text):
     if claims["mentions_upgrades"]:
         evidence.append(Msg("The ad mentions upgrades, so a part may be newer than the bike."))
     return {"status": status, "first": first, "last": last, "headline": headline, "detail": detail,
-            "evidence": evidence}
+            "evidence": evidence, "fallback": fallback}
 
 
 def _span(first, last):

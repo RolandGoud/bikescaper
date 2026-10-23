@@ -66,6 +66,26 @@ def year_options(model, today=None):
     return list(range(last or today.year, first - 1, -1))
 
 
+def year_guess(model, models, claims, text, today=None):
+    """The model years the draft's own details point to, for a seller who hasn't named one.
+
+    Reuses the buyer's year estimate (groupset generation, a named frame generation, rim brakes, a dated
+    colourway). {years, likely: [newest first], evidence}, or None when nothing in the draft dates the bike:
+    then the years the model was sold (year_hint) are all we can offer.
+    """
+    today = today or date.today()
+    est = checks.estimate_year(model, models, dict(claims, year=None), text)
+    if est.get("fallback") or (est["first"] is None and est["last"] is None):
+        return None
+    known = checks.model_years(model, today)
+    first = est["first"] or (known[0] if known else None)
+    last = min(est["last"] or today.year, today.year)
+    if first is None or first > last:
+        return None
+    return {"years": checks._span(est["first"], est["last"]), "likely": list(range(last, first - 1, -1)),
+            "evidence": est["evidence"]}
+
+
 def year_hint(model, today=None):
     known = checks.model_years(model, today)
     if not known:
@@ -166,8 +186,12 @@ def improve(models, draft, answers=None, today=None, ads=None):
     year = claims["year"]
     if not year and answers.get("year"):
         year = answers["year"]
+    guess = None if claims["year"] else year_guess(model, models, claims, text, today)
+    options = year_options(model, today)
+    if guess:  # an older generation than the catalogue knows still gets its years in the list
+        options = sorted(set(options) | set(guess["likely"]), reverse=True)
     facts.append(_fact("year", "Model year", year, "draft" if claims["year"] else ("you" if year else "open"),
-                       options=year_options(model, today), hint=year_hint(model, today)))
+                       options=options, hint=year_hint(model, today), guess=guess))
     chart = dict(size_options(model))
     size = claims["size"] or (answers.get("size") if answers.get("size") in chart else None)
     facts.append(_fact("size", "Frame size", size, "draft" if claims["size"] else ("you" if size else "open"),

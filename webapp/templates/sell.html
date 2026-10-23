@@ -88,6 +88,11 @@
             {% if f.key == 'year' and f.source != 'draft' %}
               <select name="year" form="sell-form" data-autosubmit aria-label="{{ f.label }}"><option value="">{{ _('Pick…') }}</option>{% for y in f.options %}<option {{ 'selected' if y == f.value }}>{{ y }}</option>{% endfor %}</select>
               {% if f.hint %}<span class="small muted">{{ _('{name}: {years}', name=r.model.name, years=f.hint) }}</span>{% endif %}
+              {% if f.guess %}<span class="year-guess">
+                <b>{{ _('Your text points to {years}', years=f.guess.years) }}</b>
+                {% if f.guess.likely|length <= 4 %}{% for y in f.guess.likely %}<button class="pill{{ ' on' if y == f.value }}" type="submit" form="sell-form" name="use_year" value="{{ y }}">{{ y }}</button>{% endfor %}{% endif %}
+                <span class="small muted">{% for e in f.guess.evidence %}{{ e }} {% endfor %}</span>
+              </span>{% else %}{% if f.source == 'open' %}<span class="small muted year-guess">{{ _("Not sure? The invoice or the frame's serial number (under the bottom bracket) tells the year; the bike shop or brand can look it up.") }}</span>{% endif %}{% endif %}
             {% elif f.key == 'size' and f.source != 'draft' %}
               <select name="size" form="sell-form" data-autosubmit aria-label="{{ f.label }}"><option value="">{{ _('Pick…') }}</option>{% for s in f.options %}<option {{ 'selected' if s == f.value }}>{{ s }}</option>{% endfor %}</select>
               {% if f.fits %}<span class="small muted">{{ _('fits {lo}–{hi} cm', lo=f.fits[0], hi=f.fits[1]) }}</span>{% endif %}
