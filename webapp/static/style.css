@@ -335,3 +335,16 @@ select { max-width: 100%; }
 /* Home: the 12 newest checked ads, four across on wide screens, and a button the full width below. */
 .recent-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 .wide-btn { width: 100%; margin-top: 8px; }
+
+/* Model page: the ads matched to the model, under its asking price. */
+.matched-ads { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+.matched-ads ul { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; }
+.matched-ads li + li { border-top: 1px solid var(--line); }
+.matched-ads li a { display: flex; align-items: center; gap: 14px; padding: 10px 0; text-decoration: none; color: var(--ink); }
+.matched-ads li a:hover .ad-name { text-decoration: underline; }
+.matched-ads .thumb { flex: none; width: 72px; max-width: 22%; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden; background: var(--photo-bg); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--muted); }
+.matched-ads .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.matched-ads .thumb img.on-white { object-fit: contain; }
+.matched-ads .what { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.matched-ads .ad-name { font-weight: 700; overflow-wrap: anywhere; }
+.matched-ads .ask { flex: none; font-weight: 700; font-variant-numeric: tabular-nums; }
