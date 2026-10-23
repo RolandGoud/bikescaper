@@ -181,6 +181,14 @@ def test_models_page_groups_by_discipline(tmp_path):
     assert "Tijdrit &amp; triatlon" in page and "Speedmax" not in page
 
 
+def test_models_filters_animate_without_reload(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/models?lang=en").data.decode()
+    # models.js swaps the list in on the form's submit event, which form.submit() would skip
+    assert "models.js" in page and "this.form.submit()" not in page and "this.form.requestSubmit()" in page
+    assert app.test_client().get("/static/models.js").status_code == 200
+
+
 def test_framesets_have_their_own_discipline(models):
     kits = [m for m in models if "Frame and Brake Kit" in m["name"]]
     assert kits and all(checks.discipline_of(m) == "frames" for m in kits)
