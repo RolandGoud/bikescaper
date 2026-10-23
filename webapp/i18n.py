@@ -163,6 +163,8 @@ NL = {
     "Next photo": "Volgende foto",
     "Previous photos": "Vorige foto's",
     "Next photos": "Volgende foto's",
+    "Previous ads": "Vorige advertenties",
+    "Next ads": "Volgende advertenties",
     "Mooie racefiets, carbon frame, hydraulische schijfremmen...":
         "Mooie racefiets, carbon frame, hydraulische schijfremmen...",
 

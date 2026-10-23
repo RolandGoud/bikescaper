@@ -24,8 +24,17 @@
 
 {% if cards %}
 <section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
-  <h2>{{ _('Recently checked') }}</h2>
-  <div class="grid recent-grid">
+  {# One row of cards; the counter and arrows next to the heading page through it (static/recent-row.js).
+     Without JS the row just scrolls sideways. #}
+  <div class="row-head">
+    <h2>{{ _('Recently checked') }}</h2>
+    <div class="row-nav" hidden>
+      <span class="row-count" aria-live="polite"></span>
+      <button class="nav-btn row-prev" type="button" aria-label="{{ _('Previous ads') }}">‹</button>
+      <button class="nav-btn row-next" type="button" aria-label="{{ _('Next ads') }}">›</button>
+    </div>
+  </div>
+  <div class="recent-row">
     {% for row, r in cards %}{{ listing_card(row, r) }}{% endfor %}
   </div>
   <a class="btn wide-btn" href="{{ url_for('listings') }}">{{ _('Show all {count} checked ads', count=total) }}</a>
@@ -44,4 +53,5 @@
     {% endfor %}
   </div>
 </section>
+<script src="{{ url_for('static', filename='recent-row.js') }}" defer></script>
 {% endblock %}

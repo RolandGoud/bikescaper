@@ -371,7 +371,22 @@ select { max-width: 100%; }
 .pill.small-pill { padding: 6px 12px; font-size: 13px; }
 
 /* Home: the 12 newest checked ads, four across on wide screens, and a button the full width below. */
-.recent-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+/* Net gecheckt on the home page: one row of cards, paged by the arrows next to the heading. */
+.row-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.row-nav { display: flex; align-items: center; gap: 8px; }
+.row-nav[hidden] { display: none; }
+.row-count { margin-right: 6px; font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+.nav-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--ink); font-size: 20px; line-height: 1; display: inline-grid; place-items: center; cursor: pointer; }
+.nav-btn:hover:not(:disabled) { border-color: var(--line-strong); }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
+.nav-btn:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.recent-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+.recent-row.paged { scrollbar-width: none; }
+.recent-row.paged::-webkit-scrollbar { display: none; }
+.recent-row > .listing-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
+@media (max-width: 1100px) { .recent-row > .listing-card { flex-basis: calc((100% - 32px) / 3); } }
+@media (max-width: 820px) { .recent-row > .listing-card { flex-basis: calc((100% - 16px) / 2); } }
+@media (max-width: 600px) { .recent-row > .listing-card { flex-basis: 86%; } }
 .wide-btn { width: 100%; margin-top: 8px; }
 
 /* Model page: the ads matched to the model, under its asking price. */
