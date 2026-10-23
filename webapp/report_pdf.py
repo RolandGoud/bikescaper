@@ -10,8 +10,8 @@ from xml.sax.saxutils import escape
 
 from .i18n import gettext as _
 
-INK, MUTED, ORANGE = colors.HexColor("#111216"), colors.HexColor("#6B6B78"), colors.HexColor("#FF5A1F")
-STATUS = {"ok": colors.HexColor("#2B3BFF"), "warn": colors.HexColor("#8A4200"),
+INK, MUTED, ACCENT = colors.HexColor("#111216"), colors.HexColor("#6B6B78"), colors.HexColor("#0E9F6E")
+STATUS = {"ok": colors.HexColor("#0E7A5A"), "warn": colors.HexColor("#8A4200"),
           "bad": colors.HexColor("#A3241B"), "unknown": colors.HexColor("#50505E")}
 
 
@@ -22,7 +22,7 @@ def eur(value):
 def _styles():
     base = getSampleStyleSheet()
     return {
-        "brand": ParagraphStyle("brand", parent=base["Normal"], fontName="Helvetica-Bold", fontSize=11, textColor=ORANGE),
+        "brand": ParagraphStyle("brand", parent=base["Normal"], fontName="Helvetica-Bold", fontSize=11, textColor=ACCENT),
         "h1": ParagraphStyle("h1", parent=base["Heading1"], fontName="Helvetica-Bold", fontSize=18, leading=22,
                              textColor=INK, spaceAfter=2),
         "h2": ParagraphStyle("h2", parent=base["Heading2"], fontName="Helvetica-Bold", fontSize=13, leading=16,
