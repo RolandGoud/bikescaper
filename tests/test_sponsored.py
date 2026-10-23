@@ -73,9 +73,11 @@ def test_listings_and_models_pages_have_their_own_slots(tmp_path):
 
     listings = client.get("/listings").data.decode()  # a 300×250 among the cards, and the skyscraper
     assert "ad-rect" in listings and "ad-sky" in listings and "ad-banner" not in listings
-    models = client.get("/models").data.decode()  # a banner above the models, and the skyscraper
+    models = client.get("/models").data.decode()  # a banner across the grid after eight models, and the skyscraper
     assert "ad-banner" in models and "ad-sky" in models and "ad-rect" not in models
     assert models.count(">AD<") == 2
+    grid = models[models.index('class="model-grid"'):models.index("ad-banner")]
+    assert grid.count('class="model-card') == 8
 
 
 def test_stylesheets_and_scripts_carry_a_version(tmp_path):

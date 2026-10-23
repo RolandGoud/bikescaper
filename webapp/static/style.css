@@ -680,6 +680,7 @@ select { max-width: 100%; }
 .recent-row > .sponsored-card { flex: 0 0 324px; scroll-snap-align: start; }
 @media (max-width: 600px) { .recent-row > .sponsored-card { flex-basis: 86%; } }
 .page .sponsored-band { padding-left: 0; padding-right: 0; }
+.model-grid > .sponsored-band { grid-column: 1 / -1; padding: 18px 0; }
 
 .sponsored-band { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px; padding-bottom: 8px; }
 .sponsored-band .ad-marker { width: 300px; }
