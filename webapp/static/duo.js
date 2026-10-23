@@ -1,5 +1,7 @@
 // Merged photo tiles: the cut between the ad photo and the catalogue photo follows the mouse,
 // or a finger dragged sideways. A drag doesn't open the report; a plain click or tap still does.
+// Each tile starts at a random cut between 25% and 75%, so the cards don't all look the same
+// and both photos always show.
 document.querySelectorAll(".duo").forEach((tile) => {
   const range = tile.querySelector(".duo-range");
   let startX = null, dragged = false;
@@ -8,6 +10,7 @@ document.querySelectorAll(".duo").forEach((tile) => {
     tile.style.setProperty("--cut", pct + "%");
     range.value = Math.round(pct);
   };
+  set(25 + Math.random() * 50);
   const at = (e) => {
     const box = tile.getBoundingClientRect();
     return ((e.clientX - box.left) / box.width) * 120 - 10;

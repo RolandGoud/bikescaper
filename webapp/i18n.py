@@ -132,6 +132,23 @@ NL = {
     "The site didn't answer in time.": "De site reageerde niet op tijd.",
     "That link doesn't look like an ad.": "Die link lijkt geen advertentie te zijn.",
     "Photos from the ad": "Foto's uit de advertentie",
+    "Download as PDF": "Download als pdf",
+    "Mail me this report": "Mail mij dit rapport",
+    "you@example.com": "jij@voorbeeld.nl",
+    "Send": "Versturen",
+    "Sent. Check your inbox (and spam folder).": "Verstuurd. Kijk in je inbox (en je spammap).",
+    "That doesn't look like an email address.": "Dat lijkt geen e-mailadres.",
+    "Too many emails for now. Try again in an hour, or download the PDF.":
+        "Even te veel e-mails. Probeer het over een uur nog eens, of download de pdf.",
+    "The email couldn't be sent. Download the PDF instead.": "De e-mail kon niet worden verstuurd. Download de pdf.",
+    "Your Bike Compare check: {title}": "Je Bike Compare-check: {title}",
+    "Here is your check report for “{title}”, checked on {date}. The PDF is attached; the report online: {url}":
+        "Hier is je checkrapport voor “{title}”, gecheckt op {date}. De pdf zit in de bijlage; het rapport online: {url}",
+    "Summary": "Samenvatting",
+    "We couldn't match this ad to a model in our catalogue.": "We konden deze advertentie niet aan een model uit onze catalogus koppelen.",
+    "Online report: {url}": "Rapport online: {url}",
+    "Bike Compare · not affiliated with Marktplaats or any bike brand.":
+        "Bike Compare · niet verbonden aan Marktplaats of een fietsmerk.",
     "Removed": "Verwijderd",
     "Checked {n}× · last on {date}": "{n}× gecheckt · laatst op {date}",
     "Checked on {date}": "Gecheckt op {date}",
@@ -362,6 +379,31 @@ NL = {
     "The seller gives this as the purchase year.": "De verkoper noemt dit het aankoopjaar.",
     "Model years entered by hand from launch dates; not yet checked against the brand's archive.":
         "Modeljaren met de hand ingevoerd op basis van introductiedata; nog niet gecontroleerd in het archief van het merk.",
+
+    # checks: year from the ad's details
+    "From the ad's details:": "Volgens de details in de advertentie:",
+    "{part}: bikes from {years}.": "{part}: fietsen uit {years}.",
+    "{family} gen {gen}: sold from {years}.": "{family} gen {gen}: verkocht vanaf {years}.",
+    "Rim brakes on a carbon road bike: {year} or older.": "Velgremmen op een carbon racefiets: {year} of ouder.",
+    "Colour '{colour}' is in {brand}'s {year} photos.": "Kleur '{colour}' staat in de foto's van {brand} uit {year}.",
+    "Details disagree": "Details spreken elkaar tegen",
+    "The parts and colour point to different years; some parts may have been swapped.":
+        "De onderdelen en kleur wijzen naar verschillende jaren; misschien zijn er onderdelen vervangen.",
+    "Probably {years}": "Waarschijnlijk {years}",
+    "The ad doesn't give a year, but its details point to {years}.":
+        "De advertentie noemt geen jaar, maar de details wijzen naar {years}.",
+    "Fits {years}": "Past bij {years}",
+    "{claimed} fits the ad's details.": "{claimed} past bij de details in de advertentie.",
+    "Just outside {years}": "Net buiten {years}",
+    "{claimed} is one year off what the details allow: maybe the purchase year.":
+        "{claimed} zit een jaar naast wat de details toelaten: misschien het aankoopjaar.",
+    "Doesn't fit {years}": "Past niet bij {years}",
+    "The seller says {claimed}, but the ad's details point to {years}.":
+        "De verkoper zegt {claimed}, maar de details in de advertentie wijzen naar {years}.",
+    "{year} or later": "{year} of later",
+    "{year} or earlier": "{year} of eerder",
+    "The ad mentions upgrades, so a part may be newer than the bike.":
+        "De advertentie noemt upgrades, dus een onderdeel kan nieuwer zijn dan de fiets.",
 
     # checks: specs
     "Groupset": "Groep",
