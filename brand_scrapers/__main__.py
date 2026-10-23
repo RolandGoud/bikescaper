@@ -3,8 +3,8 @@
     python -m brand_scrapers                      # all brands
     python -m brand_scrapers giant cube --limit 3 # a quick test run
 
-Writes data/<Brand>/<brand>_bikes_<timestamp>.json and one photo per model under
-images/<Brand>/. E-bikes, mountain bikes and city bikes are left out, like the
+Writes data/<Brand>/<brand>_bikes_<timestamp>.json, one photo per model and one per
+colour under images/<Brand>/. E-bikes, mountain bikes and city bikes are left out, like the
 Trek and Canyon data.
 """
 import argparse
@@ -12,7 +12,7 @@ import logging
 from datetime import datetime
 
 from . import cannondale, cube, factor, giant, orbea, scott, specialized
-from .common import Fetcher, dedupe, log, save_image, write_snapshot
+from .common import Fetcher, dedupe, log, save_colour_images, save_image, write_snapshot
 
 ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea)}
 
@@ -26,6 +26,8 @@ def run(names, limit=None, images=True):
         bikes = dedupe(adapter.scrape(fetcher, limit=limit))
         for bike in bikes:
             bike["image"] = save_image(fetcher, adapter.BRAND, bike["name"], bike.get("image_url")) if images else None
+            if images:
+                save_colour_images(fetcher, bike)
         bikes.sort(key=lambda b: (b["category"], b["name"]))
         written[adapter.BRAND] = (write_snapshot(adapter.BRAND, bikes, stamp), len(bikes))
         log.info("%s: %d bikes written to %s", adapter.BRAND, len(bikes), written[adapter.BRAND][0])

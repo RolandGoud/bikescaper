@@ -9,6 +9,7 @@ import re
 import unicodedata
 from datetime import date
 
+from . import colour_match
 from .i18n import Msg, join, join_list
 from .reference import (BRAND_ALIASES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
@@ -1083,6 +1084,10 @@ def run_check(models, listing, today=None):
         return report
     if not chosen_by_you:
         report["name_check"] = name_check(chosen, models, listing["title"], listing.get("description"))
+    # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
+    report["colourway"] = colour_match.pick(chosen, listing["title"], listing.get("description") or "")
+    if report["colourway"] and report["colourway"].get("image"):
+        report["model"] = dict(chosen, image=report["colourway"]["image"])
     report["age"] = check_age(chosen, claims, today)
     report["year_estimate"] = estimate_year(chosen, models, claims,
                                             f"{listing['title']}\n{listing.get('description') or ''}")

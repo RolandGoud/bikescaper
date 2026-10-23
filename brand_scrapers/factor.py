@@ -64,6 +64,11 @@ def parse(page, url, card):
     sizes = list(dict.fromkeys(re.findall(r'\{"name":"Size","value":"([^"]+)"\}', page)))
     colours = list(dict.fromkeys(re.findall(r'\{"name":"Colou?r","value":"([^"]+)"\}', page)))
     image = (card.get("image") or {}).get("url") or (variant.get("image") or {}).get("url")
+    # Each variant (colour / size) names its photo; the first per colour is that colour's.
+    colour_images = {}
+    for colour, src in re.findall(r'"selectedOptions":\[\{"name":"Colou?r","value":"([^"]+)"\}[^\]]*\],'
+                                  r'(?:"[a-zA-Z]+":(?:"[^"]*"|null),)*"image":\{"id":"[^"]*","url":"([^"]+)"', page):
+        colour_images.setdefault(colour, src)
     return {
         "name": clean(card.get("model") or data.get("framesetTitle")),
         "brand": BRAND,
@@ -76,8 +81,14 @@ def parse(page, url, card):
         "color_names": colours,
         "sizes": sizes,
         # Shopify's CDN resizes and converts on request.
-        "image_url": (image + ("&" if "?" in image else "?") + "width=1200&format=jpg") if image else None,
+        "image_url": jpeg(image),
+        "color_image_urls": [jpeg(colour_images.get(c)) for c in colours],
     }
+
+
+def jpeg(url):
+    """Shopify scales on request: a 1200px JPEG instead of the 4472px PNG."""
+    return (url + ("&" if "?" in url else "?") + "width=1200&format=jpg") if url else None
 
 
 def scrape(fetcher, limit=None):

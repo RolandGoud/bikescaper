@@ -78,10 +78,18 @@ def parse(page, url):
             pairs.append((s.get("name") or s.get("code"), s.get("description")))
     if not pairs:  # fall back to the callouts at the top of the page
         pairs = [(product.get(f"callout{n}Title"), product.get(f"callout{n}Desc")) for n in range(1, 7)]
-    prices, sizes, colours = [], [], []
+    prices, sizes, colours, colour_images, colour_hexes = [], [], [], [], []
     image = None
     for colour in product["colors"]:
-        colours.append(clean(colour.get("displayName") or colour.get("colorName")))
+        # PNG keeps the transparency; their JPEG turns it black
+        photo = (f"https://resources.specialized.com/image/{colour['plpImageID']}?q=80&w=1200&fm=png"
+                 if colour.get("plpImageID") else None)
+        image = image or photo
+        name = clean(colour.get("displayName") or colour.get("colorName"))
+        if name:
+            colours.append(name)
+            colour_images.append(photo)
+            colour_hexes.append((colour.get("colorValues") or [None])[0])
         for size in colour.get("sizes") or []:
             if size.get("name") and size["name"] not in sizes:
                 sizes.append(size["name"])
@@ -89,8 +97,6 @@ def parse(page, url):
                 raw = ((sku.get("prices") or {}).get("regular") or {}).get("raw")
                 if raw:
                     prices.append(raw)
-        if not image and colour.get("plpImageID"):
-            image = f"https://resources.specialized.com/image/{colour['plpImageID']}?q=80&w=1200&fm=png"  # PNG keeps the transparency; their JPEG turns it black
     cats = [c.get("name") for c in product.get("categories") or []]
     paths = " ".join(c.get("url") or "" for c in product.get("categories") or [])
     return {
@@ -103,9 +109,11 @@ def parse(page, url):
         "family": cats[-1] if cats else "",
         "model_year": product.get("modelYear"),
         "specifications": normalize_specs(pairs),
-        "color_names": [c for c in colours if c],
+        "color_names": colours,
+        "color_hexes": colour_hexes,  # the swatch colour Specialized shows for each
         "sizes": sizes,
         "image_url": image,
+        "color_image_urls": colour_images,
     }
 
 

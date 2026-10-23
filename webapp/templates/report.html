@@ -30,6 +30,7 @@
           <button class="btn ghost" type="submit">{{ _('Change match') }}</button>
         </form>
       </div>
+      {% if r.colourway %}<div class="small muted colour-match">{{ _('Catalogue photo in {colour}, the colour the ad names.', colour=r.colourway.name) }}</div>{% endif %}
       {% if r.name_check %}{% set nc = r.name_check %}
       <div class="name-check{{ ' disputed' if nc.conflicts }}">
         <strong>{{ _('We think this is another model than the seller says') if nc.conflicts else _("The seller's name doesn't fully match this model") }}</strong>

@@ -193,6 +193,7 @@ NL = {
     "medium": "gemiddeld",
     "low": "laag",
     "Chosen by you": "Gekozen door jou",
+    "Catalogue photo in {colour}, the colour the ad names.": "Catalogusfoto in {colour}, de kleur die in de advertentie staat.",
     "We think this is another model than the seller says": "Wij denken dat dit een ander model is dan de verkoper zegt",
     "The seller's name doesn't fully match this model": "De naam in de advertentie past niet helemaal bij dit model",
     "The ad says {theirs}, this model is a {ours}. We have no closer {theirs} in our catalogue, so everything below compares with the {ours}.":

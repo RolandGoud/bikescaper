@@ -2,7 +2,8 @@
 
 Each adapter returns a list of bikes in the shape webapp/seed.py reads:
 name, brand, url, sku, price, category, model_year, specifications, color_names,
-sizes, image (path under images/) and image_url.
+sizes, image (path under images/) and image_url, and color_image_urls with a photo URL per
+colour name (None where the brand shows none), saved as color_images.
 """
 import html
 import io
@@ -218,6 +219,14 @@ def save_image(fetcher, brand, name, url, width=1000):
         log.warning("image %s: %s", url, exc)
         return None
     return rel
+
+
+def save_colour_images(fetcher, bike):
+    """Download the photo of each colour in color_image_urls; color_images lists their paths, None where there is none."""
+    urls = bike.get("color_image_urls") or []
+    bike["color_images"] = [save_image(fetcher, bike["brand"], f"{bike['name']} colour {colour}", url) if url else None
+                            for colour, url in zip(bike.get("color_names") or [], urls)]
+    return bike["color_images"]
 
 
 def dedupe(bikes):

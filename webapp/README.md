@@ -65,8 +65,10 @@ hand-entered reference data (brands, Trek generation years, generic size charts,
 Trek and Canyon come from their own scrapers (`trek_bikes_scraper.py`, `canyon_bikes_scraper.py`).
 Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea come from `brand_scrapers/`, one adapter per
 brand; refresh them with `python -m brand_scrapers` (or name brands: `python -m brand_scrapers
-giant cube`). It writes a new snapshot to `data/<Brand>/` and one photo per model to
-`images/<Brand>/`, and the seed picks the newest snapshot. On the NAS the catalogue reloads by
+giant cube`). It writes a new snapshot to `data/<Brand>/` and one photo per model and one per
+colour to `images/<Brand>/`, and the seed picks the newest snapshot. `python -m
+brand_scrapers.colour_photos` adds the colour photos to the newest snapshots without collecting
+the rest again (Scott from `data/Scott/scott_gallery.json`; Orbea only from a home PC). On the NAS the catalogue reloads by
 itself on the next start when a new snapshot is in `main`.
 
 Only road, gravel, cyclocross and time trial bikes are collected, like the Trek and Canyon data.
@@ -82,6 +84,7 @@ See `docs/scraper-plan.md`.
 - The spec sheet has a tab per year from 2020. Earlier years come from `data/years/<Brand>.json`
   (spec sheets read from Wayback Machine copies of the brand's NL site); a brand without that file
   shows only the year of our own scrape, and the other tabs say the archive wasn't searched yet.
+- The catalogue photo on a check shows the colour the ad names (title, a "kleur:" line, or "zwarte racefiets"), matched to the brand's colour names (`webapp/colour_match.py`); without a colour in the text it shows the model's first colour. Trek's colours aren't collected per model, and Orbea's colour photos wait for a run from a home PC.
 - The age check also estimates the model year from the ad's details: groupset generation, a named frame generation, rim brakes and a named colourway we have a dated photo of (`GROUPSET_YEARS` in `webapp/reference.py`). The ad's photos aren't read: without a vision model their colours are mostly the background.
 - Rider heights per model come from Trek, Canyon and Cannondale; Specialized, Giant, Cube and Factor only publish sizes and geometry per model, so their heights come from the brand size guide. Refresh with `python -m brand_scrapers.sizing`.
 - The value is a simple age and condition curve; comparable ads aren't used.

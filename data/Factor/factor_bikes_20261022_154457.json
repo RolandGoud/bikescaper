@@ -47,7 +47,15 @@
       "25mm"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-CB-Red-XPLR-34-4472x4472.png?v=1778480269&width=1200&format=jpg",
-    "image": "Factor/ALUTO_Campagnolo_Record_13X.jpg"
+    "image": "Factor/ALUTO_Campagnolo_Record_13X.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Raptor_Blue-CB-Red-XPLR-34-4472x4472.png?v=1778480269&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-CB-Red-XPLR-34-4472x4472.png?v=1778480269&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ALUTO_Campagnolo_Record_13X_colour_Raptor_Blue.jpg",
+      "Factor/ALUTO_Campagnolo_Record_13X_colour_Quattro_Grey.jpg"
+    ]
   },
   {
     "name": "ALUTO - SRAM FORCE XPLR w/ Power Meter",
@@ -97,7 +105,15 @@
       "25mm"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-CB-Force-XPLR-34-4472x4472.png?v=1778480271&width=1200&format=jpg",
-    "image": "Factor/ALUTO_SRAM_FORCE_XPLR_w_Power_Meter.jpg"
+    "image": "Factor/ALUTO_SRAM_FORCE_XPLR_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Raptor_Blue-CB-Force-XPLR-34-4472x4472.png?v=1778480271&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-CB-Force-XPLR-34-4472x4472.png?v=1778480271&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ALUTO_SRAM_FORCE_XPLR_w_Power_Meter_colour_Raptor_Blue.jpg",
+      "Factor/ALUTO_SRAM_FORCE_XPLR_w_Power_Meter_colour_Quattro_Grey.jpg"
+    ]
   },
   {
     "name": "ALUTO - SRAM RED XPLR w/ Power Meter",
@@ -147,7 +163,15 @@
       "25mm"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-CB-Red-XPLR-34-4472x4472.png?v=1778480269&width=1200&format=jpg",
-    "image": "Factor/ALUTO_SRAM_RED_XPLR_w_Power_Meter.jpg"
+    "image": "Factor/ALUTO_SRAM_RED_XPLR_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Raptor_Blue-CB-Red-XPLR-34-4472x4472.png?v=1778480269&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-CB-Red-XPLR-34-4472x4472.png?v=1778480269&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ALUTO_SRAM_RED_XPLR_w_Power_Meter_colour_Raptor_Blue.jpg",
+      "Factor/ALUTO_SRAM_RED_XPLR_w_Power_Meter_colour_Quattro_Grey.jpg"
+    ]
   },
   {
     "name": "ALUTO - Standard package",
@@ -192,7 +216,15 @@
       "25mm"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-PP-Red-34-4472x4472.png?v=1778480268&width=1200&format=jpg",
-    "image": "Factor/ALUTO_Standard_package.jpg"
+    "image": "Factor/ALUTO_Standard_package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Quattro_Grey-PP-Red-34-4472x4472.png?v=1778480268&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Aluto-Raptor_Blue-PP-Red-34-4472x4472.png?v=1778480266&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ALUTO_Standard_package_colour_Quattro_Grey.jpg",
+      "Factor/ALUTO_Standard_package_colour_Raptor_Blue.jpg"
+    ]
   },
   {
     "name": "ELARA - Campagnolo Record 13X w/ Power Meter",
@@ -240,7 +272,15 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-VirescentBlue-Campy-4472x4472.png?v=1787912118&width=1200&format=jpg",
-    "image": "Factor/ELARA_Campagnolo_Record_13X_w_Power_Meter.jpg"
+    "image": "Factor/ELARA_Campagnolo_Record_13X_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-VirescentBlue-Campy-4472x4472.png?v=1787912118&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-MatteCarbon-Campy-4472x4472.png?v=1787912118&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ELARA_Campagnolo_Record_13X_w_Power_Meter_colour_Virescent_Blue.jpg",
+      "Factor/ELARA_Campagnolo_Record_13X_w_Power_Meter_colour_Matte_Carbon.jpg"
+    ]
   },
   {
     "name": "ELARA - Premium Package",
@@ -283,7 +323,15 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-PP-VirescentBlue-Force-4472x4472.png?v=1787912106&width=1200&format=jpg",
-    "image": "Factor/ELARA_Premium_Package.jpg"
+    "image": "Factor/ELARA_Premium_Package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-PP-VirescentBlue-Force-4472x4472.png?v=1787912106&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-PP-MatteCarbon-Force-4472x4472.png?v=1787912107&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ELARA_Premium_Package_colour_Virescent_Blue.jpg",
+      "Factor/ELARA_Premium_Package_colour_Matte_Carbon.jpg"
+    ]
   },
   {
     "name": "ELARA - SRAM Force XPLR w/ Power Meter",
@@ -331,7 +379,15 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-VirescentBlue-Force-4472x4472.png?v=1787912114&width=1200&format=jpg",
-    "image": "Factor/ELARA_SRAM_Force_XPLR_w_Power_Meter.jpg"
+    "image": "Factor/ELARA_SRAM_Force_XPLR_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-VirescentBlue-Force-4472x4472.png?v=1787912114&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-MatteCarbon-Force-4472x4472.png?v=1787912118&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ELARA_SRAM_Force_XPLR_w_Power_Meter_colour_Virescent_Blue.jpg",
+      "Factor/ELARA_SRAM_Force_XPLR_w_Power_Meter_colour_Matte_Carbon.jpg"
+    ]
   },
   {
     "name": "ELARA - SRAM Red XPLR w/ Power Meter",
@@ -379,7 +435,15 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-VirescentBlue-Red-4472x4472.png?v=1787912117&width=1200&format=jpg",
-    "image": "Factor/ELARA_SRAM_Red_XPLR_w_Power_Meter.jpg"
+    "image": "Factor/ELARA_SRAM_Red_XPLR_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-VirescentBlue-Red-4472x4472.png?v=1787912117&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ELARA-CB-MatteCarbon-Red-4472x4472.png?v=1787912118&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ELARA_SRAM_Red_XPLR_w_Power_Meter_colour_Virescent_Blue.jpg",
+      "Factor/ELARA_SRAM_Red_XPLR_w_Power_Meter_colour_Matte_Carbon.jpg"
+    ]
   },
   {
     "name": "SARANA - Premium package",
@@ -421,7 +485,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-FS-CyanBlue-Rigidfork-4472x4472.png?v=1777622299&width=1200&format=jpg",
-    "image": "Factor/SARANA_Premium_package.jpg"
+    "image": "Factor/SARANA_Premium_package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-FS-CyanBlue-Rigidfork-4472x4472.png?v=1777622299&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-FS-CyanBlue-Rigidfork-4472x4472.png?v=1777622299&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SARANA_Premium_package_colour_Cyan_Blue.jpg",
+      "Factor/SARANA_Premium_package_colour_Prismatic_Gold.jpg"
+    ]
   },
   {
     "name": "SARANA - SRAM FORCE XPLR w/ Power Meter",
@@ -468,7 +540,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-CB-CyanBlue-Rigidfork-4472x4472.png?v=1777622299&width=1200&format=jpg",
-    "image": "Factor/SARANA_SRAM_FORCE_XPLR_w_Power_Meter.jpg"
+    "image": "Factor/SARANA_SRAM_FORCE_XPLR_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-CB-CyanBlue-Rigidfork-4472x4472.png?v=1777622299&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-CB-PrismaticGold-Rigidfork-4472x4472.png?v=1777622300&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SARANA_SRAM_FORCE_XPLR_w_Power_Meter_colour_Cyan_Blue.jpg",
+      "Factor/SARANA_SRAM_FORCE_XPLR_w_Power_Meter_colour_Prismatic_Gold.jpg"
+    ]
   },
   {
     "name": "SARANA - SRAM RED XPLR w/ Power Meter",
@@ -515,7 +595,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-CB-CyanBlue-Rigidfork-4472x4472_0f11f45b-a041-470c-839e-5e72d4c48596.png?v=1777622299&width=1200&format=jpg",
-    "image": "Factor/SARANA_SRAM_RED_XPLR_w_Power_Meter.jpg"
+    "image": "Factor/SARANA_SRAM_RED_XPLR_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-CB-CyanBlue-Rigidfork-4472x4472_0f11f45b-a041-470c-839e-5e72d4c48596.png?v=1777622299&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/SARANA-CB-PrismaticGold-Rigidfork-4472x4472_a61cde57-70ea-4788-8389-a9499a3802b8.png?v=1777622301&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SARANA_SRAM_RED_XPLR_w_Power_Meter_colour_Cyan_Blue.jpg",
+      "Factor/SARANA_SRAM_RED_XPLR_w_Power_Meter_colour_Prismatic_Gold.jpg"
+    ]
   },
   {
     "name": "Bugatti Factor ONE - SRAM Red w/ Power Meter",
@@ -596,7 +684,17 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-SteelGreen-Force-4472x4472.png?v=1778038374&width=1200&format=jpg",
-    "image": "Factor/MONZA_SRAM_Force_w_Power_Meter.jpg"
+    "image": "Factor/MONZA_SRAM_Force_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-SteelGreen-Force-4472x4472.png?v=1778038374&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-PearlWhite-Force-4472x4472.png?v=1778038374&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-AnodizedBlack-Force-4472x4472_6aa87d5f-2c79-4169-81bc-bd9d3b052dd1.png?v=1780380427&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/MONZA_SRAM_Force_w_Power_Meter_colour_Steel_Green.jpg",
+      "Factor/MONZA_SRAM_Force_w_Power_Meter_colour_Pearl_White.jpg",
+      "Factor/MONZA_SRAM_Force_w_Power_Meter_colour_Anodized_Black.jpg"
+    ]
   },
   {
     "name": "MONZA - Shimano Ultegra",
@@ -657,7 +755,17 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-SteelGreen-Ultegra-4472x4472.png?v=1778038372&width=1200&format=jpg",
-    "image": "Factor/MONZA_Shimano_Ultegra.jpg"
+    "image": "Factor/MONZA_Shimano_Ultegra.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-SteelGreen-Ultegra-4472x4472.png?v=1778038372&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-PearlWhite-Ultegra-4472x4472.png?v=1778038372&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-CB-AnodizedBlack-Force-4472x4472.png?v=1780380109&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/MONZA_Shimano_Ultegra_colour_Steel_Green.jpg",
+      "Factor/MONZA_Shimano_Ultegra_colour_Pearl_White.jpg",
+      "Factor/MONZA_Shimano_Ultegra_colour_Anodized_Black.jpg"
+    ]
   },
   {
     "name": "MONZA - Standard package",
@@ -712,7 +820,17 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-FS-SteelGreen-Ultegra-4472x4472.png?v=1778038369&width=1200&format=jpg",
-    "image": "Factor/MONZA_Standard_package.jpg"
+    "image": "Factor/MONZA_Standard_package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-FS-SteelGreen-Ultegra-4472x4472.png?v=1778038369&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-FS-PearlWhite-Ultegra-4472x4472.png?v=1778038370&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/MONZA-FS-AnodizedBlack-Force-4472x4472.png?v=1780379298&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/MONZA_Standard_package_colour_Steel_Green.jpg",
+      "Factor/MONZA_Standard_package_colour_Pearl_White.jpg",
+      "Factor/MONZA_Standard_package_colour_Anodized_Black.jpg"
+    ]
   },
   {
     "name": "MONZA Rapha Edition 2026 - SRAM Force w/ Power Meter",
@@ -928,7 +1046,15 @@
       "LONG: 25 OFFSET (160MM)"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-PP-Ultegra-2833-4472x4472.png?v=1778461119&width=1200&format=jpg",
-    "image": "Factor/O2_VAM_Premium_Package.jpg"
+    "image": "Factor/O2_VAM_Premium_Package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/O2-VAM-Chrome-pp-4472x4472.png?v=1778461120&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-PP-Ultegra-2833-4472x4472.png?v=1778461119&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/O2_VAM_Premium_Package_colour_Chrome.jpg",
+      "Factor/O2_VAM_Premium_Package_colour_Orca_Blue.jpg"
+    ]
   },
   {
     "name": "O2 VAM - Premium Package w/ Wheels",
@@ -979,7 +1105,15 @@
       "LONG: 25 OFFSET (160MM)"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-PW-Ultegra-2833-4472x4472.png?v=1778461123&width=1200&format=jpg",
-    "image": "Factor/O2_VAM_Premium_Package_w_Wheels.jpg"
+    "image": "Factor/O2_VAM_Premium_Package_w_Wheels.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/O2-VAM-Chrome-pw-4472x4472.png?v=1778461124&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-PW-Ultegra-2833-4472x4472.png?v=1778461123&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/O2_VAM_Premium_Package_w_Wheels_colour_Chrome.jpg",
+      "Factor/O2_VAM_Premium_Package_w_Wheels_colour_Orca_Blue.jpg"
+    ]
   },
   {
     "name": "O2 VAM - SRAM Force w/ Power Meter",
@@ -1035,7 +1169,15 @@
       "LONG: 25 OFFSET (160MM)"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472_ec13289b-2fcb-4cc8-9399-31e8d3451e15.png?v=1778461126&width=1200&format=jpg",
-    "image": "Factor/O2_VAM_SRAM_Force_w_Power_Meter.jpg"
+    "image": "Factor/O2_VAM_SRAM_Force_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/O2-VAM-Chrome-ForcePM-ds-4472x4472.png?v=1778461127&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472_ec13289b-2fcb-4cc8-9399-31e8d3451e15.png?v=1778461126&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/O2_VAM_SRAM_Force_w_Power_Meter_colour_Chrome.jpg",
+      "Factor/O2_VAM_SRAM_Force_w_Power_Meter_colour_Orca_Blue.jpg"
+    ]
   },
   {
     "name": "O2 VAM - SRAM Red w/ Power Meter",
@@ -1066,7 +1208,15 @@
       "LONG: 25 OFFSET (160MM)"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472_f6b4fef5-46ad-41aa-b63e-2f42e81c3726.png?v=1778461128&width=1200&format=jpg",
-    "image": "Factor/O2_VAM_SRAM_Red_w_Power_Meter.jpg"
+    "image": "Factor/O2_VAM_SRAM_Red_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/O2-VAM-Chrome-ds-4472x4472_cdd29ad3-34ed-4b92-bfbe-677843731b8c.png?v=1778461129&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472_f6b4fef5-46ad-41aa-b63e-2f42e81c3726.png?v=1778461128&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/O2_VAM_SRAM_Red_w_Power_Meter_colour_Chrome.jpg",
+      "Factor/O2_VAM_SRAM_Red_w_Power_Meter_colour_Orca_Blue.jpg"
+    ]
   },
   {
     "name": "O2 VAM - Shimano Dura-Ace",
@@ -1122,7 +1272,15 @@
       "LONG: 25 OFFSET (160MM)"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472.png?v=1778461113&width=1200&format=jpg",
-    "image": "Factor/O2_VAM_Shimano_Dura_Ace.jpg"
+    "image": "Factor/O2_VAM_Shimano_Dura_Ace.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/O2-VAM-Chrome-DuraAce-ds-4472x4472.png?v=1778461113&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472.png?v=1778461113&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/O2_VAM_Shimano_Dura_Ace_colour_Chrome.jpg",
+      "Factor/O2_VAM_Shimano_Dura_Ace_colour_Orca_Blue.jpg"
+    ]
   },
   {
     "name": "O2 VAM - Shimano Ultegra",
@@ -1178,7 +1336,15 @@
       "LONG: 25 OFFSET (160MM)"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472_3d3ffc98-cb9a-4bef-bd77-726bad738b66.png?v=1778461117&width=1200&format=jpg",
-    "image": "Factor/O2_VAM_Shimano_Ultegra.jpg"
+    "image": "Factor/O2_VAM_Shimano_Ultegra.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/O2-VAM-Chrome-Ultegra-ds-4472x4472.png?v=1778461118&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/o2vam-Orca-Blue-CB-Ultegra-2833-4472x4472_3d3ffc98-cb9a-4bef-bd77-726bad738b66.png?v=1778461117&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/O2_VAM_Shimano_Ultegra_colour_Chrome.jpg",
+      "Factor/O2_VAM_Shimano_Ultegra_colour_Orca_Blue.jpg"
+    ]
   },
   {
     "name": "ONE - Campagnolo Super Record",
@@ -1227,7 +1393,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-DA-62-4472x4472.png?v=1784783265&width=1200&format=jpg",
-    "image": "Factor/ONE_Campagnolo_Super_Record.jpg"
+    "image": "Factor/ONE_Campagnolo_Super_Record.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-DA-62-4472x4472.png?v=1784783265&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-NimbusGrey-DA-62-4472x4472.png?v=1784784038&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Silverstone-DA-62-4472x4472.png?v=1784785825&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Blush-DA-62-624472x4472.png?v=1782791418&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Chrome-DA-BI62-4472x4472.png?v=1790132511&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_Campagnolo_Super_Record_colour_Onyx_Black.jpg",
+      "Factor/ONE_Campagnolo_Super_Record_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_Campagnolo_Super_Record_colour_Silverstone.jpg",
+      "Factor/ONE_Campagnolo_Super_Record_colour_Blush.jpg",
+      "Factor/ONE_Campagnolo_Super_Record_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE - Premium Package",
@@ -1271,7 +1451,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FS-Onyx-Black-62-4472x4472.png?v=1778203698&width=1200&format=jpg",
-    "image": "Factor/ONE_Premium_Package.jpg"
+    "image": "Factor/ONE_Premium_Package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FS-Onyx-Black-62-4472x4472.png?v=1778203698&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FS-NimbusGrey-62-4472x4472.png?v=1778203700&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FS-Silverstone-62-4472x4472.png?v=1778203698&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FS-Blush-62-4472x4472.png?v=1778203701&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FS-Chrome-HYPER62-4472x4472.png?v=1790132512&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_Premium_Package_colour_Onyx_Black.jpg",
+      "Factor/ONE_Premium_Package_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_Premium_Package_colour_Silverstone.jpg",
+      "Factor/ONE_Premium_Package_colour_Blush.jpg",
+      "Factor/ONE_Premium_Package_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE - Premium Package w/ Wheels",
@@ -1315,7 +1509,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FW-OnyxBlack-62-4472x4472.png?v=1784885853&width=1200&format=jpg",
-    "image": "Factor/ONE_Premium_Package_w_Wheels.jpg"
+    "image": "Factor/ONE_Premium_Package_w_Wheels.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FW-OnyxBlack-62-4472x4472.png?v=1784885853&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FW-NimbusGrey-62-4472x4472.png?v=1782791416&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FW-SilverstONE-62-4472x4472.png?v=1784885912&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-FW-Blush-62-4472x4472.png?v=1784885951&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-PW-Chrome-BI62-4472x4472.png?v=1790132512&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_Premium_Package_w_Wheels_colour_Onyx_Black.jpg",
+      "Factor/ONE_Premium_Package_w_Wheels_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_Premium_Package_w_Wheels_colour_Silverstone.jpg",
+      "Factor/ONE_Premium_Package_w_Wheels_colour_Blush.jpg",
+      "Factor/ONE_Premium_Package_w_Wheels_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE - SRAM FORCE w/ Power Meter",
@@ -1364,7 +1572,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-FORCE-62-4472x4472.png?v=1784885725&width=1200&format=jpg",
-    "image": "Factor/ONE_SRAM_FORCE_w_Power_Meter.jpg"
+    "image": "Factor/ONE_SRAM_FORCE_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-FORCE-62-4472x4472.png?v=1784885725&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-NimbusGrey-FORCE-62-4472x4472.png?v=1782791424&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Silverstone-FORCE-62-4472x4472.png?v=1784885695&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Blush-FORCE-62-4472x4472.png?v=1784885674&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Chrome-FORCE-BI62-4472x4472.png?v=1790132512&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SRAM_FORCE_w_Power_Meter_colour_Onyx_Black.jpg",
+      "Factor/ONE_SRAM_FORCE_w_Power_Meter_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_SRAM_FORCE_w_Power_Meter_colour_Silverstone.jpg",
+      "Factor/ONE_SRAM_FORCE_w_Power_Meter_colour_Blush.jpg",
+      "Factor/ONE_SRAM_FORCE_w_Power_Meter_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE - SRAM Red w/ Power Meter",
@@ -1413,7 +1635,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-RED-62-4472x4472.png?v=1784786639&width=1200&format=jpg",
-    "image": "Factor/ONE_SRAM_Red_w_Power_Meter.jpg"
+    "image": "Factor/ONE_SRAM_Red_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-RED-62-4472x4472.png?v=1784786639&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-NimbusGrey-RED-62-4472x4472.png?v=1784885772&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Silverstone-RED-62-4472x4472.png?v=1784885756&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Blush-RED-62-4472x4472.png?v=1784885739&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Chrome-RED-BI62-4472x4472.png?v=1790132512&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SRAM_Red_w_Power_Meter_colour_Onyx_Black.jpg",
+      "Factor/ONE_SRAM_Red_w_Power_Meter_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_SRAM_Red_w_Power_Meter_colour_Silverstone.jpg",
+      "Factor/ONE_SRAM_Red_w_Power_Meter_colour_Blush.jpg",
+      "Factor/ONE_SRAM_Red_w_Power_Meter_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE - Shimano Dura-Ace",
@@ -1462,7 +1698,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-DA-62-4472x4472.png?v=1784783265&width=1200&format=jpg",
-    "image": "Factor/ONE_Shimano_Dura_Ace.jpg"
+    "image": "Factor/ONE_Shimano_Dura_Ace.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-DA-62-4472x4472.png?v=1784783265&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-NimbusGrey-DA-62-4472x4472.png?v=1784784038&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Silverstone-DA-62-4472x4472.png?v=1784785825&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Blush-DA-62-624472x4472.png?v=1782791418&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Chrome-DA-BI62-4472x4472.png?v=1790132511&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_Shimano_Dura_Ace_colour_Onyx_Black.jpg",
+      "Factor/ONE_Shimano_Dura_Ace_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_Shimano_Dura_Ace_colour_Silverstone.jpg",
+      "Factor/ONE_Shimano_Dura_Ace_colour_Blush.jpg",
+      "Factor/ONE_Shimano_Dura_Ace_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE - Shimano Ultegra",
@@ -1511,7 +1761,21 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-UT-62-4472x4472.png?v=1784786164&width=1200&format=jpg",
-    "image": "Factor/ONE_Shimano_Ultegra.jpg"
+    "image": "Factor/ONE_Shimano_Ultegra.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-OnyxBlack-UT-62-4472x4472.png?v=1784786164&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-NimbusGrey-UT-62-4472x4472.png?v=1784786208&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Silverstone-UT-62-4472x4472.png?v=1784786301&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Blush-UT-62-4472x4472.png?v=1782791420&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-CB-Chrome-UT-BI62-4472x4472.png?v=1790132511&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_Shimano_Ultegra_colour_Onyx_Black.jpg",
+      "Factor/ONE_Shimano_Ultegra_colour_Nimbus_Grey.jpg",
+      "Factor/ONE_Shimano_Ultegra_colour_Silverstone.jpg",
+      "Factor/ONE_Shimano_Ultegra_colour_Blush.jpg",
+      "Factor/ONE_Shimano_Ultegra_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "ONE SP - Premium Package",
@@ -1554,7 +1818,19 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-FS-Chrome-HYPER62-4472x4472.png?v=1789098086&width=1200&format=jpg",
-    "image": "Factor/ONE_SP_Premium_Package.jpg"
+    "image": "Factor/ONE_SP_Premium_Package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-FS-Chrome-HYPER62-4472x4472.png?v=1789098086&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-FS-Silverstone-HYPER62-4472x4472.png?v=1789098630&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-FS-OnyxBlack-HYPER62-4472x4472.png?v=1789098603&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-FS-NimbusGrey-HYPER62-4472x4472.png?v=1789098587&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SP_Premium_Package_colour_CHROME.jpg",
+      "Factor/ONE_SP_Premium_Package_colour_SILVERSTONE.jpg",
+      "Factor/ONE_SP_Premium_Package_colour_ONYX_BLACK.jpg",
+      "Factor/ONE_SP_Premium_Package_colour_NIMBUS_GREY.jpg"
+    ]
   },
   {
     "name": "ONE SP - Premium Package w/ Wheels",
@@ -1597,7 +1873,19 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-PW-Chrome-HYPER62-4472x4472.png?v=1789097680&width=1200&format=jpg",
-    "image": "Factor/ONE_SP_Premium_Package_w_Wheels.jpg"
+    "image": "Factor/ONE_SP_Premium_Package_w_Wheels.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-PW-Chrome-BI62-4472x4472.png?v=1789098048&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-PW-Silverstone-BI62-4472x4472.png?v=1789098557&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-PW-OnyxBlack-BI62-4472x4472.png?v=1789098574&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-PW-NimbusGrey-BI62-4472x4472.png?v=1789097608&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SP_Premium_Package_w_Wheels_colour_CHROME.jpg",
+      "Factor/ONE_SP_Premium_Package_w_Wheels_colour_SILVERSTONE.jpg",
+      "Factor/ONE_SP_Premium_Package_w_Wheels_colour_ONYX_BLACK.jpg",
+      "Factor/ONE_SP_Premium_Package_w_Wheels_colour_NIMBUS_GREY.jpg"
+    ]
   },
   {
     "name": "ONE SP - SRAM FORCE w/ Power Meter",
@@ -1645,7 +1933,19 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-Chrome-RED-HYPER62-4472x4472.png?v=1789097660&width=1200&format=jpg",
-    "image": "Factor/ONE_SP_SRAM_FORCE_w_Power_Meter.jpg"
+    "image": "Factor/ONE_SP_SRAM_FORCE_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-Chrome-RED-BI62-4472x4472.png?v=1789097625&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-NimbusGrey-RED-BI62-4472x4472.png?v=1789098102&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-OnyxBlack-RED-BI62-4472x4472.png?v=1789098353&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-Silverstone-RED-BI62-4472x4472.png?v=1789097525&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SP_SRAM_FORCE_w_Power_Meter_colour_CHROME.jpg",
+      "Factor/ONE_SP_SRAM_FORCE_w_Power_Meter_colour_NIMBUS_GREY.jpg",
+      "Factor/ONE_SP_SRAM_FORCE_w_Power_Meter_colour_ONYX_BLACK.jpg",
+      "Factor/ONE_SP_SRAM_FORCE_w_Power_Meter_colour_SILVERSTONE.jpg"
+    ]
   },
   {
     "name": "ONE SP - SRAM Red w/ Power Meter",
@@ -1693,7 +1993,19 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-Chrome-RED-HYPER62-4472x4472.png?v=1789097660&width=1200&format=jpg",
-    "image": "Factor/ONE_SP_SRAM_Red_w_Power_Meter.jpg"
+    "image": "Factor/ONE_SP_SRAM_Red_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-Chrome-RED-BI62-4472x4472.png?v=1789097625&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-Silverstone-RED-BI62-4472x4472.png?v=1789097525&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-OnyxBlack-RED-BI62-4472x4472.png?v=1789098353&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SP-CB-NimbusGrey-RED-BI62-4472x4472.png?v=1789098102&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SP_SRAM_Red_w_Power_Meter_colour_CHROME.jpg",
+      "Factor/ONE_SP_SRAM_Red_w_Power_Meter_colour_SILVERSTONE.jpg",
+      "Factor/ONE_SP_SRAM_Red_w_Power_Meter_colour_ONYX_BLACK.jpg",
+      "Factor/ONE_SP_SRAM_Red_w_Power_Meter_colour_NIMBUS_GREY.jpg"
+    ]
   },
   {
     "name": "ONE SpongeBob Edition - Shimano Ultegra",
@@ -1739,7 +2051,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SpongeBob-CB-RED-BI62-4472x4472.png?v=1784877975&width=1200&format=jpg",
-    "image": "Factor/ONE_SpongeBob_Edition_Shimano_Ultegra.jpg"
+    "image": "Factor/ONE_SpongeBob_Edition_Shimano_Ultegra.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-SpongeBob-CB-RED-BI62-4472x4472.png?v=1784877975&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ONE-PatrickStar-CB-RED-BI62-4472x4472.png?v=1784877975&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/ONE_SpongeBob_Edition_Shimano_Ultegra_colour_SpongeBob.jpg",
+      "Factor/ONE_SpongeBob_Edition_Shimano_Ultegra_colour_Patrick_Star.jpg"
+    ]
   },
   {
     "name": "OSTRO VAM - Premium Package w/ Wheels",
@@ -1789,7 +2109,25 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-PW-Ultegra-4858Silver-4472x4472.png?v=1778216607&width=1200&format=jpg",
-    "image": "Factor/OSTRO_VAM_Premium_Package_w_Wheels.jpg"
+    "image": "Factor/OSTRO_VAM_Premium_Package_w_Wheels.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-PW-Ultegra-4858black-4472x4472.png?v=1778216607&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Geometric-pw-wBlack4858-4472x4472.png?v=1778216609&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-White-Chrome-blackw-pw-4472x4472.png?v=1778216609&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-gloss-Chrome-blackw-pw-4472x4472.png?v=1778216606&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Black-blackw-pw-4472x4472.png?v=1778216607&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-PW-Arctic-Chrome-Red-4472x4472.png?v=1778216609&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-PW-Terracotta_Orange-DuraAce-4472x4472.png?v=1778216607&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_Icon_Blue.jpg",
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_Geometric.jpg",
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_White_Chrome.jpg",
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_Gloss_Chrome.jpg",
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_Black.jpg",
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_Arctic_Chrome.jpg",
+      "Factor/OSTRO_VAM_Premium_Package_w_Wheels_colour_Terracotta_Orange.jpg"
+    ]
   },
   {
     "name": "OSTRO VAM - Premium package",
@@ -1839,7 +2177,25 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-PP-Ultegra-4858Silver-4472x4472.png?v=1778216605&width=1200&format=jpg",
-    "image": "Factor/OSTRO_VAM_Premium_package.jpg"
+    "image": "Factor/OSTRO_VAM_Premium_package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-PP-Ultegra-4858Silver-4472x4472.png?v=1778216605&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/OSTRO-VAM-Geometric-pp-4472x4472_ba5559c2-270f-4506-9ade-624d013b6dfe.png?v=1778216604&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-White-Chrome-pp-4472x4472.png?v=1778216607&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Gloss-Chrome-pp-4472x4472.png?v=1778216604&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Black-pp-4472x4472.png?v=1778216607&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-PP-Arctic-Chrome-Red-4472x4472.png?v=1778216607&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-PP-Terracotta_Orange-DuraAce-4472x4472.png?v=1778216604&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/OSTRO_VAM_Premium_package_colour_Icon_Blue.jpg",
+      "Factor/OSTRO_VAM_Premium_package_colour_Geometric.jpg",
+      "Factor/OSTRO_VAM_Premium_package_colour_White_Chrome.jpg",
+      "Factor/OSTRO_VAM_Premium_package_colour_Gloss_Chrome.jpg",
+      "Factor/OSTRO_VAM_Premium_package_colour_Black.jpg",
+      "Factor/OSTRO_VAM_Premium_package_colour_Arctic_Chrome.jpg",
+      "Factor/OSTRO_VAM_Premium_package_colour_Terracotta_Orange.jpg"
+    ]
   },
   {
     "name": "OSTRO VAM - SRAM Force w/ Power Meter",
@@ -1894,7 +2250,25 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-red-4858silver-4472x4472.png?v=1778216602&width=1200&format=jpg",
-    "image": "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter.jpg"
+    "image": "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-red-4858black-4472x4472.png?v=1778216602&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Geometric-ds-ForcePM-wBlack4858-4472x4472.png?v=1778216602&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-White-Chrome-ds-ForcePM-wBlack4858-4472x4472_5d8990e4-8f32-48bc-b0c5-eff05294e6f5.png?v=1778216602&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Gloss-Chrome-CB-Ultegra-wBlack4858-4472x4472_91ca0338-d982-480a-9969-b6d7f02f5247.png?v=1778216602&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Black-ForcePM-blackW-ds-4472x4472.png?v=1778216604&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Arctic-Chrome-Red-4472x4472_76a641dd-a02f-4f21-beba-85aa25ef946e.png?v=1778216602&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Terracotta_Orange-DuraAce-4472x4472_d4ea3a56-0348-4cef-ae23-04c9c63594da.png?v=1778216602&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_Icon_Blue.jpg",
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_Geometric.jpg",
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_White_Chrome.jpg",
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_Gloss_Chrome.jpg",
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_Black.jpg",
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_Arctic_Chrome.jpg",
+      "Factor/OSTRO_VAM_SRAM_Force_w_Power_Meter_colour_Terracotta_Orange.jpg"
+    ]
   },
   {
     "name": "OSTRO VAM - SRAM Red w/ Power Meter",
@@ -1949,7 +2323,25 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-red-4858silver-4472x4472_8651b984-6843-4438-985f-2cac54160bf1.png?v=1778216609&width=1200&format=jpg",
-    "image": "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter.jpg"
+    "image": "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-red-4858black-4472x4472_c1a019ef-400f-47d8-b472-796c9cb6a81c.png?v=1778216610&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Geometric-RedPM-wBlack4858-ds-4472x4472.png?v=1778216610&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-White-Chrome-ds-ForcePM-wBlack4858-4472x4472_519f4e44-7474-4bb1-8d89-e8732d49eec0.png?v=1778216609&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Gloss-Chrome-CB-Ultegra-wBlack4858-4472x4472_e8a30d1f-adad-4895-a749-3645e2c2642e.png?v=1778216610&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Black-RedPM-blackW-ds-4472x4472-1.png?v=1778216613&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Arctic-Chrome-Red-4472x4472_a11ca342-e1d2-49e6-b4b3-05acb7c126e7.png?v=1778216609&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Terracotta_Orange-DuraAce-4472x4472_e9539685-876e-483d-b9bd-254183affaa2.png?v=1778216610&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_Icon_Blue.jpg",
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_Geometric.jpg",
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_White_Chrome.jpg",
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_Gloss_Chrome.jpg",
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_Black.jpg",
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_Arctic_Chrome.jpg",
+      "Factor/OSTRO_VAM_SRAM_Red_w_Power_Meter_colour_Terracotta_Orange.jpg"
+    ]
   },
   {
     "name": "OSTRO VAM - Shimano Dura-Ace",
@@ -2004,7 +2396,25 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-Ultegra-4858Silver-4472x4472.png?v=1778216596&width=1200&format=jpg",
-    "image": "Factor/OSTRO_VAM_Shimano_Dura_Ace.jpg"
+    "image": "Factor/OSTRO_VAM_Shimano_Dura_Ace.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-DA-4858black-4472x4472.png?v=1778216596&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Geometric-ds-DuraAce-wBlack4858-4472x4472.png?v=1778216596&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-White-Chrome-ds-ForcePM-wBlack4858-4472x4472.png?v=1778216595&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Gloss-Chrome-CB-Ultegra-wBlack4858-4472x4472.png?v=1778216596&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Black-DuraAce-blackW-ds-4472x4472.png?v=1778216596&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Arctic-Chrome-Red-4472x4472.png?v=1778216596&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Terracotta_Orange-DuraAce-4472x4472.png?v=1778216599&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_Icon_Blue.jpg",
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_Geometric.jpg",
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_White_Chrome.jpg",
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_Gloss_Chrome.jpg",
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_Black.jpg",
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_Arctic_Chrome.jpg",
+      "Factor/OSTRO_VAM_Shimano_Dura_Ace_colour_Terracotta_Orange.jpg"
+    ]
   },
   {
     "name": "OSTRO VAM - Shimano Ultegra",
@@ -2059,7 +2469,25 @@
       "61"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-Ultegra-4858Silver-4472x4472_67f81112-250f-472b-a195-fae1fd0bf605.png?v=1778216599&width=1200&format=jpg",
-    "image": "Factor/OSTRO_VAM_Shimano_Ultegra.jpg"
+    "image": "Factor/OSTRO_VAM_Shimano_Ultegra.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Ostro-vam-v2-Icon-Blue-CB-Ultegra-4858black-4472x4472.png?v=1778216600&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Geometric-ds-Ultegra-wBlack4858-4472x4472.png?v=1778216618&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-White-Chrome-ds-ForcePM-wBlack4858-4472x4472_4309bb32-6a22-45f9-b05b-7221f375c1dc.png?v=1778216599&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Gloss-Chrome-CB-Ultegra-wBlack4858-4472x4472_a70114f2-a00d-4a21-8015-9ba22d9097d6.png?v=1778216599&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-Black-Ultegra-blackw-ds-4472x4472.png?v=1778216599&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Arctic-Chrome-Red-4472x4472_638896aa-f863-468b-ab90-3391401328df.png?v=1778216600&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/ostro-v2-CB-Terracotta_Orange-DuraAce-4472x4472_f9eea19e-bea1-4c4f-b077-cf3b086deade.png?v=1778216599&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_Icon_Blue.jpg",
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_Geometric.jpg",
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_White_Chrome.jpg",
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_Gloss_Chrome.jpg",
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_Black.jpg",
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_Arctic_Chrome.jpg",
+      "Factor/OSTRO_VAM_Shimano_Ultegra_colour_Terracotta_Orange.jpg"
+    ]
   },
   {
     "name": "HANZŌ - Premium package",
@@ -2099,7 +2527,13 @@
       "XL"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Hanzo-Chrome-PP-4472x4472.png?v=1778119733&width=1200&format=jpg",
-    "image": "Factor/HANZ_Premium_package.jpg"
+    "image": "Factor/HANZ_Premium_package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Hanzo-Chrome-PP-4472x4472.png?v=1778119733&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/HANZ_Premium_package_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "HANZŌ - SRAM Force w/ Power Meter",
@@ -2144,7 +2578,13 @@
       "XL"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/HANZO-Chrome-CB-3-ZERO-4472x4472_c4d890d8-ed76-46de-86af-0363ca57e607.png?v=1778119739&width=1200&format=jpg",
-    "image": "Factor/HANZ_SRAM_Force_w_Power_Meter.jpg"
+    "image": "Factor/HANZ_SRAM_Force_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/HANZO-Chrome-CB-4858-4472x4472_c40fba82-ddc0-430b-b9b6-fc150b07ea7c.png?v=1778119739&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/HANZ_SRAM_Force_w_Power_Meter_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "HANZŌ - SRAM Red w/ Power Meter",
@@ -2189,7 +2629,13 @@
       "XL"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/HANZO-Chrome-CB-3-ZERO-4472x4472.png?v=1778119736&width=1200&format=jpg",
-    "image": "Factor/HANZ_SRAM_Red_w_Power_Meter.jpg"
+    "image": "Factor/HANZ_SRAM_Red_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/HANZO-Chrome-CB-4858-4472x4472.png?v=1778119735&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/HANZ_SRAM_Red_w_Power_Meter_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "HANZŌ Premium Package w/ Wheels",
@@ -2229,7 +2675,13 @@
       "XL"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/HANZ_-Chrome-PW-4858silver-4472x4472.png?v=1778119733&width=1200&format=jpg",
-    "image": "Factor/HANZ_Premium_Package_w_Wheels.jpg"
+    "image": "Factor/HANZ_Premium_Package_w_Wheels.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/HANZ_-Chrome-PW-4858silver-4472x4472.png?v=1778119733&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/HANZ_Premium_Package_w_Wheels_colour_Chrome.jpg"
+    ]
   },
   {
     "name": "SLiCK - Premium Package w/ Wheels",
@@ -2271,7 +2723,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-PW-Red-62Sliver-4472x4472.png?v=1784722932&width=1200&format=jpg",
-    "image": "Factor/SLiCK_Premium_Package_w_Wheels.jpg"
+    "image": "Factor/SLiCK_Premium_Package_w_Wheels.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-PW-Red-62Sliver-4472x4472.png?v=1784722932&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Nebula-Blue-PW-Red-62Silver-4472x4472.png?v=1784722933&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SLiCK_Premium_Package_w_Wheels_colour_Shadow_White.jpg",
+      "Factor/SLiCK_Premium_Package_w_Wheels_colour_Nebula_Blue.jpg"
+    ]
   },
   {
     "name": "SLiCK - Premium package",
@@ -2312,7 +2772,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-PP-Force-58Silver-4472x4472.png?v=1784722928&width=1200&format=jpg",
-    "image": "Factor/SLiCK_Premium_package.jpg"
+    "image": "Factor/SLiCK_Premium_package.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-PP-Force-58Silver-4472x4472.png?v=1784722928&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Nebula-Blue-PP-Red-62Silver-4472x4472.png?v=1784722929&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SLiCK_Premium_package_colour_Shadow_White.jpg",
+      "Factor/SLiCK_Premium_package_colour_Nebula_Blue.jpg"
+    ]
   },
   {
     "name": "SLiCK - SRAM Force w/ Power Meter",
@@ -2370,7 +2838,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v2-Shadow-White-CB-Force-58Silver-4472x4472.png?v=1778663469&width=1200&format=jpg",
-    "image": "Factor/SLiCK_SRAM_Force_w_Power_Meter.jpg"
+    "image": "Factor/SLiCK_SRAM_Force_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v2-Shadow-White-CB-Force-58Silver-4472x4472.png?v=1778663469&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v2-Nebula-Blue-CB-Force-58Silver-4472x4472.png?v=1778663470&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SLiCK_SRAM_Force_w_Power_Meter_colour_Shadow_White.jpg",
+      "Factor/SLiCK_SRAM_Force_w_Power_Meter_colour_Nebula_Blue.jpg"
+    ]
   },
   {
     "name": "SLiCK Premium - SRAM Force w/ Power Meter",
@@ -2417,7 +2893,15 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-CB-Force-62Silver-4472x4472.png?v=1784722933&width=1200&format=jpg",
-    "image": "Factor/SLiCK_Premium_SRAM_Force_w_Power_Meter.jpg"
+    "image": "Factor/SLiCK_Premium_SRAM_Force_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-CB-Force-62Silver-4472x4472.png?v=1784722933&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Nebula-Blue-CB-Force-62Silver-4472x4472.png?v=1784722933&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SLiCK_Premium_SRAM_Force_w_Power_Meter_colour_Shadow_White.jpg",
+      "Factor/SLiCK_Premium_SRAM_Force_w_Power_Meter_colour_Nebula_Blue.jpg"
+    ]
   },
   {
     "name": "SLiCK Premium - SRAM RED w/ Power Meter",
@@ -2464,6 +2948,14 @@
       "58"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-CB-Red-62Silver-4472x4472.png?v=1784722932&width=1200&format=jpg",
-    "image": "Factor/SLiCK_Premium_SRAM_RED_w_Power_Meter.jpg"
+    "image": "Factor/SLiCK_Premium_SRAM_RED_w_Power_Meter.jpg",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Shadow-White-CB-Red-62Silver-4472x4472.png?v=1784722932&width=1200&format=jpg",
+      "https://cdn.shopify.com/s/files/1/0683/6132/2747/files/Slick-v3-Nebula-Blue-CB-Red-62Silver-4472x4472.png?v=1784722933&width=1200&format=jpg"
+    ],
+    "color_images": [
+      "Factor/SLiCK_Premium_SRAM_RED_w_Power_Meter_colour_Shadow_White.jpg",
+      "Factor/SLiCK_Premium_SRAM_RED_w_Power_Meter_colour_Nebula_Blue.jpg"
+    ]
   }
 ]

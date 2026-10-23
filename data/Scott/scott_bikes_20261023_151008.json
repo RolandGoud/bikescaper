@@ -46,7 +46,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131458/2288160.png",
-    "image": "Scott/Foil_RC_10.jpg"
+    "image": "Scott/Foil_RC_10.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131458/2288160.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131462/2288161.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_10_colour_carbon_black.jpg",
+      "Scott/Foil_RC_10_colour_champagne_pink_carbon_black.jpg"
+    ]
   },
   {
     "name": "Foil RC 20",
@@ -85,7 +93,13 @@
       "M"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114300/2223044.png",
-    "image": "Scott/Foil_RC_20.jpg"
+    "image": "Scott/Foil_RC_20.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114300/2223044.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_20_colour_carbon_grey.jpg"
+    ]
   },
   {
     "name": "Foil RC Pro",
@@ -144,7 +158,9 @@
       "Balhoofdstel": "Acros AIF-1138S",
       "Zadelpen": "Syncros Duncan SL Aero CFT"
     },
-    "color_names": [],
+    "color_names": [
+      "rush white/carbon black"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -155,7 +171,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132182/2290063.png",
-    "image": "Scott/Foil_RC_Pro_Frameset.jpg"
+    "image": "Scott/Foil_RC_Pro_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132182/2290063.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Pro_Frameset_colour_rush_white_carbon_black.jpg"
+    ]
   },
   {
     "name": "Foil RC Pro HMX Frameset",
@@ -217,7 +239,9 @@
       "Buitenband": "Schwalbe PRO ONE Aero, TL-Easy, Fold, 700x28C",
       "Achterband": "Schwalbe PRO ONE Aero, TL-Easy, Fold, 700x28C"
     },
-    "color_names": [],
+    "color_names": [
+      "tungsten grey"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -228,7 +252,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131457/2288159.png",
-    "image": "Scott/Foil_RC_Team.jpg"
+    "image": "Scott/Foil_RC_Team.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131457/2288159.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Team_colour_tungsten_grey.jpg"
+    ]
   },
   {
     "name": "Foil RC Team HMX Frameset",
@@ -251,7 +281,13 @@
       "2XS"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778122603/2266607.png",
-    "image": "Scott/Foil_RC_Team_HMX_Frameset.jpg"
+    "image": "Scott/Foil_RC_Team_HMX_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114255/2222551.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Team_HMX_Frameset_colour_grape_purple_carbon_black.jpg"
+    ]
   },
   {
     "name": "Foil RC Team Replica",
@@ -285,7 +321,9 @@
       "Buitenband": "Continental Grand Prix 5000 S TR 30x622",
       "Achterband": "Continental Grand Prix 5000 S TR 30x622"
     },
-    "color_names": [],
+    "color_names": [
+      "team clear"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -296,7 +334,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131756/2288905.png",
-    "image": "Scott/Foil_RC_Team_Replica.jpg"
+    "image": "Scott/Foil_RC_Team_Replica.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131756/2288905.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Team_Replica_colour_team_clear.jpg"
+    ]
   },
   {
     "name": "Foil RC Team Replica Frameset",
@@ -313,7 +357,9 @@
       "Balhoofdstel": "Acros AIF-1138S",
       "Zadelpen": "Syncros Duncan SL Aero CFT"
     },
-    "color_names": [],
+    "color_names": [
+      "team clear"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -324,7 +370,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131756/2288907.png",
-    "image": "Scott/Foil_RC_Team_Replica_Frameset.jpg"
+    "image": "Scott/Foil_RC_Team_Replica_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131756/2288907.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Team_Replica_Frameset_colour_team_clear.jpg"
+    ]
   },
   {
     "name": "Foil RC Ultimate",
@@ -355,13 +407,21 @@
       "Buitenband": "Schwalbe PRO ONE Aero, TL-Easy, Fold,700x28C",
       "Achterband": "Schwalbe PRO ONE Aero, TL-Easy, Fold,700x28C"
     },
-    "color_names": [],
+    "color_names": [
+      "tungsten grey"
+    ],
     "sizes": [
       "2XS",
       "S"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114314/2223073.png",
-    "image": "Scott/Foil_RC_Ultimate.jpg"
+    "image": "Scott/Foil_RC_Ultimate.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114314/2223073.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Ultimate_colour_tungsten_grey.jpg"
+    ]
   },
   {
     "name": "Foil RC Ultimate Frameset",
@@ -378,7 +438,9 @@
       "Balhoofdstel": "Acros AIF-1138S",
       "Zadelpen": "Syncros Duncan SL Aero CFT"
     },
-    "color_names": [],
+    "color_names": [
+      "piano black/carbon black"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -389,7 +451,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132181/2290062.png",
-    "image": "Scott/Foil_RC_Ultimate_Frameset.jpg"
+    "image": "Scott/Foil_RC_Ultimate_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132181/2290062.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_Ultimate_Frameset_colour_piano_black_carbon_black.jpg"
+    ]
   },
   {
     "name": "Foil RC Ultimate HMX SL Frameset",
@@ -450,7 +518,9 @@
       "Buitenband": "Schwalbe ONE Fold, 700x34C",
       "Achterband": "Schwalbe ONE Fold, 700x34C"
     },
-    "color_names": [],
+    "color_names": [
+      "rainbow white"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -461,7 +531,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131473/2288183.png",
-    "image": "Scott/Addict_10.jpg"
+    "image": "Scott/Addict_10.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131473/2288183.png"
+    ],
+    "color_images": [
+      "Scott/Addict_10_colour_rainbow_white.jpg"
+    ]
   },
   {
     "name": "Addict 20",
@@ -511,7 +587,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131445/2288138.png",
-    "image": "Scott/Addict_20.jpg"
+    "image": "Scott/Addict_20.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131445/2288138.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114304/2223051.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114305/2223053.png"
+    ],
+    "color_images": [
+      "Scott/Addict_20_colour_carbon_black.jpg",
+      "Scott/Addict_20_colour_cumulus_white.jpg",
+      "Scott/Addict_20_colour_violet_pink.jpg"
+    ]
   },
   {
     "name": "Addict 25",
@@ -560,7 +646,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131473/2288184.png",
-    "image": "Scott/Addict_25.jpg"
+    "image": "Scott/Addict_25.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131473/2288184.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131474/2288185.png"
+    ],
+    "color_images": [
+      "Scott/Addict_25_colour_iron_grey.jpg",
+      "Scott/Addict_25_colour_peach_pink.jpg"
+    ]
   },
   {
     "name": "Addict 30",
@@ -610,7 +704,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114305/2223054.png",
-    "image": "Scott/Addict_30.jpg"
+    "image": "Scott/Addict_30.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114305/2223054.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131446/2288139.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131446/2288140.png"
+    ],
+    "color_images": [
+      "Scott/Addict_30_colour_carbon_black.jpg",
+      "Scott/Addict_30_colour_nebula_purple.jpg",
+      "Scott/Addict_30_colour_sand_green.jpg"
+    ]
   },
   {
     "name": "Addict 40",
@@ -661,7 +765,19 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114307/2223057.png",
-    "image": "Scott/Addict_40.jpg"
+    "image": "Scott/Addict_40.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114307/2223057.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114307/2223059.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131446/2288141.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131446/2288142.png"
+    ],
+    "color_images": [
+      "Scott/Addict_40_colour_carbon_black.jpg",
+      "Scott/Addict_40_colour_vivid_yellow.jpg",
+      "Scott/Addict_40_colour_agate_grey.jpg",
+      "Scott/Addict_40_colour_cream_green.jpg"
+    ]
   },
   {
     "name": "Addict 50",
@@ -711,7 +827,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114309/2223062.png",
-    "image": "Scott/Addict_50.jpg"
+    "image": "Scott/Addict_50.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114309/2223062.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131446/2288143.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131448/2288144.png"
+    ],
+    "color_images": [
+      "Scott/Addict_50_colour_cumulus_white.jpg",
+      "Scott/Addict_50_colour_tungsten_grey.jpg",
+      "Scott/Addict_50_colour_mallow_pink.jpg"
+    ]
   },
   {
     "name": "Addict Premium",
@@ -803,7 +929,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778101146/2147396.png",
-    "image": "Scott/Speedster_10.jpg"
+    "image": "Scott/Speedster_10.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778101146/2147396.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778115362/2233730.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131445/2288137.png"
+    ],
+    "color_images": [
+      "Scott/Speedster_10_colour_champion_black.jpg",
+      "Scott/Speedster_10_colour_cumulus_white.jpg",
+      "Scott/Speedster_10_colour_pastel_green.jpg"
+    ]
   },
   {
     "name": "Speedster 20",
@@ -854,7 +990,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131474/2288186.png",
-    "image": "Scott/Speedster_20.jpg"
+    "image": "Scott/Speedster_20.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131474/2288186.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131474/2288187.png"
+    ],
+    "color_images": [
+      "Scott/Speedster_20_colour_mallow_pink.jpg",
+      "Scott/Speedster_20_colour_tide_blue.jpg"
+    ]
   },
   {
     "name": "Addict Gravel 10",
@@ -901,7 +1045,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131509/2288211.png",
-    "image": "Scott/Addict_Gravel_10.jpg"
+    "image": "Scott/Addict_Gravel_10.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131509/2288211.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131474/2288188.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_10_colour_blaze_purple.jpg",
+      "Scott/Addict_Gravel_10_colour_lupine_grey.jpg"
+    ]
   },
   {
     "name": "Addict Gravel 10 Frameset",
@@ -918,7 +1070,9 @@
       "Balhoofdstel": "Acros AIF-1317",
       "Zadelpen": "Syncros SP-R101-CF"
     },
-    "color_names": [],
+    "color_names": [
+      "blaze purple"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -929,7 +1083,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132183/2290066.png",
-    "image": "Scott/Addict_Gravel_10_Frameset.jpg"
+    "image": "Scott/Addict_Gravel_10_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132183/2290066.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_10_Frameset_colour_blaze_purple.jpg"
+    ]
   },
   {
     "name": "Addict Gravel 20",
@@ -977,7 +1137,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131475/2288189.png",
-    "image": "Scott/Addict_Gravel_20.jpg"
+    "image": "Scott/Addict_Gravel_20.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131475/2288189.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131477/2288190.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_20_colour_mojito_green.jpg",
+      "Scott/Addict_Gravel_20_colour_watery_black.jpg"
+    ]
   },
   {
     "name": "Addict Gravel 20 Frameset",
@@ -994,7 +1162,9 @@
       "Balhoofdstel": "Acros AIF-1317",
       "Zadelpen": "Syncros SP-R101-CF"
     },
-    "color_names": [],
+    "color_names": [
+      "beluga grey"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -1005,7 +1175,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132183/2290067.png",
-    "image": "Scott/Addict_Gravel_20_Frameset.jpg"
+    "image": "Scott/Addict_Gravel_20_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132183/2290067.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_20_Frameset_colour_beluga_grey.jpg"
+    ]
   },
   {
     "name": "Addict Gravel 30",
@@ -1053,7 +1229,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131481/2288191.png",
-    "image": "Scott/Addict_Gravel_30.jpg"
+    "image": "Scott/Addict_Gravel_30.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131481/2288191.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131482/2288192.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_30_colour_agate_grey.jpg",
+      "Scott/Addict_Gravel_30_colour_mulberry_purple.jpg"
+    ]
   },
   {
     "name": "Addict Gravel 40",
@@ -1102,7 +1286,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131483/2288193.png",
-    "image": "Scott/Addict_Gravel_40.jpg"
+    "image": "Scott/Addict_Gravel_40.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131483/2288193.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131484/2288194.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131488/2288195.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_40_colour_carbon_black.jpg",
+      "Scott/Addict_Gravel_40_colour_iron_grey.jpg",
+      "Scott/Addict_Gravel_40_colour_peach_pink.jpg"
+    ]
   },
   {
     "name": "Addict Gravel Premium",
@@ -1135,7 +1329,9 @@
       "Buitenband": "Schwalbe G-One RX PRO Evolution, 700x50C",
       "Achterband": "Schwalbe G-One RX PRO Evolution, 700x50C"
     },
-    "color_names": [],
+    "color_names": [
+      "watery green"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -1146,7 +1342,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131508/2288210.png",
-    "image": "Scott/Addict_Gravel_Premium.jpg"
+    "image": "Scott/Addict_Gravel_Premium.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131508/2288210.png"
+    ],
+    "color_images": [
+      "Scott/Addict_Gravel_Premium_colour_watery_green.jpg"
+    ]
   },
   {
     "name": "Addict Gravel Tuned",
@@ -1309,7 +1511,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131498/2288200.png",
-    "image": "Scott/Speedster_Gravel_20.jpg"
+    "image": "Scott/Speedster_Gravel_20.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131498/2288200.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131499/2288201.png"
+    ],
+    "color_images": [
+      "Scott/Speedster_Gravel_20_colour_tungsten_grey.jpg",
+      "Scott/Speedster_Gravel_20_colour_mojito_green.jpg"
+    ]
   },
   {
     "name": "Speedster Gravel 30",
@@ -1346,7 +1556,9 @@
       "Buitenband": "Schwalbe G-One RX, 700x45C",
       "Achterband": "Schwalbe G-One RX, 700x45C"
     },
-    "color_names": [],
+    "color_names": [
+      "agate grey"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -1357,7 +1569,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131500/2288202.png",
-    "image": "Scott/Speedster_Gravel_30.jpg"
+    "image": "Scott/Speedster_Gravel_30.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131500/2288202.png"
+    ],
+    "color_images": [
+      "Scott/Speedster_Gravel_30_colour_agate_grey.jpg"
+    ]
   },
   {
     "name": "Speedster Gravel 30 black",
@@ -1454,7 +1672,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131503/2288203.png",
-    "image": "Scott/Speedster_Gravel_40.jpg"
+    "image": "Scott/Speedster_Gravel_40.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131503/2288203.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131504/2288204.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131504/2288205.png"
+    ],
+    "color_images": [
+      "Scott/Speedster_Gravel_40_colour_ash_green.jpg",
+      "Scott/Speedster_Gravel_40_colour_peach_pink.jpg",
+      "Scott/Speedster_Gravel_40_colour_tempest_grey.jpg"
+    ]
   },
   {
     "name": "Addict RC 10",
@@ -1499,7 +1727,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114060/2219877.png",
-    "image": "Scott/Addict_RC_10.jpg"
+    "image": "Scott/Addict_RC_10.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114060/2219877.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778115191/2232310.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_10_colour_sunbeam_black.jpg",
+      "Scott/Addict_RC_10_colour_gelato_blue_gelato_pink.jpg"
+    ]
   },
   {
     "name": "Addict RC 20",
@@ -1550,7 +1786,17 @@
       "2XS"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114062/2219883.png",
-    "image": "Scott/Addict_RC_20.jpg"
+    "image": "Scott/Addict_RC_20.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114062/2219883.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778115222/2232361.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131448/2288145.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_20_colour_carbon_black.jpg",
+      "Scott/Addict_RC_20_colour_reseda_green.jpg",
+      "Scott/Addict_RC_20_colour_cream_green_carbon_black.jpg"
+    ]
   },
   {
     "name": "Addict RC 25",
@@ -1599,7 +1845,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131471/2288180.png",
-    "image": "Scott/Addict_RC_25.jpg"
+    "image": "Scott/Addict_RC_25.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131471/2288180.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131473/2288181.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_25_colour_cumulus_white_carbon_black.jpg",
+      "Scott/Addict_RC_25_colour_gelato_blue_gelato_pink.jpg"
+    ]
   },
   {
     "name": "Addict RC 30",
@@ -1648,7 +1902,17 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114067/2219893.png",
-    "image": "Scott/Addict_RC_30.jpg"
+    "image": "Scott/Addict_RC_30.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114067/2219893.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778115221/2232363.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131451/2288146.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_30_colour_carbon_black.jpg",
+      "Scott/Addict_RC_30_colour_frozen_green_carbon_black.jpg",
+      "Scott/Addict_RC_30_colour_champagne_pink_carbon_black.jpg"
+    ]
   },
   {
     "name": "Addict RC Pro",
@@ -1697,7 +1961,15 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131469/2288174.png",
-    "image": "Scott/Addict_RC_Pro.jpg"
+    "image": "Scott/Addict_RC_Pro.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131469/2288174.png",
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131468/2288175.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_Pro_colour_tungsten_grey.jpg",
+      "Scott/Addict_RC_Pro_colour_rush_white_carbon_black.jpg"
+    ]
   },
   {
     "name": "Addict RC Pro Frameset",
@@ -1714,7 +1986,9 @@
       "Balhoofdstel": "Acros AIF-1317S stainless",
       "Zadelpen": "Syncros SP-R100-SL"
     },
-    "color_names": [],
+    "color_names": [
+      "rush white/carbon black"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -1725,7 +1999,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132182/2290065.png",
-    "image": "Scott/Addict_RC_Pro_Frameset.jpg"
+    "image": "Scott/Addict_RC_Pro_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132182/2290065.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_Pro_Frameset_colour_rush_white_carbon_black.jpg"
+    ]
   },
   {
     "name": "Addict RC Pro HMX Frameset",
@@ -1748,7 +2028,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778111432/2193649.png",
-    "image": "Scott/Addict_RC_Pro_HMX_Frameset.jpg"
+    "image": "Scott/Addict_RC_Pro_HMX_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778111432/2193648.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_Pro_HMX_Frameset_colour_cumulus_white.jpg"
+    ]
   },
   {
     "name": "Addict RC Team",
@@ -1805,7 +2091,9 @@
       "Balhoofdstel": "Acros AIF-1317",
       "Zadelpen": "Syncros SP-R101-CF"
     },
-    "color_names": [],
+    "color_names": [
+      "team clear"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -1816,7 +2104,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778131756/2288906.png",
-    "image": "Scott/Addict_RC_Team_Replica_Frameset.jpg"
+    "image": "Scott/Addict_RC_Team_Replica_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778131756/2288906.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_Team_Replica_Frameset_colour_team_clear.jpg"
+    ]
   },
   {
     "name": "Addict RC Ultimate",
@@ -1848,7 +2142,9 @@
       "Buitenband": "Schwalbe PRO ONE, TL-Easy, Fold, 700x30C Schwalbe Aerothan Tube",
       "Achterband": "Schwalbe PRO ONE, TL-Easy, Fold, 700x30C Schwalbe Aerothan Tube"
     },
-    "color_names": [],
+    "color_names": [
+      "chrome silver"
+    ],
     "sizes": [
       "XS",
       "S",
@@ -1857,7 +2153,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114332/2224302.png",
-    "image": "Scott/Addict_RC_Ultimate.jpg"
+    "image": "Scott/Addict_RC_Ultimate.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114332/2224302.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_Ultimate_colour_chrome_silver.jpg"
+    ]
   },
   {
     "name": "Addict RC Ultimate Frameset",
@@ -1874,7 +2176,9 @@
       "Balhoofdstel": "Acros AIF-1317S stainless",
       "Zadelpen": "Syncros SP-R100-SL"
     },
-    "color_names": [],
+    "color_names": [
+      "piano black/carbon black"
+    ],
     "sizes": [
       "2XS",
       "XS",
@@ -1885,7 +2189,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132182/2290064.png",
-    "image": "Scott/Addict_RC_Ultimate_Frameset.jpg"
+    "image": "Scott/Addict_RC_Ultimate_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132182/2290064.png"
+    ],
+    "color_images": [
+      "Scott/Addict_RC_Ultimate_Frameset_colour_piano_black_carbon_black.jpg"
+    ]
   },
   {
     "name": "Addict RC Ultimate HMX SL Frameset",
@@ -1940,7 +2250,9 @@
       "Buitenband": "Schwalbe PRO ONE Aero, TL-Easy, Fold,700x28C",
       "Achterband": "Schwalbe PRO ONE Aero, TL-Easy, Fold,700x28C"
     },
-    "color_names": [],
+    "color_names": [
+      "cumulus white"
+    ],
     "sizes": [
       "XS",
       "S",
@@ -1950,7 +2262,13 @@
       "2XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114303/2223048.png",
-    "image": "Scott/Foil_RC_TRI.jpg"
+    "image": "Scott/Foil_RC_TRI.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114303/2223048.png"
+    ],
+    "color_images": [
+      "Scott/Foil_RC_TRI_colour_cumulus_white.jpg"
+    ]
   },
   {
     "name": "Plasma RC LTD Frameset",
@@ -1968,7 +2286,9 @@
       "Stuur": "Syncros Creston iC TRI, 400mm, Syncros E1 carbon extension",
       "Zadelpen": "Syncros Plasma 6 HMX with Ritchey WCS clamp, adjustable head"
     },
-    "color_names": [],
+    "color_names": [
+      "beluga grey/sachet pink"
+    ],
     "sizes": [
       "XS",
       "S",
@@ -1977,7 +2297,13 @@
       "XL"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132181/2290060.png",
-    "image": "Scott/Plasma_RC_LTD_Frameset.jpg"
+    "image": "Scott/Plasma_RC_LTD_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132181/2290060.png"
+    ],
+    "color_images": [
+      "Scott/Plasma_RC_LTD_Frameset_colour_beluga_grey_sachet_pink.jpg"
+    ]
   },
   {
     "name": "Plasma RC LTD HMX Frameset",
@@ -1993,13 +2319,21 @@
       "Voorvork": "HMX Carbon fork for Disc Brake",
       "Accessories": "Plasma 6 headset, Syncros Creston iC TRI handlebar combo with E1 extensions, Plasma 6 Aero bottle, Plasma 6 Gel bottle, Plasma 6 Storage box, Plasma 6 Nutrition box, Plasma 6 HMX seatpost, Syncros SL ROAD plug-in thru axle"
     },
-    "color_names": [],
+    "color_names": [
+      "carbon black"
+    ],
     "sizes": [
       "M",
       "L"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778107668/2179322.png",
-    "image": "Scott/Plasma_RC_LTD_HMX_Frameset.jpg"
+    "image": "Scott/Plasma_RC_LTD_HMX_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778107668/2179323.png"
+    ],
+    "color_images": [
+      "Scott/Plasma_RC_LTD_HMX_Frameset_colour_carbon_black.jpg"
+    ]
   },
   {
     "name": "Plasma RC Pro",
@@ -2031,13 +2365,21 @@
       "Buitenband": "Schwalbe PRO ONE Aero, TL-Easy, Fold,700x28C",
       "Achterband": "Schwalbe PRO ONE Aero, TL-Easy, Fold,700x28C"
     },
-    "color_names": [],
+    "color_names": [
+      "carbon black"
+    ],
     "sizes": [
       "M",
       "L"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114302/2223047.png",
-    "image": "Scott/Plasma_RC_Pro.jpg"
+    "image": "Scott/Plasma_RC_Pro.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114302/2223047.png"
+    ],
+    "color_images": [
+      "Scott/Plasma_RC_Pro_colour_carbon_black.jpg"
+    ]
   },
   {
     "name": "Plasma RC TT Frameset",
@@ -2053,14 +2395,22 @@
       "Voorvork": "HMX Carbon fork for disc brake",
       "Accessories": "Plasma RC TT headset, Syncros Creston iC TT handlebar combo with Plasma RC TT extensions, Plasma RC TT HMX seatpost, Syncros SL ROAD plug-in thru axle"
     },
-    "color_names": [],
+    "color_names": [
+      "cumulus white/carbon black"
+    ],
     "sizes": [
       "S",
       "M",
       "L"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778132181/2290061.png",
-    "image": "Scott/Plasma_RC_TT_Frameset.jpg"
+    "image": "Scott/Plasma_RC_TT_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778132181/2290061.png"
+    ],
+    "color_images": [
+      "Scott/Plasma_RC_TT_Frameset_colour_cumulus_white_carbon_black.jpg"
+    ]
   },
   {
     "name": "Plasma RC TT HMX Frameset",
@@ -2083,7 +2433,13 @@
       "L"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778098853/2137410.png",
-    "image": "Scott/Plasma_RC_TT_HMX_Frameset.jpg"
+    "image": "Scott/Plasma_RC_TT_HMX_Frameset.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778098853/2137410.png"
+    ],
+    "color_images": [
+      "Scott/Plasma_RC_TT_HMX_Frameset_colour_ice_grey_progressive_grey.jpg"
+    ]
   },
   {
     "name": "Plasma RC Ultimate",
@@ -2122,6 +2478,12 @@
       "L"
     ],
     "image_url": "https://static.scott-sports.com/image/upload/w_1400/v1778114302/2223046.png",
-    "image": "Scott/Plasma_RC_Ultimate.jpg"
+    "image": "Scott/Plasma_RC_Ultimate.jpg",
+    "color_image_urls": [
+      "https://static.scott-sports.com/image/upload/w_1400/v1778114302/2223046.png"
+    ],
+    "color_images": [
+      "Scott/Plasma_RC_Ultimate_colour_chrome_silver.jpg"
+    ]
   }
 ]
