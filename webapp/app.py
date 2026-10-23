@@ -319,8 +319,10 @@ def create_app(db_path=None):
         model = db.get_model(conn(), slug=slug)
         if model is None:
             abort(404)
-        siblings = [m for m in models() if checks.family_of(m["name"]) == checks.family_of(model["name"])
-                    and m["brand"] == model["brand"] and m["id"] != model["id"]]
+        siblings = sorted((dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m)) for m in models()
+                           if checks.family_of(m["name"]) == checks.family_of(model["name"])
+                           and m["brand"] == model["brand"] and m["id"] != model["id"]),
+                          key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
         size_chart = checks.model_size_chart(model)
         return render_template("model.html", m=model, years=checks.model_years(model), siblings=siblings,
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),

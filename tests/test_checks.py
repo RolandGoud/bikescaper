@@ -673,3 +673,11 @@ def test_105_rules_yield_to_a_higher_group(models):
     assert r["year_estimate"] is None or "105" not in en(r["year_estimate"]["evidence"][0])
     r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2 11-speed, 105 cassette")
     assert "Ultegra" in en(r["year_estimate"]["evidence"][0])
+
+
+def test_model_page_shows_family_as_tiles(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/canyon-endurace-allroad?lang=nl").data.decode()
+    others = page.split("Andere Endurace-modellen")[1]
+    assert 'class="model-card" href="/models/canyon-endurace-cf-7"' in others and "brand-mark" in others
