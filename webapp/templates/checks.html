@@ -5,13 +5,6 @@
 {% macro check_row(row, r, asking) -%}
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <article class="check-row">
-  <header class="check-row-head">
-    <span class="mono">#{{ row.id }} · {{ row.created_at[:16] }}</span>
-    {% if row.source %}<span class="badge">{{ _('Daily example') }}</span>{% endif %}
-    {% if row.times_checked > 1 %}<span class="badge">{{ _('This ad: {n}× checked', n=row.times_checked) }}</span>{% endif %}
-    {% if row.removed_at %}<span class="removed-tag">{{ _('Removed') }}</span>{% endif %}
-    <a class="open" href="{{ url_for('report', check_id=row.id) }}">{{ _('Open report') }} →</a>
-  </header>
   <div class="check-row-body">
     <a class="check-row-photo" href="{{ url_for('report', check_id=row.id) }}" tabindex="-1" aria-hidden="true">
       {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% elif row.photos %}<div class="photo"><img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
@@ -56,6 +49,12 @@
       {% endif %}
     </section>
   </div>
+  <footer class="check-row-foot">
+    <span class="mono">#{{ row.id }} · {{ row.created_at[:16] }}</span>
+    {% if row.times_checked > 1 %}<span class="badge">{{ _('This ad: {n}× checked', n=row.times_checked) }}</span>{% endif %}
+    {% if row.removed_at %}<span class="removed-tag">{{ _('Removed') }}</span>{% endif %}
+    <a class="open" href="{{ url_for('report', check_id=row.id) }}">{{ _('Open report') }} →</a>
+  </footer>
 </article>
 {%- endmacro %}
 <main class="wrap page">
@@ -66,11 +65,6 @@
   <div class="filters" aria-label="{{ _('Views') }}">
     <a class="pill" href="{{ url_for('listings') }}">{{ _('One card per ad') }}</a>
     <a class="pill on" href="{{ url_for('all_checks') }}" aria-current="page">{{ _('Every check') }}</a>
-  </div>
-  <div class="filters" aria-label="{{ _('Filter by who checked') }}">
-    <a class="pill small-pill {{ 'on' if not source }}" href="{{ url_for('all_checks') }}">{{ _('All') }}<span class="count">{{ total }}</span></a>
-    <a class="pill small-pill {{ 'on' if source == 'visitors' }}" href="{{ url_for('all_checks', source='visitors') }}">{{ _('By visitors') }}<span class="count">{{ counts.visitors }}</span></a>
-    <a class="pill small-pill {{ 'on' if source == 'daily' }}" href="{{ url_for('all_checks', source='daily') }}">{{ _('Daily examples') }}<span class="count">{{ counts.daily }}</span></a>
   </div>
   {% if items %}
   <div class="check-rows">

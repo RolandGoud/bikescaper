@@ -300,6 +300,4 @@ def test_all_checks_page_shows_request_and_result(tmp_path):
     page = client.get("/checks?lang=en").data.decode()
     assert page.count('class="check-row"') == 3
     assert "181 cm" in page and "Utrecht" in page and "€2.450" in page and "Fair value" in page
-    assert "This ad: 2× checked" in page and "Daily example" in page
-    page = client.get("/checks?lang=en&source=visitors").data.decode()
-    assert page.count('class="check-row"') == 2 and "Daily example</span>" not in page
+    assert "This ad: 2× checked" in page and "Daily example" not in page  # daily checks aren't marked

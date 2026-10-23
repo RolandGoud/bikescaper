@@ -568,6 +568,9 @@ def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
         # Only the check made from a link has a photo of its own, so only that card merges two photos.
         assert page.count('class="photo duo"') == 1, url
         assert ad_photo.replace("&", "&amp;") in page and 'class="duo-range"' in page
+    # On the report the merged slider is the first tile of the ad's photo strip.
+    report = client.get("/check/1?lang=en").get_data(as_text=True)
+    assert 0 < report.index('class="strip-duo"') < report.index('data-photo="0"')
 
 
 @pytest.mark.parametrize("title, name, year, size, colour", [
