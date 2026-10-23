@@ -203,7 +203,7 @@ def work_out(ad_path, catalogue_path, zoom=None):
         with Image.open(ad_path) as ad, Image.open(catalogue_path) as catalogue:
             ad.load()
             catalogue.load()
-            left = bike_direction.faces_left(ad)
+            left = faces_left(ad_path)
             fit = find(ad, catalogue)
             box = bike_box(catalogue)
             place = None
@@ -242,27 +242,54 @@ def _read(ad_path):
         return {}
 
 
+def _save(ad_path, key, value):
+    with _lock:
+        saved = {k: v for k, v in _read(ad_path).items() if k.startswith(f"v{CACHE_VERSION}:")}
+        saved[key] = value
+        with open(_cache_path(ad_path) + ".tmp", "w") as f:
+            json.dump(saved, f)
+        os.replace(_cache_path(ad_path) + ".tmp", _cache_path(ad_path))
+
+
 def _worker():
     while True:
         ad_path, catalogue_path, zoom = _queue.get()
         try:
-            key = _key(catalogue_path, zoom)
-            result = work_out(ad_path, catalogue_path, zoom)
-            with _lock:
-                saved = {k: v for k, v in _read(ad_path).items() if k.startswith(f"v{CACHE_VERSION}:")}
-                saved[key] = result
-                with open(_cache_path(ad_path) + ".tmp", "w") as f:
-                    json.dump(saved, f)
-                os.replace(_cache_path(ad_path) + ".tmp", _cache_path(ad_path))
+            _save(ad_path, _key(catalogue_path, zoom), work_out(ad_path, catalogue_path, zoom))
         except Exception as e:  # keep the worker going; the next page view asks again
             print(f"lining up {ad_path} failed: {e}", file=sys.stderr, flush=True)
         finally:
             _pending.discard((ad_path, catalogue_path, zoom))
 
 
+# Which way the bike faces depends on the ad photo alone and takes a few hundredths of a second, so
+# it's worked out straight away and kept apart from the placements. A tile whose placement is still
+# being worked out (a new ad, or another catalogue photo, like the one in the ad's colour) is then
+# already the right way round.
+DIRECTION = f"v{CACHE_VERSION}:direction"
+
+
+def faces_left(ad_path):
+    """bike_direction.faces_left for a photo file, kept in its .fit.json; None when unsure or unreadable."""
+    saved = _read(ad_path)
+    if DIRECTION in saved:
+        return saved[DIRECTION]
+    try:
+        with Image.open(ad_path) as ad:
+            ad.draft("RGB", (512, 384))  # a JPEG decodes at a fraction of its size: the net looks at 128x96
+            left = bike_direction.faces_left(ad)
+    except (OSError, ValueError):
+        return None
+    try:
+        _save(ad_path, DIRECTION, left)
+    except OSError:
+        pass
+    return left
+
+
 def style(ad_path, catalogue_path, zoom=None):
-    """The placement for this pair of photo files if it's been worked out, else None (draw the ad
-    photo as it is) and it's worked out in the background for the next view."""
+    """The placement for this pair of photo files if it's been worked out. Until then it's worked out in
+    the background for the next view, and the photo is only mirrored if the bike faces left."""
     try:
         key = _key(catalogue_path, zoom)
     except OSError:
@@ -270,6 +297,7 @@ def style(ad_path, catalogue_path, zoom=None):
     saved = _read(ad_path)
     if key in saved:
         return saved[key]
+    left = faces_left(ad_path) if os.path.exists(ad_path) else None
     job = (ad_path, catalogue_path, zoom)
     with _lock:
         if job not in _pending and os.path.exists(ad_path):
@@ -278,4 +306,4 @@ def style(ad_path, catalogue_path, zoom=None):
                 _worker_started.append(True)
             _pending.add(job)
             _queue.put(job)
-    return None
+    return {"flip": True} if left else None
