@@ -15,6 +15,8 @@ import threading
 import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 
+from . import bike_direction
+
 WORK_WIDTH = 160            # the ad photo is searched at this width
 FINE_WIDTH = 240            # and the bike looked at this wide to tell which way it faces
 SIZES = np.linspace(0.45, 1.0, 12)  # bike width as a share of the ad photo's width
@@ -192,14 +194,22 @@ def placement(fit, ad_size, catalogue_size, catalogue_box, zoom=None):
 
 
 def work_out(ad_path, catalogue_path, zoom=None):
-    """The placement for this pair of photo files, or None when the bike can't be found."""
+    """The placement for this pair of photo files; just {"flip": True} when the bike faces left but
+    can't be lined up (most real ads: part of the bike, clutter); None when there's nothing to do.
+
+    Which way it faces comes from bike_direction, which is right far more often on real photos than
+    the outline match; the outline's own guess only counts when bike_direction can't tell."""
     try:
         with Image.open(ad_path) as ad, Image.open(catalogue_path) as catalogue:
             ad.load()
             catalogue.load()
+            left = bike_direction.faces_left(ad)
             fit = find(ad, catalogue)
             box = bike_box(catalogue)
-            return placement(fit, ad.size, catalogue.size, box, zoom) if fit and box else None
+            place = None
+            if fit and box and left in (None, fit["flip"]):
+                place = placement(fit, ad.size, catalogue.size, box, zoom)
+            return place or ({"flip": True} if left else None)
     except (OSError, ValueError):
         return None
 
@@ -213,7 +223,7 @@ _lock = threading.Lock()
 _worker_started = []
 
 
-CACHE_VERSION = 2  # bump when the way it's worked out changes, so older results are redone
+CACHE_VERSION = 3  # bump when the way it's worked out changes, so older results are redone
 
 
 def _key(catalogue_path, zoom):
