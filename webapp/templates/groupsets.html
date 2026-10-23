@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% from "_macros.html" import tier_badge %}
+{% block title %}{{ _('Groupset upgrade paths') }} · Bike Compare{% endblock %}
+{% macro brakes(g) -%}
+{{ _('Rim or disc') if g.brakes|length > 1 else (_('Disc') if g.brakes[0] == 'disc' else _('Rim')) }}
+{%- endmacro %}
+{% macro facts(g) -%}
+{{ _('{n}-speed', n=g.speeds) }} · {{ _(shift_labels[g.shift]) }} · {{ brakes(g) }}
+{%- endmacro %}
+{% macro path_groups(items_) -%}
+{% for level, items in items_|groupby('1.effort') %}
+<div class="path-group">
+  <div class="path-head"><span class="effort e{{ level }}">{{ level }}</span><h3>{{ _(effort[level][0]) }}</h3><span class="small muted">{{ _(effort[level][1]) }}</span></div>
+  <div class="path-grid">
+    {% for g, p in items %}
+    <div class="path-card">
+      <div class="row" style="justify-content: space-between; gap: 8px">
+        <strong>{{ g.brand }} {{ g.name }}</strong>{{ tier_badge(g.tier, small=true) }}
+      </div>
+      <span class="mono small muted">{{ facts(g) }}</span>
+      {% if p.steps %}<ul>{% for step in p.steps %}<li>{{ step }}</li>{% endfor %}</ul>{% endif %}
+      <a class="small" href="{{ url_for('groupset_paths', have=g.key) }}#paths">{{ _('Upgrades from here') }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{%- endmacro %}
+{% block body %}
+<main class="wrap page">
+  <div class="stack" style="gap: 8px">
+    <h1 style="font-size: 44px">{{ _('Groupset upgrade paths') }}</h1>
+    <p class="muted">{{ _("Each brand's groupsets from basic to top. Pick the one on your bike to see what you can upgrade to, and what has to change.") }}</p>
+  </div>
+  <div class="filter-box">
+    <nav class="logo-pills" aria-label="{{ _('Type') }}">
+      {% for key, label in disciplines %}<a class="pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', type=key) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
+    </nav>
+    <form class="filter-row" method="get" action="{{ url_for('groupset_paths') }}#paths">
+      <label class="field-label">{{ _('Your groupset') }}
+        <select name="have" onchange="this.form.requestSubmit()">
+          <option value="">{{ _('Pick your groupset') }}</option>
+          {% for brand, brand_ladders in ladders %}
+          <optgroup label="{{ brand }}">
+            {% for label, steps in brand_ladders %}{% for s in steps %}{% for g in s.gens %}
+            <option value="{{ g.key }}" {{ 'selected' if current and current.key == g.key }}>{{ g.name }} · {{ _('{n}-speed', n=g.speeds) }}{{ ' · ' ~ _(shift_labels[g.shift]) if g.shift != 'mech' }}</option>
+            {% endfor %}{% endfor %}{% endfor %}
+          </optgroup>
+          {% endfor %}
+        </select>
+      </label>
+      <button class="btn ghost" type="submit">{{ _('Show upgrades') }}</button>
+      {% if current %}<a class="small" href="{{ url_for('groupset_paths', type=kind) }}">{{ _('Clear') }}</a>{% endif %}
+    </form>
+  </div>
+
+  {% if current %}
+  <section class="card" id="paths">
+    <div class="stack" style="gap: 10px">
+      <h2>{{ _('Upgrades from {name}', name=current.brand ~ ' ' ~ current.name) }}</h2>
+      <div class="row small">
+        {{ tier_badge(current.tier, small=true) }}
+        <span class="mono">{{ facts(current) }} · {{ _(freehubs[current.freehubs[0]]) }}</span>
+      </div>
+    </div>
+    {% set own = paths|selectattr('0.brand', 'equalto', current.brand)|list %}
+    {% set switch = paths|rejectattr('0.brand', 'equalto', current.brand)|list %}
+    {{ path_groups(own) }}
+    {% if not own %}<p>{{ _("This is the top of its line: nothing above it from {brand} in our list yet.", brand=current.brand) }}</p>{% endif %}
+    {% if switch %}
+    <details class="path-switch">
+      <summary>{{ _('Switching brand: {n} options', n=switch|length) }}</summary>
+      {{ path_groups(switch) }}
+    </details>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% for brand, brand_ladders in ladders %}
+  <section class="stack">
+    <h2>{{ brand }}</h2>
+    {% for label, steps in brand_ladders %}
+    <div class="ladder-block">
+      {% if brand_ladders|length > 1 %}<div class="ladder-label">{{ _(label) }}</div>{% endif %}
+      {% set linked = namespace(keys=[]) %}
+      <ol class="ladder">
+        {% for s in steps %}
+        <li class="step">
+          <div class="step-head"><span class="step-name">{{ s.name }}</span>{{ tier_badge(s.tier, small=true) }}</div>
+          <ul class="gens">
+            {% for g in s.gens %}
+            {% set p = by_key.get(g.key) %}
+            {% set here = current and current.key == g.key %}
+            <li><a class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}" href="{{ url_for('groupset_paths', have=g.key) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ _(effort[p.effort][0]) }}"{% endif %}>
+              <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="effort e{{ p.effort }}" aria-label="{{ _(effort[p.effort][0]) }}">{{ p.effort }}</span>{% elif here %}<span class="yours">{{ _('Yours') }}</span>{% endif %}</span>
+              <span class="gen-facts">{{ facts(g) }} · {{ g.year }}</span>
+            </a></li>
+            {% endfor %}
+          </ul>
+          {% if s.catalog and counts.get(s.catalog) and s.catalog not in linked.keys %}{% set linked.keys = linked.keys + [s.catalog] %}
+          <a class="small" href="{{ url_for('catalog', groupset=s.catalog) }}">{{ _('{n} models with {groupset}', n=counts[s.catalog], groupset=catalog_names[s.catalog]) if counts[s.catalog] != 1 else _('1 model with {groupset}', groupset=catalog_names[s.catalog]) }}</a>{% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+
+  {% set others = other_brands|selectattr(1, 'equalto', kind)|list %}
+  {% if others %}
+  <section class="card">
+    <h2>{{ _('Other brands') }}</h2>
+    <div class="kv">{% for name, _kind, text in others %}<div>{{ name }}</div><div>{{ _(text) }}</div>{% endfor %}</div>
+  </section>
+  {% endif %}
+
+  <section class="card">
+    <h2>{{ _('How to read this') }}</h2>
+    <div class="kv">
+      {% for level, (name, text) in effort.items() %}<div><span class="effort e{{ level }}">{{ level }}</span> {{ _(name) }}</div><div>{{ _(text) }}</div>{% endfor %}
+    </div>
+    <p class="small muted">{{ _('Each groupset carries the same spec tier as on the model pages.') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></p>
+    <p class="small muted">{{ _("Rules of thumb for swapping a whole groupset, from the makers' compatibility charts. Check the exact parts with your bike shop before you buy: frames, cranks and wheels have their own limits.") }}</p>
+  </section>
+</main>
+{% endblock %}

@@ -21,6 +21,7 @@
         <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}">{{ _('Selling') }}</a>
         <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}">{{ _('Listings') }}</a>
         <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}">{{ _('Models') }}</a>
+        <a href="{{ url_for('groupset_paths') }}" class="{{ 'on' if nav == 'groupsets' }}">{{ _('Groupsets') }}</a>
         <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}">{{ _('Size finder') }}</a>
         <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}">{{ _('Value') }}</a>
       </nav>

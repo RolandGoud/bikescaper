@@ -16,9 +16,9 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf, seller, sponsored
+from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
-from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
+from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
@@ -403,9 +403,12 @@ def create_app(db_path=None):
         kind = request.args.get("type")
         current = request.args.get("current")
         tier = request.args.get("tier", type=int)
+        groupset = request.args.get("groupset") or None  # from a series on the groupsets page
+        groupset_name = next((name for key, name, _p, _t in GROUPSETS if key == groupset), None)
         items = [dict(m, discipline=checks.discipline_of(m), status=checks.catalogue_status(m)[0],
                       tier=checks.model_tier(m))
-                 for m in models() if (not picked or m["brand"] in picked) and (not q or q in m["name"].lower())]
+                 for m in models() if (not picked or m["brand"] in picked) and (not q or q in m["name"].lower())
+                 and (not groupset or groupset_key(m) == groupset)]
         items = [m for m in items if not current or m["status"] == "current"]
         tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
                        for t in TIERS}
@@ -420,7 +423,32 @@ def create_app(db_path=None):
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
                                counts=counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
-                               tier=tier, tier_counts=tier_counts, nav="models", sponsored=offers(("banner", "side")))
+                               tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
+                               nav="models", sponsored=offers(("banner", "side")))
+
+    def groupset_key(model):
+        found = checks.detect_groupset(checks.groupset_text(model))
+        return found and found["key"]
+
+    @app.route("/groupsets")
+    def groupset_paths():
+        """Each brand's groupsets from basic to top, and what it takes to upgrade from the one you have."""
+        current = groupsets.GENERATIONS.get(request.args.get("have"))
+        kind = current["discipline"] if current else request.args.get("type")
+        kind = kind if kind in dict(groupsets.DISCIPLINES) else "road"
+        paths = groupsets.upgrades(current["key"]) if current else []
+        counts = {}
+        for m in models():
+            key = groupset_key(m)
+            if key:
+                counts[key] = counts.get(key, 0) + 1
+        return render_template("groupsets.html", kind=kind, current=current, paths=paths,
+                               by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind),
+                               generations=groupsets.GENERATIONS, disciplines=groupsets.DISCIPLINES,
+                               effort=groupsets.EFFORT, shift_labels=groupsets.SHIFT_LABELS,
+                               freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS, counts=counts,
+                               catalog_names={key: name for key, name, _p, _t in GROUPSETS},
+                               nav="groupsets")
 
     @app.route("/models/<slug>")
     def model_page(slug):
