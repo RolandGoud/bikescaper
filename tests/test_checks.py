@@ -613,3 +613,12 @@ def test_certainty_comes_back_when_our_match_is_picked_again(tmp_path):
     client.post("/check/1/match", data={"model_id": ours})
     page = client.get("/check/1?lang=nl").data.decode()
     assert f"zekerheid: {level}" in page and "Gekozen door jou" not in page
+
+
+def test_size_systems_split_frame_and_letter_sizes(tmp_path):
+    assert checks.size_systems(["47", "50", "XS", "M"]) == [("Frame size (cm)", ["47", "50"]), ("Letter sizes", ["XS", "M"])]
+    assert checks.size_systems(["S", "M"]) == [("Letter sizes", ["S", "M"])]
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/size?brand=Trek&height=178&lang=en").data.decode()
+    assert page.count('class="sizes"') == 2 and "Letter sizes" in page
