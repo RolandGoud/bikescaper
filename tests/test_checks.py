@@ -471,7 +471,7 @@ def test_report_shows_tiers_and_part_icons(tmp_path):
     page = client.get("/check/1?lang=en").get_data(as_text=True)
     assert 'class="part-icon"' in page
     assert 'class="tier small t4 up"' in page and 'class="tier small t1 down"' in page
-    assert "RESULT" not in page
+    assert "RESULT" not in page and "Check photos" not in page
 
 
 def test_carbon_frame_is_not_carbon_wheels():
@@ -597,6 +597,8 @@ def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
     # ...the ad photo also shows on its own, and the slider opens big in the lightbox, ahead of the photos.
     assert report.count(f'href="{ad_photo}"'.replace("&", "&amp;")) == 1
     assert report.index('<dialog class="lightbox"') < report.index('class="lb-duo"') < report.index('</dialog>')
+    # Parts we can only judge from the photos link to them instead of saying "check photos" twice.
+    assert '<a class="open-photos" href="#ad-photos">Compare photos' in report and "Check photos" not in report
 
 
 @pytest.mark.parametrize("title, name, year, size, colour", [

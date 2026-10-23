@@ -759,11 +759,11 @@ def check_specs(model, claims):
         elif ad:
             rows.append(_row(key, part, ref_val or Msg("Not in our data"), ad["label"], UNKNOWN, "Can't compare"))
         elif ref_val:
-            rows.append(_row(key, part, ref_val, Msg("Check photos"), UNKNOWN, "Compare photos"))
+            rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
     for key, part, keys in (("crankset", "Crankset", ("Crankstel",)), ("saddle", "Saddle", ("Zadel",))):
         ref_val = spec(model, *keys)
         if ref_val:
-            rows.append(_row(key, part, ref_val, Msg("Check photos"), UNKNOWN, "Compare photos"))
+            rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
 
     for row in rows:
         row["ref_tier"] = ref_group["tier"] if row["key"] == "groupset" and ref_group else _ref_tier(model, row["key"])
