@@ -702,11 +702,11 @@ def test_value_axis_runs_from_zero_to_the_end_of_the_scale():
     assert ticks[0][1] == 0 and ticks[-1][1] == 100
 
 
-def test_models_page_has_every_brand_on_by_default(tmp_path):
+def test_models_page_starts_on_all_brands(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
-    page = app.test_client().get("/models?lang=en").data.decode()
-    assert page.count('class="pill brand on"') == 7
-    # a click on Trek shows every brand but Trek
-    assert 'href="/models?brand=Canyon&amp;brand=Specialized&amp;brand=Giant&amp;brand=Cannondale&amp;brand=Cube&amp;brand=Factor"' in page
+    page = app.test_client().get("/models?lang=nl").data.decode()
+    assert 'class="pill brand all on" href="/models" aria-current="true">Alle merken' in page
+    assert page.count('class="pill brand on"') == 0 and 'href="/models?brand=Trek"' in page
     page = app.test_client().get("/models?lang=en&brand=Trek").data.decode()
+    assert 'class="pill brand all " href="/models">All brands' in page
     assert page.count('class="pill brand on"') == 1 and 'href="/models" aria-current="true"' in page
