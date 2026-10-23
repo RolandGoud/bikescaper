@@ -712,6 +712,30 @@ def test_models_page_starts_on_all_brands(tmp_path):
     assert page.count('class="pill brand on"') == 1 and 'href="/models" aria-current="true"' in page
 
 
+def test_seller_named_version_wins(models):
+    # An S-Works Tarmac SL7 is not an SL9: the version number the seller names outweighs "S-Works".
+    r = run(models, "Specialized S-Works Tarmac SL7", "", 3400)
+    assert "SL7" in r["model"]["name"]
+    assert r["name_check"]["extra"] == ["S-Works"] and "Sport" in r["name_check"]["missing"]
+    # With no SL6 in the catalogue we still compare with a Tarmac, but say we disagree with the seller.
+    r = run(models, "Specialized S-Works Tarmac SL6 2019", "", 2500)
+    assert r["name_check"]["conflicts"] == [("SL9", "SL6")]
+    assert r["confidence"] is not None and str(r["confidence"]) in ("low", "laag")
+    # The generation counts too, and an exact name has nothing to say.
+    assert run(models, "Trek Domane SL6 gen 3", "", 1500)["name_check"]["conflicts"] == [("Gen 4", "Gen 3")]
+    assert run(models, "Trek Domane SL 6 Gen 4 2023 maat 56", "", 2500)["name_check"] is None
+
+
+def test_report_says_when_we_dispute_the_model(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    resp = client.post("/check", data={"title": "Specialized S-Works Tarmac SL6 2019", "asking_price": "2500"})
+    page = client.get(resp.headers["Location"] + "?lang=nl").data.decode()
+    assert "Wij denken dat dit een ander model is dan de verkoper zegt" in page
+    assert "De advertentie zegt SL6, dit model is een SL9." in page
+
+
 def test_value_uses_the_oldest_estimated_year(models):
     r = run(models, "Trek Domane SL 6 gen 4", "Shimano 105 Di2 2x12, schijfremmen", price=2000)
     assert r["value"]["model_year"] == 2023

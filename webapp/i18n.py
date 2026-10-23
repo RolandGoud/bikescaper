@@ -189,6 +189,15 @@ NL = {
     "medium": "gemiddeld",
     "low": "laag",
     "Chosen by you": "Gekozen door jou",
+    "We think this is another model than the seller says": "Wij denken dat dit een ander model is dan de verkoper zegt",
+    "The seller's name doesn't fully match this model": "De naam in de advertentie past niet helemaal bij dit model",
+    "The ad says {theirs}, this model is a {ours}. We have no closer {theirs} in our catalogue, so everything below compares with the {ours}.":
+        "De advertentie zegt {theirs}, dit model is een {ours}. We hebben geen {theirs} die beter past, dus alles hieronder vergelijkt met de {ours}.",
+    "In the ad and in this model: {words}": "In de advertentie én in dit model: {words}",
+    "In the ad, not in this model: {words}": "In de advertentie, niet in dit model: {words}",
+    "In this model, not in the ad: {words}": "In dit model, niet in de advertentie: {words}",
+    "We match on the model words in the ad's title and description (family, version number and build), plus the year and groupset. We don't read the photos. Know better? Pick the right model above.":
+        "We koppelen op de modelwoorden in de titel en beschrijving (familie, versienummer en uitvoering), plus het jaar en de groep. Foto's lezen we niet. Weet je het beter? Kies hierboven het juiste model.",
     "Change match": "Ander model kiezen",
     "All models": "Alle modellen",
     "Open the ad": "Advertentie openen",

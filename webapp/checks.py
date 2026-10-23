@@ -345,6 +345,25 @@ def model_tier(model):
     return spec_tiers(model)["overall"]
 
 
+def _numbered(tokens):
+    """The (word, number) pairs in a token list: "Tarmac SL 7 Gen 4" gives {("sl", "7"), ("gen", "4")}."""
+    return {(a, b) for a, b in zip(tokens, tokens[1:]) if a.isalpha() and b.isdigit()}
+
+
+def conflicts(model, text):
+    """Where the ad names another version of a numbered part of this model's name: [("SL9", "SL7")] when the
+    model is an SL9 and the ad says SL7. Only the name before the " - " counts, so "Shimano 105" in the build
+    can't clash with "Shimano 11 speed"."""
+    ad_pairs = _numbered(_tokens(text))
+    found = []
+    for part, number in sorted(_numbered(_tokens(model["name"].split(" - ")[0]))):
+        said = sorted({n for w, n in ad_pairs if w == part})
+        if said and number not in said:
+            label = "Gen " if part == "gen" else part.upper() if len(part) <= 3 else part.title()
+            found.append((f"{label}{number}", "/".join(f"{label}{n}" for n in said)))
+    return found
+
+
 def match_models(models, title, description="", claims=None):
     """Rank catalogue models for a listing. Returns [(score, model)] best first."""
     claims = claims or read_claims(title, description)
@@ -356,8 +375,11 @@ def match_models(models, title, description="", claims=None):
         if claims["brand"] and model["brand"] != claims["brand"]:
             continue
         name_toks = _tokens(model["name"])
-        if not name_toks or name_toks[0] not in all_toks:
-            continue  # the model family (Domane, Ultimate, ...) must be named
+        family = [t for t in name_toks if t not in ("s", "works")][:1]
+        if not family or family[0] not in all_toks:
+            continue  # the model family (Domane, Ultimate, Tarmac in "S-Works Tarmac") must be named
+        # The seller names another version: an SL7 is not an SL9 (Gen has its own rule below).
+        clashes = sum(not ours.startswith("Gen") for ours, _ in conflicts(model, title))
         score = 0.0
         skip_next = False
         for i, tok in enumerate(name_toks):
@@ -384,9 +406,36 @@ def match_models(models, title, description="", claims=None):
         ref_group = detect_groupset(groupset_text(model))
         if ref_group and claims["groupset"] and ref_group["key"] == claims["groupset"]["key"]:
             score += 0.25
+        score -= 3 * clashes  # still a candidate when we have nothing closer, but a weak one
         ranked.append((round(score, 2), model))
     ranked.sort(key=lambda pair: (-pair[0], pair[1]["price_eur"] or 0))
     return ranked
+
+
+def name_check(model, models, title, description=""):
+    """How the seller's name for the bike compares with the model we matched, or None when they agree.
+
+    {"conflicts": [(our word, the ad's word)] like ("SL9", "SL7"), "found": our model's words the ad names,
+    "missing": our model's words the ad doesn't name, "extra": words in the title that are model words for
+    this brand (S-Works, Expert, ...) but aren't in our model}.
+    """
+    ad_toks = set(_tokens(f"{title} {description or ''}"))
+    clashes = conflicts(model, title)
+    words = model["name"].split(" - ")[0].split()
+    clash_toks = {t for pair in clashes for side in pair for t in _tokens(side)}
+    found = [w for w in words if all(t in ad_toks for t in _tokens(w)) and not set(_tokens(w)) <= clash_toks]
+    missing = [w for w in words if w not in found and not set(_tokens(w)) <= clash_toks]
+    model_toks = set(_tokens(model["name"]))
+    brand_toks = {t for m in models if m["brand"] == model["brand"] for t in _tokens(m["name"].split(" - ")[0])}
+    extra = []
+    for w in title.split():
+        toks = _tokens(w)
+        if (toks and w not in extra and not all(t in model_toks for t in toks) and all(t in brand_toks for t in toks)
+                and not all(t in clash_toks or t.isdigit() for t in toks)):
+            extra.append(w)
+    if not clashes and not missing and not extra:
+        return None
+    return {"conflicts": clashes, "found": found, "missing": missing, "extra": extra}
 
 
 def confidence(ranked):
@@ -935,6 +984,8 @@ def run_check(models, listing, today=None):
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen}
     if chosen is None:
         return report
+    if not chosen_by_you:
+        report["name_check"] = name_check(chosen, models, listing["title"], listing.get("description"))
     report["age"] = check_age(chosen, claims, today)
     report["year_estimate"] = estimate_year(chosen, models, claims,
                                             f"{listing['title']}\n{listing.get('description') or ''}")
