@@ -300,6 +300,7 @@ NL = {
     "Seen in catalogue": "In catalogus gezien",
     "Colours": "Kleuren",
     "{brand} product page": "Productpagina van {brand}",
+    "Product page": "Productpagina",
     "Estimate a used price": "Schat een tweedehands prijs",
     "Our scrape": "Onze scrape",
     "Wayback Machine copy": "Kopie in de Wayback Machine",
