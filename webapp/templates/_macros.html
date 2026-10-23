@@ -22,8 +22,8 @@
   <div class="factory">{{ photo(model) }}</div>
   {{ brand_mark(model.brand) }}
   <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
-  {# The handle is the cut line itself; the labels sit at the bottom, slanted like the cut, either side of it. #}
-  <span class="duo-handle" aria-hidden="true"></span>
+  {# The handle: the cut line with a slanted grip tab halfway; the labels sit at the bottom, slanted like the cut, either side of it. #}
+  <span class="duo-handle" aria-hidden="true"><span class="duo-grip"></span></span>
   <span class="duo-label ad"><span>{{ _('Ad') }}</span></span>
   <span class="duo-label brand"><span>{{ _('Catalogue') }}</span></span>
 </div>
