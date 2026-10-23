@@ -61,16 +61,37 @@
   </section>
   <section class="card">
     <h2>{{ _('Spec sheet') }}</h2>
-    <p class="small muted">{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=m.seen_on) }}
-      {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></p>
-    <div class="spec-groups">
-      {% for group, rows in specs %}
-      <div class="spec-group">
-        <h3>{{ _(group) }}{{ tier_badge(tiers.groups[group], small=true) if tiers.groups[group] }}</h3>
-        <div class="kv">{% for en, nl, v in rows %}<div>{{ nl if lang == 'nl' else en }}</div><div class="rated">{{ v }}{{ tier_dot(tiers.rows[en]) }}</div>{% endfor %}</div>
-      </div>
+    {% set shown = (year_tabs|selectattr('state', 'equalto', 'scrape')|list or year_tabs|selectattr('specs')|list or year_tabs)|last %}
+    <div class="year-tabs" role="tablist" aria-label="{{ _('Model year') }}">
+      {% for t in year_tabs %}
+      <button type="button" role="tab" class="year-tab {{ t.state }}" id="tab-{{ t.year }}" aria-controls="year-{{ t.year }}"
+              aria-selected="{{ 'true' if t is sameas shown else 'false' }}"
+              title="{% if t.state == 'scrape' %}{{ _('Our scrape') }}{% elif t.state == 'archive' %}{{ _('Wayback Machine copy') }}{% else %}{{ _('No spec sheet') }}{% endif %}">{{ t.year }}</button>
       {% endfor %}
     </div>
+    {% for t in year_tabs %}
+    <div class="year-panel" role="tabpanel" id="year-{{ t.year }}" aria-labelledby="tab-{{ t.year }}"{% if t is not sameas shown %} hidden{% endif %}>
+      {% if t.specs %}
+      <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}
+        {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
+        {% if t.changed %}<span class="changed-key"></span> {{ _('Changed since the year before.') }}{% endif %}</p>
+      <div class="spec-groups">
+        {% for group, rows in t.specs %}
+        <div class="spec-group">
+          <h3>{{ _(group) }}{{ tier_badge(t.tiers.groups[group], small=true) if t.tiers.groups[group] }}</h3>
+          <div class="kv">{% for en, nl, v in rows %}<div{% if en in t.changed %} class="changed"{% endif %}>{{ nl if lang == 'nl' else en }}</div><div class="rated{{ ' changed' if en in t.changed }}">{{ v }}{{ tier_dot(t.tiers.rows[en]) }}</div>{% endfor %}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% elif t.state == 'unreadable' %}
+      <p class="year-empty">{{ _('The Wayback Machine has a copy of this model\'s page from {date}, but without a spec list.', date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a></p>
+      {% elif t.state == 'none' %}
+      <p class="year-empty">{{ _('No data for {year}: the Wayback Machine has no copy of this model\'s page from that year, or the model wasn\'t sold under this name then.', year=t.year) }}</p>
+      {% else %}
+      <p class="year-empty">{{ _('No data for {year}: we haven\'t searched the archive for {brand} yet.', year=t.year, brand=m.brand) }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
   </section>
   <section class="card">
     <h2>{{ _('Sizes') }}</h2>
@@ -90,6 +111,13 @@
   {% endif %}
 </main>
 <script>
+  // Year tabs above the spec sheet.
+  document.querySelectorAll(".year-tab").forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      document.querySelectorAll(".year-tab").forEach(function (t) { t.setAttribute("aria-selected", t === tab); });
+      document.querySelectorAll(".year-panel").forEach(function (p) { p.hidden = p.id !== tab.getAttribute("aria-controls"); });
+    });
+  });
   // Colour swatches: show the colour's name, and its photo when we have one.
   document.querySelectorAll(".swatch").forEach(function (button) {
     button.addEventListener("click", function () {

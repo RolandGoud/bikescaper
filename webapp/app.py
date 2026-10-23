@@ -379,6 +379,7 @@ def create_app(db_path=None):
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
         return render_template("model.html", ads=ads, m=model, years=checks.model_years(model), siblings=siblings,
+                               year_tabs=checks.year_tabs(model),
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
