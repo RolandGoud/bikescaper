@@ -25,8 +25,8 @@ def test_same_system_mixes():
 
 def test_same_speeds_other_shifting_needs_shifters_and_derailleurs():
     p = path(GENERATIONS["r7000"], GENERATIONS["r8050"])
-    assert p["effort"] == 2
-    assert any("internal routing" in en(s) for s in p["steps"])  # wired Di2
+    assert p["effort"] == 2 and p["fit"] == "check"
+    assert any("internal routing" in en(s) for s in p["frame"])  # wired Di2
 
 
 def test_more_speeds_is_a_new_drivetrain():
@@ -37,9 +37,18 @@ def test_more_speeds_is_a_new_drivetrain():
 def test_freehub_and_frame_raise_the_effort():
     assert effort("m5100", "m8100") == 4  # HG to Micro Spline
     assert effort("nx-eagle", "gx-eagle") == 4  # HG to XD
-    assert effort("5800", "r7100") == 5  # rim brake 11-speed to disc only
     p = path(GENERATIONS["gx-eagle-axs"], GENERATIONS["xx-t"])
-    assert p["effort"] == 2 and any("UDH" in en(s) for s in p["steps"])  # AXS pods drive T-Type
+    assert p["effort"] == 2 and p["fit"] == "check" and any("UDH" in en(s) for s in p["frame"])  # pods drive T-Type
+
+
+def test_other_brake_mounts_dont_fit():
+    p = path(GENERATIONS["5800"], GENERATIONS["r7100"])  # rim brake 11-speed to disc only
+    assert p["fit"] == "no" and any("no mounts" in en(s) for s in p["frame"])
+    assert path(GENERATIONS["r7000"], GENERATIONS["r7100"])["fit"] == "ok"  # R7000 came in disc too
+    assert path(GENERATIONS["apex-12"], GENERATIONS["rival-axs"])["fit"] == "check"  # 1x to 2x: front mount
+    found = upgrades("5800")
+    fits = [p["fit"] == "no" for g, p in found if g["brand"] == "Shimano"]
+    assert fits == sorted(fits)  # the ones that don't fit come last
 
 
 def test_brand_switch_on_disc_road_brings_the_calipers():
@@ -59,7 +68,8 @@ def test_upgrades_go_up_and_stay_in_the_discipline():
 
 def test_every_series_has_a_tier_and_every_text_a_translation():
     texts = {label for _key, label in groupsets.DISCIPLINES} | set(groupsets.SHIFT_LABELS.values()) \
-        | set(groupsets.FREEHUBS.values()) | {t for pair in groupsets.EFFORT.values() for t in pair}
+        | set(groupsets.FREEHUBS.values()) | {t for pair in groupsets.EFFORT.values() for t in pair} \
+        | {t for pair in groupsets.FIT.values() for t in pair}
     for brand, by_discipline in groupsets.LADDERS.items():
         for ladders in by_discipline.values():
             for label, steps in ladders:
@@ -67,7 +77,8 @@ def test_every_series_has_a_tier_and_every_text_a_translation():
                 assert all(s["tier"] for s in steps), label
     for g in GENERATIONS.values():
         for other in GENERATIONS.values():
-            texts |= {s.text for s in path(g, other)["steps"]}
+            p = path(g, other)
+            texts |= {s.text for s in p["steps"] + p["frame"]}
     for text in texts:
         assert text in i18n.NL, text
 
@@ -80,6 +91,9 @@ def test_page_renders(tmp_path):
     assert "Groepset upgraden" in page and "Dura-Ace Di2 R9200" in page and "modellen met Shimano 105" in page
     page = client.get("/groupsets?have=r7000&lang=en").data.decode()
     assert "Upgrades from Shimano 105 R7000" in page and "Mix and match" in page and "Switching brand" in page
+    page = client.get("/groupsets?have=r9100&lang=en").data.decode()
+    assert "Check your frame" in page and "For example a UDH dropout" in page
+    assert "<h3>Doesn&#39;t fit your frame</h3>" in client.get("/groupsets?have=5800&lang=en").data.decode()
     assert "XTR M9100" in client.get("/groupsets?type=mtb").data.decode()
     assert client.get("/groupsets?have=nonsense").status_code == 200
     models = client.get("/models?groupset=105&lang=en").data.decode()
