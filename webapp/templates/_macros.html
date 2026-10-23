@@ -2,15 +2,16 @@
 {% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy"{% if model.brand != 'Canyon' %} class="on-white{{ ' trek' if model.brand == 'Trek' }}"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
 {%- endmacro %}
 
+{# The three verdicts as a small table: the topic on the left, the outcome with a ✓ ? ! icon on the right. #}
 {% macro chips(r) -%}
 {% if r.model %}
-<div class="chips">
-  <span class="chip {{ r.age.status }}-bg">{{ _('Age: {v}', v=r.age.headline|string|lower) }}</span>
-  <span class="chip {{ r.specs.status }}-bg">{{ _('Specs: {v}', v=r.specs.headline|string|lower) }}</span>
-  <span class="chip {{ r.value.status }}-bg">{{ _('Price: {v}', v=r.value.headline|string|lower) }}</span>
+<div class="tile-verdicts">
+  {% for label, v in [(_('Age'), r.age), (_('Parts'), r.specs), (_('Price'), r.value)] %}
+  <div class="tile-verdict"><span class="verdict-topic">{{ label }}</span><span class="verdict-outcome {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '?', 'bad': '!'}.get(v.status, '–') }}</i>{{ v.headline|string|lower }}</span></div>
+  {% endfor %}
 </div>
 {% else %}
-<div class="chips"><span class="chip unknown-bg">{{ _('No matching model yet') }}</span></div>
+<div class="tile-verdicts"><div class="tile-verdict"><span class="verdict-outcome unknown"><i aria-hidden="true">–</i>{{ _('No matching model yet') }}</span></div></div>
 {% endif %}
 {%- endmacro %}
 
