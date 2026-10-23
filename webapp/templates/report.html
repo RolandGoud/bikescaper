@@ -70,6 +70,10 @@
     </div>
     {% endif %}
     <p><span class="{{ r.age.status }}" style="font-weight: 700">{{ r.age.headline }}:</span> {{ r.age.detail }}</p>
+    {% if r.year_estimate %}
+    <p><span class="{{ r.year_estimate.status }}" style="font-weight: 700">{{ _('From the ad\'s details:') }} {{ r.year_estimate.headline }}.</span> {{ r.year_estimate.detail }}</p>
+    <ul class="small muted" style="margin: -8px 0 12px; padding-left: 20px">{% for e in r.year_estimate.evidence %}<li>{{ e }}</li>{% endfor %}</ul>
+    {% endif %}
     <p><span class="unknown" style="font-weight: 700">{{ _('Serial number:') }}</span> {{ _('ask for a photo of the sticker under the bottom bracket.') }}</p>
     <div class="notes">{% for n in r.age.notes %}<span>{{ n }}</span>{% endfor %}</div>
   </section>
