@@ -673,3 +673,15 @@ def test_105_rules_yield_to_a_higher_group(models):
     assert r["year_estimate"] is None or "105" not in en(r["year_estimate"]["evidence"][0])
     r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2 11-speed, 105 cassette")
     assert "Ultegra" in en(r["year_estimate"]["evidence"][0])
+
+
+def test_models_page_takes_several_brands(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models?lang=en&brand=Trek&brand=Canyon").data.decode()
+    assert "Madone" in page and "Speedmax" in page and "Tarmac" not in page
+    # each pill turns its own brand on or off and keeps the others
+    assert 'href="/models?brand=Canyon" aria-current="true"' in page
+    assert 'href="/models?brand=Trek&amp;brand=Canyon&amp;brand=Specialized"' in page
+    assert page.count('name="brand"') == 2 and "brand=Trek&amp;brand=Canyon&amp;lang=nl" in page

@@ -7,16 +7,19 @@
     <h1 style="font-size: 44px">{{ _('Models') }}</h1>
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
   </div>
-  {# One filter box: brand logos (click the selected one again to clear it), then type, tier, still sold and search.
+  {# One filter box: brand logos (each click turns that brand on or off, so several can be on), then type, tier,
+     still sold and search.
      Brands and types without bikes stay hidden. #}
   <div class="filter-box">
     <nav class="logo-pills" aria-label="{{ _('Brand') }}">
       {% for b in brands if b.scraper %}
-      <a class="pill brand {{ 'on' if brand == b.name }}" href="{{ url_for('catalog', type=kind, brand=None if brand == b.name else b.name, q=q or None, current=current, tier=tier) }}"{% if brand == b.name %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
+      {% set on = b.name in picked %}
+      {% set toggled = brands|map(attribute='name')|select('in', picked|reject('equalto', b.name)|list if on else picked + [b.name])|list %}
+      <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled, q=q or None, current=current, tier=tier) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
       {% endfor %}
     </nav>
     <form class="filter-row" method="get">
-      {% if brand %}<input type="hidden" name="brand" value="{{ brand }}">{% endif %}
+      {% for b in picked %}<input type="hidden" name="brand" value="{{ b }}">{% endfor %}
       <label class="field-label">{{ _('Type') }}
         <select name="type" onchange="this.form.requestSubmit()">
           <option value="">{{ _('All types') }} ({{ count }})</option>
