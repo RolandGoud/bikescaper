@@ -329,7 +329,8 @@ def upgrades(key):
                                            item[0]["tier"] or 0, -item[0]["year"]))
 
 
-def ladders(discipline):
-    """[(brand, [(ladder label, [series])])] for one discipline, brands in the order above."""
-    return [(brand, by_discipline[discipline]) for brand, by_discipline in LADDERS.items()
-            if discipline in by_discipline]
+def ladders(discipline, brand=None):
+    """[(brand, [(ladder label, [series])])] for one discipline, brands in the order above; only `brand`'s when
+    one is given."""
+    return [(b, by_discipline[discipline]) for b, by_discipline in LADDERS.items()
+            if discipline in by_discipline and brand in (None, b)]

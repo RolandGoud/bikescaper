@@ -434,8 +434,12 @@ def create_app(db_path=None):
     def groupset_paths():
         """Each brand's groupsets from basic to top, and what it takes to upgrade from the one you have."""
         current = groupsets.GENERATIONS.get(request.args.get("have"))
+        # One brand at a time, Shimano first; the groupset you pick sets the brand and type.
+        brand = current["brand"] if current else request.args.get("brand")
+        brand = brand if brand in groupsets.LADDERS else next(iter(groupsets.LADDERS))
+        kinds = [(key, label) for key, label in groupsets.DISCIPLINES if key in groupsets.LADDERS[brand]]
         kind = current["discipline"] if current else request.args.get("type")
-        kind = kind if kind in dict(groupsets.DISCIPLINES) else "road"
+        kind = kind if kind in dict(kinds) else kinds[0][0]
         paths = groupsets.upgrades(current["key"]) if current else []
         counts = {}
         for m in models():
@@ -443,8 +447,8 @@ def create_app(db_path=None):
             if key:
                 counts[key] = counts.get(key, 0) + 1
         return render_template("groupsets.html", kind=kind, current=current, paths=paths,
-                               by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind),
-                               generations=groupsets.GENERATIONS, disciplines=groupsets.DISCIPLINES,
+                               by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind, brand),
+                               brand=brand, brands=list(groupsets.LADDERS), disciplines=kinds,
                                effort=groupsets.EFFORT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS, counts=counts,
                                catalog_names={key: name for key, name, _p, _t in GROUPSETS},

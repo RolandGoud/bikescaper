@@ -84,3 +84,16 @@ def test_page_renders(tmp_path):
     assert client.get("/groupsets?have=nonsense").status_code == 200
     models = client.get("/models?groupset=105&lang=en").data.decode()
     assert "With Shimano 105" in models and 'name="groupset" value="105"' in models
+
+
+def test_one_brand_at_a_time(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    client = app.test_client()
+    page = client.get("/groupsets?lang=en").data.decode()
+    assert "Dura-Ace Di2 R9200" in page and "Red AXS" not in page  # Shimano first
+    page = client.get("/groupsets?brand=SRAM&lang=en").data.decode()
+    assert "Red AXS" in page and "Dura-Ace" not in page
+    page = client.get("/groupsets?brand=Campagnolo&type=mtb&lang=en").data.decode()
+    assert "Super Record" in page and "Mountain bike" not in page  # no MTB groups: back to road
+    page = client.get("/groupsets?have=gx-eagle&lang=en").data.decode()  # the groupset sets brand and type
+    assert 'aria-current="true">SRAM<' in page and "XX1 Eagle AXS" in page
