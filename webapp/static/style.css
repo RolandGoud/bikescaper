@@ -413,6 +413,26 @@ select { max-width: 100%; }
   .check-row-foot .open { margin-left: 0; flex-basis: 100%; }
   .check-col dl { grid-template-columns: minmax(84px, 32%) 1fr; gap: 6px 10px; }
 }
+/* All checks: the request on the left and a verdict table on the right (value page tiles keep the columns above) */
+.check-row-body.split { grid-template-columns: 300px 1fr; gap: 28px; }
+.check-row-ad { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.check-row-ad .check-row-photo { margin-bottom: 4px; }
+.check-row-title { font-weight: 700; font-size: 17px; line-height: 1.3; overflow-wrap: anywhere; }
+.check-row-ad .clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.check-row-facts { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; }
+.check-row-facts span { background: var(--ground); border-radius: 4px; padding: 3px 8px; }
+/* the verdict table: topic, outcome, the numbers behind it */
+.check-table { border-top: 1px solid var(--faint); min-width: 0; }
+.check-line { display: grid; grid-template-columns: 90px minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; padding: 9px 0; border-bottom: 1px solid var(--faint); font-size: 15px; }
+.check-line .verdict-outcome i { width: 18px; height: 18px; }
+.check-out { font-weight: 600; overflow-wrap: anywhere; }
+.check-num { font-size: 14px; color: var(--muted); }
+@media (max-width: 640px) {
+  .check-row-body.split { grid-template-columns: 1fr; gap: 16px; }
+  .check-line { grid-template-columns: 76px 1fr; gap: 4px 10px; }
+  .check-num { grid-column: 2; }
+  .check-num:empty { display: none; }
+}
 
 /* Report: the merged ad/catalogue slider is the first tile of the ad's photo strip, as tall as the photos. */
 .strip-duo { flex: none; width: 156px; height: 88px; border-radius: 6px; overflow: hidden; }
