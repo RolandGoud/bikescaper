@@ -33,6 +33,16 @@ def test_finds_the_bike_and_which_way_it_faces(tmp_path):
                 assert abs((1 - fit["x"] - fit["w"] if mirror else fit["x"]) - 0.4) < 0.08
 
 
+def test_unsure_without_a_whole_bike(tmp_path):
+    # Real ads often show only part of the bike: then the photo is drawn as it is, not zoomed in on a guess.
+    ad = tmp_path / "ad.jpg"
+    fake_ad(CATALOGUE, ad, False)
+    photo = Image.open(ad)
+    close_ups = [photo.crop((800, 360, 1120, 600)), photo.crop((480, 560, 800, 900)), photo.crop((0, 0, 1200, 300))]
+    for close_up in close_ups:
+        assert bike_fit.find(close_up.resize((1024, 768)), Image.open(CATALOGUE)) is None
+
+
 def test_placement_puts_the_bike_on_the_catalogue_bike_without_gaps(tmp_path):
     ad = tmp_path / "ad.jpg"
     fake_ad(CATALOGUE, ad, True)
