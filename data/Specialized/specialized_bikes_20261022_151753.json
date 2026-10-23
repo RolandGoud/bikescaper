@@ -46,7 +46,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94427-72_ROUBAIX-BASE-METDPMRNBLU-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Roubaix_SL8_Shimano_Tiagra.jpg"
+    "image": "Specialized/Roubaix_SL8_Shimano_Tiagra.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94427-72_ROUBAIX-BASE-METDPMRNBLU-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#5a5d6c"
+    ],
+    "color_images": [
+      "Specialized/Roubaix_SL8_Shimano_Tiagra_colour_Satin_Deep_Marine_Metallic.jpg"
+    ]
   },
   {
     "name": "Roubaix SL8 Comp - SRAM Rival AXS",
@@ -95,7 +104,16 @@
       "64"
     ],
     "image_url": "https://resources.specialized.com/image/94427-52_ROUBAIX-COMP-AXS-STLNMET-WRMSMKMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Roubaix_SL8_Comp_SRAM_Rival_AXS.jpg"
+    "image": "Specialized/Roubaix_SL8_Comp_SRAM_Rival_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94427-52_ROUBAIX-COMP-AXS-STLNMET-WRMSMKMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#2F2D31"
+    ],
+    "color_images": [
+      "Specialized/Roubaix_SL8_Comp_SRAM_Rival_AXS_colour_Satin_Warm_Smoke_Metallic.jpg"
+    ]
   },
   {
     "name": "Roubaix SL8 Comp - Shimano 105 Di2",
@@ -146,7 +164,19 @@
       "64"
     ],
     "image_url": "https://resources.specialized.com/image/94426-53_ROUBAIX-COMP-DI2-SLDMET-METOBSD-SMK_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Roubaix_SL8_Comp_Shimano_105_Di2.jpg"
+    "image": "Specialized/Roubaix_SL8_Comp_Shimano_105_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94426-53_ROUBAIX-COMP-DI2-SLDMET-METOBSD-SMK_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94426-52_ROUBAIX-COMP-DI2-GCLMET-WHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#79606D",
+      "#3A92C3"
+    ],
+    "color_images": [
+      "Specialized/Roubaix_SL8_Comp_Shimano_105_Di2_colour_Satin_Solidity_Metallic.jpg",
+      "Specialized/Roubaix_SL8_Comp_Shimano_105_Di2_colour_Gloss_Glacial_Metallic.jpg"
+    ]
   },
   {
     "name": "Roubaix SL8 Expert - Shimano Ultegra Di2",
@@ -196,7 +226,16 @@
       "64"
     ],
     "image_url": "https://resources.specialized.com/image/94426-31_ROUBAIX-EXPERT-FJDMET-PRL-EMDMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Roubaix_SL8_Expert_Shimano_Ultegra_Di2.jpg"
+    "image": "Specialized/Roubaix_SL8_Expert_Shimano_Ultegra_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94426-31_ROUBAIX-EXPERT-FJDMET-PRL-EMDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#628E88"
+    ],
+    "color_images": [
+      "Specialized/Roubaix_SL8_Expert_Shimano_Ultegra_Di2_colour_Gloss_Fjord_Metallic.jpg"
+    ]
   },
   {
     "name": "Roubaix SL8 Pro - SRAM Force AXS",
@@ -245,7 +284,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94426-10_ROUBAIX-PRO-CARB-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Roubaix_SL8_Pro_SRAM_Force_AXS.jpg"
+    "image": "Specialized/Roubaix_SL8_Pro_SRAM_Force_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94426-10_ROUBAIX-PRO-CARB-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#231E20"
+    ],
+    "color_images": [
+      "Specialized/Roubaix_SL8_Pro_SRAM_Force_AXS_colour_Gloss_Carbon.jpg"
+    ]
   },
   {
     "name": "Roubaix SL8 Sport - Shimano 105",
@@ -295,7 +343,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94426-61_ROUBAIX-SPORT-FLORED-OBSD_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Roubaix_SL8_Sport_Shimano_105.jpg"
+    "image": "Specialized/Roubaix_SL8_Sport_Shimano_105.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94426-61_ROUBAIX-SPORT-FLORED-OBSD_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94426-60_ROUBAIX-SPORT-METOBSD-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#FC000A",
+      "#2F2D32"
+    ],
+    "color_images": [
+      "Specialized/Roubaix_SL8_Sport_Shimano_105_colour_Gloss_Vivid_Red.jpg",
+      "Specialized/Roubaix_SL8_Sport_Shimano_105_colour_Gloss_Obsidian_Metallic.jpg"
+    ]
   },
   {
     "name": "S-Works Roubaix SL8 - Shimano Dura-Ace Di2",
@@ -345,7 +405,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94425-01_ROUBAIX-SW-DI2-TPE-GUN-BLKTNT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Roubaix_SL8_Shimano_Dura_Ace_Di2.jpg"
+    "image": "Specialized/S_Works_Roubaix_SL8_Shimano_Dura_Ace_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94425-01_ROUBAIX-SW-DI2-TPE-GUN-BLKTNT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#675E4F"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Roubaix_SL8_Shimano_Dura_Ace_Di2_colour_Gloss_Toupe_Gunmetal_Strata_Charcoal.jpg"
+    ]
   },
   {
     "name": "S-Works Roubaix SL8 Frameset - FACT 12R Carbon",
@@ -376,7 +445,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/74425-00_ROUBAIX-SW-FRMSET-CMLNREDGLD-SLDMET-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Roubaix_SL8_Frameset_FACT_12R_Carbon.jpg"
+    "image": "Specialized/S_Works_Roubaix_SL8_Frameset_FACT_12R_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/74425-00_ROUBAIX-SW-FRMSET-CMLNREDGLD-SLDMET-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#000000"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Roubaix_SL8_Frameset_FACT_12R_Carbon_colour_Gloss_Carbon_Red_To_Gold_And_Solidity_Dry_Brushed_Dune_White.jpg"
+    ]
   },
   {
     "name": "S-Works Roubaix SL8 – SRAM RED AXS",
@@ -426,7 +504,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94425-02_ROUBAIX-SW-ETAP-TPE-GUN-BLKTNT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Roubaix_SL8_SRAM_RED_AXS.jpg"
+    "image": "Specialized/S_Works_Roubaix_SL8_SRAM_RED_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94425-02_ROUBAIX-SW-ETAP-TPE-GUN-BLKTNT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#786A5F"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Roubaix_SL8_SRAM_RED_AXS_colour_Gloss_Taupe_Gunmetal_Strata_Charcoal.jpg"
+    ]
   },
   {
     "name": "Crux 5 Comp - SRAM Rival XPLR",
@@ -474,7 +561,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91427-51_CRUX-5-COMP-METOBSD-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_5_Comp_SRAM_Rival_XPLR.jpg"
+    "image": "Specialized/Crux_5_Comp_SRAM_Rival_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91427-51_CRUX-5-COMP-METOBSD-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/91427-50_CRUX-5-COMP-BLUPRL-AMTHFRST-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#0B0A09",
+      "#AEA9B5"
+    ],
+    "color_images": [
+      "Specialized/Crux_5_Comp_SRAM_Rival_XPLR_colour_Obsidian_Metallic.jpg",
+      "Specialized/Crux_5_Comp_SRAM_Rival_XPLR_colour_Amethyst_Frost.jpg"
+    ]
   },
   {
     "name": "Crux 5 Expert - SRAM Force XPLR",
@@ -522,7 +621,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91427-31_CRUX-5-EXPERT-AXS-GLDPRL-DLMMET-METOBSD_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_5_Expert_SRAM_Force_XPLR.jpg"
+    "image": "Specialized/Crux_5_Expert_SRAM_Force_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91427-31_CRUX-5-EXPERT-AXS-GLDPRL-DLMMET-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/91427-30_CRUX-5-EXPERT-AXS-SHDWSIL-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#ADB0AB",
+      "#C4C4C5"
+    ],
+    "color_images": [
+      "Specialized/Crux_5_Expert_SRAM_Force_XPLR_colour_Burnt_Gold.jpg",
+      "Specialized/Crux_5_Expert_SRAM_Force_XPLR_colour_Shadow_Silver.jpg"
+    ]
   },
   {
     "name": "Crux 5 S-Level - SRAM RED XPLR",
@@ -568,7 +679,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91427-10_CRUX-5-S-LEVEL-AXS-REDPRL-REDWD-BRCH_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_5_S_Level_SRAM_RED_XPLR.jpg"
+    "image": "Specialized/Crux_5_S_Level_SRAM_RED_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91427-10_CRUX-5-S-LEVEL-AXS-REDPRL-REDWD-BRCH_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#880101"
+    ],
+    "color_images": [
+      "Specialized/Crux_5_S_Level_SRAM_RED_XPLR_colour_Redwood_Metallic.jpg"
+    ]
   },
   {
     "name": "Crux 5 Sport - Shimano GRX 800",
@@ -615,7 +735,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91427-61_CRUX-5-SPORT-SILPRL-SMK-SILDST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_5_Sport_Shimano_GRX_800.jpg"
+    "image": "Specialized/Crux_5_Sport_Shimano_GRX_800.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91427-61_CRUX-5-SPORT-SILPRL-SMK-SILDST_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#1B1719"
+    ],
+    "color_images": [
+      "Specialized/Crux_5_Sport_Shimano_GRX_800_colour_Silver_Pearl_Smoke.jpg"
+    ]
   },
   {
     "name": "Crux Comp - Shimano GRX",
@@ -662,7 +791,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91426-50_CRUX-COMP-DUNEWHT-SNDSTNMET-ORGZST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_Comp_Shimano_GRX.jpg"
+    "image": "Specialized/Crux_Comp_Shimano_GRX.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91426-50_CRUX-COMP-DUNEWHT-SNDSTNMET-ORGZST_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#EAEBE4"
+    ],
+    "color_images": [
+      "Specialized/Crux_Comp_Shimano_GRX_colour_Dune_White.jpg"
+    ]
   },
   {
     "name": "Crux DSW Comp - SRAM Apex XPLR",
@@ -710,7 +848,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91426-52_CRUX-DSW-COMP-EMDMET-FJDMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_DSW_Comp_SRAM_Apex_XPLR.jpg"
+    "image": "Specialized/Crux_DSW_Comp_SRAM_Apex_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91426-52_CRUX-DSW-COMP-EMDMET-FJDMET_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/91426-53_CRUX-DSW-COMP-SHDWSIL-FLKSIL-CALSUN_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#23738A",
+      "#C6C6C4"
+    ],
+    "color_images": [
+      "Specialized/Crux_DSW_Comp_SRAM_Apex_XPLR_colour_Emerald_Metallic.jpg",
+      "Specialized/Crux_DSW_Comp_SRAM_Apex_XPLR_colour_Shadow_Silver.jpg"
+    ]
   },
   {
     "name": "Crux DSW Frameset - D'Aluisio Smartweld Alloy",
@@ -740,7 +890,19 @@
       "49"
     ],
     "image_url": "https://resources.specialized.com/image/71426-73_CRUX-DSW-FRMSET-OISTNT-MORNMST-PRPHZ_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_DSW_Frameset_D_Aluisio_Smartweld_Alloy.jpg"
+    "image": "Specialized/Crux_DSW_Frameset_D_Aluisio_Smartweld_Alloy.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/71426-73_CRUX-DSW-FRMSET-OISTNT-MORNMST-PRPHZ_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/71426-74_CRUX-DSW-FRMSET-SHDWSIL-FLKSIL-CALSUN_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#309C75",
+      "#C6C6C4"
+    ],
+    "color_images": [
+      "Specialized/Crux_DSW_Frameset_D_Aluisio_Smartweld_Alloy_colour_Oasis_Tint_Flake_Silver_Mist.jpg",
+      "Specialized/Crux_DSW_Frameset_D_Aluisio_Smartweld_Alloy_colour_Shadow_Silver.jpg"
+    ]
   },
   {
     "name": "Crux Expert - SRAM Rival XPLR AXS",
@@ -788,7 +950,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91426-30_CRUX-EXPERT-AXS-GRYBLU-LGNBLU-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_Expert_SRAM_Rival_XPLR_AXS.jpg"
+    "image": "Specialized/Crux_Expert_SRAM_Rival_XPLR_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91426-30_CRUX-EXPERT-AXS-GRYBLU-LGNBLU-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#106089"
+    ],
+    "color_images": [
+      "Specialized/Crux_Expert_SRAM_Rival_XPLR_AXS_colour_Grey_Blue_Lagoon.jpg"
+    ]
   },
   {
     "name": "Crux Frameset - FACT 10r Carbon",
@@ -817,7 +988,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/71426-70_CRUX-10R-FRMSET-DLMMET-FJDMET-GCLMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Crux_Frameset_FACT_10r_Carbon.jpg"
+    "image": "Specialized/Crux_Frameset_FACT_10r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/71426-70_CRUX-10R-FRMSET-DLMMET-FJDMET-GCLMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#6B958E"
+    ],
+    "color_images": [
+      "Specialized/Crux_Frameset_FACT_10r_Carbon_colour_Dolomite.jpg"
+    ]
   },
   {
     "name": "Diverge 3 Alloy - Shimano CUES",
@@ -868,7 +1048,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95426-70_DIVERGE-E5-DUNEWHT-ASHGRY_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_3_Alloy_Shimano_CUES.jpg"
+    "image": "Specialized/Diverge_3_Alloy_Shimano_CUES.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95426-70_DIVERGE-E5-DUNEWHT-ASHGRY_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-71_DIVERGE-E5-SPC-GUN_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-72_DIVERGE-E5-CSTBLUMET-SEA_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#F4F2F0",
+      "#9A5251",
+      "#3A4252"
+    ],
+    "color_images": [
+      "Specialized/Diverge_3_Alloy_Shimano_CUES_colour_Gloss_Dune_White.jpg",
+      "Specialized/Diverge_3_Alloy_Shimano_CUES_colour_Gloss_Spice.jpg",
+      "Specialized/Diverge_3_Alloy_Shimano_CUES_colour_Satin_Cast_Blue_Metallic.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Comp Alloy - SRAM Apex",
@@ -918,7 +1113,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95426-51_DIVERGE-E5-COMP-MVEMET-OBSD_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Comp_Alloy_SRAM_Apex.jpg"
+    "image": "Specialized/Diverge_4_Comp_Alloy_SRAM_Apex.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95426-51_DIVERGE-E5-COMP-MVEMET-OBSD_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-52_DIVERGE-E5-COMP-SHDWSIL-FJDMET_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-54_DIVERGE-E5-COMP-PST-EMDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#8D87C0",
+      "#A6ACAF",
+      "#A2B9A6"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Comp_Alloy_SRAM_Apex_colour_Gloss_Mauve_Metallic.jpg",
+      "Specialized/Diverge_4_Comp_Alloy_SRAM_Apex_colour_Satin_Shadow_Silver.jpg",
+      "Specialized/Diverge_4_Comp_Alloy_SRAM_Apex_colour_Gloss_Pistachio.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Comp Carbon - SRAM Apex AXS/S1000",
@@ -949,7 +1159,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95426-50_DIVERGE-COMP-DLMMET-ORGZST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Comp_Carbon_SRAM_Apex_AXS_S1000.jpg"
+    "image": "Specialized/Diverge_4_Comp_Carbon_SRAM_Apex_AXS_S1000.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95426-50_DIVERGE-COMP-DLMMET-ORGZST_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-53_DIVERGE-COMP-LRLGRNMET-GLDPRL-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#C2C2BA",
+      "#A29C41"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Comp_Carbon_SRAM_Apex_AXS_S1000_colour_Dolomite_Metallic.jpg",
+      "Specialized/Diverge_4_Comp_Carbon_SRAM_Apex_AXS_S1000_colour_Laurel_Green_Metallic.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Expert - SRAM Rival XPLR",
@@ -997,7 +1219,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95427-30_DIVERGE-EXPERT-AXS-FJDMET-GRNPRL-EMDMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Expert_SRAM_Rival_XPLR.jpg"
+    "image": "Specialized/Diverge_4_Expert_SRAM_Rival_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95427-30_DIVERGE-EXPERT-AXS-FJDMET-GRNPRL-EMDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#518884"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Expert_SRAM_Rival_XPLR_colour_Fjord_Metallic.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Expert - Shimano GRX Di2",
@@ -1045,7 +1276,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95427-33_DIVERGE-EXPERT-DI2-FJDMET-GRNPRL-EMDMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Expert_Shimano_GRX_Di2.jpg"
+    "image": "Specialized/Diverge_4_Expert_Shimano_GRX_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95427-33_DIVERGE-EXPERT-DI2-FJDMET-GRNPRL-EMDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#518884"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Expert_Shimano_GRX_Di2_colour_Fjord_Metallic.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Pro - SRAM Force XPLR",
@@ -1092,7 +1332,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95427-10_DIVERGE-PRO-DUNEWHT-GLDPRL-BNTGLDMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Pro_SRAM_Force_XPLR.jpg"
+    "image": "Specialized/Diverge_4_Pro_SRAM_Force_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95427-10_DIVERGE-PRO-DUNEWHT-GLDPRL-BNTGLDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#DCDBD4"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Pro_SRAM_Force_XPLR_colour_Dune_White.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Pro LTD - Shimano XTR/GRX Di2",
@@ -1139,7 +1388,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95427-11_DIVERGE-PRO-LTD-SILDST-SHDWSIL-METOBSD_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Pro_LTD_Shimano_XTR_GRX_Di2.jpg"
+    "image": "Specialized/Diverge_4_Pro_LTD_Shimano_XTR_GRX_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95427-11_DIVERGE-PRO-LTD-SILDST-SHDWSIL-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#A3A8AF"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Pro_LTD_Shimano_XTR_GRX_Di2_colour_Gloss_Shadow_Silver.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Sport Alloy - Shimano CUES",
@@ -1188,7 +1446,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95426-62_DIVERGE-E5-SPORT-BNTGLDMET-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Sport_Alloy_Shimano_CUES.jpg"
+    "image": "Specialized/Diverge_4_Sport_Alloy_Shimano_CUES.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95426-62_DIVERGE-E5-SPORT-BNTGLDMET-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-63_DIVERGE-E5-SPORT-DKNVY-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#BB8B51",
+      "#2E3A6F"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Sport_Alloy_Shimano_CUES_colour_Satin_Burnt_Gold_Metallic.jpg",
+      "Specialized/Diverge_4_Sport_Alloy_Shimano_CUES_colour_Gloss_Dark_Navy.jpg"
+    ]
   },
   {
     "name": "Diverge 4 Sport Carbon - Shimano GRX 600",
@@ -1238,7 +1508,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95426-60_DIVERGE-SPORT-EMDMET-SILDST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Diverge_4_Sport_Carbon_Shimano_GRX_600.jpg"
+    "image": "Specialized/Diverge_4_Sport_Carbon_Shimano_GRX_600.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95426-60_DIVERGE-SPORT-EMDMET-SILDST_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-65_DIVERGE-SPORT-METOBSD-QTZMET_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/95426-64_DIVERGE-SPORT-DPORG-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#2A7792",
+      "#4B494C",
+      "#EE4712"
+    ],
+    "color_images": [
+      "Specialized/Diverge_4_Sport_Carbon_Shimano_GRX_600_colour_Emerald_Metallic.jpg",
+      "Specialized/Diverge_4_Sport_Carbon_Shimano_GRX_600_colour_Obsidian_Metallic.jpg",
+      "Specialized/Diverge_4_Sport_Carbon_Shimano_GRX_600_colour_Deep_Orange.jpg"
+    ]
   },
   {
     "name": "S-Works Crux - SRAM RED XPLR",
@@ -1285,7 +1570,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91426-00_CRUX-SW-FJDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Crux_SRAM_RED_XPLR.jpg"
+    "image": "Specialized/S_Works_Crux_SRAM_RED_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91426-00_CRUX-SW-FJDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#83A297"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Crux_SRAM_RED_XPLR_colour_Premium_Fjord.jpg"
+    ]
   },
   {
     "name": "S-Works Crux 5 - SRAM RED XPLR",
@@ -1331,7 +1625,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/91427-01_CRUX-5-SW-AXS-GLDPRL-SILDST-NBLMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Crux_5_SRAM_RED_XPLR.jpg"
+    "image": "Specialized/S_Works_Crux_5_SRAM_RED_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91427-01_CRUX-5-SW-AXS-GLDPRL-SILDST-NBLMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#B9B7BA"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Crux_5_SRAM_RED_XPLR_colour_Silver_Dust_Frost.jpg"
+    ]
   },
   {
     "name": "S-Works Crux 5 Frameset - FACT 12r Carbon",
@@ -1362,7 +1665,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/71427-01_CRUX-5-SW-FRMSET-FJDMET-AGVE-PTNORGTNT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Crux_5_Frameset_FACT_12r_Carbon.jpg"
+    "image": "Specialized/S_Works_Crux_5_Frameset_FACT_12r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/71427-01_CRUX-5-SW-FRMSET-FJDMET-AGVE-PTNORGTNT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/71427-02_CRUX-5-SW-FRMSET-CAYNMET-REDTNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#6A8884",
+      "#23171D"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Crux_5_Frameset_FACT_12r_Carbon_colour_Agave_Grey.jpg",
+      "Specialized/S_Works_Crux_5_Frameset_FACT_12r_Carbon_colour_Cayenne_Metallic.jpg"
+    ]
   },
   {
     "name": "S-Works Crux 5 LTD - Built for Legends",
@@ -1405,7 +1720,16 @@
       "58"
     ],
     "image_url": "https://resources.specialized.com/image/91427-02_CRUX-5-SW-LTD-MADE-IN-RACING-REDPRL-REDTNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Crux_5_LTD_Built_for_Legends.jpg"
+    "image": "Specialized/S_Works_Crux_5_LTD_Built_for_Legends.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/91427-02_CRUX-5-SW-LTD-MADE-IN-RACING-REDPRL-REDTNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#AA0115"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Crux_5_LTD_Built_for_Legends_colour_Race_Red_Vapor.jpg"
+    ]
   },
   {
     "name": "S-Works Crux Frameset - FACT 12r Carbon",
@@ -1437,7 +1761,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/71426-02_CRUX-SW-FRMSET-FJDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Crux_Frameset_FACT_12r_Carbon.jpg"
+    "image": "Specialized/S_Works_Crux_Frameset_FACT_12r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/71426-02_CRUX-SW-FRMSET-FJDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/71426-01_CRUX-SW-FRMSET-NBLMET-BDXMET-QTZMET_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/71426-00_CRUX-SW-FRMSET-DSRTRS-PRPHZ-METWHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#557872",
+      "#776788",
+      "#F8BABC"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Crux_Frameset_FACT_12r_Carbon_colour_Premium_Fjord.jpg",
+      "Specialized/S_Works_Crux_Frameset_FACT_12r_Carbon_colour_Nebula_Metallic.jpg",
+      "Specialized/S_Works_Crux_Frameset_FACT_12r_Carbon_colour_Desert_Rose.jpg"
+    ]
   },
   {
     "name": "S-Works Diverge 4 - SRAM RED XPLR",
@@ -1483,7 +1822,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/95427-00_DIVERGE-SW-WRMSMKMET-CARB-SILDST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Diverge_4_SRAM_RED_XPLR.jpg"
+    "image": "Specialized/S_Works_Diverge_4_SRAM_RED_XPLR.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/95427-00_DIVERGE-SW-WRMSMKMET-CARB-SILDST_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#382E2F"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Diverge_4_SRAM_RED_XPLR_colour_Warm_Smoke_Metallic.jpg"
+    ]
   },
   {
     "name": "Aethos 2 Expert - SRAM Force AXS",
@@ -1531,7 +1879,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97227-30_AETHOS-EXPERT-AXS-DLMMET-SHDWSIL-BLUPRL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Aethos_2_Expert_SRAM_Force_AXS.jpg"
+    "image": "Specialized/Aethos_2_Expert_SRAM_Force_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97227-30_AETHOS-EXPERT-AXS-DLMMET-SHDWSIL-BLUPRL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#d2cecd"
+    ],
+    "color_images": [
+      "Specialized/Aethos_2_Expert_SRAM_Force_AXS_colour_Dolomite_Metallic.jpg"
+    ]
   },
   {
     "name": "Aethos 2 Expert - Shimano Ultegra Di2",
@@ -1579,7 +1936,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97227-32_AETHOS-EXPERT-DI2-DLMMET-SHDWSIL-BLUPRL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Aethos_2_Expert_Shimano_Ultegra_Di2.jpg"
+    "image": "Specialized/Aethos_2_Expert_Shimano_Ultegra_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97227-32_AETHOS-EXPERT-DI2-DLMMET-SHDWSIL-BLUPRL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#d2cecd"
+    ],
+    "color_images": [
+      "Specialized/Aethos_2_Expert_Shimano_Ultegra_Di2_colour_Dolomite_Metallic.jpg"
+    ]
   },
   {
     "name": "Aethos 2 Frameset - FACT 10r Carbon",
@@ -1609,7 +1975,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/77226-70_AETHOS-FRMSET-NBLMET-BNTGLDMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Aethos_2_Frameset_FACT_10r_Carbon.jpg"
+    "image": "Specialized/Aethos_2_Frameset_FACT_10r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/77226-70_AETHOS-FRMSET-NBLMET-BNTGLDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#4E494B"
+    ],
+    "color_images": [
+      "Specialized/Aethos_2_Frameset_FACT_10r_Carbon_colour_Satin_Nebula_Metallic.jpg"
+    ]
   },
   {
     "name": "Aethos 2 Pro - SRAM Force AXS",
@@ -1656,7 +2031,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97227-13_AETHOS-PRO-AXS-RAPIDE-CMLNSPN-BRCH-STLNMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Aethos_2_Pro_SRAM_Force_AXS.jpg"
+    "image": "Specialized/Aethos_2_Pro_SRAM_Force_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97227-13_AETHOS-PRO-AXS-RAPIDE-CMLNSPN-BRCH-STLNMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#E4E4D9"
+    ],
+    "color_images": [
+      "Specialized/Aethos_2_Pro_SRAM_Force_AXS_colour_Birch.jpg"
+    ]
   },
   {
     "name": "Aethos 2 Pro - Shimano Ultegra Di2",
@@ -1703,7 +2087,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97226-11_AETHOS-PRO-DI2-REDSKY-CHRM_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Aethos_2_Pro_Shimano_Ultegra_Di2.jpg"
+    "image": "Specialized/Aethos_2_Pro_Shimano_Ultegra_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97226-11_AETHOS-PRO-DI2-REDSKY-CHRM_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#AB0310"
+    ],
+    "color_images": [
+      "Specialized/Aethos_2_Pro_Shimano_Ultegra_Di2_colour_Gloss_Red_Sky.jpg"
+    ]
   },
   {
     "name": "Allez - Shimano CUES",
@@ -1754,7 +2147,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/90026-60_ALLEZ-E5-OBSD-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Allez_Shimano_CUES.jpg"
+    "image": "Specialized/Allez_Shimano_CUES.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/90026-60_ALLEZ-E5-OBSD-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90026-62_ALLEZ-E5-CALSUN-ORGZST_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90026-63_ALLEZ-E5-DUNEWHT-DPLAKE_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#3B383C",
+      "#FEBC04",
+      "#ECEDE5"
+    ],
+    "color_images": [
+      "Specialized/Allez_Shimano_CUES_colour_Obsidian.jpg",
+      "Specialized/Allez_Shimano_CUES_colour_California_Sunshine.jpg",
+      "Specialized/Allez_Shimano_CUES_colour_Dune_White.jpg"
+    ]
   },
   {
     "name": "Allez Comp - Shimano 105",
@@ -1804,7 +2212,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/90026-70_ALLEZ-E5-COMP-CSTBLUMET-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Allez_Comp_Shimano_105.jpg"
+    "image": "Specialized/Allez_Comp_Shimano_105.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/90026-70_ALLEZ-E5-COMP-CSTBLUMET-DUNEWHT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90026-71_ALLEZ-E5-COMP-DLMMET-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#40577B",
+      "#ACAAAA"
+    ],
+    "color_images": [
+      "Specialized/Allez_Comp_Shimano_105_colour_Cast_Blue_Metallic.jpg",
+      "Specialized/Allez_Comp_Shimano_105_colour_Dolomite_Metallic.jpg"
+    ]
   },
   {
     "name": "Allez Sport - Shimano Tiagra",
@@ -1856,7 +2276,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/90022-62_ALLEZ-E5-DISC-SPORT-TARBLK_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Allez_Sport_Shimano_Tiagra.jpg"
+    "image": "Specialized/Allez_Sport_Shimano_Tiagra.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/90022-62_ALLEZ-E5-DISC-SPORT-TARBLK_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90022-60_ALLEZ-E5-DISC-SPORT-DOVGRY-CLGRY-CMLNLPS_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90022-64_ALLEZ-E5-DISC-SPORT-TRPTL-TLTNT-ARCTBLU_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#000000",
+      "#CBC9D0",
+      "#3A5864"
+    ],
+    "color_images": [
+      "Specialized/Allez_Sport_Shimano_Tiagra_colour_Gloss_Tarmac_Black.jpg",
+      "Specialized/Allez_Sport_Shimano_Tiagra_colour_Gloss_Dove_Grey_Cool_Grey_Chameleon_Lapis.jpg",
+      "Specialized/Allez_Sport_Shimano_Tiagra_colour_Satin_Tropical_Teal_Teal_Tint_Arctic_Blue.jpg"
+    ]
   },
   {
     "name": "Allez Sprint Comp - Shimano 105",
@@ -1906,7 +2341,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/90025-50_ALLEZ-SPRINT-COMP-PRPHZ-RBLPNK_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Allez_Sprint_Comp_Shimano_105.jpg"
+    "image": "Specialized/Allez_Sprint_Comp_Shimano_105.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/90025-50_ALLEZ-SPRINT-COMP-PRPHZ-RBLPNK_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90025-51_ALLEZ-SPRINT-COMP-DPLAKEMET-BNTGLDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#53439F",
+      "#515463"
+    ],
+    "color_images": [
+      "Specialized/Allez_Sprint_Comp_Shimano_105_colour_Gloss_Purple_Haze_Rebel_Pink.jpg",
+      "Specialized/Allez_Sprint_Comp_Shimano_105_colour_Satin_Deep_Lake_Metallic_Burnt_Gold_Metallic.jpg"
+    ]
   },
   {
     "name": "Allez Sprint Frameset - D'Aluisio Smartweld Alloy",
@@ -1936,7 +2383,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/70027-72_ALLEZ-SPRINT-FRMSET-REDPRL-RBYMET-GLDFL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Allez_Sprint_Frameset_D_Aluisio_Smartweld_Alloy.jpg"
+    "image": "Specialized/Allez_Sprint_Frameset_D_Aluisio_Smartweld_Alloy.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/70027-72_ALLEZ-SPRINT-FRMSET-REDPRL-RBYMET-GLDFL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#a1001d"
+    ],
+    "color_images": [
+      "Specialized/Allez_Sprint_Frameset_D_Aluisio_Smartweld_Alloy_colour_Ruby_Gold.jpg"
+    ]
   },
   {
     "name": "S-Works Aethos 2 - SRAM RED AXS",
@@ -1983,7 +2439,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97227-04_AETHOS-SW-AXS-RAPIDE-CHARTNT-AMTHFRST-METOBSD_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Aethos_2_SRAM_RED_AXS.jpg"
+    "image": "Specialized/S_Works_Aethos_2_SRAM_RED_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97227-04_AETHOS-SW-AXS-RAPIDE-CHARTNT-AMTHFRST-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#9A98A6"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Aethos_2_SRAM_RED_AXS_colour_Amethyst_Frost.jpg"
+    ]
   },
   {
     "name": "S-Works Aethos 2 - Shimano Dura-Ace Di2",
@@ -2030,7 +2495,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97226-00_AETHOS-SW-DI2-PRMFJDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Aethos_2_Shimano_Dura_Ace_Di2.jpg"
+    "image": "Specialized/S_Works_Aethos_2_Shimano_Dura_Ace_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97226-00_AETHOS-SW-DI2-PRMFJDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#738B82"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Aethos_2_Shimano_Dura_Ace_Di2_colour_Gloss_Premium_Fjord_Metallic.jpg"
+    ]
   },
   {
     "name": "S-Works Aethos 2 Frameset - FACT 12r Carbon",
@@ -2062,7 +2536,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/77226-01_AETHOS-SW-FRMSET-CYNPRPCMLN-GRYBLU-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Aethos_2_Frameset_FACT_12r_Carbon.jpg"
+    "image": "Specialized/S_Works_Aethos_2_Frameset_FACT_12r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/77226-01_AETHOS-SW-FRMSET-CYNPRPCMLN-GRYBLU-SHDWSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/77226-03_AETHOS-SW-FRMSET-SHDWSIL-SILDST-BLKPRL_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/77226-05_AETHOS-SW-FRMSET-CARB-PRMFJDMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#49779F",
+      "#BBBFBD",
+      "#3B383A"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Aethos_2_Frameset_FACT_12r_Carbon_colour_Satin_Black_Ink_Wash.jpg",
+      "Specialized/S_Works_Aethos_2_Frameset_FACT_12r_Carbon_colour_Gloss_Silver_Blurred_Impasto.jpg",
+      "Specialized/S_Works_Aethos_2_Frameset_FACT_12r_Carbon_colour_Ready_To_Paint_Raw_Carbon.jpg"
+    ]
   },
   {
     "name": "S-Works Aethos Frameset - FACT 12r Carbon",
@@ -2094,7 +2583,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/77225-01_AETHOS-SW-FRMSET-DPLAKEMET-BNTGLDMET-DKNVY_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Aethos_Frameset_FACT_12r_Carbon.jpg"
+    "image": "Specialized/S_Works_Aethos_Frameset_FACT_12r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/77225-01_AETHOS-SW-FRMSET-DPLAKEMET-BNTGLDMET-DKNVY_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/77225-02_AETHOS-SW-FRMSET-TEAMYELTNT-SILDST-CHRM_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/77225-00_AETHOS-SW-FRMSET-SEA-VLTPRL-SMK_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#5B7B7B",
+      "#DEDC84",
+      "#C4D1D5"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Aethos_Frameset_FACT_12r_Carbon_colour_Satin_Deep_Lake_Metallic_Green_Pearl_Burnt_Gold_Metallic_Fades_Dark_Navy.jpg",
+      "Specialized/S_Works_Aethos_Frameset_FACT_12r_Carbon_colour_Satin_Silver_Dust_Team_Yellow_Tint_Chrome.jpg",
+      "Specialized/S_Works_Aethos_Frameset_FACT_12r_Carbon_colour_Gloss_Sea_Foam_Dry_Brushed_Violet_Gold_Ghost_Pearl_Smoke.jpg"
+    ]
   },
   {
     "name": "S-Works Aethos LTD - Campagnolo Super Record",
@@ -2142,7 +2646,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/97222-05_AETHOS-SW-LTD-BRCH-BLKPRL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Aethos_LTD_Campagnolo_Super_Record.jpg"
+    "image": "Specialized/S_Works_Aethos_LTD_Campagnolo_Super_Record.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/97222-05_AETHOS-SW-LTD-BRCH-BLKPRL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#DCDBD6"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Aethos_LTD_Campagnolo_Super_Record_colour_Satin_Birch_Black_Pearl.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 - SRAM RED AXS",
@@ -2192,7 +2705,22 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-00_TARMAC-SL9-SW-AXS-SILDST-SPCTFLR-CHRM_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_SRAM_RED_AXS.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_SRAM_RED_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-00_TARMAC-SL9-SW-AXS-SILDST-SPCTFLR-CHRM_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-01_TARMAC-SL9-SW-AXS-DUNEWHT-VIVRED-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-07_TARMAC-SL9-SW-AXS-RBYMET-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#CBCDD1",
+      "#F0EFF2",
+      "#8c3138"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_SRAM_RED_AXS_colour_Satin_Silver_Dust.jpg",
+      "Specialized/S_Works_Tarmac_SL9_SRAM_RED_AXS_colour_Gloss_White_Silver_Metallic.jpg",
+      "Specialized/S_Works_Tarmac_SL9_SRAM_RED_AXS_colour_Gloss_Ruby_Metallic.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
@@ -2240,7 +2768,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-02_TARMAC-SL9-SW-DI2-CARB-WHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_Shimano_Dura_Ace_Di2.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_Shimano_Dura_Ace_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-02_TARMAC-SL9-SW-DI2-CARB-WHT_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#0A0A09"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_Shimano_Dura_Ace_Di2_colour_Satin_Carbon.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 Frameset - FACT 12r Carbon",
@@ -2275,7 +2812,28 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/74927-02_TARMAC-SL9-SW-FRMSET-DLMMET-QTZMET-CHRM_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/74927-02_TARMAC-SL9-SW-FRMSET-DLMMET-QTZMET-CHRM_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/74927-04_TARMAC-SL9-SW-FRMSET-CARB-BLUREDCMLN-WHT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/74927-06_TARMAC-SL9-SW-FRMSET-VIVRED-TARBLK-WHT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/74927-15_TARMAC-SL9-SW-FRMSET-CARB-AMTHFRST_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/74927-14_TARMAC-SL9-SW-FRMSET-METWHTSIL-GLDPRL-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#B1A7AB",
+      "#464348",
+      "#8B1B20",
+      "#3E383D",
+      "#DFE1E0"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon_colour_Gloss_Dolomite_Metallic.jpg",
+      "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon_colour_Gloss_Carbon.jpg",
+      "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon_colour_Gloss_Vivid_Red_Tarmac_Black.jpg",
+      "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon_colour_RTP_Raw_Carbon.jpg",
+      "Specialized/S_Works_Tarmac_SL9_Frameset_FACT_12r_Carbon_colour_Gloss_White_Silver_Metallic.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 LTD - Built for Legends",
@@ -2320,7 +2878,16 @@
       "58"
     ],
     "image_url": "https://resources.specialized.com/image/94927-04_TARMAC-SL9-SW-LTD-MADE-IN-RACING-REDTNT-BLKTNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_LTD_Built_for_Legends.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_LTD_Built_for_Legends.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-04_TARMAC-SL9-SW-LTD-MADE-IN-RACING-REDTNT-BLKTNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#AA0115"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_LTD_Built_for_Legends_colour_Made_in_Racing_Red.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
@@ -2365,7 +2932,16 @@
       "58"
     ],
     "image_url": "https://resources.specialized.com/image/94927-06_TARMAC-SL9-SW-REMCO-RB-TEAM-REPLICA-METWHTSIL-GLDPRL-DPBLU_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_LTD_Remco_Evenepoel.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_LTD_Remco_Evenepoel.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-06_TARMAC-SL9-SW-REMCO-RB-TEAM-REPLICA-METWHTSIL-GLDPRL-DPBLU_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#BAA060"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_LTD_Remco_Evenepoel_colour_Gloss_Metallic_White_Silver.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 Team Replica Frameset - FDJ United - SUEZ",
@@ -2396,7 +2972,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/74927-09_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-FDJ-REDTNT-BLUTNT-REDPRL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_FDJ_United_SUEZ.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_FDJ_United_SUEZ.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/74927-09_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-FDJ-REDTNT-BLUTNT-REDPRL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#3f425c"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_FDJ_United_SUEZ_colour_Satin_Red_Tint.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 Team Replica Frameset - Red Bull - BORA - hansgrohe",
@@ -2427,7 +3012,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/74927-11_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-RB-METWHTSIL-WHT-DPBLU_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_Red_Bull_BORA_hansgrohe.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_Red_Bull_BORA_hansgrohe.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/74927-11_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-RB-METWHTSIL-WHT-DPBLU_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#283859"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_Red_Bull_BORA_hansgrohe_colour_Gloss_Metallic_White_Silver.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 Team Replica Frameset - SD Worx - Protime",
@@ -2458,7 +3052,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/74927-12_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-SDWORX-VIVRED-YEL-DLMMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_SD_Worx_Protime.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_SD_Worx_Protime.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/74927-12_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-SDWORX-VIVRED-YEL-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#D4261C"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_SD_Worx_Protime_colour_Gloss_Vivid_Red.jpg"
+    ]
   },
   {
     "name": "S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step",
@@ -2489,7 +3092,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/74927-10_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-QS-BLUONYX-CBLT-MORNMST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_Soudal_Quick_Step.jpg"
+    "image": "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_Soudal_Quick_Step.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/74927-10_TARMAC-SL9-SW-FRMSET-TEAM-REPLICA-QS-BLUONYX-CBLT-MORNMST_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#3B83C0"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Tarmac_SL9_Team_Replica_Frameset_Soudal_Quick_Step_colour_Gloss_Blue_Onyx.jpg"
+    ]
   },
   {
     "name": "Tarmac SL7 Sport - Shimano 105",
@@ -2539,7 +3151,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/90626-63_TARMAC-SL7-SPORT-WHT-METDKNVY_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL7_Sport_Shimano_105.jpg"
+    "image": "Specialized/Tarmac_SL7_Sport_Shimano_105.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/90626-63_TARMAC-SL7-SPORT-WHT-METDKNVY_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/90626-64_TARMAC-SL7-SPORT-BLK-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#FFFFFF",
+      "#000000"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL7_Sport_Shimano_105_colour_Gloss_White.jpg",
+      "Specialized/Tarmac_SL7_Sport_Shimano_105_colour_Gloss_Black.jpg"
+    ]
   },
   {
     "name": "Tarmac SL9 Comp - SRAM Rival AXS",
@@ -2589,7 +3213,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-50_TARMAC-SL9-COMP-AXS-VIVRED-WHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL9_Comp_SRAM_Rival_AXS.jpg"
+    "image": "Specialized/Tarmac_SL9_Comp_SRAM_Rival_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-50_TARMAC-SL9-COMP-AXS-VIVRED-WHT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-51_TARMAC-SL9-COMP-AXS-CHAR-LQDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#fe1018",
+      "#393740"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL9_Comp_SRAM_Rival_AXS_colour_Gloss_Vivid_Red.jpg",
+      "Specialized/Tarmac_SL9_Comp_SRAM_Rival_AXS_colour_Gloss_Charcoal_Tint.jpg"
+    ]
   },
   {
     "name": "Tarmac SL9 Comp - Shimano 105 Di2",
@@ -2639,7 +3275,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-52_TARMAC-SL9-COMP-DI2-DLMMET-CAYNMET_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL9_Comp_Shimano_105_Di2.jpg"
+    "image": "Specialized/Tarmac_SL9_Comp_Shimano_105_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-52_TARMAC-SL9-COMP-DI2-DLMMET-CAYNMET_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-53_TARMAC-SL9-COMP-DI2-CHAR-LQDMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#D1D2D3",
+      "#393740"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL9_Comp_Shimano_105_Di2_colour_Gloss_Dolomite_Metallic.jpg",
+      "Specialized/Tarmac_SL9_Comp_Shimano_105_Di2_colour_Gloss_Charcoal_Tint.jpg"
+    ]
   },
   {
     "name": "Tarmac SL9 Expert - SRAM Force AXS",
@@ -2689,7 +3337,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-30_TARMAC-SL9-EXPERT-AXS-WRMSMKMET-SILDST_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL9_Expert_SRAM_Force_AXS.jpg"
+    "image": "Specialized/Tarmac_SL9_Expert_SRAM_Force_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-30_TARMAC-SL9-EXPERT-AXS-WRMSMKMET-SILDST_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-31_TARMAC-SL9-EXPERT-AXS-SILDST-PDRLME_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#373333",
+      "#D5DAD9"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL9_Expert_SRAM_Force_AXS_colour_Satin_Warm_Smoke_Metallic.jpg",
+      "Specialized/Tarmac_SL9_Expert_SRAM_Force_AXS_colour_Gloss_Silver_Dust.jpg"
+    ]
   },
   {
     "name": "Tarmac SL9 Expert - Shimano Ultegra Di2",
@@ -2739,7 +3399,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-32_TARMAC-SL9-EXPERT-DI2-PCFBLUMET-WHT_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL9_Expert_Shimano_Ultegra_Di2.jpg"
+    "image": "Specialized/Tarmac_SL9_Expert_Shimano_Ultegra_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-32_TARMAC-SL9-EXPERT-DI2-PCFBLUMET-WHT_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-34_TARMAC-SL9-EXPERT-DI2-BLK-SILDST_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#4161C3",
+      "#110F14"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL9_Expert_Shimano_Ultegra_Di2_colour_Gloss_Pacific_Blue_Metallic.jpg",
+      "Specialized/Tarmac_SL9_Expert_Shimano_Ultegra_Di2_colour_Gloss_Black.jpg"
+    ]
   },
   {
     "name": "Tarmac SL9 S-Level - SRAM RED AXS",
@@ -2788,7 +3460,19 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-10_TARMAC-SL9-S-LEVEL-AXS-WHT-MAJBLUMET-METOBSD_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL9_S_Level_SRAM_RED_AXS.jpg"
+    "image": "Specialized/Tarmac_SL9_S_Level_SRAM_RED_AXS.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-10_TARMAC-SL9-S-LEVEL-AXS-WHT-MAJBLUMET-METOBSD_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/94927-14_TARMAC-SL9-S-LEVEL-AXS-CARB-REDGSTPRL-SILDST_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#2A0092",
+      "#1E1C1C"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL9_S_Level_SRAM_RED_AXS_colour_Gloss_White.jpg",
+      "Specialized/Tarmac_SL9_S_Level_SRAM_RED_AXS_colour_Satin_Carbon.jpg"
+    ]
   },
   {
     "name": "Tarmac SL9 S-Level - Shimano Dura-Ace Di2",
@@ -2836,7 +3520,16 @@
       "61"
     ],
     "image_url": "https://resources.specialized.com/image/94927-13_TARMAC-SL9-S-LEVEL-DI2-METWHTSIL-TARBLK_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/Tarmac_SL9_S_Level_Shimano_Dura_Ace_Di2.jpg"
+    "image": "Specialized/Tarmac_SL9_S_Level_Shimano_Dura_Ace_Di2.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/94927-13_TARMAC-SL9-S-LEVEL-DI2-METWHTSIL-TARBLK_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#F0F4F5"
+    ],
+    "color_images": [
+      "Specialized/Tarmac_SL9_S_Level_Shimano_Dura_Ace_Di2_colour_Gloss_White_Silver_Metallic.jpg"
+    ]
   },
   {
     "name": "S-Works Shiv LTD Frameset - FACT 11r Carbon",
@@ -2869,7 +3562,19 @@
       "L"
     ],
     "image_url": "https://resources.specialized.com/image/77424-01_SHIV-SW-FRMSET-LTD-MRN-TARBLK-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Shiv_LTD_Frameset_FACT_11r_Carbon.jpg"
+    "image": "Specialized/S_Works_Shiv_LTD_Frameset_FACT_11r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/77424-01_SHIV-SW-FRMSET-LTD-MRN-TARBLK-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/77424-02_SHIV-SW-FRMSET-LTD-BLK-NRBLK-SMK_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#590008",
+      "#312E31"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Shiv_LTD_Frameset_FACT_11r_Carbon_colour_Gloss_Maroon_Tarmac_Black_Metallic_White_Silver.jpg",
+      "Specialized/S_Works_Shiv_LTD_Frameset_FACT_11r_Carbon_colour_Gloss_Black_Nearly_Black_Smoke_Granite_Teal.jpg"
+    ]
   },
   {
     "name": "S-Works Shiv TT Disc Module - FACT 11r Carbon",
@@ -2900,6 +3605,18 @@
       "L"
     ],
     "image_url": "https://resources.specialized.com/image/77425-01_SHIV-TT-SW-MODULE-GCLMET-CMLNREDGLD-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=jpg",
-    "image": "Specialized/S_Works_Shiv_TT_Disc_Module_FACT_11r_Carbon.jpg"
+    "image": "Specialized/S_Works_Shiv_TT_Disc_Module_FACT_11r_Carbon.jpg",
+    "color_image_urls": [
+      "https://resources.specialized.com/image/77425-01_SHIV-TT-SW-MODULE-GCLMET-CMLNREDGLD-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+      "https://resources.specialized.com/image/77425-02_SHIV-TT-SW-MODULE-TARBLK-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+    ],
+    "color_hexes": [
+      "#B0C2CF",
+      "#000000"
+    ],
+    "color_images": [
+      "Specialized/S_Works_Shiv_TT_Disc_Module_FACT_11r_Carbon_colour_Gloss_Glacial_Metallic_Red_To_Gold_Pearl_Edge_Fade_Metallic_White_Silver.jpg",
+      "Specialized/S_Works_Shiv_TT_Disc_Module_FACT_11r_Carbon_colour_Gloss_Tarmac_Black_Metallic_White_Silver.jpg"
+    ]
   }
 ]

@@ -41,7 +41,7 @@ def parse(page, url):
     if not name:
         return None
     variants = group.get("hasVariant") or ([group] if group.get("offers") else [])
-    prices, sizes, colours = [], [], []
+    prices, sizes, colours, colour_images = [], [], [], []
     for v in variants:
         offers = v.get("offers") or []
         for offer in offers if isinstance(offers, list) else [offers]:
@@ -51,6 +51,10 @@ def parse(page, url):
             sizes.append(v["size"])
         if v.get("color") and v["color"] not in colours:
             colours.append(v["color"])
+            # Each colour's gallery: _PD is the side view, _3Q and _D1.. the angles and close-ups.
+            photos = v.get("image") or []
+            photos = [photos] if isinstance(photos, str) else photos
+            colour_images.append(next((u for u in photos if "_PD." in u), photos[0] if photos else None))
     if not prices:
         m = re.search(r"item_variant:[^}]*?price: ([\d.]+)", page)
         prices = [float(m.group(1))] if m else []
@@ -70,9 +74,14 @@ def parse(page, url):
         "specifications": specs,
         "color_names": colours,
         "sizes": sizes,
-        # widen serves any width and format: ask for an 1000px JPEG instead of the 2000px PNG.
-        "image_url": re.sub(r"/\d+px@1x/(.+)\.png", r"/1000px@1x/\1.jpg", image.group(1)) if image else None,
+        "image_url": widen_jpeg(image.group(1)) if image else None,
+        "color_image_urls": [widen_jpeg(u) if u else None for u in colour_images],
     }
+
+
+def widen_jpeg(url):
+    """widen serves any width and format: ask for an 1000px JPEG instead of the 2000px PNG."""
+    return re.sub(r"/\d+px@1x/(.+)\.png", r"/1000px@1x/\1.jpg", url)
 
 
 def scrape(fetcher, limit=None):

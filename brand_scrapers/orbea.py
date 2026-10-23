@@ -68,6 +68,9 @@ def parse(page, url, family):
     side = [i for i in product.get("images") or [] if i.get("view") == "side"] or product.get("images") or []
     image = next((i["src"] for i in side if i.get("color") == featured), side[0]["src"] if side else None)
     price = product.get("price") or {}
+    named = [c for c in colours if c.get("name")]
+    colour_images = [next((i["src"] for i in side if i.get("color") == c.get("code") and i.get("view") == "side"), None)
+                     for c in named]
     return {
         "name": re.sub(r"\s*\(?20\d\d\)?$", "", clean(product.get("name"))),
         "brand": BRAND,
@@ -78,7 +81,8 @@ def parse(page, url, family):
         "family": family.replace("_", " ").title(),
         "model_year": product.get("year"),
         "specifications": normalize_specs(pairs),
-        "color_names": [clean(c.get("name")) for c in colours if c.get("name")],
+        "color_names": [clean(c.get("name")) for c in named],
+        "color_image_urls": colour_images,
         "sizes": list(dict.fromkeys(size_name(s.get("name") or code) for code, s in (product.get("sizes") or {}).items())),
         "image_url": image,
         "_ebike": attrs.get("BIKE_TYPE", "BIKE") != "BIKE" or attrs.get("PRODUCT_TYPE", "BIKE") != "BIKE",

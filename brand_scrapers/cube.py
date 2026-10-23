@@ -68,6 +68,7 @@ def parse(page, url):
         "color_names": [colour.replace("´n´", " 'n' ")] if colour else [],
         "sizes": sizes,
         "image_url": image.group(1) if image else None,
+        "color_image_urls": [image.group(1) if image else None] if colour else [],
     }
 
 
@@ -84,6 +85,7 @@ def scrape(fetcher, limit=None):
         bike["category"] = category
         if bike["name"].lower() in names:  # another colour of a model we already have
             names[bike["name"].lower()]["color_names"] += bike["color_names"]
+            names[bike["name"].lower()]["color_image_urls"] += bike["color_image_urls"]
             continue
         names[bike["name"].lower()] = bike
         bikes.append(bike)

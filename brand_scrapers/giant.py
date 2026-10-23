@@ -53,6 +53,8 @@ def parse(page, url):
     sizes = [clean(s) for s in re.findall(r"<th scope=col name=framesize>(.*?)</th>", page)]
     product_id = re.search(r"data-product-id=(\d+)", page)
     year = re.search(r"-(20\d\d)$", url)
+    colours = next((clean(v).split(", ") for k, v in pairs if clean(k) == "Kleuren"), [])
+    colours = [c for c in colours if c]
     return {
         "name": re.sub(r"\s*\(?20\d\d\)?$", "", clean(name.group(1))),  # some h1s end in the model year
         "brand": BRAND,
@@ -62,11 +64,24 @@ def parse(page, url):
         "category": category_of(category, url),
         "model_year": int(year.group(1)) if year else None,
         "specifications": normalize_specs(pairs),
-        "color_names": [],
+        "color_names": colours,
         "sizes": list(dict.fromkeys(sizes)),
         # The og:image is padded to 800x600 on white; ask for a larger one.
         "image_url": image.group(1).replace("h_600", "h_750").replace("w_800", "w_1000") if image else None,
+        "color_image_urls": [colour_photo(page, i) for i in range(len(colours))],
     }
+
+
+def colour_photo(page, i):
+    """The side view of the page's i-th colour. Giant names photos by colour letter: MY25TCRAdvanced2-KOM_ColorBIllusionWhite.jpg
+    is the side view of colour B, with -D1, -Rear, -Front and _Action for the close-ups, other angles and
+    riding photos."""
+    letter = "ABCDEFGH"[i] if i < 8 else None
+    found = sorted(set(re.findall(r"([a-z0-9]{20}/MY\d\d[A-Za-z0-9_-]*?_Color%s[A-Za-z0-9_]*\.jpg)" % letter, page)))
+    found = [f for f in found if not re.search(r"(?i)[-_](D-?\d+|Rear|Front|Action|B)(?=[-_.])|blacktires", f)]
+    if not found:
+        return None
+    return "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/" + min(found, key=len)
 
 
 def scrape(fetcher, limit=None):

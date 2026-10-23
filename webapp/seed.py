@@ -152,15 +152,25 @@ def photo_years(bike):
 
 
 def colorways(bike, image):
-    """[{name, swatch, image}] per colour the brand lists; the model's own photo when it has one colour."""
+    """[{name, swatch, image, hex}] per colour the brand lists; the model's own photo when it has one colour.
+
+    The photos are Canyon's own files, or the ones brand_scrapers saved per colour (color_images);
+    hex is the swatch colour the brand shows, where it gives one (Specialized).
+    """
     names = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
     ids = bike.get("color_ids") or []
+    saved = bike.get("color_images") or []
+    hexes = bike.get("color_hexes") or []
     ways = []
     for i, name in enumerate(names):
-        photo = canyon_colour_image(bike.get("sku"), ids[i]) if bike["brand"] == "Canyon" and i < len(ids) else None
+        if bike["brand"] == "Canyon":
+            photo = canyon_colour_image(bike.get("sku"), ids[i]) if i < len(ids) else None
+        else:
+            photo = saved[i] if i < len(saved) and saved[i] and os.path.exists(os.path.join(ROOT, "images", saved[i])) else None
         if len(names) == 1:
             photo = photo or image
-        ways.append({"name": name, "swatch": swatch(name), "image": photo})
+        brand_hex = hexes[i] if i < len(hexes) else None
+        ways.append({"name": name, "swatch": brand_hex or swatch(name), "image": photo, "hex": brand_hex})
     return ways
 
 

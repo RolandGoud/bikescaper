@@ -102,7 +102,7 @@ def parse(page, url):
     categories = group.get("category") or []
     if isinstance(categories, str):  # older pages: "Aero Road Bikes"; current ones: ["Addict RC", "Road Bikes - Race"]
         categories = [categories]
-    prices, sizes, colours, images = [], [], [], []
+    prices, sizes, colours, images, colour_images = [], [], [], [], []
     for variant in group.get("hasVariant") or []:
         price = parse_price((variant.get("offers") or {}).get("price"))
         if price:
@@ -113,14 +113,14 @@ def parse(page, url):
         colour = clean(variant.get("color"))
         if colour and colour not in colours:
             colours.append(colour)
+            photos = variant.get("image") or []
+            colour_images.append(cloudinary_width(side_photo([photos] if isinstance(photos, str) else photos)))
         if not images:
             images = variant.get("image") or []
     images = images or group.get("image") or []
     if isinstance(images, str):
         images = [images]
-    image = side_photo(images)
-    if image:  # the originals are 4 MB PNGs; Cloudinary scales them on request
-        image = image.replace("/image/upload/", "/image/upload/w_1400/")
+    image = cloudinary_width(side_photo(images))
     year = re.search(r'\\?"code\\?":\\?"(20\d\d)_SIZECHARTS', page)
     return {
         "name": name,
@@ -135,7 +135,13 @@ def parse(page, url):
         "color_names": colours,
         "sizes": sizes,
         "image_url": image,
+        "color_image_urls": colour_images,
     }
+
+
+def cloudinary_width(src):
+    """The originals are 4 MB PNGs; Cloudinary scales them on request."""
+    return src.replace("/image/upload/", "/image/upload/w_1400/") if src else None
 
 
 def scrape(fetcher, limit=None):
