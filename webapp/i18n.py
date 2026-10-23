@@ -548,6 +548,12 @@ NL = {
     "Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
         "Pas {n} advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
     "No ads for this model in the last {days} days yet.": "Nog geen advertenties voor dit model in de laatste {days} dagen.",
+    "No other ads found for this model yet (in the last {days} days).":
+        "Nog geen andere advertenties voor dit model gevonden (in de laatste {days} dagen).",
+    "Based on {n} other ads from the last {days} days.":
+        "Op basis van {n} andere advertenties uit de laatste {days} dagen.",
+    "Only {n} other ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
+        "Pas {n} andere advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
     "From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.":
         "Uit de advertenties die op deze site zijn gecheckt, geteld bij het model waaraan ze zijn gekoppeld. Prijzen onder €100 tellen niet mee.",
 }

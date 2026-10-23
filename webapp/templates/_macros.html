@@ -123,11 +123,13 @@
     <div><div class="k">{{ _('Average') }}</div><div class="v">{{ a.mean|eur }}</div></div>
     <div><div class="k">{{ _('Range') }}</div><div class="v">{{ a.low|eur }}–{{ a.high|eur }}</div></div>
   </div>
-  <p class="small muted">{{ _('Based on {n} ads from the last {days} days.', n=a.count, days=a.days) }}
+  <p class="small muted">{% if a.others %}{{ _('Based on {n} other ads from the last {days} days.', n=a.count, days=a.days) }}{% else %}{{ _('Based on {n} ads from the last {days} days.', n=a.count, days=a.days) }}{% endif %}
     {% if compare %}{% set diff = ((compare - a.median) / a.median * 100)|round|int %}
     {% if diff > 0 %}{{ _('This ad asks {pct}% more than the median.', pct=diff) }}{% elif diff < 0 %}{{ _('This ad asks {pct}% less than the median.', pct=-diff) }}{% else %}{{ _('This ad asks the median.') }}{% endif %}{% endif %}</p>
   {% elif a.count %}
-  <p>{{ _('Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.', n=a.count, days=a.days, low=a.low|eur, high=a.high|eur, needed=a.needed) }}</p>
+  <p>{% if a.others %}{{ _('Only {n} other ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.', n=a.count, days=a.days, low=a.low|eur, high=a.high|eur, needed=a.needed) }}{% else %}{{ _('Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.', n=a.count, days=a.days, low=a.low|eur, high=a.high|eur, needed=a.needed) }}{% endif %}</p>
+  {% elif a.others %}
+  <p>{{ _('No other ads found for this model yet (in the last {days} days).', days=a.days) }}</p>
   {% else %}
   <p>{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}</p>
   {% endif %}
