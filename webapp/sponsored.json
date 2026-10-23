@@ -1,0 +1,29 @@
+[
+  {
+    "id": "insurance",
+    "slots": ["card", "side"],
+    "advertiser": "",
+    "url": "",
+    "image": null,
+    "nl": {"title": "Racefiets verzekeren?", "text": "Je tweedehands racefiets verzekerd tegen diefstal en schade. Bereken in een minuut wat het kost.", "cta": "Bereken je premie"},
+    "en": {"title": "Insure your road bike?", "text": "Cover your second-hand road bike against theft and damage. See the price in a minute.", "cta": "Get a quote"}
+  },
+  {
+    "id": "accessories",
+    "slots": ["banner", "side"],
+    "advertiser": "",
+    "url": "",
+    "image": null,
+    "nl": {"title": "Fietstassen en verlichting", "text": "Alles voor je nieuwe (tweedehands) fiets.", "cta": "Naar de webshop"},
+    "en": {"title": "Bags and lights", "text": "Everything for your new (second-hand) bike.", "cta": "Go to the shop"}
+  },
+  {
+    "id": "bike-shop",
+    "slots": ["card", "banner", "side"],
+    "advertiser": "",
+    "url": "",
+    "image": null,
+    "nl": {"title": "Toch liever nieuw?", "text": "Vergelijk met een nieuwe racefiets, met garantie en laagsteprijsgarantie.", "cta": "Bekijk nieuwe fietsen"},
+    "en": {"title": "Rather buy new?", "text": "Compare with a new road bike, with warranty and a lowest price guarantee.", "cta": "See new bikes"}
+  }
+]

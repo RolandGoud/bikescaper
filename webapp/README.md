@@ -56,6 +56,20 @@ The site is in Dutch and English. It follows the browser's language (Dutch when 
 NL/EN switch in the header changes it and remembers the choice in a cookie. Texts live in
 `webapp/i18n.py`: English is the key, with the Dutch translation next to it.
 
+## Sponsored offers (affiliate links)
+
+The home page has three sponsored slots: a card in the Net gecheckt row (third, after two real
+checks), a banner below that row, and a side offer in the right margin on screens 1600px and wider.
+They're filled from `webapp/sponsored.json`, read on every page view. To switch an offer on, sign up
+as a publisher with Daisycon, TradeTracker or Awin, get the advertiser's affiliate link and paste it
+as `url` (https only). Offers without a link stay hidden, so the slots are empty until then. Put any
+image under `webapp/static/` (e.g. `sponsored/insurance.jpg`) and name it in `image`; without one
+the orange bikes show.
+
+We only link out: no advertiser scripts, pixels or images from their servers. That keeps the site
+free of tracking cookies, so no cookie banner is needed. The slots say "Gesponsord", never
+"Advertentie", because on this site that word means a Marktplaats listing.
+
 Code: `webapp/checks.py` reads the seller's claims and runs the checks, `webapp/reference.py` holds
 hand-entered reference data (brands, Trek generation years, generic size charts, groupsets),
 `webapp/seed.py` loads the scraped JSON.

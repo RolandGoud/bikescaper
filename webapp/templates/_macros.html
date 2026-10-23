@@ -178,3 +178,45 @@
 } %}
 {% if key in paths %}<svg class="part-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ paths[key]|safe }}</svg>{% endif %}
 {%- endmacro %}
+
+{# Sponsored offers (webapp/sponsored.py): affiliate links in our own markup, marked "Sponsored",
+   rel="sponsored" for search engines. Never "Advertentie": on this site that word means a listing. #}
+{% macro sponsored_image(o) -%}
+<img src="{{ url_for('static', filename=o.image or 'hero/bikes.svg') }}" alt="" class="{{ 'own' if not o.image }}">
+{%- endmacro %}
+
+{% macro sponsored_card(o) -%}
+<a class="listing-card sponsored-card" href="{{ o.url }}" rel="sponsored noopener" target="_blank">
+  <div class="photo">{{ sponsored_image(o) }}<span class="sponsored-label">{{ _('Sponsored') }}</span></div>
+  <div class="body">
+    <div class="ad-name">{{ o.title }}</div>
+    <div class="small muted">{{ o.text }}</div>
+    {% if o.advertiser %}<div class="small muted">{{ o.advertiser }}</div>{% endif %}
+    <span class="sponsored-cta">{{ o.cta }}</span>
+  </div>
+</a>
+{%- endmacro %}
+
+{% macro sponsored_banner(o) -%}
+<section class="wrap sponsored-band" aria-label="{{ _('Sponsored') }}">
+  <span class="sponsored-label">{{ _('Sponsored') }}</span>
+  <a class="sponsored-box banner" href="{{ o.url }}" rel="sponsored noopener" target="_blank">
+    {{ sponsored_image(o) }}
+    <span class="text"><b>{{ o.title }}</b><span>{{ o.text }}</span></span>
+    <span class="sponsored-btn">{{ o.cta }}</span>
+  </a>
+</section>
+{%- endmacro %}
+
+{% macro sponsored_side(o) -%}
+<aside class="sponsored-side" aria-label="{{ _('Sponsored') }}">
+  <div class="sticky">
+    <span class="sponsored-label">{{ _('Sponsored') }}</span>
+    <a class="sponsored-box side" href="{{ o.url }}" rel="sponsored noopener" target="_blank">
+      {{ sponsored_image(o) }}
+      <b>{{ o.title }}</b><span>{{ o.text }}</span>
+      <span class="sponsored-btn">{{ o.cta }}</span>
+    </a>
+  </div>
+</aside>
+{%- endmacro %}

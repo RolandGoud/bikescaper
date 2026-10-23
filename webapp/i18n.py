@@ -98,6 +98,7 @@ NL = {
     "See all listings": "Alle advertenties",
     "Show all {count} checked ads": "Bekijk alle {count} gecheckte advertenties",
     "Ad": "Advertentie",
+    "Sponsored": "Gesponsord",
     "Catalogue": "Catalogus",
     "Photo from the ad": "Foto uit de advertentie",
     "Slide between the ad photo and the catalogue photo": "Schuif tussen de advertentiefoto en de catalogusfoto",

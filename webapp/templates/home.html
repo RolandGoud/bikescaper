@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import check_form, listing_card, brand_label with context %}
+{% from "_macros.html" import check_form, listing_card, brand_label, sponsored_card, sponsored_banner, sponsored_side with context %}
 {% block body %}
 <section class="hero{% if hero_bg %} has-bg{% endif %}"{% if hero_bg %} style="--hero-bg: url('{{ url_for('static', filename='hero/' ~ hero_bg) }}'){% if hero_credit and hero_credit.position %}; --hero-pos: {{ hero_credit.position }}{% endif %}"{% endif %}>
   <div class="wrap">
@@ -15,6 +15,9 @@
   {% endif %}
 </section>
 
+{# Everything below the hero; on wide screens the side offer sits in the margin next to it. #}
+<div class="below-hero">
+{% if sponsored.side %}{{ sponsored_side(sponsored.side) }}{% endif %}
 <section class="wrap stack" style="padding-top: 64px; padding-bottom: 24px; gap: 28px">
   <h2>{{ _('What a check tells you') }}</h2>
   <div class="grid">
@@ -38,11 +41,15 @@
     </div>
   </div>
   <div class="recent-row">
-    {% for row, r in cards %}{{ listing_card(row, r) }}{% endfor %}
+    {# The sponsored card goes third, after two real ones (last when there are fewer). #}
+    {% for row, r in cards %}{% if loop.index0 == 2 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}{{ listing_card(row, r) }}{% endfor %}
+    {% if cards|length < 3 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}
   </div>
   <a class="btn wide-btn" href="{{ url_for('listings') }}">{{ _('Show all {count} checked ads', count=total) }}</a>
 </section>
 {% endif %}
+
+{% if sponsored.banner %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
 
 <section class="wrap row" style="padding-top: 40px; padding-bottom: 72px; justify-content: space-between; gap: 24px">
   <div class="stack" style="gap: 8px; flex: 1 1 420px">
@@ -56,5 +63,6 @@
     {% endfor %}
   </div>
 </section>
+</div>
 <script src="{{ url_for('static', filename='recent-row.js') }}" defer></script>
 {% endblock %}
