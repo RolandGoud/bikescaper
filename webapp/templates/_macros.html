@@ -179,44 +179,43 @@
 {% if key in paths %}<svg class="part-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ paths[key]|safe }}</svg>{% endif %}
 {%- endmacro %}
 
-{# Sponsored offers (webapp/sponsored.py): affiliate links in our own markup, marked "Sponsored",
-   rel="sponsored" for search engines. Never "Advertentie": on this site that word means a listing. #}
-{% macro sponsored_image(o) -%}
-<img src="{{ url_for('static', filename=o.image or 'hero/bikes.svg') }}" alt="" class="{{ 'own' if not o.image }}">
+{# Sponsored offers (webapp/sponsored.py): affiliate links in our own markup, in IAB sizes, each
+   under an "AD · Sponsored" marker and rel="sponsored" for search engines. Not "Advertentie" in the
+   marker: on this site that word means a Marktplaats listing. #}
+{% macro ad_marker() -%}
+<div class="ad-marker"><b>AD</b>{{ _('Sponsored') }}</div>
 {%- endmacro %}
 
-{% macro sponsored_card(o) -%}
-<a class="listing-card sponsored-card" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
-  <div class="photo">{{ sponsored_image(o) }}<span class="sponsored-label">{{ _('Sponsored') }}</span></div>
-  <div class="body">
-    <div class="ad-name">{{ o.title }}</div>
-    <div class="small muted">{{ o.text }}</div>
-    {% if o.advertiser %}<div class="small muted">{{ o.advertiser }}</div>{% endif %}
-    <span class="sponsored-cta">{{ o.cta }}</span>
-  </div>
+{% macro ad_unit(o, size) -%}
+<a class="ad-unit ad-{{ size }}" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
+  <img src="{{ url_for('static', filename=o.image or 'hero/bikes.svg') }}" alt="" class="{{ 'own' if not o.image }}">
+  <span class="ad-copy"><b>{{ o.title }}</b><span>{{ o.text }}</span>{% if o.advertiser %}<small>{{ o.advertiser }}</small>{% endif %}</span>
+  <span class="ad-cta">{{ o.cta }}</span>
 </a>
 {%- endmacro %}
 
+{# In the Net gecheckt row: a 300×250 on a hatched panel, so it never reads as a checked bike. #}
+{% macro sponsored_card(o) -%}
+<div class="sponsored-card" role="complementary" aria-label="{{ _('Sponsored') }}">
+  {{ ad_marker() }}
+  {{ ad_unit(o, "rect") }}
+</div>
+{%- endmacro %}
+
+{# 970×250 billboard, 728×90 leaderboard or 300×250 rectangle, by screen width. #}
 {% macro sponsored_banner(o) -%}
 <section class="wrap sponsored-band" aria-label="{{ _('Sponsored') }}">
-  <span class="sponsored-label">{{ _('Sponsored') }}</span>
-  <a class="sponsored-box banner" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
-    {{ sponsored_image(o) }}
-    <span class="text"><b>{{ o.title }}</b><span>{{ o.text }}</span></span>
-    <span class="sponsored-btn">{{ o.cta }}</span>
-  </a>
+  {{ ad_marker() }}
+  {{ ad_unit(o, "banner") }}
 </section>
 {%- endmacro %}
 
+{# 160×600 skyscraper in the right margin, only where there's room for it. #}
 {% macro sponsored_side(o) -%}
 <aside class="sponsored-side" aria-label="{{ _('Sponsored') }}">
   <div class="sticky">
-    <span class="sponsored-label">{{ _('Sponsored') }}</span>
-    <a class="sponsored-box side" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
-      {{ sponsored_image(o) }}
-      <b>{{ o.title }}</b><span>{{ o.text }}</span>
-      <span class="sponsored-btn">{{ o.cta }}</span>
-    </a>
+    {{ ad_marker() }}
+    {{ ad_unit(o, "sky") }}
   </div>
 </aside>
 {%- endmacro %}

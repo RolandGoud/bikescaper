@@ -124,6 +124,16 @@ def create_app(db_path=None):
         app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.config["SPONSORED_PATH"] = sponsored.PATH
+
+    @app.url_defaults
+    def static_version(endpoint, values):
+        """Stylesheet and script URLs carry the file's modification time (?v=...), so a browser
+        fetches the new one after an update instead of using its cached copy."""
+        if endpoint == "static" and values.get("filename", "").endswith((".css", ".js")) and "v" not in values:
+            try:
+                values["v"] = int(os.stat(os.path.join(app.static_folder, values["filename"])).st_mtime)
+            except OSError:
+                pass
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
     app.jinja_env.globals["size_systems"] = checks.size_systems
@@ -237,6 +247,11 @@ def create_app(db_path=None):
                 "periods": prices.PERIODS,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
+    def offers(slots=sponsored.SLOTS):
+        """The sponsored offers for this page's slots (webapp/sponsored.py)."""
+        return sponsored.pick(sponsored.load(app.config["SPONSORED_PATH"]), g.get("lang", DEFAULT_LANGUAGE),
+                              slots=slots)
+
     @app.template_filter("eur")
     def eur(value):
         return "€{:,.0f}".format(value).replace(",", ".") if value is not None else "–"
@@ -247,9 +262,8 @@ def create_app(db_path=None):
         ads = group_checks(rows)
         cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
-        offers = sponsored.pick(sponsored.load(app.config["SPONSORED_PATH"]), g.get("lang", DEFAULT_LANGUAGE))
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
-                               hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers)
+                               hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers())
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
@@ -363,7 +377,7 @@ def create_app(db_path=None):
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
         cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
                  for r, n in group_checks(rows)]
-        return render_template("listings.html", cards=cards, nav="listings")
+        return render_template("listings.html", cards=cards, nav="listings", sponsored=offers(("card", "side")))
 
     @app.route("/checks")
     def all_checks():
@@ -406,7 +420,7 @@ def create_app(db_path=None):
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
                                counts=counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
-                               tier=tier, tier_counts=tier_counts, nav="models")
+                               tier=tier, tier_counts=tier_counts, nav="models", sponsored=offers(("banner", "side")))
 
     @app.route("/models/<slug>")
     def model_page(slug):

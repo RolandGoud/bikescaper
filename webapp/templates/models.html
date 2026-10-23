@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% from "_macros.html" import brand_label %}
-{% from "_macros.html" import model_card with context %}
+{% from "_macros.html" import model_card, sponsored_banner, sponsored_side with context %}
 {% block title %}{{ _('Models') }} · Bike Compare{% endblock %}
 {% block body %}
+{# The side offer sits outside main, which models.js swaps on a filter change. #}
+<div class="side-host">
+{% if sponsored.side %}{{ sponsored_side(sponsored.side) }}{% endif %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
     <h1 style="font-size: 44px">{{ _('Models') }}</h1>
@@ -45,6 +48,7 @@
       </span>
     </form>
   </div>
+  {% if sponsored.banner and groups %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
   {% for key, label, items in groups %}
   <section class="stack">
     <h2>{{ _(label) }} <span class="muted count">{{ items|length }}</span></h2>
@@ -58,5 +62,6 @@
   <div class="card"><p>{{ _('No models match.') }}</p></div>
   {% endfor %}
 </main>
+</div>
 <script src="{{ url_for('static', filename='models.js') }}" defer></script>
 {% endblock %}
