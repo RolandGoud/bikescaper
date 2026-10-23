@@ -93,27 +93,39 @@ def run(*cmd, cwd=APP, **env):
     subprocess.run(cmd, cwd=cwd, check=True, env={**os.environ, **env})
 
 
-def install(sha):
-    """Download commit `sha`, test that it starts, then put it live. Returns True when done."""
+def pip_install(*args, cwd=APP):
+    run(sys.executable, "-m", "pip", "install", "--no-cache-dir", "--quiet", "--root-user-action=ignore",
+        "--disable-pip-version-check", *args, "-r", "webapp/requirements.txt", cwd=cwd)
+
+
+def install(ref):
+    """Download commit (or branch) `ref`, test that it starts, then put it live.
+
+    The test runs with the new requirements in a folder of their own and against a throwaway
+    database, so a broken commit changes nothing for the running site.
+    """
     staging = tempfile.mkdtemp(prefix=".update-", dir=APP)
     try:
-        download(sha, staging)
-        run(sys.executable, "-m", "pip", "install", "--no-cache-dir", "--quiet",
-            "--root-user-action=ignore", "-r", "webapp/requirements.txt", cwd=staging)
-        # Import the new app against a throwaway database, so a broken commit never goes live.
+        download(ref, staging)
+        deps = os.path.join(staging, ".deps")
+        pip_install("--target", deps, cwd=staging)
         with tempfile.TemporaryDirectory() as tmp:
             run(sys.executable, "-c", "import webapp.app", cwd=staging,
-                BIKECOMPARE_DB=os.path.join(tmp, "test.sqlite3"))
+                PYTHONPATH=deps, BIKECOMPARE_DB=os.path.join(tmp, "test.sqlite3"))
+        pip_install(cwd=staging)
         swap_in(staging)
-        with open(VERSION_FILE, "w") as fh:
-            fh.write(sha)
-        return True
+        if ref != branch():
+            with open(VERSION_FILE, "w") as fh:
+                fh.write(ref)
     finally:
         shutil.rmtree(staging, ignore_errors=True)
 
 
 def now():
-    """On container start: get the latest code. Keep last time's code if GitHub can't be reached."""
+    """On container start: get the latest code, unless it fails the same test as in `watch`.
+
+    If GitHub can't be reached or the new code is broken, start the code from last time.
+    """
     for name in os.listdir(APP):  # left over from an update that was cut off
         if name.startswith(".update-"):
             shutil.rmtree(os.path.join(APP, name), ignore_errors=True)
@@ -122,20 +134,12 @@ def now():
         if sha and sha == installed_commit() and os.path.exists(os.path.join(APP, "webapp", "app.py")):
             log(f"already on {sha[:7]}")
             return
-        staging = tempfile.mkdtemp(prefix=".update-", dir=APP)
-        try:
-            download(sha or branch(), staging)
-            swap_in(staging)
-        finally:
-            shutil.rmtree(staging, ignore_errors=True)
-        if sha:
-            with open(VERSION_FILE, "w") as fh:
-                fh.write(sha)
+        install(sha or branch())
         log(f"downloaded {branch()} at {(sha or '?')[:7]}")
     except Exception as exc:
         if not os.path.exists(os.path.join(APP, "webapp", "app.py")):
             raise
-        log(f"download failed ({exc}); starting the code from last time")
+        log(f"update failed ({exc}); starting the code from last time")
 
 
 def watch():
@@ -163,7 +167,14 @@ def watch():
             os.kill(1, signal.SIGHUP)  # gunicorn: start workers on the new code, then stop the old ones
             log(f"now running {sha[:7]}")
             # Carry on with this file's new version, in case the updater itself changed.
-            shutil.copy(os.path.join(APP, "nas", "autoupdate.py"), os.path.join(APP, "autoupdate.py"))
+            new = os.path.join(APP, "nas", "autoupdate.py")
+            try:
+                with open(new, "rb") as fh:
+                    compile(fh.read(), new, "exec")
+            except SyntaxError as exc:  # a broken updater would stop all later updates
+                log(f"the new updater has an error ({exc}); keeping this one")
+                continue
+            shutil.copy(new, os.path.join(APP, "autoupdate.py"))
             os.execv(sys.executable, [sys.executable, os.path.join(APP, "autoupdate.py"), "--watch"])
         except Exception as exc:
             etag = None  # ask again next time instead of getting "unchanged"
