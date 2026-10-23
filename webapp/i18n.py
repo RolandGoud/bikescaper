@@ -899,4 +899,8 @@ NL = {
     "Wired electronic shifting: needs internal routing for the wires and a spot for the battery.": "Bedraad elektronisch schakelen: vraagt interne kabelgeleiding voor de draden en ruimte voor de accu.",
     "Two chainrings need a front derailleur mount; your 1x frame may not have one.": "Twee kettingbladen vragen een voorderailleurmontage; je 1x-frame heeft die misschien niet.",
     "For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.": "Bijvoorbeeld een UDH-pad, interne kabelgeleiding voor bedrade Di2 of EPS, of een voorderailleurmontage.",
+    "All options": "Alle opties",
+    "Easiest route": "Makkelijkste route",
+    "Step {n}": "Stap {n}",
+    "In each step up, the upgrade that fits your frame with the least work.": "Per stap omhoog de upgrade die op je frame past met het minste werk.",
 }
