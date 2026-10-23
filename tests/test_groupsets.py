@@ -111,3 +111,17 @@ def test_one_brand_at_a_time(tmp_path):
     assert "Super Record" in page and "Mountain bike" not in page  # no MTB groups: back to road
     page = client.get("/groupsets?have=gx-eagle&lang=en").data.decode()  # the groupset sets brand and type
     assert 'aria-current="true">SRAM<' in page and "XX1 Eagle AXS" in page
+
+
+def test_easiest_route():
+    assert [g["key"] for g, _p in groupsets.route("r7000")] == ["r8000", "r9100"]  # mix and match all the way
+    assert [g["key"] for g, _p in groupsets.route("m5100")] == ["m7100", "m8100", "m9100"]  # mechanical stays
+    assert all(p["fit"] != "no" for g, p in groupsets.route("5800"))
+    assert groupsets.route("r9200") == []
+
+
+def test_route_view_renders(tmp_path):
+    client = create_app(str(tmp_path / "app.sqlite3")).test_client()
+    page = client.get("/groupsets?have=r7000&show=route&lang=en").data.decode()
+    assert "Step 2" in page and 'data-key="r9100"' in page and 'data-route="1"' in page
+    assert 'href="/groupsets?have=r8000&amp;show=route#paths"' in page  # tiles keep the view

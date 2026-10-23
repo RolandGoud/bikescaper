@@ -257,10 +257,11 @@ GENERATIONS = {}
 for _brand, _by_discipline in LADDERS.items():
     for _discipline, _ladders in _by_discipline.items():
         for _label, _series in _ladders:
-            for _s in _series:
+            for _step, _s in enumerate(_series):
                 for _g in _s["gens"]:
                     GENERATIONS[_g["key"]] = dict(_g, brand=_brand, discipline=_discipline, series=_s["name"],
-                                                  series_key=_s["key"], tier=_s["tier"])
+                                                  series_key=_s["key"], tier=_s["tier"],
+                                                  ladder=(_brand, _discipline, _label), step=_step)
 
 # How much has to change, from least to most, when the new groupset fits the frame.
 EFFORT = {
@@ -341,6 +342,25 @@ def upgrades(key):
     found = [(g, path(current, g)) for g in GENERATIONS.values() if is_upgrade(current, g)]
     return sorted(found, key=lambda item: (item[0]["brand"] != current["brand"], item[1]["fit"] == "no",
                                            item[1]["effort"], item[0]["tier"] or 0, -item[0]["year"]))
+
+
+def route(key):
+    """The easiest way up from `key`: in each step above it on its own ladder, the upgrade that fits the frame
+    with the least work (no frame check before one, the same kind of shifting, then the newest). [(generation, path)], lowest step first."""
+    current = GENERATIONS[key]
+    found = [(g, p) for g, p in upgrades(key)
+             if g["ladder"] == current["ladder"] and g["step"] > current["step"] and p["fit"] != "no"]
+
+    def rank(item):
+        g, p = item
+        return p["effort"], p["fit"] == "check", g["shift"] != current["shift"], -g["year"]
+
+    picks = {}
+    for g, p in found:
+        best = picks.get(g["step"])
+        if best is None or rank((g, p)) < rank(best):
+            picks[g["step"]] = (g, p)
+    return [picks[step] for step in sorted(picks)]
 
 
 def ladders(discipline, brand=None):

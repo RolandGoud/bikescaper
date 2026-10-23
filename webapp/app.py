@@ -441,12 +441,15 @@ def create_app(db_path=None):
         kind = current["discipline"] if current else request.args.get("type")
         kind = kind if kind in dict(kinds) else kinds[0][0]
         paths = groupsets.upgrades(current["key"]) if current else []
+        show = "route" if request.args.get("show") == "route" else "all"  # every upgrade, or the easiest route
+        route = groupsets.route(current["key"]) if current else []
         counts = {}
         for m in models():
             key = groupset_key(m)
             if key:
                 counts[key] = counts.get(key, 0) + 1
-        return render_template("groupsets.html", kind=kind, current=current, paths=paths,
+        return render_template("groupsets.html", kind=kind, current=current, paths=paths, show=show, route=route,
+                               route_keys=[g["key"] for g, _p in route],
                                by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=list(groupsets.LADDERS), disciplines=kinds,
                                effort=groupsets.EFFORT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,

@@ -775,3 +775,31 @@ select { max-width: 100%; }
 .frame-note ul { margin-top: 4px; }
 .frame-note.check { background: var(--warn-bg); color: var(--warn); }
 .frame-note.no { background: #fff; color: var(--bad); }
+/* Lines between the generation tiles (groupset-lines.js), under the tiles' text but over the page. */
+.brand-ladders { position: relative; }
+.path-lines { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible; }
+.brand-ladders .ladder { gap: 44px; }
+.brand-ladders .gen { position: relative; z-index: 2; }
+.brand-ladders .step + .step::before { left: -28px; }
+.path-lines { z-index: 0; }
+.brand-ladders .ladder { grid-auto-columns: minmax(140px, 1fr); }
+/* All options or the easiest route: a two-way switch next to the groupset picker. */
+.segmented { display: inline-flex; height: 44px; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; }
+.segmented a { display: inline-flex; align-items: center; padding: 0 16px; text-decoration: none; color: var(--ink); font-family: var(--body); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.segmented a.on { background: var(--ink); color: #fff; }
+/* The easiest route as a row of stops, yours first. */
+.route { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 28px; overflow-x: auto; }
+.route-stop { position: relative; display: flex; flex-direction: column; gap: 8px; }
+.route-stop + .route-stop::before { content: ""; position: absolute; left: -24px; top: 36px; width: 20px; height: 4px; border-radius: 2px; background: var(--orange); }
+.route-stop.here { padding: 14px; border-radius: 14px; background: var(--ink); color: #fff; align-self: start; margin-top: 28px; }
+.route-stop.here .route-label { color: var(--orange-soft); }
+.route-label { display: flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.route-stop .path-card { border-color: var(--orange); border-width: 2px; }
+.gen.off-route { opacity: 0.45; }
+.gen[data-route] { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange); }
+@media (max-width: 640px) {
+  .route { grid-auto-flow: row; }
+  .route-stop + .route-stop::before { left: 24px; top: -20px; width: 4px; height: 16px; }
+  .route-stop.here { margin-top: 0; }
+}
+::view-transition-group(*) { animation-duration: 0.42s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
