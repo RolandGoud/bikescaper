@@ -114,7 +114,7 @@ def build(listing, r, height=None, report_url=None):
     story.append(_p(_("Spec comparison"), s["h2"]))
     rows = [[_p(_(h), s["cell"], MUTED) for h in ("PART", "ORIGINAL", "IN THE AD", "RESULT")]]
     for x in r["specs"]["rows"]:
-        rows.append([_p(x["part"], s["cell"]), _p(x["original"], s["cell"]), _p(x["listing"], s["cell"]),
+        rows.append([_p(x["part"], s["cell"]), _p(x["original"], s["cell"]), _p(x["listing"] or "", s["cell"]),
                      _p(x["result"], s["cell"], STATUS.get(x.get("status"), INK))])
     story.append(_table(rows, [28 * mm, (width - 58 * mm) / 2, (width - 58 * mm) / 2, 30 * mm]))
 

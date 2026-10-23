@@ -43,7 +43,7 @@
       </div>
       {% endif %}
       {% endif %}
-      {% if listing.photos %}<div class="ad-strip"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% if r.model and r.model.image %}<div class="strip-duo">{{ duo_photo(listing.photos[0], r.model) }}</div>{% endif %}{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
+      {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% if r.model and r.model.image %}<div class="strip-duo">{{ duo_photo(listing.photos[0], r.model) }}</div>{% endif %}{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
       {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
     </div>
   </section>
@@ -102,8 +102,11 @@
           <tr>
             <td><span class="part-name">{{ part_icon(s.key) }}{{ s.part }}</span></td>
             <td data-label="{{ _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}</div>{% endif %}</td>
-            <td data-label="{{ _('IN THE AD') }}">{{ s.listing }}
-              <div class="part-tier part-verdict {{ s.status }}">{{ tier_move(s.ad_tier, s.step) }}<span>{{ s.result }}</span></div>
+            <td data-label="{{ _('IN THE AD') }}">{{ s.listing if s.listing }}
+              <div class="part-tier part-verdict {{ s.status }}{{ ' alone' if not s.listing }}">{{ tier_move(s.ad_tier, s.step) }}
+              {%- if s.listing is none and listing.photos %}<a class="open-photos" href="#ad-photos">{{ s.result }} →</a>
+              {%- elif s.listing is none and listing.listing_url %}<a href="{{ listing.listing_url }}" rel="noopener nofollow">{{ s.result }} →</a>
+              {%- else %}<span>{{ s.result }}</span>{% endif %}</div>
             </td>
           </tr>
         {% endfor %}

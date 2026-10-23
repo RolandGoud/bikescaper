@@ -29,6 +29,10 @@
       open(Number(link.dataset.photo) + first, e);
     });
   });
+  // "Compare photos" in the parts table opens the slider, or the first photo without one
+  document.querySelectorAll(".open-photos").forEach((link) => {
+    link.addEventListener("click", (e) => { e.preventDefault(); open(0, e); });
+  });
   // the small slider in the strip opens the big one, unless the click ends a drag (duo.js)
   document.querySelector(".strip-duo")?.addEventListener("click", (e) => { if (duo && !e.defaultPrevented) open(0, e); });
   box.querySelector(".lb-prev").addEventListener("click", () => show(at - 1));
