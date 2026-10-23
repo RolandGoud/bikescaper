@@ -441,6 +441,10 @@ NL = {
     "{n} parts downgraded": "{n} onderdelen lager",
     "{n} part upgraded": "{n} onderdeel beter",
     "{n} parts upgraded": "{n} onderdelen beter",
+    "The ad gives no year; the bike is probably from {year} or later, so it's valued as a {year} bike.":
+        "De advertentie noemt geen jaar; de fiets is waarschijnlijk van {year} of later, dus we rekenen met {year}.",
+    "The ad gives no year; the bike is probably from {year} or earlier, so it's valued as a {year} bike.":
+        "De advertentie noemt geen jaar; de fiets is waarschijnlijk van {year} of eerder, dus we rekenen met {year}.",
     "Lowered for the downgraded parts.": "Verlaagd vanwege de mindere onderdelen.",
     "Do you still have the original {part} ({original})?": "Heb je de originele {part} nog ({original})?",
     "Matches the original": "Klopt met het origineel",
