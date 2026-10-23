@@ -472,7 +472,8 @@ def test_report_shows_tiers_and_part_icons(tmp_path):
     assert 'class="part-icon"' in page
     assert 'class="tier small t4 up"' in page and 'class="tier small t1 down"' in page
     assert "RESULT" not in page and "Check photos" not in page
-    assert page.count('class="arrow check"') >= 1  # the matching carbon frame shows its tier with a check mark
+    assert page.count('class="arrow check"') >= 1  # the matching carbon frame shows its tier with a check mark...
+    assert "<span>Matches</span>" not in page  # ...instead of the word
 
 
 def test_carbon_frame_is_not_carbon_wheels():
