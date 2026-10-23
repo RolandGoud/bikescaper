@@ -749,3 +749,15 @@ select { max-width: 100%; }
 .path-switch { border-top: 1px solid var(--faint); padding-top: 14px; }
 .path-switch summary { cursor: pointer; font-weight: 700; }
 .path-switch[open] summary { margin-bottom: 4px; }
+/* Whether an upgrade fits the frame: amber when it needs a mount or routing not every frame has, red when it can't. */
+.badges { display: inline-flex; gap: 3px; }
+.effort.check { background: #D9822B; }
+.effort.nofit { background: var(--bad); }
+.gen.nofit { border-color: var(--bad); border-style: dashed; background: var(--bad-bg); }
+.gen.nofit .gen-name { text-decoration: line-through; text-decoration-color: var(--bad); }
+.path-group.no-fit h3 { color: var(--bad); }
+.path-card.fit-no { border-color: var(--bad); border-style: dashed; background: var(--bad-bg); }
+.frame-note { padding: 8px 10px; border-radius: 8px; font-size: 14px; }
+.frame-note ul { margin-top: 4px; }
+.frame-note.check { background: var(--warn-bg); color: var(--warn); }
+.frame-note.no { background: #fff; color: var(--bad); }

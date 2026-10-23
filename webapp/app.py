@@ -449,7 +449,7 @@ def create_app(db_path=None):
         return render_template("groupsets.html", kind=kind, current=current, paths=paths,
                                by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=list(groupsets.LADDERS), disciplines=kinds,
-                               effort=groupsets.EFFORT, shift_labels=groupsets.SHIFT_LABELS,
+                               effort=groupsets.EFFORT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS, counts=counts,
                                catalog_names={key: name for key, name, _p, _t in GROUPSETS},
                                nav="groupsets")

@@ -38,12 +38,15 @@ FREEHUBS = {
 }
 
 
-def gen(key, name, year, speeds, shift, system, freehubs, brakes, note=None, udh=False, shifters_from=()):
+def gen(key, name, year, speeds, shift, system, freehubs, brakes, note=None, udh=False, shifters_from=(),
+        one_by=False):
     """One generation of a groupset. `system` is what has to match for parts to mix: shifters and
     derailleurs of one system work together. `freehubs` lists the bodies its cassettes fit, the usual one
-    first. `shifters_from` lists other systems whose shifters drive this one's derailleurs."""
+    first. `shifters_from` lists other systems whose shifters drive this one's derailleurs. `one_by` marks
+    drop-bar groupsets made for one chainring only."""
     return {"key": key, "name": name, "year": year, "speeds": speeds, "shift": shift, "system": system,
-            "freehubs": freehubs, "brakes": brakes, "note": note, "udh": udh, "shifters_from": shifters_from}
+            "freehubs": freehubs, "brakes": brakes, "note": note, "udh": udh, "shifters_from": shifters_from,
+            "one_by": one_by}
 
 
 def series(key, name, gens, tier=None, catalog=None):
@@ -148,11 +151,11 @@ LADDERS = {
             ("Road", [
                 series("apex", "Apex", [
                     gen("apex-11", "Apex 1 (11-speed)", 2015, 11, "mech", "sram-road-11", ["hg11", "xd"], ["rim", "disc"],
-                        note="1x only."),
+                        note="1x only.", one_by=True),
                     gen("apex-12", "Apex (12-speed)", 2023, 12, "mech", "sram-apex-12", ["hg11", "xdr"], ["disc"],
-                        note="1x only. The 11-44 cassette fits an HG freehub, the 10-44 needs XDR."),
+                        note="1x only. The 11-44 cassette fits an HG freehub, the 10-44 needs XDR.", one_by=True),
                     gen("apex-axs", "Apex AXS", 2023, 12, "axs", "sram-axs-12", ["hg11", "xdr"], ["disc"],
-                        note="1x only. The 11-44 cassette fits an HG freehub, the 10-44 needs XDR."),
+                        note="1x only. The 11-44 cassette fits an HG freehub, the 10-44 needs XDR.", one_by=True),
                 ]),
                 series("rival", "Rival", [
                     gen("rival-22", "Rival 22", 2013, 11, "mech", "sram-road-11", ["hg11"], ["rim", "disc"]),
@@ -164,7 +167,7 @@ LADDERS = {
                         note="The 2025 generation is disc only and mixes with older AXS parts."),
                     gen("force-xplr-13", "Force XPLR AXS (13-speed)", 2025, 13, "axs", "sram-xplr-13", ["xdr"],
                         ["disc"], udh=True, shifters_from=("sram-axs-12",),
-                        note="1x gravel. Needs a wide 1x crank."),
+                        note="1x gravel. Needs a wide 1x crank.", one_by=True),
                 ]),
                 series("red", "Red", [
                     gen("red-22", "Red 22", 2013, 11, "mech", "sram-road-11", ["hg11"], ["rim", "disc"]),
@@ -172,7 +175,7 @@ LADDERS = {
                     gen("red-axs", "Red AXS", 2019, 12, "axs", "sram-axs-12", ["xdr"], ["rim", "disc"],
                         note="The 2024 generation is disc only and mixes with older AXS parts."),
                     gen("red-xplr-13", "Red XPLR AXS (13-speed)", 2025, 13, "axs", "sram-xplr-13", ["xdr"], ["disc"],
-                        udh=True, shifters_from=("sram-axs-12",), note="1x gravel. Needs a wide 1x crank."),
+                        udh=True, shifters_from=("sram-axs-12",), note="1x gravel. Needs a wide 1x crank.", one_by=True),
                 ]),
             ]),
         ],
@@ -233,8 +236,8 @@ LADDERS = {
             ]),
             ("Gravel", [
                 series("ekar", "Ekar", [
-                    gen("ekar", "Ekar", 2020, 13, "mech", "campa-ekar-13", ["n3w"], ["disc"], note="1x only."),
-                    gen("ekar-gt", "Ekar GT", 2023, 13, "mech", "campa-ekar-13", ["n3w"], ["disc"], note="1x only."),
+                    gen("ekar", "Ekar", 2020, 13, "mech", "campa-ekar-13", ["n3w"], ["disc"], note="1x only.", one_by=True),
+                    gen("ekar-gt", "Ekar GT", 2023, 13, "mech", "campa-ekar-13", ["n3w"], ["disc"], note="1x only.", one_by=True),
                 ]),
             ]),
         ],
@@ -259,19 +262,26 @@ for _brand, _by_discipline in LADDERS.items():
                     GENERATIONS[_g["key"]] = dict(_g, brand=_brand, discipline=_discipline, series=_s["name"],
                                                   series_key=_s["key"], tier=_s["tier"])
 
-# How much has to change, from least to most.
+# How much has to change, from least to most, when the new groupset fits the frame.
 EFFORT = {
     1: ("Mix and match", "Same system: swap the parts you want and keep the rest."),
     2: ("New shifters and derailleurs", "Cassette, chain and crankset can stay."),
     3: ("New drivetrain", "Shifters, derailleurs, cassette and chain, usually the crankset too."),
     4: ("Rear wheel too", "The new cassette needs another freehub body, often a swap on the same hub."),
-    5: ("New frame", "The brakes don't match the frame: this is a new bike rather than an upgrade."),
+}
+# Whether the new groupset mounts on the frame you have: "no" when it can't (other brakes), "check" when it
+# needs something not every frame has (a UDH dropout, internal routing, a front derailleur mount).
+FIT = {
+    "no": ("Doesn't fit your frame", "Other brake mounts: the frame and fork would have to change, so this is a "
+                                     "new bike rather than an upgrade."),
+    "check": ("Check your frame", "Fits only if the frame has the mount or routing it needs."),
 }
 
 
 def path(current, target):
-    """What it takes to go from one generation to another: {"effort": 1-5, "steps": [Msg]}."""
-    steps = []
+    """What it takes to go from one generation to another: {"effort": 1-4, "steps": [Msg], "fit": "ok", "check"
+    or "no", "frame": [Msg]}. Steps are the parts to change; frame lists what the frame must have."""
+    steps, frame = [], []
     if current["brand"] != target["brand"]:
         effort = 3
         steps.append(Msg("Brand switch: shifters, derailleurs, cassette and chain all change."))
@@ -289,21 +299,25 @@ def path(current, target):
         effort = 3
         steps.append(Msg("{speeds}-speed: new shifters, derailleurs, cassette and chain.", speeds=target["speeds"]))
     if current["freehubs"][0] not in target["freehubs"]:
-        effort = max(effort, 4)
+        effort = 4
         steps.append(Msg("Rear wheel needs a {freehub} freehub body.", freehub=Msg(FREEHUBS[target["freehubs"][0]])))
-    if not set(current["brakes"]) & set(target["brakes"]):
-        effort = 5
-        steps.append(Msg("Disc brake only: needs a disc frame, fork and wheels." if target["brakes"] == ["disc"]
-                         else "Rim brake only: needs a rim-brake frame and fork."))
-    if target["shift"] in WIRED and current["shift"] not in WIRED:
-        steps.append(Msg("Frame needs internal routing for the wires and a spot for the battery."))
-    elif target["shift"] in ("axs", "etap", "wrl", "di2-mtb") and current["shift"] == "mech":
+    if target["shift"] in ("axs", "etap", "wrl", "di2-mtb") and current["shift"] == "mech":
         steps.append(Msg("No wires through the frame; batteries to charge."))
-    if target["udh"] and not current["udh"]:
-        steps.append(Msg("Frame needs a UDH (universal derailleur hanger) dropout."))
     if target["note"]:
         steps.append(Msg(target["note"]))
-    return {"effort": effort, "steps": steps}
+
+    if not set(current["brakes"]) & set(target["brakes"]):
+        frame.append(Msg("Disc brakes only: your rim-brake frame and fork have no mounts for them."
+                         if target["brakes"] == ["disc"] else "Rim brakes only: your disc frame has no mounts for them."))
+    if target["udh"] and not current["udh"]:
+        frame.append(Msg("The rear derailleur bolts straight to the frame: needs a UDH (universal derailleur "
+                         "hanger) dropout."))
+    if target["shift"] in WIRED and current["shift"] not in WIRED:
+        frame.append(Msg("Wired electronic shifting: needs internal routing for the wires and a spot for the battery."))
+    if current["one_by"] and not target["one_by"] and target["discipline"] == "road":
+        frame.append(Msg("Two chainrings need a front derailleur mount; your 1x frame may not have one."))
+    fit = "no" if not set(current["brakes"]) & set(target["brakes"]) else ("check" if frame else "ok")
+    return {"effort": effort, "steps": steps, "fit": fit, "frame": frame}
 
 
 def is_upgrade(current, target):
@@ -322,11 +336,11 @@ def is_upgrade(current, target):
 
 def upgrades(key):
     """The generations one step or more above `key`, each with its path: [(generation, path)], same brand
-    first, then the least work, then tier and newest first."""
+    first, the ones that don't fit the frame last, then the least work, then tier and newest first."""
     current = GENERATIONS[key]
     found = [(g, path(current, g)) for g in GENERATIONS.values() if is_upgrade(current, g)]
-    return sorted(found, key=lambda item: (item[0]["brand"] != current["brand"], item[1]["effort"],
-                                           item[0]["tier"] or 0, -item[0]["year"]))
+    return sorted(found, key=lambda item: (item[0]["brand"] != current["brand"], item[1]["fit"] == "no",
+                                           item[1]["effort"], item[0]["tier"] or 0, -item[0]["year"]))
 
 
 def ladders(discipline, brand=None):
