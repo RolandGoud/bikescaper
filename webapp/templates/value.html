@@ -55,11 +55,6 @@
     <div class="check-rows">
       {% for h in history %}{% set r = h.result %}
       <article class="check-row{{ ' current' if shown and h.row.id == shown.id }}">
-        <header class="check-row-head">
-          <span class="mono">#{{ h.row.id }} · {{ h.row.created_at[:16] }}</span>
-          {% if shown and h.row.id == shown.id %}<span class="badge">{{ _('Shown above') }}</span>{% endif %}
-          <a class="open" href="{{ url_for('value', estimate=h.row.id) }}">{{ _('Open estimate') }} →</a>
-        </header>
         <div class="check-row-body">
           <a class="check-row-photo" href="{{ url_for('model_page', slug=h.model.slug) }}" tabindex="-1" aria-hidden="true">
             <div class="photo">{{ photo(h.model) }}{{ brand_mark(h.model.brand) }}</div>
@@ -87,6 +82,11 @@
             </dl>
           </section>
         </div>
+        <footer class="check-row-foot">
+          <span class="mono">#{{ h.row.id }} · {{ h.row.created_at[:16] }}</span>
+          {% if shown and h.row.id == shown.id %}<span class="badge">{{ _('Shown above') }}</span>{% endif %}
+          <a class="open" href="{{ url_for('value', estimate=h.row.id) }}">{{ _('Open estimate') }} →</a>
+        </footer>
       </article>
       {% endfor %}
     </div>
