@@ -65,6 +65,12 @@ def url_name(brand, url):
 URL_ID = {"Trek": r"/p/(\d+)$", "Specialized": r"/p/(\d+)$", "Canyon": r"/(\d+)\.html$", "Cube": r"/(\d+)$"}
 
 
+def model_year(brand, url):
+    """The model year a product URL names (Giant's /nl/tcr-advanced-2-2025), or None."""
+    m = brand == "Giant" and re.search(r"-(20\d\d)$", urlparse(url).path.rstrip("/"))
+    return int(m.group(1)) if m else None
+
+
 def url_id(brand, url):
     m = brand in URL_ID and re.search(URL_ID[brand], urlparse(url).path.rstrip("/"))
     return m.group(1) if m else None
@@ -110,8 +116,9 @@ def match(cdx_folder, out_path, db_path):
             if key is None:
                 continue
             name = match_model(brand, key, keys) or ids.get(url_id(brand, url))
-            if name and int(ts[:4]) >= FIRST_YEAR:
-                captures[(name, int(ts[:4]))].append((ts, url))
+            year = model_year(brand, url) or int(ts[:4])  # a 2025 page captured in 2026 is still the 2025 sheet
+            if name and year >= FIRST_YEAR:
+                captures[(name, year)].append((ts, url))
         for (name, year), caps in sorted(captures.items()):
             spring = datetime(year, *SPRING)
             caps.sort(key=lambda c: abs((datetime.strptime(c[0][:8], "%Y%m%d") - spring).days))
@@ -127,6 +134,10 @@ def match(cdx_folder, out_path, db_path):
 
 
 # ---------------------------------------------------------------- reading the archived pages
+
+# Menu and footer headings that some layouts also mark up as dt/dd or name/desc pairs.
+NAV_LABELS = {"support", "ondersteuning", "catalogus", "over cannondale", "company", "dealer", "shop", "winkel",
+              "service", "contact", "klantenservice", "bedrijf", "over ons"}
 
 MIN_SPECS = 6  # fewer recognised parts than this is a page without a real spec list
 
@@ -151,6 +162,7 @@ def _generic_pairs(page):
         if desc:
             pairs.append((text(name), text(desc)))
     # Trek marks size-dependent parts with a star ("*Crankstel").
+    pairs = [(label, value) for label, value in pairs if clean(label).lower() not in NAV_LABELS]
     # A value without a letter is a geometry row (crank length 165,0, stack 529), not a part.
     return [(label.lstrip("*").strip(), value) for label, value in pairs
             if label.strip() and re.search(r"[^\W\d_]", value)]
@@ -175,7 +187,10 @@ def _canyon_specs(page):
     from canyon_bikes_scraper import CanyonBikeScraper
     logging.disable(logging.INFO)
     scraper = _canyon_specs.scraper = getattr(_canyon_specs, "scraper", None) or CanyonBikeScraper()
-    return {k: v for k, v in (scraper.extract_canyon_specifications(BeautifulSoup(page, "lxml")) or {}).items() if v}
+    from webapp.reference import SPEC_LABELS
+    specs = scraper.extract_canyon_specifications(BeautifulSoup(page, "lxml")) or {}
+    # Its keys are mostly the shared ones with "_" for spaces ("Bottom_bracket"); use whichever SPEC_LABELS knows.
+    return {(k if k in SPEC_LABELS else k.replace("_", " ")): v for k, v in specs.items() if v}
 
 
 def read_specs(brand, page, url):
@@ -200,6 +215,7 @@ def read_specs(brand, page, url):
     # Trek lists a part per size group ("Maat: 44, 49 Bontrager Comp"); keep the part, the first group's.
     specs = {k: re.sub(r"^Maat: (?:(?:\d{2}|[23]?X{0,2}[SML]|ML|XL{1,2})\b,? ?)+", "", str(v)).strip() or v
              for k, v in specs.items()}
+    specs = {k: v for k, v in specs.items() if not re.fullmatch(r"[23]?X{0,2}[SML]|ML|XL{1,2}|\d{2}", k)}  # size-table rows
     numeric = [k for k, v in specs.items() if not re.search(r"[^\W\d_]", str(v))]
     specs = {} if len(numeric) >= 3 else {k: v for k, v in specs.items() if k not in numeric}
     if price is None:
@@ -230,6 +246,11 @@ def parse(pages_folder, years_folder=None):
                 meta = json.load(fh)
             with gzip.open(path) as fh:
                 page = fh.read().decode("utf-8", "replace")
+            if brand == "Cube" and not re.search(r"cube\.eu/nl(?:-nl)?/", meta["url"]):
+                continue  # the German and English shopfronts under cube.eu/nl-de/ and /nl-en/
+            year = model_year(brand, meta["url"]) or meta["year"]
+            if year < FIRST_YEAR or models.get(meta["name"], {}).get(str(year), {}).get("specs"):
+                continue  # two copies of the same model year: keep the readable one
             specs, price = read_specs(brand, page, meta["url"])
             ts = str(meta["ts"])
             entry = {"captured": f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}", "ts": ts, "url": meta["url"]}
@@ -241,12 +262,12 @@ def parse(pages_folder, years_folder=None):
                 counts["unreadable"] += 1
             photo = path[:-len(".html.gz")] + ".jpg"
             if os.path.exists(photo):
-                rel = f"{brand}/years/{meta['slug']}_{meta['year']}.jpg"
+                rel = f"{brand}/years/{meta['slug']}_{year}.jpg"
                 os.makedirs(os.path.join(ROOT, "images", brand, "years"), exist_ok=True)
                 shutil.copyfile(photo, os.path.join(ROOT, "images", rel))
                 entry["image"] = rel
                 counts["photos"] += 1
-            models.setdefault(meta["name"], {})[str(meta["year"])] = entry
+            models.setdefault(meta["name"], {})[str(year)] = entry
         out = {"checked_on": date.today().isoformat(), "years": list(range(FIRST_YEAR, date.today().year + 1)),
                "source": "Wayback Machine copies of the brand's NL site", "models": models}
         with open(os.path.join(years_folder, f"{brand}.json"), "w", encoding="utf-8") as fh:
