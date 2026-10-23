@@ -38,7 +38,13 @@
       "61"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/0a/a2/b5/1784795616/synqup_1139200_S_00.jpg?ts=1792555062",
-    "image": "Cube/Cross_Race_C_62_Pro.jpg"
+    "image": "Cube/Cross_Race_C_62_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/0a/a2/b5/1784795616/synqup_1139200_S_00.jpg?ts=1792728648"
+    ],
+    "color_images": [
+      "Cube/Cross_Race_C_62_Pro_colour_greenfusion_n_black.jpg"
+    ]
   },
   {
     "name": "Cross Race C:62 Race",
@@ -79,7 +85,13 @@
       "61"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/fd/c2/cd/1784795620/synqup_1139300_S_00.jpg?ts=1792555062",
-    "image": "Cube/Cross_Race_C_62_Race.jpg"
+    "image": "Cube/Cross_Race_C_62_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/fd/c2/cd/1784795620/synqup_1139300_S_00.jpg?ts=1792728648"
+    ],
+    "color_images": [
+      "Cube/Cross_Race_C_62_Race_colour_carbon_n_crisscross.jpg"
+    ]
   },
   {
     "name": "Cross Race C:68X TE",
@@ -121,7 +133,13 @@
       "61"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/e9/de/63/1784795604/synqup_1139800_S_00.jpg?ts=1792555063",
-    "image": "Cube/Cross_Race_C_68X_TE.jpg"
+    "image": "Cube/Cross_Race_C_68X_TE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/e9/de/63/1784795604/synqup_1139800_S_00.jpg?ts=1792728649"
+    ],
+    "color_images": [
+      "Cube/Cross_Race_C_68X_TE_colour_teamline.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 EX",
@@ -165,7 +183,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/68/8e/60/1784795591/synqup_1136310_S_00.jpg?ts=1792555052",
-    "image": "Cube/Nuroad_C_62_EX.jpg"
+    "image": "Cube/Nuroad_C_62_EX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/68/8e/60/1784795591/synqup_1136310_S_00.jpg?ts=1792728633",
+      "https://file.cube.eu/azwesc1xfg346/media/81/1d/94/1784795584/synqup_1136300_S_00.jpg?ts=1792728631"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_EX_colour_artline.jpg",
+      "Cube/Nuroad_C_62_EX_colour_surfblue_n_black.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 EXC",
@@ -207,7 +233,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/bb/c0/57/1784795594/synqup_1136400_S_00.jpg?ts=1792555052",
-    "image": "Cube/Nuroad_C_62_EXC.jpg"
+    "image": "Cube/Nuroad_C_62_EXC.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/bb/c0/57/1784795594/synqup_1136400_S_00.jpg?ts=1792728633"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_EXC_colour_wolf_n_fibre.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 ONE",
@@ -250,7 +282,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/e3/e6/7e/1784795594/synqup_1136100_S_00.jpg?ts=1792555046",
-    "image": "Cube/Nuroad_C_62_ONE.jpg"
+    "image": "Cube/Nuroad_C_62_ONE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/e3/e6/7e/1784795594/synqup_1136100_S_00.jpg?ts=1792728627",
+      "https://file.cube.eu/azwesc1xfg346/media/34/81/12/1784795596/synqup_1136110_S_00.jpg?ts=1792728627"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_ONE_colour_carbon_n_shiftverde.jpg",
+      "Cube/Nuroad_C_62_ONE_colour_hintofmint_n_green.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 Pro",
@@ -295,7 +335,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/66/bc/d0/1784795579/synqup_1136200_S_00.jpg?ts=1792555047",
-    "image": "Cube/Nuroad_C_62_Pro.jpg"
+    "image": "Cube/Nuroad_C_62_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/66/bc/d0/1784795579/synqup_1136200_S_00.jpg?ts=1792728631",
+      "https://file.cube.eu/azwesc1xfg346/media/95/fc/fd/1784795574/synqup_1136210_S_00.jpg?ts=1792728630"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_Pro_colour_cedar_n_stone.jpg",
+      "Cube/Nuroad_C_62_Pro_colour_mellowyellow_n_lilac.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 Pro FE",
@@ -343,7 +391,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/cf/a0/82/1784795582/synqup_1136250_S_00.jpg?ts=1792641283",
-    "image": "Cube/Nuroad_C_62_Pro_FE.jpg"
+    "image": "Cube/Nuroad_C_62_Pro_FE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/cf/a0/82/1784795582/synqup_1136250_S_00.jpg?ts=1792728631"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_Pro_FE_colour_cedar_n_stone.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 Race",
@@ -386,7 +440,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/b8/cc/de/1784795580/synqup_1136500_S_00.jpg?ts=1792555053",
-    "image": "Cube/Nuroad_C_62_Race.jpg"
+    "image": "Cube/Nuroad_C_62_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/b8/cc/de/1784795580/synqup_1136500_S_00.jpg?ts=1792728635"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_Race_colour_jungali_n_black.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 SLT",
@@ -428,7 +488,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/c9/0f/70/1784795593/synqup_1136900_S_00.jpg?ts=1792555057",
-    "image": "Cube/Nuroad_C_62_SLT.jpg"
+    "image": "Cube/Nuroad_C_62_SLT.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/c9/0f/70/1784795593/synqup_1136900_S_00.jpg?ts=1792728639"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_SLT_colour_glacier_n_magenta.jpg"
+    ]
   },
   {
     "name": "Nuroad C:62 SLX",
@@ -471,7 +537,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/41/e7/83/1784795587/synqup_1136600_S_00.jpg?ts=1792555053",
-    "image": "Cube/Nuroad_C_62_SLX.jpg"
+    "image": "Cube/Nuroad_C_62_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/41/e7/83/1784795587/synqup_1136600_S_00.jpg?ts=1792728635",
+      "https://file.cube.eu/azwesc1xfg346/media/87/c2/76/1784795590/synqup_1136610_S_00.jpg?ts=1792728636"
+    ],
+    "color_images": [
+      "Cube/Nuroad_C_62_SLX_colour_glintsand_n_black.jpg",
+      "Cube/Nuroad_C_62_SLX_colour_pinkaction_n_black.jpg"
+    ]
   },
   {
     "name": "Nuroad EX",
@@ -515,7 +589,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/01/be/dd/1784795572/synqup_1135310_S_00.jpg?ts=1792641275",
-    "image": "Cube/Nuroad_EX.jpg"
+    "image": "Cube/Nuroad_EX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/01/be/dd/1784795572/synqup_1135310_S_00.jpg?ts=1792728623",
+      "https://file.cube.eu/azwesc1xfg346/media/b7/f8/57/1784795569/synqup_1135300_S_00.jpg?ts=1792728623"
+    ],
+    "color_images": [
+      "Cube/Nuroad_EX_colour_bubblegum_n_black.jpg",
+      "Cube/Nuroad_EX_colour_oatgrey_n_black.jpg"
+    ]
   },
   {
     "name": "Nuroad ONE",
@@ -554,7 +636,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/61/4a/f6/1784795579/synqup_1135110_S_00.jpg?ts=1792555035",
-    "image": "Cube/Nuroad_ONE.jpg"
+    "image": "Cube/Nuroad_ONE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/61/4a/f6/1784795579/synqup_1135110_S_00.jpg?ts=1792728618",
+      "https://file.cube.eu/azwesc1xfg346/media/2c/f6/a9/1784795577/synqup_1135100_S_00.jpg?ts=1792728618"
+    ],
+    "color_images": [
+      "Cube/Nuroad_ONE_colour_spicypapaya_n_black.jpg",
+      "Cube/Nuroad_ONE_colour_wood_n_grey.jpg"
+    ]
   },
   {
     "name": "Nuroad ONE FE",
@@ -604,7 +694,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/8c/2b/81/1784795584/synqup_1135150_S_00.jpg?ts=1792555035",
-    "image": "Cube/Nuroad_ONE_FE.jpg"
+    "image": "Cube/Nuroad_ONE_FE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/8c/2b/81/1784795584/synqup_1135150_S_00.jpg?ts=1792728619"
+    ],
+    "color_images": [
+      "Cube/Nuroad_ONE_FE_colour_wood_n_grey.jpg"
+    ]
   },
   {
     "name": "Nuroad Pro",
@@ -648,7 +744,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/01/85/a3/1784795590/synqup_1135210_S_00.jpg?ts=1792641275",
-    "image": "Cube/Nuroad_Pro.jpg"
+    "image": "Cube/Nuroad_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/01/85/a3/1784795590/synqup_1135210_S_00.jpg?ts=1792728621",
+      "https://file.cube.eu/azwesc1xfg346/media/b2/02/e8/1784795582/synqup_1135200_S_00.jpg?ts=1792728619"
+    ],
+    "color_images": [
+      "Cube/Nuroad_Pro_colour_mysticpurple_n_black.jpg",
+      "Cube/Nuroad_Pro_colour_taiga_n_blue.jpg"
+    ]
   },
   {
     "name": "Nuroad Pro FE",
@@ -696,7 +800,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/f9/50/38/1784795592/synqup_1135250_S_00.jpg?ts=1792555038",
-    "image": "Cube/Nuroad_Pro_FE.jpg"
+    "image": "Cube/Nuroad_Pro_FE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/f9/50/38/1784795592/synqup_1135250_S_00.jpg?ts=1792728621"
+    ],
+    "color_images": [
+      "Cube/Nuroad_Pro_FE_colour_taiga_n_blue.jpg"
+    ]
   },
   {
     "name": "Nuroad Race",
@@ -741,7 +851,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/f0/fe/a1/1784795577/synqup_1135500_S_00.jpg?ts=1792555041",
-    "image": "Cube/Nuroad_Race.jpg"
+    "image": "Cube/Nuroad_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/f0/fe/a1/1784795577/synqup_1135500_S_00.jpg?ts=1792728624",
+      "https://file.cube.eu/azwesc1xfg346/media/83/c6/6b/1784795584/synqup_1135510_S_00.jpg?ts=1792728626"
+    ],
+    "color_images": [
+      "Cube/Nuroad_Race_colour_inkgrey_n_grey.jpg",
+      "Cube/Nuroad_Race_colour_lindgreen_n_matcha.jpg"
+    ]
   },
   {
     "name": "Nuroad Race FE",
@@ -791,7 +909,13 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/94/75/ba/1784795571/synqup_1135550_S_00.jpg?ts=1792555046",
-    "image": "Cube/Nuroad_Race_FE.jpg"
+    "image": "Cube/Nuroad_Race_FE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/94/75/ba/1784795571/synqup_1135550_S_00.jpg?ts=1792728630"
+    ],
+    "color_images": [
+      "Cube/Nuroad_Race_FE_colour_inkgrey_n_grey.jpg"
+    ]
   },
   {
     "name": "Nuroad Rookie ONE",
@@ -830,7 +954,13 @@
       "XS"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/18/8d/1c/1784795636/synqup_1153100_S_00.jpg?ts=1792641321",
-    "image": "Cube/Nuroad_Rookie_ONE.jpg"
+    "image": "Cube/Nuroad_Rookie_ONE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/18/8d/1c/1784795636/synqup_1153100_S_00.jpg?ts=1792728692"
+    ],
+    "color_images": [
+      "Cube/Nuroad_Rookie_ONE_colour_cappuccino_n_brown.jpg"
+    ]
   },
   {
     "name": "Nuroad SLX",
@@ -874,7 +1004,15 @@
       "XL"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/f7/12/b3/1784795592/synqup_1135610_S_00.jpg?ts=1792555046",
-    "image": "Cube/Nuroad_SLX.jpg"
+    "image": "Cube/Nuroad_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/f7/12/b3/1784795592/synqup_1135610_S_00.jpg?ts=1792728627",
+      "https://file.cube.eu/azwesc1xfg346/media/47/7e/fd/1784795588/synqup_1135600_S_00.jpg?ts=1792728626"
+    ],
+    "color_images": [
+      "Cube/Nuroad_SLX_colour_autumn_n_black.jpg",
+      "Cube/Nuroad_SLX_colour_spaceship_n_cmyk.jpg"
+    ]
   },
   {
     "name": "Agree C:62 EX",
@@ -918,7 +1056,13 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/d0/b2/0a/1788430622/synqup_1132100_S_00.jpg?ts=1792641384",
-    "image": "Cube/Agree_C_62_EX.jpg"
+    "image": "Cube/Agree_C_62_EX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/d0/b2/0a/1788430622/synqup_1132100_S_00.jpg?ts=1792728710"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_EX_colour_glacier_n_black.jpg"
+    ]
   },
   {
     "name": "Agree C:62 ONE",
@@ -962,7 +1106,13 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/9a/84/4c/1788430613/synqup_1132000_S_00.jpg?ts=1792555112",
-    "image": "Cube/Agree_C_62_ONE.jpg"
+    "image": "Cube/Agree_C_62_ONE.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/9a/84/4c/1788430613/synqup_1132000_S_00.jpg?ts=1792728710"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_ONE_colour_midnightteal_n_sea.jpg"
+    ]
   },
   {
     "name": "Agree C:62 Pro",
@@ -1008,7 +1158,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/8a/4b/d8/1788430587/synqup_1132200_S_00.jpg?ts=1792641377",
-    "image": "Cube/Agree_C_62_Pro.jpg"
+    "image": "Cube/Agree_C_62_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/8a/4b/d8/1788430587/synqup_1132200_S_00.jpg?ts=1792728705",
+      "https://file.cube.eu/azwesc1xfg346/media/46/f3/b2/1788430596/synqup_1132210_S_00.jpg?ts=1792728705"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_Pro_colour_carbon_n_black.jpg",
+      "Cube/Agree_C_62_Pro_colour_dream_n_black.jpg"
+    ]
   },
   {
     "name": "Agree C:62 Race",
@@ -1055,7 +1213,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/0c/77/d7/1788430575/synqup_1132300_S_00.jpg?ts=1792555108",
-    "image": "Cube/Agree_C_62_Race.jpg"
+    "image": "Cube/Agree_C_62_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/0c/77/d7/1788430575/synqup_1132300_S_00.jpg?ts=1792728705",
+      "https://file.cube.eu/azwesc1xfg346/media/00/4a/31/1788430587/synqup_1132310_S_00.jpg?ts=1792728705"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_Race_colour_chromeblue_n_liquidblue.jpg",
+      "Cube/Agree_C_62_Race_colour_lilacfibre_n_black.jpg"
+    ]
   },
   {
     "name": "Agree C:62 SLT AXS",
@@ -1101,7 +1267,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/50/c0/e7/1788430620/synqup_1132920_S_00.jpg?ts=1792641383",
-    "image": "Cube/Agree_C_62_SLT_AXS.jpg"
+    "image": "Cube/Agree_C_62_SLT_AXS.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/50/c0/e7/1788430620/synqup_1132920_S_00.jpg?ts=1792728709",
+      "https://file.cube.eu/azwesc1xfg346/media/cd/7f/df/1788430601/synqup_1132930_S_00.jpg?ts=1792728709"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_SLT_AXS_colour_blackpearl_n_switchwhite.jpg",
+      "Cube/Agree_C_62_SLT_AXS_colour_stormyopal_n_black.jpg"
+    ]
   },
   {
     "name": "Agree C:62 SLT Di2",
@@ -1147,7 +1321,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/7f/50/7e/1788430602/synqup_1132900_S_00.jpg?ts=1792555109",
-    "image": "Cube/Agree_C_62_SLT_Di2.jpg"
+    "image": "Cube/Agree_C_62_SLT_Di2.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/7f/50/7e/1788430602/synqup_1132900_S_00.jpg?ts=1792728705",
+      "https://file.cube.eu/azwesc1xfg346/media/09/0d/31/1788430609/synqup_1132910_S_00.jpg?ts=1792728709"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_SLT_Di2_colour_blackpearl_n_switchwhite.jpg",
+      "Cube/Agree_C_62_SLT_Di2_colour_stormyopal_n_black.jpg"
+    ]
   },
   {
     "name": "Agree C:62 SLX",
@@ -1194,7 +1376,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/4f/81/c2/1788430597/synqup_1132600_S_00.jpg?ts=1792555109",
-    "image": "Cube/Agree_C_62_SLX.jpg"
+    "image": "Cube/Agree_C_62_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/4f/81/c2/1788430597/synqup_1132600_S_00.jpg?ts=1792728705",
+      "https://file.cube.eu/azwesc1xfg346/media/cb/2c/bf/1788430609/synqup_1132610_S_00.jpg?ts=1792728705"
+    ],
+    "color_images": [
+      "Cube/Agree_C_62_SLX_colour_slategrey_n_chrome.jpg",
+      "Cube/Agree_C_62_SLX_colour_unicorn_n_pink.jpg"
+    ]
   },
   {
     "name": "Attain C:62 Race",
@@ -1241,7 +1431,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/6a/88/8c/1784795572/synqup_1131300_S_00.jpg?ts=1792555022",
-    "image": "Cube/Attain_C_62_Race.jpg"
+    "image": "Cube/Attain_C_62_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/6a/88/8c/1784795572/synqup_1131300_S_00.jpg?ts=1792728614",
+      "https://file.cube.eu/azwesc1xfg346/media/1f/1b/62/1784795695/synqup_1131310_S_00.jpg?ts=1792728610"
+    ],
+    "color_images": [
+      "Cube/Attain_C_62_Race_colour_carbon_n_coalchrome.jpg",
+      "Cube/Attain_C_62_Race_colour_frostymint_n_mint.jpg"
+    ]
   },
   {
     "name": "Attain C:62 SLT",
@@ -1288,7 +1486,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/66/ea/cd/1784795673/synqup_1131900_S_00.jpg?ts=1792555021",
-    "image": "Cube/Attain_C_62_SLT.jpg"
+    "image": "Cube/Attain_C_62_SLT.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/66/ea/cd/1784795673/synqup_1131900_S_00.jpg?ts=1792728610",
+      "https://file.cube.eu/azwesc1xfg346/media/5f/00/b7/1784795568/synqup_1131910_S_00.jpg?ts=1792728611"
+    ],
+    "color_images": [
+      "Cube/Attain_C_62_SLT_colour_carbon_n_white.jpg",
+      "Cube/Attain_C_62_SLT_colour_cosmicpurple_n_black.jpg"
+    ]
   },
   {
     "name": "Attain C:62 SLX",
@@ -1334,7 +1540,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/10/34/a5/1784795675/synqup_1131610_S_00.jpg?ts=1792555021",
-    "image": "Cube/Attain_C_62_SLX.jpg"
+    "image": "Cube/Attain_C_62_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/10/34/a5/1784795675/synqup_1131610_S_00.jpg?ts=1792728611",
+      "https://file.cube.eu/azwesc1xfg346/media/c8/cc/f3/1784795693/synqup_1131600_S_00.jpg?ts=1792728610"
+    ],
+    "color_images": [
+      "Cube/Attain_C_62_SLX_colour_bali_n_blue.jpg",
+      "Cube/Attain_C_62_SLX_colour_metallicwhite_n_black.jpg"
+    ]
   },
   {
     "name": "Attain Pro",
@@ -1379,7 +1593,13 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/1e/bf/fa/1784795688/synqup_1130200_S_00.jpg?ts=1792555020",
-    "image": "Cube/Attain_Pro.jpg"
+    "image": "Cube/Attain_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/1e/bf/fa/1784795688/synqup_1130200_S_00.jpg?ts=1792728610"
+    ],
+    "color_images": [
+      "Cube/Attain_Pro_colour_surfblue_n_black.jpg"
+    ]
   },
   {
     "name": "Attain Race",
@@ -1425,7 +1645,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/b8/a9/f1/1784795686/synqup_1130300_S_00.jpg?ts=1792555020",
-    "image": "Cube/Attain_Race.jpg"
+    "image": "Cube/Attain_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/b8/a9/f1/1784795686/synqup_1130300_S_00.jpg?ts=1792728609",
+      "https://file.cube.eu/azwesc1xfg346/media/87/8b/dc/1784795684/synqup_1130310_S_00.jpg?ts=1792728609"
+    ],
+    "color_images": [
+      "Cube/Attain_Race_colour_glacier_n_black.jpg",
+      "Cube/Attain_Race_colour_smaragdgrey_n_white.jpg"
+    ]
   },
   {
     "name": "Attain SLX",
@@ -1471,7 +1699,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/13/ed/67/1784795691/synqup_1130600_S_00.jpg?ts=1792555021",
-    "image": "Cube/Attain_SLX.jpg"
+    "image": "Cube/Attain_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/13/ed/67/1784795691/synqup_1130600_S_00.jpg?ts=1792728610",
+      "https://file.cube.eu/azwesc1xfg346/media/90/f0/b9/1784795689/synqup_1130610_S_00.jpg?ts=1792728610"
+    ],
+    "color_images": [
+      "Cube/Attain_SLX_colour_black_n_chrome.jpg",
+      "Cube/Attain_SLX_colour_blueiris_n_black.jpg"
+    ]
   },
   {
     "name": "Litening AERO C:68X Frameset",
@@ -1508,7 +1744,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/1d/c6/8a/1785493498/synqup_1133950_S_00.jpg?ts=1792555139",
-    "image": "Cube/Litening_AERO_C_68X_Frameset.jpg"
+    "image": "Cube/Litening_AERO_C_68X_Frameset.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/1d/c6/8a/1785493498/synqup_1133950_S_00.jpg?ts=1792728731",
+      "https://file.cube.eu/azwesc1xfg346/media/54/7a/2f/1786092257/synqup_1133960_S_00.jpg?ts=1792728732"
+    ],
+    "color_images": [
+      "Cube/Litening_AERO_C_68X_Frameset_colour_genesisfibre_n_black.jpg",
+      "Cube/Litening_AERO_C_68X_Frameset_colour_graphic_n_white.jpg"
+    ]
   },
   {
     "name": "Litening AERO C:68X Orbit",
@@ -1552,7 +1796,13 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/d7/3d/55/1785493616/synqup_1133650_S_00.jpg?ts=1792555138",
-    "image": "Cube/Litening_AERO_C_68X_Orbit.jpg"
+    "image": "Cube/Litening_AERO_C_68X_Orbit.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/d7/3d/55/1785493616/synqup_1133650_S_00.jpg?ts=1792728728"
+    ],
+    "color_images": [
+      "Cube/Litening_AERO_C_68X_Orbit_colour_digitalcarbon_n_prizm.jpg"
+    ]
   },
   {
     "name": "Litening AERO C:68X Pro",
@@ -1598,7 +1848,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/c5/77/ca/1785493594/synqup_1133210_S_00.jpg?ts=1792641362",
-    "image": "Cube/Litening_AERO_C_68X_Pro.jpg"
+    "image": "Cube/Litening_AERO_C_68X_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/c5/77/ca/1785493594/synqup_1133210_S_00.jpg?ts=1792728727",
+      "https://file.cube.eu/azwesc1xfg346/media/cf/b8/f9/1785493584/synqup_1133200_S_00.jpg?ts=1792728727"
+    ],
+    "color_images": [
+      "Cube/Litening_AERO_C_68X_Pro_colour_beamfibre_n_black.jpg",
+      "Cube/Litening_AERO_C_68X_Pro_colour_chalky_n_black.jpg"
+    ]
   },
   {
     "name": "Litening AERO C:68X Race",
@@ -1644,7 +1902,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/21/5e/5b/1785493602/synqup_1133300_S_00.jpg?ts=1792555138",
-    "image": "Cube/Litening_AERO_C_68X_Race.jpg"
+    "image": "Cube/Litening_AERO_C_68X_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/21/5e/5b/1785493602/synqup_1133300_S_00.jpg?ts=1792728727",
+      "https://file.cube.eu/azwesc1xfg346/media/f3/e7/b9/1785493613/synqup_1133310_S_00.jpg?ts=1792728727"
+    ],
+    "color_images": [
+      "Cube/Litening_AERO_C_68X_Race_colour_carbon_n_chrome.jpg",
+      "Cube/Litening_AERO_C_68X_Race_colour_teamline.jpg"
+    ]
   },
   {
     "name": "Litening AERO C:68X SLT",
@@ -1690,7 +1956,15 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/67/17/1b/1785493628/synqup_1133900_S_00.jpg?ts=1792555138",
-    "image": "Cube/Litening_AERO_C_68X_SLT.jpg"
+    "image": "Cube/Litening_AERO_C_68X_SLT.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/67/17/1b/1785493628/synqup_1133900_S_00.jpg?ts=1792728731",
+      "https://file.cube.eu/azwesc1xfg346/media/65/67/49/1785493630/synqup_1133910_S_00.jpg?ts=1792728731"
+    ],
+    "color_images": [
+      "Cube/Litening_AERO_C_68X_SLT_colour_slategrey_n_prizm.jpg",
+      "Cube/Litening_AERO_C_68X_SLT_colour_teamline.jpg"
+    ]
   },
   {
     "name": "Litening AERO C:68X SLX",
@@ -1735,7 +2009,13 @@
       "62"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/bd/2e/10/1785493604/synqup_1133600_S_00.jpg?ts=1792555138",
-    "image": "Cube/Litening_AERO_C_68X_SLX.jpg"
+    "image": "Cube/Litening_AERO_C_68X_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/bd/2e/10/1785493604/synqup_1133600_S_00.jpg?ts=1792728728"
+    ],
+    "color_images": [
+      "Cube/Litening_AERO_C_68X_SLX_colour_oceanfibre_n_prizm.jpg"
+    ]
   },
   {
     "name": "Litening AIR C:68X Frameset",
@@ -1771,7 +2051,15 @@
       "60"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/85/25/c5/1784795573/synqup_1134950_S_00.jpg?ts=1792641269",
-    "image": "Cube/Litening_AIR_C_68X_Frameset.jpg"
+    "image": "Cube/Litening_AIR_C_68X_Frameset.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/85/25/c5/1784795573/synqup_1134950_S_00.jpg?ts=1792728615",
+      "https://file.cube.eu/azwesc1xfg346/media/c6/e9/ba/1784795575/synqup_1134960_S_00.jpg?ts=1792728615"
+    ],
+    "color_images": [
+      "Cube/Litening_AIR_C_68X_Frameset_colour_genesisfibre_n_black.jpg",
+      "Cube/Litening_AIR_C_68X_Frameset_colour_graphic_n_white.jpg"
+    ]
   },
   {
     "name": "Litening AIR C:68X Pro",
@@ -1815,7 +2103,13 @@
       "60"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/79/0e/97/1784795580/synqup_1134200_S_00.jpg?ts=1792641269",
-    "image": "Cube/Litening_AIR_C_68X_Pro.jpg"
+    "image": "Cube/Litening_AIR_C_68X_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/79/0e/97/1784795580/synqup_1134200_S_00.jpg?ts=1792728619"
+    ],
+    "color_images": [
+      "Cube/Litening_AIR_C_68X_Pro_colour_chalkyfibre_n_gold.jpg"
+    ]
   },
   {
     "name": "Litening AIR C:68X Race",
@@ -1860,7 +2154,15 @@
       "60"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/76/d2/9e/1784795570/synqup_1134300_S_00.jpg?ts=1792641266",
-    "image": "Cube/Litening_AIR_C_68X_Race.jpg"
+    "image": "Cube/Litening_AIR_C_68X_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/76/d2/9e/1784795570/synqup_1134300_S_00.jpg?ts=1792728614",
+      "https://file.cube.eu/azwesc1xfg346/media/76/d0/2e/1784795568/synqup_1134310_S_00.jpg?ts=1792728614"
+    ],
+    "color_images": [
+      "Cube/Litening_AIR_C_68X_Race_colour_blackpearl_n_black.jpg",
+      "Cube/Litening_AIR_C_68X_Race_colour_bluetwister_n_prizm.jpg"
+    ]
   },
   {
     "name": "Litening AIR C:68X SLT",
@@ -1905,7 +2207,15 @@
       "60"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/47/aa/57/1784795571/synqup_1134910_S_00.jpg?ts=1792555035",
-    "image": "Cube/Litening_AIR_C_68X_SLT.jpg"
+    "image": "Cube/Litening_AIR_C_68X_SLT.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/47/aa/57/1784795571/synqup_1134910_S_00.jpg?ts=1792728615",
+      "https://file.cube.eu/azwesc1xfg346/media/72/f5/3d/1784795569/synqup_1134900_S_00.jpg?ts=1792728615"
+    ],
+    "color_images": [
+      "Cube/Litening_AIR_C_68X_SLT_colour_beamfibre_n_black.jpg",
+      "Cube/Litening_AIR_C_68X_SLT_colour_halogrey_n_prizm.jpg"
+    ]
   },
   {
     "name": "Litening AIR C:68X SLX",
@@ -1949,7 +2259,13 @@
       "60"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/2f/81/86/1784795573/synqup_1134600_S_00.jpg?ts=1792641268",
-    "image": "Cube/Litening_AIR_C_68X_SLX.jpg"
+    "image": "Cube/Litening_AIR_C_68X_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/2f/81/86/1784795573/synqup_1134600_S_00.jpg?ts=1792728614"
+    ],
+    "color_images": [
+      "Cube/Litening_AIR_C_68X_SLX_colour_liquidblue_n_crisscross.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X Frameset",
@@ -1985,7 +2301,17 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/0f/78/f9/1784795618/synqup_1138920_S_00.jpg?ts=1792555062",
-    "image": "Cube/Aerium_C_68X_Frameset.jpg"
+    "image": "Cube/Aerium_C_68X_Frameset.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/0f/78/f9/1784795618/synqup_1138920_S_00.jpg?ts=1792728648",
+      "https://file.cube.eu/azwesc1xfg346/media/05/70/7d/1784795606/synqup_1138910_S_00.jpg?ts=1792728644",
+      "https://file.cube.eu/azwesc1xfg346/media/6c/96/09/1784795609/synqup_1138900_S_00.jpg?ts=1792728644"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_Frameset_colour_genesisgrid_n_black.jpg",
+      "Cube/Aerium_C_68X_Frameset_colour_liquidbluegrid_n_chrome.jpg",
+      "Cube/Aerium_C_68X_Frameset_colour_spaceship_n_cmyk.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X Pro",
@@ -2029,7 +2355,13 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/07/58/10/1784795606/synqup_1138200_S_00.jpg?ts=1792555058",
-    "image": "Cube/Aerium_C_68X_Pro.jpg"
+    "image": "Cube/Aerium_C_68X_Pro.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/07/58/10/1784795606/synqup_1138200_S_00.jpg?ts=1792728640"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_Pro_colour_greenfusion_n_black.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X Race",
@@ -2074,7 +2406,13 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/9f/07/50/1784795603/synqup_1138300_S_00.jpg?ts=1792641291",
-    "image": "Cube/Aerium_C_68X_Race.jpg"
+    "image": "Cube/Aerium_C_68X_Race.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/9f/07/50/1784795603/synqup_1138300_S_00.jpg?ts=1792728639"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_Race_colour_carbon_n_chrome.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X SLT",
@@ -2119,7 +2457,13 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/c5/8b/08/1784795601/synqup_1138700_S_00.jpg?ts=1792641292",
-    "image": "Cube/Aerium_C_68X_SLT.jpg"
+    "image": "Cube/Aerium_C_68X_SLT.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/c5/8b/08/1784795601/synqup_1138700_S_00.jpg?ts=1792728643"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_SLT_colour_liquidbluegrid_n_chrome.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X SLT Aero",
@@ -2163,7 +2507,13 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/f6/65/fe/1784795605/synqup_1138800_S_00.jpg?ts=1792641293",
-    "image": "Cube/Aerium_C_68X_SLT_Aero.jpg"
+    "image": "Cube/Aerium_C_68X_SLT_Aero.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/f6/65/fe/1784795605/synqup_1138800_S_00.jpg?ts=1792728643"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_SLT_Aero_colour_genesisgrid_n_black.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X SLX",
@@ -2208,7 +2558,13 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/c6/98/f2/1784795607/synqup_1138600_S_00.jpg?ts=1792641292",
-    "image": "Cube/Aerium_C_68X_SLX.jpg"
+    "image": "Cube/Aerium_C_68X_SLX.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/c6/98/f2/1784795607/synqup_1138600_S_00.jpg?ts=1792728640"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_SLX_colour_spaceship_n_cmyk.jpg"
+    ]
   },
   {
     "name": "Aerium C:68X TT Frameset",
@@ -2240,6 +2596,12 @@
       "L"
     ],
     "image_url": "https://file.cube.eu/azwesc1xfg346/media/16/68/49/1754323873/synqup_131110_S_00.jpg?ts=1792554902",
-    "image": "Cube/Aerium_C_68X_TT_Frameset.jpg"
+    "image": "Cube/Aerium_C_68X_TT_Frameset.jpg",
+    "color_image_urls": [
+      "https://file.cube.eu/azwesc1xfg346/media/16/68/49/1754323873/synqup_131110_S_00.jpg?ts=1792728459"
+    ],
+    "color_images": [
+      "Cube/Aerium_C_68X_TT_Frameset_colour_carbon_n_prism.jpg"
+    ]
   }
 ]
