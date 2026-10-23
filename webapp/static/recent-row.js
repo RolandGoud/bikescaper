@@ -1,11 +1,11 @@
 // Net gecheckt on the home page: one row of cards. The arrows next to the heading page through it,
 // a page being the cards in view, and "1–4 / 12" says which ones those are. A swipe or a trackpad
-// scrolls it too. Without JS the row just scrolls.
+// scrolls it too. Without JS the row just scrolls. A sponsored card isn't counted.
 document.querySelectorAll(".recent-row").forEach((row) => {
   const nav = row.closest("section").querySelector(".row-nav");
   const prev = nav.querySelector(".row-prev"), next = nav.querySelector(".row-next");
   const count = nav.querySelector(".row-count");
-  const cards = [...row.children];
+  const cards = [...row.children].filter((c) => !c.classList.contains("sponsored-card"));
 
   const update = () => {
     const max = row.scrollWidth - row.clientWidth, at = row.scrollLeft;

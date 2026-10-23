@@ -15,7 +15,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf, seller
+from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf, seller, sponsored
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -95,6 +95,7 @@ def create_app(db_path=None):
     if os.environ.get("BEHIND_PROXY"):  # only then is X-Forwarded-For set by us, not by the visitor
         app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
     app.config["DB_PATH"] = db_path or db.DB_PATH
+    app.config["SPONSORED_PATH"] = sponsored.PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
     app.jinja_env.globals["size_systems"] = checks.size_systems
@@ -221,8 +222,9 @@ def create_app(db_path=None):
         ads = group_checks(rows)
         cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
+        offers = sponsored.pick(sponsored.load(app.config["SPONSORED_PATH"]), g.get("lang", DEFAULT_LANGUAGE))
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
-                               hero_credit=HERO_CREDITS.get(hero_bg))
+                               hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers)
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
