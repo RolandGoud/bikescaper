@@ -418,3 +418,10 @@ select { max-width: 100%; }
 .value-form .condition-field { flex: 1.3 1 180px; }
 .value-form .btn { flex: none; }
 @media (max-width: 640px) { .value-form .field, .value-form .btn { flex: 1 1 100%; } }
+
+/* Value estimator: the fair price stands out on the earlier-estimate tiles, with the report's bar when there's an asking price */
+.price-bar { display: flex; flex-direction: column; gap: 10px; margin: 4px 0 14px; }
+.price-bar-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.price-bar .amount { font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: 0.01em; color: var(--ink); }
+.price-bar .value-bar { height: 28px; }
+@media (max-width: 640px) { .price-bar .amount { font-size: 28px; } }
