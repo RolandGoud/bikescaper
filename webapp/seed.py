@@ -293,6 +293,37 @@ def refresh_images(conn):
     return count
 
 
+def year_specs(brand, name, _cache={}):
+    """The model's spec sheets from earlier years, from data/years/<Brand>.json (read from
+    Wayback Machine copies of the brand's NL site).
+
+    {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs}
+    or {captured, url, unreadable: true}}}; a checked year without an entry had no archived page.
+    """
+    if brand not in _cache:
+        try:
+            with open(os.path.join(ROOT, "data", "years", f"{brand}.json"), encoding="utf-8") as fh:
+                _cache[brand] = json.load(fh)
+        except (OSError, ValueError):
+            _cache[brand] = None
+    found = _cache[brand]
+    if not found:
+        return {}
+    return {"checked": found["years"], "checked_on": found["checked_on"],
+            "years": found["models"].get(name.strip(), {})}
+
+
+def refresh_year_specs(conn):
+    """Re-read data/years/ for every model already in the database."""
+    count = 0
+    for row in conn.execute("SELECT id, brand, name FROM models").fetchall():
+        count += conn.execute("UPDATE models SET year_specs = ? WHERE id = ?",
+                              (json.dumps(year_specs(row["brand"], row["name"]), ensure_ascii=False),
+                               row["id"])).rowcount
+    conn.commit()
+    return count
+
+
 def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     bike.setdefault("brand", brand)
     colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
@@ -300,7 +331,7 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     image = pick_image(bike)
     cur = conn.execute(
         f"{verb} INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
-        " specs, image, seen_on, source_file, colorways, photo_years) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        " specs, image, seen_on, source_file, colorways, photo_years, year_specs) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         (
             brand,
             bike["name"].strip(),
@@ -316,6 +347,7 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
             rel,
             json.dumps(colorways(bike, image), ensure_ascii=False),
             json.dumps(photo_years(bike)),
+            json.dumps(year_specs(brand, bike["name"]), ensure_ascii=False),
         ),
     )
     return cur.rowcount
@@ -367,6 +399,7 @@ if __name__ == "__main__":
     conn = db.connect(args[0] if args else None)
     if "--if-empty" in sys.argv and conn.execute("SELECT COUNT(*) FROM models").fetchone()[0]:
         print(f"Models already loaded; refreshed photos of {refresh_images(conn)} models,"
-              f" added {add_other_scrapes(conn)} from other scrapes, updated status of {refresh_status(conn)}")
+              f" added {add_other_scrapes(conn)} from other scrapes, updated status of {refresh_status(conn)},"
+              f" read earlier years for {refresh_year_specs(conn)}")
     else:
         print(f"Loaded {load(conn)} models into {db.DB_PATH}")

@@ -269,6 +269,51 @@ def spec_groups(model):
     return [(label, rows[key]) for key, label in SPEC_GROUPS if key in rows]
 
 
+FIRST_SPEC_YEAR = 2020  # the specs-per-year table on the model page starts here
+
+
+def _same(a, b):
+    return re.sub(r"\s+", " ", _plain(html.unescape(str(a)))).strip(" .") == \
+        re.sub(r"\s+", " ", _plain(html.unescape(str(b)))).strip(" .")
+
+
+def year_tabs(model, today=None):
+    """One tab per catalogue year from FIRST_SPEC_YEAR to this year, for the spec sheet on the model page.
+
+    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed}. state is "scrape"
+    (our own catalogue scrape), "archive" (a Wayback Machine copy of the brand's page),
+    "unreadable" (a copy without a spec list), "none" (no copy of the model's page that year) or
+    "unchecked" (the archive wasn't searched for this brand). specs and tiers are as spec_groups()
+    and spec_tiers() give them, and changed holds the English labels whose value differs from the
+    previous year with specs.
+    """
+    today = today or date.today()
+    found = model.get("year_specs") or {}
+    archived, checked = found.get("years") or {}, set(found.get("checked") or [])
+    own_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
+    tabs, before = [], None
+    for year in range(FIRST_SPEC_YEAR, max(today.year, own_year or 0) + 1):
+        entry = archived.get(str(year))
+        if year == own_year:
+            tab = {"state": "scrape", "captured": model["seen_on"], "url": model.get("url"), "price": model.get("price_eur")}
+            sheet = model["specs"]
+        elif entry:
+            tab = dict(entry, state="archive" if entry.get("specs") else "unreadable")
+            sheet = entry.get("specs")
+        else:
+            tab, sheet = {"state": "none" if year in checked else "unchecked"}, None
+        tab["year"] = year
+        if sheet:
+            this = dict(model, specs=sheet)
+            tab["specs"], tab["tiers"] = spec_groups(this), spec_tiers(this)
+            values = {en: v for _g, rows in tab["specs"] for en, _nl, v in rows}
+            tab["changed"] = set() if before is None else {
+                en for en in values.keys() | before.keys() if not _same(values.get(en, ""), before.get(en, ""))}
+            before = values
+        tabs.append(tab)
+    return tabs
+
+
 # ---------------------------------------------------------------- tiers
 
 def part_tier(parts, text):

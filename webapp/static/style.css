@@ -440,3 +440,18 @@ select { max-width: 100%; }
 .price-bar .amount { font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: 0.01em; color: var(--ink); }
 .price-bar .value-bar { height: 28px; }
 @media (max-width: 640px) { .price-bar .amount { font-size: 28px; } }
+/* year tabs above the spec sheet on the model page */
+.year-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 12px; border-bottom: 2px solid var(--line); }
+.year-tab { font: 600 15px var(--mono); padding: 8px 14px; border: 0; border-bottom: 3px solid transparent; margin-bottom: -2px; background: none; color: var(--ink); cursor: pointer; }
+.year-tab[aria-selected="true"] { border-bottom-color: var(--orange); color: var(--orange); }
+.year-tab.none, .year-tab.unchecked, .year-tab.unreadable { color: var(--line-strong); text-decoration: line-through; }
+.year-tab.none[aria-selected="true"], .year-tab.unchecked[aria-selected="true"], .year-tab.unreadable[aria-selected="true"] { color: var(--muted); border-bottom-color: var(--line-strong); }
+.year-panel > p.small { margin-bottom: 14px; }
+.year-empty { padding: 18px; background: var(--ground); border-radius: 8px; color: var(--muted); }
+.kv div.changed, .changed-key { background: var(--warn-bg); }
+.kv div.changed:nth-child(odd) { box-shadow: inset 3px 0 0 var(--orange); padding-left: 8px; }
+.changed-key { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; box-shadow: inset 3px 0 0 var(--orange); }
+@media (max-width: 640px) {
+  .year-tabs { flex-wrap: nowrap; overflow-x: auto; gap: 0; }
+  .year-tab { padding: 8px 10px; font-size: 14px; }
+}

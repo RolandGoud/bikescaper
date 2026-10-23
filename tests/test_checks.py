@@ -783,3 +783,26 @@ def test_listings_have_no_result_filter(tmp_path):
     page = app.test_client().get("/listings?lang=nl").data.decode()
     assert "Er klopt iets niet" not in page and "Vraag het na" not in page
     assert "Elke check" in page  # the view switch stays
+def test_year_tabs_show_our_scrape_and_archived_years():
+    from datetime import date
+    model = {"name": "Domane AL 2 Gen 4", "brand": "Trek", "seen_on": "2025-07-18", "price_eur": 999.0, "url": "u",
+             "specs": {"Frame": "100 Series Alpha Aluminium", "Rem": "Tektro C550"},
+             "year_specs": {"checked": list(range(2020, 2027)), "checked_on": "2026-10-23", "years": {
+                 "2024": {"captured": "2024-03-28", "ts": "20240328000000", "url": "a", "price": 949.0,
+                          "specs": {"Frame": "100 Series Alpha Aluminium", "Rem": "Tektro MD-C550"}},
+                 "2023": {"captured": "2023-04-01", "ts": "20230401000000", "url": "b", "unreadable": True}}}}
+    tabs = {t["year"]: t for t in checks.year_tabs(model, today=date(2026, 10, 23))}
+    assert list(tabs) == list(range(2020, 2027))
+    assert [tabs[y]["state"] for y in (2022, 2023, 2024, 2025)] == ["none", "unreadable", "archive", "scrape"]
+    assert tabs[2024]["changed"] == set() and tabs[2025]["changed"] == {"Brakes"}
+    # A brand whose archive wasn't searched says so instead of "no copy".
+    assert checks.year_tabs(dict(model, year_specs={}), today=date(2026, 1, 1))[0]["state"] == "unchecked"
+
+
+def test_model_page_has_year_tabs(tmp_path):
+    from webapp.app import create_app
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=en").get_data(as_text=True)
+    assert 'id="tab-2020"' in page and 'id="tab-2025" aria-controls="year-2025"' in page
+    assert "searched the archive for Trek yet" in page

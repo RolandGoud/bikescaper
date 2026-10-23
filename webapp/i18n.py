@@ -296,6 +296,19 @@ NL = {
     "Colours": "Kleuren",
     "{brand} product page": "Productpagina van {brand}",
     "Estimate a used price": "Schat een tweedehands prijs",
+    "Our scrape": "Onze scrape",
+    "Wayback Machine copy": "Kopie in de Wayback Machine",
+    "No spec sheet": "Geen specificaties",
+    "As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.":
+        "Zoals vermeld op de Nederlandse site van {brand} op {date}, uit een kopie in de Wayback Machine.",
+    "Open the copy": "Open de kopie",
+    "Changed since the year before.": "Anders dan het jaar ervoor.",
+    "The Wayback Machine has a copy of this model's page from {date}, but without a spec list.":
+        "De Wayback Machine heeft een kopie van de pagina van dit model van {date}, maar zonder specificaties.",
+    "No data for {year}: the Wayback Machine has no copy of this model's page from that year, or the model wasn't sold under this name then.":
+        "Geen gegevens voor {year}: de Wayback Machine heeft geen kopie van de pagina van dit model uit dat jaar, of het model werd toen niet onder deze naam verkocht.",
+    "No data for {year}: we haven't searched the archive for {brand} yet.":
+        "Geen gegevens voor {year}: we hebben het archief voor {brand} nog niet doorzocht.",
     "Spec sheet": "Specificaties",
     "As listed on the {brand} NL site on {date}.": "Zoals vermeld op de Nederlandse site van {brand} op {date}.",
     "Sizes": "Maten",
