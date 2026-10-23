@@ -169,8 +169,8 @@ BRANDS = [
     {"name": "Cannondale", "site": "https://www.cannondale.com/nl-nl", "scraper": True, "logo": "logos/cannondale.svg"},
     {"name": "Cube", "site": "https://www.cube.eu/nl-nl/", "scraper": True, "logo": "logos/cube.svg"},
     {"name": "Factor", "site": "https://eu.factorbikes.com/", "scraper": True, "logo": "logos/factor.svg"},
-    {"name": "Scott", "site": "https://www.scott-sports.com/nl/en/", "scraper": True},
-    {"name": "Orbea", "site": "https://www.orbea.com/nl-nl/", "scraper": True},
+    {"name": "Scott", "site": "https://www.scott-sports.com/nl/en/", "scraper": True, "logo": "logos/scott.svg"},
+    {"name": "Orbea", "site": "https://www.orbea.com/nl-nl/", "scraper": True, "logo": "logos/orbea.svg"},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
 BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}

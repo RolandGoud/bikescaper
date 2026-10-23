@@ -301,11 +301,11 @@ def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
 def test_brand_pills_show_logos(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     page = app.test_client().get("/models?lang=en").data.decode()
-    for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"):
+    for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"):
         assert f'class="pill-logo" role="img" aria-label="{name}"' in page
         assert app.test_client().get(f"/static/logos/{name.lower()}.svg").status_code == 200
     home = app.test_client().get("/?lang=en").data.decode()
-    assert '<a class="pill brand" href="/models?brand=Scott">Scott</a>' in home  # no logo yet, so the name stays
+    assert 'aria-label="Orbea"' in home and ">Orbea</a>" not in home  # every brand shows its logo
 
 
 def test_selected_filters_link_back_to_all(tmp_path):
