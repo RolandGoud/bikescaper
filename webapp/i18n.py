@@ -623,6 +623,7 @@ NL = {
     "Rider height": "Lengte rijder",
     "{n} cm": "{n} cm",
     "Photos": "Foto's",
+    "Photo": "Foto",
     "Matched model": "Gekoppeld model",
     "picked by the visitor": "gekozen door de bezoeker",
     "Fair value": "Eerlijke waarde",
