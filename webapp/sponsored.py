@@ -9,7 +9,8 @@ screens), an optional `image` under static/ and, per language, a title, text and
      "url": "https://ds1.nl/c/?...", "image": "sponsored/insurance.jpg",
      "nl": {"title": "...", "text": "...", "cta": "..."}, "en": {...}}
 
-Offers without a url are skipped, so a slot stays empty until its link is filled in. We only link
+An offer without a url still shows, as a mock-up whose link goes nowhere ("#"), until its
+affiliate link is filled in. Remove an offer from the file to take it off the site. We only link
 out: no advertiser scripts, pixels or images from their servers, so the site sets no tracking
 cookies and needs no cookie banner. The network tracks the visitor after the click, on its side.
 """
@@ -22,13 +23,14 @@ SLOTS = ("card", "banner", "side")
 
 
 def load(path=PATH):
-    """Every offer that has a link, or [] when the file is missing or broken."""
+    """Every offer, or [] when the file is missing or broken. One without an https link points at "#"."""
     try:
         with open(path, encoding="utf-8") as f:
             offers = json.load(f)
     except (OSError, ValueError):
         return []
-    return [o for o in offers if isinstance(o, dict) and (o.get("url") or "").startswith("https://")]
+    return [o if (o.get("url") or "").startswith("https://") else {**o, "url": "#"}
+            for o in offers if isinstance(o, dict)]
 
 
 def pick(offers, lang, rng=random):

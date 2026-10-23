@@ -11,14 +11,14 @@ def offer(id, slots, url="https://example.com/aff?" + "x"):
             "en": {"title": f"{id} en", "text": "text", "cta": "Go"}}
 
 
-def test_offers_without_a_link_are_skipped(tmp_path):
+def test_offers_without_a_link_show_as_mock_ups(tmp_path):
     path = tmp_path / "sponsored.json"
     path.write_text(json.dumps([offer("a", ["card"]), offer("b", ["card"], url=""),
                                 offer("c", ["card"], url="http://plain.example")]))
-    assert [o["id"] for o in sponsored.load(path)] == ["a"]
+    assert [o["url"] for o in sponsored.load(path)] == ["https://example.com/aff?x", "#", "#"]
     assert sponsored.load(tmp_path / "missing.json") == []
-    # the shipped file has no links yet, so nothing shows until they're filled in
-    assert sponsored.load() == []
+    # the shipped file has no links yet, so its offers are mock-ups
+    assert sponsored.load() and {o["url"] for o in sponsored.load()} == {"#"}
 
 
 def test_pick_fills_each_slot_once_and_never_repeats_an_offer():
@@ -53,3 +53,8 @@ def test_home_shows_the_offers_marked_as_sponsored(tmp_path):
 
     app.config["SPONSORED_PATH"] = str(tmp_path / "none.json")
     assert "sponsored" not in client.get("/").data.decode()
+
+    # the shipped mock-ups fill all three slots
+    app.config["SPONSORED_PATH"] = sponsored.PATH
+    page = client.get("/").data.decode()
+    assert page.count('rel="sponsored noopener"') == 3 and 'href="#"' in page

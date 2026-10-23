@@ -62,7 +62,8 @@ The home page has three sponsored slots: a card in the Net gecheckt row (third, 
 checks), a banner below that row, and a side offer in the right margin on screens 1600px and wider.
 They're filled from `webapp/sponsored.json`, read on every page view. To switch an offer on, sign up
 as a publisher with Daisycon, TradeTracker or Awin, get the advertiser's affiliate link and paste it
-as `url` (https only). Offers without a link stay hidden, so the slots are empty until then. Put any
+as `url` (https only). Until then an offer shows as a mock-up whose button goes nowhere; delete
+an offer from the file to take it off the site. Put any
 image under `webapp/static/` (e.g. `sponsored/insurance.jpg`) and name it in `image`; without one
 the orange bikes show.
 
