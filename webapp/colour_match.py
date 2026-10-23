@@ -56,15 +56,22 @@ def similarity(a, b):
 
 
 def families_in(text, brand_words=False):
-    """The colour families named in a text, in order: "Carbon / Red" gives ["black", "red"] with brand words."""
+    """The colour families named in a text, in order: "Carbon / Red" gives ["black", "red"] with brand
+    words. Within one part of a name a plain colour word wins: "Blaze Purple" is purple, not orange."""
     found = []
-    for word in re.findall(r"[a-zà-ÿ-]+", (text or "").lower()):
-        for w in {word, _SHADE.sub("", word), re.sub(r"e$", "", _SHADE.sub("", word))}:
-            family = _PLAIN.get(w) or (_BRAND.get(w) if brand_words else None)
-            if family:
-                if family not in found:
-                    found.append(family)
-                break
+    for part in re.split(r"[/&,+]| - | 'n' | n | and | en ", (text or "").lower()):
+        plain, brand = [], []
+        for word in re.findall(r"[a-zà-ÿ-]+", part):
+            for w in (word, _SHADE.sub("", word), re.sub(r"e$", "", _SHADE.sub("", word))):
+                if w in _PLAIN:
+                    plain.append(_PLAIN[w])
+                    break
+                if brand_words and w in _BRAND:
+                    brand.append(_BRAND[w])
+                    break
+        for family in plain or brand:
+            if family not in found:
+                found.append(family)
     return found
 
 
@@ -108,8 +115,10 @@ def hex_family(value):
 
 
 def colourway_families(cw):
-    """A colourway's families from its name; from the brand's swatch colour when the name is all fancy words."""
-    return families_in(cw.get("name"), brand_words=True) or [f for f in [hex_family(cw.get("hex"))] if f]
+    """A colourway's families from its name; when the name is all fancy words ("Satin Solidity Metallic",
+    "artline"), from the brand's swatch colour or the frame's colour in its photo."""
+    return (families_in(cw.get("name"), brand_words=True)
+            or [f for f in [hex_family(cw.get("hex") or cw.get("photo_hex"))] if f])
 
 
 def by_text(colourways, wanted):
