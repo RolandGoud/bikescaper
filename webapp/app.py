@@ -143,7 +143,7 @@ def create_app(db_path=None):
         return response
 
     def lang_url(code):
-        args = {k: v for k, v in request.args.items() if k != "lang"}
+        args = {k: v for k, v in request.args.lists() if k != "lang"}  # lists keep every picked brand
         if request.endpoint and request.method == "GET":
             return url_for(request.endpoint, **(request.view_args or {}), **args, lang=code)
         return url_for("home", lang=code)
@@ -293,14 +293,14 @@ def create_app(db_path=None):
 
     @app.route("/models")
     def catalog():
-        brand = request.args.get("brand")
+        picked = [b for b in request.args.getlist("brand") if b]  # several brands can be on at once
         q = (request.args.get("q") or "").strip().lower()
         kind = request.args.get("type")
         current = request.args.get("current")
         tier = request.args.get("tier", type=int)
         items = [dict(m, discipline=checks.discipline_of(m), status=checks.catalogue_status(m)[0],
                       tier=checks.model_tier(m))
-                 for m in models() if (not brand or m["brand"] == brand) and (not q or q in m["name"].lower())]
+                 for m in models() if (not picked or m["brand"] in picked) and (not q or q in m["name"].lower())]
         items = [m for m in items if not current or m["status"] == "current"]
         tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
                        for t in TIERS}
@@ -311,7 +311,7 @@ def create_app(db_path=None):
                                       key=lambda m: (m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
-                               counts=counts, kind=kind, brand=brand, q=q, current=current, count=len(items),
+                               counts=counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                tier=tier, tier_counts=tier_counts, nav="models")
 
     @app.route("/models/<slug>")

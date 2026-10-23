@@ -681,3 +681,15 @@ def test_model_page_shows_family_as_tiles(tmp_path):
     page = app.test_client().get("/models/canyon-endurace-allroad?lang=nl").data.decode()
     others = page.split("Andere Endurace-modellen")[1]
     assert 'class="model-card" href="/models/canyon-endurace-cf-7"' in others and "brand-mark" in others
+
+
+def test_models_page_takes_several_brands(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models?lang=en&brand=Trek&brand=Canyon").data.decode()
+    assert "Madone" in page and "Speedmax" in page and "Tarmac" not in page
+    # each pill turns its own brand on or off and keeps the others
+    assert 'href="/models?brand=Canyon" aria-current="true"' in page
+    assert 'href="/models?brand=Trek&amp;brand=Canyon&amp;brand=Specialized"' in page
+    assert page.count('name="brand"') == 2 and "brand=Trek&amp;brand=Canyon&amp;lang=nl" in page
