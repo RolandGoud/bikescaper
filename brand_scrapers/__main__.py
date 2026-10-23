@@ -11,10 +11,10 @@ import argparse
 import logging
 from datetime import datetime
 
-from . import cannondale, cube, factor, giant, specialized
+from . import cannondale, cube, factor, giant, orbea, scott, specialized
 from .common import Fetcher, dedupe, log, save_image, write_snapshot
 
-ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor)}
+ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea)}
 
 
 def run(names, limit=None, images=True):
