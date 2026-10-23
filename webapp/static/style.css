@@ -229,6 +229,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .part-tier .tier.down { border-color: var(--bad); box-shadow: inset 0 0 0 1.5px var(--card); }
 .part-verdict.ok:has(.tier.up) { color: var(--up); }
 .tier .arrow { width: 11px; height: 11px; fill: currentColor; }
+.tier .arrow.check { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 640px) {
   .spec-table table { min-width: 0; }
   .spec-table thead { display: none; }

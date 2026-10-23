@@ -157,10 +157,11 @@
 </a>
 {%- endmacro %}
 
-{# The ad's tier in a pill; an upgrade or downgrade gets an arrow and a blue or red outline. #}
-{% macro tier_move(t, step=0) -%}
+{# The ad's tier in a pill: an upgrade or downgrade gets an arrow and a coloured border, a match a check mark. #}
+{% macro tier_move(t, step=0, match=false) -%}
 {% if t %}<span class="tier small t{{ t }}{{ ' up' if step > 0 }}{{ ' down' if step < 0 }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}">
-{%- if step > 0 %}<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3l5 6H9.5v4h-3V9H3z"/></svg>{% elif step < 0 %}<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13l5-6H9.5V3h-3v4H3z"/></svg>{% endif -%}
+{%- if step > 0 %}<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3l5 6H9.5v4h-3V9H3z"/></svg>{% elif step < 0 %}<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13l5-6H9.5V3h-3v4H3z"/></svg>
+{%- elif match %}<svg class="arrow check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>{% endif -%}
 {{ _(tier_names[t]) }}</span>{% endif %}
 {%- endmacro %}
 
