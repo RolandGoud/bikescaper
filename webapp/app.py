@@ -38,6 +38,20 @@ def open_in_new_tab(tag):
     return tag
 
 
+def group_checks(rows):
+    """One entry per ad, newest check first: (newest row as a dict, times checked).
+    The ad counts as removed once any of its checks found it gone."""
+    groups = {}
+    for row in rows:  # newest first
+        key = fetch_ad.ad_key(row)
+        if key not in groups:
+            groups[key] = [dict(row), 0]
+        newest, _ = groups[key]
+        groups[key][1] += 1
+        newest["removed_at"] = newest.get("removed_at") or row["removed_at"]
+    return [(newest, count) for newest, count in groups.values()]
+
+
 def create_app(db_path=None):
     app = Flask(__name__)
     if os.environ.get("BEHIND_PROXY"):  # only then is X-Forwarded-For set by us, not by the visitor
@@ -45,6 +59,7 @@ def create_app(db_path=None):
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["size_systems"] = checks.size_systems
     app.jinja_env.globals["split_title"] = checks.split_title
 
     def conn():
@@ -91,8 +106,9 @@ def create_app(db_path=None):
 
         threading.Thread(target=work, name=f"photos-{check_id}", daemon=True).start()
 
-    def listing_dict(row, height=None):
+    def listing_dict(row, height=None, count=1):
         listing = dict(row)
+        listing["times_checked"] = count
         photos = json.loads(listing["photos"]) if listing.get("photos") else []
         if any(not ad_photos.is_stored(p) for p in photos) and app.config.get("STORE_AD_PHOTOS", True):
             store_photos_later(listing["id"])  # also picks up checks made before photos were stored
@@ -152,8 +168,9 @@ def create_app(db_path=None):
 
     @app.route("/")
     def home():
-        recent = conn().execute("SELECT * FROM checks ORDER BY id DESC LIMIT 3").fetchall()
-        cards = [(listing_dict(r), checks.run_check(models(), listing_dict(r))) for r in recent]
+        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
+                 for r, n in group_checks(rows)[:3]]
         return render_template("home.html", cards=cards, nav="check")
 
     @app.route("/check", methods=["GET", "POST"])
@@ -206,7 +223,10 @@ def create_app(db_path=None):
         if result["model"]:
             asking = prices.asking_price(prices.known_ads(conn(), models()), result["model"]["id"],
                                          prices.period_of(request.args.get("period", type=int)), leave_out=check_id)
-        return render_template("report.html", listing=listing_dict(row), r=result, height=height or row["rider_height"],
+        key = fetch_ad.ad_key(row)
+        times = sum(fetch_ad.ad_key(r) == key for r in conn().execute(
+            "SELECT listing_url, title, asking_price FROM checks").fetchall())
+        return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
                                all_models=models(), asking=asking, nav="check",
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
@@ -263,7 +283,8 @@ def create_app(db_path=None):
     @app.route("/listings")
     def listings():
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        cards = [(listing_dict(r), checks.run_check(models(), listing_dict(r))) for r in rows]
+        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
+                 for r, n in group_checks(rows)]
         status = request.args.get("result")
         if status:
             cards = [c for c in cards if c[1].get("model") and status in
@@ -321,6 +342,8 @@ def create_app(db_path=None):
         chart = line["chart"] if line else {"sizes": checks.size_options(brand), "geometry": {}, "source": "generic"}
         rows = [{"size": k, "low": lo, "high": hi, "fit": lo <= height <= hi, "near": lo - 4 <= height <= hi + 4,
                  "geometry": chart["geometry"].get(k)} for k, (lo, hi) in chart["sizes"].items()]
+        by_size = {r["size"]: r for r in rows}
+        rows = [(heading, [by_size[k] for k in keys]) for heading, keys in checks.size_systems(by_size)]
         own = {source: sum(len(l["models"]) for l in lines if l["chart"]["source"] == source)
                for source in ("brand", "geometry")}
         return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,

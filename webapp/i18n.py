@@ -150,6 +150,9 @@ NL = {
     "Bike Compare · not affiliated with Marktplaats or any bike brand.":
         "Bike Compare · niet verbonden aan Marktplaats of een fietsmerk.",
     "Removed": "Verwijderd",
+    "Checked {n}× · last on {date}": "{n}× gecheckt · laatst op {date}",
+    "Checked on {date}": "Gecheckt op {date}",
+    "This ad has been checked {n} times.": "Deze advertentie is {n} keer gecheckt.",
     "Removed from the site on {date}": "Verwijderd van de site op {date}",
     "We found the ad gone from the site on {date}.": "Op {date} zagen we dat de advertentie van de site is verdwenen.",
     "Photo {n} from the ad": "Foto {n} uit de advertentie",
@@ -288,6 +291,8 @@ NL = {
     "As listed on the {brand} NL site on {date}.": "Zoals vermeld op de Nederlandse site van {brand} op {date}.",
     "Sizes": "Maten",
     "Under each size: stack / reach in mm.": "Onder elke maat: stack / reach in mm.",
+    "Frame size (cm)": "Framemaat (cm)",
+    "Letter sizes": "Lettermaten",
     "Other {family} models": "Andere {family}-modellen",
 
     # size finder

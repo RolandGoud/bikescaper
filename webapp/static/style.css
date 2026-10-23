@@ -169,10 +169,11 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .spec-table td { padding: 12px; border-bottom: 1px solid var(--faint); vertical-align: top; }
 .spec-table td:first-child { font-weight: 600; width: 140px; }
 .spec-table td:last-child { width: 170px; font-weight: 600; font-size: 14px; }
-.sizes { display: grid; grid-template-columns: repeat(auto-fit, minmax(76px, 1fr)); gap: 6px; font-size: 13px; text-align: center; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; font-size: 13px; text-align: center; }
 .sizes div { padding: 10px 2px; border-radius: 6px; background: var(--ground); }
 .sizes div.on { background: var(--blue); color: #fff; font-weight: 700; }
 .sizes div.near { background: var(--ok-bg); color: var(--ok); }
+.size-system { margin-bottom: -10px; font-weight: 600; }
 .inline-form { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px; background: var(--ground); border-radius: 14px; }
 .inline-form input { width: 110px; height: 44px; }
 .value-bar { position: relative; height: 44px; background: var(--ground); border-radius: 6px; }
