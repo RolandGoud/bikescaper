@@ -167,3 +167,47 @@ def test_a_price_from_an_ad_link_stays_the_same(client, monkeypatch):
     # Sending the filled-in form again (as answering a question does) keeps it at 344.
     page = c.post("/sell?lang=en", data={"title": "Trek Domane SL 6 racefiets", "asking_price": "344"}).data.decode()
     assert "€344" in page and "€3.440" not in page
+
+
+def year_fact(r):
+    return next(f for f in r["facts"] if f["key"] == "year")
+
+
+def test_the_drafts_parts_suggest_a_year(models):
+    r = improve(models, {**DRAFT, "description": "Shimano 105 Di2 R7150, 12 speed. Ophalen in Utrecht."})
+    guess = year_fact(r)["guess"]
+    assert en(guess["years"]) == "2023 or later"
+    assert guess["likely"] == [2026, 2025, 2024, 2023]
+    assert any("105 Di2" in en(e) for e in guess["evidence"])
+
+
+def test_an_older_groupset_adds_its_years_to_the_list(models):
+    r = improve(models, {**DRAFT, "description": "Shimano Ultegra 6800, 11 speed."})
+    fact = year_fact(r)
+    assert fact["guess"]["likely"] == [2018, 2017, 2016, 2015]
+    assert {2015, 2018} <= set(fact["options"])
+    assert fact["options"] == sorted(fact["options"], reverse=True)
+
+
+def test_no_year_clue_no_guess(models):
+    assert year_fact(improve(models))["guess"] is None
+
+
+def test_a_stated_year_gets_no_guess(models):
+    r = improve(models, {**DRAFT, "title": "Trek Domane SL 6 2024", "description": "Shimano 105 Di2 R7150"})
+    assert year_fact(r)["source"] == "draft" and year_fact(r)["guess"] is None
+
+
+def test_the_year_buttons_fill_in_the_year(client):
+    c, _ = client
+    draft = {**DRAFT, "description": "Shimano 105 Di2 R7150, 12 speed."}
+    page = c.post("/sell?lang=en", data=draft).data.decode()
+    assert "Your text points to 2023 or later" in page and 'name="use_year" value="2024"' in page
+    page = c.post("/sell?lang=en", data={**draft, "year": "", "use_year": "2024"}).data.decode()
+    assert "<option selected>2024</option>" in page
+
+
+def test_without_clues_the_page_says_where_to_find_the_year(client):
+    c, _ = client
+    page = c.post("/sell?lang=nl", data=DRAFT).data.decode()
+    assert "framenummer" in page

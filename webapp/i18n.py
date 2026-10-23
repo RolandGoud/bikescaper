@@ -814,4 +814,6 @@ NL = {
     "Waiting for confirmation": "Wacht op bevestiging",
     "Confirmed": "Bevestigd",
     "Waiting": "Wacht",
+    "Your text points to {years}": "Je tekst wijst op {years}",
+    "Not sure? The invoice or the frame's serial number (under the bottom bracket) tells the year; the bike shop or brand can look it up.": "Twijfel je? De factuur of het framenummer (onder de trapas) verraadt het bouwjaar; de fietsenmaker of het merk kan het opzoeken.",
 }

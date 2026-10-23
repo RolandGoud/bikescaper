@@ -521,7 +521,7 @@ def create_app(db_path=None):
             return render_template("sell.html", nav="sell", form=form, r=None, error=error), 400
         draft = {"title": form["title"].strip()[:200], "description": (form.get("description") or "")[:5000],
                  "asking_price": number(form.get("asking_price")), "model_id": number(form.get("model_id"), int)}
-        answers = {"year": number(form.get("year"), int), "size": form.get("size"), "condition": form.get("condition"),
+        answers = {"year": number(form.get("use_year") or form.get("year"), int), "size": form.get("size"), "condition": form.get("condition"),
                    "invoice": form.get("invoice"), "service": form.get("service"), "wheels": form.get("wheels")}
         r = seller.improve(models(), draft, answers, ads=prices.known_ads(conn(), models()))
         return render_template("sell.html", nav="sell", form=form, r=r, error=error, all_models=models(),
