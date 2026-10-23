@@ -520,6 +520,9 @@ select { max-width: 100%; }
 .year-tab.none[aria-selected="true"], .year-tab.unchecked[aria-selected="true"], .year-tab.unreadable[aria-selected="true"] { color: var(--muted); border-bottom-color: var(--line-strong); }
 .year-panel > p.small { margin-bottom: 14px; }
 .year-empty { padding: 18px; background: var(--ground); border-radius: 8px; color: var(--muted); }
+.year-photo { margin: 0 0 14px; max-width: 420px; }
+.year-photo img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.year-photo figcaption { margin-top: 4px; }
 .kv div.changed, .changed-key { background: var(--warn-bg); }
 .kv div.changed:nth-child(odd) { box-shadow: inset 3px 0 0 var(--orange); padding-left: 8px; }
 .changed-key { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; box-shadow: inset 3px 0 0 var(--orange); }

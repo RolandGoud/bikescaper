@@ -834,4 +834,5 @@ def test_model_page_has_year_tabs(tmp_path):
     seed.load(db.connect(path))
     page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=en").get_data(as_text=True)
     assert 'id="tab-2020"' in page and 'id="tab-2025" aria-controls="year-2025"' in page
-    assert "searched the archive for Trek yet" in page
+    # data/years/Trek.json has the 2024 Wayback Machine copy, with its photo
+    assert 'class="year-tab archive" id="tab-2024"' in page and "Trek/years/domaneal2gen4_2024.jpg" in page
