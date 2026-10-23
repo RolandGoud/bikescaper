@@ -427,10 +427,10 @@ select { max-width: 100%; }
 .recent-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
 .recent-row.paged { scrollbar-width: none; }
 .recent-row.paged::-webkit-scrollbar { display: none; }
-.recent-row > .listing-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
-@media (max-width: 1100px) { .recent-row > .listing-card { flex-basis: calc((100% - 32px) / 3); } }
-@media (max-width: 820px) { .recent-row > .listing-card { flex-basis: calc((100% - 16px) / 2); } }
-@media (max-width: 600px) { .recent-row > .listing-card { flex-basis: 86%; } }
+.recent-row > .listing-card, .recent-row > .sponsored-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
+@media (max-width: 1100px) { .recent-row > .listing-card, .recent-row > .sponsored-card { flex-basis: calc((100% - 32px) / 3); } }
+@media (max-width: 820px) { .recent-row > .listing-card, .recent-row > .sponsored-card { flex-basis: calc((100% - 16px) / 2); } }
+@media (max-width: 600px) { .recent-row > .listing-card, .recent-row > .sponsored-card { flex-basis: 86%; } }
 .wide-btn { width: 100%; margin-top: 8px; }
 
 /* Model page: the ads matched to the model, under its asking price. */
@@ -688,8 +688,13 @@ select { max-width: 100%; }
   padding: 12px; border: 1px dashed var(--line-strong); border-radius: 14px;
   background: repeating-linear-gradient(-45deg, var(--faint) 0 8px, var(--ground) 8px 16px); }
 .sponsored-card .ad-marker { width: 300px; }
-.recent-row > .sponsored-card { flex: 0 0 324px; scroll-snap-align: start; }
-@media (max-width: 600px) { .recent-row > .sponsored-card { flex-basis: 86%; } }
+/* in the Net gecheckt row the panel is as wide as a bike card, and the 300×250 scales down with it
+   (same 6:5 shape) so the cards next to it stay fully in view */
+.recent-row > .sponsored-card { padding: 10px; }
+.recent-row > .sponsored-card .ad-marker { width: 100%; max-width: 300px; }
+.recent-row .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
+.recent-row .ad-rect .ad-copy b { font-size: 20px; }
+.recent-row .ad-rect .ad-copy span { font-size: 13px; }
 .page .sponsored-band { padding-left: 0; padding-right: 0; }
 .model-grid > .sponsored-band { grid-column: 1 / -1; padding: 18px 0; }
 
