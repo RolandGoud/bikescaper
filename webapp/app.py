@@ -440,7 +440,10 @@ def create_app(db_path=None):
             if m is None:  # its model left the catalogue
                 continue
             made = date.fromisoformat(r["created_at"][:10])
-            history.append({"row": r, "model": m, "result": estimate(m, r["year"], r["condition"], r["asking_price"], made),
+            result = estimate(m, r["year"], r["condition"], r["asking_price"], made)
+            if result.get("low") and not result.get("bar"):  # no asking price: the bar shows just the fair range
+                result["bar"] = checks.value_bar(result["low"], result["high"], result["original"])
+            history.append({"row": r, "model": m, "result": result,
                             "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)})
         return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
                                asking=asking, result=result, shown=shown, history=history,

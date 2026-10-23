@@ -24,6 +24,8 @@ def test_an_estimate_is_saved_and_listed(client):
     client.post("/value", data={"brand": "Trek", "model": DOMANE})
     page = client.get("/value?lang=en").data.decode()
     assert page.count('<article class="check-row') == 2 and "#2 ·" in page
+    # every estimate gets the bar; only the one with an asking price has its marker
+    assert page.count('class="value-bar"') == 2 and page.count('class="ask"') == 1
 
 
 def test_a_model_link_estimates_without_saving(client):
