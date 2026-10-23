@@ -52,6 +52,14 @@ CREATE TABLE IF NOT EXISTS estimates (
     condition TEXT,       -- NULL = normal use, else a key of checks.CONDITION_LABEL
     asking_price REAL     -- NULL = not given
 );
+CREATE TABLE IF NOT EXISTS photo_review_interest (
+    id INTEGER PRIMARY KEY,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    kind TEXT NOT NULL,   -- "click" on the paid photo review offer, or "email" left to hear when it launches
+    email TEXT,           -- only for kind "email"
+    model_id INTEGER,     -- the model of the seller's ad, when known
+    lang TEXT
+);
 """
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
                        ("source", "TEXT")]

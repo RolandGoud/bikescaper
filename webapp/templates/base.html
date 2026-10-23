@@ -18,6 +18,7 @@
     <div class="header-right">
       <nav aria-label="{{ _('Main') }}">
         <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}">{{ _('Check a listing') }}</a>
+        <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}">{{ _('Selling') }}</a>
         <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}">{{ _('Listings') }}</a>
         <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}">{{ _('Models') }}</a>
         <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}">{{ _('Size finder') }}</a>

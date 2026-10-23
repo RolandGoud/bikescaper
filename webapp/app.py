@@ -15,7 +15,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf
+from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf, seller
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -31,6 +31,21 @@ HERO_DIR = os.path.join(os.path.dirname(__file__), "static", "hero")
 HERO_BACKGROUNDS = sorted(f for f in os.listdir(HERO_DIR) if f.endswith(".jpg"))
 with open(os.path.join(HERO_DIR, "credits.json"), encoding="utf-8") as f:
     HERO_CREDITS = json.load(f)
+# Photo tips on the Selling page: (icon paths for a 40x40 SVG, heading, text).
+PHOTO_TIPS = [
+    ('<circle cx="10" cy="26" r="7"/><circle cx="30" cy="26" r="7"/><path d="M10 26l6-11h8l6 11M16 15l5 11"/>',
+     "Whole bike, drive side", "Chainring towards the camera, bike facing right, like the catalogue photo."),
+    ('<rect x="5" y="9" width="30" height="22" rx="3"/><path d="M5 25l9-8 7 6 5-4 9 7"/>',
+     "Plain background, daylight", "An empty wall or outside in the shade. No flash."),
+    ('<circle cx="20" cy="20" r="7"/><circle cx="20" cy="20" r="2"/><path d="M20 6v4M20 30v4M6 20h4M30 20h4"/>',
+     "Groupset and wheels up close", "Shifters, derailleur and cassette, so buyers can see the parts."),
+    ('<rect x="6" y="14" width="28" height="12" rx="2"/><path d="M11 20h2M16 20h2M21 20h2M26 20h3"/>',
+     "Serial number", "Under the bottom bracket. Buyers ask for it, and it builds trust."),
+    ('<path d="M8 30l9-9 5 5 10-12"/><path d="M27 14h5v5"/>',
+     "Scratches, honestly", "Better now than at the viewing. Don't edit them out."),
+    ('<rect x="10" y="6" width="20" height="28" rx="2"/><path d="M14 12h12M14 17h12M14 22h6"/><path d="M14 28h12" stroke-width="4"/>',
+     "Invoice", "With your name and address covered."),
+]
 
 
 def open_in_new_tab(tag):
@@ -458,6 +473,62 @@ def create_app(db_path=None):
         return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
                                asking=asking, result=result, shown=shown, history=history,
                                this_year=date.today().year, nav="value")
+
+    @app.route("/sell", methods=["GET", "POST"])
+    def sell():
+        """Help a seller improve a draft ad. Everything comes from the form; nothing is saved."""
+        if request.method == "GET":
+            return render_template("sell.html", nav="sell", form={}, r=None, error=None)
+        form = request.form.to_dict()
+        error = None
+        link = (form.get("ad_link") or "").strip()
+        if link and not (form.get("title") or "").strip():
+            try:
+                ad = fetch_ad.fetch_listing(link)
+                form.update(title=ad["title"], description=ad["description"],
+                            asking_price=form.get("asking_price") or ad["asking_price"] or "")
+            except fetch_ad.FetchError as e:
+                error = gettext("{reason} Paste your title and text instead.", reason=gettext(str(e)))
+        if not (form.get("title") or "").strip():
+            error = error or gettext("Paste at least your ad's title.")
+            return render_template("sell.html", nav="sell", form=form, r=None, error=error), 400
+        draft = {"title": form["title"].strip()[:200], "description": (form.get("description") or "")[:5000],
+                 "asking_price": number(form.get("asking_price")), "model_id": number(form.get("model_id"), int)}
+        answers = {"year": number(form.get("year"), int), "size": form.get("size"), "condition": form.get("condition"),
+                   "invoice": form.get("invoice"), "service": form.get("service"), "wheels": form.get("wheels")}
+        r = seller.improve(models(), draft, answers, ads=prices.known_ads(conn(), models()))
+        return render_template("sell.html", nav="sell", form=form, r=r, error=error, all_models=models(),
+                               photo_tips=PHOTO_TIPS, condition_labels=checks.CONDITION_LABEL)
+
+    # The paid photo review isn't built: the offer on the Selling page counts who would want it.
+    @app.route("/sell/photo-review", methods=["POST"])
+    def photo_review():
+        conn().execute("INSERT INTO photo_review_interest (kind, model_id, lang) VALUES ('click', ?, ?)",
+                       (number(request.form.get("model_id"), int), g.lang))
+        conn().commit()
+        if request.headers.get("X-Requested-With") == "fetch":
+            return ("", 204)
+        return render_template("sell_soon.html", nav="sell", done=False)
+
+    @app.route("/sell/photo-review/notify", methods=["POST"])
+    def photo_review_notify():
+        email = (request.form.get("email") or "").strip()[:200]
+        if re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
+            conn().execute("INSERT INTO photo_review_interest (kind, email, lang) VALUES ('email', ?, ?)",
+                           (email, g.lang))
+            conn().commit()
+        if request.headers.get("X-Requested-With") == "fetch":
+            return ("", 204)
+        return render_template("sell_soon.html", nav="sell", done=True)
+
+    @app.route("/sell/photo-review/interest")
+    def photo_review_interest():
+        """How many sellers clicked the offer and left an email; counts only, never the addresses."""
+        rows = conn().execute("SELECT date(created_at) AS day, SUM(kind = 'click') AS clicks, "
+                              "SUM(kind = 'email') AS emails FROM photo_review_interest "
+                              "GROUP BY day ORDER BY day DESC").fetchall()
+        return render_template("sell_interest.html", nav="sell", rows=rows,
+                               clicks=sum(r["clicks"] for r in rows), emails=sum(r["emails"] for r in rows))
 
     @app.route("/how-it-works")
     def how():

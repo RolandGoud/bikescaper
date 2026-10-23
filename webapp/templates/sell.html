@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% from "_macros.html" import photo with context %}
+{% block title %}{{ _('Sell your bike') }} · Bike Compare{% endblock %}
+{% block body %}
+{# One form for the draft and the answers: the answer fields further down the page join it with form="sell-form",
+   and static/sell.js sends it again when an answer changes. Nothing is saved. #}
+<section class="sell-hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">{{ _('For sellers') }}</div>
+      <h1>{{ _('Sell your bike <span>faster</span>, at a fair price')|safe }}</h1>
+      <p class="lede">{{ _("Paste your draft ad. We recognise the model, fill in the specs from the catalogue, show what buyers will miss and suggest an asking price that holds up.") }}</p>
+      <div class="steps"><span><i>1</i>{{ _('Paste') }}</span><span><i>2</i>{{ _('Fill the gaps') }}</span><span><i>3</i>{{ _('Copy to Marktplaats') }}</span></div>
+    </div>
+    <form class="draft-form" id="sell-form" method="post" action="{{ url_for('sell') }}#result">
+      {% if error %}<div class="error field wide" role="alert">{{ error }}</div>{% endif %}
+      <label class="field title-field">{{ _('Your ad title') }}
+        <input name="title" value="{{ form.title or '' }}" placeholder="Trek Domane SL 6 racefiets">
+      </label>
+      <label class="field">{{ _('Asking price (€)') }}
+        <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2600">
+      </label>
+      <label class="field wide">{{ _('Your text') }} <span class="hint">{{ _('Short or messy is fine') }}</span>
+        <textarea name="description" placeholder="Mooie racefiets, weinig gebruikt. Shimano 105. Ophalen in Utrecht.">{{ form.description or '' }}</textarea>
+      </label>
+      <label class="field wide">{{ _('Or the link to your ad') }} <span class="hint">{{ _('Already placed it? Paste the Marktplaats or 2dehands link instead.') }}</span>
+        <input name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
+      </label>
+      <div class="actions field wide"><button class="btn" type="submit">{{ _('Improve my ad') }}</button><span class="hint">{{ _("Your draft isn't saved or published, and doesn't count in our price figures.") }}</span></div>
+    </form>
+  </div>
+</section>
+
+{% if not r %}
+<section class="wrap stack" style="padding-top: 56px; padding-bottom: 72px; gap: 28px">
+  <h2>{{ _('What you get') }}</h2>
+  <div class="grid">
+    <div class="tile"><div class="mono">{{ _('01 · DETAILS') }}</div><h3>{{ _('What buyers look for') }}</h3><p class="muted">{{ _('Year, size, groupset, condition, invoice: we show what your ad is missing and fill in the specs from the catalogue.') }}</p></div>
+    <div class="tile"><div class="mono">{{ _('02 · CHECK') }}</div><h3>{{ _('Does it match the catalogue?') }}</h3><p class="muted">{{ _('We flag a year, part or name that buyers will question when they check your ad.') }}</p></div>
+    <div class="tile"><div class="mono">{{ _('03 · PRICE') }}</div><h3>{{ _('A fair asking price') }}</h3><p class="muted">{{ _('The same estimate buyers see, from the new price, age and condition.') }}</p></div>
+    <div class="tile"><div class="mono">{{ _('04 · AD') }}</div><h3>{{ _('A ready-to-copy ad') }}</h3><p class="muted">{{ _('A clear title and description, to paste into Marktplaats or 2dehands.') }}</p></div>
+  </div>
+</section>
+{% elif not r.model %}
+<main class="wrap page" id="result">
+  <section class="card">
+    <h2>{{ _('No matching model') }}</h2>
+    <p>{{ _("We couldn't find the brand and model in your title or text. Bike Compare covers {brands} for now; name the model in the title, for example “Trek Domane SL 6”.", brands=covered[:-1]|join(', ') ~ ' ' ~ _('and') ~ ' ' ~ covered[-1]) }}</p>
+    <p><a href="{{ url_for('catalog') }}">{{ _('Browse the models we have') }}</a></p>
+  </section>
+</main>
+{% else %}
+{% set icons = {'draft': '✓', 'cat': '+', 'you': '✎', 'open': '?'} %}
+<main class="wrap page" id="result">
+  <div class="match-box sell-match">
+    <div class="match-photo">{{ photo(r.model) }}</div>
+    <span>{{ _('Recognised as') }}</span>
+    <a href="{{ url_for('model_page', slug=r.model.slug) }}" style="font-weight: 700">{{ r.model.brand }} {{ r.model.name }}</a>
+    {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>{% elif r.confidence %}<span class="mono muted">{{ _('{level} confidence', level=r.confidence) }}</span>{% endif %}
+    <div class="match-pick">
+      <label class="sr-only" for="model_id">{{ _('Other model') }}</label>
+      <select id="model_id" name="model_id" form="sell-form" data-autosubmit>
+        {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
+        <optgroup label="{{ _('All models') }}">
+        {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
+        </optgroup>
+      </select>
+      <button class="btn ghost" type="submit" form="sell-form">{{ _('Other model') }}</button>
+    </div>
+  </div>
+
+  <div class="sell-grid">
+    <div class="stack" style="gap: 24px">
+
+      <section class="card" id="facts">
+        <div class="row" style="justify-content: space-between"><h2>{{ _('What buyers want to know') }}</h2><span class="mono muted">{{ _('STEP 2') }}</span></div>
+        {% set c = r.counts %}{% set total = r.facts|length %}
+        <div class="score">
+          <span class="num">{{ total - c.open }}<span>/{{ total }}</span></span>
+          <div class="bar" aria-hidden="true">{% for s in ('draft', 'cat', 'you') %}<i class="s-{{ s }}" style="width: {{ 100 * c[s] / total }}%"></i>{% endfor %}</div>
+        </div>
+        <p class="muted small">{{ _('Your draft named {draft} of the {total} things buyers look for. We filled in {cat} from the catalogue and you added {you}.', draft=c.draft, total=total, cat=c.cat, you=c.you) }}
+          {% if c.open %}{{ _('{n} still open.', n=c.open) }}{% else %}{{ _('Nothing left open.') }}{% endif %}</p>
+        <div class="facts-list">
+          {% for f in r.facts %}
+          <div class="fact s-{{ f.source }}"><i aria-hidden="true">{{ icons[f.source] }}</i><span class="k">{{ f.label }}</span>
+            <span class="v">
+            {% if f.key == 'year' and f.source != 'draft' %}
+              <select name="year" form="sell-form" data-autosubmit aria-label="{{ f.label }}"><option value="">{{ _('Pick…') }}</option>{% for y in f.options %}<option {{ 'selected' if y == f.value }}>{{ y }}</option>{% endfor %}</select>
+              {% if f.hint %}<span class="small muted">{{ _('{name}: {years}', name=r.model.name, years=f.hint) }}</span>{% endif %}
+            {% elif f.key == 'size' and f.source != 'draft' %}
+              <select name="size" form="sell-form" data-autosubmit aria-label="{{ f.label }}"><option value="">{{ _('Pick…') }}</option>{% for s in f.options %}<option {{ 'selected' if s == f.value }}>{{ s }}</option>{% endfor %}</select>
+              {% if f.fits %}<span class="small muted">{{ _('fits {lo}–{hi} cm', lo=f.fits[0], hi=f.fits[1]) }}</span>{% endif %}
+            {% elif f.key == 'condition' and f.source != 'draft' %}
+              <span class="toggle" role="radiogroup" aria-label="{{ f.label }}">{% for key, label in f.options %}<input type="radio" name="condition" value="{{ key }}" id="cond-{{ key }}" form="sell-form" data-autosubmit {{ 'checked' if key == f.value }}><label for="cond-{{ key }}">{{ label|string|capitalize }}</label>{% endfor %}</span>
+            {% elif f.key == 'invoice' and f.source != 'draft' %}
+              <span class="toggle" role="radiogroup" aria-label="{{ f.label }}">{% for key, label in [('yes', _('Yes')), ('no', _('No'))] %}<input type="radio" name="invoice" value="{{ key }}" id="inv-{{ key }}" form="sell-form" data-autosubmit {{ 'checked' if key == f.value }}><label for="inv-{{ key }}">{{ label }}</label>{% endfor %}</span>
+              <span class="small muted">{{ _("buyers' first question") }}</span>
+            {% elif f.key == 'service' and f.source != 'draft' %}
+              <input name="service" form="sell-form" value="{{ f.value or '' }}" maxlength="200" placeholder="{{ _('e.g. serviced May 2026, about 3,000 km') }}" aria-label="{{ f.label }}">
+            {% elif f.key == 'wheels' and f.ask %}
+              {{ f.value }} <span class="src">{{ _('catalogue') }}</span>
+              <span class="toggle" role="radiogroup" aria-label="{{ f.label }}">{% for key, label in [('original', _('Still original')), ('replaced', _('Replaced'))] %}<input type="radio" name="wheels" value="{{ key }}" id="wh-{{ key }}" form="sell-form" data-autosubmit {{ 'checked' if key == f.answer }}><label for="wh-{{ key }}">{{ label }}</label>{% endfor %}</span>
+            {% elif f.key == 'condition' %}{{ _(condition_labels[f.value])|capitalize }} <span class="src">{{ _('from your text') }}</span>
+            {% elif f.key == 'invoice' or f.key == 'service' %}{{ _('In your text') }} <span class="src">{{ _('from your text') }}</span>
+            {% else %}
+              {{ f.value }} <span class="src">{{ _('from your text') if f.source == 'draft' else _('catalogue') }}</span>{% if f.note %} <span class="small muted">{{ f.note }}</span>{% endif %}
+            {% endif %}
+            </span>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="legend"><span><i class="s-draft"></i>{{ _('already in your draft') }}</span><span><i class="s-cat"></i>{{ _('filled in from the catalogue') }}</span><span><i class="s-you"></i>{{ _('added by you') }}</span><span><i class="s-open"></i>{{ _('still open') }}</span></div>
+        <noscript><button class="btn ghost" type="submit" form="sell-form">{{ _('Update my ad') }}</button></noscript>
+      </section>
+
+      {% if r.flags %}
+      <section class="card">
+        <h2>{{ _('Does it match the catalogue?') }}</h2>
+        {% for fl in r.flags %}
+        <div class="flag {{ fl.status }}-bg"><i class="{{ fl.status }}" aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '!'}[fl.status] }}</i><div><b class="{{ fl.status }}">{{ fl.title }}</b><span>{{ fl.text }}</span></div></div>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      {% set v = r.value %}
+      <section class="card" id="price">
+        <h2>{{ _('Asking price') }}</h2>
+        {% if v.low %}
+        <div class="price-advice">
+          <div><div class="k">{{ _('Your price') }}</div><div class="v">{{ r.asking|eur }}</div><div class="small muted">{% if not r.asking %}{{ _('not filled in') }}{% elif r.asking > v.high %}{{ _('above the fair range') }}{% elif r.asking < v.low %}{{ _('below the fair range') }}{% else %}{{ _('within the fair range') }}{% endif %}</div></div>
+          <div class="best"><div class="k">{{ _('Our suggestion') }}</div><div class="v">{{ r.suggested|eur }}</div><div class="small">{{ _('middle of the fair range') }}</div></div>
+          {% if r.others %}{% set a = r.others %}
+          <div><div class="k">{{ _('Other ads, last {days} days', days=a.days) }}</div>
+            {% if a.enough %}<div class="v">{{ a.median|eur }}</div><div class="small muted">{{ _('median of {n} ads', n=a.count) }}</div>
+            {% else %}<div class="v">{{ a.count }}</div><div class="small muted">{{ _('too few for a typical price') }}</div>{% endif %}</div>
+          {% endif %}
+        </div>
+        <div class="stack" style="gap: 8px">
+          <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=r.asking|eur) }}">
+            <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
+            {% if v.bar.asking %}<div class="ask" style="left: {{ v.bar.asking }}%"></div>{% endif %}
+          </div>
+          <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
+          <div class="value-legend"><span><i style="background: var(--orange-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span>{% if r.asking %}<span><i style="background: var(--warn); width: 3px"></i>{{ _('Your price {asking}', asking=r.asking|eur) }}</span>{% endif %}</div>
+        </div>
+        <div class="notes">{% for n in v.notes %}<span>{{ n }}</span>{% endfor %}</div>
+        {% else %}
+        <p>{{ v.detail }}</p>
+        {% endif %}
+      </section>
+
+      <section class="card">
+        <h2>{{ _("What a buyer's check will show") }}</h2>
+        <p class="muted small">{{ _('Buyers paste ads into Bike Compare. This is what they see for your draft, and for the new ad.') }}</p>
+        <div class="ba">
+          {% for label, rep in [(_('YOUR DRAFT'), r.before), (_('NEW AD'), r.after)] %}
+          <div class="col"><span class="mono">{{ label }}</span>
+            {% for key, topic in [('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE')), ('value', _('VALUE'))] %}{% set v = rep[key] %}
+            <div class="mini-verdict {{ v.status }}-bg"><span class="mono {{ v.status }}">{{ topic }}</span><span class="{{ v.status }}">{{ v.headline }}</span></div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="card" id="photos">
+        <h2>{{ _('Photos that sell') }}</h2>
+        <div class="tips">
+          {% for icon, head, text in photo_tips %}
+          <div class="tip"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">{{ icon|safe }}</svg><div><b>{{ _(head) }}</b><span class="muted">{{ _(text) }}</span></div></div>
+          {% endfor %}
+        </div>
+        {# Not built yet: this offer is here to see whether sellers want it (see the /sell/photo-review route). #}
+        <form class="paid-offer" method="post" action="{{ url_for('photo_review') }}" data-fake-door>
+          <input type="hidden" name="model_id" value="{{ r.model.id }}">
+          <div>
+            <div class="mono">{{ _('NEW · PHOTO REVIEW') }}</div>
+            <h3>{{ _('Let us review your photos') }}</h3>
+            <p class="small">{{ _('Upload up to 10 photos. We check each one for light, background, angle and whether the details buyers want are in view, and tell you which to retake.') }}</p>
+          </div>
+          <div class="offer-buy"><div class="offer-price">€5</div><div class="small">{{ _('for 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
+        </form>
+      </section>
+    </div>
+
+    <aside class="sell-side">
+      <section class="card preview">
+        <div class="row" style="justify-content: space-between"><h2>{{ _('Your new ad') }}</h2><span class="mono">{{ _('STEP 3') }}</span></div>
+        <div class="ad-box">
+          <div class="lbl">{{ _('Title') }} <button class="copy" type="button" data-copy="new-title">{{ _('Copy') }}</button></div>
+          <div class="ttl" id="new-title">{{ r.title }}</div>
+        </div>
+        {% if r.suggested %}
+        <div class="ad-box">
+          <div class="lbl">{{ _('Asking price') }}</div>
+          <div class="ttl">{{ r.suggested|eur }}{% if r.asking and r.asking != r.suggested %} <span class="small muted" style="font-weight: 400">{{ _('(you had {price})', price=r.asking|eur) }}</span>{% endif %}</div>
+        </div>
+        {% endif %}
+        <div class="ad-box">
+          <div class="lbl">{{ _('Description') }} <button class="copy" type="button" data-copy="new-text">{{ _('Copy') }}</button></div>
+          <div class="body">{% for line in r.description %}{% for text, kind in line %}{% if kind %}<mark class="{{ kind }}">{{ text }}</mark>{% else %}{{ text }}{% endif %}{% endfor %}
+{% endfor %}</div>
+          <textarea id="new-text" hidden readonly>{{ r.copy_text }}</textarea>
+        </div>
+        <div class="legend"><span><i class="m-cat"></i>{{ _('from the catalogue') }}</span><span><i class="m-you"></i>{{ _('from you') }}</span><span><i class="m-todo"></i>{{ _('still to fill in, left out of the copy') }}</span></div>
+        <button class="btn" type="button" data-copy="new-title new-text">{{ _('Copy title and text') }}</button>
+      </section>
+    </aside>
+  </div>
+</main>
+<div class="phone-bar"><button class="btn ghost" type="button" data-copy="new-title">{{ _('Copy title') }}</button><button class="btn" type="button" data-copy="new-text">{{ _('Copy text') }}</button></div>
+{% endif %}
+
+<dialog class="fake-door" id="fake-door" aria-labelledby="fake-door-title">
+  <h2 id="fake-door-title">{{ _('Coming soon') }}</h2>
+  <p>{{ _("Photo review isn't available yet. We're finding out whether sellers want it before we build it, and your click helps. Nothing has been charged.") }}</p>
+  <form method="post" action="{{ url_for('photo_review_notify') }}" class="stack" style="gap: 10px">
+    <label class="field">{{ _('Want an email when it launches?') }}
+      <input type="email" name="email" required placeholder="{{ _('you@example.com') }}" autocomplete="email">
+    </label>
+    <span class="small muted">{{ _('We only use it for this one email.') }}</span>
+    <div class="row"><button class="btn" type="submit">{{ _('Let me know') }}</button><button class="btn ghost" type="button" data-close>{{ _('Close') }}</button></div>
+  </form>
+  <p class="thanks" hidden>{{ _("Thanks, we'll let you know.") }}</p>
+</dialog>
+<script src="{{ url_for('static', filename='sell.js') }}" defer></script>
+{% endblock %}

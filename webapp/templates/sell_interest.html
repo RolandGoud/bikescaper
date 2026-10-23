@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Photo review interest') }} · Bike Compare{% endblock %}
+{% block body %}
+{# Not linked from the site: how many sellers wanted the photo review that isn't built yet. #}
+<main class="wrap page" style="max-width: 720px">
+  <section class="card">
+    <h1 style="font-size: 34px">{{ _('Photo review interest') }}</h1>
+    <div class="facts">
+      <div><div class="k">{{ _('Clicks on “Review my photos”') }}</div><div class="v">{{ clicks }}</div></div>
+      <div><div class="k">{{ _('Emails left') }}</div><div class="v">{{ emails }}</div></div>
+    </div>
+    {% if rows %}
+    <div class="spec-table"><table style="min-width: 0">
+      <tr><th>{{ _('Day') }}</th><th>{{ _('Clicks') }}</th><th>{{ _('Emails') }}</th></tr>
+      {% for r in rows %}<tr><td>{{ r.day }}</td><td>{{ r.clicks }}</td><td>{{ r.emails }}</td></tr>{% endfor %}
+    </table></div>
+    {% else %}<p class="muted">{{ _('Nobody has clicked it yet.') }}</p>{% endif %}
+  </section>
+</main>
+{% endblock %}

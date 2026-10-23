@@ -44,6 +44,8 @@ they survive restarts and rebuilds. To reload the catalogue after new scrapes:
 |---|---|---|
 | Home / check a listing | `/` | Paste the ad's title and text, asking price, place and your height. The ad itself is never fetched. |
 | Check report | `/check/<id>` | Model match (with "change match"), age, spec comparison, size fit, value estimate, questions for the seller. |
+| Selling | `/sell` | For sellers: paste a draft ad (or its link), answer what's missing, and get a new title, description and asking price, plus the verdicts a buyer's check will show. Drafts are never saved. |
+| Photo review (not built) | `/sell/photo-review/interest` | The Selling page offers a paid photo review (€5 for 10 photos) that doesn't exist yet, to measure interest. Clicks and emails go in `photo_review_interest`; this unlinked page shows the counts. |
 | Listings | `/listings` | Every saved check, filterable by result. |
 | Models | `/models`, `/models/<slug>` | The seeded catalogue with spec sheets. |
 | Size finder | `/size` | Height to frame size per model line (builds sharing a frame are grouped), from `webapp/size_charts.json`; brand chart when a model has none. |
