@@ -11,8 +11,7 @@
     <div class="info">
       <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ _('checked {date}', date=listing.created_at[:10]) }}</div>
       {% if listing.times_checked > 1 %}<div class="small muted">{{ _('This ad has been checked {n} times.', n=listing.times_checked) }}</div>{% endif %}
-      {% if listing.removed_at %}<div><span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span></div>{% endif %}
-      <h1>“{{ listing.title }}”</h1>
+      <h1>“{{ listing.title }}”{% if listing.removed_at %} <span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span>{% endif %}</h1>
       <div class="price">{{ listing.asking_price|eur }}</div>
       {% if r.model %}
       <div class="match-box">

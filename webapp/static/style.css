@@ -132,7 +132,7 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .listing-card .photo img { width: 100%; height: 100%; object-fit: contain; }
 .listing-card .body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; }
-.removed-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; background: var(--unknown); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; vertical-align: 2px; }
+.removed-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; background: var(--bad); color: #fff; font-size: 12px; max-width: 100%; box-shadow: 0 0 0 2px var(--bad-bg); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; vertical-align: middle; line-height: 1.5; }
 .chip { padding: 4px 8px; border-radius: 4px; }
 .ok-bg { background: var(--ok-bg); color: var(--ok); }
 .warn-bg { background: var(--warn-bg); color: var(--warn); }

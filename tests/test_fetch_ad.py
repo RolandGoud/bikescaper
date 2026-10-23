@@ -148,9 +148,15 @@ def test_removed_badge(tmp_path):
                  " ('https://www.marktplaats.nl/v/a/b/a1-x', 'Trek Domane SL6 2022', '2026-10-21 08:00:00')")
     conn.commit()
     client = app.test_client()
-    assert "Verwijderd van de site op 2026-10-21" in client.get("/check/1?lang=nl").data.decode()
+    report = client.get("/check/1?lang=nl").data.decode()
+    assert "Verwijderd van de site op 2026-10-21" in report
+    # The tag comes after the title, not before it.
+    assert report.index("Trek Domane SL6 2022") < report.index('class="removed-tag"')
     for url in ["/?lang=en", "/listings?lang=en"]:
-        assert 'class="removed-tag">Removed</span>' in client.get(url).data.decode(), url
+        page = client.get(url).data.decode()
+        assert 'class="removed-tag">Removed</span>' in page, url
+        name = page[page.index('<div class="ad-name">'):]
+        assert name.index("removed-tag") > len('<div class="ad-name">') + 1, url
 
 
 def test_only_one_process_rechecks_at_a_time(tmp_path, monkeypatch):
