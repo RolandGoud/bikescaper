@@ -6,6 +6,7 @@ Run from the repo root:
 """
 import json
 import os
+import random
 import re
 import sys
 import threading
@@ -24,6 +25,9 @@ STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 # Our own links are relative (url_for), so any link to http(s):// leaves the site.
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
+# Home hero backgrounds, drawn from code (docs/hero-art); one is picked at random per visit.
+HERO_DIR = os.path.join(os.path.dirname(__file__), "static", "hero")
+HERO_BACKGROUNDS = sorted(f for f in os.listdir(HERO_DIR) if f.endswith(".jpg"))
 
 
 def open_in_new_tab(tag):
@@ -198,7 +202,8 @@ def create_app(db_path=None):
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
         ads = group_checks(rows)
         cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
-        return render_template("home.html", cards=cards, total=len(ads), nav="check")
+        hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
+        return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg)
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
