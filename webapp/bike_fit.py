@@ -17,8 +17,13 @@ from PIL import Image, ImageFilter, ImageOps
 
 WORK_WIDTH = 160            # the ad photo is searched at this width
 FINE_WIDTH = 240            # and the bike looked at this wide to tell which way it faces
-SIZES = np.linspace(0.35, 1.0, 14)  # bike width as a share of the ad photo's width
-MIN_SCORE = 0.2             # below this the match is a guess; draw the photo as it is
+SIZES = np.linspace(0.45, 1.0, 12)  # bike width as a share of the ad photo's width
+# How sure it must be, else the photo is drawn as it is. On photos without a whole bike (a wall, a
+# close-up of the bars or a wheel, real ads that only show part of it) the best match scores 0.3 to
+# 0.52, always at the smallest size; a whole bike scores 0.63 and up, also against another model.
+MIN_SCORE = 0.6
+MIN_MARGIN = 0.08           # how much better one way round must look than the other
+MAX_ZOOM = 1.8              # never draw the ad photo more than this much bigger than "cover" would
 TILE = 16 / 9
 
 
@@ -139,7 +144,10 @@ def find(ad, catalogue):
     if score < MIN_SCORE:
         return None
     spot = (x / fw, y / fh, tw / fw, th / fh)
-    flip = _likeness(ad, spot, ImageOps.mirror(bike)) > _likeness(ad, spot, bike)
+    mirrored, straight = _likeness(ad, spot, ImageOps.mirror(bike)), _likeness(ad, spot, bike)
+    if abs(mirrored - straight) < MIN_MARGIN:
+        return None
+    flip = mirrored > straight
     return {"x": spot[0], "y": spot[1], "w": spot[2], "h": spot[3], "flip": flip, "score": round(score, 3)}
 
 
@@ -147,7 +155,7 @@ def placement(fit, ad_size, catalogue_size, catalogue_box, zoom=None):
     """Where to draw the ad photo in a 16:9 tile: {left, top, width, height} in % of the tile, and
     flip. The catalogue photo is drawn whole ("contain") and the ad photo must still cover the tile.
     zoom is the catalogue photo's own (scale, shift up as a share of the tile, scaled from the bottom
-    centre), for brands whose photos are drawn larger."""
+    centre), for brands whose photos are drawn larger. None when it would have to zoom in too far."""
     # the catalogue bike, in tile units: the tile is 1 wide and 1/TILE high
     cw, ch = catalogue_size
     th_ = 1 / TILE
@@ -171,6 +179,9 @@ def placement(fit, ad_size, catalogue_size, catalogue_box, zoom=None):
     centre_x, centre_y = cx0 + cbw / 2, cy0 + cbh / 2
     grow = max(1, 1 / width, th_ / height)  # never leave a gap: grow around the bike if it would
     width, height = width * grow, height * grow
+    cover = max(1, th_ * aw / ah)  # the width "cover" draws it at
+    if width > cover * MAX_ZOOM:
+        return None
     left = centre_x - (fx + fit["w"] / 2) * width
     top = centre_y - (fit["y"] + fit["h"] / 2) * height
     left = min(0, max(1 - width, left))
@@ -202,8 +213,11 @@ _lock = threading.Lock()
 _worker_started = []
 
 
+CACHE_VERSION = 2  # bump when the way it's worked out changes, so older results are redone
+
+
 def _key(catalogue_path, zoom):
-    return f"{os.path.basename(catalogue_path)}@{int(os.path.getmtime(catalogue_path))}@{zoom}"
+    return f"v{CACHE_VERSION}:{os.path.basename(catalogue_path)}@{int(os.path.getmtime(catalogue_path))}@{zoom}"
 
 
 def _cache_path(ad_path):
@@ -225,7 +239,7 @@ def _worker():
             key = _key(catalogue_path, zoom)
             result = work_out(ad_path, catalogue_path, zoom)
             with _lock:
-                saved = _read(ad_path)
+                saved = {k: v for k, v in _read(ad_path).items() if k.startswith(f"v{CACHE_VERSION}:")}
                 saved[key] = result
                 with open(_cache_path(ad_path) + ".tmp", "w") as f:
                     json.dump(saved, f)
