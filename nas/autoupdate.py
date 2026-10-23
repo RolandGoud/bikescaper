@@ -154,7 +154,12 @@ def watch():
                 continue
             log(f"new commit {sha[:7]}, installing")
             install(sha)
-            run(sys.executable, "-m", "webapp.seed", "--if-empty")
+            # The new code is on disk now, so reload even if the seed fails (say, a busy database):
+            # the next update or restart seeds again.
+            try:
+                run(sys.executable, "-m", "webapp.seed", "--if-empty")
+            except Exception as exc:
+                log(f"seeding the catalogue failed ({exc}); reloading anyway")
             os.kill(1, signal.SIGHUP)  # gunicorn: start workers on the new code, then stop the old ones
             log(f"now running {sha[:7]}")
             # Carry on with this file's new version, in case the updater itself changed.
