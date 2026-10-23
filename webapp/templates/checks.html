@@ -8,7 +8,7 @@
 {% macro check_row(row, r, asking) -%}
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <article class="check-row">
-  <div class="check-row-body">
+  <div class="check-row-body split">
     <div class="check-row-ad">
       <a class="check-row-photo" href="{{ url_for('report', check_id=row.id) }}" tabindex="-1" aria-hidden="true">
         {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% elif row.photos %}<div class="photo"><img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
