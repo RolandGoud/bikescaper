@@ -48,6 +48,33 @@ PHOTO_TIPS = [
 ]
 
 
+def parse_number(value):
+    """A number as people type it in the Netherlands: "1.049,-", "€ 344,00", "2450". The comma is the
+    decimal mark and a dot groups thousands, but a dot with one or two digits after it is a decimal
+    point too ("344.0" from a form we filled in ourselves), and so is the last mark when both appear."""
+    text = re.sub(r"[,.]-+$", "", re.sub(r"[^\d,.-]", "", str(value if value is not None else "")).strip("-"))
+    if not re.search(r"\d", text):
+        return None
+    marks = [c for c in text if c in ",."]
+    if "," in marks and "." in marks:
+        decimal = marks[-1]
+    elif "," in marks:
+        decimal = ","
+    elif "." in marks:
+        decimal = "." if len(marks) == 1 and not re.search(r"\.\d{3}$", text) else None
+    else:
+        decimal = None
+    if decimal:
+        whole, _, frac = text.rpartition(decimal)
+        text = re.sub(r"\D", "", whole) + "." + re.sub(r"\D", "", frac)
+    else:
+        text = re.sub(r"\D", "", text)
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
 def open_in_new_tab(tag):
     """Give an external <a> tag target="_blank" and a rel with noopener, keeping what it already has."""
     if " target=" not in tag:
@@ -129,11 +156,8 @@ def create_app(db_path=None):
         return g.models
 
     def number(value, cast=float):
-        try:
-            digits = re.sub(r"[^\d,]", "", str(value)).replace(",", ".").rstrip(".")
-            return cast(float(digits)) if digits else None
-        except ValueError:
-            return None
+        value = parse_number(value)
+        return cast(value) if value is not None else None
 
     storing = set()  # checks whose photos are being downloaded in this process
 
@@ -488,7 +512,7 @@ def create_app(db_path=None):
             try:
                 ad = fetch_ad.fetch_listing(link)
                 form.update(title=ad["title"], description=ad["description"],
-                            asking_price=form.get("asking_price") or ad["asking_price"] or "")
+                            asking_price=form.get("asking_price") or (f"{ad['asking_price']:g}" if ad["asking_price"] else ""))
             except fetch_ad.FetchError as e:
                 error = gettext("{reason} Paste your title and text instead.", reason=gettext(str(e)))
         if not (form.get("title") or "").strip():
