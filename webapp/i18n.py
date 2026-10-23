@@ -161,6 +161,8 @@ NL = {
     "Close": "Sluiten",
     "Previous photo": "Vorige foto",
     "Next photo": "Volgende foto",
+    "Previous photos": "Vorige foto's",
+    "Next photos": "Volgende foto's",
     "Mooie racefiets, carbon frame, hydraulische schijfremmen...":
         "Mooie racefiets, carbon frame, hydraulische schijfremmen...",
 

@@ -95,9 +95,24 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .mode-switch input:checked + label { background: #fff; color: var(--ink); }
 .mode-switch input:focus-visible + label { outline: 2px solid var(--orange); outline-offset: 2px; }
 .ad-photos { display: flex; gap: 8px; overflow-x: auto; }
-.ad-photos img { height: 88px; width: auto; border-radius: 6px; flex: none; }
+.ad-photos img { display: block; height: 88px; width: auto; border-radius: 6px; flex: none; }
 .ad-photos a { position: relative; flex: none; display: block; }
 .ad-photos .more { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; border-radius: 6px; background: rgba(17, 18, 22, 0.6); color: #fff; font-weight: 700; font-size: 18px; }
+/* arrows over the strip's ends, dots and a "3–8 / 8" counter below; a swipe still scrolls it */
+.ad-strip { position: relative; }
+.ad-strip.paged .ad-photos { scrollbar-width: none; scroll-behavior: smooth; }
+.ad-strip.paged .ad-photos::-webkit-scrollbar { display: none; }
+.strip-prev, .strip-next { position: absolute; top: 44px; transform: translateY(-50%); z-index: 1; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0 0 3px; border-radius: 50%; border: 1px solid var(--line-strong); background: #fff; color: var(--ink); font-size: 26px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(17, 18, 22, 0.18); }
+.strip-prev { left: 6px; }
+.strip-next { right: 6px; }
+.strip-prev:hover, .strip-next:hover { border-color: var(--ink); }
+.strip-prev:focus-visible, .strip-next:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.strip-prev[disabled], .strip-next[disabled] { opacity: 0; pointer-events: none; }
+.strip-prev[hidden], .strip-next[hidden], .strip-dots[hidden] { display: none; }
+.strip-dots { display: flex; gap: 6px; justify-content: center; align-items: center; margin-top: 10px; }
+.strip-dots i { width: 7px; height: 7px; border-radius: 4px; background: var(--line); }
+.strip-dots i.on { width: 18px; background: var(--ink); }
+.strip-dots span { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 /* the ad's photos, full size, one at a time */
 .lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #0A0A0C; color: #fff; overscroll-behavior: contain; }
 .lightbox[open] { display: flex; align-items: center; justify-content: center; }
