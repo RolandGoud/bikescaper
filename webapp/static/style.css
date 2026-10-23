@@ -418,3 +418,18 @@ select { max-width: 100%; }
 .value-form .condition-field { flex: 1.3 1 180px; }
 .value-form .btn { flex: none; }
 @media (max-width: 640px) { .value-form .field, .value-form .btn { flex: 1 1 100%; } }
+
+/* Mockups: the fair price more prominent on the earlier-estimate tiles */
+.price-big, .price-block, .price-bar { display: flex; flex-direction: column; gap: 4px; margin: 4px 0 14px; }
+.price-big .k, .price-block .k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.price-big .amount, .price-block .amount, .price-bar .amount { font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; letter-spacing: 0.01em; color: var(--ink); }
+.price-block { padding: 16px 18px; border-radius: 14px; }
+.price-block .k { color: inherit; opacity: 0.8; }
+.price-block .amount { color: inherit; }
+.price-block .why { font-size: 14px; font-weight: 600; }
+.fair-bg { background: #FFE9DF; color: var(--ink); }
+.price-bar { gap: 10px; }
+.price-bar-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.price-bar .amount { font-size: 32px; }
+.price-bar .value-bar { height: 28px; }
+@media (max-width: 640px) { .price-big .amount, .price-block .amount { font-size: 34px; } .price-bar .amount { font-size: 28px; } }

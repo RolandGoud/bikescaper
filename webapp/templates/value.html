@@ -71,10 +71,38 @@
           </section>
           <section class="check-col">
             <h2>{{ _('Result') }}</h2>
+            {% set look = request.args.get('look') %}
+            {% if look == 'a' and r.low %}
+            <div class="price-big">
+              <span class="k">{{ _('Fair value') }}</span>
+              <span class="amount">{{ r.low|eur }}–{{ r.high|eur }}</span>
+              <span class="muted small">{{ _('as a {year} bike', year=r.model_year) }}{% if h.row.asking_price %} · <span class="chip {{ r.status }}-bg">{{ r.headline }}</span>{% endif %}</span>
+            </div>
+            {% elif look == 'b' and r.low %}
+            <div class="price-block {{ r.status if h.row.asking_price else 'fair' }}-bg">
+              <span class="k">{{ _('Fair value') }} · {{ _('as a {year} bike', year=r.model_year) }}</span>
+              <span class="amount">{{ r.low|eur }}–{{ r.high|eur }}</span>
+              {% if h.row.asking_price %}<span class="why">{{ r.headline }} · {{ _('Asking price') }} {{ h.row.asking_price|eur }}</span>{% else %}<span class="why">{{ _('No asking price given') }}</span>{% endif %}
+            </div>
+            {% elif look == 'c' and r.low %}
+            <div class="price-bar">
+              <div class="price-bar-top"><span class="amount">{{ r.low|eur }}–{{ r.high|eur }}</span>{% if h.row.asking_price %}<span class="chip {{ r.status }}-bg">{{ r.headline }}</span>{% endif %}</div>
+              {% if r.bar %}
+              <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=r.low|eur, high=r.high|eur, asking=r.asking|eur) }}">
+                <div class="range" style="left: {{ r.bar.low }}%; width: {{ r.bar.width }}%"></div>
+                <div class="ask" style="left: {{ r.bar.asking }}%"></div>
+              </div>
+              <div class="value-axis" aria-hidden="true">{% for value, at in r.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
+              {% endif %}
+              <span class="muted small">{{ _('Fair value') }} {{ _('as a {year} bike', year=r.model_year) }}{% if h.row.asking_price %} · {{ _('Asking price') }} {{ h.row.asking_price|eur }}{% endif %}</span>
+            </div>
+            {% endif %}
             <dl>
+              {% if look not in ('a', 'b', 'c') or not r.low %}
               <dt>{{ _('Fair value') }}</dt>
               <dd>{% if r.low %}<strong>{{ r.low|eur }}–{{ r.high|eur }}</strong> <span class="muted small">({{ _('as a {year} bike', year=r.model_year) }})</span>{% else %}–{% endif %}
                 {% if h.row.asking_price %}<span class="chip {{ r.status }}-bg">{{ r.headline }}</span>{% endif %}</dd>
+              {% endif %}
               <dt>{{ _('New price') }}</dt><dd>{{ r.original|eur if r.original else '–' }}</dd>
               {% if r.age is defined %}<dt>{{ _('Age') }}</dt><dd>{{ _('{n} year' if r.age == 1 else '{n} years', n=r.age) }}</dd>{% endif %}
               <dt>{{ _('Second-hand median') }}</dt>
