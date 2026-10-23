@@ -163,6 +163,16 @@ def is_ebike(*texts):
     return bool(re.search(r"elektrisch|e-bike|ebike|\beplus\b|e\+|\bturbo\b|\bneo\b|hybrid|\bhybride\b", low))
 
 
+def size_name(text):
+    """One way of writing sizes across brands: XXS -> 2XS, Scott's 'XL58' -> 58, 'M-L' -> ML."""
+    text = clean(str(text)).upper()
+    m = re.match(r"^(?:[2-3]?X*[SML]|X+L)\s*/?\s*(\d\d)$", text)
+    if m:
+        return m.group(1)
+    text = text.replace("-", "").replace("/", "")
+    return {"XXS": "2XS", "XXL": "2XL", "XXXS": "3XS", "XXXL": "3XL"}.get(text, text)
+
+
 def slug(text):
     return re.sub(r"[^A-Za-z0-9]+", "_", text).strip("_")
 

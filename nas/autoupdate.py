@@ -26,7 +26,7 @@ import urllib.request
 REPO = "RolandGoud/bikescaper"
 APP = "/app"
 VERSION_FILE = os.path.join(APP, ".version")
-BRANDS = ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor")
+BRANDS = ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea")
 KEEP = ("webapp/", "images/", "nas/") + tuple(f"data/{b}/" for b in BRANDS)
 DIRS = ("webapp", "data", "images", "nas")
 

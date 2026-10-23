@@ -754,7 +754,7 @@ SIZE_SOURCE_NOTES = {
 }
 
 
-LETTER_SIZES = ["3XS", "2XS", "XS", "S", "M", "ML", "L", "XL", "2XL", "3XL"]
+LETTER_SIZES = ["3XS", "2XS", "XS", "S", "SM", "M", "ML", "L", "XL", "2XL", "3XL"]
 
 
 def _size_order(label):
