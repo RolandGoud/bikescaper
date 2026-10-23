@@ -24,7 +24,10 @@
   const swap = (next) => {
     document.querySelectorAll(".model-card.leaving").forEach((g) => g.remove());
     const refocus = focusKey(), y = scrollY;
-    main.replaceChildren(...next.childNodes);
+    main.replaceChildren(...next.querySelector("main.page").childNodes);
+    // the NL/EN links carry the filters in their address, so take the new page's
+    const langs = document.querySelector(".lang-switch"), newLangs = next.querySelector(".lang-switch");
+    if (langs && newLangs) langs.replaceWith(newLangs);
     scrollTo(0, y);  // keep the reader where they were; scroll anchoring would jump otherwise
     refocus?.()?.focus({ preventScroll: true });
   };
@@ -63,10 +66,10 @@
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(res.status);
-      next = new DOMParser().parseFromString(await res.text(), "text/html").querySelector("main.page");
-      if (!next) throw new Error("no list");
+      next = new DOMParser().parseFromString(await res.text(), "text/html");
+      if (!next.querySelector("main.page")) throw new Error("no list");
     } catch {
-      location.href = url;  // fall back to a normal page load
+      if (ticket === latest) location.href = url;  // fall back to a normal page load
       return;
     }
     if (ticket !== latest) return;  // a newer filter click won
