@@ -186,7 +186,7 @@
 {%- endmacro %}
 
 {% macro sponsored_card(o) -%}
-<a class="listing-card sponsored-card" href="{{ o.url }}" rel="sponsored noopener" target="_blank">
+<a class="listing-card sponsored-card" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
   <div class="photo">{{ sponsored_image(o) }}<span class="sponsored-label">{{ _('Sponsored') }}</span></div>
   <div class="body">
     <div class="ad-name">{{ o.title }}</div>
@@ -200,7 +200,7 @@
 {% macro sponsored_banner(o) -%}
 <section class="wrap sponsored-band" aria-label="{{ _('Sponsored') }}">
   <span class="sponsored-label">{{ _('Sponsored') }}</span>
-  <a class="sponsored-box banner" href="{{ o.url }}" rel="sponsored noopener" target="_blank">
+  <a class="sponsored-box banner" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
     {{ sponsored_image(o) }}
     <span class="text"><b>{{ o.title }}</b><span>{{ o.text }}</span></span>
     <span class="sponsored-btn">{{ o.cta }}</span>
@@ -212,7 +212,7 @@
 <aside class="sponsored-side" aria-label="{{ _('Sponsored') }}">
   <div class="sticky">
     <span class="sponsored-label">{{ _('Sponsored') }}</span>
-    <a class="sponsored-box side" href="{{ o.url }}" rel="sponsored noopener" target="_blank">
+    <a class="sponsored-box side" href="{{ o.url }}" rel="sponsored noopener"{% if o.url != '#' %} target="_blank"{% endif %}>
       {{ sponsored_image(o) }}
       <b>{{ o.title }}</b><span>{{ o.text }}</span>
       <span class="sponsored-btn">{{ o.cta }}</span>
