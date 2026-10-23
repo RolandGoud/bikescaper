@@ -169,9 +169,9 @@ def create_app(db_path=None):
     @app.route("/")
     def home():
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
-                 for r, n in group_checks(rows)[:3]]
-        return render_template("home.html", cards=cards, nav="check")
+        ads = group_checks(rows)
+        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
+        return render_template("home.html", cards=cards, total=len(ads), nav="check")
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
