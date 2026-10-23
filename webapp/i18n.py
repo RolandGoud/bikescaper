@@ -166,6 +166,11 @@ NL = {
 
     # listing cards
     "Matched to {name}": "Gekoppeld aan {name}",
+    "Matched ads": "Gekoppelde advertenties",
+    "Matched to 1 ad": "Gekoppeld aan 1 advertentie",
+    "Matched to {n} ads": "Gekoppeld aan {n} advertenties",
+    "not in the asking price": "telt niet mee in de vraagprijs",
+    "No ads matched to this model yet.": "Nog geen advertenties aan dit model gekoppeld.",
     "Not matched": "Niet gekoppeld",
     "Asking {price}": "Vraagprijs {price}",
     "Age: {v}": "Leeftijd: {v}",
@@ -217,7 +222,6 @@ NL = {
     "Value estimate": "Waardeschatting",
     "Fair {low}–{high}": "Eerlijk {low}–{high}",
     "Asking {asking}": "Vraagprijs {asking}",
-    "Scale €0 to {max}": "Schaal €0 tot {max}",
     "Fair range {low} to {high}, asking {asking}": "Eerlijke prijs {low} tot {high}, vraagprijs {asking}",
     "New price": "Nieuwprijs",
     "Model year used": "Gebruikt modeljaar",
