@@ -25,9 +25,12 @@ STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 # Our own links are relative (url_for), so any link to http(s):// leaves the site.
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
-# Home hero backgrounds, drawn from code (docs/hero-art); one is picked at random per visit.
+# Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
+# credits.json holds each photo's author, licence and source, shown as a credit line in the hero.
 HERO_DIR = os.path.join(os.path.dirname(__file__), "static", "hero")
 HERO_BACKGROUNDS = sorted(f for f in os.listdir(HERO_DIR) if f.endswith(".jpg"))
+with open(os.path.join(HERO_DIR, "credits.json"), encoding="utf-8") as f:
+    HERO_CREDITS = json.load(f)
 
 
 def open_in_new_tab(tag):
@@ -203,7 +206,8 @@ def create_app(db_path=None):
         ads = group_checks(rows)
         cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
-        return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg)
+        return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
+                               hero_credit=HERO_CREDITS.get(hero_bg))
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():

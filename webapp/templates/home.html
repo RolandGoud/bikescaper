@@ -10,6 +10,9 @@
     </div>
     {{ check_form({}, None) }}
   </div>
+  {% if hero_credit %}
+  <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
+  {% endif %}
 </section>
 
 <section class="wrap stack" style="padding-top: 64px; padding-bottom: 24px; gap: 28px">
