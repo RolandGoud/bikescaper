@@ -471,3 +471,5 @@ select { max-width: 100%; }
 .note-tip p { display: none; }
 .note-tip:hover p, .note-tip[open] p { display: block; }
 @media (max-width: 640px) { .mini-facts { grid-template-columns: 1fr 1fr; } .note-tip p { width: 200px; } }
+.mini-facts > div:nth-child(4) .note-tip p { left: auto; right: -12px; }
+@media (max-width: 640px) { .mini-facts > div:nth-child(even) .note-tip p { left: auto; right: -12px; } }
