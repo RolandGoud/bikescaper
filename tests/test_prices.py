@@ -62,7 +62,7 @@ def test_model_page_and_report_show_the_asking_price(app):
     assert "Vraagprijs tweedehands" in page and "90 dagen" in page
     # The report leaves its own ad out: five others are left, still enough.
     page = client.get("/check/1?lang=en&period=365").data.decode()
-    assert "Based on 5 ads from the last 365 days." in page and "less than the median" in page
+    assert "Based on 5 other ads from the last 365 days." in page and "less than the median" in page
     assert 'name="period" value="365"' in page  # the height form keeps the period
 
 
@@ -90,3 +90,12 @@ def test_model_page_lists_matched_ads_also_removed_ones(app):
     assert "Mooie racefiets" not in page
     models_page = client.get("/models?lang=en&q=domane sl 6 gen 4").data.decode()
     assert "Matched to 2 ads" in models_page
+
+
+def test_report_alone_says_no_other_ads(app):
+    add_checks(app, [(1, 2000)])
+    client = app.test_client()
+    page = client.get("/check/1?lang=nl").data.decode()
+    assert "Nog geen andere advertenties voor dit model gevonden (in de laatste 90 dagen)." in page
+    page = client.get(f"/models/{DOMANE}?lang=en").data.decode()
+    assert "Only 1 ads in the last 90 days" in page  # the model page does count it

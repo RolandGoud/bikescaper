@@ -307,6 +307,31 @@ def create_app(db_path=None):
                      {c[1]["age"]["status"], c[1]["specs"]["status"], c[1]["value"]["status"]}]
         return render_template("listings.html", cards=cards, status=status, nav="listings")
 
+    @app.route("/checks")
+    def all_checks():
+        """Every check one by one, newest first: what was put in and what came out."""
+        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        source = request.args.get("source")
+        counts = {"visitors": sum(1 for r in rows if not r["source"]),
+                  "daily": sum(1 for r in rows if r["source"] == daily_checks.SOURCE)}
+        times = {}
+        for r in rows:
+            times[fetch_ad.ad_key(r)] = times.get(fetch_ad.ad_key(r), 0) + 1
+        if source == "visitors":
+            rows = [r for r in rows if not r["source"]]
+        elif source == "daily":
+            rows = [r for r in rows if r["source"] == daily_checks.SOURCE]
+        known = prices.known_ads(conn(), models())
+        items = []
+        for r in rows:
+            listing = listing_dict(r, count=times[fetch_ad.ad_key(r)])
+            result = checks.run_check(models(), listing)
+            asking = (prices.asking_price(known, result["model"]["id"], prices.DEFAULT_PERIOD, leave_out=r["id"])
+                      if result["model"] else None)
+            items.append((listing, result, asking))
+        return render_template("checks.html", items=items, source=source, counts=counts, total=sum(counts.values()),
+                               nav="listings")
+
     @app.route("/models")
     def catalog():
         picked = [b for b in request.args.getlist("brand") if b]  # several brands can be on at once

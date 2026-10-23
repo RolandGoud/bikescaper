@@ -734,3 +734,22 @@ def test_report_says_when_we_dispute_the_model(tmp_path):
     page = client.get(resp.headers["Location"] + "?lang=nl").data.decode()
     assert "Wij denken dat dit een ander model is dan de verkoper zegt" in page
     assert "De advertentie zegt SL6, dit model is een SL9." in page
+
+
+def test_value_uses_the_oldest_estimated_year(models):
+    r = run(models, "Trek Domane SL 6 gen 4", "Shimano 105 Di2 2x12, schijfremmen", price=2000)
+    assert r["value"]["model_year"] == 2023
+    assert any("probably from 2023 or later" in en(n) for n in r["value"]["notes"])
+    # A stated year still wins.
+    assert run(models, "Trek Domane SL 6 gen 4 2025", "Shimano 105 Di2 2x12", price=2000)["value"]["model_year"] == 2025
+    # No clue in the ad: the first year of the brand's photos, not the catalogue year.
+    r = run(models, "Trek Emonda SL 6", price=1500)
+    assert r["model"]["photo_years"] == [2024] and r["value"]["model_year"] == 2024
+
+
+def test_condition_reads_negated_damage_and_the_ads_condition_field():
+    assert checks.detect_condition("Hij heeft geen schade en is netjes behandeld") is None
+    assert checks.detect_condition("Nooit gevallen, zonder scheurtjes. Zo goed als nieuw") == "like-new"
+    assert checks.detect_condition("Kleine schade aan de lak") == "damaged"
+    assert checks.detect_condition("Specificaties\nConditie: Gebruikt") == "used"
+    assert checks.detect_condition("Conditie: Zo goed als nieuw") == "like-new"
