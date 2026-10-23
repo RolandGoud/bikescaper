@@ -147,7 +147,7 @@
             {% if v.bar.asking %}<div class="ask" style="left: {{ v.bar.asking }}%"></div>{% endif %}
           </div>
           <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
-          <div class="value-legend"><span><i style="background: var(--orange-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span>{% if r.asking %}<span><i style="background: var(--warn); width: 3px"></i>{{ _('Your price {asking}', asking=r.asking|eur) }}</span>{% endif %}</div>
+          <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span>{% if r.asking %}<span><i style="background: var(--warn); width: 3px"></i>{{ _('Your price {asking}', asking=r.asking|eur) }}</span>{% endif %}</div>
         </div>
         <div class="notes">{% for n in v.notes %}<span>{{ n }}</span>{% endfor %}</div>
         {% else %}

@@ -167,7 +167,7 @@
         <div class="ask" style="left: {{ v.bar.asking }}%"></div>
       </div>
       <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
-      <div class="value-legend"><span><i style="background: var(--orange-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
+      <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
     </div>
     {% endif %}
     <p>{{ v.detail }}</p>
