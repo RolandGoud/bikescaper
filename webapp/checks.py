@@ -680,19 +680,37 @@ def _span(first, last):
     return Msg("{year} or earlier", year=last)
 
 
-def _row(key, part, original, listing, status, result, step=0):
+def _row(key, part, original, listing, status, result, step=0, ad_tier=None):
     return {"key": key, "part": Msg(part), "original": original, "listing": listing, "status": status,
-            "result": Msg(result) if isinstance(result, str) else result, "step": step}
+            "result": Msg(result) if isinstance(result, str) else result, "step": step,
+            "ref_tier": None, "ad_tier": ad_tier}
+
+
+# The spec sheet labels a comparison row's original part is rated from, first found wins.
+ROW_SPECS = {"frame": ("Frame", "Frameset", "Material"), "brakes": ("Rem",), "wheels": ("Wiel voor", "Velg", "Wheelset"),
+             "tyres": ("Buitenband", "Voorband"), "crankset": ("Crankstel",), "saddle": ("Zadel",)}
+
+
+def _ref_tier(model, key):
+    """The tier of the matched model's original part for a comparison row, or None."""
+    for label in ROW_SPECS.get(key, ()):
+        value = spec(model, label)
+        if value and label in SPEC_PARTS:
+            text = f"{value} {model['name']}" if SPEC_PARTS[label] == ("frame",) else str(value)
+            return part_tier(SPEC_PARTS[label], text)
+    return None
 
 
 def _compare_tiers(key, part, original, listing, ref_tier, ad_tier):
     """A row saying whether the ad's part is an upgrade or a downgrade of the original."""
     step = ad_tier - ref_tier
     if step > 0:
-        return _row(key, part, original, listing, OK, Msg("Upgrade, tier {a} to {b}", a=ref_tier, b=ad_tier), step)
+        return _row(key, part, original, listing, OK, Msg("Upgrade, tier {a} to {b}", a=ref_tier, b=ad_tier), step,
+                    ad_tier)
     if step < 0:
-        return _row(key, part, original, listing, BAD, Msg("Downgrade, tier {a} to {b}", a=ref_tier, b=ad_tier), step)
-    return _row(key, part, original, listing, WARN, "Same tier, different part")
+        return _row(key, part, original, listing, BAD, Msg("Downgrade, tier {a} to {b}", a=ref_tier, b=ad_tier), step,
+                    ad_tier)
+    return _row(key, part, original, listing, WARN, "Same tier, different part", ad_tier=ad_tier)
 
 
 def check_specs(model, claims):
@@ -735,7 +753,7 @@ def check_specs(model, claims):
         ref_tier = part_tier((key,), ref_val) if ref_val else None
         if ad and ref_tier:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
-                rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier"))
+                rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier", ad_tier=ad["tier"]))
             else:
                 rows.append(_compare_tiers(key, part, ref_val, ad["label"], ref_tier, ad["tier"]))
         elif ad:
@@ -746,6 +764,11 @@ def check_specs(model, claims):
         ref_val = spec(model, *keys)
         if ref_val:
             rows.append(_row(key, part, ref_val, Msg("Check photos"), UNKNOWN, "Compare photos"))
+
+    for row in rows:
+        row["ref_tier"] = ref_group["tier"] if row["key"] == "groupset" and ref_group else _ref_tier(model, row["key"])
+    if claimed:
+        rows[0]["ad_tier"] = claimed["tier"]
 
     down = sum(1 for r in rows if r["step"] < 0)
     up = sum(1 for r in rows if r["step"] > 0)
