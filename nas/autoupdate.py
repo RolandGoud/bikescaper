@@ -31,6 +31,7 @@ KEEP = ("webapp/", "images/", "nas/") + tuple(f"data/{b}/" for b in BRANDS)
 DIRS = ("webapp", "data", "images", "nas")
 
 etag = None
+failed = {}  # commit id -> failed tries, so a broken commit isn't downloaded forever
 
 
 def log(msg):
@@ -138,6 +139,7 @@ def now():
 
 
 def watch():
+    global etag
     minutes = float(os.environ.get("UPDATE_MINUTES") or 10)
     if minutes <= 0:
         log("UPDATE_MINUTES is 0, not checking for updates")
@@ -145,9 +147,10 @@ def watch():
     log(f"checking {REPO} {branch()} for new commits every {minutes:g} minutes")
     while True:
         time.sleep(minutes * 60)
+        sha = None
         try:
             sha = latest_commit()
-            if not sha or sha == installed_commit():
+            if not sha or sha == installed_commit() or failed.get(sha, 0) >= 3:
                 continue
             log(f"new commit {sha[:7]}, installing")
             install(sha)
@@ -158,7 +161,10 @@ def watch():
             shutil.copy(os.path.join(APP, "nas", "autoupdate.py"), os.path.join(APP, "autoupdate.py"))
             os.execv(sys.executable, [sys.executable, os.path.join(APP, "autoupdate.py"), "--watch"])
         except Exception as exc:
-            log(f"update failed ({exc}); still running {(installed_commit() or '?')[:7]}, will try again")
+            etag = None  # ask again next time instead of getting "unchanged"
+            if sha:
+                failed[sha] = failed.get(sha, 0) + 1
+            log(f"update failed ({exc}); still running {(installed_commit() or '?')[:7]}")
 
 
 if __name__ == "__main__":
