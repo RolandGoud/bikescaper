@@ -4,20 +4,28 @@
 {# Without JS the photo review offer and the email form land here. #}
 <main class="wrap page" style="max-width: 720px">
   <section class="card">
-    {% if done %}
-    <h1 style="font-size: 34px">{{ _("Thanks, we'll let you know.") }}</h1>
+    {% if done == 'confirmed' %}
+    <h1 style="font-size: 34px">{{ _('Email confirmed') }}</h1>
+    <p>{{ _("Thanks. We'll email you once when the photo review launches.") }}</p>
+    {% elif done == 'unknown' %}
+    <h1 style="font-size: 34px">{{ _("This link doesn't work") }}</h1>
+    <p>{{ _('It may be mistyped. Leave your email on the Selling page again to get a new one.') }}</p>
+    {% elif done %}
+    <h1 style="font-size: 34px">{{ _('Check your inbox') }}</h1>
+    <p>{{ _('We sent you a link. Open it to confirm your email; until then we won’t use it.') }}</p>
     {% else %}
     <h1 style="font-size: 34px">{{ _('Coming soon') }}</h1>
-    <p>{{ _("Photo review isn't available yet. We're finding out whether sellers want it before we build it, and your click helps. Nothing has been charged.") }}</p>
-    <form method="post" action="{{ url_for('photo_review_notify') }}" class="stack" style="gap: 10px">
+    <p>{{ _("We're working on it and will let you know when the photo review is ready. For now, have a look at the photo tips on the Selling page.") }}</p>
+    {% if can_mail %}<form method="post" action="{{ url_for('photo_review_notify') }}" class="stack" style="gap: 10px">
       <label class="field">{{ _('Want an email when it launches?') }}
         <input type="email" name="email" required placeholder="{{ _('you@example.com') }}" autocomplete="email">
       </label>
       <span class="small muted">{{ _('We only use it for this one email.') }}</span>
       <div><button class="btn" type="submit">{{ _('Let me know') }}</button></div>
-    </form>
+    </form>{% endif %}
     {% endif %}
-    <p><a href="javascript:history.back()">{{ _('Back to your ad') }}</a></p>
+    {% if done in ('confirmed', 'unknown') %}<p><a href="{{ url_for('sell') }}">{{ _('To the Selling page') }}</a></p>
+    {% else %}<p><a href="javascript:history.back()">{{ _('Back to your ad') }}</a></p>{% endif %}
   </section>
 </main>
 {% endblock %}

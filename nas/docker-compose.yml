@@ -25,6 +25,8 @@ services:
       # SMTP_USER: you@gmail.com
       # SMTP_PASSWORD: your-app-password
       # MAIL_FROM: you@gmail.com
+      # Mail also confirms the addresses left for the photo review; to hear about each confirmed one:
+      # NOTIFY_EMAIL: you@gmail.com
       # Only when the site is reached through a reverse proxy (e.g. the NAS's own), so the mail
       # limit sees each visitor's address instead of the proxy's:
       # BEHIND_PROXY: "1"

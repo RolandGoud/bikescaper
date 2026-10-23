@@ -57,12 +57,15 @@ CREATE TABLE IF NOT EXISTS photo_review_interest (
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     kind TEXT NOT NULL,   -- "click" on the paid photo review offer, or "email" left to hear when it launches
     email TEXT,           -- only for kind "email"
+    token TEXT,           -- the secret in the confirmation link mailed to that address
+    confirmed_at TEXT,    -- when the link was opened; only confirmed addresses count
     model_id INTEGER,     -- the model of the seller's ad, when known
     lang TEXT
 );
 """
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
                        ("source", "TEXT")]
+ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT")]
 
@@ -82,6 +85,10 @@ def connect(path=None):
     for column, kind in ADDED_CHECK_COLUMNS:
         if column not in have:
             conn.execute(f"ALTER TABLE checks ADD COLUMN {column} {kind}")
+    have = {r["name"] for r in conn.execute("PRAGMA table_info(photo_review_interest)")}
+    for column, kind in ADDED_INTEREST_COLUMNS:
+        if column not in have:
+            conn.execute(f"ALTER TABLE photo_review_interest ADD COLUMN {column} {kind}")
     return conn
 
 
