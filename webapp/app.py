@@ -14,7 +14,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, checks, db, fetch_ad, mail, prices, recheck, report_pdf
+from . import ad_photos, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -391,3 +391,5 @@ app = create_app()
 if "gunicorn" in os.path.basename(sys.argv[0]):
     # On the server, re-check pasted ad links in the background and mark removed ads.
     recheck.start_background(app.config["DB_PATH"])
+    # And check a few current ads of popular models once a day.
+    daily_checks.start_background(app.config["DB_PATH"])

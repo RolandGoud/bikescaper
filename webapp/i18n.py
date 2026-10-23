@@ -231,9 +231,7 @@ NL = {
 
     # listings page
     "Checked listings": "Gecheckte advertenties",
-    "Every ad someone has checked here. Collecting ads automatically comes later, once we know what each site allows.":
-        "Alle advertenties die hier gecheckt zijn. Automatisch advertenties verzamelen komt later, "
-        "als we weten wat elke site toestaat.",
+    "Every ad checked on this site.": "Alle advertenties die op deze site gecheckt zijn.",
     "Filter by result": "Filter op resultaat",
     "All": "Alles",
     "Something doesn't add up": "Er klopt iets niet",
