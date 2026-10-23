@@ -52,7 +52,8 @@ def asking_price(ads, model_id, days, today=None, leave_out=None):
     since = (today or date.today()) - timedelta(days=days)
     prices = sorted(a["price"] for a in ads if a["model_id"] == model_id and a["seen"] > since
                     and leave_out not in a.get("check_ids", {a["check_id"]}))
-    result = {"days": days, "count": len(prices), "enough": len(prices) >= MIN_ADS, "needed": MIN_ADS}
+    result = {"days": days, "count": len(prices), "enough": len(prices) >= MIN_ADS, "needed": MIN_ADS,
+              "others": leave_out is not None}  # a report counts the other ads, not its own
     if prices:
         result.update(median=median(prices), mean=mean(prices), low=prices[0], high=prices[-1])
     return result
