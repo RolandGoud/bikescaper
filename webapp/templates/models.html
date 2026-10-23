@@ -48,14 +48,18 @@
       </span>
     </form>
   </div>
-  {% if sponsored.banner and groups %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
   {% for key, label, items in groups %}
   <section class="stack">
     <h2>{{ _(label) }} <span class="muted count">{{ items|length }}</span></h2>
     <div class="model-grid">
+      {# The banner goes in the first group, across the grid after two rows (eight models), or after
+         the group when it's shorter. #}
+      {% set show_ad = loop.first and sponsored.banner %}
       {% for m in items %}
       {{ model_card(m) }}
+      {% if show_ad and loop.index == 8 %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
       {% endfor %}
+      {% if show_ad and items|length < 8 %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
     </div>
   </section>
   {% else %}
