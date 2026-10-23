@@ -166,6 +166,11 @@ NL = {
 
     # listing cards
     "Matched to {name}": "Gekoppeld aan {name}",
+    "Matched ads": "Gekoppelde advertenties",
+    "Matched to 1 ad": "Gekoppeld aan 1 advertentie",
+    "Matched to {n} ads": "Gekoppeld aan {n} advertenties",
+    "not in the asking price": "telt niet mee in de vraagprijs",
+    "No ads matched to this model yet.": "Nog geen advertenties aan dit model gekoppeld.",
     "Not matched": "Niet gekoppeld",
     "Asking {price}": "Vraagprijs {price}",
     "Age: {v}": "Leeftijd: {v}",

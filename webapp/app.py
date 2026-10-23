@@ -52,6 +52,22 @@ def group_checks(rows):
     return [(newest, count) for newest, count in groups.values()]
 
 
+def matched_ads(rows, models):
+    """Every ad the site knows, per catalogue model it's matched to: {model_id: [(newest row, times checked)]}.
+    The match is the one the ad's report shows: the visitor's pick, otherwise our best guess. Daily checks
+    count too (they are real ads), and an ad checked again counts once."""
+    by_id = {m["id"]: m for m in models}
+    ads = {}
+    for newest, count in group_checks(rows):
+        model = by_id.get(newest["model_id"])
+        if model is None:
+            ranked = checks.match_models(models, newest["title"], newest["description"] or "")
+            model = ranked[0][1] if ranked else None
+        if model:
+            ads.setdefault(model["id"], []).append((newest, count))
+    return ads
+
+
 def create_app(db_path=None):
     app = Flask(__name__)
     if os.environ.get("BEHIND_PROXY"):  # only then is X-Forwarded-For set by us, not by the visitor
@@ -307,6 +323,9 @@ def create_app(db_path=None):
         items = [m for m in items if not tier or m["tier"] == tier]
         counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
         items = [m for m in items if not kind or m["discipline"] == kind]
+        matched = matched_ads(conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall(), models())
+        for m in items:
+            m["matched"] = len(matched.get(m["id"], []))
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
                                       key=lambda m: (m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
@@ -324,12 +343,18 @@ def create_app(db_path=None):
                            and m["brand"] == model["brand"] and m["id"] != model["id"]),
                           key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
         size_chart = checks.model_size_chart(model)
-        return render_template("model.html", m=model, years=checks.model_years(model), siblings=siblings,
+        known = prices.known_ads(conn(), models())
+        priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}
+        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), checks.run_check(models(), listing_dict(r)))
+               for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
+                                  reverse=True)]
+        return render_template("model.html", ads=ads, m=model, years=checks.model_years(model), siblings=siblings,
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                size_chart=size_chart, size_note=checks.size_note(size_chart, model["brand"]),
-                               asking=prices.asking_price(prices.known_ads(conn(), models()), model["id"],
+                               asking=prices.asking_price(known, model["id"],
                                                           prices.period_of(request.args.get("period", type=int))),
                                nav="models")
 
