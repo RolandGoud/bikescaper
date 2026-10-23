@@ -101,11 +101,15 @@ def detect_size(text):
 
 def detect_condition(text):
     low = _plain(text)
-    if re.search(r"defect|kapot|schade|scheur|crack", low):
+    # "Geen schade" and "no cracks" say the opposite of damaged.
+    damage = re.sub(r"\b(?:geen|zonder|no|without|nooit|never)\s+(?:\w+\s+){0,2}?(?:schade|scheur\w*|crack\w*|defect\w*)"
+                    r"|schadevrij|crash-?vrij", " ", low)
+    if re.search(r"defect|kapot|schade|scheur|crack|niet werkend", damage):
         return "damaged"
-    if re.search(r"nieuwstaat|als nieuw|zo goed als nieuw|z\.?g\.?a\.?n|like new|nauwelijks gebruikt", low):
+    if re.search(r"nieuwstaat|als nieuw|zo goed als nieuw|z\.?g\.?a\.?n|like new|nauwelijks gebruikt"
+                 r"|conditie:\s*nieuw", low):
         return "like-new"
-    if re.search(r"gebruikssporen|krassen|sporen van gebruik|wear", low):
+    if re.search(r"gebruikssporen|krassen|sporen van gebruik|wear|conditie:\s*gebruikt", low):
         return "used"
     return None
 
@@ -800,7 +804,7 @@ CONDITION_FACTOR = {"like-new": 1.05, None: 1.0, "used": 0.92, "damaged": 0.6}
 CONDITION_LABEL = {"like-new": "like new", "used": "used", "damaged": "damaged"}
 
 
-def check_value(model, claims, asking, spec_result, age_result, today=None):
+def check_value(model, claims, asking, spec_result, age_result, today=None, year_estimate=None):
     today = today or date.today()
     original = model.get("price_eur")
     if not original:
@@ -812,8 +816,18 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
     other_generation = age_result["status"] == BAD and years and model_year and model_year < years[0]
     if age_result["status"] == WARN and years and model_year and model_year < years[0]:
         model_year = years[0]  # a purchase year just before launch: value it as the launch model year
+    # Without a year in the ad, value it at the oldest year we think is right: the oldest year the ad's
+    # details allow, else the first year of the generation or of the brand's photos, else the catalogue year.
+    estimated, at_most = None, False
+    if model_year is None and year_estimate and year_estimate.get("status") != WARN:
+        estimated = year_estimate.get("first")
+        if not estimated and year_estimate.get("last"):
+            estimated, at_most = year_estimate["last"], True
+    if model_year is None and not estimated:
+        known = years or model_years(model, today)
+        estimated = known[0] if known else None
     if model_year is None:
-        model_year = years[0] if years else int((model.get("seen_on") or str(today.year))[:4])
+        model_year = estimated or int((model.get("seen_on") or str(today.year))[:4])
     age = max(0, today.year - model_year)
     # Rough curve: about 25% off in the first year, then about 12% a year.
     factor = 0.80 if age == 0 else 0.75 * (0.88 ** (age - 1))
@@ -831,6 +845,11 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} Dutch price, which can differ from what this bike cost new.",
                             year=model["seen_on"][:4] if model.get("seen_on") else today.year)]}
+    if estimated:
+        result["notes"].append(Msg("The ad gives no year; the bike is probably from {year} or earlier, so it's "
+                                   "valued as a {year} bike." if at_most else
+                                   "The ad gives no year; the bike is probably from {year} or later, so it's "
+                                   "valued as a {year} bike.", year=estimated))
     if downgraded:
         result["notes"].append(Msg("Lowered for the downgraded parts."))
     if other_generation:
@@ -921,6 +940,7 @@ def run_check(models, listing, today=None):
                                             f"{listing['title']}\n{listing.get('description') or ''}")
     report["specs"] = check_specs(chosen, claims)
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
-    report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today)
+    report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,
+                                  report["year_estimate"])
     report["questions"] = seller_questions(chosen, claims, report["age"], report["specs"], report["size"])
     return report
