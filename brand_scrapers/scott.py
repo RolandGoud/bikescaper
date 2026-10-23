@@ -72,10 +72,16 @@ def category_of(name, categories):
 
 
 def side_photo(images):
-    """The plain side view: Scott's photo names end in A (side), B, I, ... after the article number."""
-    for src in images:
-        if re.search(r"/\d{7,}A\.(png|jpe?g)$", src):
-            return src
+    """The straight side view, handlebars right.
+
+    Each colour's gallery starts with a photo named by a plain number (2288186.png): the side
+    view. The article-number photos after it (4276118549A.png, B, I, ...) are the 3/4 view and
+    close-ups. Older models only have numbered photos, again with the side view first.
+    """
+    for pattern in (r"/\d{6,8}\.png$", r"/\d{6,8}\.jpe?g$", r"/\d{9,}A\.(png|jpe?g)$"):
+        for src in images:
+            if re.search(pattern, src):
+                return src
     return images[0] if images else None
 
 
