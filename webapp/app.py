@@ -301,11 +301,7 @@ def create_app(db_path=None):
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
         cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
                  for r, n in group_checks(rows)]
-        status = request.args.get("result")
-        if status:
-            cards = [c for c in cards if c[1].get("model") and status in
-                     {c[1]["age"]["status"], c[1]["specs"]["status"], c[1]["value"]["status"]}]
-        return render_template("listings.html", cards=cards, status=status, nav="listings")
+        return render_template("listings.html", cards=cards, nav="listings")
 
     @app.route("/checks")
     def all_checks():
