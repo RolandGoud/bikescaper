@@ -8,18 +8,18 @@
     <h1 style="font-size: 44px">{{ _('Models') }}</h1>
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
   </div>
-  {# One filter box: brand logos (each click turns that brand on or off, all on by default), then type, tier,
+  {# One filter box: "All brands" and the brand logos (each click turns that brand on or off), then type, tier,
      still sold and search.
      Brands and types without bikes stay hidden. #}
   <div class="filter-box">
     <nav class="logo-pills" aria-label="{{ _('Brand') }}">
-      {# No brand picked means every brand is shown, so every pill is on; a click turns just that brand off.
-         Turning the last one off, or every one back on, drops the brand filter again. #}
+      {# "All brands" is on until a brand is picked; each brand pill then turns its own brand on or off, so several
+         can be on. "All brands", turning the last brand off, or turning every brand on drops the brand filter. #}
       {% set shown = brands|selectattr('scraper')|map(attribute='name')|list %}
-      {% set active = picked or shown %}
+      <a class="pill brand all {{ 'on' if not picked }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current, tier=tier) }}"{% if not picked %} aria-current="true"{% endif %}>{{ _('All brands') }}</a>
       {% for b in brands if b.scraper %}
-      {% set on = b.name in active %}
-      {% set toggled = shown|select('in', active|reject('equalto', b.name)|list if on else active + [b.name])|list %}
+      {% set on = b.name in picked %}
+      {% set toggled = shown|select('in', picked|reject('equalto', b.name)|list if on else picked + [b.name])|list %}
       <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled if toggled|length < shown|length else None, q=q or None, current=current, tier=tier) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
       {% endfor %}
     </nav>
