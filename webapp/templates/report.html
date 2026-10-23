@@ -30,6 +30,18 @@
           <button class="btn ghost" type="submit">{{ _('Change match') }}</button>
         </form>
       </div>
+      {% if r.name_check %}{% set nc = r.name_check %}
+      <div class="name-check{{ ' disputed' if nc.conflicts }}">
+        <strong>{{ _('We think this is another model than the seller says') if nc.conflicts else _("The seller's name doesn't fully match this model") }}</strong>
+        <ul>
+          {% for ours, theirs in nc.conflicts %}<li>{{ _('The ad says {theirs}, this model is a {ours}. We have no closer {theirs} in our catalogue, so everything below compares with the {ours}.', theirs=theirs, ours=ours) }}</li>{% endfor %}
+          {% if nc.found %}<li>{{ _('In the ad and in this model: {words}', words=nc.found|join(', ')) }}</li>{% endif %}
+          {% if nc.extra %}<li>{{ _('In the ad, not in this model: {words}', words=nc.extra|join(', ')) }}</li>{% endif %}
+          {% if nc.missing %}<li>{{ _('In this model, not in the ad: {words}', words=nc.missing|join(', ')) }}</li>{% endif %}
+        </ul>
+        <div class="small muted">{{ _("We match on the model words in the ad's title and description (family, version number and build), plus the year and groupset. We don't read the photos. Know better? Pick the right model above.") }}</div>
+      </div>
+      {% endif %}
       {% endif %}
       {% if listing.photos %}<div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div>{% endif %}
       {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
