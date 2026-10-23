@@ -179,8 +179,13 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .value-bar { position: relative; height: 44px; background: var(--ground); border-radius: 6px; }
 .value-bar .range { position: absolute; top: 0; bottom: 0; background: var(--orange-soft); border-radius: 6px; }
 .value-bar .ask { position: absolute; top: -6px; bottom: -6px; width: 3px; background: var(--warn); }
-.value-axis { position: relative; height: 20px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
-.value-axis span { position: absolute; white-space: nowrap; }
+.value-axis { position: relative; height: 26px; margin-top: -8px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.value-axis span { position: absolute; top: 8px; white-space: nowrap; transform: translateX(-50%); }
+.value-axis span::before { content: ""; position: absolute; left: 50%; top: -8px; width: 1px; height: 6px; background: var(--line-strong); }
+.value-axis span.first { transform: none; }
+.value-axis span.first::before { left: 0; }
+.value-axis span.last { transform: translateX(-100%); color: var(--ink); font-weight: 600; }
+.value-axis span.last::before { left: auto; right: 0; }
 .value-legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; }
 .value-legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; }
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }

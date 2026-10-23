@@ -695,6 +695,13 @@ def test_models_page_takes_several_brands(tmp_path):
     assert page.count('name="brand"') == 2 and "brand=Trek&amp;brand=Canyon&amp;lang=nl" in page
 
 
+def test_value_axis_runs_from_zero_to_the_end_of_the_scale():
+    from webapp.checks import axis_ticks
+    ticks = axis_ticks(1049)
+    assert [round(v) for v, _ in ticks] == [0, 250, 500, 750, 1049]
+    assert ticks[0][1] == 0 and ticks[-1][1] == 100
+
+
 def test_models_page_has_every_brand_on_by_default(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     page = app.test_client().get("/models?lang=en").data.decode()

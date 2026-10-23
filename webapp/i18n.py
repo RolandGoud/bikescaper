@@ -222,7 +222,6 @@ NL = {
     "Value estimate": "Waardeschatting",
     "Fair {low}–{high}": "Eerlijk {low}–{high}",
     "Asking {asking}": "Vraagprijs {asking}",
-    "Scale €0 to {max}": "Schaal €0 tot {max}",
     "Fair range {low} to {high}, asking {asking}": "Eerlijke prijs {low} tot {high}, vraagprijs {asking}",
     "New price": "Nieuwprijs",
     "Model year used": "Gebruikt modeljaar",
