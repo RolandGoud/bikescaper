@@ -134,3 +134,17 @@
   <p class="small muted">{{ _('From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.') }}</p>
 </div>
 {%- endmacro %}
+
+
+{# A model tile as on the models page: photo with brand logo and status, name, new price and spec tier.
+   Import it "with context" so the logos and status labels reach it. #}
+{% macro model_card(m) -%}
+<a class="model-card" href="{{ url_for('model_page', slug=m.slug) }}">
+  <div class="photo">{{ photo(m) }}{% if logos.get(m.brand) %}<span class="brand-mark" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% else %}<span class="brand-mark text">{{ m.brand }}</span>{% endif %}{% if m.status == 'discontinued' %}<span class="status discontinued overlay">{{ _(status_labels[m.status]) }}</span>{% endif %}</div>
+  <div class="body">
+    <span style="font-weight: 700">{{ m.name }}</span>
+    <span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span>
+    {{ tier_badge(m.tier, small=true) }}
+  </div>
+</a>
+{%- endmacro %}
