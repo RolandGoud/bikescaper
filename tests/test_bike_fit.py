@@ -4,7 +4,7 @@ import time
 
 from PIL import Image, ImageFilter, ImageOps
 
-from webapp import bike_fit, db, seed
+from webapp import bike_direction, bike_fit, db, seed
 from webapp.app import create_app
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -82,3 +82,20 @@ def test_merged_tile_draws_the_ad_photo_lined_up(tmp_path):
         json.dump({bike_fit._key(os.path.join(ROOT, "images", model["image"]), (1.12, 0.03)): place}, f)
     page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
     assert f'class="flip" style="left: {place["left"]}%; top: {place["top"]}%;' in page
+
+
+def test_tells_which_way_the_bike_faces():
+    for path in (CATALOGUE, OTHER):
+        photo = Image.open(path)
+        assert bike_direction.faces_left(photo) is False
+        assert bike_direction.faces_left(ImageOps.mirror(photo)) is True
+        assert bike_direction.score(ImageOps.mirror(photo)) == -bike_direction.score(photo)
+
+
+def test_mirrored_even_when_it_cant_be_lined_up(tmp_path):
+    # A close-up of a left-facing bike: too little of it to line up, but it still gets turned round.
+    ad = tmp_path / "ad.jpg"
+    bike = Image.open(OTHER).convert("RGB")
+    ImageOps.mirror(bike).crop((0, 0, bike.width * 3 // 4, bike.height)).save(ad)
+    place = bike_fit.work_out(str(ad), CATALOGUE)
+    assert place == {"flip": True}
