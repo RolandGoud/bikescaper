@@ -949,11 +949,16 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
         detail = join(detail, Msg("A price this low can mean a stolen bike or a scam. "
                                   "Ask for the invoice and meet in person."))
     result["detail"] = detail
-    lo_axis, hi_axis = 0, max(original, asking) * 1.05
-    span = hi_axis - lo_axis
-    result["bar"] = {"low": 100 * low / span, "width": 100 * (high - low) / span, "asking": min(99.5, 100 * asking / span),
-                     "max": hi_axis, "ticks": axis_ticks(hi_axis)}
+    result["bar"] = value_bar(low, high, original, asking)
     return result
+
+
+def value_bar(low, high, original, asking=None):
+    """Where the fair range (and the asking price, if any) sit on a bar from €0 to a bit past the new price."""
+    hi_axis = max(original, asking or 0) * 1.05
+    return {"low": 100 * low / hi_axis, "width": 100 * (high - low) / hi_axis,
+            "asking": min(99.5, 100 * asking / hi_axis) if asking else None,
+            "max": hi_axis, "ticks": axis_ticks(hi_axis)}
 
 
 def axis_ticks(top):

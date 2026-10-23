@@ -75,9 +75,9 @@
             <div class="price-bar">
               <div class="price-bar-top"><span class="amount">{{ r.low|eur }}–{{ r.high|eur }}</span>{% if h.row.asking_price %}<span class="chip {{ r.status }}-bg">{{ r.headline }}</span>{% endif %}</div>
               {% if r.bar %}
-              <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=r.low|eur, high=r.high|eur, asking=r.asking|eur) }}">
+              <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=r.low|eur, high=r.high|eur, asking=r.asking|eur) if r.bar.asking is not none else _('Fair range {low} to {high}', low=r.low|eur, high=r.high|eur) }}">
                 <div class="range" style="left: {{ r.bar.low }}%; width: {{ r.bar.width }}%"></div>
-                <div class="ask" style="left: {{ r.bar.asking }}%"></div>
+                {% if r.bar.asking is not none %}<div class="ask" style="left: {{ r.bar.asking }}%"></div>{% endif %}
               </div>
               <div class="value-axis" aria-hidden="true">{% for value, at in r.bar.ticks[:-1] %}<span class="{{ 'first' if loop.first }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
               {% endif %}

@@ -621,4 +621,5 @@ NL = {
     "Open estimate": "Schatting openen",
     "Only {n} ads": "Pas {n} advertenties",
     "No ads yet": "Nog geen advertenties",
+    "Fair range {low} to {high}": "Eerlijke prijs {low} tot {high}",
 }
