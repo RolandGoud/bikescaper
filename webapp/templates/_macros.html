@@ -15,10 +15,12 @@
 {%- endmacro %}
 
 {# The seller's own photo and the brand's catalogue photo of the matched model in one tile, split by a
-   slanted cut that the mouse, a finger or the arrow keys slide across (static/duo.js). #}
+   slanted cut that the mouse, a finger or the arrow keys slide across (static/duo.js).
+   The ad photo is mirrored, sized and shifted so its bike sits on the catalogue bike, handlebars on the right. #}
 {% macro duo_photo(ad_photo, model) -%}
+{% set fit = ad_photo_fit(ad_photo, model) %}
 <div class="photo duo" style="--cut: 50%">
-  <img class="ad" src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer">
+  <div class="ad-side"><img src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer"{% if fit %}{% if fit.flip %} class="flip"{% endif %} style="left: {{ fit.left }}%; top: {{ fit.top }}%; width: {{ fit.width }}%; height: {{ fit.height }}%"{% endif %}></div>
   <div class="factory">{{ photo(model) }}</div>
   {{ brand_mark(model.brand) }}
   <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">

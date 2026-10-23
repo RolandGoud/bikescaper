@@ -14,7 +14,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf
+from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -77,6 +77,17 @@ def create_app(db_path=None):
     app.jinja_env.globals["tier_names"] = TIERS
     app.jinja_env.globals["size_systems"] = checks.size_systems
     app.jinja_env.globals["split_title"] = checks.split_title
+
+    def ad_photo_fit(ad_photo, model):
+        """Where to draw a stored ad photo so its bike sits on the catalogue bike (bike_fit), or None."""
+        prefix = url_for("ad_photo", name="")
+        if not (model and model.get("image") and ad_photo.startswith(prefix)):
+            return None
+        stored = os.path.join(ad_photos.folder(app.config["DB_PATH"]), ad_photo[len(prefix):])
+        zoom = (1.12, 0.03) if model.get("brand") == "Trek" else None  # .photo img.trek in style.css
+        return bike_fit.style(stored, os.path.join(ROOT, "images", model["image"]), zoom)
+
+    app.jinja_env.globals["ad_photo_fit"] = ad_photo_fit
 
     def conn():
         if "conn" not in g:

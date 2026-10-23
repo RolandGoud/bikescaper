@@ -326,7 +326,9 @@ select { max-width: 100%; }
 /* The seller's photo and the brand's catalogue photo in one tile, split by a slanted cut at --cut:
    10% further right at the top, 10% further left at the bottom. duo.js moves the cut. */
 .photo.duo { background: #2A2B33; cursor: ew-resize; touch-action: pan-y; }
-.duo img.ad { width: 100%; height: 100%; object-fit: cover; clip-path: polygon(0 0, calc(var(--cut) + 10%) 0, calc(var(--cut) - 10%) 100%, 0 100%); }
+.duo .ad-side { position: absolute; inset: 0; clip-path: polygon(0 0, calc(var(--cut) + 10%) 0, calc(var(--cut) - 10%) 100%, 0 100%); }
+.duo .ad-side img { width: 100%; height: 100%; object-fit: cover; }
+.duo .ad-side img.flip { transform: scaleX(-1); }
 .duo .factory { position: absolute; inset: 0; background: var(--photo-bg); clip-path: polygon(calc(var(--cut) + 10%) 0, 100% 0, 100% 100%, calc(var(--cut) - 10%) 100%); }
 .duo .factory img { width: 100%; height: 100%; object-fit: contain; }
 .duo .brand-mark { z-index: 2; }
