@@ -309,6 +309,7 @@ NL = {
         "Geen gegevens voor {year}: de Wayback Machine heeft geen kopie van de pagina van dit model uit dat jaar, of het model werd toen niet onder deze naam verkocht.",
     "No data for {year}: we haven't searched the archive for {brand} yet.":
         "Geen gegevens voor {year}: we hebben het archief voor {brand} nog niet doorzocht.",
+    "More info": "Meer info",
     "Spec sheet": "Specificaties",
     "As listed on the {brand} NL site on {date}.": "Zoals vermeld op de Nederlandse site van {brand} op {date}.",
     "Sizes": "Maten",
