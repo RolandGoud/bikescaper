@@ -284,3 +284,22 @@ def test_stores_ad_photos(tmp_path):
     assert client.get("/ad-photos/../app.sqlite3").status_code == 404
     page = client.get("/check/1").data.decode()
     assert 'src="/ad-photos/1/01.jpg"' in page and 'src="/ad-photos/1/02.png"' in page
+
+
+def test_all_checks_page_shows_request_and_result(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    for _ in range(2):  # the same typed-in ad checked twice: two rows, not one card
+        conn.execute("INSERT INTO checks (title, description, asking_price, location, rider_height)"
+                     " VALUES ('Trek Domane SL6 2022 maat 56', 'Ultegra, nieuwstaat', 2450, 'Utrecht', 181)")
+    conn.execute("INSERT INTO checks (title, asking_price, source) VALUES ('Canyon Ultimate CF SL 2021', 1500, 'daily')")
+    conn.commit()
+    client = app.test_client()
+    page = client.get("/checks?lang=en").data.decode()
+    assert page.count('class="check-row"') == 3
+    assert "181 cm" in page and "Utrecht" in page and "€2.450" in page and "Fair value" in page
+    assert "This ad: 2× checked" in page and "Daily example" in page
+    page = client.get("/checks?lang=en&source=visitors").data.decode()
+    assert page.count('class="check-row"') == 2 and "Daily example</span>" not in page

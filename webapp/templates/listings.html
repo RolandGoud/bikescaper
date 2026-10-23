@@ -7,6 +7,10 @@
     <h1 style="font-size: 44px">{{ _('Checked listings') }}</h1>
     <p class="muted">{{ _('Every ad checked on this site.') }}</p>
   </div>
+  <div class="filters" aria-label="{{ _('Views') }}">
+    <a class="pill on" href="{{ url_for('listings') }}" aria-current="page">{{ _('One card per ad') }}</a>
+    <a class="pill" href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
+  </div>
   <div class="filters" aria-label="{{ _('Filter by result') }}">
     <a class="pill {{ 'on' if not status }}" href="{{ url_for('listings') }}">{{ _('All') }}</a>
     <a class="pill {{ 'on' if status == 'bad' }}" href="{{ url_for('listings', result='bad') }}">{{ _("Something doesn't add up") }}</a>
