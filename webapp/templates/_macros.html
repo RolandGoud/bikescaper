@@ -40,7 +40,7 @@
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   {% if row.photos and r.model and r.model.image %}{{ duo_photo(row.photos[0], r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
   <div class="body">
-    <div class="ad-name">{% if row.removed_at %}<span class="removed-tag">{{ _('Removed') }}</span> {% endif %}{{ ad.name }}</div>
+    <div class="ad-name">{{ ad.name }}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</div>
     {% if ad.year or ad.size or ad.colour %}<div class="ad-facts">
       {% if ad.year %}<span>{{ ad.year }}</span>{% endif %}
       {% if ad.size %}<span>{{ _('Size {size}', size=ad.size) }}</span>{% endif %}
