@@ -860,8 +860,20 @@ def check_value(model, claims, asking, spec_result, age_result, today=None):
     lo_axis, hi_axis = 0, max(original, asking) * 1.05
     span = hi_axis - lo_axis
     result["bar"] = {"low": 100 * low / span, "width": 100 * (high - low) / span, "asking": min(99.5, 100 * asking / span),
-                     "max": hi_axis}
+                     "max": hi_axis, "ticks": axis_ticks(hi_axis)}
     return result
+
+
+def axis_ticks(top):
+    """Round euro steps from €0 to the axis end, as (value, % along the bar); the end itself is always the last tick."""
+    raw = top / 5
+    magnitude = 10 ** (len(str(int(raw))) - 1)
+    step = next(m * magnitude for m in (1, 2, 2.5, 5, 10) if m * magnitude >= raw)
+    ticks, value = [], 0
+    while value < top * 0.9:  # a round tick too close to the end would collide with its label
+        ticks.append((value, 100 * value / top))
+        value += step
+    return ticks + [(top, 100.0)]
 
 
 def seller_questions(model, claims, age, specs, size):
