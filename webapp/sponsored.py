@@ -33,11 +33,11 @@ def load(path=PATH):
             for o in offers if isinstance(o, dict)]
 
 
-def pick(offers, lang, rng=random):
-    """One offer per slot, in the visitor's language (English when an offer has no Dutch),
-    never the same offer twice on a page. A slot with no offer left is None."""
+def pick(offers, lang, rng=random, slots=SLOTS):
+    """One offer per slot the page has, in the visitor's language (English when an offer has no
+    Dutch), never the same offer twice on a page. A slot with no offer left is None."""
     picked, used = {}, set()
-    for slot in SLOTS:
+    for slot in slots:
         fits = [o for o in offers if slot in o.get("slots", []) and o.get("id") not in used]
         if not fits:
             picked[slot] = None

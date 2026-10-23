@@ -1,5 +1,7 @@
 import json
+import os
 import random
+import re
 
 from webapp import db, seed, sponsored
 from webapp.app import create_app
@@ -58,3 +60,35 @@ def test_home_shows_the_offers_marked_as_sponsored(tmp_path):
     app.config["SPONSORED_PATH"] = sponsored.PATH
     page = client.get("/").data.decode()
     assert page.count('rel="sponsored noopener"') == 3 and 'href="#"' in page
+
+
+def test_listings_and_models_pages_have_their_own_slots(tmp_path):
+    path = tmp_path / "sponsored.json"
+    path.write_text(json.dumps([offer("card", ["card"]), offer("banner", ["banner"]), offer("side", ["side"])]))
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["SPONSORED_PATH"] = str(path)
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56"})
+
+    listings = client.get("/listings").data.decode()  # a 300×250 among the cards, and the skyscraper
+    assert "ad-rect" in listings and "ad-sky" in listings and "ad-banner" not in listings
+    models = client.get("/models").data.decode()  # a banner above the models, and the skyscraper
+    assert "ad-banner" in models and "ad-sky" in models and "ad-rect" not in models
+    assert models.count(">AD<") == 2
+
+
+def test_stylesheets_and_scripts_carry_a_version(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/").data.decode()
+    assert re.search(r'/static/style\.css\?v=\d+"', page) and re.search(r'/static/recent-row\.js\?v=\d+"', page)
+
+
+def test_stylesheet_braces_balance():
+    # an unclosed @media once swallowed every rule after it, so the ads were only styled on phones
+    with open(os.path.join(os.path.dirname(__file__), "..", "webapp", "static", "style.css"), encoding="utf-8") as f:
+        depth = 0
+        for line in f:
+            depth += line.count("{") - line.count("}")
+            assert depth >= 0
+    assert depth == 0
