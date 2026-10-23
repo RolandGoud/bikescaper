@@ -112,3 +112,24 @@ def test_the_photo_review_offer_counts_interest(client):
     assert [tuple(r) for r in rows] == [("click", None), ("click", None), ("email", "rider@example.com")]
     page = c.get("/sell/photo-review/interest?lang=en").data.decode()
     assert "rider@example.com" not in page and "<td>2</td>" in page
+
+
+@pytest.mark.parametrize("text,value", [
+    ("344", 344), ("344,00", 344), ("344.0", 344), ("344.00", 344), ("€ 1.049,-", 1049), ("1.049", 1049),
+    ("1.049,50", 1049.5), ("€2.450", 2450), ("€ 344,-", 344), ("", None), ("bieden", None),
+])
+def test_prices_are_read_the_european_way(text, value):
+    from webapp.app import parse_number
+    assert parse_number(text) == value
+
+
+def test_a_price_from_an_ad_link_stays_the_same(client, monkeypatch):
+    c, _ = client
+    from webapp import fetch_ad
+    monkeypatch.setattr(fetch_ad, "fetch_listing", lambda url: {
+        "title": "Trek Domane SL 6 racefiets", "description": "Shimano 105", "asking_price": 344.0})
+    page = c.post("/sell?lang=en", data={"ad_link": "https://www.marktplaats.nl/v/x"}).data.decode()
+    assert 'value="344"' in page and "€3.440" not in page
+    # Sending the filled-in form again (as answering a question does) keeps it at 344.
+    page = c.post("/sell?lang=en", data={"title": "Trek Domane SL 6 racefiets", "asking_price": "344"}).data.decode()
+    assert "€344" in page and "€3.440" not in page
