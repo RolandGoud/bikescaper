@@ -215,11 +215,13 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .spec-table td:last-child { width: 32%; }
 .part-name { display: inline-flex; align-items: center; gap: 8px; }
 .part-icon { width: 22px; height: 22px; flex: none; color: var(--muted); }
-.part-tier { margin-top: 6px; }
-.part-verdict { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+/* Both columns' pills share one box: same height, same 2px border (coloured only on a move), same line. */
+.part-tier { margin-top: 6px; min-height: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.part-tier .tier { display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 10px; border: 2px solid transparent; line-height: 1; }
+.part-verdict { font-size: 14px; font-weight: 600; line-height: 1.3; }
 
-.tier.up, .tier.down { display: inline-flex; align-items: center; gap: 4px; margin-left: 3px; outline: 2px solid var(--blue); outline-offset: 1px; }
-.tier.down { outline-color: var(--bad); }
+.part-tier .tier.up { border-color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--card); }
+.part-tier .tier.down { border-color: var(--bad); box-shadow: inset 0 0 0 1.5px var(--card); }
 .tier .arrow { width: 11px; height: 11px; fill: currentColor; }
 @media (max-width: 640px) {
   .spec-table table { min-width: 0; }
