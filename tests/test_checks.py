@@ -572,6 +572,9 @@ def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
     # On the report the merged slider is the first tile of the ad's photo strip.
     report = client.get("/check/1?lang=en").get_data(as_text=True)
     assert 0 < report.index('class="strip-duo"') < report.index('data-photo="0"')
+    # ...the ad photo also shows on its own, and the slider opens big in the lightbox, ahead of the photos.
+    assert report.count(f'href="{ad_photo}"'.replace("&", "&amp;")) == 1
+    assert report.index('<dialog class="lightbox"') < report.index('class="lb-duo"') < report.index('</dialog>')
 
 
 @pytest.mark.parametrize("title, name, year, size, colour", [

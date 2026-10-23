@@ -182,12 +182,14 @@
   {% endif %}
 </main>
 {% if listing.photos %}
-{# Clicking an ad photo opens all of them here; without JS the links open the photo itself. #}
+{# Clicking an ad photo, or the slider, opens them all here; without JS the links open the photo itself. #}
 <dialog class="lightbox" aria-label="{{ _('Photos from the ad') }}" data-photos='{{ listing.photos|tojson }}'
-        data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}">
+        data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}" data-duo-label="{{ _('Ad and catalogue') }}">
+  {# The merged slider, big and still draggable; it comes first, before the ad's own photos. #}
+  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(listing.photos[0], r.model) }}</div>{% endif %}
   <img alt="" referrerpolicy="no-referrer">
   <div class="lb-count" aria-live="polite"></div>
-  <button class="lb-close" type="button" aria-label="{{ _('Close') }}">×</button>
+  <button class="lb-close" type="button" aria-label="{{ _('Close') }}" autofocus>×</button>
   <button class="lb-prev" type="button" aria-label="{{ _('Previous photo') }}">‹</button>
   <button class="lb-next" type="button" aria-label="{{ _('Next photo') }}">›</button>
 </dialog>

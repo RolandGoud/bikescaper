@@ -1,33 +1,43 @@
 // Ad photos on the report: a click opens them full size; arrows, keys or a swipe flip through them.
+// When there's a merged slider, it comes first, big and still draggable.
 (() => {
   const box = document.querySelector("dialog.lightbox");
   if (!box || !box.showModal) return;  // no <dialog>: the links just open the photo
   const photos = JSON.parse(box.dataset.photos);
-  const img = box.querySelector("img"), count = box.querySelector(".lb-count");
+  const img = box.querySelector(":scope > img"), count = box.querySelector(".lb-count");
+  const duo = box.querySelector(".lb-duo");
+  const slides = (duo ? [null] : []).concat(photos);  // null: the slider
+  const first = duo ? 1 : 0;  // where the ad's own photos start
   let at = 0, openedAt = 0;
 
   const show = (i) => {
-    at = (i + photos.length) % photos.length;
-    img.src = photos[at];
-    img.alt = count.textContent = box.dataset.label.replace("{n}", at + 1).replace("{total}", photos.length);
+    at = (i + slides.length) % slides.length;
+    const isDuo = slides[at] === null;
+    img.hidden = isDuo;
+    if (duo) duo.hidden = !isDuo;
+    if (!isDuo) img.src = slides[at];
+    img.alt = count.textContent = isDuo ? box.dataset.duoLabel
+      : box.dataset.label.replace("{n}", at - first + 1).replace("{total}", photos.length);
     // warm up the neighbours so flipping feels instant
-    [at + 1, at - 1].forEach((j) => { new Image().src = photos[(j + photos.length) % photos.length]; });
+    [at + 1, at - 1].forEach((j) => { const src = slides[(j + slides.length) % slides.length]; if (src) new Image().src = src; });
   };
+  const open = (i, e) => { show(i); box.showModal(); openedAt = e.timeStamp; };
 
   document.querySelectorAll(".ad-photos [data-photo]").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      show(Number(link.dataset.photo));
-      box.showModal();
-      openedAt = e.timeStamp;
+      open(Number(link.dataset.photo) + first, e);
     });
   });
+  // the small slider in the strip opens the big one, unless the click ends a drag (duo.js)
+  document.querySelector(".strip-duo")?.addEventListener("click", (e) => { if (duo && !e.defaultPrevented) open(0, e); });
   box.querySelector(".lb-prev").addEventListener("click", () => show(at - 1));
   box.querySelector(".lb-next").addEventListener("click", () => show(at + 1));
   box.querySelector(".lb-close").addEventListener("click", () => box.close());
-  if (photos.length < 2) box.querySelectorAll(".lb-prev, .lb-next").forEach((b) => (b.hidden = true));
+  if (slides.length < 2) box.querySelectorAll(".lb-prev, .lb-next").forEach((b) => (b.hidden = true));
 
   box.addEventListener("keydown", (e) => {
+    if (e.target.classList.contains("duo-range")) return;  // the arrows slide the cut there
     if (e.key === "ArrowLeft") show(at - 1);
     else if (e.key === "ArrowRight") show(at + 1);
   });  // Esc closes a <dialog> by itself

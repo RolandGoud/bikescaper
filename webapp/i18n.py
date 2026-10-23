@@ -176,6 +176,7 @@ NL = {
     "Not matched": "Niet gekoppeld",
     "Asking {price}": "Vraagprijs {price}",
     "Parts": "Onderdelen",
+    "Ad and catalogue": "Advertentie en catalogus",
     "Price": "Prijs",
     "No matching model yet": "Nog geen passend model",
     "[no photo yet]": "[nog geen foto]",
