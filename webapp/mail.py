@@ -6,6 +6,7 @@ Set these on the server (in the NAS compose file, under environment):
     SMTP_USER      the account's login
     SMTP_PASSWORD  its password (for Gmail: an app password)
     MAIL_FROM      the sender address, defaults to SMTP_USER
+    NOTIFY_EMAIL   where to send a note when someone confirms their address for the photo review
 Without SMTP_HOST the site doesn't offer email at all.
 """
 import os
@@ -36,13 +37,14 @@ def allowed(ip, now=None):
     return recent < PER_ADDRESS_PER_HOUR and len(_sent) < PER_DAY
 
 
-def send(to, subject, text, pdf, filename, ip=None):
+def send(to, subject, text, pdf=None, filename=None, ip=None):
     message = EmailMessage()
     message["From"] = os.environ.get("MAIL_FROM") or os.environ.get("SMTP_USER")
     message["To"] = to
     message["Subject"] = subject
     message.set_content(text)
-    message.add_attachment(pdf, maintype="application", subtype="pdf", filename=filename)
+    if pdf:
+        message.add_attachment(pdf, maintype="application", subtype="pdf", filename=filename)
 
     host, port = os.environ["SMTP_HOST"], int(os.environ.get("SMTP_PORT", "587"))
     user, password = os.environ.get("SMTP_USER"), os.environ.get("SMTP_PASSWORD")

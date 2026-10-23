@@ -214,15 +214,15 @@
 
 <dialog class="fake-door" id="fake-door" aria-labelledby="fake-door-title">
   <h2 id="fake-door-title">{{ _('Coming soon') }}</h2>
-  <p>{{ _("Photo review isn't available yet. We're finding out whether sellers want it before we build it, and your click helps. Nothing has been charged.") }}</p>
-  <form method="post" action="{{ url_for('photo_review_notify') }}" class="stack" style="gap: 10px">
+  <p>{{ _("We're working on it and will let you know when the photo review is ready. For now, have a look at the photo tips on this page.") }}</p>
+  {% if can_mail %}<form method="post" action="{{ url_for('photo_review_notify') }}" class="stack" style="gap: 10px">
     <label class="field">{{ _('Want an email when it launches?') }}
       <input type="email" name="email" required placeholder="{{ _('you@example.com') }}" autocomplete="email">
     </label>
     <span class="small muted">{{ _('We only use it for this one email.') }}</span>
     <div class="row"><button class="btn" type="submit">{{ _('Let me know') }}</button><button class="btn ghost" type="button" data-close>{{ _('Close') }}</button></div>
-  </form>
-  <p class="thanks" hidden>{{ _("Thanks, we'll let you know.") }}</p>
+  </form>{% endif %}
+  <p class="thanks" hidden>{{ _('Check your inbox. We sent you a link. Open it to confirm your email; until then we won’t use it.') }}</p>
 </dialog>
 <script src="{{ url_for('static', filename='sell.js') }}" defer></script>
 {% endblock %}

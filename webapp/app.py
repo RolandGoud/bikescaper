@@ -8,6 +8,7 @@ import json
 import os
 import random
 import re
+import secrets
 import sys
 import threading
 from datetime import date
@@ -524,7 +525,7 @@ def create_app(db_path=None):
                    "invoice": form.get("invoice"), "service": form.get("service"), "wheels": form.get("wheels")}
         r = seller.improve(models(), draft, answers, ads=prices.known_ads(conn(), models()))
         return render_template("sell.html", nav="sell", form=form, r=r, error=error, all_models=models(),
-                               photo_tips=PHOTO_TIPS, condition_labels=checks.CONDITION_LABEL)
+                               photo_tips=PHOTO_TIPS, condition_labels=checks.CONDITION_LABEL, can_mail=mail.configured())
 
     # The paid photo review isn't built: the offer on the Selling page counts who would want it.
     @app.route("/sell/photo-review", methods=["POST"])
@@ -534,27 +535,66 @@ def create_app(db_path=None):
         conn().commit()
         if request.headers.get("X-Requested-With") == "fetch":
             return ("", 204)
-        return render_template("sell_soon.html", nav="sell", done=False)
+        return render_template("sell_soon.html", nav="sell", done=False, can_mail=mail.configured())
 
     @app.route("/sell/photo-review/notify", methods=["POST"])
     def photo_review_notify():
+        """Mail a confirmation link to the address; it only counts (and only reaches NOTIFY_EMAIL) once opened.
+        Without mail set up the address is kept unconfirmed, so nothing is ever sent unasked."""
         email = (request.form.get("email") or "").strip()[:200]
-        if re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
-            conn().execute("INSERT INTO photo_review_interest (kind, email, lang) VALUES ('email', ?, ?)",
-                           (email, g.lang))
+        ip = request.remote_addr
+        known = conn().execute("SELECT confirmed_at, created_at > datetime('now', '-1 day') AS recent "
+                               "FROM photo_review_interest WHERE kind = 'email' AND lower(email) = lower(?) "
+                               "ORDER BY id DESC", (email,)).fetchall()
+        # Each address gets at most one link a day, and none once it's confirmed.
+        if mail.valid(email) and not any(r["confirmed_at"] or r["recent"] for r in known):
+            token = secrets.token_urlsafe(24)
+            conn().execute("INSERT INTO photo_review_interest (kind, email, token, lang) VALUES ('email', ?, ?, ?)",
+                           (email, token, g.lang))
             conn().commit()
+            if mail.configured() and mail.allowed(ip):
+                link = url_for("photo_review_confirm", token=token, _external=True)
+                try:
+                    mail.send(email, gettext("Confirm your email for Bike Compare"),
+                              gettext("Someone, hopefully you, asked to hear when the Bike Compare photo review "
+                                      "launches. Open this link to confirm:\n\n{link}\n\nDidn't ask for this? "
+                                      "Ignore this email and you won't hear from us.", link=link), ip=ip)
+                except Exception as e:  # the visitor still sees the same answer; the address stays unconfirmed
+                    print(f"confirmation mail failed: {e}", file=sys.stderr, flush=True)
         if request.headers.get("X-Requested-With") == "fetch":
             return ("", 204)
-        return render_template("sell_soon.html", nav="sell", done=True)
+        return render_template("sell_soon.html", nav="sell", done="sent")
+
+    @app.route("/sell/photo-review/confirm/<token>")
+    def photo_review_confirm(token):
+        row = conn().execute("SELECT * FROM photo_review_interest WHERE kind = 'email' AND token = ?",
+                             (token,)).fetchone()
+        if row is None:
+            return render_template("sell_soon.html", nav="sell", done="unknown"), 404
+        if not row["confirmed_at"]:
+            conn().execute("UPDATE photo_review_interest SET confirmed_at = datetime('now') WHERE id = ?", (row["id"],))
+            conn().commit()
+            notify = os.environ.get("NOTIFY_EMAIL")
+            if notify and mail.configured():
+                total = conn().execute("SELECT COUNT(*) FROM photo_review_interest WHERE kind = 'email' "
+                                       "AND confirmed_at IS NOT NULL").fetchone()[0]
+                try:
+                    mail.send(notify, f"Photo review: {row['email']} confirmed",
+                              f"{row['email']} confirmed they want the photo review. Confirmed addresses so far: {total}.")
+                except Exception as e:
+                    print(f"signup note failed: {e}", file=sys.stderr, flush=True)
+        return render_template("sell_soon.html", nav="sell", done="confirmed")
 
     @app.route("/sell/photo-review/interest")
     def photo_review_interest():
         """How many sellers clicked the offer and left an email; counts only, never the addresses."""
         rows = conn().execute("SELECT date(created_at) AS day, SUM(kind = 'click') AS clicks, "
-                              "SUM(kind = 'email') AS emails FROM photo_review_interest "
+                              "SUM(kind = 'email' AND confirmed_at IS NOT NULL) AS emails, "
+                              "SUM(kind = 'email' AND confirmed_at IS NULL) AS pending FROM photo_review_interest "
                               "GROUP BY day ORDER BY day DESC").fetchall()
         return render_template("sell_interest.html", nav="sell", rows=rows,
-                               clicks=sum(r["clicks"] for r in rows), emails=sum(r["emails"] for r in rows))
+                               clicks=sum(r["clicks"] for r in rows), emails=sum(r["emails"] for r in rows),
+                               pending=sum(r["pending"] for r in rows))
 
     @app.route("/how-it-works")
     def how():

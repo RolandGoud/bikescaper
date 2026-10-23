@@ -35,13 +35,13 @@
   });
   if (dialog) {
     dialog.querySelector("[data-close]").addEventListener("click", function () { dialog.close(); });
-    var notify = dialog.querySelector("form");
-    notify.addEventListener("submit", function (e) {
+    var notify = dialog.querySelector("form");  // only there when the site can send mail
+    if (notify) notify.addEventListener("submit", function (e) {
       e.preventDefault();
       fetch(notify.action, {method: "POST", body: new FormData(notify), headers: {"X-Requested-With": "fetch"}});
       notify.hidden = true;
       dialog.querySelector(".thanks").hidden = false;
-      setTimeout(function () { dialog.close(); }, 1800);
+      setTimeout(function () { dialog.close(); }, 4000);
     });
   }
 })();

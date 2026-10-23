@@ -7,12 +7,13 @@
     <h1 style="font-size: 34px">{{ _('Photo review interest') }}</h1>
     <div class="facts">
       <div><div class="k">{{ _('Clicks on “Review my photos”') }}</div><div class="v">{{ clicks }}</div></div>
-      <div><div class="k">{{ _('Emails left') }}</div><div class="v">{{ emails }}</div></div>
+      <div><div class="k">{{ _('Confirmed emails') }}</div><div class="v">{{ emails }}</div></div>
+      <div><div class="k">{{ _('Waiting for confirmation') }}</div><div class="v">{{ pending }}</div></div>
     </div>
     {% if rows %}
     <div class="spec-table"><table style="min-width: 0">
-      <tr><th>{{ _('Day') }}</th><th>{{ _('Clicks') }}</th><th>{{ _('Emails') }}</th></tr>
-      {% for r in rows %}<tr><td>{{ r.day }}</td><td>{{ r.clicks }}</td><td>{{ r.emails }}</td></tr>{% endfor %}
+      <tr><th>{{ _('Day') }}</th><th>{{ _('Clicks') }}</th><th>{{ _('Confirmed') }}</th><th>{{ _('Waiting') }}</th></tr>
+      {% for r in rows %}<tr><td>{{ r.day }}</td><td>{{ r.clicks }}</td><td>{{ r.emails }}</td><td>{{ r.pending }}</td></tr>{% endfor %}
     </table></div>
     {% else %}<p class="muted">{{ _('Nobody has clicked it yet.') }}</p>{% endif %}
   </section>

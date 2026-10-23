@@ -114,6 +114,40 @@ def test_the_photo_review_offer_counts_interest(client):
     assert "rider@example.com" not in page and "<td>2</td>" in page
 
 
+def test_an_email_counts_only_once_confirmed(client, monkeypatch):
+    c, app = client
+    from webapp import mail
+    sent = []
+    monkeypatch.setenv("SMTP_HOST", "smtp.example.com")
+    monkeypatch.setenv("NOTIFY_EMAIL", "owner@example.com")
+    monkeypatch.setattr(mail, "send", lambda to, subject, text, *a, **kw: sent.append((to, text)))
+    monkeypatch.setattr(mail, "_sent", [])
+    assert 'name="email"' in c.post("/sell/photo-review?lang=en", data={}).data.decode()
+    c.post("/sell/photo-review/notify?lang=en", data={"email": "rider@example.com"})
+    # Asking again the same day sends no second link.
+    c.post("/sell/photo-review/notify?lang=en", data={"email": "Rider@example.com"})
+    assert [to for to, _ in sent] == ["rider@example.com"]
+    link = next(w for w in sent[0][1].split() if "/confirm/" in w)
+    page = c.get("/sell/photo-review/interest?lang=en").data.decode()
+    assert "Confirmed emails</div><div class=\"v\">0" in page and "Waiting for confirmation</div><div class=\"v\">1" in page
+    # Opening the link confirms it and tells the owner, once.
+    assert "Email confirmed" in c.get(link.replace("http://localhost", "") + "?lang=en").data.decode()
+    c.get(link.replace("http://localhost", ""))
+    assert [to for to, _ in sent] == ["rider@example.com", "owner@example.com"]
+    page = c.get("/sell/photo-review/interest?lang=en").data.decode()
+    assert "Confirmed emails</div><div class=\"v\">1" in page
+    # A confirmed address gets no new links, and a made-up link confirms nothing.
+    c.post("/sell/photo-review/notify", data={"email": "rider@example.com"})
+    assert len(sent) == 2
+    assert c.get("/sell/photo-review/confirm/nope").status_code == 404
+
+
+def test_without_mail_there_is_no_email_form(client, monkeypatch):
+    c, _ = client
+    monkeypatch.delenv("SMTP_HOST", raising=False)
+    assert 'name="email"' not in c.post("/sell/photo-review?lang=en", data={}).data.decode()
+
+
 @pytest.mark.parametrize("text,value", [
     ("344", 344), ("344,00", 344), ("344.0", 344), ("344.00", 344), ("€ 1.049,-", 1049), ("1.049", 1049),
     ("1.049,50", 1049.5), ("€2.450", 2450), ("€ 344,-", 344), ("", None), ("bieden", None),
