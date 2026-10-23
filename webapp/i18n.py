@@ -616,4 +616,10 @@ NL = {
     "Not re-checked yet": "Nog niet opnieuw gecheckt",
     "No link to re-check": "Geen link om opnieuw te checken",
     "Without a model there is no value estimate. The report lets you pick one.": "Zonder model is er geen waardeschatting. In het rapport kun je er een kiezen.",
+    "Earlier estimates": "Eerdere schattingen",
+    "Every estimate made here, newest first: what was put in, and what came out on that day.": "Elke schatting die hier gemaakt is, nieuwste eerst: wat er is ingevuld en wat eruit kwam op die dag.",
+    "Shown above": "Staat hierboven",
+    "Open estimate": "Schatting openen",
+    "Only {n} ads": "Pas {n} advertenties",
+    "No ads yet": "Nog geen advertenties",
 }
