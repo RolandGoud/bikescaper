@@ -11,9 +11,10 @@ import sys
 import threading
 from datetime import date
 
-from flask import Flask, abort, g, redirect, render_template, request, send_from_directory, url_for
+from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
+from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, checks, daily_checks, db, fetch_ad, prices, recheck
+from . import ad_photos, checks, daily_checks, db, fetch_ad, mail, prices, recheck, report_pdf
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -53,6 +54,8 @@ def group_checks(rows):
 
 def create_app(db_path=None):
     app = Flask(__name__)
+    if os.environ.get("BEHIND_PROXY"):  # only then is X-Forwarded-For set by us, not by the visitor
+        app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
@@ -224,7 +227,51 @@ def create_app(db_path=None):
         times = sum(fetch_ad.ad_key(r) == key for r in conn().execute(
             "SELECT listing_url, title, asking_price FROM checks").fetchall())
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
-                               all_models=models(), asking=asking, nav="check")
+                               all_models=models(), asking=asking, nav="check",
+                               can_mail=mail.configured(), mailed=request.args.get("mailed"))
+
+    def pdf_of(check_id, height):
+        row = conn().execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
+        if row is None:
+            abort(404)
+        listing = listing_dict(row, height)
+        result = checks.run_check(models(), listing)
+        url = url_for("report", check_id=check_id, height=height, _external=True)
+        return listing, report_pdf.build(listing, result, height or row["rider_height"], url)
+
+    def pdf_name(listing):
+        slug = re.sub(r"[^a-z0-9]+", "-", listing["title"].lower()).strip("-")[:50] or "check"
+        return f"bike-compare-{listing['id']}-{slug}.pdf"
+
+    @app.route("/check/<int:check_id>/report.pdf")
+    def report_pdf_download(check_id):
+        listing, pdf = pdf_of(check_id, request.args.get("height", type=int))
+        return Response(pdf, mimetype="application/pdf",
+                        headers={"Content-Disposition": f'attachment; filename="{pdf_name(listing)}"'})
+
+    @app.route("/check/<int:check_id>/email", methods=["POST"])
+    def email_report(check_id):
+        height = request.form.get("height", type=int)
+        to = (request.form.get("email") or "").strip()
+        back = lambda status: redirect(url_for("report", check_id=check_id, height=height, mailed=status) + "#size")
+        if not mail.configured():
+            abort(404)
+        if not mail.valid(to):
+            return back("invalid")
+        ip = request.remote_addr or ""
+        if not mail.allowed(ip):
+            return back("limit")
+        listing, pdf = pdf_of(check_id, height)
+        try:
+            mail.send(to, gettext("Your Bike Compare check: {title}", title=listing["title"]),
+                      gettext("Here is your check report for “{title}”, checked on {date}. The PDF is attached; "
+                              "the report online: {url}", title=listing["title"], date=listing["created_at"][:10],
+                              url=url_for("report", check_id=check_id, height=height, _external=True)),
+                      pdf, pdf_name(listing), ip=ip)
+        except Exception as e:  # SMTP down or wrong settings: say so, don't crash the page
+            print(f"emailing check {check_id} failed: {e}", file=sys.stderr, flush=True)
+            return back("failed")
+        return back("sent")
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
     def change_match(check_id):
