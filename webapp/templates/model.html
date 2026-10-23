@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, tier_badge, tier_dot %}
+{% from "_macros.html" import photo, tier_badge, tier_dot, brand_label %}
 {% from "_macros.html" import asking_box, model_card with context %}
 {% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
 {% macro note(text) -%}
@@ -37,7 +37,7 @@
           {% else %}<div class="v small">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
         </div>
       </div>
-      <div class="row"><a class="btn ghost" href="{{ m.url }}" target="_blank" rel="noopener">{{ _('{brand} product page', brand=m.brand) }}</a>
+      <div class="row"><a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
     </div>
   </section>
