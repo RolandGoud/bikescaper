@@ -48,10 +48,16 @@
       g.animate([{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(.85)" }],
         { duration: 220, easing: "ease-in", fill: "forwards" }).finished.then(() => g.remove(), () => g.remove());
     });
+    let bounced = 0;
     cards().forEach((c) => {
       const old = before.get(c.getAttribute("href")), now = c.getBoundingClientRect();
-      if (old && (onScreen(old) || onScreen(now))) {
-        c.animate([{ transform: `translate(${old.left - now.left}px, ${old.top - now.top}px)` }, { transform: "none" }],
+      const dx = old && old.left - now.left, dy = old && old.top - now.top;
+      if (old && Math.abs(dx) < 1 && Math.abs(dy) < 1 && onScreen(now)) {
+        // kept its spot: a small dip and bounce, one after the other, so the refresh still shows
+        c.animate([{ transform: "none" }, { transform: "scale(.94)", offset: 0.35 }, { transform: "scale(1.03)", offset: 0.7 }, { transform: "none" }],
+          { duration: 460, delay: Math.min(bounced++, 12) * 35, easing: "ease-in-out" });
+      } else if (old && (onScreen(old) || onScreen(now))) {
+        c.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: "none" }],
           { duration: 420, easing: ease });
       } else if (!old && onScreen(now)) {
         c.animate([{ opacity: 0, transform: "scale(.9)" }, { opacity: 1, transform: "none" }],
