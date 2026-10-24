@@ -1394,35 +1394,17 @@
    "2019": {
     "captured": "2019-11-15",
     "image": "Canyon/years/speedmaxcf7di2_pred_2019.jpg",
-    "price": 2299.0,
     "sheet_name": "Speedmax CF 7.0",
-    "specs": {
-     "Achterderailleur": "Ultegra105Dura AceBekijk meerBekijk minder",
-     "Framefit": "triathlon",
-     "Gewicht": "8.80 kg",
-     "Gewichtslimiet": "120 kg",
-     "Material": "Carbon",
-     "Rem": "VelgremmenBekijk meerBekijk minder",
-     "Weight": "8.80 kg"
-    },
     "ts": "20191115003653",
+    "unreadable": true,
     "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2137.html"
    },
    "2020": {
     "captured": "2020-05-01",
     "image": "Canyon/years/speedmaxcf7di2_pred_2020.jpg",
-    "price": 2999.0,
     "sheet_name": "Speedmax CF 7.0",
-    "specs": {
-     "Achterderailleur": "Ultegra105Dura AceBekijk meerBekijk minder",
-     "Framefit": "triathlon",
-     "Gewicht": "8.50 kg",
-     "Gewichtslimiet": "120 kg",
-     "Material": "Carbon",
-     "Rem": "VelgremmenBekijk meerBekijk minder",
-     "Weight": "8.50 kg"
-    },
     "ts": "20200501143648",
+    "unreadable": true,
     "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2419.html"
    },
    "2021": {
@@ -1533,12 +1515,10 @@
     "price": 4599.0,
     "sheet_name": "Speedmax CF 8.0 Di2",
     "specs": {
-     "Achterderailleur": "Ultegra105Dura AceBekijk meerBekijk minder",
      "Framefit": "triathlon",
      "Gewicht": "8.50 kg",
      "Gewichtslimiet": "120 kg",
      "Material": "Carbon",
-     "Rem": "VelgremmenBekijk meerBekijk minder",
      "Shifter_speed": "2 speed",
      "Weight": "8.50 kg"
     },
@@ -1661,18 +1641,9 @@
    "2019": {
     "captured": "2019-11-21",
     "image": "Canyon/years/speedmaxcfslx8axs_pred_2019.jpg",
-    "price": 5499.0,
     "sheet_name": "Speedmax CF SLX 8.0",
-    "specs": {
-     "Achterderailleur": "Ultegra105Dura AceBekijk meerBekijk minder",
-     "Framefit": "triathlon",
-     "Gewicht": "9.00 kg",
-     "Gewichtslimiet": "120 kg",
-     "Material": "Carbon",
-     "Rem": "VelgremmenBekijk meerBekijk minder",
-     "Weight": "9.00 kg"
-    },
     "ts": "20191121053622",
+    "unreadable": true,
     "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8.0/2142.html"
    },
    "2020": {
@@ -1792,18 +1763,9 @@
    "2019": {
     "captured": "2019-11-21",
     "image": "Canyon/years/speedmaxcfslx8di2_pred_2019.jpg",
-    "price": 5499.0,
     "sheet_name": "Speedmax CF SLX 8.0",
-    "specs": {
-     "Achterderailleur": "Ultegra105Dura AceBekijk meerBekijk minder",
-     "Framefit": "triathlon",
-     "Gewicht": "9.00 kg",
-     "Gewichtslimiet": "120 kg",
-     "Material": "Carbon",
-     "Rem": "VelgremmenBekijk meerBekijk minder",
-     "Weight": "9.00 kg"
-    },
     "ts": "20191121053622",
+    "unreadable": true,
     "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8.0/2142.html"
    },
    "2020": {
@@ -2495,34 +2457,17 @@
    "2019": {
     "captured": "2019-09-18",
     "image": "Canyon/years/ultimatecfslx8di2_pred_2019.jpg",
-    "price": 3699.0,
     "sheet_name": "Ultimate CF SLX 8.0 Di2",
-    "specs": {
-     "Achterderailleur": "UltegraRED eTap105Dura AceForceREDSuper RecordBekijk meerBekijk minder",
-     "Framefit": "race",
-     "Gewicht": "7.0 kg",
-     "Material": "Carbon",
-     "Rem": "SchijfremmenVelgremmenBekijk meerBekijk minder",
-     "Weight": "7.0 kg"
-    },
     "ts": "20190918015000",
+    "unreadable": true,
     "url": "https://www.canyon.com/nl-be/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2162.html"
    },
    "2020": {
     "captured": "2020-03-14",
     "image": "Canyon/years/ultimatecfslx8di2_pred_2020.jpg",
-    "price": 4199.0,
     "sheet_name": "Ultimate CF SLX 8.0 Di2",
-    "specs": {
-     "Achterderailleur": "UltegraRED eTap105Dura AceForceSuper RecordBekijk meerBekijk minder",
-     "Framefit": "race",
-     "Gewicht": "6.80 kg",
-     "Gewichtslimiet": "120 kg",
-     "Material": "Carbon",
-     "Rem": "SchijfremmenVelgremmenBekijk meerBekijk minder",
-     "Weight": "6.80 kg"
-    },
     "ts": "20200314043909",
+    "unreadable": true,
     "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2406.html"
    },
    "2022": {
