@@ -288,7 +288,7 @@ EFFORT = {
     1: ("Mix and match", "Same system: swap the parts you want and keep the rest."),
     2: ("New shifters and derailleurs", "Cassette, chain and crankset can stay."),
     3: ("New drivetrain", "Shifters, derailleurs, cassette and chain, usually the crankset too."),
-    4: ("Rear wheel too", "The new cassette needs another freehub body, often a swap on the same hub."),
+    4: ("New freehub body", "The new cassette fits another freehub body: often a swap on the same hub, otherwise a new rear wheel."),
 }
 # What a whole new drivetrain roughly costs, for the levels where it comes to that: rough figures for a
 # mechanical groupset bought online, to weigh against another bike, not a quote.
