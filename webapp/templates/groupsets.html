@@ -27,10 +27,11 @@
 {# The upgrades in the order of the key: those that fit as they are by how much has to change (1-4), then the ones
    that need a check of the frame (!), then the ones that can't go on this frame (✕). With `full`, every group shows,
    empty or not, so the list doubles as the key. #}
-{% macro path_group(mark, cls, title, text, items, full, show_effort=false) -%}
+{% macro path_group(mark, cls, title, text, items, full, show_effort=false, note=none) -%}
 {% if items or full %}
 <div class="path-group{{ ' ' ~ cls if cls }}{{ ' empty' if not items }}">
   <div class="path-head">{{ mark }}<h3>{{ title }}</h3><span class="small muted">{{ text }}</span></div>
+  {% if note and items %}<p class="cost-note small">{{ note }}</p>{% endif %}
   {% if items %}<div class="path-grid">{% for g, p in items %}{{ path_card(g, p, show_effort) }}{% endfor %}</div>
   {% else %}<p class="small muted">{{ _('None from here.') }}</p>{% endif %}
 </div>
@@ -39,7 +40,7 @@
 {% macro path_groups(items_, full=false) -%}
 {% set fits = items_|selectattr('1.fit', 'equalto', 'ok')|list %}
 {% for level, (name, text) in effort.items() %}
-{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full) }}
+{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full, note=_(cost[level]) if level in cost) }}
 {% endfor %}
 {{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true) }}
 {{ path_group('<span class="effort nofit" aria-hidden="true">✕</span>'|safe, 'no-fit', _(fit['no'][0]), _(fit['no'][1]), items_|selectattr('1.fit', 'equalto', 'no')|list, full) }}
@@ -181,6 +182,7 @@
 
   <div class="stack small muted" style="gap: 4px">
     <p>{{ _('Each groupset carries the same spec tier as on the model pages.') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></p>
+    <p>{{ _("Is it worth it? A whole new groupset only pays off when the frame is worth keeping (carbon, a good fit) and the drivetrain is worn anyway. Otherwise selling and buying a bike that already has the groupset you want is usually cheaper, and an upgraded bike sells for little more than before.") }}</p>
     <p>{{ _("Rules of thumb for swapping a whole groupset, from the makers' compatibility charts. Check the exact parts with your bike shop before you buy: frames, cranks and wheels have their own limits.") }}</p>
   </div>
 </main>
