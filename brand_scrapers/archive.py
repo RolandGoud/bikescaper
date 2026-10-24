@@ -22,7 +22,7 @@ from urllib.parse import urlparse
 from .common import ROOT, clean
 
 BRANDS = ["Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"]
-FIRST_YEAR = 2020
+FIRST_YEAR = 2018
 SPRING = (4, 15)  # the copy closest to this date stands for its year
 # The part of a product URL that names the model, per brand.
 URL_NAME = {
@@ -193,6 +193,14 @@ def _canyon_specs(page):
     return {(k if k in SPEC_LABELS else k.replace("_", " ")): v for k, v in specs.items() if v}
 
 
+def _canyon_list_pairs(page):
+    """Canyon's 2020-2022 layout: an "Alle onderdelen" list of part title, then the part's name and features."""
+    from .common import clean
+    return [(clean(t), clean(n)) for t, n in re.findall(
+        r'allComponents__sectionSpecListItemTitle">(.*?)</div>\s*<ul class="allComponents__specItemList">\s*'
+        r'<li class="allComponents__specItemListItem allComponents__specItemListItem--name">(.*?)</li>', page, re.S)]
+
+
 def read_specs(brand, page, url):
     """(specs, price) from an archived product page, specs as the shared keys of brand_scrapers.common."""
     import importlib
@@ -205,7 +213,10 @@ def read_specs(brand, page, url):
             bike = {}
         specs, price = bike.get("specifications") or {}, bike.get("price")
     if brand == "Canyon":
-        specs = _canyon_specs(page)
+        # The "Alle onderdelen" list when the page has one: the scraper's reader takes its size table for parts.
+        specs = normalize_specs(_canyon_list_pairs(page))
+        if recognised(specs) < MIN_SPECS:
+            specs = _canyon_specs(page)
     elif brand == "Specialized":
         specs = normalize_specs(_specialized_pairs(page))
     if len(specs) < MIN_SPECS:

@@ -191,8 +191,20 @@ def run(brands, db_path, years, cdx_folder=None):
             found = trek_collect(models, Fetcher(delay=1.0), years, trek_codes(cdx_folder))
         else:
             found = collect(brand, models, Fetcher(delays=SITES[brand][3]), years)
-        with open(os.path.join(out_dir, f"{brand}.json"), "w", encoding="utf-8") as fh:
-            json.dump({"checked_on": date.today().isoformat(), "years": list(years),
+        path = os.path.join(out_dir, f"{brand}.json")
+        # Years read in an earlier run stay unless this run read them again.
+        try:
+            with open(path, encoding="utf-8") as fh:
+                before = json.load(fh)
+        except (OSError, ValueError):
+            before = {"years": [], "models": {}}
+        for name, entries in before["models"].items():
+            for year, entry in entries.items():
+                if int(year) not in years:
+                    found.setdefault(name, {}).setdefault(year, entry)
+        all_years = sorted(set(before["years"]) | set(years))
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump({"checked_on": date.today().isoformat(), "years": all_years,
                        "source": f"{brand}'s own model-year pages", "models": found},
                       fh, ensure_ascii=False, indent=1, sort_keys=True)
         report[brand] = {y: sum(1 for v in found.values() if str(y) in v) for y in years}
@@ -206,8 +218,9 @@ if __name__ == "__main__":
     ap.add_argument("brands", nargs="+")
     ap.add_argument("--db", default=os.path.join(ROOT, "instance", "bikecompare.sqlite3"))
     ap.add_argument("--first", type=int, default=FIRST_YEAR)
+    ap.add_argument("--last", type=int, default=date.today().year)
     ap.add_argument("--cdx", help="folder with the Wayback Machine listings (for Trek's product numbers)")
     args = ap.parse_args()
     brands = [b for b in [*SITES, "Trek"] if b.lower() in {a.lower() for a in args.brands}]
-    for brand, counts in run(brands, args.db, range(args.first, date.today().year + 1), args.cdx).items():
+    for brand, counts in run(brands, args.db, range(args.first, args.last + 1), args.cdx).items():
         print(brand, counts)

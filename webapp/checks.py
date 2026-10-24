@@ -270,7 +270,7 @@ def spec_groups(model):
     return [(label, rows[key]) for key, label in SPEC_GROUPS if key in rows]
 
 
-FIRST_SPEC_YEAR = 2020  # the specs-per-year table on the model page starts here
+FIRST_SPEC_YEAR = 2018  # the specs-per-year table on the model page starts here
 
 
 def _same(a, b):

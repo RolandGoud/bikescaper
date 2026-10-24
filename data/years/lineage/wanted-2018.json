@@ -1,0 +1,558 @@
+[
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 Pro",
+  "slug": "agreec62pro",
+  "year": 2019,
+  "ts": "20190715231949",
+  "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-pro-carbonnred-2019/",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 Race",
+  "slug": "agreec62race",
+  "year": 2019,
+  "ts": "20190715231838",
+  "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-race-disc-carbonnwhite-2019/",
+  "alternatives": [
+   {
+    "ts": "20190716154536",
+    "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-race-disc-rednorange-2019/"
+   },
+   {
+    "ts": "20191117134120",
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-race-bluegreynorange-2020/"
+   },
+   {
+    "ts": "20191123002838",
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-race-carbonnwhite-2020/"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Attain Race",
+  "slug": "attainrace",
+  "year": 2019,
+  "ts": "20191117133704",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/attain/cube-attain-race-bluenred-2020/",
+  "alternatives": [
+   {
+    "ts": "20191120181759",
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/attain/cube-attain-race-blacknwhite-2020/"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Cross Race C:62 Pro",
+  "slug": "crossracec62pro",
+  "year": 2019,
+  "ts": "20191117134308",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/cross-race/cube-cross-race-c62-pro-carbonngreen-2020/",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Pro",
+  "slug": "nuroadpro",
+  "year": 2019,
+  "ts": "20191120181411",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-pro-blacknsharpgreen-2020/",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Pro FE",
+  "slug": "nuroadprofe",
+  "year": 2019,
+  "ts": "20191117110847",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-pro-fe-greynblack-2020/",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Race",
+  "slug": "nuroadrace",
+  "year": 2019,
+  "ts": "20191123002751",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-race-blackngreyblue-2020/",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Race FE",
+  "slug": "nuroadracefe",
+  "year": 2019,
+  "ts": "20190823075909",
+  "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/nuroad/cube-nuroad-race-fe-blackngrey-2019/",
+  "alternatives": [
+   {
+    "ts": "20191117110922",
+    "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-race-fe-blackniridium-2020/"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 AXS",
+  "slug": "ultimatecfslx8axs_pred",
+  "year": 2019,
+  "ts": "20190918015000",
+  "url": "https://www.canyon.com/nl-be/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2162.html",
+  "sheet_name": "ultimate-cf-slx-8.0-di2",
+  "alternatives": [
+   {
+    "ts": "20190918183724",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2162.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 7 Di2",
+  "slug": "speedmaxcf7di2_pred",
+  "year": 2019,
+  "ts": "20191115003653",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2137.html",
+  "sheet_name": "speedmax-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20191123030153",
+    "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2137.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 8 Di2",
+  "slug": "speedmaxcf8di2_pred",
+  "year": 2019,
+  "ts": "20191104014027",
+  "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8.0-di2/2140.html",
+  "sheet_name": "speedmax-cf-8.0-di2",
+  "alternatives": [
+   {
+    "ts": "20191214171558",
+    "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8.0-di2/2140.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 Di2",
+  "slug": "speedmaxcfslx8di2_pred",
+  "year": 2019,
+  "ts": "20191121053622",
+  "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8.0/2142.html",
+  "sheet_name": "speedmax-cf-slx-8.0",
+  "alternatives": [
+   {
+    "ts": "20191229203152",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8.0/2142.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 AXS",
+  "slug": "speedmaxcfslx8axs_pred",
+  "year": 2019,
+  "ts": "20191121053622",
+  "url": "https://www.canyon.com/nl-be/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8.0/2142.html",
+  "sheet_name": "speedmax-cf-slx-8.0",
+  "alternatives": [
+   {
+    "ts": "20191229203152",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8.0/2142.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 Di2",
+  "slug": "ultimatecfslx8di2_pred",
+  "year": 2019,
+  "ts": "20190918015000",
+  "url": "https://www.canyon.com/nl-be/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2162.html",
+  "sheet_name": "ultimate-cf-slx-8.0-di2",
+  "alternatives": [
+   {
+    "ts": "20190918183724",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2162.html"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad C:62 Pro FE",
+  "slug": "nuroadc62profe_pred",
+  "year": 2019,
+  "ts": "20191117110847",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-pro-fe-greynblack-2020/",
+  "sheet_name": "nuroad-pro-fe-greynblack-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 SLT AXS",
+  "slug": "agreec62sltaxs_pred",
+  "year": 2019,
+  "ts": "20190818041756",
+  "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-slt-disc-carbonnblack-2019/",
+  "sheet_name": "agree-c62-slt-disc-carbonnblack-2019",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 SLT Di2",
+  "slug": "agreec62sltdi2_pred",
+  "year": 2019,
+  "ts": "20190818041756",
+  "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-slt-disc-carbonnblack-2019/",
+  "sheet_name": "agree-c62-slt-disc-carbonnblack-2019",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AERO C:68X Pro",
+  "slug": "liteningaeroc68xpro_pred",
+  "year": 2019,
+  "ts": "20191117110944",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-pro-carbonnwhite-2020/",
+  "sheet_name": "litening-c68x-pro-carbonnwhite-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AERO C:68X SLT",
+  "slug": "liteningaeroc68xslt_pred",
+  "year": 2019,
+  "ts": "20191115090101",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-slt-carbonnblue-2020/",
+  "sheet_name": "litening-c68x-slt-carbonnblue-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AIR C:68X Pro",
+  "slug": "liteningairc68xpro_pred",
+  "year": 2019,
+  "ts": "20191117110944",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-pro-carbonnwhite-2020/",
+  "sheet_name": "litening-c68x-pro-carbonnwhite-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AIR C:68X SLT",
+  "slug": "liteningairc68xslt_pred",
+  "year": 2019,
+  "ts": "20191115090101",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-slt-carbonnblue-2020/",
+  "sheet_name": "litening-c68x-slt-carbonnblue-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Pro - SRAM Force AXS",
+  "slug": "roubaixsl8prosramforceaxs_pred",
+  "year": 2019,
+  "ts": "20191018200332",
+  "url": "https://www.specialized.com/nl/en/roubaix-pro---sram-force-etap-axs/p/171045",
+  "sheet_name": "roubaix-pro---sram-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20191208112727",
+    "url": "https://www.specialized.com/nl/en/roubaix-pro---sram-force-etap-axs/p/171045"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 - Shimano Dura-Ace Di2",
+  "slug": "sworksroubaixsl8shimanoduraacedi2_pred",
+  "year": 2019,
+  "ts": "20190723102020",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix--shimano-dura-ace-di2/p/170241",
+  "sheet_name": "s-works-roubaix--shimano-dura-ace-di2",
+  "alternatives": [
+   {
+    "ts": "20191122185826",
+    "url": "https://www.specialized.com/nl/en/s-works-roubaix--shimano-dura-ace-di2/p/170241"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 Frameset - FACT 12R Carbon",
+  "slug": "sworksroubaixsl8framesetfact12rcarbon_pred",
+  "year": 2019,
+  "ts": "20191014195027",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-frameset/p/170278",
+  "sheet_name": "s-works-roubaix-frameset",
+  "alternatives": [
+   {
+    "ts": "20191113185818",
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix-frameset/p/170278"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 – SRAM RED AXS",
+  "slug": "sworksroubaixsl8sramredaxs_pred",
+  "year": 2019,
+  "ts": "20191208082927",
+  "url": "https://www.specialized.com/nl/en/s-works-roubaix---sram-red-etap-axs/p/171042",
+  "sheet_name": "s-works-roubaix---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux 5 Frameset - FACT 12r Carbon",
+  "slug": "sworkscrux5framesetfact12rcarbon_pred",
+  "year": 2019,
+  "ts": "20191119034324",
+  "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux Frameset - FACT 12r Carbon",
+  "slug": "sworkscruxframesetfact12rcarbon_pred",
+  "year": 2019,
+  "ts": "20191119034324",
+  "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Diverge 4 - SRAM RED XPLR",
+  "slug": "sworksdiverge4sramredxplr_pred",
+  "year": 2019,
+  "ts": "20191022100811",
+  "url": "https://www.specialized.com/nl/nl/s-works-diverge---sram-etap-axs/p/171315",
+  "sheet_name": "s-works-diverge---sram-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20191215131003",
+    "url": "https://www.specialized.com/nl/en/s-works-diverge---sram-etap-axs/p/171315"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105_pred",
+  "year": 2019,
+  "ts": "20191014044244",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-comp-disc/p/171318",
+  "sheet_name": "allez-sprint-comp-disc",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Frameset - D'Aluisio Smartweld Alloy",
+  "slug": "allezsprintframesetdaluisiosmartweldalloy_pred",
+  "year": 2019,
+  "ts": "20191014070734",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-disc-frameset/p/171321",
+  "sheet_name": "allez-sprint-disc-frameset",
+  "alternatives": [
+   {
+    "ts": "20191017213625",
+    "url": "https://www.specialized.com/NL/nl/allez-sprint-disc-frameset/p/171321"
+   },
+   {
+    "ts": "20191019213813",
+    "url": "https://www.specialized.com/NL/nl/allez-sprint-disc-frameset/p/171321"
+   },
+   {
+    "ts": "20191020210043",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-disc-frameset/p/171321"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs_pred",
+  "year": 2019,
+  "ts": "20191117084123",
+  "url": "https://www.specialized.com/nl/en/s-works-tarmac---sram-red-etap-axs/p/171346",
+  "sheet_name": "s-works-tarmac---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
+  "slug": "sworkstarmacsl9shimanoduraacedi2_pred",
+  "year": 2019,
+  "ts": "20190918163036",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc---dura-ace-di2/p/171347",
+  "sheet_name": "s-works-tarmac-disc---dura-ace-di2",
+  "alternatives": [
+   {
+    "ts": "20191023170757",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc---dura-ace-di2/p/171347"
+   },
+   {
+    "ts": "20191120130453",
+    "url": "https://www.specialized.com/nl/en/s-works-tarmac-disc---dura-ace-di2/p/171347"
+   },
+   {
+    "ts": "20191121224744",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc---dura-ace-di2/p/171347"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Frameset - FACT 12r Carbon",
+  "slug": "sworkstarmacsl9framesetfact12rcarbon_pred",
+  "year": 2019,
+  "ts": "20191016011548",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355",
+  "sheet_name": "s-works-tarmac-disc-frameset",
+  "alternatives": [
+   {
+    "ts": "20191017215236",
+    "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017215049",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017091558",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends_pred",
+  "year": 2019,
+  "ts": "20191117084123",
+  "url": "https://www.specialized.com/nl/en/s-works-tarmac---sram-red-etap-axs/p/171346",
+  "sheet_name": "s-works-tarmac---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel_pred",
+  "year": 2019,
+  "ts": "20191117084123",
+  "url": "https://www.specialized.com/nl/en/s-works-tarmac---sram-red-etap-axs/p/171346",
+  "sheet_name": "s-works-tarmac---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - FDJ United - SUEZ",
+  "slug": "sworkstarmacsl9teamreplicaframesetfdjunitedsuez_pred",
+  "year": 2019,
+  "ts": "20191016011548",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355",
+  "sheet_name": "s-works-tarmac-disc-frameset",
+  "alternatives": [
+   {
+    "ts": "20191017215236",
+    "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017215049",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017091558",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Red Bull - BORA - hansgrohe",
+  "slug": "sworkstarmacsl9teamreplicaframesetredbullborahansgrohe_pred",
+  "year": 2019,
+  "ts": "20191016011548",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355",
+  "sheet_name": "s-works-tarmac-disc-frameset",
+  "alternatives": [
+   {
+    "ts": "20191017215236",
+    "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017215049",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017091558",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - SD Worx - Protime",
+  "slug": "sworkstarmacsl9teamreplicaframesetsdworxprotime_pred",
+  "year": 2019,
+  "ts": "20191016011548",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355",
+  "sheet_name": "s-works-tarmac-disc-frameset",
+  "alternatives": [
+   {
+    "ts": "20191017215236",
+    "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017215049",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017091558",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step",
+  "slug": "sworkstarmacsl9teamreplicaframesetsoudalquickstep_pred",
+  "year": 2019,
+  "ts": "20191016011548",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355",
+  "sheet_name": "s-works-tarmac-disc-frameset",
+  "alternatives": [
+   {
+    "ts": "20191017215236",
+    "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017215049",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   },
+   {
+    "ts": "20191017091558",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset/p/171355"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 S-Level - SRAM RED AXS",
+  "slug": "tarmacsl9slevelsramredaxs_pred",
+  "year": 2019,
+  "ts": "20190722084505",
+  "url": "https://www.specialized.com/nl/nl/tarmac-pro-disc--sram-etap/p/171349",
+  "sheet_name": "tarmac-pro-disc--sram-etap",
+  "alternatives": []
+ }
+]
