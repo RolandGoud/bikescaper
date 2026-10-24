@@ -2,7 +2,8 @@
 // Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map,
 // yours drawn bold. Each tile's main line goes to the closest in age in the next step up; its other links on the
 // same system there are dotted, as are the links between generations of one series on the same line. A tile
-// gets a bullet only where a line comes in. With "Easiest route" on, an accent-coloured line runs from yours through the route's tiles.
+// gets a bullet only where a line comes in, and clicking a line picks the tile it leads to. With "Easiest route" on, an
+// accent-coloured line runs from yours through the route's tiles.
 // Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links and form just load the page.
@@ -46,6 +47,17 @@
     return p;
   };
 
+  // A wide invisible stroke over a line, so clicking the line picks the tile it leads to.
+  const hit = (svg, d, to) => {
+    const p = document.createElementNS(NS, "path");
+    Object.entries({ d, fill: "none", stroke: "transparent", "stroke-width": 12 }).forEach(([k, v]) => p.setAttribute(k, v));
+    p.classList.add("line-hit");
+    p.dataset.href = to.el.href;
+    p.dataset.key = to.el.dataset.key;
+    p.append(Object.assign(document.createElementNS(NS, "title"), { textContent: to.el.querySelector(".gen-name").textContent }));
+    svg.append(p);
+  };
+
   const dot = (svg, x, y, color) => {
     const c = document.createElementNS(NS, "circle");
     Object.entries({ cx: x, cy: y, r: 4, fill: DOT, stroke: color, "stroke-width": 2.5 })
@@ -81,17 +93,23 @@
           const there = next.filter((n) => n.step === step);
           const closest = there.reduce((best, n) => (Math.abs(n.year - t.year) < Math.abs(best.year - t.year) ? n : best));
           there.filter((n) => n !== closest).forEach((n) => {
-            path(svg, curve(box(t, origin), box(n, origin)), color, 2, opacity * 0.8, null, true);
+            const d = curve(box(t, origin), box(n, origin));
+            path(svg, d, color, 2, opacity * 0.8, null, true);
+            hit(svg, d, n);
             fed.add(n);
           });
-          path(svg, curve(box(t, origin), box(closest, origin)), color, mine && !routeOn ? 5 : 2.5, opacity);
+          const d = curve(box(t, origin), box(closest, origin));
+          path(svg, d, color, mine && !routeOn ? 5 : 2.5, opacity);
+          hit(svg, d, closest);
           fed.add(closest);
         });
         // Generations of one series on the same line: each to the next one down the column, dotted.
         on.forEach((t, k) => {
           const below = on.slice(k + 1).find((n) => n.ladder === t.ladder && n.step === t.step);
           if (!below) return;
-          path(svg, bracket(box(t, origin), box(below, origin)), color, 2, opacity * 0.8, null, true);
+          const d = bracket(box(t, origin), box(below, origin));
+          path(svg, d, color, 2, opacity * 0.8, null, true);
+          hit(svg, d, below);
           fed.add(below);
         });
         on.forEach((t) => {
@@ -154,6 +172,11 @@
 
   const plain = (e) => !(e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey);
   main.addEventListener("click", (e) => {
+    const line = e.target.closest(".line-hit");
+    if (line && plain(e)) {
+      show(line.dataset.href.split("#")[0], true, line.dataset.key);
+      return;
+    }
     const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .filter-row > a, .route + p a");
     if (!link || !plain(e)) return;
     e.preventDefault();

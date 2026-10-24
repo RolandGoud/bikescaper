@@ -793,6 +793,7 @@ select { max-width: 100%; }
 /* Lines between the generation tiles (groupsets.js), drawn behind the tiles. */
 .brand-ladders { position: relative; }
 .path-lines { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: visible; }
+.path-lines .line-hit { pointer-events: stroke; cursor: pointer; }
 .brand-ladders .ladder { --col: 140px; --gap: 44px; }
 .brand-ladders .gen { position: relative; z-index: 2; }
 .brand-ladders .step.up::before { left: -28px; }
