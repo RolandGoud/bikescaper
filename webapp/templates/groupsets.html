@@ -81,11 +81,6 @@
         </select>
       </label>
       <button class="btn ghost" type="submit">{{ _('Show upgrades') }}</button>
-      <div class="field-label">{{ _('Show') }}
-        <div class="segmented" role="group" aria-label="{{ _('Show') }}">
-          <a class="{{ 'on' if show == 'all' }}" href="{{ url_for('groupset_paths', have=current.key if current else None, brand=brand, type=kind) }}#paths"{% if show == 'all' %} aria-current="true"{% endif %}>{{ _('All options') }}</a>
-          <a class="{{ 'on' if show == 'route' }}" href="{{ url_for('groupset_paths', have=current.key if current else None, brand=brand, type=kind, show='route') }}#paths"{% if show == 'route' %} aria-current="true"{% endif %}>{{ _('Easiest route') }}</a>
-        </div>
       </div>
       {% if current %}<a class="small" href="{{ url_for('groupset_paths', brand=brand, type=kind, show=show if show == 'route' else None) }}">{{ _('Clear') }}</a>{% endif %}
     </form>
