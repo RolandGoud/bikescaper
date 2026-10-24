@@ -365,24 +365,35 @@ def refresh_images(conn):
     return count
 
 
-def year_specs(brand, name, _cache={}):
-    """The model's spec sheets from earlier years, from data/years/<Brand>.json (read from
-    Wayback Machine copies of the brand's NL site).
+def _years_file(*parts):
+    try:
+        with open(os.path.join(ROOT, "data", "years", *parts), encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return None
 
-    {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs}
-    or {captured, url, unreadable: true}}}; a checked year without an entry had no archived page.
+
+def year_specs(brand, name, _cache={}):
+    """The model's spec sheets from earlier years: the brand's own pages for old models
+    (data/years/site/<Brand>.json, see brand_scrapers/history.py) and, for years those lack,
+    Wayback Machine copies of the brand's NL site (data/years/<Brand>.json).
+
+    {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs,
+    source?, sheet_years?, sheet_name?} or {captured, url, unreadable: true}}}; a checked year
+    without an entry had no page.
     """
     if brand not in _cache:
-        try:
-            with open(os.path.join(ROOT, "data", "years", f"{brand}.json"), encoding="utf-8") as fh:
-                _cache[brand] = json.load(fh)
-        except (OSError, ValueError):
-            _cache[brand] = None
-    found = _cache[brand]
-    if not found:
+        _cache[brand] = (_years_file(f"{brand}.json"), _years_file("site", f"{brand}.json"))
+    archive, site = _cache[brand]
+    if not archive and not site:
         return {}
-    return {"checked": found["years"], "checked_on": found["checked_on"],
-            "years": found["models"].get(name.strip(), {})}
+    years = dict((archive or {}).get("models", {}).get(name.strip(), {}))
+    for year, entry in (site or {}).get("models", {}).get(name.strip(), {}).items():
+        if entry.get("specs") or year not in years:
+            years[year] = entry
+    found = [f for f in (archive, site) if f]
+    return {"checked": sorted({y for f in found for y in f["years"]}),
+            "checked_on": max(f["checked_on"] for f in found), "years": years}
 
 
 def refresh_year_specs(conn):

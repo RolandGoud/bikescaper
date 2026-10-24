@@ -308,6 +308,13 @@ NL = {
     "As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.":
         "Zoals vermeld op de Nederlandse site van {brand} op {date}, uit een kopie in de Wayback Machine.",
     "Open the copy": "Open de kopie",
+    "Open the page": "Open de pagina",
+    "Sold as {name} in {year}.": "In {year} verkocht als {name}.",
+    "From the sheet {brand} still keeps online for model years {years}, read on {date}.":
+        "Uit de specificaties die {brand} nog online heeft voor modeljaar {years}, gelezen op {date}.",
+    "From the {year} model page {brand} still keeps online, read on {date}.":
+        "Van de pagina voor modeljaar {year} die {brand} nog online heeft, gelezen op {date}.",
+    "Photo of the {year} model.": "Foto van het model uit {year}.",
     "The {year} photo from the same copy.": "De foto uit {year}, uit dezelfde kopie.",
     "No photo in the {year} copy; the photo at the top is the current one.":
         "Geen foto in de kopie uit {year}; de foto bovenaan is de huidige.",
