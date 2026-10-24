@@ -220,6 +220,20 @@ def model_years(model, today=None):
         "From the model years in {brand}'s own photos; earlier years may be missing.", brand=model["brand"])
 
 
+def sheet_years(model, today=None):
+    """Like model_years, from the years with a spec sheet sold under this very name (a predecessor's
+    sheet has a sheet_name), for the model page when nothing else tells us. Not used for the price
+    and age checks."""
+    sheets = sorted(int(y) for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
+                    if e.get("specs") and not e.get("sheet_name"))
+    if not sheets:
+        return None
+    still_sold = catalogue_status(model, today)[0] == "current"
+    return sheets[0], None if still_sold else sheets[-1], Msg(
+        "From the spec sheets of earlier model years that {brand} or the Wayback Machine still has;"
+        " earlier years may be missing.", brand=model["brand"])
+
+
 def catalogue_status(model, today=None):
     """Whether the brand still sells the model: (status, message).
 

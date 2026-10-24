@@ -836,3 +836,21 @@ def test_model_page_has_year_tabs(tmp_path):
     assert 'id="tab-2020"' in page and 'id="tab-2025" aria-controls="year-2025"' in page
     # data/years/Trek.json has the 2024 Wayback Machine copy, with its photo
     assert 'class="year-tab archive" id="tab-2024"' in page and "Trek/years/domaneal2gen4_2024.jpg" in page
+
+
+def test_model_page_photo_carousel_runs_oldest_to_current(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/giant-defy-advanced-2?lang=nl").data.decode()
+    years = re.findall(r'class="gallery-thumb[^"]*" aria-pressed="(\w+)" data-year="(\d+)"', page)
+    assert len(years) > 2 and [int(y) for _p, y in years] == sorted(int(y) for _p, y in years)
+    assert [p for p, _y in years] == ["false"] * (len(years) - 1) + ["true"]  # the current bike is shown first
+    assert "year-photo" not in page  # the year photos moved out of the spec tabs
+    assert "nog niet verzameld" not in page  # model years from the year sheets
+
+
+def test_sheet_years_skip_predecessor_sheets(models):
+    m = dict(models[0], year_specs={"years": {"2019": {"specs": {"Frame": "x"}, "sheet_name": "Old"},
+                                              "2021": {"specs": {"Frame": "x"}}, "2022": {"unreadable": True}}})
+    assert checks.sheet_years(m, TODAY)[0] == 2021
+    assert checks.sheet_years(dict(m, year_specs={}), TODAY) is None

@@ -9,7 +9,33 @@
 <main class="wrap page">
   <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name }}</div>
   <section class="card listing-head">
+    {# The current photo, and when we have them the photo of each earlier model year: thumbnails from
+       the oldest to the current bike, which is shown first. #}
+    {% set gallery = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('image')|list %}
+    {% if gallery and m.image %}
+    {% set own = (year_tabs|selectattr('state', 'equalto', 'scrape')|first) %}
+    {% set own_year = own.year if own else year_tabs[-1].year %}
+    <div class="model-gallery" id="model-gallery">
+      <div class="photo" id="model-photo">{{ photo(m) }}
+        <span class="gallery-chip" id="gallery-chip">{{ own_year }}{% if m.colorways %} · {{ m.colorways[0].name }}{% endif %}</span>
+        <span class="gallery-count" id="gallery-count">{{ gallery|length + 1 }} / {{ gallery|length + 1 }}</span>
+        <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}">‹</button>
+        <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}">›</button>
+      </div>
+      <div class="gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
+        {% for t in gallery %}
+        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}"
+                data-src="{{ url_for('images', path=t.image) }}" data-label="{{ t.year }}{% if t.sheet_name %} · {{ t.sheet_name }}{% endif %}">
+          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span>{{ t.year }}</span></button>
+        {% endfor %}
+        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}"
+                data-src="{{ url_for('images', path=m.image) }}" data-label="{{ own_year }}{% if m.colorways %} · {{ m.colorways[0].name }}{% endif %}">
+          {{ photo(m) }}<span>{{ own_year }}</span></button>
+      </div>
+    </div>
+    {% else %}
     <div class="photo" id="model-photo">{{ photo(m) }}</div>
+    {% endif %}
     <div class="info">
       <div class="mono muted">{{ m.brand|upper }} · {{ _(discipline) }}</div>
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
@@ -75,12 +101,6 @@
     </div>
     {% for t in year_tabs %}
     <div class="year-panel" role="tabpanel" id="year-{{ t.year }}" aria-labelledby="tab-{{ t.year }}"{% if t is not sameas shown %} hidden{% endif %}>
-      {% if t.image %}
-      <figure class="year-photo"><img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>
-        <figcaption class="small muted">{% if t.source == 'site' %}{{ _('Photo of the {year} model.', year=t.year) }}{% else %}{{ _('The {year} photo from the same copy.', year=t.year) }}{% endif %}</figcaption></figure>
-      {% elif t.state in ('archive', 'unreadable') %}
-      <p class="small muted">{{ _('No photo in the {year} copy; the photo at the top is the current one.', year=t.year) }}</p>
-      {% endif %}
       {% if t.specs %}
       <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{% if t.sheet_name %}{{ _('Sold as {name} in {year}.', name=t.sheet_name, year=t.year) }} {% endif %}{% if t.source == 'site' %}{% if t.sheet_years %}{{ _('From the sheet {brand} still keeps online for model years {years}, read on {date}.', brand=m.brand, years=t.sheet_years, date=t.captured) }}{% else %}{{ _('From the {year} model page {brand} still keeps online, read on {date}.', brand=m.brand, year=t.year, date=t.captured) }}{% endif %} <a href="{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the page') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}{% endif %}
         {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
@@ -122,10 +142,41 @@
 </main>
 <script>
   // Year tabs above the spec sheet.
+  function showYear(year) {
+    var tab = document.getElementById("tab-" + year);
+    if (!tab) return;
+    document.querySelectorAll(".year-tab").forEach(function (t) { t.setAttribute("aria-selected", t === tab); });
+    document.querySelectorAll(".year-panel").forEach(function (p) { p.hidden = p.id !== tab.getAttribute("aria-controls"); });
+  }
+  // The photo carousel at the top: a thumbnail per model year, the current bike last and shown first.
+  // Picking a year there opens its spec sheet, and the other way round.
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll(".gallery-thumb"));
+  function showPhoto(thumb, fromTab) {
+    var img = document.querySelector("#model-photo img");
+    thumbs.forEach(function (b) { b.setAttribute("aria-pressed", b === thumb); });
+    img.src = thumb.dataset.src;
+    img.alt = thumb.querySelector("img") ? thumb.querySelector("img").alt : img.alt;
+    document.getElementById("gallery-chip").textContent = thumb.dataset.label;
+    document.getElementById("gallery-count").textContent = (thumbs.indexOf(thumb) + 1) + " / " + thumbs.length;
+    var strip = thumb.parentNode;
+    strip.scrollLeft = thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2;
+    if (!fromTab) showYear(thumb.dataset.year);
+  }
+  thumbs.forEach(function (b) { b.addEventListener("click", function () { showPhoto(b); }); });
+  document.querySelectorAll(".gallery-arrow").forEach(function (arrow) {
+    arrow.addEventListener("click", function () {
+      var at = thumbs.findIndex(function (b) { return b.getAttribute("aria-pressed") === "true"; });
+      var step = arrow.classList.contains("next") ? 1 : -1;
+      showPhoto(thumbs[(at + step + thumbs.length) % thumbs.length]);
+    });
+  });
+  if (thumbs.length) { var strip = thumbs[0].parentNode; strip.scrollLeft = strip.scrollWidth; }
   document.querySelectorAll(".year-tab").forEach(function (tab) {
     tab.addEventListener("click", function () {
-      document.querySelectorAll(".year-tab").forEach(function (t) { t.setAttribute("aria-selected", t === tab); });
-      document.querySelectorAll(".year-panel").forEach(function (p) { p.hidden = p.id !== tab.getAttribute("aria-controls"); });
+      var year = tab.id.slice(4);
+      showYear(year);
+      var thumb = thumbs.find(function (b) { return b.dataset.year === year; });
+      if (thumb) showPhoto(thumb, true);
     });
   });
   // Colour swatches: show the colour's name, and its photo when we have one.
@@ -135,6 +186,12 @@
       document.getElementById("colour-name").textContent = button.dataset.name;
       var img = document.querySelector("#model-photo img");
       document.getElementById("colour-note").hidden = !!button.dataset.image;
+      var current = document.querySelector(".gallery-thumb.current");
+      if (current) {  // the colour belongs to the current bike: show that one in the carousel
+        current.dataset.label = current.dataset.year + " · " + button.dataset.name;
+        if (button.dataset.image) { current.dataset.src = button.dataset.image; current.querySelector("img").src = button.dataset.image; }
+        showPhoto(current);
+      }
       if (img && button.dataset.image) { img.src = button.dataset.image; img.alt = button.dataset.name; }
     });
   });
