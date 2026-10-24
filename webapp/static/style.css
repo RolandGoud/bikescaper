@@ -731,11 +731,18 @@ select { max-width: 100%; }
 }
 
 /* Groupset upgrade paths: one ladder per brand line, basic to top, with the generations of each groupset. */
-.ladder { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(170px, 1fr); gap: 26px; overflow-x: auto; padding-bottom: 4px; }
+.ladder { --col: 170px; --gap: 26px; display: grid; grid-template-columns: repeat(var(--steps), minmax(var(--col), 1fr)); gap: 8px var(--gap); overflow-x: auto; padding-bottom: 4px; }
+.ladder-steps { display: contents; list-style: none; }
+/* The tier above the series, one label across neighbouring series of the same tier. */
+.tier-span { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
+.tier-span.wide::before, .tier-span.wide::after { content: ""; flex: 1; border-top: 1.5px solid var(--line-strong); }
+.step-tier { display: none; }
 .ladder-block { display: flex; flex-direction: column; gap: 10px; }
 .ladder-label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
 .step { position: relative; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.step + .step::before { content: ""; position: absolute; left: -19px; top: 9px; width: 10px; height: 10px; border-top: 2.5px solid var(--line-strong); border-right: 2.5px solid var(--line-strong); transform: rotate(45deg); }
+/* An arrow to the next series when it's an upgrade; an equals sign when it's the same level. */
+.step.up::before { content: ""; position: absolute; left: -19px; top: 9px; width: 10px; height: 10px; border-top: 2.5px solid var(--line-strong); border-right: 2.5px solid var(--line-strong); transform: rotate(45deg); }
+.step.level::before { content: "="; position: absolute; left: -21px; top: 0; width: 16px; text-align: center; font-family: var(--mono); font-size: 20px; line-height: 28px; font-weight: 700; color: var(--muted); }
 .step-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; }
 .step-name { font-weight: 700; font-size: 17px; }
 .gens { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
@@ -757,8 +764,11 @@ select { max-width: 100%; }
 .path-card ul { margin: 0; padding-left: 18px; font-size: 14px; display: flex; flex-direction: column; gap: 3px; }
 .path-card > a { margin-top: auto; }
 @media (max-width: 640px) {
-  .ladder { grid-auto-flow: row; grid-auto-columns: auto; gap: 22px; overflow: visible; }
-  .step + .step::before { left: 50%; top: -16px; transform: rotate(135deg); }
+  .ladder { grid-template-columns: 1fr; gap: 22px; overflow: visible; }
+  .tier-span { display: none; }
+  .step-tier { display: inline-flex; }
+  .step.up::before { left: 50%; top: -16px; transform: rotate(135deg); }
+  .step.level::before { left: calc(50% - 8px); top: -26px; transform: rotate(90deg); }
 }
 .path-switch { border-top: 1px solid var(--faint); padding-top: 14px; }
 .path-switch summary { cursor: pointer; font-weight: 700; }
@@ -770,6 +780,10 @@ select { max-width: 100%; }
 .gen.nofit { border-color: var(--bad); border-style: dashed; background: var(--bad-bg); }
 .gen.nofit .gen-name { text-decoration: line-through; text-decoration-color: var(--bad); }
 .path-group.no-fit h3 { color: var(--bad); }
+.path-group.empty .path-head { opacity: 0.6; }
+.path-group.empty p { margin: 0; }
+.key-row { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.key-row > span { display: inline-flex; align-items: center; gap: 6px; }
 .path-card.fit-no { border-color: var(--bad); border-style: dashed; background: var(--bad-bg); }
 .frame-note { padding: 8px 10px; border-radius: 8px; font-size: 14px; }
 .frame-note ul { margin-top: 4px; }
@@ -778,9 +792,10 @@ select { max-width: 100%; }
 /* Lines between the generation tiles (groupsets.js), drawn behind the tiles. */
 .brand-ladders { position: relative; }
 .path-lines { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: visible; }
-.brand-ladders .ladder { gap: 44px; grid-auto-columns: minmax(140px, 1fr); }
+.brand-ladders .ladder { --col: 140px; --gap: 44px; }
 .brand-ladders .gen { position: relative; z-index: 2; }
-.brand-ladders .step + .step::before { left: -28px; }
+.brand-ladders .step.up::before { left: -28px; }
+.brand-ladders .step.level::before { left: -30px; }
 /* All options or the easiest route: a two-way switch next to the groupset picker. */
 .segmented { display: inline-flex; height: 44px; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; }
 .segmented a { display: inline-flex; align-items: center; padding: 0 16px; text-decoration: none; color: var(--text); font-family: var(--body); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }

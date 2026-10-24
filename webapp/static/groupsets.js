@@ -1,6 +1,7 @@
 // Groupsets page.
 // Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map,
-// yours drawn bold. With "Easiest route" on, an accent-coloured line runs from yours through the route's tiles.
+// yours drawn bold. Each tile's main line goes to the closest in age in the next step up; its other links on the
+// same system there are dotted. A tile gets a bullet only where a line comes in. With "Easiest route" on, an accent-coloured line runs from yours through the route's tiles.
 // Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links and form just load the page.
@@ -16,7 +17,7 @@
   const still = matchMedia("(prefers-reduced-motion: reduce)");
 
   const tiles = (section) => [...section.querySelectorAll(".ladder")].flatMap((ladder, l) =>
-    [...ladder.children].flatMap((step, s) =>
+    [...ladder.querySelectorAll(".step")].flatMap((step, s) =>
       [...step.querySelectorAll(".gen")].map((el) => ({ el, ladder: l, step: s, system: el.dataset.system,
         year: +el.dataset.year, route: el.dataset.route, here: el.classList.contains("here") }))));
 
@@ -31,10 +32,11 @@
     return `M${a.r},${a.y} C${a.r + dx},${a.y} ${b.l - dx},${b.y} ${b.l},${b.y}`;
   };
 
-  const path = (svg, d, color, width, opacity, cls) => {
+  const path = (svg, d, color, width, opacity, cls, dotted) => {
     const p = document.createElementNS(NS, "path");
     Object.entries({ d, fill: "none", stroke: color, "stroke-width": width, "stroke-linecap": "round",
                      "stroke-opacity": opacity }).forEach(([k, v]) => p.setAttribute(k, v));
+    if (dotted) p.setAttribute("stroke-dasharray", `0 ${width * 2.4}`);
     if (cls) p.classList.add(cls);
     svg.append(p);
     return p;
@@ -65,18 +67,27 @@
         const mine = here && here.system === system;
         const color = METRO[i % METRO.length];
         const opacity = routeOn ? 0.2 : here && !mine ? 0.35 : 0.9;
-        // Each tile links to the one in the next step up on the same line that's closest in age.
+        // Each tile links to the one in the next step up on the same line that's closest in age (the main line)
+        // and, dotted, to the others on that line in the same step.
+        const fed = new Set();
         on.forEach((t) => {
           const next = on.filter((n) => n.ladder === t.ladder && n.step > t.step);
           if (!next.length) return;
           const step = Math.min(...next.map((n) => n.step));
-          const to = next.filter((n) => n.step === step)
-            .reduce((best, n) => (Math.abs(n.year - t.year) < Math.abs(best.year - t.year) ? n : best));
-          path(svg, curve(box(t, origin), box(to, origin)), color, mine && !routeOn ? 5 : 2.5, opacity);
+          const there = next.filter((n) => n.step === step);
+          const closest = there.reduce((best, n) => (Math.abs(n.year - t.year) < Math.abs(best.year - t.year) ? n : best));
+          there.filter((n) => n !== closest).forEach((n) => {
+            path(svg, curve(box(t, origin), box(n, origin)), color, 2, opacity * 0.8, null, true);
+            fed.add(n);
+          });
+          path(svg, curve(box(t, origin), box(closest, origin)), color, mine && !routeOn ? 5 : 2.5, opacity);
+          fed.add(closest);
         });
         on.forEach((t) => {
-          const b = box(t, origin);
-          dot(svg, b.l, b.y, color);
+          if (fed.has(t)) {
+            const b = box(t, origin);
+            dot(svg, b.l, b.y, color);
+          }
           t.el.style.setProperty("--line", routeOn ? "" : color);
         });
       });

@@ -7,11 +7,12 @@
 {% macro facts(g) -%}
 {{ _('{n}-speed', n=g.speeds) }} · {{ _(shift_labels[g.shift]) }} · {{ brakes(g) }}
 {%- endmacro %}
-{% macro path_card(g, p) -%}
+{% macro path_card(g, p, show_effort=false) -%}
 <div class="path-card fit-{{ p.fit }}">
   <div class="row" style="justify-content: space-between; gap: 8px">
     <strong>{{ g.brand }} {{ g.name }}</strong>{{ tier_badge(g.tier, small=true) }}
   </div>
+  {% if show_effort %}<span class="row small" style="gap: 6px"><span class="effort e{{ p.effort }}">{{ p.effort }}</span>{{ _(effort[p.effort][0]) }}</span>{% endif %}
   <span class="mono small muted">{{ facts(g) }}</span>
   {% if p.frame %}
   <div class="frame-note {{ p.fit }}">
@@ -23,21 +24,33 @@
   <a class="small" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths">{{ _('Upgrades from here') }}</a>
 </div>
 {%- endmacro %}
-{# The upgrades that fit, by how much has to change, then the ones that can't go on this frame. #}
-{% macro path_groups(items_) -%}
-{% for level, items in items_|rejectattr('1.fit', 'equalto', 'no')|groupby('1.effort') %}
-<div class="path-group">
-  <div class="path-head"><span class="effort e{{ level }}">{{ level }}</span><h3>{{ _(effort[level][0]) }}</h3><span class="small muted">{{ _(effort[level][1]) }}</span></div>
-  <div class="path-grid">{% for g, p in items %}{{ path_card(g, p) }}{% endfor %}</div>
-</div>
-{% endfor %}
-{% set blocked = items_|selectattr('1.fit', 'equalto', 'no')|list %}
-{% if blocked %}
-<div class="path-group no-fit">
-  <div class="path-head"><span class="effort nofit" aria-hidden="true">✕</span><h3>{{ _(fit['no'][0]) }}</h3><span class="small muted">{{ _(fit['no'][1]) }}</span></div>
-  <div class="path-grid">{% for g, p in blocked %}{{ path_card(g, p) }}{% endfor %}</div>
+{# The upgrades in the order of the key: those that fit as they are by how much has to change (1-4), then the ones
+   that need a check of the frame (!), then the ones that can't go on this frame (✕). With `full`, every group shows,
+   empty or not, so the list doubles as the key. #}
+{% macro path_group(mark, cls, title, text, items, full, show_effort=false) -%}
+{% if items or full %}
+<div class="path-group{{ ' ' ~ cls if cls }}{{ ' empty' if not items }}">
+  <div class="path-head">{{ mark }}<h3>{{ title }}</h3><span class="small muted">{{ text }}</span></div>
+  {% if items %}<div class="path-grid">{% for g, p in items %}{{ path_card(g, p, show_effort) }}{% endfor %}</div>
+  {% else %}<p class="small muted">{{ _('None from here.') }}</p>{% endif %}
 </div>
 {% endif %}
+{%- endmacro %}
+{% macro path_groups(items_, full=false) -%}
+{% set fits = items_|selectattr('1.fit', 'equalto', 'ok')|list %}
+{% for level, (name, text) in effort.items() %}
+{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full) }}
+{% endfor %}
+{{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true) }}
+{{ path_group('<span class="effort nofit" aria-hidden="true">✕</span>'|safe, 'no-fit', _(fit['no'][0]), _(fit['no'][1]), items_|selectattr('1.fit', 'equalto', 'no')|list, full) }}
+{%- endmacro %}
+{# The key in one line, for the route view. #}
+{% macro key_row() -%}
+<div class="key-row small">
+  {% for level, (name, _text) in effort.items() %}<span><span class="effort e{{ level }}">{{ level }}</span> {{ _(name) }}</span>{% endfor %}
+  <span><span class="effort check">!</span> {{ _(fit['check'][0]) }}</span>
+  <span><span class="effort nofit">✕</span> {{ _(fit['no'][0]) }}</span>
+</div>
 {%- endmacro %}
 {% block body %}
 <main class="wrap page">
@@ -77,6 +90,41 @@
     </form>
   </div>
 
+  {% for brand, brand_ladders in ladders %}
+  <section class="stack brand-ladders">
+    <h2>{{ brand }}</h2>
+    {% for label, steps in brand_ladders %}
+    {% set ups = steps_up(steps) %}
+    <div class="ladder-block">
+      {% if brand_ladders|length > 1 %}<div class="ladder-label">{{ _(label) }}</div>{% endif %}
+      <div class="ladder" style="--steps: {{ steps|length }}">
+        {% for t, n in tier_spans(steps) %}<div class="tier-span{{ ' wide' if n > 1 }}" style="grid-column: span {{ n }}">{{ tier_badge(t, small=true) }}</div>{% endfor %}
+        <ol class="ladder-steps">
+        {% for s in steps %}
+        {% set up = loop.index0 and ups[loop.index0 - 1] %}
+        <li class="step{{ ' up' if up }}{{ ' level' if loop.index0 and not up }}"{% if loop.index0 and not up %} title="{{ _('Same level: {lower} to {upper} is no upgrade', lower=steps[loop.index0 - 1].name, upper=s.name) }}"{% endif %}>
+          {% if loop.index0 and not up %}<span class="sr-only">{{ _('Same level: {lower} to {upper} is no upgrade', lower=steps[loop.index0 - 1].name, upper=s.name) }}</span>{% endif %}
+          <div class="step-head"><span class="step-name">{{ s.name }}</span><span class="step-tier">{{ tier_badge(s.tier, small=true) }}</span></div>
+          <ul class="gens">
+            {% for g in s.gens %}
+            {% set p = by_key.get(g.key) %}
+            {% set here = current and current.key == g.key %}
+            {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
+            <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% if show == 'route' and g.key in route_keys %} data-route="{{ route_keys.index(g.key) }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}{{ ' off-route' if show == 'route' and p and g.key not in route_keys }}" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
+              <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% elif here %}<span class="yours">{{ _('Yours') }}</span>{% endif %}</span>
+              <span class="gen-facts">{{ facts(g) }} · {{ g.year }}</span>
+            </a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+        </ol>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+
   {% if current %}
   <section class="card" id="paths" style="view-transition-name: paths">
     <div class="stack" style="gap: 10px">
@@ -88,6 +136,7 @@
     </div>
     {% if show == 'route' %}
     {% if route %}
+    {{ key_row() }}
     <ol class="route">
       <li class="route-stop here"><span class="route-label">{{ _('Yours') }}</span><strong>{{ current.name }}</strong><span class="mono small">{{ facts(current) }}</span></li>
       {% for g, p in route %}
@@ -104,7 +153,7 @@
     {% else %}
     {% set own = paths|selectattr('0.brand', 'equalto', current.brand)|list %}
     {% set switch = paths|rejectattr('0.brand', 'equalto', current.brand)|list %}
-    {{ path_groups(own) }}
+    {{ path_groups(own, full=true) }}
     {% if not own %}<p>{{ _("This is the top of its line: nothing above it from {brand} in our list yet.", brand=current.brand) }}</p>{% endif %}
     {% if switch %}
     <details class="path-switch">
@@ -112,41 +161,15 @@
       {{ path_groups(switch) }}
     </details>
     {% endif %}
+    {% if down %}
+    <details class="path-switch">
+      <summary>{{ _('Downgrades: {n} options', n=down|length) }}</summary>
+      {{ path_groups(down) }}
+    </details>
+    {% endif %}
     {% endif %}
   </section>
   {% endif %}
-
-  {% for brand, brand_ladders in ladders %}
-  <section class="stack brand-ladders">
-    <h2>{{ brand }}</h2>
-    {% for label, steps in brand_ladders %}
-    <div class="ladder-block">
-      {% if brand_ladders|length > 1 %}<div class="ladder-label">{{ _(label) }}</div>{% endif %}
-      {% set linked = namespace(keys=[]) %}
-      <ol class="ladder">
-        {% for s in steps %}
-        <li class="step">
-          <div class="step-head"><span class="step-name">{{ s.name }}</span>{{ tier_badge(s.tier, small=true) }}</div>
-          <ul class="gens">
-            {% for g in s.gens %}
-            {% set p = by_key.get(g.key) %}
-            {% set here = current and current.key == g.key %}
-            {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
-            <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% if show == 'route' and g.key in route_keys %} data-route="{{ route_keys.index(g.key) }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}{{ ' off-route' if show == 'route' and p and g.key not in route_keys }}" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
-              <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% elif here %}<span class="yours">{{ _('Yours') }}</span>{% endif %}</span>
-              <span class="gen-facts">{{ facts(g) }} · {{ g.year }}</span>
-            </a></li>
-            {% endfor %}
-          </ul>
-          {% if s.catalog and counts.get(s.catalog) and s.catalog not in linked.keys %}{% set linked.keys = linked.keys + [s.catalog] %}
-          <a class="small" href="{{ url_for('catalog', groupset=s.catalog) }}">{{ _('{n} models with {groupset}', n=counts[s.catalog], groupset=catalog_names[s.catalog]) if counts[s.catalog] != 1 else _('1 model with {groupset}', groupset=catalog_names[s.catalog]) }}</a>{% endif %}
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
-    {% endfor %}
-  </section>
-  {% endfor %}
 
   {% set others = other_brands|selectattr(1, 'equalto', kind)|list %}
   {% if others %}
@@ -156,16 +179,10 @@
   </section>
   {% endif %}
 
-  <section class="card">
-    <h2>{{ _('How to read this') }}</h2>
-    <div class="kv">
-      {% for level, (name, text) in effort.items() %}<div><span class="effort e{{ level }}">{{ level }}</span> {{ _(name) }}</div><div>{{ _(text) }}</div>{% endfor %}
-      <div><span class="effort check">!</span> {{ _(fit['check'][0]) }}</div><div>{{ _(fit['check'][1]) }} {{ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.') }}</div>
-      <div><span class="effort nofit">✕</span> {{ _(fit['no'][0]) }}</div><div>{{ _(fit['no'][1]) }}</div>
-    </div>
-    <p class="small muted">{{ _('Each groupset carries the same spec tier as on the model pages.') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></p>
-    <p class="small muted">{{ _("Rules of thumb for swapping a whole groupset, from the makers' compatibility charts. Check the exact parts with your bike shop before you buy: frames, cranks and wheels have their own limits.") }}</p>
-  </section>
+  <div class="stack small muted" style="gap: 4px">
+    <p>{{ _('Each groupset carries the same spec tier as on the model pages.') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></p>
+    <p>{{ _("Rules of thumb for swapping a whole groupset, from the makers' compatibility charts. Check the exact parts with your bike shop before you buy: frames, cranks and wheels have their own limits.") }}</p>
+  </div>
 </main>
 <script src="{{ url_for('static', filename='groupsets.js') }}" defer></script>
 {% endblock %}

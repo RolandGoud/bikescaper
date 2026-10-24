@@ -441,25 +441,20 @@ def create_app(db_path=None):
         brand = current["brand"] if current else request.args.get("brand")
         brand = brand if brand in groupsets.LADDERS else next(iter(groupsets.LADDERS))
         kinds = [(key, label) for key, label in groupsets.DISCIPLINES if key in groupsets.LADDERS[brand]]
-        kind = current["discipline"] if current else request.args.get("type")
+        kind = current["kind"] if current else request.args.get("type")
         kind = kind if kind in dict(kinds) else kinds[0][0]
         paths = groupsets.upgrades(current["key"]) if current else []
+        down = groupsets.downgrades(current["key"]) if current else []
         show = "route" if request.args.get("show") == "route" else "all"  # every upgrade, or the easiest route
         route = groupsets.route(current["key"]) if current else []
-        counts = {}
-        for m in models():
-            key = groupset_key(m)
-            if key:
-                counts[key] = counts.get(key, 0) + 1
         return render_template("groupsets.html", kind=kind, current=current, paths=paths, show=show, route=route,
                                route_keys=[g["key"] for g, _p in route],
-                               by_key={g["key"]: p for g, p in paths}, ladders=groupsets.ladders(kind, brand),
+                               down=down, by_key={g["key"]: p for g, p in paths + down}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b))}
                                                      for b in groupsets.LADDERS], disciplines=kinds,
                                effort=groupsets.EFFORT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
-                               freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS, counts=counts,
-                               catalog_names={key: name for key, name, _p, _t in GROUPSETS},
-                               nav="groupsets")
+                               freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS,
+                               steps_up=groupsets.steps_up, tier_spans=groupsets.tier_spans, nav="groupsets")
 
     @app.route("/models/<slug>")
     def model_page(slug):
