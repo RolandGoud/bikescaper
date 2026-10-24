@@ -120,7 +120,11 @@ def trek_product(fetcher, code):
     images = [i["assetId"] for group in full.get("assetImageList") or [] for i in group.get("images") or []]
     # The side-on shot of the whole bike ("...-A-Primary"); the others are close-ups and portraits.
     primary = next((i for i in images if re.search(r"[-_]Primary$", i)), None)
+    # The colours it came in that year ("Crimson", "Plasma Pearl Grey/Purple Flip"), for dating an ad by its colour.
+    colours = [o["displayName"] for a in full.get("variantAttributesDirectory") or [] for o in a.get("options") or []
+               if o.get("colorSwatchName") and o.get("displayName")]
     return {"code": code, "name": full.get("name") or "", "years": trek_years(full.get("modelYearIntroAndCurrent")),
+            "colours": colours,
             "url": "https://www.trekbikes.com/nl/nl_NL" + (full.get("url") or f"/p/{code}/"),
             "sheet_years": full.get("modelYearIntroAndCurrent"), "specs": normalize_specs(pairs),
             "image_url": f"https://media.trekbikes.com/image/upload/f_png,w_1200/{primary}" if primary else None}
@@ -153,7 +157,7 @@ def trek_collect(models, fetcher, years, codes):
                     found.setdefault(name, {})[str(year)] = {
                         "captured": today, "url": p["url"], "source": "site", "sheet_years": p["sheet_years"],
                         "sheet_name": p["name"] if compact(p["name"]) != compact(name) else None,
-                        "specs": p["specs"], "price": None,
+                        "specs": p["specs"], "price": None, "colours": p["colours"],
                         "image": save_photo(fetcher, "Trek", compact(name), year, p["image_url"])}
         log.info("Trek %s: %s", name, sorted(found.get(name, {})))
     return found
@@ -178,7 +182,7 @@ def collect(brand, models, fetcher, years):
                 continue
             found.setdefault(name, {})[str(year)] = {
                 "captured": today, "url": page_url, "source": "site", "specs": specs,
-                "price": bike.get("price"),
+                "price": bike.get("price"), "colours": bike.get("color_names") or [],
                 "image": save_photo(fetcher, brand, compact(name), year, bike.get("image_url"))}
         log.info("%s %s: %s", brand, name, sorted(found.get(name, {})))
     return found

@@ -680,7 +680,9 @@ def test_year_estimate_combines_clues(models):
     assert (e["first"], e["last"], e["status"]) == (None, 2022, checks.OK)
     r = run(models, "Trek Domane SL 5 gen 4 2022", "Shimano 105 R7000")
     e = r["year_estimate"]
-    assert (e["first"], e["last"], e["status"]) == (2023, 2024, checks.WARN)
+    # The groupset says 2023-2024, and only the 2023 spec sheet has an R7000 groupset.
+    assert (e["first"], e["last"], e["status"]) == (2023, 2023, checks.WARN)
+    assert any("R7000" in en(x) for x in e["evidence"])
 
 
 def test_year_estimate_from_named_colourway(models):
@@ -857,3 +859,15 @@ def test_sheet_years_skip_predecessor_sheets(models):
                                               "2021": {"specs": {"Frame": "x"}}, "2022": {"unreadable": True}}})
     assert checks.sheet_years(m, TODAY)[0] == 2021
     assert checks.sheet_years(dict(m, year_specs={}), TODAY) is None
+
+
+def test_year_clues_from_the_spec_sheets_of_each_year(models):
+    m = dict(models[0], seen_on="2026-01-01", colorways=[], colors=[], specs={"Cassette": "Shimano 105, 11-36"},
+             year_specs={"years": {"2021": {"specs": {"Achterderailleur": "Shimano GRX RX810", "Cassette": "11-34"}, "colours": ["Carbon", "Matte Pennyflake"]},
+                                   "2023": {"specs": {"Achterderailleur": "Shimano GRX RX810", "Cassette": "11-34"}, "colours": ["Crimson"]},
+                                   "2025": {"specs": {"Achterderailleur": "Shimano GRX RX820", "Cassette": "11-36"}, "colours": ["Crimson"]}}})
+    clues = checks.sheet_clues(m, "Gravelbike met GRX RX810 en een 11-34 cassette, kleur matte pennyflake, carbon")
+    # 2022 and 2024 have no sheet, so maybe; the oldest sheet's year leaves the start open
+    assert [(a, b) for a, b, _m in clues] == [(None, 2024), (None, 2022)]
+    assert "RX810" in en(clues[0][2]) and "Pennyflake" in en(clues[1][2])
+    assert checks.sheet_clues(m, "Shimano 105, carbon") == []  # in every year, or a plain colour

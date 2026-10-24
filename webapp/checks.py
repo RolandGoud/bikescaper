@@ -618,6 +618,83 @@ def _named_colourways(model, models):
     return found.values()
 
 
+# Part numbers that change between model years: RX810, M7100, FC-R510, CL800, cassettes 11-34 or 11x34.
+PART_CODE = re.compile(r"\b(?:[a-z]{1,3}-?\d{3,4}[a-z]?|\d{2}[-x]\d{2})\b")
+YEAR_PARTS = ("Achterderailleur", "Voorderailleur", "Shifter", "Crankstel", "Cassette", "Ketting", "Rem", "Remgreep",
+              "Remschijf", "Wiel voor", "Wiel achter", "Velg", "Naven", "Buitenband", "Wheelset", "Aandrijving")
+
+
+def _part_codes(text):
+    return {c.replace("x", "-") if re.fullmatch(r"\d{2}[-x]\d{2}", c) else c.replace("-", "")
+            for c in PART_CODE.findall(_plain(text))
+            if not re.fullmatch(r"(?:19|20)\d\d", c)}
+
+
+def year_sheets(model):
+    """{year: {"specs", "colours"}} for every model year we have a spec sheet of, our own scrape included."""
+    out = {int(y): {"specs": e["specs"], "colours": e.get("colours") or []}
+           for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("specs")}
+    if model.get("seen_on") and model.get("specs"):
+        out[int(model["seen_on"][:4])] = {"specs": model["specs"],
+                                          "colours": [c["name"] for c in model.get("colorways") or []] or model.get("colors") or []}
+    return out
+
+
+def _widen(years, sheets):
+    """(first, last) of years, stretched over neighbouring years we have no sheet of: those may have had the same.
+    An end that reaches the oldest or newest sheet stays open (None): we don't know the years beyond."""
+    first, last = min(years), max(years)
+    while first - 1 >= min(sheets) and first - 1 not in sheets:
+        first -= 1
+    while last + 1 <= max(sheets) and last + 1 not in sheets:
+        last += 1
+    return (None if first <= min(sheets) else first), (None if last >= max(sheets) else last)
+
+
+# Colour names that say nothing about the year: the frame material and plain finishes.
+PLAIN_COLOURS = re.compile(r"^(?:carbon|raw|chrome|unpainted|black|zwart|gravel)$")  # Trek has a colour called Gravel
+
+
+def sheet_clues(model, text):
+    """Year windows from the spec sheets of each model year: the part numbers the ad names that only some
+    years' sheets have, and a colour name the ad uses that only some years came in. [(first, last, Msg)]."""
+    sheets = year_sheets(model)
+    if len(sheets) < 2:
+        return []
+    low, clues = _plain(text), []
+    codes = {y: set().union(*(_part_codes(v) for k, v in s["specs"].items() if k in YEAR_PARTS)) for y, s in sheets.items()}
+    every = set.intersection(*codes.values())
+    named = _part_codes(low) - every
+    hits = {y: c & named for y, c in codes.items() if c & named}
+    if hits:
+        best = max(len(c) for c in hits.values())
+        years = sorted(y for y, c in hits.items() if len(c) == best)
+        parts = sorted(set().union(*(hits[y] for y in years)))
+        # A sheet that gives no part number for those parts (just "Shimano 105 Di2") doesn't rule its year out.
+        labels = {k for s in sheets.values() for k, v in s["specs"].items() if k in YEAR_PARTS and _part_codes(v) & named}
+        known = {y for y, s in sheets.items() if any(_part_codes(v) for k, v in s["specs"].items() if k in labels)}
+        first, last = _widen(years, known | set(years))
+        if first or last:
+            clues.append((first, last, Msg("Parts {parts} are on the {years} spec sheets.",
+                                           parts=", ".join(p.upper() for p in parts), years=_span(years[0], years[-1]))))
+    # Only the years we know the colours of: a sheet without them says nothing about a colour.
+    dated = {y: s for y, s in sheets.items() if s["colours"]}
+    colours = {}
+    for y, s in dated.items() if len(dated) > 1 else ():
+        for c in s["colours"]:
+            words = re.findall(r"[a-z]+", _plain(c))
+            if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
+                colours.setdefault(" ".join(words), (c, set()))[1].add(y)
+    for key, (name, years) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first
+        if len(years) < len(dated) and re.search(rf"\b{re.escape(key)}\b", re.sub(r"[^a-z]+", " ", low)):
+            first, last = _widen(years, dated)
+            if first or last:
+                clues.append((first, last, Msg("Colour '{colour}' was sold in {years}.", colour=name,
+                                               years=_span(min(years), max(years)))))
+            break
+    return clues
+
+
 def estimate_year(model, models, claims, text):
     """The model years the ad's own details allow, and whether the claimed year fits them.
 
@@ -639,7 +716,9 @@ def estimate_year(model, models, claims, text):
     if claims["brakes"] == "Rim" and (claims["material"] == "Carbon" or ref_material(model) == "Carbon"):
         clues.append((None, RIM_BRAKE_LAST_YEAR, Msg("Rim brakes on a carbon road bike: {year} or older.",
                                                      year=RIM_BRAKE_LAST_YEAR)))
-    for name, year in _named_colourways(model, models):
+    sheet = sheet_clues(model, text)
+    clues += sheet
+    for name, year in [] if any(c[2].text.startswith("Colour") for c in sheet) else _named_colourways(model, models):
         if re.search(rf"\b{re.escape(_plain(name))}\b", low):
             clues.append((year - 1, year + 1, Msg("Colour '{colour}' is in {brand}'s {year} photos.",
                                                   colour=name, brand=model["brand"], year=year)))

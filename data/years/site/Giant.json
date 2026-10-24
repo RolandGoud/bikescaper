@@ -3,8 +3,11 @@
  "models": {
   "Contend AR 1": {
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar1_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Metallic Navy"
+    ],
+    "image": "Giant/years/contendar1_2021_site.jpg",
     "price": 1549.0,
     "source": "site",
     "specs": {
@@ -35,8 +38,11 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-1-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar1_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black"
+    ],
+    "image": "Giant/years/contendar1_2022_site.jpg",
     "price": 1799.0,
     "source": "site",
     "specs": {
@@ -68,8 +74,12 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-1-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Sea Sparkle",
+     "Panther"
+    ],
+    "image": "Giant/years/contendar1_2024_site.jpg",
     "price": 1799.0,
     "source": "site",
     "specs": {
@@ -101,8 +111,11 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Frost Silver/Chrome"
+    ],
+    "image": "Giant/years/contendar1_2025_site.jpg",
     "price": 1799.0,
     "source": "site",
     "specs": {
@@ -135,8 +148,11 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-1-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Abyss Black"
+    ],
+    "image": "Giant/years/contendar1_2026_site.jpg",
     "price": 1799.0,
     "source": "site",
     "specs": {
@@ -170,8 +186,11 @@
   },
   "Contend AR 3": {
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar3_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Metallic Black/Rainbow White"
+    ],
+    "image": "Giant/years/contendar3_2021_site.jpg",
     "price": 1049.0,
     "source": "site",
     "specs": {
@@ -202,8 +221,11 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-3-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar3_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black Chrome"
+    ],
+    "image": "Giant/years/contendar3_2022_site.jpg",
     "price": 1199.0,
     "source": "site",
     "specs": {
@@ -235,8 +257,12 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-3-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar3_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Aged Denim",
+     "Charcoal"
+    ],
+    "image": "Giant/years/contendar3_2024_site.jpg",
     "price": 1199.0,
     "source": "site",
     "specs": {
@@ -268,8 +294,11 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-3-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/contendar3_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black"
+    ],
+    "image": "Giant/years/contendar3_2025_site.jpg",
     "price": 1199.0,
     "source": "site",
     "specs": {
@@ -304,8 +333,11 @@
   },
   "Defy Advanced 0": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced0_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Ocean Twilight/Chrome"
+    ],
+    "image": "Giant/years/defyadvanced0_2025_site.jpg",
     "price": 4099.0,
     "source": "site",
     "specs": {
@@ -337,8 +369,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-0-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced0_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Meteorite Mist"
+    ],
+    "image": "Giant/years/defyadvanced0_2026_site.jpg",
     "price": 3999.0,
     "source": "site",
     "specs": {
@@ -372,6 +407,9 @@
   "Defy Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/defyadvanced1_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -401,6 +439,9 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/Yellow/Charcoal"
+    ],
     "image": "Giant/years/defyadvanced1_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -430,6 +471,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Pure Red"
+    ],
     "image": "Giant/years/defyadvanced1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -460,8 +504,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-1-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced1_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Charcoal / Pure Red"
+    ],
+    "image": "Giant/years/defyadvanced1_2020_site.jpg",
     "price": 2499.0,
     "source": "site",
     "specs": {
@@ -491,8 +538,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-1-2020"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced1_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Charcoal/Chrome"
+    ],
+    "image": "Giant/years/defyadvanced1_2021_site.jpg",
     "price": 2599.0,
     "source": "site",
     "specs": {
@@ -523,8 +573,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-1-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced1_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Starry Night"
+    ],
+    "image": "Giant/years/defyadvanced1_2022_site.jpg",
     "price": 2949.0,
     "source": "site",
     "specs": {
@@ -556,8 +609,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-1-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Charcoal/Milky Way"
+    ],
+    "image": "Giant/years/defyadvanced1_2024_site.jpg",
     "price": 3599.0,
     "source": "site",
     "specs": {
@@ -589,8 +645,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Frost Silver/Cordovan"
+    ],
+    "image": "Giant/years/defyadvanced1_2025_site.jpg",
     "price": 3599.0,
     "source": "site",
     "specs": {
@@ -622,8 +681,12 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-1-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Thundercloud/Chrome",
+     "Cyber Lime"
+    ],
+    "image": "Giant/years/defyadvanced1_2026_site.jpg",
     "price": 3599.0,
     "source": "site",
     "specs": {
@@ -659,6 +722,9 @@
   "Defy Advanced 2": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/defyadvanced2_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -688,6 +754,10 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Neon Green/Black",
+     "Carbon Smoke/Neon Orange/Charcoal"
+    ],
     "image": "Giant/years/defyadvanced2_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -718,6 +788,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Gray / Gun Metal Black"
+    ],
     "image": "Giant/years/defyadvanced2_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -748,8 +821,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-2-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced2_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Gunmetal Black / Metallic Orange"
+    ],
+    "image": "Giant/years/defyadvanced2_2020_site.jpg",
     "price": 2099.0,
     "source": "site",
     "specs": {
@@ -779,8 +855,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-2-2020"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced2_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Charcoal"
+    ],
+    "image": "Giant/years/defyadvanced2_2021_site.jpg",
     "price": 2199.0,
     "source": "site",
     "specs": {
@@ -811,8 +890,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-2-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced2_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Deep Lake / Black"
+    ],
+    "image": "Giant/years/defyadvanced2_2022_site.jpg",
     "price": 2549.0,
     "source": "site",
     "specs": {
@@ -844,8 +926,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-2-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced2_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Tiger Red/Dried Chili"
+    ],
+    "image": "Giant/years/defyadvanced2_2024_site.jpg",
     "price": 2799.0,
     "source": "site",
     "specs": {
@@ -877,8 +962,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-2-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon"
+    ],
+    "image": "Giant/years/defyadvanced2_2025_site.jpg",
     "price": 2799.0,
     "source": "site",
     "specs": {
@@ -909,8 +997,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-2-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced2_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Abyss Black/Chrome"
+    ],
+    "image": "Giant/years/defyadvanced2_2026_site.jpg",
     "price": 2799.0,
     "source": "site",
     "specs": {
@@ -944,6 +1035,9 @@
   "Defy Advanced 3": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/defyadvanced3_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -973,6 +1067,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Orange",
+     "Carbon"
+    ],
     "image": "Giant/years/defyadvanced3_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -1003,8 +1101,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-3-2019"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvanced3_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Charcoal/Black/Chameleon Galaxy"
+    ],
+    "image": "Giant/years/defyadvanced3_2021_site.jpg",
     "price": 1999.0,
     "source": "site",
     "specs": {
@@ -1038,6 +1139,9 @@
   "Defy Advanced Pro 0": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/defyadvancedpro0_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -1068,6 +1172,9 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/Chrome/Charcoal"
+    ],
     "image": "Giant/years/defyadvancedpro0_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -1098,6 +1205,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Gun Metal Black / Iris"
+    ],
     "image": "Giant/years/defyadvancedpro0_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -1129,8 +1239,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-2019"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro0_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Matte Chrysocolla/Gloss Chrysocolla"
+    ],
+    "image": "Giant/years/defyadvancedpro0_2021_site.jpg",
     "price": 7599.0,
     "source": "site",
     "specs": {
@@ -1161,8 +1274,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-2021"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro0_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/BlueDragonfly"
+    ],
+    "image": "Giant/years/defyadvancedpro0_2024_site.jpg",
     "price": 6399.0,
     "source": "site",
     "specs": {
@@ -1194,8 +1310,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro0_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Interstellar"
+    ],
+    "image": "Giant/years/defyadvancedpro0_2025_site.jpg",
     "price": 6399.0,
     "source": "site",
     "specs": {
@@ -1227,8 +1346,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro0_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Mariana Blue"
+    ],
+    "image": "Giant/years/defyadvancedpro0_2026_site.jpg",
     "price": 6599.0,
     "source": "site",
     "specs": {
@@ -1262,6 +1384,9 @@
   "Defy Advanced Pro 1": {
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Electric Blue"
+    ],
     "image": "Giant/years/defyadvancedpro1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -1293,8 +1418,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-2019"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro1_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Knight Shield / Black Diamond / Chrome"
+    ],
+    "image": "Giant/years/defyadvancedpro1_2022_site.jpg",
     "price": 5399.0,
     "source": "site",
     "specs": {
@@ -1326,8 +1454,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-2022"
    },
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro1_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Airglow/Black"
+    ],
+    "image": "Giant/years/defyadvancedpro1_2023_site.jpg",
     "price": 5499.0,
     "source": "site",
     "specs": {
@@ -1359,8 +1490,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-2023"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Unicorn White/Black/Chrome"
+    ],
+    "image": "Giant/years/defyadvancedpro1_2024_site.jpg",
     "price": 4899.0,
     "source": "site",
     "specs": {
@@ -1392,8 +1526,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Meteor Storm"
+    ],
+    "image": "Giant/years/defyadvancedpro1_2025_site.jpg",
     "price": 5199.0,
     "source": "site",
     "specs": {
@@ -1424,8 +1561,11 @@
     "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/defyadvancedpro1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "White/Iris"
+    ],
+    "image": "Giant/years/defyadvancedpro1_2026_site.jpg",
     "price": 5199.0,
     "source": "site",
     "specs": {
@@ -1459,8 +1599,11 @@
   },
   "FastRoad AR 1": {
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/fastroadar1_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Aged Denim"
+    ],
+    "image": "Giant/years/fastroadar1_2023_site.jpg",
     "price": 1399.0,
     "source": "site",
     "specs": {
@@ -1492,8 +1635,11 @@
     "url": "https://www.giant-bicycles.com/nl/fastroad-ar-1-2023"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/fastroadar1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Sandshell"
+    ],
+    "image": "Giant/years/fastroadar1_2024_site.jpg",
     "price": 1399.0,
     "source": "site",
     "specs": {
@@ -1525,8 +1671,11 @@
     "url": "https://www.giant-bicycles.com/nl/fastroad-ar-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/fastroadar1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Electron Blue"
+    ],
+    "image": "Giant/years/fastroadar1_2025_site.jpg",
     "price": 1399.0,
     "source": "site",
     "specs": {
@@ -1561,8 +1710,11 @@
   },
   "FastRoad AR 2": {
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/fastroadar2_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Panther"
+    ],
+    "image": "Giant/years/fastroadar2_2024_site.jpg",
     "price": 1199.0,
     "source": "site",
     "specs": {
@@ -1594,8 +1746,11 @@
     "url": "https://www.giant-bicycles.com/nl/fastroad-ar-2-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/fastroadar2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Glacier Silver"
+    ],
+    "image": "Giant/years/fastroadar2_2025_site.jpg",
     "price": 1199.0,
     "source": "site",
     "specs": {
@@ -1631,6 +1786,9 @@
   "Propel Advanced 0": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/propeladvanced0_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -1660,6 +1818,9 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/titanium Silver"
+    ],
     "image": "Giant/years/propeladvanced0_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -1689,6 +1850,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Neon Yellow / Black"
+    ],
     "image": "Giant/years/propeladvanced0_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -1722,6 +1886,9 @@
   "Propel Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp/Blue"
+    ],
     "image": "Giant/years/propeladvanced1_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -1751,6 +1918,9 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/Green"
+    ],
     "image": "Giant/years/propeladvanced1_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -1780,6 +1950,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Pure Red"
+    ],
     "image": "Giant/years/propeladvanced1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -1810,8 +1983,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-1-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced1_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "White / Chameleon Blue"
+    ],
+    "image": "Giant/years/propeladvanced1_2020_site.jpg",
     "price": 2299.0,
     "source": "site",
     "specs": {
@@ -1841,8 +2017,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-1-2020"
    },
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced1_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Orion Nebula"
+    ],
+    "image": "Giant/years/propeladvanced1_2023_site.jpg",
     "price": 4799.0,
     "source": "site",
     "specs": {
@@ -1875,8 +2054,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-1-2023"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Aerospace Blue/Chrome"
+    ],
+    "image": "Giant/years/propeladvanced1_2024_site.jpg",
     "price": 4799.0,
     "source": "site",
     "specs": {
@@ -1909,8 +2091,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Blue Dragonfly"
+    ],
+    "image": "Giant/years/propeladvanced1_2025_site.jpg",
     "price": 4399.0,
     "source": "site",
     "specs": {
@@ -1945,6 +2130,9 @@
   "Propel Advanced 2": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/propeladvanced2_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -1974,6 +2162,9 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Neon Red/Black"
+    ],
     "image": "Giant/years/propeladvanced2_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -2003,6 +2194,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Vibrant Blue"
+    ],
     "image": "Giant/years/propeladvanced2_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -2033,8 +2227,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-2-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced2_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Matte Charcoal / Gloss Metallic Lime"
+    ],
+    "image": "Giant/years/propeladvanced2_2020_site.jpg",
     "price": 1899.0,
     "source": "site",
     "specs": {
@@ -2064,8 +2261,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-2-2020"
    },
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced2_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Cobalt"
+    ],
+    "image": "Giant/years/propeladvanced2_2023_site.jpg",
     "price": 2999.0,
     "source": "site",
     "specs": {
@@ -2098,8 +2298,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-2-2023"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced2_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Pure Red"
+    ],
+    "image": "Giant/years/propeladvanced2_2024_site.jpg",
     "price": 2999.0,
     "source": "site",
     "specs": {
@@ -2132,8 +2335,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-2-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvanced2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Chrome"
+    ],
+    "image": "Giant/years/propeladvanced2_2025_site.jpg",
     "price": 2999.0,
     "source": "site",
     "specs": {
@@ -2167,8 +2373,11 @@
   },
   "Propel Advanced Pro 0-Di2": {
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvancedpro0di2_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black Currant/Chrome"
+    ],
+    "image": "Giant/years/propeladvancedpro0di2_2023_site.jpg",
     "price": 6599.0,
     "source": "site",
     "specs": {
@@ -2201,8 +2410,12 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-di2-2023"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvancedpro0di2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Ocean Twilight/Chrome",
+     "Mercury"
+    ],
+    "image": "Giant/years/propeladvancedpro0di2_2025_site.jpg",
     "price": 6599.0,
     "source": "site",
     "specs": {
@@ -2237,6 +2450,9 @@
   "Propel Advanced Pro 1": {
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Metallic Black / Glacier Silver"
+    ],
     "image": "Giant/years/propeladvancedpro1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -2268,8 +2484,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-1-2019"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvancedpro1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Matte Carbon/Gloss Black"
+    ],
+    "image": "Giant/years/propeladvancedpro1_2024_site.jpg",
     "price": 5599.0,
     "source": "site",
     "specs": {
@@ -2302,8 +2521,11 @@
     "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/propeladvancedpro1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Frost Silver"
+    ],
+    "image": "Giant/years/propeladvancedpro1_2025_site.jpg",
     "price": 5599.0,
     "source": "site",
     "specs": {
@@ -2337,8 +2559,11 @@
   },
   "Revolt 0": {
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt0_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Gray Beige"
+    ],
+    "image": "Giant/years/revolt0_2020_site.jpg",
     "price": 1599.0,
     "source": "site",
     "specs": {
@@ -2368,8 +2593,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-0-2020"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt0_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Gunmetal Black"
+    ],
+    "image": "Giant/years/revolt0_2021_site.jpg",
     "price": 1649.0,
     "source": "site",
     "specs": {
@@ -2399,8 +2627,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-0-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt0_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black"
+    ],
+    "image": "Giant/years/revolt0_2022_site.jpg",
     "price": 1899.0,
     "source": "site",
     "specs": {
@@ -2432,8 +2663,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-0-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt0_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Blue Dragonfly",
+     "Pyrite Brown"
+    ],
+    "image": "Giant/years/revolt0_2024_site.jpg",
     "price": 1899.0,
     "source": "site",
     "specs": {
@@ -2465,8 +2700,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-0-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt0_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black/Moonstone",
+     "Mars Dust"
+    ],
+    "image": "Giant/years/revolt0_2025_site.jpg",
     "price": 1899.0,
     "source": "site",
     "specs": {
@@ -2497,8 +2736,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-0-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt0_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Stealth Chrome"
+    ],
+    "image": "Giant/years/revolt0_2026_site.jpg",
     "price": 1999.0,
     "source": "site",
     "specs": {
@@ -2531,8 +2773,11 @@
   },
   "Revolt 1": {
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt1_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Gunmetal Black"
+    ],
+    "image": "Giant/years/revolt1_2020_site.jpg",
     "price": 1299.0,
     "source": "site",
     "specs": {
@@ -2562,8 +2807,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-1-2020"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt1_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Desert Sage"
+    ],
+    "image": "Giant/years/revolt1_2021_site.jpg",
     "price": 1449.0,
     "source": "site",
     "specs": {
@@ -2593,8 +2841,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-1-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt1_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Deep Lake"
+    ],
+    "image": "Giant/years/revolt1_2022_site.jpg",
     "price": 1699.0,
     "source": "site",
     "specs": {
@@ -2626,8 +2877,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-1-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Cordovan",
+     "Aerospace Blue"
+    ],
+    "image": "Giant/years/revolt1_2024_site.jpg",
     "price": 1749.0,
     "source": "site",
     "specs": {
@@ -2659,8 +2914,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Metal/Shoreline"
+    ],
+    "image": "Giant/years/revolt1_2025_site.jpg",
     "price": 1749.0,
     "source": "site",
     "specs": {
@@ -2691,8 +2949,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-1-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Alpine Green"
+    ],
+    "image": "Giant/years/revolt1_2026_site.jpg",
     "price": 1749.0,
     "source": "site",
     "specs": {
@@ -2725,8 +2986,11 @@
   },
   "Revolt 2": {
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt2_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black Diamond"
+    ],
+    "image": "Giant/years/revolt2_2022_site.jpg",
     "price": 1399.0,
     "source": "site",
     "specs": {
@@ -2758,8 +3022,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-2-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt2_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Metallic Black"
+    ],
+    "image": "Giant/years/revolt2_2024_site.jpg",
     "price": 1399.0,
     "source": "site",
     "specs": {
@@ -2791,8 +3058,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-2-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revolt2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Asphalt Green"
+    ],
+    "image": "Giant/years/revolt2_2025_site.jpg",
     "price": 1499.0,
     "source": "site",
     "specs": {
@@ -2826,6 +3096,9 @@
   "Revolt Advanced 0": {
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Matte Carbon / Gloss Carbon"
+    ],
     "image": "Giant/years/revoltadvanced0_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -2856,8 +3129,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Gray Teal"
+    ],
+    "image": "Giant/years/revoltadvanced0_2020_site.jpg",
     "price": 3599.0,
     "source": "site",
     "specs": {
@@ -2887,8 +3163,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2020"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Balsam Green"
+    ],
+    "image": "Giant/years/revoltadvanced0_2021_site.jpg",
     "price": 3699.0,
     "source": "site",
     "specs": {
@@ -2918,8 +3197,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Knight Shield"
+    ],
+    "image": "Giant/years/revoltadvanced0_2022_site.jpg",
     "price": 4199.0,
     "source": "site",
     "specs": {
@@ -2951,8 +3233,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2022"
    },
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Charcoal Plum"
+    ],
+    "image": "Giant/years/revoltadvanced0_2023_site.jpg",
     "price": 4299.0,
     "source": "site",
     "specs": {
@@ -2984,8 +3269,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2023"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon"
+    ],
+    "image": "Giant/years/revoltadvanced0_2024_site.jpg",
     "price": 4299.0,
     "source": "site",
     "specs": {
@@ -3017,8 +3305,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Aurora Noise"
+    ],
+    "image": "Giant/years/revoltadvanced0_2025_site.jpg",
     "price": 4399.0,
     "source": "site",
     "specs": {
@@ -3049,8 +3340,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-0-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced0_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Snow Drift"
+    ],
+    "image": "Giant/years/revoltadvanced0_2026_site.jpg",
     "price": 4299.0,
     "source": "site",
     "specs": {
@@ -3085,6 +3379,9 @@
   "Revolt Advanced 1": {
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Gray / Olive / Chrome"
+    ],
     "image": "Giant/years/revoltadvanced1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -3115,8 +3412,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-1-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced1_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Wine Purple"
+    ],
+    "image": "Giant/years/revoltadvanced1_2020_site.jpg",
     "price": 2499.0,
     "source": "site",
     "specs": {
@@ -3147,8 +3447,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-1-2020"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced1_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Phantom Green"
+    ],
+    "image": "Giant/years/revoltadvanced1_2022_site.jpg",
     "price": 3699.0,
     "source": "site",
     "specs": {
@@ -3180,8 +3483,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-1-2022"
    },
    "2023": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced1_2023.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Cordovan"
+    ],
+    "image": "Giant/years/revoltadvanced1_2023_site.jpg",
     "price": 3299.0,
     "source": "site",
     "specs": {
@@ -3214,8 +3520,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-1-2023"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Blue Ashes"
+    ],
+    "image": "Giant/years/revoltadvanced1_2024_site.jpg",
     "price": 3299.0,
     "source": "site",
     "specs": {
@@ -3247,8 +3556,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Ocean Twilight"
+    ],
+    "image": "Giant/years/revoltadvanced1_2025_site.jpg",
     "price": 3299.0,
     "source": "site",
     "specs": {
@@ -3278,8 +3590,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-1-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Midnight Moon"
+    ],
+    "image": "Giant/years/revoltadvanced1_2026_site.jpg",
     "price": 3399.0,
     "source": "site",
     "specs": {
@@ -3314,6 +3629,9 @@
   "Revolt Advanced 2": {
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Metallic Orange / Gun Metal Black"
+    ],
     "image": "Giant/years/revoltadvanced2_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -3344,8 +3662,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-2-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced2_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Gray Beige",
+     "Blue Atoll"
+    ],
+    "image": "Giant/years/revoltadvanced2_2020_site.jpg",
     "price": 2199.0,
     "source": "site",
     "specs": {
@@ -3375,8 +3697,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-2-2020"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced2_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Rosewood"
+    ],
+    "image": "Giant/years/revoltadvanced2_2021_site.jpg",
     "price": 2599.0,
     "source": "site",
     "specs": {
@@ -3406,8 +3731,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-2-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced2_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Starry Night / Chameleon Neptune",
+     "Panther / Chameleon Saturn"
+    ],
+    "image": "Giant/years/revoltadvanced2_2022_site.jpg",
     "price": 2899.0,
     "source": "site",
     "specs": {
@@ -3439,8 +3768,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-2-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced2_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Golden Haze",
+     "Panther"
+    ],
+    "image": "Giant/years/revoltadvanced2_2024_site.jpg",
     "price": 2899.0,
     "source": "site",
     "specs": {
@@ -3472,8 +3805,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-2-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon",
+     "Solar Flare"
+    ],
+    "image": "Giant/years/revoltadvanced2_2025_site.jpg",
     "price": 2999.0,
     "source": "site",
     "specs": {
@@ -3504,8 +3841,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-2-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced2_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon",
+     "Lavender Blush"
+    ],
+    "image": "Giant/years/revoltadvanced2_2026_site.jpg",
     "price": 2999.0,
     "source": "site",
     "specs": {
@@ -3538,8 +3879,11 @@
   },
   "Revolt Advanced 3": {
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced3_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Dusty Blue"
+    ],
+    "image": "Giant/years/revoltadvanced3_2021_site.jpg",
     "price": 2299.0,
     "source": "site",
     "specs": {
@@ -3569,8 +3913,12 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-3-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced3_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon",
+     "Terracotta"
+    ],
+    "image": "Giant/years/revoltadvanced3_2022_site.jpg",
     "price": 2599.0,
     "source": "site",
     "specs": {
@@ -3602,8 +3950,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-3-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced3_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Metallic Black"
+    ],
+    "image": "Giant/years/revoltadvanced3_2024_site.jpg",
     "price": 2599.0,
     "source": "site",
     "specs": {
@@ -3635,8 +3986,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-3-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced3_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Panther"
+    ],
+    "image": "Giant/years/revoltadvanced3_2025_site.jpg",
     "price": 2599.0,
     "source": "site",
     "specs": {
@@ -3667,8 +4021,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-3-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvanced3_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Aquarium"
+    ],
+    "image": "Giant/years/revoltadvanced3_2026_site.jpg",
     "price": 2599.0,
     "source": "site",
     "specs": {
@@ -3701,8 +4058,11 @@
   },
   "Revolt Advanced Pro 0": {
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro0_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Cosmos Navy"
+    ],
+    "image": "Giant/years/revoltadvancedpro0_2021_site.jpg",
     "price": 4999.0,
     "source": "site",
     "specs": {
@@ -3732,8 +4092,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-0-2021"
    },
    "2022": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro0_2022.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Dark Red / Grenadine"
+    ],
+    "image": "Giant/years/revoltadvancedpro0_2022_site.jpg",
     "price": 5599.0,
     "source": "site",
     "specs": {
@@ -3765,8 +4128,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-0-2022"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro0_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Digital Blurple/Iris"
+    ],
+    "image": "Giant/years/revoltadvancedpro0_2024_site.jpg",
     "price": 6799.0,
     "source": "site",
     "specs": {
@@ -3798,8 +4164,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-0-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro0_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Interstellar/Chrome"
+    ],
+    "image": "Giant/years/revoltadvancedpro0_2025_site.jpg",
     "price": 6699.0,
     "source": "site",
     "specs": {
@@ -3830,8 +4199,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-0-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro0_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Cyber Lime"
+    ],
+    "image": "Giant/years/revoltadvancedpro0_2026_site.jpg",
     "price": 6699.0,
     "source": "site",
     "specs": {
@@ -3865,8 +4237,11 @@
   },
   "Revolt Advanced Pro 1": {
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro1_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Chameleon Mars"
+    ],
+    "image": "Giant/years/revoltadvancedpro1_2021_site.jpg",
     "price": 4899.0,
     "source": "site",
     "specs": {
@@ -3896,8 +4271,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-1-2021"
    },
    "2024": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro1_2024.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Blue Dragonfly/Chrome"
+    ],
+    "image": "Giant/years/revoltadvancedpro1_2024_site.jpg",
     "price": 5699.0,
     "source": "site",
     "specs": {
@@ -3929,8 +4307,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-1-2024"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Meteor Storm"
+    ],
+    "image": "Giant/years/revoltadvancedpro1_2025_site.jpg",
     "price": 5799.0,
     "source": "site",
     "specs": {
@@ -3961,8 +4342,11 @@
     "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-1-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/revoltadvancedpro1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Ocean Twilight/Chrome"
+    ],
+    "image": "Giant/years/revoltadvancedpro1_2026_site.jpg",
     "price": 5699.0,
     "source": "site",
     "specs": {
@@ -3996,6 +4380,9 @@
   "TCR Advanced 0": {
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/ Yellow/Charcoal"
+    ],
     "image": "Giant/years/tcradvanced0_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -4025,6 +4412,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Pure Red / Chrome"
+    ],
     "image": "Giant/years/tcradvanced0_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -4055,8 +4445,11 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2019"
    },
    "2020": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced0_2020.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Chameleon Blue"
+    ],
+    "image": "Giant/years/tcradvanced0_2020_site.jpg",
     "price": 3299.0,
     "source": "site",
     "specs": {
@@ -4086,8 +4479,11 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2020"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced0_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Alpine Green"
+    ],
+    "image": "Giant/years/tcradvanced0_2026_site.jpg",
     "price": 3999.0,
     "source": "site",
     "specs": {
@@ -4121,6 +4517,9 @@
   "TCR Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/tcradvanced1_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -4150,6 +4549,9 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/Neon Orange/Charcoal"
+    ],
     "image": "Giant/years/tcradvanced1_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -4179,6 +4581,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Charcoal / Black / Gold"
+    ],
     "image": "Giant/years/tcradvanced1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -4209,8 +4614,11 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2019"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced1_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Matte Carbon/Gloss Unicorn White"
+    ],
+    "image": "Giant/years/tcradvanced1_2021_site.jpg",
     "price": 2299.0,
     "source": "site",
     "specs": {
@@ -4240,8 +4648,12 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2021"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced1_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Purple Haze/Ultra Violet",
+     "Dreamy Blue"
+    ],
+    "image": "Giant/years/tcradvanced1_2026_site.jpg",
     "price": 3499.0,
     "source": "site",
     "specs": {
@@ -4276,6 +4688,9 @@
   "TCR Advanced 2": {
    "2017": {
     "captured": "2026-10-24",
+    "colours": [
+     "Comp"
+    ],
     "image": "Giant/years/tcradvanced2_2017_site.jpg",
     "price": null,
     "source": "site",
@@ -4305,6 +4720,10 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/Green/Gray",
+     "Matt/Neon Red/Black"
+    ],
     "image": "Giant/years/tcradvanced2_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -4335,6 +4754,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Metallic Black / Silver / Pure Red",
+     "Electric Blue / Metallic Green"
+    ],
     "image": "Giant/years/tcradvanced2_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -4365,8 +4788,12 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2019"
    },
    "2021": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced2_2021.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon",
+     "Unicorn White"
+    ],
+    "image": "Giant/years/tcradvanced2_2021_site.jpg",
     "price": 1899.0,
     "source": "site",
     "specs": {
@@ -4396,8 +4823,12 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2021"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon",
+     "Illusion White"
+    ],
+    "image": "Giant/years/tcradvanced2_2025_site.jpg",
     "price": 2799.0,
     "source": "site",
     "specs": {
@@ -4429,8 +4860,12 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvanced2_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Stealth Chrome",
+     "Capri Blue"
+    ],
+    "image": "Giant/years/tcradvanced2_2026_site.jpg",
     "price": 2799.0,
     "source": "site",
     "specs": {
@@ -4464,8 +4899,11 @@
   },
   "TCR Advanced Pro (Dura-Ace)": {
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedproduraace_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black/Rosso Corsa"
+    ],
+    "image": "Giant/years/tcradvancedproduraace_2026_site.jpg",
     "price": 7999.0,
     "source": "site",
     "specs": {
@@ -4500,8 +4938,12 @@
   },
   "TCR Advanced Pro 0 AXS": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedpro0axs_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Ocean Twilight / Glare Chrome",
+     "Mercury / Glare Chrome"
+    ],
+    "image": "Giant/years/tcradvancedpro0axs_2025_site.jpg",
     "price": 6999.0,
     "source": "site",
     "specs": {
@@ -4535,8 +4977,11 @@
   },
   "TCR Advanced Pro 0-Di2": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedpro0di2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Ocean Twilight / Glare Chrome"
+    ],
+    "image": "Giant/years/tcradvancedpro0di2_2025_site.jpg",
     "price": 6499.0,
     "source": "site",
     "specs": {
@@ -4570,8 +5015,11 @@
   },
   "TCR Advanced Pro 1 AXS": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedpro1axs_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Chrome"
+    ],
+    "image": "Giant/years/tcradvancedpro1axs_2025_site.jpg",
     "price": 5099.0,
     "source": "site",
     "specs": {
@@ -4605,8 +5053,11 @@
   },
   "TCR Advanced Pro 1 Di2": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedpro1di2_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Chrome"
+    ],
+    "image": "Giant/years/tcradvancedpro1di2_2025_site.jpg",
     "price": 4899.0,
     "source": "site",
     "specs": {
@@ -4638,8 +5089,11 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-1-di2-2025"
    },
    "2026": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedpro1di2_2026.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Tech Silver"
+    ],
+    "image": "Giant/years/tcradvancedpro1di2_2026_site.jpg",
     "price": 4899.0,
     "source": "site",
     "specs": {
@@ -4672,8 +5126,11 @@
   },
   "TCR Advanced SL 0 DA": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedsl0da_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black Lava / Iris"
+    ],
+    "image": "Giant/years/tcradvancedsl0da_2025_site.jpg",
     "price": 12299.0,
     "source": "site",
     "specs": {
@@ -4708,6 +5165,9 @@
   "TCR Advanced SL 0 Red": {
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon / Reflective Gray / Pure Red"
+    ],
     "image": "Giant/years/tcradvancedsl0red_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -4739,8 +5199,11 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-sl-0-red-2019"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedsl0red_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Black Lava"
+    ],
+    "image": "Giant/years/tcradvancedsl0red_2025_site.jpg",
     "price": 12499.0,
     "source": "site",
     "specs": {
@@ -4776,6 +5239,9 @@
   "TCR Advanced SL 1": {
    "2018": {
     "captured": "2026-10-24",
+    "colours": [
+     "Carbon Smoke/Neon Green"
+    ],
     "image": "Giant/years/tcradvancedsl1_2018_site.jpg",
     "price": null,
     "source": "site",
@@ -4806,6 +5272,9 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colours": [
+     "Gun Metal Black / Light Blue / Chrome"
+    ],
     "image": "Giant/years/tcradvancedsl1_2019_site.jpg",
     "price": null,
     "source": "site",
@@ -4837,8 +5306,11 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-sl-1-2019"
    },
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/tcradvancedsl1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Blue Dragonfly / Iris"
+    ],
+    "image": "Giant/years/tcradvancedsl1_2025_site.jpg",
     "price": 8399.0,
     "source": "site",
     "specs": {
@@ -4872,8 +5344,11 @@
   },
   "Trinity Advanced SL 0": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/trinityadvancedsl0_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Prismatic Haze"
+    ],
+    "image": "Giant/years/trinityadvancedsl0_2025_site.jpg",
     "price": 11999.0,
     "source": "site",
     "specs": {
@@ -4906,8 +5381,11 @@
   },
   "Trinity Advanced SL 1": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/trinityadvancedsl1_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Matte Carbon"
+    ],
+    "image": "Giant/years/trinityadvancedsl1_2025_site.jpg",
     "price": 9499.0,
     "source": "site",
     "specs": {
@@ -4940,8 +5418,11 @@
   },
   "Trinity Advanced SL Time Trial Frameset": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/trinityadvancedsltimetrialframeset_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Chrome"
+    ],
+    "image": "Giant/years/trinityadvancedsltimetrialframeset_2025_site.jpg",
     "price": 4299.0,
     "source": "site",
     "specs": {
@@ -4960,8 +5441,11 @@
   },
   "Trinity Advanced SL Triathlon Frameset": {
    "2025": {
-    "captured": "2026-10-23",
-    "image": "Giant/years/trinityadvancedsltriathlonframeset_2025.jpg",
+    "captured": "2026-10-24",
+    "colours": [
+     "Carbon/Chrome"
+    ],
+    "image": "Giant/years/trinityadvancedsltriathlonframeset_2025_site.jpg",
     "price": 4299.0,
     "source": "site",
     "specs": {
