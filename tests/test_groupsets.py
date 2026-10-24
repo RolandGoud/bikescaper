@@ -88,12 +88,17 @@ def test_page_renders(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
     page = client.get("/groupsets?lang=nl").data.decode()
-    assert "Groepset upgraden" in page and "Dura-Ace Di2 R9200" in page and "modellen met Shimano 105" in page
+    assert "Groepset upgraden" in page and "Dura-Ace Di2 R9200" in page and "modellen met" not in page  # no bike links
+    assert "GRX RX820" not in page and "GRX RX820" in client.get("/groupsets?type=gravel").data.decode()  # own type
     page = client.get("/groupsets?have=r7000&lang=en").data.decode()
     assert "Upgrades from Shimano 105 R7000" in page and "Mix and match" in page and "Switching brand" in page
     page = client.get("/groupsets?have=r9100&lang=en").data.decode()
     assert "Check your frame" in page and "For example a UDH dropout" in page
     assert "<h3>Doesn&#39;t fit your frame</h3>" in client.get("/groupsets?have=5800&lang=en").data.decode()
+    page = client.get("/groupsets?have=r9100&lang=en").data.decode()  # every group shows, empty or not
+    assert all(f"<h3>{h}</h3>" in page for h in ("Mix and match", "Rear wheel too", "Doesn&#39;t fit your frame"))
+    assert "None from here." in page and "How to read this" not in page
+    assert page.index('class="stack brand-ladders"') < page.index('id="paths"')  # the ladders come first
     assert "XTR M9100" in client.get("/groupsets?type=mtb").data.decode()
     assert client.get("/groupsets?have=nonsense").status_code == 200
     models = client.get("/models?groupset=105&lang=en").data.decode()
@@ -111,6 +116,27 @@ def test_one_brand_at_a_time(tmp_path):
     assert "Super Record" in page and "Mountain bike" not in page  # no MTB groups: back to road
     page = client.get("/groupsets?have=gx-eagle&lang=en").data.decode()  # the groupset sets brand and type
     assert 'aria-current="true"><span class="pill-logo" role="img" aria-label="SRAM"' in page and "XX1 Eagle AXS" in page
+
+
+def test_gravel_has_its_own_type_but_upgrades_cross():
+    assert GENERATIONS["rx810"]["kind"] == "gravel" and GENERATIONS["rx810"]["discipline"] == "road"
+    assert "rx820" in [g["key"] for g, _p in upgrades("r7000")]  # 105 to GRX still counts
+
+
+def test_ladder_arrows_and_tier_labels():
+    road = groupsets.LADDERS["Shimano"]["road"][0][1]
+    assert groupsets.steps_up(road) == [False, True, True, True, True]  # Claris to Sora: both basic
+    assert groupsets.tier_spans(road)[0] == (1, 2)  # one label over both
+    page = create_app(":memory:").test_client().get("/groupsets?lang=en").data.decode()
+    assert "Same level: Claris to Sora is no upgrade" in page and 'grid-column: span 2' in page
+
+
+def test_downgrades_stay_with_the_brand_and_go_down():
+    keys = [g["key"] for g, _p in groupsets.downgrades("r8000")]
+    assert "r7000" in keys and "6800" in keys and "r9100" not in keys and "rival-22" not in keys
+    assert groupsets.downgrades("r2000") == []
+    page = create_app(":memory:").test_client().get("/groupsets?have=r8000&lang=en").data.decode()
+    assert "Downgrades: " in page
 
 
 def test_easiest_route():

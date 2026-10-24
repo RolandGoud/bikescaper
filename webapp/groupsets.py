@@ -12,7 +12,10 @@ SITE_TIERS = {}
 for _key, _name, _pattern, _tier in GROUPSETS:
     SITE_TIERS.setdefault(_key, _tier)
 
-DISCIPLINES = [("road", "Road & gravel"), ("mtb", "Mountain bike")]
+# The page's types, one pill each. Gravel groupsets follow the road rules (drop-bar levers, road freehubs), so an
+# upgrade can still go from one to the other; the page just shows them apart.
+DISCIPLINES = [("road", "Road"), ("gravel", "Gravel"), ("mtb", "Mountain bike")]
+RULES = {"gravel": "road"}  # type -> the discipline its upgrade rules follow, when it isn't its own
 # Logos for the brand pills, as on the models page; a brand without one shows its name.
 BRAND_LOGOS = {"Shimano": "logos/shimano.svg", "SRAM": "logos/sram.svg", "Campagnolo": "logos/campagnolo.svg"}
 
@@ -59,7 +62,7 @@ def series(key, name, gens, tier=None, catalog=None):
             "catalog": catalog if catalog in SITE_TIERS else None}
 
 
-# brand -> discipline -> [(ladder label, [series from basic to top])]
+# brand -> type -> [(ladder label, [series from basic to top])]
 LADDERS = {
     "Shimano": {
         "road": [
@@ -98,6 +101,8 @@ LADDERS = {
                         ["rim", "disc"], note="Electronic only: there is no mechanical 12-speed Dura-Ace."),
                 ]),
             ]),
+        ],
+        "gravel": [
             ("Gravel", [
                 series("grx-400", "GRX 400", [
                     gen("rx400", "GRX RX400", 2019, 10, "mech", "shimano-road-10-4700", ["hg"], ["disc"]),
@@ -236,6 +241,8 @@ LADDERS = {
                     gen("sr-wrl-13", "Super Record 13 Wireless", 2025, 13, "wrl", "campa-wrl-13", ["n3w"], ["disc"]),
                 ], catalog="record"),
             ]),
+        ],
+        "gravel": [
             ("Gravel", [
                 series("ekar", "Ekar", [
                     gen("ekar", "Ekar", 2020, 13, "mech", "campa-ekar-13", ["n3w"], ["disc"], note="1x only.", one_by=True),
@@ -246,9 +253,10 @@ LADDERS = {
     },
 }
 
-# Brands we don't rate yet: a short note each, shown below the ladders.
+# Brands we don't rate yet, so they have no ladder and no upgrade paths: a short note each, shown below the
+# ladders so a bike with one of these isn't a dead end.
 OTHER_BRANDS = [
-    ("microSHIFT", "road", "Sword: a 10-speed budget gravel groupset with cassettes for a regular Shimano HG freehub."),
+    ("microSHIFT", "gravel", "Sword: a 10-speed budget gravel groupset with cassettes for a regular Shimano HG freehub."),
     ("FSA", "road", "K-Force WE: semi-wireless electronic road shifting that runs on Shimano-compatible "
                     "cassettes and chains."),
     ("microSHIFT", "mtb", "Advent and Advent X: 9- and 10-speed MTB drivetrains, a budget alternative to "
@@ -256,14 +264,14 @@ OTHER_BRANDS = [
 ]
 
 GENERATIONS = {}
-for _brand, _by_discipline in LADDERS.items():
-    for _discipline, _ladders in _by_discipline.items():
+for _brand, _by_kind in LADDERS.items():
+    for _kind, _ladders in _by_kind.items():
         for _label, _series in _ladders:
             for _step, _s in enumerate(_series):
                 for _g in _s["gens"]:
-                    GENERATIONS[_g["key"]] = dict(_g, brand=_brand, discipline=_discipline, series=_s["name"],
-                                                  series_key=_s["key"], tier=_s["tier"],
-                                                  ladder=(_brand, _discipline, _label), step=_step)
+                    GENERATIONS[_g["key"]] = dict(_g, brand=_brand, kind=_kind, discipline=RULES.get(_kind, _kind),
+                                                  series=_s["name"], series_key=_s["key"], tier=_s["tier"],
+                                                  ladder=(_brand, _kind, _label), step=_step)
 
 # How much has to change, from least to most, when the new groupset fits the frame.
 EFFORT = {
@@ -346,6 +354,28 @@ def upgrades(key):
                                            item[1]["effort"], item[0]["tier"] or 0, -item[0]["year"]))
 
 
+def is_downgrade(current, target):
+    """The same brand and discipline, a lower tier or an older or simpler generation of the same series, and not
+    more than three years older than yours."""
+    if target["key"] == current["key"] or target["brand"] != current["brand"] \
+            or target["discipline"] != current["discipline"] or target["year"] < current["year"] - 3:
+        return False
+    if target["tier"] and current["tier"] and target["tier"] < current["tier"]:
+        return True
+    if target["series_key"] == current["series_key"]:
+        return (target["speeds"], target["shift"] != "mech", target["year"]) < \
+               (current["speeds"], current["shift"] != "mech", current["year"])
+    return False
+
+
+def downgrades(key):
+    """The generations below `key` from the same brand, each with its path, sorted like `upgrades`."""
+    current = GENERATIONS[key]
+    found = [(g, path(current, g)) for g in GENERATIONS.values() if is_downgrade(current, g)]
+    return sorted(found, key=lambda item: (item[1]["fit"] == "no", item[1]["effort"], -(item[0]["tier"] or 0),
+                                           -item[0]["year"]))
+
+
 def route(key):
     """The easiest way up from `key`: in each step above it on its own ladder, the upgrade that fits the frame
     with the least work (no frame check before one, the same kind of shifting, then the newest). [(generation, path)], lowest step first."""
@@ -365,8 +395,25 @@ def route(key):
     return [picks[step] for step in sorted(picks)]
 
 
-def ladders(discipline, brand=None):
-    """[(brand, [(ladder label, [series])])] for one discipline, brands in the order above; only `brand`'s when
-    one is given."""
-    return [(b, by_discipline[discipline]) for b, by_discipline in LADDERS.items()
-            if discipline in by_discipline and brand in (None, b)]
+def ladders(kind, brand=None):
+    """[(brand, [(ladder label, [series])])] for one type, brands in the order above; only `brand`'s when one is
+    given."""
+    return [(b, by_kind[kind]) for b, by_kind in LADDERS.items() if kind in by_kind and brand in (None, b)]
+
+
+def steps_up(steps):
+    """For each series after the first: True when some generation of it is an upgrade from one of the series
+    before it, so the page draws an arrow between them; False when it isn't (the same tier, say)."""
+    return [any(is_upgrade(GENERATIONS[a["key"]], GENERATIONS[b["key"]]) for a in lower["gens"] for b in upper["gens"])
+            for lower, upper in zip(steps, steps[1:])]
+
+
+def tier_spans(steps):
+    """[(tier, number of series)]: neighbouring series of the same tier share one label above the ladder."""
+    spans = []
+    for s in steps:
+        if spans and spans[-1][0] == s["tier"]:
+            spans[-1] = (s["tier"], spans[-1][1] + 1)
+        else:
+            spans.append((s["tier"], 1))
+    return spans
