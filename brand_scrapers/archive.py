@@ -19,7 +19,7 @@ from collections import defaultdict
 from datetime import date, datetime
 from urllib.parse import urlparse
 
-from .common import ROOT
+from .common import ROOT, clean
 
 BRANDS = ["Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"]
 FIRST_YEAR = 2020
@@ -254,6 +254,10 @@ def parse(pages_folder, years_folder=None):
             specs, price = read_specs(brand, page, meta["url"])
             ts = str(meta["ts"])
             entry = {"captured": f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}", "ts": ts, "url": meta["url"]}
+            if meta.get("sheet_name"):  # a predecessor (lineage.py): the name it was sold under, from the page title
+                title = re.search(r"<title>\s*([^<|]+)", page)
+                entry["sheet_name"] = re.split(r"\s+[-–]\s+", clean(title.group(1)))[0] if title else \
+                    meta["sheet_name"].replace("-", " ").title()
             if recognised(specs) >= MIN_SPECS:
                 entry.update(specs=specs, price=price)
                 counts["specs"] += 1

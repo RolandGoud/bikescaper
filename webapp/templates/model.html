@@ -77,12 +77,12 @@
     <div class="year-panel" role="tabpanel" id="year-{{ t.year }}" aria-labelledby="tab-{{ t.year }}"{% if t is not sameas shown %} hidden{% endif %}>
       {% if t.image %}
       <figure class="year-photo"><img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>
-        <figcaption class="small muted">{{ _('The {year} photo from the same copy.', year=t.year) }}</figcaption></figure>
+        <figcaption class="small muted">{% if t.source == 'site' %}{{ _('Photo of the {year} model.', year=t.year) }}{% else %}{{ _('The {year} photo from the same copy.', year=t.year) }}{% endif %}</figcaption></figure>
       {% elif t.state in ('archive', 'unreadable') %}
       <p class="small muted">{{ _('No photo in the {year} copy; the photo at the top is the current one.', year=t.year) }}</p>
       {% endif %}
       {% if t.specs %}
-      <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}
+      <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{% if t.sheet_name %}{{ _('Sold as {name} in {year}.', name=t.sheet_name, year=t.year) }} {% endif %}{% if t.source == 'site' %}{% if t.sheet_years %}{{ _('From the sheet {brand} still keeps online for model years {years}, read on {date}.', brand=m.brand, years=t.sheet_years, date=t.captured) }}{% else %}{{ _('From the {year} model page {brand} still keeps online, read on {date}.', brand=m.brand, year=t.year, date=t.captured) }}{% endif %} <a href="{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the page') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}{% endif %}
         {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
         {% if t.changed %}<span class="changed-key"></span> {{ _('Changed since the year before.') }}{% endif %}</p>
       <div class="spec-groups">
