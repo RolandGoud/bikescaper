@@ -1,9 +1,10 @@
 // Groupsets page.
-// Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map,
-// yours drawn bold. Each tile's main line goes to the closest in age in the next step up; its other links on the
-// same system there are dotted, as are the links between generations of one series on the same line. A tile
-// gets a bullet only where a line comes in, and clicking a line picks the tile it leads to. With "Easiest route" on, an
-// accent-coloured line runs from yours through the route's tiles.
+// Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map: each
+// tile links to every tile on its line in the next column, and down its column to the next generation of its series.
+// Lines are dotted, except at most one bold line per gap between two columns: the connection you picked by clicking
+// a line (click it again to drop it), or else the one on your groupset's way up, to the closest in age. A tile gets
+// a bullet on each side where a line meets it. With "Easiest route" on, an accent-coloured line runs from yours
+// through the route's tiles.
 // Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links and form just load the page.
@@ -47,16 +48,23 @@
     return p;
   };
 
-  // A wide invisible stroke over a line, so clicking the line picks the tile it leads to.
-  const hit = (svg, d, to) => {
+  // A wide invisible stroke over a line, so it can be clicked.
+  const hit = (svg, link, bold) => {
     const p = document.createElementNS(NS, "path");
-    Object.entries({ d, fill: "none", stroke: "transparent", "stroke-width": 12 }).forEach(([k, v]) => p.setAttribute(k, v));
+    Object.entries({ d: link.d, fill: "none", stroke: "transparent", "stroke-width": 12 })
+      .forEach(([k, v]) => p.setAttribute(k, v));
     p.classList.add("line-hit");
-    p.dataset.href = to.el.href;
-    p.dataset.key = to.el.dataset.key;
-    p.append(Object.assign(document.createElementNS(NS, "title"), { textContent: to.el.querySelector(".gen-name").textContent }));
+    p.dataset.gap = link.gap;
+    p.dataset.id = link.id;
+    p.dataset.bold = bold ? "1" : "";
+    const name = (t) => t.el.querySelector(".gen-name").textContent;
+    p.append(Object.assign(document.createElementNS(NS, "title"), { textContent: `${name(link.from)} → ${name(link.to)}` }));
     svg.append(p);
   };
+
+  // The connection picked in each gap between columns (or down a column): gap -> link id, or null for none.
+  // Picks last until the page changes.
+  let picked = new Map();
 
   const dot = (svg, x, y, color) => {
     const c = document.createElementNS(NS, "circle");
@@ -78,48 +86,47 @@
       svg.setAttribute("aria-hidden", "true");
       const all = tiles(section), here = all.find((t) => t.here);
 
-      [...new Set(all.map((t) => t.system))].forEach((system, i) => {
-        const on = all.filter((t) => t.system === system);
-        const mine = here && here.system === system;
-        const color = METRO[i % METRO.length];
-        const opacity = routeOn ? 0.2 : here && !mine ? 0.35 : 0.9;
-        // Each tile links to the one in the next step up on the same line that's closest in age (the main line)
-        // and, dotted, to the others on that line in the same step.
-        const fed = new Set();
-        on.forEach((t) => {
-          const next = on.filter((n) => n.ladder === t.ladder && n.step > t.step);
-          if (!next.length) return;
+      const colors = new Map([...new Set(all.map((t) => t.system))].map((system, i) => [system, METRO[i % METRO.length]]));
+      const links = [];
+      const link = (from, to, d, gap) => links.push({ from, to, d, gap, id: `${from.el.dataset.key}>${to.el.dataset.key}` });
+      all.forEach((t, k) => {
+        const on = all.filter((n) => n.system === t.system && n.ladder === t.ladder);
+        const next = on.filter((n) => n.step > t.step);
+        if (next.length) {
           const step = Math.min(...next.map((n) => n.step));
-          const there = next.filter((n) => n.step === step);
-          const closest = there.reduce((best, n) => (Math.abs(n.year - t.year) < Math.abs(best.year - t.year) ? n : best));
-          there.filter((n) => n !== closest).forEach((n) => {
-            const d = curve(box(t, origin), box(n, origin));
-            path(svg, d, color, 2, opacity * 0.8, null, true);
-            hit(svg, d, n);
-            fed.add(n);
-          });
-          const d = curve(box(t, origin), box(closest, origin));
-          path(svg, d, color, mine && !routeOn ? 5 : 2.5, opacity);
-          hit(svg, d, closest);
-          fed.add(closest);
-        });
-        // Generations of one series on the same line: each to the next one down the column, dotted.
-        on.forEach((t, k) => {
-          const below = on.slice(k + 1).find((n) => n.ladder === t.ladder && n.step === t.step);
-          if (!below) return;
-          const d = bracket(box(t, origin), box(below, origin));
-          path(svg, d, color, 2, opacity * 0.8, null, true);
-          hit(svg, d, below);
-          fed.add(below);
-        });
-        on.forEach((t) => {
-          if (fed.has(t)) {
-            const b = box(t, origin);
-            dot(svg, b.l, b.y, color);
-          }
-          t.el.style.setProperty("--line", routeOn ? "" : color);
-        });
+          next.filter((n) => n.step === step)
+            .forEach((n) => link(t, n, curve(box(t, origin), box(n, origin)), `${t.ladder}:${t.step}>${step}`));
+        }
+        const below = all.slice(k + 1).find((n) => n.system === t.system && n.ladder === t.ladder && n.step === t.step);
+        if (below) link(t, below, bracket(box(t, origin), box(below, origin)), `${t.ladder}:${t.step}`);
       });
+
+      // The bold lines run up from yours: in each gap the line you picked, or else the one to the closest in age,
+      // and on from wherever that line lands. In a gap off that way only a picked line is bold.
+      const way = new Map();
+      for (let t = here; t;) {
+        const out = links.filter((l) => l.from === t && l.gap.includes(">"));
+        if (!out.length) break;
+        const gap = out[0].gap;
+        const best = picked.has(gap)
+          ? links.find((l) => l.id === picked.get(gap))
+          : out.reduce((a, b) => (Math.abs(b.to.year - t.year) < Math.abs(a.to.year - t.year) ? b : a));
+        way.set(gap, best ? best.id : null);
+        t = best && best.to;
+      }
+      const bold = (l) => (way.has(l.gap) ? way.get(l.gap) : picked.get(l.gap)) === l.id;
+
+      const ends = new Map();  // dots: "key:side" -> [x, y, colour]
+      [...links.filter((l) => !bold(l)), ...links.filter(bold)].forEach((l) => {
+        const color = colors.get(l.from.system), b = bold(l);
+        path(svg, l.d, color, b ? 5 : 2, routeOn ? 0.2 : b ? 0.95 : 0.7, null, !b);
+        const from = box(l.from, origin), to = box(l.to, origin), down = !l.gap.includes(">");
+        ends.set(`${l.from.el.dataset.key}:${down ? "l" : "r"}`, [down ? from.l : from.r, from.y, color]);
+        ends.set(`${l.to.el.dataset.key}:l`, [to.l, to.y, color]);
+      });
+      links.forEach((l) => hit(svg, l, bold(l)));
+      ends.forEach(([x, y, color]) => dot(svg, x, y, color));
+      all.forEach((t) => t.el.style.setProperty("--line", routeOn ? "" : colors.get(t.system)));
 
       if (routeOn && here) {
         const stops = [here, ...all.filter((t) => t.route !== undefined).sort((a, b) => a.route - b.route)];
@@ -156,6 +163,7 @@
     const anchorOf = (root) => (anchorKey && root.querySelector(`.gen[data-key="${anchorKey}"]`)) || root.querySelector("#paths");
     const before = anchorOf(main)?.getBoundingClientRect().top;
     const swap = () => {
+      picked = new Map();
       main.replaceChildren(...next.querySelector("main.page").childNodes);
       const langs = document.querySelector(".lang-switch"), newLangs = next.querySelector(".lang-switch");
       if (langs && newLangs) langs.replaceWith(newLangs);
@@ -173,8 +181,9 @@
   const plain = (e) => !(e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey);
   main.addEventListener("click", (e) => {
     const line = e.target.closest(".line-hit");
-    if (line && plain(e)) {
-      show(line.dataset.href.split("#")[0], true, line.dataset.key);
+    if (line) {  // make this the bold line in its gap, or drop it when it already is
+      picked.set(line.dataset.gap, line.dataset.bold === "1" ? null : line.dataset.id);
+      draw(false);
       return;
     }
     const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .filter-row > a, .route + p a");
