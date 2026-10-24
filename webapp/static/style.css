@@ -820,3 +820,6 @@ select { max-width: 100%; }
   .route-stop.here { margin-top: 0; }
 }
 ::view-transition-group(*) { animation-duration: 0.42s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+
+/* Groupset shop page: one button per web shop. */
+.shop-links { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }

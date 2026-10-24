@@ -1,3 +1,4 @@
+import json
 import os
 
 import pytest
@@ -113,6 +114,11 @@ def test_page_renders(tmp_path):
     assert page.index('class="stack brand-ladders"') < page.index('id="paths"')  # the ladders come first
     assert "XTR M9100" in client.get("/groupsets?type=mtb").data.decode()
     assert client.get("/groupsets?have=nonsense").status_code == 200
+    page = client.get("/groupsets?have=5800&lang=nl").data.decode()
+    assert "Upgrades vanaf hier" not in page and 'href="/groupsets/r8000/shop">Waar te koop</a>' in page
+    shop = client.get("/groupsets/r8000/shop?lang=nl").data.decode()
+    assert "Shimano Ultegra R8000 kopen" in shop and "Bekijk bij Bike24" in shop and 'rel="sponsored noopener"' in shop
+    assert client.get("/groupsets/nonsense/shop").status_code == 404
     models = client.get("/models?groupset=105&lang=en").data.decode()
     assert "With Shimano 105" in models and 'name="groupset" value="105"' in models
 
@@ -197,3 +203,15 @@ def test_route_view_renders(tmp_path):
     page = client.get("/groupsets?have=r7000&show=route&lang=en").data.decode()
     assert "Step 2" in page and 'data-key="r9100"' in page and 'data-route="1"' in page
     assert 'href="/groupsets?have=r8000&amp;show=route#paths"' in page  # tiles keep the view
+
+
+def test_shop_page_links_each_shop(tmp_path):
+    from webapp import groupset_shops
+    path = tmp_path / "shops.json"
+    path.write_text(json.dumps([{"name": "A", "url": "https://aff.example/?q={q}"},
+                                {"name": "B", "url": "", "groupsets": {"r8000": "https://b.example/r8000"}},
+                                {"name": "C", "url": "http://plain.example/{q}"}]))
+    gen = groupsets.GENERATIONS["r8000"]
+    assert groupset_shops.links(groupset_shops.load(path), gen) == [
+        ("A", "https://aff.example/?q=Shimano+Ultegra+R8000"), ("B", "https://b.example/r8000"), ("C", "#")]
+    assert groupset_shops.load(tmp_path / "missing.json") == []

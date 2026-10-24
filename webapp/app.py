@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
+from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -124,6 +124,7 @@ def create_app(db_path=None):
         app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.config["SPONSORED_PATH"] = sponsored.PATH
+    app.config["GROUPSET_SHOPS_PATH"] = groupset_shops.PATH
 
     @app.url_defaults
     def static_version(endpoint, values):
@@ -457,6 +458,14 @@ def create_app(db_path=None):
                                columns=groupsets.columns,
                                series_logo=lambda s: logo_if_there(groupsets.logo_path(s)),
                                cross_upgrades=groupsets.cross_upgrades, nav="groupsets")
+
+    @app.route("/groupsets/<key>/shop")
+    def groupset_shop(key):
+        """Where to buy one groupset: affiliate links to web shops (webapp/groupset_shops.py)."""
+        gen = groupsets.GENERATIONS.get(key) or abort(404)
+        return render_template("groupset_shop.html", g=gen, shift_label=groupsets.SHIFT_LABELS[gen["shift"]],
+                               shops=groupset_shops.links(groupset_shops.load(app.config["GROUPSET_SHOPS_PATH"]), gen),
+                               nav="groupsets")
 
     @app.route("/models/<slug>")
     def model_page(slug):
