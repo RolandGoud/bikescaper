@@ -269,6 +269,8 @@ NL = {
     "E-bike": "E-bike",
     "Other": "Overig",
     "From the model years in {brand}'s own photos; earlier years may be missing.": "Uit de modeljaren in de eigen foto's van {brand}; eerdere jaren kunnen ontbreken.",
+    "From the spec sheets of earlier model years that {brand} or the Wayback Machine still has; earlier years may be missing.":
+        "Uit de specificaties van eerdere modeljaren die {brand} of de Wayback Machine nog heeft; eerdere jaren kunnen ontbreken.",
     "No photo of this colour yet.": "Nog geen foto van deze kleur.",
     "Status": "Status",
     "Still sold": "Nog te koop",
@@ -314,10 +316,9 @@ NL = {
         "Uit de specificaties die {brand} nog online heeft voor modeljaar {years}, gelezen op {date}.",
     "From the {year} model page {brand} still keeps online, read on {date}.":
         "Van de pagina voor modeljaar {year} die {brand} nog online heeft, gelezen op {date}.",
-    "Photo of the {year} model.": "Foto van het model uit {year}.",
-    "The {year} photo from the same copy.": "De foto uit {year}, uit dezelfde kopie.",
-    "No photo in the {year} copy; the photo at the top is the current one.":
-        "Geen foto in de kopie uit {year}; de foto bovenaan is de huidige.",
+    "Previous photo": "Vorige foto",
+    "Next photo": "Volgende foto",
+    "Photos per model year": "Foto's per modeljaar",
     "Changed since the year before.": "Anders dan het jaar ervoor.",
     "The Wayback Machine has a copy of this model's page from {date}, but without a spec list.":
         "De Wayback Machine heeft een kopie van de pagina van dit model van {date}, maar zonder specificaties.",
