@@ -45,14 +45,6 @@
 {{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true, note=_(advise_against) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'equalto', 4)|list else _(not_worth_it) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'ge', 3)|list) }}
 {{ path_group('<span class="effort nofit" aria-hidden="true">✕</span>'|safe, 'no-fit', _(fit['no'][0]), _(fit['no'][1]), items_|selectattr('1.fit', 'equalto', 'no')|list, full) }}
 {%- endmacro %}
-{# The key in one line, for the route view. #}
-{% macro key_row() -%}
-<div class="key-row small">
-  {% for level, (name, _text) in effort.items() %}<span><span class="effort e{{ level }}">{{ level }}</span> {{ _(name) }}</span>{% endfor %}
-  <span><span class="effort check">!</span> {{ _(fit['check'][0]) }}</span>
-  <span><span class="effort nofit">✕</span> {{ _(fit['no'][0]) }}</span>
-</div>
-{%- endmacro %}
 {% block body %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
@@ -61,10 +53,10 @@
   </div>
   <div class="filter-box">
     <nav class="logo-pills" aria-label="{{ _('Brand') }}">
-      {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind, show=show if show == 'route' else None) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>{% endfor %}
+      {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>{% endfor %}
     </nav>
     <nav class="logo-pills" aria-label="{{ _('Type') }}">
-      {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key, show=show if show == 'route' else None) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
+      {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
     </nav>
   </div>
 
@@ -97,7 +89,7 @@
             {% set p = by_key.get(g.key) %}
             {% set here = current and current.key == g.key %}
             {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
-            <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% set ups = cross_upgrades(g.key) %}{% if ups %} data-up="{{ ups|join(' ') }}"{% endif %}{% if show == 'route' and g.key in route_keys %} data-route="{{ route_keys.index(g.key) }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}{{ ' off-route' if show == 'route' and p and g.key not in route_keys }}" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
+            <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% set ups = cross_upgrades(g.key) %}{% if ups %} data-up="{{ ups|join(' ') }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}" href="{{ url_for('groupset_paths', have=g.key) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
               <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% elif here %}<span class="yours">{{ _('Yours') }}</span>{% endif %}</span>
               <span class="gen-facts">{{ facts(g) }}</span>
             </a></li>
@@ -121,30 +113,13 @@
     <div class="stack" style="gap: 10px">
       <div class="row" style="justify-content: space-between; gap: 12px">
         <h2>{{ _('Upgrades from {name}', name=current.brand ~ ' ' ~ current.name) }}</h2>
-        <a class="small clear-pick" href="{{ url_for('groupset_paths', brand=brand, type=kind, show=show if show == 'route' else None) }}">{{ _('Clear') }}</a>
+        <a class="small clear-pick" href="{{ url_for('groupset_paths', brand=brand, type=kind) }}">{{ _('Clear') }}</a>
       </div>
       <div class="row small">
         {{ tier_badge(current.tier, small=true) }}
         <span class="mono">{{ facts(current) }} · {{ _(freehubs[current.freehubs[0]]) }}</span>
       </div>
     </div>
-    {% if show == 'route' %}
-    {% if route %}
-    {{ key_row() }}
-    <ol class="route">
-      <li class="route-stop here"><span class="route-label">{{ _('Yours') }}</span><strong>{{ current.name }}</strong><span class="mono small">{{ facts(current) }}</span></li>
-      {% for g, p in route %}
-      <li class="route-stop">
-        <span class="route-label"><span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %} {{ _('Step {n}', n=loop.index) }}</span>
-        {{ path_card(g, p) }}
-      </li>
-      {% endfor %}
-    </ol>
-    <p class="small muted">{{ _('In each step up, the upgrade that fits your frame with the least work.') }} <a href="{{ url_for('groupset_paths', have=current.key) }}#paths">{{ _('All options') }}</a></p>
-    {% else %}
-    <p>{{ _("This is the top of its line: nothing above it from {brand} in our list yet.", brand=current.brand) }}</p>
-    {% endif %}
-    {% else %}
     {% set own = paths|selectattr('0.brand', 'equalto', current.brand)|list %}
     {% set switch = paths|rejectattr('0.brand', 'equalto', current.brand)|list %}
     {{ path_groups(own, full=true) }}
@@ -160,7 +135,6 @@
       <summary>{{ _('Downgrades: {n} options', n=down|length) }}</summary>
       {{ path_groups(down) }}
     </details>
-    {% endif %}
     {% endif %}
   </section>
   {% endif %}

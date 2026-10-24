@@ -446,10 +446,7 @@ def create_app(db_path=None):
         kind = kind if kind in dict(kinds) else kinds[0][0]
         paths = groupsets.upgrades(current["key"]) if current else []
         down = groupsets.downgrades(current["key"]) if current else []
-        show = "route" if request.args.get("show") == "route" else "all"  # every upgrade, or the easiest route
-        route = groupsets.route(current["key"]) if current else []
-        return render_template("groupsets.html", kind=kind, current=current, paths=paths, show=show, route=route,
-                               route_keys=[g["key"] for g, _p in route],
+        return render_template("groupsets.html", kind=kind, current=current, paths=paths,
                                down=down, by_key={g["key"]: p for g, p in paths + down}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b))}
                                                      for b in groupsets.LADDERS], disciplines=kinds,

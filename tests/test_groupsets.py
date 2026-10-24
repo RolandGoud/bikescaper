@@ -193,18 +193,10 @@ def test_cross_system_upgrades():
     assert "r8000" not in groupsets.cross_upgrades("r7100")  # on its own system, and too old
 
 
-def test_easiest_route():
-    assert [g["key"] for g, _p in groupsets.route("r7000")] == ["r8000", "r9100"]  # mix and match all the way
-    assert [g["key"] for g, _p in groupsets.route("m5100")] == ["m7100", "m8100", "m9100"]  # mechanical stays
-    assert all(p["fit"] != "no" for g, p in groupsets.route("5800"))
-    assert groupsets.route("r9200") == []
-
-
-def test_route_view_renders(tmp_path):
+def test_route_view_is_gone(tmp_path):
     client = create_app(str(tmp_path / "app.sqlite3")).test_client()
-    page = client.get("/groupsets?have=r7000&show=route&lang=en").data.decode()
-    assert "Step 2" in page and 'data-key="r9100"' in page and 'data-route="1"' in page
-    assert 'href="/groupsets?have=r8000&amp;show=route#paths"' in page  # tiles keep the view
+    page = client.get("/groupsets?have=4700&show=route&lang=en").data.decode()  # old links show the full page
+    assert "data-route" not in page and "off-route" not in page and "<h3>Mix and match</h3>" in page
 
 
 def test_shop_page_links_each_shop(tmp_path):

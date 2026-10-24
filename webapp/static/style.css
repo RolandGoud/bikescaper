@@ -810,25 +810,6 @@ select { max-width: 100%; }
 .brand-ladders .gen { position: relative; z-index: 2; }
 .brand-ladders .step.up::before { left: -28px; }
 .brand-ladders .step.level::before { left: -30px; }
-/* All options or the easiest route: a two-way switch next to the groupset picker. */
-.segmented { display: inline-flex; height: 44px; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; }
-.segmented a { display: inline-flex; align-items: center; padding: 0 16px; text-decoration: none; color: var(--text); font-family: var(--body); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }
-.segmented a.on { background: var(--accent); color: var(--ink); }
-/* The easiest route as a row of stops, yours first. */
-.route { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 28px; overflow-x: auto; }
-.route-stop { position: relative; display: flex; flex-direction: column; gap: 8px; }
-.route-stop + .route-stop::before { content: ""; position: absolute; left: -24px; top: 36px; width: 20px; height: 4px; border-radius: 2px; background: var(--accent); }
-.route-stop.here { padding: 14px; border-radius: 14px; background: var(--accent); color: var(--ink); align-self: start; margin-top: 28px; }
-.route-stop.here .route-label { color: var(--ink); opacity: 0.75; }
-.route-label { display: flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-.route-stop .path-card { border-color: var(--accent); border-width: 2px; }
-.gen.off-route { opacity: 0.45; }
-.gen[data-route] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-@media (max-width: 640px) {
-  .route { grid-auto-flow: row; }
-  .route-stop + .route-stop::before { left: 24px; top: -20px; width: 4px; height: 16px; }
-  .route-stop.here { margin-top: 0; }
-}
 ::view-transition-group(*) { animation-duration: 0.42s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
 
 /* Groupset shop page: one button per web shop. */

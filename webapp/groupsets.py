@@ -418,25 +418,6 @@ def downgrades(key):
                                            -item[0]["year"]))
 
 
-def route(key):
-    """The easiest way up from `key`: in each step above it on its own ladder, the upgrade that fits the frame
-    with the least work (no frame check before one, the same kind of shifting, then the newest). [(generation, path)], lowest step first."""
-    current = GENERATIONS[key]
-    found = [(g, p) for g, p in upgrades(key)
-             if g["ladder"] == current["ladder"] and g["step"] > current["step"] and p["fit"] != "no"]
-
-    def rank(item):
-        g, p = item
-        return p["effort"], p["fit"] == "check", g["shift"] != current["shift"], -g["year"]
-
-    picks = {}
-    for g, p in found:
-        best = picks.get(g["step"])
-        if best is None or rank((g, p)) < rank(best):
-            picks[g["step"]] = (g, p)
-    return [picks[step] for step in sorted(picks)]
-
-
 def ladders(kind, brand=None):
     """[(brand, [(ladder label, [series])])] for one type, brands in the order above; only `brand`'s when one is
     given."""

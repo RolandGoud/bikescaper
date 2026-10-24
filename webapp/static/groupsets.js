@@ -6,18 +6,16 @@
 // your groupset's way up, to the closest in age column by column. Clicking a line keeps that line bold and re-picks
 // the bold lines either side of it so the path runs through its tiles (to and from yours where it can); clicking a
 // bold line clears the path. Lines down a column turn bold on their own when clicked. A tile gets
-// a bullet on each side where a line meets it. With "Easiest route" on, an accent-coloured line runs from yours
-// through the route's tiles.
+// a bullet on each side where a line meets it.
 // Navigation: picking a groupset (a tile), brand or type fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links just load the page.
 (() => {
   const main = document.querySelector("main.page");
   if (!main) return;
-  // Line colours that stay clear of the emerald accent, which is kept for the route.
+  // Line colours that stay clear of the emerald accent, which marks yours.
   const METRO = ["#FF8A5C", "#7C8CFF", "#F2C27A", "#C792EA", "#FF8F86", "#6CC4FF", "#E6A1C8", "#9A9CA6"];
   const css = getComputedStyle(document.documentElement);
-  const ROUTE = css.getPropertyValue("--accent").trim() || "#34D399";
   const DOT = css.getPropertyValue("--card").trim() || "#fff";
   const NS = "http://www.w3.org/2000/svg";
   const still = matchMedia("(prefers-reduced-motion: reduce)");
@@ -25,7 +23,7 @@
   const tiles = (section) => [...section.querySelectorAll(".ladder")].flatMap((ladder, l) =>
     [...ladder.querySelectorAll(".step")].flatMap((step) =>
       [...step.querySelectorAll(".gen")].map((el) => ({ el, ladder: l, step: +step.dataset.col, system: el.dataset.system,
-        year: +el.dataset.year, up: (el.dataset.up || "").split(" ").filter(Boolean), route: el.dataset.route, here: el.classList.contains("here") }))));
+        year: +el.dataset.year, up: (el.dataset.up || "").split(" ").filter(Boolean), here: el.classList.contains("here") }))));
 
   const box = (t, origin) => {
     const r = t.el.getBoundingClientRect();
@@ -79,7 +77,6 @@
   const draw = (animate) => {
     main.querySelectorAll(".path-lines").forEach((s) => s.remove());
     if (matchMedia("(max-width: 640px)").matches) return;  // the ladders stack on phones
-    const routeOn = !!main.querySelector(".segmented a.on[href*='show=route']");
     main.querySelectorAll(".brand-ladders").forEach((section) => {
       const origin = section.getBoundingClientRect();
       const svg = document.createElementNS(NS, "svg");
@@ -135,27 +132,15 @@
       const ends = new Map();  // dots: "key:side" -> [x, y, colour]
       [...links.filter((l) => !bold(l)), ...links.filter(bold)].forEach((l) => {
         const color = colors.get(l.from.system), b = bold(l);
-        path(svg, l.d, color, b ? 5 : 2, routeOn ? 0.2 : b ? 0.95 : 0.7, null, !b);
+        path(svg, l.d, color, b ? 5 : 2, b ? 0.95 : 0.7, null, !b);
         const from = box(l.from, origin), to = box(l.to, origin), down = !l.gap.includes(">");
         ends.set(`${l.from.el.dataset.key}:${down ? "l" : "r"}`, [down ? from.l : from.r, from.y, color]);
         ends.set(`${l.to.el.dataset.key}:l`, [to.l, to.y, color]);
       });
       links.forEach((l) => hit(svg, l, bold(l)));
       ends.forEach(([x, y, color]) => dot(svg, x, y, color));
-      all.forEach((t) => t.el.style.setProperty("--line", routeOn ? "" : colors.get(t.system)));
+      all.forEach((t) => t.el.style.setProperty("--line", colors.get(t.system)));
 
-      if (routeOn && here) {
-        const stops = [here, ...all.filter((t) => t.route !== undefined).sort((a, b) => a.route - b.route)];
-        stops.slice(1).forEach((t, k) => {
-          const p = path(svg, curve(box(stops[k], origin), box(t, origin)), ROUTE, 5, 1, "route-line");
-          if (animate && !still.matches) {  // draw the route out from yours, one step after the other
-            const len = p.getTotalLength();
-            p.style.strokeDasharray = len;
-            p.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
-                      { duration: 380, delay: 200 + k * 300, easing: "ease-out", fill: "backwards" });
-          }
-        });
-      }
       section.prepend(svg);
     });
   };
@@ -205,7 +190,7 @@
       draw(false);
       return;
     }
-    const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .clear-pick, .route + p a");
+    const link = e.target.closest("a.gen, .logo-pills a, .clear-pick");
     if (!link || !plain(e)) return;
     e.preventDefault();
     const key = link.matches("a.gen") ? new URL(link.href).searchParams.get("have") : null;
