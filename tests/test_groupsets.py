@@ -134,10 +134,13 @@ def test_gravel_has_its_own_type_but_upgrades_cross():
 
 def test_ladder_arrows_and_tier_labels():
     road = groupsets.LADDERS["Shimano"]["road"][0][1]
-    assert groupsets.steps_up(road) == [False, True, True, True, True]  # Claris to Sora: both basic
-    assert groupsets.tier_spans(road)[0] == (1, 2)  # one label over both
+    cols = groupsets.columns(road)
+    assert [[s["name"] for s in series] for _t, series, _up in cols][0] == ["Claris", "Sora"]  # both basic
+    assert [up for _t, _s, up in cols] == [False, True, True, True, True]
+    campa = groupsets.columns(groupsets.LADDERS["Campagnolo"]["road"][0][1])
+    assert [s["name"] for s in campa[-1][1]] == ["Record", "Super Record"]
     page = create_app(":memory:").test_client().get("/groupsets?lang=en").data.decode()
-    assert "Same level: Claris to Sora is no upgrade" in page and 'grid-column: span 2' in page
+    assert page.count('class="tier-span"') == 5 and "Same level" not in page
 
 
 def test_downgrades_stay_with_the_brand_and_go_down():

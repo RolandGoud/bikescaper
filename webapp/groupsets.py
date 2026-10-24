@@ -413,19 +413,16 @@ def ladders(kind, brand=None):
     return [(b, by_kind[kind]) for b, by_kind in LADDERS.items() if kind in by_kind and brand in (None, b)]
 
 
-def steps_up(steps):
-    """For each series after the first: True when some generation of it is an upgrade from one of the series
-    before it, so the page draws an arrow between them; False when it isn't (the same tier, say)."""
-    return [any(is_upgrade(GENERATIONS[a["key"]], GENERATIONS[b["key"]]) for a in lower["gens"] for b in upper["gens"])
-            for lower, upper in zip(steps, steps[1:])]
-
-
-def tier_spans(steps):
-    """[(tier, number of series)]: neighbouring series of the same tier share one label above the ladder."""
-    spans = []
+def columns(steps):
+    """The ladder's series in columns, neighbouring series of the same tier stacked in one: [(tier, [series], up)],
+    where `up` is True when some generation in the column is an upgrade from one in the column before it, so the
+    page draws an arrow between them (False for the first)."""
+    cols = []
     for s in steps:
-        if spans and spans[-1][0] == s["tier"]:
-            spans[-1] = (s["tier"], spans[-1][1] + 1)
+        if cols and cols[-1][0] == s["tier"]:
+            cols[-1][1].append(s)
         else:
-            spans.append((s["tier"], 1))
-    return spans
+            cols.append((s["tier"], [s]))
+    gens = [[GENERATIONS[g["key"]] for s in series for g in s["gens"]] for _tier, series in cols]
+    ups = [False] + [any(is_upgrade(a, b) for a in lower for b in upper) for lower, upper in zip(gens, gens[1:])]
+    return [(tier, series, up) for (tier, series), up in zip(cols, ups)]
