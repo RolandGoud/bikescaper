@@ -453,11 +453,12 @@ def create_app(db_path=None):
                                down=down, by_key={g["key"]: p for g, p in paths + down}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b))}
                                                      for b in groupsets.LADDERS], disciplines=kinds,
-                               effort=groupsets.EFFORT, cost=groupsets.COST, not_worth_it=groupsets.NOT_WORTH_IT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
+                               effort=groupsets.EFFORT, cost=groupsets.COST, not_worth_it=groupsets.NOT_WORTH_IT, advise_against=groupsets.ADVISE_AGAINST, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS,
                                columns=groupsets.columns,
                                series_logo=lambda s: logo_if_there(groupsets.logo_path(s)),
-                               cross_upgrades=groupsets.cross_upgrades, nav="groupsets")
+                               cross_upgrades=groupsets.cross_upgrades, split_wireless=groupsets.split_wireless,
+                               wireless=groupsets.WIRELESS, nav="groupsets")
 
     @app.route("/groupsets/<key>/shop")
     def groupset_shop(key):

@@ -301,6 +301,10 @@ COST = {
 # Said with every upgrade that comes to a whole new drivetrain (level 3 or more).
 NOT_WORTH_IT = ("Often not cost-effective: a new or second-hand bike with this groupset usually works out better, "
                 "especially if your current bike sells well.")
+# Said with every upgrade that needs another freehub body (level 4): we advise against those.
+ADVISE_AGAINST = ("We advise against this upgrade: on top of a whole new drivetrain the rear wheel's freehub body has "
+                  "to change too, which is rarely cost-effective. A new or second-hand bike with this groupset almost "
+                  "always works out better, especially if your current bike sells well.")
 # Whether the new groupset mounts on the frame you have: "no" when it can't (other brakes), "check" when it
 # needs something not every frame has (a UDH dropout, internal routing, a front derailleur mount).
 FIT = {
@@ -389,6 +393,13 @@ def is_downgrade(current, target):
         return (target["speeds"], target["shift"] != "mech", target["year"]) < \
                (current["speeds"], current["shift"] != "mech", current["year"])
     return False
+
+
+def split_wireless(steps):
+    """Whether a ladder has both wireless and other generations: the diagram then puts the wireless ones in a row of
+    their own, below the mechanical and wired ones."""
+    wireless = {g["shift"] in WIRELESS for s in steps for g in s["gens"]}
+    return wireless == {True, False}
 
 
 def cross_upgrades(key):

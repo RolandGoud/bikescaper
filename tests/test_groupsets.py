@@ -110,7 +110,7 @@ def test_page_renders(tmp_path):
     assert "None from here." in page and "How to read this" not in page
     assert "Is it worth it?" in page and "Easiest route" not in page  # no view switch
     page = client.get("/groupsets?have=4700&lang=nl").data.decode()  # level 4 from Tiagra, and ! cards at 4
-    assert page.count("Vaak niet kostenefficiënt") >= 2 and "zeker als je huidige fiets goed verkoopbaar is" in page
+    assert "Vaak niet kostenefficiënt" in page and "Deze upgrade raden we af" in page and "zeker als je huidige fiets goed verkoopbaar is" in page
     assert page.index('class="stack brand-ladders"') < page.index('id="paths"')  # the ladders come first
     assert "XTR M9100" in client.get("/groupsets?type=mtb").data.decode()
     assert client.get("/groupsets?have=nonsense").status_code == 200
@@ -163,14 +163,16 @@ def test_downgrades_stay_with_the_brand_and_go_down():
 def test_series_show_their_logo_once_the_file_is_there(tmp_path):
     assert groupsets.logo_path({"name": "SX / NX Eagle"}) == "logos/groupsets/sx-nx-eagle.svg"
     app = create_app(str(tmp_path / "app.sqlite3"))
-    logo = os.path.join(app.static_folder, groupsets.logo_path({"name": "Dura-Ace"}))
+    logo = os.path.join(app.static_folder, groupsets.logo_path({"name": "Claris"}))
+    assert not os.path.exists(logo)  # the test adds and removes it
     page = app.test_client().get("/groupsets?lang=en").data.decode()
-    assert '<span class="step-name">Dura-Ace</span>' in page
+    assert '<span class="step-name">Claris</span>' in page
+    assert 'aria-label="Dura-Ace"' in page  # a shipped logo
     with open(logo, "w") as f:
         f.write("<svg xmlns='http://www.w3.org/2000/svg'/>")
     try:
         page = app.test_client().get("/groupsets?lang=en").data.decode()
-        assert 'aria-label="Dura-Ace"' in page and "logos/groupsets/dura-ace.svg" in page
+        assert 'aria-label="Claris"' in page and "logos/groupsets/claris.svg" in page
     finally:
         os.remove(logo)
 
@@ -215,3 +217,25 @@ def test_shop_page_links_each_shop(tmp_path):
     assert groupset_shops.links(groupset_shops.load(path), gen) == [
         ("A", "https://aff.example/?q=Shimano+Ultegra+R8000"), ("B", "https://b.example/r8000"), ("C", "#")]
     assert groupset_shops.load(tmp_path / "missing.json") == []
+
+
+def test_wireless_row(tmp_path):
+    shimano = groupsets.LADDERS["Shimano"]["road"][0][1]
+    assert groupsets.split_wireless(shimano)
+    t_type = [steps for label, steps in groupsets.LADDERS["SRAM"]["mtb"] if "Transmission" in steps[0]["name"]][0]
+    assert not groupsets.split_wireless(t_type)  # wireless only: one row
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/groupsets?have=r7100&lang=nl").data.decode()
+    wired, wireless = page.index('class="row-label wired"'), page.index('class="row-label wireless"')
+    assert wired < page.index('data-key="r7100"') < wireless < page.index('data-key="r7150"')
+    assert wireless < page.index('data-key="r8100"') and page.index('data-key="r8050"') < wireless
+    page = app.test_client().get("/groupsets?brand=SRAM&type=mtb").data.decode()
+    assert 'data-key="xx-t"' in page  # a wireless-only ladder keeps its tiles, in one row
+
+
+def test_freehub_upgrades_are_advised_against(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/groupsets?have=4700&lang=nl").data.decode()  # Tiagra 10s: level 4 upgrades
+    assert "Deze upgrade raden we af" in page and "Afgeraden" in page
+    page = app.test_client().get("/groupsets?have=r9100&lang=nl").data.decode()  # no level 4: still said
+    assert "Deze upgrade raden we af" in page

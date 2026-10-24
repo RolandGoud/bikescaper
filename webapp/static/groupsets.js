@@ -23,8 +23,8 @@
   const still = matchMedia("(prefers-reduced-motion: reduce)");
 
   const tiles = (section) => [...section.querySelectorAll(".ladder")].flatMap((ladder, l) =>
-    [...ladder.querySelectorAll(".step")].flatMap((step, s) =>
-      [...step.querySelectorAll(".gen")].map((el) => ({ el, ladder: l, step: s, system: el.dataset.system,
+    [...ladder.querySelectorAll(".step")].flatMap((step) =>
+      [...step.querySelectorAll(".gen")].map((el) => ({ el, ladder: l, step: +step.dataset.col, system: el.dataset.system,
         year: +el.dataset.year, up: (el.dataset.up || "").split(" ").filter(Boolean), route: el.dataset.route, here: el.classList.contains("here") }))));
 
   const box = (t, origin) => {
