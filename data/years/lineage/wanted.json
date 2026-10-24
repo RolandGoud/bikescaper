@@ -1,0 +1,3514 @@
+[
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF Young Hero",
+  "slug": "ultimatecfyounghero",
+  "year": 2022,
+  "ts": "20220530133426",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/kinder-racefiets/ultimate-young-hero/ultimate-disc-young-hero/3089.html",
+  "sheet_name": "ultimate-disc-young-hero",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR Di2",
+  "slug": "aeroadcfrdi2",
+  "year": 2020,
+  "ts": "20201125020100",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-di2/2452.html",
+  "sheet_name": "aeroad-cfr-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20201219103910",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-di2/2452.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR Di2",
+  "slug": "aeroadcfrdi2",
+  "year": 2021,
+  "ts": "20210130151531",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-di2/2773.html",
+  "sheet_name": "aeroad-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR Di2",
+  "slug": "aeroadcfrdi2",
+  "year": 2022,
+  "ts": "20220314170732",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/aero-bikes/aeroad/cfr/aeroad-cfr-disc-di2/2773.html",
+  "sheet_name": "aeroad-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR AXS",
+  "slug": "aeroadcfraxs",
+  "year": 2020,
+  "ts": "20201116035256",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-axs/2453.html",
+  "sheet_name": "aeroad-cfr-disc-axs",
+  "alternatives": [
+   {
+    "ts": "20201203044017",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-axs/2453.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR AXS",
+  "slug": "aeroadcfraxs",
+  "year": 2021,
+  "ts": "20210411061524",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-etap/2774.html",
+  "sheet_name": "aeroad-cfr-disc-etap",
+  "alternatives": [
+   {
+    "ts": "20210202071051",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-etap/2774.html"
+   },
+   {
+    "ts": "20210117034604",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-etap/2774.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR AXS",
+  "slug": "aeroadcfraxs",
+  "year": 2022,
+  "ts": "20220505020319",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-disc-etap/2774.html",
+  "sheet_name": "aeroad-cfr-disc-etap",
+  "alternatives": [
+   {
+    "ts": "20220215131135",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/aero-bikes/aeroad/cfr/aeroad-cfr-disc-etap/2774.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR AXS",
+  "slug": "aeroadcfraxs",
+  "year": 2023,
+  "ts": "20230308051434",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/cfr/aeroad-cfr-etap/3463.html",
+  "sheet_name": "aeroad-cfr-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 AXS SPEED",
+  "slug": "aeroadcfslx8axsspeed",
+  "year": 2020,
+  "ts": "20201202163942",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-axs/2451.html",
+  "sheet_name": "aeroad-cf-slx-8-disc-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 AXS SPEED",
+  "slug": "aeroadcfslx8axsspeed",
+  "year": 2021,
+  "ts": "20210202203210",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-etap/2772.html",
+  "sheet_name": "aeroad-cf-slx-8-disc-etap",
+  "alternatives": [
+   {
+    "ts": "20210129160146",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-etap/2772.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 AXS SPEED",
+  "slug": "aeroadcfslx8axsspeed",
+  "year": 2022,
+  "ts": "20220712032021",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8.0/1796.html",
+  "sheet_name": "aeroad-cf-slx-8.0",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 AXS SPEED",
+  "slug": "aeroadcfslx8axsspeed",
+  "year": 2023,
+  "ts": "20230605175406",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-disc-etap/3053.html",
+  "sheet_name": "aeroad-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 AXS SPEED",
+  "slug": "aeroadcfslx8axsspeed",
+  "year": 2024,
+  "ts": "20240414182021",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-force-axs/3784.html",
+  "sheet_name": "aeroad-cf-slx-8-force-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR Di2",
+  "slug": "speedmaxcfrdi2",
+  "year": 2020,
+  "ts": "20201128203313",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-di2/2575.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20201204201709",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-di2/2575.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR Di2",
+  "slug": "speedmaxcfrdi2",
+  "year": 2021,
+  "ts": "20210411114243",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-di2/2575.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR Di2",
+  "slug": "speedmaxcfrdi2",
+  "year": 2022,
+  "ts": "20220517224001",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-disc-di2/2921.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR Di2",
+  "slug": "speedmaxcfrdi2",
+  "year": 2023,
+  "ts": "20230922223931",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-disc-di2/2921.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR Di2",
+  "slug": "speedmaxcfrdi2",
+  "year": 2024,
+  "ts": "20240527091743",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-disc-di2/2921.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR Tensor",
+  "slug": "aeroadcfrtensor",
+  "year": 2020,
+  "ts": "20201125020100",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-di2/2452.html",
+  "sheet_name": "aeroad-cfr-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20201219103910",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-di2/2452.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR Tensor",
+  "slug": "aeroadcfrtensor",
+  "year": 2021,
+  "ts": "20210130151531",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cfr-disc-di2/2773.html",
+  "sheet_name": "aeroad-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CFR Tensor",
+  "slug": "aeroadcfrtensor",
+  "year": 2022,
+  "ts": "20220314170732",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/aero-bikes/aeroad/cfr/aeroad-cfr-disc-di2/2773.html",
+  "sheet_name": "aeroad-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR AXS",
+  "slug": "speedmaxcfraxs",
+  "year": 2020,
+  "ts": "20201126145846",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-etap/2576.html",
+  "sheet_name": "speedmax-cfr-disc-etap",
+  "alternatives": [
+   {
+    "ts": "20201208032302",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-etap/2576.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR AXS",
+  "slug": "speedmaxcfraxs",
+  "year": 2021,
+  "ts": "20210321230837",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-etap/2576.html",
+  "sheet_name": "speedmax-cfr-disc-etap",
+  "alternatives": [
+   {
+    "ts": "20210101094738",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-etap/2576.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR AXS",
+  "slug": "speedmaxcfraxs",
+  "year": 2022,
+  "ts": "20220224143707",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/cfr/speedmax-cfr-disc-etap/3065.html",
+  "sheet_name": "speedmax-cfr-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR AXS",
+  "slug": "speedmaxcfraxs",
+  "year": 2023,
+  "ts": "20230922214749",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-etap/3483.html",
+  "sheet_name": "speedmax-cfr-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF SLX 8 Di2",
+  "slug": "enduracecfslx8di2",
+  "year": 2020,
+  "ts": "20200624000333",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html",
+  "sheet_name": "endurace-cf-slx-disc-8.0-etap",
+  "alternatives": [
+   {
+    "ts": "20200810193109",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   },
+   {
+    "ts": "20201017193347",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   },
+   {
+    "ts": "20201204020949",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF SLX 8 Di2",
+  "slug": "enduracecfslx8di2",
+  "year": 2021,
+  "ts": "20210325140330",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html",
+  "sheet_name": "endurace-cf-slx-disc-8.0-etap",
+  "alternatives": [
+   {
+    "ts": "20210112180555",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF 7 Di2",
+  "slug": "enduracecf7di2",
+  "year": 2020,
+  "ts": "20200804111330",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html",
+  "sheet_name": "endurace-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20201108060346",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html"
+   },
+   {
+    "ts": "20201201175648",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF 7 Di2",
+  "slug": "enduracecf7di2",
+  "year": 2021,
+  "ts": "20210322210132",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html",
+  "sheet_name": "endurace-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20210112185732",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF 7 Di2",
+  "slug": "enduracecf7di2",
+  "year": 2022,
+  "ts": "20220504150422",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7-all-road/3086.html",
+  "sheet_name": "endurace-cf-7-all-road",
+  "alternatives": [
+   {
+    "ts": "20220217201834",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/cf/endurace-cf-7-all-road/3086.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF 7",
+  "slug": "enduracecf7",
+  "year": 2020,
+  "ts": "20200804111330",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html",
+  "sheet_name": "endurace-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20201108060346",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html"
+   },
+   {
+    "ts": "20201201175648",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF 7",
+  "slug": "enduracecf7",
+  "year": 2021,
+  "ts": "20210322210132",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html",
+  "sheet_name": "endurace-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20210112185732",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-7.0/2508.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF 7",
+  "slug": "enduracecf7",
+  "year": 2022,
+  "ts": "20220504150422",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf/endurace-cf-7-all-road/3086.html",
+  "sheet_name": "endurace-cf-7-all-road",
+  "alternatives": [
+   {
+    "ts": "20220217201834",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/cf/endurace-cf-7-all-road/3086.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR Di2",
+  "slug": "ultimatecfrdi2",
+  "year": 2020,
+  "ts": "20201220155803",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cfr-disc-di2/2762.html",
+  "sheet_name": "ultimate-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR Di2",
+  "slug": "ultimatecfrdi2",
+  "year": 2022,
+  "ts": "20220506012830",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-disc-di2/3080.html",
+  "sheet_name": "ultimate-cfr-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20220321200726",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/cfr/ultimate-cfr-disc-di2/3080.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR AXS",
+  "slug": "ultimatecfraxs",
+  "year": 2022,
+  "ts": "20220405091111",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/cfr/ultimate-cfr-disc-etap/3079.html",
+  "sheet_name": "ultimate-cfr-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR AXS",
+  "slug": "ultimatecfraxs",
+  "year": 2023,
+  "ts": "20230928080637",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-etap/3324.html",
+  "sheet_name": "ultimate-cfr-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR AXS",
+  "slug": "ultimatecfraxs",
+  "year": 2024,
+  "ts": "20240907211739",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-etap/3324.html",
+  "sheet_name": "ultimate-cfr-etap",
+  "alternatives": [
+   {
+    "ts": "20241109232842",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-etap/3324.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 AXS",
+  "slug": "ultimatecfslx8axs",
+  "year": 2020,
+  "ts": "20201114033700",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8-disc-etap/2759.html",
+  "sheet_name": "ultimate-cf-slx-8-disc-etap",
+  "alternatives": [
+   {
+    "ts": "20201202225726",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8-disc-etap/2759.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 AXS",
+  "slug": "ultimatecfslx8axs",
+  "year": 2021,
+  "ts": "20210411060639",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8-disc-etap/2759.html",
+  "sheet_name": "ultimate-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 AXS",
+  "slug": "ultimatecfslx8axs",
+  "year": 2022,
+  "ts": "20221004201710",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-etap/3321.html",
+  "sheet_name": "ultimate-cf-slx-8-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 AXS",
+  "slug": "ultimatecfslx8axs",
+  "year": 2023,
+  "ts": "20230107044849",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-disc-etap/3077.html",
+  "sheet_name": "ultimate-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 AXS",
+  "slug": "ultimatecfslx8axs",
+  "year": 2024,
+  "ts": "20240806114601",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-force-axs/3560.html",
+  "sheet_name": "ultimate-cf-slx-8-force-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 7 Di2",
+  "slug": "speedmaxcf7di2",
+  "year": 2020,
+  "ts": "20200501143648",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2419.html",
+  "sheet_name": "speedmax-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20200926040509",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2419.html"
+   },
+   {
+    "ts": "20201204030053",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2419.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 7 Di2",
+  "slug": "speedmaxcf7di2",
+  "year": 2021,
+  "ts": "20210411022357",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2419.html",
+  "sheet_name": "speedmax-cf-7.0",
+  "alternatives": [
+   {
+    "ts": "20210106011530",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-7.0/2419.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 7 Di2",
+  "slug": "speedmaxcf7di2",
+  "year": 2022,
+  "ts": "20220504132847",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-7-disc/3058.html",
+  "sheet_name": "speedmax-cf-7-disc",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 7 Di2",
+  "slug": "speedmaxcf7di2",
+  "year": 2023,
+  "ts": "20230922204913",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-7-disc/3058.html",
+  "sheet_name": "speedmax-cf-7-disc",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 7 Di2",
+  "slug": "speedmaxcf7di2",
+  "year": 2024,
+  "ts": "20240207113342",
+  "url": "https://www.canyon.com/nl-nl/speedmax-cf-7-disc/2554.html",
+  "sheet_name": "speedmax-cf-7-disc",
+  "alternatives": [
+   {
+    "ts": "20240622024125",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-7-disc/3058.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR TT",
+  "slug": "speedmaxcfrtt",
+  "year": 2020,
+  "ts": "20201128203313",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-di2/2575.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20201204201709",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-di2/2575.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR TT",
+  "slug": "speedmaxcfrtt",
+  "year": 2021,
+  "ts": "20210411114243",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cfr-disc-di2/2575.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CFR TT",
+  "slug": "speedmaxcfrtt",
+  "year": 2022,
+  "ts": "20220517224001",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cfr/speedmax-cfr-disc-di2/2921.html",
+  "sheet_name": "speedmax-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 8 Di2",
+  "slug": "speedmaxcf8di2",
+  "year": 2020,
+  "ts": "20200927074036",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8.0-di2/2140.html",
+  "sheet_name": "speedmax-cf-8.0-di2",
+  "alternatives": [
+   {
+    "ts": "20201103174603",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8.0-di2/2140.html"
+   },
+   {
+    "ts": "20201203074250",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8.0-di2/2140.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 8 Di2",
+  "slug": "speedmaxcf8di2",
+  "year": 2021,
+  "ts": "20210411091217",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8-disc-di2/2556.html",
+  "sheet_name": "speedmax-cf-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20210117072209",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-8-disc-di2/2556.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 8 Di2",
+  "slug": "speedmaxcf8di2",
+  "year": 2022,
+  "ts": "20220417210359",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/cf/speedmax-cf-8-disc-di2/3061.html",
+  "sheet_name": "speedmax-cf-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20220507061301",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-8-disc-di2/3061.html"
+   },
+   {
+    "ts": "20220706110735",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-8-disc-di2/3061.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 8 Di2",
+  "slug": "speedmaxcf8di2",
+  "year": 2023,
+  "ts": "20230922204020",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-8-disc-di2/3061.html",
+  "sheet_name": "speedmax-cf-8-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF 8 Di2",
+  "slug": "speedmaxcf8di2",
+  "year": 2024,
+  "ts": "20240413131022",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-8-disc-di2/3061.html",
+  "sheet_name": "speedmax-cf-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20240207111944",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf/speedmax-cf-8-disc-di2/3061.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 Di2",
+  "slug": "speedmaxcfslx8di2",
+  "year": 2020,
+  "ts": "20201127024802",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8-disc-di2/2572.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20201215061236",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8-disc-di2/2572.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 Di2",
+  "slug": "speedmaxcfslx8di2",
+  "year": 2021,
+  "ts": "20210411010756",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8-disc-di2/2572.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20210101091938",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8-disc-di2/2572.html"
+   },
+   {
+    "ts": "20211124225837",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/cf-slx/speedmax-cf-slx-8-disc-di2/2572.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 Di2",
+  "slug": "speedmaxcfslx8di2",
+  "year": 2022,
+  "ts": "20220306181627",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/cf-slx/speedmax-cf-slx-8-disc-di2/3063.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 Di2",
+  "slug": "speedmaxcfslx8di2",
+  "year": 2023,
+  "ts": "20230928081059",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-disc-di2/3063.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 Di2",
+  "slug": "speedmaxcfslx8di2",
+  "year": 2024,
+  "ts": "20240229025557",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-disc-di2/3063.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 AXS",
+  "slug": "speedmaxcfslx8axs",
+  "year": 2020,
+  "ts": "20201208062509",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8-disc-etap/2573.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 AXS",
+  "slug": "speedmaxcfslx8axs",
+  "year": 2021,
+  "ts": "20210101084239",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/triathlon-bikes/speedmax/speedmax-cf-slx-8-disc-etap/2573.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 AXS",
+  "slug": "speedmaxcfslx8axs",
+  "year": 2022,
+  "ts": "20220505050630",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-disc-etap/3064.html",
+  "sheet_name": "speedmax-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 AXS",
+  "slug": "speedmaxcfslx8axs",
+  "year": 2023,
+  "ts": "20230922222333",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-etap/3482.html",
+  "sheet_name": "speedmax-cf-slx-8-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Speedmax CF SLX 8 AXS",
+  "slug": "speedmaxcfslx8axs",
+  "year": 2024,
+  "ts": "20240723080429",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/triathlon-fietsen/speedmax/cf-slx/speedmax-cf-slx-8-axs-1by/3724.html",
+  "sheet_name": "speedmax-cf-slx-8-axs-1by",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR LTD",
+  "slug": "ultimatecfrltd",
+  "year": 2020,
+  "ts": "20201220155803",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cfr-disc-di2/2762.html",
+  "sheet_name": "ultimate-cfr-disc-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR LTD",
+  "slug": "ultimatecfrltd",
+  "year": 2022,
+  "ts": "20220506012830",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-disc-di2/3080.html",
+  "sheet_name": "ultimate-cfr-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20220321200726",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/cfr/ultimate-cfr-disc-di2/3080.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CFR LTD",
+  "slug": "ultimatecfrltd",
+  "year": 2024,
+  "ts": "20240228055222",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2-aero/3564.html",
+  "sheet_name": "ultimate-cfr-di2-aero",
+  "alternatives": [
+   {
+    "ts": "20240120074150",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2-aero/3564.html"
+   },
+   {
+    "ts": "20240721040830",
+    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-di2-aero/3564.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF SLX 8 AXS Aero",
+  "slug": "enduracecfslx8axsaero",
+  "year": 2020,
+  "ts": "20200624000333",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html",
+  "sheet_name": "endurace-cf-slx-disc-8.0-etap",
+  "alternatives": [
+   {
+    "ts": "20200810193109",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   },
+   {
+    "ts": "20201017193347",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   },
+   {
+    "ts": "20201204020949",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF SLX 8 AXS Aero",
+  "slug": "enduracecfslx8axsaero",
+  "year": 2021,
+  "ts": "20210325140330",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html",
+  "sheet_name": "endurace-cf-slx-disc-8.0-etap",
+  "alternatives": [
+   {
+    "ts": "20210112180555",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/endurance-bikes/endurace/endurace-cf-slx-disc-8.0-etap/2398.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Endurace CF SLX 8 AXS Aero",
+  "slug": "enduracecfslx8axsaero",
+  "year": 2024,
+  "ts": "20240724031149",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/endurance-racefietsen/endurace/cf-slx/endurace-cf-slx-8-di2-aero/2740.html",
+  "sheet_name": "endurace-cf-slx-8-di2-aero",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 Di2",
+  "slug": "ultimatecfslx8di2",
+  "year": 2020,
+  "ts": "20200314043909",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2406.html",
+  "sheet_name": "ultimate-cf-slx-8.0-di2",
+  "alternatives": [
+   {
+    "ts": "20200205025657",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2406.html"
+   },
+   {
+    "ts": "20200627155836",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2406.html"
+   },
+   {
+    "ts": "20200819160817",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8.0-di2/2406.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 Di2",
+  "slug": "ultimatecfslx8di2",
+  "year": 2021,
+  "ts": "20210411060639",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/ultimate/ultimate-cf-slx-8-disc-etap/2759.html",
+  "sheet_name": "ultimate-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Ultimate CF SLX 8 Di2",
+  "slug": "ultimatecfslx8di2",
+  "year": 2023,
+  "ts": "20230107044849",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cf-slx/ultimate-cf-slx-8-disc-etap/3077.html",
+  "sheet_name": "ultimate-cf-slx-8-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 Di2",
+  "slug": "aeroadcfslx8di2",
+  "year": 2020,
+  "ts": "20201202163942",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-axs/2451.html",
+  "sheet_name": "aeroad-cf-slx-8-disc-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 Di2",
+  "slug": "aeroadcfslx8di2",
+  "year": 2021,
+  "ts": "20210322123947",
+  "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-di2/2771.html",
+  "sheet_name": "aeroad-cf-slx-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20210203015616",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-di2/2771.html"
+   },
+   {
+    "ts": "20210119175830",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/race-bikes/aeroad/aeroad-cf-slx-8-disc-di2/2771.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 8 Di2",
+  "slug": "aeroadcfslx8di2",
+  "year": 2022,
+  "ts": "20220506041816",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-disc-di2/2771.html",
+  "sheet_name": "aeroad-cf-slx-8-disc-di2",
+  "alternatives": [
+   {
+    "ts": "20220222093204",
+    "url": "https://www.canyon.com/nl-nl/road-bikes/aero-bikes/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-disc-di2/2771.html"
+   }
+  ]
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 7 AXS SPEED",
+  "slug": "aeroadcfslx7axsspeed",
+  "year": 2023,
+  "ts": "20230513125156",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-disc-etap/3051.html",
+  "sheet_name": "aeroad-cf-slx-7-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Canyon",
+  "name": "Aeroad CF SLX 7 Di2",
+  "slug": "aeroadcfslx7di2",
+  "year": 2023,
+  "ts": "20230513125156",
+  "url": "https://www.canyon.com/nl-nl/racefietsen/aero-racefietsen/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-disc-etap/3051.html",
+  "sheet_name": "aeroad-cf-slx-7-disc-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 1",
+  "slug": "synapsecarbon1",
+  "year": 2021,
+  "ts": "20210621004756",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra",
+  "sheet_name": "synapse-carbon-ultegra",
+  "alternatives": [
+   {
+    "ts": "20210923204726",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 1",
+  "slug": "synapsecarbon1",
+  "year": 2023,
+  "ts": "20230602175645",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2",
+  "sheet_name": "synapse-carbon-ultegra-di2",
+  "alternatives": [
+   {
+    "ts": "20230128092126",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 1",
+  "slug": "synapsecarbon1",
+  "year": 2024,
+  "ts": "20240221005632",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2",
+  "sheet_name": "synapse-carbon-ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 1",
+  "slug": "synapsecarbon1",
+  "year": 2025,
+  "ts": "20250624222223",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra",
+  "sheet_name": "synapse-carbon-disc-ultegra",
+  "alternatives": [
+   {
+    "ts": "20250118032721",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra"
+   },
+   {
+    "ts": "20250716110821",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2",
+  "slug": "synapsecarbon2",
+  "year": 2021,
+  "ts": "20210621004756",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra",
+  "sheet_name": "synapse-carbon-ultegra",
+  "alternatives": [
+   {
+    "ts": "20210923204726",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2",
+  "slug": "synapsecarbon2",
+  "year": 2023,
+  "ts": "20230602175645",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2",
+  "sheet_name": "synapse-carbon-ultegra-di2",
+  "alternatives": [
+   {
+    "ts": "20230128092126",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2",
+  "slug": "synapsecarbon2",
+  "year": 2024,
+  "ts": "20240221005632",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2",
+  "sheet_name": "synapse-carbon-ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2",
+  "slug": "synapsecarbon2",
+  "year": 2025,
+  "ts": "20250624222223",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra",
+  "sheet_name": "synapse-carbon-disc-ultegra",
+  "alternatives": [
+   {
+    "ts": "20250118032721",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra"
+   },
+   {
+    "ts": "20250716110821",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2 RLE",
+  "slug": "synapsecarbon2rle",
+  "year": 2021,
+  "ts": "20210621004756",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra",
+  "sheet_name": "synapse-carbon-ultegra",
+  "alternatives": [
+   {
+    "ts": "20210923204726",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2 RLE",
+  "slug": "synapsecarbon2rle",
+  "year": 2024,
+  "ts": "20240221005632",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-ultegra-di2",
+  "sheet_name": "synapse-carbon-ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 2 RLE",
+  "slug": "synapsecarbon2rle",
+  "year": 2025,
+  "ts": "20250624222223",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra",
+  "sheet_name": "synapse-carbon-disc-ultegra",
+  "alternatives": [
+   {
+    "ts": "20250118032721",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra"
+   },
+   {
+    "ts": "20250716110821",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-disc-ultegra"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 4",
+  "slug": "synapsecarbon4",
+  "year": 2023,
+  "ts": "20230602200837",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-105",
+  "sheet_name": "synapse-carbon-105",
+  "alternatives": [
+   {
+    "ts": "20230128111112",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-105"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Synapse Carbon 5",
+  "slug": "synapsecarbon5",
+  "year": 2023,
+  "ts": "20230602200837",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-105",
+  "sheet_name": "synapse-carbon-105",
+  "alternatives": [
+   {
+    "ts": "20230128111112",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse-carbon/synapse-carbon-105"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperX 1",
+  "slug": "superx1",
+  "year": 2020,
+  "ts": "20200502151057",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/cyclocross/superx/superx-force-1",
+  "sheet_name": "superx-force-1",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty",
+  "slug": "topstonecarbon1lefty",
+  "year": 2020,
+  "ts": "20200428002916",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-force-etap-axs",
+  "sheet_name": "topstone-carbon-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20200905140732",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-force-etap-axs"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty",
+  "slug": "topstonecarbon1lefty",
+  "year": 2021,
+  "ts": "20210621014243",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": [
+   {
+    "ts": "20210121172114",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty",
+  "slug": "topstonecarbon1lefty",
+  "year": 2022,
+  "ts": "20220813234829",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty",
+  "slug": "topstonecarbon1lefty",
+  "year": 2024,
+  "ts": "20240529232716",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty AXS",
+  "slug": "topstonecarbon1leftyaxs",
+  "year": 2020,
+  "ts": "20200805202317",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": [
+   {
+    "ts": "20201001092641",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty AXS",
+  "slug": "topstonecarbon1leftyaxs",
+  "year": 2021,
+  "ts": "20210621014243",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": [
+   {
+    "ts": "20210121172114",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty AXS",
+  "slug": "topstonecarbon1leftyaxs",
+  "year": 2022,
+  "ts": "20220813234829",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty AXS",
+  "slug": "topstonecarbon1leftyaxs",
+  "year": 2024,
+  "ts": "20240529232716",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-lefty-1",
+  "sheet_name": "topstone-carbon-lefty-1",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 Lefty AXS",
+  "slug": "topstonecarbon1leftyaxs",
+  "year": 2025,
+  "ts": "20250214113038",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-rival-axs",
+  "sheet_name": "topstone-carbon-rival-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 1 RLE",
+  "slug": "topstonecarbon1rle",
+  "year": 2020,
+  "ts": "20200428002916",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-force-etap-axs",
+  "sheet_name": "topstone-carbon-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20200905140732",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-force-etap-axs"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 2 AXS - 1x",
+  "slug": "topstonecarbon2axs1x",
+  "year": 2024,
+  "ts": "20240530105021",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-apex-axs",
+  "sheet_name": "topstone-carbon-apex-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 2 AXS - 1x",
+  "slug": "topstonecarbon2axs1x",
+  "year": 2025,
+  "ts": "20250211084543",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-apex",
+  "sheet_name": "topstone-carbon-apex",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 2 AXS SmartSense",
+  "slug": "topstonecarbon2axssmartsense",
+  "year": 2024,
+  "ts": "20240530105021",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-apex-axs",
+  "sheet_name": "topstone-carbon-apex-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon 2 AXS SmartSense",
+  "slug": "topstonecarbon2axssmartsense",
+  "year": 2025,
+  "ts": "20250211084543",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-apex",
+  "sheet_name": "topstone-carbon-apex",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "Topstone Carbon LTD Lefty AXS",
+  "slug": "topstonecarbonltdleftyaxs",
+  "year": 2020,
+  "ts": "20200428002916",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-force-etap-axs",
+  "sheet_name": "topstone-carbon-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20200905140732",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/gravel/topstone-carbon/topstone-carbon-force-etap-axs"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "CAAD14 3",
+  "slug": "caad143",
+  "year": 2020,
+  "ts": "20200930063430",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-smu",
+  "sheet_name": "caad13-disc-105-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "CAAD14 3",
+  "slug": "caad143",
+  "year": 2021,
+  "ts": "20210924053413",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-smu",
+  "sheet_name": "caad13-disc-105-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "CAAD14 3",
+  "slug": "caad143",
+  "year": 2022,
+  "ts": "20221002154856",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-smu",
+  "sheet_name": "caad13-disc-105-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "CAAD14 3",
+  "slug": "caad143",
+  "year": 2023,
+  "ts": "20230601150649",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-smu",
+  "sheet_name": "caad13-disc-105-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "CAAD14 3",
+  "slug": "caad143",
+  "year": 2024,
+  "ts": "20240304211404",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-c13321u",
+  "sheet_name": "caad13-disc-105-c13321u",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "CAAD14 3",
+  "slug": "caad143",
+  "year": 2025,
+  "ts": "20250209075455",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-c13321u",
+  "sheet_name": "caad13-disc-105-c13321u",
+  "alternatives": [
+   {
+    "ts": "20250911150128",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/caad13/caad13-disc-105-c13321u"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 1",
+  "slug": "supersixevo1",
+  "year": 2023,
+  "ts": "20230317230143",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-hi-mod-1",
+  "sheet_name": "supersix-evo-hi-mod-1",
+  "alternatives": [
+   {
+    "ts": "20230924225043",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-hi-mod-1"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 1 SL",
+  "slug": "supersixevo1sl",
+  "year": 2021,
+  "ts": "20210621003405",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-di2-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-di2-smu",
+  "alternatives": [
+   {
+    "ts": "20210923203756",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-di2-smu"
+   },
+   {
+    "ts": "20211206051009",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-di2-smu"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 1 SL",
+  "slug": "supersixevo1sl",
+  "year": 2022,
+  "ts": "20220121022928",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu/",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": [
+   {
+    "ts": "20220811150043",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu/"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 1 SL",
+  "slug": "supersixevo1sl",
+  "year": 2023,
+  "ts": "20230128092342",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 1 SL",
+  "slug": "supersixevo1sl",
+  "year": 2024,
+  "ts": "20240423044313",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": [
+   {
+    "ts": "20240222000839",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu"
+   },
+   {
+    "ts": "20240713085759",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 1 SL",
+  "slug": "supersixevo1sl",
+  "year": 2025,
+  "ts": "20250119230830",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 2",
+  "slug": "supersixevo2",
+  "year": 2020,
+  "ts": "20201130175114",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2",
+  "sheet_name": "supersix-evo-hi-mod-disc-ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 2",
+  "slug": "supersixevo2",
+  "year": 2021,
+  "ts": "20210624192657",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2",
+  "sheet_name": "supersix-evo-hi-mod-disc-ultegra-di2",
+  "alternatives": [
+   {
+    "ts": "20210128160122",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2"
+   },
+   {
+    "ts": "20210923215639",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 2",
+  "slug": "supersixevo2",
+  "year": 2022,
+  "ts": "20220121022928",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu/",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": [
+   {
+    "ts": "20220811150043",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu/"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 2",
+  "slug": "supersixevo2",
+  "year": 2023,
+  "ts": "20230128092342",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 2",
+  "slug": "supersixevo2",
+  "year": 2024,
+  "ts": "20240423044313",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": [
+   {
+    "ts": "20240222000839",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu"
+   },
+   {
+    "ts": "20240713085759",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 2",
+  "slug": "supersixevo2",
+  "year": 2025,
+  "ts": "20250119230830",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-ultegra-smu",
+  "sheet_name": "supersix-evo-carbon-disc-ultegra-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 5",
+  "slug": "supersixevo5",
+  "year": 2022,
+  "ts": "20221004164129",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-105-smu",
+  "sheet_name": "supersix-evo-carbon-105-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 5",
+  "slug": "supersixevo5",
+  "year": 2023,
+  "ts": "20231004174251",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-105-di2-c11752m",
+  "sheet_name": "supersix-evo-carbon-disc-105-di2-c11752m",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 5",
+  "slug": "supersixevo5",
+  "year": 2024,
+  "ts": "20240623054048",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-105-di2-c11752m",
+  "sheet_name": "supersix-evo-carbon-disc-105-di2-c11752m",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 6",
+  "slug": "supersixevo6",
+  "year": 2022,
+  "ts": "20221004164129",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-105-smu",
+  "sheet_name": "supersix-evo-carbon-105-smu",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 6",
+  "slug": "supersixevo6",
+  "year": 2023,
+  "ts": "20230606103241",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-105-c11771m",
+  "sheet_name": "supersix-evo-carbon-disc-105-c11771m",
+  "alternatives": [
+   {
+    "ts": "20230128104740",
+    "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-105-c11771m"
+   }
+  ]
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO 6",
+  "slug": "supersixevo6",
+  "year": 2024,
+  "ts": "20240623054048",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-105-di2-c11752m",
+  "sheet_name": "supersix-evo-carbon-disc-105-di2-c11752m",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO Hi-MOD Frameset",
+  "slug": "supersixevohimodframeset",
+  "year": 2022,
+  "ts": "20220902130257",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-leichtbau-ltd-frameset",
+  "sheet_name": "supersix-evo-leichtbau-ltd-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Cannondale",
+  "name": "SuperSix EVO LAB71 Frameset",
+  "slug": "supersixevolab71frameset",
+  "year": 2022,
+  "ts": "20220902130257",
+  "url": "https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-leichtbau-ltd-frameset",
+  "sheet_name": "supersix-evo-leichtbau-ltd-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Cross Race C:62 Race",
+  "slug": "crossracec62race",
+  "year": 2020,
+  "ts": "20201019212153",
+  "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/cross-race/cube-cross-race-c62-team-edition-carbonnflashyellow/",
+  "sheet_name": "cross-race-c62-team-edition-carbonnflashyellow",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Cross Race C:68X TE",
+  "slug": "crossracec68xte",
+  "year": 2022,
+  "ts": "20220928034036",
+  "url": "https://www.cube.eu/nl/2022/bikes/road/cyclocross/cross-race/cube-cross-race-c68x-te-carbonnflashyellow/",
+  "sheet_name": "cross-race-c68x-te-carbonnflashyellow",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad C:62 Pro FE",
+  "slug": "nuroadc62profe",
+  "year": 2021,
+  "ts": "20210412162231",
+  "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-fe-blacknpetrol/",
+  "sheet_name": "nuroad-pro-fe-blacknpetrol",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad C:62 Pro FE",
+  "slug": "nuroadc62profe",
+  "year": 2022,
+  "ts": "20220521152630",
+  "url": "https://www.cube.eu/nl/2022/bikes/road/gravel/nuroad/cube-nuroad-pro-fe-inkgreynblack/",
+  "sheet_name": "nuroad-pro-fe-inkgreynblack",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad C:62 Pro FE",
+  "slug": "nuroadc62profe",
+  "year": 2025,
+  "ts": "20250323111354",
+  "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320",
+  "sheet_name": "nuroad-pro-fe-night-n-black",
+  "alternatives": [
+   {
+    "ts": "20250824071936",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Pro FE",
+  "slug": "nuroadprofe",
+  "year": 2021,
+  "ts": "20210412162231",
+  "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-fe-blacknpetrol/",
+  "sheet_name": "nuroad-pro-fe-blacknpetrol",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Pro FE",
+  "slug": "nuroadprofe",
+  "year": 2022,
+  "ts": "20220521152630",
+  "url": "https://www.cube.eu/nl/2022/bikes/road/gravel/nuroad/cube-nuroad-pro-fe-inkgreynblack/",
+  "sheet_name": "nuroad-pro-fe-inkgreynblack",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Pro FE",
+  "slug": "nuroadprofe",
+  "year": 2025,
+  "ts": "20250323111354",
+  "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320",
+  "sheet_name": "nuroad-pro-fe-night-n-black",
+  "alternatives": [
+   {
+    "ts": "20250824071936",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Race FE",
+  "slug": "nuroadracefe",
+  "year": 2020,
+  "ts": "20201019154027",
+  "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/",
+  "sheet_name": "nuroad-race-fe-greynblack",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Race FE",
+  "slug": "nuroadracefe",
+  "year": 2021,
+  "ts": "20210309214947",
+  "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/",
+  "sheet_name": "nuroad-race-fe-greynblack",
+  "alternatives": [
+   {
+    "ts": "20210726134056",
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Race FE",
+  "slug": "nuroadracefe",
+  "year": 2024,
+  "ts": "20240906202624",
+  "url": "https://www.cube.eu/nl/cube-nuroad-hybrid-c-62-race-fe-400x-desertstone-n-green/817210",
+  "sheet_name": "nuroad-hybrid-c-62-race-fe-400x-desertstone-n-green",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Nuroad Race FE",
+  "slug": "nuroadracefe",
+  "year": 2025,
+  "ts": "20250904085100",
+  "url": "https://www.cube.eu/nl-nl/cube-nuroad-race-fe-royalgreen-n-black/129470",
+  "sheet_name": "nuroad-race-fe-royalgreen-n-black",
+  "alternatives": [
+   {
+    "ts": "20251102163006",
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-race-fe-royalgreen-n-black/129470"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 Race",
+  "slug": "agreec62race",
+  "year": 2020,
+  "ts": "20200926030627",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-race-carbonnwhite-2020/",
+  "sheet_name": "agree-c62-race-carbonnwhite-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 Race",
+  "slug": "agreec62race",
+  "year": 2022,
+  "ts": "20220625101339",
+  "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/agree/cube-agree-c62-race-fadingbluencarbon/",
+  "sheet_name": "agree-c62-race-fadingbluencarbon",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 SLT AXS",
+  "slug": "agreec62sltaxs",
+  "year": 2021,
+  "ts": "20210412165745",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-slt-carbonnblack-2020/",
+  "sheet_name": "agree-c62-slt-carbonnblack-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Agree C:62 SLT Di2",
+  "slug": "agreec62sltdi2",
+  "year": 2021,
+  "ts": "20210412165745",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-slt-carbonnblack-2020/",
+  "sheet_name": "agree-c62-slt-carbonnblack-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AERO C:68X Race",
+  "slug": "liteningaeroc68xrace",
+  "year": 2020,
+  "ts": "20200922131120",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-race-teamline-2020/",
+  "sheet_name": "litening-c68x-race-teamline-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AERO C:68X SLT",
+  "slug": "liteningaeroc68xslt",
+  "year": 2021,
+  "ts": "20210803042041",
+  "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/litening/cube-litening-c68x-slt-prizmsilverngrey/",
+  "sheet_name": "litening-c68x-slt-prizmsilverngrey",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AIR C:68X Pro",
+  "slug": "liteningairc68xpro",
+  "year": 2025,
+  "ts": "20250804155023",
+  "url": "https://www.cube.eu/nl/cube-litening-air-c-68x-pro-foggrey-n-white/828100",
+  "sheet_name": "litening-air-c-68x-pro-foggrey-n-white",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AIR C:68X Race",
+  "slug": "liteningairc68xrace",
+  "year": 2020,
+  "ts": "20200922131120",
+  "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-race-teamline-2020/",
+  "sheet_name": "litening-c68x-race-teamline-2020",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Litening AIR C:68X SLT",
+  "slug": "liteningairc68xslt",
+  "year": 2021,
+  "ts": "20210803042041",
+  "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/litening/cube-litening-c68x-slt-prizmsilverngrey/",
+  "sheet_name": "litening-c68x-slt-prizmsilverngrey",
+  "alternatives": []
+ },
+ {
+  "brand": "Cube",
+  "name": "Aerium C:68X TT Frameset",
+  "slug": "aeriumc68xttframeset",
+  "year": 2024,
+  "ts": "20240906182313",
+  "url": "https://www.cube.eu/nl-nl/cube-aerium-c-68-tt-frameset-carbon-n-prism/831110",
+  "sheet_name": "aerium-c-68-tt-frameset-carbon-n-prism",
+  "alternatives": [
+   {
+    "ts": "20240919175108",
+    "url": "https://www.cube.eu/nl/cube-aerium-c-68-tt-frameset-carbon-n-prism/831110"
+   }
+  ]
+ },
+ {
+  "brand": "Cube",
+  "name": "Aerium C:68X TT Frameset",
+  "slug": "aeriumc68xttframeset",
+  "year": 2025,
+  "ts": "20250906144543",
+  "url": "https://www.cube.eu/nl-nl/cube-aerium-c-68x-tt-frameset-carbon-n-prism/131110",
+  "sheet_name": "aerium-c-68x-tt-frameset-carbon-n-prism",
+  "alternatives": [
+   {
+    "ts": "20250918081427",
+    "url": "https://www.cube.eu/nl/cube-aerium-c-68x-tt-frameset-carbon-n-prism/131110"
+   },
+   {
+    "ts": "20251011184419",
+    "url": "https://www.cube.eu/nl-nl/cube-aerium-c-68x-tt-frameset-carbon-n-prism/131110"
+   },
+   {
+    "ts": "20251104191758",
+    "url": "https://www.cube.eu/nl/cube-aerium-c-68x-tt-frameset-carbon-n-prism/131110"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Comp - SRAM Rival AXS",
+  "slug": "roubaixsl8compsramrivalaxs",
+  "year": 2022,
+  "ts": "20220929052713",
+  "url": "https://www.specialized.com/nl/nl/roubaix-comp---sram-rival-etap-axs/p/199909",
+  "sheet_name": "roubaix-comp---sram-rival-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20221205190125",
+    "url": "https://www.specialized.com/nl/nl/roubaix-comp---sram-rival-etap-axs/p/199909"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Comp - SRAM Rival AXS",
+  "slug": "roubaixsl8compsramrivalaxs",
+  "year": 2023,
+  "ts": "20231001125324",
+  "url": "https://www.specialized.com/nl/nl/roubaix-comp---sram-rival-etap-axs/p/199909",
+  "sheet_name": "roubaix-comp---sram-rival-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Comp - SRAM Rival AXS",
+  "slug": "roubaixsl8compsramrivalaxs",
+  "year": 2024,
+  "ts": "20240418150520",
+  "url": "https://www.specialized.com/nl/nl/roubaix-comp---sram-rival-etap-axs/p/199909",
+  "sheet_name": "roubaix-comp---sram-rival-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20240302092803",
+    "url": "https://www.specialized.com/nl/nl/roubaix-comp---sram-rival-etap-axs/p/199909"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Comp - SRAM Rival AXS",
+  "slug": "roubaixsl8compsramrivalaxs",
+  "year": 2025,
+  "ts": "20250423124121",
+  "url": "https://www.specialized.com/nl/nl/roubaix-comp-sram-rival-etap-axs/p/199909",
+  "sheet_name": "roubaix-comp-sram-rival-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20250113125909",
+    "url": "https://www.specialized.com/nl/nl/roubaix-comp-sram-rival-etap-axs/p/199909"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Comp - Shimano 105 Di2",
+  "slug": "roubaixsl8compshimano105di2",
+  "year": 2024,
+  "ts": "20240418172619",
+  "url": "https://www.specialized.com/nl/nl/roubaix-sl8-comp/p/218669",
+  "sheet_name": "roubaix-sl8-comp",
+  "alternatives": [
+   {
+    "ts": "20240305063221",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-comp/p/218669"
+   },
+   {
+    "ts": "20241212144908",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-comp/p/4221823"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Expert - Shimano Ultegra Di2",
+  "slug": "roubaixsl8expertshimanoultegradi2",
+  "year": 2024,
+  "ts": "20240226032532",
+  "url": "https://www.specialized.com/nl/nl/roubaix-sl8-expert/p/216943",
+  "sheet_name": "roubaix-sl8-expert",
+  "alternatives": [
+   {
+    "ts": "20241005053330",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-expert/p/4221821"
+   },
+   {
+    "ts": "20241108043945",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-expert/p/4221821"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Pro - SRAM Force AXS",
+  "slug": "roubaixsl8prosramforceaxs",
+  "year": 2020,
+  "ts": "20200812010853",
+  "url": "https://www.specialized.com/nl/nl/roubaix-pro--sram-force-etap-axs/p/171045",
+  "sheet_name": "roubaix-pro--sram-force-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Pro - SRAM Force AXS",
+  "slug": "roubaixsl8prosramforceaxs",
+  "year": 2021,
+  "ts": "20210411125943",
+  "url": "https://www.specialized.com/nl/nl/roubaix-pro--sram-force-etap-axs/p/171045",
+  "sheet_name": "roubaix-pro--sram-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20210411122824",
+    "url": "https://www.specialized.com/nl/nl/roubaix-pro--sram-force-etap-axs/p/171045"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Pro - SRAM Force AXS",
+  "slug": "roubaixsl8prosramforceaxs",
+  "year": 2022,
+  "ts": "20221003181050",
+  "url": "https://www.specialized.com/nl/nl/roubaix-pro--sram-force-etap-axs/p/171045",
+  "sheet_name": "roubaix-pro--sram-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20221003173925",
+    "url": "https://www.specialized.com/nl/nl/roubaix-pro--sram-force-etap-axs/p/171045"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Pro - SRAM Force AXS",
+  "slug": "roubaixsl8prosramforceaxs",
+  "year": 2023,
+  "ts": "20230924164908",
+  "url": "https://www.specialized.com/nl/nl/roubaix-pro--sram-force-etap-axs/p/171045",
+  "sheet_name": "roubaix-pro--sram-force-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Pro - SRAM Force AXS",
+  "slug": "roubaixsl8prosramforceaxs",
+  "year": 2024,
+  "ts": "20240304173416",
+  "url": "https://www.specialized.com/nl/nl/roubaix-sl8-pro/p/216942",
+  "sheet_name": "roubaix-sl8-pro",
+  "alternatives": [
+   {
+    "ts": "20241005072538",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-pro/p/4221818"
+   },
+   {
+    "ts": "20241102060212",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-pro/p/4221818"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Roubaix SL8 Sport - Shimano 105",
+  "slug": "roubaixsl8sportshimano105",
+  "year": 2024,
+  "ts": "20240301140108",
+  "url": "https://www.specialized.com/nl/nl/roubaix-sl8-sport-105/p/225457",
+  "sheet_name": "roubaix-sl8-sport-105",
+  "alternatives": [
+   {
+    "ts": "20241212151754",
+    "url": "https://www.specialized.com/nl/nl/roubaix-sl8-sport-105/p/225457"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 - Shimano Dura-Ace Di2",
+  "slug": "sworksroubaixsl8shimanoduraacedi2",
+  "year": 2020,
+  "ts": "20200813064317",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix--shimano-dura-ace-di2/p/170241",
+  "sheet_name": "s-works-roubaix--shimano-dura-ace-di2",
+  "alternatives": [
+   {
+    "ts": "20200813180929",
+    "url": "https://www.specialized.com/NL/nl/s-works-roubaix--shimano-dura-ace-di2/p/170241"
+   },
+   {
+    "ts": "20200918120912",
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix--shimano-dura-ace-di2/p/170241"
+   },
+   {
+    "ts": "20201027040140",
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix--shimano-dura-ace-di2/p/170241"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 - Shimano Dura-Ace Di2",
+  "slug": "sworksroubaixsl8shimanoduraacedi2",
+  "year": 2022,
+  "ts": "20220707170816",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-dura-ace-di2/p/128885",
+  "sheet_name": "s-works-roubaix-dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 - Shimano Dura-Ace Di2",
+  "slug": "sworksroubaixsl8shimanoduraacedi2",
+  "year": 2024,
+  "ts": "20240301102342",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-shimano-dura-ace-di2/p/200536",
+  "sheet_name": "s-works-roubaix-shimano-dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 - Shimano Dura-Ace Di2",
+  "slug": "sworksroubaixsl8shimanoduraacedi2",
+  "year": 2025,
+  "ts": "20250122140333",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-shimano-dura-ace-di2/p/200536",
+  "sheet_name": "s-works-roubaix-shimano-dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 Frameset - FACT 12R Carbon",
+  "slug": "sworksroubaixsl8framesetfact12rcarbon",
+  "year": 2020,
+  "ts": "20200805085918",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-frameset/p/170278",
+  "sheet_name": "s-works-roubaix-frameset",
+  "alternatives": [
+   {
+    "ts": "20200922023637",
+    "url": "https://www.specialized.com/NL/nl/s-works-roubaix-frameset/p/170278"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 Frameset - FACT 12R Carbon",
+  "slug": "sworksroubaixsl8framesetfact12rcarbon",
+  "year": 2021,
+  "ts": "20210618182738",
+  "url": "https://www.specialized.com/NL/nl/s-works-roubaix-frameset/p/170278",
+  "sheet_name": "s-works-roubaix-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 Frameset - FACT 12R Carbon",
+  "slug": "sworksroubaixsl8framesetfact12rcarbon",
+  "year": 2024,
+  "ts": "20240305020809",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-sl8-frameset/p/216947",
+  "sheet_name": "s-works-roubaix-sl8-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 Frameset - FACT 12R Carbon",
+  "slug": "sworksroubaixsl8framesetfact12rcarbon",
+  "year": 2025,
+  "ts": "20250811232456",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-sl8-frameset/p/4221831",
+  "sheet_name": "s-works-roubaix-sl8-frameset",
+  "alternatives": [
+   {
+    "ts": "20250914153731",
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix-sl8-frameset/p/4221831"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 – SRAM RED AXS",
+  "slug": "sworksroubaixsl8sramredaxs",
+  "year": 2020,
+  "ts": "20200813061610",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix--sram-red-etap-axs/p/171042",
+  "sheet_name": "s-works-roubaix--sram-red-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20200814090911",
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix--sram-red-etap-axs/p/171042"
+   },
+   {
+    "ts": "20200925075944",
+    "url": "https://www.specialized.com/NL/nl/s-works-roubaix--sram-red-etap-axs/p/171042"
+   },
+   {
+    "ts": "20200929145409",
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix--sram-red-etap-axs/p/184471"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Roubaix SL8 – SRAM RED AXS",
+  "slug": "sworksroubaixsl8sramredaxs",
+  "year": 2021,
+  "ts": "20210618191705",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix--sram-red-etap-axs/p/171042",
+  "sheet_name": "s-works-roubaix--sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Diverge 4 Expert - SRAM Rival XPLR",
+  "slug": "diverge4expertsramrivalxplr",
+  "year": 2025,
+  "ts": "20251210172545",
+  "url": "https://www.specialized.com/nl/nl/diverge-str-expert-sram-rival-etap-axs--gx-eagle-axs/p/221357",
+  "sheet_name": "diverge-str-expert-sram-rival-etap-axs--gx-eagle-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux 5 Frameset - FACT 12r Carbon",
+  "slug": "sworkscrux5framesetfact12rcarbon",
+  "year": 2020,
+  "ts": "20200805170208",
+  "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": [
+   {
+    "ts": "20200922005235",
+    "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux 5 Frameset - FACT 12r Carbon",
+  "slug": "sworkscrux5framesetfact12rcarbon",
+  "year": 2021,
+  "ts": "20210122163845",
+  "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux 5 Frameset - FACT 12r Carbon",
+  "slug": "sworkscrux5framesetfact12rcarbon",
+  "year": 2022,
+  "ts": "20220524111805",
+  "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/129101",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": [
+   {
+    "ts": "20220928053441",
+    "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/129101"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux 5 Frameset - FACT 12r Carbon",
+  "slug": "sworkscrux5framesetfact12rcarbon",
+  "year": 2025,
+  "ts": "20250906083344",
+  "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/4223479",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": [
+   {
+    "ts": "20251014155347",
+    "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/129101"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux Frameset - FACT 12r Carbon",
+  "slug": "sworkscruxframesetfact12rcarbon",
+  "year": 2020,
+  "ts": "20200805170208",
+  "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": [
+   {
+    "ts": "20200922005235",
+    "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux Frameset - FACT 12r Carbon",
+  "slug": "sworkscruxframesetfact12rcarbon",
+  "year": 2021,
+  "ts": "20210122163845",
+  "url": "https://www.specialized.com/NL/nl/s-works-crux-frameset/p/171341",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux Frameset - FACT 12r Carbon",
+  "slug": "sworkscruxframesetfact12rcarbon",
+  "year": 2022,
+  "ts": "20220524111805",
+  "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/129101",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": [
+   {
+    "ts": "20220928053441",
+    "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/129101"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Crux Frameset - FACT 12r Carbon",
+  "slug": "sworkscruxframesetfact12rcarbon",
+  "year": 2025,
+  "ts": "20250906083344",
+  "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/4223479",
+  "sheet_name": "s-works-crux-frameset",
+  "alternatives": [
+   {
+    "ts": "20251014155347",
+    "url": "https://www.specialized.com/nl/nl/s-works-crux-frameset/p/129101"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Diverge 4 - SRAM RED XPLR",
+  "slug": "sworksdiverge4sramredxplr",
+  "year": 2020,
+  "ts": "20200805220743",
+  "url": "https://www.specialized.com/NL/nl/s-works-diverge---sram-etap-axs/p/171315",
+  "sheet_name": "s-works-diverge---sram-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20201025053029",
+    "url": "https://www.specialized.com/nl/nl/s-works-diverge---sram-etap-axs/p/171315"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - SRAM Force AXS",
+  "slug": "aethos2prosramforceaxs",
+  "year": 2021,
+  "ts": "20210412002822",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/187064",
+  "sheet_name": "aethos-pro---sram-force-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - SRAM Force AXS",
+  "slug": "aethos2prosramforceaxs",
+  "year": 2022,
+  "ts": "20221127014531",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/199441",
+  "sheet_name": "aethos-pro---sram-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20221205141435",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/199441"
+   },
+   {
+    "ts": "20221205151155",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/199441"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - SRAM Force AXS",
+  "slug": "aethos2prosramforceaxs",
+  "year": 2023,
+  "ts": "20230928070916",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/199441",
+  "sheet_name": "aethos-pro---sram-force-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20231206172146",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/199441"
+   },
+   {
+    "ts": "20231207141730",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro---sram-force-etap-axs/p/199441"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - SRAM Force AXS",
+  "slug": "aethos2prosramforceaxs",
+  "year": 2025,
+  "ts": "20251213075544",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro-sram-force-etap-axs/p/4275489",
+  "sheet_name": "aethos-pro-sram-force-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - Shimano Ultegra Di2",
+  "slug": "aethos2proshimanoultegradi2",
+  "year": 2021,
+  "ts": "20210412231239",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro---ultegra-di2/p/187433",
+  "sheet_name": "aethos-pro---ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - Shimano Ultegra Di2",
+  "slug": "aethos2proshimanoultegradi2",
+  "year": 2024,
+  "ts": "20241106060555",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro-shimano-ultegra-di2/p/4221544",
+  "sheet_name": "aethos-pro-shimano-ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Aethos 2 Pro - Shimano Ultegra Di2",
+  "slug": "aethos2proshimanoultegradi2",
+  "year": 2025,
+  "ts": "20250522084820",
+  "url": "https://www.specialized.com/nl/nl/aethos-pro-shimano-ultegra-di2/p/221466",
+  "sheet_name": "aethos-pro-shimano-ultegra-di2",
+  "alternatives": [
+   {
+    "ts": "20250122010630",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro-shimano-ultegra-di2/p/4221544"
+   },
+   {
+    "ts": "20250813140247",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro-shimano-ultegra-di2/p/4221544"
+   },
+   {
+    "ts": "20250908030704",
+    "url": "https://www.specialized.com/nl/nl/aethos-pro-shimano-ultegra-di2/p/4221544"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105",
+  "year": 2020,
+  "ts": "20200812025007",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-comp-disc/p/171318",
+  "sheet_name": "allez-sprint-comp-disc",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105",
+  "year": 2021,
+  "ts": "20210306005544",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-comp-disc/p/171318",
+  "sheet_name": "allez-sprint-comp-disc",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105",
+  "year": 2022,
+  "ts": "20220524131644",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/129269",
+  "sheet_name": "allez-sprint-comp",
+  "alternatives": [
+   {
+    "ts": "20221002203109",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/129269"
+   },
+   {
+    "ts": "20221127031233",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/189818"
+   },
+   {
+    "ts": "20221205154724",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/189818"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105",
+  "year": 2023,
+  "ts": "20230603143402",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/129269",
+  "sheet_name": "allez-sprint-comp",
+  "alternatives": [
+   {
+    "ts": "20230608190552",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/189818"
+   },
+   {
+    "ts": "20231206084524",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/129269"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105",
+  "year": 2024,
+  "ts": "20240612212306",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/129269",
+  "sheet_name": "allez-sprint-comp",
+  "alternatives": [
+   {
+    "ts": "20240612163133",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/129269"
+   },
+   {
+    "ts": "20241212034307",
+    "url": "https://www.specialized.com/nl/nl/allez-sprint-comp/p/4221550"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Comp - Shimano 105",
+  "slug": "allezsprintcompshimano105",
+  "year": 2025,
+  "ts": "20251016214518",
+  "url": "https://www.specialized.com/nl/nl/allez-comp-105-compact/p/34876",
+  "sheet_name": "allez-comp-105-compact",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Frameset - D'Aluisio Smartweld Alloy",
+  "slug": "allezsprintframesetdaluisiosmartweldalloy",
+  "year": 2020,
+  "ts": "20200804062303",
+  "url": "https://www.specialized.com/NL/nl/allez-sprint-disc-frameset/p/171321",
+  "sheet_name": "allez-sprint-disc-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Frameset - D'Aluisio Smartweld Alloy",
+  "slug": "allezsprintframesetdaluisiosmartweldalloy",
+  "year": 2021,
+  "ts": "20210115211825",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-disc-frameset---sagan-collectie-deconstructivism/p/199948",
+  "sheet_name": "allez-sprint-disc-frameset---sagan-collectie-deconstructivism",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Frameset - D'Aluisio Smartweld Alloy",
+  "slug": "allezsprintframesetdaluisiosmartweldalloy",
+  "year": 2023,
+  "ts": "20230529111441",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-frameset/p/189820",
+  "sheet_name": "allez-sprint-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Allez Sprint Frameset - D'Aluisio Smartweld Alloy",
+  "slug": "allezsprintframesetdaluisiosmartweldalloy",
+  "year": 2024,
+  "ts": "20240623101450",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-frameset/p/189820",
+  "sheet_name": "allez-sprint-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 - SRAM RED AXS",
+  "slug": "sworksaethos2sramredaxs",
+  "year": 2024,
+  "ts": "20241110213228",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos--sram-red-axs/p/4221535",
+  "sheet_name": "s-works-aethos--sram-red-axs",
+  "alternatives": [
+   {
+    "ts": "20241212145117",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos--sram-red-axs/p/4221535"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 - SRAM RED AXS",
+  "slug": "sworksaethos2sramredaxs",
+  "year": 2025,
+  "ts": "20250121174106",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/187063",
+  "sheet_name": "s-works-aethos-sram-red-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20250115163654",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/216931"
+   },
+   {
+    "ts": "20250901123606",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/216931"
+   },
+   {
+    "ts": "20251116193926",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/216931"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 - Shimano Dura-Ace Di2",
+  "slug": "sworksaethos2shimanoduraacedi2",
+  "year": 2021,
+  "ts": "20210412213753",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos---dura-ace-di2/p/187062",
+  "sheet_name": "s-works-aethos---dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 - Shimano Dura-Ace Di2",
+  "slug": "sworksaethos2shimanoduraacedi2",
+  "year": 2024,
+  "ts": "20240418050155",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos---dura-ace-di2/p/187062",
+  "sheet_name": "s-works-aethos---dura-ace-di2",
+  "alternatives": [
+   {
+    "ts": "20240524160703",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos---dura-ace-di2/p/187062"
+   },
+   {
+    "ts": "20240623011605",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos---dura-ace-di2/p/199439"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 - Shimano Dura-Ace Di2",
+  "slug": "sworksaethos2shimanoduraacedi2",
+  "year": 2025,
+  "ts": "20250121183320",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-dura-ace-di2/p/187062",
+  "sheet_name": "s-works-aethos-dura-ace-di2",
+  "alternatives": [
+   {
+    "ts": "20250119071441",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-dura-ace-di2/p/216930"
+   },
+   {
+    "ts": "20250117051807",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-dura-ace-di2/p/187062"
+   },
+   {
+    "ts": "20250827090046",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-dura-ace-di2/p/216930"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 Frameset - FACT 12r Carbon",
+  "slug": "sworksaethos2framesetfact12rcarbon",
+  "year": 2021,
+  "ts": "20210412231021",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/187061",
+  "sheet_name": "s-works-aethos-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos 2 Frameset - FACT 12r Carbon",
+  "slug": "sworksaethos2framesetfact12rcarbon",
+  "year": 2024,
+  "ts": "20241105102058",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/221495",
+  "sheet_name": "s-works-aethos-frameset",
+  "alternatives": [
+   {
+    "ts": "20241113185247",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/216929"
+   },
+   {
+    "ts": "20241205060258",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/221495"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos Frameset - FACT 12r Carbon",
+  "slug": "sworksaethosframesetfact12rcarbon",
+  "year": 2021,
+  "ts": "20210412231021",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/187061",
+  "sheet_name": "s-works-aethos-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos Frameset - FACT 12r Carbon",
+  "slug": "sworksaethosframesetfact12rcarbon",
+  "year": 2024,
+  "ts": "20241105102058",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/221495",
+  "sheet_name": "s-works-aethos-frameset",
+  "alternatives": [
+   {
+    "ts": "20241113185247",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/216929"
+   },
+   {
+    "ts": "20241205060258",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/221495"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos Frameset - FACT 12r Carbon",
+  "slug": "sworksaethosframesetfact12rcarbon",
+  "year": 2025,
+  "ts": "20250809191318",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/221495",
+  "sheet_name": "s-works-aethos-frameset",
+  "alternatives": [
+   {
+    "ts": "20250809181426",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-frameset/p/4221547"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos LTD - Campagnolo Super Record",
+  "slug": "sworksaethosltdcampagnolosuperrecord",
+  "year": 2024,
+  "ts": "20241004202357",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos--campagnolo-ltd/p/205572",
+  "sheet_name": "s-works-aethos--campagnolo-ltd",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Aethos LTD - Campagnolo Super Record",
+  "slug": "sworksaethosltdcampagnolosuperrecord",
+  "year": 2025,
+  "ts": "20250520221555",
+  "url": "https://www.specialized.com/nl/nl/s-works-aethos--campagnolo-ltd/p/205572",
+  "sheet_name": "s-works-aethos--campagnolo-ltd",
+  "alternatives": [
+   {
+    "ts": "20250714081911",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos--campagnolo-ltd/p/205572"
+   },
+   {
+    "ts": "20250828152423",
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos--campagnolo-ltd/p/205572"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs",
+  "year": 2020,
+  "ts": "20200926152016",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/175312",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs",
+  "year": 2021,
+  "ts": "20210417141850",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/175312",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs",
+  "year": 2022,
+  "ts": "20220810164857",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc--sram-etap/p/171346",
+  "sheet_name": "s-works-tarmac-disc--sram-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs",
+  "year": 2023,
+  "ts": "20230325074302",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/216923",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs",
+  "year": 2024,
+  "ts": "20241210062128",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8--sram-red-axs/p/4221539",
+  "sheet_name": "s-works-tarmac-sl8--sram-red-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - SRAM RED AXS",
+  "slug": "sworkstarmacsl9sramredaxs",
+  "year": 2025,
+  "ts": "20250113011718",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8--sram-red-axs/p/4221539",
+  "sheet_name": "s-works-tarmac-sl8--sram-red-axs",
+  "alternatives": [
+   {
+    "ts": "20250808023902",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8--sram-red-axs/p/4221539"
+   },
+   {
+    "ts": "20250815064614",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8--sram-red-axs/p/4221539"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
+  "slug": "sworkstarmacsl9shimanoduraacedi2",
+  "year": 2020,
+  "ts": "20200803153550",
+  "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc---dura-ace-di2/p/171347",
+  "sheet_name": "s-works-tarmac-disc---dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
+  "slug": "sworkstarmacsl9shimanoduraacedi2",
+  "year": 2021,
+  "ts": "20210417143626",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---dura-ace-di2/p/175292",
+  "sheet_name": "s-works-tarmac-sl7---dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
+  "slug": "sworkstarmacsl9shimanoduraacedi2",
+  "year": 2023,
+  "ts": "20230603150940",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---shimano-dura-ace-di2/p/216922",
+  "sheet_name": "s-works-tarmac-sl7---shimano-dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
+  "slug": "sworkstarmacsl9shimanoduraacedi2",
+  "year": 2024,
+  "ts": "20240421030405",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8---shimano-dura-ace-di2/p/216953",
+  "sheet_name": "s-works-tarmac-sl8---shimano-dura-ace-di2",
+  "alternatives": [
+   {
+    "ts": "20240618162459",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8---shimano-dura-ace-di2/p/216953"
+   },
+   {
+    "ts": "20240918143630",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8---shimano-dura-ace-di2/p/4221536"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 - Shimano Dura-Ace Di2",
+  "slug": "sworkstarmacsl9shimanoduraacedi2",
+  "year": 2025,
+  "ts": "20250116023313",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-dura-ace-di2/p/175292",
+  "sheet_name": "s-works-tarmac-sl7-dura-ace-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Frameset - FACT 12r Carbon",
+  "slug": "sworkstarmacsl9framesetfact12rcarbon",
+  "year": 2020,
+  "ts": "20200929142637",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-frameset/p/175296",
+  "sheet_name": "s-works-tarmac-sl7-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Frameset - FACT 12r Carbon",
+  "slug": "sworkstarmacsl9framesetfact12rcarbon",
+  "year": 2021,
+  "ts": "20210924032143",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset-mixtape-ltd/p/157775",
+  "sheet_name": "s-works-tarmac-disc-frameset-mixtape-ltd",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Frameset - FACT 12r Carbon",
+  "slug": "sworkstarmacsl9framesetfact12rcarbon",
+  "year": 2024,
+  "ts": "20241212133710",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/216956",
+  "sheet_name": "s-works-tarmac-sl8-frameset",
+  "alternatives": [
+   {
+    "ts": "20241212135250",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/4277463"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Frameset - FACT 12r Carbon",
+  "slug": "sworkstarmacsl9framesetfact12rcarbon",
+  "year": 2025,
+  "ts": "20251117155628",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset-fact-12r-carbon/p/4221575",
+  "sheet_name": "s-works-tarmac-sl8-frameset-fact-12r-carbon",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends",
+  "year": 2020,
+  "ts": "20200926152016",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/175312",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends",
+  "year": 2021,
+  "ts": "20210417141850",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/175312",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends",
+  "year": 2022,
+  "ts": "20220810164857",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc--sram-etap/p/171346",
+  "sheet_name": "s-works-tarmac-disc--sram-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends",
+  "year": 2023,
+  "ts": "20230325074302",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/216923",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends",
+  "year": 2024,
+  "ts": "20241210062128",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8--sram-red-axs/p/4221539",
+  "sheet_name": "s-works-tarmac-sl8--sram-red-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Built for Legends",
+  "slug": "sworkstarmacsl9ltdbuiltforlegends",
+  "year": 2025,
+  "ts": "20250121194316",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-ltd--sram-red-axs/p/275575",
+  "sheet_name": "s-works-tarmac-sl8-ltd--sram-red-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel",
+  "year": 2020,
+  "ts": "20200926152016",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/175312",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel",
+  "year": 2021,
+  "ts": "20210417141850",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/175312",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel",
+  "year": 2022,
+  "ts": "20220810164857",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc--sram-etap/p/171346",
+  "sheet_name": "s-works-tarmac-disc--sram-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel",
+  "year": 2023,
+  "ts": "20230325074302",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7---sram-red-etap-axs/p/216923",
+  "sheet_name": "s-works-tarmac-sl7---sram-red-etap-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel",
+  "year": 2024,
+  "ts": "20241210062128",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8--sram-red-axs/p/4221539",
+  "sheet_name": "s-works-tarmac-sl8--sram-red-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 LTD - Remco Evenepoel",
+  "slug": "sworkstarmacsl9ltdremcoevenepoel",
+  "year": 2025,
+  "ts": "20250121194316",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-ltd--sram-red-axs/p/275575",
+  "sheet_name": "s-works-tarmac-sl8-ltd--sram-red-axs",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - FDJ United - SUEZ",
+  "slug": "sworkstarmacsl9teamreplicaframesetfdjunitedsuez",
+  "year": 2020,
+  "ts": "20200929142637",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-frameset/p/175296",
+  "sheet_name": "s-works-tarmac-sl7-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - FDJ United - SUEZ",
+  "slug": "sworkstarmacsl9teamreplicaframesetfdjunitedsuez",
+  "year": 2021,
+  "ts": "20210924032143",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset-mixtape-ltd/p/157775",
+  "sheet_name": "s-works-tarmac-disc-frameset-mixtape-ltd",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - FDJ United - SUEZ",
+  "slug": "sworkstarmacsl9teamreplicaframesetfdjunitedsuez",
+  "year": 2024,
+  "ts": "20241212133710",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/216956",
+  "sheet_name": "s-works-tarmac-sl8-frameset",
+  "alternatives": [
+   {
+    "ts": "20241212135250",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/4277463"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - FDJ United - SUEZ",
+  "slug": "sworkstarmacsl9teamreplicaframesetfdjunitedsuez",
+  "year": 2025,
+  "ts": "20250807064732",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-team-frameset-fdj-suez/p/4294240",
+  "sheet_name": "s-works-tarmac-sl8-team-frameset-fdj-suez",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Red Bull - BORA - hansgrohe",
+  "slug": "sworkstarmacsl9teamreplicaframesetredbullborahansgrohe",
+  "year": 2020,
+  "ts": "20200929142637",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-frameset/p/175296",
+  "sheet_name": "s-works-tarmac-sl7-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Red Bull - BORA - hansgrohe",
+  "slug": "sworkstarmacsl9teamreplicaframesetredbullborahansgrohe",
+  "year": 2021,
+  "ts": "20210924032143",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset-mixtape-ltd/p/157775",
+  "sheet_name": "s-works-tarmac-disc-frameset-mixtape-ltd",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Red Bull - BORA - hansgrohe",
+  "slug": "sworkstarmacsl9teamreplicaframesetredbullborahansgrohe",
+  "year": 2024,
+  "ts": "20241212133710",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/216956",
+  "sheet_name": "s-works-tarmac-sl8-frameset",
+  "alternatives": [
+   {
+    "ts": "20241212135250",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/4277463"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Red Bull - BORA - hansgrohe",
+  "slug": "sworkstarmacsl9teamreplicaframesetredbullborahansgrohe",
+  "year": 2025,
+  "ts": "20250807064732",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-team-frameset-fdj-suez/p/4294240",
+  "sheet_name": "s-works-tarmac-sl8-team-frameset-fdj-suez",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - SD Worx - Protime",
+  "slug": "sworkstarmacsl9teamreplicaframesetsdworxprotime",
+  "year": 2020,
+  "ts": "20200929142637",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-frameset/p/175296",
+  "sheet_name": "s-works-tarmac-sl7-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - SD Worx - Protime",
+  "slug": "sworkstarmacsl9teamreplicaframesetsdworxprotime",
+  "year": 2021,
+  "ts": "20210924032143",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset-mixtape-ltd/p/157775",
+  "sheet_name": "s-works-tarmac-disc-frameset-mixtape-ltd",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - SD Worx - Protime",
+  "slug": "sworkstarmacsl9teamreplicaframesetsdworxprotime",
+  "year": 2024,
+  "ts": "20241212133710",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/216956",
+  "sheet_name": "s-works-tarmac-sl8-frameset",
+  "alternatives": [
+   {
+    "ts": "20241212135250",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/4277463"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - SD Worx - Protime",
+  "slug": "sworkstarmacsl9teamreplicaframesetsdworxprotime",
+  "year": 2025,
+  "ts": "20250807064732",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-team-frameset-fdj-suez/p/4294240",
+  "sheet_name": "s-works-tarmac-sl8-team-frameset-fdj-suez",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step",
+  "slug": "sworkstarmacsl9teamreplicaframesetsoudalquickstep",
+  "year": 2020,
+  "ts": "20200929142637",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-frameset/p/175296",
+  "sheet_name": "s-works-tarmac-sl7-frameset",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step",
+  "slug": "sworkstarmacsl9teamreplicaframesetsoudalquickstep",
+  "year": 2021,
+  "ts": "20210924032143",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-disc-frameset-mixtape-ltd/p/157775",
+  "sheet_name": "s-works-tarmac-disc-frameset-mixtape-ltd",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step",
+  "slug": "sworkstarmacsl9teamreplicaframesetsoudalquickstep",
+  "year": 2024,
+  "ts": "20241212133710",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/216956",
+  "sheet_name": "s-works-tarmac-sl8-frameset",
+  "alternatives": [
+   {
+    "ts": "20241212135250",
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-frameset/p/4277463"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step",
+  "slug": "sworkstarmacsl9teamreplicaframesetsoudalquickstep",
+  "year": 2025,
+  "ts": "20250905175401",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-team-frameset-soudal-quick-step/p/4294241",
+  "sheet_name": "s-works-tarmac-sl8-team-frameset-soudal-quick-step",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Comp - SRAM Rival AXS",
+  "slug": "tarmacsl9compsramrivalaxs",
+  "year": 2022,
+  "ts": "20220929041601",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl7-comp---rival-etap-axs/p/199523",
+  "sheet_name": "tarmac-sl7-comp---rival-etap-axs",
+  "alternatives": [
+   {
+    "ts": "20221205172430",
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl7-comp---rival-etap-axs/p/199523"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Comp - SRAM Rival AXS",
+  "slug": "tarmacsl9compsramrivalaxs",
+  "year": 2025,
+  "ts": "20250808020101",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl8-comp-sram-rival-axs-/p/4292996",
+  "sheet_name": "tarmac-sl8-comp-sram-rival-axs-",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Comp - Shimano 105 Di2",
+  "slug": "tarmacsl9compshimano105di2",
+  "year": 2024,
+  "ts": "20241212224717",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl7-comp-shimano-105-di2/p/218668",
+  "sheet_name": "tarmac-sl7-comp-shimano-105-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Comp - Shimano 105 Di2",
+  "slug": "tarmacsl9compshimano105di2",
+  "year": 2025,
+  "ts": "20250122011853",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl7-comp-shimano-105-di2/p/4221543",
+  "sheet_name": "tarmac-sl7-comp-shimano-105-di2",
+  "alternatives": [
+   {
+    "ts": "20250120123231",
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl7-comp-shimano-105-di2/p/218668"
+   },
+   {
+    "ts": "20250811021109",
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl7-comp-shimano-105-di2/p/4221543"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Expert - Shimano Ultegra Di2",
+  "slug": "tarmacsl9expertshimanoultegradi2",
+  "year": 2020,
+  "ts": "20200926152836",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl7-expert---ultegra-di2/p/175295",
+  "sheet_name": "tarmac-sl7-expert---ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Expert - Shimano Ultegra Di2",
+  "slug": "tarmacsl9expertshimanoultegradi2",
+  "year": 2021,
+  "ts": "20210417142420",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl7-expert---ultegra-di2/p/175295",
+  "sheet_name": "tarmac-sl7-expert---ultegra-di2",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Expert - Shimano Ultegra Di2",
+  "slug": "tarmacsl9expertshimanoultegradi2",
+  "year": 2024,
+  "ts": "20241004210442",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl8-expert-ultegra-di2/p/4276209",
+  "sheet_name": "tarmac-sl8-expert-ultegra-di2",
+  "alternatives": [
+   {
+    "ts": "20241211054402",
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl8-expert-ultegra-di2/p/4276209"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 Expert - Shimano Ultegra Di2",
+  "slug": "tarmacsl9expertshimanoultegradi2",
+  "year": 2025,
+  "ts": "20250808024419",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl8-expert-shimano-ultegra-di2/p/4276209",
+  "sheet_name": "tarmac-sl8-expert-shimano-ultegra-di2",
+  "alternatives": [
+   {
+    "ts": "20251014014141",
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl8-expert-shimano-ultegra-di2/p/4221577"
+   },
+   {
+    "ts": "20251107062556",
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl8-expert-shimano-ultegra-di2/p/4276209"
+   }
+  ]
+ },
+ {
+  "brand": "Specialized",
+  "name": "Tarmac SL9 S-Level - SRAM RED AXS",
+  "slug": "tarmacsl9slevelsramredaxs",
+  "year": 2020,
+  "ts": "20200805230209",
+  "url": "https://www.specialized.com/NL/nl/tarmac-pro-disc--sram-etap/p/171349",
+  "sheet_name": "tarmac-pro-disc--sram-etap",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Shiv TT Disc Module - FACT 11r Carbon",
+  "slug": "sworksshivttdiscmodulefact11rcarbon",
+  "year": 2024,
+  "ts": "20240616193757",
+  "url": "https://www.specialized.com/nl/nl/s-works-shiv-tt-disc-module/p/221469",
+  "sheet_name": "s-works-shiv-tt-disc-module",
+  "alternatives": []
+ },
+ {
+  "brand": "Specialized",
+  "name": "S-Works Shiv TT Disc Module - FACT 11r Carbon",
+  "slug": "sworksshivttdiscmodulefact11rcarbon",
+  "year": 2025,
+  "ts": "20250812113059",
+  "url": "https://www.specialized.com/nl/nl/s-works-shiv-tt-module/p/4221549",
+  "sheet_name": "s-works-shiv-tt-module",
+  "alternatives": [
+   {
+    "ts": "20250906080023",
+    "url": "https://www.specialized.com/nl/nl/s-works-shiv-tt-module/p/4221549"
+   },
+   {
+    "ts": "20251016101033",
+    "url": "https://www.specialized.com/nl/nl/s-works-shiv-tt-module/p/65174"
+   },
+   {
+    "ts": "20251018112827",
+    "url": "https://www.specialized.com/nl/nl/s-works-shiv-tt-module/p/106279"
+   }
+  ]
+ }
+]
