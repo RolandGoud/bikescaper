@@ -871,3 +871,6 @@ def test_year_clues_from_the_spec_sheets_of_each_year(models):
     assert [(a, b) for a, b, _m in clues] == [(None, 2024), (None, 2022)]
     assert "RX810" in en(clues[0][2]) and "Pennyflake" in en(clues[1][2])
     assert checks.sheet_clues(m, "Shimano 105, carbon") == []  # in every year, or a plain colour
+    m["year_specs"]["years"]["2023"]["colours"] = ["Blue Dragonfly/Chrome"]
+    clues = checks.sheet_clues(m, "Mooie blue dragonfly kleur")
+    assert [(a, b) for a, b, _m in clues] == [(2022, 2024)] and "Blue Dragonfly" in en(clues[0][2])

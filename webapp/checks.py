@@ -681,7 +681,8 @@ def sheet_clues(model, text):
     dated = {y: s for y, s in sheets.items() if s["colours"]}
     colours = {}
     for y, s in dated.items() if len(dated) > 1 else ():
-        for c in s["colours"]:
+        # Each part of a two-tone name on its own ("Blue Dragonfly/Chrome"): an ad names the colour, not the finish.
+        for c in (part.strip() for name in s["colours"] for part in name.split("/")):
             words = re.findall(r"[a-z]+", _plain(c))
             if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
                 colours.setdefault(" ".join(words), (c, set()))[1].add(y)
