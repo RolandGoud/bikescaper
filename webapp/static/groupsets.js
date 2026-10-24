@@ -1,13 +1,15 @@
 // Groupsets page.
 // Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map: each
 // tile links to every tile on its line in the next column, and down its column to the next generation of its series.
-// Lines are dotted, except at most one bold line per gap between two columns: the connection you picked by clicking
-// a line (click it again to drop it), or else the one on your groupset's way up, to the closest in age. A tile gets
+// Lines are dotted, except one connected bold path with at most one line per gap between two columns: by default
+// your groupset's way up, to the closest in age column by column. Clicking a line keeps that line bold and re-picks
+// the bold lines either side of it so the path runs through its tiles (to and from yours where it can); clicking a
+// bold line clears the path. Lines down a column turn bold on their own when clicked. A tile gets
 // a bullet on each side where a line meets it. With "Easiest route" on, an accent-coloured line runs from yours
 // through the route's tiles.
-// Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
+// Navigation: picking a groupset (a tile), brand or type fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
-// links and form just load the page.
+// links just load the page.
 (() => {
   const main = document.querySelector("main.page");
   if (!main) return;
@@ -62,9 +64,9 @@
     svg.append(p);
   };
 
-  // The connection picked in each gap between columns (or down a column): gap -> link id, or null for none.
-  // Picks last until the page changes.
-  let picked = new Map();
+  // The line the bold path was last built around (null: no path), and the lines picked down a column (gap -> id).
+  // Both last until the page changes.
+  let chosen, picked = new Map();
 
   const dot = (svg, x, y, color) => {
     const c = document.createElementNS(NS, "circle");
@@ -101,20 +103,27 @@
         if (below) link(t, below, bracket(box(t, origin), box(below, origin)), `${t.ladder}:${t.step}`);
       });
 
-      // The bold lines run up from yours: in each gap the line you picked, or else the one to the closest in age,
-      // and on from wherever that line lands. In a gap off that way only a picked line is bold.
-      const way = new Map();
-      for (let t = here; t;) {
-        const out = links.filter((l) => l.from === t && l.gap.includes(">"));
-        if (!out.length) break;
-        const gap = out[0].gap;
-        const best = picked.has(gap)
-          ? links.find((l) => l.id === picked.get(gap))
-          : out.reduce((a, b) => (Math.abs(b.to.year - t.year) < Math.abs(a.to.year - t.year) ? b : a));
-        way.set(gap, best ? best.id : null);
-        t = best && best.to;
+      // The bold path: out from the chosen line both ways (or up from yours), each step to the tile closest in age,
+      // and back through yours when it can.
+      const across = links.filter((l) => l.gap.includes(">"));
+      const nearest = (ls, year, side) => ls.find((l) => l[side] === here)
+        || ls.reduce((a, b) => (Math.abs(b[side].year - year) < Math.abs(a[side].year - year) ? b : a));
+      const path_ = [];
+      const start = chosen === undefined ? null : across.find((l) => l.id === chosen);
+      if (start) {
+        path_.push(start);
+        for (let t = start.from, ins; (ins = across.filter((l) => l.to === t)).length; t = path_[0].from) {
+          path_.unshift(nearest(ins, t.year, "from"));
+        }
       }
-      const bold = (l) => (way.has(l.gap) ? way.get(l.gap) : picked.get(l.gap)) === l.id;
+      if (chosen === undefined || start) {
+        for (let t = start ? start.to : here, outs; t && (outs = across.filter((l) => l.from === t)).length;
+             t = path_[path_.length - 1].to) {
+          path_.push(nearest(outs, t.year, "to"));
+        }
+      }
+      const way = new Set(path_.map((l) => l.id));
+      const bold = (l) => (l.gap.includes(">") ? way.has(l.id) : picked.get(l.gap) === l.id);
 
       const ends = new Map();  // dots: "key:side" -> [x, y, colour]
       [...links.filter((l) => !bold(l)), ...links.filter(bold)].forEach((l) => {
@@ -163,6 +172,7 @@
     const anchorOf = (root) => (anchorKey && root.querySelector(`.gen[data-key="${anchorKey}"]`)) || root.querySelector("#paths");
     const before = anchorOf(main)?.getBoundingClientRect().top;
     const swap = () => {
+      chosen = undefined;
       picked = new Map();
       main.replaceChildren(...next.querySelector("main.page").childNodes);
       const langs = document.querySelector(".lang-switch"), newLangs = next.querySelector(".lang-switch");
@@ -182,21 +192,17 @@
   main.addEventListener("click", (e) => {
     const line = e.target.closest(".line-hit");
     if (line) {  // make this the bold line in its gap, or drop it when it already is
-      picked.set(line.dataset.gap, line.dataset.bold === "1" ? null : line.dataset.id);
+      const on = line.dataset.bold === "1";
+      if (line.dataset.gap.includes(">")) chosen = on ? null : line.dataset.id;
+      else picked.set(line.dataset.gap, on ? null : line.dataset.id);
       draw(false);
       return;
     }
-    const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .filter-row > a, .route + p a");
+    const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .clear-pick, .route + p a");
     if (!link || !plain(e)) return;
     e.preventDefault();
     const key = link.matches("a.gen") ? new URL(link.href).searchParams.get("have") : null;
     show(link.href.split("#")[0], true, key);
-  });
-  main.addEventListener("submit", (e) => {
-    const form = e.target.closest("form.filter-row");
-    if (!form) return;
-    e.preventDefault();
-    show(location.pathname + "?" + new URLSearchParams(new FormData(form)), true);
   });
   addEventListener("popstate", () => show(location.href, false));
 

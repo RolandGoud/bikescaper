@@ -40,9 +40,9 @@
 {% macro path_groups(items_, full=false) -%}
 {% set fits = items_|selectattr('1.fit', 'equalto', 'ok')|list %}
 {% for level, (name, text) in effort.items() %}
-{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full, note=_(cost[level]) if level in cost) }}
+{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full, note=(_(cost[level]) ~ ' ' ~ _(not_worth_it)) if level in cost) }}
 {% endfor %}
-{{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true) }}
+{{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true, note=_(not_worth_it) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'ge', 3)|list) }}
 {{ path_group('<span class="effort nofit" aria-hidden="true">✕</span>'|safe, 'no-fit', _(fit['no'][0]), _(fit['no'][1]), items_|selectattr('1.fit', 'equalto', 'no')|list, full) }}
 {%- endmacro %}
 {# The key in one line, for the route view. #}
@@ -66,24 +66,6 @@
     <nav class="logo-pills" aria-label="{{ _('Type') }}">
       {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key, show=show if show == 'route' else None) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
     </nav>
-    <form class="filter-row" method="get" action="{{ url_for('groupset_paths') }}#paths">
-      {% if show == 'route' %}<input type="hidden" name="show" value="route">{% endif %}
-      <label class="field-label">{{ _('Your groupset') }}
-        <select name="have" onchange="this.form.requestSubmit()">
-          <option value="">{{ _('Pick your groupset') }}</option>
-          {% for _brand, brand_ladders in ladders %}{% for label, steps in brand_ladders %}
-          <optgroup label="{{ _(label) }}">
-            {% for s in steps %}{% for g in s.gens %}
-            <option value="{{ g.key }}" {{ 'selected' if current and current.key == g.key }}>{{ g.name }} · {{ _('{n}-speed', n=g.speeds) }}{{ ' · ' ~ _(shift_labels[g.shift]) if g.shift != 'mech' }}</option>
-            {% endfor %}{% endfor %}
-          </optgroup>
-          {% endfor %}{% endfor %}
-        </select>
-      </label>
-      <button class="btn ghost" type="submit">{{ _('Show upgrades') }}</button>
-      </div>
-      {% if current %}<a class="small" href="{{ url_for('groupset_paths', brand=brand, type=kind, show=show if show == 'route' else None) }}">{{ _('Clear') }}</a>{% endif %}
-    </form>
   </div>
 
   {% for brand, brand_ladders in ladders %}
@@ -128,7 +110,10 @@
   {% if current %}
   <section class="card" id="paths" style="view-transition-name: paths">
     <div class="stack" style="gap: 10px">
-      <h2>{{ _('Upgrades from {name}', name=current.brand ~ ' ' ~ current.name) }}</h2>
+      <div class="row" style="justify-content: space-between; gap: 12px">
+        <h2>{{ _('Upgrades from {name}', name=current.brand ~ ' ' ~ current.name) }}</h2>
+        <a class="small clear-pick" href="{{ url_for('groupset_paths', brand=brand, type=kind, show=show if show == 'route' else None) }}">{{ _('Clear') }}</a>
+      </div>
       <div class="row small">
         {{ tier_badge(current.tier, small=true) }}
         <span class="mono">{{ facts(current) }} · {{ _(freehubs[current.freehubs[0]]) }}</span>

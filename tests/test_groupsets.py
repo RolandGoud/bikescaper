@@ -78,7 +78,7 @@ def test_upgrades_go_up_and_stay_in_the_discipline():
 def test_every_series_has_a_tier_and_every_text_a_translation():
     texts = {label for _key, label in groupsets.DISCIPLINES} | set(groupsets.SHIFT_LABELS.values()) \
         | set(groupsets.FREEHUBS.values()) | {t for pair in groupsets.EFFORT.values() for t in pair} \
-        | {t for pair in groupsets.FIT.values() for t in pair} | set(groupsets.COST.values())
+        | {t for pair in groupsets.FIT.values() for t in pair} | set(groupsets.COST.values()) | {groupsets.NOT_WORTH_IT}
     for brand, by_discipline in groupsets.LADDERS.items():
         for ladders in by_discipline.values():
             for label, steps in ladders:
@@ -108,7 +108,8 @@ def test_page_renders(tmp_path):
     assert all(f"<h3>{h}</h3>" in page for h in ("Mix and match", "New freehub body", "Doesn&#39;t fit your frame"))
     assert "None from here." in page and "How to read this" not in page
     assert "Is it worth it?" in page and "Easiest route" not in page  # no view switch
-    assert "Selling your bike" in client.get("/groupsets?have=4700&lang=en").data.decode()  # level 4 from Tiagra
+    page = client.get("/groupsets?have=4700&lang=nl").data.decode()  # level 4 from Tiagra, and ! cards at 4
+    assert page.count("Vaak niet kostenefficiënt") >= 2 and "zeker als je huidige fiets goed verkoopbaar is" in page
     assert page.index('class="stack brand-ladders"') < page.index('id="paths"')  # the ladders come first
     assert "XTR M9100" in client.get("/groupsets?type=mtb").data.decode()
     assert client.get("/groupsets?have=nonsense").status_code == 200
