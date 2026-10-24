@@ -15,22 +15,29 @@
     {% if gallery and m.image %}
     {% set own = (year_tabs|selectattr('state', 'equalto', 'scrape')|first) %}
     {% set own_year = own.year if own else year_tabs[-1].year %}
+    {# Every year from the oldest photo on, also the ones we have no photo for yet. #}
+    {% set slots = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('year', 'ge', gallery[0].year)|selectattr('year', 'lt', own_year)|list %}
+    {% set placeholder %}<span class="gallery-empty-logo">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }}</span>{% endset %}
     <div class="model-gallery" id="model-gallery">
       <div class="photo" id="model-photo">{{ photo(m) }}
-        <span class="gallery-chip" id="gallery-chip">{{ own_year }}{% if m.colorways %} · {{ m.colorways[0].name }}{% endif %}</span>
-        <span class="gallery-count" id="gallery-count">{{ gallery|length + 1 }} / {{ gallery|length + 1 }}</span>
+        <div class="gallery-empty" id="gallery-empty" hidden>{{ placeholder }}<span>{{ _('Still looking for a good photo of this year.') }}</span></div>
+        <span class="gallery-chip" id="gallery-chip">{{ own_year }}</span>
+        <span class="gallery-count" id="gallery-count">{{ slots|length + 1 }} / {{ slots|length + 1 }}</span>
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}">‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}">›</button>
       </div>
       <div class="gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
-        {% for t in gallery %}
-        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}"
-                data-src="{{ url_for('images', path=t.image) }}" data-label="{{ t.year }}{% if t.sheet_name %} · {{ t.sheet_name }}{% endif %}">
-          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span>{{ t.year }}</span></button>
+        {% for t in slots %}
+        {% if t.image %}
+        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}">
+          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year">{{ t.year }}</span></button>
+        {% else %}
+        <button type="button" class="gallery-thumb empty" aria-pressed="false" data-year="{{ t.year }}" data-src=""
+                title="{{ _('Still looking for a good photo of this year.') }}">{{ placeholder }}<span class="gallery-year">{{ t.year }}</span></button>
+        {% endif %}
         {% endfor %}
-        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}"
-                data-src="{{ url_for('images', path=m.image) }}" data-label="{{ own_year }}{% if m.colorways %} · {{ m.colorways[0].name }}{% endif %}">
-          {{ photo(m) }}<span>{{ own_year }}</span></button>
+        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}">
+          {{ photo(m) }}<span class="gallery-year">{{ own_year }}</span></button>
       </div>
     </div>
     {% else %}
@@ -152,11 +159,20 @@
   // Picking a year there opens its spec sheet, and the other way round.
   var thumbs = Array.prototype.slice.call(document.querySelectorAll(".gallery-thumb"));
   function showPhoto(thumb, fromTab) {
-    var img = document.querySelector("#model-photo img");
+    var img = document.querySelector("#model-photo > img");
+    if (img.dataset.class === undefined) img.dataset.class = img.className;
     thumbs.forEach(function (b) { b.setAttribute("aria-pressed", b === thumb); });
-    img.src = thumb.dataset.src;
-    img.alt = thumb.querySelector("img") ? thumb.querySelector("img").alt : img.alt;
-    document.getElementById("gallery-chip").textContent = thumb.dataset.label;
+    // The current photo keeps its own fit (Trek's is zoomed in on its white margin); a year photo is framed already.
+    var small = thumb.querySelector("img");
+    img.className = thumb.classList.contains("current") ? img.dataset.class : (small ? small.className : "");
+    var empty = !thumb.dataset.src;  // a year we have no photo of yet: the placeholder
+    img.hidden = empty;
+    document.getElementById("gallery-empty").hidden = !empty;
+    if (!empty) {
+      img.src = thumb.dataset.src;
+      img.alt = thumb.querySelector("img") ? thumb.querySelector("img").alt : img.alt;
+    }
+    document.getElementById("gallery-chip").textContent = thumb.dataset.year;
     document.getElementById("gallery-count").textContent = (thumbs.indexOf(thumb) + 1) + " / " + thumbs.length;
     var strip = thumb.parentNode;
     strip.scrollLeft = thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2;
@@ -188,7 +204,6 @@
       document.getElementById("colour-note").hidden = !!button.dataset.image;
       var current = document.querySelector(".gallery-thumb.current");
       if (current) {  // the colour belongs to the current bike: show that one in the carousel
-        current.dataset.label = current.dataset.year + " · " + button.dataset.name;
         if (button.dataset.image) { current.dataset.src = button.dataset.image; current.querySelector("img").src = button.dataset.image; }
         showPhoto(current);
       }
