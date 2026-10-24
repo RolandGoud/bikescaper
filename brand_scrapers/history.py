@@ -118,7 +118,8 @@ def trek_product(fetcher, code):
     items.sort(key=lambda s: s["marketingDescWithFrameSizesMap"][0]["key"] == s.get("serviceDescription"))
     pairs = [(s.get("localizedSpecItemType"), s["marketingDescWithFrameSizesMap"][0]["key"]) for s in items]
     images = [i["assetId"] for group in full.get("assetImageList") or [] for i in group.get("images") or []]
-    primary = next((i for i in images if i.endswith("_Primary")), images[0] if images else None)
+    # The side-on shot of the whole bike ("...-A-Primary"); the others are close-ups and portraits.
+    primary = next((i for i in images if re.search(r"[-_]Primary$", i)), None)
     return {"code": code, "name": full.get("name") or "", "years": trek_years(full.get("modelYearIntroAndCurrent")),
             "url": "https://www.trekbikes.com/nl/nl_NL" + (full.get("url") or f"/p/{code}/"),
             "sheet_years": full.get("modelYearIntroAndCurrent"), "specs": normalize_specs(pairs),

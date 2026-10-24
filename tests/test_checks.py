@@ -846,6 +846,9 @@ def test_model_page_photo_carousel_runs_oldest_to_current(tmp_path):
     assert len(years) > 2 and [int(y) for _p, y in years] == sorted(int(y) for _p, y in years)
     assert [p for p, _y in years] == ["false"] * (len(years) - 1) + ["true"]  # the current bike is shown first
     assert "year-photo" not in page  # the year photos moved out of the spec tabs
+    shown = {int(y) for _p, y in years}
+    assert shown == set(range(min(shown), max(shown) + 1))  # a year without a photo gets a placeholder
+    assert re.search(r'id="gallery-chip">\d{4}<', page)  # the year only, no colour
     assert "nog niet verzameld" not in page  # model years from the year sheets
 
 
