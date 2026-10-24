@@ -1,6 +1,7 @@
 // Groupsets page.
 // Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map: each
 // tile links to every tile on its line in the next column, and down its column to the next generation of its series.
+// A tile at the end of its line links on to its upgrades on other systems in the nearest column that has any.
 // Lines are dotted, except one connected bold path with at most one line per gap between two columns: by default
 // your groupset's way up, to the closest in age column by column. Clicking a line keeps that line bold and re-picks
 // the bold lines either side of it so the path runs through its tiles (to and from yours where it can); clicking a
@@ -24,7 +25,7 @@
   const tiles = (section) => [...section.querySelectorAll(".ladder")].flatMap((ladder, l) =>
     [...ladder.querySelectorAll(".step")].flatMap((step, s) =>
       [...step.querySelectorAll(".gen")].map((el) => ({ el, ladder: l, step: s, system: el.dataset.system,
-        year: +el.dataset.year, route: el.dataset.route, here: el.classList.contains("here") }))));
+        year: +el.dataset.year, up: (el.dataset.up || "").split(" ").filter(Boolean), route: el.dataset.route, here: el.classList.contains("here") }))));
 
   const box = (t, origin) => {
     const r = t.el.getBoundingClientRect();
@@ -97,6 +98,12 @@
         if (next.length) {
           const step = Math.min(...next.map((n) => n.step));
           next.filter((n) => n.step === step)
+            .forEach((n) => link(t, n, curve(box(t, origin), box(n, origin)), `${t.ladder}:${t.step}>${step}`));
+        } else if (t.up.length) {
+          // The end of its own line: on to the nearest column's upgrades on other systems (R7100 to Ultegra Di2).
+          const ups = all.filter((n) => n.ladder === t.ladder && n.step > t.step && t.up.includes(n.el.dataset.key));
+          const step = Math.min(...ups.map((n) => n.step));
+          ups.filter((n) => n.step === step)
             .forEach((n) => link(t, n, curve(box(t, origin), box(n, origin)), `${t.ladder}:${t.step}>${step}`));
         }
         const below = all.slice(k + 1).find((n) => n.system === t.system && n.ladder === t.ladder && n.step === t.step);

@@ -180,6 +180,11 @@ def test_wireless_generations_come_last():
     assert ultegra["gens"][-1]["key"] == "r8100" and ultegra["gens"][0]["key"] == "6800"
 
 
+def test_cross_system_upgrades():
+    assert groupsets.cross_upgrades("r7100") == ["r7150", "r8100", "r9200"]
+    assert "r8000" not in groupsets.cross_upgrades("r7100")  # on its own system, and too old
+
+
 def test_easiest_route():
     assert [g["key"] for g, _p in groupsets.route("r7000")] == ["r8000", "r9100"]  # mix and match all the way
     assert [g["key"] for g, _p in groupsets.route("m5100")] == ["m7100", "m8100", "m9100"]  # mechanical stays

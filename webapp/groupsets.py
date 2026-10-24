@@ -391,6 +391,14 @@ def is_downgrade(current, target):
     return False
 
 
+def cross_upgrades(key):
+    """The upgrades of `key` in its own ladder but on another system (R7100 to Ultegra Di2 R8100), as keys:
+    the diagram draws these as lines too where a tile has no further tile on its own system."""
+    current = GENERATIONS[key]
+    return [g["key"] for g in GENERATIONS.values()
+            if g["system"] != current["system"] and g["ladder"] == current["ladder"] and is_upgrade(current, g)]
+
+
 def downgrades(key):
     """The generations below `key` from the same brand, each with its path, sorted like `upgrades`."""
     current = GENERATIONS[key]
