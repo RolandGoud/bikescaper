@@ -48,6 +48,8 @@ SITES = {
 
 
 def save_photo(fetcher, brand, slug, year, url, width=1000):
+    import html
+    url = html.unescape((url or "").strip("\"'"))  # Giant's 2017 pages quote the og:image URL
     if not url:
         return None
     rel = f"{brand}/years/{slug}_{year}_site.jpg"
@@ -77,7 +79,8 @@ def save_photo(fetcher, brand, slug, year, url, width=1000):
 
 
 TREK_API = "https://api.trekbikes.com/occ/v2/nl/products/{code}/{kind}?lang=nl_NL&curr=EUR"
-TREK_ROAD = re.compile(r"/fietsen/(?:racefietsen|gravel|cyclocross|triathlon)[^?]*/[pa]/(\d+)")
+# Numbers with a model year attached (1404000-2017) are from before 2018 and unknown to the API.
+TREK_ROAD = re.compile(r"/fietsen/(?:racefietsen|gravel|cyclocross|triathlon)[^?]*/[pa]/(\d+)(?![\d-])")
 TREK_SKIP = re.compile(r"elektrisch|e-bike|kinder|frameset|\brim\b|velg|dames|women", re.I)
 
 

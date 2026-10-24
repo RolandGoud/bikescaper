@@ -265,6 +265,8 @@ def parse(pages_folder, years_folder=None):
             specs, price = read_specs(brand, page, meta["url"])
             ts = str(meta["ts"])
             entry = {"captured": f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}", "ts": ts, "url": meta["url"]}
+            if meta.get("sheet_name") and not _still_a_predecessor(meta):
+                continue
             if meta.get("sheet_name"):  # a predecessor (lineage.py): the name it was sold under, from the page title
                 title = re.search(r"<title>\s*([^<|]+)", page)
                 entry["sheet_name"] = re.split(r"\s+[-–]\s+", clean(title.group(1)))[0] if title else \
@@ -289,6 +291,12 @@ def parse(pages_folder, years_folder=None):
             json.dump(out, fh, ensure_ascii=False, indent=1, sort_keys=True)
         report[brand] = dict(counts)
     return report
+
+
+def _still_a_predecessor(meta):
+    """Whether lineage.py's current rules still pick this page (fetched under older rules) for the model."""
+    from .lineage import model_groupset, score, words
+    return score(words(meta["name"]), model_groupset(meta["name"], {}), words(meta["sheet_name"].replace("-", " "))) is not None
 
 
 def glob_pages(folder, brand):

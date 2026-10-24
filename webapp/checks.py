@@ -279,7 +279,8 @@ def _same(a, b):
 
 
 def year_tabs(model, today=None):
-    """One tab per catalogue year from FIRST_SPEC_YEAR to this year, for the spec sheet on the model page.
+    """One tab per catalogue year from FIRST_SPEC_YEAR (or the model's earliest sheet) to this year, for
+    the spec sheet on the model page.
 
     Each tab is {year, state, captured, ts, url, price, specs, tiers, changed}. state is "scrape"
     (our own catalogue scrape), "archive" (a Wayback Machine copy of the brand's page),
@@ -293,7 +294,9 @@ def year_tabs(model, today=None):
     archived, checked = found.get("years") or {}, set(found.get("checked") or [])
     own_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
     tabs, before = [], None
-    for year in range(FIRST_SPEC_YEAR, max(today.year, own_year or 0) + 1):
+    # Earlier years only show for a model that has a sheet from then (Giant keeps some 2017 pages).
+    first = min([FIRST_SPEC_YEAR] + [int(y) for y, e in archived.items() if e.get("specs")])
+    for year in range(first, max(today.year, own_year or 0) + 1):
         entry = archived.get(str(year))
         if year == own_year:
             tab = {"state": "scrape", "captured": model["seen_on"], "url": model.get("url"), "price": model.get("price_eur")}
