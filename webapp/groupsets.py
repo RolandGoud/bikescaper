@@ -13,6 +13,8 @@ for _key, _name, _pattern, _tier in GROUPSETS:
     SITE_TIERS.setdefault(_key, _tier)
 
 DISCIPLINES = [("road", "Road & gravel"), ("mtb", "Mountain bike")]
+# Logos for the brand pills, as on the models page; a brand without one shows its name.
+BRAND_LOGOS = {"Shimano": "logos/shimano.svg", "SRAM": "logos/sram.svg", "Campagnolo": "logos/campagnolo.svg"}
 
 SHIFT_LABELS = {
     "mech": "Mechanical",

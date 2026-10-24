@@ -1,14 +1,17 @@
 // Groupsets page.
 // Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map,
-// yours drawn bold. With "Easiest route" on, an orange line runs from yours through the route's tiles.
+// yours drawn bold. With "Easiest route" on, an accent-coloured line runs from yours through the route's tiles.
 // Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links and form just load the page.
 (() => {
   const main = document.querySelector("main.page");
   if (!main) return;
-  const METRO = ["#FF5A1F", "#2B3BFF", "#1E8A4C", "#9B3BD1", "#D9822B", "#0E9AA7", "#C2185B", "#6D6D7A"];
-  const ROUTE = "#FF5A1F";
+  // Line colours that stay clear of the emerald accent, which is kept for the route.
+  const METRO = ["#FF8A5C", "#7C8CFF", "#F2C27A", "#C792EA", "#FF8F86", "#6CC4FF", "#E6A1C8", "#9A9CA6"];
+  const css = getComputedStyle(document.documentElement);
+  const ROUTE = css.getPropertyValue("--accent").trim() || "#34D399";
+  const DOT = css.getPropertyValue("--card").trim() || "#fff";
   const NS = "http://www.w3.org/2000/svg";
   const still = matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -39,7 +42,7 @@
 
   const dot = (svg, x, y, color) => {
     const c = document.createElementNS(NS, "circle");
-    Object.entries({ cx: x, cy: y, r: 4, fill: "#fff", stroke: color, "stroke-width": 2.5 })
+    Object.entries({ cx: x, cy: y, r: 4, fill: DOT, stroke: color, "stroke-width": 2.5 })
       .forEach(([k, v]) => c.setAttribute(k, v));
     svg.append(c);
   };

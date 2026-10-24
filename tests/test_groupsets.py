@@ -110,7 +110,7 @@ def test_one_brand_at_a_time(tmp_path):
     page = client.get("/groupsets?brand=Campagnolo&type=mtb&lang=en").data.decode()
     assert "Super Record" in page and "Mountain bike" not in page  # no MTB groups: back to road
     page = client.get("/groupsets?have=gx-eagle&lang=en").data.decode()  # the groupset sets brand and type
-    assert 'aria-current="true">SRAM<' in page and "XX1 Eagle AXS" in page
+    assert 'aria-current="true"><span class="pill-logo" role="img" aria-label="SRAM"' in page and "XX1 Eagle AXS" in page
 
 
 def test_easiest_route():
