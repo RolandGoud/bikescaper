@@ -782,6 +782,7 @@ select { max-width: 100%; }
 .path-group.no-fit h3 { color: var(--bad); }
 .path-group.empty .path-head { opacity: 0.6; }
 .path-group.empty p { margin: 0; }
+.cost-note { margin: 0; padding: 8px 10px; border-radius: 8px; background: var(--warn-bg); color: var(--warn); }
 .key-row { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .key-row > span { display: inline-flex; align-items: center; gap: 6px; }
 .path-card.fit-no { border-color: var(--bad); border-style: dashed; background: var(--bad-bg); }
@@ -792,6 +793,7 @@ select { max-width: 100%; }
 /* Lines between the generation tiles (groupsets.js), drawn behind the tiles. */
 .brand-ladders { position: relative; }
 .path-lines { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: visible; }
+.path-lines .line-hit { pointer-events: stroke; cursor: pointer; }
 .brand-ladders .ladder { --col: 140px; --gap: 44px; }
 .brand-ladders .gen { position: relative; z-index: 2; }
 .brand-ladders .step.up::before { left: -28px; }
