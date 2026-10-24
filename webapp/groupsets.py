@@ -293,11 +293,13 @@ EFFORT = {
 # What a whole new drivetrain roughly costs, for the levels where it comes to that: rough figures for a
 # mechanical groupset bought online, to weigh against another bike, not a quote.
 COST = {
-    3: "Roughly €600–900 in parts for a mechanical groupset, more for electronic, plus €100–200 to fit it. Often "
-       "about what a second-hand bike that already has it costs.",
-    4: "Roughly €800–1,300 in all: €600–900 for a mechanical groupset, €100–200 to fit it and €150–300 for a rear "
-       "wheel or freehub. Selling your bike and buying one with this groupset is often cheaper.",
+    3: "Roughly €600–900 in parts for a mechanical groupset, more for electronic, plus €100–200 to fit it.",
+    4: "Roughly €800–1,300 in all: €600–900 for a mechanical groupset, €100–200 to fit it and €150–300 if the rear "
+       "wheel has to change too.",
 }
+# Said with every upgrade that comes to a whole new drivetrain (level 3 or more).
+NOT_WORTH_IT = ("Often not cost-effective: a new or second-hand bike with this groupset usually works out better, "
+                "especially if your current bike sells well.")
 # Whether the new groupset mounts on the frame you have: "no" when it can't (other brakes), "check" when it
 # needs something not every frame has (a UDH dropout, internal routing, a front derailleur mount).
 FIT = {

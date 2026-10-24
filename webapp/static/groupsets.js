@@ -5,9 +5,9 @@
 // a line (click it again to drop it), or else the one on your groupset's way up, to the closest in age. A tile gets
 // a bullet on each side where a line meets it. With "Easiest route" on, an accent-coloured line runs from yours
 // through the route's tiles.
-// Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
+// Navigation: picking a groupset (a tile), brand or type fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
-// links and form just load the page.
+// links just load the page.
 (() => {
   const main = document.querySelector("main.page");
   if (!main) return;
@@ -186,17 +186,11 @@
       draw(false);
       return;
     }
-    const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .filter-row > a, .route + p a");
+    const link = e.target.closest("a.gen, .logo-pills a, .segmented a, .path-card > a, .clear-pick, .route + p a");
     if (!link || !plain(e)) return;
     e.preventDefault();
     const key = link.matches("a.gen") ? new URL(link.href).searchParams.get("have") : null;
     show(link.href.split("#")[0], true, key);
-  });
-  main.addEventListener("submit", (e) => {
-    const form = e.target.closest("form.filter-row");
-    if (!form) return;
-    e.preventDefault();
-    show(location.pathname + "?" + new URLSearchParams(new FormData(form)), true);
   });
   addEventListener("popstate", () => show(location.href, false));
 
