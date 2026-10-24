@@ -894,7 +894,7 @@ NL = {
     "Roughly €800–1,300 in all: €600–900 for a mechanical groupset, €100–200 to fit it and €150–300 for a rear wheel or freehub. Selling your bike and buying one with this groupset is often cheaper.": "Grofweg €800–1.300 in totaal: €600–900 voor een mechanische groepset, €100–200 voor de montage en €150–300 voor een achterwiel of freehub. Je fiets verkopen en er een kopen met deze groepset is vaak goedkoper.",
     "Is it worth it? A whole new groupset only pays off when the frame is worth keeping (carbon, a good fit) and the drivetrain is worn anyway. Otherwise selling and buying a bike that already has the groupset you want is usually cheaper, and an upgraded bike sells for little more than before.": "Is het de moeite waard? Een hele nieuwe groepset loont alleen als het frame het houden waard is (carbon, past goed) en de aandrijving toch al versleten is. Anders is je fiets verkopen en er een kopen die de gewenste groepset al heeft meestal goedkoper, en een geüpgradede fiets brengt bij verkoop weinig meer op dan ervoor.",
     "Downgrades: {n} options": "Downgrades: {n} opties",
-    "Same level: {lower} to {upper} is no upgrade": "Zelfde niveau: van {lower} naar {upper} is geen upgrade",
+    "Same level: no upgrade from the column before": "Zelfde niveau: geen upgrade vanaf de kolom ervoor",
     "Wireless": "Draadloos",
     "With {groupset}": "Met {groupset}",
     "Your groupset": "Jouw groepset",

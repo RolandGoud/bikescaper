@@ -90,17 +90,19 @@
   <section class="stack brand-ladders">
     <h2>{{ brand }}</h2>
     {% for label, steps in brand_ladders %}
-    {% set ups = steps_up(steps) %}
+    {% set cols = columns(steps) %}
     <div class="ladder-block">
       {% if brand_ladders|length > 1 %}<div class="ladder-label">{{ _(label) }}</div>{% endif %}
-      <div class="ladder" style="--steps: {{ steps|length }}">
-        {% for t, n in tier_spans(steps) %}<div class="tier-span{{ ' wide' if n > 1 }}" style="grid-column: span {{ n }}">{{ tier_badge(t, small=true) }}</div>{% endfor %}
+      <div class="ladder" style="--steps: {{ cols|length }}">
+        {% for t, _series, _up in cols %}<div class="tier-span">{{ tier_badge(t, small=true) }}</div>{% endfor %}
         <ol class="ladder-steps">
-        {% for s in steps %}
-        {% set up = loop.index0 and ups[loop.index0 - 1] %}
-        <li class="step{{ ' up' if up }}{{ ' level' if loop.index0 and not up }}"{% if loop.index0 and not up %} title="{{ _('Same level: {lower} to {upper} is no upgrade', lower=steps[loop.index0 - 1].name, upper=s.name) }}"{% endif %}>
-          {% if loop.index0 and not up %}<span class="sr-only">{{ _('Same level: {lower} to {upper} is no upgrade', lower=steps[loop.index0 - 1].name, upper=s.name) }}</span>{% endif %}
-          <div class="step-head"><span class="step-name">{{ s.name }}</span><span class="step-tier">{{ tier_badge(s.tier, small=true) }}</span></div>
+        {% for t, series, up in cols %}
+        {% set level = loop.index0 and not up %}
+        <li class="step{{ ' up' if up }}{{ ' level' if level }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
+          {% if level %}<span class="sr-only">{{ _('Same level: no upgrade from the column before') }}</span>{% endif %}
+          {% for s in series %}
+          <div class="series">
+          <div class="step-head"><span class="step-name">{{ s.name }}</span>{% if loop.first %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>
           <ul class="gens">
             {% for g in s.gens %}
             {% set p = by_key.get(g.key) %}
@@ -112,6 +114,8 @@
             </a></li>
             {% endfor %}
           </ul>
+          </div>
+          {% endfor %}
         </li>
         {% endfor %}
         </ol>
