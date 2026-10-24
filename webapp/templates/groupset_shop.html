@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_macros.html" import ad_marker, tier_badge %}
+{% block title %}{{ _('Buy {name}', name=g.brand ~ ' ' ~ g.name) }} · Bike Compare{% endblock %}
+{% block body %}
+<main class="wrap page" style="max-width: 860px">
+  <a class="small" href="{{ url_for('groupset_paths', have=g.key) }}">← {{ _('Groupset upgrade paths') }}</a>
+  <h1 style="font-size: 44px">{{ _('Buy {name}', name=g.brand ~ ' ' ~ g.name) }}</h1>
+  <p class="row" style="gap: 8px">{{ tier_badge(g.tier, small=true) }}<span class="mono small muted">{{ _('{n}-speed', n=g.speeds) }} · {{ _(shift_label) }}</span></p>
+  <section class="card">
+    {{ ad_marker() }}
+    <h2>{{ _('Where to buy') }}</h2>
+    <p class="muted">{{ _('Web shops that sell this groupset. We get a small fee when you buy through these links; the price stays the same for you.') }}</p>
+    <ul class="shop-links">
+      {% for name, url in shops %}
+      <li><a class="btn" href="{{ url }}" rel="sponsored noopener"{% if url != '#' %} target="_blank"{% endif %}>{{ _('See it at {shop}', shop=name) }}</a></li>
+      {% else %}
+      <li class="muted">{{ _('No shops yet.') }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+{% endblock %}

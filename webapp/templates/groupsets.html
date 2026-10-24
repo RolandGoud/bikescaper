@@ -21,7 +21,7 @@
   </div>
   {% endif %}
   {% if p.steps and p.fit != 'no' %}<ul>{% for step in p.steps %}<li>{{ step }}</li>{% endfor %}</ul>{% endif %}
-  <a class="small" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths">{{ _('Upgrades from here') }}</a>
+  <a class="small" href="{{ url_for('groupset_shop', key=g.key) }}">{{ _('Where to buy') }}</a>
 </div>
 {%- endmacro %}
 {# The upgrades in the order of the key: those that fit as they are by how much has to change (1-4), then the ones
