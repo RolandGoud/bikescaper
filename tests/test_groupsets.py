@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from webapp import db, groupsets, i18n, seed
@@ -103,7 +105,7 @@ def test_page_renders(tmp_path):
     assert "Check your frame" in page and "For example a UDH dropout" in page
     assert "<h3>Doesn&#39;t fit your frame</h3>" in client.get("/groupsets?have=5800&lang=en").data.decode()
     page = client.get("/groupsets?have=r9100&lang=en").data.decode()  # every group shows, empty or not
-    assert all(f"<h3>{h}</h3>" in page for h in ("Mix and match", "Rear wheel too", "Doesn&#39;t fit your frame"))
+    assert all(f"<h3>{h}</h3>" in page for h in ("Mix and match", "New freehub body", "Doesn&#39;t fit your frame"))
     assert "None from here." in page and "How to read this" not in page
     assert "Is it worth it?" in page and "Easiest route" not in page  # no view switch
     assert "Selling your bike" in client.get("/groupsets?have=4700&lang=en").data.decode()  # level 4 from Tiagra
@@ -149,6 +151,21 @@ def test_downgrades_stay_with_the_brand_and_go_down():
     assert groupsets.downgrades("r2000") == []
     page = create_app(":memory:").test_client().get("/groupsets?have=r8000&lang=en").data.decode()
     assert "Downgrades: " in page
+
+
+def test_series_show_their_logo_once_the_file_is_there(tmp_path):
+    assert groupsets.logo_path({"name": "SX / NX Eagle"}) == "logos/groupsets/sx-nx-eagle.svg"
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    logo = os.path.join(app.static_folder, groupsets.logo_path({"name": "Dura-Ace"}))
+    page = app.test_client().get("/groupsets?lang=en").data.decode()
+    assert '<span class="step-name">Dura-Ace</span>' in page
+    with open(logo, "w") as f:
+        f.write("<svg xmlns='http://www.w3.org/2000/svg'/>")
+    try:
+        page = app.test_client().get("/groupsets?lang=en").data.decode()
+        assert 'aria-label="Dura-Ace"' in page and "logos/groupsets/dura-ace.svg" in page
+    finally:
+        os.remove(logo)
 
 
 def test_easiest_route():

@@ -4,6 +4,8 @@ to go from one generation to another.
 Entered by hand from the makers' launch notes and compatibility charts. The rules are rules of thumb for
 a complete groupset swap, not a parts list: the page says so and points to the bike shop.
 """
+import re
+
 from .i18n import Msg
 from .reference import GROUPSETS
 
@@ -43,6 +45,12 @@ FREEHUBS = {
     "campa": "Campagnolo",
     "n3w": "Campagnolo N3W",
 }
+
+
+def logo_path(series):
+    """Where a series' logo would sit under static/: logos/groupsets/ plus its name as a slug ("Dura-Ace" ->
+    dura-ace.svg, "SX / NX Eagle" -> sx-nx-eagle.svg). The page shows the name until the file is there."""
+    return "logos/groupsets/" + re.sub(r"[^a-z0-9]+", "-", series["name"].lower()).strip("-") + ".svg"
 
 
 def gen(key, name, year, speeds, shift, system, freehubs, brakes, note=None, udh=False, shifters_from=(),
@@ -280,7 +288,7 @@ EFFORT = {
     1: ("Mix and match", "Same system: swap the parts you want and keep the rest."),
     2: ("New shifters and derailleurs", "Cassette, chain and crankset can stay."),
     3: ("New drivetrain", "Shifters, derailleurs, cassette and chain, usually the crankset too."),
-    4: ("Rear wheel too", "The new cassette needs another freehub body, often a swap on the same hub."),
+    4: ("New freehub body", "The new cassette fits another freehub body: often a swap on the same hub, otherwise a new rear wheel."),
 }
 # What a whole new drivetrain roughly costs, for the levels where it comes to that: rough figures for a
 # mechanical groupset bought online, to weigh against another bike, not a quote.
