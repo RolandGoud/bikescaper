@@ -32,12 +32,13 @@
             <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}"{% if nav == 'listings' %} aria-current="page"{% endif %}>{{ _('Checked listings') }}<small>{{ _('Every ad checked on this site') }}</small></a>
           </div>
         </div>
+        {# Inside the menu, so on a phone it folds away with the links. #}
+        <div class="lang-switch" role="group" aria-label="{{ _('Language') }}">
+          {% for code, name in languages.items() %}
+          <a href="{{ lang_url(code) }}" hreflang="{{ code }}" lang="{{ code }}" title="{{ name }}" class="{{ 'on' if code == lang }}" {% if code == lang %}aria-current="true"{% endif %}>{{ code|upper }}</a>
+          {% endfor %}
+        </div>
       </nav>
-      <div class="lang-switch" role="group" aria-label="{{ _('Language') }}">
-        {% for code, name in languages.items() %}
-        <a href="{{ lang_url(code) }}" hreflang="{{ code }}" lang="{{ code }}" title="{{ name }}" class="{{ 'on' if code == lang }}" {% if code == lang %}aria-current="true"{% endif %}>{{ code|upper }}</a>
-        {% endfor %}
-      </div>
     </div>
   </div>
 </header>
