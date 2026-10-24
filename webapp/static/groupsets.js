@@ -1,7 +1,8 @@
 // Groupsets page.
 // Lines: every system (the groupsets that share parts) is a coloured line through its tiles, like a metro map,
 // yours drawn bold. Each tile's main line goes to the closest in age in the next step up; its other links on the
-// same system there are dotted. A tile gets a bullet only where a line comes in. With "Easiest route" on, an accent-coloured line runs from yours through the route's tiles.
+// same system there are dotted, as are the links between generations of one series on the same line. A tile
+// gets a bullet only where a line comes in. With "Easiest route" on, an accent-coloured line runs from yours through the route's tiles.
 // Navigation: picking a groupset, brand, type or view fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links and form just load the page.
@@ -31,6 +32,9 @@
     const dx = Math.max(18, (b.l - a.r) / 2);
     return `M${a.r},${a.y} C${a.r + dx},${a.y} ${b.l - dx},${b.y} ${b.l},${b.y}`;
   };
+
+  // Down the left edge from one generation to a newer one of the same series on the same line.
+  const bracket = (a, b) => `M${a.l},${a.y} C${a.l - 18},${a.y} ${b.l - 18},${b.y} ${b.l},${b.y}`;
 
   const path = (svg, d, color, width, opacity, cls, dotted) => {
     const p = document.createElementNS(NS, "path");
@@ -82,6 +86,13 @@
           });
           path(svg, curve(box(t, origin), box(closest, origin)), color, mine && !routeOn ? 5 : 2.5, opacity);
           fed.add(closest);
+        });
+        // Generations of one series on the same line: each to the next one down the column, dotted.
+        on.forEach((t, k) => {
+          const below = on.slice(k + 1).find((n) => n.ladder === t.ladder && n.step === t.step);
+          if (!below) return;
+          path(svg, bracket(box(t, origin), box(below, origin)), color, 2, opacity * 0.8, null, true);
+          fed.add(below);
         });
         on.forEach((t) => {
           if (fed.has(t)) {
