@@ -22,7 +22,7 @@ from urllib.parse import urlparse
 from .common import ROOT, clean
 
 BRANDS = ["Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"]
-FIRST_YEAR = 2020
+FIRST_YEAR = 2018
 SPRING = (4, 15)  # the copy closest to this date stands for its year
 # The part of a product URL that names the model, per brand.
 URL_NAME = {
@@ -193,6 +193,14 @@ def _canyon_specs(page):
     return {(k if k in SPEC_LABELS else k.replace("_", " ")): v for k, v in specs.items() if v}
 
 
+def _canyon_list_pairs(page):
+    """Canyon's 2020-2022 layout: an "Alle onderdelen" list of part title, then the part's name and features."""
+    from .common import clean
+    return [(clean(t), clean(n)) for t, n in re.findall(
+        r'allComponents__sectionSpecListItemTitle">(.*?)</div>\s*<ul class="allComponents__specItemList">\s*'
+        r'<li class="allComponents__specItemListItem allComponents__specItemListItem--name">(.*?)</li>', page, re.S)]
+
+
 def read_specs(brand, page, url):
     """(specs, price) from an archived product page, specs as the shared keys of brand_scrapers.common."""
     import importlib
@@ -205,7 +213,10 @@ def read_specs(brand, page, url):
             bike = {}
         specs, price = bike.get("specifications") or {}, bike.get("price")
     if brand == "Canyon":
-        specs = _canyon_specs(page)
+        # The "Alle onderdelen" list when the page has one: the scraper's reader takes its size table for parts.
+        specs = normalize_specs(_canyon_list_pairs(page))
+        if recognised(specs) < MIN_SPECS:
+            specs = _canyon_specs(page)
     elif brand == "Specialized":
         specs = normalize_specs(_specialized_pairs(page))
     if len(specs) < MIN_SPECS:
@@ -216,6 +227,8 @@ def read_specs(brand, page, url):
     specs = {k: re.sub(r"^Maat: (?:(?:\d{2}|[23]?X{0,2}[SML]|ML|XL{1,2})\b,? ?)+", "", str(v)).strip() or v
              for k, v in specs.items()}
     specs = {k: v for k, v in specs.items() if not re.fullmatch(r"[23]?X{0,2}[SML]|ML|XL{1,2}|\d{2}", k)}  # size-table rows
+    # Canyon's 2018-2019 pages: the shop's filter chips ("Ultegra105Dura AceBekijk meer"), not the bike's parts.
+    specs = {k: v for k, v in specs.items() if "Bekijk meer" not in str(v)}
     numeric = [k for k, v in specs.items() if not re.search(r"[^\W\d_]", str(v))]
     specs = {} if len(numeric) >= 3 else {k: v for k, v in specs.items() if k not in numeric}
     if price is None:
@@ -230,12 +243,17 @@ def recognised(specs):
     return sum(1 for k in specs if k in SPEC_LABELS)
 
 
-def parse(pages_folder, years_folder=None):
+def parse(pages_folder, years_folder=None, db_path=None):
     """Read every <brand>/<slug>/<year>.html.gz under pages_folder into data/years/<Brand>.json.
 
-    A photo saved next to a page (<year>.jpg) is copied to images/<Brand>/years/.
+    A photo saved next to a page (<year>.jpg) is copied to images/<Brand>/years/. The site database
+    (db_path) gives the catalogue sheets that predecessor pages are rechecked against.
     """
     import shutil
+    sheets = {}
+    if db_path and os.path.exists(db_path):
+        conn = sqlite3.connect(db_path)
+        sheets = {(b, n): json.loads(s or "{}") for b, n, s in conn.execute("SELECT brand, name, specs FROM models")}
     years_folder = years_folder or os.path.join(ROOT, "data", "years")
     os.makedirs(years_folder, exist_ok=True)
     report = {}
@@ -254,6 +272,8 @@ def parse(pages_folder, years_folder=None):
             specs, price = read_specs(brand, page, meta["url"])
             ts = str(meta["ts"])
             entry = {"captured": f"{ts[:4]}-{ts[4:6]}-{ts[6:8]}", "ts": ts, "url": meta["url"]}
+            if meta.get("sheet_name") and not _still_a_predecessor(meta, sheets.get((brand, meta["name"]), {})):
+                continue
             if meta.get("sheet_name"):  # a predecessor (lineage.py): the name it was sold under, from the page title
                 title = re.search(r"<title>\s*([^<|]+)", page)
                 entry["sheet_name"] = re.split(r"\s+[-–]\s+", clean(title.group(1)))[0] if title else \
@@ -280,6 +300,13 @@ def parse(pages_folder, years_folder=None):
     return report
 
 
+def _still_a_predecessor(meta, specs):
+    """Whether lineage.py's current rules still pick this page (fetched under older rules) for the model."""
+    from .lineage import model_groupset, score, words
+    s = score(words(meta["name"]), model_groupset(meta["name"], specs), words(meta["sheet_name"].replace("-", " ")))
+    return s is not None and s >= 2
+
+
 def glob_pages(folder, brand):
     for dirpath, _dirs, files in os.walk(folder):
         if os.path.basename(os.path.dirname(dirpath)) == brand:
@@ -294,5 +321,6 @@ if __name__ == "__main__":
         for brand, r in report.items():
             print(brand, r)
     elif sys.argv[1] == "parse":
-        for brand, counts in parse(sys.argv[2]).items():
+        db = sys.argv[3] if len(sys.argv) > 3 else os.environ.get("BIKECOMPARE_DB", os.path.join(ROOT, "instance", "bikecompare.sqlite3"))
+        for brand, counts in parse(sys.argv[2], db_path=db).items():
             print(brand, counts)

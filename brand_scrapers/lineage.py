@@ -70,7 +70,7 @@ def score(model_words, groupset, old_words):
         return None
     old = set(old_words[1:])
     digits = {w for w in model_words[1:] if re.fullmatch(r"\d", w)}, {w for w in old if re.fullmatch(r"\d", w)}
-    if clash(groupset, old, LINES) and not groupset & old & LINES or clash(model_words, old, MATERIALS) or \
+    if clash(groupset, old, LINES) and not groupset & old & LINES or clash(groupset, old, {"di2", "axs"}) or clash(model_words, old, MATERIALS) or \
             clash(model_words, old, TIERS) or (digits[0] and digits[1] and digits[0] != digits[1]):
         return None
     old_groupset = old & GROUPSETS

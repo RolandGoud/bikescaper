@@ -1,7 +1,14 @@
 {
- "checked_on": "2026-10-23",
+ "checked_on": "2026-10-24",
  "models": {
   "Aerium C:68X TT Frameset": {
+   "2024": {
+    "captured": "2024-09-06",
+    "sheet_name": "Aerium C 68 Tt Frameset Carbon N Prism",
+    "ts": "20240906182313",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-aerium-c-68-tt-frameset-carbon-n-prism/831110"
+   },
    "2025": {
     "captured": "2025-09-06",
     "image": "Cube/years/aeriumc68xttframeset_2025.jpg",
@@ -39,6 +46,12 @@
    }
   },
   "Agree C:62 Pro": {
+   "2019": {
+    "captured": "2019-07-15",
+    "ts": "20190715231949",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-pro-carbonnred-2019/"
+   },
    "2026": {
     "captured": "2026-02-09",
     "image": "Cube/years/agreec62pro_2026.jpg",
@@ -68,15 +81,23 @@
    }
   },
   "Agree C:62 Race": {
-   "2020": {
-    "captured": "2020-08-10",
-    "ts": "20200810113447",
+   "2019": {
+    "captured": "2019-07-15",
+    "ts": "20190715231838",
     "unreadable": true,
-    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-race-bluegreynorange-2020/"
+    "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-race-disc-carbonnwhite-2019/"
+   },
+   "2020": {
+    "captured": "2020-09-26",
+    "sheet_name": "CUBE Agree C:62 Race carbon´n´white 2020",
+    "ts": "20200926030627",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-race-carbonnwhite-2020/"
    },
    "2022": {
     "captured": "2022-06-25",
-    "image": "Cube/years/agreec62race_2022.jpg",
+    "image": "Cube/years/agreec62race_pred_2022.jpg",
+    "sheet_name": "Cube Agree C:62 Race fadingblue´n´carbon",
     "ts": "20220625101339",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/agree/cube-agree-c62-race-fadingbluencarbon/"
@@ -87,6 +108,38 @@
     "ts": "20230809132018",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/cube-agree-c-62-race-fireorange-n-black/678210"
+   }
+  },
+  "Agree C:62 SLT AXS": {
+   "2019": {
+    "captured": "2019-08-18",
+    "sheet_name": "CUBE Agree C:62 SLT Disc carbon´n´black 2019",
+    "ts": "20190818041756",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-slt-disc-carbonnblack-2019/"
+   },
+   "2021": {
+    "captured": "2021-04-12",
+    "sheet_name": "CUBE Agree C:62 SLT carbon´n´black 2020",
+    "ts": "20210412165745",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-slt-carbonnblack-2020/"
+   }
+  },
+  "Agree C:62 SLT Di2": {
+   "2019": {
+    "captured": "2019-08-18",
+    "sheet_name": "CUBE Agree C:62 SLT Disc carbon´n´black 2019",
+    "ts": "20190818041756",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/agree/cube-agree-c62-slt-disc-carbonnblack-2019/"
+   },
+   "2021": {
+    "captured": "2021-04-12",
+    "sheet_name": "CUBE Agree C:62 SLT carbon´n´black 2020",
+    "ts": "20210412165745",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/agree/cube-agree-c62-slt-carbonnblack-2020/"
    }
   },
   "Attain C:62 Race": {
@@ -127,6 +180,14 @@
     "url": "https://www.cube.eu/nl/2021/bikes/road/road-race/attain/cube-attain-pro-blacknflashyellow/"
    }
   },
+  "Attain Race": {
+   "2019": {
+    "captured": "2019-11-17",
+    "ts": "20191117133704",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/attain/cube-attain-race-bluenred-2020/"
+   }
+  },
   "Attain SLX": {
    "2023": {
     "captured": "2023-02-13",
@@ -142,15 +203,66 @@
     "url": "https://www.cube.eu/nl-nl/cube-attain-slx-goblin-n-yellow/825310"
    }
   },
+  "Cross Race C:62 Pro": {
+   "2019": {
+    "captured": "2019-11-17",
+    "ts": "20191117134308",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/cross-race/cube-cross-race-c62-pro-carbonngreen-2020/"
+   }
+  },
+  "Cross Race C:62 Race": {
+   "2020": {
+    "captured": "2020-10-19",
+    "sheet_name": "CUBE Cross Race C:62 Team Edition carbon´n´flashyellow",
+    "ts": "20201019212153",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/cross-race/cube-cross-race-c62-team-edition-carbonnflashyellow/"
+   }
+  },
   "Cross Race C:68X TE": {
    "2022": {
     "captured": "2022-09-28",
+    "sheet_name": "Cube Cross Race C:68X TE carbon´n´flashyellow",
     "ts": "20220928034036",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/2022/bikes/road/cyclocross/cross-race/cube-cross-race-c68x-te-carbonnflashyellow/"
    }
   },
+  "Litening AERO C:68X Pro": {
+   "2019": {
+    "captured": "2019-11-17",
+    "sheet_name": "CUBE Litening C:68X Pro carbon´n´white 2020",
+    "ts": "20191117110944",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-pro-carbonnwhite-2020/"
+   }
+  },
+  "Litening AERO C:68X Race": {
+   "2020": {
+    "captured": "2020-09-22",
+    "sheet_name": "CUBE Litening C:68X Race teamline 2020",
+    "ts": "20200922131120",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-race-teamline-2020/"
+   }
+  },
   "Litening AERO C:68X SLT": {
+   "2019": {
+    "captured": "2019-11-15",
+    "sheet_name": "CUBE Litening C:68X SLT carbon´n´blue 2020",
+    "ts": "20191115090101",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-slt-carbonnblue-2020/"
+   },
+   "2021": {
+    "captured": "2021-08-03",
+    "image": "Cube/years/liteningaeroc68xslt_pred_2021.jpg",
+    "sheet_name": "Cube Litening C:68X SLT prizmsilver´n´grey",
+    "ts": "20210803042041",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/litening/cube-litening-c68x-slt-prizmsilverngrey/"
+   },
    "2025": {
     "captured": "2025-08-15",
     "image": "Cube/years/liteningaeroc68xslt_2025.jpg",
@@ -160,15 +272,47 @@
    }
   },
   "Litening AIR C:68X Pro": {
+   "2019": {
+    "captured": "2019-11-17",
+    "sheet_name": "CUBE Litening C:68X Pro carbon´n´white 2020",
+    "ts": "20191117110944",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-pro-carbonnwhite-2020/"
+   },
    "2025": {
     "captured": "2025-08-04",
-    "image": "Cube/years/liteningairc68xpro_2025.jpg",
+    "image": "Cube/years/liteningairc68xpro_pred_2025.jpg",
+    "sheet_name": "Cube Litening AIR C:68X Pro foggrey´n´white",
     "ts": "20250804155023",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/cube-litening-air-c-68x-pro-foggrey-n-white/828100"
    }
   },
+  "Litening AIR C:68X Race": {
+   "2020": {
+    "captured": "2020-09-22",
+    "sheet_name": "CUBE Litening C:68X Race teamline 2020",
+    "ts": "20200922131120",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-race-teamline-2020/"
+   }
+  },
   "Litening AIR C:68X SLT": {
+   "2019": {
+    "captured": "2019-11-15",
+    "sheet_name": "CUBE Litening C:68X SLT carbon´n´blue 2020",
+    "ts": "20191115090101",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/road-race/litening/cube-litening-c68x-slt-carbonnblue-2020/"
+   },
+   "2021": {
+    "captured": "2021-08-03",
+    "image": "Cube/years/liteningairc68xslt_pred_2021.jpg",
+    "sheet_name": "Cube Litening C:68X SLT prizmsilver´n´grey",
+    "ts": "20210803042041",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/road-race/litening/cube-litening-c68x-slt-prizmsilverngrey/"
+   },
    "2026": {
     "captured": "2026-02-09",
     "image": "Cube/years/liteningairc68xslt_2026.jpg",
@@ -204,6 +348,38 @@
     "ts": "20241129102339",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/cube-nuroad-c-62-ex-pigeonblue-n-art/830310"
+   }
+  },
+  "Nuroad C:62 Pro FE": {
+   "2019": {
+    "captured": "2019-11-17",
+    "sheet_name": "CUBE Nuroad Pro FE grey´n´black 2020",
+    "ts": "20191117110847",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-pro-fe-greynblack-2020/"
+   },
+   "2021": {
+    "captured": "2021-04-12",
+    "image": "Cube/years/nuroadc62profe_pred_2021.jpg",
+    "sheet_name": "CUBE Nuroad Pro FE black´n´petrol",
+    "ts": "20210412162231",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-fe-blacknpetrol/"
+   },
+   "2022": {
+    "captured": "2022-05-21",
+    "sheet_name": "Cube Nuroad Pro FE inkgrey´n´black",
+    "ts": "20220521152630",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2022/bikes/road/gravel/nuroad/cube-nuroad-pro-fe-inkgreynblack/"
+   },
+   "2025": {
+    "captured": "2025-03-23",
+    "image": "Cube/years/nuroadc62profe_pred_2025.jpg",
+    "sheet_name": "Cube Nuroad Pro FE night´n´black",
+    "ts": "20250323111354",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320"
    }
   },
   "Nuroad C:62 Race": {
@@ -351,6 +527,13 @@
    }
   },
   "Nuroad Pro": {
+   "2019": {
+    "captured": "2019-11-20",
+    "image": "Cube/years/nuroadpro_2019.jpg",
+    "ts": "20191120181411",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-pro-blacknsharpgreen-2020/"
+   },
    "2020": {
     "captured": "2020-11-30",
     "image": "Cube/years/nuroadpro_2020.jpg",
@@ -400,27 +583,44 @@
    }
   },
   "Nuroad Pro FE": {
+   "2019": {
+    "captured": "2019-11-17",
+    "ts": "20191117110847",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-pro-fe-greynblack-2020/"
+   },
    "2021": {
     "captured": "2021-04-12",
-    "image": "Cube/years/nuroadprofe_2021.jpg",
+    "image": "Cube/years/nuroadprofe_pred_2021.jpg",
+    "sheet_name": "CUBE Nuroad Pro FE black´n´petrol",
     "ts": "20210412162231",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-pro-fe-blacknpetrol/"
    },
    "2022": {
     "captured": "2022-05-21",
+    "sheet_name": "Cube Nuroad Pro FE inkgrey´n´black",
     "ts": "20220521152630",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/2022/bikes/road/gravel/nuroad/cube-nuroad-pro-fe-inkgreynblack/"
    },
    "2025": {
     "captured": "2025-03-23",
+    "image": "Cube/years/nuroadprofe_pred_2025.jpg",
+    "sheet_name": "Cube Nuroad Pro FE night´n´black",
     "ts": "20250323111354",
     "unreadable": true,
     "url": "https://www.cube.eu/nl-nl/cube-nuroad-pro-fe-night-n-black/829320"
    }
   },
   "Nuroad Race": {
+   "2019": {
+    "captured": "2019-11-23",
+    "image": "Cube/years/nuroadrace_2019.jpg",
+    "ts": "20191123002751",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2020/bikes/road/cyclocross-gravel/nuroad/cube-nuroad-race-blackngreyblue-2020/"
+   },
    "2024": {
     "captured": "2024-11-02",
     "ts": "20241102221157",
@@ -429,19 +629,35 @@
    }
   },
   "Nuroad Race FE": {
+   "2019": {
+    "captured": "2019-08-23",
+    "ts": "20190823075909",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/2019/bikes/road/racefietsen-cyclocrossers/nuroad/cube-nuroad-race-fe-blackngrey-2019/"
+   },
    "2020": {
     "captured": "2020-10-19",
-    "image": "Cube/years/nuroadracefe_2020.jpg",
+    "image": "Cube/years/nuroadracefe_pred_2020.jpg",
+    "sheet_name": "CUBE Nuroad Race FE grey´n´black",
     "ts": "20201019154027",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/"
    },
    "2021": {
     "captured": "2021-03-09",
-    "image": "Cube/years/nuroadracefe_2021.jpg",
+    "image": "Cube/years/nuroadracefe_pred_2021.jpg",
+    "sheet_name": "CUBE Nuroad Race FE grey´n´black",
     "ts": "20210309214947",
     "unreadable": true,
     "url": "https://www.cube.eu/nl/2021/bikes/road/offroad/nuroad/cube-nuroad-race-fe-greynblack/"
+   },
+   "2024": {
+    "captured": "2024-09-06",
+    "image": "Cube/years/nuroadracefe_pred_2024.jpg",
+    "sheet_name": "Nuroad Hybrid C 62 Race Fe 400X Desertstone N Green",
+    "ts": "20240906202624",
+    "unreadable": true,
+    "url": "https://www.cube.eu/nl/cube-nuroad-hybrid-c-62-race-fe-400x-desertstone-n-green/817210"
    },
    "2025": {
     "captured": "2025-09-04",
@@ -538,6 +754,8 @@
  },
  "source": "Wayback Machine copies of the brand's NL site",
  "years": [
+  2018,
+  2019,
   2020,
   2021,
   2022,

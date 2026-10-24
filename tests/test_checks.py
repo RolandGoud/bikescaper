@@ -821,7 +821,7 @@ def test_year_tabs_show_our_scrape_and_archived_years():
                           "specs": {"Frame": "100 Series Alpha Aluminium", "Rem": "Tektro MD-C550"}},
                  "2023": {"captured": "2023-04-01", "ts": "20230401000000", "url": "b", "unreadable": True}}}}
     tabs = {t["year"]: t for t in checks.year_tabs(model, today=date(2026, 10, 23))}
-    assert list(tabs) == list(range(2020, 2027))
+    assert list(tabs) == list(range(2018, 2027))
     assert [tabs[y]["state"] for y in (2022, 2023, 2024, 2025)] == ["none", "unreadable", "archive", "scrape"]
     assert tabs[2024]["changed"] == set() and tabs[2025]["changed"] == {"Brakes"}
     # A brand whose archive wasn't searched says so instead of "no copy".

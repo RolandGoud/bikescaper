@@ -1,5 +1,5 @@
 {
- "checked_on": "2026-10-23",
+ "checked_on": "2026-10-24",
  "models": {
   "Contend AR 1": {
    "2021": {
@@ -714,6 +714,37 @@
    }
   },
   "Defy Advanced Pro 0": {
+   "2019": {
+    "captured": "2022-05-21",
+    "price": 4999.0,
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Bottom bracket": "Shimano Press Fit",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x28, folding",
+     "Cassette": "Shimano Ultegra, 11x34",
+     "Crankstel": "Shimano Ultegra with Giant Power Pro, 34/50",
+     "Demper": "N/A",
+     "Extra's": "RideSense Bluetooth",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "7,9 kg",
+     "Ketting": "KMC X11SL-1",
+     "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle, Center Lock",
+     "Pedaal": "N/A",
+     "Rem": "Shimano Ultegra, hydraulic",
+     "Remgreep": "Shimano Ultegra Di2, hydraulic",
+     "Shifter": "Shimano Ultegra Di2",
+     "Spaken": "Giant SLR-1 Disc WheelSystem",
+     "Stuur": "Contact SLR D-Fuse",
+     "Stuurpen": "Contact SL Stealth",
+     "Velg": "Giant SLR-1 Disc WheelSystem",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer",
+     "Zadel": "Contact SL (neutral)",
+     "Zadelpen": "Giant D-Fuse SL composite"
+    },
+    "ts": "20220521193957",
+    "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-2019"
+   },
    "2021": {
     "captured": "2021-04-11",
     "image": "Giant/years/defyadvancedpro0_2021.jpg",
@@ -3448,6 +3479,8 @@
  },
  "source": "Wayback Machine copies of the brand's NL site",
  "years": [
+  2018,
+  2019,
   2020,
   2021,
   2022,
