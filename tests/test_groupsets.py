@@ -34,6 +34,13 @@ def test_more_speeds_is_a_new_drivetrain():
     assert effort("gx-eagle", "gx-eagle-axs") == 2  # same cassette and chain, other shifting
 
 
+def test_any_move_to_wireless_gets_the_same_remark():
+    wireless = "Wireless shifting: no cables or wires"
+    for frm, to in (("r7000", "r8100"), ("6870", "r9200"), ("rival-22", "rival-axs"), ("m8000", "m8250")):
+        assert any(wireless in en(s) for s in path(GENERATIONS[frm], GENERATIONS[to])["steps"]), (frm, to)
+    assert not any(wireless in en(s) for s in path(GENERATIONS["rival-axs"], GENERATIONS["red-axs"])["steps"])
+
+
 def test_freehub_and_frame_raise_the_effort():
     assert effort("m5100", "m8100") == 4  # HG to Micro Spline
     assert effort("nx-eagle", "gx-eagle") == 4  # HG to XD

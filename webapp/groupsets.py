@@ -31,6 +31,8 @@ SHIFT_LABELS = {
 }
 # Electronic shifting that needs wires through the frame and a battery inside it.
 WIRED = {"di2", "di2-wireless", "eps"}
+# Shifters that talk to the derailleurs by radio, fully or semi-wireless.
+WIRELESS = {"di2-wireless", "di2-mtb", "etap", "axs", "wrl"}
 
 FREEHUBS = {
     "hg": "Shimano HG (8–10-speed)",
@@ -312,8 +314,8 @@ def path(current, target):
     if current["freehubs"][0] not in target["freehubs"]:
         effort = 4
         steps.append(Msg("Rear wheel needs a {freehub} freehub body.", freehub=Msg(FREEHUBS[target["freehubs"][0]])))
-    if target["shift"] in ("axs", "etap", "wrl", "di2-mtb") and current["shift"] == "mech":
-        steps.append(Msg("No wires through the frame; batteries to charge."))
+    if target["shift"] in WIRELESS and current["shift"] not in WIRELESS:
+        steps.append(Msg("Wireless shifting: no cables or wires from the shifters, and batteries to charge."))
     if target["note"]:
         steps.append(Msg(target["note"]))
 
@@ -324,7 +326,9 @@ def path(current, target):
         frame.append(Msg("The rear derailleur bolts straight to the frame: needs a UDH (universal derailleur "
                          "hanger) dropout."))
     if target["shift"] in WIRED and current["shift"] not in WIRED:
-        frame.append(Msg("Wired electronic shifting: needs internal routing for the wires and a spot for the battery."))
+        frame.append(Msg("The derailleurs still run on wires: needs internal routing for them and a spot for the battery."
+                         if target["shift"] in WIRELESS else
+                         "Wired electronic shifting: needs internal routing for the wires and a spot for the battery."))
     if current["one_by"] and not target["one_by"] and target["discipline"] == "road":
         frame.append(Msg("Two chainrings need a front derailleur mount; your 1x frame may not have one."))
     fit = "no" if not set(current["brakes"]) & set(target["brakes"]) else ("check" if frame else "ok")
