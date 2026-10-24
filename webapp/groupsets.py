@@ -301,6 +301,10 @@ COST = {
 # Said with every upgrade that comes to a whole new drivetrain (level 3 or more).
 NOT_WORTH_IT = ("Often not cost-effective: a new or second-hand bike with this groupset usually works out better, "
                 "especially if your current bike sells well.")
+# Said with every upgrade that needs another freehub body (level 4): we advise against those.
+ADVISE_AGAINST = ("We advise against this upgrade: on top of a whole new drivetrain the rear wheel's freehub body has "
+                  "to change too, which is rarely cost-effective. A new or second-hand bike with this groupset almost "
+                  "always works out better, especially if your current bike sells well.")
 # Whether the new groupset mounts on the frame you have: "no" when it can't (other brakes), "check" when it
 # needs something not every frame has (a UDH dropout, internal routing, a front derailleur mount).
 FIT = {
@@ -391,6 +395,13 @@ def is_downgrade(current, target):
     return False
 
 
+def split_wireless(steps):
+    """Whether a ladder has both wireless and other generations: the diagram then puts the wireless ones in a row of
+    their own, below the mechanical and wired ones."""
+    wireless = {g["shift"] in WIRELESS for s in steps for g in s["gens"]}
+    return wireless == {True, False}
+
+
 def cross_upgrades(key):
     """The upgrades of `key` in its own ladder but on another system (R7100 to Ultegra Di2 R8100), as keys:
     the diagram draws these as lines too where a tile has no further tile on its own system."""
@@ -405,25 +416,6 @@ def downgrades(key):
     found = [(g, path(current, g)) for g in GENERATIONS.values() if is_downgrade(current, g)]
     return sorted(found, key=lambda item: (item[1]["fit"] == "no", item[1]["effort"], -(item[0]["tier"] or 0),
                                            -item[0]["year"]))
-
-
-def route(key):
-    """The easiest way up from `key`: in each step above it on its own ladder, the upgrade that fits the frame
-    with the least work (no frame check before one, the same kind of shifting, then the newest). [(generation, path)], lowest step first."""
-    current = GENERATIONS[key]
-    found = [(g, p) for g, p in upgrades(key)
-             if g["ladder"] == current["ladder"] and g["step"] > current["step"] and p["fit"] != "no"]
-
-    def rank(item):
-        g, p = item
-        return p["effort"], p["fit"] == "check", g["shift"] != current["shift"], -g["year"]
-
-    picks = {}
-    for g, p in found:
-        best = picks.get(g["step"])
-        if best is None or rank((g, p)) < rank(best):
-            picks[g["step"]] = (g, p)
-    return [picks[step] for step in sorted(picks)]
 
 
 def ladders(kind, brand=None):

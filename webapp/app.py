@@ -446,18 +446,16 @@ def create_app(db_path=None):
         kind = kind if kind in dict(kinds) else kinds[0][0]
         paths = groupsets.upgrades(current["key"]) if current else []
         down = groupsets.downgrades(current["key"]) if current else []
-        show = "route" if request.args.get("show") == "route" else "all"  # every upgrade, or the easiest route
-        route = groupsets.route(current["key"]) if current else []
-        return render_template("groupsets.html", kind=kind, current=current, paths=paths, show=show, route=route,
-                               route_keys=[g["key"] for g, _p in route],
+        return render_template("groupsets.html", kind=kind, current=current, paths=paths,
                                down=down, by_key={g["key"]: p for g, p in paths + down}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b))}
                                                      for b in groupsets.LADDERS], disciplines=kinds,
-                               effort=groupsets.EFFORT, cost=groupsets.COST, not_worth_it=groupsets.NOT_WORTH_IT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
+                               effort=groupsets.EFFORT, cost=groupsets.COST, not_worth_it=groupsets.NOT_WORTH_IT, advise_against=groupsets.ADVISE_AGAINST, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS,
                                columns=groupsets.columns,
                                series_logo=lambda s: logo_if_there(groupsets.logo_path(s)),
-                               cross_upgrades=groupsets.cross_upgrades, nav="groupsets")
+                               cross_upgrades=groupsets.cross_upgrades, split_wireless=groupsets.split_wireless,
+                               wireless=groupsets.WIRELESS, nav="groupsets")
 
     @app.route("/groupsets/<key>/shop")
     def groupset_shop(key):

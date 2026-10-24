@@ -10,7 +10,7 @@
 {% macro path_card(g, p, show_effort=false) -%}
 <div class="path-card fit-{{ p.fit }}">
   <div class="row" style="justify-content: space-between; gap: 8px">
-    <strong>{{ g.brand }} {{ g.name }}</strong>{{ tier_badge(g.tier, small=true) }}
+    <strong>{{ g.brand }} {{ g.name }}</strong><span class="row" style="gap: 6px">{% if p.effort == 4 and p.fit != 'no' %}<span class="advise-against">{{ _('Not advised') }}</span>{% endif %}{{ tier_badge(g.tier, small=true) }}</span>
   </div>
   {% if show_effort %}<span class="row small" style="gap: 6px"><span class="effort e{{ p.effort }}">{{ p.effort }}</span>{{ _(effort[p.effort][0]) }}</span>{% endif %}
   <span class="mono small muted">{{ facts(g) }}</span>
@@ -27,11 +27,11 @@
 {# The upgrades in the order of the key: those that fit as they are by how much has to change (1-4), then the ones
    that need a check of the frame (!), then the ones that can't go on this frame (✕). With `full`, every group shows,
    empty or not, so the list doubles as the key. #}
-{% macro path_group(mark, cls, title, text, items, full, show_effort=false, note=none) -%}
+{% macro path_group(mark, cls, title, text, items, full, show_effort=false, note=none, always=false) -%}
 {% if items or full %}
 <div class="path-group{{ ' ' ~ cls if cls }}{{ ' empty' if not items }}">
   <div class="path-head">{{ mark }}<h3>{{ title }}</h3><span class="small muted">{{ text }}</span></div>
-  {% if note and items %}<p class="cost-note small">{{ note }}</p>{% endif %}
+  {% if note and (items or always) %}<p class="cost-note small">{{ note }}</p>{% endif %}
   {% if items %}<div class="path-grid">{% for g, p in items %}{{ path_card(g, p, show_effort) }}{% endfor %}</div>
   {% else %}<p class="small muted">{{ _('None from here.') }}</p>{% endif %}
 </div>
@@ -40,18 +40,10 @@
 {% macro path_groups(items_, full=false) -%}
 {% set fits = items_|selectattr('1.fit', 'equalto', 'ok')|list %}
 {% for level, (name, text) in effort.items() %}
-{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full, note=(_(cost[level]) ~ ' ' ~ _(not_worth_it)) if level in cost) }}
+{{ path_group('<span class="effort e%s">%s</span>'|format(level, level)|safe, '', _(name), _(text), fits|selectattr('1.effort', 'equalto', level)|list, full, note=(_(cost[level]) ~ ' ' ~ _(advise_against if level == 4 else not_worth_it)) if level in cost, always=level == 4) }}
 {% endfor %}
-{{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true, note=_(not_worth_it) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'ge', 3)|list) }}
+{{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true, note=_(advise_against) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'equalto', 4)|list else _(not_worth_it) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'ge', 3)|list) }}
 {{ path_group('<span class="effort nofit" aria-hidden="true">✕</span>'|safe, 'no-fit', _(fit['no'][0]), _(fit['no'][1]), items_|selectattr('1.fit', 'equalto', 'no')|list, full) }}
-{%- endmacro %}
-{# The key in one line, for the route view. #}
-{% macro key_row() -%}
-<div class="key-row small">
-  {% for level, (name, _text) in effort.items() %}<span><span class="effort e{{ level }}">{{ level }}</span> {{ _(name) }}</span>{% endfor %}
-  <span><span class="effort check">!</span> {{ _(fit['check'][0]) }}</span>
-  <span><span class="effort nofit">✕</span> {{ _(fit['no'][0]) }}</span>
-</div>
 {%- endmacro %}
 {% block body %}
 <main class="wrap page">
@@ -61,10 +53,10 @@
   </div>
   <div class="filter-box">
     <nav class="logo-pills" aria-label="{{ _('Brand') }}">
-      {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind, show=show if show == 'route' else None) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>{% endfor %}
+      {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>{% endfor %}
     </nav>
     <nav class="logo-pills" aria-label="{{ _('Type') }}">
-      {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key, show=show if show == 'route' else None) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
+      {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
     </nav>
   </div>
 
@@ -77,28 +69,37 @@
       {% if brand_ladders|length > 1 %}<div class="ladder-label">{{ _(label) }}</div>{% endif %}
       <div class="ladder" style="--steps: {{ cols|length }}">
         {% for t, _series, _up in cols %}<div class="tier-span">{{ tier_badge(t, small=true) }}</div>{% endfor %}
+        {% set rows = [(false, _('Mechanical and wired')), (true, _('Wireless'))] if split_wireless(steps) else [(none, none)] %}
         <ol class="ladder-steps">
+        {% for row_wireless, row_label in rows %}
+        {% if row_label %}<li class="row-label{{ ' wireless' if row_wireless else ' wired' }}" aria-hidden="true">{{ row_label }}</li>{% endif %}
         {% for t, series, up in cols %}
-        {% set level = loop.index0 and not up %}
-        <li class="step{{ ' up' if up }}{{ ' level' if level }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
+        {% set level = loop.index0 and not up and not row_wireless %}
+        <li class="step{{ ' wireless' if row_wireless else ' wired' }}{{ ' up' if up and not row_wireless }}{{ ' level' if level }}" data-col="{{ loop.index0 }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
           {% if level %}<span class="sr-only">{{ _('Same level: no upgrade from the column before') }}</span>{% endif %}
           {% for s in series %}
+          {% set wired_gens = s.gens|rejectattr('shift', 'in', wireless)|list %}
+          {% set gens = s.gens if row_wireless is none else s.gens|selectattr('shift', 'in', wireless)|list if row_wireless else wired_gens %}
+          {% if gens %}
           <div class="series">
-          <div class="step-head"><span class="step-name">{{ brand_label({"name": s.name, "logo": series_logo(s)}) }}</span>{% if loop.first %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>
+          {# The name above the series' first tiles: in the wireless row only for a series that is wireless only. #}
+          {% if not row_wireless or not wired_gens %}<div class="step-head"><span class="step-name">{{ brand_label({"name": s.name, "logo": series_logo(s)}) }}</span>{% if loop.first and not row_wireless %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>{% endif %}
           <ul class="gens">
-            {% for g in s.gens %}
+            {% for g in gens %}
             {% set p = by_key.get(g.key) %}
             {% set here = current and current.key == g.key %}
             {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
-            <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% set ups = cross_upgrades(g.key) %}{% if ups %} data-up="{{ ups|join(' ') }}"{% endif %}{% if show == 'route' and g.key in route_keys %} data-route="{{ route_keys.index(g.key) }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}{{ ' off-route' if show == 'route' and p and g.key not in route_keys }}" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
+            <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% set ups = cross_upgrades(g.key) %}{% if ups %} data-up="{{ ups|join(' ') }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}" href="{{ url_for('groupset_paths', have=g.key) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
               <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% elif here %}<span class="yours">{{ _('Yours') }}</span>{% endif %}</span>
               <span class="gen-facts">{{ facts(g) }}</span>
             </a></li>
             {% endfor %}
           </ul>
           </div>
+          {% endif %}
           {% endfor %}
         </li>
+        {% endfor %}
         {% endfor %}
         </ol>
       </div>
@@ -112,30 +113,13 @@
     <div class="stack" style="gap: 10px">
       <div class="row" style="justify-content: space-between; gap: 12px">
         <h2>{{ _('Upgrades from {name}', name=current.brand ~ ' ' ~ current.name) }}</h2>
-        <a class="small clear-pick" href="{{ url_for('groupset_paths', brand=brand, type=kind, show=show if show == 'route' else None) }}">{{ _('Clear') }}</a>
+        <a class="small clear-pick" href="{{ url_for('groupset_paths', brand=brand, type=kind) }}">{{ _('Clear') }}</a>
       </div>
       <div class="row small">
         {{ tier_badge(current.tier, small=true) }}
         <span class="mono">{{ facts(current) }} · {{ _(freehubs[current.freehubs[0]]) }}</span>
       </div>
     </div>
-    {% if show == 'route' %}
-    {% if route %}
-    {{ key_row() }}
-    <ol class="route">
-      <li class="route-stop here"><span class="route-label">{{ _('Yours') }}</span><strong>{{ current.name }}</strong><span class="mono small">{{ facts(current) }}</span></li>
-      {% for g, p in route %}
-      <li class="route-stop">
-        <span class="route-label"><span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %} {{ _('Step {n}', n=loop.index) }}</span>
-        {{ path_card(g, p) }}
-      </li>
-      {% endfor %}
-    </ol>
-    <p class="small muted">{{ _('In each step up, the upgrade that fits your frame with the least work.') }} <a href="{{ url_for('groupset_paths', have=current.key) }}#paths">{{ _('All options') }}</a></p>
-    {% else %}
-    <p>{{ _("This is the top of its line: nothing above it from {brand} in our list yet.", brand=current.brand) }}</p>
-    {% endif %}
-    {% else %}
     {% set own = paths|selectattr('0.brand', 'equalto', current.brand)|list %}
     {% set switch = paths|rejectattr('0.brand', 'equalto', current.brand)|list %}
     {{ path_groups(own, full=true) }}
@@ -151,7 +135,6 @@
       <summary>{{ _('Downgrades: {n} options', n=down|length) }}</summary>
       {{ path_groups(down) }}
     </details>
-    {% endif %}
     {% endif %}
   </section>
   {% endif %}
