@@ -455,7 +455,8 @@ def create_app(db_path=None):
                                effort=groupsets.EFFORT, cost=groupsets.COST, not_worth_it=groupsets.NOT_WORTH_IT, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS,
                                columns=groupsets.columns,
-                               series_logo=lambda s: logo_if_there(groupsets.logo_path(s)), nav="groupsets")
+                               series_logo=lambda s: logo_if_there(groupsets.logo_path(s)),
+                               cross_upgrades=groupsets.cross_upgrades, nav="groupsets")
 
     @app.route("/models/<slug>")
     def model_page(slug):

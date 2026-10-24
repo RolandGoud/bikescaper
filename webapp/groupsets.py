@@ -68,6 +68,7 @@ def series(key, name, gens, tier=None, catalog=None):
     """One groupset from basic to top within its ladder. `catalog` is the key the listing check and the models
     page know it by (all GRX is "grx"), when it differs from `key`."""
     catalog = catalog or key
+    gens = sorted(gens, key=lambda g: g["shift"] in WIRELESS)  # wireless generations last, the rest as listed
     return {"key": key, "name": name, "tier": tier or SITE_TIERS.get(catalog), "gens": gens,
             "catalog": catalog if catalog in SITE_TIERS else None}
 
@@ -388,6 +389,14 @@ def is_downgrade(current, target):
         return (target["speeds"], target["shift"] != "mech", target["year"]) < \
                (current["speeds"], current["shift"] != "mech", current["year"])
     return False
+
+
+def cross_upgrades(key):
+    """The upgrades of `key` in its own ladder but on another system (R7100 to Ultegra Di2 R8100), as keys:
+    the diagram draws these as lines too where a tile has no further tile on its own system."""
+    current = GENERATIONS[key]
+    return [g["key"] for g in GENERATIONS.values()
+            if g["system"] != current["system"] and g["ladder"] == current["ladder"] and is_upgrade(current, g)]
 
 
 def downgrades(key):
