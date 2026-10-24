@@ -51,10 +51,41 @@ p { margin: 0; }
 .logo:hover { color: #fff; }
 .tagline { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--mono); font-size: 11px; margin: 2px 0 0 58px; }
 @media (max-width: 640px) { .tagline { font-size: 10px; } }
-.site-header nav { display: flex; flex-wrap: wrap; gap: 4px; font-size: 15px; }
-.site-header nav a { padding: 10px 12px; text-decoration: none; color: #fff; }
-.site-header nav a.on { font-weight: 700; color: var(--accent); }
-.site-header nav a:hover { color: var(--accent-soft); }
+.site-header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 15px; }
+.site-header nav a, .tools-button { padding: 10px 12px; text-decoration: none; color: #fff; }
+.site-header nav a.on, .tools-button.on { font-weight: 700; color: var(--accent); }
+.site-header nav a:hover, .tools-button:hover { color: var(--accent-soft); }
+/* Tools: a dropdown on wide screens (opens on hover or a click), a labelled group in the phone menu */
+.tools { position: relative; }
+.tools-button { background: none; border: 0; font: inherit; cursor: pointer; }
+.tools-button::after { content: " ▾"; color: var(--muted); }
+.tools-menu { display: none; position: absolute; right: 0; top: 100%; z-index: 30; min-width: 280px; flex-direction: column; padding: 8px;
+  background: var(--raised); border: 1px solid var(--line-strong); border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+.tools:hover .tools-menu, .tools.open .tools-menu { display: flex; }
+.site-header .tools-menu a { border-radius: 8px; }
+.site-header .tools-menu a:hover { background: var(--faint); }
+.tools-menu small { display: block; color: var(--muted); font-size: 13px; font-weight: 400; }
+.menu-button { display: none; }
+@media (max-width: 760px) {
+  .site-header { position: relative; }
+  .site-header .wrap { flex-wrap: nowrap; }
+  .brand { min-width: 0; }
+  .logo { font-size: 20px; gap: 8px; white-space: nowrap; }
+  .logo svg { width: 36px; flex-shrink: 0; }
+  .logo { overflow: hidden; }
+  .tagline { display: none; }
+  .site-header .header-right { flex-wrap: nowrap; gap: 8px; }
+  .menu-button { display: block; flex-shrink: 0; white-space: nowrap; background: none; color: #fff; font: inherit; font-size: 14px; cursor: pointer;
+    border: 1px solid var(--line-strong); border-radius: 6px; padding: 7px 12px; }
+  .site-header nav { display: none; position: absolute; left: 0; right: 0; top: 100%; z-index: 30; flex-direction: column; align-items: stretch;
+    gap: 0; padding: 8px 16px 16px; background: var(--raised); border-bottom: 1px solid var(--line-strong); }
+  .site-header.menu-open nav { display: flex; }
+  .tools-button { pointer-events: none; padding-top: 16px; color: var(--muted); font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; }
+  .tools-button.on { color: var(--muted); font-weight: 400; }
+  .tools-button::after { content: ""; }
+  .tools-menu { display: flex; position: static; min-width: 0; padding: 0; background: none; border: 0; box-shadow: none; }
+}
+@media (max-width: 380px) { .site-header .wrap { gap: 10px; } .logo { font-size: 16px; gap: 6px; } .logo svg { width: 30px; } .site-header .lang-switch a { min-width: 32px; padding: 8px 6px; } }
 
 /* hero: headline and form side by side on wide screens, so the whole form is above the fold at 1920x1080 */
 .hero { background: var(--ink); color: #fff; position: relative; overflow: hidden; }

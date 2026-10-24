@@ -8,6 +8,12 @@ from webapp.app import create_app
 from webapp.groupsets import GENERATIONS, path, upgrades
 
 
+@pytest.fixture(autouse=True)
+def show_groupsets(monkeypatch):
+    """The page is hidden on the site for now; these tests switch it on."""
+    monkeypatch.setenv("SHOW_GROUPSETS", "1")
+
+
 def en(msg):
     token = i18n.current_language.set("en")
     try:
@@ -231,3 +237,14 @@ def test_freehub_upgrades_are_advised_against(tmp_path):
     assert "Deze upgrade raden we af" in page and "Afgeraden" in page
     page = app.test_client().get("/groupsets?have=r9100&lang=nl").data.decode()  # no level 4: still said
     assert "Deze upgrade raden we af" in page
+
+
+def test_hidden_unless_switched_on(tmp_path, monkeypatch):
+    monkeypatch.delenv("SHOW_GROUPSETS")
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    assert client.get("/groupsets").status_code == 404
+    assert client.get("/groupsets/r8000/shop").status_code == 404
+    for page in ("/?lang=en", "/models?groupset=105&lang=en"):
+        assert 'href="/groupsets' not in client.get(page).data.decode()

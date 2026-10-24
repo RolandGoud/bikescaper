@@ -16,14 +16,22 @@
       <div class="tagline">{{ _('Second-hand bike check · Netherlands') }}</div>
     </div>
     <div class="header-right">
-      <nav aria-label="{{ _('Main') }}">
-        <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}">{{ _('Check a listing') }}</a>
-        <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}">{{ _('Selling') }}</a>
-        <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}">{{ _('Listings') }}</a>
-        <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}">{{ _('Models') }}</a>
-        <a href="{{ url_for('groupset_paths') }}" class="{{ 'on' if nav == 'groupsets' }}">{{ _('Groupsets') }}</a>
-        <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}">{{ _('Size finder') }}</a>
-        <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}">{{ _('Value') }}</a>
+      {# Three tasks up front, the smaller tools in one dropdown. On a phone the menu folds behind one button
+         (webapp/static/menu.js). The groupsets page is hidden for now (SHOW_GROUPSETS in webapp/app.py). #}
+      <button type="button" class="menu-button" aria-expanded="false" aria-controls="main-nav">☰ {{ _('Menu') }}</button>
+      <nav id="main-nav" class="main-nav" aria-label="{{ _('Main') }}">
+        <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}"{% if nav == 'check' %} aria-current="page"{% endif %}>{{ _('Check a bike') }}</a>
+        <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}"{% if nav == 'sell' %} aria-current="page"{% endif %}>{{ _('Sell a bike') }}</a>
+        <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}"{% if nav == 'models' %} aria-current="page"{% endif %}>{{ _('Models') }}</a>
+        {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}" class="{{ 'on' if nav == 'groupsets' }}">{{ _('Groupsets') }}</a>{% endif %}
+        <div class="tools">
+          <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value', 'listings') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
+          <div id="tools-menu" class="tools-menu">
+            <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}"{% if nav == 'size' %} aria-current="page"{% endif %}>{{ _('Size finder') }}<small>{{ _('Which frame size fits you') }}</small></a>
+            <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}"{% if nav == 'value' %} aria-current="page"{% endif %}>{{ _('Value estimator') }}<small>{{ _('A rough fair price for a used bike') }}</small></a>
+            <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}"{% if nav == 'listings' %} aria-current="page"{% endif %}>{{ _('Checked listings') }}<small>{{ _('Every ad checked on this site') }}</small></a>
+          </div>
+        </div>
       </nav>
       <div class="lang-switch" role="group" aria-label="{{ _('Language') }}">
         {% for code, name in languages.items() %}
@@ -43,5 +51,6 @@
   </div>
 </footer>
 <script src="{{ url_for('static', filename='duo.js') }}" defer></script>
+<script src="{{ url_for('static', filename='menu.js') }}" defer></script>
 </body>
 </html>

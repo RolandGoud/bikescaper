@@ -12,7 +12,7 @@
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
     {% if groupset %}<p class="row small"><span class="chip ok-bg">{{ _('With {groupset}', groupset=groupset_name or groupset) }}</span>
       <a href="{{ url_for('catalog', brand=picked or None, type=kind, q=q or None, current=current, tier=tier) }}">{{ _('All groupsets') }}</a>
-      <a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a></p>{% endif %}
+      {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a>{% endif %}</p>{% endif %}
   </div>
   {# One filter box: "All brands" and the brand logos (each click turns that brand on or off), then type, tier,
      still sold and search.

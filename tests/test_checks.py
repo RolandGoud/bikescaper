@@ -119,8 +119,8 @@ def test_language_switch(tmp_path):
     client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": "2450"})
 
     # Dutch by default, English when the browser asks for it
-    assert "Advertentie checken".encode() in client.get("/").data
-    assert b"Check a listing" in client.get("/", headers={"Accept-Language": "en-GB,en;q=0.9"}).data
+    assert "Fiets checken".encode() in client.get("/").data
+    assert b"Check a bike" in client.get("/", headers={"Accept-Language": "en-GB,en;q=0.9"}).data
 
     # ?lang= switches and sticks through a cookie, including the check results
     page = client.get("/check/1?lang=en").data
