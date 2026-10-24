@@ -113,7 +113,7 @@
             {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
             <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% if show == 'route' and g.key in route_keys %} data-route="{{ route_keys.index(g.key) }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}{{ ' off-route' if show == 'route' and p and g.key not in route_keys }}" href="{{ url_for('groupset_paths', have=g.key, show=show if show == 'route' else None) }}#paths"{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
               <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% elif here %}<span class="yours">{{ _('Yours') }}</span>{% endif %}</span>
-              <span class="gen-facts">{{ facts(g) }} · {{ g.year }}</span>
+              <span class="gen-facts">{{ facts(g) }}</span>
             </a></li>
             {% endfor %}
           </ul>
