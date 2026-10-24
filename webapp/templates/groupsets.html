@@ -102,7 +102,7 @@
           {% if level %}<span class="sr-only">{{ _('Same level: no upgrade from the column before') }}</span>{% endif %}
           {% for s in series %}
           <div class="series">
-          <div class="step-head"><span class="step-name">{{ s.name }}</span>{% if loop.first %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>
+          <div class="step-head"><span class="step-name">{{ brand_label({"name": s.name, "logo": series_logo(s)}) }}</span>{% if loop.first %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>
           <ul class="gens">
             {% for g in s.gens %}
             {% set p = by_key.get(g.key) %}

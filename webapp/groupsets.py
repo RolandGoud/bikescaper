@@ -4,6 +4,8 @@ to go from one generation to another.
 Entered by hand from the makers' launch notes and compatibility charts. The rules are rules of thumb for
 a complete groupset swap, not a parts list: the page says so and points to the bike shop.
 """
+import re
+
 from .i18n import Msg
 from .reference import GROUPSETS
 
@@ -43,6 +45,12 @@ FREEHUBS = {
     "campa": "Campagnolo",
     "n3w": "Campagnolo N3W",
 }
+
+
+def logo_path(series):
+    """Where a series' logo would sit under static/: logos/groupsets/ plus its name as a slug ("Dura-Ace" ->
+    dura-ace.svg, "SX / NX Eagle" -> sx-nx-eagle.svg). The page shows the name until the file is there."""
+    return "logos/groupsets/" + re.sub(r"[^a-z0-9]+", "-", series["name"].lower()).strip("-") + ".svg"
 
 
 def gen(key, name, year, speeds, shift, system, freehubs, brakes, note=None, udh=False, shifters_from=(),
