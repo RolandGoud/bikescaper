@@ -68,6 +68,7 @@ def series(key, name, gens, tier=None, catalog=None):
     """One groupset from basic to top within its ladder. `catalog` is the key the listing check and the models
     page know it by (all GRX is "grx"), when it differs from `key`."""
     catalog = catalog or key
+    gens = sorted(gens, key=lambda g: g["shift"] in WIRELESS)  # wireless generations last, the rest as listed
     return {"key": key, "name": name, "tier": tier or SITE_TIERS.get(catalog), "gens": gens,
             "catalog": catalog if catalog in SITE_TIERS else None}
 
