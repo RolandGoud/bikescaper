@@ -48,11 +48,11 @@
         {% if t.image %}
         <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}"
                 data-colours="{{ (t.colours or [])|join(', ') }}">{{ year_facts(t) }}
-          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year">{{ t.year }}</span></button>
+          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
         {% else %}
         <button type="button" class="gallery-thumb empty" aria-pressed="false" data-year="{{ t.year }}" data-src=""
                 data-colours="{{ (t.colours or [])|join(', ') }}"
-                title="{{ _('Still looking for a good photo of this year.') }}">{{ year_facts(t) }}{{ placeholder }}<span class="gallery-year">{{ t.year }}</span></button>
+                title="{{ _('Still looking for a good photo of this year.') }}">{{ year_facts(t) }}{{ placeholder }}<span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
         {% endif %}
         {% endfor %}
         <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}">
@@ -84,7 +84,9 @@
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
       <div class="mini-facts">
         <div><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
-          <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div></div>
+          <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
+          {% set earlier = years[4]|dictsort|selectattr('1.1')|map(attribute='0')|list if years else [] %}
+          {% if earlier %}<div class="small earlier-gen" title="{{ years[4][earlier[0]][0] or '' }}">{{ _('earlier gen') }} {{ earlier|years_list }}</div>{% endif %}</div>
         <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging %}{% set lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}{% endset %}{{ note(lagging) }}{% endif %}</div>
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
@@ -135,9 +137,9 @@
     {% set shown = (year_tabs|selectattr('state', 'equalto', 'scrape')|list or year_tabs|selectattr('specs')|list or year_tabs)|last %}
     <div class="year-tabs" role="tablist" aria-label="{{ _('Model year') }}">
       {% for t in year_tabs %}
-      <button type="button" role="tab" class="year-tab {{ t.state }}" id="tab-{{ t.year }}" aria-controls="year-{{ t.year }}"
+      <button type="button" role="tab" class="year-tab {{ t.state }}{{ ' earlier' if t.earlier }}" id="tab-{{ t.year }}" aria-controls="year-{{ t.year }}"
               aria-selected="{{ 'true' if t is sameas shown else 'false' }}"
-              title="{% if t.state == 'scrape' %}{{ _('Our scrape') }}{% elif t.state == 'archive' %}{{ _('Wayback Machine copy') }}{% else %}{{ _('No spec sheet') }}{% endif %}">{{ t.year }}</button>
+              title="{% if t.earlier %}{{ _('Earlier generation') }}{% if t.sheet_name %}: {{ t.sheet_name }}{% endif %}{% elif t.state == 'scrape' %}{{ _('Our scrape') }}{% elif t.state == 'archive' %}{{ _('Wayback Machine copy') }}{% else %}{{ _('No spec sheet') }}{% endif %}">{{ t.year }}</button>
       {% endfor %}
     </div>
     {% for t in year_tabs %}

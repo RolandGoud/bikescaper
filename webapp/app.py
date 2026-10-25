@@ -175,6 +175,7 @@ def create_app(db_path=None):
     app.jinja_env.globals["duo_pick"] = duo_pick
     app.jinja_env.filters["swatch"] = colour_match.swatch
     app.jinja_env.filters["swatch_css"] = colour_match.swatch_css
+    app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.globals["ad_title"] = ad_title.parts
 
     def conn():
@@ -509,7 +510,7 @@ def create_app(db_path=None):
         ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), checks.run_check(models(), listing_dict(r)))
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
-        return render_template("model.html", ads=ads, m=model, years=checks.model_years(model) or checks.sheet_years(model), siblings=siblings,
+        return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings,
                                year_tabs=checks.year_tabs(model),
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),

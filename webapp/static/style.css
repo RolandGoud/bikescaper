@@ -1024,3 +1024,7 @@ select { max-width: 100%; }
   .example { grid-template-columns: 1fr; }
   .example-photo { min-height: 0; aspect-ratio: 4 / 3; }
 }
+/* Years of an earlier generation, as the age check marks them: amber in the facts, the year tabs and the thumbs. */
+.earlier-gen { margin-top: 2px; color: var(--warn); }
+.year-tab.earlier:not([aria-selected="true"]) { color: var(--warn); }
+.gallery-year.earlier { color: var(--warn); }
