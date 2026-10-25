@@ -1145,7 +1145,7 @@ def estimate_year(model, models, claims, text, seen_colour=None):
     span = _span(first, last)
     inside = claimed and (first is None or claimed >= first) and (last is None or claimed <= last)
     if fallback and claimed and not inside:
-        return {"status": UNKNOWN, "first": first, "last": last, "evidence": evidence,
+        return {"status": UNKNOWN, "first": first, "last": last, "evidence": evidence, "fallback": True,
                 "headline": Msg("Can't check {claimed}", claimed=claimed),
                 "detail": Msg("The ad has no year clues, and we only know {name} from {years}: "
                               "it may be an older generation.", name=model["name"], years=span)}

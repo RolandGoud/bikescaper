@@ -1217,3 +1217,12 @@ def test_age_timeline_rings_the_estimated_years(tmp_path):
     ringed = re.findall(r'<div class="[a-z-]+ likely"[^>]*>(\d{4})<br>', page)
     assert ringed and min(int(y) for y in ringed) == 2023  # "Probably 2023 or later"
     assert "estimated" in page
+
+
+def test_a_stated_year_we_cant_check_is_a_fallback_estimate(models):
+    """No year clues and a stated year outside the catalogue's years: the estimate is only the catalogue's
+    years (fallback), so the age timeline doesn't ring them."""
+    model = dict(next(m for m in models if m["name"] == "Émonda ALR 5"), photo_years=[2023, 2024])
+    claims = checks.read_claims("Trek Émonda ALR 5 2015", "mooie fiets")
+    e = checks.estimate_year(model, models, claims, "Trek Émonda ALR 5 2015\nmooie fiets")
+    assert e["status"] == checks.UNKNOWN and e["fallback"] is True
