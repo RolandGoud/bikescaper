@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% from "_macros.html" import part_icon %}
 {% from "_macros.html" import photo with context %}
 {% block title %}{{ _('Sell your bike') }} · Bike Compare{% endblock %}
 {% block body %}
 {# One form for the draft and the answers: the answer fields further down the page join it with form="sell-form",
    and static/sell.js sends it again when an answer changes. Nothing is saved. #}
-<section class="sell-hero">
+<section class="sell-hero{% if hero_bg %} has-bg{% endif %}"{% if hero_bg %} style="--hero-bg: url('{{ url_for('static', filename='hero/' ~ hero_bg) }}'){% if hero_credit and hero_credit.position %}; --hero-pos: {{ hero_credit.position }}{% endif %}"{% endif %}>
   <div class="wrap">
     <div>
       <div class="kicker">{{ _('For sellers') }}</div>
@@ -13,34 +14,78 @@
       <div class="steps"><span><i>1</i>{{ _('Paste') }}</span><span><i>2</i>{{ _('Fill the gaps') }}</span><span><i>3</i>{{ _('Copy to Marktplaats') }}</span></div>
     </div>
     <form class="draft-form" id="sell-form" method="post" action="{{ url_for('sell') }}#result">
+      {# Like the check form: the ad's link first; typing the draft is the other tab. #}
+      {% set mode = form.mode or ('manual' if form.title and not form.ad_link else 'link') %}
+      <div class="mode-switch field wide" role="radiogroup" aria-label="{{ _('How do you want to add the ad?') }}">
+        <input type="radio" name="mode" value="link" id="sell-mode-link" {{ 'checked' if mode == 'link' }}><label for="sell-mode-link">{{ _('Paste a link') }}</label>
+        <input type="radio" name="mode" value="manual" id="sell-mode-manual" {{ 'checked' if mode == 'manual' }}><label for="sell-mode-manual">{{ _('Enter manually') }}</label>
+      </div>
       {% if error %}<div class="error field wide" role="alert">{{ error }}</div>{% endif %}
-      <label class="field title-field">{{ _('Your ad title') }}
-        <input name="title" value="{{ form.title or '' }}" placeholder="Trek Domane SL 6 racefiets">
-      </label>
-      <label class="field">{{ _('Asking price (€)') }}
-        <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2600">
-      </label>
-      <label class="field wide">{{ _('Your text') }} <span class="hint">{{ _('Short or messy is fine') }}</span>
-        <textarea name="description" placeholder="Mooie racefiets, weinig gebruikt. Shimano 105. Ophalen in Utrecht.">{{ form.description or '' }}</textarea>
-      </label>
-      <label class="field wide">{{ _('Or the link to your ad') }} <span class="hint">{{ _('Already placed it? Paste the Marktplaats or 2dehands link instead.') }}</span>
-        <input name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
-      </label>
+      <div class="mode-fields link-fields">
+        <label class="field wide">{{ _('The link to your ad') }} <span class="hint">{{ _('Marktplaats or 2dehands. We read the title, text and price for you.') }}</span>
+          <input name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
+        </label>
+      </div>
+      <div class="mode-fields manual-fields">
+        <label class="field title-field">{{ _('Your ad title') }}
+          <input name="title" value="{{ form.title or '' }}" placeholder="Trek Domane SL 6 racefiets">
+        </label>
+        <label class="field">{{ _('Asking price (€)') }}
+          <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2600">
+        </label>
+        <label class="field wide">{{ _('Your text') }} <span class="hint">{{ _('Short or messy is fine') }}</span>
+          <textarea name="description" placeholder="Mooie racefiets, weinig gebruikt. Shimano 105. Ophalen in Utrecht.">{{ form.description or '' }}</textarea>
+        </label>
+      </div>
       <div class="actions field wide"><button class="btn" type="submit">{{ _('Improve my ad') }}</button><span class="hint">{{ _("Your draft isn't saved or published, and doesn't count in our price figures.") }}</span></div>
     </form>
   </div>
+  {% if hero_credit %}
+  <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
+  {% endif %}
 </section>
 
 {% if not r %}
 <section class="wrap stack" style="padding-top: 56px; padding-bottom: 72px; gap: 28px">
   <h2>{{ _('What you get') }}</h2>
   <div class="grid">
-    <div class="tile"><div class="mono">{{ _('01 · DETAILS') }}</div><h3>{{ _('What buyers look for') }}</h3><p class="muted">{{ _('Year, size, groupset, condition, invoice: we show what your ad is missing and fill in the specs from the catalogue.') }}</p></div>
-    <div class="tile"><div class="mono">{{ _('02 · CHECK') }}</div><h3>{{ _('Does it match the catalogue?') }}</h3><p class="muted">{{ _('We flag a year, part or name that buyers will question when they check your ad.') }}</p></div>
-    <div class="tile"><div class="mono">{{ _('03 · PRICE') }}</div><h3>{{ _('A fair asking price') }}</h3><p class="muted">{{ _('The same estimate buyers see, from the new price, age and condition.') }}</p></div>
-    <div class="tile"><div class="mono">{{ _('04 · AD') }}</div><h3>{{ _('A ready-to-copy ad') }}</h3><p class="muted">{{ _('A clear title and description, to paste into Marktplaats or 2dehands.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('value') }}</span><span class="mono">{{ _('01 · PRICE') }}</span></div><h3>{{ _('A fair asking price') }}</h3><p class="muted">{{ _('The same estimate buyers see, from the new price, age and condition.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('check') }}</span><span class="mono">{{ _('02 · CHECK') }}</span></div><h3>{{ _('Does it match the catalogue?') }}</h3><p class="muted">{{ _('We flag a year, part or name that buyers will question when they check your ad.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('details') }}</span><span class="mono">{{ _('03 · DETAILS') }}</span></div><h3>{{ _('What buyers look for') }}</h3><p class="muted">{{ _('Year, size, groupset, condition, invoice: we show what your ad is missing and fill in the specs from the catalogue.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('ad') }}</span><span class="mono">{{ _('04 · AD') }}</span></div><h3>{{ _('A ready-to-copy ad') }}</h3><p class="muted">{{ _('A clear title and description, to paste into Marktplaats or 2dehands.') }}</p></div>
   </div>
 </section>
+{% if examples %}
+<section class="wrap stack examples" style="padding-bottom: 72px; gap: 20px" aria-roledescription="carousel">
+  <div class="row-head">
+    <h2>{{ _('How we improved an ad') }}</h2>
+    {% if examples|length > 1 %}<div class="row-nav">
+      <span class="row-count" aria-live="polite">1 / {{ examples|length }}</span>
+      <button class="nav-btn ex-prev" type="button" aria-label="{{ _('Previous ad') }}">‹</button>
+      <button class="nav-btn ex-next" type="button" aria-label="{{ _('Next ad') }}">›</button>
+    </div>{% endif %}
+  </div>
+  {% for e in examples %}
+  <article class="example"{% if not loop.first %} hidden{% endif %}>
+    <a class="example-photo" href="{{ url_for('report', check_id=e.listing.id) }}">{% if e.photo %}<img src="{{ e.photo }}" alt="" loading="lazy">{% else %}{{ photo(e.r.model) }}{% endif %}</a>
+    <div class="example-col before">
+      <h4>✕ {{ _('Original') }}</h4>
+      <p class="t">{{ e.listing.title }}</p>
+      {% if e.listing.description %}<p class="example-text">{{ e.listing.description|truncate(240) }}</p>{% endif %}
+      {% if e.missing %}<p class="miss">{{ _('Missing') }}: {{ e.missing|map('string')|map('lower')|join(' · ') }}</p>{% endif %}
+      <div class="example-price"><span>{{ _('Asking price') }}</span><b>{{ e.listing.asking_price|eur if e.listing.asking_price else '–' }}</b></div>
+    </div>
+    <div class="example-col after">
+      <h4>✓ {{ _('Improved') }}</h4>
+      <p class="t">{{ e.r.title }}</p>
+      <p class="example-text">{{ e.r.copy_text|truncate(260) }}</p>
+      {% if e.added %}<div class="example-chips">{% for a in e.added %}<span>+ {{ a }}</span>{% endfor %}</div>{% endif %}
+      <div class="example-price"><span>{{ _('Our advice') }}</span><b>{{ e.r.suggested|eur if e.r.suggested else '–' }}</b></div>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% endif %}
 {% elif not r.model %}
 <main class="wrap page" id="result">
   <section class="card">

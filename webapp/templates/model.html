@@ -22,7 +22,16 @@
     {% macro year_facts(t) -%}
     <template class="year-facts"><span data-fact="price">{% if t.price %}{{ _('New {price}', price=t.price|eur) }}{% else %}{{ _('New price in {year} unknown', year=t.year) }}{% endif %}</span>
       <span data-fact="tier">{% if t.tiers and t.tiers.overall %}{{ tier_badge(t.tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</span>
-      <span data-fact="colours"><span class="v small">{{ (t.colours or [])|join(', ')|replace('/', ' / ') or '–' }}</span></span></template>
+      <span data-fact="colours">{% if t.colours %}{% set shots = t.colour_images or {} %}
+        <div class="v"><span class="swatches" role="group" aria-label="{{ _('Colours') }}">
+          {% for c in t.colours %}{% set bg = c|swatch_css %}
+          <button type="button" class="swatch{{ ' plain' if not bg and not shots[c] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"
+                  title="{{ c }}" data-name="{{ c }}"{% if shots[c] %} data-image="{{ url_for('images', path=shots[c]) }}"{% endif %}
+                  style="{% if bg %}background: {{ bg }}{% elif shots[c] %}background-image: url('{{ url_for('images', path=shots[c]) }}'){% endif %}"></button>
+          {% endfor %}</span></div>
+        <div class="small muted colour-name" id="colour-name">{{ t.colours[0] }}</div>
+        <div class="small muted" id="colour-note" hidden>{{ _('No photo of this colour yet.') }}</div>
+        {% else %}<div class="v small">–</div>{% endif %}</span></template>
     {%- endmacro %}
     <div class="model-gallery" id="model-gallery">
       <div class="photo" id="model-photo">{{ photo(m) }}
@@ -136,12 +145,12 @@
       {% if t.specs %}
       <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{% if t.sheet_name %}{{ _('Sold as {name} in {year}.', name=t.sheet_name, year=t.year) }} {% endif %}{% if t.source == 'site' %}{% if t.sheet_years %}{{ _('From the sheet {brand} still keeps online for model years {years}, read on {date}.', brand=m.brand, years=t.sheet_years, date=t.captured) }}{% else %}{{ _('From the {year} model page {brand} still keeps online, read on {date}.', brand=m.brand, year=t.year, date=t.captured) }}{% endif %} <a href="{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the page') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}{% endif %}
         {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
-        {% if t.changed %}<span class="changed-key"></span> {{ _('Changed since the year before.') }}{% endif %}</p>
+        {% if t.changed %}<span class="changed-key"></span> {{ _('Changed since the year before.') }}{% if t.moves %} {{ _('▲ and ▼ mark a better or a lesser part.') }}{% endif %}{% endif %}</p>
       <div class="spec-groups">
         {% for group, rows in t.specs %}
         <div class="spec-group">
           <h3>{{ _(group) }}{{ tier_badge(t.tiers.groups[group], small=true) if t.tiers.groups[group] }}</h3>
-          <div class="kv">{% for en, nl, v in rows %}<div{% if en in t.changed %} class="changed"{% endif %}>{{ nl if lang == 'nl' else en }}</div><div class="rated{{ ' changed' if en in t.changed }}">{{ v }}{{ tier_dot(t.tiers.rows[en]) }}</div>{% endfor %}</div>
+          <div class="kv">{% for en, nl, v in rows %}<div{% if en in t.changed %} class="changed"{% endif %}>{{ nl if lang == 'nl' else en }}</div><div class="rated{{ ' changed' if en in t.changed }}"><span>{{ v }}</span><span class="rated-end">{% if t.moves and t.moves[en] == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif t.moves and t.moves[en] == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% endif %}{{ tier_dot(t.tiers.rows[en]) }}</span></div>{% endfor %}</div>
         </div>
         {% endfor %}
       </div>
@@ -204,7 +213,7 @@
     if (!fromTab) showYear(thumb.dataset.year);
     showFacts(thumb);
   }
-  // The facts beside the photo follow the year: its new price, spec tier and colours; the current bike's own again.
+  // The facts beside the photo follow the year: its new price, spec tier and colours (with their photos); the current bike's own again.
   var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact]"));
   facts.forEach(function (f) { f.dataset.own = f.innerHTML; });
   var factsYear = null;  // the year the facts show; null for the current bike
@@ -217,7 +226,7 @@
       var part = year && year.content.querySelector('[data-fact="' + f.dataset.fact + '"]');
       f.innerHTML = part ? part.innerHTML : f.dataset.own;
     });
-    if (!year) bindSwatches();
+    bindSwatches();
   }
   thumbs.forEach(function (b) { b.addEventListener("click", function () { showPhoto(b); }); });
   document.querySelectorAll(".gallery-arrow").forEach(function (arrow) {
@@ -315,10 +324,12 @@
       document.getElementById("colour-name").textContent = button.dataset.name;
       var img = document.querySelector("#model-photo img");
       document.getElementById("colour-note").hidden = !!button.dataset.image;
-      var current = document.querySelector(".gallery-thumb.current");
-      if (current) {  // the colour belongs to the current bike: show that one in the carousel
-        if (button.dataset.image) { current.dataset.src = button.dataset.image; current.querySelector("img").src = button.dataset.image; }
-        showPhoto(current);
+      // the colour belongs to the year on show (the current bike's, or an earlier year's): show it in the carousel
+      var shown = document.querySelector('.gallery-thumb[aria-pressed="true"]') || document.querySelector(".gallery-thumb.current");
+      if (shown) {
+        var thumbImg = shown.querySelector("img");
+        if (button.dataset.image && thumbImg) { shown.dataset.src = button.dataset.image; thumbImg.src = button.dataset.image; }
+        showPhoto(shown);
       }
       if (img && button.dataset.image) { img.src = button.dataset.image; img.alt = button.dataset.name; }
     });

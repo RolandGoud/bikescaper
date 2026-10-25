@@ -212,3 +212,19 @@ def test_without_clues_the_page_says_where_to_find_the_year(client):
     c, _ = client
     page = c.post("/sell?lang=nl", data=DRAFT).data.decode()
     assert "framenummer" in page
+
+
+def test_the_page_opens_on_the_link_and_shows_ads_we_improved(client):
+    c, app = client
+    page = c.get("/sell?lang=en").data.decode()
+    assert 'id="sell-mode-link" checked' in page  # like the check form: the ad's link first
+    assert "How we improved an ad" not in page  # nothing checked yet
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, description, asking_price) VALUES (?, ?, ?, ?)",
+                 ("https://www.marktplaats.nl/v/x", "trek domane racefiets", "Shimano 105, weinig gebruikt", 2400))
+    conn.execute("INSERT INTO checks (title, description, asking_price) VALUES (?, ?, ?)",
+                 ("Typed Domane SL 6", "not from a link", 2400))
+    conn.commit()
+    page = c.get("/sell?lang=en").data.decode()
+    assert "How we improved an ad" in page and "trek domane racefiets" in page
+    assert "Typed Domane SL 6" not in page  # only ads read from a public link

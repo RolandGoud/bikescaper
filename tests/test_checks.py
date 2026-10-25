@@ -825,6 +825,7 @@ def test_year_tabs_show_our_scrape_and_archived_years():
     assert list(tabs) == list(range(2018, 2027))
     assert [tabs[y]["state"] for y in (2022, 2023, 2024, 2025)] == ["none", "unreadable", "archive", "scrape"]
     assert tabs[2024]["changed"] == set() and tabs[2025]["changed"] == {"Brakes"}
+    assert tabs[2025]["moves"] == {}  # neither brake is in the tier tables
     # A brand whose archive wasn't searched says so instead of "no copy".
     assert checks.year_tabs(dict(model, year_specs={}), today=date(2026, 1, 1))[0]["state"] == "unchecked"
 
@@ -1089,3 +1090,18 @@ def test_the_report_shows_an_impossible_material_above_the_tabs(models, tmp_path
         page = app.test_client().get(f"/check/1?lang={lang}").get_data(as_text=True)
         assert 'class="claim-alert" role="alert"' in page and words in page
         assert page.index("claim-alert") < page.index('class="report-tabs"')
+
+def test_year_tabs_keep_one_row_order_and_mark_upgrades():
+    from datetime import date
+    model = {"name": "Defy Advanced 1", "brand": "Giant", "seen_on": "2026-07-18", "url": "u",
+             "specs": {"Shifter": "Shimano 105 Di2", "Cassette": "Shimano 105, 12-speed"},
+             "year_specs": {"years": {
+                 "2024": {"captured": "2024-03-28", "url": "a",
+                          "specs": {"Cassette": "Shimano Ultegra, 11-speed", "Shifter": "Shimano Tiagra"}},
+                 "2025": {"captured": "2025-03-28", "url": "b",
+                          "specs": {"Cassette": "Shimano Ultegra, 11-speed", "Shifter": "Shimano Ultegra"}}}}}
+    tabs = {t["year"]: t for t in checks.year_tabs(model, today=date(2026, 10, 23))}
+    orders = {y: [en for _g, rows in tabs[y]["specs"] for en, _nl, _v in rows] for y in (2024, 2025, 2026)}
+    assert orders[2024] == orders[2025] == orders[2026]  # our own scrape's order, in every year
+    assert tabs[2025]["moves"] == {"Shifters": "up"}
+    assert tabs[2026]["moves"]["Shifters"] == "down"

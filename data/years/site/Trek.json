@@ -4,6 +4,9 @@
   "Boone 5": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Waterloo Blue/Royal Fade": "Trek/years/boone5_2020_waterlooblueroyalfade_site.jpg"
+    },
     "colours": [
      "Waterloo Blue/Royal Fade"
     ],
@@ -46,6 +49,10 @@
   "Checkpoint ALR 4 Gen 2": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic": "Trek/years/checkpointalr4gen2_2021_darkaquatic_site.jpg",
+     "Rage Red": "Trek/years/checkpointalr4gen2_2021_ragered_site.jpg"
+    },
     "colours": [
      "Dark Aquatic",
      "Rage Red"
@@ -86,6 +93,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Deep Dark Blue": "Trek/years/checkpointalr4gen2_2024_mattedeepdarkblue_site.jpg",
+     "Matte Galactic Grey": "Trek/years/checkpointalr4gen2_2024_mattegalacticgrey_site.jpg"
+    },
     "colours": [
      "Matte Deep Dark Blue",
      "Matte Galactic Grey"
@@ -127,6 +138,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Deep Dark Blue": "Trek/years/checkpointalr4gen2_2025_mattedeepdarkblue_site.jpg",
+     "Matte Galactic Grey": "Trek/years/checkpointalr4gen2_2025_mattegalacticgrey_site.jpg"
+    },
     "colours": [
      "Matte Deep Dark Blue",
      "Matte Galactic Grey"
@@ -170,6 +185,10 @@
   "Checkpoint ALR 4 Gen 3": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic": "Trek/years/checkpointalr4gen3_2021_darkaquatic_site.jpg",
+     "Rage Red": "Trek/years/checkpointalr4gen3_2021_ragered_site.jpg"
+    },
     "colours": [
      "Dark Aquatic",
      "Rage Red"
@@ -210,6 +229,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Deep Dark Blue": "Trek/years/checkpointalr4gen3_2024_mattedeepdarkblue_site.jpg",
+     "Matte Galactic Grey": "Trek/years/checkpointalr4gen3_2024_mattegalacticgrey_site.jpg"
+    },
     "colours": [
      "Matte Deep Dark Blue",
      "Matte Galactic Grey"
@@ -251,6 +274,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Deep Dark Blue": "Trek/years/checkpointalr4gen3_2025_mattedeepdarkblue_site.jpg",
+     "Matte Galactic Grey": "Trek/years/checkpointalr4gen3_2025_mattegalacticgrey_site.jpg"
+    },
     "colours": [
      "Matte Deep Dark Blue",
      "Matte Galactic Grey"
@@ -294,6 +321,10 @@
   "Checkpoint ALR 5 Gen 2": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "British Racing Green": "Trek/years/checkpointalr5gen2_2020_britishracinggreen_site.jpg",
+     "Charcoal": "Trek/years/checkpointalr5gen2_2020_charcoal_site.jpg"
+    },
     "colours": [
      "British Racing Green",
      "Charcoal"
@@ -333,6 +364,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Purple Abyss": "Trek/years/checkpointalr5gen2_2021_purpleabyss_site.jpg",
+     "Teal": "Trek/years/checkpointalr5gen2_2021_teal_site.jpg",
+     "Trek Black": "Trek/years/checkpointalr5gen2_2021_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Purple Abyss",
@@ -374,6 +410,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White/Trek Black": "Trek/years/checkpointalr5gen2_2022_erawhitetrekblack_site.jpg",
+     "Satin Nautical Navy/Satin Red": "Trek/years/checkpointalr5gen2_2022_satinnauticalnavysatinred_site.jpg"
+    },
     "colours": [
      "Satin Nautical Navy/Satin Red",
      "Era White/Trek Black"
@@ -420,6 +460,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White/Trek Black": "Trek/years/checkpointalr5gen2_2023_erawhitetrekblack_site.jpg",
+     "Satin Nautical Navy/Satin Red": "Trek/years/checkpointalr5gen2_2023_satinnauticalnavysatinred_site.jpg"
+    },
     "colours": [
      "Satin Nautical Navy/Satin Red",
      "Era White/Trek Black"
@@ -466,6 +510,11 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lava": "Trek/years/checkpointalr5gen2_2024_lava_site.jpg",
+     "Matte Keswick": "Trek/years/checkpointalr5gen2_2024_mattekeswick_site.jpg",
+     "Plasma Grey Pearl": "Trek/years/checkpointalr5gen2_2024_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Plasma Grey Pearl",
      "Lava",
@@ -510,6 +559,11 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lava": "Trek/years/checkpointalr5gen2_2025_lava_site.jpg",
+     "Matte Keswick": "Trek/years/checkpointalr5gen2_2025_mattekeswick_site.jpg",
+     "Plasma Grey Pearl": "Trek/years/checkpointalr5gen2_2025_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Plasma Grey Pearl",
      "Lava",
@@ -556,6 +610,10 @@
   "Checkpoint ALR 5 Gen 3": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "British Racing Green": "Trek/years/checkpointalr5gen3_2020_britishracinggreen_site.jpg",
+     "Charcoal": "Trek/years/checkpointalr5gen3_2020_charcoal_site.jpg"
+    },
     "colours": [
      "British Racing Green",
      "Charcoal"
@@ -595,6 +653,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Purple Abyss": "Trek/years/checkpointalr5gen3_2021_purpleabyss_site.jpg",
+     "Teal": "Trek/years/checkpointalr5gen3_2021_teal_site.jpg",
+     "Trek Black": "Trek/years/checkpointalr5gen3_2021_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Purple Abyss",
@@ -636,6 +699,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White/Trek Black": "Trek/years/checkpointalr5gen3_2022_erawhitetrekblack_site.jpg",
+     "Satin Nautical Navy/Satin Red": "Trek/years/checkpointalr5gen3_2022_satinnauticalnavysatinred_site.jpg"
+    },
     "colours": [
      "Satin Nautical Navy/Satin Red",
      "Era White/Trek Black"
@@ -682,6 +749,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White/Trek Black": "Trek/years/checkpointalr5gen3_2023_erawhitetrekblack_site.jpg",
+     "Satin Nautical Navy/Satin Red": "Trek/years/checkpointalr5gen3_2023_satinnauticalnavysatinred_site.jpg"
+    },
     "colours": [
      "Satin Nautical Navy/Satin Red",
      "Era White/Trek Black"
@@ -728,6 +799,11 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lava": "Trek/years/checkpointalr5gen3_2024_lava_site.jpg",
+     "Matte Keswick": "Trek/years/checkpointalr5gen3_2024_mattekeswick_site.jpg",
+     "Plasma Grey Pearl": "Trek/years/checkpointalr5gen3_2024_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Plasma Grey Pearl",
      "Lava",
@@ -772,6 +848,11 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lava": "Trek/years/checkpointalr5gen3_2025_lava_site.jpg",
+     "Matte Keswick": "Trek/years/checkpointalr5gen3_2025_mattekeswick_site.jpg",
+     "Plasma Grey Pearl": "Trek/years/checkpointalr5gen3_2025_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Plasma Grey Pearl",
      "Lava",
@@ -818,6 +899,11 @@
   "Checkpoint SL 5 Gen 2": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Cobra Blood": "Trek/years/checkpointsl5gen2_2020_cobrablood_site.jpg",
+     "Era White": "Trek/years/checkpointsl5gen2_2020_erawhite_site.jpg",
+     "Gravel": "Trek/years/checkpointsl5gen2_2020_gravel_site.jpg"
+    },
     "colours": [
      "Gravel",
      "Cobra Blood",
@@ -860,6 +946,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Olive": "Trek/years/checkpointsl5gen2_2021_darkolive_site.jpg",
+     "Factory Orange": "Trek/years/checkpointsl5gen2_2021_factoryorange_site.jpg",
+     "Nautical Navy": "Trek/years/checkpointsl5gen2_2021_nauticalnavy_site.jpg"
+    },
     "colours": [
      "Nautical Navy",
      "Dark Olive",
@@ -902,6 +993,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Radioactive Red/Nautical Navy": "Trek/years/checkpointsl5gen2_2022_radioactiverednauticalnavy_site.jpg",
+     "Satin Mercury/Satin Carbon Smoke": "Trek/years/checkpointsl5gen2_2022_satinmercurysatincarbonsmoke_site.jpg"
+    },
     "colours": [
      "Satin Mercury/Satin Carbon Smoke",
      "Radioactive Red/Nautical Navy"
@@ -948,6 +1043,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Radioactive Red/Nautical Navy": "Trek/years/checkpointsl5gen2_2023_radioactiverednauticalnavy_site.jpg",
+     "Satin Mercury/Satin Carbon Smoke": "Trek/years/checkpointsl5gen2_2023_satinmercurysatincarbonsmoke_site.jpg"
+    },
     "colours": [
      "Satin Mercury/Satin Carbon Smoke",
      "Radioactive Red/Nautical Navy"
@@ -996,6 +1095,9 @@
   "Checkpoint SL 6 AXS Gen 2": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson/Carbon Red Smoke": "Trek/years/checkpointsl6axsgen2_2022_crimsoncarbonredsmoke_site.jpg"
+    },
     "colours": [
      "Crimson/Carbon Red Smoke"
     ],
@@ -1036,6 +1138,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson/Carbon Red Smoke": "Trek/years/checkpointsl6axsgen2_2023_crimsoncarbonredsmoke_site.jpg"
+    },
     "colours": [
      "Crimson/Carbon Red Smoke"
     ],
@@ -1076,6 +1181,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lichen Green": "Trek/years/checkpointsl6axsgen2_2024_lichengreen_site.jpg"
+    },
     "colours": [
      "Lichen Green"
     ],
@@ -1120,6 +1228,9 @@
   "Checkpoint SL 6 AXS Gen 3": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson/Carbon Red Smoke": "Trek/years/checkpointsl6axsgen3_2022_crimsoncarbonredsmoke_site.jpg"
+    },
     "colours": [
      "Crimson/Carbon Red Smoke"
     ],
@@ -1160,6 +1271,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson/Carbon Red Smoke": "Trek/years/checkpointsl6axsgen3_2023_crimsoncarbonredsmoke_site.jpg"
+    },
     "colours": [
      "Crimson/Carbon Red Smoke"
     ],
@@ -1200,6 +1314,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lichen Green": "Trek/years/checkpointsl6axsgen3_2024_lichengreen_site.jpg"
+    },
     "colours": [
      "Lichen Green"
     ],
@@ -1244,6 +1361,9 @@
   "Checkpoint SL 7 AXS Gen 3": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic/Carbon Smoke": "Trek/years/checkpointsl7axsgen3_2022_darkaquaticcarbonsmoke_site.jpg"
+    },
     "colours": [
      "Dark Aquatic/Carbon Smoke"
     ],
@@ -1287,6 +1407,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic/Carbon Smoke": "Trek/years/checkpointsl7axsgen3_2023_darkaquaticcarbonsmoke_site.jpg"
+    },
     "colours": [
      "Dark Aquatic/Carbon Smoke"
     ],
@@ -1332,6 +1455,11 @@
   "Domane AL 2 Gen 4": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Alpine Blue": "Trek/years/domaneal2gen4_2019_mattealpineblue_site.jpg",
+     "Matte Trek Black": "Trek/years/domaneal2gen4_2019_mattetrekblack_site.jpg",
+     "Royal": "Trek/years/domaneal2gen4_2019_royal_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Royal",
@@ -1371,6 +1499,11 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Alpine Blue": "Trek/years/domaneal2gen4_2020_mattealpineblue_site.jpg",
+     "Matte Trek Black": "Trek/years/domaneal2gen4_2020_mattetrekblack_site.jpg",
+     "Royal": "Trek/years/domaneal2gen4_2020_royal_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Royal",
@@ -1410,6 +1543,14 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Gloss Mulsanne Blue/Matte Trek Black": "Trek/years/domaneal2gen4_2021_glossmulsannebluemattetrekblack_site.jpg",
+     "Hex Blue": "Trek/years/domaneal2gen4_2021_hexblue_site.jpg",
+     "Purple Abyss/Trek Black": "Trek/years/domaneal2gen4_2021_purpleabysstrekblack_site.jpg",
+     "Trek Black": "Trek/years/domaneal2gen4_2021_trekblack_site.jpg",
+     "Trek Black/Carbon Smoke": "Trek/years/domaneal2gen4_2021_trekblackcarbonsmoke_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/domaneal2gen4_2021_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Trek Black/Carbon Smoke",
@@ -1453,6 +1594,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Gloss Mulsanne Blue/Matte Trek Black": "Trek/years/domaneal2gen4_2022_glossmulsannebluemattetrekblack_site.jpg",
+     "Hex Blue": "Trek/years/domaneal2gen4_2022_hexblue_site.jpg",
+     "Purple Abyss/Trek Black": "Trek/years/domaneal2gen4_2022_purpleabysstrekblack_site.jpg",
+     "Trek Black": "Trek/years/domaneal2gen4_2022_trekblack_site.jpg",
+     "Trek Black/Carbon Smoke": "Trek/years/domaneal2gen4_2022_trekblackcarbonsmoke_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/domaneal2gen4_2022_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Trek Black/Carbon Smoke",
@@ -1496,6 +1645,14 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Gloss Mulsanne Blue/Matte Trek Black": "Trek/years/domaneal2gen4_2023_glossmulsannebluemattetrekblack_site.jpg",
+     "Hex Blue": "Trek/years/domaneal2gen4_2023_hexblue_site.jpg",
+     "Purple Abyss/Trek Black": "Trek/years/domaneal2gen4_2023_purpleabysstrekblack_site.jpg",
+     "Trek Black": "Trek/years/domaneal2gen4_2023_trekblack_site.jpg",
+     "Trek Black/Carbon Smoke": "Trek/years/domaneal2gen4_2023_trekblackcarbonsmoke_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/domaneal2gen4_2023_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Trek Black/Carbon Smoke",
@@ -1541,6 +1698,12 @@
   "Domane AL 4 Gen 4": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Sage": "Trek/years/domaneal4gen4_2021_bluesage_site.jpg",
+     "Era White/Carbon Smoke": "Trek/years/domaneal4gen4_2021_erawhitecarbonsmoke_site.jpg",
+     "Gloss Trek Black/Matte Trek Black": "Trek/years/domaneal4gen4_2021_glosstrekblackmattetrekblack_site.jpg",
+     "Trek Black": "Trek/years/domaneal4gen4_2021_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Gloss Trek Black/Matte Trek Black",
@@ -1583,6 +1746,12 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Sage": "Trek/years/domaneal4gen4_2022_bluesage_site.jpg",
+     "Era White/Carbon Smoke": "Trek/years/domaneal4gen4_2022_erawhitecarbonsmoke_site.jpg",
+     "Gloss Trek Black/Matte Trek Black": "Trek/years/domaneal4gen4_2022_glosstrekblackmattetrekblack_site.jpg",
+     "Trek Black": "Trek/years/domaneal4gen4_2022_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Gloss Trek Black/Matte Trek Black",
@@ -1625,6 +1794,12 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Sage": "Trek/years/domaneal4gen4_2023_bluesage_site.jpg",
+     "Era White/Carbon Smoke": "Trek/years/domaneal4gen4_2023_erawhitecarbonsmoke_site.jpg",
+     "Gloss Trek Black/Matte Trek Black": "Trek/years/domaneal4gen4_2023_glosstrekblackmattetrekblack_site.jpg",
+     "Trek Black": "Trek/years/domaneal4gen4_2023_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Gloss Trek Black/Matte Trek Black",
@@ -1667,6 +1842,11 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White": "Trek/years/domaneal4gen4_2024_erawhite_site.jpg",
+     "Hex Blue to Marianas Blue Fade": "Trek/years/domaneal4gen4_2024_hexbluetomarianasbluefade_site.jpg",
+     "Viper Red": "Trek/years/domaneal4gen4_2024_viperred_site.jpg"
+    },
     "colours": [
      "Hex Blue to Marianas Blue Fade",
      "Viper Red",
@@ -1708,6 +1888,11 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White": "Trek/years/domaneal4gen4_2025_erawhite_site.jpg",
+     "Hex Blue to Marianas Blue Fade": "Trek/years/domaneal4gen4_2025_hexbluetomarianasbluefade_site.jpg",
+     "Viper Red": "Trek/years/domaneal4gen4_2025_viperred_site.jpg"
+    },
     "colours": [
      "Hex Blue to Marianas Blue Fade",
      "Viper Red",
@@ -1749,6 +1934,11 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Era White": "Trek/years/domaneal4gen4_2026_erawhite_site.jpg",
+     "Hex Blue to Marianas Blue Fade": "Trek/years/domaneal4gen4_2026_hexbluetomarianasbluefade_site.jpg",
+     "Viper Red": "Trek/years/domaneal4gen4_2026_viperred_site.jpg"
+    },
     "colours": [
      "Hex Blue to Marianas Blue Fade",
      "Viper Red",
@@ -1792,6 +1982,11 @@
   "Domane AL 5 Gen 4": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Factory Orange/Lithium Grey": "Trek/years/domaneal5gen4_2021_factoryorangelithiumgrey_site.jpg",
+     "Lithium Grey to Crimson Fade": "Trek/years/domaneal5gen4_2021_lithiumgreytocrimsonfade_site.jpg",
+     "Lithium Grey/Trek Black": "Trek/years/domaneal5gen4_2021_lithiumgreytrekblack_site.jpg"
+    },
     "colours": [
      "Lithium Grey/Trek Black",
      "Lithium Grey to Crimson Fade",
@@ -1834,6 +2029,11 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Factory Orange/Lithium Grey": "Trek/years/domaneal5gen4_2022_factoryorangelithiumgrey_site.jpg",
+     "Lithium Grey to Crimson Fade": "Trek/years/domaneal5gen4_2022_lithiumgreytocrimsonfade_site.jpg",
+     "Lithium Grey/Trek Black": "Trek/years/domaneal5gen4_2022_lithiumgreytrekblack_site.jpg"
+    },
     "colours": [
      "Lithium Grey/Trek Black",
      "Lithium Grey to Crimson Fade",
@@ -1876,6 +2076,11 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Factory Orange/Lithium Grey": "Trek/years/domaneal5gen4_2023_factoryorangelithiumgrey_site.jpg",
+     "Lithium Grey to Crimson Fade": "Trek/years/domaneal5gen4_2023_lithiumgreytocrimsonfade_site.jpg",
+     "Lithium Grey/Trek Black": "Trek/years/domaneal5gen4_2023_lithiumgreytrekblack_site.jpg"
+    },
     "colours": [
      "Lithium Grey/Trek Black",
      "Lithium Grey to Crimson Fade",
@@ -1918,6 +2123,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lichen Green": "Trek/years/domaneal5gen4_2024_lichengreen_site.jpg",
+     "Matte Trek Black": "Trek/years/domaneal5gen4_2024_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Lichen Green"
@@ -1958,6 +2167,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lichen Green": "Trek/years/domaneal5gen4_2025_lichengreen_site.jpg",
+     "Matte Trek Black": "Trek/years/domaneal5gen4_2025_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Lichen Green"
@@ -1998,6 +2211,10 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lichen Green": "Trek/years/domaneal5gen4_2026_lichengreen_site.jpg",
+     "Matte Trek Black": "Trek/years/domaneal5gen4_2026_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Lichen Green"
@@ -2040,6 +2257,13 @@
   "Domane SL 5 Gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crystal White": "Trek/years/domanesl5gen4_2020_crystalwhite_site.jpg",
+     "Lithium Grey/Factory Orange": "Trek/years/domanesl5gen4_2020_lithiumgreyfactoryorange_site.jpg",
+     "Matte/Gloss Nautical Navy": "Trek/years/domanesl5gen4_2020_matteglossnauticalnavy_site.jpg",
+     "Purple Flip": "Trek/years/domanesl5gen4_2020_purpleflip_site.jpg",
+     "Rage Red/Trek Black": "Trek/years/domanesl5gen4_2020_rageredtrekblack_site.jpg"
+    },
     "colours": [
      "Matte/Gloss Nautical Navy",
      "Lithium Grey/Factory Orange",
@@ -2086,6 +2310,13 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crystal White": "Trek/years/domanesl5gen4_2021_crystalwhite_site.jpg",
+     "Lithium Grey/Factory Orange": "Trek/years/domanesl5gen4_2021_lithiumgreyfactoryorange_site.jpg",
+     "Matte/Gloss Nautical Navy": "Trek/years/domanesl5gen4_2021_matteglossnauticalnavy_site.jpg",
+     "Purple Flip": "Trek/years/domanesl5gen4_2021_purpleflip_site.jpg",
+     "Rage Red/Trek Black": "Trek/years/domanesl5gen4_2021_rageredtrekblack_site.jpg"
+    },
     "colours": [
      "Matte/Gloss Nautical Navy",
      "Lithium Grey/Factory Orange",
@@ -2132,6 +2363,11 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Rage Red/Deep Dark Blue Fade": "Trek/years/domanesl5gen4_2022_ragereddeepdarkbluefade_site.jpg",
+     "Satin Trek Black": "Trek/years/domanesl5gen4_2022_satintrekblack_site.jpg",
+     "Trek White/Quicksilver": "Trek/years/domanesl5gen4_2022_trekwhitequicksilver_site.jpg"
+    },
     "colours": [
      "Satin Trek Black",
      "Rage Red/Deep Dark Blue Fade",
@@ -2173,6 +2409,11 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Sage": "Trek/years/domanesl5gen4_2023_bluesage_site.jpg",
+     "Deep Smoke": "Trek/years/domanesl5gen4_2023_deepsmoke_site.jpg",
+     "Mercury": "Trek/years/domanesl5gen4_2023_mercury_site.jpg"
+    },
     "colours": [
      "Mercury",
      "Deep Smoke",
@@ -2220,6 +2461,11 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic": "Trek/years/domanesl5gen4_2024_darkaquatic_site.jpg",
+     "Matte Deep Smoke": "Trek/years/domanesl5gen4_2024_mattedeepsmoke_site.jpg",
+     "Plasma Grey Pearl": "Trek/years/domanesl5gen4_2024_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Dark Aquatic",
@@ -2270,6 +2516,11 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic": "Trek/years/domanesl5gen4_2025_darkaquatic_site.jpg",
+     "Matte Deep Smoke": "Trek/years/domanesl5gen4_2025_mattedeepsmoke_site.jpg",
+     "Plasma Grey Pearl": "Trek/years/domanesl5gen4_2025_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Dark Aquatic",
@@ -2322,6 +2573,10 @@
   "Domane SL 6 AXS gen 4": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson/Trek Black": "Trek/years/domanesl6axsgen4_2022_crimsontrekblack_site.jpg",
+     "Satin Dark Aquatic/Satin Trek Black": "Trek/years/domanesl6axsgen4_2022_satindarkaquaticsatintrekblack_site.jpg"
+    },
     "colours": [
      "Satin Dark Aquatic/Satin Trek Black",
      "Crimson/Trek Black"
@@ -2365,6 +2620,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson": "Trek/years/domanesl6axsgen4_2023_crimson_site.jpg",
+     "Deep Dark Blue/Emerald Iris": "Trek/years/domanesl6axsgen4_2023_deepdarkblueemeraldiris_site.jpg"
+    },
     "colours": [
      "Deep Dark Blue/Emerald Iris",
      "Crimson"
@@ -2403,6 +2662,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson": "Trek/years/domanesl6axsgen4_2024_crimson_site.jpg",
+     "Deep Dark Blue/Emerald Iris": "Trek/years/domanesl6axsgen4_2024_deepdarkblueemeraldiris_site.jpg"
+    },
     "colours": [
      "Deep Dark Blue/Emerald Iris",
      "Crimson"
@@ -2443,6 +2706,13 @@
   "Domane SL 6 gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crystal White": "Trek/years/domanesl6gen4_2020_crystalwhite_site.jpg",
+     "Matte/Gloss Trek Black": "Trek/years/domanesl6gen4_2020_matteglosstrekblack_site.jpg",
+     "Purple Abyss/Trek Black": "Trek/years/domanesl6gen4_2020_purpleabysstrekblack_site.jpg",
+     "Radioactive Red/Trek Black": "Trek/years/domanesl6gen4_2020_radioactiveredtrekblack_site.jpg",
+     "Viper Red": "Trek/years/domanesl6gen4_2020_viperred_site.jpg"
+    },
     "colours": [
      "Matte/Gloss Trek Black",
      "Purple Abyss/Trek Black",
@@ -2489,6 +2759,13 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crystal White": "Trek/years/domanesl6gen4_2021_crystalwhite_site.jpg",
+     "Matte/Gloss Trek Black": "Trek/years/domanesl6gen4_2021_matteglosstrekblack_site.jpg",
+     "Purple Abyss/Trek Black": "Trek/years/domanesl6gen4_2021_purpleabysstrekblack_site.jpg",
+     "Radioactive Red/Trek Black": "Trek/years/domanesl6gen4_2021_radioactiveredtrekblack_site.jpg",
+     "Viper Red": "Trek/years/domanesl6gen4_2021_viperred_site.jpg"
+    },
     "colours": [
      "Matte/Gloss Trek Black",
      "Purple Abyss/Trek Black",
@@ -2535,6 +2812,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson/Trek Black": "Trek/years/domanesl6gen4_2022_crimsontrekblack_site.jpg",
+     "Satin Dark Aquatic/Satin Trek Black": "Trek/years/domanesl6gen4_2022_satindarkaquaticsatintrekblack_site.jpg"
+    },
     "colours": [
      "Satin Dark Aquatic/Satin Trek Black",
      "Crimson/Trek Black"
@@ -2575,6 +2856,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Hex Blue": "Trek/years/domanesl6gen4_2023_hexblue_site.jpg",
+     "Satin Trek Black": "Trek/years/domanesl6gen4_2023_satintrekblack_site.jpg"
+    },
     "colours": [
      "Satin Trek Black",
      "Hex Blue"
@@ -2623,6 +2908,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Hex Blue": "Trek/years/domanesl6gen4_2024_hexblue_site.jpg",
+     "Satin Trek Black": "Trek/years/domanesl6gen4_2024_satintrekblack_site.jpg"
+    },
     "colours": [
      "Satin Trek Black",
      "Hex Blue"
@@ -2671,6 +2960,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lunar Silver": "Trek/years/domanesl6gen4_2025_lunarsilver_site.jpg",
+     "Marianas Blue": "Trek/years/domanesl6gen4_2025_marianasblue_site.jpg"
+    },
     "colours": [
      "Marianas Blue",
      "Lunar Silver"
@@ -2715,6 +3008,11 @@
   "Domane SL 7 Gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic/Trek Black": "Trek/years/domanesl7gen4_2020_darkaquatictrekblack_site.jpg",
+     "Matte Charcoal/Trek Black": "Trek/years/domanesl7gen4_2020_mattecharcoaltrekblack_site.jpg",
+     "Matte Trek Black": "Trek/years/domanesl7gen4_2020_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Matte Charcoal/Trek Black",
@@ -2757,6 +3055,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic/Trek Black": "Trek/years/domanesl7gen4_2021_darkaquatictrekblack_site.jpg",
+     "Matte Charcoal/Trek Black": "Trek/years/domanesl7gen4_2021_mattecharcoaltrekblack_site.jpg",
+     "Matte Trek Black": "Trek/years/domanesl7gen4_2021_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Matte Charcoal/Trek Black",
@@ -2799,6 +3102,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Prismatic/Trek Black": "Trek/years/domanesl7gen4_2022_darkprismatictrekblack_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black"
     ],
@@ -2841,6 +3147,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Gravel": "Trek/years/domanesl7gen4_2023_gravel_site.jpg"
+    },
     "colours": [
      "Gravel"
     ],
@@ -2879,6 +3188,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Gravel": "Trek/years/domanesl7gen4_2024_gravel_site.jpg"
+    },
     "colours": [
      "Gravel"
     ],
@@ -2919,6 +3231,11 @@
   "Domane SL 7 gen 3": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic/Trek Black": "Trek/years/domanesl7gen3_2020_darkaquatictrekblack_site.jpg",
+     "Matte Charcoal/Trek Black": "Trek/years/domanesl7gen3_2020_mattecharcoaltrekblack_site.jpg",
+     "Matte Trek Black": "Trek/years/domanesl7gen3_2020_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Matte Charcoal/Trek Black",
@@ -2961,6 +3278,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Aquatic/Trek Black": "Trek/years/domanesl7gen3_2021_darkaquatictrekblack_site.jpg",
+     "Matte Charcoal/Trek Black": "Trek/years/domanesl7gen3_2021_mattecharcoaltrekblack_site.jpg",
+     "Matte Trek Black": "Trek/years/domanesl7gen3_2021_mattetrekblack_site.jpg"
+    },
     "colours": [
      "Matte Trek Black",
      "Matte Charcoal/Trek Black",
@@ -3003,6 +3325,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Prismatic/Trek Black": "Trek/years/domanesl7gen3_2022_darkprismatictrekblack_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black"
     ],
@@ -3047,6 +3372,11 @@
   "Domane SLR 7 AXS Gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Purple Phaze/Anthracite": "Trek/years/domaneslr7axsgen4_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr7axsgen4_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/domaneslr7axsgen4_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Purple Phaze/Anthracite",
      "Viper Red/Trek White",
@@ -3087,6 +3417,14 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/domaneslr7axsgen4_2021_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/domaneslr7axsgen4_2021_darkprismatictrekblack_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/domaneslr7axsgen4_2021_radioactivecoraltoyellowfade_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr7axsgen4_2021_radioactivecoraltrekblack_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr7axsgen4_2021_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr7axsgen4_2021_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black",
      "Radioactive Coral to Yellow Fade",
@@ -3134,6 +3472,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/domaneslr7axsgen4_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/domaneslr7axsgen4_2022_darkprismatictrekblack_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/domaneslr7axsgen4_2022_radioactivecoraltoyellowfade_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr7axsgen4_2022_radioactivecoraltrekblack_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr7axsgen4_2022_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr7axsgen4_2022_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black",
      "Radioactive Coral to Yellow Fade",
@@ -3181,6 +3527,13 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crystal White": "Trek/years/domaneslr7axsgen4_2023_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr7axsgen4_2023_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr7axsgen4_2023_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr7axsgen4_2023_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr7axsgen4_2023_metallicredsmoketoredcarbonsmoke_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Juniper",
@@ -3232,6 +3585,14 @@
   "Domane SLR 7 gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Trek Black": "Trek/years/domaneslr7gen4_2020_lithiumgreytrekblack_site.jpg",
+     "Purple Phaze/Anthracite": "Trek/years/domaneslr7gen4_2020_purplephazeanthracite_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr7gen4_2020_radioactivecoraltrekblack_site.jpg",
+     "Trek Black/Quicksilver-Anthracite Fade": "Trek/years/domaneslr7gen4_2020_trekblackquicksilveranthracitefade_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr7gen4_2020_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr7gen4_2020_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Trek Black/Quicksilver-Anthracite Fade",
      "Lithium Grey/Trek Black",
@@ -3278,6 +3639,14 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Trek Black": "Trek/years/domaneslr7gen4_2021_lithiumgreytrekblack_site.jpg",
+     "Purple Phaze/Anthracite": "Trek/years/domaneslr7gen4_2021_purplephazeanthracite_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr7gen4_2021_radioactivecoraltrekblack_site.jpg",
+     "Trek Black/Quicksilver-Anthracite Fade": "Trek/years/domaneslr7gen4_2021_trekblackquicksilveranthracitefade_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr7gen4_2021_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr7gen4_2021_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Trek Black/Quicksilver-Anthracite Fade",
      "Lithium Grey/Trek Black",
@@ -3324,6 +3693,13 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/domaneslr7gen4_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/domaneslr7gen4_2022_darkprismatictrekblack_site.jpg",
+     "Radioactive Yellow to Coral Fade": "Trek/years/domaneslr7gen4_2022_radioactiveyellowtocoralfade_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr7gen4_2022_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr7gen4_2022_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black",
      "Radioactive Yellow to Coral Fade",
@@ -3369,6 +3745,16 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr7gen4_2023_axinitefliptrekblack_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr7gen4_2023_carbonsmokeprismaticmarble_site.jpg",
+     "Crystal White": "Trek/years/domaneslr7gen4_2023_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr7gen4_2023_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr7gen4_2023_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr7gen4_2023_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr7gen4_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Trek Black": "Trek/years/domaneslr7gen4_2023_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -3420,6 +3806,16 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr7gen4_2024_axinitefliptrekblack_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr7gen4_2024_carbonsmokeprismaticmarble_site.jpg",
+     "Crystal White": "Trek/years/domaneslr7gen4_2024_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr7gen4_2024_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr7gen4_2024_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr7gen4_2024_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr7gen4_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Trek Black": "Trek/years/domaneslr7gen4_2024_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -3471,6 +3867,16 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr7gen4_2025_axinitefliptrekblack_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr7gen4_2025_carbonsmokeprismaticmarble_site.jpg",
+     "Crystal White": "Trek/years/domaneslr7gen4_2025_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr7gen4_2025_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr7gen4_2025_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr7gen4_2025_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr7gen4_2025_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Trek Black": "Trek/years/domaneslr7gen4_2025_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -3524,6 +3930,11 @@
   "Domane SLR 9 AXS Gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Purple Phaze/Anthracite": "Trek/years/domaneslr9axsgen4_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr9axsgen4_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/domaneslr9axsgen4_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Purple Phaze/Anthracite",
      "Viper Red/Trek White",
@@ -3563,6 +3974,14 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/domaneslr9axsgen4_2021_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/domaneslr9axsgen4_2021_darkprismatictrekblack_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/domaneslr9axsgen4_2021_radioactivecoraltoyellowfade_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr9axsgen4_2021_radioactivecoraltrekblack_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr9axsgen4_2021_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr9axsgen4_2021_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black",
      "Radioactive Coral to Yellow Fade",
@@ -3611,6 +4030,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/domaneslr9axsgen4_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/domaneslr9axsgen4_2022_darkprismatictrekblack_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/domaneslr9axsgen4_2022_radioactivecoraltoyellowfade_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr9axsgen4_2022_radioactivecoraltrekblack_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr9axsgen4_2022_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr9axsgen4_2022_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black",
      "Radioactive Coral to Yellow Fade",
@@ -3659,6 +4086,15 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr9axsgen4_2023_axinitefliptrekblack_site.jpg",
+     "Crystal White": "Trek/years/domaneslr9axsgen4_2023_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr9axsgen4_2023_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr9axsgen4_2023_juniper_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr9axsgen4_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Team Replica:Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr9axsgen4_2023_teamreplicametallicredsmoketobluesmokefade_site.jpg",
+     "Trek Black": "Trek/years/domaneslr9axsgen4_2023_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -3709,6 +4145,15 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr9axsgen4_2024_axinitefliptrekblack_site.jpg",
+     "Crystal White": "Trek/years/domaneslr9axsgen4_2024_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr9axsgen4_2024_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr9axsgen4_2024_juniper_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr9axsgen4_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Team Replica:Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr9axsgen4_2024_teamreplicametallicredsmoketobluesmokefade_site.jpg",
+     "Trek Black": "Trek/years/domaneslr9axsgen4_2024_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -3759,6 +4204,12 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip to Trek Black Fade": "Trek/years/domaneslr9axsgen4_2025_axinitefliptotrekblackfade_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr9axsgen4_2025_carbonsmokeprismaticmarble_site.jpg",
+     "Classics Team Replica": "Trek/years/domaneslr9axsgen4_2025_classicsteamreplica_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr9axsgen4_2025_metallicredsmoketoredcarbonsmoke_site.jpg"
+    },
     "colours": [
      "Classics Team Replica",
      "Carbon Smoke/Prismatic Marble",
@@ -3804,6 +4255,12 @@
   "Domane SLR 9 gen 4": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Dnister Black/Gloss Viper Red": "Trek/years/domaneslr9gen4_2020_mattednisterblackglossviperred_site.jpg",
+     "Purple Phaze/Anthracite": "Trek/years/domaneslr9gen4_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr9gen4_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/domaneslr9gen4_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Matte Dnister Black/Gloss Viper Red",
      "Purple Phaze/Anthracite",
@@ -3846,6 +4303,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Radioactive Coral/Trek Black": "Trek/years/domaneslr9gen4_2021_radioactivecoraltrekblack_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr9gen4_2021_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr9gen4_2021_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Radioactive Coral/Trek Black",
      "Viper Red/Trek White",
@@ -3888,6 +4350,13 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/domaneslr9gen4_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/domaneslr9gen4_2022_darkprismatictrekblack_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/domaneslr9gen4_2022_radioactivecoraltoyellowfade_site.jpg",
+     "Trek White/Blue": "Trek/years/domaneslr9gen4_2022_trekwhiteblue_site.jpg",
+     "Viper Red/Trek White": "Trek/years/domaneslr9gen4_2022_viperredtrekwhite_site.jpg"
+    },
     "colours": [
      "Dark Prismatic/Trek Black",
      "Radioactive Coral to Yellow Fade",
@@ -3932,6 +4401,16 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr9gen4_2023_axinitefliptrekblack_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr9gen4_2023_carbonsmokeprismaticmarble_site.jpg",
+     "Crystal White": "Trek/years/domaneslr9gen4_2023_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr9gen4_2023_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr9gen4_2023_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr9gen4_2023_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr9gen4_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Trek Black": "Trek/years/domaneslr9gen4_2023_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -3983,6 +4462,16 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr9gen4_2024_axinitefliptrekblack_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr9gen4_2024_carbonsmokeprismaticmarble_site.jpg",
+     "Crystal White": "Trek/years/domaneslr9gen4_2024_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr9gen4_2024_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr9gen4_2024_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr9gen4_2024_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr9gen4_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Trek Black": "Trek/years/domaneslr9gen4_2024_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -4034,6 +4523,16 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/domaneslr9gen4_2025_axinitefliptrekblack_site.jpg",
+     "Carbon Smoke/Prismatic Marble": "Trek/years/domaneslr9gen4_2025_carbonsmokeprismaticmarble_site.jpg",
+     "Crystal White": "Trek/years/domaneslr9gen4_2025_crystalwhite_site.jpg",
+     "Deep Smoke": "Trek/years/domaneslr9gen4_2025_deepsmoke_site.jpg",
+     "Juniper": "Trek/years/domaneslr9gen4_2025_juniper_site.jpg",
+     "Metallic Red Smoke to Blue Smoke Fade": "Trek/years/domaneslr9gen4_2025_metallicredsmoketobluesmokefade_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/domaneslr9gen4_2025_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Trek Black": "Trek/years/domaneslr9gen4_2025_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Deep Smoke",
@@ -4087,6 +4586,13 @@
   "Domane+ SLR 6 Pro": {
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Red Smoke": "Trek/years/domaneplusslr6pro_2023_carbonredsmoke_site.jpg",
+     "Crystal White": "Trek/years/domaneplusslr6pro_2023_crystalwhite_site.jpg",
+     "Juniper": "Trek/years/domaneplusslr6pro_2023_juniper_site.jpg",
+     "Matte Deep Smoke": "Trek/years/domaneplusslr6pro_2023_mattedeepsmoke_site.jpg",
+     "Mercury": "Trek/years/domaneplusslr6pro_2023_mercury_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Juniper",
@@ -4137,6 +4643,13 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Red Smoke": "Trek/years/domaneplusslr6pro_2024_carbonredsmoke_site.jpg",
+     "Crystal White": "Trek/years/domaneplusslr6pro_2024_crystalwhite_site.jpg",
+     "Juniper": "Trek/years/domaneplusslr6pro_2024_juniper_site.jpg",
+     "Matte Deep Smoke": "Trek/years/domaneplusslr6pro_2024_mattedeepsmoke_site.jpg",
+     "Mercury": "Trek/years/domaneplusslr6pro_2024_mercury_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Juniper",
@@ -4189,6 +4702,13 @@
   "Domane+ SLR 7 AXS": {
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Red Smoke": "Trek/years/domaneplusslr7axs_2023_carbonredsmoke_site.jpg",
+     "Crystal White": "Trek/years/domaneplusslr7axs_2023_crystalwhite_site.jpg",
+     "Juniper": "Trek/years/domaneplusslr7axs_2023_juniper_site.jpg",
+     "Matte Deep Smoke": "Trek/years/domaneplusslr7axs_2023_mattedeepsmoke_site.jpg",
+     "Mercury": "Trek/years/domaneplusslr7axs_2023_mercury_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Juniper",
@@ -4241,6 +4761,10 @@
   "Madone SL 5 Gen 8": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Hex Blue": "Trek/years/madonesl5gen8_2025_hexblue_site.jpg",
+     "Matte Deep Smoke": "Trek/years/madonesl5gen8_2025_mattedeepsmoke_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Hex Blue"
@@ -4281,6 +4805,11 @@
   "Madone SL 6 Gen 7": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Trek Black": "Trek/years/madonesl6gen7_2020_lithiumgreytrekblack_site.jpg",
+     "Matte Dnister Black/Gloss Volt": "Trek/years/madonesl6gen7_2020_mattednisterblackglossvolt_site.jpg",
+     "Radioactive Red/Trek Black": "Trek/years/madonesl6gen7_2020_radioactiveredtrekblack_site.jpg"
+    },
     "colours": [
      "Matte Dnister Black/Gloss Volt",
      "Lithium Grey/Trek Black",
@@ -4321,6 +4850,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Trek Black": "Trek/years/madonesl6gen7_2021_lithiumgreytrekblack_site.jpg",
+     "Matte Dnister Black/Gloss Volt": "Trek/years/madonesl6gen7_2021_mattednisterblackglossvolt_site.jpg",
+     "Radioactive Red/Trek Black": "Trek/years/madonesl6gen7_2021_radioactiveredtrekblack_site.jpg"
+    },
     "colours": [
      "Matte Dnister Black/Gloss Volt",
      "Lithium Grey/Trek Black",
@@ -4361,6 +4895,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Trek White/Trek Black": "Trek/years/madonesl6gen7_2022_trekwhitetrekblack_site.jpg",
+     "Viper Red": "Trek/years/madonesl6gen7_2022_viperred_site.jpg"
+    },
     "colours": [
      "Viper Red",
      "Trek White/Trek Black"
@@ -4397,6 +4935,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson": "Trek/years/madonesl6gen7_2024_crimson_site.jpg",
+     "Matte Carbon Smoke": "Trek/years/madonesl6gen7_2024_mattecarbonsmoke_site.jpg"
+    },
     "colours": [
      "Matte Carbon Smoke",
      "Crimson"
@@ -4439,6 +4981,11 @@
   "Madone SL 6 Gen 8": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Trek Black": "Trek/years/madonesl6gen8_2020_lithiumgreytrekblack_site.jpg",
+     "Matte Dnister Black/Gloss Volt": "Trek/years/madonesl6gen8_2020_mattednisterblackglossvolt_site.jpg",
+     "Radioactive Red/Trek Black": "Trek/years/madonesl6gen8_2020_radioactiveredtrekblack_site.jpg"
+    },
     "colours": [
      "Matte Dnister Black/Gloss Volt",
      "Lithium Grey/Trek Black",
@@ -4479,6 +5026,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Trek Black": "Trek/years/madonesl6gen8_2021_lithiumgreytrekblack_site.jpg",
+     "Matte Dnister Black/Gloss Volt": "Trek/years/madonesl6gen8_2021_mattednisterblackglossvolt_site.jpg",
+     "Radioactive Red/Trek Black": "Trek/years/madonesl6gen8_2021_radioactiveredtrekblack_site.jpg"
+    },
     "colours": [
      "Matte Dnister Black/Gloss Volt",
      "Lithium Grey/Trek Black",
@@ -4519,6 +5071,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Trek White/Trek Black": "Trek/years/madonesl6gen8_2022_trekwhitetrekblack_site.jpg",
+     "Viper Red": "Trek/years/madonesl6gen8_2022_viperred_site.jpg"
+    },
     "colours": [
      "Viper Red",
      "Trek White/Trek Black"
@@ -4555,6 +5111,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson": "Trek/years/madonesl6gen8_2024_crimson_site.jpg",
+     "Matte Carbon Smoke": "Trek/years/madonesl6gen8_2024_mattecarbonsmoke_site.jpg"
+    },
     "colours": [
      "Matte Carbon Smoke",
      "Crimson"
@@ -4595,6 +5155,11 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson": "Trek/years/madonesl6gen8_2025_crimson_site.jpg",
+     "Matte Dark Web": "Trek/years/madonesl6gen8_2025_mattedarkweb_site.jpg",
+     "White Prismatic": "Trek/years/madonesl6gen8_2025_whiteprismatic_site.jpg"
+    },
     "colours": [
      "Matte Dark Web",
      "Crimson",
@@ -4636,6 +5201,7 @@
   "Madone SL 7 Gen 7": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Black/Gloss Alpine Blue"
     ],
@@ -4676,6 +5242,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Black/Gloss Alpine Blue"
     ],
@@ -4716,6 +5283,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Dark Blue": "Trek/years/madonesl7gen7_2022_deepdarkblue_site.jpg"
+    },
     "colours": [
      "Deep Dark Blue"
     ],
@@ -4752,6 +5322,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey": "Trek/years/madonesl7gen7_2023_lithiumgrey_site.jpg"
+    },
     "colours": [
      "Lithium Grey"
     ],
@@ -4790,6 +5363,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Plasma Grey Pearl": "Trek/years/madonesl7gen7_2024_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Plasma Grey Pearl",
      "Dark Carmine"
@@ -4832,6 +5408,7 @@
   "Madone SL 7 Gen 8": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Black/Gloss Alpine Blue"
     ],
@@ -4872,6 +5449,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Black/Gloss Alpine Blue"
     ],
@@ -4912,6 +5490,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Dark Blue": "Trek/years/madonesl7gen8_2022_deepdarkblue_site.jpg"
+    },
     "colours": [
      "Deep Dark Blue"
     ],
@@ -4948,6 +5529,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey": "Trek/years/madonesl7gen8_2023_lithiumgrey_site.jpg"
+    },
     "colours": [
      "Lithium Grey"
     ],
@@ -4986,6 +5570,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Plasma Grey Pearl": "Trek/years/madonesl7gen8_2024_plasmagreypearl_site.jpg"
+    },
     "colours": [
      "Plasma Grey Pearl",
      "Dark Carmine"
@@ -5028,6 +5615,12 @@
   "Madone SLR 7 AXS": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black/Silver-Grey Fade": "Trek/years/madoneslr7axs_2020_blacksilvergreyfade_site.jpg",
+     "Purple Phaze/Anthracite": "Trek/years/madoneslr7axs_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/madoneslr7axs_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/madoneslr7axs_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Black/Silver-Grey Fade",
      "Purple Phaze/Anthracite",
@@ -5071,6 +5664,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Onyx Carbon": "Trek/years/madoneslr7axs_2021_matteonyxcarbon_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr7axs_2021_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr7axs_2021_navycarbonsmokeviperred_site.jpg"
+    },
     "colours": [
      "Navy Carbon Smoke/Blue",
      "Navy Carbon Smoke/Viper Red",
@@ -5112,6 +5710,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/madoneslr7axs_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/madoneslr7axs_2022_darkprismatictrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/madoneslr7axs_2022_mattedeepsmoke_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr7axs_2022_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr7axs_2022_navycarbonsmokeviperred_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/madoneslr7axs_2022_radioactivecoraltoyellowfade_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Navy Carbon Smoke/Blue",
@@ -5155,6 +5761,13 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Azure": "Trek/years/madoneslr7axs_2023_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr7axs_2023_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr7axs_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr7axs_2023_satinquicksilver_site.jpg",
+     "Viper Red": "Trek/years/madoneslr7axs_2023_viperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Azure",
@@ -5195,6 +5808,13 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr7axs_2024_axinitefliptrekblack_site.jpg",
+     "Azure": "Trek/years/madoneslr7axs_2024_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr7axs_2024_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr7axs_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Viper Red": "Trek/years/madoneslr7axs_2024_viperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Azure",
@@ -5237,6 +5857,12 @@
   "Madone SLR 7 AXS Gen 8": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black/Silver-Grey Fade": "Trek/years/madoneslr7axsgen8_2020_blacksilvergreyfade_site.jpg",
+     "Purple Phaze/Anthracite": "Trek/years/madoneslr7axsgen8_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/madoneslr7axsgen8_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/madoneslr7axsgen8_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Black/Silver-Grey Fade",
      "Purple Phaze/Anthracite",
@@ -5280,6 +5906,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Onyx Carbon": "Trek/years/madoneslr7axsgen8_2021_matteonyxcarbon_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr7axsgen8_2021_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr7axsgen8_2021_navycarbonsmokeviperred_site.jpg"
+    },
     "colours": [
      "Navy Carbon Smoke/Blue",
      "Navy Carbon Smoke/Viper Red",
@@ -5321,6 +5952,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/madoneslr7axsgen8_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/madoneslr7axsgen8_2022_darkprismatictrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/madoneslr7axsgen8_2022_mattedeepsmoke_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr7axsgen8_2022_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr7axsgen8_2022_navycarbonsmokeviperred_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/madoneslr7axsgen8_2022_radioactivecoraltoyellowfade_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Navy Carbon Smoke/Blue",
@@ -5364,6 +6003,13 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Azure": "Trek/years/madoneslr7axsgen8_2023_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr7axsgen8_2023_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr7axsgen8_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr7axsgen8_2023_satinquicksilver_site.jpg",
+     "Viper Red": "Trek/years/madoneslr7axsgen8_2023_viperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Azure",
@@ -5404,6 +6050,13 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr7axsgen8_2024_axinitefliptrekblack_site.jpg",
+     "Azure": "Trek/years/madoneslr7axsgen8_2024_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr7axsgen8_2024_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr7axsgen8_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Viper Red": "Trek/years/madoneslr7axsgen8_2024_viperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Azure",
@@ -5446,6 +6099,12 @@
   "Madone SLR 7 Gen 8": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black/Silver-Grey Fade": "Trek/years/madoneslr7gen8_2020_blacksilvergreyfade_site.jpg",
+     "Purple Phaze/Anthracite": "Trek/years/madoneslr7gen8_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/madoneslr7gen8_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/madoneslr7gen8_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Black/Silver-Grey Fade",
      "Purple Phaze/Anthracite",
@@ -5487,6 +6146,12 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Crimson": "Trek/years/madoneslr7gen8_2021_carbonsmokecrimson_site.jpg",
+     "Matte Onyx Carbon": "Trek/years/madoneslr7gen8_2021_matteonyxcarbon_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr7gen8_2021_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr7gen8_2021_navycarbonsmokeviperred_site.jpg"
+    },
     "colours": [
      "Navy Carbon Smoke/Blue",
      "Navy Carbon Smoke/Viper Red",
@@ -5528,6 +6193,14 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr7gen8_2023_axinitefliptrekblack_site.jpg",
+     "Azure": "Trek/years/madoneslr7gen8_2023_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr7gen8_2023_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr7gen8_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr7gen8_2023_satinquicksilver_site.jpg",
+     "Viper Red": "Trek/years/madoneslr7gen8_2023_viperred_site.jpg"
+    },
     "colours": [
      "Azure",
      "Satin Quicksilver",
@@ -5570,6 +6243,14 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr7gen8_2024_axinitefliptrekblack_site.jpg",
+     "Azure": "Trek/years/madoneslr7gen8_2024_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr7gen8_2024_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr7gen8_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr7gen8_2024_satinquicksilver_site.jpg",
+     "Viper Red": "Trek/years/madoneslr7gen8_2024_viperred_site.jpg"
+    },
     "colours": [
      "Azure",
      "Satin Quicksilver",
@@ -5614,6 +6295,13 @@
   "Madone SLR 8 AXS Gen 8": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Red Smoke": "Trek/years/madoneslr8axsgen8_2025_carbonredsmoke_site.jpg",
+     "Era White/Supernova Marble": "Trek/years/madoneslr8axsgen8_2025_erawhitesupernovamarble_site.jpg",
+     "Iridescent Blue Pearl/Red Pearl": "Trek/years/madoneslr8axsgen8_2025_iridescentbluepearlredpearl_site.jpg",
+     "Matte Carbon Smoke/Prismatic Pearl": "Trek/years/madoneslr8axsgen8_2025_mattecarbonsmokeprismaticpearl_site.jpg",
+     "Team Replica": "Trek/years/madoneslr8axsgen8_2025_teamreplica_site.jpg"
+    },
     "colours": [
      "Matte Carbon Smoke/Prismatic Pearl",
      "Team Replica",
@@ -5657,6 +6345,11 @@
   "Madone SLR 9 AXS Gen 8": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Purple Phaze/Anthracite": "Trek/years/madoneslr9axsgen8_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/madoneslr9axsgen8_2020_viperredtrekwhite_site.jpg",
+     "Voodo Trek White/Blue": "Trek/years/madoneslr9axsgen8_2020_voodotrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Purple Phaze/Anthracite",
      "Viper Red/Trek White",
@@ -5697,6 +6390,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Onyx Carbon": "Trek/years/madoneslr9axsgen8_2021_matteonyxcarbon_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr9axsgen8_2021_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr9axsgen8_2021_navycarbonsmokeviperred_site.jpg"
+    },
     "colours": [
      "Navy Carbon Smoke/Blue",
      "Navy Carbon Smoke/Viper Red",
@@ -5739,6 +6437,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/madoneslr9axsgen8_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/madoneslr9axsgen8_2022_darkprismatictrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/madoneslr9axsgen8_2022_mattedeepsmoke_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/madoneslr9axsgen8_2022_radioactivecoraltoyellowfade_site.jpg",
+     "Team Replica: Navy Carbon Smoke/Blue": "Trek/years/madoneslr9axsgen8_2022_teamreplicanavycarbonsmokeblue_site.jpg",
+     "Team Replica: Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr9axsgen8_2022_teamreplicanavycarbonsmokeviperred_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Team Replica: Navy Carbon Smoke/Blue",
@@ -5780,6 +6486,14 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr9axsgen8_2023_axinitefliptrekblack_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr9axsgen8_2023_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr9axsgen8_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr9axsgen8_2023_satinquicksilver_site.jpg",
+     "Team Replica: Azure": "Trek/years/madoneslr9axsgen8_2023_teamreplicaazure_site.jpg",
+     "Team Replica: Viper Red": "Trek/years/madoneslr9axsgen8_2023_teamreplicaviperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Team Replica: Azure",
@@ -5821,6 +6535,14 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr9axsgen8_2024_axinitefliptrekblack_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr9axsgen8_2024_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr9axsgen8_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr9axsgen8_2024_satinquicksilver_site.jpg",
+     "Team Replica: Azure": "Trek/years/madoneslr9axsgen8_2024_teamreplicaazure_site.jpg",
+     "Team Replica: Viper Red": "Trek/years/madoneslr9axsgen8_2024_teamreplicaviperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Team Replica: Azure",
@@ -5864,6 +6586,11 @@
   "Madone SLR 9 gen 8": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Purple Phaze/Anthracite": "Trek/years/madoneslr9gen8_2020_purplephazeanthracite_site.jpg",
+     "Viper Red/Trek White": "Trek/years/madoneslr9gen8_2020_viperredtrekwhite_site.jpg",
+     "Voodoo Trek White/Blue": "Trek/years/madoneslr9gen8_2020_voodootrekwhiteblue_site.jpg"
+    },
     "colours": [
      "Purple Phaze/Anthracite",
      "Viper Red/Trek White",
@@ -5902,6 +6629,11 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Onyx Carbon": "Trek/years/madoneslr9gen8_2021_matteonyxcarbon_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr9gen8_2021_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr9gen8_2021_navycarbonsmokeviperred_site.jpg"
+    },
     "colours": [
      "Navy Carbon Smoke/Blue",
      "Navy Carbon Smoke/Viper Red",
@@ -5943,6 +6675,14 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Amethyst": "Trek/years/madoneslr9gen8_2022_amethyst_site.jpg",
+     "Dark Prismatic/Trek Black": "Trek/years/madoneslr9gen8_2022_darkprismatictrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/madoneslr9gen8_2022_mattedeepsmoke_site.jpg",
+     "Navy Carbon Smoke/Blue": "Trek/years/madoneslr9gen8_2022_navycarbonsmokeblue_site.jpg",
+     "Navy Carbon Smoke/Viper Red": "Trek/years/madoneslr9gen8_2022_navycarbonsmokeviperred_site.jpg",
+     "Radioactive Coral to Yellow Fade": "Trek/years/madoneslr9gen8_2022_radioactivecoraltoyellowfade_site.jpg"
+    },
     "colours": [
      "Matte Deep Smoke",
      "Navy Carbon Smoke/Blue",
@@ -5985,6 +6725,14 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr9gen8_2023_axinitefliptrekblack_site.jpg",
+     "Azure": "Trek/years/madoneslr9gen8_2023_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr9gen8_2023_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr9gen8_2023_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr9gen8_2023_satinquicksilver_site.jpg",
+     "Viper Red": "Trek/years/madoneslr9gen8_2023_viperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Azure",
@@ -6026,6 +6774,14 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Axinite Flip/Trek Black": "Trek/years/madoneslr9gen8_2024_axinitefliptrekblack_site.jpg",
+     "Azure": "Trek/years/madoneslr9gen8_2024_azure_site.jpg",
+     "Deep Smoke": "Trek/years/madoneslr9gen8_2024_deepsmoke_site.jpg",
+     "Metallic Red Smoke to Red Carbon Smoke": "Trek/years/madoneslr9gen8_2024_metallicredsmoketoredcarbonsmoke_site.jpg",
+     "Satin Quicksilver": "Trek/years/madoneslr9gen8_2024_satinquicksilver_site.jpg",
+     "Viper Red": "Trek/years/madoneslr9gen8_2024_viperred_site.jpg"
+    },
     "colours": [
      "Deep Smoke",
      "Azure",
@@ -6069,6 +6825,13 @@
   "Speed Concept SLR 7 AXS": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr7axs_2022_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr7axs_2022_emeraldiristrekblack_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr7axs_2022_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr7axs_2022_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr7axs_2022_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Mulsanne Blue/Trek Black",
      "Emerald Iris/Trek Black",
@@ -6112,6 +6875,13 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr7axs_2023_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr7axs_2023_emeraldiristrekblack_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr7axs_2023_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr7axs_2023_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr7axs_2023_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Mulsanne Blue/Trek Black",
      "Emerald Iris/Trek Black",
@@ -6157,6 +6927,17 @@
   "Speed Concept SLR 9": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Prismatic Marble": "Trek/years/speedconceptslr9_2022_carbonsmokeprismaticmarble_site.jpg",
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9_2022_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9_2022_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9_2022_hexbluetrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/speedconceptslr9_2022_mattedeepsmoke_site.jpg",
+     "Metallic Red Smoke to Carbon Red Smoke Fade": "Trek/years/speedconceptslr9_2022_metallicredsmoketocarbonredsmokefade_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9_2022_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9_2022_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9_2022_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Matte Deep Smoke",
@@ -6204,6 +6985,17 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Prismatic Marble": "Trek/years/speedconceptslr9_2023_carbonsmokeprismaticmarble_site.jpg",
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9_2023_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9_2023_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9_2023_hexbluetrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/speedconceptslr9_2023_mattedeepsmoke_site.jpg",
+     "Metallic Red Smoke to Carbon Red Smoke Fade": "Trek/years/speedconceptslr9_2023_metallicredsmoketocarbonredsmokefade_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9_2023_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9_2023_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9_2023_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Matte Deep Smoke",
@@ -6251,6 +7043,17 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Prismatic Marble": "Trek/years/speedconceptslr9_2024_carbonsmokeprismaticmarble_site.jpg",
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9_2024_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9_2024_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9_2024_hexbluetrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/speedconceptslr9_2024_mattedeepsmoke_site.jpg",
+     "Metallic Red Smoke to Carbon Red Smoke Fade": "Trek/years/speedconceptslr9_2024_metallicredsmoketocarbonredsmokefade_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9_2024_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9_2024_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9_2024_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Matte Deep Smoke",
@@ -6298,6 +7101,17 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Prismatic Marble": "Trek/years/speedconceptslr9_2025_carbonsmokeprismaticmarble_site.jpg",
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9_2025_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9_2025_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9_2025_hexbluetrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/speedconceptslr9_2025_mattedeepsmoke_site.jpg",
+     "Metallic Red Smoke to Carbon Red Smoke Fade": "Trek/years/speedconceptslr9_2025_metallicredsmoketocarbonredsmokefade_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9_2025_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9_2025_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9_2025_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Matte Deep Smoke",
@@ -6345,6 +7159,17 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Prismatic Marble": "Trek/years/speedconceptslr9_2026_carbonsmokeprismaticmarble_site.jpg",
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9_2026_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9_2026_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9_2026_hexbluetrekblack_site.jpg",
+     "Matte Deep Smoke": "Trek/years/speedconceptslr9_2026_mattedeepsmoke_site.jpg",
+     "Metallic Red Smoke to Carbon Red Smoke Fade": "Trek/years/speedconceptslr9_2026_metallicredsmoketocarbonredsmokefade_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9_2026_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9_2026_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9_2026_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Matte Deep Smoke",
@@ -6394,6 +7219,14 @@
   "Speed Concept SLR 9 AXS": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9axs_2022_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9axs_2022_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9axs_2022_hexbluetrekblack_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9axs_2022_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9axs_2022_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9axs_2022_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Mulsanne Blue/Trek Black",
@@ -6438,6 +7271,14 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9axs_2023_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9axs_2023_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9axs_2023_hexbluetrekblack_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9axs_2023_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9axs_2023_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9axs_2023_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Mulsanne Blue/Trek Black",
@@ -6482,6 +7323,14 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Smoke/Gloss Trek Black": "Trek/years/speedconceptslr9axs_2024_deepsmokeglosstrekblack_site.jpg",
+     "Emerald Iris/Trek Black": "Trek/years/speedconceptslr9axs_2024_emeraldiristrekblack_site.jpg",
+     "Hex Blue/Trek Black": "Trek/years/speedconceptslr9axs_2024_hexbluetrekblack_site.jpg",
+     "Mulsanne Blue/Trek Black": "Trek/years/speedconceptslr9axs_2024_mulsannebluetrekblack_site.jpg",
+     "Radioactive Coral/Trek Black": "Trek/years/speedconceptslr9axs_2024_radioactivecoraltrekblack_site.jpg",
+     "Viper Red/Trek Black": "Trek/years/speedconceptslr9axs_2024_viperredtrekblack_site.jpg"
+    },
     "colours": [
      "Hex Blue/Trek Black",
      "Mulsanne Blue/Trek Black",
@@ -6528,6 +7377,12 @@
   "Émonda ALR 5": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Gravel/Gloss Quicksilver": "Trek/years/emondaalr5_2019_mattegravelglossquicksilver_site.jpg",
+     "Purple Abyss": "Trek/years/emondaalr5_2019_purpleabyss_site.jpg",
+     "Purple Flip": "Trek/years/emondaalr5_2019_purpleflip_site.jpg",
+     "Slate to Trek Black Fade": "Trek/years/emondaalr5_2019_slatetotrekblackfade_site.jpg"
+    },
     "colours": [
      "Matte Gravel/Gloss Quicksilver",
      "Slate to Trek Black Fade",
@@ -6571,6 +7426,12 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Gravel/Gloss Quicksilver": "Trek/years/emondaalr5_2020_mattegravelglossquicksilver_site.jpg",
+     "Purple Abyss": "Trek/years/emondaalr5_2020_purpleabyss_site.jpg",
+     "Purple Flip": "Trek/years/emondaalr5_2020_purpleflip_site.jpg",
+     "Slate to Trek Black Fade": "Trek/years/emondaalr5_2020_slatetotrekblackfade_site.jpg"
+    },
     "colours": [
      "Matte Gravel/Gloss Quicksilver",
      "Slate to Trek Black Fade",
@@ -6614,6 +7475,12 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Gravel/Gloss Quicksilver": "Trek/years/emondaalr5_2021_mattegravelglossquicksilver_site.jpg",
+     "Purple Abyss": "Trek/years/emondaalr5_2021_purpleabyss_site.jpg",
+     "Purple Flip": "Trek/years/emondaalr5_2021_purpleflip_site.jpg",
+     "Slate to Trek Black Fade": "Trek/years/emondaalr5_2021_slatetotrekblackfade_site.jpg"
+    },
     "colours": [
      "Matte Gravel/Gloss Quicksilver",
      "Slate to Trek Black Fade",
@@ -6657,6 +7524,12 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Gravel/Gloss Quicksilver": "Trek/years/emondaalr5_2022_mattegravelglossquicksilver_site.jpg",
+     "Purple Abyss": "Trek/years/emondaalr5_2022_purpleabyss_site.jpg",
+     "Purple Flip": "Trek/years/emondaalr5_2022_purpleflip_site.jpg",
+     "Slate to Trek Black Fade": "Trek/years/emondaalr5_2022_slatetotrekblackfade_site.jpg"
+    },
     "colours": [
      "Matte Gravel/Gloss Quicksilver",
      "Slate to Trek Black Fade",
@@ -6700,6 +7573,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Azure to Living Coral Fade": "Trek/years/emondaalr5_2023_azuretolivingcoralfade_site.jpg",
+     "Trek Black": "Trek/years/emondaalr5_2023_trekblack_site.jpg"
+    },
     "colours": [
      "Trek Black",
      "Azure to Living Coral Fade"
@@ -6743,6 +7620,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson to Dark Carmine Fade": "Trek/years/emondaalr5_2024_crimsontodarkcarminefade_site.jpg",
+     "Slate Prismatic/Black Prismatic Fade": "Trek/years/emondaalr5_2024_slateprismaticblackprismaticfade_site.jpg"
+    },
     "colours": [
      "Slate Prismatic/Black Prismatic Fade",
      "Crimson to Dark Carmine Fade"
@@ -6785,6 +7666,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson to Dark Carmine Fade": "Trek/years/emondaalr5_2025_crimsontodarkcarminefade_site.jpg",
+     "Slate Prismatic/Black Prismatic Fade": "Trek/years/emondaalr5_2025_slateprismaticblackprismaticfade_site.jpg"
+    },
     "colours": [
      "Slate Prismatic/Black Prismatic Fade",
      "Crimson to Dark Carmine Fade"
@@ -6829,6 +7714,11 @@
   "Émonda SL 5": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Emerald Iris": "Trek/years/emondasl5_2020_emeraldiris_site.jpg",
+     "Matte Trek Black/Gloss Viper Red": "Trek/years/emondasl5_2020_mattetrekblackglossviperred_site.jpg",
+     "Mulberry/Magenta": "Trek/years/emondasl5_2020_mulberrymagenta_site.jpg"
+    },
     "colours": [
      "Matte Trek Black/Gloss Viper Red",
      "Emerald Iris",
@@ -6872,6 +7762,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Blue Smoke/Metallic Blue": "Trek/years/emondasl5_2021_carbonbluesmokemetallicblue_site.jpg",
+     "Quicksilver/Brushed Chrome": "Trek/years/emondasl5_2021_quicksilverbrushedchrome_site.jpg"
+    },
     "colours": [
      "Carbon Blue Smoke/Metallic Blue",
      "Quicksilver/Brushed Chrome"
@@ -6914,6 +7808,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Blue Smoke/Metallic Blue": "Trek/years/emondasl5_2022_carbonbluesmokemetallicblue_site.jpg",
+     "Quicksilver/Brushed Chrome": "Trek/years/emondasl5_2022_quicksilverbrushedchrome_site.jpg"
+    },
     "colours": [
      "Carbon Blue Smoke/Metallic Blue",
      "Quicksilver/Brushed Chrome"
@@ -6956,6 +7854,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Navy Smoke/Dark Aquatic": "Trek/years/emondasl5_2024_navysmokedarkaquatic_site.jpg",
+     "White Prismatic": "Trek/years/emondasl5_2024_whiteprismatic_site.jpg"
+    },
     "colours": [
      "Navy Smoke/Dark Aquatic",
      "White Prismatic"
@@ -7000,6 +7902,10 @@
   "Émonda SL 6": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Trek Black/Metallic Gunmetal": "Trek/years/emondasl6_2019_mattetrekblackmetallicgunmetal_site.jpg",
+     "Rage Red/Onyx Carbon": "Trek/years/emondasl6_2019_rageredonyxcarbon_site.jpg"
+    },
     "colours": [
      "Matte Trek Black/Metallic Gunmetal",
      "Rage Red/Onyx Carbon"
@@ -7035,6 +7941,10 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Trek Black/Metallic Gunmetal": "Trek/years/emondasl6_2020_mattetrekblackmetallicgunmetal_site.jpg",
+     "Rage Red/Onyx Carbon": "Trek/years/emondasl6_2020_rageredonyxcarbon_site.jpg"
+    },
     "colours": [
      "Matte Trek Black/Metallic Gunmetal",
      "Rage Red/Onyx Carbon"
@@ -7070,6 +7980,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Brushed Chrome": "Trek/years/emondasl6_2021_lithiumgreybrushedchrome_site.jpg",
+     "Trek Black/Radioactive Red": "Trek/years/emondasl6_2021_trekblackradioactivered_site.jpg"
+    },
     "colours": [
      "Trek Black/Radioactive Red",
      "Lithium Grey/Brushed Chrome"
@@ -7106,6 +8020,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Lithium Grey/Brushed Chrome": "Trek/years/emondasl6_2022_lithiumgreybrushedchrome_site.jpg",
+     "Trek Black/Radioactive Red": "Trek/years/emondasl6_2022_trekblackradioactivered_site.jpg"
+    },
     "colours": [
      "Trek Black/Radioactive Red",
      "Lithium Grey/Brushed Chrome"
@@ -7142,6 +8060,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Crimson": "Trek/years/emondasl6_2024_crimson_site.jpg",
+     "Plasma Pearl Grey/Purple Flip": "Trek/years/emondasl6_2024_plasmapearlgreypurpleflip_site.jpg"
+    },
     "colours": [
      "Plasma Pearl Grey/Purple Flip",
      "Crimson"
@@ -7184,6 +8106,9 @@
   "Émonda SL 7": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Black/Gloss Blue": "Trek/years/emondasl7_2020_matteblackglossblue_site.jpg"
+    },
     "colours": [
      "Matte Black/Gloss Blue"
     ],
@@ -7225,6 +8150,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon Smoke/Factory Orange": "Trek/years/emondasl7_2021_carbonsmokefactoryorange_site.jpg",
+     "Gloss Radioactive Red/Matte Carbon": "Trek/years/emondasl7_2021_glossradioactiveredmattecarbon_site.jpg"
+    },
     "colours": [
      "Carbon Smoke/Factory Orange",
      "Gloss Radioactive Red/Matte Carbon"
@@ -7261,6 +8190,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Mulsanne Blue/Trek Black": "Trek/years/emondasl7_2022_mulsannebluetrekblack_site.jpg",
+     "Trek White/Quicksilver": "Trek/years/emondasl7_2022_trekwhitequicksilver_site.jpg"
+    },
     "colours": [
      "Mulsanne Blue/Trek Black",
      "Trek White/Quicksilver"
@@ -7300,6 +8233,10 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Mulsanne Blue/Trek Black": "Trek/years/emondasl7_2023_mulsannebluetrekblack_site.jpg",
+     "Trek White/Quicksilver": "Trek/years/emondasl7_2023_trekwhitequicksilver_site.jpg"
+    },
     "colours": [
      "Mulsanne Blue/Trek Black",
      "Trek White/Quicksilver"

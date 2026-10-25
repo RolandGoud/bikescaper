@@ -106,6 +106,14 @@ def swatch(name):
     return FAMILY_HEX[fams[0]] if fams else None
 
 
+def swatch_css(name):
+    """A CSS background for a colour name: one swatch colour, or two halves for "Trek Black / Carbon Smoke"."""
+    fams = families_in(name, brand_words=True)
+    if len(fams) >= 2:
+        return f"linear-gradient(135deg, {FAMILY_HEX[fams[0]]} 50%, {FAMILY_HEX[fams[1]]} 50%)"
+    return FAMILY_HEX[fams[0]] if fams else None
+
+
 def hex_family(value):
     """The family of a CSS #rrggbb swatch colour, by its hue, saturation and brightness."""
     m = re.match(r"#([0-9a-f]{6})$", (value or "").lower())
