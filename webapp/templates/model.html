@@ -42,12 +42,14 @@
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}">‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}">›</button>
       </div>
+      {# The other angles of the year and colour on show (close-ups, front, rear), filled in by the script below. #}
+      <div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}" hidden></div>
       <div class="gallery-strip">
       <button type="button" class="strip-nav prev" aria-label="{{ _('Earlier years') }}" hidden>‹</button>
       <div class="gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
         {% for t in slots %}
         {% if t.image %}
-        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}"
+        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}"{% if t.colour_angles %} data-angles='{{ t.colour_angles|tojson }}'{% endif %}
                 data-colours="{{ (t.colours or [])|join(', ') }}">{{ year_facts(t) }}
           <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
         {% else %}
@@ -220,6 +222,33 @@
     strip.scrollLeft = thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2;
     if (!fromTab) showYear(thumb.dataset.year);
     showFacts(thumb);
+    showAngles(thumb);
+  }
+  // A row of the year's other angles for the colour on show; the first is the side view itself.
+  function showAngles(thumb) {
+    var row = document.getElementById("angle-strip");
+    if (!row) return;
+    var angles = {};
+    try { angles = JSON.parse(thumb.dataset.angles || "{}"); } catch (e) {}
+    var list = angles[thumb.dataset.colour || Object.keys(angles)[0]] || [];
+    row.innerHTML = "";
+    row.hidden = !list.length || !thumb.dataset.src;
+    if (row.hidden) return;
+    var img = document.querySelector("#model-photo > img");
+    [thumb.dataset.src].concat(list.map(function (p) { return row.dataset.base + p; })).forEach(function (src, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "angle-thumb";
+      b.setAttribute("aria-pressed", i === 0);
+      var small = document.createElement("img");
+      small.src = src; small.alt = ""; small.loading = "lazy";
+      b.appendChild(small);
+      b.addEventListener("click", function () {
+        img.src = src;
+        row.querySelectorAll(".angle-thumb").forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+      });
+      row.appendChild(b);
+    });
   }
   // The facts beside the photo follow the year: its new price, spec tier and colours (with their photos); the current bike's own again.
   var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact]"));
@@ -340,6 +369,7 @@
       // the colour belongs to the year on show (the current bike's, or an earlier year's): show it in the carousel
       var shown = document.querySelector('.gallery-thumb[aria-pressed="true"]') || document.querySelector(".gallery-thumb.current");
       if (shown) {
+        shown.dataset.colour = button.dataset.name;  // its angles follow the colour
         var thumbImg = shown.querySelector("img");
         if (button.dataset.image && thumbImg) { shown.dataset.src = button.dataset.image; thumbImg.src = button.dataset.image; }
         showPhoto(shown);

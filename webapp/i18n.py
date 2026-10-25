@@ -1023,6 +1023,7 @@ NL = {
     "fair: {low} – {high}": "eerlijk: {low} – {high}",
     "View in the catalogue": "Bekijk in de catalogus",
     "The link to your ad": "De link naar je advertentie",
+    "Other angles": "Andere aanzichten",
     "How we improved an ad": "Zo verbeterden we een advertentie",
     "Previous ad": "Vorige advertentie",
     "Next ad": "Volgende advertentie",

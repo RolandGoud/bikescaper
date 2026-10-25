@@ -70,6 +70,7 @@ def parse(page, url):
         # The og:image is padded to 800x600 on white; ask for a larger one.
         "image_url": image.group(1).replace("h_600", "h_750").replace("w_800", "w_1000") if image else None,
         "color_image_urls": [colour_photo(page, model, c) for c in colours],
+        "color_angle_urls": [colour_angles(page, model, c) for c in colours],
     }
 
 
@@ -89,6 +90,20 @@ def colour_photo(page, model, colour):
     if not found:
         return None
     return "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/" + min(found, key=len)
+
+
+def colour_angles(page, model, colour):
+    """The other angles of one colour (close-ups, front, rear: the -D1, -Front and -Rear photos), in the page's
+    order; not the side view colour_photo gives, nor riding photos."""
+    name = "-?".join(re.escape(c) for c in re.sub(r"[^A-Za-z0-9]", "", model))
+    keys = [re.sub(r"[^A-Za-z0-9]", "", part).lower() for part in colour.split("/")]
+    found = []
+    for path, shade in re.findall(r"([a-z0-9]{20}/MY\d\d%s(?:-[A-Za-z]+)?_Color[A-H]([A-Za-z0-9_-]*)\.jpg)" % name, page):
+        if not re.search(r"(?i)[-_](D-?\d+|Rear|Front)(?=[-_.\d]|$)", shade + ".") or re.search(r"(?i)action|blacktires", shade):
+            continue
+        if any(k and re.sub(r"[^A-Za-z0-9]", "", shade).lower().startswith(k) for k in keys) and path not in found:
+            found.append(path)
+    return ["https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/" + f for f in found]
 
 
 def scrape(fetcher, limit=None):

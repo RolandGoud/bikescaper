@@ -12,6 +12,7 @@ day it was captured):
 
     python -m brand_scrapers.history giant trek --cdx <cdx dir> [--db instance/bikecompare.sqlite3]
     python -m brand_scrapers.history giant trek --colours   # each colour's photo for the years already read
+    python -m brand_scrapers.history giant trek --angles    # and each colour's other angles
 
 Writes data/years/site/<Brand>.json ({"checked_on", "years", "source", "models": {name: {year:
 {captured, url, source, specs, price, image}}}}), which webapp/seed.py merges over
@@ -48,12 +49,12 @@ SITES = {
 }
 
 
-def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None):
+def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None, angle=None):
     import html
     url = html.unescape((url or "").strip("\"'"))  # Giant's 2017 pages quote the og:image URL
     if not url:
         return None
-    rel = f"{brand}/years/{slug}_{year}{'_' + compact(colour) if colour else ''}_site.jpg"
+    rel = f"{brand}/years/{slug}_{year}{'_' + compact(colour) if colour else ''}{f'_{angle}' if angle else ''}_site.jpg"
     path = os.path.join(ROOT, "images", rel)
     if os.path.exists(path):
         return rel
@@ -121,6 +122,42 @@ def add_colour_photos(brand, fetcher=None):
         json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
 
 
+def add_angles(brand, fetcher=None):
+    """Every other angle of each colour (close-ups, front, rear) for the model years in
+    data/years/site/<Brand>.json that have colour photos: entry["colour_angles"] = {colour: [saved photo]}."""
+    path = os.path.join(ROOT, "data", "years", "site", f"{brand}.json")
+    with open(path, encoding="utf-8") as fh:
+        data = json.load(fh)
+    if fetcher is None:
+        fetcher = Fetcher(delays=SITES[brand][3]) if brand in SITES else Fetcher(delay=1.0)
+    products = {}
+    for name, entries in data["models"].items():
+        for year, entry in entries.items():
+            if entry.get("source") != "site" or not entry.get("colour_images") or "colour_angles" in entry:
+                continue
+            if brand == "Trek":
+                code = re.search(r"/[pa]/(\d+)", entry["url"])
+                if not code:
+                    continue
+                if code.group(1) not in products:
+                    products[code.group(1)] = trek_product(fetcher, code.group(1)) or {}
+                urls = products[code.group(1)].get("colour_angle_urls") or {}
+            else:
+                page = fetcher.get(entry["url"])
+                bike = SITES[brand][0].parse(page, entry["url"]) if page else None
+                urls = dict(zip((bike or {}).get("color_names") or [], (bike or {}).get("color_angle_urls") or []))
+            angles = {}
+            for colour in entry["colour_images"]:
+                saved = [save_photo(fetcher, brand, compact(name), year, u, colour=colour, angle=n + 1)
+                         for n, u in enumerate(urls.get(colour) or [])]
+                if any(saved):
+                    angles[colour] = [rel for rel in saved if rel]
+            entry["colour_angles"] = angles
+            log.info("%s %s %s: %d angles", brand, name, year, sum(len(a) for a in angles.values()))
+            with open(path, "w", encoding="utf-8") as fh:  # after each year, so a stopped run keeps its work
+                json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
+
+
 def trek_codes(cdx_folder):
     """Every Trek road and gravel bike product number in the Wayback Machine listings."""
     codes = set()
@@ -164,14 +201,23 @@ def trek_product(fetcher, code):
     # Each colour's own side view: a variant names its colour swatch and the photo set ("A", "B") it's shown in.
     by_swatch = {o.get("value"): o["displayName"] for o in options}
     sets = {g.get("imageOption"): [i["assetId"] for i in g.get("images") or []] for g in full.get("assetImageList") or []}
-    colour_images = {}
+    images_by_set = {g.get("imageOption"): [{"assetId": i["assetId"], "weight": i.get("weight") or 0,
+                                             "accessorized": bool(i.get("accessorized"))} for i in g.get("images") or []]
+                     for g in full.get("assetImageList") or []}
+    colour_images, colour_angles = {}, {}
     for v in full.get("variants") or []:
         swatch = next((a.get("value") for a in v.get("variantAttributes") or [] if a.get("key") == "bike_colorSwatch"), None)
         side = next((i for i in sets.get(v.get("imageOption")) or [] if re.search(r"[-_]Primary$", i)), None)
         if by_swatch.get(swatch) and side:
             colour_images.setdefault(by_swatch[swatch], f"https://media.trekbikes.com/image/upload/f_png,w_1200/{side}")
+        # The other angles of that colour, in Trek's own order; not the portrait crop or the bike with accessories.
+        others = sorted((i for i in images_by_set.get(v.get("imageOption")) or []
+                         if not i["accessorized"] and re.search(r"[-_]Alt\d+$", i["assetId"])), key=lambda i: i["weight"])
+        if by_swatch.get(swatch) and others:
+            colour_angles.setdefault(by_swatch[swatch], [
+                f"https://media.trekbikes.com/image/upload/f_png,w_1200/{i['assetId']}" for i in others])
     return {"code": code, "name": full.get("name") or "", "years": trek_years(full.get("modelYearIntroAndCurrent")),
-            "colours": colours, "colour_image_urls": colour_images,
+            "colours": colours, "colour_image_urls": colour_images, "colour_angle_urls": colour_angles,
             "url": "https://www.trekbikes.com/nl/nl_NL" + (full.get("url") or f"/p/{code}/"),
             "sheet_years": full.get("modelYearIntroAndCurrent"), "specs": normalize_specs(pairs),
             "image_url": f"https://media.trekbikes.com/image/upload/f_png,w_1200/{primary}" if primary else None}
@@ -279,8 +325,13 @@ if __name__ == "__main__":
     ap.add_argument("--last", type=int, default=date.today().year)
     ap.add_argument("--cdx", help="folder with the Wayback Machine listings (for Trek's product numbers)")
     ap.add_argument("--colours", action="store_true", help="only add each colour's photo to the years already read")
+    ap.add_argument("--angles", action="store_true", help="only add each colour's other angles to the years already read")
     args = ap.parse_args()
     brands = [b for b in [*SITES, "Trek"] if b.lower() in {a.lower() for a in args.brands}]
+    if args.angles:
+        for brand in brands:
+            add_angles(brand)
+        raise SystemExit
     if args.colours:
         for brand in brands:
             add_colour_photos(brand)
