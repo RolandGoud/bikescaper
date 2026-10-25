@@ -103,7 +103,7 @@ p { margin: 0; }
 .hero .lede { font-size: 19px; max-width: 560px; color: #DCDCE4; }
 .hero-bike { width: 100%; max-width: 420px; margin-top: 4px; }
 /* one of the hero photos, picked per visit; the overlay keeps headline and form readable */
-.hero.has-bg { background-image: linear-gradient(90deg, rgba(16,17,20,.90) 0%, rgba(16,17,20,.70) 40%, rgba(16,17,20,.38) 100%),
+.hero.has-bg, .sell-hero.has-bg { background-image: linear-gradient(90deg, rgba(16,17,20,.90) 0%, rgba(16,17,20,.70) 40%, rgba(16,17,20,.38) 100%),
   linear-gradient(0deg, rgba(16,17,20,.75) 0%, rgba(16,17,20,0) 30%), var(--hero-bg); background-size: cover; background-position: var(--hero-pos, center); }
 .hero-credit { position: absolute; right: 12px; bottom: 8px; margin: 0; font-size: 11px; color: rgba(255,255,255,.55); font-family: var(--mono); }
 .hero-credit a { color: inherit; }
@@ -117,7 +117,7 @@ p { margin: 0; }
 }
 @media (max-width: 640px) {
   .hero .check-form { grid-template-columns: minmax(0, 1fr); }
-  .hero.has-bg { background-image: linear-gradient(180deg, rgba(16,17,20,.62) 0%, rgba(16,17,20,.78) 50%, rgba(16,17,20,.85) 100%), var(--hero-bg); }
+  .hero.has-bg, .sell-hero.has-bg { background-image: linear-gradient(180deg, rgba(16,17,20,.62) 0%, rgba(16,17,20,.78) 50%, rgba(16,17,20,.85) 100%), var(--hero-bg); }
 }
 
 /* forms */
@@ -137,7 +137,8 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .btn.ghost:hover { background: var(--raised); color: var(--text); }
 /* link or manual: the unchecked mode's fields are hidden; the grid sees the rest as its own children */
 .mode-fields { display: contents; }
-.check-form:has(#mode-link:checked) .manual-fields, .check-form:has(#mode-manual:checked) .link-fields { display: none; }
+.check-form:has(#mode-link:checked) .manual-fields, .check-form:has(#mode-manual:checked) .link-fields,
+.draft-form:has(#sell-mode-link:checked) .manual-fields, .draft-form:has(#sell-mode-manual:checked) .link-fields { display: none; }
 .mode-switch { flex-direction: row; gap: 0; padding: 4px; border-radius: 8px; background: #2A2B33; justify-self: start; }
 .light .mode-switch { background: var(--line); }
 .mode-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
@@ -199,6 +200,9 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .card.dark { background: var(--raised); color: #fff; border: 0; }
 .tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 .tile .mono { color: var(--link); }
+.tile-head { display: flex; align-items: center; gap: 12px; }
+.tile-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--ok-bg); color: var(--accent); }
+.tile-icon .part-icon { width: 24px; height: 24px; color: inherit; }
 .listing-card { text-decoration: none; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
 .listing-card:hover { color: var(--text); border-color: var(--line-strong); }
 .listing-card .photo { aspect-ratio: 16 / 9; background: var(--photo-bg); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
@@ -278,8 +282,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .lb-label .lb-colour:not(:empty)::before { content: "· "; }
 @media (max-width: 700px) { .lb-label { bottom: 84px; flex-wrap: wrap; gap: 8px; } }
 .lb-empty { color: #DCDCE4; font-size: 16px; }
-.gallery-thumb { flex: 0 0 64px; padding: 0; border: 1px solid var(--faint); border-radius: 8px; background: var(--photo-bg); cursor: pointer; overflow: hidden; }
-.gallery-thumb img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; }
+.gallery-thumb { flex: 0 0 64px; padding: 0; border: 1px solid var(--faint); border-radius: 8px; background: var(--card); display: flex; flex-direction: column; cursor: pointer; overflow: hidden; }
+.gallery-thumb img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: var(--photo-bg); }
 .gallery-year { display: block; font: 600 11px/1.6 var(--mono); color: var(--muted); background: var(--card); }
 .gallery-thumb[aria-pressed="true"] { border: 3px solid var(--accent); box-shadow: 0 0 0 2px rgba(52, 211, 153, .35); }
 .gallery-thumb[aria-pressed="true"] .gallery-year { color: var(--accent); }
@@ -513,7 +517,8 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .tier.t4 { background: var(--accent); color: var(--ink); }
 .tier.t5 { background: var(--text); color: var(--ink); }
 .spec-group h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.kv div.rated { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.kv div.rated { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-right: 12px; }
+.rated-end { display: inline-flex; align-items: center; gap: 8px; flex: none; }
 .tier-dot { flex: none; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; font-weight: 600; background: var(--faint); color: var(--muted); }
 .tier-dot.t3 { background: var(--tier3-bg); color: var(--tier3); }
 .tier-dot.t4 { background: #26A574; color: var(--ink); }
@@ -737,7 +742,7 @@ select { max-width: 100%; }
 @media (max-width: 640px) { .mini-facts > div:nth-child(even) .note-tip p { left: auto; right: -12px; } }
 
 /* selling page: a draft ad in, a better ad out (templates/sell.html) */
-.sell-hero { background: var(--ink); color: #fff; }
+.sell-hero { position: relative; background: var(--ink); color: #fff; }
 .sell-hero .wrap { padding-top: 40px; padding-bottom: 40px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
 .sell-hero .kicker { color: var(--accent-soft); text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--mono); font-size: 13px; }
 .sell-hero h1 { font-size: clamp(34px, 4vw, 54px); line-height: 0.95; margin-top: 10px; max-width: 600px; }
@@ -996,3 +1001,26 @@ select { max-width: 100%; }
 .shop-links { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
 .stolen-check { margin: 0; padding: 12px 14px; border-radius: 10px; background: rgba(255, 255, 255, .06); font-size: 14px; }
 .stolen-check a { font-weight: 700; }
+.move { display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 11px; font-weight: 600; white-space: nowrap; vertical-align: 1px; }
+.move.up { background: var(--ok-bg); color: var(--accent); }
+.move.down { background: var(--bad-bg); color: var(--bad); }
+/* Selling page: one checked ad next to the ad we would write for it, paged with the arrows. */
+.example { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.example[hidden] { display: none; }
+.example-photo { display: block; border-radius: 12px; overflow: hidden; background: #fff; min-height: 260px; }
+.example-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.example-col { border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.example-col h4 { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; margin: 0; }
+.example-col.before h4 { color: var(--bad); }
+.example-col.after h4 { color: var(--accent); }
+.example-col .t { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
+.example-text { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); white-space: pre-line; overflow-wrap: anywhere; }
+.example-col .miss { margin: 0; font-size: 13px; color: var(--muted); }
+.example-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.example-chips span { font-size: 12px; padding: 3px 9px; border-radius: 99px; background: var(--ok-bg); color: var(--accent); }
+.example-price { margin-top: auto; display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.example-price b { color: var(--text); }
+@media (max-width: 900px) {
+  .example { grid-template-columns: 1fr; }
+  .example-photo { min-height: 0; aspect-ratio: 4 / 3; }
+}

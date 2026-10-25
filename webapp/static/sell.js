@@ -45,3 +45,18 @@
     });
   }
 })();
+
+// The examples of improved ads: one at a time, paged with the arrows.
+(function () {
+  var box = document.querySelector(".examples");
+  if (!box) return;
+  var items = box.querySelectorAll(".example"), count = box.querySelector(".row-count"), at = 0;
+  function show(i) {
+    at = (i + items.length) % items.length;
+    items.forEach(function (el, n) { el.hidden = n !== at; });
+    if (count) count.textContent = (at + 1) + " / " + items.length;
+  }
+  var prev = box.querySelector(".ex-prev"), next = box.querySelector(".ex-next");
+  if (prev) prev.addEventListener("click", function () { show(at - 1); });
+  if (next) next.addEventListener("click", function () { show(at + 1); });
+})();

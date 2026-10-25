@@ -4,6 +4,9 @@
   "Contend AR 1": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Metallic Navy": "Giant/years/contendar1_2021_metallicnavy_site.jpg"
+    },
     "colours": [
      "Metallic Navy"
     ],
@@ -39,6 +42,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black": "Giant/years/contendar1_2022_black_site.jpg"
+    },
     "colours": [
      "Black"
     ],
@@ -75,6 +81,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Panther": "Giant/years/contendar1_2024_panther_site.jpg",
+     "Sea Sparkle": "Giant/years/contendar1_2024_seasparkle_site.jpg"
+    },
     "colours": [
      "Sea Sparkle",
      "Panther"
@@ -112,6 +122,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Frost Silver/Chrome": "Giant/years/contendar1_2025_frostsilverchrome_site.jpg"
+    },
     "colours": [
      "Frost Silver/Chrome"
     ],
@@ -149,6 +162,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Abyss Black": "Giant/years/contendar1_2026_abyssblack_site.jpg"
+    },
     "colours": [
      "Abyss Black"
     ],
@@ -187,6 +203,9 @@
   "Contend AR 3": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Metallic Black/Rainbow White": "Giant/years/contendar3_2021_metallicblackrainbowwhite_site.jpg"
+    },
     "colours": [
      "Metallic Black/Rainbow White"
     ],
@@ -222,6 +241,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black Chrome": "Giant/years/contendar3_2022_blackchrome_site.jpg"
+    },
     "colours": [
      "Black Chrome"
     ],
@@ -258,6 +280,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Aged Denim": "Giant/years/contendar3_2024_ageddenim_site.jpg",
+     "Charcoal": "Giant/years/contendar3_2024_charcoal_site.jpg"
+    },
     "colours": [
      "Aged Denim",
      "Charcoal"
@@ -295,6 +321,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black": "Giant/years/contendar3_2025_black_site.jpg"
+    },
     "colours": [
      "Black"
     ],
@@ -334,6 +363,9 @@
   "Defy Advanced 0": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Ocean Twilight/Chrome": "Giant/years/defyadvanced0_2025_oceantwilightchrome_site.jpg"
+    },
     "colours": [
      "Ocean Twilight/Chrome"
     ],
@@ -370,6 +402,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Meteorite Mist": "Giant/years/defyadvanced0_2026_meteoritemist_site.jpg"
+    },
     "colours": [
      "Meteorite Mist"
     ],
@@ -407,6 +442,7 @@
   "Defy Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -439,6 +475,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/Yellow/Charcoal"
     ],
@@ -471,6 +508,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Pure Red"
     ],
@@ -505,6 +543,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Charcoal / Pure Red"
     ],
@@ -539,6 +578,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon/Charcoal/Chrome"
     ],
@@ -574,6 +614,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon / Starry Night": "Giant/years/defyadvanced1_2022_carbonstarrynight_site.jpg"
+    },
     "colours": [
      "Carbon / Starry Night"
     ],
@@ -610,6 +653,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Charcoal/Milky Way": "Giant/years/defyadvanced1_2024_charcoalmilkyway_site.jpg"
+    },
     "colours": [
      "Charcoal/Milky Way"
     ],
@@ -646,6 +692,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Frost Silver/Cordovan": "Giant/years/defyadvanced1_2025_frostsilvercordovan_site.jpg"
+    },
     "colours": [
      "Frost Silver/Cordovan"
     ],
@@ -682,6 +731,10 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Cyber Lime": "Giant/years/defyadvanced1_2026_cyberlime_site.jpg",
+     "Thundercloud/Chrome": "Giant/years/defyadvanced1_2026_thundercloudchrome_site.jpg"
+    },
     "colours": [
      "Thundercloud/Chrome",
      "Cyber Lime"
@@ -722,6 +775,7 @@
   "Defy Advanced 2": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -754,6 +808,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Neon Green/Black",
      "Carbon Smoke/Neon Orange/Charcoal"
@@ -788,6 +843,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gray / Gun Metal Black"
     ],
@@ -822,6 +878,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gunmetal Black / Metallic Orange"
     ],
@@ -856,6 +913,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon/Charcoal"
     ],
@@ -891,6 +949,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Lake / Black": "Giant/years/defyadvanced2_2022_deeplakeblack_site.jpg"
+    },
     "colours": [
      "Deep Lake / Black"
     ],
@@ -927,6 +988,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Tiger Red/Dried Chili": "Giant/years/defyadvanced2_2024_tigerreddriedchili_site.jpg"
+    },
     "colours": [
      "Tiger Red/Dried Chili"
     ],
@@ -963,6 +1027,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon": "Giant/years/defyadvanced2_2025_carbon_site.jpg"
+    },
     "colours": [
      "Carbon"
     ],
@@ -998,6 +1065,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Abyss Black/Chrome": "Giant/years/defyadvanced2_2026_abyssblackchrome_site.jpg"
+    },
     "colours": [
      "Abyss Black/Chrome"
     ],
@@ -1035,6 +1105,7 @@
   "Defy Advanced 3": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -1067,6 +1138,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Orange",
      "Carbon"
@@ -1102,6 +1174,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Charcoal/Black/Chameleon Galaxy"
     ],
@@ -1139,6 +1212,7 @@
   "Defy Advanced Pro 0": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -1172,6 +1246,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/Chrome/Charcoal"
     ],
@@ -1205,6 +1280,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gun Metal Black / Iris"
     ],
@@ -1240,6 +1316,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Chrysocolla/Gloss Chrysocolla"
     ],
@@ -1275,6 +1352,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon/BlueDragonfly": "Giant/years/defyadvancedpro0_2024_carbonbluedragonfly_site.jpg"
+    },
     "colours": [
      "Carbon/BlueDragonfly"
     ],
@@ -1311,6 +1391,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Interstellar": "Giant/years/defyadvancedpro0_2025_interstellar_site.jpg"
+    },
     "colours": [
      "Interstellar"
     ],
@@ -1347,6 +1430,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Mariana Blue": "Giant/years/defyadvancedpro0_2026_marianablue_site.jpg"
+    },
     "colours": [
      "Mariana Blue"
     ],
@@ -1384,6 +1470,7 @@
   "Defy Advanced Pro 1": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Electric Blue"
     ],
@@ -1419,6 +1506,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Knight Shield / Black Diamond / Chrome": "Giant/years/defyadvancedpro1_2022_knightshieldblackdiamondchrome_site.jpg"
+    },
     "colours": [
      "Knight Shield / Black Diamond / Chrome"
     ],
@@ -1455,6 +1545,7 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Airglow/Black"
     ],
@@ -1491,6 +1582,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Unicorn White/Black/Chrome": "Giant/years/defyadvancedpro1_2024_unicornwhiteblackchrome_site.jpg"
+    },
     "colours": [
      "Unicorn White/Black/Chrome"
     ],
@@ -1527,6 +1621,7 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Meteor Storm"
     ],
@@ -1562,6 +1657,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "White/Iris": "Giant/years/defyadvancedpro1_2026_whiteiris_site.jpg"
+    },
     "colours": [
      "White/Iris"
     ],
@@ -1600,6 +1698,7 @@
   "FastRoad AR 1": {
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Aged Denim"
     ],
@@ -1636,6 +1735,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Sandshell": "Giant/years/fastroadar1_2024_sandshell_site.jpg"
+    },
     "colours": [
      "Sandshell"
     ],
@@ -1672,6 +1774,7 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Electron Blue"
     ],
@@ -1711,6 +1814,9 @@
   "FastRoad AR 2": {
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Panther": "Giant/years/fastroadar2_2024_panther_site.jpg"
+    },
     "colours": [
      "Panther"
     ],
@@ -1747,6 +1853,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Glacier Silver": "Giant/years/fastroadar2_2025_glaciersilver_site.jpg"
+    },
     "colours": [
      "Glacier Silver"
     ],
@@ -1786,6 +1895,7 @@
   "Propel Advanced 0": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -1818,6 +1928,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/titanium Silver"
     ],
@@ -1850,6 +1961,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Neon Yellow / Black"
     ],
@@ -1886,6 +1998,7 @@
   "Propel Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp/Blue"
     ],
@@ -1918,6 +2031,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/Green"
     ],
@@ -1950,6 +2064,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Pure Red"
     ],
@@ -1984,6 +2099,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "White / Chameleon Blue"
     ],
@@ -2018,6 +2134,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Orion Nebula": "Giant/years/propeladvanced1_2023_orionnebula_site.jpg"
+    },
     "colours": [
      "Orion Nebula"
     ],
@@ -2055,6 +2174,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Aerospace Blue/Chrome": "Giant/years/propeladvanced1_2024_aerospacebluechrome_site.jpg"
+    },
     "colours": [
      "Aerospace Blue/Chrome"
     ],
@@ -2092,6 +2214,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Dragonfly": "Giant/years/propeladvanced1_2025_bluedragonfly_site.jpg"
+    },
     "colours": [
      "Blue Dragonfly"
     ],
@@ -2130,6 +2255,7 @@
   "Propel Advanced 2": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -2162,6 +2288,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Neon Red/Black"
     ],
@@ -2194,6 +2321,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Vibrant Blue"
     ],
@@ -2228,6 +2356,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Charcoal / Gloss Metallic Lime"
     ],
@@ -2262,6 +2391,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Cobalt": "Giant/years/propeladvanced2_2023_cobalt_site.jpg"
+    },
     "colours": [
      "Cobalt"
     ],
@@ -2299,6 +2431,7 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Pure Red"
     ],
@@ -2336,6 +2469,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon/Chrome": "Giant/years/propeladvanced2_2025_carbonchrome_site.jpg"
+    },
     "colours": [
      "Carbon/Chrome"
     ],
@@ -2374,6 +2510,9 @@
   "Propel Advanced Pro 0-Di2": {
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black Currant/Chrome": "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_site.jpg"
+    },
     "colours": [
      "Black Currant/Chrome"
     ],
@@ -2411,6 +2550,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Mercury": "Giant/years/propeladvancedpro0di2_2025_mercury_site.jpg"
+    },
     "colours": [
      "Ocean Twilight/Chrome",
      "Mercury"
@@ -2450,6 +2592,7 @@
   "Propel Advanced Pro 1": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Metallic Black / Glacier Silver"
     ],
@@ -2485,6 +2628,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Matte Carbon/Gloss Black": "Giant/years/propeladvancedpro1_2024_mattecarbonglossblack_site.jpg"
+    },
     "colours": [
      "Matte Carbon/Gloss Black"
     ],
@@ -2522,6 +2668,7 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Frost Silver"
     ],
@@ -2560,6 +2707,7 @@
   "Revolt 0": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gray Beige"
     ],
@@ -2594,6 +2742,9 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Gunmetal Black": "Giant/years/revolt0_2021_gunmetalblack_site.jpg"
+    },
     "colours": [
      "Gunmetal Black"
     ],
@@ -2628,6 +2779,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black": "Giant/years/revolt0_2022_black_site.jpg"
+    },
     "colours": [
      "Black"
     ],
@@ -2664,6 +2818,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Dragonfly": "Giant/years/revolt0_2024_bluedragonfly_site.jpg",
+     "Pyrite Brown": "Giant/years/revolt0_2024_pyritebrown_site.jpg"
+    },
     "colours": [
      "Blue Dragonfly",
      "Pyrite Brown"
@@ -2701,6 +2859,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black/Moonstone": "Giant/years/revolt0_2025_blackmoonstone_site.jpg",
+     "Mars Dust": "Giant/years/revolt0_2025_marsdust_site.jpg"
+    },
     "colours": [
      "Black/Moonstone",
      "Mars Dust"
@@ -2737,6 +2899,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Stealth Chrome": "Giant/years/revolt0_2026_stealthchrome_site.jpg"
+    },
     "colours": [
      "Stealth Chrome"
     ],
@@ -2774,6 +2939,7 @@
   "Revolt 1": {
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gunmetal Black"
     ],
@@ -2808,6 +2974,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Desert Sage"
     ],
@@ -2842,6 +3009,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Deep Lake": "Giant/years/revolt1_2022_deeplake_site.jpg"
+    },
     "colours": [
      "Deep Lake"
     ],
@@ -2878,6 +3048,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Aerospace Blue": "Giant/years/revolt1_2024_aerospaceblue_site.jpg",
+     "Cordovan": "Giant/years/revolt1_2024_cordovan_site.jpg"
+    },
     "colours": [
      "Cordovan",
      "Aerospace Blue"
@@ -2915,6 +3089,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Metal/Shoreline": "Giant/years/revolt1_2025_metalshoreline_site.jpg"
+    },
     "colours": [
      "Metal/Shoreline"
     ],
@@ -2950,6 +3127,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Alpine Green": "Giant/years/revolt1_2026_alpinegreen_site.jpg"
+    },
     "colours": [
      "Alpine Green"
     ],
@@ -2987,6 +3167,9 @@
   "Revolt 2": {
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black Diamond": "Giant/years/revolt2_2022_blackdiamond_site.jpg"
+    },
     "colours": [
      "Black Diamond"
     ],
@@ -3023,6 +3206,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Metallic Black": "Giant/years/revolt2_2024_metallicblack_site.jpg"
+    },
     "colours": [
      "Metallic Black"
     ],
@@ -3059,6 +3245,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Asphalt Green": "Giant/years/revolt2_2025_asphaltgreen_site.jpg"
+    },
     "colours": [
      "Asphalt Green"
     ],
@@ -3096,6 +3285,7 @@
   "Revolt Advanced 0": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Carbon / Gloss Carbon"
     ],
@@ -3130,6 +3320,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gray Teal"
     ],
@@ -3164,6 +3355,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Balsam Green"
     ],
@@ -3198,6 +3390,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Knight Shield": "Giant/years/revoltadvanced0_2022_knightshield_site.jpg"
+    },
     "colours": [
      "Knight Shield"
     ],
@@ -3234,6 +3429,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Charcoal Plum": "Giant/years/revoltadvanced0_2023_charcoalplum_site.jpg"
+    },
     "colours": [
      "Charcoal Plum"
     ],
@@ -3270,6 +3468,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon": "Giant/years/revoltadvanced0_2024_carbon_site.jpg"
+    },
     "colours": [
      "Carbon"
     ],
@@ -3306,6 +3507,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Aurora Noise": "Giant/years/revoltadvanced0_2025_auroranoise_site.jpg"
+    },
     "colours": [
      "Aurora Noise"
     ],
@@ -3341,6 +3545,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Snow Drift": "Giant/years/revoltadvanced0_2026_snowdrift_site.jpg"
+    },
     "colours": [
      "Snow Drift"
     ],
@@ -3379,6 +3586,7 @@
   "Revolt Advanced 1": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gray / Olive / Chrome"
     ],
@@ -3413,6 +3621,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Wine Purple"
     ],
@@ -3448,6 +3657,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Phantom Green": "Giant/years/revoltadvanced1_2022_phantomgreen_site.jpg"
+    },
     "colours": [
      "Phantom Green"
     ],
@@ -3484,6 +3696,9 @@
    },
    "2023": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Cordovan": "Giant/years/revoltadvanced1_2023_cordovan_site.jpg"
+    },
     "colours": [
      "Cordovan"
     ],
@@ -3521,6 +3736,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Ashes": "Giant/years/revoltadvanced1_2024_blueashes_site.jpg"
+    },
     "colours": [
      "Blue Ashes"
     ],
@@ -3557,6 +3775,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Ocean Twilight": "Giant/years/revoltadvanced1_2025_oceantwilight_site.jpg"
+    },
     "colours": [
      "Ocean Twilight"
     ],
@@ -3591,6 +3812,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Midnight Moon": "Giant/years/revoltadvanced1_2026_midnightmoon_site.jpg"
+    },
     "colours": [
      "Midnight Moon"
     ],
@@ -3629,6 +3853,7 @@
   "Revolt Advanced 2": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Metallic Orange / Gun Metal Black"
     ],
@@ -3663,6 +3888,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gray Beige",
      "Blue Atoll"
@@ -3698,6 +3924,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Rosewood"
     ],
@@ -3732,6 +3959,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Panther / Chameleon Saturn": "Giant/years/revoltadvanced2_2022_pantherchameleonsaturn_site.jpg",
+     "Starry Night / Chameleon Neptune": "Giant/years/revoltadvanced2_2022_starrynightchameleonneptune_site.jpg"
+    },
     "colours": [
      "Starry Night / Chameleon Neptune",
      "Panther / Chameleon Saturn"
@@ -3769,6 +4000,10 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Golden Haze": "Giant/years/revoltadvanced2_2024_goldenhaze_site.jpg",
+     "Panther": "Giant/years/revoltadvanced2_2024_panther_site.jpg"
+    },
     "colours": [
      "Golden Haze",
      "Panther"
@@ -3806,6 +4041,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Solar Flare": "Giant/years/revoltadvanced2_2025_solarflare_site.jpg"
+    },
     "colours": [
      "Carbon",
      "Solar Flare"
@@ -3842,6 +4080,10 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon": "Giant/years/revoltadvanced2_2026_carbon_site.jpg",
+     "Lavender Blush": "Giant/years/revoltadvanced2_2026_lavenderblush_site.jpg"
+    },
     "colours": [
      "Carbon",
      "Lavender Blush"
@@ -3880,6 +4122,7 @@
   "Revolt Advanced 3": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Dusty Blue"
     ],
@@ -3914,6 +4157,10 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon": "Giant/years/revoltadvanced3_2022_carbon_site.jpg",
+     "Terracotta": "Giant/years/revoltadvanced3_2022_terracotta_site.jpg"
+    },
     "colours": [
      "Carbon",
      "Terracotta"
@@ -3951,6 +4198,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Metallic Black": "Giant/years/revoltadvanced3_2024_metallicblack_site.jpg"
+    },
     "colours": [
      "Metallic Black"
     ],
@@ -3987,6 +4237,7 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Panther"
     ],
@@ -4022,6 +4273,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Aquarium": "Giant/years/revoltadvanced3_2026_aquarium_site.jpg"
+    },
     "colours": [
      "Aquarium"
     ],
@@ -4059,6 +4313,7 @@
   "Revolt Advanced Pro 0": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Cosmos Navy"
     ],
@@ -4093,6 +4348,9 @@
    },
    "2022": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dark Red / Grenadine": "Giant/years/revoltadvancedpro0_2022_darkredgrenadine_site.jpg"
+    },
     "colours": [
      "Dark Red / Grenadine"
     ],
@@ -4129,6 +4387,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Digital Blurple/Iris": "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_site.jpg"
+    },
     "colours": [
      "Digital Blurple/Iris"
     ],
@@ -4165,6 +4426,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Interstellar/Chrome": "Giant/years/revoltadvancedpro0_2025_interstellarchrome_site.jpg"
+    },
     "colours": [
      "Interstellar/Chrome"
     ],
@@ -4200,6 +4464,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Cyber Lime": "Giant/years/revoltadvancedpro0_2026_cyberlime_site.jpg"
+    },
     "colours": [
      "Cyber Lime"
     ],
@@ -4238,6 +4505,7 @@
   "Revolt Advanced Pro 1": {
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Chameleon Mars"
     ],
@@ -4272,6 +4540,9 @@
    },
    "2024": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Dragonfly/Chrome": "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_site.jpg"
+    },
     "colours": [
      "Blue Dragonfly/Chrome"
     ],
@@ -4308,6 +4579,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Meteor Storm": "Giant/years/revoltadvancedpro1_2025_meteorstorm_site.jpg"
+    },
     "colours": [
      "Meteor Storm"
     ],
@@ -4343,6 +4617,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Ocean Twilight/Chrome": "Giant/years/revoltadvancedpro1_2026_oceantwilightchrome_site.jpg"
+    },
     "colours": [
      "Ocean Twilight/Chrome"
     ],
@@ -4380,6 +4657,7 @@
   "TCR Advanced 0": {
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/ Yellow/Charcoal"
     ],
@@ -4412,6 +4690,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Pure Red / Chrome"
     ],
@@ -4446,6 +4725,7 @@
    },
    "2020": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Chameleon Blue"
     ],
@@ -4480,6 +4760,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Alpine Green": "Giant/years/tcradvanced0_2026_alpinegreen_site.jpg"
+    },
     "colours": [
      "Alpine Green"
     ],
@@ -4517,6 +4800,7 @@
   "TCR Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -4549,6 +4833,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/Neon Orange/Charcoal"
     ],
@@ -4581,6 +4866,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Charcoal / Black / Gold"
     ],
@@ -4615,6 +4901,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Matte Carbon/Gloss Unicorn White"
     ],
@@ -4649,6 +4936,10 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Dreamy Blue": "Giant/years/tcradvanced1_2026_dreamyblue_site.jpg",
+     "Purple Haze/Ultra Violet": "Giant/years/tcradvanced1_2026_purplehazeultraviolet_site.jpg"
+    },
     "colours": [
      "Purple Haze/Ultra Violet",
      "Dreamy Blue"
@@ -4688,6 +4979,7 @@
   "TCR Advanced 2": {
    "2017": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Comp"
     ],
@@ -4720,6 +5012,7 @@
    },
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/Green/Gray",
      "Matt/Neon Red/Black"
@@ -4754,6 +5047,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Metallic Black / Silver / Pure Red",
      "Electric Blue / Metallic Green"
@@ -4789,6 +5083,7 @@
    },
    "2021": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon",
      "Unicorn White"
@@ -4824,6 +5119,10 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon": "Giant/years/tcradvanced2_2025_carbon_site.jpg",
+     "Illusion White": "Giant/years/tcradvanced2_2025_illusionwhite_site.jpg"
+    },
     "colours": [
      "Carbon",
      "Illusion White"
@@ -4861,6 +5160,10 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Capri Blue": "Giant/years/tcradvanced2_2026_capriblue_site.jpg",
+     "Stealth Chrome": "Giant/years/tcradvanced2_2026_stealthchrome_site.jpg"
+    },
     "colours": [
      "Stealth Chrome",
      "Capri Blue"
@@ -4900,6 +5203,7 @@
   "TCR Advanced Pro (Dura-Ace)": {
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Black/Rosso Corsa"
     ],
@@ -4939,6 +5243,10 @@
   "TCR Advanced Pro 0 AXS": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Mercury / Glare Chrome": "Giant/years/tcradvancedpro0axs_2025_mercuryglarechrome_site.jpg",
+     "Ocean Twilight / Glare Chrome": "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_site.jpg"
+    },
     "colours": [
      "Ocean Twilight / Glare Chrome",
      "Mercury / Glare Chrome"
@@ -4978,6 +5286,9 @@
   "TCR Advanced Pro 0-Di2": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Ocean Twilight / Glare Chrome": "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_site.jpg"
+    },
     "colours": [
      "Ocean Twilight / Glare Chrome"
     ],
@@ -5016,6 +5327,9 @@
   "TCR Advanced Pro 1 AXS": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon / Chrome": "Giant/years/tcradvancedpro1axs_2025_carbonchrome_site.jpg"
+    },
     "colours": [
      "Carbon / Chrome"
     ],
@@ -5054,6 +5368,9 @@
   "TCR Advanced Pro 1 Di2": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon / Chrome": "Giant/years/tcradvancedpro1di2_2025_carbonchrome_site.jpg"
+    },
     "colours": [
      "Carbon / Chrome"
     ],
@@ -5090,6 +5407,9 @@
    },
    "2026": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Tech Silver": "Giant/years/tcradvancedpro1di2_2026_techsilver_site.jpg"
+    },
     "colours": [
      "Tech Silver"
     ],
@@ -5127,6 +5447,9 @@
   "TCR Advanced SL 0 DA": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black Lava / Iris": "Giant/years/tcradvancedsl0da_2025_blacklavairis_site.jpg"
+    },
     "colours": [
      "Black Lava / Iris"
     ],
@@ -5165,6 +5488,7 @@
   "TCR Advanced SL 0 Red": {
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon / Reflective Gray / Pure Red"
     ],
@@ -5200,6 +5524,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Black Lava": "Giant/years/tcradvancedsl0red_2025_blacklava_site.jpg"
+    },
     "colours": [
      "Black Lava"
     ],
@@ -5239,6 +5566,7 @@
   "TCR Advanced SL 1": {
    "2018": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon Smoke/Neon Green"
     ],
@@ -5272,6 +5600,7 @@
    },
    "2019": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Gun Metal Black / Light Blue / Chrome"
     ],
@@ -5307,6 +5636,9 @@
    },
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Blue Dragonfly / Iris": "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_site.jpg"
+    },
     "colours": [
      "Blue Dragonfly / Iris"
     ],
@@ -5345,6 +5677,9 @@
   "Trinity Advanced SL 0": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {
+     "Carbon/Prismatic Haze": "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_site.jpg"
+    },
     "colours": [
      "Carbon/Prismatic Haze"
     ],
@@ -5382,6 +5717,7 @@
   "Trinity Advanced SL 1": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon/Matte Carbon"
     ],
@@ -5419,6 +5755,7 @@
   "Trinity Advanced SL Time Trial Frameset": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon/Chrome"
     ],
@@ -5442,6 +5779,7 @@
   "Trinity Advanced SL Triathlon Frameset": {
    "2025": {
     "captured": "2026-10-24",
+    "colour_images": {},
     "colours": [
      "Carbon/Chrome"
     ],

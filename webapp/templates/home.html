@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import check_form, listing_card, brand_label, sponsored_card, sponsored_banner, sponsored_side with context %}
+{% from "_macros.html" import check_form, listing_card, part_icon, brand_label, sponsored_card, sponsored_banner, sponsored_side with context %}
 {% block body %}
 <section class="hero{% if hero_bg %} has-bg{% endif %}"{% if hero_bg %} style="--hero-bg: url('{{ url_for('static', filename='hero/' ~ hero_bg) }}'){% if hero_credit and hero_credit.position %}; --hero-pos: {{ hero_credit.position }}{% endif %}"{% endif %}>
   <div class="wrap">
@@ -21,10 +21,10 @@
 <section class="wrap stack" style="padding-top: 64px; padding-bottom: 24px; gap: 28px">
   <h2>{{ _('What a check tells you') }}</h2>
   <div class="grid">
-    <div class="tile"><div class="mono">{{ _('01 · VALUE') }}</div><h3>{{ _('Is the price fair?') }}</h3><p class="muted">{{ _('A fair price range from the new price, age and condition.') }}</p></div>
-    <div class="tile"><div class="mono">{{ _('02 · AGE') }}</div><h3>{{ _('Is it as old as stated?') }}</h3><p class="muted">{{ _('We compare the claimed year with the years the model was sold.') }}</p></div>
-    <div class="tile"><div class="mono">{{ _('03 · SPECS') }}</div><h3>{{ _('Are the parts original?') }}</h3><p class="muted">{{ _('Groupset, frame and brakes are checked against the factory spec sheet.') }}</p></div>
-    <div class="tile"><div class="mono">{{ _('04 · SIZE') }}</div><h3>{{ _('Will it fit you?') }}</h3><p class="muted">{{ _('The frame size is turned into a rider height range.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('value') }}</span><span class="mono">{{ _('01 · VALUE') }}</span></div><h3>{{ _('Is the price fair?') }}</h3><p class="muted">{{ _('A fair price range from the new price, age and condition.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('age') }}</span><span class="mono">{{ _('02 · AGE') }}</span></div><h3>{{ _('Is it as old as stated?') }}</h3><p class="muted">{{ _('We compare the claimed year with the years the model was sold.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('groupset') }}</span><span class="mono">{{ _('03 · SPECS') }}</span></div><h3>{{ _('Are the parts original?') }}</h3><p class="muted">{{ _('Groupset, frame and brakes are checked against the factory spec sheet.') }}</p></div>
+    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('size') }}</span><span class="mono">{{ _('04 · SIZE') }}</span></div><h3>{{ _('Will it fit you?') }}</h3><p class="muted">{{ _('The frame size is turned into a rider height range.') }}</p></div>
   </div>
 </section>
 

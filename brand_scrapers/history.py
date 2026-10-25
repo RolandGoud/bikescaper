@@ -11,6 +11,7 @@ day it was captured):
   the years before the current one (gen 4).
 
     python -m brand_scrapers.history giant trek --cdx <cdx dir> [--db instance/bikecompare.sqlite3]
+    python -m brand_scrapers.history giant trek --colours   # each colour's photo for the years already read
 
 Writes data/years/site/<Brand>.json ({"checked_on", "years", "source", "models": {name: {year:
 {captured, url, source, specs, price, image}}}}), which webapp/seed.py merges over
@@ -47,12 +48,12 @@ SITES = {
 }
 
 
-def save_photo(fetcher, brand, slug, year, url, width=1000):
+def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None):
     import html
     url = html.unescape((url or "").strip("\"'"))  # Giant's 2017 pages quote the og:image URL
     if not url:
         return None
-    rel = f"{brand}/years/{slug}_{year}_site.jpg"
+    rel = f"{brand}/years/{slug}_{year}{'_' + compact(colour) if colour else ''}_site.jpg"
     path = os.path.join(ROOT, "images", rel)
     if os.path.exists(path):
         return rel
@@ -82,6 +83,42 @@ TREK_API = "https://api.trekbikes.com/occ/v2/nl/products/{code}/{kind}?lang=nl_N
 # Numbers with a model year attached (1404000-2017) are from before 2018 and unknown to the API.
 TREK_ROAD = re.compile(r"/fietsen/(?:racefietsen|gravel|cyclocross|triathlon)[^?]*/[pa]/(\d+)(?![\d-])")
 TREK_SKIP = re.compile(r"elektrisch|e-bike|kinder|frameset|\brim\b|velg|dames|women", re.I)
+
+
+def colour_photos(fetcher, brand, slug, year, urls):
+    """{colour: saved photo} for the colours we found a photo of that year."""
+    saved = {c: save_photo(fetcher, brand, slug, year, u, colour=c) for c, u in (urls or {}).items() if u}
+    return {c: rel for c, rel in saved.items() if rel}
+
+
+def add_colour_photos(brand, fetcher=None):
+    """Each colour's photo for the model years already in data/years/site/<Brand>.json, read again from the
+    page or product the entry came from; the rest of the entry stays as it is."""
+    path = os.path.join(ROOT, "data", "years", "site", f"{brand}.json")
+    with open(path, encoding="utf-8") as fh:
+        data = json.load(fh)
+    if fetcher is None:
+        fetcher = Fetcher(delays=SITES[brand][3]) if brand in SITES else Fetcher(delay=1.0)
+    products = {}
+    for name, entries in data["models"].items():
+        for year, entry in entries.items():
+            if entry.get("source") != "site" or len(entry.get("colours") or []) < 1 or entry.get("colour_images"):
+                continue
+            if brand == "Trek":
+                code = re.search(r"/[pa]/(\d+)", entry["url"])
+                if not code:
+                    continue
+                if code.group(1) not in products:
+                    products[code.group(1)] = trek_product(fetcher, code.group(1)) or {}
+                urls = products[code.group(1)].get("colour_image_urls")
+            else:
+                page = fetcher.get(entry["url"])
+                bike = SITES[brand][0].parse(page, entry["url"]) if page else None
+                urls = dict(zip((bike or {}).get("color_names") or [], (bike or {}).get("color_image_urls") or []))
+            entry["colour_images"] = colour_photos(fetcher, brand, compact(name), year, urls)
+            log.info("%s %s %s: %d of %d colours", brand, name, year, len(entry["colour_images"]), len(entry["colours"]))
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
 
 
 def trek_codes(cdx_folder):
@@ -121,10 +158,20 @@ def trek_product(fetcher, code):
     # The side-on shot of the whole bike ("...-A-Primary"); the others are close-ups and portraits.
     primary = next((i for i in images if re.search(r"[-_]Primary$", i)), None)
     # The colours it came in that year ("Crimson", "Plasma Pearl Grey/Purple Flip"), for dating an ad by its colour.
-    colours = [o["displayName"] for a in full.get("variantAttributesDirectory") or [] for o in a.get("options") or []
+    options = [o for a in full.get("variantAttributesDirectory") or [] for o in a.get("options") or []
                if o.get("colorSwatchName") and o.get("displayName")]
+    colours = [o["displayName"] for o in options]
+    # Each colour's own side view: a variant names its colour swatch and the photo set ("A", "B") it's shown in.
+    by_swatch = {o.get("value"): o["displayName"] for o in options}
+    sets = {g.get("imageOption"): [i["assetId"] for i in g.get("images") or []] for g in full.get("assetImageList") or []}
+    colour_images = {}
+    for v in full.get("variants") or []:
+        swatch = next((a.get("value") for a in v.get("variantAttributes") or [] if a.get("key") == "bike_colorSwatch"), None)
+        side = next((i for i in sets.get(v.get("imageOption")) or [] if re.search(r"[-_]Primary$", i)), None)
+        if by_swatch.get(swatch) and side:
+            colour_images.setdefault(by_swatch[swatch], f"https://media.trekbikes.com/image/upload/f_png,w_1200/{side}")
     return {"code": code, "name": full.get("name") or "", "years": trek_years(full.get("modelYearIntroAndCurrent")),
-            "colours": colours,
+            "colours": colours, "colour_image_urls": colour_images,
             "url": "https://www.trekbikes.com/nl/nl_NL" + (full.get("url") or f"/p/{code}/"),
             "sheet_years": full.get("modelYearIntroAndCurrent"), "specs": normalize_specs(pairs),
             "image_url": f"https://media.trekbikes.com/image/upload/f_png,w_1200/{primary}" if primary else None}
@@ -158,7 +205,8 @@ def trek_collect(models, fetcher, years, codes):
                         "captured": today, "url": p["url"], "source": "site", "sheet_years": p["sheet_years"],
                         "sheet_name": p["name"] if compact(p["name"]) != compact(name) else None,
                         "specs": p["specs"], "price": None, "colours": p["colours"],
-                        "image": save_photo(fetcher, "Trek", compact(name), year, p["image_url"])}
+                        "image": save_photo(fetcher, "Trek", compact(name), year, p["image_url"]),
+                        "colour_images": colour_photos(fetcher, "Trek", compact(name), year, p["colour_image_urls"])}
         log.info("Trek %s: %s", name, sorted(found.get(name, {})))
     return found
 
@@ -183,7 +231,9 @@ def collect(brand, models, fetcher, years):
             found.setdefault(name, {})[str(year)] = {
                 "captured": today, "url": page_url, "source": "site", "specs": specs,
                 "price": bike.get("price"), "colours": bike.get("color_names") or [],
-                "image": save_photo(fetcher, brand, compact(name), year, bike.get("image_url"))}
+                "image": save_photo(fetcher, brand, compact(name), year, bike.get("image_url")),
+                "colour_images": colour_photos(fetcher, brand, compact(name), year, dict(
+                    zip(bike.get("color_names") or [], bike.get("color_image_urls") or [])))}
         log.info("%s %s: %s", brand, name, sorted(found.get(name, {})))
     return found
 
@@ -228,7 +278,12 @@ if __name__ == "__main__":
     ap.add_argument("--first", type=int, default=FIRST_YEAR)
     ap.add_argument("--last", type=int, default=date.today().year)
     ap.add_argument("--cdx", help="folder with the Wayback Machine listings (for Trek's product numbers)")
+    ap.add_argument("--colours", action="store_true", help="only add each colour's photo to the years already read")
     args = ap.parse_args()
     brands = [b for b in [*SITES, "Trek"] if b.lower() in {a.lower() for a in args.brands}]
+    if args.colours:
+        for brand in brands:
+            add_colour_photos(brand)
+        raise SystemExit
     for brand, counts in run(brands, args.db, range(args.first, args.last + 1), args.cdx).items():
         print(brand, counts)

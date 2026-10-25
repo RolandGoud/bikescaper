@@ -305,18 +305,19 @@ def year_tabs(model, today=None):
     """One tab per catalogue year from FIRST_SPEC_YEAR (or the model's earliest sheet) to this year, for
     the spec sheet on the model page.
 
-    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed}. state is "scrape"
+    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed, moves}. state is "scrape"
     (our own catalogue scrape), "archive" (a Wayback Machine copy of the brand's page),
     "unreadable" (a copy without a spec list), "none" (no copy of the model's page that year) or
     "unchecked" (the archive wasn't searched for this brand). specs and tiers are as spec_groups()
     and spec_tiers() give them, and changed holds the English labels whose value differs from the
-    previous year with specs.
+    previous year with specs; moves maps those that are rated both years to "up" or "down". Rows
+    keep one order across the years.
     """
     today = today or date.today()
     found = model.get("year_specs") or {}
     archived, checked = found.get("years") or {}, set(found.get("checked") or [])
     own_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
-    tabs, before = [], None
+    tabs, before, before_tiers = [], None, None
     # Earlier years only show for a model that has a sheet from then (Giant keeps some 2017 pages).
     first = min([FIRST_SPEC_YEAR] + [int(y) for y, e in archived.items() if e.get("specs")])
     for year in range(first, max(today.year, own_year or 0) + 1):
@@ -336,9 +337,28 @@ def year_tabs(model, today=None):
             values = {en: v for _g, rows in tab["specs"] for en, _nl, v in rows}
             tab["changed"] = set() if before is None else {
                 en for en in values.keys() | before.keys() if not _same(values.get(en, ""), before.get(en, ""))}
-            before = values
+            # A changed part rated both years is an upgrade or a downgrade on the year before.
+            tab["moves"] = {en: "up" if tab["tiers"]["rows"][en] > before_tiers[en] else "down"
+                            for en in tab["changed"] if en in tab["tiers"]["rows"] and en in (before_tiers or {})
+                            and tab["tiers"]["rows"][en] != before_tiers[en]}
+            before, before_tiers = values, tab["tiers"]["rows"]
         tabs.append(tab)
+    _same_order(tabs)
     return tabs
+
+
+def _same_order(tabs):
+    """Put every year's rows in one order, so a part sits on the same line in each year: the order of
+    our own scrape first, then labels only older sheets have, where they first turn up."""
+    sheets = [t for t in tabs if t.get("specs")]
+    sheets.sort(key=lambda t: t["state"] != "scrape")  # stable: the rest stay oldest first
+    order = {}
+    for t in sheets:
+        for _group, rows in t["specs"]:
+            for en, _nl, _v in rows:
+                order.setdefault(en, len(order))
+    for t in sheets:
+        t["specs"] = [(group, sorted(rows, key=lambda r: order[r[0]])) for group, rows in t["specs"]]
 
 
 # ---------------------------------------------------------------- tiers

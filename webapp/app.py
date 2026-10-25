@@ -174,6 +174,7 @@ def create_app(db_path=None):
 
     app.jinja_env.globals["duo_pick"] = duo_pick
     app.jinja_env.filters["swatch"] = colour_match.swatch
+    app.jinja_env.filters["swatch_css"] = colour_match.swatch_css
     app.jinja_env.globals["ad_title"] = ad_title.parts
 
     def conn():
@@ -585,11 +586,33 @@ def create_app(db_path=None):
                                asking=asking, result=result, shown=shown, history=history,
                                this_year=date.today().year, nav="value")
 
+    def improved_examples(limit=5):
+        """Recently checked ads next to the ad we would write for them, for the Selling page. Only ads
+        read from a public link: drafts typed on the Selling page are never saved."""
+        rows = conn().execute("SELECT * FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL "
+                              "ORDER BY id DESC LIMIT 60").fetchall()
+        found, ads = [], None
+        for row, _n in group_checks(rows):
+            listing = listing_dict(row)
+            ads = ads if ads is not None else prices.known_ads(conn(), models())
+            r = seller.improve(models(), {"title": listing["title"], "description": listing["description"] or "",
+                                          "asking_price": listing["asking_price"], "model_id": listing["model_id"]}, ads=ads)
+            if not r.get("model") or str(r["title"]) == listing["title"]:
+                continue
+            found.append({"listing": listing, "r": r, "photo": duo_pick(listing["photos"], r["model"]),
+                          "added": [f["label"] for f in r["facts"] if f["source"] == "cat"],
+                          "missing": [f["label"] for f in r["facts"] if f["source"] == "open"]})
+            if len(found) == limit:
+                break
+        return found
+
     @app.route("/sell", methods=["GET", "POST"])
     def sell():
         """Help a seller improve a draft ad. Everything comes from the form; nothing is saved."""
+        hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
+        hero = {"hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg)}
         if request.method == "GET":
-            return render_template("sell.html", nav="sell", form={}, r=None, error=None)
+            return render_template("sell.html", nav="sell", form={}, r=None, error=None, examples=improved_examples(), **hero)
         form = request.form.to_dict()
         error = None
         link = (form.get("ad_link") or "").strip()
@@ -602,13 +625,13 @@ def create_app(db_path=None):
                 error = gettext("{reason} Paste your title and text instead.", reason=gettext(str(e)))
         if not (form.get("title") or "").strip():
             error = error or gettext("Paste at least your ad's title.")
-            return render_template("sell.html", nav="sell", form=form, r=None, error=error), 400
+            return render_template("sell.html", nav="sell", form=form, r=None, error=error, **hero), 400
         draft = {"title": form["title"].strip()[:200], "description": (form.get("description") or "")[:5000],
                  "asking_price": number(form.get("asking_price")), "model_id": number(form.get("model_id"), int)}
         answers = {"year": number(form.get("use_year") or form.get("year"), int), "size": form.get("size"), "condition": form.get("condition"),
                    "invoice": form.get("invoice"), "service": form.get("service"), "wheels": form.get("wheels")}
         r = seller.improve(models(), draft, answers, ads=prices.known_ads(conn(), models()))
-        return render_template("sell.html", nav="sell", form=form, r=r, error=error, all_models=models(),
+        return render_template("sell.html", nav="sell", form=form, r=r, error=error, all_models=models(), **hero,
                                photo_tips=PHOTO_TIPS, condition_labels=checks.CONDITION_LABEL, can_mail=mail.configured())
 
     # The paid photo review isn't built: the offer on the Selling page counts who would want it.

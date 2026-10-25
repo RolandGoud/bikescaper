@@ -62,3 +62,31 @@ def test_predecessor_recheck_uses_the_catalogue_groupset():
     meta = {"name": "Aeroad CF SLX 8", "sheet_name": "aeroad-cf-slx-8-disc-etap"}
     assert _still_a_predecessor(meta, {})
     assert not _still_a_predecessor(meta, {"Shifter": "Shimano Ultegra Di2"})
+
+
+def test_trek_gives_each_colour_its_own_side_view():
+    import json
+    from brand_scrapers import history
+    full = {"name": "Checkpoint ALR 5", "modelYearIntroAndCurrent": "2021 - 2021",
+            "variantAttributesDirectory": [{"options": [
+                {"displayName": "Trek Black", "colorSwatchName": "black", "value": "bike_colorswatch_black"},
+                {"displayName": "Teal", "colorSwatchName": "tealdark", "value": "bike_colorswatch_tealdark"}]}],
+            "assetImageList": [{"imageOption": "A", "images": [{"assetId": "X_A_Alt1"}, {"assetId": "X_A_Primary"}]},
+                               {"imageOption": "B", "images": [{"assetId": "X_B_Portrait"}, {"assetId": "X_B_Primary"}]}],
+            "variants": [{"imageOption": "A", "variantAttributes": [{"key": "bike_colorSwatch", "value": "bike_colorswatch_black"}]},
+                         {"imageOption": "B", "variantAttributes": [{"key": "bike_colorSwatch", "value": "bike_colorswatch_tealdark"}]}]}
+
+    class Fake:
+        def get(self, url, binary=False):
+            return json.dumps(full if "/full" in url else {"specs": []})
+
+    p = history.trek_product(Fake(), "32557")
+    assert p["colour_image_urls"] == {"Trek Black": "https://media.trekbikes.com/image/upload/f_png,w_1200/X_A_Primary",
+                                      "Teal": "https://media.trekbikes.com/image/upload/f_png,w_1200/X_B_Primary"}
+
+
+def test_a_colour_name_gets_a_swatch():
+    from webapp import colour_match
+    assert colour_match.swatch_css("Trek Black") == colour_match.FAMILY_HEX["black"]
+    assert colour_match.swatch_css("Trek Black / Carbon Smoke").startswith("linear-gradient(")
+    assert colour_match.swatch_css("Starry Night Artline") is None or colour_match.swatch_css("Starry Night Artline")
