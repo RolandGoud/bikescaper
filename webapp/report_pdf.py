@@ -83,6 +83,10 @@ def build(listing, r, height=None, report_url=None):
     story.append(Spacer(1, 6))
     story.append(_p(f"{_('Matched to')} {m['brand']} {m['name']}" + (f" ({label})" if label else ""), s["body"]))
 
+    alert = r.get("material_alert")
+    if alert:
+        story += [Spacer(1, 6), _p(alert["headline"], s["h2"], STATUS.get("bad", INK)), _p(alert["detail"], s["body"])]
+
     story.append(_p(_("Summary"), s["h2"]))
     rows = []
     for key, name in (("age", "AGE"), ("specs", "SPECS"), ("size", "SIZE"), ("value", "VALUE")):

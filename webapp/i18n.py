@@ -495,6 +495,24 @@ NL = {
     "Carbon": "Carbon",
     "Aluminium": "Aluminium",
     "Steel": "Staal",
+    "carbon": "carbon",
+    "aluminium": "aluminium",
+    "steel": "staal",
+    "See the spec comparison →": "Bekijk de specificaties →",
+    "Never made in carbon": "Nooit in carbon gemaakt",
+    "Never made in aluminium": "Nooit in aluminium gemaakt",
+    "Never made in steel": "Nooit in staal gemaakt",
+    "Impossible claim: the {name} was never made in {claimed}": "Onmogelijke claim: de {name} is nooit in {claimed} gemaakt",
+    "The ad says the frame is {claimed}, but every {brand} spec sheet we have of it ({years}) says {made}. "
+    "Either the ad gets the material wrong, or the bike is another model than it says.":
+        "Volgens de advertentie is het frame van {claimed}, maar elke specificatie van {brand} die we ervan hebben "
+        "({years}) zegt {made}. Of het materiaal in de advertentie klopt niet, of het is een ander model dan er staat.",
+    "The ad says the frame is {claimed}, but {brand}'s spec sheet says {made}. Either the ad gets the material "
+    "wrong, or the bike is another model than it says.":
+        "Volgens de advertentie is het frame van {claimed}, maar de specificatie van {brand} zegt {made}. Of het "
+        "materiaal in de advertentie klopt niet, of het is een ander model dan er staat.",
+    "The {name} was only ever made in {made}. Why does the ad say {claimed}?":
+        "De {name} is alleen in {made} gemaakt. Waarom staat er {claimed} in de advertentie?",
     "Disc": "Schijfrem",
     "Rim": "Velgrem",
     "{n} part differs": "{n} onderdeel wijkt af",

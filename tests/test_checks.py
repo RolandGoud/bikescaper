@@ -1042,3 +1042,50 @@ def test_frame_number_is_always_asked_with_the_stolen_check(models, tmp_path):
     assert "serial number under the bottom bracket" in questions.split("</ol>")[0]
     assert '<a href="https://www.stopheling.nl"' in questions
     assert "Serial number:" not in page  # no longer tucked away in the age section
+
+
+def test_carbon_parts_are_no_frame_claim():
+    assert checks.detect_material("Aluminium frame met carbon vork") == "Aluminium"
+    assert checks.detect_material("Alu racefiets, carbon-zadelpen en carbon wielen") == "Aluminium"
+    assert checks.detect_material("Vork: carbon. Frame aluminium") == "Aluminium"
+    assert checks.detect_material("Carbon frame, carbon wielen") == "Carbon"
+    assert checks.detect_material("carbon vork") is None
+
+
+def test_a_material_the_model_never_came_in_is_flagged(models):
+    r = run(models, "Trek Domane AL 2 Gen 4 2021", "Carbon racefiets, maat 56", price=800)
+    alert = r["material_alert"]
+    assert alert and alert["claimed"] == "Carbon" and alert["made_in"] == ["Aluminium"]
+    assert en(alert["headline"]) == "Impossible claim: the Domane AL 2 Gen 4 was never made in carbon"
+    assert "every Trek spec sheet we have of it" in en(alert["detail"])
+    token = i18n.current_language.set("nl")
+    try:
+        assert str(alert["headline"]) == "Onmogelijke claim: de Domane AL 2 Gen 4 is nooit in carbon gemaakt"
+    finally:
+        i18n.current_language.reset(token)
+    frame = next(row for row in r["specs"]["rows"] if row["key"] == "frame")
+    assert frame["status"] == checks.BAD and en(frame["result"]) == "Never made in carbon"
+    assert any("was only ever made in aluminium" in en(q) for q in r["questions"])
+
+
+def test_a_material_the_model_came_in_or_a_carbon_fork_is_no_alert(models):
+    assert run(models, "Trek Domane AL 2 Gen 4 2021", "Aluminium frame, carbon vork")["material_alert"] is None
+    assert run(models, "Trek Domane SL 6 Gen 4 2024", "carbon frame")["material_alert"] is None
+    assert run(models, "Trek Domane SL 6 Gen 4 2024")["material_alert"] is None
+    # A model that came in both in different years: either claim can be right.
+    fx = next(m for m in models if m["name"] == "FX Sport 4")
+    assert set(checks.model_materials(fx)) == {"Aluminium", "Carbon"}
+    assert checks.impossible_material(fx, {"material": "Aluminium"}, "aluminium") is None
+
+
+def test_the_report_shows_an_impossible_material_above_the_tabs(models, tmp_path):
+    app = create_app(str(tmp_path / "material.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    conn.execute("INSERT INTO checks (title, description, asking_price) VALUES (?, ?, ?)",
+                 ("Trek Domane AL 2 Gen 4 2021", "Carbon racefiets", 800))
+    conn.commit()
+    for lang, words in (("en", "Impossible claim"), ("nl", "Onmogelijke claim")):
+        page = app.test_client().get(f"/check/1?lang={lang}").get_data(as_text=True)
+        assert 'class="claim-alert" role="alert"' in page and words in page
+        assert page.index("claim-alert") < page.index('class="report-tabs"')
