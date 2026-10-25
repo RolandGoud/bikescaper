@@ -913,3 +913,5 @@ select { max-width: 100%; }
 
 /* Groupset shop page: one button per web shop. */
 .shop-links { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.stolen-check { margin: 0; padding: 12px 14px; border-radius: 10px; background: rgba(255, 255, 255, .06); font-size: 14px; }
+.stolen-check a { font-weight: 700; }

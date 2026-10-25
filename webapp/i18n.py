@@ -598,6 +598,8 @@ NL = {
         "Zo'n lage prijs kan op een gestolen fiets of oplichting wijzen. Vraag om de aankoopbon en spreek af op locatie.",
 
     # checks: questions
+    "Got the frame number? Check on {site} whether the bike was reported stolen, before you pay.":
+        "Framenummer binnen? Kijk op {site} of de fiets als gestolen is opgegeven, voordat je betaalt.",
     "Can you send a photo of the serial number under the bottom bracket?":
         "Kun je een foto sturen van het framenummer onder de trapas?",
     "Do you have the original invoice? Which year did you buy it?":

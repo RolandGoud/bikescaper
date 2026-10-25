@@ -130,7 +130,6 @@
     <p><span class="{{ r.year_estimate.status }}" style="font-weight: 700">{{ _('Year estimate:') }} {{ r.year_estimate.headline }}.</span> {{ r.year_estimate.detail }}</p>
     <ul class="small muted" style="margin: -8px 0 12px; padding-left: 20px">{% for e in r.year_estimate.evidence %}<li>{{ e }}</li>{% endfor %}</ul>
     {% endif %}
-    <p><span class="unknown" style="font-weight: 700">{{ _('Serial number:') }}</span> {{ _('ask for a photo of the sticker under the bottom bracket.') }}</p>
     <div class="notes">{% for n in r.age.notes %}<span>{{ n }}</span>{% endfor %}</div>
   </section>
 
@@ -208,6 +207,7 @@
     <ol class="questions" id="questions">
       {% for q in r.questions %}<li>“{{ q }}”</li>{% endfor %}
     </ol>
+    <p class="stolen-check">{{ _('Got the frame number? Check on {site} whether the bike was reported stolen, before you pay.', site='{site}')|e|replace('{site}', '<a href="https://www.stopheling.nl" target="_blank" rel="noopener">Stop Heling</a>'|safe) }}</p>
     <button class="btn" type="button" style="align-self: flex-start" data-copied="{{ _('Copied') }}" onclick="navigator.clipboard.writeText([...document.querySelectorAll('#questions li')].map(li => li.textContent).join('\n')); this.textContent = this.dataset.copied">{{ _('Copy questions') }}</button>
   </section>
   {% endif %}
