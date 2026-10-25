@@ -81,6 +81,7 @@ def test_stays_mirrored_while_another_catalogue_photo_is_lined_up(tmp_path):
 
 
 def test_merged_tile_draws_the_ad_photo_lined_up(tmp_path):
+    # No year in the ad, so the report keeps the current catalogue photo (a stated year shows that year's photo).
     app = create_app(str(tmp_path / "app.sqlite3"))
     app.config["STORE_AD_PHOTOS"] = False
     conn = db.connect(app.config["DB_PATH"])
@@ -88,7 +89,7 @@ def test_merged_tile_draws_the_ad_photo_lined_up(tmp_path):
     os.makedirs(tmp_path / "ad-photos" / "1")
     fake_ad(CATALOGUE, tmp_path / "ad-photos" / "1" / "01.jpg", True)
     conn.execute("INSERT INTO checks (title, asking_price, photos) VALUES (?, ?, ?)",
-                 ("Trek Domane AL 4 Gen 4 2024 maat 54", 1050, '["1/01.jpg"]'))
+                 ("Trek Domane AL 4 Gen 4 maat 54", 1050, '["1/01.jpg"]'))
     conn.commit()
     model = next(m for m in db.all_models(conn) if m["image"] and m["image"].endswith("DomaneAL4-24-41607-A-Primary_01.jpg"))
     stored = str(tmp_path / "ad-photos" / "1" / "01.jpg")

@@ -896,3 +896,19 @@ def test_colour_clue_reads_dutch_colour_words(models):
     assert [(a, b) for a, b, _m in clues] == [(2025, 2025)]
     # Our own scrape in October shows next year's colours: it doesn't replace the 2026 sheet
     assert checks.year_sheets(m)[2026]["colours"] == ["Cyber Lime"]
+
+
+def test_slider_shows_the_year_photo_that_fits_the_ad(models):
+    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
+             year_specs={"years": {"2024": {"specs": {"Frame": "x"}, "colours": ["Charcoal/Milky Way"], "image": "y/2024.jpg"},
+                                   "2025": {"specs": {"Frame": "x"}, "colours": ["Frost Silver/Cordovan"], "image": "y/2025.jpg"},
+                                   "2026": {"specs": {"Frame": "x"}, "colours": ["Thundercloud", "Cyber Lime"], "image": "y/2026.jpg"}}})
+    claims = checks.read_claims("Giant Defy 2024", "kleur frost zilver")
+    estimate = {"status": checks.BAD, "first": 2025, "last": 2025}
+    assert checks.year_photo(m, claims, estimate, "Giant Defy 2024 kleur frost zilver") == (2025, "y/2025.jpg", "Frost Silver")
+    claims = checks.read_claims("Giant Defy 2026", "Cyber lime")
+    assert checks.year_photo(m, claims, {"status": checks.OK}, "Giant Defy 2026 cyber lime") == (2026, "y/2026.jpg", None)
+    claims = checks.read_claims("Giant Defy 2024", "")
+    assert checks.year_photo(m, claims, {"status": checks.OK}, "Giant Defy 2024")[0] == 2024
+    claims = checks.read_claims("Giant Defy", "")
+    assert checks.year_photo(m, claims, {"status": checks.UNKNOWN, "last": None}, "Giant Defy") is None

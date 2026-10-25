@@ -687,6 +687,25 @@ NL_COLOURS = {"zwart": "black", "wit": "white", "witte": "white", "grijs": "grey
               "paars": "purple", "paarse": "purple", "roze": "pink", "bruin": "brown", "bruine": "brown"}
 
 
+def colour_years(sheets, low):
+    """(colour name, {years}) for the longest colour name in the ad that only some years came in, or None.
+    Only the years we know the colours of count: a sheet without them says nothing about a colour."""
+    dated = {y: s for y, s in sheets.items() if s["colours"]}
+    colours = {}
+    for y, s in dated.items() if len(dated) > 1 else ():
+        # Each part of a two-tone name on its own ("Blue Dragonfly/Chrome"): an ad names the colour, not the finish.
+        for c in (part.strip() for name in s["colours"] for part in name.split("/")):
+            words = re.findall(r"[a-z]+", _plain(c))
+            if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
+                colours.setdefault(" ".join(words), (c, set()))[1].add(y)
+    words = re.findall(r"[a-z]+", low)
+    ad_text = " ".join(words) + " | " + " ".join(NL_COLOURS.get(w, w) for w in words)
+    for key, (name, years) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first
+        if len(years) < len(dated) and re.search(rf"\b{re.escape(key)}\b", ad_text):
+            return name, years
+    return None
+
+
 def sheet_clues(model, text):
     """Year windows from the spec sheets of each model year: the part numbers the ad names that only some
     years' sheets have, and a colour name the ad uses that only some years came in. [(first, last, Msg)]."""
@@ -709,25 +728,33 @@ def sheet_clues(model, text):
         if first or last:
             clues.append((first, last, Msg("Parts {parts} are on the {years} spec sheets.",
                                            parts=", ".join(p.upper() for p in parts), years=_span(years[0], years[-1]))))
-    # Only the years we know the colours of: a sheet without them says nothing about a colour.
     dated = {y: s for y, s in sheets.items() if s["colours"]}
-    colours = {}
-    for y, s in dated.items() if len(dated) > 1 else ():
-        # Each part of a two-tone name on its own ("Blue Dragonfly/Chrome"): an ad names the colour, not the finish.
-        for c in (part.strip() for name in s["colours"] for part in name.split("/")):
-            words = re.findall(r"[a-z]+", _plain(c))
-            if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
-                colours.setdefault(" ".join(words), (c, set()))[1].add(y)
-    words = re.findall(r"[a-z]+", low)
-    ad_text = " ".join(words) + " | " + " ".join(NL_COLOURS.get(w, w) for w in words)
-    for key, (name, years) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first
-        if len(years) < len(dated) and re.search(rf"\b{re.escape(key)}\b", ad_text):
-            first, last = _widen(years, dated)
-            if first or last:
-                clues.append((first, last, Msg("Colour '{colour}' was sold in {years}.", colour=name,
-                                               years=_span(min(years), max(years)))))
-            break
+    hit = colour_years(sheets, low)
+    if hit:
+        first, last = _widen(hit[1], dated)
+        if first or last:
+            clues.append((first, last, Msg("Colour '{colour}' was sold in {years}.", colour=hit[0],
+                                           years=_span(min(hit[1]), max(hit[1])))))
     return clues
+
+
+def year_photo(model, claims, estimate, text):
+    """(year, image, colour or None) of the model-year photo that fits the ad best, or None to keep the
+    current one: the year of the colour the ad names, else the stated year unless the details rule it out,
+    else the newest year the details allow."""
+    photos = {int(y): e["image"] for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
+              if e.get("image")}
+    if not photos:
+        return None
+    claimed = claims["year"]
+    hit = colour_years(year_sheets(model), _plain(text))
+    if hit:
+        year = claimed if claimed in hit[1] else max(hit[1])
+        # A year that came in more colours has one photo, maybe of another colour: then don't name it.
+        one = len(year_sheets(model).get(year, {}).get("colours") or []) == 1
+        return (year, photos[year], hit[0] if one else None) if year in photos else None
+    year = claimed if claimed and estimate.get("status") != BAD else estimate.get("last")
+    return (year, photos[year], None) if year in photos else None
 
 
 def estimate_year(model, models, claims, text):
@@ -1222,6 +1249,12 @@ def run_check(models, listing, today=None):
     report["age"] = check_age(chosen, claims, today)
     report["year_estimate"] = estimate_year(chosen, models, claims,
                                             f"{listing['title']}\n{listing.get('description') or ''}")
+    # The photo of the model year the ad's bike is, rather than of today's model, when we have one.
+    found = year_photo(chosen, claims, report["year_estimate"], f"{listing['title']}\n{listing.get('description') or ''}")
+    if found:
+        report["photo_year"] = {"year": found[0], "colour": found[2]}
+        report["colourway"] = None
+        report["model"] = dict(chosen, image=found[1], year_photo=True)
     report["specs"] = check_specs(chosen, claims)
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,

@@ -410,6 +410,9 @@ NL = {
         "Uit de specificaties per modeljaar die {brand} of de Wayback Machine nog heeft.",
     "Our oldest spec sheet of {name} is from {first}, so we can't confirm {claimed}.":
         "Onze oudste specificaties van de {name} zijn van {first}, dus {claimed} kunnen we niet bevestigen.",
+    "Catalogue photo of the {year} model in {colour}, the colour the ad names.":
+        "Catalogusfoto van het model {year} in {colour}, de kleur uit de advertentie.",
+    "Catalogue photo of the {year} model.": "Catalogusfoto van het model {year}.",
     "Older than this model": "Ouder dan dit model",
     "Seller says {claimed}, but this generation was first sold as the {first} model. Either the year is wrong or it's an older generation we don't have yet.":
         "Verkoper zegt {claimed}, maar deze generatie kwam pas uit als model {first}. Het jaar klopt niet, "
