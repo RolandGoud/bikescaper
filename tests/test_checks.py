@@ -621,7 +621,7 @@ def test_links_off_the_site_open_in_a_new_tab(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     conn = db.connect(app.config["DB_PATH"])
     seed.load(conn)
-    ad = "https://www.marktplaats.nl/v/fietsen/racefietsen/m123-trek-domane"
+    ad = "https://www.marktplaats.nl/v/fietsen/racefietsen-racefietsen/m2435934805-trek-domane"
     conn.execute("INSERT INTO checks (title, asking_price, listing_url, photos) VALUES (?, ?, ?, ?)",
                  ("Trek Domane SL 6 Gen 4 2023 maat 56", 3250, ad, '["https://images.marktplaats.com/x/1.JPG"]'))
     conn.commit()
@@ -913,6 +913,31 @@ def test_plain_colours_in_the_ad_rule_out_years_without_them(models):
     assert checks.sheet_clues(m, "Giant Defy zwart\n") == []  # black every year but 2024: no window left
     assert checks.sheet_clues(m, "Giant Defy paars\n") == []  # no year in that colour: says nothing
     assert checks.sheet_clues(m, "Giant Defy\nGeen kleur genoemd") == []
+
+
+def test_colour_seen_in_the_photos_dates_the_frame_before_swappable_parts(models):
+    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Cassette": "11-28"},
+             year_specs={"years": {"2019": {"specs": {"Cassette": "11-28"}, "colours": ["Matte Trek Black", "Royal"]},
+                                   "2021": {"specs": {"Cassette": "11-28"}, "colours": ["Trek Black/Radioactive Red", "Gloss Blue/Matte Trek Black"]},
+                                   "2024": {"specs": {"Cassette": "11-34"}, "colours": ["Crimson"]}}})
+    # A whole colourway, not the matte black half of a two-tone
+    assert checks.seen_colour_years(checks.year_sheets(m), "Matte Trek Black") == ("Matte Trek Black", {2019})
+    claims = checks.read_claims("Trek Emonda SL6 2021", "11-34 cassette")
+    est = checks.estimate_year(m, [m], claims, "Trek Emonda SL6 2021\n11-34 cassette", "Trek Black/Radioactive Red")
+    assert est["status"] == checks.OK and "swapped" in en(est["evidence"][-1])
+    # Bought later than the frame's years: fine for a second-hand bike
+    claims = checks.read_claims("Trek Emonda", "Tweedehands gekocht in 2025")
+    est = checks.estimate_year(m, [m], claims, "Trek Emonda\nTweedehands gekocht in 2025", "Matte Trek Black")
+    assert est["status"] == checks.OK and est["last"] == 2020
+
+
+def test_photo_colours_file_only_applies_to_its_model(models, monkeypatch):
+    m = dict(models[0], slug="trek-emonda-sl-6")
+    monkeypatch.setitem(checks.photo_colour.__defaults__[0], "data", {
+        "marktplaats:m2435934805": {"model": "trek-emonda-sl-6", "colour": "Crimson"}})
+    ad = {"listing_url": "https://www.marktplaats.nl/v/fietsen-racefietsen/m2435934805-trek", "title": "Trek", "asking_price": 1}
+    assert checks.photo_colour(m, ad) == "Crimson"
+    assert checks.photo_colour(dict(m, slug="trek-emonda-sl-5"), ad) is None
 
 
 def test_slider_shows_the_year_photo_that_fits_the_ad(models):

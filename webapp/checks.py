@@ -804,7 +804,35 @@ def colour_family_years(sheets, text):
     return set(fits), [n for y in sorted(fits) for n in fits[y] if n][:4]
 
 
-def sheet_clues(model, text):
+PHOTO_COLOURS_FILE = os.path.join(os.path.dirname(__file__), "photo_colours.json")
+
+
+def photo_colour(model, listing, _cache={}):
+    """The colourway name someone read from the ad's photos for this model (webapp/photo_colours.json), or None."""
+    if "data" not in _cache:
+        try:
+            with open(PHOTO_COLOURS_FILE, encoding="utf-8") as fh:
+                _cache["data"] = json.load(fh)
+        except (OSError, ValueError):
+            _cache["data"] = {}
+    from .fetch_ad import ad_key
+    if not listing.get("title"):
+        return None
+    entry = _cache["data"].get(ad_key({"listing_url": listing.get("listing_url"), "title": listing["title"],
+                                       "asking_price": listing.get("asking_price")}))
+    return entry["colour"] if entry and entry.get("model") == model.get("slug") else None
+
+
+def seen_colour_years(sheets, colour):
+    """(colour, {years}) of the years whose colourways include exactly this name, or None: a colour read from
+    the photos is a whole colourway, so "Matte Trek Black" isn't the matte black half of a two-tone."""
+    want = " ".join(re.findall(r"[a-z]+", _plain(colour)))
+    years = {y for y, s in sheets.items() for c in s["colours"] if " ".join(re.findall(r"[a-z]+", _plain(c))) == want}
+    dated = [y for y, s in sheets.items() if s["colours"]]
+    return (colour, years) if years and len(years) < len(dated) else None
+
+
+def sheet_clues(model, text, seen_colour=None):
     """Year windows from the spec sheets of each model year: the part numbers the ad names that only some
     years' sheets have, and a colour name the ad uses that only some years came in. [(first, last, Msg)]."""
     sheets = year_sheets(model)
@@ -827,8 +855,15 @@ def sheet_clues(model, text):
             clues.append((first, last, Msg("Parts {parts} are on the {years} spec sheets.",
                                            parts=", ".join(p.upper() for p in parts), years=_span(years[0], years[-1]))))
     dated = {y: s for y, s in sheets.items() if s["colours"]}
-    hit = colour_years(sheets, low)
-    if hit:
+    # The colour in the ad's photos goes before the colour the seller writes: sellers name it loosely.
+    seen = seen_colour and seen_colour_years(sheets, seen_colour)
+    hit = None if seen else colour_years(sheets, low)
+    if seen:
+        first, last = _widen(seen[1], dated)
+        if first or last:
+            clues.append((first, last, Msg("The photos show colour '{colour}', sold in {years}.", colour=seen_colour,
+                                           years=_years_list(seen[1]))))
+    elif hit:
         first, last = _widen(hit[1], dated)
         if first or last:
             clues.append((first, last, Msg("Colour '{colour}' was sold in {years}.", colour=hit[0],
@@ -855,7 +890,7 @@ def _years_list(years):
     return ", ".join(str(a) if a == b else f"{a}\u2013{b}" for a, b in runs)
 
 
-def year_photo(model, claims, estimate, text):
+def year_photo(model, claims, estimate, text, seen_colour=None):
     """(year, image, colour or None) of the model-year photo that fits the ad best, or None to keep the
     current one: the year of the colour the ad names, else the stated year unless the details rule it out,
     else the newest year the details allow."""
@@ -864,7 +899,7 @@ def year_photo(model, claims, estimate, text):
     if not photos:
         return None
     claimed = claims["year"]
-    hit = colour_years(year_sheets(model), _plain(text))
+    hit = (seen_colour and seen_colour_years(year_sheets(model), seen_colour)) or colour_years(year_sheets(model), _plain(text))
     if hit:
         year = claimed if claimed in hit[1] else max(hit[1])
         # A year that came in more colours has one photo, maybe of another colour: then don't name it.
@@ -882,7 +917,7 @@ def year_photo(model, claims, estimate, text):
     return (year, photos[year], None) if year in photos else None
 
 
-def estimate_year(model, models, claims, text):
+def estimate_year(model, models, claims, text, seen_colour=None):
     """The model years the ad's own details allow, and whether the claimed year fits them.
 
     Each clue gives a window (first, last; None = open): the groupset generation, a frame generation the
@@ -903,9 +938,9 @@ def estimate_year(model, models, claims, text):
     if claims["brakes"] == "Rim" and (claims["material"] == "Carbon" or ref_material(model) == "Carbon"):
         clues.append((None, RIM_BRAKE_LAST_YEAR, Msg("Rim brakes on a carbon road bike: {year} or older.",
                                                      year=RIM_BRAKE_LAST_YEAR)))
-    sheet = sheet_clues(model, text)
+    sheet = sheet_clues(model, text, seen_colour)
     clues += sheet
-    for name, year in [] if any(c[2].text.startswith("Colour") for c in sheet) else _named_colourways(model, models):
+    for name, year in [] if any(c[2].text.startswith(("Colour", "The photos")) for c in sheet) else _named_colourways(model, models):
         if re.search(rf"\b{re.escape(_plain(name))}\b", low):
             clues.append((year - 1, year + 1, Msg("Colour '{colour}' is in {brand}'s {year} photos.",
                                                   colour=name, brand=model["brand"], year=year)))
@@ -920,9 +955,19 @@ def estimate_year(model, models, claims, text):
                     "detail": Msg("Nothing in the ad or in our catalogue dates this bike yet.")}
         clues += [(known[0], known[1], Msg("{name} was sold from {years}.", name=model["name"],
                                            years=_span(known[0], known[1]))), (None, None, known[2])]
+    # Paint can't be swapped like a cassette: a clue that leaves out every year of the colour in the photos
+    # is kept as a note, not used.
+    seen = next((c for c in sheet if c[2].text.startswith("The photos")), None)
+    notes = []
+    if seen:
+        years = seen_colour_years(year_sheets(model), seen_colour)[1]
+        for c in [c for c in clues if c is not seen]:
+            if not any((c[0] or 0) <= y <= (c[1] or 9999) for y in years):
+                clues.remove(c)
+                notes.append(join(c[2], Msg("That part may have been swapped: the frame's colour goes first.")))
     first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
     last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
-    evidence = [c[2] for c in clues]
+    evidence = [c[2] for c in clues] + notes
     if first and last and first > last:
         return {"status": WARN, "first": None, "last": None, "evidence": evidence,
                 "headline": Msg("Details disagree"),
@@ -944,6 +989,11 @@ def estimate_year(model, models, claims, text):
         status, headline = OK, Msg("Fits {years}", years=span)
         detail = (Msg("{claimed} fits the years we know {name} from.", claimed=claimed, name=model["name"])
                   if fallback else Msg("{claimed} fits the ad's details.", claimed=claimed))
+    elif claims["year_is_purchase"] and last and claimed > last:
+        # Bought later than the details allow is normal for a second-hand bike, not a wrong year.
+        status, headline = OK, Msg("Probably {years}", years=span)
+        detail = Msg("{claimed} is when it was bought; the ad's details point to model year {years}.",
+                     claimed=claimed, years=span)
     elif (first and claimed == first - 1) or (last and claimed == last + 1):
         status, headline = WARN, Msg("Just outside {years}", years=span)
         detail = Msg("{claimed} is one year off what the details allow: maybe the purchase year.", claimed=claimed)
@@ -1398,10 +1448,11 @@ def run_check(models, listing, today=None):
     if report["colourway"] and report["colourway"].get("image"):
         report["model"] = dict(chosen, image=report["colourway"]["image"])
     report["age"] = check_age(chosen, claims, today)
+    seen = photo_colour(chosen, listing)
     report["year_estimate"] = estimate_year(chosen, models, claims,
-                                            f"{listing['title']}\n{listing.get('description') or ''}")
+                                            f"{listing['title']}\n{listing.get('description') or ''}", seen)
     # The photo of the model year the ad's bike is, rather than of today's model, when we have one.
-    found = year_photo(chosen, claims, report["year_estimate"], f"{listing['title']}\n{listing.get('description') or ''}")
+    found = year_photo(chosen, claims, report["year_estimate"], f"{listing['title']}\n{listing.get('description') or ''}", seen)
     if found:
         report["photo_year"] = {"year": found[0], "colour": found[2]}
         report["colourway"] = None
