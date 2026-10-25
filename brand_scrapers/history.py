@@ -49,12 +49,12 @@ SITES = {
 }
 
 
-def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None, angle=None):
+def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None, angle=None, rel=None):
     import html
     url = html.unescape((url or "").strip("\"'"))  # Giant's 2017 pages quote the og:image URL
     if not url:
         return None
-    rel = f"{brand}/years/{slug}_{year}{'_' + compact(colour) if colour else ''}{f'_{angle}' if angle else ''}_site.jpg"
+    rel = rel or f"{brand}/years/{slug}_{year}{'_' + compact(colour) if colour else ''}{f'_{angle}' if angle else ''}_site.jpg"
     path = os.path.join(ROOT, "images", rel)
     if os.path.exists(path):
         return rel

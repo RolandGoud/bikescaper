@@ -59,7 +59,7 @@
         {% endif %}
         {% endfor %}
         {% if m.image %}
-        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}">
+        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}"{% if angles_now %} data-angles='{{ angles_now|tojson }}'{% endif %}>
           {{ photo(m) }}<span class="gallery-year">{{ own_year }}</span></button>
         {% elif slots[-1].year != own_year %}
         <button type="button" class="gallery-thumb current empty" aria-pressed="false" data-year="{{ own_year }}" data-src=""
@@ -70,7 +70,9 @@
       </div>
     </div>
     {% else %}
-    <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}</div></div>
+    <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}</div>
+      {% if angles_now and m.image %}<div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}"
+           data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' hidden></div>{% endif %}</div>
     {% endif %}
     {% if m.image or gallery %}
     {# A click on the photo opens it full size; the arrows flip through the years like the carousel. #}
@@ -230,7 +232,8 @@
     if (!row) return;
     var angles = {};
     try { angles = JSON.parse(thumb.dataset.angles || "{}"); } catch (e) {}
-    var list = angles[thumb.dataset.colour || Object.keys(angles)[0]] || [];
+    // "" is a page that showed one colour only: its angles go with every colour
+    var list = angles[thumb.dataset.colour || Object.keys(angles)[0]] || angles[""] || [];
     row.innerHTML = "";
     row.hidden = !list.length || !thumb.dataset.src;
     if (row.hidden) return;
@@ -303,10 +306,16 @@
       if (thumb) showPhoto(thumb, true);
     });
   });
+  // Without a year carousel the angle row stands for the current bike itself.
+  var lone = document.getElementById("angle-strip");
+  if (!thumbs.length && lone && lone.dataset.angles) showAngles(lone);
   var start = document.getElementById("model-gallery");
   if (start && start.dataset.start) {
     var first = thumbs.find(function (b) { return b.dataset.year === start.dataset.start && b.dataset.src; });
     if (first) showPhoto(first);
+  } else {
+    var pressed = thumbs.find(function (b) { return b.getAttribute("aria-pressed") === "true"; });
+    if (pressed) showAngles(pressed);  // the current bike on show from the start
   }
   // The photo full size: it shows what the carousel shows, and its arrows and keys move the carousel.
   var box = document.getElementById("photo-box");
@@ -368,6 +377,11 @@
       document.getElementById("colour-note").hidden = !!button.dataset.image;
       // the colour belongs to the year on show (the current bike's, or an earlier year's): show it in the carousel
       var shown = document.querySelector('.gallery-thumb[aria-pressed="true"]') || document.querySelector(".gallery-thumb.current");
+      if (!shown && lone && lone.dataset.angles) {
+        lone.dataset.colour = button.dataset.name;
+        if (button.dataset.image) lone.dataset.src = button.dataset.image;
+        showAngles(lone);
+      }
       if (shown) {
         shown.dataset.colour = button.dataset.name;  // its angles follow the colour
         var thumbImg = shown.querySelector("img");
