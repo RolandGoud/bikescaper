@@ -783,6 +783,27 @@ def colour_years(sheets, low):
     return None
 
 
+def colour_family_years(sheets, text):
+    """({years}, [colourway names]) of the model years that came in the plain colours the seller names
+    ("zwart/rood", "kleur: blauw"), when only some years did; else None. The first colour said must be in
+    the colourway, a second one at least close (grey for silver). Only years we know the colours of count."""
+    dated = {y: s for y, s in sheets.items() if s["colours"]}
+    title, _nl, description = (text or "").partition("\n")
+    wanted = colour_match.ad_colours(title, description)[:2]
+    if len(dated) < 2 or not wanted:
+        return None
+    fits = {}
+    for y, s in dated.items():
+        for name in s["colours"]:
+            fams = colour_match.families_in(name, brand_words=True)
+            if wanted[0] in fams and all(max((colour_match.similarity(w, f) for f in fams), default=0) >= 0.5
+                                         for w in wanted[1:]):
+                fits.setdefault(y, []).append(name)
+    if not fits or len(fits) == len(dated):
+        return None
+    return set(fits), [n for y in sorted(fits) for n in fits[y] if n][:4]
+
+
 def sheet_clues(model, text):
     """Year windows from the spec sheets of each model year: the part numbers the ad names that only some
     years' sheets have, and a colour name the ad uses that only some years came in. [(first, last, Msg)]."""
@@ -812,7 +833,26 @@ def sheet_clues(model, text):
         if first or last:
             clues.append((first, last, Msg("Colour '{colour}' was sold in {years}.", colour=hit[0],
                                            years=_span(min(hit[1]), max(hit[1])))))
+    else:
+        # No brand colour name in the ad: the plain colours the seller gives still rule out years without them.
+        fit = colour_family_years(sheets, text)
+        if fit:
+            first, last = _widen(fit[0], dated)
+            if first or last:
+                clues.append((first, last, Msg("In the ad's colours it was sold in {years}: {colourways}.",
+                                               years=_years_list(fit[0]), colourways=", ".join(dict.fromkeys(fit[1])))))
     return clues
+
+
+def _years_list(years):
+    """2019, 2021–2023: the years, with runs of following years as a span."""
+    years, runs = sorted(years), []
+    for y in years:
+        if runs and y == runs[-1][1] + 1:
+            runs[-1][1] = y
+        else:
+            runs.append([y, y])
+    return ", ".join(str(a) if a == b else f"{a}\u2013{b}" for a, b in runs)
 
 
 def year_photo(model, claims, estimate, text):
@@ -830,6 +870,14 @@ def year_photo(model, claims, estimate, text):
         # A year that came in more colours has one photo, maybe of another colour: then don't name it.
         one = len(year_sheets(model).get(year, {}).get("colours") or []) == 1
         return (year, photos[year], hit[0] if one else None) if year in photos else None
+    fit = colour_family_years(year_sheets(model), text)
+    if fit:
+        # The newest year in the seller's colours with a photo, unless the stated year is one of them.
+        shown = sorted(y for y in fit[0] if y in photos)
+        if shown:
+            year = claimed if claimed in shown else shown[-1]
+            colours = year_sheets(model)[year]["colours"]
+            return year, photos[year], colours[0] if len(colours) == 1 else None
     year = claimed if claimed and estimate.get("status") != BAD else estimate.get("last")
     return (year, photos[year], None) if year in photos else None
 

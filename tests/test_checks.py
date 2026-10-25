@@ -897,6 +897,24 @@ def test_colour_clue_reads_dutch_colour_words(models):
     assert checks.year_sheets(m)[2026]["colours"] == ["Cyber Lime"]
 
 
+def test_plain_colours_in_the_ad_rule_out_years_without_them(models):
+    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
+             year_specs={"years": {"2020": {"specs": {"Frame": "x"}, "colours": ["Gunmetal Black / Metallic Orange"]},
+                                   "2021": {"specs": {"Frame": "x"}, "colours": ["Carbon/Charcoal"]},
+                                   "2022": {"specs": {"Frame": "x"}, "colours": ["Deep Lake / Black"]},
+                                   "2024": {"specs": {"Frame": "x"}, "colours": ["Tiger Red/Dried Chili"]},
+                                   "2025": {"specs": {"Frame": "x"}, "colours": ["Carbon"]}}})
+    clues = checks.sheet_clues(m, "Giant Defy Advanced 2 rood\nMooie fiets")
+    assert [(a, b) for a, b, _m in clues] == [(2023, 2024)]  # 2023 has no sheet, so maybe
+    assert "Tiger Red" in en(clues[0][2])
+    # Black and orange: only 2020, the oldest sheet, so the start stays open
+    clues = checks.sheet_clues(m, "Giant Defy\nKleur: zwart/oranje")
+    assert [(a, b) for a, b, _m in clues] == [(None, 2020)]
+    assert checks.sheet_clues(m, "Giant Defy zwart\n") == []  # black every year but 2024: no window left
+    assert checks.sheet_clues(m, "Giant Defy paars\n") == []  # no year in that colour: says nothing
+    assert checks.sheet_clues(m, "Giant Defy\nGeen kleur genoemd") == []
+
+
 def test_slider_shows_the_year_photo_that_fits_the_ad(models):
     m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
              year_specs={"years": {"2024": {"specs": {"Frame": "x"}, "colours": ["Charcoal/Milky Way"], "image": "y/2024.jpg"},

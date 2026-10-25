@@ -169,6 +169,7 @@ NL = {
     "Close": "Sluiten",
     "Parts {parts} are on the {years} spec sheets.": "Onderdelen {parts} staan op de specificaties van {years}.",
     "Colour '{colour}' was sold in {years}.": "Kleur '{colour}' werd verkocht in {years}.",
+    "In the ad's colours it was sold in {years}: {colourways}.": "In de kleuren uit de advertentie werd hij verkocht in {years}: {colourways}.",
     "Previous photo": "Vorige foto",
     "Next photo": "Volgende foto",
     "Previous photos": "Vorige foto's",
