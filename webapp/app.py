@@ -175,6 +175,7 @@ def create_app(db_path=None):
     app.jinja_env.globals["duo_pick"] = duo_pick
     app.jinja_env.filters["swatch"] = colour_match.swatch
     app.jinja_env.filters["swatch_css"] = colour_match.swatch_css
+    app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.globals["ad_title"] = ad_title.parts
 
     def conn():

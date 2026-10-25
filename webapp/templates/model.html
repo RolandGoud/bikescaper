@@ -86,7 +86,7 @@
         <div><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
           <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
           {% set earlier = years[4]|dictsort|selectattr('1.1')|map(attribute='0')|list if years else [] %}
-          {% if earlier %}<div class="small earlier-gen" title="{{ years[4][earlier[0]][0] or '' }}">{{ _('earlier gen') }} {{ earlier[0] }}{% if earlier|length > 1 %}–{{ earlier[-1] }}{% endif %}</div>{% endif %}</div>
+          {% if earlier %}<div class="small earlier-gen" title="{{ years[4][earlier[0]][0] or '' }}">{{ _('earlier gen') }} {{ earlier|years_list }}</div>{% endif %}</div>
         <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging %}{% set lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}{% endset %}{{ note(lagging) }}{% endif %}</div>
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
