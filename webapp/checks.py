@@ -305,19 +305,21 @@ def year_tabs(model, today=None):
     """One tab per catalogue year from FIRST_SPEC_YEAR (or the model's earliest sheet) to this year, for
     the spec sheet on the model page.
 
-    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed, moves}. state is "scrape"
+    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed, moves, earlier}. state is "scrape"
     (our own catalogue scrape), "archive" (a Wayback Machine copy of the brand's page),
     "unreadable" (a copy without a spec list), "none" (no copy of the model's page that year) or
     "unchecked" (the archive wasn't searched for this brand). specs and tiers are as spec_groups()
     and spec_tiers() give them, and changed holds the English labels whose value differs from the
     previous year with specs; moves maps those that are rated both years to "up" or "down". Rows
-    keep one order across the years.
+    keep one order across the years. earlier is true for a year of an earlier generation, as the
+    age check has it (catalogue_years).
     """
     today = today or date.today()
     found = model.get("year_specs") or {}
     archived, checked = found.get("years") or {}, set(found.get("checked") or [])
     own_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
     tabs, before, before_tiers = [], None, None
+    catalogue = catalogue_years(model)  # the same generations the age check marks
     # Earlier years only show for a model that has a sheet from then (Giant keeps some 2017 pages).
     first = min([FIRST_SPEC_YEAR] + [int(y) for y, e in archived.items() if e.get("specs")])
     for year in range(first, max(today.year, own_year or 0) + 1):
@@ -331,6 +333,7 @@ def year_tabs(model, today=None):
         else:
             tab, sheet = {"state": "none" if year in checked else "unchecked"}, None
         tab["year"] = year
+        tab["earlier"] = catalogue.get(year, (None, False))[1]
         if sheet:
             this = dict(model, specs=sheet)
             tab["specs"], tab["tiers"] = spec_groups(this), spec_tiers(this)

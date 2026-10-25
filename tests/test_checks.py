@@ -1170,3 +1170,18 @@ def test_year_tabs_keep_one_row_order_and_mark_upgrades():
     assert orders[2024] == orders[2025] == orders[2026]  # our own scrape's order, in every year
     assert tabs[2025]["moves"] == {"Shifters": "up"}
     assert tabs[2026]["moves"]["Shifters"] == "down"
+
+
+def test_model_page_years_match_the_age_check(tmp_path):
+    """The model page's model years come from the same catalogue years as the age check, earlier
+    generations included and marked in the facts, the year tabs and the photo thumbs."""
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    model = next(m for m in db.all_models(db.connect(app.config["DB_PATH"])) if m["slug"] == "trek-domane-al-4-gen-4")
+    earlier = sorted(y for y, (_n, old) in checks.catalogue_years(model).items() if old)
+    assert earlier, "the 2021-2023 sheets are the gen 3 bike"
+    page = app.test_client().get("/models/trek-domane-al-4-gen-4?lang=nl").get_data(as_text=True)
+    first = checks.sold_years(model)[0]
+    assert f'<div class="v">{first}–nu</div>' in page
+    assert f"eerdere gen. {earlier[0]}–{earlier[-1]}" in page
+    assert f'class="year-tab archive earlier" id="tab-{earlier[0]}"' in page
