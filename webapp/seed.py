@@ -379,7 +379,7 @@ def year_specs(brand, name, _cache={}):
     Wayback Machine copies of the brand's NL site (data/years/<Brand>.json).
 
     {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs,
-    source?, sheet_years?, sheet_name?, colours?} or {captured, url, unreadable: true}}}; a checked year
+    source?, sheet_years?, sheet_name?, colours?, price_url?, price_captured?} or {captured, url, unreadable: true}}}; a checked year
     without an entry had no page.
     """
     if brand not in _cache:
@@ -390,6 +390,10 @@ def year_specs(brand, name, _cache={}):
     years = dict((archive or {}).get("models", {}).get(name.strip(), {}))
     for year, entry in (site or {}).get("models", {}).get(name.strip(), {}).items():
         if entry.get("specs") or year not in years:
+            copy = years.get(year) or {}
+            # The brand's own old pages carry no price: keep the one the Wayback copy showed, and say where it's from.
+            if not entry.get("price") and copy.get("price"):
+                entry = dict(entry, price=copy["price"], price_url=copy.get("url"), price_captured=copy.get("captured"))
             years[year] = entry
     found = [f for f in (archive, site) if f]
     return {"checked": sorted({y for f in found for y in f["years"]}),
