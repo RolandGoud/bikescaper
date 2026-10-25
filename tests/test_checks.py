@@ -1185,3 +1185,22 @@ def test_model_page_years_match_the_age_check(tmp_path):
     assert f'<div class="v">{first}–nu</div>' in page
     assert f"eerdere gen. {checks._years_list(earlier)}" in page
     assert f'class="year-tab archive earlier" id="tab-{earlier[0]}"' in page
+
+
+def test_a_model_without_its_own_photo_opens_on_its_newest_year_photo(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    model = next(m for m in db.all_models(db.connect(app.config["DB_PATH"])) if m["slug"] == "trek-emonda-alr-5")
+    assert not model["image"]
+    newest = [t for t in checks.year_tabs(model) if t.get("image") and t["state"] != "scrape"][-1]
+    page = app.test_client().get("/models/trek-emonda-alr-5?lang=nl").get_data(as_text=True)
+    assert f'data-start="{newest["year"]}"' in page and newest["image"] in page
+    assert 'class="gallery-thumb"' in page and "[nog geen foto]" not in page
+
+
+def test_a_model_without_year_photos_still_shows_its_photo(tmp_path):
+    """The photo's size comes from .model-gallery .photo; without a carousel it needs the wrapper too."""
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/cannondale-caad14-2?lang=nl").get_data(as_text=True)
+    assert '<div class="model-gallery"><div class="photo" id="model-photo"><img' in page

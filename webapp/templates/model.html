@@ -12,11 +12,12 @@
     {# The current photo, and when we have them the photo of each earlier model year: thumbnails from
        the oldest to the current bike, which is shown first. #}
     {% set gallery = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('image')|list %}
-    {% if gallery and m.image %}
+    {# A model with no photo of its own (one that's no longer sold) opens on its newest year photo. #}
+    {% if gallery %}
     {% set own = (year_tabs|selectattr('state', 'equalto', 'scrape')|first) %}
     {% set own_year = own.year if own else year_tabs[-1].year %}
     {# Every year from the oldest photo on, also the ones we have no photo for yet. #}
-    {% set slots = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('year', 'ge', gallery[0].year)|selectattr('year', 'lt', own_year)|list %}
+    {% set slots = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('year', 'ge', gallery[0].year)|selectattr('year', 'lt' if m.image else 'le', own_year)|list %}
     {% set placeholder %}<span class="gallery-empty-logo">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }}</span>{% endset %}
     {# What the facts beside the photo say for that year; swapped in when the year is picked. #}
     {% macro year_facts(t) -%}
@@ -33,8 +34,8 @@
         <div class="small muted" id="colour-note" hidden>{{ _('No photo of this colour yet.') }}</div>
         {% else %}<div class="v small">–</div>{% endif %}</span></template>
     {%- endmacro %}
-    <div class="model-gallery" id="model-gallery">
-      <div class="photo" id="model-photo">{{ photo(m) }}
+    <div class="model-gallery" id="model-gallery"{% if not m.image %} data-start="{{ gallery[-1].year }}"{% endif %}>
+      <div class="photo" id="model-photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=gallery[-1].image) }}" alt="{{ m.brand }} {{ m.name }} {{ gallery[-1].year }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}
         <div class="gallery-empty" id="gallery-empty" hidden>{{ placeholder }}<span>{{ _('Still looking for a good photo of this year.') }}</span></div>
         <span class="gallery-chip" id="gallery-chip">{{ own_year }}</span>
         <span class="gallery-count" id="gallery-count">{{ slots|length + 1 }} / {{ slots|length + 1 }}</span>
@@ -55,16 +56,21 @@
                 title="{{ _('Still looking for a good photo of this year.') }}">{{ year_facts(t) }}{{ placeholder }}<span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
         {% endif %}
         {% endfor %}
+        {% if m.image %}
         <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}">
           {{ photo(m) }}<span class="gallery-year">{{ own_year }}</span></button>
+        {% elif slots[-1].year != own_year %}
+        <button type="button" class="gallery-thumb current empty" aria-pressed="false" data-year="{{ own_year }}" data-src=""
+                title="{{ _('Still looking for a good photo of this year.') }}">{{ placeholder }}<span class="gallery-year">{{ own_year }}</span></button>
+        {% endif %}
       </div>
       <button type="button" class="strip-nav next" aria-label="{{ _('Later years') }}" hidden>›</button>
       </div>
     </div>
     {% else %}
-    <div class="photo" id="model-photo">{{ photo(m) }}</div>
+    <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}</div></div>
     {% endif %}
-    {% if m.image %}
+    {% if m.image or gallery %}
     {# A click on the photo opens it full size; the arrows flip through the years like the carousel. #}
     <dialog class="lightbox" id="photo-box" aria-label="{{ _('Photos per model year') }}">
       <img alt="">
@@ -268,6 +274,11 @@
       if (thumb) showPhoto(thumb, true);
     });
   });
+  var start = document.getElementById("model-gallery");
+  if (start && start.dataset.start) {
+    var first = thumbs.find(function (b) { return b.dataset.year === start.dataset.start && b.dataset.src; });
+    if (first) showPhoto(first);
+  }
   // The photo full size: it shows what the carousel shows, and its arrows and keys move the carousel.
   var box = document.getElementById("photo-box");
   if (box && box.showModal) {
