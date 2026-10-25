@@ -400,6 +400,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .verdict .why { font-size: 14px; color: var(--text); }
 .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); gap: 6px; font-family: var(--mono); font-size: 13px; text-align: center; }
 .timeline div { padding: 12px 4px; border-radius: 6px; font-weight: 600; }
+.timeline div.likely { box-shadow: inset 0 0 0 2px currentColor; }
+.timeline .likely-tag { display: block; margin-top: 4px; font-size: 11px; font-weight: 500; opacity: .85; }
 .notes { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
 .spec-table { overflow-x: auto; }
 .spec-table table { min-width: 720px; width: 100%; border-collapse: collapse; font-size: 15px; }

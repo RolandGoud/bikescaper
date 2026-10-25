@@ -1204,3 +1204,16 @@ def test_a_model_without_year_photos_still_shows_its_photo(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/cannondale-caad14-2?lang=nl").get_data(as_text=True)
     assert '<div class="model-gallery"><div class="photo" id="model-photo"><img' in page
+
+
+def test_age_timeline_rings_the_estimated_years(tmp_path):
+    app = create_app(str(tmp_path / "t.sqlite3"))
+    with app.app_context():
+        seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL 6 gen 4", "asking_price": "2500",
+                                "description": "Shimano 105 Di2 2x12, schijfremmen"})
+    page = client.get("/check/1?lang=en").get_data(as_text=True)
+    ringed = re.findall(r'<div class="[a-z-]+ likely"[^>]*>(\d{4})<br>', page)
+    assert ringed and min(int(y) for y in ringed) == 2023  # "Probably 2023 or later"
+    assert "estimated" in page
