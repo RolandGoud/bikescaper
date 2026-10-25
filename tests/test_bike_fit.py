@@ -115,3 +115,20 @@ def test_mirrored_even_when_it_cant_be_lined_up(tmp_path):
     ImageOps.mirror(bike).crop((0, 0, bike.width * 3 // 4, bike.height)).save(ad)
     place = bike_fit.work_out(str(ad), CATALOGUE)
     assert place == {"flip": True}
+
+
+def test_slider_takes_a_right_facing_ad_photo_over_mirroring_the_first(tmp_path, monkeypatch):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    os.makedirs(tmp_path / "ad-photos" / "1")
+    for name in ("01.jpg", "02.jpg", "03.jpg"):
+        fake_ad(CATALOGUE, tmp_path / "ad-photos" / "1" / name, False)
+    facing = {"01.jpg": True, "02.jpg": None, "03.jpg": False}  # left, unsure, right
+    monkeypatch.setattr(bike_fit, "faces_left", lambda path: facing[os.path.basename(path)])
+    with app.test_request_context():
+        pick = app.jinja_env.globals["duo_pick"]
+        photos = ["/ad-photos/1/01.jpg", "/ad-photos/1/02.jpg", "/ad-photos/1/03.jpg"]
+        assert pick(photos) == "/ad-photos/1/03.jpg"
+        facing["01.jpg"] = None  # the first isn't sure to face left: keep it
+        assert pick(photos) == "/ad-photos/1/01.jpg"
+        assert pick(["https://example.com/a.jpg"]) == "https://example.com/a.jpg"  # not stored: as it is
+        assert pick([]) is None
