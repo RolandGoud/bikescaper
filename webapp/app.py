@@ -153,6 +153,20 @@ def create_app(db_path=None):
 
     app.jinja_env.globals["ad_photo_fit"] = ad_photo_fit
 
+    def duo_pick(photos, look=6):
+        """The ad photo for the merged slider: the first one, unless its bike faces left and a later one
+        (of the first few) shows it facing right like the catalogue bike, so it needn't be mirrored."""
+        prefix = url_for("ad_photo", name="")
+        folder = ad_photos.folder(app.config["DB_PATH"])
+        def left(p):
+            path = os.path.join(folder, p[len(prefix):])
+            return bike_fit.faces_left(path) if p.startswith(prefix) and os.path.exists(path) else None
+        if not photos or not left(photos[0]):
+            return photos[0] if photos else None
+        return next((p for p in photos[1:look] if left(p) is False), photos[0])
+
+    app.jinja_env.globals["duo_pick"] = duo_pick
+
     def conn():
         if "conn" not in g:
             g.conn = db.connect(app.config["DB_PATH"])

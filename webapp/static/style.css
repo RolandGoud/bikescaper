@@ -179,7 +179,7 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .lb-duo .photo.duo { aspect-ratio: 16 / 9; border-radius: 10px; }
 .lb-duo .duo-label { bottom: 16px; padding: 6px 14px; }
 .lb-duo .duo-label > span { font-size: 13px; }
-.strip-duo .photo.duo { cursor: zoom-in; }
+.head-duo .photo.duo { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--faint); border-radius: 14px; overflow: hidden; cursor: zoom-in; }
 .lb-count { position: absolute; top: 28px; left: 0; right: 0; text-align: center; font-family: var(--mono); font-size: 14px; color: #DCDCE4; pointer-events: none; }
 @media (max-width: 640px) {
   .lightbox > img { max-width: 100vw; max-height: calc(100vh - 140px); }
@@ -229,8 +229,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .crumbs { font-size: 14px; color: var(--muted); }
 .badge { padding: 2px 8px; border-radius: 4px; background: var(--faint); font-weight: 600; }
 .listing-head { display: flex; flex-wrap: wrap; gap: 28px; flex-direction: row; }
-.listing-head .photo { flex: 0 1 320px; aspect-ratio: 16 / 9; align-self: flex-start; background: var(--photo-bg); border: 1px solid var(--faint); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; overflow: hidden; }
-.listing-head .photo img { width: 100%; height: 100%; object-fit: contain; }
+.listing-head > .photo { flex: 0 1 320px; aspect-ratio: 16 / 9; align-self: flex-start; background: var(--photo-bg); border: 1px solid var(--faint); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; overflow: hidden; }
+.listing-head > .photo img { width: 100%; height: 100%; object-fit: contain; }
 /* the photo carousel: the current photo and one per earlier model year */
 .model-gallery { flex: 0 1 420px; align-self: flex-start; min-width: 0; }
 .model-gallery .photo { position: relative; width: 100%; }
@@ -268,6 +268,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gallery-thumb.empty .pill-logo { width: 44px; height: 12px; opacity: .45; }
 .model-gallery .photo > img[hidden] { display: none; }
 @media (max-width: 700px) { .model-gallery { flex-basis: 100%; } }
+.listing-head .head-duo { flex: 0 1 420px; align-self: flex-start; min-width: 0; }
 .listing-head .info { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 .listing-head h1 { font-size: 30px; line-height: 1.2; text-transform: none; font-family: var(--body); font-style: normal; font-weight: 700; letter-spacing: 0; }
 .price { font-size: 26px; font-weight: 700; }

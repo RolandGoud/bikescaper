@@ -7,7 +7,9 @@
   <div class="crumbs"><a href="{{ url_for('listings') }}">{{ _('Listings') }}</a> / {{ _('Check report') }}</div>
 
   <section class="card listing-head">
-    <div class="photo">{{ photo(r.model) }}</div>
+    {# The ad's bike over the catalogue bike, to slide between; the catalogue photo alone without ad photos. #}
+    {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos), r.model) }}</div>
+    {% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
     <div class="info">
       <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ _('checked {date}', date=listing.created_at[:10]) }}</div>
       {% if listing.times_checked > 1 %}<div class="small muted">{{ _('This ad has been checked {n} times.', n=listing.times_checked) }}</div>{% endif %}
@@ -45,7 +47,7 @@
       </div>
       {% endif %}
       {% endif %}
-      {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% if r.model and r.model.image %}<div class="strip-duo">{{ duo_photo(listing.photos[0], r.model) }}</div>{% endif %}{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
+      {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
       {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
     </div>
   </section>
@@ -216,7 +218,7 @@
 <dialog class="lightbox" aria-label="{{ _('Photos from the ad') }}" data-photos='{{ listing.photos|tojson }}'
         data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}" data-duo-label="{{ _('Ad and catalogue') }}">
   {# The merged slider, big and still draggable; it comes first, before the ad's own photos. #}
-  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(listing.photos[0], r.model) }}</div>{% endif %}
+  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(duo_pick(listing.photos), r.model) }}</div>{% endif %}
   <img alt="" referrerpolicy="no-referrer">
   <div class="lb-count" aria-live="polite"></div>
   <button class="lb-close" type="button" aria-label="{{ _('Close') }}" autofocus>×</button>
