@@ -45,7 +45,7 @@ def test_home_shows_the_offers_marked_as_sponsored(tmp_path):
         client.post("/check", data={"title": title})
 
     page = client.get("/").data.decode()
-    assert page.count("Gesponsord") >= 3 and "Advertentie checken" in page
+    assert page.count("Gesponsord") >= 3 and "Fiets checken" in page
     assert page.count('rel="sponsored noopener"') == 3
     for slot in ["card", "banner", "side"]:
         assert f"{slot} nl" in page
