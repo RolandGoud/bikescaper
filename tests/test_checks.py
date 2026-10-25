@@ -932,6 +932,18 @@ def test_colour_seen_in_the_photos_dates_the_frame_before_swappable_parts(models
     assert est["status"] == checks.OK and est["last"] == 2020
 
 
+def test_slider_shows_the_photo_of_the_colour_in_the_ad(models):
+    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
+             year_specs={"years": {"2021": {"specs": {"Frame": "x"}, "image": "y/2021.jpg",
+                                            "colours": ["Quicksilver/Brushed Chrome", "Carbon Blue Smoke/Metallic Blue"],
+                                            "colour_images": {"Quicksilver/Brushed Chrome": "y/2021_q.jpg",
+                                                              "Carbon Blue Smoke/Metallic Blue": "y/2021_b.jpg"}},
+                                   "2024": {"specs": {"Frame": "x"}, "image": "y/2024.jpg", "colours": ["White Prismatic"]}}})
+    claims = checks.read_claims("Trek Emonda SL5", "")
+    assert checks.year_photo(m, claims, {"status": checks.UNKNOWN}, "Trek Emonda SL5\n", "Carbon Blue Smoke/Metallic Blue") == (
+        2021, "y/2021_b.jpg", "Carbon Blue Smoke/Metallic Blue")
+
+
 def test_photo_colours_file_only_applies_to_its_model(models, monkeypatch):
     m = dict(models[0], slug="trek-emonda-sl-6")
     monkeypatch.setitem(checks.photo_colour.__defaults__[0], "data", {
