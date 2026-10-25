@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, bike_fit, checks, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
+from . import ad_photos, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -153,19 +153,27 @@ def create_app(db_path=None):
 
     app.jinja_env.globals["ad_photo_fit"] = ad_photo_fit
 
-    def duo_pick(photos, look=6):
+    def duo_pick(photos, model=None, look=6):
         """The ad photo for the merged slider: the first one, unless its bike faces left and a later one
-        (of the first few) shows it facing right like the catalogue bike, so it needn't be mirrored."""
+        (of the first few) shows the whole bike facing right like the catalogue bike, so it needn't be
+        mirrored. A close-up facing right (a derailleur, a rim) doesn't count: then the first is mirrored."""
         prefix = url_for("ad_photo", name="")
         folder = ad_photos.folder(app.config["DB_PATH"])
+        def path(p):
+            found = os.path.join(folder, p[len(prefix):])
+            return found if p.startswith(prefix) and os.path.exists(found) else None
         def left(p):
-            path = os.path.join(folder, p[len(prefix):])
-            return bike_fit.faces_left(path) if p.startswith(prefix) and os.path.exists(path) else None
+            return bike_fit.faces_left(path(p)) if path(p) else None
         if not photos or not left(photos[0]):
             return photos[0] if photos else None
-        return next((p for p in photos[1:look] if left(p) is False), photos[0])
+        catalogue = os.path.join(ROOT, "images", model["image"]) if model and model.get("image") else None
+        if not catalogue or not os.path.exists(catalogue):
+            return photos[0]
+        return next((p for p in photos[1:look] if left(p) is False and bike_fit.whole_bike(path(p), catalogue)),
+                    photos[0])
 
     app.jinja_env.globals["duo_pick"] = duo_pick
+    app.jinja_env.filters["swatch"] = colour_match.swatch
 
     def conn():
         if "conn" not in g:

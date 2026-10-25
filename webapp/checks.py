@@ -513,6 +513,46 @@ def confidence(ranked):
     return "low"
 
 
+def name_parts(model):
+    """The model's name split into its family and its version: "Defy Advanced Pro 1" gives ("Defy Advanced Pro",
+    "1"), "Domane SL 6 Gen 4" gives ("Domane SL", "6 Gen 4"). The version starts at the first word with a number."""
+    words = re.split(r"[\s-]+", model["name"].split(" - ")[0].strip())
+    at = next((i for i, w in enumerate(words) if i and re.search(r"\d", w)), len(words))
+    return " ".join(words[:at]), " ".join(words[at:])
+
+
+def _share(part, ad_toks, clash_toks=()):
+    toks = _tokens(part)
+    if not toks:
+        return None
+    return round(100 * sum(t in ad_toks and t not in clash_toks for t in toks) / len(toks))
+
+
+def match_rate(model, models, title, description=""):
+    """How well the ad's words fit a model, in percent, with the part scores it's made of:
+    {"pct", "brand", "family", "version" (each {"name", "pct"}, version None for a model without one), "extra"}.
+    The brand counts a fifth, the family and the version two fifths each; every model word the title has that
+    this model hasn't (Di2, Pro) takes 5 off, and a version the ad names otherwise (an SL7 for an SL9) scores 0."""
+    ad_toks = set(_tokens(f"{title} {description or ''}"))
+    family, version = name_parts(model)
+    clash_toks = {t for ours, _ in conflicts(model, title) for t in _tokens(ours)}
+    brand_pct = 100 if set(_tokens(model["brand"])) <= ad_toks else 50
+    family_pct = _share(family, ad_toks)
+    version_pct = _share(version, ad_toks, clash_toks)
+    check = name_check(model, models, title, description) or {}
+    extra = check.get("extra", [])
+    if version_pct is None:
+        pct = 0.2 * brand_pct + 0.8 * family_pct
+    else:
+        pct = 0.2 * brand_pct + 0.4 * family_pct + 0.4 * version_pct
+    return {"pct": max(0, min(100, round(pct - 5 * len(extra)))),
+            "brand": {"name": model["brand"], "pct": brand_pct},
+            "family": {"name": family, "pct": family_pct},
+            "version": {"name": version, "pct": version_pct} if version else None,
+            "found": check.get("found") if check else model["name"].split(" - ")[0].split(),
+            "missing": check.get("missing", []), "extra": extra, "conflicts": check.get("conflicts", [])}
+
+
 # ---------------------------------------------------------------- reference helpers
 
 def spec(model, *keys):
@@ -612,7 +652,7 @@ def check_age(model, claims, today=None):
     if claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
-            "notes": [n for n in [seen, note] if n]}
+            "notes": [n for n in [seen, note] if n], "year": claimed}
 
 
 def colourway_year(colourway):
@@ -837,11 +877,15 @@ STATUS_RANK = {BAD: 3, WARN: 2, OK: 1, UNKNOWN: 0}
 def age_summary(age, estimate):
     """The age tab's verdict, in line with its section: the age check and the year estimate together.
     The worse of the two leads; when one can't tell, the other speaks."""
+    # The tab's OK / watch out / not OK pill gives the verdict, so a check that adds up shows its year.
+    adds_up = Msg("Model year {year}", year=age["year"]) if age["status"] == OK and age.get("year") else None
     if not estimate or estimate["status"] == UNKNOWN and age["status"] != UNKNOWN:
-        return {"status": age["status"], "headline": age["headline"], "detail": age["detail"]}
+        return {"status": age["status"], "headline": adds_up or age["headline"], "detail": age["detail"]}
     if age["status"] == UNKNOWN or STATUS_RANK[estimate["status"]] > STATUS_RANK[age["status"]]:
         return {"status": estimate["status"], "headline": Msg("Year estimate: {verdict}", verdict=estimate["headline"]),
                 "detail": estimate["detail"]}
+    if adds_up:
+        return {"status": age["status"], "headline": estimate["headline"], "detail": age["detail"]}
     return {"status": age["status"], "headline": Msg("{age} · {estimate}", age=age["headline"], estimate=estimate["headline"]),
             "detail": age["detail"]}
 
@@ -962,7 +1006,9 @@ def check_specs(model, claims):
     detail = join(claims["mentions_upgrades"] and Msg("The seller mentions changed parts."),
                   Msg("Compared with the {brand} spec sheet from {date}.", brand=model["brand"],
                       date=model.get("seen_on") or Msg("our catalogue")))
-    return {"status": status, "headline": headline, "detail": detail, "rows": rows}
+    # The report tab's pill says whether it matches; the tab's headline says what was compared.
+    tab = Msg("Original parts") if status == OK and not up else headline
+    return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows}
 
 
 def size_options(brand):
@@ -1257,6 +1303,11 @@ def run_check(models, listing, today=None):
         return report
     if not chosen_by_you:
         report["name_check"] = name_check(chosen, models, listing["title"], listing.get("description"))
+    # The candidates with how well the ad's words fit each, best fit first; our pick is marked in the list.
+    rates = [(match_rate(m, models, listing["title"], listing.get("description")), score, m) for score, m in ranked[:8]]
+    rates.sort(key=lambda r: (-r[0]["pct"], -r[1]))
+    report["matches"] = [dict(rate, model=m) for rate, _, m in rates]
+    report["match"] = next((r for r in report["matches"] if r["model"]["id"] == chosen["id"]), None)
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
     report["colourway"] = colour_match.pick(chosen, listing["title"], listing.get("description") or "")
     if report["colourway"] and report["colourway"].get("image"):

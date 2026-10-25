@@ -645,15 +645,15 @@ def test_certainty_comes_back_when_our_match_is_picked_again(tmp_path):
     page = client.get("/check/1?lang=nl").data.decode()
     ours = re.search(r'<option value="(\d+)" selected', page).group(1)
     other = re.search(r'<option value="(\d+)" >', page).group(1)
-    level = re.search(r"zekerheid: (\w+)", page).group(1)  # whatever ours is, it must come back
+    level = re.search(r"ZEKERHEID: (\w+)", page).group(1)  # whatever ours is, it must come back
 
     client.post("/check/1/match", data={"model_id": other})
     page = client.get("/check/1?lang=nl").data.decode()
-    assert "Gekozen door jou" in page and "zekerheid" not in page
+    assert "Gekozen door jou" in page and "ZEKERHEID" not in page
 
     client.post("/check/1/match", data={"model_id": ours})
     page = client.get("/check/1?lang=nl").data.decode()
-    assert f"zekerheid: {level}" in page and "Gekozen door jou" not in page
+    assert f"ZEKERHEID: {level}" in page and "Gekozen door jou" not in page
 
 
 def test_size_systems_split_frame_and_letter_sizes(tmp_path):
@@ -767,8 +767,7 @@ def test_report_says_when_we_dispute_the_model(tmp_path):
     client = app.test_client()
     resp = client.post("/check", data={"title": "Specialized S-Works Tarmac SL6 2019", "asking_price": "2500"})
     page = client.get(resp.headers["Location"] + "?lang=nl").data.decode()
-    assert "Wij denken dat dit een ander model is dan de verkoper zegt" in page
-    assert "De advertentie zegt SL6, dit model is een SL9." in page
+    assert 'class="mb-chip bad"' in page and "De advertentie zegt SL6, dit is een SL9" in page
 
 
 def test_value_uses_the_oldest_estimated_year(models):
@@ -921,11 +920,14 @@ def test_age_tab_says_what_its_section_says():
     assert tab["status"] == checks.OK and en(tab["headline"]) == "Year estimate: Fits 2025"
     ok = dict(age, status=checks.OK, headline=checks.Msg("Adds up"))
     assert en(checks.age_summary(ok, estimate)["headline"]) == "Adds up · Fits 2025"
+    # The tab's pill says it adds up, so the headline gives the year.
+    assert en(checks.age_summary(dict(ok, year=2025), estimate)["headline"]) == "Fits 2025"
+    assert en(checks.age_summary(dict(ok, year=2025), None)["headline"]) == "Model year 2025"
     bad = dict(estimate, status=checks.BAD, headline=checks.Msg("Doesn't fit {years}", years="2023"))
     assert checks.age_summary(ok, bad)["status"] == checks.BAD
 
 
-def test_report_tabs_put_the_fair_price_first(models, tmp_path):
+def test_report_tabs_follow_the_check_page_with_the_price_open(models, tmp_path):
     app = create_app(str(tmp_path / "tabs.sqlite3"))
     conn = db.connect(app.config["DB_PATH"])
     seed.load(conn)
@@ -933,9 +935,46 @@ def test_report_tabs_put_the_fair_price_first(models, tmp_path):
     conn.commit()
     page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
     tabs = re.findall(r'id="tab-(\w+)"', page)
-    assert tabs == ["value", "age", "specs", "size"]
+    assert tabs == ["age", "specs", "size", "value"]  # as on the check page
+    assert re.search(r'id="tab-value"[^>]*aria-selected="true"', page)
+    assert 'class="verdict-pill ok"' in page  # the verdict as a pill, the headline says what was found
     size_tab = re.search(r'id="tab-size"[^>]*class="report-tab (\w+)-bg', page, re.S)
     assert size_tab.group(1) == "unknown"  # no height given yet
+
+
+def test_match_rate_shows_how_well_the_ads_words_fit(models):
+    ad = "Giant Defy Advanced 1 Shimano 105 Di2 van €3599 voor € 2450"
+    giant = [m for m in models if m["brand"] == "Giant"]
+    by_name = {m["name"]: m for m in giant}
+    if "Defy Advanced 1" not in by_name:
+        pytest.skip("no Defy Advanced 1 in the seed catalogue")
+    ours = checks.match_rate(by_name["Defy Advanced 1"], models, ad)
+    assert ours["brand"]["pct"] == 100 and ours["family"] == {"name": "Defy Advanced", "pct": 100}
+    assert ours["version"] == {"name": "1", "pct": 100}
+    assert ours["extra"] == ["Di2"] and ours["pct"] == 95  # every model word the ad has and the model hasn't: 5 off
+    if "Defy Advanced 2" in by_name:
+        other = checks.match_rate(by_name["Defy Advanced 2"], models, ad)
+        assert other["version"]["pct"] == 0 and other["pct"] < ours["pct"]  # the ad says 1, not 2
+
+
+def test_name_parts_split_family_from_version():
+    assert checks.name_parts({"name": "Defy Advanced Pro 1"}) == ("Defy Advanced Pro", "1")
+    assert checks.name_parts({"name": "Domane SL 6 Gen 4"}) == ("Domane SL", "6 Gen 4")
+    assert checks.name_parts({"name": "Tarmac SL7 - Ultegra"}) == ("Tarmac", "SL7")
+
+
+def test_the_model_panel_lists_candidates_best_first(models, tmp_path):
+    app = create_app(str(tmp_path / "panel.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Trek Domane SL 6 Gen 4 2024 maat 56", 2450))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
+    assert 'href="#pick-model"' in page and 'id="pick-model"' in page
+    pcts = [int(p) for p in re.findall(r'class="mp-pct \w+">(\d+)%', page)]
+    assert pcts and pcts == sorted(pcts, reverse=True)
+    assert page.count('class="mp-cand ours"') == 1 and "OUR PICK" in page
+    assert '<select id="model_id" name="model_id">' in page  # any model by hand, at the bottom
 
 
 def test_frame_number_is_always_asked_with_the_stolen_check(models, tmp_path):

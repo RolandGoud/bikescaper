@@ -124,11 +124,20 @@ def test_slider_takes_a_right_facing_ad_photo_over_mirroring_the_first(tmp_path,
         fake_ad(CATALOGUE, tmp_path / "ad-photos" / "1" / name, False)
     facing = {"01.jpg": True, "02.jpg": None, "03.jpg": False}  # left, unsure, right
     monkeypatch.setattr(bike_fit, "faces_left", lambda path: facing[os.path.basename(path)])
+    model = {"image": "Trek/DomaneAL4-24-41607-A-Primary_01.jpg"}
     with app.test_request_context():
         pick = app.jinja_env.globals["duo_pick"]
         photos = ["/ad-photos/1/01.jpg", "/ad-photos/1/02.jpg", "/ad-photos/1/03.jpg"]
-        assert pick(photos) == "/ad-photos/1/03.jpg"
+        assert pick(photos, model) == "/ad-photos/1/03.jpg"
+        assert pick(photos) == "/ad-photos/1/01.jpg"  # without the catalogue photo nothing to check against
         facing["01.jpg"] = None  # the first isn't sure to face left: keep it
-        assert pick(photos) == "/ad-photos/1/01.jpg"
-        assert pick(["https://example.com/a.jpg"]) == "https://example.com/a.jpg"  # not stored: as it is
-        assert pick([]) is None
+        assert pick(photos, model) == "/ad-photos/1/01.jpg"
+        assert pick(["https://example.com/a.jpg"], model) == "https://example.com/a.jpg"  # not stored: as it is
+        assert pick([], model) is None
+        # A close-up facing right (here the size sticker on the seat tube) isn't the whole bike: the first stays.
+        facing["01.jpg"] = True
+        bike = Image.open(CATALOGUE).convert("RGB")
+        bike.crop((bike.width // 3, bike.height // 4, bike.width // 2, bike.height // 2)).resize((300, 400)).save(
+            tmp_path / "ad-photos" / "1" / "04.jpg")
+        facing["04.jpg"] = False
+        assert pick(["/ad-photos/1/01.jpg", "/ad-photos/1/04.jpg"], model) == "/ad-photos/1/01.jpg"

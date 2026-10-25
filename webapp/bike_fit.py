@@ -287,6 +287,29 @@ def faces_left(ad_path):
     return left
 
 
+def whole_bike(ad_path, catalogue_path, ratio=1.2):
+    """Whether the ad photo shows the whole bike from the side, so it can stand in the slider: wider than
+    tall, with the catalogue bike's outline found in it. A close-up (a derailleur, a rim, the size sticker)
+    is neither. Kept in the photo's .fit.json, per catalogue photo."""
+    try:
+        key = "whole:" + _key(catalogue_path, None)
+    except OSError:
+        return False
+    saved = _read(ad_path)
+    if key in saved:
+        return saved[key]
+    try:
+        with Image.open(ad_path) as ad, Image.open(catalogue_path) as catalogue:
+            whole = ad.width >= ratio * ad.height and find(ad, catalogue) is not None
+    except (OSError, ValueError):
+        return False
+    try:
+        _save(ad_path, key, whole)
+    except OSError:
+        pass
+    return whole
+
+
 def style(ad_path, catalogue_path, zoom=None):
     """The placement for this pair of photo files if it's been worked out. Until then it's worked out in
     the background for the next view, and the photo is only mirrored if the bike faces left."""

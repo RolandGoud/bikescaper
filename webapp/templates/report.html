@@ -8,7 +8,7 @@
 
   <section class="card listing-head">
     {# The ad's bike over the catalogue bike, to slide between; the catalogue photo alone without ad photos. #}
-    {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos), r.model) }}</div>
+    {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model) }}</div>
     {% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
     <div class="info">
       <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ _('checked {date}', date=listing.created_at[:10]) }}</div>
@@ -16,36 +16,87 @@
       <h1>“{{ listing.title }}”{% if listing.removed_at %} <span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span>{% endif %}</h1>
       <div class="price">{{ listing.asking_price|eur }}</div>
       {% if r.model %}
+      {% set mt = r.match %}
       <div class="match-box">
-        <span>{{ _('Matched to') }}</span>
-        <a href="{{ url_for('model_page', slug=r.model.slug) }}" style="font-weight: 700">{{ r.model.brand }} {{ r.model.name }}</a>
-        {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>
-        {% elif r.confidence %}<span class="mono muted">{{ _('{level} confidence', level=r.confidence) }}</span>{% endif %}
-        <form method="post" action="{{ url_for('change_match', check_id=listing.id) }}">
-          <label class="sr-only" for="model_id">{{ _('Change match') }}</label>
-          <select id="model_id" name="model_id">
-            {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
-            <optgroup label="{{ _('All models') }}">
-            {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}">{{ m.brand }} {{ m.name }}</option>{% endfor %}
-            </optgroup>
-          </select>
-          <button class="btn ghost" type="submit">{{ _('Change match') }}</button>
-        </form>
+        <div class="mono muted mb-k">{{ _('Matched to')|upper }}</div>
+        <div class="mb-row">
+          <a class="mb-name" href="{{ url_for('model_page', slug=r.model.slug) }}" title="{{ r.model.brand }} {{ r.model.name }}">{{ r.model.name }}</a>
+          {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>
+          {% elif mt %}
+          <div class="mb-meter{{ ' ' ~ ('hi' if mt.pct >= 80 else 'mid' if mt.pct >= 50 else 'lo') }}">
+            {% if r.confidence %}<span class="mono">{{ _('{level} confidence', level=r.confidence)|upper }}</span>{% endif %}
+            <span class="match-bar" style="--p: {{ mt.pct }}" role="img" aria-label="{{ _('{pct}% match', pct=mt.pct) }}"><i></i></span>
+            <b>{{ mt.pct }}%</b>
+          </div>
+          {% endif %}
+        </div>
+        {% if mt and not r.chosen_by_you %}
+        <div class="mb-chips">
+          {% if mt.found %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ mt.found|join(' · ') }}</span>{% endif %}
+          {% for ours, theirs in mt.conflicts %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('The ad says {theirs}, this is a {ours}', theirs=theirs, ours=ours) }}</span>{% endfor %}
+          {% for w in mt.extra %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('“{word}” isn’t in this model', word=w) }}</span>{% endfor %}
+          {% for w in mt.missing %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('“{word}” isn’t in the ad', word=w) }}</span>{% endfor %}
+        </div>
+        {% endif %}
+        {% set colour = r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None %}
+        {% if r.photo_year or colour %}
+        <div class="mb-photo">
+          <i class="ok" aria-hidden="true">✓</i>
+          {% if colour and colour|swatch %}<span class="dot" style="background: {{ colour|swatch }}"></span>{% endif %}
+          <span><b>{{ _('Photo') }}:</b> {% if r.photo_year %}{{ _('the {year} model', year=r.photo_year.year) }}{% if colour %} · {% endif %}{% endif %}{{ colour or '' }}</span>
+          {% if colour %}<span class="muted">{{ _('the colour the ad names') }}</span>{% endif %}
+        </div>
+        {% endif %}
+        <a class="btn ghost mb-open" href="#pick-model">{{ _('Change match') }} →</a>
       </div>
-      {% if r.colourway %}<div class="small muted colour-match">{{ _('Catalogue photo in {colour}, the colour the ad names.', colour=r.colourway.name) }}</div>{% endif %}
-      {% if r.photo_year %}<div class="small muted colour-match">{% if r.photo_year.colour %}{{ _('Catalogue photo of the {year} model in {colour}, the colour the ad names.', year=r.photo_year.year, colour=r.photo_year.colour) }}{% else %}{{ _('Catalogue photo of the {year} model.', year=r.photo_year.year) }}{% endif %}</div>{% endif %}
-      {% if r.name_check %}{% set nc = r.name_check %}
-      <div class="name-check{{ ' disputed' if nc.conflicts }}">
-        <strong>{{ _('We think this is another model than the seller says') if nc.conflicts else _("The seller's name doesn't fully match this model") }}</strong>
-        <ul>
-          {% for ours, theirs in nc.conflicts %}<li>{{ _('The ad says {theirs}, this model is a {ours}. We have no closer {theirs} in our catalogue, so everything below compares with the {ours}.', theirs=theirs, ours=ours) }}</li>{% endfor %}
-          {% if nc.found %}<li>{{ _('In the ad and in this model: {words}', words=nc.found|join(', ')) }}</li>{% endif %}
-          {% if nc.extra %}<li>{{ _('In the ad, not in this model: {words}', words=nc.extra|join(', ')) }}</li>{% endif %}
-          {% if nc.missing %}<li>{{ _('In this model, not in the ad: {words}', words=nc.missing|join(', ')) }}</li>{% endif %}
-        </ul>
-        <div class="small muted">{{ _("We match on the model words in the ad's title and description (family, version number and build), plus the year and groupset. We don't read the photos. Know better? Pick the right model above.") }}</div>
-      </div>
-      {% endif %}
+      {# The other candidates, best fit first, in a panel that slides in; it opens and closes by its address (#_ is no element, so
+         closing doesn't scroll), so without JS too. #}
+      <aside id="pick-model" class="match-panel" aria-label="{{ _('Pick the right model') }}">
+        <a class="mp-shade" href="#_" aria-label="{{ _('Close') }}" tabindex="-1"></a>
+        <div class="mp-sheet">
+          <a class="mp-close" href="#_" aria-label="{{ _('Close') }}">×</a>
+          <h3>{{ _('Pick the right model') }}</h3>
+          {% if mt %}
+          {% macro ring(pct) %}<span class="mp-ring {{ 'hi' if pct >= 80 else 'mid' if pct >= 50 else 'lo' }}" style="--p: {{ pct }}"><b>{{ pct }}</b></span>{% endmacro %}
+          {% set others = [] %}{% for m in r.matches if m.family.name != mt.family.name and m.family.name not in others|map(attribute='name') %}{% if others|length < 2 %}{% if others.append(m.family) %}{% endif %}{% endif %}{% endfor %}
+          <div class="mp-chain">
+            <div class="mp-link">{{ ring(mt.brand.pct) }}<div><div class="mono muted">{{ _('Brand')|upper }}</div><div class="v">{{ mt.brand.name }}</div>{% if mt.brand.pct < 100 %}<div class="alt">{{ _('not in the ad') }}</div>{% endif %}</div></div>
+            <span class="mp-arrow" aria-hidden="true">›</span>
+            <div class="mp-link">{{ ring(mt.family.pct) }}<div><div class="mono muted">{{ _('Family')|upper }}</div><div class="v">{{ mt.family.name }}</div>{% if others %}<div class="alt">{% for f in others %}{{ f.name }} {{ f.pct }}{{ ' · ' if not loop.last }}{% endfor %}</div>{% endif %}</div></div>
+            {% if mt.version %}
+            <span class="mp-arrow" aria-hidden="true">›</span>
+            <div class="mp-link">{{ ring(mt.version.pct) }}<div><div class="mono muted">{{ _('Version')|upper }}</div><div class="v">{{ mt.version.name }}</div>{% if mt.extra %}<div class="alt">{{ _('{words} not in the model', words=mt.extra|join(', ')) }}</div>{% endif %}</div></div>
+            {% endif %}
+          </div>
+          {% endif %}
+          <div class="mono muted">{{ _('Models by match')|upper }}</div>
+          {% for m in r.matches %}
+          <form method="post" action="{{ url_for('change_match', check_id=listing.id) }}">
+            <input type="hidden" name="model_id" value="{{ m.model.id }}">
+            <button class="mp-cand{{ ' ours' if m.model.id == r.model.id }}" type="submit">
+              {% if m.model.id == r.model.id %}<span class="mp-ours">✓ {{ (_('Chosen by you') if r.chosen_by_you else _('Our pick'))|upper }}</span>{% endif %}
+              <span class="mp-photo">{{ photo(m.model) }}</span>
+              <span class="mp-text"><span class="n">{{ m.model.name }}</span>
+                <span class="match-bar" style="--p: {{ m.pct }}"><i></i></span>
+                <span class="mono muted">{{ _('fits: {words}', words=m.found|join(' · ')) if m.found else _('no model words in the ad') }}</span></span>
+              <span class="mp-pct {{ 'hi' if m.pct >= 80 else 'mid' if m.pct >= 50 else 'lo' }}">{{ m.pct }}%</span>
+            </button>
+          </form>
+          {% endfor %}
+          <form class="mp-foot" method="post" action="{{ url_for('change_match', check_id=listing.id) }}">
+            <label class="mono muted" for="model_id">{{ _('Not the right one? Pick a model yourself')|upper }}</label>
+            <div class="mp-pick">
+              <select id="model_id" name="model_id">
+                {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
+                <optgroup label="{{ _('All models') }}">
+                {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}">{{ m.brand }} {{ m.name }}</option>{% endfor %}
+                </optgroup>
+              </select>
+              <button class="btn" type="submit">{{ _('Link') }}</button>
+            </div>
+          </form>
+        </div>
+      </aside>
       {% endif %}
       {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
       {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
@@ -64,57 +115,29 @@
   </section>
   {% else %}
 
-  {# One tab per check; the price first and widest. Without JS every section shows, one under the other. #}
+  {# One tab per check, in the order of the check page; the price widest and open first. Without JS every section shows, one under the other. #}
   {# Without the reader's height the size isn't judged yet: neutral, not green. #}
   {% set size_tab = r.size if r.size.fit or r.size.status != 'ok' else dict(r.size, status='unknown') %}
   {% set tab_of = {'value': r.value, 'age': r.age_tab or r.age, 'specs': r.specs, 'size': size_tab} %}
   <div class="report-tabs" role="tablist" aria-label="{{ _('Check report') }}">
-    {% for key, label in [('value', _('Fair price')), ('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE'))] %}
+    {% for key, label in [('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE')), ('value', _('Fair price'))] %}
     {% set v = tab_of[key] %}
-    <a href="#{{ key }}" id="tab-{{ key }}" role="tab" aria-controls="{{ key }}" aria-selected="{{ 'true' if loop.first else 'false' }}"
+    <a href="#{{ key }}" id="tab-{{ key }}" role="tab" aria-controls="{{ key }}" aria-selected="{{ 'true' if key == 'value' else 'false' }}"
        class="report-tab {{ v.status }}-bg{{ ' price' if key == 'value' }}">
-      <span class="mono {{ v.status }}">{{ label|upper }}</span>
       {% if key == 'value' and r.value.low %}
+      <span class="mono {{ v.status }}">{{ label|upper }}</span>
       <span class="fair">{{ r.value.low|eur }} – {{ r.value.high|eur }}</span>
       <span class="why">{{ _('Asking {asking}: {verdict}', asking=listing.asking_price|eur, verdict=r.value.headline|string|lower) if listing.asking_price else r.value.headline }}</span>
       {% else %}
-      <span class="big {{ v.status }}">{{ v.headline }}</span>
+      {# The verdict as a pill by the label; the headline says what we found. #}
+      <span class="tab-label"><span class="mono {{ v.status }}">{{ label|upper }}</span>
+        {% if v.status in ('ok', 'warn', 'bad') %}<span class="verdict-pill {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>{{ {'ok': _('OK'), 'warn': _('Watch out'), 'bad': _('Not OK')}[v.status]|upper }}</span>{% endif %}</span>
+      <span class="big {{ v.status }}">{{ v.tab_headline or v.headline }}</span>
       <span class="why">{{ v.detail }}</span>
       {% endif %}
     </a>
     {% endfor %}
   </div>
-
-  <section id="value" class="card report-panel" role="tabpanel" aria-labelledby="tab-value">
-    <h2>{{ _('Value estimate') }}</h2>
-    {% set v = r.value %}
-    {% if v.low %}
-    <div class="fair-big">
-      <div><div class="k">{{ _('Fair price') }}</div><div class="n">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
-      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="a {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
-    </div>
-    {% endif %}
-    {% if v.bar %}
-    <div class="stack" style="gap: 8px">
-      <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=v.asking|eur) }}">
-        <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
-        <div class="ask" style="left: {{ v.bar.asking }}%"></div>
-      </div>
-      <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
-      <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
-    </div>
-    {% endif %}
-    <p>{{ v.detail }}</p>
-    {% if v.original %}
-    <div class="facts">
-      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
-      <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
-      <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
-    </div>
-    {% endif %}
-    <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
-    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
-  </section>
 
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
     <h2>{{ _('Age check') }}</h2>
@@ -200,6 +223,37 @@
     {% endif %}
   </section>
 
+  <section id="value" class="card report-panel" role="tabpanel" aria-labelledby="tab-value">
+    <h2>{{ _('Value estimate') }}</h2>
+    {% set v = r.value %}
+    {% if v.low %}
+    <div class="fair-big">
+      <div><div class="k">{{ _('Fair price') }}</div><div class="n">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
+      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="a {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
+    </div>
+    {% endif %}
+    {% if v.bar %}
+    <div class="stack" style="gap: 8px">
+      <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=v.asking|eur) }}">
+        <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
+        <div class="ask" style="left: {{ v.bar.asking }}%"></div>
+      </div>
+      <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
+      <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
+    </div>
+    {% endif %}
+    <p>{{ v.detail }}</p>
+    {% if v.original %}
+    <div class="facts">
+      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
+      <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
+      <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
+    </div>
+    {% endif %}
+    <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
+    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
+  </section>
+
 
   {% if r.questions %}
   <section class="card dark">
@@ -218,7 +272,7 @@
 <dialog class="lightbox" aria-label="{{ _('Photos from the ad') }}" data-photos='{{ listing.photos|tojson }}'
         data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}" data-duo-label="{{ _('Ad and catalogue') }}">
   {# The merged slider, big and still draggable; it comes first, before the ad's own photos. #}
-  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(duo_pick(listing.photos), r.model) }}</div>{% endif %}
+  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(duo_pick(listing.photos, r.model), r.model) }}</div>{% endif %}
   <img alt="" referrerpolicy="no-referrer">
   <div class="lb-count" aria-live="polite"></div>
   <button class="lb-close" type="button" aria-label="{{ _('Close') }}" autofocus>×</button>
@@ -229,6 +283,10 @@
 <script src="{{ url_for('static', filename='photo-strip.js') }}" defer></script>
 {% endif %}
 <script>
+  // Esc closes the model panel
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && location.hash === "#pick-model") location.replace("#_");
+  });
   // The check tabs: one section at a time, picked by its tab, by the address (#age) or by a link to it.
   (function () {
     var tabs = Array.prototype.slice.call(document.querySelectorAll(".report-tab"));
