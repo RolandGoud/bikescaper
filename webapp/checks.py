@@ -50,14 +50,23 @@ def detect_groupset(text):
     return found
 
 
+# Parts that come in carbon on an aluminium or steel frame: "carbon vork", "zadelpen: carbon" is no frame claim.
+NON_FRAME_PARTS = (r"vork|voorvork|fork|zadelpen|zadelpi[jg]p|seat\s*post|stuur|stuurpen|handlebars?|bar|stem|"
+                   r"wiel(?:en|set)?|wheels?(?:et)?|velgen|rims?|cranks?(?:et|stel)?|crankarmen|zadel|saddle|kooitjes|"
+                   r"bidonhouders?|cages?|spacers?")
+NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?carbon[\s-]+(?:{NON_FRAME_PARTS})\b"
+                              rf"|\b(?:{NON_FRAME_PARTS})\b\s*(?::|=|-|van|in|uit|of|is|zijn|made of)?\s*(?:volledig\s+)?carbon\b")
+
+
+MATERIAL_WORDS = {"Carbon": r"\bcarbon\b|\boclv\b|\bcf\b", "Aluminium": r"alumini?um|\balu\b|lichtmetaal|\balr\b",
+                  "Steel": r"\bstaal\b|\bsteel\b"}
+
+
 def detect_material(text, model_name=False):
-    low = _plain(text)
-    if re.search(r"\bcarbon\b|\boclv\b|\bcf\b", low):
-        return "Carbon"
-    if re.search(r"alumini?um|\balu\b|lichtmetaal|\balr\b", low) or (model_name and re.search(r"\bal\b", low)):
-        return "Aluminium"
-    if re.search(r"\bstaal\b|\bsteel\b", low):
-        return "Steel"
+    low = NON_FRAME_CARBON.sub(" ", _plain(text))
+    for material, pattern in MATERIAL_WORDS.items():
+        if re.search(pattern, low) or (material == "Aluminium" and model_name and re.search(r"\bal\b", low)):
+            return material
     return None
 
 
@@ -595,6 +604,53 @@ def ref_material(model):
     return detect_material(spec(model, "Material", "Frame") or "") or detect_material(model["name"], model_name=True)
 
 
+def model_materials(model):
+    """{material: [model years]} for the frame materials the model came in, from the spec sheet of each model
+    year we have; years whose sheet doesn't say are left out. The current spec sheet and the model's name
+    count too, under None when we don't know its year."""
+    out = {}
+    for year, sheet in sorted(year_sheets(model).items()):
+        material = ref_material(dict(model, specs=sheet["specs"]))
+        if material:
+            out.setdefault(material, []).append(year)
+    current = ref_material(model)
+    if current and current not in out:
+        out[current] = [None]
+    return out
+
+
+MATERIAL_LOWER = {"Carbon": "carbon", "Aluminium": "aluminium", "Steel": "steel"}
+
+
+def impossible_material(model, claims, text=""):
+    """When the ad claims a frame material the model was never made in: {"claimed", "made_in", "years"}.
+
+    Only when every model year we know says the same thing, and the ad doesn't also name the material the
+    model really is ("alu frame, carbon vork"): then it's a wrong claim or a different model, not a
+    bike that came in both."""
+    claimed = claims.get("material")
+    made = model_materials(model)
+    if not claimed or not made or claimed in made:
+        return None
+    low = NON_FRAME_CARBON.sub(" ", _plain(text))
+    if any(re.search(MATERIAL_WORDS[m], low) for m in made):
+        return None
+    years = sorted(y for ys in made.values() for y in ys if y)
+    span = _span(years[0], years[-1]) if years else None
+    lower = {k: Msg(v) for k, v in MATERIAL_LOWER.items()}
+    kw = {"name": model["name"], "brand": model["brand"], "claimed": lower[claimed],
+          "made": join_list([lower[m] for m in sorted(made)]), "years": span}
+    detail = (Msg("The ad says the frame is {claimed}, but every {brand} spec sheet we have of it ({years}) says "
+                  "{made}. Either the ad gets the material wrong, or the bike is another model than it says.", **kw)
+              if span else
+              Msg("The ad says the frame is {claimed}, but {brand}'s spec sheet says {made}. Either the ad gets the "
+                  "material wrong, or the bike is another model than it says.", **kw))
+    return {"claimed": claimed, "made_in": sorted(made), "years": span,
+            "headline": Msg("Impossible claim: the {name} was never made in {claimed}", **kw), "detail": detail,
+            "question": Msg("The {name} was only ever made in {made}. Why does the ad say {claimed}?", **kw)}
+
+
+
 def ref_brakes(model):
     if spec(model, "Remschijf", "Schijfdiameter"):
         return "Disc"
@@ -1016,7 +1072,7 @@ def _compare_tiers(key, part, original, listing, ref_tier, ad_tier):
     return _row(key, part, original, listing, WARN, "Same tier, different part", ad_tier=ad_tier)
 
 
-def check_specs(model, claims):
+def check_specs(model, claims, impossible=None):
     rows = []
     not_stated = Msg("Not stated")
 
@@ -1036,7 +1092,7 @@ def check_specs(model, claims):
         rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], OK, "Matches"))
 
     for key, part, ref_val, ad_val in (
-        ("frame", "Frame", ref_material(model), claims["material"]),
+        ("frame", "Frame", ref_material(model) or (impossible and impossible["made_in"][0]), claims["material"]),
         ("brakes", "Brakes", ref_brakes(model), claims["brakes"]),
     ):
         shown = spec(model, "Frame", "Material") if key == "frame" else spec(model, "Rem")
@@ -1047,6 +1103,9 @@ def check_specs(model, claims):
             rows.append(_row(key, part, shown or Msg(ref_val), not_stated, WARN, "Ask seller"))
         elif ad_val == ref_val:
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, OK, "Matches"))
+        elif key == "frame" and impossible:
+            rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, BAD,
+                             f"Never made in {MATERIAL_LOWER[ad_val]}"))
         else:
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, BAD, "Differs"))
 
@@ -1346,15 +1405,19 @@ def axis_ticks(top):
     return ticks + [(top, 100.0)]
 
 
-def seller_questions(model, claims, age, specs, size):
+def seller_questions(model, claims, age, specs, size, material_alert=None):
     # The frame number, always: it dates the bike and shows whether it was reported stolen.
     qs = [Msg("Can you send a photo of the serial number under the bottom bracket?")]
+    if material_alert:
+        qs.append(material_alert["question"])
     if age["status"] in (WARN, BAD, UNKNOWN):
         qs.append(Msg("Do you have the original invoice? Which year did you buy it?"))
     for row in specs["rows"]:
         if row["key"] == "groupset" and row["status"] == BAD:
             qs.append(Msg("The original came with {original}. Was the groupset changed, and do you still have the "
                           "original parts?", original=row["original"]))
+        elif row["key"] == "frame" and material_alert:
+            continue
         elif row["status"] == BAD:
             qs.append(Msg("The original has {original} for the {part}. Can you explain the difference?",
                           original=row["original"], part=row["part"]))
@@ -1407,11 +1470,14 @@ def run_check(models, listing, today=None):
         report["colourway"] = None
         report["model"] = dict(chosen, image=found[1], year_photo=True)
     report["age_tab"] = age_summary(report["age"], report["year_estimate"])
-    report["specs"] = check_specs(chosen, claims)
+    report["material_alert"] = impossible_material(chosen, claims,
+                                                   f"{listing['title']}\n{listing.get('description') or ''}")
+    report["specs"] = check_specs(chosen, claims, report["material_alert"])
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,
                                   report["year_estimate"])
-    report["questions"] = seller_questions(chosen, claims, report["age"], report["specs"], report["size"])
+    report["questions"] = seller_questions(chosen, claims, report["age"], report["specs"], report["size"],
+                                           report["material_alert"])
     report["facts"] = head_facts(chosen, claims, report["value"])
     return report
 

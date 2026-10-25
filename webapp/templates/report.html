@@ -145,6 +145,14 @@
   {# Without the reader's height the size isn't judged yet: neutral, not green. #}
   {% set size_tab = r.size if r.size.fit or r.size.status != 'ok' else dict(r.size, status='unknown') %}
   {% set tab_of = {'value': r.value, 'age': r.age_tab or r.age, 'specs': r.specs, 'size': size_tab} %}
+  {# A frame material the model never came in: above the tabs, so nobody reads past it. #}
+  {% if r.material_alert %}
+  <div class="claim-alert" role="alert">
+    <i aria-hidden="true">✕</i>
+    <div><strong>{{ r.material_alert.headline }}</strong><p>{{ r.material_alert.detail }}</p>
+      <a href="#specs">{{ _('See the spec comparison →') }}</a></div>
+  </div>
+  {% endif %}
   <div class="report-tabs" role="tablist" aria-label="{{ _('Check report') }}">
     {% for key, label in [('value', _('Fair price')), ('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE'))] %}
     {% set v = tab_of[key] %}

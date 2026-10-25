@@ -78,7 +78,8 @@ def test_the_sellers_own_parts_win_and_are_flagged(models):
     assert "Groupset: Shimano Ultegra Di2" in text and "Frame: Aluminium" in text
     titles = [en(f["title"]) for f in r["flags"]]
     assert any(t.startswith("Groupset: Upgrade") for t in titles)
-    assert any(t.startswith("Frame: Differs") for t in titles)
+    # A Domane SL was only made in carbon, so the frame is flagged as a claim that cannot be right.
+    assert any(t.startswith("Frame: Never made in aluminium") for t in titles)
 
 
 def test_a_year_before_the_generation_is_flagged(models):
