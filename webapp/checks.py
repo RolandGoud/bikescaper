@@ -978,6 +978,13 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
     hit = (seen_colour and seen_colour_years(year_sheets(model), seen_colour)) or colour_years(year_sheets(model), _plain(text))
     if hit:
         year = claimed if claimed in hit[1] else max(hit[1])
+        # That colour's own photo of that year, when we have one: the colourway with that name, or that part.
+        own = ((model.get("year_specs") or {}).get("years") or {}).get(str(year), {}).get("colour_images") or {}
+        key = " ".join(re.findall(r"[a-z]+", _plain(hit[0])))
+        for name, image in own.items():
+            words = " ".join(re.findall(r"[a-z]+", _plain(name)))
+            if words == key or any(" ".join(re.findall(r"[a-z]+", _plain(p))) == key for p in name.split("/")):
+                return year, image, name
         # A year that came in more colours has one photo, maybe of another colour: then don't name it.
         one = len(year_sheets(model).get(year, {}).get("colours") or []) == 1
         return (year, photos[year], hit[0] if one else None) if year in photos else None
