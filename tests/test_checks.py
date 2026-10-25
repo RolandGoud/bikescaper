@@ -912,3 +912,27 @@ def test_slider_shows_the_year_photo_that_fits_the_ad(models):
     assert checks.year_photo(m, claims, {"status": checks.OK}, "Giant Defy 2024")[0] == 2024
     claims = checks.read_claims("Giant Defy", "")
     assert checks.year_photo(m, claims, {"status": checks.UNKNOWN, "last": None}, "Giant Defy") is None
+
+
+def test_age_tab_says_what_its_section_says():
+    age = {"status": checks.UNKNOWN, "headline": checks.Msg("Seller says {year}", year=2025), "detail": checks.Msg("x")}
+    estimate = {"status": checks.OK, "headline": checks.Msg("Fits {years}", years="2025"), "detail": checks.Msg("y")}
+    tab = checks.age_summary(age, estimate)
+    assert tab["status"] == checks.OK and en(tab["headline"]) == "Year estimate: Fits 2025"
+    ok = dict(age, status=checks.OK, headline=checks.Msg("Adds up"))
+    assert en(checks.age_summary(ok, estimate)["headline"]) == "Adds up · Fits 2025"
+    bad = dict(estimate, status=checks.BAD, headline=checks.Msg("Doesn't fit {years}", years="2023"))
+    assert checks.age_summary(ok, bad)["status"] == checks.BAD
+
+
+def test_report_tabs_put_the_fair_price_first(models, tmp_path):
+    app = create_app(str(tmp_path / "tabs.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Trek Domane SL 6 Gen 4 2024 maat 56", 2450))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
+    tabs = re.findall(r'id="tab-(\w+)"', page)
+    assert tabs == ["value", "age", "specs", "size"]
+    size_tab = re.search(r'id="tab-size"[^>]*class="report-tab (\w+)-bg', page, re.S)
+    assert size_tab.group(1) == "unknown"  # no height given yet

@@ -831,6 +831,21 @@ def estimate_year(model, models, claims, text):
             "evidence": evidence, "fallback": fallback}
 
 
+STATUS_RANK = {BAD: 3, WARN: 2, OK: 1, UNKNOWN: 0}
+
+
+def age_summary(age, estimate):
+    """The age tab's verdict, in line with its section: the age check and the year estimate together.
+    The worse of the two leads; when one can't tell, the other speaks."""
+    if not estimate or estimate["status"] == UNKNOWN and age["status"] != UNKNOWN:
+        return {"status": age["status"], "headline": age["headline"], "detail": age["detail"]}
+    if age["status"] == UNKNOWN or STATUS_RANK[estimate["status"]] > STATUS_RANK[age["status"]]:
+        return {"status": estimate["status"], "headline": Msg("Year estimate: {verdict}", verdict=estimate["headline"]),
+                "detail": estimate["detail"]}
+    return {"status": age["status"], "headline": Msg("{age} · {estimate}", age=age["headline"], estimate=estimate["headline"]),
+            "detail": age["detail"]}
+
+
 def _span(first, last):
     if first and last:
         return str(first) if first == last else f"{first}\u2013{last}"
@@ -1255,6 +1270,7 @@ def run_check(models, listing, today=None):
         report["photo_year"] = {"year": found[0], "colour": found[2]}
         report["colourway"] = None
         report["model"] = dict(chosen, image=found[1], year_photo=True)
+    report["age_tab"] = age_summary(report["age"], report["year_estimate"])
     report["specs"] = check_specs(chosen, claims)
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,

@@ -439,6 +439,9 @@ NL = {
 
     # checks: year from the ad's details
     "Year estimate:": "Geschat jaar:",
+    "Year estimate: {verdict}": "Geschat jaar: {verdict}",
+    "{age} · {estimate}": "{age} · {estimate}",
+    "Asking {asking}: {verdict}": "Vraagprijs {asking}: {verdict}",
     "The ad gives no year and no year clues; we know {name} from {years}.":
         "De advertentie noemt geen jaar en geeft geen aanwijzingen; we kennen de {name} van {years}.",
     "{claimed} fits the years we know {name} from.": "{claimed} past bij de jaren waarin we de {name} kennen.",
