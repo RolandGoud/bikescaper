@@ -32,6 +32,20 @@ def test_site_sheets_win_over_wayback_copies(tmp_path, monkeypatch):
     assert {y: e["specs"]["Frame"] for y, e in found["years"].items()} == {"2020": "older", "2021": "old", "2022": "site"}
 
 
+def test_site_sheets_keep_the_wayback_price(tmp_path, monkeypatch):
+    import json
+    from webapp import seed
+    (tmp_path / "data" / "years" / "site").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "Acme.json").write_text(json.dumps({"checked_on": "2026-01-01", "years": [2021], "models": {
+        "Roadie": {"2021": {"captured": "2021-04-01", "url": "https://web.example/roadie", "price": 2499.0, "specs": {"Frame": "old"}}}}}))
+    (tmp_path / "data" / "years" / "site" / "Acme.json").write_text(json.dumps({"checked_on": "2026-02-01", "years": [2021], "models": {
+        "Roadie": {"2021": {"source": "site", "price": None, "specs": {"Frame": "site"}}}}}))
+    monkeypatch.setattr(seed, "ROOT", str(tmp_path))
+    entry = seed.year_specs("Acme", "Roadie", {})["years"]["2021"]
+    assert entry["specs"]["Frame"] == "site" and entry["price"] == 2499.0
+    assert entry["price_url"] == "https://web.example/roadie" and entry["price_captured"] == "2021-04-01"
+
+
 def test_year_tabs_reach_back_to_the_earliest_sheet():
     from datetime import date
     from webapp import checks
