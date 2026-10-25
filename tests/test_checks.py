@@ -1091,6 +1091,7 @@ def test_the_report_shows_an_impossible_material_above_the_tabs(models, tmp_path
         assert 'class="claim-alert" role="alert"' in page and words in page
         assert page.index("claim-alert") < page.index('class="report-tabs"')
 
+
 def test_year_tabs_keep_one_row_order_and_mark_upgrades():
     from datetime import date
     model = {"name": "Defy Advanced 1", "brand": "Giant", "seen_on": "2026-07-18", "url": "u",
