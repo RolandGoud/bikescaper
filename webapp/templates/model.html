@@ -43,6 +43,17 @@
     {% else %}
     <div class="photo" id="model-photo">{{ photo(m) }}</div>
     {% endif %}
+    {% if m.image %}
+    {# A click on the photo opens it full size; the arrows flip through the years like the carousel. #}
+    <dialog class="lightbox" id="photo-box" aria-label="{{ _('Photos per model year') }}">
+      <img alt="">
+      <div class="lb-empty" hidden>{{ _('Still looking for a good photo of this year.') }}</div>
+      <div class="lb-count" aria-live="polite"></div>
+      <button class="lb-close" type="button" aria-label="{{ _('Close') }}" autofocus>×</button>
+      <button class="lb-prev" type="button" aria-label="{{ _('Previous photo') }}">‹</button>
+      <button class="lb-next" type="button" aria-label="{{ _('Next photo') }}">›</button>
+    </dialog>
+    {% endif %}
     <div class="info">
       <div class="mono muted">{{ m.brand|upper }} · {{ _(discipline) }}</div>
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
@@ -186,7 +197,16 @@
       showPhoto(thumbs[(at + step + thumbs.length) % thumbs.length]);
     });
   });
-  if (thumbs.length) { var strip = thumbs[0].parentNode; strip.scrollLeft = strip.scrollWidth; }
+  if (thumbs.length) {
+    var strip = thumbs[0].parentNode;
+    strip.scrollLeft = strip.scrollWidth;
+    // No scrollbar under the strip: a mouse wheel scrolls it sideways.
+    strip.addEventListener("wheel", function (e) {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || strip.scrollWidth <= strip.clientWidth) return;
+      e.preventDefault();
+      strip.scrollLeft += e.deltaY;
+    }, { passive: false });
+  }
   document.querySelectorAll(".year-tab").forEach(function (tab) {
     tab.addEventListener("click", function () {
       var year = tab.id.slice(4);
@@ -195,6 +215,49 @@
       if (thumb) showPhoto(thumb, true);
     });
   });
+  // The photo full size: it shows what the carousel shows, and its arrows and keys move the carousel.
+  var box = document.getElementById("photo-box");
+  if (box && box.showModal) {
+    var big = box.querySelector(":scope > img"), openedAt = 0;
+    var boxShow = function () {
+      var img = document.querySelector("#model-photo > img");
+      big.hidden = img.hidden;
+      box.querySelector(".lb-empty").hidden = !img.hidden;
+      if (!img.hidden) { big.src = img.src; big.alt = img.alt; }
+      box.querySelector(".lb-count").textContent = thumbs.length
+        ? document.getElementById("gallery-chip").textContent + " · " + document.getElementById("gallery-count").textContent : "";
+    };
+    var step = function (by) {
+      var at = thumbs.findIndex(function (b) { return b.getAttribute("aria-pressed") === "true"; });
+      showPhoto(thumbs[(at + by + thumbs.length) % thumbs.length]);
+      boxShow();
+    };
+    var photoBox = document.getElementById("model-photo");
+    photoBox.classList.add("zoomable");
+    photoBox.addEventListener("click", function (e) {
+      if (e.target.closest("button")) return;  // the carousel's own arrows
+      boxShow(); box.showModal(); openedAt = e.timeStamp;
+    });
+    box.querySelector(".lb-prev").addEventListener("click", function () { step(-1); });
+    box.querySelector(".lb-next").addEventListener("click", function () { step(1); });
+    box.querySelector(".lb-close").addEventListener("click", function () { box.close(); });
+    if (thumbs.length < 2) box.querySelectorAll(".lb-prev, .lb-next").forEach(function (b) { b.hidden = true; });
+    box.addEventListener("keydown", function (e) {
+      if (!thumbs.length) return;
+      if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "ArrowRight") step(1);
+    });  // Esc closes a <dialog> by itself
+    box.addEventListener("click", function (e) { if (e.target === box && e.timeStamp - openedAt > 400) box.close(); });
+    var startX = null;
+    big.addEventListener("pointerdown", function (e) { startX = e.clientX; });
+    big.addEventListener("pointerup", function (e) {
+      if (startX === null || !thumbs.length) return;
+      var dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    });
+    big.addEventListener("dragstart", function (e) { e.preventDefault(); });
+  }
   // Colour swatches: show the colour's name, and its photo when we have one.
   document.querySelectorAll(".swatch").forEach(function (button) {
     button.addEventListener("click", function () {
