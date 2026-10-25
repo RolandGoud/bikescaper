@@ -63,8 +63,8 @@ def test_report_says_which_colour(tmp_path):
                  ("Scott Addict 30 paars maat 54", "", 1500))
     conn.commit()
     page = app.test_client().get("/check/1?lang=en").data.decode()
-    photo_line = page[page.index('class="mb-photo"'):].split("</div>")[0]
-    assert "nebula purple" in photo_line.lower() and "the colour the ad names" in photo_line
+    caption = page[page.index('class="photo-cap"'):].split("</span>\n")[0]
+    assert "nebula purple" in caption.lower() and "the colour the ad names" in caption
     assert "Addict_30_colour_nebula_purple.jpg" in page
 
 

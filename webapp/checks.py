@@ -490,9 +490,12 @@ def name_check(model, models, title, description=""):
     missing = [w for w in words if w not in found and not set(_tokens(w)) <= clash_toks]
     model_toks = set(_tokens(model["name"]))
     brand_toks = {t for m in models if m["brand"] == model["brand"] for t in _tokens(m["name"].split(" - ")[0])}
+    # "Di2", "AXS", "eTap", "EPS" say how it shifts, not which model it is: match_rate weighs that on its own.
     extra = []
     for w in title.split():
         toks = _tokens(w)
+        if re.fullmatch(ELECTRONIC, w.lower()):
+            continue
         if (toks and w not in extra and not all(t in model_toks for t in toks) and all(t in brand_toks for t in toks)
                 and not all(t in clash_toks or t.isdigit() for t in toks)):
             extra.append(w)
@@ -528,11 +531,29 @@ def _share(part, ad_toks, clash_toks=()):
     return round(100 * sum(t in ad_toks and t not in clash_toks for t in toks) / len(toks))
 
 
+def shifting(model, title, description=""):
+    """How the ad's shifting compares with the model's: {"ad", "model"} as "electronic" or "mechanical", and
+    "same"; None when the ad doesn't say or we don't know the model's groupset."""
+    text = f"{title} {description or ''}".lower()
+    if re.search(ELECTRONIC + r"|elektronis|electronic", text):
+        ad = "electronic"
+    elif re.search(r"mechanis|mechanical", text):
+        ad = "mechanical"
+    else:
+        return None
+    group = detect_groupset(groupset_text(model))
+    if not group:
+        return None
+    ours = "electronic" if group.get("electronic") else "mechanical"
+    return {"ad": ad, "model": ours, "same": ad == ours}
+
+
 def match_rate(model, models, title, description=""):
     """How well the ad's words fit a model, in percent, with the part scores it's made of:
     {"pct", "brand", "family", "version" (each {"name", "pct"}, version None for a model without one), "extra"}.
     The brand counts a fifth, the family and the version two fifths each; every model word the title has that
-    this model hasn't (Di2, Pro) takes 5 off, and a version the ad names otherwise (an SL7 for an SL9) scores 0."""
+    this model hasn't (Pro, Expert) takes 5 off, shifting the ad says otherwise (Di2 for a mechanical groupset) 10,
+    and a version the ad names otherwise (an SL7 for an SL9) scores 0."""
     ad_toks = set(_tokens(f"{title} {description or ''}"))
     family, version = name_parts(model)
     clash_toks = {t for ours, _ in conflicts(model, title) for t in _tokens(ours)}
@@ -545,7 +566,10 @@ def match_rate(model, models, title, description=""):
         pct = 0.2 * brand_pct + 0.8 * family_pct
     else:
         pct = 0.2 * brand_pct + 0.4 * family_pct + 0.4 * version_pct
-    return {"pct": max(0, min(100, round(pct - 5 * len(extra)))),
+    shift = shifting(model, title, description)
+    if shift and not shift["same"]:
+        pct -= 10
+    return {"pct": max(0, min(100, round(pct - 5 * len(extra)))), "shifting": shift,
             "brand": {"name": model["brand"], "pct": brand_pct},
             "family": {"name": family, "pct": family_pct},
             "version": {"name": version, "pct": version_pct} if version else None,
@@ -705,6 +729,19 @@ def year_sheets(model):
         out[int(model["seen_on"][:4])] = {"specs": model["specs"],
                                           "colours": [c["name"] for c in model.get("colorways") or []] or model.get("colors") or []}
     return out
+
+
+def new_price(model, year):
+    """The model's Dutch new price in that model year, from that year's spec sheet or our own scrape; None
+    when we don't have that year's price."""
+    if not year:
+        return None
+    entry = ((model.get("year_specs") or {}).get("years") or {}).get(str(year)) or {}
+    if entry.get("price"):
+        return entry["price"]
+    if model.get("seen_on") and int(model["seen_on"][:4]) == year:
+        return model.get("price_eur")
+    return None
 
 
 def _widen(years, sheets):
@@ -1327,4 +1364,28 @@ def run_check(models, listing, today=None):
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,
                                   report["year_estimate"])
     report["questions"] = seller_questions(chosen, claims, report["age"], report["specs"], report["size"])
+    report["facts"] = head_facts(chosen, claims, report["value"])
     return report
+
+
+ELECTRONIC_NAME = {"Shimano": "Di2", "SRAM": "AXS", "Campagnolo": "EPS"}
+
+
+def head_facts(model, claims, value):
+    """The few facts for the report's heading: [(label, value)] for the year, size and groupset the ad gives,
+    and the model's new price in the year it's valued as, which is our catalogue's, never the seller's."""
+    facts = []
+    if claims["year"]:
+        facts.append((Msg("Year"), str(claims["year"])))
+    if claims["size"]:
+        facts.append((Msg("Size"), str(claims["size"])))
+    group = claims["groupset"]
+    if group:
+        brand = group["name"].split()[0]
+        extra = ELECTRONIC_NAME.get(brand) if group.get("electronic") else None
+        facts.append((Msg("Groupset"), f"{group['name']} {extra}" if extra else group["name"]))
+    year = value.get("model_year")
+    price = new_price(model, year)
+    if price:
+        facts.append((Msg("New in {year}", year=year), eur(price)))
+    return facts

@@ -951,10 +951,21 @@ def test_match_rate_shows_how_well_the_ads_words_fit(models):
     ours = checks.match_rate(by_name["Defy Advanced 1"], models, ad)
     assert ours["brand"]["pct"] == 100 and ours["family"] == {"name": "Defy Advanced", "pct": 100}
     assert ours["version"] == {"name": "1", "pct": 100}
-    assert ours["extra"] == ["Di2"] and ours["pct"] == 95  # every model word the ad has and the model hasn't: 5 off
+    # Di2 says how it shifts, not which model: it agrees with this model's electronic 105, so nothing's off.
+    assert ours["extra"] == [] and ours["shifting"] == {"ad": "electronic", "model": "electronic", "same": True}
+    assert ours["pct"] == 100
+    pro = checks.match_rate(by_name["Defy Advanced 1"], models, "Giant Defy Advanced Pro 1 Di2")
+    assert pro["extra"] == ["Pro"] and pro["pct"] == 95  # a model word the model hasn't: 5 off
     if "Defy Advanced 2" in by_name:
         other = checks.match_rate(by_name["Defy Advanced 2"], models, ad)
         assert other["version"]["pct"] == 0 and other["pct"] < ours["pct"]  # the ad says 1, not 2
+
+
+def test_shifting_the_ad_says_otherwise_lowers_the_match(models):
+    mechanical = {"name": "X 1", "brand": "Giant", "specs": {"Shifter": "Shimano 105 R7000"}}
+    assert checks.shifting(mechanical, "Giant X 1 Di2") == {"ad": "electronic", "model": "mechanical", "same": False}
+    assert checks.shifting(mechanical, "Giant X 1", "mechanisch geschakeld")["same"] is True
+    assert checks.shifting(mechanical, "Giant X 1") is None  # the ad doesn't say
 
 
 def test_name_parts_split_family_from_version():

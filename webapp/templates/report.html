@@ -8,13 +8,39 @@
 
   <section class="card listing-head">
     {# The ad's bike over the catalogue bike, to slide between; the catalogue photo alone without ad photos. #}
-    {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model) }}</div>
-    {% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
+    {# The photos on the left: the slider (or the catalogue photo) with what it shows, and the ad's photos under it. #}
+    <div class="head-media">
+      {% set colour = r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None %}
+      <div class="head-photo">
+        {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model) }}</div>
+        {% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
+        {% if r.model and (r.photo_year or colour) %}
+        <span class="photo-cap" title="{{ _('the colour the ad names') if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ _('Catalogue: the {year} model', year=r.photo_year.year) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
+        {% endif %}
+      </div>
+      {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
+      {% if listing.listing_url or r.model %}
+      <div class="head-links">
+        {% if listing.listing_url %}<a class="btn" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad ↗') }}</a>{% endif %}
+        {% if r.model %}<a class="btn ghost" href="{{ url_for('model_page', slug=r.model.slug) }}">{{ _('View in the catalogue') }}</a>{% endif %}
+      </div>
+      {% endif %}
+    </div>
     <div class="info">
-      <div class="mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ _('checked {date}', date=listing.created_at[:10]) }}</div>
+      <div class="head-meta mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ listing.created_at[:10] }}</div>
       {% if listing.times_checked > 1 %}<div class="small muted">{{ _('This ad has been checked {n} times.', n=listing.times_checked) }}</div>{% endif %}
-      <h1>“{{ listing.title }}”{% if listing.removed_at %} <span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span>{% endif %}</h1>
-      <div class="price">{{ listing.asking_price|eur }}</div>
+      {# The ad's title without prices and filler; the seller's own words on hover. #}
+      {% set lead, rest = ad_title(listing.title, r.model) %}
+      <h1 title="{{ _('Original ad title: {title}', title=listing.title) }}">{{ lead }}{% if rest %} <span class="rest">· {{ rest }}</span>{% endif %}{% if listing.removed_at %} <span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span>{% endif %}</h1>
+      <div class="head-price">
+        <span class="price">{{ listing.asking_price|eur }}</span>
+        {% if r.model and r.value and r.value.low and listing.asking_price %}
+        {% set vs = r.value.status %}
+        {% if vs in ('ok', 'warn', 'bad') %}<span class="verdict-pill {{ vs }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[vs] }}</i>{{ r.value.headline|string|upper }}</span>{% endif %}
+        <span class="muted small">{{ _('fair: {low} – {high}', low=r.value.low|eur, high=r.value.high|eur) }}</span>
+        {% endif %}
+      </div>
+      {% if r.facts %}<div class="head-facts">{% for label, value in r.facts %}<span><b>{{ label|string|upper }}</b>{{ value }}</span>{% endfor %}</div>{% endif %}
       {% if r.model %}
       {% set mt = r.match %}
       <div class="match-box">
@@ -34,20 +60,22 @@
         <div class="mb-chips">
           {% if mt.found %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ mt.found|join(' · ') }}</span>{% endif %}
           {% for ours, theirs in mt.conflicts %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('The ad says {theirs}, this is a {ours}', theirs=theirs, ours=ours) }}</span>{% endfor %}
+          {% set yr = r.claims.year %}{% set ys = r.age_tab.status if r.age_tab else r.age.status %}
+          {% if yr and ys == 'ok' %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ _('Year {year} fits this model', year=yr) }}</span>
+          {% elif yr and ys == 'warn' %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('Year {year}: check it', year=yr) }}</span>
+          {% elif yr and ys == 'bad' %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('Year {year} doesn’t fit this model', year=yr) }}</span>
+          {% elif not yr %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('No year in the ad') }}</span>{% endif %}
+          {% if mt.shifting %}{% set sh = {'electronic': _('electronic'), 'mechanical': _('mechanical')} %}
+          {% if mt.shifting.same %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ _('Shifting: {kind}', kind=sh[mt.shifting.model]) }}</span>
+          {% else %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('The ad says {ad}, this model shifts {ours}', ad=sh[mt.shifting.ad], ours=sh[mt.shifting.model]) }}</span>{% endif %}
+          {% endif %}
           {% for w in mt.extra %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('“{word}” isn’t in this model', word=w) }}</span>{% endfor %}
           {% for w in mt.missing %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('“{word}” isn’t in the ad', word=w) }}</span>{% endfor %}
+          <a class="mb-open" href="#pick-model">{{ _('Other model →') }}</a>
         </div>
+        {% else %}
+        <a class="mb-open" href="#pick-model">{{ _('Other model →') }}</a>
         {% endif %}
-        {% set colour = r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None %}
-        {% if r.photo_year or colour %}
-        <div class="mb-photo">
-          <i class="ok" aria-hidden="true">✓</i>
-          {% if colour and colour|swatch %}<span class="dot" style="background: {{ colour|swatch }}"></span>{% endif %}
-          <span><b>{{ _('Photo') }}:</b> {% if r.photo_year %}{{ _('the {year} model', year=r.photo_year.year) }}{% if colour %} · {% endif %}{% endif %}{{ colour or '' }}</span>
-          {% if colour %}<span class="muted">{{ _('the colour the ad names') }}</span>{% endif %}
-        </div>
-        {% endif %}
-        <a class="btn ghost mb-open" href="#pick-model">{{ _('Change match') }} →</a>
       </div>
       {# The other candidates, best fit first, in a panel that slides in; it opens and closes by its address (#_ is no element, so
          closing doesn't scroll), so without JS too. #}
@@ -98,8 +126,6 @@
         </div>
       </aside>
       {% endif %}
-      {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
-      {% if listing.listing_url %}<div class="row"><a class="btn ghost" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad') }}</a></div>{% endif %}
     </div>
   </section>
 

@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
+from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -174,6 +174,7 @@ def create_app(db_path=None):
 
     app.jinja_env.globals["duo_pick"] = duo_pick
     app.jinja_env.filters["swatch"] = colour_match.swatch
+    app.jinja_env.globals["ad_title"] = ad_title.parts
 
     def conn():
         if "conn" not in g:
