@@ -240,6 +240,7 @@ NL = {
     "Spec comparison": "Onderdelen vergeleken",
     "PART": "ONDERDEEL",
     "ORIGINAL": "ORIGINEEL",
+    "ORIGINAL ({year})": "ORIGINEEL ({year})",
     "IN THE AD": "IN DE ADVERTENTIE",
     "RESULT": "RESULTAAT",
     "Size fit": "Maat",
@@ -428,6 +429,20 @@ NL = {
         "Catalogusfoto van het model {year} in {colour}, de kleur uit de advertentie.",
     "Catalogue photo of the {year} model.": "Catalogusfoto van het model {year}.",
     "Older than this model": "Ouder dan dit model",
+    "From our own catalogue scrape and the model years in {brand}'s photos; earlier years may be missing.":
+        "Uit onze eigen catalogus en de modeljaren in de foto's van {brand}; oudere jaren kunnen ontbreken.",
+    "Earlier generations in our catalogue: {years}.": "Eerdere generaties in onze catalogus: {years}.",
+    "Our oldest model year of {name} is {first}, so we can't confirm {claimed}.":
+        "Ons oudste modeljaar van de {name} is {first}, dus {claimed} kunnen we niet bevestigen.",
+    "Earlier generation": "Eerdere generatie",
+    "In {claimed} {brand} sold the {sheet}, an earlier generation than {name}. Check which one the ad's bike is.":
+        "In {claimed} verkocht {brand} de {sheet}, een eerdere generatie dan de {name}. Controleer welke de fiets "
+        "uit de advertentie is.",
+    "{claimed} is before {name} went on sale as the {first} model, when {brand} sold an earlier generation. Check which one the ad's bike is.":
+        "{claimed} is van voor de {name} uitkwam als model {first}; {brand} verkocht toen een eerdere generatie. "
+        "Controleer welke de fiets uit de advertentie is.",
+    "{claimed} may also be when it was bought.": "{claimed} kan ook het aankoopjaar zijn.",
+    "earlier gen": "eerdere gen.",
     "Seller says {claimed}, but this generation was first sold as the {first} model. Either the year is wrong or it's an older generation we don't have yet.":
         "Verkoper zegt {claimed}, maar deze generatie kwam pas uit als model {first}. Het jaar klopt niet, "
         "of het is een oudere generatie die wij nog niet hebben.",
@@ -545,6 +560,8 @@ NL = {
     "Matches the original": "Klopt met het origineel",
     "The seller mentions changed parts.": "De verkoper noemt vervangen onderdelen.",
     "Compared with the {brand} spec sheet from {date}.": "Vergeleken met de specificaties van {brand} van {date}.",
+    "Compared with the {brand} spec sheet of the {year} model.":
+        "Vergeleken met de specificaties van {brand} van het model {year}.",
     "our catalogue": "onze catalogus",
 
     # spec tiers

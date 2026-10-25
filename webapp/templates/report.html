@@ -209,7 +209,7 @@
     {% if r.age.timeline %}
     <div class="timeline">
       {% for y in r.age.timeline %}
-      <div class="{{ 'bad-bg' if y.claimed and not y.sold else ('ok-bg' if y.sold else 'unknown-bg') }}">{{ y.year }}<br>{{ _('claimed') if y.claimed else (_('sold') if y.sold else '–') }}</div>
+      <div class="{{ ('warn-bg' if y.earlier else 'bad-bg') if y.claimed and not y.sold else ('ok-bg' if y.sold else ('warn-bg' if y.earlier else 'unknown-bg')) }}"{% if y.sheet_name %} title="{{ y.sheet_name }}"{% endif %}>{{ y.year }}<br>{{ _('claimed') if y.claimed else (_('sold') if y.sold else (_('earlier gen') if y.earlier else '–')) }}</div>
       {% endfor %}
     </div>
     {% endif %}
@@ -228,12 +228,12 @@
     </div>
     <div class="spec-table">
       <table>
-        <thead><tr><th>{{ _('PART') }}</th><th>{{ _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th></tr></thead>
+        <thead><tr><th>{{ _('PART') }}</th><th>{{ _('ORIGINAL ({year})', year=r.spec_year) if r.spec_year else _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th></tr></thead>
         <tbody>
         {% for s in r.specs.rows %}
           <tr>
             <td><span class="part-name">{{ part_icon(s.key) }}{{ s.part }}</span></td>
-            <td data-label="{{ _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}</div>{% endif %}</td>
+            <td data-label="{{ _('ORIGINAL ({year})', year=r.spec_year) if r.spec_year else _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}</div>{% endif %}</td>
             <td data-label="{{ _('IN THE AD') }}">{{ s.listing if s.listing }}
               <div class="part-tier part-verdict {{ s.status }}{{ ' alone' if not s.listing }}">{% set matched = s.status == 'ok' and not s.step and (s.ad_tier or s.ref_tier) %}
               {%- if matched %}{{ tier_move(s.ad_tier or s.ref_tier, match=true) }}{% else %}{{ tier_move(s.ad_tier, s.step) }}{% endif %}

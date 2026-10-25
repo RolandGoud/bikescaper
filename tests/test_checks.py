@@ -78,7 +78,11 @@ def test_purchase_year_before_launch_is_a_warning(models):
 
 def test_year_older_than_generation_is_flagged(models):
     r = run(models, "Trek Madone SL 6 gen 8 2020", "maat 56")
-    assert r["age"]["status"] == checks.BAD
+    # 2020 is in our catalogue as the earlier Madone SL 6, so it's flagged as that generation
+    assert r["age"]["status"] == checks.WARN and r["age"]["earlier"]
+    assert "Madone SL 6," in en(r["age"]["detail"])
+    r = run(models, "Trek Madone SL 6 gen 8 2015", "maat 56")
+    assert r["age"]["status"] == checks.BAD  # older than any generation in our catalogue
 
 
 def test_matching_canyon(models):
@@ -124,11 +128,11 @@ def test_language_switch(tmp_path):
 
     # ?lang= switches and sticks through a cookie, including the check results
     page = client.get("/check/1?lang=en").data
-    assert b'<html lang="en">' in page and b"Probably the purchase year" in page
+    assert b'<html lang="en">' in page and b"Earlier generation" in page
     page = client.get("/check/1").data
-    assert b"Probably the purchase year" in page
+    assert b"Earlier generation" in page
     page = client.get("/check/1?lang=nl").data
-    assert b'<html lang="nl">' in page and b"Waarschijnlijk het aankoopjaar" in page and b"Groep" in page
+    assert b'<html lang="nl">' in page and b"Eerdere generatie" in page and b"Groep" in page
 
 
 def test_every_message_has_a_dutch_translation(models):
@@ -885,6 +889,44 @@ def test_age_from_the_year_sheets_without_a_generation(models):
     old = checks.check_age(m, checks.read_claims("Giant Defy Advanced 1 2016", ""), TODAY)
     assert old["status"] == checks.UNKNOWN and "2018" in en(old["detail"])  # before the oldest year we looked up
     assert checks.check_age(dict(m, year_specs={}), claims, TODAY)["status"] == checks.UNKNOWN
+
+
+def test_age_timeline_shows_every_catalogue_year(models):
+    # No archived sheets: our own scrape and the brand's photo years still give a timeline, with an open start.
+    m = dict(models[0], name="Endurace CF 6", brand="Canyon", missed_scrapes=0, last_seen="2026-10-01",
+             seen_on="2025-08-03", specs={"Frame": "x"}, photo_years=[2024, 2026], year_specs={})
+    age = checks.check_age(m, checks.read_claims("Canyon Endurace CF 6 2023", ""), TODAY)
+    assert [t["year"] for t in age["timeline"] if t["sold"]] == [2024, 2025, 2026]
+    assert age["status"] == checks.UNKNOWN and "2024" in en(age["detail"])
+    assert checks.check_age(m, checks.read_claims("Canyon Endurace CF 6 2025", ""), TODAY)["status"] == checks.OK
+    # A predecessor's sheets of an earlier generation show as such, before the generation table's first year.
+    m = dict(models[0], name="Domane SL 7 Gen 4", brand="Trek", missed_scrapes=0, last_seen="2026-10-01",
+             seen_on="2025-07-18", specs={"Frame": "x"}, photo_years=[], year_specs={"checked": list(range(2018, 2026)), "years": {
+                 "2020": {"specs": {"Frame": "x"}, "sheet_name": "Domane SL 7"},
+                 "2022": {"specs": {"Frame": "x"}, "sheet_name": "Domane SL 7 gen 3"},
+                 "2023": {"specs": {"Frame": "x"}}}})
+    age = checks.check_age(m, checks.read_claims("Trek Domane SL 7 2022", ""), TODAY)
+    assert [(t["year"], t["sold"], t["earlier"]) for t in age["timeline"]] == [
+        (2020, False, True), (2021, False, False), (2022, False, True), (2023, True, False), (2024, True, False),
+        (2025, True, False), (2026, True, False)]
+    assert age["status"] == checks.WARN and age["earlier"] and "Domane SL 7 gen 3" in en(age["detail"])
+    assert "2020, 2022" in en(age["notes"][-1])
+
+
+def test_spec_comparison_uses_a_year_the_estimate_allows(models):
+    sheets = {"2021": {"specs": {"Shifter": "Shimano 105 R7000"}}, "2023": {"specs": {"Shifter": "Shimano 105 R7100"}},
+              "2025": {"specs": {"Shifter": "Shimano 105 R7100"}}}
+    m = dict(models[0], seen_on="2026-01-01", year_specs={"years": sheets})
+    claims = checks.read_claims("Fiets 2022", "")
+    assert checks.comparison_year(m, claims, {"status": checks.OK, "first": 2021, "last": 2022}) == 2021
+    assert checks.comparison_year(m, claims, {"status": checks.BAD, "first": 2023, "last": None}) == 2023
+    assert checks.comparison_year(m, checks.read_claims("Fiets 2023", ""), {"first": 2021, "last": 2025}) == 2023
+    no_year = checks.read_claims("Fiets", "")
+    assert checks.comparison_year(m, no_year, {"first": 2021, "last": 2023}) == 2023
+    assert checks.comparison_year(m, no_year, {"first": 2021, "last": None}) is None  # our own scrape fits
+    older = checks.year_model(m, 2021)
+    assert older["specs"] == sheets["2021"]["specs"] and older["spec_year"] == 2021
+    assert "2021" in en(checks.check_specs(older, claims)["detail"])
 
 
 def test_colour_clue_reads_dutch_colour_words(models):
