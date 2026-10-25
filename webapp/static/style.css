@@ -279,6 +279,33 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .name-check.disputed strong { color: var(--bad); }
 .name-check ul { margin: 6px 0; padding-left: 20px; }
 .match-box form > * { min-width: 0; }
+/* The report's check tabs: the picked tab and its section share a green border, as one piece. */
+.report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
+.report-tab { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 2px solid transparent; border-radius: 18px; text-decoration: none; color: var(--text); }
+.report-tab:hover { color: var(--text); filter: brightness(1.15); }
+.report-tab .mono { font-size: 11px; font-weight: 500; letter-spacing: .06em; }
+.report-tab .big { font-size: 19px; font-weight: 700; }
+.report-tab .why { font-size: 13px; color: var(--muted); }
+.report-tab .fair { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+.report-tab.price .why { color: var(--text); font-weight: 600; }
+.tabbed .report-tabs { position: relative; z-index: 1; margin-bottom: -28px; }  /* main.page gap: the tabs sit on their section */
+.tabbed .report-tab { border-bottom: 0; border-radius: 18px 18px 0 0; padding-bottom: 20px; opacity: .78; }
+.tabbed .report-tab[aria-selected="true"] { position: relative; top: 2px; opacity: 1; border-color: var(--accent); background: var(--card); box-shadow: 0 -4px 18px rgba(52, 211, 153, .18); }
+.tabbed .report-panel { border: 2px solid var(--accent); border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 8px 24px rgba(52, 211, 153, .12); }
+.report-panel[hidden] { display: none; }
+.fair-big { display: flex; gap: 28px; align-items: end; flex-wrap: wrap; }
+.fair-big .k { margin-bottom: 6px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.fair-big .n { font-size: 44px; font-weight: 800; line-height: 1; color: var(--accent); }
+.fair-big .a { font-size: 26px; font-weight: 700; }
+@media (max-width: 800px) {
+  .report-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .report-tabs::-webkit-scrollbar { display: none; }
+  .report-tab { flex: 0 0 64%; }
+  .report-tab.price { flex-basis: 78%; }
+  .report-tab .why { display: none; }
+  .report-tab.price .why { display: block; }
+  .fair-big .n { font-size: 34px; }
+}
 .verdicts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 .verdict { text-decoration: none; color: var(--text); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
 .verdict:hover { color: var(--text); filter: brightness(1.15); }
