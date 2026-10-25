@@ -874,3 +874,25 @@ def test_year_clues_from_the_spec_sheets_of_each_year(models):
     m["year_specs"]["years"]["2023"]["colours"] = ["Blue Dragonfly/Chrome"]
     clues = checks.sheet_clues(m, "Mooie blue dragonfly kleur")
     assert [(a, b) for a, b, _m in clues] == [(2022, 2024)] and "Blue Dragonfly" in en(clues[0][2])
+
+
+def test_age_from_the_year_sheets_without_a_generation(models):
+    m = dict(models[0], name="Defy Advanced 1", brand="Giant", missed_scrapes=0, last_seen="2026-10-01",
+             year_specs={"checked": list(range(2018, 2027)), "years": {
+                 "2018": {"specs": {"Frame": "x"}}, "2024": {"specs": {"Frame": "x"}}, "2025": {"specs": {"Frame": "x"}}}})
+    claims = checks.read_claims("Giant Defy Advanced 1 2025", "")
+    assert checks.check_age(m, claims, TODAY)["status"] == checks.OK
+    old = checks.check_age(m, checks.read_claims("Giant Defy Advanced 1 2016", ""), TODAY)
+    assert old["status"] == checks.UNKNOWN and "2018" in en(old["detail"])  # before the oldest year we looked up
+    assert checks.check_age(dict(m, year_specs={}), claims, TODAY)["status"] == checks.UNKNOWN
+
+
+def test_colour_clue_reads_dutch_colour_words(models):
+    m = dict(models[0], seen_on="2026-10-22", colorways=[{"name": "Cryo Silver/Chrome"}], specs={"Frame": "x"},
+             year_specs={"years": {"2024": {"specs": {"Frame": "x"}, "colours": ["Charcoal/Milky Way"]},
+                                   "2025": {"specs": {"Frame": "x"}, "colours": ["Frost Silver/Cordovan"]},
+                                   "2026": {"specs": {"Frame": "x"}, "colours": ["Cyber Lime"]}}})
+    clues = checks.sheet_clues(m, "Kleur frost zilver, modeljaar 2025")
+    assert [(a, b) for a, b, _m in clues] == [(2025, 2025)]
+    # Our own scrape in October shows next year's colours: it doesn't replace the 2026 sheet
+    assert checks.year_sheets(m)[2026]["colours"] == ["Cyber Lime"]

@@ -545,10 +545,31 @@ def eur(value):
     return "€{:,.0f}".format(value).replace(",", ".")
 
 
+SHEETS_NOTE = "From the spec sheets of each model year that {brand} or the Wayback Machine still has."
+
+
+def sold_years(model, today=None):
+    """(first, last or None for still sold, note, open start) for the age check: the hand-entered generation
+    table, else the model years we have a spec sheet of (a predecessor's included: the same bike under an
+    earlier name). The start is open when the oldest sheet is the oldest year we looked up. None when
+    neither tells us."""
+    years = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
+    if years:
+        return years[0], years[1], Msg(GENERATIONS_NOTE), False
+    year_specs = model.get("year_specs") or {}
+    if not any(e.get("specs") for e in (year_specs.get("years") or {}).values()):
+        return None
+    sheets = year_sheets(model)
+    still_sold = catalogue_status(model, today)[0] == "current"
+    checked = year_specs.get("checked") or []
+    return (min(sheets), None if still_sold else max(sheets), Msg(SHEETS_NOTE, brand=model["brand"]),
+            bool(checked) and min(sheets) <= min(checked))
+
+
 def check_age(model, claims, today=None):
     today = today or date.today()
-    gen = generation_of(model["name"])
-    years = GENERATIONS.get((model["brand"], family_of(model["name"]), gen))
+    known = sold_years(model, today)
+    years, note, open_start = (known[:2], known[2], known[3]) if known else (None, None, False)
     seen = Msg("On sale in the {brand} NL catalogue on {date}.", brand=model["brand"],
                date=model["seen_on"]) if model.get("seen_on") else None
     claimed = claims["year"]
@@ -561,13 +582,17 @@ def check_age(model, claims, today=None):
     if claimed is None:
         return {"status": WARN, "headline": Msg("Year not stated"),
                 "detail": Msg("The ad doesn't give a year. Ask for the invoice or the serial number."),
-                "timeline": timeline, "notes": [n for n in [seen, years and Msg(GENERATIONS_NOTE)] if n]}
+                "timeline": timeline, "notes": [n for n in [seen, note] if n]}
     if not years:
         return {"status": UNKNOWN, "headline": Msg("Seller says {year}", year=claimed),
                 "detail": Msg("We don't have the model years for this bike yet, so we can't confirm the age."),
                 "timeline": [], "notes": [n for n in [seen] if n]}
     first, last = years
-    if claimed < first - 1:
+    if open_start and claimed < first:
+        status, headline = UNKNOWN, Msg("Seller says {year}", year=claimed)
+        detail = Msg("Our oldest spec sheet of {name} is from {first}, so we can't confirm {claimed}.",
+                     name=model["name"], first=first, claimed=claimed)
+    elif claimed < first - 1:
         status, headline = BAD, Msg("Older than this model")
         detail = Msg("Seller says {claimed}, but this generation was first sold as the {first} model. "
                      "Either the year is wrong or it's an older generation we don't have yet.",
@@ -587,7 +612,7 @@ def check_age(model, claims, today=None):
     if claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
-            "notes": [n for n in [seen, Msg(GENERATIONS_NOTE)] if n]}
+            "notes": [n for n in [seen, note] if n]}
 
 
 def colourway_year(colourway):
@@ -634,7 +659,9 @@ def year_sheets(model):
     """{year: {"specs", "colours"}} for every model year we have a spec sheet of, our own scrape included."""
     out = {int(y): {"specs": e["specs"], "colours": e.get("colours") or []}
            for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("specs")}
-    if model.get("seen_on") and model.get("specs"):
+    # Only for a year without a sheet: the scrape date isn't the model year (Giant lists next year's bikes
+    # from the autumn on).
+    if model.get("seen_on") and model.get("specs") and int(model["seen_on"][:4]) not in out:
         out[int(model["seen_on"][:4])] = {"specs": model["specs"],
                                           "colours": [c["name"] for c in model.get("colorways") or []] or model.get("colors") or []}
     return out
@@ -653,6 +680,11 @@ def _widen(years, sheets):
 
 # Colour names that say nothing about the year: the frame material and plain finishes.
 PLAIN_COLOURS = re.compile(r"^(?:carbon|raw|chrome|unpainted|black|zwart|gravel)$")  # Trek has a colour called Gravel
+# Dutch colour words, so "frost zilver" in an ad finds Giant's "Frost Silver".
+NL_COLOURS = {"zwart": "black", "wit": "white", "witte": "white", "grijs": "grey", "grijze": "grey", "zilver": "silver",
+              "zilveren": "silver", "rood": "red", "rode": "red", "oranje": "orange", "geel": "yellow", "gele": "yellow",
+              "goud": "gold", "gouden": "gold", "groen": "green", "groene": "green", "blauw": "blue", "blauwe": "blue",
+              "paars": "purple", "paarse": "purple", "roze": "pink", "bruin": "brown", "bruine": "brown"}
 
 
 def sheet_clues(model, text):
@@ -686,8 +718,10 @@ def sheet_clues(model, text):
             words = re.findall(r"[a-z]+", _plain(c))
             if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
                 colours.setdefault(" ".join(words), (c, set()))[1].add(y)
+    words = re.findall(r"[a-z]+", low)
+    ad_text = " ".join(words) + " | " + " ".join(NL_COLOURS.get(w, w) for w in words)
     for key, (name, years) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first
-        if len(years) < len(dated) and re.search(rf"\b{re.escape(key)}\b", re.sub(r"[^a-z]+", " ", low)):
+        if len(years) < len(dated) and re.search(rf"\b{re.escape(key)}\b", ad_text):
             first, last = _widen(years, dated)
             if first or last:
                 clues.append((first, last, Msg("Colour '{colour}' was sold in {years}.", colour=name,
