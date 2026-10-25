@@ -245,8 +245,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .head-facts b { margin-right: 6px; font: 500 10px/1 var(--mono); letter-spacing: .06em; color: var(--muted); }
 .listing-head h1 .rest { color: var(--muted); font-weight: 600; }
 
-.head-photo > .photo { aspect-ratio: 16 / 9; align-self: flex-start; background: var(--photo-bg); border: 1px solid var(--faint); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; overflow: hidden; }
-.head-photo > .photo img { width: 100%; height: 100%; object-fit: contain; }
+.head-photo > .photo, .model-gallery .photo { aspect-ratio: 16 / 9; align-self: flex-start; background: var(--photo-bg); border: 1px solid var(--faint); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; overflow: hidden; }
+.head-photo > .photo img, .model-gallery .photo > img { width: 100%; height: 100%; object-fit: contain; }
 /* the photo carousel: the current photo and one per earlier model year */
 .model-gallery { flex: 0 1 420px; align-self: flex-start; min-width: 0; }
 .model-gallery .photo { position: relative; width: 100%; }
@@ -349,7 +349,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
   .mb-meter { margin-left: 0; }
 }
 /* The report's check tabs: the picked tab and its section share a green border, as one piece. */
-.report-tabs { display: grid; grid-template-columns: 1fr 1fr 1fr 1.6fr; gap: 10px; }
+.report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
 .tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: 999px; font: 700 11px/1 var(--mono); letter-spacing: .05em; }
 .verdict-pill i { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-style: normal; font-size: 11px; color: var(--ink); }
@@ -444,6 +444,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .facts div { padding: 14px; background: var(--ground); border-radius: 14px; }
 .facts .k { font-size: 13px; color: var(--muted); }
 .facts .v { font-weight: 700; font-size: 18px; }
+.mini-facts .v.small { font-size: 13px; font-weight: 600; line-height: 1.35; overflow-wrap: break-word; }  /* colour names: long ones wrap inside the tile */
 .questions { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
 
 /* catalogue */
@@ -518,8 +519,6 @@ footer.site-footer .wrap { padding-top: 24px; padding-bottom: 24px; display: fle
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
   .listing-head { grid-template-columns: minmax(0, 1fr); }
-  .head-media { display: contents; }  /* on a phone the ad and catalogue buttons go to the end */
-  .head-links { order: 3; }
   .listing-head { gap: 14px; }
   .listing-head h1 { font-size: 24px; }
   .kv { grid-template-columns: 1fr; }

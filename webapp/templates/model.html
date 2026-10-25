@@ -22,7 +22,7 @@
     {% macro year_facts(t) -%}
     <template class="year-facts"><span data-fact="price">{% if t.price %}{{ _('New {price}', price=t.price|eur) }}{% else %}{{ _('New price in {year} unknown', year=t.year) }}{% endif %}</span>
       <span data-fact="tier">{% if t.tiers and t.tiers.overall %}{{ tier_badge(t.tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</span>
-      <span data-fact="colours"><span class="v small">{{ (t.colours or [])|join(', ') or '–' }}</span></span></template>
+      <span data-fact="colours"><span class="v small">{{ (t.colours or [])|join(', ')|replace('/', ' / ') or '–' }}</span></span></template>
     {%- endmacro %}
     <div class="model-gallery" id="model-gallery">
       <div class="photo" id="model-photo">{{ photo(m) }}

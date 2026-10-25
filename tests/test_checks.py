@@ -927,7 +927,7 @@ def test_age_tab_says_what_its_section_says():
     assert checks.age_summary(ok, bad)["status"] == checks.BAD
 
 
-def test_report_tabs_follow_the_check_page_with_the_price_open(models, tmp_path):
+def test_report_tabs_put_the_price_first_like_the_home_page(models, tmp_path):
     app = create_app(str(tmp_path / "tabs.sqlite3"))
     conn = db.connect(app.config["DB_PATH"])
     seed.load(conn)
@@ -935,7 +935,7 @@ def test_report_tabs_follow_the_check_page_with_the_price_open(models, tmp_path)
     conn.commit()
     page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
     tabs = re.findall(r'id="tab-(\w+)"', page)
-    assert tabs == ["age", "specs", "size", "value"]  # as on the check page
+    assert tabs == ["value", "age", "specs", "size"]  # the home page lists the checks in this order too
     assert re.search(r'id="tab-value"[^>]*aria-selected="true"', page)
     assert 'class="verdict-pill ok"' in page  # the verdict as a pill, the headline says what was found
     size_tab = re.search(r'id="tab-size"[^>]*class="report-tab (\w+)-bg', page, re.S)

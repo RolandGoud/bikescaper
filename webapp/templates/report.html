@@ -19,12 +19,6 @@
         {% endif %}
       </div>
       {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
-      {% if listing.listing_url or r.model %}
-      <div class="head-links">
-        {% if listing.listing_url %}<a class="btn" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad ↗') }}</a>{% endif %}
-        {% if r.model %}<a class="btn ghost" href="{{ url_for('model_page', slug=r.model.slug) }}">{{ _('View in the catalogue') }}</a>{% endif %}
-      </div>
-      {% endif %}
     </div>
     <div class="info">
       <div class="head-meta mono muted">{{ 'MARKTPLAATS' if listing.listing_url and 'marktplaats' in listing.listing_url else '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ listing.created_at[:10] }}</div>
@@ -61,9 +55,9 @@
           {% if mt.found %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ mt.found|join(' · ') }}</span>{% endif %}
           {% for ours, theirs in mt.conflicts %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('The ad says {theirs}, this is a {ours}', theirs=theirs, ours=ours) }}</span>{% endfor %}
           {% set yr = r.claims.year %}{% set ys = r.age_tab.status if r.age_tab else r.age.status %}
-          {% if yr and ys == 'ok' %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ _('Year {year} fits this model', year=yr) }}</span>
-          {% elif yr and ys == 'warn' %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('Year {year}: check it', year=yr) }}</span>
-          {% elif yr and ys == 'bad' %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('Year {year} doesn’t fit this model', year=yr) }}</span>
+          {% if yr and ys == 'ok' %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ _('{year} fits this model', year=yr) }}</span>
+          {% elif yr and ys == 'warn' %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('{year}: check it', year=yr) }}</span>
+          {% elif yr and ys == 'bad' %}<span class="mb-chip bad"><i aria-hidden="true">✕</i>{{ _('{year} doesn’t fit this model', year=yr) }}</span>
           {% elif not yr %}<span class="mb-chip warn"><i aria-hidden="true">!</i>{{ _('No year in the ad') }}</span>{% endif %}
           {% if mt.shifting %}{% set sh = {'electronic': _('electronic'), 'mechanical': _('mechanical')} %}
           {% if mt.shifting.same %}<span class="mb-chip ok"><i aria-hidden="true">✓</i>{{ _('Shifting: {kind}', kind=sh[mt.shifting.model]) }}</span>
@@ -126,6 +120,12 @@
         </div>
       </aside>
       {% endif %}
+      {% if listing.listing_url or r.model %}
+      <div class="head-links">
+        {% if listing.listing_url %}<a class="btn" href="{{ listing.listing_url }}" rel="noopener nofollow">{{ _('Open the ad ↗') }}</a>{% endif %}
+        {% if r.model %}<a class="btn ghost" href="{{ url_for('model_page', slug=r.model.slug) }}">{{ _('View in the catalogue') }}</a>{% endif %}
+      </div>
+      {% endif %}
     </div>
   </section>
 
@@ -141,12 +141,12 @@
   </section>
   {% else %}
 
-  {# One tab per check, in the order of the check page; the price widest and open first. Without JS every section shows, one under the other. #}
+  {# One tab per check, the price first, widest and open; the home page lists the checks in this order too. Without JS every section shows, one under the other. #}
   {# Without the reader's height the size isn't judged yet: neutral, not green. #}
   {% set size_tab = r.size if r.size.fit or r.size.status != 'ok' else dict(r.size, status='unknown') %}
   {% set tab_of = {'value': r.value, 'age': r.age_tab or r.age, 'specs': r.specs, 'size': size_tab} %}
   <div class="report-tabs" role="tablist" aria-label="{{ _('Check report') }}">
-    {% for key, label in [('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE')), ('value', _('Fair price'))] %}
+    {% for key, label in [('value', _('Fair price')), ('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE'))] %}
     {% set v = tab_of[key] %}
     <a href="#{{ key }}" id="tab-{{ key }}" role="tab" aria-controls="{{ key }}" aria-selected="{{ 'true' if key == 'value' else 'false' }}"
        class="report-tab {{ v.status }}-bg{{ ' price' if key == 'value' }}">
@@ -164,6 +164,37 @@
     </a>
     {% endfor %}
   </div>
+
+  <section id="value" class="card report-panel" role="tabpanel" aria-labelledby="tab-value">
+    <h2>{{ _('Value estimate') }}</h2>
+    {% set v = r.value %}
+    {% if v.low %}
+    <div class="fair-big">
+      <div><div class="k">{{ _('Fair price') }}</div><div class="n">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
+      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="a {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
+    </div>
+    {% endif %}
+    {% if v.bar %}
+    <div class="stack" style="gap: 8px">
+      <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=v.asking|eur) }}">
+        <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
+        <div class="ask" style="left: {{ v.bar.asking }}%"></div>
+      </div>
+      <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
+      <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
+    </div>
+    {% endif %}
+    <p>{{ v.detail }}</p>
+    {% if v.original %}
+    <div class="facts">
+      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
+      <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
+      <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
+    </div>
+    {% endif %}
+    <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
+    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
+  </section>
 
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
     <h2>{{ _('Age check') }}</h2>
@@ -248,38 +279,6 @@
     </div>
     {% endif %}
   </section>
-
-  <section id="value" class="card report-panel" role="tabpanel" aria-labelledby="tab-value">
-    <h2>{{ _('Value estimate') }}</h2>
-    {% set v = r.value %}
-    {% if v.low %}
-    <div class="fair-big">
-      <div><div class="k">{{ _('Fair price') }}</div><div class="n">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
-      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="a {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
-    </div>
-    {% endif %}
-    {% if v.bar %}
-    <div class="stack" style="gap: 8px">
-      <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=v.asking|eur) }}">
-        <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
-        <div class="ask" style="left: {{ v.bar.asking }}%"></div>
-      </div>
-      <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
-      <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
-    </div>
-    {% endif %}
-    <p>{{ v.detail }}</p>
-    {% if v.original %}
-    <div class="facts">
-      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
-      <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
-      <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
-    </div>
-    {% endif %}
-    <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
-    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
-  </section>
-
 
   {% if r.questions %}
   <section class="card dark">
