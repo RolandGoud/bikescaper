@@ -1051,6 +1051,16 @@ def test_carbon_parts_are_no_frame_claim():
     assert checks.detect_material("Vork: carbon. Frame aluminium") == "Aluminium"
     assert checks.detect_material("Carbon frame, carbon wielen") == "Carbon"
     assert checks.detect_material("carbon vork") is None
+    assert checks.detect_material("Alu frame, carbon bars") == "Aluminium"
+    assert checks.detect_material("Carbon rim brake racer") == "Carbon"
+    assert checks.detect_material("Carbon rim-brakes") == "Carbon"
+    assert checks.detect_material("carbon rims") is None
+
+
+def test_a_year_sheet_without_a_material_is_no_evidence():
+    model = {"name": "Domane AL 2", "brand": "Trek", "specs": {}, "seen_on": None,
+             "year_specs": {"years": {"2020": {"specs": {"Zadel": "x"}}, "2021": {"specs": {"Frame": "Alpha Aluminium"}}}}}
+    assert checks.model_materials(model) == {"Aluminium": [2021]}
 
 
 def test_a_material_the_model_never_came_in_is_flagged(models):

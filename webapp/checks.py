@@ -51,9 +51,9 @@ def detect_groupset(text):
 
 
 # Parts that come in carbon on an aluminium or steel frame: "carbon vork", "zadelpen: carbon" is no frame claim.
-NON_FRAME_PARTS = (r"vork|voorvork|fork|zadelpen|zadelpi[jg]p|seat\s*post|stuur|stuurpen|handlebars?|bar|stem|"
-                   r"wiel(?:en|set)?|wheels?(?:et)?|velgen|rims?|cranks?(?:et|stel)?|crankarmen|zadel|saddle|kooitjes|"
-                   r"bidonhouders?|cages?|spacers?")
+NON_FRAME_PARTS = (r"vork|voorvork|fork|zadelpen|zadelpi[jg]p|seat\s*post|stuur|stuurpen|handlebars?|bars?|stem|"
+                   r"wiel(?:en|set)?|wheels?(?:et)?|velgen|rims?(?![\s-]*brakes?)|cranks?(?:et|stel)?|crankarmen|"
+                   r"zadel|saddle|kooitjes|bidonhouders?|cages?|spacers?")
 NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?carbon[\s-]+(?:{NON_FRAME_PARTS})\b"
                               rf"|\b(?:{NON_FRAME_PARTS})\b\s*(?::|=|-|van|in|uit|of|is|zijn|made of)?\s*(?:volledig\s+)?carbon\b")
 
@@ -627,10 +627,10 @@ def ref_material(model):
 def model_materials(model):
     """{material: [model years]} for the frame materials the model came in, from the spec sheet of each model
     year we have; years whose sheet doesn't say are left out. The current spec sheet and the model's name
-    count too, under None when we don't know its year."""
+    count too (under None: we don't know its year), only for a material no year's sheet gives."""
     out = {}
     for year, sheet in sorted(year_sheets(model).items()):
-        material = ref_material(dict(model, specs=sheet["specs"]))
+        material = detect_material(spec(dict(model, specs=sheet["specs"]), "Material", "Frame") or "")
         if material:
             out.setdefault(material, []).append(year)
     current = ref_material(model)
