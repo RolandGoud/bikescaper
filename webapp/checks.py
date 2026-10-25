@@ -686,51 +686,105 @@ def eur(value):
 
 
 SHEETS_NOTE = "From the spec sheets of each model year that {brand} or the Wayback Machine still has."
+PHOTOS_NOTE = "From our own catalogue scrape and the model years in {brand}'s photos; earlier years may be missing."
+EARLIER_NOTE = "Earlier generations in our catalogue: {years}."
+
+
+def catalogue_years(model):
+    """{year: (sheet name or None, earlier generation)} for every model year our catalogue has of this model: its
+    spec sheets (a predecessor's under its own name), our own scrape and the model years in the brand's photos.
+
+    A year is an earlier generation when its sheet names another generation number, or when it comes before the
+    hand-entered generation table's first year and not from a sheet under this very name.
+    """
+    gen = generation_of(model["name"])
+    table = GENERATIONS.get((model["brand"], family_of(model["name"]), gen))
+
+    def earlier(year, name):
+        if name and gen is not None and generation_of(name) is not None:
+            return generation_of(name) != gen
+        return bool(table and year < table[0])
+
+    archived = (model.get("year_specs") or {}).get("years") or {}
+    out = {}
+    for y in model.get("photo_years") or []:
+        out[int(y)] = (None, earlier(int(y), "photo"))
+    for y, e in archived.items():
+        if e.get("specs"):
+            name = e.get("sheet_name")
+            out[int(y)] = (name, bool(name) and earlier(int(y), name))
+    # Our own scrape, for a year without a sheet of this generation (Giant lists next year's bikes from the
+    # autumn on, so the scrape date isn't the model year when a sheet has it).
+    if model.get("seen_on") and model.get("specs"):
+        own = int(model["seen_on"][:4])
+        if own not in out or out[own][1]:
+            out[own] = (None, False)
+    return out
 
 
 def sold_years(model, today=None):
-    """(first, last or None for still sold, note, open start) for the age check: the hand-entered generation
-    table, else the model years we have a spec sheet of (a predecessor's included: the same bike under an
-    earlier name). The start is open when the oldest sheet is the oldest year we looked up. None when
-    neither tells us."""
-    years = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
-    if years:
-        return years[0], years[1], Msg(GENERATIONS_NOTE), False
-    year_specs = model.get("year_specs") or {}
-    if not any(e.get("specs") for e in (year_specs.get("years") or {}).values()):
+    """(first, last or None for still sold, note, open start, catalogue years) for the age check, or None when
+    nothing tells us. The years this generation was sold come from every year in our catalogue (catalogue_years),
+    stretched to the hand-entered generation table where it has one. The start is open when nothing older is
+    known: no table, no earlier generation and no sheet from before the oldest year we looked up."""
+    table = GENERATIONS.get((model["brand"], family_of(model["name"]), generation_of(model["name"])))
+    years = catalogue_years(model)
+    own = {y for y, (_name, old) in years.items() if not old} | (
+        set(range(table[0], (table[1] or table[0]) + 1)) if table else set())
+    if not own:
         return None
-    sheets = year_sheets(model)
     still_sold = catalogue_status(model, today)[0] == "current"
+    first, last = min(own), None if still_sold else max(own)
+    year_specs = model.get("year_specs") or {}
+    archived = any(e.get("specs") for e in (year_specs.get("years") or {}).values())
     checked = year_specs.get("checked") or []
-    return (min(sheets), None if still_sold else max(sheets), Msg(SHEETS_NOTE, brand=model["brand"]),
-            bool(checked) and min(sheets) <= min(checked))
+    open_start = (not table and not any(old and y < first for y, (_n, old) in years.items())
+                  and (not archived or not checked or first <= min(checked)))
+    note = Msg(GENERATIONS_NOTE) if table and not archived else Msg(SHEETS_NOTE if archived else PHOTOS_NOTE,
+                                                                     brand=model["brand"])
+    return first, last, note, open_start, years
 
 
 def check_age(model, claims, today=None):
     today = today or date.today()
     known = sold_years(model, today)
-    years, note, open_start = (known[:2], known[2], known[3]) if known else (None, None, False)
+    years, note, open_start, catalogue = (known[:2], known[2], known[3], known[4]) if known else (None, None, False, {})
     seen = Msg("On sale in the {brand} NL catalogue on {date}.", brand=model["brand"],
                date=model["seen_on"]) if model.get("seen_on") else None
+    earlier = {y: name for y, (name, old) in catalogue.items() if old}
+    notes = [n for n in [seen, note, earlier and Msg(EARLIER_NOTE, years=_years_list(earlier))] if n]
     claimed = claims["year"]
     timeline = []
     if years:
         first, last = years
         end = last or today.year
-        for y in range(min(first, claimed or first), max(end, claimed or end) + 1):
-            timeline.append({"year": y, "sold": first <= y <= end, "claimed": y == claimed})
+        for y in range(min([first, claimed or first] + list(catalogue)), max([end, claimed or end] + list(catalogue)) + 1):
+            sold = first <= y <= end
+            timeline.append({"year": y, "sold": sold, "claimed": y == claimed,
+                             "earlier": not sold and y in earlier, "sheet_name": earlier.get(y)})
     if claimed is None:
         return {"status": WARN, "headline": Msg("Year not stated"),
                 "detail": Msg("The ad doesn't give a year. Ask for the invoice or the serial number."),
-                "timeline": timeline, "notes": [n for n in [seen, note] if n]}
+                "timeline": timeline, "notes": notes}
     if not years:
         return {"status": UNKNOWN, "headline": Msg("Seller says {year}", year=claimed),
                 "detail": Msg("We don't have the model years for this bike yet, so we can't confirm the age."),
                 "timeline": [], "notes": [n for n in [seen] if n]}
     first, last = years
-    if open_start and claimed < first:
+    other = claimed < first and (claimed in earlier or (earlier and min(earlier) < claimed))
+    if other:
+        status, headline = WARN, Msg("Earlier generation")
+        name = earlier.get(claimed)
+        detail = (Msg("In {claimed} {brand} sold the {sheet}, an earlier generation than {name}. Check which one the "
+                      "ad's bike is.", claimed=claimed, brand=model["brand"], sheet=name, name=model["name"]) if name else
+                  Msg("{claimed} is before {name} went on sale as the {first} model, when {brand} sold an earlier "
+                      "generation. Check which one the ad's bike is.", claimed=claimed, name=model["name"],
+                      first=first, brand=model["brand"]))
+        if claimed == first - 1:
+            detail = join(detail, Msg("{claimed} may also be when it was bought.", claimed=claimed))
+    elif open_start and claimed < first:
         status, headline = UNKNOWN, Msg("Seller says {year}", year=claimed)
-        detail = Msg("Our oldest spec sheet of {name} is from {first}, so we can't confirm {claimed}.",
+        detail = Msg("Our oldest model year of {name} is {first}, so we can't confirm {claimed}.",
                      name=model["name"], first=first, claimed=claimed)
     elif claimed < first - 1:
         status, headline = BAD, Msg("Older than this model")
@@ -752,7 +806,7 @@ def check_age(model, claims, today=None):
     if claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
-            "notes": [n for n in [seen, note] if n], "year": claimed}
+            "notes": notes, "year": claimed, "earlier": bool(other)}
 
 
 def colourway_year(colourway):
@@ -966,10 +1020,37 @@ def _years_list(years):
     return ", ".join(str(a) if a == b else f"{a}\u2013{b}" for a, b in runs)
 
 
+def comparison_year(model, claims, estimate):
+    """The model year whose spec sheet the ad is compared with: the stated year when the year estimate allows it
+    and we have its sheet, else the sheet year the estimate allows closest to the stated year. Without a stated
+    year: None (our own scrape) when the estimate allows its year, else the newest sheet year it allows. None
+    too when no sheet year fits."""
+    sheets = year_sheets(model)
+    claimed = claims["year"]
+    first, last = (estimate or {}).get("first"), (estimate or {}).get("last")
+    allowed = [y for y in sheets if (first is None or y >= first) and (last is None or y <= last)]
+    if not first and not last and (estimate or {}).get("status") == WARN:
+        allowed = list(sheets)  # the details disagree: they don't rule out any year
+    if claimed in allowed:
+        return claimed
+    own = int(model["seen_on"][:4]) if model.get("seen_on") else None
+    if not allowed or not claimed and own and (first is None or own >= first) and (last is None or own <= last):
+        return None  # our own scrape fits
+    return min(allowed, key=lambda y: (abs(y - claimed), -y)) if claimed else max(allowed)
+
+
+def year_model(model, year):
+    """The model as its spec sheet of that year describes it, for the spec comparison; the model itself for None."""
+    sheet = year_sheets(model).get(year) if year else None
+    if not sheet:
+        return model
+    return dict(model, specs=sheet["specs"], spec_year=year)
+
+
 def year_photo(model, claims, estimate, text, seen_colour=None):
     """(year, image, colour or None) of the model-year photo that fits the ad best, or None to keep the
-    current one: the year of the colour the ad names, else the stated year unless the details rule it out,
-    else the newest year the details allow."""
+    current one: the year of the colour the ad names, else the year the spec comparison uses
+    (comparison_year), else the stated year unless the details rule it out, else the newest year they allow."""
     photos = {int(y): e["image"] for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
               if e.get("image")}
     if not photos:
@@ -989,7 +1070,9 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
             year = claimed if claimed in shown else shown[-1]
             colours = year_sheets(model)[year]["colours"]
             return year, photos[year], colours[0] if len(colours) == 1 else None
-    year = claimed if claimed and estimate.get("status") != BAD else estimate.get("last")
+    year = comparison_year(model, claims, estimate)
+    if year is None:
+        year = claimed if claimed and estimate.get("status") != BAD else estimate.get("last")
     return (year, photos[year], None) if year in photos else None
 
 
@@ -1218,6 +1301,8 @@ def check_specs(model, claims, impossible=None):
     else:
         status, headline = OK, Msg("Matches the original")
     detail = join(claims["mentions_upgrades"] and Msg("The seller mentions changed parts."),
+                  Msg("Compared with the {brand} spec sheet of the {year} model.", brand=model["brand"],
+                      year=model["spec_year"]) if model.get("spec_year") else
                   Msg("Compared with the {brand} spec sheet from {date}.", brand=model["brand"],
                       date=model.get("seen_on") or Msg("our catalogue")))
     # The report tab's pill says whether it matches; the tab's headline says what was compared.
@@ -1381,8 +1466,9 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     gen = generation_of(model["name"])
     years = GENERATIONS.get((model["brand"], family_of(model["name"]), gen))
     model_year = claims["year"]
-    other_generation = age_result["status"] == BAD and years and model_year and model_year < years[0]
-    if age_result["status"] == WARN and years and model_year and model_year < years[0]:
+    other_generation = age_result.get("earlier") or (age_result["status"] == BAD and years and model_year
+                                                     and model_year < years[0])
+    if age_result["status"] == WARN and not other_generation and years and model_year and model_year < years[0]:
         model_year = years[0]  # a purchase year just before launch: value it as the launch model year
     # Without a year in the ad, value it at the oldest year we think is right: the oldest year the ad's
     # details allow, else the first year of the generation or of the brand's photos, else the catalogue year.
@@ -1543,7 +1629,10 @@ def run_check(models, listing, today=None):
     report["age_tab"] = age_summary(report["age"], report["year_estimate"])
     report["material_alert"] = impossible_material(chosen, claims,
                                                    f"{listing['title']}\n{listing.get('description') or ''}")
-    report["specs"] = check_specs(chosen, claims, report["material_alert"])
+    # The spec comparison uses the year shown in the photo, else a year the estimate allows.
+    year = found[0] if found and found[0] in year_sheets(chosen) else comparison_year(chosen, claims, report["year_estimate"])
+    report["spec_year"] = year or (int(chosen["seen_on"][:4]) if chosen.get("seen_on") else None)
+    report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"])
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,
                                   report["year_estimate"])
