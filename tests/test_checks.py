@@ -936,3 +936,16 @@ def test_report_tabs_put_the_fair_price_first(models, tmp_path):
     assert tabs == ["value", "age", "specs", "size"]
     size_tab = re.search(r'id="tab-size"[^>]*class="report-tab (\w+)-bg', page, re.S)
     assert size_tab.group(1) == "unknown"  # no height given yet
+
+
+def test_frame_number_is_always_asked_with_the_stolen_check(models, tmp_path):
+    app = create_app(str(tmp_path / "frame.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Trek Domane SL 6 Gen 4 2024 maat 56", 2450))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
+    questions = page[page.index('id="questions"'):]
+    assert "serial number under the bottom bracket" in questions.split("</ol>")[0]
+    assert '<a href="https://www.stopheling.nl"' in questions
+    assert "Serial number:" not in page  # no longer tucked away in the age section

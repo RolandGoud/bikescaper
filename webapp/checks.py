@@ -1216,9 +1216,9 @@ def axis_ticks(top):
 
 
 def seller_questions(model, claims, age, specs, size):
-    qs = []
+    # The frame number, always: it dates the bike and shows whether it was reported stolen.
+    qs = [Msg("Can you send a photo of the serial number under the bottom bracket?")]
     if age["status"] in (WARN, BAD, UNKNOWN):
-        qs.append(Msg("Can you send a photo of the serial number under the bottom bracket?"))
         qs.append(Msg("Do you have the original invoice? Which year did you buy it?"))
     for row in specs["rows"]:
         if row["key"] == "groupset" and row["status"] == BAD:
