@@ -160,6 +160,8 @@ NL = {
     "Photo {n} from the ad": "Foto {n} uit de advertentie",
     "Photo {n} of {total}": "Foto {n} van {total}",
     "Close": "Sluiten",
+    "Parts {parts} are on the {years} spec sheets.": "Onderdelen {parts} staan op de specificaties van {years}.",
+    "Colour '{colour}' was sold in {years}.": "Kleur '{colour}' werd verkocht in {years}.",
     "Previous photo": "Vorige foto",
     "Next photo": "Volgende foto",
     "Previous photos": "Vorige foto's",

@@ -379,7 +379,7 @@ def year_specs(brand, name, _cache={}):
     Wayback Machine copies of the brand's NL site (data/years/<Brand>.json).
 
     {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs,
-    source?, sheet_years?, sheet_name?} or {captured, url, unreadable: true}}}; a checked year
+    source?, sheet_years?, sheet_name?, colours?} or {captured, url, unreadable: true}}}; a checked year
     without an entry had no page.
     """
     if brand not in _cache:
