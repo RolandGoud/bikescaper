@@ -1,0 +1,10 @@
+{
+  "_about": "The colourway seen in a checked ad's photos, read by eye against the brand's colours of each model year (see webapp/checks.py photo_colour). Keyed like fetch_ad.ad_key; model is the slug the colour belongs to, so a check matched to another model ignores it.",
+  "marktplaats:m2457398727": {"model": "trek-emonda-alr-5", "colour": "Slate to Trek Black Fade", "seen_on": "2026-10-25"},
+  "marktplaats:m2457237336": {"model": "trek-domane-al-5-gen-4", "colour": "Lithium Grey/Trek Black", "seen_on": "2026-10-25"},
+  "marktplaats:m2289933649": {"model": "giant-defy-advanced-1", "colour": "Frost Silver/Cordovan", "seen_on": "2026-10-25"},
+  "marktplaats:m2453598651": {"model": "trek-emonda-sl-5", "colour": "Navy Smoke/Dark Aquatic", "seen_on": "2026-10-25"},
+  "marktplaats:m2456322159": {"model": "giant-defy-advanced-1", "colour": "Cyber Lime", "seen_on": "2026-10-25"},
+  "marktplaats:m2435934805": {"model": "trek-emonda-sl-6", "colour": "Trek Black/Radioactive Red", "seen_on": "2026-10-25"},
+  "marktplaats:m2455946444": {"model": "trek-domane-al-2-gen-4", "colour": "Matte Trek Black", "seen_on": "2026-10-25"}
+}
