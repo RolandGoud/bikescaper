@@ -133,15 +133,16 @@ def add_angles(brand, fetcher=None):
     products = {}
     for name, entries in data["models"].items():
         for year, entry in entries.items():
-            if entry.get("source") != "site" or not entry.get("colour_images") or "colour_angles" in entry:
+            # a year that gave nothing is tried again, as add_colour_photos does
+            if entry.get("source") != "site" or not entry.get("colour_images") or entry.get("colour_angles"):
                 continue
             if brand == "Trek":
                 code = re.search(r"/[pa]/(\d+)", entry["url"])
                 if not code:
                     continue
                 if code.group(1) not in products:
-                    products[code.group(1)] = trek_product(fetcher, code.group(1)) or {}
-                urls = products[code.group(1)].get("colour_angle_urls") or {}
+                    products[code.group(1)] = trek_product(fetcher, code.group(1))
+                urls = (products[code.group(1)] or {}).get("colour_angle_urls") or {}
             else:
                 page = fetcher.get(entry["url"])
                 bike = SITES[brand][0].parse(page, entry["url"]) if page else None
