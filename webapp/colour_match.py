@@ -94,6 +94,18 @@ def ad_colours(title, description=""):
     return found
 
 
+# A plain swatch per family, for a colour dot next to a colour's name.
+FAMILY_HEX = {"black": "#1b1c20", "white": "#f4f4f2", "grey": "#8a8f98", "silver": "#c3cad3", "red": "#d8443c",
+              "orange": "#f08a2c", "yellow": "#f2d23c", "gold": "#c9a54a", "green": "#3f9c5a", "blue": "#3d6fd0",
+              "purple": "#7e57c2", "pink": "#ee88b0", "brown": "#7a5236", "beige": "#d9c7a5"}
+
+
+def swatch(name):
+    """A CSS colour for a colour name like "Frost Silver" or "Carbon / Red", by its first colour; None if unknown."""
+    fams = families_in(name, brand_words=True)
+    return FAMILY_HEX[fams[0]] if fams else None
+
+
 def hex_family(value):
     """The family of a CSS #rrggbb swatch colour, by its hue, saturation and brightness."""
     m = re.match(r"#([0-9a-f]{6})$", (value or "").lower())
