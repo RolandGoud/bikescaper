@@ -31,7 +31,7 @@
     {# A model with no photo of its own (one that's no longer sold) opens on its newest year photo. #}
     {% if gallery %}
     {% set own = (year_tabs|selectattr('state', 'equalto', 'scrape')|first) %}
-    {% set own_year = own.year if own else year_tabs[-1].year %}
+    {% set own_year = own.year if own else (gallery[-1].year if status[0] == 'discontinued' else year_tabs[-1].year) %}
     {# Every year from the oldest photo on, also the ones we have no photo for yet. #}
     {% set slots = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('year', 'ge', gallery[0].year)|selectattr('year', 'lt' if m.image else 'le', own_year)|list %}
     {% set placeholder %}<span class="gallery-empty-logo">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }}</span>{% endset %}
@@ -41,7 +41,7 @@
       <span data-fact="tier">{% if t.tiers and t.tiers.overall %}{{ tier_badge(t.tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</span>
       <span data-fact="colours">{% if t.colours %}{% set shots = t.colour_images or {} %}
         <div class="v"><span class="swatches" role="group" aria-label="{{ _('Colours') }}">
-          {% for c in t.colours %}{% set bg = c|swatch_css %}
+          {% for c in t.colours %}{% set bg = c|swatch_css or (shots[c]|photo_colour if shots[c]) %}
           <button type="button" class="swatch{{ ' plain' if not bg and not shots[c] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"
                   title="{{ c }}" data-name="{{ c }}"{% if shots[c] %} data-image="{{ url_for('images', path=shots[c]) }}"{% endif %}
                   style="{% if bg %}background: {{ bg }}{% elif shots[c] %}background-image: url('{{ url_for('images', path=shots[c]) }}'){% endif %}"></button>

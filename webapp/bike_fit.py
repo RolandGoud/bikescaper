@@ -358,3 +358,33 @@ def style(ad_path, catalogue_path, zoom=None):
             _pending.add(job)
             _queue.put(job)
     return {"flip": True} if left else None
+
+
+QUALITY = f"v{CACHE_VERSION}:quality"
+
+
+def photo_quality(ad_path):
+    """What the admin page's photo score looks at in one stored ad photo, kept in its .fit.json, or None when
+    unreadable: side (a whole bike seen from the side: which way it faces could be told), small (under 600 px
+    wide), dark, blurry, and stock (a product shot on pure white rather than a photo of the seller's bike)."""
+    saved = _read(ad_path)
+    if QUALITY in saved:
+        return saved[QUALITY]
+    try:
+        with Image.open(ad_path) as ad:
+            width = ad.width
+            ad.draft("RGB", (512, 384))
+            grey = ad.convert("L")
+            grey.thumbnail((512, 512))
+    except (OSError, ValueError):
+        return None
+    a = np.asarray(grey, dtype=np.float32)
+    lap = a[1:-1, 1:-1] * 4 - a[:-2, 1:-1] - a[2:, 1:-1] - a[1:-1, :-2] - a[1:-1, 2:]
+    border = np.concatenate([a[:4].ravel(), a[-4:].ravel(), a[:, :4].ravel(), a[:, -4:].ravel()])
+    quality = {"side": faces_left(ad_path) is not None, "small": width < 600, "dark": bool(a.mean() < 55),
+               "blurry": bool(lap.var() < 60), "stock": bool((border > 245).mean() > 0.9)}
+    try:
+        _save(ad_path, QUALITY, quality)
+    except OSError:
+        pass
+    return quality
