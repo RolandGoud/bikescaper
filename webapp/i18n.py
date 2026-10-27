@@ -1044,4 +1044,5 @@ NL = {
     "mechanical": "mechanisch",
     "Shifting: {kind}": "Schakelen: {kind}",
     "The ad says {ad}, this model shifts {ours}": "De advertentie zegt {ad}, dit model schakelt {ours}",
+    "estimated": "geschat",
 }

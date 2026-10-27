@@ -207,9 +207,12 @@
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
     <h2>{{ _('Age check') }}</h2>
     {% if r.age.timeline %}
+    {# The years the ad's own details point to (the year estimate below) are ringed. #}
+    {% set est = r.year_estimate if r.year_estimate and not r.year_estimate.fallback and (r.year_estimate.first or r.year_estimate.last) else none %}
     <div class="timeline">
       {% for y in r.age.timeline %}
-      <div class="{{ ('warn-bg' if y.earlier else 'bad-bg') if y.claimed and not y.sold else ('ok-bg' if y.sold else ('warn-bg' if y.earlier else 'unknown-bg')) }}"{% if y.sheet_name %} title="{{ y.sheet_name }}"{% endif %}>{{ y.year }}<br>{{ _('claimed') if y.claimed else (_('sold') if y.sold else (_('earlier gen') if y.earlier else '–')) }}</div>
+      {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
+      <div class="{{ ('warn-bg' if y.earlier else 'bad-bg') if y.claimed and not y.sold else ('ok-bg' if y.sold else ('warn-bg' if y.earlier else 'unknown-bg')) }}{{ ' likely' if likely }}"{% if y.sheet_name or likely %} title="{{ y.sheet_name or '' }}{{ ' · ' if y.sheet_name and likely }}{{ _('Year estimate:') ~ ' ' ~ est.headline if likely }}"{% endif %}>{{ y.year }}<br>{{ _('claimed') if y.claimed else (_('sold') if y.sold else (_('earlier gen') if y.earlier else '–')) }}{% if likely %}<span class="likely-tag">{{ _('estimated') }}</span>{% endif %}</div>
       {% endfor %}
     </div>
     {% endif %}
