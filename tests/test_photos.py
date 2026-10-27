@@ -9,6 +9,18 @@ def test_a_close_up_loses_the_white_bars_around_it():
     assert trim(img).size == (682, 512)
 
 
+def test_a_close_up_keeps_no_light_seam_from_its_white_bars():
+    import io
+    img = Image.new("RGB", (1000, 562), "white")
+    img.paste(Image.new("RGB", (683, 513), (5, 5, 5)), (158, 24))
+    buf = io.BytesIO()
+    img.save(buf, "JPEG", quality=82)
+    out = trim(Image.open(buf).convert("RGB")).convert("L")
+    w, h = out.size
+    edges = [out.getpixel(p) for p in ((0, h // 2), (w - 1, h // 2), (w // 2, 0), (w // 2, h - 1))]
+    assert max(edges) < 40, edges
+
+
 def test_a_bike_on_white_is_framed_like_the_main_photo():
     img = Image.new("RGB", (1000, 562), "white")
     ImageDraw.Draw(img).ellipse((300, 200, 500, 400), outline="black", width=8)

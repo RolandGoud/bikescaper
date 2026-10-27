@@ -702,6 +702,7 @@ select { max-width: 100%; }
 .check-row-ad { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .check-row-ad .check-row-photo { margin-bottom: 4px; }
 .check-row-title { font-weight: 700; font-size: 17px; line-height: 1.3; overflow-wrap: anywhere; }
+.listing-card .ad-title, .check-row .ad-title { margin-top: -6px; color: var(--muted); font-size: 14px; font-style: italic; overflow-wrap: anywhere; }
 .check-row-ad .clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .check-row-facts { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; }
 .check-row-facts span { background: var(--ground); border-radius: 4px; padding: 3px 8px; }

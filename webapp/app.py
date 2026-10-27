@@ -471,7 +471,7 @@ def create_app(db_path=None):
         for m in items:
             m["matched"] = len(matched.get(m["id"], []))
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
-                                      key=lambda m: (m["price_eur"] or 0, m["brand"], m["name"])))
+                                      key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
                                counts=counts, kind=kind, picked=picked, q=q, current=current, count=len(items),

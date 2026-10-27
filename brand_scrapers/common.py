@@ -203,7 +203,33 @@ def trim(img):
     corners = [shot.crop(b) for b in ((i, i, n, n), (w - n, i, w - i, n), (i, h - n, n, h - i), (w - n, h - n, w - i, h - i))]
     if sum(ImageStat.Stat(c.convert("L")).mean[0] > 235 for c in corners) >= 3:
         return frame(img)
-    return shot
+    return shave(shot)
+
+
+def shave(shot, most=6):
+    """Cut the light seam JPEG leaves where a white bar met a dark photo: edge lines much brighter than the photo just inside."""
+    from PIL import ImageStat
+
+    def mean(box):
+        return ImageStat.Stat(shot.crop(box).convert("L")).mean[0]
+
+    w, h = shot.size
+    if min(w, h) < 8 * most:
+        return shot
+    d = most + 2  # how far in the photo itself is measured
+    left_in, right_in = mean((d, 0, d + 1, h)), mean((w - d - 1, 0, w - d, h))
+    top_in, bottom_in = mean((0, d, w, d + 1)), mean((0, h - d - 1, w, h - d))
+    left = top = 0
+    right, bottom = w, h
+    while left < most and mean((left, 0, left + 1, h)) > left_in + 20:
+        left += 1
+    while w - right < most and mean((right - 1, 0, right, h)) > right_in + 20:
+        right -= 1
+    while top < most and mean((0, top, w, top + 1)) > top_in + 20:
+        top += 1
+    while h - bottom < most and mean((0, bottom - 1, w, bottom)) > bottom_in + 20:
+        bottom -= 1
+    return shot.crop((left, top, right, bottom))
 
 
 def save_image(fetcher, brand, name, url, width=1000):
