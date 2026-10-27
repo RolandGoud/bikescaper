@@ -412,7 +412,7 @@ def test_every_model_with_a_spec_sheet_has_an_overall_tier(models):
 
 def test_overall_tier_follows_the_price(models):
     by_name = {m["name"]: checks.model_tier(m) for m in models}
-    assert by_name["Domane AL 2 Gen 4"] < by_name["Domane SL 5 Gen 4"] < by_name["Domane SLR 9 gen 4"]
+    assert by_name["Domane AL 2 Gen 4"] < by_name["Domane SL 5 Gen 4"] < by_name["Domane SLR 9 Gen 5"]
     assert by_name["Endurace AllRoad"] < by_name["Ultimate CF SLX 8 Di2"] < by_name["Ultimate CFR Di2"]
 
 
@@ -1190,12 +1190,13 @@ def test_model_page_years_match_the_age_check(tmp_path):
 def test_a_model_without_its_own_photo_opens_on_its_newest_year_photo(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    model = next(m for m in db.all_models(db.connect(app.config["DB_PATH"])) if m["slug"] == "trek-emonda-alr-5")
+    model = next(m for m in db.all_models(db.connect(app.config["DB_PATH"])) if m["slug"] == "trek-domane-al-2-rim")
     assert not model["image"]
     newest = [t for t in checks.year_tabs(model) if t.get("image") and t["state"] != "scrape"][-1]
-    page = app.test_client().get("/models/trek-emonda-alr-5?lang=nl").get_data(as_text=True)
+    page = app.test_client().get("/models/trek-domane-al-2-rim?lang=nl").get_data(as_text=True)
     assert f'data-start="{newest["year"]}"' in page and newest["image"] in page
-    assert 'class="gallery-thumb"' in page and "[nog geen foto]" not in page
+    gallery = page.split('id="model-gallery"')[1].split("</section>")[0]
+    assert 'class="gallery-thumb"' in gallery and "[nog geen foto]" not in gallery
 
 
 def test_a_model_without_year_photos_still_shows_its_photo(tmp_path):

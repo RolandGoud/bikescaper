@@ -12,12 +12,12 @@ CATALOGUE = os.path.join(ROOT, "images", "Trek", "DomaneAL4-24-41607-A-Primary_0
 OTHER = os.path.join(ROOT, "images", "Cannondale", "CAAD14_1.jpg")
 
 
-def fake_ad(catalogue, path, mirror):
+def fake_ad(catalogue, path, mirror, width=640):
     """A seller's photo: the bike small and off to one side, in front of a blurry wall, maybe facing left."""
     wall = Image.new("RGB", (1200, 900), (150, 135, 120)).filter(ImageFilter.GaussianBlur(4))
     bike = Image.open(catalogue).convert("RGB")
-    bike = bike.resize((640, round(640 * bike.height / bike.width)))
-    wall.paste(bike, (480, 360))
+    bike = bike.resize((width, round(width * bike.height / bike.width)))
+    wall.paste(bike, (1120 - width, 360))
     (ImageOps.mirror(wall) if mirror else wall).save(path, quality=90)
 
 
@@ -86,16 +86,17 @@ def test_merged_tile_draws_the_ad_photo_lined_up(tmp_path):
     app.config["STORE_AD_PHOTOS"] = False
     conn = db.connect(app.config["DB_PATH"])
     seed.load(conn)
+    model = next(m for m in db.all_models(conn) if m["name"] == "Domane AL 4 Gen 4")
+    catalogue = os.path.join(ROOT, "images", model["image"])
     os.makedirs(tmp_path / "ad-photos" / "1")
-    fake_ad(CATALOGUE, tmp_path / "ad-photos" / "1" / "01.jpg", True)
+    fake_ad(catalogue, tmp_path / "ad-photos" / "1" / "01.jpg", True, width=800)  # framed tight: a bigger bike
     conn.execute("INSERT INTO checks (title, asking_price, photos) VALUES (?, ?, ?)",
                  ("Trek Domane AL 4 Gen 4 maat 54", 1050, '["1/01.jpg"]'))
     conn.commit()
-    model = next(m for m in db.all_models(conn) if m["image"] and m["image"].endswith("DomaneAL4-24-41607-A-Primary_01.jpg"))
     stored = str(tmp_path / "ad-photos" / "1" / "01.jpg")
-    place = bike_fit.work_out(stored, CATALOGUE, (1.12, 0.03))
+    place = bike_fit.work_out(stored, catalogue)  # framed like the other brands: no Trek zoom
     with open(stored + ".fit.json", "w") as f:
-        json.dump({bike_fit._key(os.path.join(ROOT, "images", model["image"]), (1.12, 0.03)): place}, f)
+        json.dump({bike_fit._key(catalogue, None): place}, f)
     page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
     assert f'class="flip" style="left: {place["left"]}%; top: {place["top"]}%;' in page
 

@@ -162,7 +162,8 @@ def create_app(db_path=None):
         if not (model and model.get("image") and ad_photo.startswith(prefix)):
             return None
         stored = os.path.join(ad_photos.folder(app.config["DB_PATH"]), ad_photo[len(prefix):])
-        zoom = (1.12, 0.03) if model.get("brand") == "Trek" and not model.get("year_photo") else None  # .photo img.trek in style.css
+        # .photo img.trek in style.css: Trek's own product shots (…-Primary_01.jpg) come with a wide white margin
+        zoom = (1.12, 0.03) if model.get("brand") == "Trek" and not model.get("year_photo") and "Primary" in model["image"] else None
         return bike_fit.style(stored, os.path.join(ROOT, "images", model["image"]), zoom)
 
     app.jinja_env.globals["ad_photo_fit"] = ad_photo_fit
