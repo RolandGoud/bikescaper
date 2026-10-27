@@ -19,11 +19,10 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 # The richest snapshot per brand. The Trek file from 18 July 2025 has full spec
 # sheets; the later August export lost most of them.
 FIXED_SOURCES = [
-    ("Trek", "data/Trek/trek_bikes_20250718_100005.json"),
     ("Canyon", "data/Canyon/canyon_bikes_20250803_081317.json"),
 ]
 # Brands collected by brand_scrapers/: the newest snapshot of each.
-COLLECTED = ["Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"]
+COLLECTED = ["Trek", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"]
 
 
 def latest_snapshot(brand):

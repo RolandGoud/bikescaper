@@ -491,6 +491,9 @@ def match_models(models, title, description="", claims=None):
     title_toks = set(_tokens(title))
     all_toks = title_toks | set(_tokens(description))
     says_gen = "gen" in all_toks or "generatie" in all_toks
+    # The generation numbers the ad names ("gen 4", "generatie 3"): a Domane SL 5 Gen 5 must not count the
+    # "5" of "SL 5" as its generation.
+    ad_gens = set(re.findall(r"\bgen(?:eratie)?\.?\s*(\d+)\b", f"{title} {description}".lower()))
     # The words this brand uses in its model names (SLR, Expert, Pro), for the title words a model lacks.
     brand_toks = {}
     for m in models:
@@ -517,8 +520,8 @@ def match_models(models, title, description="", claims=None):
                 continue
             if tok == "gen" and i + 1 < len(name_toks):
                 skip_next = True
-                if says_gen:
-                    score += 1.0 if name_toks[i + 1] in all_toks else -1.0
+                if ad_gens:
+                    score += 1.0 if name_toks[i + 1] in ad_gens else -1.0
                 continue
             if tok in title_toks:
                 score += 1.5

@@ -1,5 +1,5 @@
 {% macro photo(model, alt='') -%}
-{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy"{% if model.brand != 'Canyon' %} class="on-white{{ ' trek' if model.brand == 'Trek' and not model.year_photo }}"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
+{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy"{% if model.brand != 'Canyon' %} class="on-white{{ ' trek' if model.brand == 'Trek' and not model.year_photo and 'Primary' in model.image }}"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
 {%- endmacro %}
 
 {# The three verdicts as a small table: the topic on the left, the outcome with a ✓ ? ! icon on the right. #}
