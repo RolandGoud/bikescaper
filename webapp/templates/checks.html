@@ -13,7 +13,8 @@
       <a class="check-row-photo" href="{{ url_for('report', check_id=row.id) }}" tabindex="-1" aria-hidden="true">
         {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% elif row.photos %}<div class="photo"><img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
       </a>
-      <div class="check-row-title">{{ row.title }}</div>
+      <div class="check-row-title">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ row.title }}{% endif %}</div>
+      {% if r.model %}<div class="ad-title">“{{ row.title }}”</div>{% endif %}
       <div class="small muted">{% if row.listing_url %}<a href="{{ row.listing_url }}" rel="noopener nofollow">{{ row.listing_url.split('/')[2] if '//' in row.listing_url else row.listing_url }}</a>{% else %}{{ _('No link') }}{% endif %} · {{ _('read from the link') if row.photos else _('typed in') }}</div>
       {% if row.description %}<div class="small muted clamp">{{ row.description }}</div>{% endif %}
       <div class="check-row-facts">
