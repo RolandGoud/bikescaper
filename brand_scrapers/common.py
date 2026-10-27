@@ -191,6 +191,21 @@ def frame(img, ratio=16 / 9, margin=0.05):
     return out
 
 
+def trim(img):
+    """A close-up or other angle: cut off the white bars some brands bake around it, so it fills the frame.
+    A bike shot on white (the corners around it are white) is framed like the main photo instead."""
+    from PIL import ImageOps, ImageStat
+    box = ImageOps.invert(img.convert("L")).point(lambda v: 255 if v > 12 else 0).getbbox()
+    if not box:
+        return img
+    shot = img.crop(box)
+    w, h, n = shot.width, shot.height, 6
+    corners = [shot.crop(b) for b in ((0, 0, n, n), (w - n, 0, w, n), (0, h - n, n, h), (w - n, h - n, w, h))]
+    if sum(ImageStat.Stat(c.convert("L")).mean[0] > 235 for c in corners) >= 3:
+        return frame(img)
+    return shot
+
+
 def save_image(fetcher, brand, name, url, width=1000):
     """Download one product photo as a JPEG under images/<Brand>/ and return its path under images/."""
     if not url:
