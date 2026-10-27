@@ -114,7 +114,7 @@ def test_mirrored_even_when_it_cant_be_lined_up(tmp_path):
     bike = Image.open(OTHER).convert("RGB")
     ImageOps.mirror(bike).crop((0, 0, bike.width * 3 // 4, bike.height)).save(ad)
     place = bike_fit.work_out(str(ad), CATALOGUE)
-    assert place == {"flip": True}
+    assert place["flip"] and "width" not in place and place["bg"].startswith("#")  # drawn whole, on its edge colour
 
 
 def test_slider_takes_a_right_facing_ad_photo_over_mirroring_the_first(tmp_path, monkeypatch):
@@ -141,3 +141,15 @@ def test_slider_takes_a_right_facing_ad_photo_over_mirroring_the_first(tmp_path,
             tmp_path / "ad-photos" / "1" / "04.jpg")
         facing["04.jpg"] = False
         assert pick(["/ad-photos/1/01.jpg", "/ad-photos/1/04.jpg"], model) == "/ad-photos/1/01.jpg"
+
+
+def test_a_shop_photo_filling_its_frame_keeps_the_whole_bike_in_view():
+    # A 4:3 shop photo with the bike edge to edge: covering the 16:9 tile would cut off the wheels and
+    # saddle, so it's drawn smaller with a margin, on the photo's own white.
+    fit = {"x": 0.0, "y": 0.02, "w": 1.0, "h": 0.96, "flip": False}
+    place = bike_fit.placement(fit, (1200, 900), (1600, 900), (0.05, 0.05, 0.9, 0.9))
+    assert place.pop("gaps")
+    tile_h = 100  # the bike box in % of the tile
+    top = place["top"] + fit["y"] * place["height"]
+    assert top > 0 and top + fit["h"] * place["height"] < tile_h
+    assert place["left"] > 0 and place["left"] + place["width"] < 100
