@@ -62,6 +62,19 @@
   "Boone 6": {
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Blue Smoke/Metallic Blue": [
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_1_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_2_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_3_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_4_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_5_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_6_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_7_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_8_site.jpg",
+      "Trek/years/boone6_2021_carbonbluesmokemetallicblue_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Blue Smoke/Metallic Blue": "Trek/years/boone6_2021_carbonbluesmokemetallicblue_site.jpg"
     },
@@ -99,6 +112,32 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Smoke/Lithium Grey/Trek Black": [
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_1_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_2_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_3_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_4_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_5_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_6_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_7_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_8_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_9_site.jpg",
+      "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_10_site.jpg"
+     ],
+     "Radioactive Red to Navy to Teal Fade": [
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_1_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_2_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_3_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_4_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_5_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_6_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_7_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_8_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_9_site.jpg",
+      "Trek/years/boone6_2022_radioactiveredtonavytotealfade_10_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Smoke/Lithium Grey/Trek Black": "Trek/years/boone6_2022_carbonsmokelithiumgreytrekblack_site.jpg",
      "Radioactive Red to Navy to Teal Fade": "Trek/years/boone6_2022_radioactiveredtonavytotealfade_site.jpg"
@@ -144,6 +183,32 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Smoke/Lithium Grey/Trek Black": [
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_1_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_2_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_3_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_4_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_5_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_6_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_7_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_8_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_9_site.jpg",
+      "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_10_site.jpg"
+     ],
+     "Radioactive Red to Navy to Teal Fade": [
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_1_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_2_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_3_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_4_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_5_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_6_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_7_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_8_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_9_site.jpg",
+      "Trek/years/boone6_2023_radioactiveredtonavytotealfade_10_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Smoke/Lithium Grey/Trek Black": "Trek/years/boone6_2023_carbonsmokelithiumgreytrekblack_site.jpg",
      "Radioactive Red to Navy to Teal Fade": "Trek/years/boone6_2023_radioactiveredtonavytotealfade_site.jpg"
@@ -191,6 +256,19 @@
   "Boone 7 Disc": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Magenta/Mulberry Fade": [
+      "Trek/years/boone7disc_2020_magentamulberryfade_1_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_2_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_3_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_4_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_5_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_6_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_7_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_8_site.jpg",
+      "Trek/years/boone7disc_2020_magentamulberryfade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Magenta/Mulberry Fade": "Trek/years/boone7disc_2020_magentamulberryfade_site.jpg"
     },
@@ -235,6 +313,17 @@
   "Checkpoint AL 4": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Battleship Blue": [
+      "Trek/years/checkpointal4_2020_battleshipblue_1_site.jpg",
+      "Trek/years/checkpointal4_2020_battleshipblue_2_site.jpg",
+      "Trek/years/checkpointal4_2020_battleshipblue_3_site.jpg",
+      "Trek/years/checkpointal4_2020_battleshipblue_4_site.jpg",
+      "Trek/years/checkpointal4_2020_battleshipblue_5_site.jpg",
+      "Trek/years/checkpointal4_2020_battleshipblue_6_site.jpg",
+      "Trek/years/checkpointal4_2020_battleshipblue_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Battleship Blue": "Trek/years/checkpointal4_2020_battleshipblue_site.jpg"
     },
@@ -670,6 +759,17 @@
   "Checkpoint ALR 5 Driftless": {
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Satin Cobra Blood": [
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_1_site.jpg",
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_2_site.jpg",
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_3_site.jpg",
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_4_site.jpg",
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_5_site.jpg",
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_6_site.jpg",
+      "Trek/years/checkpointalr5driftless_2022_satincobrablood_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Satin Cobra Blood": "Trek/years/checkpointalr5driftless_2022_satincobrablood_site.jpg"
     },
@@ -718,6 +818,17 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Satin Cobra Blood": [
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_1_site.jpg",
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_2_site.jpg",
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_3_site.jpg",
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_4_site.jpg",
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_5_site.jpg",
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_6_site.jpg",
+      "Trek/years/checkpointalr5driftless_2023_satincobrablood_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Satin Cobra Blood": "Trek/years/checkpointalr5driftless_2023_satincobrablood_site.jpg"
     },
@@ -1929,6 +2040,26 @@
   "Checkpoint SL 6": {
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Blue Smoke": [
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_1_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_2_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_3_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_4_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_5_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_6_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonbluesmoke_7_site.jpg"
+     ],
+     "Carbon Red Smoke": [
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_1_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_2_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_3_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_4_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_5_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_6_site.jpg",
+      "Trek/years/checkpointsl6_2021_carbonredsmoke_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Blue Smoke": "Trek/years/checkpointsl6_2021_carbonbluesmoke_site.jpg",
      "Carbon Red Smoke": "Trek/years/checkpointsl6_2021_carbonredsmoke_site.jpg"
@@ -2316,6 +2447,17 @@
   "Checkpoint SL 7": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Rage Red": [
+      "Trek/years/checkpointsl7_2020_ragered_1_site.jpg",
+      "Trek/years/checkpointsl7_2020_ragered_2_site.jpg",
+      "Trek/years/checkpointsl7_2020_ragered_3_site.jpg",
+      "Trek/years/checkpointsl7_2020_ragered_4_site.jpg",
+      "Trek/years/checkpointsl7_2020_ragered_5_site.jpg",
+      "Trek/years/checkpointsl7_2020_ragered_6_site.jpg",
+      "Trek/years/checkpointsl7_2020_ragered_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Rage Red": "Trek/years/checkpointsl7_2020_ragered_site.jpg"
     },
@@ -2354,6 +2496,17 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Rage Red": [
+      "Trek/years/checkpointsl7_2021_ragered_1_site.jpg",
+      "Trek/years/checkpointsl7_2021_ragered_2_site.jpg",
+      "Trek/years/checkpointsl7_2021_ragered_3_site.jpg",
+      "Trek/years/checkpointsl7_2021_ragered_4_site.jpg",
+      "Trek/years/checkpointsl7_2021_ragered_5_site.jpg",
+      "Trek/years/checkpointsl7_2021_ragered_6_site.jpg",
+      "Trek/years/checkpointsl7_2021_ragered_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Rage Red": "Trek/years/checkpointsl7_2021_ragered_site.jpg"
     },
@@ -2512,6 +2665,57 @@
   "Checkpoint SLR 6 AXS": {
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Blue Sage": [
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattebluesage_7_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2022_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr6axs_2022_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr6axs_2022_marigoldnauticalnavy_site.jpg",
@@ -2564,6 +2768,57 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Blue Sage": [
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattebluesage_7_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2023_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr6axs_2023_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr6axs_2023_marigoldnauticalnavy_site.jpg",
@@ -2616,6 +2871,57 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Blue Sage": [
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattebluesage_7_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr6axs_2024_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr6axs_2024_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr6axs_2024_marigoldnauticalnavy_site.jpg",
@@ -2670,6 +2976,48 @@
   "Checkpoint SLR 7": {
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr7_2022_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr7_2022_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr7_2022_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr7_2022_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr7_2022_marigoldnauticalnavy_site.jpg",
@@ -2720,6 +3068,48 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr7_2023_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr7_2023_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr7_2023_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr7_2023_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr7_2023_marigoldnauticalnavy_site.jpg",
@@ -2772,6 +3162,48 @@
   "Checkpoint SLR 7 AXS": {
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2022_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr7axs_2022_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr7axs_2022_marigoldnauticalnavy_site.jpg",
@@ -2821,6 +3253,48 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Era White/Emerald Iris": [
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_8_site.jpg"
+     ],
+     "Marigold/Nautical Navy": [
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_8_site.jpg"
+     ],
+     "Matte Deep Smoke/Gloss Olive Grey": [
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_mattedeepsmokeglossolivegrey_8_site.jpg"
+     ],
+     "Radioactive Coral": [
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_1_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_2_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_3_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_4_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_5_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_6_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_7_site.jpg",
+      "Trek/years/checkpointslr7axs_2023_radioactivecoral_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Era White/Emerald Iris": "Trek/years/checkpointslr7axs_2023_erawhiteemeraldiris_site.jpg",
      "Marigold/Nautical Navy": "Trek/years/checkpointslr7axs_2023_marigoldnauticalnavy_site.jpg",
