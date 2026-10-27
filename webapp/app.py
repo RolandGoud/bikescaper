@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, seller, sponsored
+from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, scores, seed, seller, sponsored
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -190,6 +190,7 @@ def create_app(db_path=None):
     app.jinja_env.globals["duo_pick"] = duo_pick
     app.jinja_env.filters["swatch"] = colour_match.swatch
     app.jinja_env.filters["swatch_css"] = colour_match.swatch_css
+    app.jinja_env.filters["photo_colour"] = seed.photo_colour  # the frame's colour in a photo, for a name we can't read
     app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.globals["ad_title"] = ad_title.parts
 
@@ -534,8 +535,12 @@ def create_app(db_path=None):
         ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), checks.run_check(models(), listing_dict(r)))
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
+        year_tabs = checks.year_tabs(model)
+        # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
+        if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
+            model = dict(model, image=None, colorways=None)
         return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings,
-                               year_tabs=checks.year_tabs(model), angles_now=GALLERIES.get(model.get("url")) or {},
+                               year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
@@ -736,6 +741,33 @@ def create_app(db_path=None):
         return render_template("how.html", nav=None, count=len(models()),
                                seen={b: max(d for d in dates if d) for b, dates in seen.items() if any(dates)},
                                tier_examples=TIER_EXAMPLES)
+
+    @app.route("/admin")
+    def admin():
+        """Statistics for us: what ads leave out, where matching goes wrong, and photo and ad scores."""
+        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        first = {}
+        for r in rows:  # newest first, so the last one seen is the ad's first check
+            first[fetch_ad.ad_key(r)] = r["created_at"][:10]
+        folder = ad_photos.folder(app.config["DB_PATH"])
+        items = []
+        for r, n in group_checks(rows):
+            photos = json.loads(r["photos"]) if r.get("photos") else []
+            listing = listing_dict(r, count=n)
+            report = checks.run_check(models(), listing)
+            ad, ad_lost = scores.ad_score(listing, report)
+            photo, photo_lost = scores.photo_score(
+                len(photos), [os.path.join(folder, p) for p in photos if ad_photos.is_stored(p)][:12])
+            level = getattr(report.get("confidence"), "text", None)
+            items.append({"day": first[fetch_ad.ad_key(r)], "listing": listing, "model": report.get("model"),
+                          "brand": report["model"]["brand"] if report.get("model") else report["claims"].get("brand"),
+                          "matched": bool(report.get("model")), "confidence": level,
+                          "missing": scores.missing(report, listing), "problems": scores.match_problems(report),
+                          "ad": ad, "ad_lost": ad_lost, "photo": photo, "photo_lost": photo_lost})
+        stats = scores.summarise(items)
+        worst = sorted(items, key=lambda it: (it["ad"] + (it["photo"] if it["photo"] is not None else it["ad"])))[:15]
+        return render_template("admin.html", stats=stats, worst=worst, nav=None,
+                               missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
 
     @app.route("/ad-photos/<path:name>")
     def ad_photo(name):

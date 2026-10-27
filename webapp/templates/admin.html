@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% from "_macros.html" import brand_label %}
+{% block title %}{{ _('Statistics') }} · Bike Compare{% endblock %}
+{% set missing_label = {'year': _('Year'), 'size': _('Frame size'), 'groupset': _('Groupset'), 'condition': _('Condition'),
+                        'colour': _('Colour'), 'proof': _('Proof of purchase')} %}
+{% set problem_label = {'tier': _('Tier (SL ↔ SLR)'), 'generation': _('Generation (Gen 3 ↔ 4)'),
+                        'catalogue': _('Model not in catalogue'), 'other_word': _("Another model's word"),
+                        'brand': _('Brand unknown'), 'low': _('Low confidence')} %}
+{% set reason_label = {'no_year': _('no year'), 'no_size': _('no size'), 'no_groupset': _('no groupset'),
+                       'no_condition': _('no condition'), 'no_model': _('no model found'), 'name_clash': _('name clashes'),
+                       'impossible': _("year or material can't be"), 'downgraded': _('parts below the original'),
+                       'price': _('price off'), 'few_photos': _('photos'), 'no_side': _('no side view'),
+                       'no_details': _('no close-ups'), 'blurry': _('blurry'), 'dark': _('too dark'),
+                       'small': _('too small'), 'stock': _('catalogue photo')} %}
+{% macro score(v) -%}
+{% if v is none %}<span class="sc">—</span>{% else %}<span class="sc {{ 'g' if v >= 8 else 'm' if v >= 5 else 'b' }}">{{ v }}</span>{% endif %}
+{%- endmacro %}
+{% macro reasons(lost, prefix='') -%}
+{% for points, key, detail in lost %}<span class="tag">{{ prefix }}{% if points %}−{{ points }} {% endif %}{{ reason_label[key] }}{% if detail %}: {{ detail }}{% endif %}</span>{% endfor %}
+{%- endmacro %}
+{% block body %}
+<main class="wrap page admin">
+  <h1>{{ _('Statistics') }}</h1>
+  {% set n = stats.ads %}
+  <div class="kpis">
+    <div class="kpi"><div class="k">{{ _('Ads')|upper }}</div><div class="v">{{ n }}</div><div class="s">{{ _('every checked ad') }}</div></div>
+    <div class="kpi"><div class="k">{{ _('Matched')|upper }}</div><div class="v">{{ (100 * stats.matched / n)|round|int if n else 0 }}%</div><div class="s">{{ _('{n} without a model', n=n - stats.matched) }}</div></div>
+    <div class="kpi"><div class="k">{{ _('High confidence')|upper }}</div><div class="v">{{ (100 * stats.confidence.high / n)|round|int if n else 0 }}%</div><div class="s">{{ _('medium {m}% · low {l}%', m=((100 * stats.confidence.medium / n)|round|int if n else 0), l=((100 * stats.confidence.low / n)|round|int if n else 0)) }}</div></div>
+    <div class="kpi"><div class="k">{{ _('Photo score')|upper }}</div><div class="v">{{ stats.photo if stats.photo is not none else '—' }}</div><div class="s">{{ _('average out of 10') }}</div></div>
+    <div class="kpi"><div class="k">{{ _('Ad score')|upper }}</div><div class="v">{{ stats.ad if stats.ad is not none else '—' }}</div><div class="s">{{ _('average out of 10') }}</div></div>
+  </div>
+
+  <div class="filters" role="tablist" aria-label="{{ _('Period') }}" data-admin-view>
+    <button class="pill on" type="button" data-view="total" aria-pressed="true">{{ _('Overall') }}</button>
+    <button class="pill" type="button" data-view="week" aria-pressed="false">{{ _('Per week') }}</button>
+    <button class="pill" type="button" data-view="month" aria-pressed="false">{{ _('Per month') }}</button>
+  </div>
+  <div class="grid2">
+    <section class="box">
+      <h3>{{ _('What ads leave out') }}</h3>
+      <div class="view-total">
+        {% for k in missing_keys %}<div class="bar"><span>{{ missing_label[k] }}</span><span class="t"><i style="width: {{ stats.missing[k] }}%"></i></span><span class="n">{{ stats.missing[k] }}%</span></div>{% endfor %}
+      </div>
+      <div class="view-lines" hidden data-chart="missing" data-unit="%"></div>
+    </section>
+    <section class="box">
+      <h3>{{ _('Where matching goes wrong') }}</h3>
+      {% set top = (stats.problems.values()|max) or 1 %}
+      <div class="view-total">
+        {% for k in problem_keys %}<div class="bar"><span>{{ problem_label[k] }}</span><span class="t"><i style="width: {{ (100 * stats.problems[k] / top)|round|int }}%"></i></span><span class="n">{{ stats.problems[k] }}</span></div>{% endfor %}
+        {% if stats.shaky_brands %}<div class="why">{{ _('Per brand') }}: {% for b, pct in stats.shaky_brands[:5] %}{{ _('unknown') if b == '?' else b }} {{ pct }}%{% if not loop.last %} · {% endif %}{% endfor %}</div>{% endif %}
+      </div>
+      <div class="view-lines" hidden data-chart="problems" data-unit=""></div>
+    </section>
+  </div>
+
+  <section class="box">
+    <h3>{{ _('Ads with the lowest scores') }}</h3>
+    {% if worst %}
+    <div class="table-scroll"><table>
+      <tr><th>{{ _('Ad')|upper }}</th><th>{{ _('Model')|upper }}</th><th>{{ _('Confidence')|upper }}</th><th>{{ _('Photos')|upper }}</th><th>{{ _('Ad')|upper }}</th><th>{{ _('Why')|upper }}</th></tr>
+      {% for it in worst %}
+      <tr>
+        <td><a href="{{ url_for('report', check_id=it.listing.id) }}">{{ it.listing.title }}</a></td>
+        <td>{% if it.model %}{{ it.model.name }}{% else %}—{% endif %}</td>
+        <td>{{ _(it.confidence) if it.confidence else '—' }}</td>
+        <td>{{ score(it.photo) }}</td>
+        <td>{{ score(it.ad) }}</td>
+        <td class="why">{{ reasons(it.photo_lost, _('photo') ~ ': ') }}{{ reasons(it.ad_lost) }}</td>
+      </tr>
+      {% endfor %}
+    </table></div>
+    {% else %}<p class="muted">{{ _('No checks yet.') }}</p>{% endif %}
+  </section>
+
+  <div class="grid2">
+    <section class="box rules">
+      <h3>{{ _('Photo score (10 = perfect)') }}</h3>
+      <ul>
+        <li>{{ _('Count: 6 or more photos is full marks; 1 photo −5, 2 or 3 −3, 4 or 5 −1') }}</li>
+        <li>{{ _('No photo of the whole bike from the side −2') }}</li>
+        <li>{{ _('Fewer than two close-ups (drivetrain, cockpit, frame) −2') }}</li>
+        <li>{{ _('Most photos blurry −1, too dark −1, too small (under 600 px) −1') }}</li>
+        <li>{{ _('A catalogue photo instead of the real bike −3') }}</li>
+      </ul>
+    </section>
+    <section class="box rules">
+      <h3>{{ _('Ad score (10 = everything adds up)') }}</h3>
+      <ul>
+        <li>{{ _('Missing year, size, groupset or condition: −1 each') }}</li>
+        <li>{{ _("A name that clashes with the model (SL ↔ SLR, Gen) −3; a year or material that can't be −2") }}</li>
+        <li>{{ _('Parts below the original: −1 each (at most −2)') }}</li>
+        <li>{{ _('Suspiciously cheap or far too high −1') }}</li>
+        <li>{{ _('No model found: at most 4') }}</li>
+      </ul>
+    </section>
+  </div>
+</main>
+<script type="application/json" id="admin-data">{{ {'week': stats.week, 'month': stats.month, 'ads': _('{n} ads'),
+  'keys': {'missing': missing_keys, 'problems': problem_keys},
+  'labels': {'missing': missing_label, 'problems': problem_label}}|tojson }}</script>
+<script src="{{ url_for('static', filename='admin.js') }}" defer></script>
+{% endblock %}
