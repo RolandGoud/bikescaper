@@ -334,6 +334,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .match-bar { position: relative; display: block; height: 8px; border-radius: 4px; overflow: hidden;
   background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent), var(--accent) 90%); }
 .match-bar i { position: absolute; top: 0; right: 0; bottom: 0; width: calc(100% - var(--p) * 1%); background: var(--line-strong); }
+.mb-note { margin: 10px 0 0; font-size: 13px; color: var(--warn); }
 .mb-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; width: 100%; }
 .mb-open { margin-left: auto; font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: none; }
 .mb-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--raised); }

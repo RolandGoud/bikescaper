@@ -754,11 +754,10 @@ def test_models_page_starts_on_all_brands(tmp_path):
 def test_seller_named_version_wins(models):
     # An S-Works Tarmac SL7 is not an SL9: the version number the seller names outweighs "S-Works".
     r = run(models, "Specialized S-Works Tarmac SL7", "", 3400)
-    assert "SL7" in r["model"]["name"]
-    assert r["name_check"]["extra"] == ["S-Works"] and "Sport" in r["name_check"]["missing"]
-    # With no SL6 in the catalogue we still compare with a Tarmac, but say we disagree with the seller.
-    r = run(models, "Specialized S-Works Tarmac SL6 2019", "", 2500)
-    assert r["name_check"]["conflicts"] == [("SL9", "SL6")]
+    assert r["model"]["name"].startswith("S-Works Tarmac SL7")  # a discontinued line we keep
+    # With no SL5 at all we still compare with a Tarmac, but say it isn't the version the seller named.
+    r = run(models, "Specialized S-Works Tarmac SL5 2017", "", 2500)
+    assert "SL5" in r["name_check"]["extra"]
     assert r["confidence"] is not None and str(r["confidence"]) in ("low", "laag")
     # The generation counts too, and an exact name has nothing to say.
     assert run(models, "Trek Domane SL6 gen 3", "", 1500)["name_check"]["conflicts"] == [("Gen 4", "Gen 3")]
@@ -769,9 +768,9 @@ def test_report_says_when_we_dispute_the_model(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    resp = client.post("/check", data={"title": "Specialized S-Works Tarmac SL6 2019", "asking_price": "2500"})
+    resp = client.post("/check", data={"title": "Trek Domane SL6 gen 3", "asking_price": "1500"})
     page = client.get(resp.headers["Location"] + "?lang=nl").data.decode()
-    assert 'class="mb-chip bad"' in page and "De advertentie zegt SL6, dit is een SL9" in page
+    assert 'class="mb-chip bad"' in page and "De advertentie zegt Gen 3, dit is een Gen 4" in page
 
 
 def test_value_uses_the_oldest_estimated_year(models):
@@ -1054,7 +1053,7 @@ def test_match_rate_shows_how_well_the_ads_words_fit(models):
     assert ours["extra"] == [] and ours["shifting"] == {"ad": "electronic", "model": "electronic", "same": True}
     assert ours["pct"] == 100
     pro = checks.match_rate(by_name["Defy Advanced 1"], models, "Giant Defy Advanced Pro 1 Di2")
-    assert pro["extra"] == ["Pro"] and pro["pct"] == 95  # a model word the model hasn't: 5 off
+    assert pro["extra"] == ["Pro"] and pro["pct"] == 85  # a model word the model hasn't: 15 off
     if "Defy Advanced 2" in by_name:
         other = checks.match_rate(by_name["Defy Advanced 2"], models, ad)
         assert other["version"]["pct"] == 0 and other["pct"] < ours["pct"]  # the ad says 1, not 2
@@ -1227,3 +1226,33 @@ def test_a_stated_year_we_cant_check_is_a_fallback_estimate(models):
     claims = checks.read_claims("Trek Émonda ALR 5 2015", "mooie fiets")
     e = checks.estimate_year(model, models, claims, "Trek Émonda ALR 5 2015\nmooie fiets")
     assert e["status"] == checks.UNKNOWN and e["fallback"] is True
+
+
+def test_a_tier_one_letter_off_is_another_model():
+    assert checks.conflicts({"name": "Émonda SL 7"}, "Trek Émonda · SLR 7 Navy Carbon Smoke/Viper Red") == [("SL", "SLR")]
+    assert checks.conflicts({"name": "Ultimate CFR"}, "Canyon Ultimate CF SLX") == [("CFR", "CF")]
+    assert checks.conflicts({"name": "Émonda SL 7"}, "Trek Emonda SL7 2021") == []
+
+
+def test_the_brands_colour_name_counts_for_its_model():
+    model = {"colors": ["Navy Carbon Smoke/Viper Red", "Black"], "year_specs": {}}
+    assert checks._colour_named(model, "Trek Émonda SLR 7 Heren Navy Carbon Smoke/Viper Red 56cm")
+    assert not checks._colour_named(model, "Trek Émonda zwart black")  # one plain colour says little
+
+
+def test_confidence_follows_the_fit_it_is_shown_with():
+    assert checks.match_confidence(100, [60]) == "high"
+    assert checks.match_confidence(95, [90]) == "medium"  # another model fits about as well
+    assert checks.match_confidence(75, [35]) == "medium"
+    assert checks.match_confidence(50, [20]) == "low"
+    assert checks.match_confidence(100, [40], not_exact=True) == "low"
+
+
+def test_a_version_we_dont_have_gets_the_closest_bike_with_low_confidence():
+    base = {"brand": "Giant", "price_eur": 2000, "specs": {}, "colors": [], "year_specs": {}, "colorways": []}
+    models = [dict(base, id=1, name="Defy Advanced 1"), dict(base, id=2, name="Defy Advanced Pro 1"),
+              dict(base, id=3, name="Propel Advanced SL 1")]
+    ranked = checks.match_models(models, "Giant Defy Advanced SL 1 Moonstone")
+    assert ranked[0][1]["name"] == "Defy Advanced 1"
+    check = checks.name_check(ranked[0][1], models, "Giant Defy Advanced SL 1 Moonstone")
+    assert check["extra"] == ["SL"]

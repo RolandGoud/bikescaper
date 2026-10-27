@@ -5,16 +5,16 @@
 
 Writes data/<Brand>/<brand>_bikes_<timestamp>.json, one photo per model and one per
 colour under images/<Brand>/. E-bikes, mountain bikes and city bikes are left out, like the
-Trek and Canyon data.
+Canyon data (Trek keeps what it files under road, as its earlier data did).
 """
 import argparse
 import logging
 from datetime import datetime
 
-from . import cannondale, cube, factor, giant, orbea, scott, specialized
+from . import cannondale, cube, factor, giant, orbea, scott, specialized, trek
 from .common import Fetcher, dedupe, log, save_colour_images, save_image, write_snapshot
 
-ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea)}
+ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea, trek)}
 
 
 def run(names, limit=None, images=True):
