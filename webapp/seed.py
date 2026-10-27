@@ -466,6 +466,27 @@ def add_other_scrapes(conn):
     return count
 
 
+def add_archived(conn):
+    """Add the lines the brands no longer sell (data/years/archived/<Brand>.json, brand_scrapers/history.py
+    --archived): Émonda SLR, Defy Advanced SL. Existing rows are left alone, so saved checks keep their matches."""
+    count = 0
+    have = {r[0] for r in conn.execute("SELECT slug FROM models")}
+    for path in sorted(glob.glob(os.path.join(ROOT, "data", "years", "archived", "*.json"))):
+        brand = os.path.splitext(os.path.basename(path))[0]
+        try:
+            with open(path, encoding="utf-8") as fh:
+                bikes = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        for bike in bikes:
+            slug = slugify(f"{brand} {bike.get('name') or ''}")
+            if bike.get("name") and slug not in have:
+                have.add(slug)
+                count += insert_bike(conn, brand, dict(bike), os.path.relpath(path, ROOT), "INSERT OR IGNORE")
+    conn.commit()
+    return count
+
+
 def load(conn):
     conn.execute("DELETE FROM models")
     count = 0
@@ -475,6 +496,7 @@ def load(conn):
                 count += insert_bike(conn, brand, bike, rel)
     conn.commit()
     count += add_other_scrapes(conn)
+    count += add_archived(conn)
     refresh_status(conn)
     return count
 
@@ -486,7 +508,8 @@ if __name__ == "__main__":
     conn = db.connect(args[0] if args else None)
     if "--if-empty" in sys.argv and conn.execute("SELECT COUNT(*) FROM models").fetchone()[0]:
         print(f"Models already loaded; refreshed photos of {refresh_images(conn)} models,"
-              f" added {add_other_scrapes(conn)} from other scrapes, updated status of {refresh_status(conn)},"
+              f" added {add_other_scrapes(conn)} from other scrapes and {add_archived(conn)} discontinued lines,"
+              f" updated status of {refresh_status(conn)},"
               f" read earlier years for {refresh_year_specs(conn)}")
     else:
         print(f"Loaded {load(conn)} models into {db.DB_PATH}")

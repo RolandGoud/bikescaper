@@ -1,0 +1,3885 @@
+[
+ {
+  "name": "Contend 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-1-2021",
+  "sku": "1957",
+  "price": 899.0,
+  "category": "All-Rounder",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "ALUXX-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Sport",
+   "Zadelpen": "Giant D-Fuse, alloy",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Sora",
+   "Voorderailleur": "Shimano Sora",
+   "Achterderailleur": "Shimano Sora",
+   "Rem": "Tektro TK-B177",
+   "Remgreep": "Shimano Sora",
+   "Cassette": "Shimano CS-HG400, 11x34",
+   "Aandrijving": "KMC X9",
+   "Crankstel": "Shimano Sora, 34/50",
+   "Bottom bracket": "cartridge",
+   "Velg": "Giant S-R3 wheelset",
+   "Naven": "Giant S-R3 wheelset",
+   "Spaken": "Giant S-R3 wheelset",
+   "Buitenband": "Giant S-R3 AC, 700x25c (28mm), folding",
+   "Gewicht": "9,5 kg"
+  },
+  "color_names": [
+   "Metallic Navy"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/v9vtgap3k2iaw5d5friw/MY21Contend1_ColorAMetallicNavy.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/v9vtgap3k2iaw5d5friw/MY21Contend1_ColorAMetallicNavy.jpg"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "image": "Giant/archived/contend1.jpg"
+ },
+ {
+  "name": "Contend 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-2-2022",
+  "sku": "2497",
+  "price": 949.0,
+  "category": "All-Rounder",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "ALUXX-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Velo cork tape with gel",
+   "Stuurpen": "Giant Sport XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, alloy, 14mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "platform pedal [GU,GV,GJ] pedal with toe clips/straps [rest of GSC]",
+   "Shifter": "Shimano Claris",
+   "Voorderailleur": "Shimano Claris",
+   "Achterderailleur": "Shimano Claris",
+   "Rem": "Tektro TK-B177",
+   "Remgreep": "Shimano Claris",
+   "Cassette": "Shimano CS-HG50, 11x34",
+   "Aandrijving": "KMC Z72",
+   "Crankstel": "FSA Tempo, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "cartridge",
+   "Velg": "Giant S-R3 wheelset",
+   "Naven": "Giant S-R3 wheelset",
+   "Spaken": "Giant S-R3 wheelset",
+   "Buitenband": "Giant S-R3-AC, 700x28c (30mm)",
+   "Extra's": "30mm max tire size",
+   "Gewicht": "9,8kg"
+  },
+  "color_names": [
+   "Black/Silver"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/faqg4km5q7eun1lk2mhm/MY22Contend2_ColorABlack.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/faqg4km5q7eun1lk2mhm/MY22Contend2_ColorABlack.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/rqsffvrizoaaaljp395f/MY22Contend2_ColorABlack_Rear.jpg"
+   ]
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "image": "Giant/archived/contend2.jpg"
+ },
+ {
+  "name": "Contend AR 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-ar-2-2025",
+  "sku": "3847",
+  "price": 1399.0,
+  "category": "All-Rounder",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "ALUXX-grade aluminum, 12x142mm thru-axle, disc",
+   "Voorvork": "Advanced-grade composite, full-composite OverDrive steerer, 12x100mm thru-axle, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Velo cork tape with gel",
+   "Stuurpen": "Giant Sport XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, composite, 14mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "pedal with toe clips/straps",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra",
+   "Achterderailleur": "Shimano Tiagra GS",
+   "Rem": "Shimano Tiagra, Giant MPH rotors [F]160mm, [R]160mm",
+   "Remgreep": "Shimano Tiagra",
+   "Cassette": "Shimano Tiagra, 11x34",
+   "Aandrijving": "KMC X10-1",
+   "Crankstel": "Shimano Tiagra, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "cartridge",
+   "Velg": "Giant S-R2 Disc wheelset, alloy",
+   "Naven": "Giant alloy, 12mm thru-axle",
+   "Spaken": "Sapim",
+   "Buitenband": "Giant Gavia Fondo 2, tubeless, 700x32c (34mm)",
+   "Extra's": "fender mount, tubeless prepared, 38mm max tire size",
+   "Maximale bandenmaat": "38mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Dark Iridescent"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pwxlqlktgnyprxvozx2n/MY25ContendAR2_ColorADarkiridescent.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pwxlqlktgnyprxvozx2n/MY25ContendAR2_ColorADarkiridescent.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/spb7xklmauunhlpyuien/MY25ContendAR2_ColorADarkiridescent-D1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/dilm9vwy8cbwln0de9hz/MY25ContendAR2_ColorADarkiridescent-D2.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/mch8heskabiqejz6lvwk/MY25ContendAR2_ColorADarkiridescent-D3.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/w0j4as5yp7u4w9huhxup/MY25ContendAR2_ColorADarkiridescent-D5.jpg"
+   ]
+  ],
+  "years": [
+   2021,
+   2022,
+   2024,
+   2025,
+   2026
+  ],
+  "image": "Giant/archived/contendar2.jpg"
+ },
+ {
+  "name": "Contend AR 4",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-ar-4-2024",
+  "sku": "3403",
+  "price": 1099.0,
+  "category": "All-Rounder",
+  "model_year": 2024,
+  "specifications": {
+   "Frame": "ALUXX-grade aluminum, disc",
+   "Voorvork": "Advanced-grade composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Velo cork tape with gel",
+   "Stuurpen": "Giant Sport XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, alloy, 14mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "platform pedal [GU,GV,GJ] pedal with toe clips/straps [rest of GSC]",
+   "Shifter": "Shimano Claris",
+   "Voorderailleur": "Shimano Claris",
+   "Achterderailleur": "Shimano Claris",
+   "Rem": "Tektro MD-C550 mechanical, Giant MPH rotors [F]160mm, [R]160mm",
+   "Remgreep": "Shimano Claris",
+   "Cassette": "Shimano CS-HG50, 11x34",
+   "Aandrijving": "KMC Z72",
+   "Crankstel": "FSA Tempo, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "cartridge",
+   "Velg": "Giant S-R2 Disc wheelset, alloy",
+   "Naven": "Giant alloy, 12mm thru-axle",
+   "Spaken": "Sapim",
+   "Buitenband": "Giant S-R3 AC, 700x32c (34mm)",
+   "Extra's": "fender mount, 38mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Pyrite Brown",
+   "Cold Night"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/tgnjy08ospsehzhsk5ja/MY24ContendAR4_ColorAColdNight.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ndcsgiw35knr6npup2k7/MY24ContendAR4_ColorBPyriteBrown.jpg",
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/tgnjy08ospsehzhsk5ja/MY24ContendAR4_ColorAColdNight.jpg"
+  ],
+  "color_angle_urls": [
+   [],
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/djydloni3uccy9neqoqg/MY24ContendAR4_ColorAColdNight_Rear.jpg"
+   ]
+  ],
+  "years": [
+   2022,
+   2024
+  ],
+  "image": "Giant/archived/contendar4.jpg"
+ },
+ {
+  "name": "Contend SL 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-sl-1-2020",
+  "sku": "1275",
+  "price": 1199.0,
+  "category": "All-Rounder",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "ALUXX SL-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Sport",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Contact (forward)",
+   "Pedaal": "Pedal with toe clips/straps",
+   "Shifter": "Shimano 105",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105 GS",
+   "Rem": "Tektro TK-B178 w/ better finish/cartridge shoes",
+   "Remgreep": "Shimano 105",
+   "Cassette": "Shimano 105, 11x34",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano FC-RS510, 34/50",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant P-R2 wheelset",
+   "Naven": "Giant P-R2 wheelset",
+   "Spaken": "Giant P-R2 wheelset",
+   "Buitenband": "Giant Gavia Fondo 2, 700x28, tubeless",
+   "Gewicht": "8.9 KG"
+  },
+  "color_names": [
+   "Matte Gunmetal Black / Gloss Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/lnlhmjtxininisoku30g/MY20ContendSL1_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019,
+   2020
+  ],
+  "image": "Giant/archived/contendsl1.jpg"
+ },
+ {
+  "name": "Contend SL 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-sl-2-2020",
+  "sku": "1280",
+  "price": 1099.0,
+  "category": "All-Rounder",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "ALUXX SL-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, full-composite, OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Sport",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Contact (forward)",
+   "Pedaal": "Pedal with toe clips/straps",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra",
+   "Achterderailleur": "Shimano Tiagra GS",
+   "Rem": "Tektro TK-B177",
+   "Remgreep": "Shimano Tiagra",
+   "Cassette": "Shimano Tiagra, 11x34",
+   "Aandrijving": "KMC X10-1",
+   "Crankstel": "Shimano Tiagra, 34/50",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant S-R2 wheelset",
+   "Naven": "Giant S-R2 wheelset",
+   "Spaken": "Giant S-R2 wheelset",
+   "Buitenband": "Giant Gavia Fondo 2, tubeless, 700x28",
+   "Gewicht": "9.2 KG"
+  },
+  "color_names": [
+   "Pure Red / Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/daitw7niojof1ro8vvdw/MY20ContendSL2_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019,
+   2020
+  ],
+  "image": "Giant/archived/contendsl2.jpg"
+ },
+ {
+  "name": "Contend SL 2 Disc Hydraulic",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/contend-sl-2-disc-hydraulic-2020",
+  "sku": "1277",
+  "price": 1199.0,
+  "category": "All-Rounder",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "ALUXX-Grade Aluminium, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Contact (forward)",
+   "Pedaal": "Pedal with toe clips/straps",
+   "Shifter": "Shimano Tiagra-hydraulic",
+   "Voorderailleur": "Shimano Tiagra",
+   "Achterderailleur": "Shimano Tiagra GS",
+   "Rem": "Shimano Tiagra hydraulic",
+   "Remgreep": "Shimano Tiagra",
+   "Cassette": "Shimano Tiagra, 11x34",
+   "Aandrijving": "KMC X10-1",
+   "Crankstel": "Shimano Tiagra, 34/50",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant S-R2 Disc wheelset",
+   "Naven": "Giant S-R2 Disc wheelset",
+   "Spaken": "Giant S-R2 Disc wheelset",
+   "Buitenband": "Giant Gavia Fondo 2, tubeless, 700x28",
+   "Gewicht": "9.5 KG"
+  },
+  "color_names": [
+   "Metallic Blue / Gunmetal Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/sxeomsix5ow9zys3whqs/MY20-Contend-SL2D-HRD_Color-A.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/contendsl2dischydraulic.jpg"
+ },
+ {
+  "name": "Defy Advanced 1 - Di2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-1---di2-2023",
+  "sku": "3006",
+  "price": 3299.0,
+  "category": "Endurance",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL D-Fuse XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact XS:80mm, S:90mm, M:100mm, M/L:100mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, composite, 14mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano 105 Di2",
+   "Voorderailleur": "Shimano 105 Di2",
+   "Achterderailleur": "Shimano 105 Di2",
+   "Rem": "Shimano 105 Di2 hydraulic, Giant MPH rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano 105 Di2",
+   "Cassette": "Shimano 105, 12-speed, 11x34",
+   "Aandrijving": "KMC X12",
+   "Crankstel": "Shimano FC-RS520, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant P-R2 Disc wheelset, alloy",
+   "Naven": "Giant alloy, 12mm thru-axle",
+   "Spaken": "Sapim",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32c (33.5mm), folding",
+   "Extra's": "fender mount, tubeless prepared, 35mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Orion Nebula/Metallic Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/key1vnuxvfqgjcmq4pvh/MY23DefyAdvanced1ColorA_OrionNebula.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Giant/archived/defyadvanced1di2.jpg"
+ },
+ {
+  "name": "Defy Advanced 3 Hydraulic",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-3-hydraulic-2020",
+  "sku": "1269",
+  "price": 1899.0,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL D-Fuse",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Contact (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra",
+   "Achterderailleur": "Shimano Tiagra",
+   "Rem": "Shimano Tiagra hydraulic",
+   "Remgreep": "Shimano Tiagra",
+   "Cassette": "Shimano Tiagra, 11x34",
+   "Aandrijving": "KMC X10-1",
+   "Crankstel": "Shimano Tiagra, 34/50",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant S-R2 Disc wheelset",
+   "Naven": "Giant S-R2 Disc wheelset, 12mm thru-axle",
+   "Spaken": "Giant S-R2 Disc wheelset",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32, folding",
+   "Gewicht": "9.1 KG"
+  },
+  "color_names": [
+   "Carbon"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/hzhvxvbzn7q8kbtycfn6/MY20DefyADV3-HRD_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/defyadvanced3hydraulic.jpg"
+ },
+ {
+  "name": "Defy Advanced Pro 0 Red",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-red-2020",
+  "sku": "1263",
+  "price": 6999.0,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse",
+   "Stuurpen": "Contact SL Stealth",
+   "Zadelpen": "Giant D-Fuse SL, composite",
+   "Zadel": "Giant Contact SL (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM RED eTap AXS",
+   "Voorderailleur": "SRAM RED eTap AXS",
+   "Achterderailleur": "SRAM RED eTap AXS",
+   "Rem": "SRAM RED eTap AXS hydraulic",
+   "Remgreep": "SRAM RED eTap AXS hydraulic",
+   "Cassette": "SRAM RED, 12-speed, 10x33",
+   "Aandrijving": "SRAM RED D1",
+   "Crankstel": "SRAM RED D1 DUB, 33/46with Quarq DZero power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.8 KG"
+  },
+  "color_names": [
+   "Matte Gunmetal Black / Gloss Black / Gloss Blue"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/coxnf5wylzu0vubpxyg8/MY20DefyADPRO0_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/defyadvancedpro0red.jpg"
+ },
+ {
+  "name": "Defy Advanced Pro 1 Di2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-di2-2020",
+  "sku": "1264",
+  "price": 4899.0,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse",
+   "Stuurpen": "Contact SL Stealth",
+   "Zadelpen": "Giant D-Fuse SL, composite",
+   "Zadel": "Contact SL (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra Di2",
+   "Voorderailleur": "Shimano Ultegra Di2",
+   "Achterderailleur": "Shimano Ultegra Di2",
+   "Rem": "Shimano Ultegra hydraulic",
+   "Remgreep": "Shimano Ultegra hydraulic",
+   "Cassette": "Shimano Ultegra, 11x34",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 34/50with Giant Power Pro power meter",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.9 KG"
+  },
+  "color_names": [
+   "Metallic Red / Metallic Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/h0liskz5whyddespbpzt/MY20DefyADPRO1-Ui2_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020,
+   2021
+  ],
+  "image": "Giant/archived/defyadvancedpro1di2.jpg"
+ },
+ {
+  "name": "Defy Advanced Pro 1 Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-force-2020",
+  "sku": "1209",
+  "price": 4999.0,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse",
+   "Stuurpen": "Contact SL Stealth",
+   "Zadelpen": "Giant D-Fuse SL, composite",
+   "Zadel": "Contact SL (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x33",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB, 33/46",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "8.0 KG"
+  },
+  "color_names": [
+   "Metallic Red / Metallic Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/g5zlbv5xydomarhdvvv7/MY20DefyADPRO1_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/defyadvancedpro1force.jpg"
+ },
+ {
+  "name": "Defy Advanced Pro 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-2-2020",
+  "sku": "1265",
+  "price": 3499.0,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse",
+   "Stuurpen": "Contact SL Stealth",
+   "Zadelpen": "Giant D-Fuse SL, composite",
+   "Zadel": "Contact SL (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra hydraulic",
+   "Remgreep": "Shimano Ultegra hydraulic",
+   "Cassette": "Shimano Ultegra, 11x34",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 34/50",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "8.0 KG"
+  },
+  "color_names": [
+   "Matte Gunmetal Black / Gloss Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/zlcsv67igoh0cw06cxr2/MY20DefyADPRO2_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "image": "Giant/archived/defyadvancedpro2.jpg"
+ },
+ {
+  "name": "Defy Advanced Pro 2 AXS",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-2-axs-2022",
+  "sku": "2537",
+  "price": 4699.0,
+  "category": "Endurance",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL D-Fuse XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact SL XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse SL, composite, 16mm offset",
+   "Zadel": "Giant Fleet SL",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Rival eTap AXS",
+   "Voorderailleur": "SRAM Rival eTap AXS",
+   "Achterderailleur": "SRAM Rival eTap AXS",
+   "Rem": "SRAM Rival eTap AXS hydraulic, SRAM PaceLine rotors [F]160mm, [R]140mm",
+   "Remgreep": "SRAM Rival eTap AXS hydraulic",
+   "Cassette": "SRAM Rival, 12-speed, 10x36",
+   "Aandrijving": "SRAM Rival D1",
+   "Crankstel": "SRAM Rival D1 DUB, 33/46 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR 2 36 Carbon Disc WheelSystem",
+   "Naven": "Giant SLR 2 36 Carbon Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR 2 36 Carbon Disc WheelSystem",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32c (33.5mm), folding",
+   "Extra's": "computer mount, tubeless prepared, 35mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Black Chrome / Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/azk6vp3mub29dmvx9f2o/MY22DefyAdvancedPro2-AX_ColorABlackChrome.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2022,
+   2023
+  ],
+  "image": "Giant/archived/defyadvancedpro2axs.jpg"
+ },
+ {
+  "name": "Defy Advanced Pro 2 Ultegra",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-pro-2-ultegra-2022",
+  "sku": "2538",
+  "price": 3999.0,
+  "category": "Endurance",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL D-Fuse XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact SL XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse SL, composite, 16mm offset",
+   "Zadel": "Giant Fleet SL",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano GRX RX-810",
+   "Rem": "Shimano Ultegra hydraulic, Shimano rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano Ultegra",
+   "Cassette": "Shimano Ultegra, 11-speed, 11x34",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR 2 36 Carbon Disc WheelSystem",
+   "Naven": "Giant SLR 2 36 Carbon Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR 2 36 Carbon Disc WheelSystem",
+   "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32c (33.5mm), folding",
+   "Extra's": "computer mount, tubeless prepared, 35mm max tire size",
+   "Gewicht": "8,7kg"
+  },
+  "color_names": [
+   "Black Chrome / Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/lwhilm1b0egcxlulwcdz/MY22DefyAdvancedPro2-UT_ColorABlackChrome.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Giant/archived/defyadvancedpro2ultegra.jpg"
+ },
+ {
+  "name": "Defy Advanced SL 0",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-sl-0-2024",
+  "sku": "3424",
+  "price": 11999.0,
+  "category": "Endurance",
+  "model_year": 2024,
+  "specifications": {
+   "Frame": "Advanced SL-grade composite, disc",
+   "Voorvork": "Advanced SL-grade composite, full-composite OverDrive Aero steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact SLR AeroLight XS:80mm, S:90mm, M:100mm, M/L:100mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant SLR D-Fuse, composite, -5/+15mm offset",
+   "Zadel": "Giant Fleet SLR",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM RED eTap AXS",
+   "Voorderailleur": "SRAM RED eTap AXS",
+   "Achterderailleur": "SRAM RED eTap AXS",
+   "Rem": "SRAM RED eTap AXS hydraulic, SRAM CenterLine XR rotors [F]160mm, [R]160mm",
+   "Remgreep": "SRAM RED eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x36",
+   "Aandrijving": "SRAM RED D1",
+   "Crankstel": "SRAM RED D1 DUB, 33/46 with Quarq DZero power meter XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "CADEX 36 Disc WheelSystem, [F]36mm, [R]36mm",
+   "Naven": "[F] CADEX R1 Hub, CenterLock, 12mm thru-axle [R] CADEX R1-C30 Low Friction Hub, 40t ratchet driver, CenterLock, 12mm thru-axle",
+   "Spaken": "CADEX Aero Carbon Spoke",
+   "Buitenband": "CADEX Classic, tubeless, 700x32c (33.5mm), folding",
+   "Extra's": "computer mount, fender mount, water bottle cages, tubeless prepared, 38mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Blue Dragonfly/Black/Chrome"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/biql0kbma6kfaybnbxtj/MY24DefyAdvancedSL0_ColorABlueDragonfly.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/biql0kbma6kfaybnbxtj/MY24DefyAdvancedSL0_ColorABlueDragonfly.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pqatdio89bgtarro7yut/MY24DefyAdvancedSL0_ColorABlueDragonfly_Front.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/maavfmq1malpxht0btw3/MY24DefyAdvancedSL0_ColorABlueDragonfly_Rear.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/nvadjex3xhugifsgtm0l/MY24DefyAdvancedSL0_ColorABlueDragonfly-D3.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/hfpjou8lpr0rvw18twvh/MY24DefyAdvancedSL0_ColorABlueDragonfly-D8.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/y84hs8r6bkmincwsdygq/MY24DefyAdvancedSL0_ColorABlueDragonfly-D9.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gjhfhp152patblh8apy5/MY24DefyAdvancedSL0_ColorABlueDragonfly-D6.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/xjsdeg7uxompn8xl28ze/MY24DefyAdvancedSL0_ColorABlueDragonfly-D11.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/svnwxekdtut7gtxmfzls/MY24DefyAdvancedSL0_ColorABlueDragonfly-D7.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/utrlb9u4chuqbx1pvpxv/MY24DefyAdvancedSL0_ColorABlueDragonfly-D15.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/qobz36ssozxkqw3xjlhk/MY24DefyAdvancedSL0_ColorABlueDragonfly-D17-1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/p22vk8zpzrpr40lzgabr/MY24DefyAdvancedSL0_ColorABlueDragonfly-D4_B.jpg"
+   ]
+  ],
+  "years": [
+   2024,
+   2026
+  ],
+  "image": "Giant/archived/defyadvancedsl0.jpg"
+ },
+ {
+  "name": "Defy Advanced SL 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-sl-1-2024",
+  "sku": "3425",
+  "price": 8999.0,
+  "category": "Endurance",
+  "model_year": 2024,
+  "specifications": {
+   "Frame": "Advanced SL-grade composite, disc",
+   "Voorvork": "Advanced SL-grade composite, full-composite OverDrive Aero steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact SLR Aero Light XS:80mm, S:90mm, M:100mm, M/L:100mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse SLR, composite, -5/+15mm offset",
+   "Zadel": "Giant Fleet SLR",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra Di2 ST-R8170",
+   "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
+   "Achterderailleur": "Shimano Ultegra Di2 RD-R8150",
+   "Rem": "Shimano Ultegra Di2 hydraulic, Shimano RT-CL800 rotors [F]160mm, [R]160mm",
+   "Remgreep": "Shimano Ultegra Di2",
+   "Cassette": "Shimano Ultegra, 12-speed, 11x34",
+   "Aandrijving": "Shimano Ultegra",
+   "Crankstel": "Shimano Ultegra, 34/50 with Giant Power Pro power meter XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR 1 36 Carbon Disc WheelSystem",
+   "Naven": "[F] Giant Low Friction Hub, CenterLock, 12mm thru-axle [R] Giant Low Friction Hub, 30t ratchet driver, CenterLock, 12mm thru-axle",
+   "Spaken": "Sapim CX-Ray",
+   "Buitenband": "Giant Gavia Fondo 0, tubeless, 700x32c (33.5mm), folding",
+   "Extra's": "computer mount, fender mount, water bottle cages, tubeless prepared, 38mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Golden Haze/Panther"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/usmfpdk8ncw9hqrnjina/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther2.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/usmfpdk8ncw9hqrnjina/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther2.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pqcze8bdzgzfevcaf62z/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther-D8.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ayq6vjnlb2xdkowaqo4q/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther-D3.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/aymwpdzaelhj9tvp3mzu/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther-D4.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/vfpaczdnbiicnkyleuea/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther-D6.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cojnfirffwtbre16jja1/MY24DefyAdvancedSL1_ColorAGoldenHaze_Panther-D7.jpg"
+   ]
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Giant/archived/defyadvancedsl1.jpg"
+ },
+ {
+  "name": "Defy Advanced SL Frameset",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/defy-advanced-sl-frameset-2025",
+  "sku": "3862",
+  "price": 3599.0,
+  "category": "Endurance",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, 12x142mm thru-axle, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive Aero steerer, 12x100mm thru-axle, disc",
+   "Zadelpen": "Giant D-Fuse SLR, composite, -5/+15mm offset",
+   "Extra's": "computer mount, fender mount, water bottle cages, tubeless prepared, 38mm max tire size",
+   "Maximale bandenmaat": "40mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Arctic Blast/Iris"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/tmjeiyqlsv39yhfzytfd/MY25DefyAdvancedSL-FF_ColorBArcticBlast.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2024,
+   2025
+  ],
+  "image": "Giant/archived/defyadvancedslframeset.jpg"
+ },
+ {
+  "name": "FastRoad Advanced 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/fastroad-advanced-1-2024",
+  "sku": "3460",
+  "price": 2299.0,
+  "category": "Fitness",
+  "model_year": 2024,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite,(Internal cable routing), flat mount disc, 12x142mm thru-axled",
+   "Voorvork": "Advanced-Grade Composite, Full Carbon, OverDrive Steerer, 12x100mm thru-axle, Disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Sport, mini-rise, 31.8 XS:64cm, S:64cm, M:68cm, M/L: 68cm, L:68cm, XL:68cm",
+   "Handvatten": "ErgoContact lock rim, Black",
+   "Stuurpen": "Giant Contact, 8-degree XS:70mm, S:80mm, M:90mm, M/L: 90mm, L:100mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, composite, 350mm",
+   "Zadel": "Giant ErgoContact",
+   "Pedaal": "N/A",
+   "Balhoofdstel": "NO.56E",
+   "Shifter": "Shimano 105, 2x11",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105",
+   "Rem": "Tektro HD-R280, Giant MPH rotors [F]160mm, [R]160mm",
+   "Remgreep": "Shimano BL-MT201",
+   "Cassette": "Shimano CS-HG700, 11x34",
+   "Aandrijving": "KMC X11 with Missing Link",
+   "Crankstel": "FSA Omega, 32/48 XS:170mm, S:170mm, M:170mm, M/L:172.5mm, L:172.5mm, XL: 172.5mm",
+   "Bottom bracket": "FSA BB-AL86",
+   "Velg": "Giant P-R2 Disc wheelset",
+   "Naven": "Giant alloy, 12mm thru-axle",
+   "Spaken": "Sapim",
+   "Buitenband": "Giant Gavia Fondo 2, 700X32C Tubeless",
+   "Extra's": "tubeless prepared, 40mm max tire size",
+   "Maximale bandenmaat": "700x40C",
+   "Maximale maat kettingblad": "Double 50/34 Single 42t",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Carbon"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ufd9rmglzbfiwtmreoud/MY24FastRoadAdvanced1_ColorACarbon.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ufd9rmglzbfiwtmreoud/MY24FastRoadAdvanced1_ColorACarbon.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ahva6yxptv5glidxf60x/MY24FastRoadAdvanced1_ColorACarbon_Front.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/b8qrp7nd6xpfxtaso5hv/MY24FastRoadAdvanced1_ColorACarbon-D1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/lqlpw0ux6fp3fzvugi27/MY24FastRoadAdvanced1_ColorACarbon-D4.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/felgqyri1q7q7iwevxve/MY24FastRoadAdvanced1_ColorACarbon-D2.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/txp3tmtqbc9rjylz5sza/MY24FastRoadAdvanced1_ColorACarbon-D5.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/um65q9sqmloxn3ksm8tq/MY24FastRoadAdvanced1_ColorACarbon-D2_B.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/jmm72r6qdsk1azgxtl3o/MY24FastRoadAdvanced1_ColorACarbon-D1_B.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/evxpuw6ohbinnq9wniu0/MY24FastRoadAdvanced1_ColorACarbon-D4_B.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ktxhkzxnfjoirhe7mkmy/MY24FastRoadAdvanced1_ColorACarbon-D5_B.jpg"
+   ]
+  ],
+  "years": [
+   2020,
+   2021,
+   2024
+  ],
+  "image": "Giant/archived/fastroadadvanced1.jpg"
+ },
+ {
+  "name": "FastRoad Advanced 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/fastroad-advanced-2-2022",
+  "sku": "2606",
+  "price": 1799.0,
+  "category": "Fitness",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect, flat XS:58cm, S:58cm, M:58cm, M/L:62cm, L:62cm, XL:62cm",
+   "Handvatten": "Giant Connect Ergo",
+   "Stuurpen": "Giant Contact, 8-degree XS:80mm, S:90mm, M:100mm, M/L:100mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, composite, 350mm",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Tiagra, 2x10",
+   "Voorderailleur": "Shimano Tiagra",
+   "Achterderailleur": "Shimano Tiagra",
+   "Rem": "Tektro HD-R210, Giant MPH rotors [F]140mm, [R]140mm",
+   "Remgreep": "TRP",
+   "Cassette": "Shimano CS-HG500, 11x34",
+   "Aandrijving": "KMC X10 with Missing Link",
+   "Crankstel": "Shimano FC-RS400, 34/50 XS:170mm, S:170mm, M:170mm, M/L:175mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant S-R2 Disc wheelset",
+   "Naven": "Giant S-R2 Disc wheelset, 12mm thru-axle",
+   "Spaken": "Giant S-R2 Disc wheelset",
+   "Buitenband": "Giant Gavia Fondo 2, tubeless, 700x32c",
+   "Extra's": "tubeless prepared, 35mm max tire size",
+   "Gewicht": "9,45kg"
+  },
+  "color_names": [
+   "Cold Iron"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/kv129qavubamq3qzyopw/MY22FastRoadAdvanced2_ColorAColdIron.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/kv129qavubamq3qzyopw/MY22FastRoadAdvanced2_ColorAColdIron.jpg"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "image": "Giant/archived/fastroadadvanced2.jpg"
+ },
+ {
+  "name": "FastRoad CoMax 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/fastroad-comax-2-2018",
+  "sku": "168",
+  "price": null,
+  "category": "Fitness",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "CoMax Composite Technology",
+   "Voorvork": "Advanced-Grade Composite, ALUXX OverDrive Steerer",
+   "Stuur": "Giant Connect Flat",
+   "Stuurpen": "Giant Connect, 31.8",
+   "Zadelpen": "Giant D-Fuse Composite",
+   "Zadel": "Contact (Neutral)",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano FD4700",
+   "Achterderailleur": "Shimano RD4700",
+   "Rem": "Shimano M315",
+   "Cassette": "Shimano CS4700, 11x34",
+   "Aandrijving": "KMC X10 with Missing Link",
+   "Crankstel": "FC-RS400, 34/50",
+   "Bottom bracket": "Shimano -RS500",
+   "Velg": "Giant PR-2 Disc Wheelset,Tubeless",
+   "Naven": "Sealed Bearing",
+   "Spaken": "Sealed Bearing",
+   "Buitenband": "Giant Gavia AC 2, 700x28 Tubeless",
+   "Gewicht": "9,30 kg"
+  },
+  "color_names": [
+   "Satin/Charcoal/Orange"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "M/L",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/FastRoad-CoMax-2_Color-A_Charcoal/FastRoad-CoMax-2_Color-A_Charcoal.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018
+  ],
+  "image": "Giant/archived/fastroadcomax2.jpg"
+ },
+ {
+  "name": "FastRoad SL 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/fastroad-sl-1-2022",
+  "sku": "2609",
+  "price": 1299.0,
+  "category": "Fitness",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "ALUXX SL-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect, flat XS:58cm, S:58cm, M:58cm, M/L:62cm, L:62cm, XL:62cm",
+   "Handvatten": "Giant Connect Ergo",
+   "Stuurpen": "Giant Contact, 8-degree XS:80mm, S:90mm, M:100mm, M/L:100mm, L:110mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse, alloy, 350mm",
+   "Zadel": "Giant Approach",
+   "Pedaal": "platform pedal",
+   "Shifter": "Shimano 105, 2x11",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105",
+   "Rem": "Tektro HD-R280, Giant MPH rotors [F]160mm, [R]140mm",
+   "Remgreep": "Tektro HD-R280",
+   "Cassette": "Shimano CS-HG700, 11x34",
+   "Aandrijving": "KMC X11 with Missing Link",
+   "Crankstel": "FSA Omega, 34/50 XS:170mm, S:170mm, M:170mm, M/L:175mm, L:175mm, XL:175mm",
+   "Bottom bracket": "FSA MegaExo, threaded",
+   "Velg": "Giant double wall aluminum",
+   "Naven": "Alloy, 28h",
+   "Spaken": "stainless, 14g",
+   "Buitenband": "Giant S-R3 AC, puncture protect, 700x32c",
+   "Extra's": "35mm max tire size",
+   "Gewicht": "10,35kg"
+  },
+  "color_names": [
+   "Metal"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/fbybfscjyedqe94p7iso/MY22FastRoadSL1_ColorAMetal.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/fbybfscjyedqe94p7iso/MY22FastRoadSL1_ColorAMetal.jpg"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "image": "Giant/archived/fastroadsl1.jpg"
+ },
+ {
+  "name": "FastRoad SL 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/fastroad-sl-2-2021",
+  "sku": "2058",
+  "price": 849.0,
+  "category": "Fitness",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "ALUXX SL-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Sport, flat",
+   "Stuurpen": "Giant Sport",
+   "Zadelpen": "Giant D-Fuse, alloy",
+   "Zadel": "Giant Approach",
+   "Pedaal": "platform pedal",
+   "Shifter": "Shimano Sora",
+   "Voorderailleur": "Shimano Sora",
+   "Achterderailleur": "Shimano Sora",
+   "Rem": "Tektro HD-R280",
+   "Remgreep": "Tektro",
+   "Cassette": "Shimano CS-HG201, 11x34",
+   "Aandrijving": "KMC X9 with Missing Link",
+   "Crankstel": "FSA Omega, 34/50",
+   "Bottom bracket": "cartridge",
+   "Velg": "Giant GX wheelset",
+   "Naven": "Giant GX wheelset, 12mm thru-axle",
+   "Spaken": "Giant GX wheelset",
+   "Buitenband": "Giant S-R3 AC, puncture protect, 700x32c",
+   "Gewicht": "10,5 kg"
+  },
+  "color_names": [
+   "Eclipse"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/yj3lbmrbzxhb37mlarod/MY21FastRoadSL2_ColorAEclipse.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/yj3lbmrbzxhb37mlarod/MY21FastRoadSL2_ColorAEclipse.jpg"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020,
+   2021
+  ],
+  "image": "Giant/archived/fastroadsl2.jpg"
+ },
+ {
+  "name": "FastRoad SL 3",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/fastroad-sl-3-2021",
+  "sku": "2059",
+  "price": 749.0,
+  "category": "Fitness",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "ALUXX SL-Grade Aluminum",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Sport, flat",
+   "Stuurpen": "Giant Sport",
+   "Zadelpen": "Giant D-Fuse, alloy",
+   "Zadel": "Giant Approach",
+   "Pedaal": "platform pedal",
+   "Shifter": "Shimano Claris",
+   "Voorderailleur": "Shimano Claris",
+   "Achterderailleur": "Shimano Claris",
+   "Rem": "Tektro HD-R280",
+   "Remgreep": "Tektro",
+   "Cassette": "Shimano CS-HG41, 11x34",
+   "Aandrijving": "KMC Z8.3",
+   "Crankstel": "ProWheel Ounce 521C, 34/50",
+   "Bottom bracket": "cartridge",
+   "Velg": "Giant GX wheelset",
+   "Naven": "Giant GX wheelset, 12mm thru-axle",
+   "Spaken": "Giant GX wheelset",
+   "Buitenband": "Giant S-R3 AC, puncture protect, 700x32c",
+   "Gewicht": "10,3 kg"
+  },
+  "color_names": [
+   "Metallic Black/Chrome"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gsmxepcdzz8txwqauxbr/MY21FastRoadSL3_ColorAMetallicBlack.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gsmxepcdzz8txwqauxbr/MY21FastRoadSL3_ColorAMetallicBlack.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ubspmcnu46dioalksf5z/MY21FastRoadSL3_ColorAMetallicBlack_front.jpg"
+   ]
+  ],
+  "years": [
+   2020,
+   2021,
+   2022
+  ],
+  "image": "Giant/archived/fastroadsl3.jpg"
+ },
+ {
+  "name": "Propel Advanced Pro 0",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-2024",
+  "sku": "3520",
+  "price": 6599.0,
+  "category": "Aero Race",
+  "model_year": 2024,
+  "specifications": {
+   "Frame": "Advanced-grade composite, disc",
+   "Voorvork": "Advanced SL-grade composite, full-composite OverDrive Aero steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 2.0",
+   "Stuurpen": "Giant Contact SL Aero XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Vector, composite, -5/+15mm offset",
+   "Zadel": "Giant Fleet SL",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra Di2 ST-R8170",
+   "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
+   "Achterderailleur": "Shimano Ultegra Di2 RD-R8150",
+   "Rem": "Shimano Ultegra Di2 hydraulic, Shimano RT-CL800 rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano Ultegra Di2 hydraulic",
+   "Cassette": "Shimano Ultegra, 12-speed, 11x30",
+   "Aandrijving": "Shimano Ultegra, CN-M8100",
+   "Crankstel": "Shimano Ultegra, 36/52, with Giant Power Pro power meterXS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR 1 50 Carbon Disc WheelSystem, [F]50mm, [R]50mm",
+   "Naven": "[F] Giant Low Friction Hub, CenterLock, 12mm thru-axle, [R] Giant Low Friction Hub, 30t ratchet driver, CenterLock, 12mm thru-axle,",
+   "Spaken": "SAPIM CX-Ray",
+   "Buitenband": "CADEX Race, tubeless, 700x25c (26.5mm), folding",
+   "Extra's": "computer mount, water bottle cages, tubeless prepared, 32mm max tire size",
+   "Maximale bandenmaat": "32mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Metallic Blue/Carbon",
+   "Sangria"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ulrcndjfznojybvewhsv/MY24PropelAdvancedPro0_ColorASangria.jpg",
+  "color_image_urls": [
+   null,
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ulrcndjfznojybvewhsv/MY24PropelAdvancedPro0_ColorASangria.jpg"
+  ],
+  "color_angle_urls": [
+   [],
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/lmcxdvs4pbvkooon8rue/MY24PropelAdvancedPro0_ColorASangria_Rear.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ncmdrnpj1jabvx3j5uyi/MY24PropelAdvancedPro0_ColorASangria_D-12.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/q96kifoorqw9hcbs8hhg/MY24PropelAdvancedPro0_ColorASangria-D4.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cluyxobyj4qufgxpymdx/MY24PropelAdvancedPro0_ColorASangria-D7.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/brpeovpgn53qu46jzrek/MY24PropelAdvancedPro0_ColorASangria_D-8.jpg"
+   ]
+  ],
+  "years": [
+   2019,
+   2024
+  ],
+  "image": "Giant/archived/propeladvancedpro0.jpg"
+ },
+ {
+  "name": "Propel Advanced Pro 0 AXS",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-axs-2023",
+  "sku": "3091",
+  "price": 6999.0,
+  "category": "Aero Race",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive Aero steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 2.0",
+   "Stuurpen": "Giant Contact SL Aero, OverDrive Aero XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Vector, composite, -5/+15mm offset",
+   "Zadel": "Giant Fleet SL",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic, SRAM CenterLine XR rotors [F]160mm, [R]140mm",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB, 35/48 with Giant Power Halo power meter XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR 1 50 Carbon Disc WheelSystem, [F]50mm, [R]50mm",
+   "Naven": "[F] Giant Low Friction Hub, CenterLock, 12mm thru-axle, [R] Giant Low Friction Hub, 30t ratchet driver , CenterLock, 12mm thru-axle,",
+   "Spaken": "SAPIM CX-Ray",
+   "Buitenband": "CADEX Race, tubeless, 700x25c (26.5mm), folding",
+   "Extra's": "computer mount, water bottle cages, tubeless prepared, 32mm max tire size",
+   "Maximale bandenmaat": "32mm",
+   "Gewicht": "7,6 kg"
+  },
+  "color_names": [
+   "Black Currant/Chrome"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ey69vpdgylm6jrtaadvd/MY23PropelAdvancedPro0-AXS_ColorABlackCurrant_W.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ey69vpdgylm6jrtaadvd/MY23PropelAdvancedPro0-AXS_ColorABlackCurrant_W.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gkd0fumlnz62p9b1bew6/MY23PropelAdvancedPro0-AXS_ColorABlackCurrant_W_Rear.jpg"
+   ]
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Giant/archived/propeladvancedpro0axs.jpg"
+ },
+ {
+  "name": "Propel Advanced Pro 0 Disc Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-disc-force-2020",
+  "sku": "1215",
+  "price": 6599.0,
+  "category": "Aero Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero",
+   "Stuurpen": "Giant Contact SL Aero",
+   "Zadelpen": "Giant Vector, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB, 35/48 with Quarq DZero power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR 1 Aero Disc Composite WheelSystem ( F:42mm, R:65mm)",
+   "Naven": "Giant SLR 1 Aero Disc WheelSystem",
+   "Spaken": "Giant SLR 1 Aero Disc WheelSystem",
+   "Buitenband": "CADEX Race 25, tubeless,700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "8.1 KG"
+  },
+  "color_names": [
+   "Gloss Metallic Red / Matte",
+   "Black / Reflective Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/bpjpdm6ahxy7mvjtcwbi/MY20PropelADPRO0D_ColorA.jpg",
+  "color_image_urls": [
+   null,
+   null
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/propeladvancedpro0discforce.jpg"
+ },
+ {
+  "name": "Propel Advanced Pro Disc",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-disc-2018",
+  "sku": "269",
+  "price": null,
+  "category": "Aero Race",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Advanced-grade Composite, Disc",
+   "Voorvork": "Advanced Pro-Grade Composite, Full-Composite OverDrive 2 Steerer, Disc",
+   "Stuur": "Giant Contact SLR Aero, composite",
+   "Stuurpen": "Giant Contact SL Aero, alloy",
+   "Zadelpen": "Giant Vector Composite",
+   "Zadel": "Giant Contact SL (Forward)",
+   "Shifter": "Shimano Ultegra Di2",
+   "Voorderailleur": "Shimano Ultegra Di2",
+   "Achterderailleur": "Shimano Ultegra Di2",
+   "Rem": "Shimano Ultegra Hydraulic",
+   "Remgreep": "Shimano Ultegra Di2 Hydraulic",
+   "Cassette": "Shimano Ultegra, 11x28",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano Ultegra, 36/52",
+   "Bottom bracket": "Shimano PressFit",
+   "Velg": "Giant SLR 1 Aero Disc WheelSystem, Front: 42mm, Rear: 65mm height",
+   "Naven": "Giant SLR 1 Aero Disc WheelSystem, Front: 42mm, Rear: 65mm height",
+   "Spaken": "Giant SLR 1 Aero Disc WheelSystem, Front: 42mm, Rear: 65mm height",
+   "Buitenband": "Giant Gavia Race 1 Tubeless, 700x25, Front and Rear Specific, Folding",
+   "Extra's": "RideSense ANT+/Bluetooth",
+   "Gewicht": "8 kg"
+  },
+  "color_names": [
+   "Carbon Smoke/Green/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "M/L",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/zi5ssxe3yvrche9hmmn4/PropelAdvancedProDisc_ColorA_Carbon.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019
+  ],
+  "image": "Giant/archived/propeladvancedprodisc.jpg"
+ },
+ {
+  "name": "Propel Advanced Pro-FF",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-pro-ff-2027",
+  "sku": "4326",
+  "price": 2699.0,
+  "category": "Aero Race",
+  "model_year": 2027,
+  "specifications": {
+   "Frame": "Advanced-grade Composite, 12x142mm thru-axle, disc",
+   "Voorvork": "Advanced SL-grade Composite, full-composite OverDrive Aero steerer, 12x100mm thru-axle, disc",
+   "Zadelpen": "Giant Vector, composite, -5/+15mm offset",
+   "Extra's": "water bottle cages, 32mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Glacier Teal"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "M/L",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/qv9gqryhbmvyoxbi25d6/MY27PropelAdvancedPro-FF_ColorAGlacierTeal2.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/qv9gqryhbmvyoxbi25d6/MY27PropelAdvancedPro-FF_ColorAGlacierTeal2.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/fo8v0yctybvtjxx1yzxl/MY27PropelAdvancedPro-FF_ColorAGlacierTeal-Front1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gplphhdb3f3r7qpd39mo/MY27PropelAdvancedPro-FF_ColorAGlacierTeal-Rear1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ed08sslvrawwfopgbsyy/MY27PropelAdvancedPro-FF_ColorAGlacierTeal-Front_B.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/zcllxb0tkf6rrsol47x3/MY27PropelAdvancedPro-FF_ColorAGlacierTeal-Rear_B.jpg"
+   ]
+  ],
+  "years": [
+   2027
+  ],
+  "image": "Giant/archived/propeladvancedproff.jpg"
+ },
+ {
+  "name": "Propel Advanced SL 0",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-sl-0-2024",
+  "sku": "3523",
+  "price": 12499.0,
+  "category": "Aero Race",
+  "model_year": 2024,
+  "specifications": {
+   "Frame": "Advanced SL-grade composite, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-grade composite, full-composite OverDrive Aero steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 2.0",
+   "Stuurpen": "Giant Contact SLR Aero XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Advanced SL - grade composite, integrated design, -5/+15mm offset",
+   "Zadel": "Giant Fleet SLR",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Dura-Ace Di2 ST-R9270",
+   "Voorderailleur": "Shimano Dura-Ace Di2 ST-R9250",
+   "Achterderailleur": "Shimano Dura-Ace Di2 ST-R9250",
+   "Rem": "Shimano Dura-Ace Di2 hydraulic, Shimano RT-MT900 rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano Dura-Ace Di2",
+   "Cassette": "Shimano Dura-Ace, 12-speed, 11x30",
+   "Aandrijving": "Shimano Dura-Ace M9100",
+   "Crankstel": "Shimano Dura-Ace, 36/52 with FC-9200P power meter XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "CADEX 50 Ultra Disc WheelSystem, [F]50mm, [R]50mm",
+   "Naven": "[F] CADEX R3 Aero Hub, CenterLock, 12mm thru-axle, [R] CADEX R3-C40 Aero Low Friction Hub, 40T ratchet driver, CenterLock, 12mm thru-axle",
+   "Spaken": "CADEX Super Aero Carbon Spoke",
+   "Buitenband": "CADEX Aero, tubeless, 700x25c (26.5mm), folding",
+   "Extra's": "computer mount, water bottle cages, tubeless prepared, 32mm max tire size",
+   "Maximale bandenmaat": "32mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Black/Moonstone"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/uqw5fdb3sasrngsqjbvn/MY24PropelAdvancedSL0_ColorABlack_Moonstone(1).jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Giant/archived/propeladvancedsl0.jpg"
+ },
+ {
+  "name": "Propel Advanced SL 0 Disc Red",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-sl-0-disc-red-2020",
+  "sku": "1220",
+  "price": 10499.0,
+  "category": "Aero Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero",
+   "Stuurpen": "Giant Contact SLR Aero",
+   "Zadelpen": "integrated design",
+   "Zadel": "Giant Contact SLR (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM RED eTap AXS",
+   "Voorderailleur": "SRAM RED eTap AXS",
+   "Achterderailleur": "SRAM RED eTap AXS",
+   "Rem": "SRAM RED eTap AXS hydraulic",
+   "Remgreep": "SRAM RED eTap AXS hydraulic",
+   "Cassette": "SRAM RED, 12-speed, 10x28",
+   "Aandrijving": "SRAM RED D1",
+   "Crankstel": "SRAM RED D1 DUB, 35/48with Quarq DZero power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "CADEX Aero Disc Composite WheelSystem (F:42mm, R:65mm)",
+   "Naven": "CADEX Aero Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "CADEX Aero Disc Composite WheelSystem",
+   "Buitenband": "CADEX Race 25, tubeless,700x25, folding",
+   "Extra's": "RideSense Bluetooth,race axle",
+   "Gewicht": "7.2 KG"
+  },
+  "color_names": [
+   "Gloss Electric Blue / Gloss Metallic Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cfr5g0zhhdaitmo4jyj2/MY20PropelADSL0D_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020
+  ],
+  "image": "Giant/archived/propeladvancedsl0discred.jpg"
+ },
+ {
+  "name": "Propel Advanced SL 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-sl-1-2018",
+  "sku": "272",
+  "price": null,
+  "category": "Aero Race",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, Integrated Seatpost",
+   "Voorvork": "Advanced SL-Grade Composite, Full-Composite OverDrive 2 Steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero",
+   "Stuurpen": "Giant Contact SLR",
+   "Zadelpen": "N/A",
+   "Zadel": "Giant Contact SL (Forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Giant SpeedControl SL",
+   "Remgreep": "Shimano Ultegra",
+   "Cassette": "Shimano Ultegra, 11x28",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 36/52",
+   "Bottom bracket": "Shimano PressFit",
+   "Velg": "Giant SLR 1 Aero WheelSystem",
+   "Naven": "Giant SLR 1 Aero WheelSystem",
+   "Spaken": "Giant SLR 1 Aero WheelSystem",
+   "Buitenband": "Giant Gavia Race 0 Tubeless, 700x25, Folding",
+   "Extra's": "RideSense Bluetooth, Factory Tubeless",
+   "Gewicht": "7,45 kg"
+  },
+  "color_names": [
+   "Pearl White/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "M/L",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/dmsbed0wuy406hntdoie/Propel-Advanced-SL-1_Color-A_Pearl-White.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018
+  ],
+  "image": "Giant/archived/propeladvancedsl1.jpg"
+ },
+ {
+  "name": "Propel Advanced SL 1 Disc Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-sl-1-disc-force-2020",
+  "sku": "1221",
+  "price": 6999.0,
+  "category": "Aero Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR Aero",
+   "Stuurpen": "Giant Contact SLR Aero",
+   "Zadelpen": "integrated design",
+   "Zadel": "Giant Contact SLR (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB, 35/48 with Quarq DZero power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR 1 Aero Disc Composite WheelSystem ( F:42mm, R:65mm)",
+   "Naven": "Giant SLR 1 Aero Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR 1 Aero Disc WheelSystem",
+   "Buitenband": "CADEX Race 25, tubeless,700x25, folding",
+   "Extra's": "RideSense Bluetooth,race axle",
+   "Gewicht": "7.8 KG"
+  },
+  "color_names": [
+   "Rainbow White / Gunmetal Black / Chrome"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/eks3p1obmoow5pvkdf6t/MY20PropelADSL1D_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/propeladvancedsl1discforce.jpg"
+ },
+ {
+  "name": "Propel Advanced SL Frameset",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/propel-advanced-sl-frameset-2025",
+  "sku": "3906",
+  "price": 3899.0,
+  "category": "Aero Race",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, 12x142mm thru-axle, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-grade composite, full-composite OverDrive Aero steerer, 12x100mm thru-axle, disc",
+   "Zadelpen": "Advanced SL-grade composite, integrated design, -5/+15mm offset",
+   "Extra's": "computer mount, water bottle cages, tubeless prepared, 32mm max tire size",
+   "Maximale bandenmaat": "32mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Cosmic Dust"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gdn3qrofqwaayc64zp7e/MY25-Propel-Advanced-SL-FF_Color-A-Cosmic-Dust-1.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Giant/archived/propeladvancedslframeset.jpg"
+ },
+ {
+  "name": "Revolt Advanced Pro FF",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-ff-2025",
+  "sku": "3806",
+  "price": 2599.0,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "Advanced-grade composite, 12x142mm thru-axle, disc, flip chip dropout, down tube storage",
+   "Voorvork": "Advanced SL-grade composite, full-composite OverDrive steerer, 12mm thru-axle, disc",
+   "Zadelpen": "Giant D-Fuse SLR, composite, -5/+15mm offset",
+   "Extra's": "53mm max tire size in \"long\" flip chip position, 53mm max tire size in \"short\" flip chip position, in-frame storage bag",
+   "Maximale bandenmaat": "53mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Slate"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/b1kpzvpjmo6jc7r3acwg/MY25RevoltAdvancedPro-FF_ColorASlate.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/b1kpzvpjmo6jc7r3acwg/MY25RevoltAdvancedPro-FF_ColorASlate.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/brphdmxwkkddy9wlvbrs/MY25RevoltAdvancedPro-FF_ColorASlate-Front.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/kppbhw3aqjuintqlsvhl/MY25RevoltAdvancedPro-FF_ColorASlate-Rear.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/skcq6pjters12ubbatvg/MY25RevoltAdvancedPro-FF_ColorASlate-D-1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ttnfhhar0rhwzzhdmoex/MY25RevoltAdvancedPro-FF_ColorASlate-D-2.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/da7ybaz0qpxextv5v3ad/MY25RevoltAdvancedPro-FF_ColorASlate-D-3.jpg"
+   ]
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Giant/archived/revoltadvancedproff.jpg"
+ },
+ {
+  "name": "Revolt Advanced Pro Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-force-2020",
+  "sku": "1216",
+  "price": 4499.0,
+  "category": "Gravel",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12x142mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, 12mm thru-axle, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR D-Fuse, 31.8",
+   "Stuurpen": "Giant Contact SL, 8-degree",
+   "Zadelpen": "Giant D-Fuse SL, composite",
+   "Zadel": "Giant Contact SL (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x33",
+   "Aandrijving": "SRAM Force D1, 12-speed",
+   "Crankstel": "SRAM Force D1 DUB, 33/46",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR-1 Composite WheelSystem, 42mm",
+   "Naven": "Giant SLR-1 WheelSystem",
+   "Spaken": "Giant SLR-1 WheelSystem",
+   "Buitenband": "Maxxis Velocita, 700x40",
+   "Gewicht": "8.1 KG"
+  },
+  "color_names": [
+   "Black/Chrome"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ymtmuxfyalk9krk0d3ov/MY20RevoltADPRO_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/revoltadvancedproforce.jpg"
+ },
+ {
+  "name": "Revolt Advanced Pro Frameset",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/revolt-advanced-pro-frameset-2022",
+  "sku": "2867",
+  "price": 2599.0,
+  "category": "Gravel",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12x142mm thru-axle, disc, flip chip dropout",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive steerer, 12mm thru-axle, disc",
+   "Demper": "N/A",
+   "Zadelpen": "Giant D-Fuse SLR, composite, -5/+15mm offset",
+   "Extra's": "53mm max tire size in \"long\" flip chip position, 45mm max tire size in \"short\" flip chip position",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Candy Navy"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cqpiprqyvz8hjzo4gfpf/MY22RevoltAdvancedPro-FF_ColorACandyNavy.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Giant/archived/revoltadvancedproframeset.jpg"
+ },
+ {
+  "name": "Revolt X Advanced Pro 0",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/revolt-x-advanced-pro-0-2025",
+  "sku": "3808",
+  "price": 7599.0,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "Advanced-grade composite, 12x142mm thru-axle, disc, flip chip dropout",
+   "Voorvork": "Fox 32 Float TC Performance Elite, 40mm, Fit 4 damper12x100mm thru-axle",
+   "Zadelpen": "Post Moderne, dropper, 30.9mm with 30mm of suspension XS:365mm / 75mm drop S:415mm / 100mm drop",
+   "Zadel": "Giant Approach SL",
+   "Shifter": "SRAM Force eTap AXS, 1x12",
+   "Achterderailleur": "SRAM X01 Eagle AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic, SRAM CenterLine rotors [F]160mm, [R]160mm",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM XG-1295, 12-speed, 10x52",
+   "Aandrijving": "SRAM X01 Eagle",
+   "Crankstel": "SRAM FORCE 1 Wide, DUB 1X 40T XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant CXR X1 WheelSystem, [F] 25.8mm, [R] 25.8mm",
+   "Naven": "[F] Giant CXR X alloy, CenterLock, 12mm thru-axle, [R] Giant CXR X alloy, 60t ratchet driver, CenterLock, 12mm thru-axle",
+   "Spaken": "Sapim Laser",
+   "Buitenband": "Maxxis Rambler, 700x50c, tubeless prepared",
+   "Extra's": "tubeless prepared, 53mm max tire size in \"long\" flip chip position, 45mm max tire size in \"short\" flip chip position",
+   "Maximale bandenmaat": "53mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Interstellar/Carbon"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/sd9brqg4bzzys45hvinq/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/sd9brqg4bzzys45hvinq/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/mg9pstsptsdxznnym4wm/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-Front.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/epxlt8rgkj5gbj6my9us/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-Rear.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/m0q0vrxkhejogrulh0dq/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/arijtwb69st0xd19vqhv/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D2.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/mjb7pdeoe9sg5bk3t5vm/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D3.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/r7fn1g2dejb8ubn5zjnq/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D4.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pihwygn7erb6bakaybxa/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D5.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/c8mjappkezzjcoeyadm6/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D6.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/evd3mipnk3eh9c39tr4x/MY25RevoltXAdvancedPro0_ColorAInterstellar_Carbon_Chrome-D7.jpg"
+   ]
+  ],
+  "years": [
+   2023,
+   2024,
+   2025
+  ],
+  "image": "Giant/archived/revoltxadvancedpro0.jpg"
+ },
+ {
+  "name": "Revolt X Advanced Pro 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/revolt-x-advanced-pro-2-2025",
+  "sku": "3810",
+  "price": 4699.0,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "Advanced-grade composite, 12x142mm thru-axle, disc, flip chip dropout",
+   "Voorvork": "RockShox Rudy XPLR, 40mm, cartridge damper12x100mm thru-axle",
+   "Stuur": "Giant Contact SL XR D-Fuse, 31.8mm XS:44cm, S:44cm, M:46cm, M/L:46cm, L:48cm, XL:48cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact, 8-degree XS:50mm, S:50mm, M:60mm, M/L:70mm, L:70mm, XL:80mm",
+   "Zadelpen": "Post Moderne Suspension dropper, 30.9mm with 30mm of suspension XS:365mm / 75mm drop S:415mm / 100mm drop",
+   "Zadel": "Giant Approach SL",
+   "Shifter": "Sram Apex AXS 1X12",
+   "Achterderailleur": "Sram X1 AXS Eagle w/ battery protector 1X12",
+   "Rem": "SRAM hydraulic, SRAM PaceLine rotors [F]160mm, [R]160mm",
+   "Remgreep": "SRAM Apex AXS hydraulic, left lever dropper switch",
+   "Cassette": "SRAM PG-1230, 12-speed, 11x50",
+   "Aandrijving": "SRAM CN-EAGL-NX-A1, 12-speed",
+   "Crankstel": "SRAM Apex 1 Wide DUB, 1X40t XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant CXR X1 WheelSystem, [F] 25.8mm, [R] 25.8mm",
+   "Naven": "[F] Giant CXR X alloy, CenterLock, 12mm thru-axle, [R] Giant CXR X alloy, 60t ratchet driver, CenterLock, 12mm thru-axle",
+   "Spaken": "Sapim Laser",
+   "Buitenband": "Crosscut GRIP 1; 700x45c, tubeless ready",
+   "Extra's": "tubeless prepared, 53mm max tire size in \"long\" flip chip position, 45mm max tire size in \"short\" flip chip position",
+   "Maximale bandenmaat": "53mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Meteor Storm"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/tqxyns1sb81hgpamupdt/MY25RevoltXAdvancedPro2_ColorAMeteorStorm.jpg",
+  "color_image_urls": [
+   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/tqxyns1sb81hgpamupdt/MY25RevoltXAdvancedPro2_ColorAMeteorStorm.jpg"
+  ],
+  "color_angle_urls": [
+   [
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/nsnsz5zs0l97fy5un8u4/MY25RevoltXAdvancedPro2_ColorAMeteorStorm-Rear.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/me9f0bvnyzvbhxhyozkb/MY25RevoltXAdvancedPro2_ColorAMeteorStorm-D1.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ttoiql1mq88kmwljwdgj/MY25RevoltXAdvancedPro2_ColorAMeteorStorm-D2.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/igvtzh6f29ozqlnd96xx/MY25RevoltXAdvancedPro2_ColorAMeteorStorm-D3.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/jjdpp8hf28q7puw7alok/MY25RevoltXAdvancedPro2_ColorAMeteorStorm-D4.jpg",
+    "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/yfahjzr5flzmxbtsy4ri/MY25RevoltXAdvancedPro2_ColorAMeteorStorm-D5.jpg"
+   ]
+  ],
+  "years": [
+   2024,
+   2025
+  ],
+  "image": "Giant/archived/revoltxadvancedpro2.jpg"
+ },
+ {
+  "name": "TCR Advanced 1 Disc KOM",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-disc-kom-2020",
+  "sku": "1248",
+  "price": 2399.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra hydraulic",
+   "Remgreep": "Shimano Ultegra hydraulic",
+   "Cassette": "Shimano 105, 11x34",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano Ultegra, 34/50",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant PR-2 Disc wheelset",
+   "Naven": "Giant PR-2 Disc wheelset, 12mm thru-axle",
+   "Spaken": "Giant PR-2 Disc wheelset",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+   "Gewicht": "8.5 KG"
+  },
+  "color_names": [
+   "Metallic Blue / Gunmetal Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/q9o8vubt2qlcap8pw6kn/MY20TCRADV1D-KOM_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcradvanced1disckom.jpg"
+ },
+ {
+  "name": "TCR Advanced 1+ Disc",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1plus-disc-2021",
+  "sku": "1862",
+  "price": 2999.0,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra hydraulic",
+   "Remgreep": "Shimano Ultegra hydraulic",
+   "Cassette": "Shimano 105, 11x30",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano RS-510, 36/52",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR-2 42 Carbon Disc WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-2 42 Carbon Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-2 42 Carbon Disc WheelSystem",
+   "Buitenband": "Giant Gavia Course 1, tubeless, 700x28mm (25c), folding",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Matte Gunmetal Black/Gloss Silver"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/vlchdj6jnknieniwjmbs/MY21TCRADV1plusD-PC_ColorAGunmetalBlack.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Giant/archived/tcradvanced1plusdisc.jpg"
+ },
+ {
+  "name": "TCR Advanced 2 Disc Pro Compact",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-disc-pro-compact-2020",
+  "sku": "1249",
+  "price": 1999.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano 105",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105",
+   "Rem": "Shimano 105 hydraulic",
+   "Remgreep": "Shimano 105 hydraulic",
+   "Cassette": "Shimano 105, 11x30",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano RS-510, 36/52",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant PR-2 Disc wheelset",
+   "Naven": "Giant PR-2 Disc wheelset, 12mm thru-axle",
+   "Spaken": "Giant PR-2 Disc wheelset",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+   "Gewicht": "8.8 KG"
+  },
+  "color_names": [
+   "Metallic Black / White"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pk8ipjpqxebug3zdus0o/MY20TCRADV2D-PC_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcradvanced2discprocompact.jpg"
+ },
+ {
+  "name": "TCR Advanced Disc 1 - Di2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1---di2-2023",
+  "sku": "3136",
+  "price": 3299.0,
+  "category": "Race",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 2.0",
+   "Stuurpen": "Giant Contact XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Variant, composite, -5/+15mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano 105 Di2",
+   "Voorderailleur": "Shimano 105 Di2",
+   "Achterderailleur": "Shimano 105 Di2",
+   "Rem": "Shimano 105 Di2 hydraulic, Giant MPH rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano 105 Di2",
+   "Cassette": "Shimano 105, 12-speed, 11x34",
+   "Aandrijving": "KMC X12",
+   "Crankstel": "Shimano 105, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant P-R2 Disc wheelset, alloy",
+   "Naven": "Giant alloy, 12mm thru-axle",
+   "Spaken": "Sapim",
+   "Buitenband": "Giant Course 1, tubeless, 700x25c (28mm), folding",
+   "Extra's": "tubeless prepared, 32mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Cold Night",
+   "Unicorn White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ckspm3dbivnjjalkbydm/MY23TCRAdvanced1Disc-ProCompactColorA_ColdNight.jpg",
+  "color_image_urls": [
+   null,
+   null
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Giant/archived/tcradvanceddisc1di2.jpg"
+ },
+ {
+  "name": "TCR Advanced Disc 1+ - Di2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1plus---di2-2023",
+  "sku": "3138",
+  "price": 3799.0,
+  "category": "Race",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 2.0",
+   "Stuurpen": "Giant Contact XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Variant, composite, -5/+15mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano 105 Di2",
+   "Voorderailleur": "Shimano 105 Di2",
+   "Achterderailleur": "Shimano 105 Di2",
+   "Rem": "Shimano 105 Di2 hydraulic, Shimano SM-RT70 rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano 105 Di2",
+   "Cassette": "Shimano 105, 12-speed, 11x34",
+   "Aandrijving": "KMC X12",
+   "Crankstel": "Shimano 105, 34/50 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR 2 36 Carbon Disc WheelSystem, [F] 36mm, [R] 36mm",
+   "Naven": "[F] Giant alloy, CenterLock, 12mm thru-axle, [R] Giant alloy, 3-pawl driver, CenterLock, 12mm thru-axle",
+   "Spaken": "Sapim Sprint",
+   "Buitenband": "Giant Course 1, tubeless, 700x25c (28mm), folding",
+   "Extra's": "tubeless prepared, 32mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Cold Night"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/fr9wi6hy5xbieeijxrbb/MY23TCRAdvanced1plusDisc-PCColorA_ColdNight.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Giant/archived/tcradvanceddisc1plusdi2.jpg"
+ },
+ {
+  "name": "TCR Advanced Disc 1+ AR",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1plus-ar-2022",
+  "sku": "2749",
+  "price": 4049.0,
+  "category": "Race",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Variant, composite, -5/+15mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Rival eTap AXS",
+   "Voorderailleur": "SRAM Rival eTap AXS",
+   "Achterderailleur": "SRAM Rival eTap AXS",
+   "Rem": "SRAM Rival eTap AXS hydraulic, SRAM PaceLine rotors [F]160mm, [R]140mm",
+   "Remgreep": "SRAM Rival eTap AXS hydraulic",
+   "Cassette": "SRAM Rival, 12-speed, 10x36",
+   "Aandrijving": "SRAM Rival D1",
+   "Crankstel": "SRAM Rival D1 DUB, 33/46 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR 2 42 Carbon Disc WheelSystem",
+   "Naven": "Giant SLR 2 42 Carbon Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR 2 42 Carbon Disc WheelSystem",
+   "Buitenband": "Giant Fondo 1, tubeless, 700x28c (32mm), folding",
+   "Extra's": "tubeless prepared, 32mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Gloss Panther / Matte Moss Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/qrilseyxucut8ve7tbdl/MY22TCRAdvanced1plusDisc-AR_ColorAPanther.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Giant/archived/tcradvanceddisc1plusar.jpg"
+ },
+ {
+  "name": "TCR Advanced Disc 1+ AR 36",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1plus-ar-36-2023",
+  "sku": "3137",
+  "price": 4199.0,
+  "category": "Race",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Variant, composite, -5/+15mm offset",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Rival eTap AXS",
+   "Voorderailleur": "SRAM Rival eTap AXS",
+   "Achterderailleur": "SRAM Rival eTap AXS",
+   "Rem": "SRAM Rival eTap AXS hydraulic, SRAM PaceLine rotors [F]160mm, [R]160mm",
+   "Remgreep": "SRAM Rival eTap AXS hydraulic",
+   "Cassette": "SRAM Rival, 12-speed, 10x36",
+   "Aandrijving": "SRAM Rival D1",
+   "Crankstel": "SRAM Rival D1 DUB, 33/46 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR 2 36 Carbon Disc WheelSystem, [F] 36mm, [R] 36mm",
+   "Naven": "[F] Giant alloy, CenterLock, 12mm thru-axle, [R] Giant alloy, 3-pawl driver, CenterLock, 12mm thru-axle",
+   "Spaken": "Sapim Sprint",
+   "Buitenband": "Giant Fondo 1, tubeless, 700x28c (32mm), folding",
+   "Extra's": "tubeless prepared, 32mm max tire size",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Gloss Misty Forest/Matte Gunmetal Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gceysooc5kyrlglhl2ph/MY23TCRAdvanced1plusDisc-ARColorA_MistyForest.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Giant/archived/tcradvanceddisc1plusar36.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro 0",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-2019",
+  "sku": "935",
+  "price": null,
+  "category": "Race",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra Di2",
+   "Voorderailleur": "Shimano Ultegra Di2",
+   "Achterderailleur": "Shimano Ultegra Di2",
+   "Rem": "Shimano Ultegra",
+   "Remgreep": "Shimano Ultegra",
+   "Cassette": "Shimano Ultegra, 11x30",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra with Giant Power Pro, 36/52",
+   "Bottom bracket": "Shimano Press Fit",
+   "Velg": "Giant SLR-1 WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 WheelSystem",
+   "Spaken": "Giant SLR-1 WheelSystem",
+   "Buitenband": "Giant Gavia AC 0 tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7,1 kg"
+  },
+  "color_names": [
+   "Carbon / Black / Iris"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/snaz5urdensh1iwbdek6/MY19TCRADPRO0_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019
+  ],
+  "image": "Giant/archived/tcradvancedpro0.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro 0 Disc Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-disc-force-2020",
+  "sku": "1217",
+  "price": 5499.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB, 35/48 with Quarq DZero power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Gavia AC 0, tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.6 KG"
+  },
+  "color_names": [
+   "Carbon / Chameleon Terra"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/gqckpe0tjsrnf2kxkok3/MY20-TCR-ADPRO-0-D.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcradvancedpro0discforce.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-1-2020",
+  "sku": "1245",
+  "price": 3399.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra",
+   "Remgreep": "Shimano Ultegra",
+   "Cassette": "Shimano Ultegra, 11x30",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 36/52with Giant Power Pro power meter",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR-1 Composite WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 WheelSystem",
+   "Spaken": "Giant SLR-1 WheelSystem",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.15 KG"
+  },
+  "color_names": [
+   "Carbon / Chrome"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/xhyl7aatzslk7bv8zhmn/MY20TCRADPRO1_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020
+  ],
+  "image": "Giant/archived/tcradvancedpro1.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro 2 Disc",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-2-disc-2021",
+  "sku": "943",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano 105",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105",
+   "Rem": "Shimano 105, hydraulic",
+   "Remgreep": "Shimano 105, hydraulic",
+   "Cassette": "Shimano 105, 11x30",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano 105, 36/52",
+   "Bottom bracket": "Shimano Press Fit",
+   "Velg": "Giant SLR-1 Disc WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle, Center Lock",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7,9 kg"
+  },
+  "color_names": [
+   "Candy Blue / Black / Metallic Orange"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pgs6x8ux3ps99ty8jwbl/MY19TCRADPRO2D_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2021
+  ],
+  "image": "Giant/archived/tcradvancedpro2disc.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro 2 Disc KOM",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-2-disc-kom-2020",
+  "sku": "1240",
+  "price": 3449.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra hydraulic",
+   "Remgreep": "Shimano Ultegra hydraulic",
+   "Cassette": "Shimano Ultegra, 11x34",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 34/50 with Giant Power Pro power meter",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.8 KG"
+  },
+  "color_names": [
+   "Gloss Metallic Blue / Matte Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/qc76nhdlzcjebfxqfkkd/MY20TCRADPRO2D-KOM_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcradvancedpro2disckom.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro 3 Disc",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-3-disc-2020",
+  "sku": "1243",
+  "price": 2799.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano 105",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105",
+   "Rem": "Shimano 105 hydraulic",
+   "Remgreep": "Shimano 105 hydraulic",
+   "Cassette": "Shimano 105, 11x30",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano 105, 36/52",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.9 KG"
+  },
+  "color_names": [
+   "Glacier Silver / Chrome Red"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cn4b8whasu1ftvspuijm/MY20TCRADPRO3D_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcradvancedpro3disc.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro Disc 1 UT",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-1-ut-2022",
+  "sku": "2759",
+  "price": 4399.0,
+  "category": "Race",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 2.0",
+   "Stuurpen": "Giant Contact SL XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+   "Zadelpen": "Giant Variant, composite, -5/+15mm offset",
+   "Zadel": "Giant Fleet SL",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra hydraulic, Shimano rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano Ultegra hydraulic",
+   "Cassette": "Shimano Ultegra, 11-speed, 11x30",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 36/52 with Giant PowerPro power meter XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR 1 42 Carbon Disc WheelSystem",
+   "Naven": "Giant SLR 1 42 Carbon Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR 1 42 Carbon Disc WheelSystem",
+   "Buitenband": "Giant Gavia Course 1, tubeless, 700x25c (28mm), folding",
+   "Extra's": "computer mount, tubeless prepared, 32mm max tire size",
+   "Gewicht": "7,42kg"
+  },
+  "color_names": [
+   "Gloss Black Diamond / Matte Panther"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pshsqmord6scmsqas8cz/MY22TCRAdvancedPro1Disc_ColorABlackDiamond.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Giant/archived/tcradvancedprodisc1ut.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro Disc Frameset",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-frameset-2023",
+  "sku": "3266",
+  "price": 2499.0,
+  "category": "Race",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Orion Nebula"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/oxbr5zwmeipxrupaxesa/MY23TCRAdvancedProDisc-FFA_ColorAOrionNebula.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020,
+   2021,
+   2022,
+   2023
+  ],
+  "image": "Giant/archived/tcradvancedprodiscframeset.jpg"
+ },
+ {
+  "name": "TCR Advanced Pro Team",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-team-2019",
+  "sku": "945",
+  "price": null,
+  "category": "Race",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant Variant, composite",
+   "Zadel": "Giant Contact SL (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra",
+   "Remgreep": "Shimano Ultegra",
+   "Cassette": "Shimano Ultegra, 11x30",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 36/52",
+   "Bottom bracket": "Shimano Press Fit",
+   "Velg": "Giant SLR-1 WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 WheelSystem",
+   "Spaken": "Giant SLR-1 WheelSystem",
+   "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7,4 kg"
+  },
+  "color_names": [
+   "Carbon / Red / White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/bqxqcif0uzgz7krqei6r/MY19-TCR-ADPro-Team_Color-A.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019
+  ],
+  "image": "Giant/archived/tcradvancedproteam.jpg"
+ },
+ {
+  "name": "TCR Advanced SL 0 Disc",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-sl-0-disc-2021",
+  "sku": "369",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Advanced SL-grade Composite, Integrated Seatpost",
+   "Voorvork": "Advanced SL-Grade Composite, Full-Composite OverDrive 2 Steerer",
+   "Stuur": "Giant Contact SLR",
+   "Stuurpen": "Giant Contact SLR",
+   "Zadelpen": "Advanced SL-Grade Composite, Integrated Design",
+   "Zadel": "Contact SLR (Forward)",
+   "Shifter": "Shimano Di2 Hydraulic",
+   "Voorderailleur": "Shimano Dura-Ace Di2",
+   "Achterderailleur": "Shimano Dura-Ace Di2",
+   "Rem": "Shimano Di2 Hydraulic",
+   "Remgreep": "Shimano Di2 Hydraulic",
+   "Cassette": "Shimano Dura-Ace, 11-28",
+   "Aandrijving": "Shimano CN-HG901",
+   "Crankstel": "Shimano Dura-Ace, 36/52 with Power Meter",
+   "Bottom bracket": "Shimano, PressFit 92",
+   "Velg": "Giant SLR-0 Disc WheelSystem 12mm Axle",
+   "Naven": "Giant SLR-0 Disc WheelSystem 12mm Axle",
+   "Spaken": "Giant SLR-0 Disc WheelSystem 12mm Axle",
+   "Buitenband": "Giant Gavia 0 Tubeless, 700x25, Folding",
+   "Extra's": "RideSense Bluetooth, Factory Tubeless",
+   "Gewicht": "6,90 kg"
+  },
+  "color_names": [
+   "Charcoal/Neon Red/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/i3ocb5wznzzfn2oavtle/TCR-Advanced-SL-0-Disc_Charcoal.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2021
+  ],
+  "image": "Giant/archived/tcradvancedsl0disc.jpg"
+ },
+ {
+  "name": "TCR Advanced SL 1 Disc Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-sl-1-disc-force-2020",
+  "sku": "1234",
+  "price": 6599.0,
+  "category": "Race",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SLR",
+   "Stuurpen": "Giant Contact SLR",
+   "Zadelpen": "integrated design",
+   "Zadel": "Giant Contact SLR (forward)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB, 35/48 with Quarq DZero power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR-1 Disc Composite WheelSystem (F:42mm, R:42mm)",
+   "Naven": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle",
+   "Spaken": "Giant SLR-1 Disc WheelSystem",
+   "Buitenband": "CADEX Race 25, tubeless, 700x25, folding",
+   "Extra's": "RideSense Bluetooth",
+   "Gewicht": "7.3 KG"
+  },
+  "color_names": [
+   "Metallic Navy / Iris"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/zevsyat22w6arjjabsrm/MY20TCRADSL1D_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcradvancedsl1discforce.jpg"
+ },
+ {
+  "name": "TCR Advanced SL 2 - King of Mountain",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-sl-2---king-of-mountain-2018",
+  "sku": "367",
+  "price": null,
+  "category": "Race",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Advanced SL-grade Composite, Integrated Seatpost",
+   "Voorvork": "Advanced SL-Grade Composite, Full-Composite OverDrive 2 Steerer",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Advanced SL-Grade Composite, Integrated Design",
+   "Zadel": "Contact SL (Forward)",
+   "Shifter": "Shimano Ultegra",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Shimano Ultegra",
+   "Remgreep": "Shimano Ultegra",
+   "Cassette": "Shimano Ultegra, 11x34",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano Ultegra, 34/50",
+   "Bottom bracket": "Shimano PressFit",
+   "Velg": "Giant SLR-1 WheelSystem",
+   "Naven": "Giant SLR-1 WheelSystem",
+   "Spaken": "Giant SLR-1 WheelSystem",
+   "Buitenband": "Giant Gavia 0 Tubeless, 700x25, Folding",
+   "Extra's": "RideSense Bluetooth, Factory Tubeless",
+   "Gewicht": "7,00 kg"
+  },
+  "color_names": [
+   "Charcoal/Neon Orange/Black",
+   "Neon Green/Charcoal/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/TCR-Advanced-SL-2-King-Of-Mountain-Color-A-Charcoal/TCR-Advanced-SL-2-King-Of-Mountain-Color-A-Charcoal.jpg",
+  "color_image_urls": [
+   null,
+   null
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "years": [
+   2018
+  ],
+  "image": "Giant/archived/tcradvancedsl2kingofmountain.jpg"
+ },
+ {
+  "name": "TCR Advanced SL Frameset",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-sl-frameset-2025",
+  "sku": "3759",
+  "price": 3699.0,
+  "category": "Race",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "Advanced SL-Grade Composite, 12x142mm thru-axle, integrated seatpost, disc",
+   "Voorvork": "Advanced SL-Grade Composite, full-composite OverDrive Aero steerer, 12x100mm thru-axle, disc",
+   "Zadelpen": "Giant Integrated Seatpost, -5/+15mm offset",
+   "Maximale bandenmaat": "33mm",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Opal / Brushed Chrome"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/daopzobvzby0aofgiszv/MY25-TCR-Advanced-SL-FF_Color-A-Opal_Brushed-Chrome.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2025,
+   2026
+  ],
+  "image": "Giant/archived/tcradvancedslframeset.jpg"
+ },
+ {
+  "name": "TCX Advanced",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-advanced-2020",
+  "sku": "1314",
+  "price": 2199.0,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer, 12mm thru-axle, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Contact (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Apex 1",
+   "Voorderailleur": "N/A",
+   "Achterderailleur": "SRAM Apex 1",
+   "Rem": "SRAM Apex 1x hydraulic",
+   "Remgreep": "SRAM Apex 1",
+   "Cassette": "SRAM PG1130, 11x42",
+   "Aandrijving": "SRAM PC1110",
+   "Crankstel": "SRAM S-350-1, 40t",
+   "Bottom bracket": "SRAM GXP, press fit",
+   "Velg": "Giant P-X2 Disc wheelset",
+   "Naven": "Giant P-X2 Disc wheelset",
+   "Spaken": "Giant P-X2 Disc wheelset",
+   "Buitenband": "Maxxis All-Terrene, 700x33, tubeless",
+   "Extra's": "Giant 1x chainguide",
+   "Gewicht": "8.9 KG"
+  },
+  "color_names": [
+   "Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/onmemrzq0hcodwo9gt0y/MY20TCXADV_ColorB.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020
+  ],
+  "image": "Giant/archived/tcxadvanced.jpg"
+ },
+ {
+  "name": "TCX Advanced Pro 0 Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-advanced-pro-0-force-2020",
+  "sku": "1218",
+  "price": 4499.0,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL",
+   "Stuurpen": "Giant Contact SL",
+   "Zadelpen": "Giant D-Fuse SL, composite",
+   "Zadel": "Giant Contact SL (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Force eTap AXS, 1x",
+   "Voorderailleur": "N/A",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "SRAM Force eTap AXS hydraulic",
+   "Remgreep": "SRAM Force eTap AXS hydraulic",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1, 12-speed",
+   "Crankstel": "SRAM Force D1 DUB, 36t",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant SLR-1 Composite WheelSystem, 42mm",
+   "Naven": "Giant SLR-1 WheelSystem",
+   "Spaken": "Giant SLR-1 WheelSystem",
+   "Buitenband": "Maxxis All-Terrene, 700x33",
+   "Extra's": "Giant 1x chainguide",
+   "Gewicht": "7.8 KG"
+  },
+  "color_names": [
+   "Gunmetal Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/srgn2emw766738eykvul/MY20TCXADVPro0_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcxadvancedpro0force.jpg"
+ },
+ {
+  "name": "TCX Advanced Pro 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-advanced-pro-1-2022",
+  "sku": "2769",
+  "price": 4199.0,
+  "category": "Cyclocross",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact SL XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+   "Handvatten": "Stratus Lite 3.0",
+   "Stuurpen": "Giant Contact SL XS:70mm, S:80mm, M:90mm, M/L:100mm, L:100mm, XL:110mm",
+   "Zadelpen": "Giant D-Fuse SLR, composite, -5/+15mm offset",
+   "Zadel": "Giant Fleet SL",
+   "Pedaal": "no pedal [GA, Pan-Eu] platform pedal [GU, GV, GJ] pedal w/toeclip and strap [All other GSC]",
+   "Shifter": "Shimano GRX RX-810, 1x11",
+   "Voorderailleur": "N/A",
+   "Achterderailleur": "Shimano GRX RX-810",
+   "Rem": "Shimano GRX RX-810 hydraulic, Shimano SM-RT800 rotors [F]160mm, [R]140mm",
+   "Remgreep": "Shimano GRX RX-810 hydraulic",
+   "Cassette": "Shimano Ultegra, 11-speed, 11x34",
+   "Aandrijving": "KMC X11SL-1",
+   "Crankstel": "Shimano GRX RX-810, 40t XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+   "Bottom bracket": "Shimano, press fit",
+   "Velg": "Giant SLR 2 Carbon Disc WheelSystem",
+   "Naven": "Giant SLR 2 Carbon Disc WheelSystem",
+   "Spaken": "Giant SLR 2 Carbon Disc WheelSystem",
+   "Buitenband": "Maxxis All-Terrene, 700x33c, tubeless",
+   "Extra's": "Giant 1x chainguide, tubeless prepared, 45mm max tire size",
+   "Gewicht": "7,72kg"
+  },
+  "color_names": [
+   "Carbon / Unicorn White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/bs95v9jr0t0jgrlyi3sn/MY21-TCX-ADV-Pro-1_Color-A-Carbon-ok.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022,
+   2024
+  ],
+  "image": "Giant/archived/tcxadvancedpro1.jpg"
+ },
+ {
+  "name": "TCX Advanced Pro 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-advanced-pro-2-2021",
+  "sku": "2228",
+  "price": 2699.0,
+  "category": "Cyclocross",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Approach",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Apex 1",
+   "Voorderailleur": "N/A",
+   "Achterderailleur": "SRAM Apex 1",
+   "Rem": "SRAM Apex 1 hydraulic",
+   "Remgreep": "SRAM Apex 1",
+   "Cassette": "SRAM PG1130, 11x36",
+   "Aandrijving": "SRAM PC1110",
+   "Crankstel": "SRAM Rival 11x, 40t",
+   "Bottom bracket": "SRAM GXP, press fit",
+   "Velg": "Giant P-X2 Disc wheelset",
+   "Naven": "Giant P-X2 Disc wheelset",
+   "Spaken": "Giant P-X2 Disc wheelset",
+   "Buitenband": "Maxxis All-Terrene, 700x33c, tubeless",
+   "Extra's": "Giant 1x chainguide, tubeless prepared",
+   "Gewicht": "7,7 kg"
+  },
+  "color_names": [
+   "Chameleon Nova"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/u2iwjlpkjqwk8u59oqbr/MY21TCXADVPro2_ColorAChameleonNova.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "image": "Giant/archived/tcxadvancedpro2.jpg"
+ },
+ {
+  "name": "TCX Advanced Pro Frameset",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-advanced-pro-frameset-2022",
+  "sku": "2872",
+  "price": 2499.0,
+  "category": "Cyclocross",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite, 12mm thru-axle, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Gewicht": "-"
+  },
+  "color_names": [
+   "Panther"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/aoqpivoi2tdydixz2vlw/MY22TCXAdvancedPro-FF_ColorAPanther.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Giant/archived/tcxadvancedproframeset.jpg"
+ },
+ {
+  "name": "TCX SLR 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-slr-1-2020",
+  "sku": "1315",
+  "price": 1899.0,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "ALUXX SLR-Grade Aluminum with hidden rack mounts, disc",
+   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Contact",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Contact (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Rival 1",
+   "Voorderailleur": "N/A",
+   "Achterderailleur": "SRAM Rival 1",
+   "Rem": "SRAM Rival 1 hydraulic",
+   "Remgreep": "SRAM Rival 1",
+   "Cassette": "SRAM PG1130, 11x36",
+   "Aandrijving": "SRAM PC1130",
+   "Crankstel": "SRAM S-350-1, 40t",
+   "Bottom bracket": "SRAM GXP, press fit",
+   "Velg": "Giant P-X2 Disc wheelset",
+   "Naven": "Giant P-X2 Disc wheelset",
+   "Spaken": "Giant P-X2 Disc wheelset",
+   "Buitenband": "Maxxis All-Terrene, 700x33, tubeless",
+   "Extra's": "Giant 1x chainguide",
+   "Gewicht": "8.9 KG"
+  },
+  "color_names": [
+   "Metallic Red"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/jquyhw6lafo3d8tjf96m/MY20TCXSLR1_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/tcxslr1.jpg"
+ },
+ {
+  "name": "TCX SLR 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/tcx-slr-2-2020",
+  "sku": "1316",
+  "price": 1399.0,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "ALUXX SLR-Grade Aluminum with hidden rack mounts, disc",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer, 12mm thru-axle, disc",
+   "Demper": "N/A",
+   "Stuur": "Giant Connect",
+   "Stuurpen": "Giant Contact",
+   "Zadelpen": "Giant D-Fuse, composite",
+   "Zadel": "Giant Contact (neutral)",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM Apex 1",
+   "Voorderailleur": "N/A",
+   "Achterderailleur": "SRAM Apex 1",
+   "Rem": "Giant Conduct Disc",
+   "Remgreep": "Apex 1",
+   "Cassette": "SRAM PG1130, 11x42",
+   "Aandrijving": "SRAM PC1110",
+   "Crankstel": "FSA Omega, 40t",
+   "Bottom bracket": "FSA, press fit",
+   "Velg": "Giant P-X2 Disc wheelset",
+   "Naven": "Giant P-X2 Disc wheelset",
+   "Spaken": "Giant P-X2 Disc wheelset",
+   "Buitenband": "Maxxis All-Terrene, 700x33, tubeless",
+   "Extra's": "Giant 1x chainguide",
+   "Gewicht": "9.7 KG"
+  },
+  "color_names": [
+   "Metallic Navy"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "ML",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/u35biyu96uhyamr4gpeo/MY20TCXSLR2_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019,
+   2020
+  ],
+  "image": "Giant/archived/tcxslr2.jpg"
+ },
+ {
+  "name": "Trinity Advanced",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/trinity-advanced-2019",
+  "sku": "1015",
+  "price": null,
+  "category": "Triathlon / TT",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant alloy Contact base bar aluminum extension ski bend",
+   "Stuurpen": "Giant Connect",
+   "Zadelpen": "Trinity composite",
+   "Zadel": "ISM PS1.0 steel rail",
+   "Pedaal": "N/A",
+   "Shifter": "Shimano TT SL-BSR 1",
+   "Voorderailleur": "Shimano 105",
+   "Achterderailleur": "Shimano 105",
+   "Rem": "Giant SpeedControl",
+   "Remgreep": "Tektro RX 4.1",
+   "Cassette": "Shimano 105, 11x28",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano RS510, 34/50",
+   "Bottom bracket": "Shimano Press Fit",
+   "Velg": "Giant SR-2 wheelset",
+   "Naven": "Giant SR-2 wheelset",
+   "Spaken": "Giant SR-2 wheelset",
+   "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+   "Gewicht": "9,5 kg"
+  },
+  "color_names": [
+   "Carbon / Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/kbodvwhksx2vqq1u4acj/MY19TRIADV_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019
+  ],
+  "image": "Giant/archived/trinityadvanced.jpg"
+ },
+ {
+  "name": "Trinity Advanced Pro 1",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/trinity-advanced-pro-1-2021",
+  "sku": "2276",
+  "price": 5699.0,
+  "category": "Triathlon / TT",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Trinity composite base bar with ski bend",
+   "Stuurpen": "Trinity alloy, high/low stem",
+   "Zadelpen": "Trinity composite",
+   "Zadel": "ISM PS1.0",
+   "Pedaal": "platform pedal [GCS,GTS] N/A [all other GSC]",
+   "Shifter": "SRAM eTap Blips",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "Giant SpeedControl SL",
+   "Remgreep": "Giant Trinity",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB 35/48 with Quarq power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant P-A2 wheelset",
+   "Naven": "Giant P-A2 wheelset",
+   "Spaken": "Giant P-A2 wheelset",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25c (28mm), folding",
+   "Extra's": "integrated hydration, integrated food storage, misc fairings, AeroVault system",
+   "Gewicht": "9,7 kg"
+  },
+  "color_names": [
+   "Gloss Rainbow Black/Matte Black"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/khoigsv3l7aqkuybma7r/MY21TRIADPRO1_ColorARainbowBlack.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Giant/archived/trinityadvancedpro1.jpg"
+ },
+ {
+  "name": "Trinity Advanced Pro 1 Force",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/trinity-advanced-pro-1-force-2020",
+  "sku": "1219",
+  "price": 5499.0,
+  "category": "Triathlon / TT",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "Advanced-Grade Composite",
+   "Voorvork": "Advanced-Grade Composite, alloy OverDrive steerer",
+   "Demper": "N/A",
+   "Stuur": "Giant Trinity composite base barwith ski bend",
+   "Stuurpen": "Trinity alloy, high/low stem",
+   "Zadelpen": "Trinity composite",
+   "Zadel": "ISM PS1.0",
+   "Pedaal": "N/A",
+   "Shifter": "SRAM eTap Blips",
+   "Voorderailleur": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS",
+   "Rem": "Giant SpeedControl SL",
+   "Remgreep": "Giant Trinity",
+   "Cassette": "SRAM Force, 12-speed, 10x28",
+   "Aandrijving": "SRAM Force D1",
+   "Crankstel": "SRAM Force D1 DUB 35/48 with Quarq power meter",
+   "Bottom bracket": "SRAM DUB, press fit",
+   "Velg": "Giant P-A2 wheelset",
+   "Naven": "Giant P-A2 wheelset",
+   "Spaken": "Giant P-A2 wheelset",
+   "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+   "Extra's": "integrated hydration, integrated food storage, misc fairings, AeroVault system",
+   "Gewicht": "10.0 KG"
+  },
+  "color_names": [
+   "Chameleon Blue"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/v9euikpn1fselmz25n0c/MY20TRIADPRO1_ColorA.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Giant/archived/trinityadvancedpro1force.jpg"
+ },
+ {
+  "name": "Trinity Advanced Pro 2",
+  "brand": "Giant",
+  "url": "https://www.giant-bicycles.com/nl/trinity-advanced-pro-2-2018",
+  "sku": "424",
+  "price": null,
+  "category": "Triathlon / TT",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Advanced-grade Composite",
+   "Voorvork": "Advanced-Grade Composite, Alloy OverDrive Steerer",
+   "Stuur": "Giant Trinity Composite Base Barwith Ski Bend",
+   "Stuurpen": "Trinity Alloy, with High stem",
+   "Zadelpen": "Trinity Composite",
+   "Zadel": "ISM PS1.0",
+   "Shifter": "Shimano SL-BSR1",
+   "Voorderailleur": "Shimano Ultegra",
+   "Achterderailleur": "Shimano Ultegra",
+   "Rem": "Giant SpeedControl SL",
+   "Remgreep": "Giant",
+   "Cassette": "Shimano Ultegra, 11x30",
+   "Aandrijving": "KMC X11EL-1",
+   "Crankstel": "Shimano Ultegra, 36/52",
+   "Bottom bracket": "GXP",
+   "Velg": "Giant P-A2",
+   "Naven": "Giant P-A2",
+   "Spaken": "Giant P-A2",
+   "Buitenband": "Giant Gavia Race 1 Tubeless, 700x25, Folding",
+   "Extra's": "Factory Tubeless, Integrated hydration, integrated food storage, integrated tool storage, misc fairings, AeroVault System",
+   "Gewicht": "10,00 kg"
+  },
+  "color_names": [
+   "Electric Blue/Orange/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/bimj5fy3i24hkeg5yvnj/TrinityAdvancedPro2_ColorA_ElectricBlue.jpg",
+  "color_image_urls": [
+   null
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "years": [
+   2018,
+   2019
+  ],
+  "image": "Giant/archived/trinityadvancedpro2.jpg"
+ }
+]

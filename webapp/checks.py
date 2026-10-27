@@ -254,6 +254,11 @@ def catalogue_status(model, today=None):
     missed, last = model.get("missed_scrapes"), model.get("last_seen")
     if years and years[1] and years[1] < today.year:
         return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=years[1])
+    if "years/archived/" in (model.get("source_file") or ""):  # a line the brand no longer sells (seed.add_archived)
+        sheets = [int(y) for y in ((model.get("year_specs") or {}).get("years") or {})]
+        if sheets:
+            return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=max(sheets))
+        return "discontinued", Msg("Discontinued: no longer in the {brand} catalogue.", brand=model["brand"])
     if missed is None:
         return "unknown", Msg("Not checked against the catalogue yet.")
     if missed:
@@ -449,14 +454,35 @@ def conflicts(model, text):
     """Where the ad names another version of a numbered part of this model's name: [("SL9", "SL7")] when the
     model is an SL9 and the ad says SL7. Only the name before the " - " counts, so "Shimano 105" in the build
     can't clash with "Shimano 11 speed"."""
-    ad_pairs = _numbered(_tokens(text))
+    ad_toks = _tokens(text)
+    ad_pairs = _numbered(ad_toks)
+    name_toks = _tokens(model["name"].split(" - ")[0])
     found = []
-    for part, number in sorted(_numbered(_tokens(model["name"].split(" - ")[0]))):
+    for part, number in sorted(_numbered(name_toks)):
         said = sorted({n for w, n in ad_pairs if w == part})
         if said and number not in said:
             label = "Gen " if part == "gen" else part.upper() if len(part) <= 3 else part.title()
             found.append((f"{label}{number}", "/".join(f"{label}{n}" for n in said)))
+    # A tier one letter off: the ad says SLR and this model is an SL (or AL for ALR, CF for CFR).
+    for tok in dict.fromkeys(t for t in name_toks if t.isalpha() and 2 <= len(t) <= 4 and t not in ad_toks):
+        said = sorted({t for t in ad_toks if t.isalpha() and t not in name_toks and abs(len(t) - len(tok)) == 1
+                       and (t.startswith(tok) or tok.startswith(t))})
+        if said:
+            found.append((tok.upper(), "/".join(t.upper() for t in said)))
     return found
+
+
+def _colour_named(model, text):
+    """Whether the ad names one of this model's colourways in full ("Navy Carbon Smoke/Viper Red"); a plain
+    colour ("zwart") says little, so a name needs two words or more."""
+    ad = " ".join(re.findall(r"[a-z]+", _plain(text)))
+    names = set(model.get("colors") or [])
+    names |= {c for e in (model.get("year_specs") or {}).values() if isinstance(e, dict) for c in e.get("colours") or []}
+    for name in names:
+        words = re.findall(r"[a-z]+", _plain(name))
+        if len(words) >= 2 and f" {' '.join(words)} " in f" {ad} ":
+            return True
+    return False
 
 
 def match_models(models, title, description="", claims=None):
@@ -465,6 +491,12 @@ def match_models(models, title, description="", claims=None):
     title_toks = set(_tokens(title))
     all_toks = title_toks | set(_tokens(description))
     says_gen = "gen" in all_toks or "generatie" in all_toks
+    # The words this brand uses in its model names (SLR, Expert, Pro), for the title words a model lacks.
+    brand_toks = {}
+    for m in models:
+        brand_toks.setdefault(m["brand"], set()).update(_tokens(m["name"].split(" - ")[0]))
+    title_words = {t for w in title.split() if not re.fullmatch(ELECTRONIC, w.lower()) for t in _tokens(w)
+                   if not t.isdigit()}
     ranked = []
     for model in models:
         if claims["brand"] and model["brand"] != claims["brand"]:
@@ -474,7 +506,9 @@ def match_models(models, title, description="", claims=None):
         if not family or family[0] not in all_toks:
             continue  # the model family (Domane, Ultimate, Tarmac in "S-Works Tarmac") must be named
         # The seller names another version: an SL7 is not an SL9 (Gen has its own rule below).
-        clashes = sum(not ours.startswith("Gen") for ours, _ in conflicts(model, title))
+        # A tier one letter off (SL for SLR) weighs half: the ad's own model may simply not be in the catalogue.
+        clashes = sum(1 if any(c.isdigit() for c in ours) else 0.5
+                      for ours, _ in conflicts(model, title) if not ours.startswith("Gen"))
         score = 0.0
         skip_next = False
         for i, tok in enumerate(name_toks):
@@ -502,6 +536,10 @@ def match_models(models, title, description="", claims=None):
         if ref_group and claims["groupset"] and ref_group["key"] == claims["groupset"]["key"]:
             score += 0.25
         score -= 3 * clashes  # still a candidate when we have nothing closer, but a weak one
+        # A model word in the title this model hasn't (Defy Advanced SL 1 for a Defy Advanced 1): another model.
+        score -= 0.75 * len((title_words & brand_toks.get(model["brand"], set())) - set(name_toks))
+        if _colour_named(model, f"{title} {description}"):
+            score += 1.0  # the seller copied the brand's colour name: that colourway's model
         ranked.append((round(score, 2), model))
     ranked.sort(key=lambda pair: (-pair[0], pair[1]["price_eur"] or 0))
     return ranked
@@ -548,6 +586,17 @@ def confidence(ranked):
     return "low"
 
 
+def match_confidence(pct, others=(), not_exact=False):
+    """The confidence the report shows, from the same fit it shows next to it: high from 90% with no
+    other model within 15 points, medium from 70%, low below that or when the ad names a version we don't have."""
+    runner = max(others, default=0)
+    if not_exact or pct < 70:
+        return "low"
+    if pct >= 90 and pct - runner >= 15:
+        return "high"
+    return "medium"
+
+
 def name_parts(model):
     """The model's name split into its family and its version: "Defy Advanced Pro 1" gives ("Defy Advanced Pro",
     "1"), "Domane SL 6 Gen 4" gives ("Domane SL", "6 Gen 4"). The version starts at the first word with a number."""
@@ -584,7 +633,7 @@ def match_rate(model, models, title, description=""):
     """How well the ad's words fit a model, in percent, with the part scores it's made of:
     {"pct", "brand", "family", "version" (each {"name", "pct"}, version None for a model without one), "extra"}.
     The brand counts a fifth, the family and the version two fifths each; every model word the title has that
-    this model hasn't (Pro, Expert) takes 5 off, shifting the ad says otherwise (Di2 for a mechanical groupset) 10,
+    this model hasn't (Pro, Expert) takes 15 off, a tier one letter off (SL for SLR) 25, shifting the ad says otherwise (Di2 for a mechanical groupset) 10,
     and a version the ad names otherwise (an SL7 for an SL9) scores 0."""
     ad_toks = set(_tokens(f"{title} {description or ''}"))
     family, version = name_parts(model)
@@ -601,7 +650,8 @@ def match_rate(model, models, title, description=""):
     shift = shifting(model, title, description)
     if shift and not shift["same"]:
         pct -= 10
-    return {"pct": max(0, min(100, round(pct - 5 * len(extra)))), "shifting": shift,
+    pct -= 25 * sum(not any(c.isdigit() for c in ours) for ours, _ in check.get("conflicts", []))  # SL for SLR
+    return {"pct": max(0, min(100, round(pct - 15 * len(extra)))), "shifting": shift,
             "brand": {"name": model["brand"], "pct": brand_pct},
             "family": {"name": family, "pct": family_pct},
             "version": {"name": version, "pct": version_pct} if version else None,
@@ -1617,11 +1667,19 @@ def run_check(models, listing, today=None):
         return report
     if not chosen_by_you:
         report["name_check"] = name_check(chosen, models, listing["title"], listing.get("description"))
+        # The ad names another version or a model word ours hasn't: the closest bike we have, not the ad's.
+        if report["name_check"] and (report["name_check"]["conflicts"] or report["name_check"]["extra"]):
+            report["confidence"] = Msg("low")
+            report["not_exact"] = True
     # The candidates with how well the ad's words fit each, best fit first; our pick is marked in the list.
     rates = [(match_rate(m, models, listing["title"], listing.get("description")), score, m) for score, m in ranked[:8]]
     rates.sort(key=lambda r: (-r[0]["pct"], -r[1]))
     report["matches"] = [dict(rate, model=m) for rate, _, m in rates]
     report["match"] = next((r for r in report["matches"] if r["model"]["id"] == chosen["id"]), None)
+    if report["confidence"] and report["match"]:
+        report["confidence"] = Msg(match_confidence(report["match"]["pct"],
+                                                    [r["pct"] for r in report["matches"] if r is not report["match"]],
+                                                    report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
     report["colourway"] = colour_match.pick(chosen, listing["title"], listing.get("description") or "")
     if report["colourway"] and report["colourway"].get("image"):

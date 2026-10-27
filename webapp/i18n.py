@@ -293,6 +293,7 @@ NL = {
     "Status unknown": "Status onbekend",
     "Only bikes still sold": "Alleen nog te koop",
     "Discontinued: this generation was sold until {year}.": "Uit productie: deze generatie werd verkocht tot {year}.",
+    "Discontinued: no longer in the {brand} catalogue.": "Uit productie: niet meer in de catalogus van {brand}.",
     "Not checked against the catalogue yet.": "Nog niet gecontroleerd tegen de catalogus.",
     "Discontinued: missing from the last {n} catalogue scrapes, last seen {date}.": "Uit productie: ontbreekt in de laatste {n} catalogusscans, laatst gezien {date}.",
     "Discontinued: missing from the newest catalogue scrape ({latest}), last seen {date}.": "Uit productie: ontbreekt in de nieuwste catalogusscan ({latest}), laatst gezien {date}.",
@@ -1007,6 +1008,8 @@ NL = {
     "the colour the ad names": "de kleur uit de advertentie",
     "Pick the right model": "Kies het juiste model",
     "not in the ad": "niet in de advertentie",
+    "The ad names a version we don’t have in the catalogue, so this is the closest bike we have. Pick the right one if it’s listed.":
+        "De advertentie noemt een uitvoering die niet in onze catalogus staat; dit is de fiets die er het dichtst bij komt. Kies zelf het juiste model als het erbij staat.",
     "Family": "Familie",
     "Version": "Uitvoering",
     "{words} not in the model": "{words} niet in het model",
