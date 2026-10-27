@@ -27,6 +27,7 @@ MIN_SCORE = 0.6
 MIN_MARGIN = 0.08           # how much better one way round must look than the other
 MAX_ZOOM = 1.8              # never draw the ad photo more than this much bigger than "cover" would
 TILE = 16 / 9
+MARGIN = 0.03              # the least room round the whole bike, as a share of the tile's width
 
 
 def _edges(img, blur=1.2):
@@ -188,9 +189,33 @@ def placement(fit, ad_size, catalogue_size, catalogue_box, zoom=None):
     top = centre_y - (fit["y"] + fit["h"] / 2) * height
     left = min(0, max(1 - width, left))
     top = min(0, max(th_ - height, top))
+    # The whole bike stays in view: when covering the tile would cut it off (a
+    # shop photo where the bike fills the frame), draw it smaller, with a margin round it, and let the edge colour fill the gap.
+    mx, my = MARGIN, MARGIN * th_
+    bw, bh = fit["w"] * width, fit["h"] * height
+    bl, bt = left + fx * width, top + fit["y"] * height
+    cut = 0.005  # the catalogue bike may sit close to its edges; only a bike that would be cut off is redrawn
+    gaps = bl < -cut or bl + bw > 1 + cut or bt < -cut * th_ or bt + bh > th_ * (1 + cut)
+    if gaps:
+        shrink = min(1, (1 - 2 * mx) / bw, (th_ - 2 * my) / bh)
+        width, height, bw, bh = width * shrink, height * shrink, bw * shrink, bh * shrink
+        bl = min(max(centre_x - bw / 2, mx), 1 - mx - bw)
+        bt = min(max(centre_y - bh / 2, my), th_ - my - bh)
+        left, top = bl - fx * width, bt - fit["y"] * height
     pct = lambda v, of: round(float(100 * v / of), 2)
-    return {"left": pct(left, 1), "top": pct(top, th_), "width": pct(width, 1), "height": pct(height, th_),
-            "flip": fit["flip"]}
+    place = {"left": pct(left, 1), "top": pct(top, th_), "width": pct(width, 1), "height": pct(height, th_),
+             "flip": fit["flip"]}
+    return dict(place, gaps=True) if gaps else place
+
+
+def edge_colour(img):
+    """The photo's average colour along its edges, as #rrggbb: what fills the tile round a photo drawn smaller."""
+    from PIL import ImageStat
+    rgb = img.convert("RGB")
+    w, h = rgb.size
+    strips = [rgb.crop(b) for b in ((0, 0, w, 4), (0, h - 4, w, h), (0, 0, 4, h), (w - 4, 0, w, h))]
+    means = [ImageStat.Stat(s).mean for s in strips]
+    return "#%02x%02x%02x" % tuple(round(sum(m[i] for m in means) / 4) for i in range(3))
 
 
 def work_out(ad_path, catalogue_path, zoom=None):
@@ -209,7 +234,10 @@ def work_out(ad_path, catalogue_path, zoom=None):
             place = None
             if fit and box and left in (None, fit["flip"]):
                 place = placement(fit, ad.size, catalogue.size, box, zoom)
-            return place or ({"flip": True} if left else None)
+            if place and not place.pop("gaps", False):
+                return place
+            # drawn whole ("contain") or smaller: the photo's edge colour fills the rest of the tile
+            return dict(place or ({"flip": True} if left else {}), bg=edge_colour(ad))
     except (OSError, ValueError):
         return None
 
@@ -223,7 +251,7 @@ _lock = threading.Lock()
 _worker_started = []
 
 
-CACHE_VERSION = 3  # bump when the way it's worked out changes, so older results are redone
+CACHE_VERSION = 4  # bump when the way it's worked out changes, so older results are redone
 
 
 def _key(catalogue_path, zoom):

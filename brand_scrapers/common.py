@@ -199,8 +199,8 @@ def trim(img):
     if not box:
         return img
     shot = img.crop(box)
-    w, h, n = shot.width, shot.height, 6
-    corners = [shot.crop(b) for b in ((0, 0, n, n), (w - n, 0, w, n), (0, h - n, n, h), (w - n, h - n, w, h))]
+    w, h, i, n = shot.width, shot.height, 4, 10  # a little in from the corner: past JPEG's halo round the edge
+    corners = [shot.crop(b) for b in ((i, i, n, n), (w - n, i, w - i, n), (i, h - n, n, h - i), (w - n, h - n, w - i, h - i))]
     if sum(ImageStat.Stat(c.convert("L")).mean[0] > 235 for c in corners) >= 3:
         return frame(img)
     return shot

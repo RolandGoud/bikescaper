@@ -492,6 +492,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 /* Brand pills show the brand's logo, coloured through a mask so it follows the pill's text colour. */
 .pill.brand { display: inline-flex; align-items: center; padding: 10px 14px; }
 .pill-logo { display: block; width: 70px; height: 17px; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.model-kicker { display: flex; align-items: center; gap: 8px; }
+.model-kicker .pill-logo { width: 84px; height: 16px; color: var(--text); -webkit-mask-position: left center; mask-position: left center; }
 .pill.soon .pill-logo { opacity: 0.6; }
 /* The model page's link to the brand's own page: its logo, then "Product page". */
 .product-link { gap: 8px; }
@@ -600,6 +602,7 @@ select { max-width: 100%; }
 .duo .ad-side { position: absolute; inset: 0; clip-path: polygon(0 0, calc(var(--cut) + 10%) 0, calc(var(--cut) - 10%) 100%, 0 100%); }
 .duo .ad-side img { width: 100%; height: 100%; object-fit: cover; }
 .duo .ad-side img.flip { transform: scaleX(-1); }
+.duo .ad-side img.whole { object-fit: contain; }  /* not lined up: the whole photo, so the bike isn't cut off */
 .duo .factory { position: absolute; inset: 0; background: var(--photo-bg); clip-path: polygon(calc(var(--cut) + 10%) 0, 100% 0, 100% 100%, calc(var(--cut) - 10%) 100%); }
 .duo .factory img { width: 100%; height: 100%; object-fit: contain; }
 .duo .brand-mark { z-index: 2; }

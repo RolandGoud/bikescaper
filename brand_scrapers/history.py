@@ -28,7 +28,7 @@ from datetime import date
 
 from . import giant
 from .archive import FIRST_YEAR, MIN_SPECS, compact, read_cdx, recognised
-from .common import ROOT, Fetcher, frame, log, normalize_specs
+from .common import ROOT, Fetcher, frame, log, normalize_specs, trim
 
 
 def giant_pages(url, years):
