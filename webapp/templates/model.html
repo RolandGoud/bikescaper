@@ -95,7 +95,7 @@
     </dialog>
     {% endif %}
     <div class="info">
-      <div class="mono muted">{{ m.brand|upper }} · {{ _(discipline) }}</div>
+      <div class="mono muted model-kicker">{{ brand_label({'name': m.brand|upper, 'logo': logos.get(m.brand)}) }} · {{ _(discipline) }}</div>
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
       <div class="price" data-fact="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
@@ -283,7 +283,7 @@
     if (!row) return;
     row.querySelectorAll(".angle-thumb").forEach(function (o, j) { o.setAttribute("aria-pressed", j === photoAt); });
     var on = row.children[photoAt];
-    if (on) row.scrollLeft = on.offsetLeft - (row.clientWidth - on.offsetWidth) / 2;
+    if (on) row.scrollLeft = on.offsetLeft - row.offsetLeft - (row.clientWidth - on.offsetWidth) / 2;  // offsetLeft counts from the gallery, not the row
   }
   // The facts beside the photo follow the year: its new price, spec tier and colours (with their photos); the current bike's own again.
   var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact]"));
