@@ -36,13 +36,15 @@
     {%- endmacro %}
     {% macro year_thumb(t) -%}
         {% if t.image %}
-        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}"{% if t.colour_angles %} data-angles='{{ t.colour_angles|tojson }}'{% endif %}
+        {# The photo of the first colour, the one its swatch and close-ups show; the year's own photo may be another colour. #}
+        {% set shot = (t.colour_images or {}).get((t.colours or [''])[0]) or t.image %}
+        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=shot) }}"{% if t.colour_angles %} data-angles='{{ t.colour_angles|tojson }}'{% endif %}
                 data-colours="{{ (t.colours or [])|join(', ') }}">{{ year_facts(t) }}
-          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
+          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span><span class="gallery-n"></span></button>
         {% else %}
         <button type="button" class="gallery-thumb empty" aria-pressed="false" data-year="{{ t.year }}" data-src=""
                 data-colours="{{ (t.colours or [])|join(', ') }}"
-                title="{{ _('Still looking for a good photo of this year.') }}">{{ year_facts(t) }}{{ placeholder }}<span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
+                title="{{ _('Still looking for a good photo of this year.') }}">{{ year_facts(t) }}{{ placeholder }}<span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span><span class="gallery-n"></span></button>
         {% endif %}
     {%- endmacro %}
     {# The model years on the left, newest first, pick which bike the photo shows; the arrows on the photo go
@@ -50,11 +52,12 @@
     <div class="model-gallery has-years" id="model-gallery"{% if not m.image %} data-start="{{ gallery[-1].year }}"{% endif %}>
       <div class="year-rail gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
         {% if m.image %}
-        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}"{% if angles_now %} data-angles='{{ angles_now|tojson }}'{% endif %}>
-          {{ photo(m) }}<span class="gallery-year">{{ own_year }}</span></button>
+        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}"{% if angles_now %} data-angles='{{ angles_now|tojson }}'{% endif %}
+                data-colours="{{ (m.colors or [])|join(', ') }}">
+          {{ photo(m) }}<span class="gallery-year">{{ own_year }}</span><span class="gallery-n"></span></button>
         {% elif slots[-1].year != own_year %}
         <button type="button" class="gallery-thumb current empty" aria-pressed="false" data-year="{{ own_year }}" data-src=""
-                title="{{ _('Still looking for a good photo of this year.') }}">{{ placeholder }}<span class="gallery-year">{{ own_year }}</span></button>
+                title="{{ _('Still looking for a good photo of this year.') }}">{{ placeholder }}<span class="gallery-year">{{ own_year }}</span><span class="gallery-n"></span></button>
         {% endif %}
         {% for t in slots|reverse %}{{ year_thumb(t) }}{% endfor %}
       </div>
@@ -76,7 +79,7 @@
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}" hidden>‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}" hidden>›</button>{% endif %}</div>
       {% if angles_now and m.image %}<div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}"
-           data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' hidden></div>{% endif %}</div>
+           data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' data-colours="{{ (m.colors or [])|join(', ') }}" hidden></div>{% endif %}</div>
     {% endif %}
     {% if m.image or gallery %}
     {# A click on the photo opens it full size; the arrows go through that year's photos like the ones on the photo. #}
@@ -233,12 +236,20 @@
   // The photos of the year and colour on show: the side view, then its other angles. The arrows on the
   // photo and the row of small ones under it go through them.
   var photos = [], photoAt = 0;
-  function showAngles(thumb) {
-    var row = document.getElementById("angle-strip");
+  // The other angles of the colour on show, and only that colour: another colour's close-ups would show
+  // a red bike under a grey one. "" is a page that showed one colour only: its angles go with every colour.
+  function anglesFor(thumb) {
     var angles = {};
     try { angles = JSON.parse(thumb.dataset.angles || "{}"); } catch (e) {}
-    // "" is a page that showed one colour only: its angles go with every colour
-    var list = angles[thumb.dataset.colour || Object.keys(angles)[0]] || angles[""] || [];
+    var colour = thumb.dataset.colour || (thumb.dataset.colours || "").split(", ")[0];
+    return angles[colour] || angles[""] || [];
+  }
+  function showAngles(thumb) {
+    var row = document.getElementById("angle-strip");
+    var list = anglesFor(thumb);
+    document.getElementById("model-photo").classList.remove("detail");
+    var n = thumb.querySelector(".gallery-n");
+    if (n) n.textContent = thumb.dataset.src ? 1 + list.length : "";
     photos = thumb.dataset.src ? [thumb.dataset.src].concat(list.map(function (p) { return row.dataset.base + p; })) : [];
     photoAt = 0;
     var several = photos.length > 1;
@@ -265,6 +276,7 @@
     photoAt = (i + photos.length) % photos.length;
     var img = document.querySelector("#model-photo > img");
     img.src = photos[photoAt];
+    img.parentNode.classList.toggle("detail", photoAt > 0);  // a close-up fills the frame
     var count = document.getElementById("gallery-count");
     if (count) count.textContent = (photoAt + 1) + " / " + photos.length;
     var row = document.getElementById("angle-strip");
@@ -288,7 +300,11 @@
     });
     bindSwatches();
   }
-  thumbs.forEach(function (b) { b.addEventListener("click", function () { showPhoto(b); }); });
+  thumbs.forEach(function (b) {
+    var n = b.querySelector(".gallery-n");  // how many photos each year has
+    if (n && b.dataset.src) n.textContent = 1 + anglesFor(b).length;
+    b.addEventListener("click", function () { showPhoto(b); });
+  });
   document.querySelectorAll(".gallery-arrow").forEach(function (arrow) {
     arrow.addEventListener("click", function () { showAngle(photoAt + (arrow.classList.contains("next") ? 1 : -1)); });
   });

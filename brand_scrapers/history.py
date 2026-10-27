@@ -69,7 +69,8 @@ def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None, angle=N
             bg = Image.new("RGB", img.size, "white")
             bg.paste(img, mask=img.split()[-1])
             img = bg
-        img = frame(img.convert("RGB"))
+        # the side view is framed like the main photo; the other angles fill their own frame
+        img = (trim if angle or "/gallery/" in rel else frame)(img.convert("RGB"))
         if img.width > width:
             img = img.resize((width, round(img.height * width / img.width)), Image.LANCZOS)
         os.makedirs(os.path.dirname(path), exist_ok=True)
