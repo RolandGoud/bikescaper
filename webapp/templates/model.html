@@ -1,11 +1,27 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_dot, brand_label %}
-{% from "_macros.html" import asking_box, model_card with context %}
+{% from "_macros.html" import asking_box, model_card, matched_ads with context %}
 {% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
 {% macro note(text) -%}
 <details class="note-tip"><summary aria-label="{{ _('More info') }}">i</summary><p>{{ text }}</p></details>
 {%- endmacro %}
 {% block body %}
+{# The colours of the bike on show, under its photo: picking one shows that colour's photos. The year
+   picked swaps them for that year's (year_facts). #}
+{% set colours_fact %}<div class="gallery-colours" data-fact="colours">
+          {% if m.colorways %}
+          <div class="v"><span class="swatches" role="group" aria-label="{{ _('Colours') }}">
+            {% for c in m.colorways %}
+            <button type="button" class="swatch{{ ' plain' if not c.swatch }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"
+                    title="{{ c.name }}" data-name="{{ c.name }}"
+                    {% if c.image %}data-image="{{ url_for('images', path=c.image) }}"{% endif %}
+                    style="{% if c.swatch %}background: {{ c.swatch }}{% elif c.image %}background-image: url('{{ url_for('images', path=c.image) }}'){% endif %}"></button>
+            {% endfor %}
+          </span></div>
+          <div class="small muted colour-name" id="colour-name">{{ m.colorways[0].name }}</div>
+          <div class="small muted" id="colour-note" hidden>{{ _('No photo of this colour yet.') }}</div>
+          {% else %}<div class="v small">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
+</div>{% endset %}
 <main class="wrap page">
   <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name }}</div>
   <section class="card listing-head">
@@ -69,6 +85,7 @@
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}" hidden>‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}" hidden>›</button>
       </div>
+      {{ colours_fact }}
       {# The other angles of the year and colour on show (close-ups, front, rear), filled in by the script below. #}
       <div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}" hidden></div>
       </div>
@@ -78,6 +95,7 @@
         {% if angles_now and m.image %}<span class="gallery-count" id="gallery-count" hidden></span>
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}" hidden>‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}" hidden>›</button>{% endif %}</div>
+      {{ colours_fact }}
       {% if angles_now and m.image %}<div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}"
            data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' data-colours="{{ (m.colors or [])|join(', ') }}" hidden></div>{% endif %}</div>
     {% endif %}
@@ -108,20 +126,6 @@
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
           <div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div></div>
-        <div><div class="k">{{ _('Colours') }}</div><div data-fact="colours">
-          {% if m.colorways %}
-          <div class="v"><span class="swatches" role="group" aria-label="{{ _('Colours') }}">
-            {% for c in m.colorways %}
-            <button type="button" class="swatch{{ ' plain' if not c.swatch }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"
-                    title="{{ c.name }}" data-name="{{ c.name }}"
-                    {% if c.image %}data-image="{{ url_for('images', path=c.image) }}"{% endif %}
-                    style="{% if c.swatch %}background: {{ c.swatch }}{% elif c.image %}background-image: url('{{ url_for('images', path=c.image) }}'){% endif %}"></button>
-            {% endfor %}
-          </span></div>
-          <div class="small muted colour-name" id="colour-name">{{ m.colorways[0].name }}</div>
-          <div class="small muted" id="colour-note" hidden>{{ _('No photo of this colour yet.') }}</div>
-          {% else %}<div class="v small">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
-        </div></div>
       </div>
       <div class="row"><a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
@@ -129,25 +133,7 @@
   </section>
   <section class="card">{{ asking_box(asking) }}
     {# Every ad matched to this model, also the ones gone from the site, newest first. #}
-    <div class="matched-ads" id="ads">
-      <h3>{{ _('Matched ads') }} <span class="muted count">{{ ads|length }}</span></h3>
-      {% if ads %}
-      <ul>
-        {% for row, r in ads %}
-        <li><a href="{{ url_for('report', check_id=row.id) }}">
-          <span class="thumb">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}</span>
-          <span class="what">
-            <span class="ad-name">{{ row.title }}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</span>
-            <span class="small muted">{% if row.times_checked > 1 %}{{ _('Checked {n}× · last on {date}', n=row.times_checked, date=row.created_at[:10]) }}{% else %}{{ _('Checked on {date}', date=row.created_at[:10]) }}{% endif %}{% if row.location %} · {{ row.location }}{% endif %}{% if not row.in_price %} · {{ _('not in the asking price') }}{% endif %}</span>
-          </span>
-          <span class="ask">{{ row.asking_price|eur }}</span>
-        </a></li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p class="small muted">{{ _('No ads matched to this model yet.') }}</p>
-      {% endif %}
-    </div>
+    {{ matched_ads(ads, _('Matched ads'), _('No ads matched to this model yet.')) }}
   </section>
   <section class="card">
     <h2>{{ _('Spec sheet') }}</h2>
@@ -286,7 +272,7 @@
     if (on) row.scrollLeft = on.offsetLeft - row.offsetLeft - (row.clientWidth - on.offsetWidth) / 2;  // offsetLeft counts from the gallery, not the row
   }
   // The facts beside the photo follow the year: its new price, spec tier and colours (with their photos); the current bike's own again.
-  var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact]"));
+  var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact], .gallery-colours[data-fact]"));
   facts.forEach(function (f) { f.dataset.own = f.innerHTML; });
   var factsYear = null;  // the year the facts show; null for the current bike
   function showFacts(thumb) {

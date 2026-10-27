@@ -189,6 +189,7 @@ NL = {
     "Matched to {n} ads": "Gekoppeld aan {n} advertenties",
     "not in the asking price": "telt niet mee in de vraagprijs",
     "No ads matched to this model yet.": "Nog geen advertenties aan dit model gekoppeld.",
+    "Other ads for this model": "Andere advertenties voor dit model",
     "Not matched": "Niet gekoppeld",
     "Asking {price}": "Vraagprijs {price}",
     "Parts": "Onderdelen",
