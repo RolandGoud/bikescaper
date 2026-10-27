@@ -7847,6 +7847,68 @@
   "Domane SLR 6 AXS gen 4": {
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Amethyst": [
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_amethyst_8_site.jpg"
+     ],
+     "Dark Prismatic/Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_8_site.jpg"
+     ],
+     "Radioactive Coral to Yellow Fade": [
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltoyellowfade_8_site.jpg"
+     ],
+     "Radioactive Coral/Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_radioactivecoraltrekblack_8_site.jpg"
+     ],
+     "Trek White/Blue": [
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_trekwhiteblue_8_site.jpg"
+     ],
+     "Viper Red/Trek White": [
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2021_viperredtrekwhite_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Amethyst": "Trek/years/domaneslr6axsgen4_2021_amethyst_site.jpg",
      "Dark Prismatic/Trek Black": "Trek/years/domaneslr6axsgen4_2021_darkprismatictrekblack_site.jpg",
@@ -7902,6 +7964,68 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Amethyst": [
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_amethyst_8_site.jpg"
+     ],
+     "Dark Prismatic/Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_8_site.jpg"
+     ],
+     "Radioactive Coral to Yellow Fade": [
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltoyellowfade_8_site.jpg"
+     ],
+     "Radioactive Coral/Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_radioactivecoraltrekblack_8_site.jpg"
+     ],
+     "Trek White/Blue": [
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_trekwhiteblue_8_site.jpg"
+     ],
+     "Viper Red/Trek White": [
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2022_viperredtrekwhite_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Amethyst": "Trek/years/domaneslr6axsgen4_2022_amethyst_site.jpg",
      "Dark Prismatic/Trek Black": "Trek/years/domaneslr6axsgen4_2022_darkprismatictrekblack_site.jpg",
@@ -7957,6 +8081,85 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Axinite Flip/Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_crystalwhite_9_site.jpg"
+     ],
+     "Deep Smoke": [
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_deepsmoke_9_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneslr6axsgen4_2023_juniper_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_juniper_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Blue Smoke Fade": [
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketobluesmokefade_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Red Carbon Smoke": [
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_metallicredsmoketoredcarbonsmoke_9_site.jpg"
+     ],
+     "Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2023_trekblack_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Axinite Flip/Trek Black": "Trek/years/domaneslr6axsgen4_2023_axinitefliptrekblack_site.jpg",
      "Crystal White": "Trek/years/domaneslr6axsgen4_2023_crystalwhite_site.jpg",
@@ -8017,6 +8220,85 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Axinite Flip/Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_crystalwhite_9_site.jpg"
+     ],
+     "Deep Smoke": [
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_deepsmoke_9_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneslr6axsgen4_2024_juniper_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_juniper_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Blue Smoke Fade": [
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketobluesmokefade_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Red Carbon Smoke": [
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_metallicredsmoketoredcarbonsmoke_9_site.jpg"
+     ],
+     "Trek Black": [
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_1_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_2_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_3_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_4_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_5_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_6_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_7_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_8_site.jpg",
+      "Trek/years/domaneslr6axsgen4_2024_trekblack_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Axinite Flip/Trek Black": "Trek/years/domaneslr6axsgen4_2024_axinitefliptrekblack_site.jpg",
      "Crystal White": "Trek/years/domaneslr6axsgen4_2024_crystalwhite_site.jpg",
@@ -8079,6 +8361,38 @@
   "Domane SLR 6 Gen 4": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Purple Phaze/Anthracite": [
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_8_site.jpg"
+     ],
+     "Viper Red/Trek White": [
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_8_site.jpg"
+     ],
+     "Voodoo Trek White/Blue": [
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2020_voodootrekwhiteblue_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Purple Phaze/Anthracite": "Trek/years/domaneslr6gen4_2020_purplephazeanthracite_site.jpg",
      "Viper Red/Trek White": "Trek/years/domaneslr6gen4_2020_viperredtrekwhite_site.jpg",
@@ -8124,6 +8438,38 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Radioactive Coral/Trek Black": [
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_8_site.jpg"
+     ],
+     "Trek White/Blue": [
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_trekwhiteblue_8_site.jpg"
+     ],
+     "Viper Red/Trek White": [
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2021_viperredtrekwhite_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Radioactive Coral/Trek Black": "Trek/years/domaneslr6gen4_2021_radioactivecoraltrekblack_site.jpg",
      "Trek White/Blue": "Trek/years/domaneslr6gen4_2021_trekwhiteblue_site.jpg",
@@ -8169,6 +8515,74 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Axinite Flip/Trek Black": [
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_crystalwhite_9_site.jpg"
+     ],
+     "Deep Smoke": [
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_deepsmoke_9_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneslr6gen4_2023_juniper_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_juniper_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Blue Smoke Fade": [
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketobluesmokefade_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Red Carbon Smoke": [
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2023_metallicredsmoketoredcarbonsmoke_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Axinite Flip/Trek Black": "Trek/years/domaneslr6gen4_2023_axinitefliptrekblack_site.jpg",
      "Crystal White": "Trek/years/domaneslr6gen4_2023_crystalwhite_site.jpg",
@@ -8229,6 +8643,74 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Axinite Flip/Trek Black": [
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_crystalwhite_9_site.jpg"
+     ],
+     "Deep Smoke": [
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_deepsmoke_9_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneslr6gen4_2024_juniper_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_juniper_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Blue Smoke Fade": [
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketobluesmokefade_9_site.jpg"
+     ],
+     "Metallic Red Smoke to Red Carbon Smoke": [
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_1_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_2_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_3_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_4_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_5_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_6_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_7_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_8_site.jpg",
+      "Trek/years/domaneslr6gen4_2024_metallicredsmoketoredcarbonsmoke_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Axinite Flip/Trek Black": "Trek/years/domaneslr6gen4_2024_axinitefliptrekblack_site.jpg",
      "Crystal White": "Trek/years/domaneslr6gen4_2024_crystalwhite_site.jpg",
@@ -10777,6 +11259,30 @@
   "Domane+ ALR": {
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Crimson Red/Trek Black": [
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_1_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_2_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_3_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_4_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_5_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_6_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_7_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_8_site.jpg",
+      "Trek/years/domaneplusalr_2021_crimsonredtrekblack_9_site.jpg"
+     ],
+     "Voodoo Trek Black": [
+      "Trek/years/domaneplusalr_2021_voodootrekblack_1_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_2_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_3_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_4_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_5_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_6_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_7_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_8_site.jpg",
+      "Trek/years/domaneplusalr_2021_voodootrekblack_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Crimson Red/Trek Black": "Trek/years/domaneplusalr_2021_crimsonredtrekblack_site.jpg",
      "Voodoo Trek Black": "Trek/years/domaneplusalr_2021_voodootrekblack_site.jpg"
@@ -10823,6 +11329,30 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Crimson Red/Trek Black": [
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_1_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_2_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_3_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_4_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_5_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_6_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_7_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_8_site.jpg",
+      "Trek/years/domaneplusalr_2022_crimsonredtrekblack_9_site.jpg"
+     ],
+     "Voodoo Trek Black": [
+      "Trek/years/domaneplusalr_2022_voodootrekblack_1_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_2_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_3_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_4_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_5_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_6_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_7_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_8_site.jpg",
+      "Trek/years/domaneplusalr_2022_voodootrekblack_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Crimson Red/Trek Black": "Trek/years/domaneplusalr_2022_crimsonredtrekblack_site.jpg",
      "Voodoo Trek Black": "Trek/years/domaneplusalr_2022_voodootrekblack_site.jpg"
@@ -10871,6 +11401,41 @@
   "Domane+ LT 7 gen 1": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_1_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_2_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_3_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_4_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_5_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_6_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_7_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_8_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_dnisterblack_9_site.jpg"
+     ],
+     "Gloss Purple Flip": [
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_1_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_2_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_3_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_4_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_5_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_6_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_7_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_8_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domanepluslt7gen1_2020_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domanepluslt7gen1_2020_dnisterblack_site.jpg",
      "Gloss Purple Flip": "Trek/years/domanepluslt7gen1_2020_glosspurpleflip_site.jpg",
@@ -10919,6 +11484,41 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_1_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_2_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_3_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_4_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_5_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_6_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_7_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_8_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_dnisterblack_9_site.jpg"
+     ],
+     "Gloss Purple Flip": [
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_1_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_2_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_3_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_4_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_5_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_6_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_7_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_8_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domanepluslt7gen1_2021_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domanepluslt7gen1_2021_dnisterblack_site.jpg",
      "Gloss Purple Flip": "Trek/years/domanepluslt7gen1_2021_glosspurpleflip_site.jpg",
@@ -10969,6 +11569,41 @@
   "Domane+ LT 9 gen 2": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_dnisterblack_9_site.jpg"
+     ],
+     "Gloss Purple Flip": [
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2020_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domanepluslt9gen2_2020_dnisterblack_site.jpg",
      "Gloss Purple Flip": "Trek/years/domanepluslt9gen2_2020_glosspurpleflip_site.jpg",
@@ -11017,6 +11652,41 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_dnisterblack_9_site.jpg"
+     ],
+     "Gloss Purple Flip": [
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2021_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domanepluslt9gen2_2021_dnisterblack_site.jpg",
      "Gloss Purple Flip": "Trek/years/domanepluslt9gen2_2021_glosspurpleflip_site.jpg",
@@ -11065,6 +11735,30 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_dnisterblack_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domanepluslt9gen2_2022_dnisterblack_site.jpg",
      "Rage Red to Deep Dark Blue Fade": "Trek/years/domanepluslt9gen2_2022_rageredtodeepdarkbluefade_site.jpg"
@@ -11115,6 +11809,52 @@
   "Domane+ LT Gen 2": {
    "2020": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_dnisterblack_9_site.jpg"
+     ],
+     "Gloss Purple Flip": [
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_glosspurpleflip_9_site.jpg"
+     ],
+     "Radioactive Red/Trek Black": [
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_radioactiveredtrekblack_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2020_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domaneplusltgen2_2020_dnisterblack_site.jpg",
      "Gloss Purple Flip": "Trek/years/domaneplusltgen2_2020_glosspurpleflip_site.jpg",
@@ -11166,6 +11906,52 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_dnisterblack_9_site.jpg"
+     ],
+     "Gloss Purple Flip": [
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_glosspurpleflip_9_site.jpg"
+     ],
+     "Radioactive Red/Trek Black": [
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_radioactiveredtrekblack_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2021_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domaneplusltgen2_2021_dnisterblack_site.jpg",
      "Gloss Purple Flip": "Trek/years/domaneplusltgen2_2021_glosspurpleflip_site.jpg",
@@ -11217,6 +12003,30 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_dnisterblack_9_site.jpg"
+     ],
+     "Rage Red to Deep Dark Blue Fade": [
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_1_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_2_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_3_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_4_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_5_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_6_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_7_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_8_site.jpg",
+      "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/domaneplusltgen2_2022_dnisterblack_site.jpg",
      "Rage Red to Deep Dark Blue Fade": "Trek/years/domaneplusltgen2_2022_rageredtodeepdarkbluefade_site.jpg"
@@ -11267,6 +12077,74 @@
   "Domane+ SLR 6 AXS": {
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Red Smoke": [
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_crystalwhite_9_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneplusslr6axs_2023_juniper_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_juniper_9_site.jpg"
+     ],
+     "Matte Deep Smoke": [
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mattedeepsmoke_9_site.jpg"
+     ],
+     "Mercury": [
+      "Trek/years/domaneplusslr6axs_2023_mercury_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_mercury_9_site.jpg"
+     ],
+     "Trek Black": [
+      "Trek/years/domaneplusslr6axs_2023_trekblack_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2023_trekblack_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Red Smoke": "Trek/years/domaneplusslr6axs_2023_carbonredsmoke_site.jpg",
      "Crystal White": "Trek/years/domaneplusslr6axs_2023_crystalwhite_site.jpg",
@@ -11326,6 +12204,74 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Red Smoke": [
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_crystalwhite_9_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneplusslr6axs_2024_juniper_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_juniper_9_site.jpg"
+     ],
+     "Matte Deep Smoke": [
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mattedeepsmoke_9_site.jpg"
+     ],
+     "Mercury": [
+      "Trek/years/domaneplusslr6axs_2024_mercury_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_mercury_9_site.jpg"
+     ],
+     "Trek Black": [
+      "Trek/years/domaneplusslr6axs_2024_trekblack_1_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_2_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_3_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_4_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_5_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_6_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_7_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_8_site.jpg",
+      "Trek/years/domaneplusslr6axs_2024_trekblack_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Red Smoke": "Trek/years/domaneplusslr6axs_2024_carbonredsmoke_site.jpg",
      "Crystal White": "Trek/years/domaneplusslr6axs_2024_crystalwhite_site.jpg",
@@ -11732,6 +12678,72 @@
   "Domane+ SLR 9 AXS": {
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Red Smoke": [
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_crystalwhite_8_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneplusslr9axs_2023_juniper_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_juniper_8_site.jpg"
+     ],
+     "Matte Deep Smoke": [
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattedeepsmoke_9_site.jpg"
+     ],
+     "Matte Trek Black": [
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mattetrekblack_9_site.jpg"
+     ],
+     "Mercury": [
+      "Trek/years/domaneplusslr9axs_2023_mercury_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2023_mercury_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Red Smoke": "Trek/years/domaneplusslr9axs_2023_carbonredsmoke_site.jpg",
      "Crystal White": "Trek/years/domaneplusslr9axs_2023_crystalwhite_site.jpg",
@@ -11790,6 +12802,72 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon Red Smoke": [
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_9_site.jpg"
+     ],
+     "Crystal White": [
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_crystalwhite_8_site.jpg"
+     ],
+     "Juniper": [
+      "Trek/years/domaneplusslr9axs_2024_juniper_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_juniper_8_site.jpg"
+     ],
+     "Matte Deep Smoke": [
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattedeepsmoke_9_site.jpg"
+     ],
+     "Matte Trek Black": [
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mattetrekblack_9_site.jpg"
+     ],
+     "Mercury": [
+      "Trek/years/domaneplusslr9axs_2024_mercury_1_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_2_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_3_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_4_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_5_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_6_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_7_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_8_site.jpg",
+      "Trek/years/domaneplusslr9axs_2024_mercury_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon Red Smoke": "Trek/years/domaneplusslr9axs_2024_carbonredsmoke_site.jpg",
      "Crystal White": "Trek/years/domaneplusslr9axs_2024_crystalwhite_site.jpg",
@@ -11910,6 +12988,28 @@
   "Madone SL 6 Di2 Gen 6": {
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dnister Black": [
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_1_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_2_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_3_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_4_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_5_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_6_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_7_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_dnisterblack_8_site.jpg"
+     ],
+     "Hex Blue": [
+      "Trek/years/madonesl6di2gen6_2023_hexblue_1_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_2_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_3_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_4_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_5_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_6_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_7_site.jpg",
+      "Trek/years/madonesl6di2gen6_2023_hexblue_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dnister Black": "Trek/years/madonesl6di2gen6_2023_dnisterblack_site.jpg",
      "Hex Blue": "Trek/years/madonesl6di2gen6_2023_hexblue_site.jpg"
@@ -12586,6 +13686,18 @@
   "Madone SL 7 AXS Gen 6": {
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Deep Dark Blue": [
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_1_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_2_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_3_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_4_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_5_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_6_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_7_site.jpg",
+      "Trek/years/madonesl7axsgen6_2022_deepdarkblue_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Deep Dark Blue": "Trek/years/madonesl7axsgen6_2022_deepdarkblue_site.jpg"
     },
@@ -12625,6 +13737,18 @@
    },
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Battleship Blue": [
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_1_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_2_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_3_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_4_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_5_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_6_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_7_site.jpg",
+      "Trek/years/madonesl7axsgen6_2023_battleshipblue_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Battleship Blue": "Trek/years/madonesl7axsgen6_2023_battleshipblue_site.jpg"
     },
@@ -13154,6 +14278,48 @@
   "Madone SLR 6 AXS Gen 7": {
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Amethyst": [
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_amethyst_8_site.jpg"
+     ],
+     "Matte Onyx Carbon": [
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_8_site.jpg"
+     ],
+     "Navy Carbon Smoke/Blue": [
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeblue_8_site.jpg"
+     ],
+     "Navy Carbon Smoke/Viper Red": [
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2021_navycarbonsmokeviperred_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Amethyst": "Trek/years/madoneslr6axsgen7_2021_amethyst_site.jpg",
      "Matte Onyx Carbon": "Trek/years/madoneslr6axsgen7_2021_matteonyxcarbon_site.jpg",
@@ -13200,6 +14366,48 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Amethyst": [
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_amethyst_8_site.jpg"
+     ],
+     "Matte Onyx Carbon": [
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_8_site.jpg"
+     ],
+     "Navy Carbon Smoke/Blue": [
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeblue_8_site.jpg"
+     ],
+     "Navy Carbon Smoke/Viper Red": [
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_1_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_2_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_3_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_4_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_5_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_6_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_7_site.jpg",
+      "Trek/years/madoneslr6axsgen7_2022_navycarbonsmokeviperred_8_site.jpg"
+     ]
+    },
     "colour_images": {
      "Amethyst": "Trek/years/madoneslr6axsgen7_2022_amethyst_site.jpg",
      "Matte Onyx Carbon": "Trek/years/madoneslr6axsgen7_2022_matteonyxcarbon_site.jpg",

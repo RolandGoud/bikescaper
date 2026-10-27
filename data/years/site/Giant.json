@@ -109,6 +109,7 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Metallic Navy": "Giant/years/contend1_2021_metallicnavy_site.jpg"
     },
@@ -253,6 +254,11 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Black": [
+      "Giant/years/contend2_2021_black_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Black": "Giant/years/contend2_2021_black_site.jpg"
     },
@@ -290,6 +296,11 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Black/Silver": [
+      "Giant/years/contend2_2022_blacksilver_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Black/Silver": "Giant/years/contend2_2022_blacksilver_site.jpg"
     },
@@ -557,6 +568,7 @@
   "Contend AR 2": {
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Rosewood": "Giant/years/contendar2_2021_rosewood_site.jpg"
     },
@@ -595,6 +607,7 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Deep Lake": "Giant/years/contendar2_2022_deeplake_site.jpg"
     },
@@ -634,6 +647,11 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Sandshell": [
+      "Giant/years/contendar2_2024_sandshell_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Cordovan": "Giant/years/contendar2_2024_cordovan_site.jpg",
      "Sandshell": "Giant/years/contendar2_2024_sandshell_site.jpg"
@@ -675,6 +693,14 @@
    },
    "2025": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Dark Iridescent": [
+      "Giant/years/contendar2_2025_darkiridescent_1_site.jpg",
+      "Giant/years/contendar2_2025_darkiridescent_2_site.jpg",
+      "Giant/years/contendar2_2025_darkiridescent_3_site.jpg",
+      "Giant/years/contendar2_2025_darkiridescent_4_site.jpg"
+     ]
+    },
     "colour_images": {
      "Dark Iridescent": "Giant/years/contendar2_2025_darkiridescent_site.jpg"
     },
@@ -715,6 +741,7 @@
    },
    "2026": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Thundercloud": "Giant/years/contendar2_2026_thundercloud_site.jpg"
     },
@@ -929,6 +956,11 @@
   "Contend AR 4": {
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Black": [
+      "Giant/years/contendar4_2022_black_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Black": "Giant/years/contendar4_2022_black_site.jpg"
     },
@@ -968,6 +1000,11 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Cold Night": [
+      "Giant/years/contendar4_2024_coldnight_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Cold Night": "Giant/years/contendar4_2024_coldnight_site.jpg",
      "Pyrite Brown": "Giant/years/contendar4_2024_pyritebrown_site.jpg"
@@ -3186,6 +3223,21 @@
   "Defy Advanced SL 0": {
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Blue Dragonfly/Black/Chrome": [
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_1_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_2_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_3_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_4_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_5_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_6_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_7_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_8_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_9_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_10_site.jpg",
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_11_site.jpg"
+     ]
+    },
     "colour_images": {
      "Blue Dragonfly/Black/Chrome": "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_site.jpg"
     },
@@ -3225,6 +3277,13 @@
    },
    "2026": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Arctic Light/Chrome": [
+      "Giant/years/defyadvancedsl0_2026_arcticlightchrome_1_site.jpg",
+      "Giant/years/defyadvancedsl0_2026_arcticlightchrome_2_site.jpg",
+      "Giant/years/defyadvancedsl0_2026_arcticlightchrome_3_site.jpg"
+     ]
+    },
     "colour_images": {
      "Arctic Light/Chrome": "Giant/years/defyadvancedsl0_2026_arcticlightchrome_site.jpg"
     },
@@ -3265,6 +3324,15 @@
   "Defy Advanced SL 1": {
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Golden Haze/Panther": [
+      "Giant/years/defyadvancedsl1_2024_goldenhazepanther_1_site.jpg",
+      "Giant/years/defyadvancedsl1_2024_goldenhazepanther_2_site.jpg",
+      "Giant/years/defyadvancedsl1_2024_goldenhazepanther_3_site.jpg",
+      "Giant/years/defyadvancedsl1_2024_goldenhazepanther_4_site.jpg",
+      "Giant/years/defyadvancedsl1_2024_goldenhazepanther_5_site.jpg"
+     ]
+    },
     "colour_images": {
      "Golden Haze/Panther": "Giant/years/defyadvancedsl1_2024_goldenhazepanther_site.jpg"
     },
@@ -3571,6 +3639,11 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon/Chrome": [
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon/Chrome": "Giant/years/fastroadadvanced1_2021_carbonchrome_site.jpg"
     },
@@ -3609,6 +3682,19 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Carbon": [
+      "Giant/years/fastroadadvanced1_2024_carbon_1_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_2_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_3_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_4_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_5_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_6_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_7_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_8_site.jpg",
+      "Giant/years/fastroadadvanced1_2024_carbon_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Carbon": "Giant/years/fastroadadvanced1_2024_carbon_site.jpg"
     },
@@ -3723,6 +3809,11 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Charcoal": [
+      "Giant/years/fastroadadvanced2_2021_charcoal_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Charcoal": "Giant/years/fastroadadvanced2_2021_charcoal_site.jpg"
     },
@@ -3761,6 +3852,7 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Cold Iron": "Giant/years/fastroadadvanced2_2022_coldiron_site.jpg"
     },
@@ -3906,6 +3998,7 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Wine Purple": "Giant/years/fastroadsl1_2021_winepurple_site.jpg"
     },
@@ -3943,6 +4036,7 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Metal": "Giant/years/fastroadsl1_2022_metal_site.jpg"
     },
@@ -4053,6 +4147,7 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Eclipse": "Giant/years/fastroadsl2_2021_eclipse_site.jpg"
     },
@@ -4127,6 +4222,11 @@
    },
    "2021": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Metallic Black/Chrome": [
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Metallic Black/Chrome": "Giant/years/fastroadsl3_2021_metallicblackchrome_site.jpg"
     },
@@ -4164,6 +4264,7 @@
    },
    "2022": {
     "captured": "2026-10-27",
+    "colour_angles": {},
     "colour_images": {
      "Black Chrome": "Giant/years/fastroadsl3_2022_blackchrome_site.jpg"
     },
@@ -4908,6 +5009,15 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Sangria": [
+      "Giant/years/propeladvancedpro0_2024_sangria_1_site.jpg",
+      "Giant/years/propeladvancedpro0_2024_sangria_2_site.jpg",
+      "Giant/years/propeladvancedpro0_2024_sangria_3_site.jpg",
+      "Giant/years/propeladvancedpro0_2024_sangria_4_site.jpg",
+      "Giant/years/propeladvancedpro0_2024_sangria_5_site.jpg"
+     ]
+    },
     "colour_images": {
      "Sangria": "Giant/years/propeladvancedpro0_2024_sangria_site.jpg"
     },
@@ -4951,6 +5061,11 @@
   "Propel Advanced Pro 0 AXS": {
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Black Currant/Chrome": [
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Black Currant/Chrome": "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_site.jpg"
     },
@@ -5312,6 +5427,19 @@
   "Propel Advanced SL 0": {
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Stardust": [
+      "Giant/years/propeladvancedsl0_2023_stardust_1_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_2_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_3_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_4_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_5_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_6_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_7_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_8_site.jpg",
+      "Giant/years/propeladvancedsl0_2023_stardust_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Stardust": "Giant/years/propeladvancedsl0_2023_stardust_site.jpg"
     },
@@ -7718,6 +7846,15 @@
   "Revolt Advanced Pro FF": {
    "2025": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Slate": [
+      "Giant/years/revoltadvancedproff_2025_slate_1_site.jpg",
+      "Giant/years/revoltadvancedproff_2025_slate_2_site.jpg",
+      "Giant/years/revoltadvancedproff_2025_slate_3_site.jpg",
+      "Giant/years/revoltadvancedproff_2025_slate_4_site.jpg",
+      "Giant/years/revoltadvancedproff_2025_slate_5_site.jpg"
+     ]
+    },
     "colour_images": {
      "Slate": "Giant/years/revoltadvancedproff_2025_slate_site.jpg"
     },
@@ -7799,6 +7936,20 @@
   "Revolt X Advanced Pro 0": {
    "2023": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Airglow/Black Currant": [
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_1_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_2_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_3_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_4_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_5_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_6_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_7_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_8_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_9_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_10_site.jpg"
+     ]
+    },
     "colour_images": {
      "Airglow/Black Currant": "Giant/years/revoltxadvancedpro0_2023_airglowblackcurrant_site.jpg"
     },
@@ -7838,6 +7989,17 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Kelp Forest/Charcoal/Chrome": [
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_1_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_2_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_3_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_4_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_5_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_6_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_7_site.jpg"
+     ]
+    },
     "colour_images": {
      "Kelp Forest/Charcoal/Chrome": "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_site.jpg"
     },
@@ -7877,6 +8039,19 @@
    },
    "2025": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Interstellar/Carbon": [
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_1_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_2_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_3_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_4_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_5_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_6_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_7_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_8_site.jpg",
+      "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Interstellar/Carbon": "Giant/years/revoltxadvancedpro0_2025_interstellarcarbon_site.jpg"
     },
@@ -7913,6 +8088,19 @@
   "Revolt X Advanced Pro 2": {
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Black/Sea Sparkle": [
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_1_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_2_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_3_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_4_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_5_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_6_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_7_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_8_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_9_site.jpg"
+     ]
+    },
     "colour_images": {
      "Black/Sea Sparkle": "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_site.jpg"
     },
@@ -7953,6 +8141,16 @@
    },
    "2025": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Meteor Storm": [
+      "Giant/years/revoltxadvancedpro2_2025_meteorstorm_1_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2025_meteorstorm_2_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2025_meteorstorm_3_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2025_meteorstorm_4_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2025_meteorstorm_5_site.jpg",
+      "Giant/years/revoltxadvancedpro2_2025_meteorstorm_6_site.jpg"
+     ]
+    },
     "colour_images": {
      "Meteor Storm": "Giant/years/revoltxadvancedpro2_2025_meteorstorm_site.jpg"
     },
@@ -10209,6 +10407,11 @@
    },
    "2024": {
     "captured": "2026-10-27",
+    "colour_angles": {
+     "Shell White": [
+      "Giant/years/tcxadvancedpro1_2024_shellwhite_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Shell White": "Giant/years/tcxadvancedpro1_2024_shellwhite_site.jpg"
     },
