@@ -50,3 +50,11 @@ def test_admin_page_shows_the_stats_and_the_period_charts(tmp_path):
     assert "racefiets carbon zgan" in page  # among the lowest scores
     stats = page[page.index('id="admin-data">'):]
     assert "2026-09" in stats and "2026-10" in stats
+
+
+def test_carbon_is_no_proof_of_purchase_and_a_year_photo_without_colour_is_no_colour():
+    report = {"claims": {"year": 2022, "size": "56", "groupset": None, "condition": None},
+              "photo_year": {"year": 2022, "colour": None}, "colourway": None}
+    gaps = scores.missing(report, {"title": "Trek Domane carbon 2022 maat 56", "description": "carbon frame"})
+    assert "proof" in gaps and "colour" in gaps
+    assert "proof" not in scores.missing(report, {"title": "Trek Domane", "description": "bon aanwezig"})

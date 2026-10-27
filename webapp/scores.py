@@ -7,7 +7,7 @@ import re
 from . import bike_fit
 from .checks import BAD, WARN, split_title
 
-PROOF = re.compile(r"aankoopbewijs|factuur|bon\b|kassabon|invoice|receipt", re.I)
+PROOF = re.compile(r"\b(?:aankoopbewijs|factuur|bon|kassabon|bonnetje|invoice|receipt)\b", re.I)
 # A generation number in a clash ("Gen 3" against our "Gen 4") rather than a version word (SL against SLR).
 GEN = re.compile(r"^(gen|generatie)?\s*\d$", re.I)
 
@@ -19,7 +19,7 @@ def missing(report, listing):
     return [key for key, gone in (("year", claims["year"] is None), ("size", claims["size"] is None),
                                   ("groupset", claims["groupset"] is None), ("condition", claims["condition"] is None),
                                   ("colour", not (split_title(listing.get("title") or "").get("colour")
-                                                 or report.get("colourway") or report.get("photo_year"))), ("proof", not PROOF.search(text))) if gone]
+                                                 or report.get("colourway") or (report.get("photo_year") or {}).get("colour"))), ("proof", not PROOF.search(text))) if gone]
 
 
 def match_problems(report):
