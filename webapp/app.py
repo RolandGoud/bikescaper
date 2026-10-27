@@ -360,8 +360,17 @@ def create_app(db_path=None):
         key = fetch_ad.ad_key(row)
         times = sum(fetch_ad.ad_key(r) == key for r in conn().execute(
             "SELECT listing_url, title, asking_price FROM checks").fetchall())
+        other_ads = []
+        if result["model"]:  # the other ads matched to the same model, as on its model page
+            known = prices.known_ads(conn(), models())
+            priced = {i for a in known if a["model_id"] == result["model"]["id"] for i in a["check_ids"]}
+            rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+            other_ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), {"model": result["model"]})
+                         for r, n in sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
+                                            key=lambda a: a[0]["created_at"], reverse=True)
+                         if fetch_ad.ad_key(r) != key]
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
-                               all_models=models(), asking=asking, nav="check",
+                               all_models=models(), asking=asking, nav="check", other_ads=other_ads,
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
     def pdf_of(check_id, height):

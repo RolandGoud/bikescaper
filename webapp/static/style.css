@@ -308,6 +308,12 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .year-rail .gallery-thumb.empty .gallery-year { color: var(--muted); }
 .year-rail .gallery-thumb[aria-pressed="true"] { border: 1px solid var(--accent); box-shadow: none; background: rgba(52, 211, 153, .12); }
 .year-rail .gallery-thumb[aria-pressed="true"] .gallery-year { color: var(--accent); }
+/* The colours under the photo: the swatches and the name of the one on show, nothing more. */
+.gallery-colours { display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 6px 10px; border: 1px solid var(--faint); border-radius: 10px; background: var(--card); min-height: 40px; }
+.gallery-colours .swatches { flex-wrap: nowrap; margin: 0; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.gallery-colours .colour-name { color: var(--text); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gallery-colours #colour-note:not([hidden]) { margin-left: auto; }
+.gallery-colours > [data-fact], .gallery-colours > .v { display: contents; }
 /* A close-up or other angle fills the photo instead of sitting small on white. */
 .model-gallery .photo.detail { background: #000; }
 .model-gallery .photo.detail > img { object-fit: cover; mix-blend-mode: normal; transform: none; }
@@ -492,6 +498,9 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 /* Brand pills show the brand's logo, coloured through a mask so it follows the pill's text colour. */
 .pill.brand { display: inline-flex; align-items: center; padding: 10px 14px; }
 .pill-logo { display: block; width: 70px; height: 17px; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.site-logo { display: inline-block; width: 96px; height: 15px; vertical-align: -2px; background: currentColor; -webkit-mask: var(--logo) left center / contain no-repeat; mask: var(--logo) left center / contain no-repeat; }
+.listing-head .ad-title { margin: 4px 0 12px; color: var(--muted); font-size: 15px; font-style: italic; }
+.listing-head .ad-title .removed-tag { font-style: normal; }
 .model-kicker { display: flex; align-items: center; gap: 8px; }
 .model-kicker .pill-logo { width: 84px; height: 16px; color: var(--text); -webkit-mask-position: left center; mask-position: left center; }
 .pill.soon .pill-logo { opacity: 0.6; }

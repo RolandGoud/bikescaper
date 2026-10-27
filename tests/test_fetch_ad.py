@@ -200,10 +200,10 @@ def test_same_ad_checked_twice_is_one_card(tmp_path):
     assert "€2.300" in page and "€2.500" not in page  # the card shows the newest check
     assert 'href="/check/2"' in page and 'href="/check/1"' not in page
 
-    # each person's own report still exists, with their own height
-    assert "Deze advertentie is 2 keer gecheckt." in client.get("/check/1?lang=nl").data.decode()
-    assert "Deze advertentie is 2 keer gecheckt." in client.get("/check/2?lang=nl").data.decode()
-    assert "keer gecheckt" not in client.get("/check/5?lang=nl").data.decode()
+    # each person's own report still exists (the report no longer says how often the ad was checked)
+    for check_id in (1, 2, 5):
+        page = client.get(f"/check/{check_id}?lang=nl")
+        assert page.status_code == 200 and "keer gecheckt" not in page.data.decode()
 
     home = client.get("/?lang=nl").data.decode()
     assert home.count('class="listing-card"') == 3
@@ -301,3 +301,20 @@ def test_all_checks_page_shows_request_and_result(tmp_path):
     assert page.count('class="check-row"') == 3
     assert "181 cm rider" in page and "Utrecht" in page and "€2.450" in page and "second-hand median" in page
     assert "This ad: 2× checked" in page and "Daily example" not in page  # daily checks aren't marked
+
+
+def test_report_titles_the_matched_bike_and_lists_the_other_ads_for_it(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    for url, title, price in [
+        ("https://www.marktplaats.nl/v/a1", "Giant TCR Advanced 2 2021 maat M", 1500),
+        ("https://www.marktplaats.nl/v/a2", "Giant TCR Advanced 2 2021 maat L zgan", 1650),
+    ]:
+        conn.execute("INSERT INTO checks (listing_url, title, asking_price) VALUES (?,?,?)", (url, title, price))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=nl").data.decode()
+    assert "<h1>Giant TCR Advanced" in page and "“Giant TCR Advanced 2 2021 maat M”" in page
+    assert 'aria-label="Marktplaats"' in page
+    assert "Andere advertenties voor dit model" in page and 'href="/check/2"' in page
