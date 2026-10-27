@@ -30,6 +30,20 @@ EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # credits.json holds each photo's author, licence and source, shown as a credit line in the hero.
 HERO_DIR = os.path.join(os.path.dirname(__file__), "static", "hero")
 HERO_BACKGROUNDS = sorted(f for f in os.listdir(HERO_DIR) if f.endswith(".jpg"))
+
+
+def load_galleries():
+    """{model page URL: {colour or "": [photo]}}: the other angles of each current model, from
+    data/galleries/<Brand>.json (brand_scrapers/galleries.py)."""
+    found, folder = {}, os.path.join(ROOT, "data", "galleries")
+    for name in sorted(os.listdir(folder)) if os.path.isdir(folder) else []:
+        if name.endswith(".json"):
+            with open(os.path.join(folder, name), encoding="utf-8") as fh:
+                found.update({url: g for url, g in json.load(fh).items() if g})
+    return found
+
+
+GALLERIES = load_galleries()
 with open(os.path.join(HERO_DIR, "credits.json"), encoding="utf-8") as f:
     HERO_CREDITS = json.load(f)
 # Photo tips on the Selling page: (icon paths for a 40x40 SVG, heading, text).
@@ -511,7 +525,7 @@ def create_app(db_path=None):
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
         return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings,
-                               year_tabs=checks.year_tabs(model),
+                               year_tabs=checks.year_tabs(model), angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],

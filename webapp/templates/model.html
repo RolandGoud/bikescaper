@@ -42,12 +42,14 @@
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}">‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}">›</button>
       </div>
+      {# The other angles of the year and colour on show (close-ups, front, rear), filled in by the script below. #}
+      <div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}" hidden></div>
       <div class="gallery-strip">
       <button type="button" class="strip-nav prev" aria-label="{{ _('Earlier years') }}" hidden>‹</button>
       <div class="gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
         {% for t in slots %}
         {% if t.image %}
-        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}"
+        <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=t.image) }}"{% if t.colour_angles %} data-angles='{{ t.colour_angles|tojson }}'{% endif %}
                 data-colours="{{ (t.colours or [])|join(', ') }}">{{ year_facts(t) }}
           <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span></button>
         {% else %}
@@ -57,7 +59,7 @@
         {% endif %}
         {% endfor %}
         {% if m.image %}
-        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}">
+        <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}"{% if angles_now %} data-angles='{{ angles_now|tojson }}'{% endif %}>
           {{ photo(m) }}<span class="gallery-year">{{ own_year }}</span></button>
         {% elif slots[-1].year != own_year %}
         <button type="button" class="gallery-thumb current empty" aria-pressed="false" data-year="{{ own_year }}" data-src=""
@@ -68,7 +70,9 @@
       </div>
     </div>
     {% else %}
-    <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}</div></div>
+    <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}</div>
+      {% if angles_now and m.image %}<div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}"
+           data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' hidden></div>{% endif %}</div>
     {% endif %}
     {% if m.image or gallery %}
     {# A click on the photo opens it full size; the arrows flip through the years like the carousel. #}
@@ -220,6 +224,34 @@
     strip.scrollLeft = thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2;
     if (!fromTab) showYear(thumb.dataset.year);
     showFacts(thumb);
+    showAngles(thumb);
+  }
+  // A row of the year's other angles for the colour on show; the first is the side view itself.
+  function showAngles(thumb) {
+    var row = document.getElementById("angle-strip");
+    if (!row) return;
+    var angles = {};
+    try { angles = JSON.parse(thumb.dataset.angles || "{}"); } catch (e) {}
+    // "" is a page that showed one colour only: its angles go with every colour
+    var list = angles[thumb.dataset.colour || Object.keys(angles)[0]] || angles[""] || [];
+    row.innerHTML = "";
+    row.hidden = !list.length || !thumb.dataset.src;
+    if (row.hidden) return;
+    var img = document.querySelector("#model-photo > img");
+    [thumb.dataset.src].concat(list.map(function (p) { return row.dataset.base + p; })).forEach(function (src, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "angle-thumb";
+      b.setAttribute("aria-pressed", i === 0);
+      var small = document.createElement("img");
+      small.src = src; small.alt = ""; small.loading = "lazy";
+      b.appendChild(small);
+      b.addEventListener("click", function () {
+        img.src = src;
+        row.querySelectorAll(".angle-thumb").forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+      });
+      row.appendChild(b);
+    });
   }
   // The facts beside the photo follow the year: its new price, spec tier and colours (with their photos); the current bike's own again.
   var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact]"));
@@ -274,10 +306,16 @@
       if (thumb) showPhoto(thumb, true);
     });
   });
+  // Without a year carousel the angle row stands for the current bike itself.
+  var lone = document.getElementById("angle-strip");
+  if (!thumbs.length && lone && lone.dataset.angles) showAngles(lone);
   var start = document.getElementById("model-gallery");
   if (start && start.dataset.start) {
     var first = thumbs.find(function (b) { return b.dataset.year === start.dataset.start && b.dataset.src; });
     if (first) showPhoto(first);
+  } else {
+    var pressed = thumbs.find(function (b) { return b.getAttribute("aria-pressed") === "true"; });
+    if (pressed) showAngles(pressed);  // the current bike on show from the start
   }
   // The photo full size: it shows what the carousel shows, and its arrows and keys move the carousel.
   var box = document.getElementById("photo-box");
@@ -339,7 +377,13 @@
       document.getElementById("colour-note").hidden = !!button.dataset.image;
       // the colour belongs to the year on show (the current bike's, or an earlier year's): show it in the carousel
       var shown = document.querySelector('.gallery-thumb[aria-pressed="true"]') || document.querySelector(".gallery-thumb.current");
+      if (!shown && lone && lone.dataset.angles) {
+        lone.dataset.colour = button.dataset.name;
+        if (button.dataset.image) lone.dataset.src = button.dataset.image;
+        showAngles(lone);
+      }
       if (shown) {
+        shown.dataset.colour = button.dataset.name;  // its angles follow the colour
         var thumbImg = shown.querySelector("img");
         if (button.dataset.image && thumbImg) { shown.dataset.src = button.dataset.image; thumbImg.src = button.dataset.image; }
         showPhoto(shown);

@@ -104,3 +104,30 @@ def test_a_colour_name_gets_a_swatch():
     assert colour_match.swatch_css("Trek Black") == colour_match.FAMILY_HEX["black"]
     assert colour_match.swatch_css("Trek Black / Carbon Smoke").startswith("linear-gradient(")
     assert colour_match.swatch_css("Starry Night Artline") is None or colour_match.swatch_css("Starry Night Artline")
+
+
+def test_trek_lists_the_other_angles_of_each_colour():
+    import json
+    from brand_scrapers import history
+    full = {"name": "Checkpoint ALR 5", "modelYearIntroAndCurrent": "2021 - 2021",
+            "variantAttributesDirectory": [{"options": [
+                {"displayName": "Trek Black", "colorSwatchName": "black", "value": "bike_colorswatch_black"}]}],
+            "assetImageList": [{"imageOption": "A", "images": [{"assetId": "X_A_Alt2", "weight": 1}, {"assetId": "X_A_Primary"},
+                                                               {"assetId": "X_A_Alt1", "weight": 2}]}],
+            "variants": [{"imageOption": "A", "variantAttributes": [{"key": "bike_colorSwatch", "value": "bike_colorswatch_black"}]}]}
+
+    class Fake:
+        def get(self, url, binary=False):
+            return json.dumps(full if "/full" in url else {"specs": []})
+
+    angles = history.trek_product(Fake(), "32557")["colour_angle_urls"]["Trek Black"]
+    assert [a.rsplit("/", 1)[1] for a in angles] == ["X_A_Alt2", "X_A_Alt1"]  # in Trek's order
+
+
+def test_giant_angles_are_the_close_ups_of_that_colour():
+    from brand_scrapers import giant
+    page = " ".join("abcdefghij0123456789/MY25TCRAdvanced2_Color%s.jpg" % s for s in
+                    ("AWhite", "AWhite-D1", "AWhite-Rear", "AWhite_Action", "BBlack-D1"))
+    angles = giant.colour_angles(page, "TCR Advanced 2", "White")
+    assert [a.rsplit("/", 1)[1] for a in angles] == ["MY25TCRAdvanced2_ColorAWhite-D1.jpg",
+                                                      "MY25TCRAdvanced2_ColorAWhite-Rear.jpg"]
