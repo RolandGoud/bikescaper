@@ -336,6 +336,7 @@ NL = {
     "Previous photo": "Vorige foto",
     "Next photo": "Volgende foto",
     "Photos per model year": "Foto's per modeljaar",
+    "Photos of this bike": "Foto's van deze fiets",
     "Still looking for a good photo of this year.": "We zoeken nog een goede foto van dit jaar.",
     "Changed since the year before.": "Anders dan het jaar ervoor.",
     "The Wayback Machine has a copy of this model's page from {date}, but without a spec list.":
