@@ -922,7 +922,7 @@ def test_spec_comparison_uses_a_year_the_estimate_allows(models):
     assert checks.comparison_year(m, claims, {"status": checks.BAD, "first": 2023, "last": None}) == 2023
     assert checks.comparison_year(m, checks.read_claims("Fiets 2023", ""), {"first": 2021, "last": 2025}) == 2023
     no_year = checks.read_claims("Fiets", "")
-    assert checks.comparison_year(m, no_year, {"first": 2021, "last": 2023}) == 2023
+    assert checks.comparison_year(m, no_year, {"first": 2021, "last": 2023}) == 2021  # the earlier of the two middle sheets
     assert checks.comparison_year(m, no_year, {"first": 2021, "last": None}) is None  # our own scrape fits
     older = checks.year_model(m, 2021)
     assert older["specs"] == sheets["2021"]["specs"] and older["spec_year"] == 2021
@@ -1257,3 +1257,24 @@ def test_a_version_we_dont_have_gets_the_closest_bike_with_low_confidence():
     assert ranked[0][1]["name"] == "Defy Advanced 1"
     check = checks.name_check(ranked[0][1], models, "Giant Defy Advanced SL 1 Moonstone")
     assert check["extra"] == ["SL"]
+
+
+def test_an_ad_without_a_year_shows_the_middle_year_its_details_allow(models):
+    # Émonda SLR 7 was sold 2020-2024; 12-speed rules out 2020 and 2021, leaving 2022-2024: the middle is 2023.
+    r = checks.run_check(models, {"title": "Trek Emonda SLR 7", "description": "Ultegra Di2 2x12, maat 56"})
+    assert r["model"]["name"] == "Émonda SLR 7"
+    assert (r["year_estimate"]["first"], r["year_estimate"]["last"]) == (2022, None)
+    assert r["spec_year"] == 2023 and r["photo_year"]["year"] == 2023
+    # 11-speed leaves 2020-2021: of two middle years, the earlier.
+    r = checks.run_check(models, {"title": "Trek Emonda SLR 7", "description": "Ultegra Di2 2x11"})
+    assert r["spec_year"] == 2020
+    assert checks.middle_year([2020, 2021, 2022, 2023, 2024]) == 2022 and checks.middle_year([2021, 2022]) == 2021
+
+
+def test_a_two_tone_colour_shows_its_own_photo_not_another_with_the_same_first_part(models):
+    for text in ("Trek Émonda SLR 7 Navy Carbon Smoke / Viper Red", "Trek Emonda SLR 7 blauw rood"):
+        r = checks.run_check(models, {"title": text, "description": "12 speed"})
+        assert r["photo_year"]["colour"] == "Navy Carbon Smoke/Viper Red", text
+        assert "navycarbonsmokeviperred" in r["model"]["image"], text
+        # The colour came in 2021-2024 and 12-speed rules out 2021: the middle of 2022-2024.
+        assert r["photo_year"]["year"] == 2023 and r["spec_year"] == 2023, text
