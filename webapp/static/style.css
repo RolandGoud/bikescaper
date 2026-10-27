@@ -295,6 +295,17 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gallery-thumb.empty .pill-logo { width: 44px; height: 12px; opacity: .45; }
 .model-gallery .photo > img[hidden] { display: none; }
 @media (max-width: 700px) { .model-gallery { flex-basis: 100%; } }
+/* The model years as a column beside the photo, newest on top; on a phone a row under it. */
+.model-gallery.has-years { flex-basis: 500px; display: flex; gap: 10px; align-items: flex-start; }
+.model-gallery.has-years .gallery-main { flex: 1; min-width: 0; }
+.year-rail.gallery-thumbs { flex: 0 0 72px; flex-direction: column; margin: 0; padding: 3px; max-height: 330px; overflow-x: hidden; overflow-y: auto; }
+.year-rail .gallery-thumb { flex: 0 0 auto; width: 100%; }
+@media (max-width: 700px) {
+  .model-gallery.has-years { flex-direction: column-reverse; }
+  .model-gallery.has-years .gallery-main { width: 100%; }
+  .year-rail.gallery-thumbs { flex: none; flex-direction: row; width: 100%; max-height: none; overflow-x: auto; overflow-y: hidden; }
+  .year-rail .gallery-thumb { flex: 0 0 64px; width: auto; }
+}
 .listing-head .head-duo { min-width: 0; }
 .listing-head .info { min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 .listing-head h1 { margin: 0; font-size: 28px; line-height: 1.2; text-transform: none; font-family: var(--body); font-style: normal; font-weight: 700; letter-spacing: 0; }

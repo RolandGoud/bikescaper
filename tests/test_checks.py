@@ -844,13 +844,14 @@ def test_model_page_has_year_tabs(tmp_path):
     assert 'class="year-tab archive" id="tab-2024"' in page and "Trek/years/domaneal2gen4_2024.jpg" in page
 
 
-def test_model_page_photo_carousel_runs_oldest_to_current(tmp_path):
+def test_model_page_year_selector_runs_current_to_oldest(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/giant-defy-advanced-2?lang=nl").data.decode()
     years = re.findall(r'class="gallery-thumb[^"]*" aria-pressed="(\w+)" data-year="(\d+)"', page)
-    assert len(years) > 2 and [int(y) for _p, y in years] == sorted(int(y) for _p, y in years)
-    assert [p for p, _y in years] == ["false"] * (len(years) - 1) + ["true"]  # the current bike is shown first
+    assert len(years) > 2 and [int(y) for _p, y in years] == sorted((int(y) for _p, y in years), reverse=True)
+    assert [p for p, _y in years] == ["true"] + ["false"] * (len(years) - 1)  # the current bike, on top, is shown first
+    assert 'class="year-rail' in page  # the years pick the bike; the arrows on the photo go through its photos
     assert "year-photo" not in page  # the year photos moved out of the spec tabs
     shown = {int(y) for _p, y in years}
     assert shown == set(range(min(shown), max(shown) + 1))  # a year without a photo gets a placeholder
