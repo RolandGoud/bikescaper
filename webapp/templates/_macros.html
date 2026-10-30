@@ -2,19 +2,6 @@
 {% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy"{% if model.brand != 'Canyon' %} class="on-white{{ ' trek' if model.brand == 'Trek' and not model.year_photo and 'Primary' in model.image }}"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
 {%- endmacro %}
 
-{# The three verdicts as a small table: the topic on the left, the outcome with a ✓ ? ! icon on the right. #}
-{% macro chips(r) -%}
-{% if r.model %}
-<div class="tile-verdicts">
-  {% for label, v in [(_('Age'), r.age), (_('Parts'), r.specs), (_('Price'), r.value)] %}
-  <div class="tile-verdict"><span class="verdict-topic">{{ label }}</span><span class="verdict-outcome {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '?', 'bad': '!'}.get(v.status, '–') }}</i>{{ v.headline|string|lower }}</span></div>
-  {% endfor %}
-</div>
-{% else %}
-<div class="tile-verdicts"><div class="tile-verdict"><span class="verdict-outcome unknown"><i aria-hidden="true">–</i>{{ _('No matching model yet') }}</span></div></div>
-{% endif %}
-{%- endmacro %}
-
 {# The seller's own photo and the brand's catalogue photo of the matched model in one tile, split by a
    slanted cut that the mouse, a finger or the arrow keys slide across (static/duo.js).
    The ad photo is mirrored when its bike faces left, and sized and shifted so its bike sits on the
@@ -39,23 +26,28 @@
 {%- endmacro %}
 
 {# The ad's title without the brand (that's the logo), and the year, size and colour from it as facts below. #}
+{# An ad as a card: the asking price first with the price verdict beside it, then the matched model and the
+   ad's own title, and at the foot where the bike is and a dot for each age or parts check that needs a look. #}
 {% macro listing_card(row, r) -%}
 {% set ad = split_title(row.title) %}
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
   <div class="body">
+    <div class="card-price">
+      <span class="price">{{ row.asking_price|eur if row.asking_price else '–' }}</span>
+      {% if r.model %}<span class="verdict-pill {{ r.value.status }}">{{ r.value.headline }}</span>
+      {% else %}<span class="verdict-pill unknown">{{ _('No matching model yet') }}</span>{% endif %}
+    </div>
     <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ ad.name }}{% endif %}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</div>
     {% if r.model %}<div class="ad-title">“{{ ad.name }}”</div>{% endif %}
-    {% if ad.year or ad.size or ad.colour %}<div class="ad-facts">
-      {% if ad.year %}<span>{{ ad.year }}</span>{% endif %}
-      {% if ad.size %}<span>{{ _('Size {size}', size=ad.size) }}</span>{% endif %}
-      {% if ad.colour %}<span>{{ ad.colour|capitalize }}</span>{% endif %}
-    </div>{% endif %}
-    {% if not r.model %}<div class="small muted">{{ _('Not matched') }}</div>{% endif %}
-    <div class="small muted">{{ _('Asking {price}', price=row.asking_price|eur) }}{% if row.location %} · {{ row.location }}{% endif %}</div>
-    <div class="small muted">{% if row.times_checked and row.times_checked > 1 %}{{ _('Checked {n}× · last on {date}', n=row.times_checked, date=row.created_at[:10]) }}{% else %}{{ _('Checked on {date}', date=row.created_at[:10]) }}{% endif %}</div>
-    {{ chips(r) }}
+    <div class="card-foot">
+      <span class="card-place">{% if row.location %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ row.location }}{% endif %}</span>
+      {% if r.model %}<span class="card-dots">
+        {% set looks = [r.age, r.specs]|rejectattr('status', 'equalto', 'ok')|list %}
+        {% for v in looks %}<span class="dot-tag {{ v.status }}">{{ v.headline }}</span>{% else %}<span class="dot-tag ok">{{ _('Adds up') }}</span>{% endfor %}
+      </span>{% endif %}
+    </div>
   </div>
 </a>
 {%- endmacro %}
