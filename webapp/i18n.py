@@ -492,7 +492,7 @@ NL = {
     "Catalogue photo of the {year} model in {colour}, the colour the ad names.":
         "Catalogusfoto van het model {year} in {colour}, de kleur uit de advertentie.",
     "Catalogue photo of the {year} model.": "Catalogusfoto van het model {year}.",
-    "Older than this model": "Ouder dan dit model",
+    "Probably older than we can check": "Waarschijnlijk ouder dan we kunnen controleren",
     "From our own catalogue scrape and the model years in {brand}'s photos; earlier years may be missing.":
         "Uit onze eigen catalogus en de modeljaren in de foto's van {brand}; oudere jaren kunnen ontbreken.",
     "Earlier generations in our catalogue: {years}.": "Eerdere generaties in onze catalogus: {years}.",
@@ -605,12 +605,25 @@ NL = {
     "{n} parts downgraded": "{n} onderdelen lager",
     "{n} part upgraded": "{n} onderdeel beter",
     "{n} parts upgraded": "{n} onderdelen beter",
-    "The ad gives no year; the bike is probably from {year} or later, so it's valued as a {year} bike.":
-        "De advertentie noemt geen jaar; de fiets is waarschijnlijk van {year} of later, dus we rekenen met {year}.",
-    "The ad gives no year; the bike is probably from {year} or earlier, so it's valued as a {year} bike.":
-        "De advertentie noemt geen jaar; de fiets is waarschijnlijk van {year} of eerder, dus we rekenen met {year}.",
-    "The stated {claimed} doesn't fit the ad's details, so it's valued as a {year} bike.":
-        "Het opgegeven {claimed} past niet bij de details in de advertentie, dus we rekenen met {year}.",
+    "The ad gives {claimed} as the purchase year; we go by model year {year}.":
+        "De advertentie noemt {claimed} als aankoopjaar; we gaan uit van modeljaar {year}.",
+    "The stated {claimed} doesn't fit the ad's details ({years}), so we go by {year}.":
+        "Het opgegeven {claimed} past niet bij de details in de advertentie ({years}), dus we gaan uit van {year}.",
+    "The ad gives no year; its details point to {years}, so we go by {year}, the middle.":
+        "De advertentie noemt geen jaar; de details wijzen op {years}, dus we gaan uit van {year}, het midden.",
+    "The ad gives no year; this generation was sold {years}, so we go by {year}, the middle.":
+        "De advertentie noemt geen jaar; deze generatie werd verkocht in {years}, dus we gaan uit van {year}, het midden.",
+    "The ad gives no year; we go by {year}, the year in our catalogue.":
+        "De advertentie noemt geen jaar; we gaan uit van {year}, het jaar in onze catalogus.",
+    "Probably older than any generation we know, so its new price may have been different; we go by {year}, the year in the ad.":
+        "Waarschijnlijk ouder dan elke generatie die we kennen, dus de nieuwprijs kan anders zijn geweest; we gaan uit van {year}, het jaar in de advertentie.",
+    "The bike is probably an earlier generation than {name}, whose new price we don't have; an older generation is usually worth less.":
+        "De fiets is waarschijnlijk een eerdere generatie dan de {name}, waarvan we de nieuwprijs niet hebben; een oudere generatie is meestal minder waard.",
+    "No year given; probably {years}": "Geen jaar vermeld; waarschijnlijk {years}",
+    "Model year {year}, bought in {claimed}": "Modeljaar {year}, gekocht in {claimed}",
+    "Launch years of each generation entered by hand; our spec sheets fill in the rest.":
+        "Introductiejaren per generatie met de hand ingevoerd; onze specificaties vullen de rest aan.",
+    "We go by {year} for the price and the specs.": "We gaan uit van {year} voor de prijs en de specificaties.",
     "Can't tell": "Niet te zeggen",
     "Nothing in the ad or in our catalogue dates this bike yet.":
         "Niets in de advertentie of in onze catalogus geeft nog een jaar voor deze fiets.",
@@ -686,8 +699,6 @@ NL = {
         "Globale schatting: alleen nieuwprijs, leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "New price is the {year} Dutch price, which can differ from what this bike cost new.":
         "De nieuwprijs is de Nederlandse prijs van {year}; die kan afwijken van wat deze fiets nieuw kostte.",
-    "The claimed year is before this generation, so the bike may be an older generation with a different new price.":
-        "Het opgegeven jaar ligt vóór deze generatie, dus het kan een oudere generatie zijn met een andere nieuwprijs.",
     "Fair {low} to {high}": "Eerlijk {low} tot {high}",
     "Add the asking price to see how it compares.": "Vul de vraagprijs in om te vergelijken.",
     "About {diff} high": "Ongeveer {diff} te hoog",
