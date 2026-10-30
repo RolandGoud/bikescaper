@@ -287,7 +287,7 @@ def catalogue_status(model, today=None):
     missed, last = model.get("missed_scrapes"), model.get("last_seen")
     # A hand-entered lineage's end only counts once the brand stops listing the model: a version can outlive its
     # generation (the Tarmac SL7 Sport after the SL8 came).
-    if gen and gen["last"] and gen["last"] < today.year and (gen["source"] == "table" or missed != 0):
+    if gen and gen["last"] and gen["last"] < today.year and (gen["source"] == "table" or missed):
         return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=gen["last"])
     if "years/archived/" in (model.get("source_file") or ""):  # a line the brand no longer sells (seed.add_archived)
         sheets = [int(y) for y in ((model.get("year_specs") or {}).get("years") or {})]
@@ -1450,7 +1450,7 @@ def age_summary(age, estimate, resolved=None):
     adds_up = Msg("Model year {year}", year=age["year"]) if age["status"] == OK and age.get("year") else None
     if adds_up and resolved and resolved["how"] == "purchase":
         adds_up = Msg("Model year {year}, bought in {claimed}", year=resolved["year"], claimed=age["year"])
-    if not age.get("year") and resolved and resolved["how"] == "estimate":
+    if not age.get("year") and resolved and resolved["how"] in ("estimate", "photo"):
         # No year in the ad, but its details date the bike: say so instead of only "Year not stated".
         return {"status": WARN, "headline": Msg("No year given; probably {years}",
                                                 years=_span(resolved["first"], resolved["last"])),

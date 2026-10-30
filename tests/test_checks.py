@@ -1340,6 +1340,7 @@ def test_details_outside_the_generation_are_another_generation(models):
                last_seen="2026-10-01", source_file="x.json")
     assert checks.catalogue_status(sl7, TODAY)[0] == "current"
     assert checks.catalogue_status(dict(sl7, missed_scrapes=2, latest_scrape="2026-10-01"), TODAY)[0] == "discontinued"
+    assert checks.catalogue_status(dict(sl7, missed_scrapes=None), TODAY)[0] == "unknown"  # never checked
 
 
 def test_one_year_for_the_price_and_the_specs(models):
@@ -1375,6 +1376,9 @@ def test_an_ad_without_a_year_says_what_its_details_point_to():
                 "detail": checks.Msg("The ad doesn't give a year, but its details point to {years}.", years="2022–2026")}
     tab = checks.age_summary(age, estimate, {"year": 2024, "how": "estimate", "first": 2022, "last": 2026})
     assert tab["status"] == checks.WARN and en(tab["headline"]) == "No year given; probably 2022–2026"
+    # A colour-dated year says so too.
+    tab = checks.age_summary(age, estimate, {"year": 2023, "how": "photo", "first": 2023, "last": 2023})
+    assert en(tab["headline"]) == "No year given; probably 2023"
 
 
 def test_an_earlier_generation_we_have_no_sheet_of_is_priced_with_a_warning(models):
