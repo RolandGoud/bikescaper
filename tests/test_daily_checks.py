@@ -19,12 +19,12 @@ def ads(family):
         return []
     return [
         {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsonderdelen/m2400000001-trek-domane-frame",
-         "title": "Trek Domane SL 6 frame", "price": 900},  # a part, not a bike
+         "title": "Trek Domane SL 6 frame", "price": 900, "photos": 3},  # a part, not a bike
         {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000002-trek-domane",
-         "title": "Trek Domane SL 6", "price": 1},  # "bieden"
+         "title": "Trek Domane SL 6", "price": 1, "photos": 3},  # "bieden"
         {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000003-trek-madone",
-         "title": "Trek Madone SL 6", "price": 2500},  # another family
-        {"url": AD, "title": "Trek Domane AL 2", "price": 344},
+         "title": "Trek Madone SL 6", "price": 2500, "photos": 3},  # another family
+        {"url": AD, "title": "Trek Domane AL 2", "price": 344, "photos": 3},
     ]
 
 
@@ -46,6 +46,37 @@ def test_skips_ads_a_visitor_already_checked(conn):
     conn.execute("INSERT INTO checks (listing_url, title) VALUES (?, ?)",
                  ("https://www.marktplaats.nl/m2455946444", "Trek Domane AL 2"))
     assert daily_checks.run(conn, search=ads, fetch=fetch, pause=0) == []
+
+
+def test_skips_ads_without_photos(conn):
+    def bare(family):
+        listed = ads(family)
+        if listed:  # an ad without photos comes first
+            listed.insert(0, {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/"
+                                     "m2400000005-trek-domane", "title": "Trek Domane AL 2", "price": 1200, "photos": 0})
+        return listed
+    saved = daily_checks.run(conn, search=bare, fetch=fetch, pause=0)
+    assert [conn.execute("SELECT listing_url FROM checks WHERE id = ?", (i,)).fetchone()[0] for i in saved] == [AD]
+
+
+def test_tries_the_next_ad_when_the_ad_has_no_photos(conn):
+    other = "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000006-trek-domane"
+
+    def two(family):
+        if family != "Trek Domane":
+            return []
+        return [{"url": other, "title": "Trek Domane AL 2", "price": 1200, "photos": 2},
+                {"url": AD, "title": "Trek Domane AL 2", "price": 344, "photos": 3}]
+
+    fetched = []
+
+    def fetch_bare_first(url):
+        fetched.append(url)
+        return dict(fetch(url), photos=[] if url == other else fetch(url)["photos"])
+
+    saved = daily_checks.run(conn, search=two, fetch=fetch_bare_first, pause=0)
+    assert fetched == [other, AD]
+    assert [conn.execute("SELECT listing_url FROM checks WHERE id = ?", (i,)).fetchone()[0] for i in saved] == [AD]
 
 
 def test_one_failing_model_does_not_stop_the_rest(conn):
@@ -77,7 +108,7 @@ def test_runs_at_most_once_a_day(tmp_path, monkeypatch):
 def test_s_works_counts_as_its_family(conn):
     models = db.all_models(conn)
     ad = {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000004-s-works",
-          "title": "Specialized S-Works Tarmac SL9 Dura-Ace Di2", "price": 9000}
+          "title": "Specialized S-Works Tarmac SL9 Dura-Ace Di2", "price": 9000, "photos": 2}
     assert daily_checks.pick(models, "Specialized Tarmac", [ad], set()) == ad
 
 

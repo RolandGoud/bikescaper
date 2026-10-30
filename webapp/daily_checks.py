@@ -2,9 +2,10 @@
 
 POPULAR are the five catalogue families with the most bike ads on Marktplaats (counted on
 22 October 2026). For each, one search for the newest ads, then the first one that is a whole
-bike (not a part), has a real price, isn't checked yet and that we confidently match to the
-family is read like a pasted link and saved as a check. So about ten requests a day, PAUSE
-seconds apart. No rider height is filled in, as with a visitor who leaves it empty.
+bike (not a part), has a real price and photos, isn't checked yet and that we confidently match
+to the family is read like a pasted link and saved as a check. If the ad turns out to have no
+photos after all, the next suitable one is read instead (at most TRIES ads per family). So about
+ten requests a day, PAUSE seconds apart. No rider height is filled in, as with a visitor who leaves it empty.
 
 The checks get source = "daily", so they can be told apart or removed:
 
@@ -34,10 +35,11 @@ POPULAR = ["Giant TCR", "Specialized Tarmac", "Giant Defy", "Trek Domane", "Trek
 SEARCH = "https://www.marktplaats.nl/lrp/api/search?"
 BIKES = 445  # Marktplaats' "Fietsen en Brommers"
 PAUSE = 5
+TRIES = 3
 
 
 def search(query):
-    """The newest ads for a query: [{"url", "title", "price"}]."""
+    """The newest ads for a query: [{"url", "title", "price", "photos"}], photos being how many."""
     params = {"query": query, "l1CategoryId": BIKES, "limit": 30, "offset": 0,
               "sortBy": "SORT_INDEX", "sortOrder": "DECREASING"}
     request = urllib.request.Request(SEARCH + urlencode(params),
@@ -45,7 +47,8 @@ def search(query):
     with urllib.request.urlopen(request, timeout=fetch_ad.TIMEOUT) as response:
         data = json.loads(response.read(fetch_ad.MAX_BYTES))
     return [{"url": "https://www.marktplaats.nl" + ad["vipUrl"], "title": ad.get("title") or "",
-             "price": ((ad.get("priceInfo") or {}).get("priceCents") or 0) / 100}
+             "price": ((ad.get("priceInfo") or {}).get("priceCents") or 0) / 100,
+             "photos": len(ad.get("pictures") or ad.get("imageUrls") or [])}
             for ad in data.get("listings") or [] if ad.get("vipUrl")]
 
 
@@ -59,7 +62,8 @@ def pick(models, family, ads, seen):
     """The first ad worth checking for a family ("Giant TCR"), or None."""
     brand, name = family.split(" ", 1)
     for ad in ads:
-        if not is_bike(ad["url"]) or ad["price"] < 100 or fetch_ad.ad_id(ad["url"]) in seen:
+        if (not is_bike(ad["url"]) or ad["price"] < 100 or not ad.get("photos")
+                or fetch_ad.ad_id(ad["url"]) in seen):
             continue
         ranked = checks.match_models(models, ad["title"])
         top = ranked[0][1] if ranked else None
@@ -80,12 +84,22 @@ def run(conn, search=search, fetch=fetch_ad.fetch_listing, pause=PAUSE):
         if i and pause:
             time.sleep(pause)
         try:
-            ad = pick(models, family, search(family), seen)
-            if ad is None:
+            ads = search(family)
+            skipped = set(seen)
+            listing = None
+            for _ in range(TRIES):
+                ad = pick(models, family, ads, skipped)
+                if ad is None:
+                    break
+                if pause:
+                    time.sleep(pause)
+                listing = fetch(ad["url"])
+                if listing["photos"]:
+                    break
+                skipped.add(fetch_ad.ad_id(ad["url"]))  # no photos after all: try the next ad
+                listing = None
+            if listing is None:
                 continue
-            if pause:
-                time.sleep(pause)
-            listing = fetch(ad["url"])
         except Exception as e:  # one model failing doesn't stop the others
             print(f"daily check of {family} failed: {e}", file=sys.stderr, flush=True)
             continue
