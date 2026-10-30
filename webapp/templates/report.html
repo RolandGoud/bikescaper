@@ -169,11 +169,10 @@
       <span class="fair">{{ r.value.low|eur }} – {{ r.value.high|eur }}</span>
       <span class="why">{{ _('Asking {asking}: {verdict}', asking=listing.asking_price|eur, verdict=r.value.headline|string|lower) if listing.asking_price else r.value.headline }}</span>
       {% else %}
-      {# The verdict as a pill by the label; the headline says what we found. #}
+      {# The verdict as a pill by the label; the headline says what we found, the panel below says why. #}
       <span class="tab-label"><span class="mono {{ v.status }}">{{ label|upper }}</span>
         {% if v.status in ('ok', 'warn', 'bad') %}<span class="verdict-pill {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>{{ {'ok': _('OK'), 'warn': _('Watch out'), 'bad': _('Not OK')}[v.status]|upper }}</span>{% endif %}</span>
       <span class="big {{ v.status }}">{{ v.tab_headline or v.headline }}</span>
-      <span class="why">{{ v.detail }}</span>
       {% endif %}
     </a>
     {% endfor %}
