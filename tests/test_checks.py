@@ -1274,9 +1274,10 @@ def test_an_ad_without_a_year_shows_the_middle_year_its_details_allow(models):
     assert r["model"]["name"] == "Émonda SLR 7"
     assert (r["year_estimate"]["first"], r["year_estimate"]["last"]) == (2022, None)
     assert r["spec_year"] == 2023 and r["photo_year"]["year"] == 2023
-    # 11-speed leaves 2020-2021: of two middle years, the earlier.
+    # 11-speed leaves 2020-2021, but this generation launched as the 2021 model (reference.LINEAGES): 2020's sheet is
+    # the previous one.
     r = checks.run_check(models, {"title": "Trek Emonda SLR 7", "description": "Ultegra Di2 2x11"})
-    assert r["spec_year"] == 2020
+    assert r["spec_year"] == 2021 and r["year"]["year"] == 2021
     assert checks.middle_year([2020, 2021, 2022, 2023, 2024]) == 2022 and checks.middle_year([2021, 2022]) == 2021
 
 
@@ -1321,7 +1322,24 @@ def test_a_generation_starts_at_its_launch_not_at_our_oldest_sheet(models):
     # Two years before: the previous generation, by name.
     age = checks.check_age(m, checks.read_claims("Specialized Tarmac SL8 2021", ""), TODAY)
     assert age["earlier"] and "Tarmac SL7" in en(age["detail"])
+    # Only a spec sheet of that year makes it this model's predecessor; a photo year doesn't.
+    assert not age["earlier_sheet"]
+    assert not checks.check_age(dict(m, photo_years=[2021]), checks.read_claims("Specialized Tarmac SL8 2021", ""),
+                                TODAY)["earlier_sheet"]
     assert [g["name"] for g in age["generations"]] == ["Tarmac SL7", "S-Works Tarmac SL8 - SRAM RED AXS"]
+
+
+def test_details_outside_the_generation_are_another_generation(models):
+    # The details point to 2018-2020, before the SL8 launched (2024): priced at their middle, but not reliable.
+    m = _tarmac_sl8(models)
+    resolved = checks.resolve_year(m, checks.read_claims("Specialized Tarmac SL8", ""), {"status": checks.WARN},
+                                   {"status": checks.UNKNOWN, "first": 2018, "last": 2020}, TODAY)
+    assert (resolved["year"], resolved["reliable"]) == (2019, False)
+    # A lineage's end doesn't retire a version the brand still lists.
+    sl7 = dict(models[0], brand="Specialized", name="Tarmac SL7 Sport - Shimano 105", missed_scrapes=0,
+               last_seen="2026-10-01", source_file="x.json")
+    assert checks.catalogue_status(sl7, TODAY)[0] == "current"
+    assert checks.catalogue_status(dict(sl7, missed_scrapes=2, latest_scrape="2026-10-01"), TODAY)[0] == "discontinued"
 
 
 def test_one_year_for_the_price_and_the_specs(models):

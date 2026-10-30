@@ -613,6 +613,8 @@ NL = {
         "De advertentie noemt geen jaar; de details wijzen op {years}, dus we gaan uit van {year}, het midden.",
     "The ad gives no year; this generation was sold {years}, so we go by {year}, the middle.":
         "De advertentie noemt geen jaar; deze generatie werd verkocht in {years}, dus we gaan uit van {year}, het midden.",
+    "The ad gives no year; its colour is in the {year} photos, so we go by {year}.":
+        "De advertentie noemt geen jaar; de kleur staat op de foto's van {year}, dus we gaan uit van {year}.",
     "The ad gives no year; we go by {year}, the year in our catalogue.":
         "De advertentie noemt geen jaar; we gaan uit van {year}, het jaar in onze catalogus.",
     "Probably older than any generation we know, so its new price may have been different; we go by {year}, the year in the ad.":
