@@ -359,7 +359,7 @@
       // On a phone the age blocks scroll sideways: start at the ad's year or the first estimated one.
       document.querySelectorAll("#" + key + " .gen-row").forEach(function (row) {
         var year = row.querySelector(".claimed") || row.querySelector(".likely");
-        if (year) row.scrollLeft = year.offsetLeft - row.offsetLeft - 8;
+        if (year) row.scrollLeft = year.offsetLeft - 8;  // the row is the year's offset parent
       });
       return true;
     }
