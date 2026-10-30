@@ -58,6 +58,7 @@ def join_list(parts):
 
 
 NL = {
+    "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",
     "{n}-speed: the {years} spec sheets.": "{n}-speed: de specificaties van {years}.",
     # admin statistics page
     '{n} ads': '{n} advertenties',
@@ -506,9 +507,9 @@ NL = {
         "Controleer welke de fiets uit de advertentie is.",
     "{claimed} may also be when it was bought.": "{claimed} kan ook het aankoopjaar zijn.",
     "earlier gen": "eerdere gen.",
-    "Seller says {claimed}, but this generation was first sold as the {first} model. Either the year is wrong or it's an older generation we don't have yet.":
-        "Verkoper zegt {claimed}, maar deze generatie kwam pas uit als model {first}. Het jaar klopt niet, "
-        "of het is een oudere generatie die wij nog niet hebben.",
+    "Seller says {claimed}. The oldest {name} we know is the {first} model, so this is probably an earlier generation we don't have yet. We go by {claimed}, the year in the ad.":
+        "Verkoper zegt {claimed}. De oudste {name} die we kennen is het model {first}, dus dit is waarschijnlijk "
+        "een eerdere generatie die we nog niet hebben. We gaan uit van {claimed}, het jaar in de advertentie.",
     "Probably the purchase year": "Waarschijnlijk het aankoopjaar",
     "This generation went on sale as the {first} model, in {launch}. {claimed} is likely when it was bought, not the model year.":
         "Deze generatie kwam in {launch} op de markt als model {first}. {claimed} is waarschijnlijk het "

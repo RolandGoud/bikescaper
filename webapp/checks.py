@@ -827,6 +827,7 @@ def check_age(model, claims, today=None):
                 "detail": Msg("We don't have the model years for this bike yet, so we can't confirm the age."),
                 "timeline": [], "notes": [n for n in [seen] if n]}
     first, last = years
+    older = False
     other = claimed < first and (claimed in earlier or (earlier and min(earlier) < claimed))
     if other:
         status, headline = WARN, Msg("Earlier generation")
@@ -843,10 +844,12 @@ def check_age(model, claims, today=None):
         detail = Msg("Our oldest model year of {name} is {first}, so we can't confirm {claimed}.",
                      name=model["name"], first=first, claimed=claimed)
     elif claimed < first - 1:
-        status, headline = BAD, Msg("Older than this model")
-        detail = Msg("Seller says {claimed}, but this generation was first sold as the {first} model. "
-                     "Either the year is wrong or it's an older generation we don't have yet.",
-                     claimed=claimed, first=first)
+        # We can't disprove the seller: the bike is probably an older generation than any we have, so the
+        # check goes by the year in the ad.
+        status, headline, older = UNKNOWN, Msg("Probably older than we can check"), True
+        detail = Msg("Seller says {claimed}. The oldest {name} we know is the {first} model, so this is probably "
+                     "an earlier generation we don't have yet. We go by {claimed}, the year in the ad.",
+                     claimed=claimed, name=model["name"], first=first)
     elif claimed == first - 1:
         status, headline = WARN, Msg("Probably the purchase year")
         detail = Msg("This generation went on sale as the {first} model, in {launch}. "
@@ -862,7 +865,7 @@ def check_age(model, claims, today=None):
     if claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
-            "notes": notes, "year": claimed, "earlier": bool(other)}
+            "notes": notes, "year": claimed, "earlier": bool(other), "older": older}
 
 
 def colourway_year(colourway):
@@ -1187,6 +1190,10 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
     return (year, photos[year], None) if year in photos else None
 
 
+# The year clues that come from parts a bike can be given later (estimate_year), by the start of their message.
+PART_CLUES = ("{part}: bikes from", "Parts {parts}", "{n}-speed")
+
+
 def estimate_year(model, models, claims, text, seen_colour=None):
     """The model years the ad's own details allow, and whether the claimed year fits them.
 
@@ -1235,6 +1242,18 @@ def estimate_year(model, models, claims, text, seen_colour=None):
             if not any((c[0] or 0) <= y <= (c[1] or 9999) for y in years):
                 clues.remove(c)
                 notes.append(join(c[2], Msg("That part may have been swapped: the frame's colour goes first.")))
+    # Parts can be swapped, the frame can't: when the stated year only clashes with parts (a groupset, the
+    # number of speeds, part numbers), go by the year in the ad and take those parts as upgrades.
+    claimed = claims["year"]
+
+    def fits(c):
+        return (c[0] or 0) <= claimed <= (c[1] or 9999)
+
+    swappable = [c for c in clues if c[2].text.startswith(PART_CLUES)]
+    if claimed and any(not fits(c) for c in swappable) and all(fits(c) for c in clues if c not in swappable):
+        for c in [c for c in swappable if not fits(c)]:
+            clues.remove(c)
+            notes.append(join(c[2], Msg("We go by the year in the ad: that part was probably upgraded.")))
     first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
     last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
     evidence = [c[2] for c in clues] + notes
@@ -1577,8 +1596,8 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     gen = generation_of(model["name"])
     years = GENERATIONS.get((model["brand"], family_of(model["name"]), gen))
     model_year = claims["year"]
-    other_generation = age_result.get("earlier") or (age_result["status"] == BAD and years and model_year
-                                                     and model_year < years[0])
+    other_generation = age_result.get("earlier") or ((age_result["status"] == BAD or age_result.get("older"))
+                                                     and years and model_year and model_year < years[0])
     if age_result["status"] == WARN and not other_generation and years and model_year and model_year < years[0]:
         model_year = years[0]  # a purchase year just before launch: value it as the launch model year
     # Without a year in the ad, value it at the oldest year we think is right: the oldest year the ad's

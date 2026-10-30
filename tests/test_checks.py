@@ -82,7 +82,9 @@ def test_year_older_than_generation_is_flagged(models):
     assert r["age"]["status"] == checks.WARN and r["age"]["earlier"]
     assert "Madone SL 6," in en(r["age"]["detail"])
     r = run(models, "Trek Madone SL 6 gen 8 2015", "maat 56")
-    assert r["age"]["status"] == checks.BAD  # older than any generation in our catalogue
+    # Older than any generation in our catalogue: we can't disprove the seller, so the check goes by 2015.
+    assert r["age"]["status"] == checks.UNKNOWN and r["age"]["older"]
+    assert "Probably older than we can check" == en(r["age"]["headline"]) and "We go by 2015" in en(r["age"]["detail"])
 
 
 def test_matching_canyon(models):
@@ -1278,3 +1280,13 @@ def test_a_two_tone_colour_shows_its_own_photo_not_another_with_the_same_first_p
         assert "navycarbonsmokeviperred" in r["model"]["image"], text
         # The colour came in 2021-2024 and 12-speed rules out 2021: the middle of 2022-2024.
         assert r["photo_year"]["year"] == 2023 and r["spec_year"] == 2023, text
+
+
+def test_a_stated_year_wins_over_a_groupset_that_could_be_an_upgrade(models):
+    # The 12-speed 105 came on the Domane AL 4 from 2024, but parts get swapped: a 2022 bike with a newer groupset.
+    r = run(models, "Racefiets Trek Domane AL4 - Shimano 105 12-speed - maat 54", "Bouwjaar 2022, nette staat", 975)
+    assert r["year_estimate"]["status"] == checks.OK
+    assert "probably upgraded" in " ".join(en(e) for e in r["year_estimate"]["evidence"])
+    assert r["spec_year"] == 2022
+    groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
+    assert groupset["step"] > 0  # an upgrade on the 2022 sheet
