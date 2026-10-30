@@ -58,6 +58,7 @@ def join_list(parts):
 
 
 NL = {
+    "{n}-speed: the {years} spec sheets.": "{n}-speed: de specificaties van {years}.",
     # admin statistics page
     '{n} ads': '{n} advertenties',
     'unknown': 'onbekend',

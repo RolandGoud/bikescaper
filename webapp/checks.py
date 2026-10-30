@@ -1018,6 +1018,16 @@ def seen_colour_years(sheets, colour):
     return (colour, years) if years and len(years) < len(dated) else None
 
 
+def _sheet_speed(sheet):
+    """How many sprockets a spec sheet's cassette, rear derailleur or shifters say: 11 for "11-28, 11 speed"."""
+    for key, value in sheet["specs"].items():
+        if re.search(r"cassette|tandwiel|achterderailleur|shifter|schakel", key, re.I):
+            found = re.search(r"\b(1[0-3]|[7-9])\s*-?\s*(?:speed|sp|versnellingen)\b", str(value), re.I)
+            if found:
+                return int(found.group(1))
+    return None
+
+
 def sheet_clues(model, text, seen_colour=None):
     """Year windows from the spec sheets of each model year: the part numbers the ad names that only some
     years' sheets have, and a colour name the ad uses that only some years came in. [(first, last, Msg)]."""
@@ -1040,6 +1050,17 @@ def sheet_clues(model, text, seen_colour=None):
         if first or last:
             clues.append((first, last, Msg("Parts {parts} are on the {years} spec sheets.",
                                            parts=", ".join(p.upper() for p in parts), years=_span(years[0], years[-1]))))
+    # "2x12", "12-speed", "12 versnellingen": the years whose sheets have that many sprockets.
+    said = re.search(r"\b[12]\s*x\s*(1[0-3]|[7-9])\b|\b(1[0-3]|[7-9])\s*-?\s*(?:speed|sp|versnellingen|voudig)\b", low)
+    if said:
+        speeds = {y: _sheet_speed(s) for y, s in sheets.items()}
+        known = {y for y, n in speeds.items() if n}
+        years = sorted(y for y in known if speeds[y] == int(said.group(1) or said.group(2)))
+        if years and len(years) < len(known):
+            first, last = _widen(years, known)
+            if first or last:
+                clues.append((first, last, Msg("{n}-speed: the {years} spec sheets.", n=int(said.group(1) or said.group(2)),
+                                               years=_span(years[0], years[-1]))))
     dated = {y: s for y, s in sheets.items() if s["colours"]}
     # The colour in the ad's photos goes before the colour the seller writes: sellers name it loosely.
     seen = seen_colour and seen_colour_years(sheets, seen_colour)
@@ -1076,6 +1097,13 @@ def _years_list(years):
     return ", ".join(str(a) if a == b else f"{a}\u2013{b}" for a, b in runs)
 
 
+def middle_year(years):
+    """The year in the middle of the ones that fit, the earlier of the two middle ones for an even count: an ad
+    without a year is as likely from the start of the run as from the end."""
+    years = sorted(years)
+    return years[(len(years) - 1) // 2] if years else None
+
+
 def comparison_year(model, claims, estimate):
     """The model year whose spec sheet the ad is compared with: the stated year when the year estimate allows it
     and we have its sheet, else the sheet year the estimate allows closest to the stated year. Without a stated
@@ -1092,7 +1120,7 @@ def comparison_year(model, claims, estimate):
     own = int(model["seen_on"][:4]) if model.get("seen_on") else None
     if not allowed or not claimed and own and (first is None or own >= first) and (last is None or own <= last):
         return None  # our own scrape fits
-    return min(allowed, key=lambda y: (abs(y - claimed), -y)) if claimed else max(allowed)
+    return min(allowed, key=lambda y: (abs(y - claimed), -y)) if claimed else middle_year(allowed)
 
 
 def year_model(model, year):
@@ -1112,16 +1140,31 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
     if not photos:
         return None
     claimed = claims["year"]
+    first, last = (estimate or {}).get("first"), (estimate or {}).get("last")
+
+    def allowed(years):
+        """The years the other clues (groupset, speeds, generation) leave, of these; all of them when none are left."""
+        return [y for y in years if (first is None or y >= first) and (last is None or y <= last)] or list(years)
+
     hit = (seen_colour and seen_colour_years(year_sheets(model), seen_colour)) or colour_years(year_sheets(model), _plain(text))
     if hit:
-        year = claimed if claimed in hit[1] else max(hit[1])
-        # That colour's own photo of that year, when we have one: the colourway with that name, or that part.
+        year = claimed if claimed in hit[1] else middle_year(allowed(hit[1]))
+        # That colour's own photo of that year, when we have one: the colourway with that name, or with that part,
+        # the one whose other part the ad also names first ("Navy Carbon Smoke / Viper Red", not ".../Blue").
         own = ((model.get("year_specs") or {}).get("years") or {}).get(str(year), {}).get("colour_images") or {}
         key = " ".join(re.findall(r"[a-z]+", _plain(hit[0])))
-        for name, image in own.items():
-            words = " ".join(re.findall(r"[a-z]+", _plain(name)))
-            if words == key or any(" ".join(re.findall(r"[a-z]+", _plain(p))) == key for p in name.split("/")):
-                return year, image, name
+        ad_words = set(re.findall(r"[a-z]+", _plain(text)))
+        ad_words |= {NL_COLOURS.get(w, w) for w in ad_words}
+
+        def named(name):
+            parts = [" ".join(re.findall(r"[a-z]+", _plain(p))) for p in name.split("/")]
+            return key == " ".join(re.findall(r"[a-z]+", _plain(name))) or key in parts
+
+        def also_said(name):
+            return sum(1 for w in re.findall(r"[a-z]+", _plain(name)) if w in ad_words)
+
+        for name in sorted((n for n in own if named(n)), key=also_said, reverse=True)[:1]:
+            return year, own[name], name
         # A year that came in more colours has one photo, maybe of another colour: then don't name it.
         one = len(year_sheets(model).get(year, {}).get("colours") or []) == 1
         return (year, photos[year], hit[0] if one else None) if year in photos else None
@@ -1130,7 +1173,12 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
         # The newest year in the seller's colours with a photo, unless the stated year is one of them.
         shown = sorted(y for y in fit[0] if y in photos)
         if shown:
-            year = claimed if claimed in shown else shown[-1]
+            year = claimed if claimed in shown else middle_year(allowed(shown))
+            # The photo of the colourway in the seller's colours, when that year has one.
+            own = ((model.get("year_specs") or {}).get("years") or {}).get(str(year), {}).get("colour_images") or {}
+            name = next((n for n in fit[1] if n in own), None)
+            if name:
+                return year, own[name], name
             colours = year_sheets(model)[year]["colours"]
             return year, photos[year], colours[0] if len(colours) == 1 else None
     year = comparison_year(model, claims, estimate)
