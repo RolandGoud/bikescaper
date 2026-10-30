@@ -209,9 +209,6 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .listing-card .photo img { width: 100%; height: 100%; object-fit: contain; }
 .listing-card .body { flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
 /* The verdicts sit at the bottom of the card, so they line up across a row of cards. */
-.tile-verdicts { margin-top: auto; border-top: 1px solid var(--faint); }
-.tile-verdict { display: grid; grid-template-columns: 82px 1fr; gap: 6px; align-items: start; padding: 7px 0; border-bottom: 1px solid var(--faint); font-size: 14px; }
-.tile-verdict:has(> .verdict-outcome:only-child) { grid-template-columns: 1fr; }
 .verdict-topic { padding-top: 2px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
 .verdict-outcome { display: flex; gap: 7px; font-weight: 600; line-height: 1.3; }
 .verdict-outcome i { flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 11px; font-style: normal; font-weight: 800; color: var(--ink); }
@@ -1113,3 +1110,20 @@ select { max-width: 100%; }
   .admin .grid2 { grid-template-columns: minmax(0, 1fr); }
   .admin .bar { grid-template-columns: 120px 1fr 40px; }
 }
+
+/* Listing card: price and its verdict first, location and the other checks as dots at the foot. */
+.listing-card .card-price { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; }
+.listing-card .card-price .price { font: 700 26px/1.1 var(--body); }
+.verdict-pill { font: 600 11px var(--mono); letter-spacing: .03em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--raised); color: var(--muted); }
+.verdict-pill.ok { background: rgba(52, 211, 153, .15); color: var(--accent); }
+.verdict-pill.warn { background: var(--warn-bg); color: var(--warn); }
+.verdict-pill.bad { background: #3a1d1d; color: #F28A8A; }
+.listing-card .card-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding-top: 4px; }
+.listing-card .card-place { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
+.listing-card .card-place svg { width: 14px; height: 14px; flex: none; }
+.listing-card .card-dots { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.dot-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); padding: 3px 8px; border-radius: 999px; background: var(--raised); }
+.dot-tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.dot-tag.ok::before { background: var(--accent); }
+.dot-tag.warn::before { background: var(--warn); }
+.dot-tag.bad::before { background: #F28A8A; }
