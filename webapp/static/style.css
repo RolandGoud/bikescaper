@@ -1445,6 +1445,10 @@ select { max-width: 100%; }
 .pill-menu .fam-title { display: none; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 2px 4px; }
 .pill-menu.searching .fam-title { display: block; }
 .pill-menu.searching .fam-panel { border-left-color: var(--line-strong); }
+/* Brand options (data-logo): the logo in the text colour, left-aligned, in the pills and the closed button. */
+.pill-select .pill-brand { display: flex; align-items: center; min-width: 0; }
+.pill-select .pill-brand .pill-logo { width: 96px; height: 20px; color: var(--text); -webkit-mask-position: left center; mask-position: left center; }
+.pill-select > button .pill-brand { padding-left: 6px; }
 .pill-select .check { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; }
 @media (max-width: 640px) {
   .field-label .pill-select, .sell-match .match-pick .pill-select { width: 100%; min-width: 0; }
