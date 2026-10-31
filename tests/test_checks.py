@@ -47,6 +47,9 @@ def test_reads_claims_from_dutch_ad():
     ("Domane uit 2019", 2019, False),
     ("Emonda SL 6 2023 groep\nframe ca. 2010", 2010, False),
     ("Nieuwe banden 2024, circa 2012", 2012, False),
+    ("Tarmac 2023, ongeveer 2000 km gereden", 2023, False),
+    ("Tarmac 2023, vraagprijs ca. 2100 euro", 2023, False),
+    ("Tarmac 2023, frame ca. €2100", 2023, False),
 ])
 def test_year(text, year, purchase):
     assert checks.detect_year(text) == (year, purchase)
