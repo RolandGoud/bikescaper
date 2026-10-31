@@ -28,6 +28,9 @@ def inputs_key(listing):
     photos = [os.path.basename(p) for p in listing.get("photo_paths") or []]
     wanted = {k: listing.get(k) for k in ("title", "description", "asking_price", "listing_url",
                                           "rider_height", "model_id")}
+    if listing.get("photo_groupset"):
+        # Only when there is one, so checks without it keep the reports they have.
+        wanted["photo_groupset"] = listing["photo_groupset"]
     return hashlib.sha1(json.dumps(dict(wanted, photos=photos), sort_keys=True, default=str).encode()).hexdigest()
 
 

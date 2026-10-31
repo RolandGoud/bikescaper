@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_groupset, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -249,6 +249,15 @@ def create_app(db_path=None):
         # The stored photos on disk, for reading the bike's colour from them.
         listing["photo_paths"] = [os.path.join(ad_photos.folder(app.config["DB_PATH"]), p)
                                   for p in photos if ad_photos.is_stored(p)][:3]
+        # The groupset read from the photos, for ads that don't name it (webapp/photo_groupset.py): once the
+        # photos it reads are all on our disk.
+        first = photos[:photo_groupset.MAX_PHOTOS]
+        names = first if first and all(ad_photos.is_stored(p) for p in first) else []
+        photo_folder = ad_photos.folder(app.config["DB_PATH"])
+        listing["photo_groupset"] = photo_groupset.stored(photo_folder, listing, names)
+        if listing["photo_groupset"] is None and names and listing.get("id") is not None \
+                and not checks.read_claims(listing.get("title") or "", listing.get("description") or "")["groupset"]:
+            photo_groupset.read_later(photo_folder, listing["id"], names)
         listing["photos"] = [p if not ad_photos.is_stored(p) else url_for("ad_photo", name=p) for p in photos]
         if height:
             listing["rider_height"] = height

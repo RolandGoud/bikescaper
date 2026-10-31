@@ -1553,13 +1553,28 @@ def _compare_tiers(key, part, original, listing, ref_tier, ad_tier):
     return _row(key, part, original, listing, WARN, "Same tier, different part", ad_tier=ad_tier)
 
 
-def check_specs(model, claims, impossible=None):
+def photo_group(read):
+    """The groupset a read of the ad's photos shows (webapp/photo_groupset.py), as detect_groupset gives it, or
+    None when the read isn't sure enough or names no series we know."""
+    from . import photo_groupset
+    if not photo_groupset.usable(read):
+        return None
+    found = detect_groupset(photo_groupset.text_of(read))
+    if found:
+        extra = ELECTRONIC_NAME.get(found["name"].split()[0]) if found["electronic"] else None
+        found["label"] = Msg("{label} (from the photos)", label=f"{found['name']} {extra}" if extra else found["name"])
+    return found
+
+
+def check_specs(model, claims, impossible=None, photo_read=None):
     rows = []
     not_stated = Msg("Not stated")
 
     ref_group = detect_groupset(groupset_text(model))
     ref_group_label = spec(model, "Shifter") or (ref_group and ref_group["label"]) or Msg("Not in our data")
-    claimed = claims["groupset"]
+    # The ad's words first; when they don't name it, what its photos show.
+    seen = None if claims["groupset"] else photo_group(photo_read)
+    claimed = claims["groupset"] or seen
     if not ref_group or not claimed:
         rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"] if claimed else not_stated,
                          WARN if ref_group else UNKNOWN, "Ask seller" if ref_group else "Can't compare"))
@@ -1612,6 +1627,7 @@ def check_specs(model, claims, impossible=None):
         row["ref_tier"] = ref_group["tier"] if row["key"] == "groupset" and ref_group else _ref_tier(model, row["key"])
     if claimed:
         rows[0]["ad_tier"] = claimed["tier"]
+    rows[0]["from_photos"] = bool(seen)
 
     down = sum(1 for r in rows if r["step"] < 0)
     up = sum(1 for r in rows if r["step"] > 0)
@@ -1629,13 +1645,15 @@ def check_specs(model, claims, impossible=None):
     else:
         status, headline = OK, Msg("Matches the original")
     detail = join(claims["mentions_upgrades"] and Msg("The seller mentions changed parts."),
+                  seen and Msg("The ad doesn't name the groupset; we read it from the photos.") or None,
                   Msg("Compared with the {brand} spec sheet of the {year} model.", brand=model["brand"],
                       year=model["spec_year"]) if model.get("spec_year") else
                   Msg("Compared with the {brand} spec sheet from {date}.", brand=model["brand"],
                       date=model.get("seen_on") or Msg("our catalogue")))
     # The report tab's pill says whether it matches; the tab's headline says what was compared.
     tab = Msg("Original parts") if status == OK and not up else headline
-    return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows}
+    return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows,
+            "photo_groupset": photo_read if seen else None}
 
 
 def size_options(brand):
@@ -1995,7 +2013,8 @@ def run_check(models, listing, today=None):
     year = comparison_year(chosen, dict(claims, year=report["year"]["year"]) if report["year"]["how"] != "catalogue"
                            else claims, report["year_estimate"])
     report["spec_year"] = year or (int(chosen["seen_on"][:4]) if chosen.get("seen_on") else None)
-    report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"])
+    report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"],
+                                  listing.get("photo_groupset"))
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,
                                   report["year_estimate"], report["year"])

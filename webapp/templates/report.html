@@ -284,6 +284,9 @@
               {%- elif s.listing is none and listing.photos %}<a class="open-photos" href="#ad-photos">{{ s.result }} →</a>
               {%- elif s.listing is none and listing.listing_url %}<a href="{{ listing.listing_url }}" rel="noopener nofollow">{{ s.result }} →</a>
               {%- else %}<span>{{ s.result }}</span>{% endif %}</div>
+              {%- if s.from_photos and r.specs.photo_groupset %}
+              <div class="small muted photo-read">{{ r.specs.photo_groupset['evidence_nl' if lang == 'nl' else 'evidence_en'] }}</div>
+              {%- endif %}
             </td>
           </tr>
         {% endfor %}

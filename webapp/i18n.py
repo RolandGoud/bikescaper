@@ -586,6 +586,8 @@ NL = {
     "Can't compare": "Niet te vergelijken",
     "Differs": "Wijkt af",
     "Matches": "Klopt",
+    "{label} (from the photos)": "{label} (van de foto's)",
+    "The ad doesn't name the groupset; we read it from the photos.": "De advertentie noemt de groep niet; we hebben hem van de foto's gelezen.",
     "Electronic in ad, mechanical original": "Elektronisch in advertentie, origineel mechanisch",
     "Check photos": "Bekijk de foto's",
     "Compare photos": "Vergelijk foto's",
