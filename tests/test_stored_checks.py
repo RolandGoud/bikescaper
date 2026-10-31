@@ -81,7 +81,7 @@ def test_a_recheck_keeps_the_checks_own_date(tmp_path, monkeypatch):
     client.post(f"/check/{check_id}/recheck")
     page = client.get(url + "?lang=en").data.decode()
     assert [str(d) for d in days] == ["2024-03-05"]
-    assert "Checked on 2024-03-05." in page and "Run again on " in page
+    assert "Checked on 2024-03-05." in page and "Report worked out on " in page
 
 
 def test_a_model_shown_in_another_photo_follows_a_catalogue_reload(tmp_path):
