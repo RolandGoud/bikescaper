@@ -62,22 +62,50 @@ def test_home_shows_the_offers_marked_as_sponsored(tmp_path):
     assert page.count('rel="sponsored noopener"') == 3 and 'href="#"' in page
 
 
-def test_listings_and_models_pages_have_their_own_slots(tmp_path):
+def test_rotation_gives_every_card_offer_in_the_visitors_language():
+    offers = [offer("a", ["card"]), offer("b", ["card", "side"]), offer("c", ["banner"])]
+    for seed_ in range(10):
+        tiles = sponsored.rotation(offers, "en", rng=random.Random(seed_))
+        assert sorted(t["title"] for t in tiles) == ["a en", "b en"]
+    assert sponsored.rotation([offer("c", ["banner"])], "nl") == []
+
+
+def test_listings_and_models_show_ads_as_tiles_5_15_25(tmp_path):
     path = tmp_path / "sponsored.json"
-    path.write_text(json.dumps([offer("card", ["card"]), offer("banner", ["banner"]), offer("side", ["side"])]))
+    path.write_text(json.dumps([offer("card1", ["card"]), offer("card2", ["card"]), offer("side", ["side"])]))
     app = create_app(str(tmp_path / "app.sqlite3"))
     app.config["SPONSORED_PATH"] = str(path)
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56"})
+    titles = ["Trek Domane SL6 2022 maat 56", "Canyon Ultimate CF SL 8 2021", "Giant TCR 2020",
+              "Specialized Tarmac SL7 2021", "Cube Attain 2022", "Scott Addict 2020",
+              "Orbea Orca 2021", "Cannondale SuperSix 2019", "Trek Emonda SL5 2021", "Canyon Endurace CF 7 2022",
+              "Giant Defy 2021", "Trek Madone SL6 2022", "Canyon Aeroad CF SLX 2021", "Cube Agree C:62 2020"]
+    client.post("/check", data={"title": titles[0]})
 
-    listings = client.get("/listings").data.decode()  # a 300×250 among the cards, and the skyscraper
-    assert "ad-rect" in listings and "ad-sky" in listings and "ad-banner" not in listings
-    models = client.get("/models").data.decode()  # a banner across the grid after eight models, and the skyscraper
-    assert "ad-banner" in models and "ad-sky" in models and "ad-rect" not in models
-    assert models.count(">AD<") == 2
-    grid = models[models.index('class="model-grid"'):models.index("ad-banner")]
-    assert grid.count('class="model-card') == 8
+    listings = client.get("/listings").data.decode()  # fewer than four ads: the ad tile goes last
+    assert listings.count("sponsored-card fluid") == 1 and "ad-sky" in listings and "ad-banner" not in listings
+    for title in titles[1:]:
+        client.post("/check", data={"title": title})
+    listings = client.get("/listings").data.decode()
+    grid = listings[listings.index('class="grid listing-grid"'):]
+    tiles = re.findall(r'class="(listing-card|sponsored-card fluid)', grid)
+    assert tiles == ["listing-card"] * 4 + ["sponsored-card fluid"] + ["listing-card"] * 9 + \
+        ["sponsored-card fluid"] + ["listing-card"]
+    assert "card1 nl" in grid and "card2 nl" in grid  # the two tiles show different offers
+
+    models = client.get("/models").data.decode()
+    assert "ad-banner" not in models and "ad-sky" in models
+    grid = models[models.index('class="model-grid"'):]
+    grid = grid[:grid.index("</section>")]
+    tiles = re.findall(r'class="(model-card|sponsored-card fluid)', grid)
+    assert tiles[:15] == ["model-card"] * 4 + ["sponsored-card fluid"] + ["model-card"] * 9 + ["sponsored-card fluid"]
+    assert tiles[-1] == "model-card"
+    assert all(tiles[i] == ("sponsored-card fluid" if i % 10 == 4 else "model-card") for i in range(len(tiles)))
+
+    app.config["SPONSORED_PATH"] = str(tmp_path / "none.json")  # no offers: no ad tiles
+    assert "sponsored-card" not in client.get("/models").data.decode()
+    assert "sponsored-card" not in client.get("/listings").data.decode()
 
 
 def test_stylesheets_and_scripts_carry_a_version(tmp_path):

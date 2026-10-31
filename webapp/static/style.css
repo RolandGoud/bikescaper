@@ -994,26 +994,20 @@ select { max-width: 100%; }
   padding: 12px; border: 1px dashed var(--line-strong); border-radius: 14px;
   background: repeating-linear-gradient(-45deg, var(--faint) 0 8px, var(--ground) 8px 16px); }
 .sponsored-card .ad-marker { width: 300px; }
-/* in the Net gecheckt row the panel is as wide as a bike card, and the 300×250 scales down with it
+/* in the Net gecheckt row and as an ad tile in the /models and /listings grids (.fluid) the panel is as wide as a bike card, and the 300×250 scales down with it
    (same 6:5 shape) so the cards next to it stay fully in view */
-.recent-row > .sponsored-card { padding: 10px; }
-.recent-row > .sponsored-card .ad-marker { width: 100%; max-width: 300px; }
-.recent-row .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
-.recent-row .ad-rect .ad-copy b { font-size: 20px; }
-.recent-row .ad-rect .ad-copy span { font-size: 13px; }
+.recent-row > .sponsored-card, .sponsored-card.fluid { padding: 10px; }
+.recent-row > .sponsored-card .ad-marker, .sponsored-card.fluid .ad-marker { width: 100%; max-width: 300px; }
+.recent-row .ad-rect, .sponsored-card.fluid .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
+.recent-row .ad-rect .ad-copy b, .sponsored-card.fluid .ad-rect .ad-copy b { font-size: 20px; }
+.recent-row .ad-rect .ad-copy span, .sponsored-card.fluid .ad-rect .ad-copy span { font-size: 13px; }
 .page .sponsored-band { padding-left: 0; padding-right: 0; }
 /* Listings page: four ad cards per row on desktop, fewer as the screen narrows. A 276px column is
-   narrower than 300×250, so the card spot scales down the same way as in the Net gecheckt row. */
+   narrower than 300×250, so the ad tiles scale down (.sponsored-card.fluid above). */
 .listing-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 1099px) { .listing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 860px) { .listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .listing-grid { grid-template-columns: minmax(0, 1fr); } }
-.listing-grid > .sponsored-card { padding: 10px; }
-.listing-grid > .sponsored-card .ad-marker { width: 100%; max-width: 300px; }
-.listing-grid .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
-.listing-grid .ad-rect .ad-copy b { font-size: 20px; }
-.listing-grid .ad-rect .ad-copy span { font-size: 13px; }
-.model-grid > .sponsored-band { grid-column: 1 / -1; padding: 18px 0; }
 
 .sponsored-band { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px; padding-bottom: 8px; }
 .sponsored-band .ad-marker { width: 300px; }
