@@ -198,9 +198,9 @@
     {% set systems = size_systems(size_chart.sizes) %}
     {% for heading, keys in systems %}
     {% if systems|length > 1 %}<div class="small muted size-system">{{ _(heading) }}</div>{% endif %}
-    <div class="sizes">{% for k in keys %}{% set lo, hi = size_chart.sizes[k] %}<div>{{ k }}<br>{{ lo }}–{{ hi }}{% if size_chart.geometry[k] %}<br><span class="small">{{ size_chart.geometry[k][0]|int }} / {{ size_chart.geometry[k][1]|int }}</span>{% endif %}</div>{% endfor %}</div>
+    <div class="sizes">{% for k in keys %}{% set lo, hi = size_chart.sizes[k] %}<div>{{ k }}<br>{{ lo }}–{{ hi }} cm</div>{% endfor %}</div>
     {% endfor %}
-    <p class="small muted">{{ _('Rider height in cm.') }} {% if size_chart.geometry %}{{ _('Under each size: stack / reach in mm.') }} {% endif %}{{ size_note }}
+    <p class="small muted">{{ size_note }}
       <a href="{{ url_for('size_finder', model=m.slug) }}">{{ _('Open the size finder') }}</a></p>
   </section>
   {% if siblings %}
