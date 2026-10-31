@@ -88,7 +88,7 @@ def test_listings_and_models_show_ads_as_tiles_5_15_25(tmp_path):
     for title in titles[1:]:
         client.post("/check", data={"title": title})
     listings = client.get("/listings").data.decode()
-    grid = listings[listings.index('class="grid"'):]
+    grid = listings[listings.index('class="grid listing-grid"'):]
     tiles = re.findall(r'class="(listing-card|sponsored-card fluid)', grid)
     assert tiles == ["listing-card"] * 4 + ["sponsored-card fluid"] + ["listing-card"] * 9 + \
         ["sponsored-card fluid"] + ["listing-card"]
