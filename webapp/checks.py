@@ -1978,24 +1978,31 @@ def size_lines(models, brand):
     return sorted(lines, key=lambda l: (l["family"], l["chart"]["source"] == "generic", l["label"]))
 
 
+def _cm_between(chart, cm):
+    """Rider heights for frame size cm, drawn between the chart's own cm sizes either side of it, or None."""
+    numeric = sorted((int(k), v) for k, v in chart.items() if k.isdigit())
+    below = [(k, v) for k, v in numeric if k <= cm]
+    above = [(k, v) for k, v in numeric if k >= cm]
+    if not below or not above:
+        return None
+    (k0, (lo0, hi0)), (k1, (lo1, hi1)) = below[-1], above[0]
+    share = (cm - k0) / (k1 - k0) if k1 != k0 else 0
+    return round(lo0 + (lo1 - lo0) * share), round(hi0 + (hi1 - hi0) * share)
+
+
 def estimate_size(chart, size):
     """((low, high), how) rider heights for a frame size in cm the chart doesn't list, or None.
 
-    "between": drawn between the chart's own cm sizes either side of it; "general": the general chart's row,
-    for a chart without cm sizes around it. Letter sizes aren't guessed."""
+    "between": drawn between the chart's own cm sizes either side of it; "general": from the general chart
+    (its own row, or between its rows: it has 56 and 58, not 57), for a chart without cm sizes around it, such
+    as Canyon's and Giant's letter sizes. Letter sizes aren't guessed."""
     if not size.isdigit():
         return None
-    cm = int(size)
-    numeric = sorted((int(k), v) for k, v in chart.items() if k.isdigit())
-    below = [(k, v) for k, v in numeric if k < cm]
-    above = [(k, v) for k, v in numeric if k > cm]
-    if below and above:
-        (k0, (lo0, hi0)), (k1, (lo1, hi1)) = below[-1], above[0]
-        share = (cm - k0) / (k1 - k0)
-        return (round(lo0 + (lo1 - lo0) * share), round(hi0 + (hi1 - hi0) * share)), "between"
-    if size in GENERIC_SIZE_CHART:
-        return GENERIC_SIZE_CHART[size], "general"
-    return None
+    own = _cm_between(chart, int(size))
+    if own:
+        return own, "between"
+    general = _cm_between(GENERIC_SIZE_CHART, int(size))
+    return (general, "general") if general else None
 
 
 def check_size(model, claims, rider_height=None):

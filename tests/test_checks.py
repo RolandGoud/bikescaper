@@ -623,6 +623,10 @@ def test_size_check_estimates_cm_sizes_the_chart_skips(models):
     general = checks.check_size(canyon, {"size": "52"}, 165)
     assert general["fits"] == checks.GENERIC_SIZE_CHART["52"] and general["fit"]["status"] == checks.OK
     assert "general road bike chart" in en(general["notes"][-1])
+    # A size the general chart skips too (it has 56 and 58) is drawn between its rows.
+    assert checks.check_size(canyon, {"size": "57"})["fits"] == (177, 183)
+    giant = dict(next(m for m in models if m["brand"] == "Giant"), slug="no-own-chart")
+    assert checks.check_size(giant, {"size": "57"})["fits"] == (177, 183)
     # Letter sizes aren't guessed.
     assert checks.check_size(dict(canyon, brand="Factor"), {"size": "M"})["status"] == checks.UNKNOWN
 
