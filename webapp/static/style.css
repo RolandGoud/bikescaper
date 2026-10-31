@@ -433,11 +433,16 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .value-verdict.ok-bg > i { background: var(--ok); } .value-verdict.warn-bg > i { background: var(--warn); } .value-verdict.bad-bg > i { background: var(--bad); }
 .value-verdict strong { display: block; font-size: 22px; line-height: 1.15; }
 .value-verdict span { color: var(--text); opacity: .85; font-size: 15px; }
-.value-prices { display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: flex-start; }
-.value-prices .k { margin-bottom: 6px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.value-prices { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 12px; }
+.value-prices.no-ask { grid-template-columns: 1.4fr 1fr; }
+.value-prices > div { padding: 16px 18px; border-radius: 14px; background: var(--ground); }
+.value-prices > .fair, .value-prices > .ask.ok-bg { background: var(--ok-bg); }
+.value-prices > .ask.warn-bg { background: var(--warn-bg); } .value-prices > .ask.bad-bg { background: var(--bad-bg); }
+.value-prices .k { margin-bottom: 8px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .value-prices .n { font-size: 34px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
-.value-prices .n.fair { color: var(--accent); }
-.value-prices .new .n { font-size: 22px; color: var(--muted); font-weight: 700; margin-top: 6px; }
+.value-prices .fair .n { color: var(--accent); }
+.value-prices .new .n { color: var(--muted); }
+.value-prices .sub { margin-top: 8px; font-size: 14px; color: var(--muted); }
 .price-slider { position: relative; }
 .price-slider.with-pin { padding-top: 46px; }
 .price-slider .track { position: relative; height: 14px; border-radius: 999px; background-color: var(--ground);
@@ -453,6 +458,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .price-slider .axis { position: relative; height: 22px; margin-top: 10px; font: 13px var(--mono); color: var(--muted); }
 .price-slider .axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
 .price-slider .axis span:first-child { transform: none; } .price-slider .axis span:last-child { transform: translateX(-100%); }
+.price-slider .axis span.new { color: var(--text); font-weight: 600; }
 .price-slider .zones { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; margin-top: 2px; }
 .value-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .value-chips span { padding: 6px 12px; border-radius: 999px; background: var(--raised); font-size: 14px; }
@@ -471,10 +477,9 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .asking-empty { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 12px 16px; border: 1px dashed var(--line-strong); border-radius: 12px; font-size: 14px; color: var(--muted); }
 .asking-empty strong { color: var(--text); }
 @media (max-width: 700px) {
+  .value-prices { grid-template-columns: 1fr 1fr; }
+  .value-prices > .fair { grid-column: 1 / -1; order: -1; }
   .value-prices .n { font-size: 28px; }
-  .value-prices .new { flex-basis: 100%; display: flex; gap: 8px; align-items: baseline; }
-  .value-prices .new .k { margin: 0; }
-  .value-prices .new .n { font-size: 16px; margin: 0; }
   .value-verdict strong { font-size: 19px; }
   .price-slider .axis span.minor, .price-slider .band.narrow { font-size: 0; }
   .price-slider .axis span.minor { display: none; }
