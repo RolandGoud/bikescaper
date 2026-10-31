@@ -20,6 +20,8 @@
 {% for points, key, detail in lost %}<span class="tag">{{ prefix }}{% if points %}−{{ points }} {% endif %}{{ reason_label[key] }}{% if detail %}: {{ detail }}{% endif %}</span>{% endfor %}
 {%- endmacro %}
 {% block body %}
+{% set brand_name = {} %}
+{% for k in stats.brands %}{% if brand_name.update({k: _('unknown') if k == '?' else _('Other') if k == 'other' else k}) %}{% endif %}{% endfor %}
 <main class="wrap page admin">
   <h1>{{ _('Statistics') }}</h1>
   {% set n = stats.ads %}
@@ -62,6 +64,14 @@
         {% for k in ['matched', 'unmatched'] %}<div class="bar"><span>{{ matched_label[k] }}</span><span class="t"><i style="width: {{ (100 * counts[k] / n)|round|int if n else 0 }}%"></i></span><span class="n">{{ counts[k] }}</span></div>{% endfor %}
       </div>
       <div class="view-lines" hidden data-chart="matched" data-unit=""></div>
+    </section>
+    <section class="box">
+      <h3>{{ _('Bikes per brand') }}</h3>
+      {% set top = (stats.brands.values()|max) if stats.brands else 1 %}
+      <div class="view-total">
+        {% for k, c in stats.brands.items() %}<div class="bar"><span>{{ brand_name[k] }}</span><span class="t"><i style="width: {{ (100 * c / top)|round|int }}%"></i></span><span class="n">{{ c }}</span></div>{% else %}<p class="muted small">—</p>{% endfor %}
+      </div>
+      <div class="view-lines" hidden data-chart="brands" data-unit=""></div>
     </section>
   </div>
 
@@ -153,7 +163,7 @@
   </section>
 </main>
 <script type="application/json" id="admin-data">{{ {'week': stats.week, 'month': stats.month, 'ads': _('{n} ads'),
-  'keys': {'missing': missing_keys, 'problems': problem_keys, 'matched': ['matched', 'unmatched']},
-  'labels': {'missing': missing_label, 'problems': problem_label, 'matched': matched_label}}|tojson }}</script>
+  'keys': {'missing': missing_keys, 'problems': problem_keys, 'matched': ['matched', 'unmatched'], 'brands': stats.brands|list},
+  'labels': {'missing': missing_label, 'problems': problem_label, 'matched': matched_label, 'brands': brand_name}}|tojson }}</script>
 <script src="{{ url_for('static', filename='admin.js') }}" defer></script>
 {% endblock %}

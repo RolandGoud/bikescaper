@@ -100,10 +100,22 @@ def _week(day):
     return f"{y}-W{w:02d}"
 
 
+BRAND_LINES = 5  # the chart's colours run out after six lines: the top five brands plus the rest
+
+
 def summarise(items):
     """The admin page's numbers from one entry per ad: {"day", "brand", "matched", "confidence",
     "missing", "problems", "ad", "photo"}. Totals, plus the same per week and per month for the charts."""
     n = len(items)
+    per_brand = {}
+    for it in items:
+        per_brand[it["brand"] or "?"] = per_brand.get(it["brand"] or "?", 0) + 1
+    ranked = sorted(per_brand.items(), key=lambda x: (-x[1], x[0]))
+    brand_keys = [b for b, _c in ranked[:BRAND_LINES]] + (["other"] if len(ranked) > BRAND_LINES else [])
+
+    def brand_key(it):
+        b = it["brand"] or "?"
+        return b if b in brand_keys else "other"
 
     def mean(xs):
         xs = [x for x in xs if x is not None]
@@ -118,7 +130,8 @@ def summarise(items):
                  "missing": {k: round(100 * sum(k in it["missing"] for it in group) / len(group)) for k in MISSING},
                  "problems": {k: sum(k in it["problems"] for it in group) for k in PROBLEMS},
                  "matched": {"matched": sum(it["matched"] for it in group),
-                             "unmatched": sum(not it["matched"] for it in group)}}
+                             "unmatched": sum(not it["matched"] for it in group)},
+                 "brands": {k: sum(brand_key(it) == k for it in group) for k in brand_keys}}
                 for label, group in sorted(out.items())]
 
     shaky = [it for it in items if it["problems"]]
@@ -133,6 +146,7 @@ def summarise(items):
         "ad": mean(it["ad"] for it in items),
         "missing": {k: round(100 * sum(k in it["missing"] for it in items) / n) if n else 0 for k in MISSING},
         "problems": {k: sum(k in it["problems"] for it in items) for k in PROBLEMS},
+        "brands": {k: sum(brand_key(it) == k for it in items) for k in brand_keys},
         "shaky_brands": sorted(((b, round(100 * c / len(shaky))) for b, c in brands.items()), key=lambda x: -x[1]),
         "week": periods(_week),
         "month": periods(lambda day: day[:7]),
