@@ -92,7 +92,7 @@
               <dt>{{ _('New price') }}</dt><dd>{{ r.original|eur if r.original else '–' }}</dd>
               {% if r.age is defined %}<dt>{{ _('Age') }}</dt><dd>{{ _('{n} year' if r.age == 1 else '{n} years', n=r.age) }}</dd>{% endif %}
               <dt>{{ _('Second-hand median') }}</dt>
-              <dd>{% if h.asking.enough %}{{ h.asking.median|eur }} <span class="muted small">({{ _('{n} ads, {days} days', n=h.asking.count, days=h.asking.days) }})</span>{% elif h.asking.count %}<span class="muted">{{ _('{n} ad' if h.asking.count == 1 else '{n} ads', n=h.asking.count) }}</span>{% else %}<span class="muted">{{ _('No ads yet') }}</span>{% endif %}</dd>
+              <dd>{% if h.asking.enough %}{{ h.asking.median|eur }} <span class="muted small">({{ _('{n} ads, {days} days', n=h.asking.count, days=h.asking.days) }})</span>{% elif h.asking.count %}<span class="muted" title="{{ _('Not enough ads yet to give a good median price.') }}">{{ _('{n} ad' if h.asking.count == 1 else '{n} ads', n=h.asking.count) }}</span>{% else %}<span class="muted" title="{{ _('Not enough ads yet to give a good median price.') }}">{{ _('No ads yet') }}</span>{% endif %}</dd>
             </dl>
           </section>
         </div>

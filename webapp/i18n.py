@@ -965,7 +965,7 @@ NL = {
     "last service, mileage": "laatste beurt, aantal km",
     "median of {n} ads": "mediaan van {n} advertenties",
     "Second-hand": "Tweedehands",
-    "only {n} ads": "maar {n} advertenties",
+    "Not enough ads yet to give a good median price.": "Nog niet genoeg advertenties voor een goede mediaanprijs.",
     "middle of the fair range": "midden van de eerlijke prijs",
     "no": "nee",
     "not filled in": "niet ingevuld",

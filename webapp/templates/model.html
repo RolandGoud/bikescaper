@@ -135,8 +135,9 @@
           <div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div></div>
         {# What it sells for second-hand: the median asking price of the ads matched to it (the box below has the detail). #}
         <div class="used-tile"><div class="k">{{ _('Second-hand') }}</div>
-          <div class="v">{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</div>
-          <a class="small muted" href="#asking">{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% elif asking.count %}{{ _('only {n} ads', n=asking.count) }}{% else %}{{ _('No ads yet') }}{% endif %}</a></div>
+          {% set tip %}{% if not asking.enough %} title="{{ _('Not enough ads yet to give a good median price.') }}"{% endif %}{% endset %}
+          <div class="v"{{ tip }}>{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</div>
+          <a class="small muted" href="#asking"{{ tip }}>{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% elif asking.count %}{{ _('{n} ad' if asking.count == 1 else '{n} ads', n=asking.count) }}{% else %}{{ _('No ads yet') }}{% endif %}</a></div>
       </div>
       <div class="row head-actions"><a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
