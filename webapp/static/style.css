@@ -1221,8 +1221,8 @@ select { max-width: 100%; }
 .head-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .head-actions .btn { width: 100%; padding: 0 12px; text-align: center; }
 @media (max-width: 640px) { .head-actions { grid-template-columns: 1fr; } }
-/* The spec tier pill in the header tiles is as tall as the status pill beside it. */
-.mini-facts .tier { font-size: 12px; line-height: inherit; padding: 2px 10px; }
+/* The spec tier pill in the header tiles has the status pill's size and shape (it stays uppercase). */
+.mini-facts .tier { font-size: 12px; line-height: inherit; padding: 2px 8px; border-radius: 4px; letter-spacing: 0; align-self: center; }
 /* A closed <details> hides its content even when CSS shows it, so the (i) notes opened only on a click:
    let hover show them too. */
 .note-tip:hover::details-content { content-visibility: visible; display: contents; }
