@@ -496,11 +496,10 @@ def create_app(db_path=None):
         """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
         ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        pins, unplaced = {}, 0
+        pins = {}
         for row, count in group_checks(rows):
             spot = places.locate(row["location"], row["listing_url"])
-            if not spot:
-                unplaced += 1
+            if not spot:  # a place we can't find stays off the map
                 continue
             listing = listing_dict(row, count=count)
             result = stored_check(listing)
@@ -530,8 +529,7 @@ def create_app(db_path=None):
         pages = max(1, -(-len(pins) // TOWNS_PER_PAGE))
         page = selected // TOWNS_PER_PAGE + 1 if selected is not None else min(max(number(request.args.get("page"), int) or 1, 1), pages)
         page_urls = [url_for("listings_map", **({"page": n} if n > 1 else {})) for n in range(1, pages + 1)]
-        return render_template("listings_map.html", pins=pins, unplaced=unplaced,
-                               ads=sum(len(p["ads"]) for p in pins), nav="map", selected=selected,
+        return render_template("listings_map.html", pins=pins, nav="map", selected=selected,
                                page=page, page_urls=page_urls, per_page=TOWNS_PER_PAGE)
 
     @app.route("/models")

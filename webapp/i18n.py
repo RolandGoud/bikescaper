@@ -1195,8 +1195,6 @@ NL = {
     "Pages": "Pagina's",
     "Priced too high": "Te hoog geprijsd",
     "No price verdict": "Geen prijsoordeel",
-    "{n} ads in {p} places": "{n} advertenties in {p} plaatsen",
-    "{n} without a place we know": "{n} zonder bekende plaats",
     "Map of the ads": "Kaart van de advertenties",
     "No ads with a known place yet.": "Nog geen advertenties met een bekende plaats.",
     "Show on the map": "Toon op de kaart",
