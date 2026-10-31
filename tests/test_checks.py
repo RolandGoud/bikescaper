@@ -881,11 +881,12 @@ def test_price_slider_zooms_in_on_the_fair_range_and_the_asking_price():
     assert sum(not minor for _, _, minor in s["ticks"]) == 3
     assert values[0] > 0 and values[0] <= 3499 and values[-1] >= 4550  # not from €0, but everything on it
     assert s["ticks"][0][1] == 0 and s["ticks"][-1][1] == 100
-    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "middle" and s["label"]
+    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "start" and s["label"]
     far = price_slider(950, 1160, 2950)
     assert far["asking"] > far["high"] and not far["label"]  # a narrow band leaves out its label
     assert price_slider(950, 1160)["ticks"] and "asking" not in price_slider(950, 1160)
-    assert not price_slider(3720, 4550, 4000)["label"]  # the knob would sit on it
+    inside = price_slider(3720, 4550, 4000)
+    assert not inside["label"] and inside["align"] == "middle"  # the knob would sit on the label
 
 
 def test_value_says_how_far_the_asking_price_is_from_the_range(models):
