@@ -2,12 +2,22 @@
 
 From the seller's words: a colour in the title ("Addict 30 zwart"), a "kleur: wit" line, or a colour
 before "fiets" or "frame" in the description. Brand colour names ("Raptor Blue", "Chalk", "Iron Grey")
-are read into the same plain colour families. The photos aren't read: without a vision model the
-wall, street or grass around the bike outweighs its paint (tried on Scott's colours pasted onto
-street photos: right about half the time).
+are read into the same plain colour families.
+
+From the ad's photos only to choose between the few colourways of one model year (by_photos): what
+tells those photos apart (orange where the other is grey) is looked for in the middle of the ad's
+photos, less what is along their edges (grass, street, wall). Among every colour of every year it's
+right only about half the time, so it's not used for that.
 """
 import colorsys
+import functools
+import os
 import re
+
+import numpy as np
+from PIL import Image
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 FAMILIES = ["black", "white", "grey", "silver", "red", "orange", "yellow", "gold", "green", "blue", "purple",
             "pink", "brown", "beige"]
@@ -168,3 +178,77 @@ def pick(model, title, description=""):
     wanted = ad_colours(title, description)
     best = by_text(colourways, wanted) if wanted else []
     return best[0] if len(best) == 1 else None
+
+
+def _tones(px):
+    """Shares of the pixels (N x 3, 0-255) in 24 hues of colour, and in dark, grey and light."""
+    px = px.reshape(-1, 3) / 255.0
+    mx, mn = px.max(axis=1), px.min(axis=1)
+    d = np.maximum(mx - mn, 1e-6)
+    r, g, b = px[:, 0], px[:, 1], px[:, 2]
+    hue = np.where(mx == r, ((g - b) / d) % 6, np.where(mx == g, (b - r) / d + 2, (r - g) / d + 4)) / 6
+    coloured = (d / np.maximum(mx, 1e-6) > 0.3) & (mx > 0.25)
+    idx = np.where(coloured, (hue * 24).astype(int) % 24, np.where(mx < 0.3, 24, np.where(mx < 0.7, 25, 26)))
+    return np.bincount(idx, minlength=27) / max(len(idx), 1)
+
+
+@functools.lru_cache(maxsize=1024)
+def _catalogue_tones(path, _mtime):
+    """Tones of the bike in a catalogue photo: every pixel that differs from the background in the corners."""
+    with Image.open(path) as img:
+        img = img.convert("RGB")
+        img.thumbnail((240, 240))
+    a = np.asarray(img, dtype=np.float32)
+    corners = np.concatenate([a[:3, :3].reshape(-1, 3), a[-3:, -3:].reshape(-1, 3)])
+    return _tones(a[np.abs(a - np.median(corners, axis=0)).max(axis=2) > 25])
+
+
+@functools.lru_cache(maxsize=1024)
+def _ad_tones(path, _mtime):
+    """Tones in the middle of an ad photo, less those along its edges."""
+    with Image.open(path) as img:
+        img = img.convert("RGB")
+        img.thumbnail((240, 240))
+    a = np.asarray(img, dtype=np.float32)
+    h, w = a.shape[:2]
+    e = max(2, h // 10)
+    around = np.concatenate([a[:e].reshape(-1, 3), a[-e:].reshape(-1, 3), a[:, :e].reshape(-1, 3), a[:, -e:].reshape(-1, 3)])
+    return np.clip(_tones(a[int(h * .15):int(h * .9), int(w * .1):int(w * .9)]) - _tones(around), 0, None)
+
+
+def _cached(fn, path):
+    try:
+        st = os.stat(path)
+        return fn(path, (st.st_mtime_ns, st.st_size))
+    except (OSError, ValueError):
+        return None
+
+
+MIN_PHOTO_SCORE = 0.002   # share of the ad photo that must look like what sets a colourway apart
+MIN_PHOTO_LEAD = 0.15     # and how much more than the next colourway, as a share of the best score
+
+
+def by_photos(options, photo_paths):
+    """The name of the colourway, of options [(name, image under images/)], whose own look the ad's photos
+    show most, or None when there's one option, no photo, or no clear winner. Up to three photos count."""
+    tones = [(name, _cached(_catalogue_tones, os.path.join(ROOT, "images", image))) for name, image in options if image]
+    tones = [(name, t) for name, t in tones if t is not None]
+    ads = [t for t in (_cached(_ad_tones, p) for p in (photo_paths or [])[:3]) if t is not None]
+    if len(tones) < 2 or not ads:
+        return None
+    ad = np.sum(ads, axis=0) / len(ads)
+    owns = [(name, np.clip(t - np.max([o for j, (_, o) in enumerate(tones) if j != i], axis=0), 0, None))
+            for i, (name, t) in enumerate(tones)]
+    # The paint's colours first; dark, grey and light only when those don't settle it, and at half
+    # weight, since they're as much shadow, carbon and background as paint.
+    for weight in (0, 0.5):
+        scored = []
+        for name, own in owns:
+            own = own.copy()
+            own[24:] *= weight
+            scored.append((float(np.minimum(ad, own).sum()), name))
+        scored.sort(reverse=True)
+        best, second = scored[0][0], scored[1][0]
+        if best >= MIN_PHOTO_SCORE and best - second >= max(MIN_PHOTO_SCORE, MIN_PHOTO_LEAD * best):
+            return scored[0][1]
+    return None

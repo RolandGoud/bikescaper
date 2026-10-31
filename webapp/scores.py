@@ -19,7 +19,9 @@ def missing(report, listing):
     return [key for key, gone in (("year", claims["year"] is None), ("size", claims["size"] is None),
                                   ("groupset", claims["groupset"] is None), ("condition", claims["condition"] is None),
                                   ("colour", not (split_title(listing.get("title") or "").get("colour")
-                                                 or report.get("colourway") or (report.get("photo_year") or {}).get("colour"))), ("proof", not PROOF.search(text))) if gone]
+                                                 or (not report.get("colour_from_photos")
+                                                     and (report.get("colourway") or (report.get("photo_year") or {}).get("colour"))))),
+                                  ("proof", not PROOF.search(text))) if gone]
 
 
 def match_problems(report):

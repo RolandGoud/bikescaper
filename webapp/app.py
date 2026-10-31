@@ -241,6 +241,9 @@ def create_app(db_path=None):
         photos = json.loads(listing["photos"]) if listing.get("photos") else []
         if any(not ad_photos.is_stored(p) for p in photos) and app.config.get("STORE_AD_PHOTOS", True):
             store_photos_later(listing["id"])  # also picks up checks made before photos were stored
+        # The stored photos on disk, for reading the bike's colour from them.
+        listing["photo_paths"] = [os.path.join(ad_photos.folder(app.config["DB_PATH"]), p)
+                                  for p in photos if ad_photos.is_stored(p)][:3]
         listing["photos"] = [p if not ad_photos.is_stored(p) else url_for("ad_photo", name=p) for p in photos]
         if height:
             listing["rider_height"] = height
