@@ -382,3 +382,15 @@ def test_every_enum_in_the_schema_fits_its_declared_type():
             for v in node:
                 walk(v)
     walk(photo_groupset.SCHEMA)
+
+
+def test_the_schema_stays_within_the_apis_limit_of_16_union_fields():
+    """The API refused every read when 17 fields were nullable (a type list or anyOf)."""
+    def unions(node):
+        if isinstance(node, dict):
+            here = isinstance(node.get("type"), list) or "anyOf" in node
+            return here + sum(unions(v) for v in node.values())
+        if isinstance(node, list):
+            return sum(unions(v) for v in node)
+        return 0
+    assert unions(photo_groupset.SCHEMA) <= 16

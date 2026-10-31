@@ -1873,7 +1873,7 @@ def photo_receipt(read):
     today_year = date.today().year
     return {"date": date_text or None, "year": year if year and 1980 <= year <= today_year else None,
             "model_year": model_year if model_year and 1980 <= model_year <= today_year + 1 else None,
-            "shop": receipt.get("shop"), "bike": receipt.get("bike"), "price": receipt.get("price"),
+            "shop": receipt.get("shop") or None, "bike": receipt.get("bike") or None, "price": receipt.get("price") or None,
             "photos": receipt.get("photos") or [], "why": _photo_why(receipt)}
 
 
