@@ -51,6 +51,7 @@ def test_admin_page_shows_the_stats_and_the_period_charts(tmp_path):
     stats = page[page.index('id="admin-data">'):]
     assert "2026-09" in stats and "2026-10" in stats
     assert "Bikes matched to a model" in page and 'data-chart="matched"' in page and '"unmatched"' in stats
+    assert "Bikes per brand" in page and 'data-chart="brands"' in page and '"Trek"' in stats
 
 
 def test_carbon_is_no_proof_of_purchase_and_a_year_photo_without_colour_is_no_colour():
@@ -59,3 +60,14 @@ def test_carbon_is_no_proof_of_purchase_and_a_year_photo_without_colour_is_no_co
     gaps = scores.missing(report, {"title": "Trek Domane carbon 2022 maat 56", "description": "carbon frame"})
     assert "proof" in gaps and "colour" in gaps
     assert "proof" not in scores.missing(report, {"title": "Trek Domane", "description": "bon aanwezig"})
+
+
+def test_bikes_per_brand_keeps_the_top_five_and_folds_the_rest_into_other():
+    from webapp.scores import summarise
+    brands = ["Trek"] * 4 + ["Canyon"] * 3 + ["Specialized"] * 2 + ["Giant", "Cube", "Scott", None]
+    items = [{"day": "2026-10-2%d" % (i % 2), "brand": b, "matched": bool(b), "confidence": None,
+              "missing": [], "problems": [], "ad": 5, "photo": None} for i, b in enumerate(brands)]
+    stats = summarise(items)
+    assert list(stats["brands"]) == ["Trek", "Canyon", "Specialized", "?", "Cube", "other"]
+    assert stats["brands"]["other"] == 2 and sum(stats["brands"].values()) == len(brands)
+    assert sum(sum(p["brands"].values()) for p in stats["week"]) == len(brands)

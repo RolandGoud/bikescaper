@@ -124,6 +124,7 @@ NL = {
     'Bikes matched to a model': 'Fietsen gekoppeld aan een model',
     'Matched to a model': 'Gekoppeld aan een model',
     'Without a model': 'Zonder model',
+    'Bikes per brand': 'Fietsen per merk',
     'Per brand': 'Per merk',
     'Ads with the lowest scores': 'Advertenties met de laagste scores',
     'Confidence': 'Zekerheid',
