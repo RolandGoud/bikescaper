@@ -20,14 +20,14 @@
   </div>
   <div class="ads-map-page">
     <div class="ads-map-col">
-      <div id="ads-map" class="ads-map" role="region" aria-label="{{ _('Map of the ads') }}"></div>
-      <div class="map-legend small muted">
+      <div class="map-legend small muted">{# above the map, so the map's foot lines up with the end of the town list #}
         <span><b class="map-dot ok"></b>{{ _('Fair price') }}</span>
         <span><b class="map-dot warn"></b>{{ _('Priced too high') }}</span>
         <span><b class="map-dot bad"></b>{{ _('Suspiciously cheap') }}</span>
         <span><b class="map-dot unknown"></b>{{ _('No price verdict') }}</span>
         <span><b class="map-border"></b>{{ _('Border NL / BE') }}</span>
       </div>
+      <div id="ads-map" class="ads-map" role="region" aria-label="{{ _('Map of the ads') }}"></div>
     </div>
     <div class="map-towns">
       {# No town picked: the towns, most ads first, {{ per_page }} to a page. Towns and pages are real links (their own
@@ -202,6 +202,25 @@
   document.querySelectorAll(".map-back").forEach(function (a) {
     a.addEventListener("click", function (e) { e.preventDefault(); go(null, page); });
   });
+  // The map column scrolls along with the town list: it stays in view like a sticky column, and by the time the
+  // page is scrolled to the end it has moved down so the map's foot lines up with the end of the list.
+  var col = document.querySelector(".ads-map-col"), list = document.querySelector(".map-towns"), queued = false;
+  function follow() {
+    queued = false;
+    col.style.transform = "";
+    var room = list.offsetHeight - col.offsetHeight;
+    if (room <= 0 || getComputedStyle(col).position === "static") return;
+    var top = col.getBoundingClientRect().top + window.scrollY;
+    var end = document.documentElement.scrollHeight - window.innerHeight;
+    var stick = window.scrollY + 16 - top;
+    var along = end > 0 ? room * window.scrollY / end : room;
+    col.style.transform = "translateY(" + Math.min(room, Math.max(0, stick, along)) + "px)";
+  }
+  function soon() { if (!queued) { queued = true; requestAnimationFrame(follow); } }
+  window.addEventListener("scroll", soon, {passive: true});
+  window.addEventListener("resize", soon);
+  if (window.ResizeObserver) new ResizeObserver(soon).observe(list);
+  follow();
   // Opened at a town's address: that town shown and zoomed to.
   if (selected !== null) {
     markers[selected].getElement() && markers[selected].getElement().classList.add("on");

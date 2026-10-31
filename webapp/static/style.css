@@ -1328,7 +1328,7 @@ select { max-width: 100%; }
    and the ads per town beside it. */
 :root { --map-land: #4A4F5B; }
 .ads-map-page { display: grid; grid-template-columns: minmax(340px, 460px) 1fr; gap: 24px; align-items: start; }
-.ads-map-col { position: sticky; top: 16px; display: grid; gap: 12px; }
+.ads-map-col { position: relative; display: grid; gap: 12px; will-change: transform; }  /* moved along by the page script */
 .ads-map { aspect-ratio: 3 / 4; width: 100%; border-radius: 14px; border: 1px solid var(--line); z-index: 0; }
 .ads-map.leaflet-container { background: var(--ink); font-family: var(--body); }
 .ads-map.leaflet-container .leaflet-control-attribution { background: rgba(12, 13, 16, .75); color: var(--muted); }
