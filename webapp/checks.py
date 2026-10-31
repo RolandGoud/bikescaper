@@ -234,6 +234,19 @@ def family_of(model_name):
     return toks[0] if toks else ""
 
 
+def scrape_year(model):
+    """The model year of our own catalogue scrape: the year the brand gives the bike (Giant, Trek and others list
+    next year's bikes from the autumn on), else the year of the scrape date. None without a scrape (an archived line)."""
+    if not model.get("seen_on"):
+        return None
+    return int(model.get("model_year") or model["seen_on"][:4])
+
+
+def newest_year(model, today):
+    """The newest model year a model still on sale can have: this year, or next year's that the brand already lists."""
+    return max(today.year, scrape_year(model) or 0)
+
+
 def generation(model):
     """The generation the model belongs to: {"first", "last" (None = still sold), "name", "earlier": [(first, last,
     name)], "note"}, from the hand-entered lineages (LINEAGES), else the generation table (GENERATIONS), else None.
@@ -249,8 +262,8 @@ def generation(model):
             # The newest model year we have under this very name (a predecessor's sheet has a sheet_name).
             own = [int(y) for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
                    if e.get("specs") and not e.get("sheet_name")] + [int(y) for y in model.get("photo_years") or []]
-            if model.get("seen_on"):
-                own.append(int(model["seen_on"][:4]))
+            if scrape_year(model):
+                own.append(scrape_year(model))
             newest = max(own) if own else None
             mine = next((g for g in reversed(gens) if newest and g[0] <= newest), gens[-1])
         at = gens.index(mine)
@@ -378,7 +391,7 @@ def year_tabs(model, today=None):
     today = today or date.today()
     found = model.get("year_specs") or {}
     archived, checked = found.get("years") or {}, set(found.get("checked") or [])
-    own_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
+    own_year = scrape_year(model)
     tabs, before, before_tiers = [], None, None
     catalogue = catalogue_years(model)  # the same generations the age check marks
     generations = year_generations(model)
@@ -470,7 +483,7 @@ def sheet_year(model):
         sheets = [int(y) for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("specs")]
         if sheets:
             return max(sheets)
-    return int(model["seen_on"][:4]) if model.get("seen_on") else None
+    return scrape_year(model)
 
 
 def weight_kg(text):
@@ -890,8 +903,8 @@ def catalogue_years(model):
             out[int(y)] = (name, earlier(int(y), name))
     # Our own scrape, for a year without a sheet of this generation (Giant lists next year's bikes from the
     # autumn on, so the scrape date isn't the model year when a sheet has it).
-    if model.get("seen_on") and model.get("specs"):
-        own = int(model["seen_on"][:4])
+    if scrape_year(model) and model.get("specs"):
+        own = scrape_year(model)
         if own not in out or out[own][1]:
             out[own] = (None, False)
     return out
@@ -903,7 +916,7 @@ SAME_FRAME, OTHER_FRAME = 0.8, 0.5  # how alike two years' frame descriptions re
 def _frame(model, year):
     """The frame line of the model's spec sheet for that year (our own scrape for its own year), or None."""
     sheet = (((model.get("year_specs") or {}).get("years") or {}).get(str(year)) or {}).get("specs")
-    if not sheet and (model.get("seen_on") or "")[:4] == str(year):
+    if not sheet and scrape_year(model) == year:
         sheet = model.get("specs")
     return next((v for k, v in (sheet or {}).items() if k.lower() in ("frame", "frameset")), None)
 
@@ -1046,11 +1059,11 @@ def check_age(model, claims, today=None):
     timeline = []
     photos = {int(y): e["image"] for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
               if e.get("image")}
-    if model.get("seen_on") and model.get("image") and int(model["seen_on"][:4]) not in photos:
-        photos[int(model["seen_on"][:4])] = model["image"]
+    if scrape_year(model) and model.get("image") and scrape_year(model) not in photos:
+        photos[scrape_year(model)] = model["image"]
     if years:
         first, last = years
-        end = last or today.year
+        end = last or newest_year(model, today)
         for y in range(min([first, claimed or first] + list(catalogue)), max([end, claimed or end] + list(catalogue)) + 1):
             sold = first <= y <= end
             timeline.append({"year": y, "sold": sold, "claimed": y == claimed, "photo": photos.get(y),
@@ -1183,8 +1196,8 @@ def year_sheets(model):
            for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("specs")}
     # Only for a year without a sheet: the scrape date isn't the model year (Giant lists next year's bikes
     # from the autumn on).
-    if model.get("seen_on") and model.get("specs") and int(model["seen_on"][:4]) not in out:
-        out[int(model["seen_on"][:4])] = {"specs": model["specs"],
+    if scrape_year(model) and model.get("specs") and scrape_year(model) not in out:
+        out[scrape_year(model)] = {"specs": model["specs"],
                                           "colours": [c["name"] for c in model.get("colorways") or []] or model.get("colors") or []}
     return out
 
@@ -1206,7 +1219,7 @@ def new_price(model, year):
     entry = ((model.get("year_specs") or {}).get("years") or {}).get(str(year)) or {}
     if entry.get("price"):
         return entry["price"]
-    if model.get("seen_on") and int(model["seen_on"][:4]) == year and model.get("price_eur"):
+    if scrape_year(model) == year and model.get("price_eur"):
         return model["price_eur"]
     return year_prices(model).get(year, (None, False))[0]
 
@@ -1411,7 +1424,7 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
     and specs we don't have: the ad's year, or its details, fall outside the generation."""
     today = today or date.today()
     known = sold_years(model, today)
-    gen_first, gen_last = (known[0], known[1] or today.year) if known else (None, None)
+    gen_first, gen_last = (known[0], known[1] or newest_year(model, today)) if known else (None, None)
     est = estimate or {}
     e_first, e_last = (est.get("first"), est.get("last")) if est.get("status") != WARN and not est.get("fallback") else (None, None)
 
@@ -1456,7 +1469,7 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
     if gen_first:
         return {"year": middle(gen_first, gen_last), "how": "generation", "reliable": True, "first": gen_first,
                 "last": gen_last}
-    year = int((model.get("seen_on") or str(today.year))[:4])
+    year = scrape_year(model) or today.year
     return {"year": year, "how": "catalogue", "reliable": True, "first": year, "last": year}
 
 
@@ -1473,7 +1486,7 @@ def comparison_year(model, claims, estimate):
         allowed = list(sheets)  # the details disagree: they don't rule out any year
     if claimed in allowed:
         return claimed
-    own = int(model["seen_on"][:4]) if model.get("seen_on") else None
+    own = scrape_year(model)
     if not allowed or not claimed and own and (first is None or own >= first) and (last is None or own <= last):
         return None  # our own scrape fits
     return min(allowed, key=lambda y: (abs(y - claimed), -y)) if claimed else middle_year(allowed)
@@ -2005,7 +2018,7 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     german = False
     if model.get("price_eur"):
         original = model["price_eur"]
-        price_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
+        price_year = scrape_year(model)
     else:
         price_year = min(prices, key=lambda y: (abs(y - model_year), -y)) if prices else None
         original, german = prices.get(price_year, (None, False))
@@ -2181,7 +2194,7 @@ def run_check(models, listing, today=None):
     # The spec comparison uses the resolved year's sheet, else the sheet year the estimate allows closest to it.
     year = comparison_year(chosen, dict(claims, year=report["year"]["year"]) if report["year"]["how"] != "catalogue"
                            else claims, report["year_estimate"])
-    report["spec_year"] = year or (int(chosen["seen_on"][:4]) if chosen.get("seen_on") else None)
+    report["spec_year"] = year or scrape_year(chosen)
     report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"],
                                   listing.get("photo_groupset"))
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))

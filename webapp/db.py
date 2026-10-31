@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS models (
     specs TEXT,           -- JSON object, as scraped (Dutch labels)
     image TEXT,           -- path under images/, or NULL
     seen_on TEXT,         -- date of the catalogue snapshot (YYYY-MM-DD)
+    model_year INTEGER,   -- the model year the brand gives the bike in that snapshot, or NULL
     source_file TEXT,
     last_seen TEXT,       -- date of the newest catalogue scrape that listed the model
     latest_scrape TEXT,   -- date of the brand's newest catalogue scrape
@@ -73,7 +74,8 @@ ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("remove
                        ("source", "TEXT")]
 ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
-                 ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT")]
+                 ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT"),
+                 ("model_year", "INTEGER")]
 
 
 def connect(path=None):
