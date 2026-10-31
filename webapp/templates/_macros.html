@@ -53,8 +53,11 @@
     <div class="card-foot">
       <span class="card-place">{% if row.location %}{% call place_link(row.location, row.listing_url, inside_link=True) %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ row.location }}{% endcall %}{% endif %}</span>
       {% if r.model %}<span class="card-dots">
-        {% set looks = [r.age, r.specs]|rejectattr('status', 'equalto', 'ok')|list %}
-        {% for v in looks %}<span class="dot-tag {{ v.status }}">{{ v.headline }}</span>{% else %}<span class="dot-tag ok">{{ _('Adds up') }}</span>{% endfor %}
+        {# Only the one that stands out most, so the place and the pill fit on one line: something wrong before
+           a doubt, a doubt before "can't tell", and "Adds up" when the year and the parts both check out. #}
+        {% set both = [r.age, r.specs] %}
+        {% set top = ((both|selectattr('status', 'equalto', 'bad')|list) + (both|selectattr('status', 'equalto', 'warn')|list) + (both|selectattr('status', 'equalto', 'unknown')|list))|first %}
+        {% if top %}<span class="dot-tag {{ top.status }}" title="{{ top.headline }}"><span>{{ top.headline }}</span></span>{% else %}<span class="dot-tag ok">{{ _('Adds up') }}</span>{% endif %}
       </span>{% endif %}
     </div>
   </div>
