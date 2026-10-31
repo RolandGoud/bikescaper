@@ -1213,43 +1213,52 @@ select { max-width: 100%; }
    let hover show them too. */
 .note-tip:hover::details-content { content-visibility: visible; display: contents; }
 
-/* The listings map (/listings/map): Leaflet with OpenStreetMap tiles turned dark, pins in the verdict colours. */
-.ads-map { height: min(72vh, 720px); min-height: 420px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); z-index: 0; }
-.map-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
-.map-legend span { display: inline-flex; align-items: center; gap: 6px; }
-.map-legend .map-count-note { margin-left: auto; font-family: var(--mono); }
-.map-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); --c: var(--unknown); }
-.map-dot.ok, .map-pin.ok { --c: var(--ok); } .map-dot.warn, .map-pin.warn { --c: var(--warn); }
-.map-dot.bad, .map-pin.bad { --c: var(--bad); } .map-dot.unknown, .map-pin.unknown { --c: var(--unknown); }
-.map-pin { --c: var(--unknown); }
-.map-pin span { display: grid; place-items: center; width: 100%; height: 100%; box-sizing: border-box; border-radius: 50%; background: var(--c); border: 2px solid var(--ink); box-shadow: 0 0 0 2px rgba(255, 255, 255, .15), 0 2px 8px rgba(0, 0, 0, .5); transition: transform .12s; }
-.map-pin.many span { background: var(--ink); color: var(--text); border: 3px solid var(--c); font: 700 12px/1 var(--mono); }
-.map-pin:hover span, .map-pin:focus span { transform: scale(1.15); }
-.leaflet-container { font-family: var(--body); background: var(--ground); }
-.ads-map .leaflet-tile { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.35); }
+/* The listings map (/listings/map): NL and BE as a grid of dots, glowing pins in the verdict colours,
+   and the ads per town beside it. */
+:root { --map-land: #4A4F5B; }
+.ads-map-page { display: grid; grid-template-columns: minmax(340px, 460px) 1fr; gap: 24px; align-items: start; }
+.ads-map-col { position: sticky; top: 16px; display: grid; gap: 12px; }
+.ads-map { aspect-ratio: 3 / 4; width: 100%; border-radius: 14px; border: 1px solid var(--line); z-index: 0; }
+.ads-map.leaflet-container { background: var(--ink); font-family: var(--body); }
 .ads-map.leaflet-container .leaflet-control-attribution { background: rgba(12, 13, 16, .75); color: var(--muted); }
 .ads-map.leaflet-container .leaflet-control-attribution a { color: var(--link); }
 .ads-map .leaflet-bar a { background: var(--card); color: var(--text); border-color: var(--line); }
-.leaflet-container a.map-ad { color: var(--text); }
-.map-popup .leaflet-popup-content-wrapper, .map-popup .leaflet-popup-tip { background: var(--card); color: var(--text); border: 1px solid var(--line-strong); }
-.map-popup .leaflet-popup-content { margin: 12px; }
-.map-popup a.leaflet-popup-close-button { color: var(--muted); }
-.map-pop { display: grid; gap: 6px; max-height: 340px; overflow-y: auto; }
-.map-pop-place { font: 600 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); padding-right: 16px; }
-.map-ad { display: grid; grid-template-columns: 64px 1fr; gap: 10px; align-items: center; padding: 6px; margin: 0 -6px; border-radius: 8px; text-decoration: none; }
-.map-ad:hover, .map-ad:focus { background: var(--raised); }
-.map-ad-photo { width: 64px; height: 48px; border-radius: 6px; background: var(--raised); overflow: hidden; }
+.ads-map .leaflet-bar a.leaflet-disabled { background: var(--raised); color: var(--line-strong); }
+.map-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.map-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.map-border { width: 22px; height: 0; border-top: 3px dotted var(--accent); }
+.map-dot, .map-pin { --c: var(--unknown); }
+.map-dot.ok, .map-pin.ok { --c: var(--ok); } .map-dot.warn, .map-pin.warn { --c: var(--warn); } .map-dot.bad, .map-pin.bad { --c: var(--bad); }
+.map-pin span { display: grid; place-items: center; width: 100%; height: 100%; box-sizing: border-box; border-radius: 50%; background: var(--c); border: 2px solid var(--ground); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 25%, transparent), 0 0 18px var(--c); transition: transform .12s; }
+.map-pin.many span { background: var(--ink); color: var(--text); border: 0; font: 700 12px/1 var(--mono); box-shadow: 0 0 16px color-mix(in srgb, var(--c) 60%, transparent); }
+.map-pin:hover span, .map-pin:focus span, .map-pin.hover span { transform: scale(1.2); }
+.map-pin.on span { transform: scale(1.3); box-shadow: 0 0 0 3px var(--accent), 0 0 18px var(--c); }
+.map-towns { display: grid; gap: 14px; }
+.map-towns-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.map-town { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 6px; transition: border-color .15s, box-shadow .15s; scroll-margin: 16px; }
+.map-town.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.map-town-name { display: flex; align-items: center; justify-content: space-between; font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 8px 10px 4px; margin: 0; }
+.map-town-name button { all: unset; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; color: var(--text); }
+.map-town-name button:hover, .map-town-name button:focus-visible { color: var(--link); }
+.map-town-name svg { width: 14px; height: 14px; }
+.map-ad { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; padding: 8px; border-radius: 10px; text-decoration: none; color: var(--text); }
+.map-ad:hover, .map-ad:focus-visible { background: var(--raised); }
+.map-ad-photo { width: 96px; height: 68px; border-radius: 8px; background: var(--raised); overflow: hidden; }
 .map-ad-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .map-ad-photo.catalogue { background: var(--photo-bg); } .map-ad-photo.catalogue img { object-fit: contain; }
-.map-ad-body { display: grid; gap: 2px; min-width: 0; }
-.map-ad-top { display: flex; gap: 8px; align-items: center; }
-.map-ad-price { font-size: 15px; }
-.map-ad-verdict { font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .03em; padding: 2px 6px; border-radius: 5px; background: var(--raised); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.map-ad-verdict.ok { background: var(--ok-bg); color: var(--ok); } .map-ad-verdict.warn { background: var(--warn-bg); color: var(--warn); }
-.map-ad-verdict.bad { background: var(--bad-bg); color: var(--bad); }
-.map-ad-name { font-weight: 600; font-size: 14px; line-height: 1.25; }
-.map-ad-title { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-@media (max-width: 640px) { .ads-map { height: 70vh; min-height: 360px; } .map-legend .map-count-note { margin-left: 0; width: 100%; } }
+.map-ad-body { display: grid; gap: 3px; min-width: 0; }
+.map-ad-top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; } .map-ad-top b { font-size: 18px; }
+.map-verdict { font: 600 11px var(--mono); letter-spacing: .03em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--raised); color: var(--muted); }
+.map-verdict.ok { background: rgba(52, 211, 153, .15); color: var(--accent); } .map-verdict.warn { background: var(--warn-bg); color: var(--warn); } .map-verdict.bad { background: var(--bad-bg); color: var(--bad); }
+.map-ad-name { font-weight: 600; }
+.map-ad-title { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 860px) {
+  .ads-map-page { grid-template-columns: 1fr; }
+  .ads-map-col { position: static; }
+  .ads-map { aspect-ratio: auto; height: 70vh; max-height: 560px; }
+}
+@media (max-width: 480px) { .map-ad { grid-template-columns: 76px 1fr; gap: 10px; } .map-ad-photo { width: 76px; height: 56px; } }
 /* An ad's town, linking to the listings map opened there. */
 .place-link { color: inherit; cursor: pointer; text-decoration: underline dotted; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
 .place-link:hover, .place-link:focus-visible { color: var(--link); text-decoration-color: currentColor; }
