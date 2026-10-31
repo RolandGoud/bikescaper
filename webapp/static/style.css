@@ -548,7 +548,6 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .nowrap { white-space: nowrap; }
 .source-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 10px; border-radius: 999px; background: #fff; color: #2D3C4D; text-decoration: none; vertical-align: -5px; line-height: 1; transition: box-shadow .15s; }
 .source-chip img { display: block; height: 13px; width: auto; }
-.source-chip b { font: 700 13px/1 var(--body); letter-spacing: .01em; color: #2D3C4D; }
 .source-chip span { font-size: 12px; font-weight: 700; }
 .source-chip:hover, .source-chip:focus-visible { box-shadow: 0 0 0 2px var(--accent); color: #2D3C4D; }
 .listing-head .ad-title { margin: 4px 0 12px; color: var(--muted); font-size: 15px; font-style: italic; }
