@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_dot, aged_chip, brand_label %}
 {% from "_macros.html" import asking_box, model_card, matched_ads with context %}
-{% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
+{% block title %}{{ m.brand }} {{ m.name|model_title }} · Bike Compare{% endblock %}
 {% macro note(text) -%}
 <details class="note-tip"><summary aria-label="{{ _('More info') }}">i</summary><p>{{ text }}</p></details>
 {%- endmacro %}
@@ -27,7 +27,7 @@
           {% else %}<div class="v small">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
 </div>{% endset %}
 <main class="wrap page">
-  <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name }}</div>
+  <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name|model_title }}</div>
   <section class="card listing-head">
     {# The current photo, and when we have them the photo of each earlier model year: thumbnails from
        the oldest to the current bike, which is shown first. #}
@@ -71,7 +71,7 @@
         {% set shot = (t.colour_images or {}).get((t.colours or [''])[0]) or t.image %}
         <button type="button" class="gallery-thumb" aria-pressed="false" data-year="{{ t.year }}" data-src="{{ url_for('images', path=shot) }}"{% if t.colour_angles %} data-angles='{{ t.colour_angles|tojson }}'{% endif %}
                 data-colours="{{ (t.colours or [])|join(', ') }}">{{ year_facts(t) }}
-          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span><span class="gallery-n"></span></button>
+          <img src="{{ url_for('images', path=t.image) }}" alt="{{ m.brand }} {{ m.name|model_title }} {{ t.year }}" loading="lazy"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}><span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span><span class="gallery-n"></span></button>
         {% else %}
         <button type="button" class="gallery-thumb empty" aria-pressed="false" data-year="{{ t.year }}" data-src=""
                 data-colours="{{ (t.colours or [])|join(', ') }}"
@@ -93,7 +93,7 @@
         {% for t in slots|reverse %}{{ year_thumb(t) }}{% endfor %}
       </div>
       <div class="gallery-main">
-      <div class="photo" id="model-photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=gallery[-1].image) }}" alt="{{ m.brand }} {{ m.name }} {{ gallery[-1].year }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}
+      <div class="photo" id="model-photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=gallery[-1].image) }}" alt="{{ m.brand }} {{ m.name|model_title }} {{ gallery[-1].year }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}
         <div class="gallery-empty" id="gallery-empty" hidden>{{ placeholder }}<span>{{ _('Still looking for a good photo of this year.') }}</span></div>
         <span class="gallery-chip" id="gallery-chip">{{ own_year }}</span>
         <span class="gallery-count" id="gallery-count" hidden></span>
@@ -121,7 +121,7 @@
       <div class="lb-empty" hidden>{{ _('Still looking for a good photo of this year.') }}</div>
       <div class="lb-count" aria-live="polite"></div>
       <div class="lb-label"><span class="gallery-chip lb-year"></span>{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }}
-        <span class="lb-name">{{ m.name }}</span><span class="lb-colour"></span></div>
+        <span class="lb-name">{{ m.name|model_title }}</span><span class="lb-colour"></span></div>
       <button class="lb-close" type="button" aria-label="{{ _('Close') }}" autofocus>×</button>
       <button class="lb-prev" type="button" aria-label="{{ _('Previous photo') }}">‹</button>
       <button class="lb-next" type="button" aria-label="{{ _('Next photo') }}">›</button>
@@ -129,7 +129,7 @@
     {% endif %}
     <div class="info">
       <div class="mono muted model-kicker">{{ brand_label({'name': m.brand|upper, 'logo': logos.get(m.brand)}) }} · {{ _(discipline) }}</div>
-      <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px" data-fact="title">{{ m.name }}</h1>
+      <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px" data-fact="title">{{ m.name|model_title }}</h1>
       <div class="price" data-fact="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       {% set parts = key_parts(specs, tiers.rows) %}
       {% if parts or year_tabs|selectattr('specs')|list %}<div class="key-parts" data-fact="parts">{% if parts %}{{ parts_list(parts) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }}</p>{% endif %}</div>{% endif %}

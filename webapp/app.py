@@ -199,6 +199,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["photo_colour"] = seed.photo_colour  # the frame's colour in a photo, for a name we can't read
     app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.filters["without_generation"] = checks.without_generation
+    app.jinja_env.filters["model_title"] = checks.model_title  # the model's name as shown: without "Shimano"
     app.jinja_env.globals["ad_title"] = ad_title.parts
     app.jinja_env.filters["no_brand"] = ad_title.without_brand
 
@@ -513,7 +514,7 @@ def create_app(db_path=None):
                                              "place": row["location"], "ads": []})
             pin["ads"].append({
                 "url": url_for("report", check_id=row["id"]),
-                "name": f"{model['brand']} {model['name']}" if model else row["title"],
+                "name": f"{model['brand']} {checks.model_title(model['name'])}" if model else row["title"],
                 "title": ad_title.without_brand(row["title"], model["brand"]) if model else None,
                 "price": eur(row["asking_price"]) if row["asking_price"] else None,
                 "status": result["value"]["status"] if model else "unknown",

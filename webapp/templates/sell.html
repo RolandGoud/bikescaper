@@ -103,14 +103,14 @@
   <div class="match-box sell-match">
     <div class="match-photo">{{ photo(r.model) }}</div>
     <span>{{ _('Recognised as') }}</span>
-    <a href="{{ url_for('model_page', slug=r.model.slug) }}" style="font-weight: 700">{{ r.model.brand }} {{ r.model.name }}</a>
+    <a href="{{ url_for('model_page', slug=r.model.slug) }}" style="font-weight: 700">{{ r.model.brand }} {{ r.model.name|model_title }}</a>
     {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>{% elif r.confidence %}<span class="mono muted">{{ _('{level} confidence', level=r.confidence) }}</span>{% endif %}
     <div class="match-pick">
       <label class="sr-only" for="model_id">{{ _('Other model') }}</label>
       <select id="model_id" name="model_id" form="sell-form" data-autosubmit>
-        {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
+        {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
         <optgroup label="{{ _('All models') }}">
-        {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
+        {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
         </optgroup>
       </select>
       <button class="btn ghost" type="submit" form="sell-form">{{ _('Other model') }}</button>
@@ -135,7 +135,7 @@
             <span class="v">
             {% if f.key == 'year' and f.source != 'draft' %}
               <select name="year" form="sell-form" data-autosubmit aria-label="{{ f.label }}"><option value="">{{ _('Pick…') }}</option>{% for y in f.options %}<option {{ 'selected' if y == f.value }}>{{ y }}</option>{% endfor %}</select>
-              {% if f.hint %}<span class="small muted">{{ _('{name}: {years}', name=r.model.name, years=f.hint) }}</span>{% endif %}
+              {% if f.hint %}<span class="small muted">{{ _('{name}: {years}', name=(r.model.name|model_title), years=f.hint) }}</span>{% endif %}
               {% if f.guess %}<span class="year-guess">
                 <b>{{ _('Your text points to {years}', years=f.guess.years) }}</b>
                 {% if f.guess.likely|length <= 4 %}{% for y in f.guess.likely %}<button class="pill{{ ' on' if y == f.value }}" type="submit" form="sell-form" name="use_year" value="{{ y }}">{{ y }}</button>{% endfor %}{% endif %}

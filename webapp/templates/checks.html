@@ -14,7 +14,7 @@
         {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% elif row.photos %}<div class="photo"><img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
         {{ removed_banner(row) }}
       </a>
-      <div class="check-row-title">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ row.title }}{% endif %}</div>
+      <div class="check-row-title">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</div>
       {% if r.model %}<div class="ad-title">“{{ row.title|no_brand(r.model.brand) }}”</div>{% endif %}
       <div class="small muted">{% if row.listing_url %}<a href="{{ row.listing_url }}" rel="noopener nofollow">{{ row.listing_url.split('/')[2] if '//' in row.listing_url else row.listing_url }}</a>{% else %}{{ _('No link') }}{% endif %} · {{ _('read from the link') if row.photos else _('typed in') }}</div>
       {% if row.description %}<div class="small muted clamp">{{ row.description }}</div>{% endif %}
@@ -27,7 +27,7 @@
     </div>
     <div class="check-table">
       {% if r.model %}
-      <div class="check-line"><span class="verdict-topic">{{ _('Model') }}</span><span class="check-out"><a href="{{ url_for('model_page', slug=r.model.slug) }}">{{ r.model.brand }} {{ r.model.name }}</a></span><span class="check-num">{% if r.chosen_by_you %}{{ _('picked by the visitor') }}{% elif r.confidence %}{{ _('{level} confidence', level=r.confidence) }}{% endif %}</span></div>
+      <div class="check-line"><span class="verdict-topic">{{ _('Model') }}</span><span class="check-out"><a href="{{ url_for('model_page', slug=r.model.slug) }}">{{ r.model.brand }} {{ r.model.name|model_title }}</a></span><span class="check-num">{% if r.chosen_by_you %}{{ _('picked by the visitor') }}{% elif r.confidence %}{{ _('{level} confidence', level=r.confidence) }}{% endif %}</span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Price') }}</span><span class="verdict-outcome {{ r.value.status }}">{{ icon(r.value.status) }}{{ r.value.headline }}</span><span class="check-num">{% if r.value.low %}{{ _('fair {low}–{high}', low=r.value.low|eur, high=r.value.high|eur) }} · {% endif %}{{ _('new {price}', price=r.model.price_eur|eur) }}</span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Market') }}</span><span class="check-out"{% if not (asking and asking.enough) %} title="{{ _('Not enough ads yet for a reliable median price.') }}"{% endif %}>{% if asking and asking.enough %}{{ asking.median|eur }}{% elif asking and asking.count %}{{ _('{n} other ad' if asking.count == 1 else '{n} other ads', n=asking.count) }}{% else %}{{ _('No other ads yet') }}{% endif %}</span><span class="check-num">{{ _('second-hand median') }}{% if asking and asking.enough %} · {{ _('{n} ads, {days} days', n=asking.count, days=asking.days) }}{% endif %}</span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Year') }}</span><span class="verdict-outcome {{ r.age.status }}">{{ icon(r.age.status) }}{{ r.age.headline }}</span><span class="check-num">{% if r.year_estimate %}{{ _('From the details: {v}', v=r.year_estimate.headline) }}{% endif %}</span></div>

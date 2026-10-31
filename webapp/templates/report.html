@@ -25,7 +25,7 @@
       {# The bike we matched as the title, the seller's own title under it; without a match the ad's title cleaned up. #}
       {% set removed %}{% if listing.removed_at %} <span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span>{% endif %}{% endset %}
       {% if r.model %}
-      <h1>{{ r.model.brand }} {{ r.model.name }}</h1>
+      <h1>{{ r.model.brand }} {{ r.model.name|model_title }}</h1>
       <div class="ad-title" title="{{ _('Original ad title: {title}', title=listing.title) }}">“{{ listing.title|no_brand(r.model.brand) }}”{{ removed }}</div>
       {% else %}
       {% set lead, rest = ad_title(listing.title, r.model) %}
@@ -45,7 +45,7 @@
       <div class="match-box">
         <div class="mono muted mb-k">{{ _('Matched to')|upper }}</div>
         <div class="mb-row">
-          <a class="mb-name" href="{{ url_for('model_page', slug=r.model.slug) }}" title="{{ r.model.brand }} {{ r.model.name }}">{{ r.model.name }}</a>
+          <a class="mb-name" href="{{ url_for('model_page', slug=r.model.slug) }}" title="{{ r.model.brand }} {{ r.model.name|model_title }}">{{ r.model.name|model_title }}</a>
           {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>
           {% elif mt %}
           <div class="mb-meter{{ ' ' ~ ('hi' if mt.pct >= 80 else 'mid' if mt.pct >= 50 else 'lo') }}">
@@ -104,7 +104,7 @@
             <button class="mp-cand{{ ' ours' if m.model.id == r.model.id }}" type="submit">
               {% if m.model.id == r.model.id %}<span class="mp-ours">✓ {{ (_('Chosen by you') if r.chosen_by_you else _('Our pick'))|upper }}</span>{% endif %}
               <span class="mp-photo">{{ photo(m.model) }}</span>
-              <span class="mp-text"><span class="n">{{ m.model.name }}</span>
+              <span class="mp-text"><span class="n">{{ m.model.name|model_title }}</span>
                 <span class="match-bar" style="--p: {{ m.pct }}"><i></i></span>
                 <span class="mono muted">{{ _('fits: {words}', words=m.found|join(' · ')) if m.found else _('no model words in the ad') }}</span></span>
               <span class="mp-pct {{ 'hi' if m.pct >= 80 else 'mid' if m.pct >= 50 else 'lo' }}">{{ m.pct }}%</span>
@@ -115,9 +115,9 @@
             <label class="mono muted" for="model_id">{{ _('Not the right one? Pick a model yourself')|upper }}</label>
             <div class="mp-pick">
               <select id="model_id" name="model_id">
-                {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name }}</option>{% endfor %}
+                {% for m in r.candidates %}<option value="{{ m.id }}" {{ 'selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
                 <optgroup label="{{ _('All models') }}">
-                {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}">{{ m.brand }} {{ m.name }}</option>{% endfor %}
+                {% for m in all_models if m not in r.candidates %}<option value="{{ m.id }}">{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
                 </optgroup>
               </select>
               <button class="btn" type="submit">{{ _('Link') }}</button>
@@ -244,7 +244,7 @@
           {% set likely = y.year in ringed %}
           <div class="gen-year{{ ' has-photo' if y.photo }}{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}{{ ' matched' if y.year == matched }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
             {# A photo that doesn't load falls back to the dot alone, as a year without one. #}
-            {% if y.photo %}<div class="gen-photo"><img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy" draggable="false" onerror="this.parentNode.className='gen-photo gen-blank';this.parentNode.parentNode.classList.remove('has-photo');this.remove()"></div>
+            {% if y.photo %}<div class="gen-photo"><img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or (r.model.name|model_title) }} {{ y.year }}" loading="lazy" draggable="false" onerror="this.parentNode.className='gen-photo gen-blank';this.parentNode.parentNode.classList.remove('has-photo');this.remove()"></div>
             {% else %}<div class="gen-photo gen-blank"></div>{% endif %}
             <span class="gen-dot"></span>
             <span class="gen-y">{{ y.year }}</span>
