@@ -402,7 +402,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 }
 /* The report's check tabs, as folder tabs: the picked tab has its section's colour and flows into it on curved feet; the others sit lower and dimmer. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
-.tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 24px; }  /* a pill's height, so a tab without one lines up with the rest */
 .verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: var(--pill-radius); font: var(--pill-weight) 11px/1 var(--body); }
 .verdict-pill i { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-style: normal; font-size: 11px; color: var(--ink); }
 .verdict-pill.ok { background: rgba(52, 211, 153, .14); color: var(--ok); } .verdict-pill.ok i { background: var(--ok); }

@@ -164,14 +164,13 @@
     {% set v = tab_of[key] %}
     <a href="#{{ key }}" id="tab-{{ key }}" role="tab" aria-controls="{{ key }}" aria-selected="{{ 'true' if key == 'value' else 'false' }}"
        class="report-tab {{ v.status }}-bg{{ ' price' if key == 'value' }}">
-      {% if key == 'value' and r.value.low %}
-      <span class="mono {{ v.status }}">{{ label|upper }}</span>
-      <span class="fair">{{ r.value.low|eur }} – {{ r.value.high|eur }}</span>
-      {% else %}
-      {# The verdict as a pill by the label; the headline says what we found. The detail is in the panel. #}
+      {# The verdict as a pill by the label, on every tab, the price too; the headline says what we found. The detail is in the panel. #}
       <span class="tab-label"><span class="mono {{ v.status }}">{{ label|upper }}</span>
         {% if v.status in ('ok', 'warn', 'bad') %}<span class="verdict-pill {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>{{ {'ok': _('OK'), 'warn': _('Watch out'), 'bad': _('Not OK')}[v.status]|upper }}</span>{% endif %}
         {% if key == 'size' and r.size.fits %}<span class="verdict-pill info"><i aria-hidden="true">↕</i>{{ r.size.fits[0] }}–{{ r.size.fits[1] }} CM</span>{% endif %}</span>
+      {% if key == 'value' and r.value.low %}
+      <span class="fair">{{ r.value.low|eur }} – {{ r.value.high|eur }}</span>
+      {% else %}
       {# One line: a shorter tab headline where the check has one, cut off with … past that; the full line on hover. #}
       <span class="big {{ v.status }}" title="{{ v.headline }}">{{ v.tab_headline or v.headline }}</span>
       {% endif %}
