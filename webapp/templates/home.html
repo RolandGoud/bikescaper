@@ -31,13 +31,17 @@
 {% if cards %}
 <section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
   {# One row of cards; the counter and arrows next to the heading page through it (static/recent-row.js).
-     Without JS the row just scrolls sideways. #}
+     Without JS the row just scrolls sideways. The see-all pill sits outside .row-nav, after the arrows, so it stays
+     when every card fits and the arrows hide. #}
   <div class="row-head">
     <h2>{{ _('Recently checked') }}</h2>
-    <div class="row-nav" hidden>
-      <span class="row-count" aria-live="polite"></span>
-      <button class="nav-btn row-prev" type="button" aria-label="{{ _('Previous ads') }}">‹</button>
-      <button class="nav-btn row-next" type="button" aria-label="{{ _('Next ads') }}">›</button>
+    <div class="row-tools">
+      <div class="row-nav" hidden>
+        <span class="row-count" aria-live="polite"></span>
+        <button class="nav-btn row-prev" type="button" aria-label="{{ _('Previous ads') }}">‹</button>
+        <button class="nav-btn row-next" type="button" aria-label="{{ _('Next ads') }}">›</button>
+      </div>
+      <a class="see-all" href="{{ url_for('listings') }}" aria-label="{{ _('Show all {count} checked ads', count=total) }}"><span class="see-all-long">{{ _('Show all {count}', count=total) }}</span><span class="see-all-short">{{ _('All {count}', count=total) }}</span></a>
     </div>
   </div>
   <div class="recent-row">
@@ -45,7 +49,6 @@
     {% for row, r in cards %}{% if loop.index0 == 2 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}{{ listing_card(row, r) }}{% endfor %}
     {% if cards|length < 3 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}
   </div>
-  <a class="btn wide-btn" href="{{ url_for('listings') }}">{{ _('Show all {count} checked ads', count=total) }}</a>
 </section>
 {% endif %}
 
