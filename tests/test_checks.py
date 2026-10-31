@@ -943,6 +943,14 @@ def test_wheels_named_without_the_word_wheels():
     assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
 
 
+
+def test_wheels_rated_by_their_hubs_and_the_crankset_read():
+    # Check 62: "met naaf 240" is split off the wheels clause, so the whole line rates them.
+    claims = checks.read_claims("Racefiets", "DT swiss wielen met naaf 240\nNieuw crank stel ultegra 52/36\nLengte 172.5")
+    assert claims["wheels"] == {"label": "DT swiss wielen met naaf 240", "tier": 4}
+    assert claims["crankset"] == {"label": "Nieuw crank stel ultegra 52/36", "tier": 4}
+
+
 def test_year_is_always_estimated(models):
     # No clue in the ad: the matched model's years, which can't rule out a stated year (it may be an older
     # generation we don't have).

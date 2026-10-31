@@ -146,7 +146,9 @@ def detect_brand(text):
     return None
 
 
-PART_WORDS = {"wheels": r"wiel|wheel|velg(?!rem)|laufrad", "tyres": r"band|tyre|tire"}
+PART_WORDS = {"wheels": r"wiel|wheel|velg(?!rem)|laufrad", "tyres": r"band|tyre|tire", "crankset": r"crank"}
+# The part tables a claim is rated with: a crankset by its groupset ("crankstel Ultegra") or its own name.
+PART_TABLES = {"crankset": ("groupset", "drivetrain")}
 # Wheelset names that say "wheels" on their own, so "Bontrager Aeolus Pro 37" counts without the word "wielen".
 # Each needs its model or rim depth: a bare "Aeolus" can be a saddle or handlebar.
 WHEEL_NAMES = (r"aeolus\s+(?:rsl|pro|elite|comp)\s*\d{2}\b|zipp\s*\d{3}\b|\b[aepg]rc\s*\d{4}\b"
@@ -162,14 +164,19 @@ def detect_part(text, part):
     doesn't count as carbon wheels.
     """
     # "Zipp 404 wielen en GP5000 banden" is two clauses, so the wheel name doesn't rate the tyres.
-    clauses = re.split(r"[\n.,;!?]+|\s(?:en|and|met|with)\s", text or "")
     words = PART_WORDS[part] + (f"|{WHEEL_NAMES}" if part == "wheels" else "")
+    tables = PART_TABLES.get(part, (part,))
     found = []
-    for clause in clauses:
-        if re.search(words, _plain(clause)):
-            tier = part_tier((part,), clause)
-            if tier:
-                found.append({"label": clause.split(":")[-1].strip(" \t-•*"), "tier": tier})
+    for sentence in re.split(r"[\n.,;!?]+", text or ""):
+        for clause in re.split(r"\s(?:en|and|met|with)\s", sentence):
+            if re.search(words, _plain(clause)):
+                tier = part_tier(tables, clause)
+                label = clause
+                if not tier:
+                    # "DT swiss wielen met naaf 240": the clause names the wheels, the rest of the sentence rates them.
+                    tier, label = part_tier(tables, sentence), sentence
+                if tier:
+                    found.append({"label": label.split(":")[-1].strip(" \t-•*"), "tier": tier})
     # A named wheelset ("Wielen: Bontrager Aeolus Pro 37") says more than an earlier "carbon wielen".
     named = [f for f in found if part == "wheels" and re.search(WHEEL_NAMES, _plain(f["label"]))]
     return (named or found or [None])[0]
@@ -188,6 +195,7 @@ def read_claims(title, description=""):
         "brakes": detect_brakes(text),
         "wheels": detect_part(text, "wheels"),
         "tyres": detect_part(text, "tyres"),
+        "crankset": detect_part(text, "crankset"),
         "condition": detect_condition(text),
         "mentions_upgrades": bool(re.search(r"upgrade|geupgrade|vervangen|nieuwe wielen|ander[e]? wielen|omgebouwd",
                                             _plain(text))),
@@ -1821,9 +1829,9 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, BAD, "Differs"))
 
     for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
-                              ("tyres", "Tyres", ("Buitenband", "Voorband"))):
+                              ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",))):
         ref_val, ad = spec(model, *keys), claims.get(key)
-        ref_tier = part_tier((key,), ref_val) if ref_val else None
+        ref_tier = part_tier(PART_TABLES.get(key, (key,)), ref_val) if ref_val else None
         if ad and ref_tier:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
                 rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier", ad_tier=ad["tier"]))
@@ -1833,7 +1841,7 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows.append(_row(key, part, ref_val or Msg("Not in our data"), ad["label"], UNKNOWN, "Can't compare"))
         elif ref_val:
             rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
-    for key, part, keys in (("crankset", "Crankset", ("Crankstel",)), ("saddle", "Saddle", ("Zadel",))):
+    for key, part, keys in (("saddle", "Saddle", ("Zadel",)),):
         ref_val = spec(model, *keys)
         if ref_val:
             rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
