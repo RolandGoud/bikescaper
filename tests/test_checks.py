@@ -101,6 +101,17 @@ def test_bike_older_than_our_catalogue_has_no_spec_sheet(models):
     assert groupset["ad_tier"] == 3 and groupset["ad_aged"] == {"new": 5, "age": TODAY.year - 2011}
 
 
+def test_old_bike_is_not_like_new_and_shifting_isnt_held_against_it(models):
+    r = run(models, "Canyon Ultimate CF SLX 8 2011", "Campagnolo Record mechanisch, velgremmen\nConditie: Zo goed als nieuw", 1500)
+    assert r["claims"]["condition"] == "like-new"
+    assert en(r["value"]["condition"]) == "Normal use"
+    assert any("isn't, so we count it as normal use" in en(n) for n in r["value"]["notes"])
+    assert r["model"]["name"] == "Ultimate CF SLX 8 AXS" and r["year"]["how"] == "older"
+    assert r["match"]["shifting"] is None  # an older generation may shift otherwise than today's AXS
+    recent = run(models, "Canyon Ultimate CF SLX 8 AXS 2022", "Conditie: Zo goed als nieuw", 4000)
+    assert en(recent["value"]["condition"]) == "like new"
+
+
 def test_spec_comparison_ages_both_groupsets(models):
     model = dict(next(m for m in models if m["name"] == "Ultimate CF SLX 8 Di2"), spec_year=2015)
     claims = checks.read_claims("Canyon Ultimate", "Shimano Dura-Ace")

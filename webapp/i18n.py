@@ -1218,4 +1218,6 @@ NL = {
     "No spec sheet": "Geen specificaties",
     "The oldest {name} we know is a later generation, and we don't have the spec sheet of the {year} bike, so we can't compare its parts with the original.":
         "De oudste {name} die we kennen is een latere generatie en we hebben de specificaties van de fiets uit {year} niet, dus we kunnen de onderdelen niet met het origineel vergelijken.",
+    "The ad says like new, but a bike {age} years old isn't, so we count it as normal use.":
+        "De advertentie zegt als nieuw, maar een fiets van {age} jaar oud is dat niet, dus we rekenen met normaal gebruik.",
 }
