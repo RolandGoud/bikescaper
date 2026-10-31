@@ -19,6 +19,9 @@ services:
       UPDATE_MINUTES: "10"   # how often to check GitHub for new code; "0" turns it off
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
+      # To read the groupset from the ad's photos when the ad doesn't name it (Claude API, about 2-4 cents
+      # per check, once per check), fill in a key from console.anthropic.com and remove the #:
+      # ANTHROPIC_API_KEY: sk-ant-...
       # To let people mail themselves their check report, fill these in and remove the #:
       # SMTP_HOST: smtp.gmail.com
       # SMTP_PORT: "587"

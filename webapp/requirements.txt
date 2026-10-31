@@ -4,3 +4,4 @@ gunicorn==23.0.0
 reportlab==4.2.5
 numpy==2.5.3
 pillow==12.3.0
+anthropic==2.3.0

@@ -1,0 +1,79 @@
+{
+ "_about": "The groupset seen in a checked ad's photos, read by eye, for ads whose text doesn't name it (see webapp/photo_groupset.py). Keyed like fetch_ad.ad_key. Same fields as an automatic read: brand, series, model_code, speeds, electronic, confidence (high/medium/low), evidence_en, evidence_nl. An entry here wins over the automatic read, so it also corrects one.",
+ "marktplaats:m2459123766": {
+  "brand": "SRAM",
+  "series": "Rival",
+  "model_code": "AXS",
+  "speeds": 12,
+  "electronic": true,
+  "confidence": "high",
+  "photos": [
+   4,
+   5
+  ],
+  "evidence_en": "Photo 5: rear derailleur printed RIVAL with the AXS battery on top; photo 4: SRAM front derailleur with battery and a Rival AXS crank with power meter.",
+  "evidence_nl": "Foto 5: achterderailleur met RIVAL erop en de AXS-accu bovenop; foto 4: SRAM-voorderailleur met accu en een Rival AXS-crank met vermogensmeter.",
+  "seen_on": "2026-10-31"
+ },
+ "marktplaats:m2455946444": {
+  "brand": "Shimano",
+  "series": "Claris",
+  "model_code": "R2000",
+  "speeds": 8,
+  "electronic": false,
+  "confidence": "high",
+  "photos": [
+   3,
+   4
+  ],
+  "evidence_en": "Photo 4: rear derailleur printed Claris; photo 3: the Claris 2x8 crankset.",
+  "evidence_nl": "Foto 4: achterderailleur met Claris erop; foto 3: het Claris 2x8-crankstel.",
+  "seen_on": "2026-10-31"
+ },
+ "marktplaats:m2458830716": {
+  "brand": "Shimano",
+  "series": "105",
+  "model_code": "R7150",
+  "speeds": 12,
+  "electronic": true,
+  "confidence": "high",
+  "photos": [
+   2,
+   7,
+   8
+  ],
+  "evidence_en": "Photo 8: 12-speed 105 crank and a wireless Di2 front derailleur; photo 7: Di2 rear derailleur, no shift cables.",
+  "evidence_nl": "Foto 8: 12-speed 105-crank en een draadloze Di2-voorderailleur; foto 7: Di2-achterderailleur, geen schakelkabels.",
+  "seen_on": "2026-10-31"
+ },
+ "marktplaats:m2454518868": {
+  "brand": "Campagnolo",
+  "series": "Centaur",
+  "model_code": null,
+  "speeds": 11,
+  "electronic": false,
+  "confidence": "medium",
+  "photos": [
+   4,
+   5
+  ],
+  "evidence_en": "Photo 4: rear derailleur printed CENTAUR (Campagnolo); photo 5: the crank is a Shimano 105 5800, so the drivetrain is mixed.",
+  "evidence_nl": "Foto 4: achterderailleur met CENTAUR erop (Campagnolo); foto 5: de crank is een Shimano 105 5800, dus de aandrijving is gemengd.",
+  "seen_on": "2026-10-31"
+ },
+ "marktplaats:m2459439729": {
+  "brand": "Shimano",
+  "series": "105",
+  "model_code": "R7000",
+  "speeds": 11,
+  "electronic": false,
+  "confidence": "medium",
+  "photos": [
+   1,
+   2
+  ],
+  "evidence_en": "Photos 1 and 2: 11-speed Shimano 105 R7000 crank and rear derailleur (shape and the 105 print on the crank arm).",
+  "evidence_nl": "Foto 1 en 2: 11-speed Shimano 105 R7000-crank en -achterderailleur (vorm en de 105-opdruk op de crankarm).",
+  "seen_on": "2026-10-31"
+ }
+}
