@@ -86,8 +86,9 @@ def detect_year(text):
     low = _plain(text)
     keyed = re.search(
         r"(bouwjaar|modeljaar|model\s*jaar|model|jaar|year|uit|van|gekocht\s+in|aangeschaft\s+in|aankoop|frame"
-        r"|\bca\b|circa|omstreeks|ongeveer)\D{0,12}"
-        r"((?:19[89]|20[0-3])\d)\b",
+        r"|\bca\b|circa|omstreeks|ongeveer)[^\d€]{0,12}"
+        # Not a distance, price or other amount: "ongeveer 2000 km", "ca. 2100 euro", "van 2000,-".
+        r"((?:19[89]|20[0-3])\d)\b(?![.,]\d|\s*(?:km|kilomet|euro|eur\b|,-|\.-|€|gram|gr\b|g\b|watt|w\b|mm|cm))",
         low,
     )
     if keyed:
