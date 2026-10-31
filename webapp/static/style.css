@@ -205,6 +205,11 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .tile-icon .part-icon { width: 24px; height: 24px; color: inherit; }
 .listing-card { text-decoration: none; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
 .listing-card:hover { color: var(--text); border-color: var(--line-strong); }
+/* The ad's site, bottom left on the tile photo. */
+.tile-photo { position: relative; }
+.site-mark { position: absolute; left: 10px; bottom: 10px; z-index: 1; display: flex; align-items: center; padding: 5px 8px; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(16, 17, 20, .25); pointer-events: none; }
+.site-mark img { display: block; height: 11px; width: auto; }
+.tile-photo:has(.duo) .site-mark { bottom: 42px; }  /* above the duo's Ad / Catalogue labels, which slide along the bottom */
 .listing-card .photo { aspect-ratio: 16 / 9; background: var(--photo-bg); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
 .listing-card .photo img { width: 100%; height: 100%; object-fit: contain; }
 .listing-card .body { flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 10px; }

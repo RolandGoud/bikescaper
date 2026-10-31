@@ -285,6 +285,7 @@ NL = {
     # report
     "Check report": "Checkrapport",
     "PASTED AD": "GEPLAKTE ADVERTENTIE",
+    "Found on {site}": "Gevonden op {site}",
     "checked {date}": "gecheckt op {date}",
     "Matched to": "Gekoppeld aan",
     "{level} confidence": "zekerheid: {level}",

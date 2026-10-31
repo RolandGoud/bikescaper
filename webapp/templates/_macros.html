@@ -25,6 +25,19 @@
 {% if logos.get(brand) %}<span class="brand-mark" role="img" aria-label="{{ brand }}" style="--logo: url('{{ url_for('static', filename=logos[brand]) }}')"></span>{% elif brand %}<span class="brand-mark text">{{ brand }}</span>{% endif %}
 {%- endmacro %}
 
+{# The site we found the ad on (Marktplaats or 2dehands), its logo on a white pill, bottom left of an ad tile's photo. #}
+{# 2ememain is 2dehands' French-language site, so it shows the 2dehands logo under its own name. #}
+{% macro site_name(url) -%}
+{{ 'Marktplaats' if url and 'marktplaats' in url else ('2dehands' if url and '2dehands' in url else ('2ememain' if url and '2ememain' in url else '')) }}
+{%- endmacro %}
+{% macro site_logo(name) -%}
+{{ url_for('static', filename='logos/marktplaats.svg' if name == 'Marktplaats' else 'logos/2dehands.svg') }}
+{%- endmacro %}
+{% macro site_mark(url) -%}
+{% set site = site_name(url) %}
+{% if site %}<span class="site-mark"><img src="{{ site_logo(site) }}" alt="{{ _('Found on {site}', site=site) }}" title="{{ _('Found on {site}', site=site) }}" height="11"></span>{% endif %}
+{%- endmacro %}
+
 {# An ad's town, linking to the listings map opened there (when the map knows the place). Inside another
    link (a card) it can't be an <a>, so it's a span that static/place-links.js makes clickable. #}
 {% macro place_link(place, url=None, inside_link=False) -%}
@@ -41,7 +54,10 @@
 {% set ad = split_title(row.title) %}
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
+  <div class="tile-photo">
   {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
+  {{ site_mark(row.listing_url) }}
+  </div>
   <div class="body">
     <div class="card-price">
       <span class="price">{{ row.asking_price|eur if row.asking_price else '–' }}</span>
