@@ -106,6 +106,12 @@ TIER_EXAMPLES = {
     5: "Shimano Dura-Ace, SRAM Red, the brand's top carbon (OCLV 900, CFR), flagship wheels such as Aeolus RSL.",
 }
 
+# Older groupsets rate lower: Shimano and SRAM bring a new generation about every four to five years, and each one
+# passes its features a step down the range (today's 105 shifts like the Ultegra of one generation ago). A bike's
+# groupset drops one tier for every GROUPSET_AGE_STEP years of age, at most GROUPSET_AGE_MAX_DROP tiers, never below 1.
+GROUPSET_AGE_STEP = 5
+GROUPSET_AGE_MAX_DROP = 2
+
 # Groupsets with their tier. Sub-series of one groupset share a key (GRX 600 and GRX 800 are both
 # "grx"), so the listing check sees the same groupset but can still tell a step up or down.
 GROUPSETS = [

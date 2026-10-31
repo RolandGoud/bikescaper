@@ -13,7 +13,7 @@ from . import colour_match
 from .i18n import Msg, join, join_list
 from .reference import (BRAND_ALIASES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
-                        GENERIC_SIZE_CHART, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
+                        GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
                         RIM_BRAKE_LAST_YEAR, SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
                         WEIGHT_TIERS)
 
@@ -381,15 +381,17 @@ def year_tabs(model, today=None):
         tab["generation"] = generations.get(year)
         if sheet:
             this = dict(model, specs=sheet)
-            tab["specs"], tab["tiers"] = spec_groups(this), spec_tiers(this)
+            tab["specs"], tab["tiers"] = spec_groups(this), spec_tiers(this, year, today)
             values = {en: v for _g, rows in tab["specs"] for en, _nl, v in rows}
             tab["changed"] = set() if before is None else {
                 en for en in values.keys() | before.keys() if not _same(values.get(en, ""), before.get(en, ""))}
-            # A changed part rated both years is an upgrade or a downgrade on the year before.
-            tab["moves"] = {en: "up" if tab["tiers"]["rows"][en] > before_tiers[en] else "down"
-                            for en in tab["changed"] if en in tab["tiers"]["rows"] and en in (before_tiers or {})
-                            and tab["tiers"]["rows"][en] != before_tiers[en]}
-            before, before_tiers = values, tab["tiers"]["rows"]
+            # A changed part rated both years is an upgrade or a downgrade on the year before. Parts are compared
+            # as new: the age drop differs between the years and says nothing about the part itself.
+            as_new = dict(tab["tiers"]["rows"], **{en: a["new"] for en, a in tab["tiers"]["aged"].items()})
+            tab["moves"] = {en: "up" if as_new[en] > before_tiers[en] else "down"
+                            for en in tab["changed"] if en in as_new and en in (before_tiers or {})
+                            and as_new[en] != before_tiers[en]}
+            before, before_tiers = values, as_new
         tabs.append(tab)
     _same_order(tabs)
     return tabs
@@ -413,17 +415,41 @@ def _same_order(tabs):
 
 def part_tier(parts, text):
     """The tier (1-5) of a part from its spec text, trying each part table in turn, or None."""
+    return _part_tier(parts, text)[0]
+
+
+def _part_tier(parts, text):
+    """(tier, the part table that rated it) or (None, None)."""
     low = _plain(html.unescape(text or ""))
     for part in parts:
         if part == "groupset":
             found = detect_groupset(low)
             if found:
-                return found["tier"]
+                return found["tier"], part
             continue
         for tier, pattern in PART_TIERS[part]:
             if re.search(pattern, low):
-                return tier
-    return None
+                return tier, part
+    return None, None
+
+
+def groupset_age_drop(year, today=None):
+    """How many tiers a groupset on a bike of model `year` drops for its age: one per GROUPSET_AGE_STEP years,
+    at most GROUPSET_AGE_MAX_DROP. 0 without a year."""
+    if not year:
+        return 0
+    age = (today or date.today()).year - int(year)
+    return max(0, min(GROUPSET_AGE_MAX_DROP, age // GROUPSET_AGE_STEP))
+
+
+def sheet_year(model):
+    """The model year of the model's own spec sheet: its newest archived sheet for a line the brand no longer
+    sells, otherwise the year we scraped it. None when nothing tells us."""
+    if "years/archived/" in (model.get("source_file") or ""):
+        sheets = [int(y) for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("specs")]
+        if sheets:
+            return max(sheets)
+    return int(model["seen_on"][:4]) if model.get("seen_on") else None
 
 
 def weight_kg(text):
@@ -466,15 +492,22 @@ def key_parts(specs, tier_rows=None, limit=4):
     return parts[:limit]
 
 
-def spec_tiers(model):
+def spec_tiers(model, year=None, today=None):
     """Tiers for the model's spec sheet: {"rows": {english label: tier}, "groups": {group label: tier},
-    "overall": tier or None, "lagging": [group labels two or more tiers below the overall]}.
+    "overall": tier or None, "lagging": [group labels two or more tiers below the overall],
+    "aged": {english label: {"new": tier when new, "age": years}}, "age": years or None}.
 
     A group's tier is the rounded mean of its rated rows; the overall tier weighs the groups by
     TIER_WEIGHTS. The frame group counts the frame itself, not the fork, when the frame is rated.
     Without a rated frame or drivetrain there is no overall tier.
+
+    `year` is the sheet's model year (sheet_year of the model when not given). Rows rated by their groupset
+    name drop a tier or two for the bike's age (groupset_age_drop); "aged" lists them with their tier new.
     """
-    rows, by_group, frame = {}, {}, []
+    year = year or sheet_year(model)
+    drop = groupset_age_drop(year, today)
+    age = (today or date.today()).year - year if year else None
+    rows, by_group, frame, aged = {}, {}, [], {}
     for raw, value in model["specs"].items():
         group, en, _nl = SPEC_LABELS.get(raw, ("other", raw, raw))
         if "Motor" not in model["specs"]:
@@ -485,7 +518,10 @@ def spec_tiers(model):
             tier = weight_tier(model, str(value))
         elif raw in SPEC_PARTS:
             text = f"{value} {model['name']}" if SPEC_PARTS[raw] == ("frame",) else str(value)
-            tier = part_tier(SPEC_PARTS[raw], text)
+            tier, part = _part_tier(SPEC_PARTS[raw], text)
+            if tier and part == "groupset" and drop and tier > 1:
+                aged[en] = {"new": tier, "age": age}
+                tier = max(1, tier - drop)
         else:
             tier = None
         if tier:
@@ -502,7 +538,8 @@ def spec_tiers(model):
         overall = _round(sum(w * t for w, t in weighted) / sum(w for w, _t in weighted))
     labels = dict(SPEC_GROUPS)
     return {"rows": rows, "groups": {labels[k]: t for k, t in groups.items()}, "overall": overall,
-            "lagging": [labels[k] for k, t in groups.items() if overall and t <= overall - 2]}
+            "lagging": [labels[k] for k, t in groups.items() if overall and t <= overall - 2],
+            "aged": aged, "age": age}
 
 
 def model_tier(model):
