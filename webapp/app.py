@@ -18,7 +18,8 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
-from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
+from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
+                        TIERS)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
@@ -153,6 +154,8 @@ def create_app(db_path=None):
                 pass
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["age_step"] = GROUPSET_AGE_STEP
+    app.jinja_env.globals["age_max_drop"] = GROUPSET_AGE_MAX_DROP
     app.jinja_env.globals["size_systems"] = checks.size_systems
     app.jinja_env.globals["split_title"] = checks.split_title
     app.jinja_env.globals["key_parts"] = checks.key_parts

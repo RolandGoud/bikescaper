@@ -502,6 +502,24 @@ def test_report_shows_tiers_and_part_icons(tmp_path):
     assert "<span>Matches</span>" not in page  # ...instead of the word
 
 
+@pytest.mark.parametrize("year,drop", [(None, 0), (2026, 0), (2022, 0), (2021, 1), (2017, 1), (2016, 2), (2005, 2)])
+def test_groupsets_drop_a_tier_for_every_five_years(year, drop):
+    assert checks.groupset_age_drop(year, date(2026, 10, 31)) == drop
+
+
+def test_an_old_bike_rates_its_groupset_lower_and_says_why():
+    bike = {"name": "Test SL", "brand": "Trek", "specs": {"Achterderailleur": "Shimano Ultegra R8000",
+                                                          "Shifter": "Shimano Ultegra R8000", "Zadel": "Bontrager"}}
+    new = checks.spec_tiers(bike, 2026, date(2026, 10, 31))
+    old = checks.spec_tiers(bike, 2015, date(2026, 10, 31))
+    assert new["rows"]["Rear derailleur"] == 4 and not new["aged"]
+    assert old["rows"]["Rear derailleur"] == 2
+    assert old["aged"]["Rear derailleur"] == {"new": 4, "age": 11}
+    # Sora is already Basic: nothing to drop, nothing to explain.
+    sora = dict(bike, specs={"Achterderailleur": "Shimano Sora R3000"})
+    assert checks.spec_tiers(sora, 2015, date(2026, 10, 31))["aged"] == {}
+
+
 def test_carbon_frame_is_not_carbon_wheels():
     assert checks.read_claims("Trek Domane", "carbon frame, nieuwe wielen")["wheels"] is None
 

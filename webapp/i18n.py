@@ -1185,4 +1185,11 @@ NL = {
     "No ads with a known place yet.": "Nog geen advertenties met een bekende plaats.",
     "Show on the map": "Toon op de kaart",
     "Where the checked bikes are": "Waar de gecheckte fietsen staan",
+    "{tier} when new. An older groupset drops one tier for every {step} years of age.":
+        "{tier} als nieuw. Een oudere groep zakt één niveau per {step} jaar.",
+    "{years} yrs old": "{years} jaar oud",
+    "The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.":
+        "De groep krijgt een lager niveau omdat de fiets {years} jaar oud is: één niveau per {step} jaar.",
+    "Groupsets age: Shimano and SRAM bring a new generation about every {step} years, and each one passes its features a step down the range, so today's 105 shifts like the Ultegra of one generation ago. A bike's groupset therefore drops one tier for every {step} years since its model year, at most {max} tiers and never below Basic. A 2015 bike with Ultegra (Performance) is rated Entry; the spec sheet shows how old it is and its tier when new.":
+        "Groepen verouderen: Shimano en SRAM brengen ongeveer elke {step} jaar een nieuwe generatie, en elke generatie geeft zijn techniek een stap lager in het assortiment door. De 105 van nu schakelt zoals de Ultegra van een generatie terug. Daarom zakt de groep van een fiets één niveau per {step} jaar sinds het modeljaar, hooguit {max} niveaus en nooit onder Basis. Een fiets uit 2015 met Ultegra (Performance) krijgt Instap; de specificaties tonen hoe oud hij is en zijn niveau als nieuw.",
 }

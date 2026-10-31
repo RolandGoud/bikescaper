@@ -110,6 +110,11 @@
 {% if t %}<span class="tier-dot t{{ t }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}: {{ _(tier_names[t]) }}">{{ t }}</span>{% endif %}
 {%- endmacro %}
 
+{# A groupset rated lower for the bike's age: how old it is, and its tier when new on hover. #}
+{% macro aged_chip(aged) -%}
+{% if aged %}<span class="move aged" title="{{ _('{tier} when new. An older groupset drops one tier for every {step} years of age.', tier=_(tier_names[aged.new]), step=age_step) }}">{{ _('{years} yrs old', years=aged.age) }}</span>{% endif %}
+{%- endmacro %}
+
 {# A brand's logo, coloured like the text around it; brands without a logo show their name. #}
 {% macro brand_label(b) -%}
 {% if b.logo %}<span class="pill-logo" role="img" aria-label="{{ b.name }}" title="{{ b.name }}" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% else %}{{ b.name }}{% endif %}

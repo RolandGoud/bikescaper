@@ -1099,6 +1099,7 @@ select { max-width: 100%; }
 .move { display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 11px; font-weight: 600; white-space: nowrap; vertical-align: 1px; }
 .move.up { background: var(--ok-bg); color: var(--accent); }
 .move.down { background: var(--bad-bg); color: var(--bad); }
+.move.aged { background: var(--line, #e6e6e6); color: var(--muted, #666); cursor: help; }
 /* Selling page: one checked ad next to the ad we would write for it, paged with the arrows. */
 .example { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
 .example[hidden] { display: none; }

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, tier_badge, tier_dot, brand_label %}
+{% from "_macros.html" import photo, tier_badge, tier_dot, aged_chip, brand_label %}
 {% from "_macros.html" import asking_box, model_card, matched_ads with context %}
 {% block title %}{{ m.brand }} {{ m.name }} · Bike Compare{% endblock %}
 {% macro note(text) -%}
@@ -130,7 +130,7 @@
           <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
           {% set earlier = years[4]|dictsort|selectattr('1.1')|map(attribute='0')|list if years else [] %}
           {% if earlier %}<div class="small earlier-gen" title="{{ years[4][earlier[0]][0] or '' }}">{{ _('earlier gen') }} {{ earlier|years_list }}</div>{% endif %}</div>
-        <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging %}{% set lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}{% endset %}{{ note(lagging) }}{% endif %}</div>
+        <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging or tiers.aged %}{% set lagging %}{% if tiers.lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}.{% endif %}{% if tiers.aged %} {{ _('The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.', years=tiers.age, step=age_step) }}{% endif %}{% endset %}{{ note(lagging) }}{% endif %}</div>
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
           <div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div></div>
@@ -164,13 +164,13 @@
       {% if t.specs %}
       <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{% if t.sheet_name %}{{ _('Sold as {name} in {year}.', name=t.sheet_name, year=t.year) }} {% endif %}{% if t.source == 'site' %}{% if t.sheet_years %}{{ _('From the sheet {brand} still keeps online for model years {years}, read on {date}.', brand=m.brand, years=t.sheet_years, date=t.captured) }}{% else %}{{ _('From the {year} model page {brand} still keeps online, read on {date}.', brand=m.brand, year=t.year, date=t.captured) }}{% endif %} <a href="{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the page') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}{% endif %}
         {% if t.price_german %}<br>{{ _('* For the new price of this model, year and colour we used an alternative source (the German list price in the TOUR/BIKE database), so we can\'t guarantee it is fully reliable.') }}<br>{% endif %}
-        {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
+        {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }}{% if t.tiers and t.tiers.aged %} {{ _('The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.', years=t.tiers.age, step=age_step) }}{% endif %} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
         {% if t.changed %}<span class="changed-key"></span> {{ _('Changed since the year before.') }}{% if t.moves %} {{ _('▲ and ▼ mark a better or a lesser part.') }}{% endif %}{% endif %}</p>
       <div class="spec-groups">
         {% for group, rows in t.specs %}
         <div class="spec-group">
           <h3>{{ _(group) }}{{ tier_badge(t.tiers.groups[group], small=true) if t.tiers.groups[group] }}</h3>
-          <div class="kv">{% for en, nl, v in rows %}<div{% if en in t.changed %} class="changed"{% endif %}>{{ nl if lang == 'nl' else en }}</div><div class="rated{{ ' changed' if en in t.changed }}"><span>{{ v }}</span><span class="rated-end">{% if t.moves and t.moves[en] == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif t.moves and t.moves[en] == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% endif %}{{ tier_dot(t.tiers.rows[en]) }}</span></div>{% endfor %}</div>
+          <div class="kv">{% for en, nl, v in rows %}<div{% if en in t.changed %} class="changed"{% endif %}>{{ nl if lang == 'nl' else en }}</div><div class="rated{{ ' changed' if en in t.changed }}"><span>{{ v }}</span><span class="rated-end">{% if t.moves and t.moves[en] == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif t.moves and t.moves[en] == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% endif %}{{ aged_chip(t.tiers.aged[en]) }}{{ tier_dot(t.tiers.rows[en]) }}</span></div>{% endfor %}</div>
         </div>
         {% endfor %}
       </div>
