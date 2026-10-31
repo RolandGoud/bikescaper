@@ -964,6 +964,7 @@ NL = {
     "Pick…": "Kies…",
     "Pick a brand…": "Kies een merk…",
     "Pick a brand first": "Kies eerst een merk",
+    "Pick a model…": "Kies een model…",
     "Pick a brand first, then a model if you know it.": "Kies eerst een merk, en dan een model als je dat weet.",
     "Plain background, daylight": "Rustige achtergrond, daglicht",
     "Recognised as": "Herkend als",
