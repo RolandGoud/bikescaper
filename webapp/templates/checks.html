@@ -54,6 +54,7 @@
   <div class="filters" aria-label="{{ _('Views') }}">
     <a class="pill" href="{{ url_for('listings') }}">{{ _('One card per ad') }}</a>
     <a class="pill on" href="{{ url_for('all_checks') }}" aria-current="page">{{ _('Every check') }}</a>
+    <a class="pill" href="{{ url_for('listings_map') }}">{{ _('On the map') }}</a>
   </div>
   {% if items %}
   <div class="check-rows">
