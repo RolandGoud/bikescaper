@@ -895,6 +895,10 @@ def test_wheels_named_without_the_word_wheels():
     claims = checks.read_claims("Trek Madone SL 6", "Upgrades:\n- Bontrager Aeolus Pro 37\n- Aeolus RSL zadel")
     assert claims["wheels"] == {"label": "Bontrager Aeolus Pro 37", "tier": 4}
     assert checks.detect_part("Bontrager Aeolus Comp zadel, carbon frame", "wheels") is None
+    # Check 55: the named wheelset further down wins over "carbon wielen" in the intro.
+    text = "Mooi carbon frame met carbon wielen, tubeless.\nWielen: Bontrager Aeolus Pro 37 (Carbon 37mm)"
+    assert checks.detect_part(text, "wheels") == {"label": "Bontrager Aeolus Pro 37 (Carbon 37mm)", "tier": 4}
+    assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
 
 
 def test_year_is_always_estimated(models):
