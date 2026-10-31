@@ -610,6 +610,29 @@ def test_size_check_falls_back_to_the_brand_chart_for_unknown_sizes(models):
     assert "Generic chart" in en(numbers["notes"][0])
 
 
+def test_size_check_estimates_cm_sizes_the_chart_skips(models):
+    # Cube's chart goes 50, 53: a 52 is drawn between them, not left without rider heights.
+    cube = dict(next(m for m in models if m["brand"] == "Cube"), slug="no-own-chart")
+    between = checks.check_size(cube, {"size": "52"})
+    assert between["fits"] == (165, 173) and between["status"] == checks.OK
+    assert "neighbouring sizes" in en(between["notes"][-1])
+    assert [r for r in between["rows"] if r["selected"]] == [{"size": "52", "low": 165, "high": 173,
+                                                               "selected": True, "estimated": True}]
+    # Canyon sizes by letter: the general chart gives the heights, and a fit can be judged.
+    canyon = dict(next(m for m in models if m["brand"] == "Canyon"), slug="no-own-chart")
+    general = checks.check_size(canyon, {"size": "52"}, 165)
+    assert general["fits"] == checks.GENERIC_SIZE_CHART["52"] and general["fit"]["status"] == checks.OK
+    assert "general road bike chart" in en(general["notes"][-1])
+    # Letter sizes aren't guessed.
+    assert checks.check_size(dict(canyon, brand="Factor"), {"size": "M"})["status"] == checks.UNKNOWN
+
+
+def test_tab_headlines_are_short(models):
+    older = checks.age_summary({"status": checks.UNKNOWN, "headline": checks.Msg("Probably older than we can check"),
+                                "detail": None, "older": True}, None)
+    assert en(older["tab_headline"]) == "Older than we know"
+
+
 def test_size_lines_group_builds_that_share_a_chart(models):
     lines = checks.size_lines(models, "Canyon")
     assert sum(len(l["models"]) for l in lines) == sum(1 for m in models if m["brand"] == "Canyon")
