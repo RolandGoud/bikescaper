@@ -20,6 +20,7 @@ Writes data/years/site/<Brand>.json ({"checked_on", "years", "source", "models":
 data/years/<Brand>.json, and the photo to images/<Brand>/years/<slug>_<year>_site.jpg.
 """
 import argparse
+import gzip
 import io
 import json
 import os
@@ -161,6 +162,112 @@ def add_angles(brand, fetcher=None):
             log.info("%s %s %s: %d angles", brand, name, year, sum(len(a) for a in angles.values()))
             with open(path, "w", encoding="utf-8") as fh:  # after each year, so a stopped run keeps its work
                 json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
+
+
+def _photo_stem(url):
+    """"94920-04_TARMAC-SL7-SW-ETAP-CARB-CMLNSILGRN" from that colour's side view URL (_HERO or _HERO-SQUARE)."""
+    from .specialized import SIDE_VIEW
+    return SIDE_VIEW.sub("", (url or "").split("/")[-1].split("?")[0])
+
+
+def _views_by_photo(colours):
+    """{photo stem or casefolded colour name: [other view URLs]}: an old copy may spell a colour in capitals
+    ("SATIN CARBON/TARMAC BLACK/CLEAN") where today's page doesn't, but the photo IDs are the same."""
+    found = {}
+    for name, (side, views) in colours.items():
+        if views:
+            found.setdefault(_photo_stem(side), views)
+            found.setdefault(name.casefold(), views)
+    return found
+
+
+def _specialized_year(page):
+    from . import specialized
+    try:
+        return (specialized.parse(page, "") or {}).get("model_year") if page else None
+    except Exception:
+        return None
+
+
+def specialized_photos(pages_folders=(), fetcher=None):
+    """Each colour's photo and its other views (entry["colours"], ["colour_images"], ["colour_angles"]) for
+    Specialized's earlier model years, in data/years/Specialized.json (Wayback copies) and
+    data/years/site/Specialized.json (its own old pages).
+
+    Specialized's image server still serves the photos of bikes it sold years ago, so a photo's ID is all it
+    takes. The IDs come from the Wayback copy of the page when it lists them (pages_folders: the folders
+    `wayback.py fetch` saved them to; the 2019-2021 shop lists every colour's views), and else from the
+    product page Specialized still serves, as long as that shows the same model year give or take one (a
+    model year goes on sale the summer before, and some old IDs now show a later or earlier bike).
+    A year without a photo of its own gets the first colour's."""
+    from . import specialized
+    fetcher = fetcher or Fetcher(delay=1.0)
+    copies = {}  # (url, ts) -> the Wayback copy
+    for folder in pages_folders:
+        for dirpath, _dirs, files in os.walk(folder):
+            for f in files:
+                if f.endswith(".json") and os.path.exists(os.path.join(dirpath, f[:-5] + ".html.gz")):
+                    with open(os.path.join(dirpath, f), encoding="utf-8") as fh:
+                        meta = json.load(fh)
+                    copies[(meta.get("url"), str(meta.get("ts")))] = os.path.join(dirpath, f[:-5] + ".html.gz")
+    report = {}
+    for path in (os.path.join(ROOT, "data", "years", "Specialized.json"),
+                 os.path.join(ROOT, "data", "years", "site", "Specialized.json")):
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        live = {}
+        counts = report.setdefault(os.path.relpath(path, ROOT), {"years": 0, "from copy": 0, "from site": 0, "photos": 0})
+        for name, entries in data["models"].items():
+            for year, entry in entries.items():
+                if entry.get("colour_images") or not entry.get("url"):
+                    continue
+                counts["years"] += 1
+                colours, where = {}, None
+                copy = copies.get((entry["url"], str(entry.get("ts"))))
+                if copy:
+                    with gzip.open(copy) as fh:
+                        colours, where = specialized.page_colours(fh.read().decode("utf-8", "replace"), entry["url"]), "from copy"
+                if not any(views for _side, views in colours.values()):
+                    # No copy, or one with the side views only: the page Specialized still serves, if it's that year's bike.
+                    if entry["url"] not in live:
+                        page = fetcher.get(entry["url"])
+                        live[entry["url"]] = specialized.page_colours(page, entry["url"]) if page else {}
+                        live[entry["url"] + "#year"] = _specialized_year(page)
+                    same_year = abs((live[entry["url"] + "#year"] or 0) - int(year)) <= 1
+                    if same_year and not colours:
+                        colours, where = live[entry["url"]], "from site"
+                    elif same_year:  # the copy's colours, with the views the page has of the same photo
+                        views_of = _views_by_photo(live[entry["url"]])
+                        colours = {c: (side, views or views_of.get(_photo_stem(side)) or views_of.get(c.casefold()) or [])
+                                   for c, (side, views) in colours.items()}
+                if not colours:
+                    continue
+                slug = compact(name)
+                shots, angles = {}, {}
+                for colour, (side, views) in colours.items():
+                    shot = save_photo(fetcher, "Specialized", slug, year, side, colour=colour)
+                    if not shot:
+                        continue
+                    shots[colour] = shot
+                    saved = [save_photo(fetcher, "Specialized", slug, year, u, colour=colour, angle=n + 1)
+                             for n, u in enumerate(views)]
+                    if any(saved):
+                        angles[colour] = [rel for rel in saved if rel]
+                if not shots:
+                    continue
+                entry["colours"] = entry.get("colours") or list(shots)
+                entry["colour_images"], entry["colour_angles"] = shots, angles
+                if not entry.get("image"):
+                    entry["image"] = next(iter(shots.values()))
+                counts[where] += 1
+                counts["photos"] += len(shots) + sum(len(a) for a in angles.values())
+                log.info("Specialized %s %s: %d colours, %d views (%s)", name, year, len(shots),
+                         sum(len(a) for a in angles.values()), where)
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
+    return report
 
 
 def trek_codes(cdx_folder):
@@ -476,6 +583,8 @@ if __name__ == "__main__":
     ap.add_argument("--colours", action="store_true", help="only add each colour's photo to the years already read")
     ap.add_argument("--angles", action="store_true", help="only add each colour's other angles to the years already read")
     ap.add_argument("--archived", action="store_true", help="add the discontinued lines (Trek, Giant; needs --cdx)")
+    ap.add_argument("--pages", nargs="*", default=[],
+                    help="Specialized --colours: the folders with the Wayback copies (wayback.py fetch), whose photo IDs come first")
     args = ap.parse_args()
     brands = [b for b in [*SITES, "Trek", *OLD_PAGES] if b.lower() in {a.lower() for a in args.brands}]
     if args.archived:
@@ -488,6 +597,9 @@ if __name__ == "__main__":
         for brand in brands:
             add_angles(brand)
         raise SystemExit
+    if args.colours and "Specialized" in brands:  # each colour's photo and other views, from its image server
+        print(specialized_photos(args.pages))
+        brands.remove("Specialized")
     if args.colours:
         for brand in brands:
             add_colour_photos(brand)

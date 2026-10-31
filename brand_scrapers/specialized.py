@@ -10,6 +10,10 @@ from .common import clean, is_ebike, log, normalize_specs
 
 BRAND = "Specialized"
 BASE = "https://www.specialized.com"
+# Specialized's image server still serves the photos of bikes it sold years ago (the 2019 Roubaix, the
+# 2020 Tarmac SL7), every colour and view under its own ID; PNG keeps the transparency, their JPEG turns it black.
+IMAGE = "https://resources.specialized.com/image/{}?q=80&w=1200&fm=png"
+SIDE_VIEW = re.compile(r"_HERO(?:-SQUARE)?$")
 LISTINGS = [
     ("/nl/nl/shop/fietsen/racefietsen", "Racefietsen"),
     ("/nl/nl/shop/fietsen/gravelbikes", "Gravelbikes"),
@@ -39,6 +43,47 @@ def enclosing_object(text, idx):
                     return None
             depth -= 1
     return None
+
+
+def other_views(images, side):
+    """The views of one colour besides the side view (front and rear three-quarter, close-ups), in Specialized's
+    order: the photos named like the side view ("94920-04_TARMAC-SL7-..._FDSQ"), not the banners beside them."""
+    images = sorted(images or [], key=lambda i: i.get("displayOrder") or 0)
+    ids = dict.fromkeys(i.get("code") or i.get("id") for i in images)
+    stem = SIDE_VIEW.sub("", side or "")
+    return [IMAGE.format(i) for i in ids if stem and i and i.startswith(stem + "_") and not SIDE_VIEW.search(i)]
+
+
+def archived_colours(page):
+    """{colour: (side view URL, [other view URLs])} from a page of the 2019-2021 shop, where each option of the
+    product's Color attribute carries its imageSet; {} for other layouts."""
+    m = re.search(r'\{"name":"Colou?r","type":"swatch","options":\[', page)
+    if not m:
+        return {}
+    try:
+        options = json.JSONDecoder().raw_decode(page, m.end() - 1)[0]
+    except ValueError:
+        return {}
+    found = {}
+    for option in options:
+        ids = [i.get("id") for i in option.get("imageSet") or [] if i.get("id")]
+        side = next((i for i in ids if i.endswith("_HERO")), ids[0] if ids else None)
+        name = clean(option.get("name") or "")
+        if name and side:
+            found.setdefault(name, (IMAGE.format(side), other_views(option.get("imageSet"), side)))
+    return found
+
+
+def page_colours(page, url):
+    """{colour: (side view URL, [other view URLs])} from a product page of any year: today's layout or the 2019-2021 one."""
+    try:
+        bike = parse(page, url)
+    except Exception:  # an older layout
+        bike = None
+    if bike and bike["color_names"]:
+        return {c: (side, views) for c, side, views in
+                zip(bike["color_names"], bike["color_image_urls"], bike["color_angle_urls"]) if side}
+    return archived_colours(page)
 
 
 def category_of(name, category_paths):
@@ -78,18 +123,18 @@ def parse(page, url):
             pairs.append((s.get("name") or s.get("code"), s.get("description")))
     if not pairs:  # fall back to the callouts at the top of the page
         pairs = [(product.get(f"callout{n}Title"), product.get(f"callout{n}Desc")) for n in range(1, 7)]
-    prices, sizes, colours, colour_images, colour_hexes = [], [], [], [], []
+    prices, sizes, colours, colour_images, colour_hexes, colour_angles = [], [], [], [], [], []
     image = None
     for colour in product["colors"]:
         # PNG keeps the transparency; their JPEG turns it black
-        photo = (f"https://resources.specialized.com/image/{colour['plpImageID']}?q=80&w=1200&fm=png"
-                 if colour.get("plpImageID") else None)
+        photo = IMAGE.format(colour["plpImageID"]) if colour.get("plpImageID") else None
         image = image or photo
         name = clean(colour.get("displayName") or colour.get("colorName"))
         if name:
             colours.append(name)
             colour_images.append(photo)
             colour_hexes.append((colour.get("colorValues") or [None])[0])
+            colour_angles.append(other_views(colour.get("images"), colour.get("plpImageID")))
         for size in colour.get("sizes") or []:
             if size.get("name") and size["name"] not in sizes:
                 sizes.append(size["name"])
@@ -114,6 +159,7 @@ def parse(page, url):
         "sizes": sizes,
         "image_url": image,
         "color_image_urls": colour_images,
+        "color_angle_urls": colour_angles,  # each colour's other views
     }
 
 
