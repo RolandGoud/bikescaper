@@ -8,7 +8,7 @@
   </div>
   <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
     <label class="field">{{ _('Brand') }}
-      <select name="brand" onchange="this.form.model.value = ''; this.form.submit()">{% for b in brands %}<option {{ 'selected' if b.name == brand }}>{{ b.name }}</option>{% endfor %}</select>
+      <select name="brand" onchange="this.form.model.value = ''; this.form.submit()">{% for b in brands %}<option {{ 'selected' if b.name == brand }}{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %}>{{ b.name }}</option>{% endfor %}</select>
     </label>
     <label class="field">{{ _('Model') }}
       <select name="model" data-families>
