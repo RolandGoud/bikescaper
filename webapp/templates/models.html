@@ -34,14 +34,16 @@
       {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
       <label class="field-label">{{ _('Type') }}
         <select name="type" onchange="this.form.requestSubmit()">
-          <option value="">{{ _('All types') }} ({{ count }})</option>
-          {% for key, label in disciplines %}{% if counts[key] or kind == key %}<option value="{{ key }}" {{ 'selected' if kind == key }}>{{ _(label) }} ({{ counts[key] }})</option>{% endif %}{% endfor %}
+          <option value="" data-label="{{ _('All types') }}" data-count="{{ count }}">{{ _('All types') }} ({{ count }})</option>
+          {% for key, label in disciplines %}{% if counts[key] or kind == key %}<option data-label="{{ _(label) }}" data-count="{{ counts[key] }}" value="{{ key }}" {{ 'selected' if kind == key }}>{{ _(label) }} ({{ counts[key] }})</option>{% endif %}{% endfor %}
         </select>
       </label>
+      {# pill-select.js turns the selects into menus of pills: data-tier gives an option its tier's colour,
+         data-label and data-count its text and the count on the right. #}
       <label class="field-label">{{ _('Spec tier') }}
         <select name="tier" onchange="this.form.requestSubmit()">
-          <option value="">{{ _('All tiers') }}</option>
-          {% for t, name in tier_names.items() %}<option value="{{ t }}" {{ 'selected' if tier == t }}>{{ t }} · {{ _(name) }} ({{ tier_counts[t] }})</option>{% endfor %}
+          <option value="" data-label="{{ _('All tiers') }}" data-count="{{ tier_counts.values()|sum }}">{{ _('All tiers') }}</option>
+          {% for t, name in tier_names.items() %}<option data-tier="{{ t }}" data-label="{{ _(name) }}" data-count="{{ tier_counts[t] }}" value="{{ t }}" {{ 'selected' if tier == t }}>{{ t }} · {{ _(name) }} ({{ tier_counts[t] }})</option>{% endfor %}
         </select>
       </label>
       <label class="switch"><input type="checkbox" name="current" value="1" {{ 'checked' if current }} onchange="this.form.requestSubmit()"><i></i>{{ _('Only bikes still sold') }}</label>

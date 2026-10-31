@@ -59,5 +59,7 @@
 <script src="{{ url_for('static', filename='duo.js') }}" defer></script>
 <script src="{{ url_for('static', filename='menu.js') }}" defer></script>
 <script src="{{ url_for('static', filename='place-links.js') }}" defer></script>
+{# last, so the page's own scripts have set up their selects first #}
+<script src="{{ url_for('static', filename='pill-select.js') }}" defer></script>
 </body>
 </html>
