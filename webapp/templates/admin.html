@@ -6,6 +6,7 @@
 {% set problem_label = {'tier': _('Tier (SL ↔ SLR)'), 'generation': _('Generation (Gen 3 ↔ 4)'),
                         'catalogue': _('Model not in catalogue'), 'other_word': _("Another model's word"),
                         'brand': _('Brand unknown'), 'low': _('Low confidence')} %}
+{% set matched_label = {'matched': _('Matched to a model'), 'unmatched': _('Without a model')} %}
 {% set reason_label = {'no_year': _('no year'), 'no_size': _('no size'), 'no_groupset': _('no groupset'),
                        'no_condition': _('no condition'), 'no_model': _('no model found'), 'name_clash': _('name clashes'),
                        'impossible': _("year or material can't be"), 'downgraded': _('parts below the original'),
@@ -53,6 +54,16 @@
       <div class="view-lines" hidden data-chart="problems" data-unit=""></div>
     </section>
   </div>
+  <div class="grid2">
+    <section class="box">
+      <h3>{{ _('Bikes matched to a model') }}</h3>
+      {% set counts = {'matched': stats.matched, 'unmatched': n - stats.matched} %}
+      <div class="view-total">
+        {% for k in ['matched', 'unmatched'] %}<div class="bar"><span>{{ matched_label[k] }}</span><span class="t"><i style="width: {{ (100 * counts[k] / n)|round|int if n else 0 }}%"></i></span><span class="n">{{ counts[k] }}</span></div>{% endfor %}
+      </div>
+      <div class="view-lines" hidden data-chart="matched" data-unit=""></div>
+    </section>
+  </div>
 
   <section class="box">
     <h3>{{ _('Ads with the lowest scores') }}</h3>
@@ -97,7 +108,7 @@
   </div>
 </main>
 <script type="application/json" id="admin-data">{{ {'week': stats.week, 'month': stats.month, 'ads': _('{n} ads'),
-  'keys': {'missing': missing_keys, 'problems': problem_keys},
-  'labels': {'missing': missing_label, 'problems': problem_label}}|tojson }}</script>
+  'keys': {'missing': missing_keys, 'problems': problem_keys, 'matched': ['matched', 'unmatched']},
+  'labels': {'missing': missing_label, 'problems': problem_label, 'matched': matched_label}}|tojson }}</script>
 <script src="{{ url_for('static', filename='admin.js') }}" defer></script>
 {% endblock %}

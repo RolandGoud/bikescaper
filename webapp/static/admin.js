@@ -1,4 +1,4 @@
-// Admin page: the first two charts switch between the overall bars and a line per week or month.
+// Admin page: the charts switch between the overall bars and a line per week or month.
 (() => {
   const data = JSON.parse(document.getElementById("admin-data").textContent);
   const COLOURS = ["#3987e5", "#d95926", "#199e70", "#c98500", "#d55181", "#9085e9"];
