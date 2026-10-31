@@ -81,10 +81,12 @@ def detect_brakes(text):
 
 
 def detect_year(text):
-    """The model year the seller claims, and whether it reads as a purchase year instead."""
+    """The model year the seller claims, and whether it reads as a purchase year instead. A year the ad ties to a
+    word ("bouwjaar 2019", "frame ca. 2010") wins over a bare one ("2023 groep")."""
     low = _plain(text)
     keyed = re.search(
-        r"(bouwjaar|modeljaar|model\s*jaar|model|jaar|year|uit|van|gekocht\s+in|aangeschaft\s+in|aankoop)\D{0,12}"
+        r"(bouwjaar|modeljaar|model\s*jaar|model|jaar|year|uit|van|gekocht\s+in|aangeschaft\s+in|aankoop|frame"
+        r"|\bca\b|circa|omstreeks|ongeveer)\D{0,12}"
         r"((?:19[89]|20[0-3])\d)\b",
         low,
     )
