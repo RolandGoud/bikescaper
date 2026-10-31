@@ -170,17 +170,17 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .strip-dots i.on { width: 18px; background: var(--text); }
 .strip-dots span { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 /* the ad's photos, full size, one at a time */
-.lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #0A0A0C; color: #fff; overscroll-behavior: contain; }
+.lightbox { width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #0A0A0C; color: #fff; overscroll-behavior: contain; }
 .lightbox[open] { display: flex; align-items: center; justify-content: center; }
 .lightbox::backdrop { background: transparent; }
-.lightbox > img { max-width: calc(100vw - 140px); max-height: calc(100vh - 100px); object-fit: contain; user-select: none; touch-action: pan-y; }
+.lightbox > img { max-width: calc(100% - 160px); max-height: calc(100vh - 100px); object-fit: contain; user-select: none; touch-action: pan-y; }
 .lightbox button { position: absolute; border: 0; border-radius: 50%; width: 52px; height: 52px; background: rgba(255, 255, 255, 0.14); color: #fff; font-size: 34px; line-height: 1; cursor: pointer; }
 .lightbox button:hover { background: rgba(255, 255, 255, 0.28); }
 .lightbox button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.lb-close { top: 16px; right: 16px; }
-.lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
-.lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
-.lb-duo { width: min(calc(100vw - 140px), calc((100vh - 100px) * 16 / 9)); }
+.lb-close { top: 24px; right: 24px; }
+.lb-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 24px; top: 50%; transform: translateY(-50%); }
+.lb-duo { width: min(calc(100% - 160px), calc((100vh - 100px) * 16 / 9)); }
 .lb-duo .photo.duo { aspect-ratio: 16 / 9; border-radius: 10px; }
 .lb-duo .duo-label { bottom: 16px; padding: 6px 14px; }
 .lb-duo .duo-label > span { font-size: 13px; }
@@ -402,7 +402,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 }
 /* The report's check tabs, as folder tabs: the picked tab has its section's colour and flows into it on curved feet; the others sit lower and dimmer. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
-.tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 24px; }  /* a pill's height, so a tab without one lines up with the rest */
 .verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: var(--pill-radius); font: var(--pill-weight) 11px/1 var(--body); }
 .verdict-pill i { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-style: normal; font-size: 11px; color: var(--ink); }
 .verdict-pill.ok { background: rgba(52, 211, 153, .14); color: var(--ok); } .verdict-pill.ok i { background: var(--ok); }
@@ -433,11 +433,16 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .value-verdict.ok-bg > i { background: var(--ok); } .value-verdict.warn-bg > i { background: var(--warn); } .value-verdict.bad-bg > i { background: var(--bad); }
 .value-verdict strong { display: block; font-size: 22px; line-height: 1.15; }
 .value-verdict span { color: var(--text); opacity: .85; font-size: 15px; }
-.value-prices { display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: flex-start; }
-.value-prices .k { margin-bottom: 6px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.value-prices { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 12px; }
+.value-prices.no-ask { grid-template-columns: 1.4fr 1fr; }
+.value-prices > div { padding: 16px 18px; border-radius: 14px; background: var(--ground); }
+.value-prices > .fair, .value-prices > .ask.ok-bg { background: var(--ok-bg); }
+.value-prices > .ask.warn-bg { background: var(--warn-bg); } .value-prices > .ask.bad-bg { background: var(--bad-bg); }
+.value-prices .k { margin-bottom: 8px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .value-prices .n { font-size: 34px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
-.value-prices .n.fair { color: var(--accent); }
-.value-prices .new .n { font-size: 22px; color: var(--muted); font-weight: 700; margin-top: 6px; }
+.value-prices .fair .n { color: var(--accent); }
+.value-prices .new .n { color: var(--muted); }
+.value-prices .sub { margin-top: 8px; font-size: 14px; color: var(--muted); }
 .price-slider { position: relative; }
 .price-slider.with-pin { padding-top: 46px; }
 .price-slider .track { position: relative; height: 14px; border-radius: 999px; background-color: var(--ground);
@@ -453,6 +458,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .price-slider .axis { position: relative; height: 22px; margin-top: 10px; font: 13px var(--mono); color: var(--muted); }
 .price-slider .axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
 .price-slider .axis span:first-child { transform: none; } .price-slider .axis span:last-child { transform: translateX(-100%); }
+.price-slider .axis span.new { color: var(--text); font-weight: 600; }
 .price-slider .zones { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; margin-top: 2px; }
 .value-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .value-chips span { padding: 6px 12px; border-radius: 999px; background: var(--raised); font-size: 14px; }
@@ -471,10 +477,9 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .asking-empty { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 12px 16px; border: 1px dashed var(--line-strong); border-radius: 12px; font-size: 14px; color: var(--muted); }
 .asking-empty strong { color: var(--text); }
 @media (max-width: 700px) {
+  .value-prices { grid-template-columns: 1fr 1fr; }
+  .value-prices > .fair { grid-column: 1 / -1; order: -1; }
   .value-prices .n { font-size: 28px; }
-  .value-prices .new { flex-basis: 100%; display: flex; gap: 8px; align-items: baseline; }
-  .value-prices .new .k { margin: 0; }
-  .value-prices .new .n { font-size: 16px; margin: 0; }
   .value-verdict strong { font-size: 19px; }
   .price-slider .axis span.minor, .price-slider .band.narrow { font-size: 0; }
   .price-slider .axis span.minor { display: none; }

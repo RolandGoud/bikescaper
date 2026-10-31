@@ -45,6 +45,11 @@ def test_reads_claims_from_dutch_ad():
     ("Gekocht in 2024, maat 54", 2024, True),
     ("Vraagprijs €2025", None, False),
     ("Domane uit 2019", 2019, False),
+    ("Emonda SL 6 2023 groep\nframe ca. 2010", 2010, False),
+    ("Nieuwe banden 2024, circa 2012", 2012, False),
+    ("Tarmac 2023, ongeveer 2000 km gereden", 2023, False),
+    ("Tarmac 2023, vraagprijs ca. 2100 euro", 2023, False),
+    ("Tarmac 2023, frame ca. €2100", 2023, False),
 ])
 def test_year(text, year, purchase):
     assert checks.detect_year(text) == (year, purchase)
@@ -606,6 +611,13 @@ def test_named_wheels_on_a_model_without_wheel_data(models):
     checks.seller_questions(model, claims, {"status": checks.OK}, specs, {"status": checks.OK})
 
 
+def test_check_63_aeolus_carbon_wheels_match_the_aeolus_pro(models):
+    model = next(m for m in models if "Aeolus Pro 37" in (checks.spec(m, "Wiel voor", "Velg", "Wheelset") or ""))
+    claims = checks.read_claims(model["name"], "Bontrager Aeolus Carbon wielen")
+    wheels = next(row for row in checks.check_specs(model, claims)["rows"] if row["key"] == "wheels")
+    assert wheels["status"] == checks.OK and not wheels["step"]
+
+
 def test_missing_brand_snapshot_is_downloaded(tmp_path, monkeypatch):
     # An older NAS compose file unpacks only data/Trek and data/Canyon; the seed fetches the rest.
     import io
@@ -889,19 +901,18 @@ def test_value_axis_runs_from_zero_to_the_end_of_the_scale():
     assert ticks[0][1] == 0 and ticks[-1][1] == 100
 
 
-def test_price_slider_zooms_in_on_the_fair_range_and_the_asking_price():
+def test_price_slider_runs_from_zero_to_the_new_price():
     from webapp.checks import price_slider
-    s = price_slider(3720, 4550, 3499)
-    values = [v for v, _, _ in s["ticks"]]
-    assert sum(not minor for _, _, minor in s["ticks"]) == 3
-    assert values[0] > 0 and values[0] <= 3499 and values[-1] >= 4550  # not from €0, but everything on it
-    assert s["ticks"][0][1] == 0 and s["ticks"][-1][1] == 100
-    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "start" and s["label"]
-    far = price_slider(950, 1160, 2950)
-    assert far["asking"] > far["high"] and not far["label"]  # a narrow band leaves out its label
-    assert price_slider(950, 1160)["ticks"] and "asking" not in price_slider(950, 1160)
-    inside = price_slider(3720, 4550, 4000)
-    assert not inside["label"] and inside["align"] == "middle"  # the knob would sit on the label
+    s = price_slider(3720, 4550, 7700, 3499)
+    assert s["ticks"][0][:2] == (0, 0) and s["ticks"][-1][:2] == (7700, 100.0)
+    assert sum(not minor for _, _, minor in s["ticks"]) == 3  # the ends and the middle, on a phone
+    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "middle" and not s["beyond"]
+    over = price_slider(950, 1160, 2349, 2950)
+    assert over["asking"] == 100.0 and over["beyond"] and over["align"] == "end"
+    assert not over["label"]  # a narrow band leaves out its label
+    assert "asking" not in price_slider(950, 1160, 2349)
+    inside = price_slider(3720, 4550, 7700, 4000)
+    assert not inside["label"]  # the knob would sit on it
 
 
 def test_value_says_how_far_the_asking_price_is_from_the_range(models):
@@ -986,6 +997,15 @@ def test_wheels_named_without_the_word_wheels():
     assert checks.detect_part(text, "wheels") == {"label": "Bontrager Aeolus Pro 37 (Carbon 37mm)", "tier": 4}
     assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
 
+
+
+def test_wheels_of_the_same_family_without_a_version_match():
+    # Check 63: the ad says "Bontrager Aeolus Carbon wielen", the original is the Aeolus Pro 37.
+    original = "Bontrager Aeolus Pro 37, OCLV Carbon, Tubeless Ready, 37 mm velghoogte"
+    assert checks.same_wheel_family("Bontrager Aeolus Carbon wielen", original)
+    assert not checks.same_wheel_family("Bontrager Aeolus Elite 35 wielen", original)  # a version of its own
+    assert not checks.same_wheel_family("Zipp carbon wielen", original)  # another family
+    assert not checks.same_wheel_family("carbon wielen", original)
 
 
 def test_wheels_rated_by_their_hubs_and_the_crankset_read():
@@ -1755,3 +1775,4 @@ def test_report_value_section_without_and_with_an_asking_price(tmp_path):
     page = client.get(priced.headers["Location"] + "?lang=en").data.decode()
     assert 'class="price-slider with-pin"' in page and 'class="value-verdict warn-bg"' in page
     assert "above the fair range" in page and "How we estimate this" in page
+    assert "above fair" in page and "Middle €" in page and 'class="new"' in page

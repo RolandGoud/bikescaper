@@ -396,8 +396,8 @@ def create_app(db_path=None):
         # Another rider height than the check's own changes the size check: shown, but not kept.
         result = stored_check(listing_dict(row, height), store=height in (None, row["rider_height"]))
         value = result.get("value") or {}
-        if value.get("low") and "slider" not in value:  # a report stored before the zoomed price slider
-            value["slider"] = checks.price_slider(value["low"], value["high"], value.get("asking"))
+        if value.get("low") and value.get("original"):  # also for reports stored with an older slider
+            value["slider"] = checks.price_slider(value["low"], value["high"], value["original"], value.get("asking"))
         asking = None
         if result["model"]:
             asking = prices.asking_price(prices.known_ads(conn(), models()), result["model"]["id"],

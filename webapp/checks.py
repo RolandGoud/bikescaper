@@ -81,11 +81,14 @@ def detect_brakes(text):
 
 
 def detect_year(text):
-    """The model year the seller claims, and whether it reads as a purchase year instead."""
+    """The model year the seller claims, and whether it reads as a purchase year instead. A year the ad ties to a
+    word ("bouwjaar 2019", "frame ca. 2010") wins over a bare one ("2023 groep")."""
     low = _plain(text)
     keyed = re.search(
-        r"(bouwjaar|modeljaar|model\s*jaar|model|jaar|year|uit|van|gekocht\s+in|aangeschaft\s+in|aankoop)\D{0,12}"
-        r"((?:19[89]|20[0-3])\d)\b",
+        r"(bouwjaar|modeljaar|model\s*jaar|model|jaar|year|uit|van|gekocht\s+in|aangeschaft\s+in|aankoop|frame"
+        r"|\bca\b|circa|omstreeks|ongeveer)[^\d€]{0,12}"
+        # Not a distance, price or other amount: "ongeveer 2000 km", "ca. 2100 euro", "van 2000,-".
+        r"((?:19[89]|20[0-3])\d)\b(?![.,]\d|\s*(?:km|kilomet|euro|eur\b|,-|\.-|€|gram|gr\b|g\b|watt|w\b|mm|cm))",
         low,
     )
     if keyed:
@@ -155,6 +158,22 @@ WHEEL_NAMES = (r"aeolus\s+(?:rsl|pro|elite|comp)\s*\d{2}\b|zipp\s*\d{3}\b|\b[aep
                r"|roval\s+(?:rapide|alpinist|terra|c38|clx)|ksyrium|mavic\s+cosmic|campagnolo\s+(?:bora|shamal)"
                r"|fulcrum\s+(?:racing|speed|wind)|reynolds\s+\w*\s*\d{2}\b|enve\s+(?:ses\s+)?\d\.\d|cadex\s+\d{2}\b"
                r"|princeton\s+(?:carbon\s*works\s+)?\w*\s*\d{4}\b|black\s+inc\s+\d{2}\b|newmen\s+(?:advanced|evolution)")
+
+
+# Wheel families, so "Bontrager Aeolus Carbon wielen" can be matched with an original "Aeolus Pro 37".
+WHEEL_FAMILIES = (r"aeolus|zipp|roval|dt\s*swiss|mavic|ksyrium|cosmic|fulcrum|bora|shamal|reynolds|enve|cadex|newmen"
+                  r"|paradigm|princeton|black\s+inc|giant\s+slr|vision|hunt|campagnolo")
+# Words that say what a wheel is made of, not which wheel it is.
+GENERIC_PART_WORDS = r"\b(?:carbon|oclv|alumini?um|alloy|lichtmetaal)\b"
+
+
+def same_wheel_family(ad_label, original):
+    """The ad names the original's wheel family but no version of its own ("Bontrager Aeolus Carbon wielen" on a
+    bike sold with "Aeolus Pro 37"): most likely the original wheels, so they match."""
+    ad, ref = _plain(ad_label), _plain(original)
+    families = {m.group(0).replace(" ", "") for m in re.finditer(WHEEL_FAMILIES, ad)}
+    shared = families & {m.group(0).replace(" ", "") for m in re.finditer(WHEEL_FAMILIES, ref)}
+    return bool(shared) and not part_tier(("wheels",), re.sub(GENERIC_PART_WORDS, " ", ad))
 
 
 def detect_part(text, part):
@@ -1896,6 +1915,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         if ad and ref_tier and ad["tier"]:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
                 rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier", ad_tier=ad["tier"]))
+            elif key == "wheels" and same_wheel_family(ad["label"], ref_val):
+                rows.append(_row(key, part, ref_val, ad["label"], OK, "Matches", ad_tier=ref_tier))
             else:
                 rows.append(_compare_tiers(key, part, ref_val, ad["label"], ref_tier, ad["tier"]))
         elif ad:
@@ -2267,7 +2288,7 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     condition = (Msg("Normal use") if aged_out else
                  Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None)
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
-              "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, asking),
+              "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, original, asking),
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} German list price (TOUR/BIKE database), which can differ "
                             "from the Dutch price and from what this bike cost new.", year=price_year) if german else
@@ -2330,34 +2351,32 @@ def value_bar(low, high, original, asking=None):
             "max": hi_axis, "ticks": axis_ticks(hi_axis)}
 
 
-def price_slider(low, high, asking=None):
-    """The report's slider: an axis zoomed in on the fair range and the asking price, not from €0, so the gap
-    between them is easy to see. Positions are % along the track."""
-    lo, hi = min(low, asking or low), max(high, asking or high)
-    pad = max((hi - lo) * 0.3, high * 0.1)
-    raw = (hi - lo + 2 * pad) / 4
+def price_slider(low, high, original, asking=None):
+    """The report's slider: from €0 to the new price the estimate went by (that model year's), so the fair range
+    reads as a share of what the bike cost new. Positions are % along the track; an asking price above the new
+    price sits at the end, marked beyond."""
+    raw = original / 5
     magnitude = 10 ** (len(str(int(raw))) - 1)
     step = next(m * magnitude for m in (1, 2, 2.5, 5, 10) if m * magnitude >= raw)
-    start = max(0, (lo - pad) // step * step)
-    end = -(-(hi + pad) // step) * step
 
     def at(value):
-        return round(100 * (value - start) / (end - start), 2)
+        return round(min(100.0, 100 * value / original), 2)
 
-    ticks, value = [], start
-    while value <= end:
+    ticks, value = [], 0
+    while value < original * 0.88:  # a round tick too close to the new price would collide with its label
         ticks.append((value, at(value)))
         value += step
+    ticks.append((original, 100.0))
     # On a phone only the ends and the tick nearest the middle fit; the others are marked minor.
     middle = min(range(1, len(ticks) - 1), key=lambda i: abs(ticks[i][1] - 50), default=None)
     ticks = [(v, pos, i not in (0, len(ticks) - 1, middle)) for i, (v, pos) in enumerate(ticks)]
-    # Below this the asking price is "suspiciously cheap" (see check_value), tinted red on the track.
-    suspect = max(0.0, at(low * 0.6))
-    out = {"low": at(low), "high": at(high), "suspect": suspect, "ticks": ticks,
+    out = {"low": at(low), "high": at(high), "suspect": at(low * 0.6), "ticks": ticks,
+           # Below this the asking price is "suspiciously cheap" (see check_value), tinted red on the track.
            "label": at(high) - at(low) >= 14,  # room for "FAIR" in the band
            "narrow": at(high) - at(low) < 30}  # but not on a phone
     if asking:
         out["asking"] = at(asking)
+        out["beyond"] = asking > original
         # The label above the knob stays inside the track near its ends.
         out["align"] = "start" if out["asking"] < 25 else "end" if out["asking"] > 75 else "middle"
         if low <= asking <= high:
