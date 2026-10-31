@@ -26,6 +26,7 @@ OTHER = [("other", "Other")]  # models no discipline rule recognises yet
 STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 # Our own links are relative (url_for), so any link to http(s):// leaves the site.
+TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
 # credits.json holds each photo's author, licence and source, shown as a credit line in the hero.
@@ -523,9 +524,14 @@ def create_app(db_path=None):
         for pin in pins:  # each town's own address: the page with that town selected
             pin["link"] = url_for("listings_map", place=pin["place"], cc=pin["country"])
         selected = next((i for i, p in enumerate(pins) if focus and [p["lat"], p["lng"]] == list(focus[:2])), None)
+        # The town list comes in pages (?page=, busiest towns on page 1); a picked town opens on its own page,
+        # so "All places" goes back to where it is in the list.
+        pages = max(1, -(-len(pins) // TOWNS_PER_PAGE))
+        page = selected // TOWNS_PER_PAGE + 1 if selected is not None else min(max(number(request.args.get("page"), int) or 1, 1), pages)
+        page_urls = [url_for("listings_map", **({"page": n} if n > 1 else {})) for n in range(1, pages + 1)]
         return render_template("listings_map.html", pins=pins, unplaced=unplaced,
-                               ads=sum(len(p["ads"]) for p in pins), nav="map",
-                               selected=selected)
+                               ads=sum(len(p["ads"]) for p in pins), nav="map", selected=selected,
+                               page=page, page_urls=page_urls, per_page=TOWNS_PER_PAGE)
 
     @app.route("/models")
     def catalog():
