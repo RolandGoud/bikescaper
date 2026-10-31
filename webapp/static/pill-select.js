@@ -7,6 +7,8 @@
 // each with a data-type (Road, Gravel…). The menu shows each type's families as small chips; a chip opens that
 // family's options below the row (a family with one option picks it straight away). Typing in the search box
 // shows every matching option under its family instead. Options there show their data-short label.
+// An option with data-logo (an image URL) shows that logo instead of its name, in the pill and in the closed button,
+// tinted in the text colour so it reads on the dark pills. The name stays for screen readers and the search box.
 (() => {
   const check = '<svg class="check" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 4"/></svg>';
   const chevron = '<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>';
@@ -22,7 +24,21 @@
     return e;
   };
   const labelOf = (o) => o.dataset.label || o.textContent.trim();
-  const pill = (o, text = labelOf(o)) => el("span", o.dataset.tier ? `tier t${o.dataset.tier}` : "tier plain-pill", text);
+  // a brand's logo, with its name kept for screen readers
+  const logo = (o) => {
+    const wrap = el("span", "pill-brand");
+    const mark = el("span", "pill-logo");
+    mark.setAttribute("aria-hidden", "true");
+    mark.style.setProperty("--logo", `url("${o.dataset.logo}")`);
+    wrap.title = labelOf(o);
+    wrap.append(mark, el("span", "sr-only", labelOf(o)));
+    return wrap;
+  };
+  const pill = (o, text = labelOf(o)) => {
+    const p = el("span", o.dataset.tier ? `tier t${o.dataset.tier}` : "tier plain-pill", o.dataset.logo ? null : text);
+    if (o.dataset.logo) p.append(logo(o));
+    return p;
+  };
 
   // The select's name for screen readers: its aria-label, or its label's own text (not the options').
   const nameOf = (select) => {
@@ -133,7 +149,7 @@
           const head = el("li", "group", child.label);
           head.setAttribute("role", "presentation");
           list.append(head);
-          [...child.children].forEach(add);
+          [...child.children].forEach((o) => add(o));  // not forEach(add): its index would land in "into"
         } else { flush(); add(child); }
       }
       flush();
@@ -189,7 +205,9 @@
       button.disabled = select.disabled;
       box.classList.toggle("disabled", select.disabled);
       const o = select.options[select.selectedIndex];
-      button.replaceChildren(o && o.dataset.tier ? pill(o) : el("span", "plain", o ? labelOf(o) : ""));
+      const shows = !o ? el("span", "plain", "") : o.dataset.tier ? pill(o)
+        : o.dataset.logo ? logo(o) : el("span", "plain", labelOf(o));
+      button.replaceChildren(shows);
       button.insertAdjacentHTML("beforeend", chevron);
       items.forEach((li) => {
         const on = li.option === o;

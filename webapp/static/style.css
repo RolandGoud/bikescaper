@@ -1419,6 +1419,10 @@ select { max-width: 100%; }
 .pill-search { height: 40px; width: 100%; font-size: 15px; }
 .pill-search:focus { border-color: var(--accent); outline: none; }
 .pill-menu ul { margin: 0; padding: 4px; list-style: none; display: flex; flex-direction: column; gap: 4px; max-height: min(60vh, 460px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+/* At most 8 pills show (36px each, 4px apart, plus the list's padding); the rest scroll, with a visible scrollbar. */
+.pill-menu ul { --rows: 8; max-height: calc(var(--rows) * 36px + (var(--rows) - 1) * 4px + 8px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; scrollbar-gutter: stable; }
+.pill-menu ul::-webkit-scrollbar { width: 8px; }
+.pill-menu ul::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
 .pill-menu [role="option"] { cursor: pointer; }
 .pill-menu [role="option"][hidden], .pill-menu .group[hidden] { display: none; }
 .pill-menu [role="option"] .tier { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 36px; padding: 6px 12px; font-size: 15px; line-height: 1.3; white-space: normal; border-radius: var(--pill-radius); }
@@ -1447,6 +1451,10 @@ select { max-width: 100%; }
 .pill-menu .fam-title { display: none; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 2px 4px; }
 .pill-menu.searching .fam-title { display: block; }
 .pill-menu.searching .fam-panel { border-left-color: var(--line-strong); }
+/* Brand options (data-logo): the logo in the text colour, left-aligned, in the pills and the closed button. */
+.pill-select .pill-brand { display: flex; align-items: center; min-width: 0; }
+.pill-select .pill-brand .pill-logo { width: 96px; height: 20px; color: var(--text); -webkit-mask-position: left center; mask-position: left center; }
+.pill-select > button .pill-brand { padding-left: 6px; }
 .pill-select .check { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; }
 @media (max-width: 640px) {
   .field-label .pill-select, .sell-match .match-pick .pill-select { width: 100%; min-width: 0; }
