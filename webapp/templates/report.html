@@ -220,6 +220,8 @@
     {# A year without a photo is only its dot, about half as wide; without any photos there's no photo row at all.
        Photos grow when there's little to show: 110 px high for up to 3 photo-wide years, 80 px up to 6, else 48 px. #}
     {% set all_years = r.age.generations|sum(attribute='years', start=[]) %}
+    {# The estimate's years near the ad's year are ringed and marked "estimated", not every year it leaves open. #}
+    {% set ringed = ringed_years(all_years|map(attribute='year')|list, est, all_years|selectattr('claimed')|map(attribute='year')|first) %}
     {% set n_photos = all_years|selectattr('photo')|list|length %}
     {% set n_wide = n_photos + (all_years|length - n_photos) / 2 %}
     <div class="gen-slider">
@@ -238,7 +240,7 @@
         <div class="gen-head">{{ g.name or (_('Earlier generation') if g.kind == 'earlier' else _('Not in our catalogue')) }} <span>{{ g.first if g.first == g.last else g.first ~ '–' ~ g.last }}</span></div>
         <div class="gen-row">
           {% for y in g.years %}
-          {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
+          {% set likely = y.year in ringed %}
           <div class="gen-year{{ ' has-photo' if y.photo }}{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}{{ ' matched' if y.year == matched }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
             {# A photo that doesn't load falls back to the dot alone, as a year without one. #}
             {% if y.photo %}<div class="gen-photo"><img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy" draggable="false" onerror="this.parentNode.className='gen-photo gen-blank';this.parentNode.parentNode.classList.remove('has-photo');this.remove()"></div>

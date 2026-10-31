@@ -160,6 +160,7 @@ def create_app(db_path=None):
     app.jinja_env.globals["size_systems"] = checks.size_systems
     app.jinja_env.globals["split_title"] = checks.split_title
     app.jinja_env.globals["key_parts"] = checks.key_parts
+    app.jinja_env.globals["ringed_years"] = checks.ringed_years
 
     def ad_photo_fit(ad_photo, model):
         """Where to draw a stored ad photo so its bike sits on the catalogue bike (bike_fit), or None."""
