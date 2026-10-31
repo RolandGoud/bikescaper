@@ -57,7 +57,14 @@ def dump(result, models):
 
 
 def load(data, models):
-    return _Unpickler(io.BytesIO(data), models).load()
+    result = _Unpickler(io.BytesIO(data), models).load()
+    shown = result.get("model") if isinstance(result, dict) else None
+    if shown is not None and not any(shown is m for m in models):
+        # run_check shows a copy of the model with another photo (a colourway, a model year), which the
+        # pickle kept whole: rebuild it on today's model so its id and data follow a catalogue reload.
+        today = {m["slug"]: m for m in models}[shown["slug"]]  # KeyError when gone: the check runs again
+        result["model"] = dict(today, **{k: shown[k] for k in ("image", "year_photo") if k in shown})
+    return result
 
 
 def report(conn, models, listing, store=True, today=None):
