@@ -531,6 +531,17 @@ NL = {
         "Controleer welke de fiets uit de advertentie is.",
     "{claimed} may also be when it was bought.": "{claimed} kan ook het aankoopjaar zijn.",
     "earlier gen": "eerdere gen.",
+    "gen {n}": "gen {n}",
+    "From {brand}'s own archive sheet of this generation.": "Uit het eigen archiefblad van {brand} voor deze generatie.",
+    "From {brand}'s own archive sheets: the frame reads the same in each of these years.":
+        "Uit de eigen archiefbladen van {brand}: het frame is in elk van deze jaren hetzelfde.",
+    "From the model years whose spec sheets carry this name; years may be missing.":
+        "Uit de modeljaren waarvan de specificaties deze naam dragen; er kunnen jaren ontbreken.",
+    "We don't know which years this generation was sold.": "We weten niet in welke jaren deze generatie verkocht werd.",
+    "{brand} didn't number these years, but the frame reads the same as gen {n}'s.":
+        "{brand} gaf deze jaren geen nummer, maar het frame is hetzelfde als dat van gen {n}.",
+    "{brand} didn't number this generation: it is gen {n}, because the frame changed when gen {next} came.":
+        "{brand} gaf deze generatie geen nummer: het is gen {n}, want het frame veranderde toen gen {next} kwam.",
     "Seller says {claimed}. The oldest {name} we know is the {first} model, so this is probably an earlier generation we don't have yet. We go by {claimed}, the year in the ad.":
         "Verkoper zegt {claimed}. De oudste {name} die we kennen is het model {first}, dus dit is waarschijnlijk "
         "een eerdere generatie die we nog niet hebben. We gaan uit van {claimed}, het jaar in de advertentie.",

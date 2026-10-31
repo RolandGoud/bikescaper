@@ -9,10 +9,13 @@ check report shows that to the user.
 # Entered by hand from launch dates, not scraped: verify against Trek's archive
 # before relying on them.
 GENERATIONS = {
+    ("Trek", "domane", 2): (2017, 2019),
     ("Trek", "domane", 3): (2020, 2022),
     ("Trek", "domane", 4): (2023, None),
+    ("Trek", "madone", 6): (2019, 2022),
     ("Trek", "madone", 7): (2023, 2024),
     ("Trek", "madone", 8): (2025, None),
+    ("Trek", "checkpoint", 1): (2019, 2021),
     ("Trek", "checkpoint", 2): (2022, 2024),
     ("Trek", "checkpoint", 3): (2025, None),
 }

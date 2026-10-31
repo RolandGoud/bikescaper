@@ -60,7 +60,7 @@
          the group when it's shorter. #}
       {% set show_ad = loop.first and sponsored.banner %}
       {% for m in items %}
-      {{ model_card(m) }}
+      {{ model_card(m, short=True) }}
       {% if show_ad and loop.index == 8 %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
       {% endfor %}
       {% if show_ad and items|length < 8 %}{{ sponsored_banner(sponsored.banner) }}{% endif %}

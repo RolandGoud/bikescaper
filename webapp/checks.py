@@ -345,14 +345,14 @@ def year_tabs(model, today=None):
     """One tab per catalogue year from FIRST_SPEC_YEAR (or the model's earliest sheet) to this year, for
     the spec sheet on the model page.
 
-    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed, moves, earlier}. state is "scrape"
-    (our own catalogue scrape), "archive" (a Wayback Machine copy of the brand's page),
+    Each tab is {year, state, captured, ts, url, price, specs, tiers, changed, moves, earlier, generation}. state is
+    "scrape" (our own catalogue scrape), "archive" (a Wayback Machine copy of the brand's page),
     "unreadable" (a copy without a spec list), "none" (no copy of the model's page that year) or
     "unchecked" (the archive wasn't searched for this brand). specs and tiers are as spec_groups()
     and spec_tiers() give them, and changed holds the English labels whose value differs from the
     previous year with specs; moves maps those that are rated both years to "up" or "down". Rows
     keep one order across the years. earlier is true for a year of an earlier generation, as the
-    age check has it (catalogue_years).
+    age check has it (catalogue_years); generation is then what year_generations knows of it, else None.
     """
     today = today or date.today()
     found = model.get("year_specs") or {}
@@ -360,6 +360,7 @@ def year_tabs(model, today=None):
     own_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
     tabs, before, before_tiers = [], None, None
     catalogue = catalogue_years(model)  # the same generations the age check marks
+    generations = year_generations(model)
     # Earlier years only show for a model that has a sheet from then (Giant keeps some 2017 pages).
     first = min([FIRST_SPEC_YEAR] + [int(y) for y, e in archived.items() if e.get("specs")])
     for year in range(first, max(today.year, own_year or 0) + 1):
@@ -377,6 +378,7 @@ def year_tabs(model, today=None):
         if not tab.get("price") and listed:
             tab.update(price=listed["price"], price_german=True, price_url=listed["url"])
         tab["earlier"] = catalogue.get(year, (None, False))[1]
+        tab["generation"] = generations.get(year)
         if sheet:
             this = dict(model, specs=sheet)
             tab["specs"], tab["tiers"] = spec_groups(this), spec_tiers(this)
@@ -834,6 +836,114 @@ def catalogue_years(model):
         own = int(model["seen_on"][:4])
         if own not in out or out[own][1]:
             out[own] = (None, False)
+    return out
+
+
+SAME_FRAME, OTHER_FRAME = 0.8, 0.5  # how alike two years' frame descriptions read (words in common), see _frame_likeness
+
+
+def _frame(model, year):
+    """The frame line of the model's spec sheet for that year (our own scrape for its own year), or None."""
+    sheet = (((model.get("year_specs") or {}).get("years") or {}).get(str(year)) or {}).get("specs")
+    if not sheet and (model.get("seen_on") or "")[:4] == str(year):
+        sheet = model.get("specs")
+    return next((v for k, v in (sheet or {}).items() if k.lower() in ("frame", "frameset")), None)
+
+
+def _frame_likeness(a, b):
+    """The share of words two frame descriptions have in common (0-1), or None without both. Within a generation
+    Trek's frame line mostly barely changes (0.86-1.0 on the Madone SL and Domane SL sheets), but a mid-generation
+    update can score 0.64 (the 2021 Madone SLR's 800 Series frame) and a new generation 0.71 (Madone Gen 7), so only
+    a frame that has little in common (the 2019-2020 rim-brake Domane AL against its Gen 3: 0.44) counts as new."""
+    a, b = (set(re.findall(r"\w+", (t or "").lower())) for t in (a, b))
+    return len(a & b) / len(a | b) if a and b else None
+
+
+def without_generation(name):
+    """"Domane AL 2 Gen 4" -> "Domane AL 2": the model's name without the generation the brand puts in it."""
+    return re.sub(r"\s*\bgen\s*\d+\b", "", name or "", flags=re.I).strip() or name
+
+
+def _sheet_span(text):
+    """"2021 - 2023" (the model years a brand's own archive sheet covers) -> (2021, 2023), else None."""
+    found = [int(y) for y in re.findall(r"\b(?:19|20)\d\d\b", text or "")]
+    return (min(found), max(found)) if found else None
+
+
+def year_generations(model):
+    """{year: generation} for each year of an earlier generation in our catalogue (catalogue_years), so the model
+    page can show that bike when its year is picked: {"name" (as it was sold, or None), "title" (the name to
+    show), "first", "last" (the model years that generation was sold, or None when nothing tells us), "number"
+    (its generation number or None),
+    "counted" (None when the name gives the number, "same" when the frame matches the next generation's, "before"
+    when the frame changed right before it), "source"}.
+
+    The years come from the hand-entered launch years ("lineage": LINEAGES or GENERATIONS), else the brand's own
+    archive sheet ("sheet", e.g. Trek's "2021 - 2023"), else the run of following years whose sheets carry the
+    same name ("sheets"); "frame" when unnumbered years joined a generation because their frame reads the same
+    (see below). A generation
+    without a number in its name gets one from the frame of the numbered generation right after it: Trek's
+    2019–2020 Domane AL 2 had a rim-brake frame, the Gen 3 from 2021 a new one, so it was gen 2."""
+    gen = generation(model)
+    archived = (model.get("year_specs") or {}).get("years") or {}
+    lineage = (gen or {}).get("earlier") or []
+    catalogue = catalogue_years(model)
+    old = {y: name for y, (name, earlier) in catalogue.items() if earlier}
+    out = {}
+    for y, name in old.items():
+        name = re.sub(r"\bgen\s*(\d+)", r"Gen \1", name) if name else None
+        line = next(((f, l, n) for f, l, n in lineage if f <= y <= (l or f)), None)
+        number = generation_of(name) if name else None
+        # The hand-entered launch years are of the whole generation; a sheet's years only of that one page. They
+        # count unless the sheet names another generation.
+        if line and generation_of(line[2]) not in (None, number) and number is not None:
+            line = None
+        if line:
+            span, source, number = (line[0], line[1]), "lineage", number or generation_of(line[2])
+        else:
+            span, source = _sheet_span((archived.get(str(y)) or {}).get("sheet_years")), "sheet"
+        if not span and name:
+            first = last = y
+            while old.get(first - 1) == old[y]:
+                first -= 1
+            while old.get(last + 1) == old[y]:
+                last += 1
+            span, source = (first, last), "sheets"
+        out[y] = {"name": name, "first": span[0] if span else None, "last": span[1] if span else None,
+                  "number": number, "counted": None,
+                  "source": source if span else None}
+    # Count back from the newest generation. Trek's archive often names a generation only on its last sheets (the
+    # 2020-2021 Domane SL 5 sheet is the same bike as the 2022 "Domane SL 5 gen 3"), so the frame decides: a run
+    # of years without a number right before a numbered generation is that generation when its frame reads the
+    # same, and the one before it when the frame changed. In between, or without both frames, we don't guess.
+    own_first = min([y for y, (_n, earlier) in catalogue.items() if not earlier] + ([gen["first"]] if gen else []),
+                    default=None)
+    groups = {}
+    for e in out.values():
+        if e["first"]:
+            groups.setdefault((e["first"], e["last"]), []).append(e)
+    newer = (own_first, generation_of(model["name"]), None)  # (first year, number, its entries; None = ours)
+    for span in sorted(groups, reverse=True):
+        mine = groups[span]
+        number = mine[0]["number"]
+        if number is None and newer[1] and newer[0] == span[1] + 1:
+            same = _frame_likeness(_frame(model, span[1]), _frame(model, newer[0]))
+            if same is not None and same >= SAME_FRAME and newer[2] is not None:
+                number, last = newer[1], newer[2][0]["last"]
+                for e in mine:
+                    e.update(number=number, counted="same", last=last)
+                for e in mine + newer[2]:
+                    e.update(first=span[0], source="frame")
+                mine = mine + newer[2]
+            elif same is not None and same <= OTHER_FRAME and newer[1] > 1:
+                number = newer[1] - 1
+                for e in mine:
+                    e.update(number=number, counted="before")
+        newer = (span[0], number, mine)
+    # The name to show: as it was sold, else ours with the generation number swapped ("Domane AL 2 Gen 4" -> "Gen 3").
+    for e in out.values():
+        e["title"] = e["name"] or (re.sub(r"\b(gen\s*)\d+", lambda m: m.group(1) + str(e["number"]), model["name"],
+                                          flags=re.I) if e["number"] else model["name"])
     return out
 
 

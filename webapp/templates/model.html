@@ -54,7 +54,16 @@
           {% endfor %}</span></div>
         <div class="small muted colour-name" id="colour-name">{{ t.colours[0] }}</div>
         <div class="small muted" id="colour-note" hidden>{{ _('No photo of this colour yet.') }}</div>
-        {% else %}<div class="v small">–</div>{% endif %}</span></template>
+        {% else %}<div class="v small">–</div>{% endif %}</span>
+      {# A year of an earlier generation shows that bike: its name and the years it was sold. #}
+      {% if t.generation %}{% set g = t.generation %}
+      <span data-fact="title">{{ g.title }}</span>
+      <span data-fact="years"><div class="k">{{ _('Model years') }}{% set src %}{% if g.source == 'sheet' %}{{ _("From {brand}'s own archive sheet of this generation.", brand=m.brand) }}{% elif g.source == 'lineage' %}{{ _('Launch years of each generation entered by hand; our spec sheets fill in the rest.') }}{% elif g.source == 'frame' %}{{ _("From {brand}'s own archive sheets: the frame reads the same in each of these years.", brand=m.brand) }}{% elif g.source == 'sheets' %}{{ _('From the model years whose spec sheets carry this name; years may be missing.') }}{% else %}{{ _("We don't know which years this generation was sold.") }}{% endif %}{% if g.counted == 'same' %} {{ _("{brand} didn't number these years, but the frame reads the same as gen {n}'s.", brand=m.brand, n=g.number) }}{% elif g.counted == 'before' %} {{ _("{brand} didn't number this generation: it is gen {n}, because the frame changed when gen {next} came.", brand=m.brand, n=g.number, next=g.number + 1) }}{% endif %}{% endset %}{{ note(src) }}</div>
+        <div class="v">{% if g.first %}{{ g.first }}{% if g.last != g.first %}–{{ g.last or _('now') }}{% endif %}{% else %}{{ t.year }}{% endif %}</div>
+        <div class="small earlier-gen">{{ _('earlier gen') }}{% if g.number and 'gen' not in g.title|lower %} · {{ _('gen {n}', n=g.number) }}{% endif %}</div></span>
+      <span data-fact="status"><div class="k">{{ _('Status') }}{% if g.last %}{{ note(_('Discontinued: this generation was sold until {year}.', year=g.last)) }}{% endif %}</div>
+        <div class="v"><span class="status discontinued">{{ _(status_labels['discontinued']) }}</span></div></span>
+      {% endif %}</template>
     {%- endmacro %}
     {% macro year_thumb(t) -%}
         {% if t.image %}
@@ -120,19 +129,19 @@
     {% endif %}
     <div class="info">
       <div class="mono muted model-kicker">{{ brand_label({'name': m.brand|upper, 'logo': logos.get(m.brand)}) }} · {{ _(discipline) }}</div>
-      <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
+      <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px" data-fact="title">{{ m.name }}</h1>
       <div class="price" data-fact="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
       {% set parts = key_parts(specs, tiers.rows) %}
       {% if parts or year_tabs|selectattr('specs')|list %}<div class="key-parts" data-fact="parts">{% if parts %}{{ parts_list(parts) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }}</p>{% endif %}</div>{% endif %}
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
       <div class="mini-facts">
-        <div><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
+        <div data-fact="years"><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
           <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
           {% set earlier = years[4]|dictsort|selectattr('1.1')|map(attribute='0')|list if years else [] %}
           {% if earlier %}<div class="small earlier-gen" title="{{ years[4][earlier[0]][0] or '' }}">{{ _('earlier gen') }} {{ earlier|years_list }}</div>{% endif %}</div>
         <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging %}{% set lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}{% endset %}{{ note(lagging) }}{% endif %}</div>
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
-        <div><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
+        <div data-fact="status"><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
           <div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div></div>
         {# What it sells for second-hand: the median asking price of the ads matched to it (the box below has the detail). #}
         {% set too_few = _('Not enough ads yet for a reliable median price.') %}
