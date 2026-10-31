@@ -21,6 +21,9 @@ def test_names_match_across_the_generation_suffix():
     assert seed.tour_bike_prices(models, "Domane SL 7 gen 3") == {}  # another generation
     assert seed.tour_bike_prices(models, "Domane AL 5 Gen 4") == {}  # Domane+ is the e-bike
     assert seed.tour_bike_prices(models, "Émonda SL 7")["2022"]["price"] == 5999
+    # Both our generations were sold in 2025: the name without one can't say which it is.
+    ours = {"Checkpoint ALR 3 Gen 2": {"2024": {}, "2025": {}}, "Checkpoint ALR 3 Gen 3": {"2025": {}}}
+    assert seed.tour_bike_prices(models, "Checkpoint ALR 3 Gen 2", ours) == {}
 
 
 def test_german_price_only_fills_a_missing_dutch_one():
