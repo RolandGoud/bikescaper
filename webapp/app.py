@@ -193,6 +193,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["swatch_css"] = colour_match.swatch_css
     app.jinja_env.filters["photo_colour"] = seed.photo_colour  # the frame's colour in a photo, for a name we can't read
     app.jinja_env.filters["years_list"] = checks._years_list
+    app.jinja_env.filters["without_generation"] = checks.without_generation
     app.jinja_env.globals["ad_title"] = ad_title.parts
 
     def conn():

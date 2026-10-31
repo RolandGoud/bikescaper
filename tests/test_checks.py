@@ -1446,3 +1446,64 @@ def test_a_lead_colour_skips_a_plain_carbon_first_part(models):
     r = run(models, "Giant Defy Advanced 2 racefiets", "kleur charcoal maat M, Shimano 105, schijfremmen")
     assert r["model"]["name"].startswith("Defy Advanced 2"), r["model"]["name"]
     assert r["year"]["year"] == 2021, r["year"]
+
+
+def test_an_earlier_year_shows_its_own_generation(tmp_path):
+    """Picking a year of an earlier generation shows that bike: Trek's archive names the 2021-2023 sheets
+    "Domane AL 2 gen 3", and the 2019-2020 rim-brake sheet before it had another frame, so it was gen 2."""
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    model = next(m for m in db.all_models(db.connect(path)) if m["slug"] == "trek-domane-al-2-gen-4")
+    gens = checks.year_generations(model)
+    assert (gens[2022]["title"], gens[2022]["first"], gens[2022]["last"], gens[2022]["number"]) == \
+        ("Domane AL 2 Gen 3", 2021, 2023, 3)
+    assert (gens[2020]["title"], gens[2020]["first"], gens[2020]["last"]) == ("Domane AL 2", 2019, 2020)
+    assert (gens[2020]["number"], gens[2020]["counted"]) == (2, "before")
+    assert 2024 not in gens  # our own generation
+    from webapp.app import create_app
+    page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
+    assert 'data-fact="title">Domane AL 2 Gen 4</h1>' in page
+    assert '<span data-fact="title">Domane AL 2 Gen 3</span>' in page
+    assert '<div class="v">2021–2023</div>' in page and "eerdere gen. · gen 2" in page
+
+
+def test_unnumbered_years_take_the_generation_of_the_launch_years():
+    """Trek names only the 2022 Domane SL 5 sheet gen 3; the 2020-2021 one is the same generation."""
+    sheet = {"specs": {"Frame": "500 Series OCLV Carbon, IsoSpeed"}}
+    model = {"brand": "Trek", "name": "Domane SL 5 Gen 4", "seen_on": "2025-10-01", "specs": {"Frame": "x"},
+             "year_specs": {"years": {"2020": dict(sheet, sheet_name="Domane SL 5", sheet_years="2020 - 2021"),
+                                      "2021": dict(sheet, sheet_name="Domane SL 5", sheet_years="2020 - 2021"),
+                                      "2022": dict(sheet, sheet_name="Domane SL 5 gen 3", sheet_years="2022")}}}
+    gens = checks.year_generations(model)
+    assert {(g["first"], g["last"], g["number"]) for g in gens.values()} == {(2020, 2022, 3)}
+    assert gens[2020]["title"] == "Domane SL 5" and gens[2022]["title"] == "Domane SL 5 Gen 3"
+
+
+def test_frame_decides_an_unnumbered_generation_only_when_clear():
+    def model(old_frame):
+        new = "100 Series Alpha Aluminium, tapered head tube, internal routing, fender mounts, disc, thru axle"
+        return {"brand": "Trek", "name": "Domane AL 2 Gen 4", "seen_on": "2025-10-01", "specs": {"Frame": "x"},
+                "year_specs": {"years": {
+                    "2019": {"specs": {"Frame": old_frame}, "sheet_name": "Domane AL 2", "sheet_years": "2019 - 2020"},
+                    "2020": {"specs": {"Frame": old_frame}, "sheet_name": "Domane AL 2", "sheet_years": "2019 - 2020"},
+                    "2021": {"specs": {"Frame": new}, "sheet_name": "Domane AL 2 gen 3", "sheet_years": "2021 - 2023"}}}}
+    clear = checks.year_generations(model("100 Series Alpha Aluminium, fender mounts, rim brake, 130 x 5 mm QR"))
+    assert (clear[2020]["number"], clear[2020]["counted"], clear[2019]["first"]) == (2, "before", 2019)
+    same = checks.year_generations(model(
+        "100 Series Alpha Aluminium, tapered head tube, internal routing, fender mounts, disc, thru axle"))
+    assert (same[2020]["number"], same[2020]["first"], same[2021]["first"]) == (3, 2019, 2019)
+    unsure = checks.year_generations(model("100 Series Alpha Aluminium, tapered head tube, fender mounts, rim brake"))
+    assert unsure[2020]["number"] is None and unsure[2020]["title"] == "Domane AL 2"
+
+
+def test_models_page_tiles_leave_the_generation_out(tmp_path):
+    assert checks.without_generation("Domane AL 2 Gen 4") == "Domane AL 2"
+    assert checks.without_generation("Madone SLR 9 gen 8 frameset") == "Madone SLR 9 frameset"
+    from webapp.app import create_app
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    client = create_app(path).test_client()
+    tiles = client.get("/models?brand=Trek&lang=nl").get_data(as_text=True)
+    assert ">Domane AL 2</span>" in tiles and ">Domane AL 2 Gen 4</span>" not in tiles
+    # the model page itself keeps the generation
+    assert "Domane AL 2 Gen 4" in client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
