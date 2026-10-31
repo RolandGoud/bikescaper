@@ -154,3 +154,50 @@ def test_year_photo_in_the_colour_the_ads_photos_show(models, tmp_path):  # noqa
     assert "colour" in scores.missing(r, listing)  # the seller still didn't say it
     plain = checks.run_check(models, dict(listing, photo_paths=[]), today=TODAY)
     assert plain["photo_year"]["colour"] is None and not plain["colour_from_photos"]
+
+
+def _giant_page(files, own=None):
+    page = " ".join(f"{chr(97 + n % 26) * 20}/{f}.jpg" for n, f in enumerate(files))
+    if own:
+        page = f"<meta property=og:image content=https://images2.giant-bicycles.com/x/{'a' * 20}/{own}.jpg>" + page
+    return page
+
+
+def test_giant_colours_come_from_the_photos_when_the_sheet_lists_none():
+    # The 2027 TCR Advanced Pro 0-Di2 page has no Kleuren line: its colours were lost, and with them every photo.
+    page = _giant_page(["MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite", "MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite-D4",
+                        "MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite-Rear", "MY27TCRAdvancedPro0-Di2_ColorBUltraNavy",
+                        "MY27TCRAdvancedPro-DA_ColorACryoSilver"])
+    assert giant.photo_colours(page, "TCR Advanced Pro 0-Di2") == ["Icicle White", "Ultra Navy"]
+    assert [a.rsplit("/", 1)[1] for a in giant.colour_angles(page, "TCR Advanced Pro 0-Di2", "Icicle White")] == [
+        "MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite-D4.jpg", "MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite-Rear.jpg"]
+
+
+def test_giant_close_ups_named_in_other_ways_are_found():
+    page = _giant_page(["MY23DefyAdvancedPro1ColorA_Airglow", "MY23DefyAdvancedPro1ColorA_Airglow_D1",
+                        "MY21ContendAR1_ColorAMetallicNavy", "MY21ContendAR1_ColorAMetallicNavy_Road-5",
+                        "MY21ContendAR1_ColorAMetallicNavy_back"])
+    assert giant.colour_photo(page, "Defy Advanced Pro 1", "Airglow/Black").endswith("/MY23DefyAdvancedPro1ColorA_Airglow.jpg")
+    assert len(giant.colour_angles(page, "Defy Advanced Pro 1", "Airglow/Black")) == 1
+    assert len(giant.colour_angles(page, "Contend AR 1", "Metallic Navy")) == 2
+
+
+def test_giant_photos_follow_the_page_photo_when_the_name_is_shortened():
+    # "TCR Advanced Pro (Dura-Ace)" files its photos as TCRAdvancedPro-DA, and its close-ups drop the underscore.
+    page = _giant_page(["MY26TCRAdvancedPro-DA_ColorACarbon_RossoCorsa", "MY26TCRAdvancedPro-DA_ColorACarbonRossoCorsa-D1",
+                        "MY26TCRAdvancedPro-DA_ColorACarbonRossoCorsa-D3", "MY26TCRAdvancedPro0-Di2_ColorACarbon"],
+                       own="MY26TCRAdvancedPro-DA_ColorACarbon_RossoCorsa")
+    colours = ["Black/Rosso Corsa"]
+    assert giant.colour_photo(page, "TCR Advanced Pro (Dura-Ace)", colours[0], colours).endswith("_ColorACarbon_RossoCorsa.jpg")
+    assert len(giant.colour_angles(page, "TCR Advanced Pro (Dura-Ace)", colours[0], colours)) == 2
+    # MY20DefyADV1_ColorB: an old page names neither the model nor the colour in full
+    page = _giant_page(["MY20DefyADV1_ColorB"], own="MY20DefyADV1_ColorB")
+    assert giant.colour_photo(page, "Defy Advanced 1", "Charcoal / Pure Red", ["Charcoal / Pure Red"]).endswith("/MY20DefyADV1_ColorB.jpg")
+
+
+def test_giant_black_background_twins_are_left_out():
+    page = _giant_page(["MY24RevoltAdvancedPro1_ColorABlueDragonfly", "MY24RevoltAdvancedPro1_ColorABlueDragonfly-D11",
+                        "MY24RevoltAdvancedPro1_ColorABlueDragonfly-D11-1", "MY24Revolt2_ColorAMetallicBlack_B",
+                        "MY21FastRoadAdvanced1_ColorACarbon", "MY21FastRoadAdvanced1_ColorACarbon-2"])
+    assert [a.rsplit("_", 1)[1] for a in giant.colour_angles(page, "Revolt Advanced Pro 1", "Blue Dragonfly")] == ["ColorABlueDragonfly-D11.jpg"]
+    assert len(giant.colour_angles(page, "FastRoad Advanced 1", "Carbon/Chrome")) == 1  # -2 is a close-up of the side view

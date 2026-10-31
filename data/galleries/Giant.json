@@ -1,4 +1,10 @@
 {
+ "https://www.giant-bicycles.com/nl/contend-1-2021": {},
+ "https://www.giant-bicycles.com/nl/contend-2-2022": {
+  "Black/Silver": [
+   "Giant/gallery/contend2_blacksilver_1.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/contend-ar-1-2025": {
   "Frost Silver/Chrome": [
    "Giant/gallery/contendar1_frostsilverchrome_1.jpg",
@@ -7,8 +13,39 @@
    "Giant/gallery/contendar1_frostsilverchrome_4.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/contend-ar-2-2025": {
+  "Dark Iridescent": [
+   "Giant/gallery/contendar2_darkiridescent_1.jpg",
+   "Giant/gallery/contendar2_darkiridescent_2.jpg",
+   "Giant/gallery/contendar2_darkiridescent_3.jpg",
+   "Giant/gallery/contendar2_darkiridescent_4.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/contend-ar-3-2025": {},
+ "https://www.giant-bicycles.com/nl/contend-ar-4-2024": {
+  "Cold Night": [
+   "Giant/gallery/contendar4_coldnight_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/contend-sl-1-2020": {},
+ "https://www.giant-bicycles.com/nl/contend-sl-2-2020": {
+  "Pure Red / Black": [
+   "Giant/gallery/contendsl2_pureredblack_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/contend-sl-2-disc-hydraulic-2020": {},
  "https://www.giant-bicycles.com/nl/defy-advanced-0-2027": {},
+ "https://www.giant-bicycles.com/nl/defy-advanced-1---di2-2023": {
+  "Orion Nebula/Metallic Black": [
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_1.jpg",
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_2.jpg",
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_3.jpg",
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_4.jpg",
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_5.jpg",
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_6.jpg",
+   "Giant/gallery/defyadvanced1di2_orionnebulametallicblack_7.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/defy-advanced-1-2027": {
   "Obsidian Pulse/Chrome": [
    "Giant/gallery/defyadvanced1_obsidianpulsechrome_1.jpg",
@@ -34,6 +71,7 @@
    "Giant/gallery/defyadvanced3_machblue_3.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/defy-advanced-3-hydraulic-2020": {},
  "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-2027": {
   "Luminous Lagoon/Chrome": [
    "Giant/gallery/defyadvancedpro0_luminouslagoonchrome_1.jpg",
@@ -43,6 +81,7 @@
    "Giant/gallery/defyadvancedpro0_luminouslagoonchrome_5.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/defy-advanced-pro-0-red-2020": {},
  "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-2027": {
   "Midnight Moon": [
    "Giant/gallery/defyadvancedpro1_midnightmoon_1.jpg",
@@ -52,17 +91,82 @@
    "Giant/gallery/defyadvancedpro1_midnightmoon_5.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-di2-2020": {},
+ "https://www.giant-bicycles.com/nl/defy-advanced-pro-1-force-2020": {},
+ "https://www.giant-bicycles.com/nl/defy-advanced-pro-2-2020": {
+  "Matte Gunmetal Black / Gloss Black": [
+   "Giant/gallery/defyadvancedpro2_mattegunmetalblackglossblack_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/defy-advanced-pro-2-axs-2022": {
+  "Black Chrome / Black": [
+   "Giant/gallery/defyadvancedpro2axs_blackchromeblack_1.jpg",
+   "Giant/gallery/defyadvancedpro2axs_blackchromeblack_2.jpg",
+   "Giant/gallery/defyadvancedpro2axs_blackchromeblack_3.jpg",
+   "Giant/gallery/defyadvancedpro2axs_blackchromeblack_4.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/defy-advanced-pro-2-ultegra-2022": {},
+ "https://www.giant-bicycles.com/nl/defy-advanced-sl-0-2024": {
+  "Blue Dragonfly/Black/Chrome": [
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_1.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_2.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_3.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_4.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_5.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_6.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_7.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_8.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_9.jpg",
+   "Giant/gallery/defyadvancedsl0_bluedragonflyblackchrome_10.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/defy-advanced-sl-1-2024": {
+  "Golden Haze/Panther": [
+   "Giant/gallery/defyadvancedsl1_goldenhazepanther_1.jpg",
+   "Giant/gallery/defyadvancedsl1_goldenhazepanther_2.jpg",
+   "Giant/gallery/defyadvancedsl1_goldenhazepanther_3.jpg",
+   "Giant/gallery/defyadvancedsl1_goldenhazepanther_4.jpg",
+   "Giant/gallery/defyadvancedsl1_goldenhazepanther_5.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/defy-advanced-sl-frameset-2025": {},
  "https://www.giant-bicycles.com/nl/defy-advanced-ui2-2027": {
   "Tempest Purple": [
    "Giant/gallery/defyadvancedui2_tempestpurple_1.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/fastroad-advanced-1-2024": {
+  "Carbon": [
+   "Giant/gallery/fastroadadvanced1_carbon_1.jpg",
+   "Giant/gallery/fastroadadvanced1_carbon_2.jpg",
+   "Giant/gallery/fastroadadvanced1_carbon_3.jpg",
+   "Giant/gallery/fastroadadvanced1_carbon_4.jpg",
+   "Giant/gallery/fastroadadvanced1_carbon_5.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/fastroad-advanced-2-2022": {},
  "https://www.giant-bicycles.com/nl/fastroad-ar-1-2027": {
   "Stealth Chrome": [
    "Giant/gallery/fastroadar1_stealthchrome_1.jpg"
   ]
  },
  "https://www.giant-bicycles.com/nl/fastroad-ar-2-2027": {},
+ "https://www.giant-bicycles.com/nl/fastroad-comax-2-2018": {},
+ "https://www.giant-bicycles.com/nl/fastroad-sl-1-2022": {},
+ "https://www.giant-bicycles.com/nl/fastroad-sl-2-2021": {},
+ "https://www.giant-bicycles.com/nl/fastroad-sl-3-2021": {
+  "Metallic Black/Chrome": [
+   "Giant/gallery/fastroadsl3_metallicblackchrome_1.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_2.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_3.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_4.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_5.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_6.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_7.jpg",
+   "Giant/gallery/fastroadsl3_metallicblackchrome_8.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/propel-advanced-0-2027": {
   "Azurite Blue": [
    "Giant/gallery/propeladvanced0_azuriteblue_1.jpg",
@@ -96,6 +200,28 @@
    "Giant/gallery/propeladvanced2_white_5.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-2024": {
+  "Sangria": [
+   "Giant/gallery/propeladvancedpro0_sangria_1.jpg",
+   "Giant/gallery/propeladvancedpro0_sangria_2.jpg",
+   "Giant/gallery/propeladvancedpro0_sangria_3.jpg",
+   "Giant/gallery/propeladvancedpro0_sangria_4.jpg",
+   "Giant/gallery/propeladvancedpro0_sangria_5.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-axs-2023": {
+  "Black Currant/Chrome": [
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_1.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_2.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_3.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_4.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_5.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_6.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_7.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_8.jpg",
+   "Giant/gallery/propeladvancedpro0axs_blackcurrantchrome_9.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-di2-2027": {
   "Abyss Teal/Fluorescent Mint": [
    "Giant/gallery/propeladvancedpro0di2_abysstealfluorescentmint_1.jpg",
@@ -112,6 +238,7 @@
    "Giant/gallery/propeladvancedpro0di2_obsidianpulse_8.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/propel-advanced-pro-0-disc-force-2020": {},
  "https://www.giant-bicycles.com/nl/propel-advanced-pro-1-2025": {
   "Frost Silver": [
    "Giant/gallery/propeladvancedpro1_frostsilver_1.jpg",
@@ -147,6 +274,22 @@
    "Giant/gallery/propeladvancedproda_supernovagrey_11.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/propel-advanced-pro-disc-2018": {},
+ "https://www.giant-bicycles.com/nl/propel-advanced-pro-ff-2027": {
+  "Glacier Teal": [
+   "Giant/gallery/propeladvancedproff_glacierteal_1.jpg",
+   "Giant/gallery/propeladvancedproff_glacierteal_2.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/propel-advanced-sl-0-2024": {},
+ "https://www.giant-bicycles.com/nl/propel-advanced-sl-0-disc-red-2020": {},
+ "https://www.giant-bicycles.com/nl/propel-advanced-sl-1-2018": {},
+ "https://www.giant-bicycles.com/nl/propel-advanced-sl-1-disc-force-2020": {
+  "Rainbow White / Gunmetal Black / Chrome": [
+   "Giant/gallery/propeladvancedsl1discforce_rainbowwhitegunmetalblackchrome_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/propel-advanced-sl-frameset-2025": {},
  "https://www.giant-bicycles.com/nl/revolt-0-2025": {
   "Black/Moonstone": [
    "Giant/gallery/revolt0_blackmoonstone_1.jpg",
@@ -225,8 +368,7 @@
    "Giant/gallery/revoltadvancedpro0_interstellarchrome_8.jpg",
    "Giant/gallery/revoltadvancedpro0_interstellarchrome_9.jpg",
    "Giant/gallery/revoltadvancedpro0_interstellarchrome_10.jpg",
-   "Giant/gallery/revoltadvancedpro0_interstellarchrome_11.jpg",
-   "Giant/gallery/revoltadvancedpro0_interstellarchrome_12.jpg"
+   "Giant/gallery/revoltadvancedpro0_interstellarchrome_11.jpg"
   ]
  },
  "https://www.giant-bicycles.com/nl/revolt-advanced-pro-1-2025": {
@@ -238,6 +380,17 @@
    "Giant/gallery/revoltadvancedpro1_meteorstorm_5.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/revolt-advanced-pro-ff-2025": {
+  "Slate": [
+   "Giant/gallery/revoltadvancedproff_slate_1.jpg",
+   "Giant/gallery/revoltadvancedproff_slate_2.jpg",
+   "Giant/gallery/revoltadvancedproff_slate_3.jpg",
+   "Giant/gallery/revoltadvancedproff_slate_4.jpg",
+   "Giant/gallery/revoltadvancedproff_slate_5.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/revolt-advanced-pro-force-2020": {},
+ "https://www.giant-bicycles.com/nl/revolt-advanced-pro-frameset-2022": {},
  "https://www.giant-bicycles.com/nl/revolt-advanced-sl-0-2027": {
   "Raw Carbon / Prism Mist": [
    "Giant/gallery/revoltadvancedsl0_rawcarbonprismmist_1.jpg",
@@ -276,17 +429,36 @@
    "Giant/gallery/revoltadvancedsl2_deeplagoon_7.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/revolt-x-advanced-pro-0-2025": {
+  "Interstellar/Carbon": [
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_1.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_2.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_3.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_4.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_5.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_6.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_7.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_8.jpg",
+   "Giant/gallery/revoltxadvancedpro0_interstellarcarbon_9.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/revolt-x-advanced-pro-2-2025": {
+  "Meteor Storm": [
+   "Giant/gallery/revoltxadvancedpro2_meteorstorm_1.jpg",
+   "Giant/gallery/revoltxadvancedpro2_meteorstorm_2.jpg",
+   "Giant/gallery/revoltxadvancedpro2_meteorstorm_3.jpg",
+   "Giant/gallery/revoltxadvancedpro2_meteorstorm_4.jpg",
+   "Giant/gallery/revoltxadvancedpro2_meteorstorm_5.jpg",
+   "Giant/gallery/revoltxadvancedpro2_meteorstorm_6.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/tcr-advanced-0-2025": {
   "Frost Silver": [
    "Giant/gallery/tcradvanced0_frostsilver_1.jpg",
    "Giant/gallery/tcradvanced0_frostsilver_2.jpg",
    "Giant/gallery/tcradvanced0_frostsilver_3.jpg",
    "Giant/gallery/tcradvanced0_frostsilver_4.jpg",
-   "Giant/gallery/tcradvanced0_frostsilver_5.jpg",
-   "Giant/gallery/tcradvanced0_frostsilver_6.jpg",
-   "Giant/gallery/tcradvanced0_frostsilver_7.jpg",
-   "Giant/gallery/tcradvanced0_frostsilver_8.jpg",
-   "Giant/gallery/tcradvanced0_frostsilver_9.jpg"
+   "Giant/gallery/tcradvanced0_frostsilver_5.jpg"
   ]
  },
  "https://www.giant-bicycles.com/nl/tcr-advanced-0-pc-2027": {
@@ -298,7 +470,14 @@
    "Giant/gallery/tcradvanced0pc_teal_5.jpg"
   ]
  },
- "https://www.giant-bicycles.com/nl/tcr-advanced-1---pro-compact-2027": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-1---pro-compact-2027": {
+  "Camel Silk": [
+   "Giant/gallery/tcradvanced1procompact_camelsilk_1.jpg",
+   "Giant/gallery/tcradvanced1procompact_camelsilk_2.jpg",
+   "Giant/gallery/tcradvanced1procompact_camelsilk_3.jpg",
+   "Giant/gallery/tcradvanced1procompact_camelsilk_4.jpg"
+  ]
+ },
  "https://www.giant-bicycles.com/nl/tcr-advanced-1-2025": {
   "Asphalt Green": [
    "Giant/gallery/tcradvanced1_asphaltgreen_1.jpg",
@@ -312,6 +491,8 @@
    "Giant/gallery/tcradvanced1_marsdust_2.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-1-disc-kom-2020": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-1plus-disc-2021": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-2-2025": {
   "Carbon": [
    "Giant/gallery/tcradvanced2_carbon_1.jpg",
@@ -326,33 +507,67 @@
    "Giant/gallery/tcradvanced2_illusionwhite_3.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-2-disc-pro-compact-2020": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-2-pc-2027": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1---di2-2023": {
+  "Cold Night": [
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_1.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_2.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_3.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_4.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_5.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_6.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_7.jpg",
+   "Giant/gallery/tcradvanceddisc1di2_coldnight_8.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1plus---di2-2023": {
+  "Cold Night": [
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_1.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_2.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_3.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_4.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_5.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_6.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_7.jpg",
+   "Giant/gallery/tcradvanceddisc1plusdi2_coldnight_8.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1plus-ar-2022": {
+  "Gloss Panther / Matte Moss Green": [
+   "Giant/gallery/tcradvanceddisc1plusar_glosspanthermattemossgreen_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-disc-1plus-ar-36-2023": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-pro--dura-ace--2027": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-2019": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-axs-2025": {
   "Ocean Twilight / Glare Chrome": [
    "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_1.jpg",
    "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_2.jpg",
    "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_3.jpg",
    "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_4.jpg",
-   "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_5.jpg",
-   "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_6.jpg",
-   "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_7.jpg",
-   "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_8.jpg",
-   "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_9.jpg"
+   "Giant/gallery/tcradvancedpro0axs_oceantwilightglarechrome_5.jpg"
   ]
  },
- "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-di2-2027": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-di2-2027": {
+  "Icicle White": [
+   "Giant/gallery/tcradvancedpro0di2_iciclewhite_1.jpg",
+   "Giant/gallery/tcradvancedpro0di2_iciclewhite_2.jpg",
+   "Giant/gallery/tcradvancedpro0di2_iciclewhite_3.jpg",
+   "Giant/gallery/tcradvancedpro0di2_iciclewhite_4.jpg",
+   "Giant/gallery/tcradvancedpro0di2_iciclewhite_5.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-disc-force-2020": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-1-2020": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-pro-1-axs-2025": {
   "Carbon / Chrome": [
    "Giant/gallery/tcradvancedpro1axs_carbonchrome_1.jpg",
    "Giant/gallery/tcradvancedpro1axs_carbonchrome_2.jpg",
    "Giant/gallery/tcradvancedpro1axs_carbonchrome_3.jpg",
    "Giant/gallery/tcradvancedpro1axs_carbonchrome_4.jpg",
-   "Giant/gallery/tcradvancedpro1axs_carbonchrome_5.jpg",
-   "Giant/gallery/tcradvancedpro1axs_carbonchrome_6.jpg",
-   "Giant/gallery/tcradvancedpro1axs_carbonchrome_7.jpg",
-   "Giant/gallery/tcradvancedpro1axs_carbonchrome_8.jpg",
-   "Giant/gallery/tcradvancedpro1axs_carbonchrome_9.jpg"
+   "Giant/gallery/tcradvancedpro1axs_carbonchrome_5.jpg"
   ]
  },
  "https://www.giant-bicycles.com/nl/tcr-advanced-pro-1-di2-2025": {
@@ -361,13 +576,15 @@
    "Giant/gallery/tcradvancedpro1di2_carbonchrome_2.jpg",
    "Giant/gallery/tcradvancedpro1di2_carbonchrome_3.jpg",
    "Giant/gallery/tcradvancedpro1di2_carbonchrome_4.jpg",
-   "Giant/gallery/tcradvancedpro1di2_carbonchrome_5.jpg",
-   "Giant/gallery/tcradvancedpro1di2_carbonchrome_6.jpg",
-   "Giant/gallery/tcradvancedpro1di2_carbonchrome_7.jpg",
-   "Giant/gallery/tcradvancedpro1di2_carbonchrome_8.jpg",
-   "Giant/gallery/tcradvancedpro1di2_carbonchrome_9.jpg"
+   "Giant/gallery/tcradvancedpro1di2_carbonchrome_5.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-2-disc-2021": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-2-disc-kom-2020": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-3-disc-2020": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-1-ut-2022": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-frameset-2023": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-pro-team-2019": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-sl-0-da-2025": {
   "Black Lava / Iris": [
    "Giant/gallery/tcradvancedsl0da_blacklavairis_1.jpg",
@@ -380,13 +597,10 @@
    "Giant/gallery/tcradvancedsl0da_blacklavairis_8.jpg",
    "Giant/gallery/tcradvancedsl0da_blacklavairis_9.jpg",
    "Giant/gallery/tcradvancedsl0da_blacklavairis_10.jpg",
-   "Giant/gallery/tcradvancedsl0da_blacklavairis_11.jpg",
-   "Giant/gallery/tcradvancedsl0da_blacklavairis_12.jpg",
-   "Giant/gallery/tcradvancedsl0da_blacklavairis_13.jpg",
-   "Giant/gallery/tcradvancedsl0da_blacklavairis_14.jpg",
-   "Giant/gallery/tcradvancedsl0da_blacklavairis_15.jpg"
+   "Giant/gallery/tcradvancedsl0da_blacklavairis_11.jpg"
   ]
  },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-sl-0-disc-2021": {},
  "https://www.giant-bicycles.com/nl/tcr-advanced-sl-0-red-2025": {
   "Black Lava": [
    "Giant/gallery/tcradvancedsl0red_blacklava_1.jpg",
@@ -414,26 +628,68 @@
    "Giant/gallery/tcradvancedsl1_bluedragonflyiris_8.jpg",
    "Giant/gallery/tcradvancedsl1_bluedragonflyiris_9.jpg",
    "Giant/gallery/tcradvancedsl1_bluedragonflyiris_10.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_11.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_12.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_13.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_14.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_15.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_16.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_17.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_18.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_19.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_20.jpg",
-   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_21.jpg"
+   "Giant/gallery/tcradvancedsl1_bluedragonflyiris_11.jpg"
   ]
  },
- "https://www.giant-bicycles.com/nl/tcr-advanced-ui2-2027": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-sl-1-disc-force-2020": {
+  "Metallic Navy / Iris": [
+   "Giant/gallery/tcradvancedsl1discforce_metallicnavyiris_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/tcr-advanced-sl-2---king-of-mountain-2018": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-sl-frameset-2025": {},
+ "https://www.giant-bicycles.com/nl/tcr-advanced-ui2-2027": {
+  "Arctic Light": [
+   "Giant/gallery/tcradvancedui2_arcticlight_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/tcx-advanced-2020": {},
+ "https://www.giant-bicycles.com/nl/tcx-advanced-pro-0-force-2020": {},
+ "https://www.giant-bicycles.com/nl/tcx-advanced-pro-1-2022": {},
+ "https://www.giant-bicycles.com/nl/tcx-advanced-pro-2-2021": {},
+ "https://www.giant-bicycles.com/nl/tcx-advanced-pro-frameset-2022": {},
+ "https://www.giant-bicycles.com/nl/tcx-slr-1-2020": {},
+ "https://www.giant-bicycles.com/nl/tcx-slr-2-2020": {
+  "Metallic Navy": [
+   "Giant/gallery/tcxslr2_metallicnavy_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/trinity-advanced-2019": {},
+ "https://www.giant-bicycles.com/nl/trinity-advanced-pro-1-2021": {
+  "Gloss Rainbow Black/Matte Black": [
+   "Giant/gallery/trinityadvancedpro1_glossrainbowblackmatteblack_1.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/trinity-advanced-pro-1-force-2020": {},
+ "https://www.giant-bicycles.com/nl/trinity-advanced-pro-2-2018": {},
  "https://www.giant-bicycles.com/nl/trinity-advanced-sl-0-2027": {},
  "https://www.giant-bicycles.com/nl/trinity-advanced-sl-1-2027": {
   "Ember Violet/Black": [
    "Giant/gallery/trinityadvancedsl1_embervioletblack_1.jpg"
   ]
  },
- "https://www.giant-bicycles.com/nl/trinity-advanced-sl-time-trial-frameset-2025": {},
- "https://www.giant-bicycles.com/nl/trinity-advanced-sl-triathlon-frameset-2025": {}
+ "https://www.giant-bicycles.com/nl/trinity-advanced-sl-time-trial-frameset-2025": {
+  "Carbon/Chrome": [
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_1.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_2.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_3.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_4.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_5.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_6.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_7.jpg",
+   "Giant/gallery/trinityadvancedsltimetrialframeset_carbonchrome_8.jpg"
+  ]
+ },
+ "https://www.giant-bicycles.com/nl/trinity-advanced-sl-triathlon-frameset-2025": {
+  "Carbon/Chrome": [
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_1.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_2.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_3.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_4.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_5.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_6.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_7.jpg",
+   "Giant/gallery/trinityadvancedsltriathlonframeset_carbonchrome_8.jpg"
+  ]
+ }
 }

@@ -39,7 +39,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Charcoal / Orange": "Giant/years/contend1_2019_charcoalorange_site.jpg"
+    },
     "colours": [
      "Charcoal / Orange"
     ],
@@ -74,7 +77,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gunmetal Black": "Giant/years/contend1_2020_gunmetalblack_site.jpg"
+    },
     "colours": [
      "Gunmetal Black"
     ],
@@ -184,7 +190,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Black / Flash Green": "Giant/years/contend2_2019_metallicblackflashgreen_site.jpg"
+    },
     "colours": [
      "Metallic Black / Flash Green"
     ],
@@ -344,7 +353,14 @@
     "captured": "2026-10-24",
     "colour_angles": {
      "Metallic Navy": [
-      "Giant/years/contendar1_2021_metallicnavy_1_site.jpg"
+      "Giant/years/contendar1_2021_metallicnavy_1_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_2_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_3_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_4_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_5_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_6_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_7_site.jpg",
+      "Giant/years/contendar1_2021_metallicnavy_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -786,7 +802,14 @@
     "captured": "2026-10-24",
     "colour_angles": {
      "Metallic Black/Rainbow White": [
-      "Giant/years/contendar3_2021_metallicblackrainbowwhite_1_site.jpg"
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_1_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_2_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_3_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_4_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_5_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_6_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_7_site.jpg",
+      "Giant/years/contendar3_2021_metallicblackrainbowwhite_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -1083,7 +1106,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gun Metal Black": "Giant/years/contendsl1_2019_gunmetalblack_site.jpg"
+    },
     "colours": [
      "Gun Metal Black"
     ],
@@ -1118,7 +1144,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Gunmetal Black / Gloss Black": "Giant/years/contendsl1_2020_mattegunmetalblackglossblack_site.jpg"
+    },
     "colours": [
      "Matte Gunmetal Black / Gloss Black"
     ],
@@ -1190,7 +1219,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gun Metal Black / Pure Red": "Giant/years/contendsl2_2019_gunmetalblackpurered_site.jpg"
+    },
     "colours": [
      "Gun Metal Black / Pure Red"
     ],
@@ -1225,7 +1257,14 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Pure Red / Black": [
+      "Giant/years/contendsl2_2020_pureredblack_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Pure Red / Black": "Giant/years/contendsl2_2020_pureredblack_site.jpg"
+    },
     "colours": [
      "Pure Red / Black"
     ],
@@ -1489,7 +1528,10 @@
    },
    "2020": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Charcoal / Pure Red": "Giant/years/defyadvanced1_2020_charcoalpurered_site.jpg"
+    },
     "colours": [
      "Charcoal / Pure Red"
     ],
@@ -1524,7 +1566,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon/Charcoal/Chrome": "Giant/years/defyadvanced1_2021_carboncharcoalchrome_site.jpg"
+    },
     "colours": [
      "Carbon/Charcoal/Chrome"
     ],
@@ -1616,7 +1661,8 @@
       "Giant/years/defyadvanced1_2024_charcoalmilkyway_8_site.jpg",
       "Giant/years/defyadvanced1_2024_charcoalmilkyway_9_site.jpg",
       "Giant/years/defyadvanced1_2024_charcoalmilkyway_10_site.jpg",
-      "Giant/years/defyadvanced1_2024_charcoalmilkyway_11_site.jpg"
+      "Giant/years/defyadvanced1_2024_charcoalmilkyway_11_site.jpg",
+      "Giant/years/defyadvanced1_2024_charcoalmilkyway_12_site.jpg"
      ]
     },
     "colour_images": {
@@ -1750,7 +1796,20 @@
   "Defy Advanced 1 - Di2": {
    "2023": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Orion Nebula/Metallic Black": [
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_1_site.jpg",
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_2_site.jpg",
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_3_site.jpg",
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_4_site.jpg",
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_5_site.jpg",
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_6_site.jpg",
+      "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_7_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Orion Nebula/Metallic Black": "Giant/years/defyadvanced1di2_2023_orionnebulametallicblack_site.jpg"
+    },
     "colours": [
      "Orion Nebula/Metallic Black"
     ],
@@ -1857,7 +1916,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gray / Gun Metal Black": "Giant/years/defyadvanced2_2019_graygunmetalblack_site.jpg"
+    },
     "colours": [
      "Gray / Gun Metal Black"
     ],
@@ -1927,7 +1989,21 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Carbon/Charcoal": [
+      "Giant/years/defyadvanced2_2021_carboncharcoal_1_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_2_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_3_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_4_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_5_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_6_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_7_site.jpg",
+      "Giant/years/defyadvanced2_2021_carboncharcoal_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Carbon/Charcoal": "Giant/years/defyadvanced2_2021_carboncharcoal_site.jpg"
+    },
     "colours": [
      "Carbon/Charcoal"
     ],
@@ -1963,7 +2039,11 @@
    },
    "2022": {
     "captured": "2026-10-24",
-    "colour_angles": {},
+    "colour_angles": {
+     "Deep Lake / Black": [
+      "Giant/years/defyadvanced2_2022_deeplakeblack_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Deep Lake / Black": "Giant/years/defyadvanced2_2022_deeplakeblack_site.jpg"
     },
@@ -2207,7 +2287,14 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Charcoal/Black/Chameleon Galaxy": [
+      "Giant/years/defyadvanced3_2021_charcoalblackchameleongalaxy_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Charcoal/Black/Chameleon Galaxy": "Giant/years/defyadvanced3_2021_charcoalblackchameleongalaxy_site.jpg"
+    },
     "colours": [
      "Charcoal/Black/Chameleon Galaxy"
     ],
@@ -2245,7 +2332,10 @@
   "Defy Advanced 3 Hydraulic": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon": "Giant/years/defyadvanced3hydraulic_2020_carbon_site.jpg"
+    },
     "colours": [
      "Carbon"
     ],
@@ -2386,7 +2476,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Chrysocolla/Gloss Chrysocolla": "Giant/years/defyadvancedpro0_2021_mattechrysocollaglosschrysocolla_site.jpg"
+    },
     "colours": [
      "Matte Chrysocolla/Gloss Chrysocolla"
     ],
@@ -2563,7 +2656,10 @@
   "Defy Advanced Pro 0 Red": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Gunmetal Black / Gloss Black / Gloss Blue": "Giant/years/defyadvancedpro0red_2020_mattegunmetalblackglossblackglossblue_site.jpg"
+    },
     "colours": [
      "Matte Gunmetal Black / Gloss Black / Gloss Blue"
     ],
@@ -2677,7 +2773,19 @@
    },
    "2023": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Airglow/Black": [
+      "Giant/years/defyadvancedpro1_2023_airglowblack_1_site.jpg",
+      "Giant/years/defyadvancedpro1_2023_airglowblack_2_site.jpg",
+      "Giant/years/defyadvancedpro1_2023_airglowblack_3_site.jpg",
+      "Giant/years/defyadvancedpro1_2023_airglowblack_4_site.jpg",
+      "Giant/years/defyadvancedpro1_2023_airglowblack_5_site.jpg",
+      "Giant/years/defyadvancedpro1_2023_airglowblack_6_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Airglow/Black": "Giant/years/defyadvancedpro1_2023_airglowblack_site.jpg"
+    },
     "colours": [
      "Airglow/Black"
     ],
@@ -2850,7 +2958,10 @@
   "Defy Advanced Pro 1 Di2": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Red / Metallic Black": "Giant/years/defyadvancedpro1di2_2020_metallicredmetallicblack_site.jpg"
+    },
     "colours": [
      "Metallic Red / Metallic Black"
     ],
@@ -2886,7 +2997,21 @@
    },
    "2021": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Chameleon Neptune/Black": [
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_1_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_2_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_3_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_4_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_5_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_6_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_7_site.jpg",
+      "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Chameleon Neptune/Black": "Giant/years/defyadvancedpro1di2_2021_chameleonneptuneblack_site.jpg"
+    },
     "colours": [
      "Chameleon Neptune/Black"
     ],
@@ -2924,7 +3049,10 @@
   "Defy Advanced Pro 1 Force": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Red / Metallic Black": "Giant/years/defyadvancedpro1force_2020_metallicredmetallicblack_site.jpg"
+    },
     "colours": [
      "Metallic Red / Metallic Black"
     ],
@@ -2998,7 +3126,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Charcoal / Iris": "Giant/years/defyadvancedpro2_2019_charcoaliris_site.jpg"
+    },
     "colours": [
      "Charcoal / Iris"
     ],
@@ -3034,7 +3165,14 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Matte Gunmetal Black / Gloss Black": [
+      "Giant/years/defyadvancedpro2_2020_mattegunmetalblackglossblack_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Matte Gunmetal Black / Gloss Black": "Giant/years/defyadvancedpro2_2020_mattegunmetalblackglossblack_site.jpg"
+    },
     "colours": [
      "Matte Gunmetal Black / Gloss Black"
     ],
@@ -3070,7 +3208,10 @@
    },
    "2021": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Rosewood/Black/Chrome": "Giant/years/defyadvancedpro2_2021_rosewoodblackchrome_site.jpg"
+    },
     "colours": [
      "Rosewood/Black/Chrome"
     ],
@@ -3108,7 +3249,17 @@
   "Defy Advanced Pro 2 AXS": {
    "2022": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Black Chrome / Black": [
+      "Giant/years/defyadvancedpro2axs_2022_blackchromeblack_1_site.jpg",
+      "Giant/years/defyadvancedpro2axs_2022_blackchromeblack_2_site.jpg",
+      "Giant/years/defyadvancedpro2axs_2022_blackchromeblack_3_site.jpg",
+      "Giant/years/defyadvancedpro2axs_2022_blackchromeblack_4_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Black Chrome / Black": "Giant/years/defyadvancedpro2axs_2022_blackchromeblack_site.jpg"
+    },
     "colours": [
      "Black Chrome / Black"
     ],
@@ -3145,7 +3296,10 @@
    },
    "2023": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon/Messier": "Giant/years/defyadvancedpro2axs_2023_carbonmessier_site.jpg"
+    },
     "colours": [
      "Carbon/Messier"
     ],
@@ -3184,7 +3338,10 @@
   "Defy Advanced Pro 2 Ultegra": {
    "2022": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Black Chrome / Black": "Giant/years/defyadvancedpro2ultegra_2022_blackchromeblack_site.jpg"
+    },
     "colours": [
      "Black Chrome / Black"
     ],
@@ -3234,8 +3391,7 @@
       "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_7_site.jpg",
       "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_8_site.jpg",
       "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_9_site.jpg",
-      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_10_site.jpg",
-      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_11_site.jpg"
+      "Giant/years/defyadvancedsl0_2024_bluedragonflyblackchrome_10_site.jpg"
      ]
     },
     "colour_images": {
@@ -3374,7 +3530,10 @@
   "Defy Advanced SL Frameset": {
    "2025": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Arctic Blast/Iris": "Giant/years/defyadvancedslframeset_2025_arcticblastiris_site.jpg"
+    },
     "colours": [
      "Arctic Blast/Iris"
     ],
@@ -3395,7 +3554,19 @@
   "FastRoad AR 1": {
    "2023": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Aged Denim": [
+      "Giant/years/fastroadar1_2023_ageddenim_1_site.jpg",
+      "Giant/years/fastroadar1_2023_ageddenim_2_site.jpg",
+      "Giant/years/fastroadar1_2023_ageddenim_3_site.jpg",
+      "Giant/years/fastroadar1_2023_ageddenim_4_site.jpg",
+      "Giant/years/fastroadar1_2023_ageddenim_5_site.jpg",
+      "Giant/years/fastroadar1_2023_ageddenim_6_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Aged Denim": "Giant/years/fastroadar1_2023_ageddenim_site.jpg"
+    },
     "colours": [
      "Aged Denim"
     ],
@@ -3472,7 +3643,18 @@
    },
    "2025": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Electron Blue": [
+      "Giant/years/fastroadar1_2025_electronblue_1_site.jpg",
+      "Giant/years/fastroadar1_2025_electronblue_2_site.jpg",
+      "Giant/years/fastroadar1_2025_electronblue_3_site.jpg",
+      "Giant/years/fastroadar1_2025_electronblue_4_site.jpg",
+      "Giant/years/fastroadar1_2025_electronblue_5_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Electron Blue": "Giant/years/fastroadar1_2025_electronblue_site.jpg"
+    },
     "colours": [
      "Electron Blue"
     ],
@@ -3603,7 +3785,10 @@
   "FastRoad Advanced 1": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Red / Metallic Black": "Giant/years/fastroadadvanced1_2020_metallicredmetallicblack_site.jpg"
+    },
     "colours": [
      "Metallic Red / Metallic Black"
     ],
@@ -3641,7 +3826,14 @@
     "captured": "2026-10-27",
     "colour_angles": {
      "Carbon/Chrome": [
-      "Giant/years/fastroadadvanced1_2021_carbonchrome_1_site.jpg"
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_1_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_2_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_3_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_4_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_5_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_6_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_7_site.jpg",
+      "Giant/years/fastroadadvanced1_2021_carbonchrome_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -3688,11 +3880,7 @@
       "Giant/years/fastroadadvanced1_2024_carbon_2_site.jpg",
       "Giant/years/fastroadadvanced1_2024_carbon_3_site.jpg",
       "Giant/years/fastroadadvanced1_2024_carbon_4_site.jpg",
-      "Giant/years/fastroadadvanced1_2024_carbon_5_site.jpg",
-      "Giant/years/fastroadadvanced1_2024_carbon_6_site.jpg",
-      "Giant/years/fastroadadvanced1_2024_carbon_7_site.jpg",
-      "Giant/years/fastroadadvanced1_2024_carbon_8_site.jpg",
-      "Giant/years/fastroadadvanced1_2024_carbon_9_site.jpg"
+      "Giant/years/fastroadadvanced1_2024_carbon_5_site.jpg"
      ]
     },
     "colour_images": {
@@ -3739,7 +3927,10 @@
   "FastRoad Advanced 2": {
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Pure Red": "Giant/years/fastroadadvanced2_2019_carbonpurered_site.jpg"
+    },
     "colours": [
      "Carbon / Pure Red"
     ],
@@ -3811,7 +4002,14 @@
     "captured": "2026-10-27",
     "colour_angles": {
      "Charcoal": [
-      "Giant/years/fastroadadvanced2_2021_charcoal_1_site.jpg"
+      "Giant/years/fastroadadvanced2_2021_charcoal_1_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_2_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_3_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_4_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_5_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_6_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_7_site.jpg",
+      "Giant/years/fastroadadvanced2_2021_charcoal_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -3928,7 +4126,10 @@
   "FastRoad SL 1": {
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Neon Red / Black Chrome": "Giant/years/fastroadsl1_2019_neonredblackchrome_site.jpg"
+    },
     "colours": [
      "Neon Red / Black Chrome"
     ],
@@ -3962,7 +4163,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Charcoal / Pure Red": "Giant/years/fastroadsl1_2020_charcoalpurered_site.jpg"
+    },
     "colours": [
      "Charcoal / Pure Red"
     ],
@@ -4078,7 +4282,14 @@
   "FastRoad SL 2": {
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Metal Black / Lime": [
+      "Giant/years/fastroadsl2_2019_metalblacklime_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Metal Black / Lime": "Giant/years/fastroadsl2_2019_metalblacklime_site.jpg"
+    },
     "colours": [
      "Metal Black / Lime"
     ],
@@ -4112,7 +4323,14 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Metallic Navy": [
+      "Giant/years/fastroadsl2_2020_metallicnavy_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Metallic Navy": "Giant/years/fastroadsl2_2020_metallicnavy_site.jpg"
+    },
     "colours": [
      "Metallic Navy"
     ],
@@ -4187,7 +4405,10 @@
   "FastRoad SL 3": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Black / Metallic Blue": "Giant/years/fastroadsl3_2020_metallicblackmetallicblue_site.jpg"
+    },
     "colours": [
      "Metallic Black / Metallic Blue"
     ],
@@ -4224,7 +4445,14 @@
     "captured": "2026-10-27",
     "colour_angles": {
      "Metallic Black/Chrome": [
-      "Giant/years/fastroadsl3_2021_metallicblackchrome_1_site.jpg"
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_1_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_2_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_3_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_4_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_5_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_6_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_7_site.jpg",
+      "Giant/years/fastroadsl3_2021_metallicblackchrome_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -4372,7 +4600,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Neon Yellow / Black": "Giant/years/propeladvanced0_2019_neonyellowblack_site.jpg"
+    },
     "colours": [
      "Neon Yellow / Black"
     ],
@@ -4475,7 +4706,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Pure Red": "Giant/years/propeladvanced1_2019_carbonpurered_site.jpg"
+    },
     "colours": [
      "Carbon / Pure Red"
     ],
@@ -4510,7 +4744,10 @@
    },
    "2020": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "White / Chameleon Blue": "Giant/years/propeladvanced1_2020_whitechameleonblue_site.jpg"
+    },
     "colours": [
      "White / Chameleon Blue"
     ],
@@ -4553,7 +4790,8 @@
       "Giant/years/propeladvanced1_2023_orionnebula_4_site.jpg",
       "Giant/years/propeladvanced1_2023_orionnebula_5_site.jpg",
       "Giant/years/propeladvanced1_2023_orionnebula_6_site.jpg",
-      "Giant/years/propeladvanced1_2023_orionnebula_7_site.jpg"
+      "Giant/years/propeladvanced1_2023_orionnebula_7_site.jpg",
+      "Giant/years/propeladvanced1_2023_orionnebula_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -4605,8 +4843,7 @@
       "Giant/years/propeladvanced1_2024_aerospacebluechrome_5_site.jpg",
       "Giant/years/propeladvanced1_2024_aerospacebluechrome_6_site.jpg",
       "Giant/years/propeladvanced1_2024_aerospacebluechrome_7_site.jpg",
-      "Giant/years/propeladvanced1_2024_aerospacebluechrome_8_site.jpg",
-      "Giant/years/propeladvanced1_2024_aerospacebluechrome_9_site.jpg"
+      "Giant/years/propeladvanced1_2024_aerospacebluechrome_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -4766,7 +5003,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Vibrant Blue": "Giant/years/propeladvanced2_2019_carbonvibrantblue_site.jpg"
+    },
     "colours": [
      "Carbon / Vibrant Blue"
     ],
@@ -4801,7 +5041,10 @@
    },
    "2020": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Charcoal / Gloss Metallic Lime": "Giant/years/propeladvanced2_2020_mattecharcoalglossmetalliclime_site.jpg"
+    },
     "colours": [
      "Matte Charcoal / Gloss Metallic Lime"
     ],
@@ -4973,7 +5216,10 @@
   "Propel Advanced Pro 0": {
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Iris": "Giant/years/propeladvancedpro0_2019_carboniris_site.jpg"
+    },
     "colours": [
      "Carbon / Iris"
     ],
@@ -5063,7 +5309,15 @@
     "captured": "2026-10-27",
     "colour_angles": {
      "Black Currant/Chrome": [
-      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_1_site.jpg"
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_1_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_2_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_3_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_4_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_5_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_6_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_7_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_8_site.jpg",
+      "Giant/years/propeladvancedpro0axs_2023_blackcurrantchrome_9_site.jpg"
      ]
     },
     "colour_images": {
@@ -5149,7 +5403,15 @@
     "captured": "2026-10-24",
     "colour_angles": {
      "Black Currant/Chrome": [
-      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_1_site.jpg"
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_1_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_2_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_3_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_4_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_5_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_6_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_7_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_8_site.jpg",
+      "Giant/years/propeladvancedpro0di2_2023_blackcurrantchrome_9_site.jpg"
      ]
     },
     "colour_images": {
@@ -5316,7 +5578,20 @@
    },
    "2025": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Frost Silver": [
+      "Giant/years/propeladvancedpro1_2025_frostsilver_1_site.jpg",
+      "Giant/years/propeladvancedpro1_2025_frostsilver_2_site.jpg",
+      "Giant/years/propeladvancedpro1_2025_frostsilver_3_site.jpg",
+      "Giant/years/propeladvancedpro1_2025_frostsilver_4_site.jpg",
+      "Giant/years/propeladvancedpro1_2025_frostsilver_5_site.jpg",
+      "Giant/years/propeladvancedpro1_2025_frostsilver_6_site.jpg",
+      "Giant/years/propeladvancedpro1_2025_frostsilver_7_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Frost Silver": "Giant/years/propeladvancedpro1_2025_frostsilver_site.jpg"
+    },
     "colours": [
      "Frost Silver"
     ],
@@ -5389,7 +5664,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Neon Orange": "Giant/years/propeladvancedprodisc_2019_carbonneonorange_site.jpg"
+    },
     "colours": [
      "Carbon / Neon Orange"
     ],
@@ -5556,7 +5834,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gloss Electric Blue / Gloss Metallic Black": "Giant/years/propeladvancedsl0discred_2020_glosselectricblueglossmetallicblack_site.jpg"
+    },
     "colours": [
      "Gloss Electric Blue / Gloss Metallic Black"
     ],
@@ -5632,7 +5913,14 @@
   "Propel Advanced SL 1 Disc Force": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Rainbow White / Gunmetal Black / Chrome": [
+      "Giant/years/propeladvancedsl1discforce_2020_rainbowwhitegunmetalblackchrome_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Rainbow White / Gunmetal Black / Chrome": "Giant/years/propeladvancedsl1discforce_2020_rainbowwhitegunmetalblackchrome_site.jpg"
+    },
     "colours": [
      "Rainbow White / Gunmetal Black / Chrome"
     ],
@@ -5949,7 +6237,10 @@
   "Revolt 1": {
    "2020": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gunmetal Black": "Giant/years/revolt1_2020_gunmetalblack_site.jpg"
+    },
     "colours": [
      "Gunmetal Black"
     ],
@@ -6322,7 +6613,10 @@
   "Revolt Advanced 0": {
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Carbon / Gloss Carbon": "Giant/years/revoltadvanced0_2019_mattecarbonglosscarbon_site.jpg"
+    },
     "colours": [
      "Matte Carbon / Gloss Carbon"
     ],
@@ -6357,7 +6651,14 @@
    },
    "2020": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Gray Teal": [
+      "Giant/years/revoltadvanced0_2020_grayteal_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Gray Teal": "Giant/years/revoltadvanced0_2020_grayteal_site.jpg"
+    },
     "colours": [
      "Gray Teal"
     ],
@@ -6392,7 +6693,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Balsam Green": "Giant/years/revoltadvanced0_2021_balsamgreen_site.jpg"
+    },
     "colours": [
      "Balsam Green"
     ],
@@ -6651,7 +6955,10 @@
   "Revolt Advanced 1": {
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gray / Olive / Chrome": "Giant/years/revoltadvanced1_2019_grayolivechrome_site.jpg"
+    },
     "colours": [
      "Gray / Olive / Chrome"
     ],
@@ -6686,7 +6993,10 @@
    },
    "2020": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Wine Purple": "Giant/years/revoltadvanced1_2020_winepurple_site.jpg"
+    },
     "colours": [
      "Wine Purple"
     ],
@@ -6722,7 +7032,11 @@
    },
    "2022": {
     "captured": "2026-10-24",
-    "colour_angles": {},
+    "colour_angles": {
+     "Phantom Green": [
+      "Giant/years/revoltadvanced1_2022_phantomgreen_1_site.jpg"
+     ]
+    },
     "colour_images": {
      "Phantom Green": "Giant/years/revoltadvanced1_2022_phantomgreen_site.jpg"
     },
@@ -6764,7 +7078,12 @@
     "captured": "2026-10-24",
     "colour_angles": {
      "Cordovan": [
-      "Giant/years/revoltadvanced1_2023_cordovan_1_site.jpg"
+      "Giant/years/revoltadvanced1_2023_cordovan_1_site.jpg",
+      "Giant/years/revoltadvanced1_2023_cordovan_2_site.jpg",
+      "Giant/years/revoltadvanced1_2023_cordovan_3_site.jpg",
+      "Giant/years/revoltadvanced1_2023_cordovan_4_site.jpg",
+      "Giant/years/revoltadvanced1_2023_cordovan_5_site.jpg",
+      "Giant/years/revoltadvanced1_2023_cordovan_6_site.jpg"
      ]
     },
     "colour_images": {
@@ -6942,7 +7261,10 @@
   "Revolt Advanced 2": {
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Orange / Gun Metal Black": "Giant/years/revoltadvanced2_2019_metallicorangegunmetalblack_site.jpg"
+    },
     "colours": [
      "Metallic Orange / Gun Metal Black"
     ],
@@ -7013,7 +7335,21 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Rosewood": [
+      "Giant/years/revoltadvanced2_2021_rosewood_1_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_2_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_3_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_4_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_5_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_6_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_7_site.jpg",
+      "Giant/years/revoltadvanced2_2021_rosewood_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Rosewood": "Giant/years/revoltadvanced2_2021_rosewood_site.jpg"
+    },
     "colours": [
      "Rosewood"
     ],
@@ -7241,7 +7577,10 @@
   "Revolt Advanced 3": {
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Dusty Blue": "Giant/years/revoltadvanced3_2021_dustyblue_site.jpg"
+    },
     "colours": [
      "Dusty Blue"
     ],
@@ -7362,7 +7701,18 @@
    },
    "2025": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Panther": [
+      "Giant/years/revoltadvanced3_2025_panther_1_site.jpg",
+      "Giant/years/revoltadvanced3_2025_panther_2_site.jpg",
+      "Giant/years/revoltadvanced3_2025_panther_3_site.jpg",
+      "Giant/years/revoltadvanced3_2025_panther_4_site.jpg",
+      "Giant/years/revoltadvanced3_2025_panther_5_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Panther": "Giant/years/revoltadvanced3_2025_panther_site.jpg"
+    },
     "colours": [
      "Panther"
     ],
@@ -7446,7 +7796,10 @@
   "Revolt Advanced Pro 0": {
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Cosmos Navy": "Giant/years/revoltadvancedpro0_2021_cosmosnavy_site.jpg"
+    },
     "colours": [
      "Cosmos Navy"
     ],
@@ -7483,7 +7836,8 @@
     "captured": "2026-10-24",
     "colour_angles": {
      "Dark Red / Grenadine": [
-      "Giant/years/revoltadvancedpro0_2022_darkredgrenadine_1_site.jpg"
+      "Giant/years/revoltadvancedpro0_2022_darkredgrenadine_1_site.jpg",
+      "Giant/years/revoltadvancedpro0_2022_darkredgrenadine_2_site.jpg"
      ]
     },
     "colour_images": {
@@ -7534,8 +7888,7 @@
       "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_5_site.jpg",
       "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_6_site.jpg",
       "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_7_site.jpg",
-      "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_8_site.jpg",
-      "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_9_site.jpg"
+      "Giant/years/revoltadvancedpro0_2024_digitalblurpleiris_8_site.jpg"
      ]
     },
     "colour_images": {
@@ -7589,8 +7942,7 @@
       "Giant/years/revoltadvancedpro0_2025_interstellarchrome_8_site.jpg",
       "Giant/years/revoltadvancedpro0_2025_interstellarchrome_9_site.jpg",
       "Giant/years/revoltadvancedpro0_2025_interstellarchrome_10_site.jpg",
-      "Giant/years/revoltadvancedpro0_2025_interstellarchrome_11_site.jpg",
-      "Giant/years/revoltadvancedpro0_2025_interstellarchrome_12_site.jpg"
+      "Giant/years/revoltadvancedpro0_2025_interstellarchrome_11_site.jpg"
      ]
     },
     "colour_images": {
@@ -7673,7 +8025,20 @@
   "Revolt Advanced Pro 1": {
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Chameleon Mars": [
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_1_site.jpg",
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_2_site.jpg",
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_3_site.jpg",
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_4_site.jpg",
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_5_site.jpg",
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_6_site.jpg",
+      "Giant/years/revoltadvancedpro1_2021_chameleonmars_7_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Chameleon Mars": "Giant/years/revoltadvancedpro1_2021_chameleonmars_site.jpg"
+    },
     "colours": [
      "Chameleon Mars"
     ],
@@ -7715,8 +8080,7 @@
       "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_3_site.jpg",
       "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_4_site.jpg",
       "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_5_site.jpg",
-      "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_6_site.jpg",
-      "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_7_site.jpg"
+      "Giant/years/revoltadvancedpro1_2024_bluedragonflychrome_6_site.jpg"
      ]
     },
     "colour_images": {
@@ -7878,7 +8242,10 @@
   "Revolt Advanced Pro Force": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Black/Chrome": "Giant/years/revoltadvancedproforce_2020_blackchrome_site.jpg"
+    },
     "colours": [
      "Black/Chrome"
     ],
@@ -7915,7 +8282,10 @@
   "Revolt Advanced Pro Frameset": {
    "2022": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Candy Navy": "Giant/years/revoltadvancedproframeset_2022_candynavy_site.jpg"
+    },
     "colours": [
      "Candy Navy"
     ],
@@ -7996,8 +8366,7 @@
       "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_3_site.jpg",
       "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_4_site.jpg",
       "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_5_site.jpg",
-      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_6_site.jpg",
-      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_7_site.jpg"
+      "Giant/years/revoltxadvancedpro0_2024_kelpforestcharcoalchrome_6_site.jpg"
      ]
     },
     "colour_images": {
@@ -8094,11 +8463,7 @@
       "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_2_site.jpg",
       "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_3_site.jpg",
       "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_4_site.jpg",
-      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_5_site.jpg",
-      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_6_site.jpg",
-      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_7_site.jpg",
-      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_8_site.jpg",
-      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_9_site.jpg"
+      "Giant/years/revoltxadvancedpro2_2024_blackseasparkle_5_site.jpg"
      ]
     },
     "colour_images": {
@@ -8442,7 +8807,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Carbon/Gloss Unicorn White": "Giant/years/tcradvanced1_2021_mattecarbonglossunicornwhite_site.jpg"
+    },
     "colours": [
      "Matte Carbon/Gloss Unicorn White"
     ],
@@ -8528,7 +8896,10 @@
   "TCR Advanced 1 Disc KOM": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Blue / Gunmetal Black": "Giant/years/tcradvanced1disckom_2020_metallicbluegunmetalblack_site.jpg"
+    },
     "colours": [
      "Metallic Blue / Gunmetal Black"
     ],
@@ -8565,7 +8936,10 @@
   "TCR Advanced 1+ Disc": {
    "2021": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Gunmetal Black/Gloss Silver": "Giant/years/tcradvanced1plusdisc_2021_mattegunmetalblackglosssilver_site.jpg"
+    },
     "colours": [
      "Matte Gunmetal Black/Gloss Silver"
     ],
@@ -8706,7 +9080,10 @@
    },
    "2021": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon": "Giant/years/tcradvanced2_2021_carbon_site.jpg"
+    },
     "colours": [
      "Carbon",
      "Unicorn White"
@@ -8841,7 +9218,10 @@
   "TCR Advanced 2 Disc Pro Compact": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Black / White": "Giant/years/tcradvanced2discprocompact_2020_metallicblackwhite_site.jpg"
+    },
     "colours": [
      "Metallic Black / White"
     ],
@@ -8878,7 +9258,21 @@
   "TCR Advanced Disc 1 - Di2": {
    "2023": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Cold Night": [
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_1_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_2_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_3_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_4_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_5_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_6_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_7_site.jpg",
+      "Giant/years/tcradvanceddisc1di2_2023_coldnight_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Cold Night": "Giant/years/tcradvanceddisc1di2_2023_coldnight_site.jpg"
+    },
     "colours": [
      "Cold Night",
      "Unicorn White"
@@ -8918,7 +9312,21 @@
   "TCR Advanced Disc 1+ - Di2": {
    "2023": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Cold Night": [
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_1_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_2_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_3_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_4_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_5_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_6_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_7_site.jpg",
+      "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Cold Night": "Giant/years/tcradvanceddisc1plusdi2_2023_coldnight_site.jpg"
+    },
     "colours": [
      "Cold Night"
     ],
@@ -8957,7 +9365,14 @@
   "TCR Advanced Disc 1+ AR": {
    "2022": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Gloss Panther / Matte Moss Green": [
+      "Giant/years/tcradvanceddisc1plusar_2022_glosspanthermattemossgreen_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Gloss Panther / Matte Moss Green": "Giant/years/tcradvanceddisc1plusar_2022_glosspanthermattemossgreen_site.jpg"
+    },
     "colours": [
      "Gloss Panther / Matte Moss Green"
     ],
@@ -8996,7 +9411,10 @@
   "TCR Advanced Disc 1+ AR 36": {
    "2023": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gloss Misty Forest/Matte Gunmetal Black": "Giant/years/tcradvanceddisc1plusar36_2023_glossmistyforestmattegunmetalblack_site.jpg"
+    },
     "colours": [
      "Gloss Misty Forest/Matte Gunmetal Black"
     ],
@@ -9035,7 +9453,16 @@
   "TCR Advanced Pro (Dura-Ace)": {
    "2026": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Black/Rosso Corsa": [
+      "Giant/years/tcradvancedproduraace_2026_blackrossocorsa_1_site.jpg",
+      "Giant/years/tcradvancedproduraace_2026_blackrossocorsa_2_site.jpg",
+      "Giant/years/tcradvancedproduraace_2026_blackrossocorsa_3_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Black/Rosso Corsa": "Giant/years/tcradvancedproduraace_2026_blackrossocorsa_site.jpg"
+    },
     "colours": [
      "Black/Rosso Corsa"
     ],
@@ -9109,7 +9536,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Black / Iris": "Giant/years/tcradvancedpro0_2019_carbonblackiris_site.jpg"
+    },
     "colours": [
      "Carbon / Black / Iris"
     ],
@@ -9153,11 +9583,7 @@
       "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_2_site.jpg",
       "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_3_site.jpg",
       "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_4_site.jpg",
-      "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_5_site.jpg",
-      "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_6_site.jpg",
-      "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_7_site.jpg",
-      "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_8_site.jpg",
-      "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_9_site.jpg"
+      "Giant/years/tcradvancedpro0axs_2025_oceantwilightglarechrome_5_site.jpg"
      ]
     },
     "colour_images": {
@@ -9253,17 +9679,7 @@
       "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_8_site.jpg",
       "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_9_site.jpg",
       "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_10_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_11_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_12_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_13_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_14_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_15_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_16_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_17_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_18_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_19_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_20_site.jpg",
-      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_21_site.jpg"
+      "Giant/years/tcradvancedpro0di2_2025_oceantwilightglarechrome_11_site.jpg"
      ]
     },
     "colour_images": {
@@ -9307,7 +9723,10 @@
   "TCR Advanced Pro 1": {
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gun Metal Black / Metallic Green / Reflective Gray": "Giant/years/tcradvancedpro1_2019_gunmetalblackmetallicgreenreflectivegray_site.jpg"
+    },
     "colours": [
      "Gun Metal Black / Metallic Green / Reflective Gray"
     ],
@@ -9343,7 +9762,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Chrome": "Giant/years/tcradvancedpro1_2020_carbonchrome_site.jpg"
+    },
     "colours": [
      "Carbon / Chrome"
     ],
@@ -9387,11 +9809,7 @@
       "Giant/years/tcradvancedpro1axs_2025_carbonchrome_2_site.jpg",
       "Giant/years/tcradvancedpro1axs_2025_carbonchrome_3_site.jpg",
       "Giant/years/tcradvancedpro1axs_2025_carbonchrome_4_site.jpg",
-      "Giant/years/tcradvancedpro1axs_2025_carbonchrome_5_site.jpg",
-      "Giant/years/tcradvancedpro1axs_2025_carbonchrome_6_site.jpg",
-      "Giant/years/tcradvancedpro1axs_2025_carbonchrome_7_site.jpg",
-      "Giant/years/tcradvancedpro1axs_2025_carbonchrome_8_site.jpg",
-      "Giant/years/tcradvancedpro1axs_2025_carbonchrome_9_site.jpg"
+      "Giant/years/tcradvancedpro1axs_2025_carbonchrome_5_site.jpg"
      ]
     },
     "colour_images": {
@@ -9441,11 +9859,7 @@
       "Giant/years/tcradvancedpro1di2_2025_carbonchrome_2_site.jpg",
       "Giant/years/tcradvancedpro1di2_2025_carbonchrome_3_site.jpg",
       "Giant/years/tcradvancedpro1di2_2025_carbonchrome_4_site.jpg",
-      "Giant/years/tcradvancedpro1di2_2025_carbonchrome_5_site.jpg",
-      "Giant/years/tcradvancedpro1di2_2025_carbonchrome_6_site.jpg",
-      "Giant/years/tcradvancedpro1di2_2025_carbonchrome_7_site.jpg",
-      "Giant/years/tcradvancedpro1di2_2025_carbonchrome_8_site.jpg",
-      "Giant/years/tcradvancedpro1di2_2025_carbonchrome_9_site.jpg"
+      "Giant/years/tcradvancedpro1di2_2025_carbonchrome_5_site.jpg"
      ]
     },
     "colour_images": {
@@ -9536,7 +9950,10 @@
   "TCR Advanced Pro 2 Disc": {
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Candy Blue / Black / Metallic Orange": "Giant/years/tcradvancedpro2disc_2019_candyblueblackmetallicorange_site.jpg"
+    },
     "colours": [
      "Candy Blue / Black / Metallic Orange"
     ],
@@ -9574,7 +9991,10 @@
   "TCR Advanced Pro 2 Disc KOM": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gloss Metallic Blue / Matte Black": "Giant/years/tcradvancedpro2disckom_2020_glossmetallicbluematteblack_site.jpg"
+    },
     "colours": [
      "Gloss Metallic Blue / Matte Black"
     ],
@@ -9612,7 +10032,10 @@
   "TCR Advanced Pro 3 Disc": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Glacier Silver / Chrome Red": "Giant/years/tcradvancedpro3disc_2020_glaciersilverchromered_site.jpg"
+    },
     "colours": [
      "Glacier Silver / Chrome Red"
     ],
@@ -9650,7 +10073,10 @@
   "TCR Advanced Pro Disc 1 UT": {
    "2022": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gloss Black Diamond / Matte Panther": "Giant/years/tcradvancedprodisc1ut_2022_glossblackdiamondmattepanther_site.jpg"
+    },
     "colours": [
      "Gloss Black Diamond / Matte Panther"
     ],
@@ -9739,11 +10165,7 @@
       "Giant/years/tcradvancedsl0da_2025_blacklavairis_8_site.jpg",
       "Giant/years/tcradvancedsl0da_2025_blacklavairis_9_site.jpg",
       "Giant/years/tcradvancedsl0da_2025_blacklavairis_10_site.jpg",
-      "Giant/years/tcradvancedsl0da_2025_blacklavairis_11_site.jpg",
-      "Giant/years/tcradvancedsl0da_2025_blacklavairis_12_site.jpg",
-      "Giant/years/tcradvancedsl0da_2025_blacklavairis_13_site.jpg",
-      "Giant/years/tcradvancedsl0da_2025_blacklavairis_14_site.jpg",
-      "Giant/years/tcradvancedsl0da_2025_blacklavairis_15_site.jpg"
+      "Giant/years/tcradvancedsl0da_2025_blacklavairis_11_site.jpg"
      ]
     },
     "colour_images": {
@@ -9823,7 +10245,10 @@
   "TCR Advanced SL 0 Red": {
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Reflective Gray / Pure Red": "Giant/years/tcradvancedsl0red_2019_carbonreflectivegraypurered_site.jpg"
+    },
     "colours": [
      "Carbon / Reflective Gray / Pure Red"
     ],
@@ -9950,7 +10375,10 @@
    },
    "2019": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gun Metal Black / Light Blue / Chrome": "Giant/years/tcradvancedsl1_2019_gunmetalblacklightbluechrome_site.jpg"
+    },
     "colours": [
      "Gun Metal Black / Light Blue / Chrome"
     ],
@@ -9998,17 +10426,7 @@
       "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_8_site.jpg",
       "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_9_site.jpg",
       "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_10_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_11_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_12_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_13_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_14_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_15_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_16_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_17_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_18_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_19_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_20_site.jpg",
-      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_21_site.jpg"
+      "Giant/years/tcradvancedsl1_2025_bluedragonflyiris_11_site.jpg"
      ]
     },
     "colour_images": {
@@ -10052,7 +10470,14 @@
   "TCR Advanced SL 1 Disc Force": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Metallic Navy / Iris": [
+      "Giant/years/tcradvancedsl1discforce_2020_metallicnavyiris_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Metallic Navy / Iris": "Giant/years/tcradvancedsl1discforce_2020_metallicnavyiris_site.jpg"
+    },
     "colours": [
      "Metallic Navy / Iris"
     ],
@@ -10127,7 +10552,17 @@
   "TCR Advanced SL Frameset": {
    "2026": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Terrain Tracker": [
+      "Giant/years/tcradvancedslframeset_2026_terraintracker_1_site.jpg",
+      "Giant/years/tcradvancedslframeset_2026_terraintracker_2_site.jpg",
+      "Giant/years/tcradvancedslframeset_2026_terraintracker_3_site.jpg",
+      "Giant/years/tcradvancedslframeset_2026_terraintracker_4_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Terrain Tracker": "Giant/years/tcradvancedslframeset_2026_terraintracker_site.jpg"
+    },
     "colours": [
      "Atmosphere/Stealth Chrome/Iris",
      "Terrain Tracker"
@@ -10186,7 +10621,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Black": "Giant/years/tcxadvanced_2020_black_site.jpg"
+    },
     "colours": [
      "Black"
     ],
@@ -10224,7 +10662,10 @@
   "TCX Advanced Pro 0 Force": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Gunmetal Black": "Giant/years/tcxadvancedpro0force_2020_gunmetalblack_site.jpg"
+    },
     "colours": [
      "Gunmetal Black"
     ],
@@ -10298,7 +10739,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Black": "Giant/years/tcxadvancedpro1_2020_metallicblack_site.jpg"
+    },
     "colours": [
      "Metallic Black"
     ],
@@ -10334,7 +10778,21 @@
    },
    "2021": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Carbon/Unicorn White": [
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_1_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_2_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_3_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_4_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_5_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_6_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_7_site.jpg",
+      "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Carbon/Unicorn White": "Giant/years/tcxadvancedpro1_2021_carbonunicornwhite_site.jpg"
+    },
     "colours": [
      "Carbon/Unicorn White"
     ],
@@ -10521,7 +10979,10 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Olympic Blue": "Giant/years/tcxadvancedpro2_2020_olympicblue_site.jpg"
+    },
     "colours": [
      "Olympic Blue"
     ],
@@ -10557,7 +11018,10 @@
    },
    "2021": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Chameleon Nova": "Giant/years/tcxadvancedpro2_2021_chameleonnova_site.jpg"
+    },
     "colours": [
      "Chameleon Nova"
     ],
@@ -10595,7 +11059,10 @@
   "TCX SLR 1": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Metallic Red": "Giant/years/tcxslr1_2020_metallicred_site.jpg"
+    },
     "colours": [
      "Metallic Red"
     ],
@@ -10702,7 +11169,14 @@
    },
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Metallic Navy": [
+      "Giant/years/tcxslr2_2020_metallicnavy_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Metallic Navy": "Giant/years/tcxslr2_2020_metallicnavy_site.jpg"
+    },
     "colours": [
      "Metallic Navy"
     ],
@@ -10774,7 +11248,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Green": "Giant/years/trinityadvanced_2019_carbongreen_site.jpg"
+    },
     "colours": [
      "Carbon / Green"
     ],
@@ -10811,7 +11288,14 @@
   "Trinity Advanced Pro 1": {
    "2021": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {
+     "Gloss Rainbow Black/Matte Black": [
+      "Giant/years/trinityadvancedpro1_2021_glossrainbowblackmatteblack_1_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Gloss Rainbow Black/Matte Black": "Giant/years/trinityadvancedpro1_2021_glossrainbowblackmatteblack_site.jpg"
+    },
     "colours": [
      "Gloss Rainbow Black/Matte Black"
     ],
@@ -10849,7 +11333,10 @@
   "Trinity Advanced Pro 1 Force": {
    "2020": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Chameleon Blue": "Giant/years/trinityadvancedpro1force_2020_chameleonblue_site.jpg"
+    },
     "colours": [
      "Chameleon Blue"
     ],
@@ -10921,7 +11408,10 @@
    },
    "2019": {
     "captured": "2026-10-27",
-    "colour_images": {},
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon / Neon tangerine": "Giant/years/trinityadvancedpro2_2019_carbonneontangerine_site.jpg"
+    },
     "colours": [
      "Carbon / Neon tangerine"
     ],
@@ -10973,10 +11463,7 @@
       "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_10_site.jpg",
       "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_11_site.jpg",
       "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_12_site.jpg",
-      "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_13_site.jpg",
-      "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_14_site.jpg",
-      "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_15_site.jpg",
-      "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_16_site.jpg"
+      "Giant/years/trinityadvancedsl0_2025_carbonprismatichaze_13_site.jpg"
      ]
     },
     "colour_images": {
@@ -11057,7 +11544,21 @@
   "Trinity Advanced SL Time Trial Frameset": {
    "2025": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Carbon/Chrome": [
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_1_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_2_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_3_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_4_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_5_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_6_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_7_site.jpg",
+      "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Carbon/Chrome": "Giant/years/trinityadvancedsltimetrialframeset_2025_carbonchrome_site.jpg"
+    },
     "colours": [
      "Carbon/Chrome"
     ],
@@ -11081,7 +11582,21 @@
   "Trinity Advanced SL Triathlon Frameset": {
    "2025": {
     "captured": "2026-10-24",
-    "colour_images": {},
+    "colour_angles": {
+     "Carbon/Chrome": [
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_1_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_2_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_3_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_4_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_5_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_6_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_7_site.jpg",
+      "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_8_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Carbon/Chrome": "Giant/years/trinityadvancedsltriathlonframeset_2025_carbonchrome_site.jpg"
+    },
     "colours": [
      "Carbon/Chrome"
     ],
