@@ -860,6 +860,18 @@ def test_condition_reads_negated_damage_and_the_ads_condition_field():
     assert checks.detect_condition("Kleine schade aan de lak") == "damaged"
     assert checks.detect_condition("Specificaties\nConditie: Gebruikt") == "used"
     assert checks.detect_condition("Conditie: Zo goed als nieuw") == "like-new"
+    # The seller's picked condition wins over damage words in the text (check 55).
+    assert checks.detect_condition("Nooit gevallen, kleine lakschade op de vork\n\nConditie: Zo goed als nieuw") == "like-new"
+    assert checks.detect_condition("Krasje bij de crank\nConditie: Gebruikt") == "used"
+    assert checks.detect_condition("Conditie: Defect") == "damaged"
+    assert checks.detect_condition("Geen valschade, netjes onderhouden") is None
+    assert checks.detect_condition("Nooit crashschade gehad") is None
+
+
+def test_wheels_named_without_the_word_wheels():
+    claims = checks.read_claims("Trek Madone SL 6", "Upgrades:\n- Bontrager Aeolus Pro 37\n- Aeolus RSL zadel")
+    assert claims["wheels"] == {"label": "Bontrager Aeolus Pro 37", "tier": 4}
+    assert checks.detect_part("Bontrager Aeolus Comp zadel, carbon frame", "wheels") is None
 
 
 def test_year_is_always_estimated(models):

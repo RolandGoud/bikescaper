@@ -110,10 +110,23 @@ def detect_size(text):
     return None
 
 
+# The condition the seller picked on Marktplaats or 2dehands, which fetch_ad appends as "Conditie: ...".
+SITE_CONDITION = (("damaged", r"defect|kapot|niet werkend|beschadigd|damaged"),
+                  ("like-new", r"nieuw|new"),
+                  ("used", r"gebruikt|used"))
+
+
 def detect_condition(text):
     low = _plain(text)
-    # "Geen schade" and "no cracks" say the opposite of damaged.
-    damage = re.sub(r"\b(?:geen|zonder|no|without|nooit|never)\s+(?:\w+\s+){0,2}?(?:schade|scheur\w*|crack\w*|defect\w*)"
+    # The seller's own pick wins over words in the text, so "Conditie: Zo goed als nieuw" with a
+    # "geen valschade" or "schadeverzekering" in the description still reads as like new.
+    field = re.search(r"^\s*(?:conditie|staat|condition)\s*:\s*(.+)$", low, re.M)
+    if field:
+        for condition, pattern in SITE_CONDITION:
+            if re.search(pattern, field.group(1)):
+                return condition
+    # "Geen schade" and "no cracks" say the opposite of damaged, also as one word ("geen valschade").
+    damage = re.sub(r"\b(?:geen|zonder|no|without|nooit|never)\s+(?:\w+\s+){0,2}?\w*(?:schade|scheur\w*|crack\w*|defect\w*)"
                     r"|schadevrij|crash-?vrij", " ", low)
     if re.search(r"defect|kapot|schade|scheur|crack|niet werkend", damage):
         return "damaged"
@@ -134,6 +147,12 @@ def detect_brand(text):
 
 
 PART_WORDS = {"wheels": r"wiel|wheel|velg(?!rem)|laufrad", "tyres": r"band|tyre|tire"}
+# Wheelset names that say "wheels" on their own, so "Bontrager Aeolus Pro 37" counts without the word "wielen".
+# Each needs its model or rim depth: a bare "Aeolus" can be a saddle or handlebar.
+WHEEL_NAMES = (r"aeolus\s+(?:rsl|pro|elite|comp)\s*\d{2}\b|zipp\s*\d{3}\b|\b[aepg]rc\s*\d{4}\b"
+               r"|roval\s+(?:rapide|alpinist|terra|c38|clx)|ksyrium|mavic\s+cosmic|campagnolo\s+(?:bora|shamal)"
+               r"|fulcrum\s+(?:racing|speed|wind)|reynolds\s+\w*\s*\d{2}\b|enve\s+(?:ses\s+)?\d\.\d|cadex\s+\d{2}\b"
+               r"|princeton\s+(?:carbon\s*works\s+)?\w*\s*\d{4}\b|black\s+inc\s+\d{2}\b|newmen\s+(?:advanced|evolution)")
 
 
 def detect_part(text, part):
@@ -143,11 +162,13 @@ def detect_part(text, part):
     doesn't count as carbon wheels.
     """
     # "Zipp 404 wielen en GP5000 banden" is two clauses, so the wheel name doesn't rate the tyres.
-    for clause in re.split(r"[\n.,;!?]+|\s(?:en|and|met|with)\s", text or ""):
-        if re.search(PART_WORDS[part], _plain(clause)):
+    clauses = re.split(r"[\n.,;!?]+|\s(?:en|and|met|with)\s", text or "")
+    words = PART_WORDS[part] + (f"|{WHEEL_NAMES}" if part == "wheels" else "")
+    for clause in clauses:
+        if re.search(words, _plain(clause)):
             tier = part_tier((part,), clause)
             if tier:
-                return {"label": clause.split(":")[-1].strip(), "tier": tier}
+                return {"label": clause.split(":")[-1].strip(" \t-•*"), "tier": tier}
     return None
 
 
