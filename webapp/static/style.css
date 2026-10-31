@@ -1158,8 +1158,11 @@ select { max-width: 100%; }
 .admin .photo-counts td { padding: 5px 8px; }
 .admin .photo-counts td.z { color: #F28A8A; background: rgba(242, 138, 138, .08); }
 .admin .photo-counts td.o { color: var(--warn); background: var(--warn-bg); }
-.admin .photo-counts details { margin-top: 10px; }
-.admin .photo-counts summary { cursor: pointer; font-weight: 600; font-size: 14px; padding: 6px 0; }
+.admin .photo-counts .pc-toggle { background: none; border: 0; padding: 0; color: var(--accent); font: 600 13px var(--body); cursor: pointer; white-space: nowrap; }
+.admin .photo-counts .pc-toggle::before { content: "▸"; display: inline-block; width: 1.1em; color: var(--muted); }
+.admin .photo-counts .pc-toggle[aria-expanded="true"]::before { content: "▾"; }
+.admin .photo-counts .model-rows td { font-size: 12px; background: rgba(255, 255, 255, .02); }
+.admin .photo-counts .model-rows td:first-child { padding-left: 26px; white-space: nowrap; }
 .admin .rules li { margin: 3px 0; }
 .admin .view-lines { position: relative; }
 .admin .line-chart { width: 100%; height: auto; display: block; touch-action: none; }
