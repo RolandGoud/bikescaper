@@ -44,6 +44,12 @@ CREATE TABLE IF NOT EXISTS checks (
     removed_at TEXT,      -- when we first found the ad gone from the site, NULL while it's up
     source TEXT           -- NULL = a visitor's check, "daily" = made by webapp.daily_checks
 );
+CREATE TABLE IF NOT EXISTS check_results (
+    check_id INTEGER PRIMARY KEY REFERENCES checks(id),
+    inputs TEXT NOT NULL,     -- fingerprint of what the check read from the ad (webapp/stored_checks.py)
+    result BLOB NOT NULL,     -- the run_check report, pickled with catalogue models kept by slug
+    computed_at TEXT NOT NULL -- when it was worked out (UTC); a recheck deletes the row
+);
 CREATE TABLE IF NOT EXISTS estimates (
     id INTEGER PRIMARY KEY,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),

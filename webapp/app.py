@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, scores, seed, seller, sponsored
+from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -235,6 +235,10 @@ def create_app(db_path=None):
 
         threading.Thread(target=work, name=f"photos-{check_id}", daemon=True).start()
 
+    def stored_check(listing, store=True):
+        """The listing's check report, worked out once and kept (webapp/stored_checks.py)."""
+        return stored_checks.report(conn(), models(), listing, store=store)
+
     def listing_dict(row, height=None, count=1):
         listing = dict(row)
         listing["times_checked"] = count
@@ -307,7 +311,7 @@ def create_app(db_path=None):
     def home():
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
         ads = group_checks(rows)
-        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r))) for r, n in ads[:12]]
+        cards = [(listing_dict(r, count=n), stored_check(listing_dict(r))) for r, n in ads[:12]]
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
                                hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers())
@@ -357,7 +361,8 @@ def create_app(db_path=None):
         if row is None:
             abort(404)
         height = request.args.get("height", type=int)
-        result = checks.run_check(models(), listing_dict(row, height))
+        # Another rider height than the check's own changes the size check: shown, but not kept.
+        result = stored_check(listing_dict(row, height), store=height in (None, row["rider_height"]))
         asking = None
         if result["model"]:
             asking = prices.asking_price(prices.known_ads(conn(), models()), result["model"]["id"],
@@ -375,6 +380,7 @@ def create_app(db_path=None):
                                             key=lambda a: a[0]["created_at"], reverse=True)
                          if fetch_ad.ad_key(r) != key]
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
+                               checked_at=stored_checks.computed_at(conn(), check_id),
                                all_models=models(), asking=asking, nav="check", other_ads=other_ads,
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
@@ -383,7 +389,7 @@ def create_app(db_path=None):
         if row is None:
             abort(404)
         listing = listing_dict(row, height)
-        result = checks.run_check(models(), listing)
+        result = stored_check(listing, store=height in (None, row["rider_height"]))
         url = url_for("report", check_id=check_id, height=height, _external=True)
         return listing, report_pdf.build(listing, result, height or row["rider_height"], url)
 
@@ -428,10 +434,22 @@ def create_app(db_path=None):
         conn().commit()
         return redirect(url_for("report", check_id=check_id))
 
+    @app.route("/check/<int:check_id>/recheck", methods=["POST"])
+    def recheck_report(check_id):
+        """Run this check again with today's matching and catalogue, e.g. after the matching changed."""
+        stored_checks.forget(conn(), check_id)
+        return redirect(url_for("report", check_id=check_id))
+
+    @app.route("/admin/recheck", methods=["POST"])
+    def recheck_all():
+        """Forget every stored report: each check runs again, once, the next time it's shown."""
+        stored_checks.forget(conn())
+        return redirect(url_for("admin", rechecked=1))
+
     @app.route("/listings")
     def listings():
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        cards = [(listing_dict(r, count=n), checks.run_check(models(), listing_dict(r)))
+        cards = [(listing_dict(r, count=n), stored_check(listing_dict(r)))
                  for r, n in group_checks(rows)]
         return render_template("listings.html", cards=cards, nav="listings", sponsored=offers(("card", "side")))
 
@@ -446,7 +464,7 @@ def create_app(db_path=None):
         items = []
         for r in rows:
             listing = listing_dict(r, count=times[fetch_ad.ad_key(r)])
-            result = checks.run_check(models(), listing)
+            result = stored_check(listing)
             asking = (prices.asking_price(known, result["model"]["id"], prices.DEFAULT_PERIOD, leave_out=r["id"])
                       if result["model"] else None)
             items.append((listing, result, asking))
@@ -535,7 +553,7 @@ def create_app(db_path=None):
         known = prices.known_ads(conn(), models())
         priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
-        ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), checks.run_check(models(), listing_dict(r)))
+        ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), stored_check(listing_dict(r)))
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
         year_tabs = checks.year_tabs(model)
@@ -757,7 +775,7 @@ def create_app(db_path=None):
         for r, n in group_checks(rows):
             photos = json.loads(r["photos"]) if r.get("photos") else []
             listing = listing_dict(r, count=n)
-            report = checks.run_check(models(), listing)
+            report = stored_check(listing)
             ad, ad_lost = scores.ad_score(listing, report)
             photo, photo_lost = scores.photo_score(
                 len(photos), [os.path.join(folder, p) for p in photos if ad_photos.is_stored(p)][:12])
@@ -770,6 +788,7 @@ def create_app(db_path=None):
         stats = scores.summarise(items)
         worst = sorted(items, key=lambda it: (it["ad"] + (it["photo"] if it["photo"] is not None else it["ad"])))[:15]
         return render_template("admin.html", stats=stats, worst=worst, nav=None,
+                               stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
                                missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
 
     @app.route("/ad-photos/<path:name>")

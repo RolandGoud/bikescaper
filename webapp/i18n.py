@@ -61,6 +61,17 @@ NL = {
     "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",
     "{n}-speed: the {years} spec sheets.": "{n}-speed: de specificaties van {years}.",
     # admin statistics page
+    "Stored check reports": "Opgeslagen checkrapporten",
+    "Each check is worked out once and kept. Run them all again after a change to the matching or the catalogue.":
+        "Elke check wordt één keer uitgerekend en bewaard. Draai ze allemaal opnieuw na een wijziging in de matching of de catalogus.",
+    "{n} reports kept, worked out between {oldest} and {newest} (UTC).":
+        "{n} rapporten bewaard, uitgerekend tussen {oldest} en {newest} (UTC).",
+    "Done: every check runs again with the current matching.": "Klaar: elke check draait opnieuw met de huidige matching.",
+    "Run every check again": "Alle checks opnieuw draaien",
+    # report page: stored report
+    "Checked on {when} (UTC); the report is kept until the check is run again.":
+        "Gecheckt op {when} (UTC); het rapport blijft bewaard tot de check opnieuw wordt gedraaid.",
+    "Run this check again": "Deze check opnieuw draaien",
     '{n} ads': '{n} advertenties',
     'unknown': 'onbekend',
     'Statistics': 'Statistieken',

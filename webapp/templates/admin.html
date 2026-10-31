@@ -106,6 +106,16 @@
       </ul>
     </section>
   </div>
+  <section class="box stored-box">
+    <h3>{{ _('Stored check reports') }}</h3>
+    <p>{{ _('Each check is worked out once and kept. Run them all again after a change to the matching or the catalogue.') }}</p>
+    <p class="muted small">{{ _('{n} reports kept, worked out between {oldest} and {newest} (UTC).', n=stored.stored,
+                                  oldest=(stored.oldest or '–')[:16], newest=(stored.newest or '–')[:16]) }}</p>
+    {% if rechecked %}<p class="ok" role="status" style="font-weight: 600">{{ _('Done: every check runs again with the current matching.') }}</p>{% endif %}
+    <form method="post" action="{{ url_for('recheck_all') }}">
+      <button class="btn" type="submit">{{ _('Run every check again') }}</button>
+    </form>
+  </section>
 </main>
 <script type="application/json" id="admin-data">{{ {'week': stats.week, 'month': stats.month, 'ads': _('{n} ads'),
   'keys': {'missing': missing_keys, 'problems': problem_keys, 'matched': ['matched', 'unmatched']},

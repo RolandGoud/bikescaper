@@ -342,6 +342,10 @@
   </section>
   {% endif %}
   {% endif %}
+  <form class="stored-note muted small" method="post" action="{{ url_for('recheck_report', check_id=listing.id) }}">
+    {% if checked_at %}{{ _('Checked on {when} (UTC); the report is kept until the check is run again.', when=checked_at[:16]) }}{% endif %}
+    <button class="link-button" type="submit">{{ _('Run this check again') }}</button>
+  </form>
 </main>
 {% if listing.photos %}
 {# Clicking an ad photo, or the slider, opens them all here; without JS the links open the photo itself. #}
