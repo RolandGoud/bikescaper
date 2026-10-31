@@ -155,7 +155,6 @@ NL = {
     "Tools": "Hulpmiddelen",
     "Which frame size fits you": "Welke framemaat bij je past",
     "A rough fair price for a used bike": "Een ruwe, eerlijke prijs voor je fiets",
-    "Every ad checked on this site": "Alle advertenties die hier gecheckt zijn",
     "Language": "Taal",
     "Bike Compare · prototype": "Bike Compare · prototype",
     "How it works": "Zo werkt het",
