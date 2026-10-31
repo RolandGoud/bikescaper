@@ -5,7 +5,7 @@
    "2025": {
     "captured": "2025-06-05",
     "image": "Trek/years/boone5_2025.jpg",
-    "price": 2999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "SRAM Apex XPLR, max. tandwielgrootte 44T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -42,7 +42,7 @@
    "2025": {
     "captured": "2025-05-19",
     "image": "Trek/years/checkmateslr9axs_2025.jpg",
-    "price": 8999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED XPLR eTap AXS, max. tandwielgrootte 46T",
@@ -79,7 +79,7 @@
    "2025": {
     "captured": "2025-05-17",
     "image": "Trek/years/checkpointalr3gen2_2025.jpg",
-    "price": 2499.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Sora R3000, medium kooi, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -113,7 +113,7 @@
   "Checkpoint ALR 3 Gen 3": {
    "2025": {
     "captured": "2025-07-13",
-    "price": 1999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano CUES U6000 GS",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -152,7 +152,7 @@
    "2024": {
     "captured": "2024-04-08",
     "image": "Trek/years/checkpointalr4gen2_2024.jpg",
-    "price": 3199.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "SRAM Apex 1, lange kooi, max. tandwielgrootte 42T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -229,7 +229,7 @@
    "2025": {
     "captured": "2025-05-20",
     "image": "Trek/years/checkpointalr5gen2_2025.jpg",
-    "price": 1299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "SRAM Apex XPLR, max. tandwielgrootte 44T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -270,7 +270,7 @@
    "2025": {
     "captured": "2025-05-12",
     "image": "Trek/years/checkpointsl5gen2_2025.jpg",
-    "price": 2699.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano GRX RX820, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -321,7 +321,7 @@
    "2024": {
     "captured": "2024-03-21",
     "image": "Trek/years/domaneal2gen4_2024.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Claris R2000, medium kooi, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -358,7 +358,7 @@
    "2025": {
     "captured": "2025-05-22",
     "image": "Trek/years/domaneal2gen4_2025.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Claris R2000, medium kooi, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -396,7 +396,7 @@
    "2022": {
     "captured": "2022-08-30",
     "image": "Trek/years/domaneal2rim_2022.jpg",
-    "price": 1749.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Claris R2000, medium kooi, max. tandwielgrootte 34T",
      "As voorwiel": "Formula QR-22",
@@ -432,7 +432,7 @@
    "2023": {
     "captured": "2023-03-27",
     "image": "Trek/years/domaneal2rim_2023.jpg",
-    "price": 2049.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Claris R2000, medium kooi, max. tandwielgrootte 34T",
      "As voorwiel": "Formula QR-22",
@@ -467,7 +467,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domaneal2rim_2024.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Claris R2000, medium kooi, max. tandwielgrootte 34T",
      "As voorwiel": "Formula QR22",
@@ -502,7 +502,7 @@
    "2025": {
     "captured": "2025-04-07",
     "image": "Trek/years/domaneal2rim_2025.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Claris R2000, medium kooi, max. tandwielgrootte 34T",
      "As voorwiel": "Formula QR22",
@@ -539,7 +539,7 @@
    "2024": {
     "captured": "2024-04-08",
     "image": "Trek/years/domaneal4gen4_2024.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Tiagra 4700, lange kooi, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -576,7 +576,7 @@
    "2025": {
     "captured": "2025-03-06",
     "image": "Trek/years/domaneal4gen4_2025.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Tiagra 4700, lange kooi, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -615,7 +615,7 @@
    "2024": {
     "captured": "2024-04-09",
     "image": "Trek/years/domaneal5gen4_2024.jpg",
-    "price": 1799.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7100, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -652,7 +652,7 @@
    "2025": {
     "captured": "2025-06-05",
     "image": "Trek/years/domaneal5gen4_2025.jpg",
-    "price": 1799.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7100, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -690,7 +690,7 @@
   "Domane SL 5 Gen 4": {
    "2022": {
     "captured": "2022-12-08",
-    "price": 7899.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7000, lange kooi, max. tandwielgrootte 34T",
      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
@@ -757,7 +757,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domanesl5gen4_2024.jpg",
-    "price": 6499.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7100, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -799,7 +799,7 @@
    "2025": {
     "captured": "2025-05-13",
     "image": "Trek/years/domanesl5gen4_2025.jpg",
-    "price": 6499.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7100, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -843,7 +843,7 @@
    "2023": {
     "captured": "2023-05-28",
     "image": "Trek/years/domanesl6axsgen4_2023.jpg",
-    "price": 6999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM Rival eTap AXS",
@@ -879,7 +879,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domanesl6axsgen4_2024.jpg",
-    "price": 6999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM Rival eTap AXS",
@@ -957,7 +957,7 @@
   "Domane SL 6 gen 4": {
    "2022": {
     "captured": "2022-12-08",
-    "price": 7899.0,
+    "price": null,
     "specs": {
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
      "As voorwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1037,7 +1037,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domanesl6gen4_2024.jpg",
-    "price": 6999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano R7150",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1080,7 +1080,7 @@
    "2025": {
     "captured": "2025-05-12",
     "image": "Trek/years/domanesl6gen4_2025.jpg",
-    "price": 2999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7150 Di2, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1123,7 +1123,7 @@
   "Domane SL 7 Gen 4": {
    "2023": {
     "captured": "2023-03-26",
-    "price": 7899.0,
+    "price": null,
     "specs": {
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
      "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
@@ -1196,7 +1196,7 @@
    "2023": {
     "captured": "2023-09-30",
     "image": "Trek/years/domanesl7gen3_2023.jpg",
-    "price": 6999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1235,7 +1235,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domanesl7gen3_2024.jpg",
-    "price": 3099.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1274,7 +1274,7 @@
    "2025": {
     "captured": "2025-05-23",
     "image": "Trek/years/domanesl7gen3_2025.jpg",
-    "price": 2999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1321,7 +1321,7 @@
    "2023": {
     "captured": "2023-12-11",
     "image": "Trek/years/domaneslr7axsgen4_2023.jpg",
-    "price": 13999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM Force eTap AXS, max. tandwielgrootte 36T",
@@ -1362,7 +1362,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domaneslr7axsgen4_2024.jpg",
-    "price": 13999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM Force eTap AXS, max. tandwielgrootte 36T",
@@ -1404,7 +1404,7 @@
   "Domane SLR 7 gen 4": {
    "2022": {
     "captured": "2022-12-02",
-    "price": 14499.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Ultegra R8150 Di2",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1443,7 +1443,7 @@
    "2023": {
     "captured": "2023-12-06",
     "image": "Trek/years/domaneslr7gen4_2023.jpg",
-    "price": 13999.0,
+    "price": null,
     "specs": {
      "Accu": "Shimano BT-DN300",
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
@@ -1485,7 +1485,7 @@
    "2024": {
     "captured": "2024-03-21",
     "image": "Trek/years/domaneslr7gen4_2024.jpg",
-    "price": 13999.0,
+    "price": null,
     "specs": {
      "Accu": "Shimano BT-DN300",
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
@@ -1527,7 +1527,7 @@
    "2025": {
     "captured": "2025-05-21",
     "image": "Trek/years/domaneslr7gen4_2025.jpg",
-    "price": 11999.0,
+    "price": null,
     "specs": {
      "Accu": "Shimano BT-DN300",
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
@@ -1578,7 +1578,7 @@
    "2023": {
     "captured": "2023-05-30",
     "image": "Trek/years/domaneslr9axsgen4_2023.jpg",
-    "price": 13499.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED eTap AXS, max. tandwielgrootte 36T",
@@ -1618,7 +1618,7 @@
    "2024": {
     "captured": "2024-03-29",
     "image": "Trek/years/domaneslr9axsgen4_2024.jpg",
-    "price": 12999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED eTap AXS, max. tandwielgrootte 36T",
@@ -1658,7 +1658,7 @@
    },
    "2025": {
     "captured": "2025-05-16",
-    "price": 8999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED AXS E1, max. tandwielgrootte 36T",
@@ -1696,7 +1696,7 @@
   "Domane SLR 9 gen 4": {
    "2022": {
     "captured": "2022-12-04",
-    "price": 14499.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Dura-Ace R9250 Di2",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -1827,7 +1827,7 @@
   "Domane+ SLR 6 Pro": {
    "2023": {
     "captured": "2023-04-02",
-    "price": 12499.0,
+    "price": null,
     "specs": {
      "Accu": "TQ 360 Wh",
      "Achterderailleur": "Shimano R7150",
@@ -1869,7 +1869,7 @@
   "Domane+ SLR 7": {
    "2023": {
     "captured": "2023-03-26",
-    "price": 12499.0,
+    "price": null,
     "specs": {
      "Accu": "TQ 360 Wh",
      "Achterderailleur": "Shimano Ultegra R8150 Di2",
@@ -1912,7 +1912,7 @@
   "Domane+ SLR 9": {
    "2023": {
     "captured": "2023-03-24",
-    "price": 12499.0,
+    "price": null,
     "specs": {
      "Accu": "Shimano BT-DN300",
      "Achterderailleur": "Shimano Dura-Ace R9250 Di2",
@@ -2025,7 +2025,7 @@
    "2025": {
     "captured": "2025-05-21",
     "image": "Trek/years/fxsport4_2025.jpg",
-    "price": 1199.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano CUES U6000 GS",
      "As achterwiel": "169 x 5 mm schroefas",
@@ -2058,7 +2058,7 @@
   "FX Sport 6": {
    "2020": {
     "captured": "2020-10-24",
-    "price": 419.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7000, lange kooi, max. tandwielgrootte 34T",
      "Balhoofdstel": "FSA geïntegreerd, afgedichte industrielagers, 1-1/8\"",
@@ -2091,7 +2091,7 @@
    },
    "2021": {
     "captured": "2021-08-01",
-    "price": 1899.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7000, lange kooi, max. tandwielgrootte 34T",
      "Balhoofdstel": "FSA geïntegreerd, afgedichte industrielagers, 1-1/8\"",
@@ -2128,7 +2128,7 @@
    "2023": {
     "captured": "2023-06-03",
     "image": "Trek/years/fxsport6_2023.jpg",
-    "price": 2699.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano GRX RX812, lange kooi, max. tandwielgrootte 42T",
      "As achterwiel": "169 x 5 mm schroefas",
@@ -2163,7 +2163,7 @@
    "2025": {
     "captured": "2025-06-05",
     "image": "Trek/years/fxsport6_2025.jpg",
-    "price": 2699.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano GRX RX812, lange kooi, max. tandwielgrootte 42T",
      "As achterwiel": "169 x 5 mm schroefas",
@@ -2199,7 +2199,7 @@
   "FX Sport SL 5": {
    "2025": {
     "captured": "2025-05-24",
-    "price": 2999.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "SRAM Apex 1, lange kooi, max. tandwielgrootte 42T",
      "As achterwiel": "169 x 5 mm schroefas",
@@ -2235,7 +2235,7 @@
    "2025": {
     "captured": "2025-05-21",
     "image": "Trek/years/fxsportsl6_2025.jpg",
-    "price": 2299.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "SRAM Apex XPLR eTap AXS, max. tandwielgrootte 44T",
      "As achterwiel": "169 x 5 mm schroefas",
@@ -2271,7 +2271,7 @@
    "2025": {
     "captured": "2025-05-24",
     "image": "Trek/years/madonesl6gen8_2025.jpg",
-    "price": 6499.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7150 Di2, max. tandwielgrootte 36T",
      "As achterwiel": "Bontrager Switch afgeschuinde steekas, afneembare hendel",
@@ -2308,7 +2308,7 @@
   "Madone SLR 8 AXS Gen 8": {
    "2025": {
     "captured": "2025-05-22",
-    "price": 13999.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED eTap AXS, max. tandwielgrootte 36T",
@@ -2385,7 +2385,7 @@
    "2025": {
     "captured": "2025-05-17",
     "image": "Trek/years/speedconceptslr7_2025.jpg",
-    "price": 12499.0,
+    "price": null,
     "specs": {
      "Accu": "Shimano BT-DN300",
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
@@ -2427,7 +2427,7 @@
    "2023": {
     "captured": "2023-12-02",
     "image": "Trek/years/speedconceptslr7axs_2023.jpg",
-    "price": 10499.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM Force eTap AXS, max. tandwielgrootte 36T",
@@ -2467,7 +2467,7 @@
   "Speed Concept SLR 9": {
    "2022": {
     "captured": "2022-06-30",
-    "price": 13099.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Dura-Ace R9250 Di2",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -2506,7 +2506,7 @@
    "2023": {
     "captured": "2023-12-04",
     "image": "Trek/years/speedconceptslr9_2023.jpg",
-    "price": 10499.0,
+    "price": null,
     "specs": {
      "Accu": "Shimano BT-DN300",
      "Achterderailleur": "Shimano Dura-Ace R9250 Di2, max. tandwielgrootte 34T",
@@ -2548,7 +2548,7 @@
    "2023": {
     "captured": "2023-12-05",
     "image": "Trek/years/speedconceptslr9axs_2023.jpg",
-    "price": 10499.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED eTap AXS, max. tandwielgrootte 36T",
@@ -2587,7 +2587,7 @@
    "2024": {
     "captured": "2024-10-09",
     "image": "Trek/years/speedconceptslr9axs_2024.jpg",
-    "price": 12499.0,
+    "price": null,
     "specs": {
      "Accu": "SRAM eTap accu (met lader)",
      "Achterderailleur": "SRAM RED eTap AXS, max. tandwielgrootte 36T",
@@ -2628,7 +2628,7 @@
    "2023": {
     "captured": "2023-03-31",
     "image": "Trek/years/emondasl5_2023.jpg",
-    "price": 7599.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7000, korte kooi, max. tandwielgrootte 30T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -2664,7 +2664,7 @@
    "2025": {
     "captured": "2025-05-25",
     "image": "Trek/years/emondasl5_2025.jpg",
-    "price": 1799.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano 105 R7000, korte kooi, max. tandwielgrootte 30T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -2709,7 +2709,7 @@
   "Émonda SL 7": {
    "2022": {
     "captured": "2022-08-18",
-    "price": 4699.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Ultegra R8150 Di2",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",
@@ -2745,7 +2745,7 @@
    "2023": {
     "captured": "2023-06-04",
     "image": "Trek/years/emondasl7_2023.jpg",
-    "price": 7599.0,
+    "price": null,
     "specs": {
      "Achterderailleur": "Shimano Ultegra R8150 Di2, max. tandwielgrootte 34T",
      "As achterwiel": "Bontrager Switch steekas, afneembare hendel",

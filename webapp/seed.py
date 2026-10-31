@@ -378,14 +378,17 @@ def year_specs(brand, name, _cache={}):
     Wayback Machine copies of the brand's NL site (data/years/<Brand>.json).
 
     {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs,
-    source?, sheet_years?, sheet_name?, colours?, price_url?, price_captured?} or {captured, url, unreadable: true}}}; a checked year
-    without an entry had no page.
+    source?, sheet_years?, sheet_name?, colours?, price_url?, price_captured?} or {captured, url, unreadable: true}},
+    "list_prices"?: {year: {price, url, captured}}}; a checked year without an entry had no page. list_prices are
+    German list prices from the TOUR/BIKE database (brand_scrapers/tourbike.py), for when we lack the Dutch one.
     """
     if brand not in _cache:
-        _cache[brand] = (_years_file(f"{brand}.json"), _years_file("site", f"{brand}.json"))
-    archive, site = _cache[brand]
+        _cache[brand] = (_years_file(f"{brand}.json"), _years_file("site", f"{brand}.json"),
+                         _years_file("tourbike", f"{brand}.json"))
+    archive, site, tourbike = _cache[brand]
+    list_prices = tour_bike_prices((tourbike or {}).get("models", {}), name)
     if not archive and not site:
-        return {}
+        return {"list_prices": list_prices} if list_prices else {}
     years = dict((archive or {}).get("models", {}).get(name.strip(), {}))
     for year, entry in (site or {}).get("models", {}).get(name.strip(), {}).items():
         if entry.get("specs") or year not in years:
@@ -395,8 +398,34 @@ def year_specs(brand, name, _cache={}):
                 entry = dict(entry, price=copy["price"], price_url=copy.get("url"), price_captured=copy.get("captured"))
             years[year] = entry
     found = [f for f in (archive, site) if f]
-    return {"checked": sorted({y for f in found for y in f["years"]}),
-            "checked_on": max(f["checked_on"] for f in found), "years": years}
+    out = {"checked": sorted({y for f in found for y in f["years"]}),
+           "checked_on": max(f["checked_on"] for f in found), "years": years}
+    if list_prices:
+        out["list_prices"] = list_prices
+    return out
+
+
+def _price_name(name):
+    """"Émonda SL 7 Disc", "Domane+ AL 5" -> "emondasl7", "domaneplusal5": "Domane+" is the e-bike."""
+    import unicodedata
+    name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower().replace("+", "plus")
+    return re.sub(r"[^a-z0-9]+", "", re.sub(r"\bdisc\b", " ", name))
+
+
+def tour_bike_prices(models, name):
+    """{year: entry} of the TOUR/BIKE model with our model's name. When only one of the two names gives the
+    generation ("Checkpoint ALR 3" and "Checkpoint ALR 3 Gen 2"), the names without it must match."""
+    ours = _price_name(name)
+    gen = re.compile(r"gen\d+")
+    exact = [e for theirs, e in models.items() if _price_name(theirs) == ours]
+    loose = [e for theirs, e in models.items() if _price_name(theirs) != ours
+             and bool(gen.search(_price_name(theirs))) != bool(gen.search(ours))
+             and gen.sub("", _price_name(theirs)) == gen.sub("", ours)]
+    years = {}
+    for entries in exact + loose:
+        for year, entry in entries.items():
+            years.setdefault(year, entry)
+    return years
 
 
 def refresh_year_specs(conn):

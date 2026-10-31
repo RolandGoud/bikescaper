@@ -1,0 +1,2956 @@
+{
+ "checked_on": "2026-10-31",
+ "models": {
+  "ARX 16": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 399.0,
+    "prices": [
+     399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/arx-16-655dd9aae6f6694e5566bb27/"
+   }
+  },
+  "ARX 20": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 479.0,
+    "prices": [
+     479
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/arx-20-655dd9a7e6f6694e5566bae6/"
+   }
+  },
+  "ARX 24": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 499.0,
+    "prices": [
+     499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/arx-24-655dd9a3e6f6694e5566baa5/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 479.0,
+    "prices": [
+     479
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/arx-24-6891e8c606081a66f4aaf936/"
+   }
+  },
+  "ARX 26": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 549.0,
+    "prices": [
+     549
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/arx-26-655dd9a1e6f6694e5566ba78/"
+   }
+  },
+  "ATX": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 529.0,
+    "prices": [
+     529
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/atx-655dd925e6f6694e5566b41f/"
+   }
+  },
+  "AllTour SLR 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/alltour-slr-0-655dd821e6f6694e5566a656/"
+   }
+  },
+  "Anthem Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anthem-advanced-pro-1-655dd7e9e6f6694e5566a186/"
+   }
+  },
+  "Anthem Advanced Pro 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anthem-advanced-pro-2-655dd8f9e6f6694e5566b104/"
+   }
+  },
+  "Anthem Advanced SL 0": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anthem-advanced-sl-0-6932d490814a830c8a8d3d8d/"
+   }
+  },
+  "Anthem Advanced SL 1": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anthem-advanced-sl-1-69c2808914a2690c039b5fb3/"
+   }
+  },
+  "AnyTour E+ 0": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 5599.0,
+    "prices": [
+     5599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-0-69c2806514a2690c039b5c11/"
+   },
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 5799.0,
+    "prices": [
+     5799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-0-69b18298953044f4cbec356b/"
+   }
+  },
+  "AnyTour E+ 1": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-1-6891e89b06081a66f4aae425/"
+   },
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4899.0,
+    "prices": [
+     4899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-1-69b18289953044f4cbec30e1/"
+   }
+  },
+  "AnyTour E+ 2": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-2-69b18296953044f4cbec34ad/"
+   }
+  },
+  "AnyTour E+ 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-3-6891e8a206081a66f4aae75f/"
+   },
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-3-69b18287953044f4cbec3088/"
+   }
+  },
+  "AnyTour E+ 3 DD": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-3-dd-69b182a6953044f4cbec38b0/"
+   }
+  },
+  "AnyTour E+ 4": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-4-69b182b7953044f4cbec3c63/"
+   }
+  },
+  "AnyTour E+ 4 RT": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-4-rt-6891e8ae06081a66f4aaed19/"
+   }
+  },
+  "AnyTour E+ 6": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-e-6-69c2806914a2690c039b5c56/"
+   }
+  },
+  "AnyTour X E+ 0": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 5699.0,
+    "prices": [
+     5699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-x-e-0-6891e89b06081a66f4aae453/"
+   }
+  },
+  "AnyTour X E+ 1": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-x-e-1-6891e8b106081a66f4aaeef4/"
+   }
+  },
+  "AnyTour X E+ 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-x-e-3-6891e8b006081a66f4aaedf6/"
+   }
+  },
+  "Anytour CS 0-Sport": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-cs-0-sport-69de06f7cd151428912f1e7f/"
+   }
+  },
+  "Anytour CS 1": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-cs-1-69de0785a794563502ffd381/"
+   }
+  },
+  "Anytour X E+ 0": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 5799.0,
+    "prices": [
+     5799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-x-e-0-69b18263953044f4cbec26d2/"
+   }
+  },
+  "Anytour X E+ 2": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/anytour-x-e-2-69b182bb953044f4cbec3d9e/"
+   }
+  },
+  "Contend 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-0-655dd80ce6f6694e5566a4ad/"
+   }
+  },
+  "Contend 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-1-655dd956e6f6694e5566b6d1/"
+   }
+  },
+  "Contend 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-3-655dd80de6f6694e5566a4c6/"
+   }
+  },
+  "Contend AR 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-ar-1-655dd953e6f6694e5566b6b3/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-ar-1-69b1826f953044f4cbec2ab1/"
+   }
+  },
+  "Contend AR 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-ar-2-655dd80be6f6694e5566a494/"
+   }
+  },
+  "Contend SL 0": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1599.0,
+    "prices": [
+     1599
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-sl-0-69b18262953044f4cbec2664/"
+   }
+  },
+  "Contend SL 1": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-sl-1-69b18291953044f4cbec3337/"
+   }
+  },
+  "Contend SL 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/contend-sl-2-69b1828c953044f4cbec321c/"
+   }
+  },
+  "DailyTour E+ 1 BD": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-1-bd-655dd894e6f6694e5566aba9/"
+   }
+  },
+  "DailyTour E+ 1 BD RT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-1-bd-rt-655dd89be6f6694e5566ac2b/"
+   }
+  },
+  "DailyTour E+ 1 BD RT [RC Dash]": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-1-bd-rt-rc-dash-655dd89fe6f6694e5566ac58/"
+   }
+  },
+  "DailyTour E+ 1 BD [RC Dash]": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-1-bd-rc-dash-655dd898e6f6694e5566abfe/"
+   }
+  },
+  "DailyTour E+ 1 RT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-1-rt-655dd8a3e6f6694e5566ac71/"
+   }
+  },
+  "DailyTour E+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-2-655dd8a7e6f6694e5566ac9e/"
+   }
+  },
+  "DailyTour E+ 2 D": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-2-d-655dd8b9e6f6694e5566ad75/"
+   }
+  },
+  "DailyTour E+ 2 D [RC Dash]": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-2-d-rc-dash-655dd8bde6f6694e5566ade5/"
+   }
+  },
+  "DailyTour E+ 2 RT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-2-rt-655dd8afe6f6694e5566ad2f/"
+   }
+  },
+  "DailyTour E+ 2 RT [RC Dash]": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3349.0,
+    "prices": [
+     3349
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-2-rt-rc-dash-655dd8b3e6f6694e5566ad5c/"
+   }
+  },
+  "DailyTour E+ 2 [RC Dash]": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3249.0,
+    "prices": [
+     3249
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-2-rc-dash-655dd8ace6f6694e5566acfd/"
+   }
+  },
+  "DailyTour E+ 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-3-655dd8c0e6f6694e5566ae22/"
+   }
+  },
+  "DailyTour E+ 3 [RC Dash]": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3349.0,
+    "prices": [
+     3349
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/dailytour-e-3-rc-dash-655dd8c4e6f6694e5566aea1/"
+   }
+  },
+  "Defy Advanced 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-0-655dd809e6f6694e5566a462/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-0-69c2807714a2690c039b5de2/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-0-69b18285953044f4cbec2fe9/"
+   }
+  },
+  "Defy Advanced 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2899.0,
+    "prices": [
+     2899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-1-655dd80ae6f6694e5566a47b/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-1-655dd94ee6f6694e5566b65e/"
+   }
+  },
+  "Defy Advanced 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-2-655dd950e6f6694e5566b67c/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-2-6891e8c306081a66f4aaf6e3/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-2-69b182b2953044f4cbec3b7d/"
+   }
+  },
+  "Defy Advanced 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-3-69c2808f14a2690c039b6004/"
+   }
+  },
+  "Defy Advanced E+ Elite 1": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-e-elite-1-69b182c9953044f4cbec402f/"
+   }
+  },
+  "Defy Advanced E+ Elite 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-e-elite-2-69b1829c953044f4cbec366a/"
+   }
+  },
+  "Defy Advanced E+ Elite AR": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5899.0,
+    "prices": [
+     5899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-e-elite-ar-69b1825f953044f4cbec25c5/"
+   }
+  },
+  "Defy Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-pro-1-655dd807e6f6694e5566a431/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-pro-1-655dd949e6f6694e5566b622/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-pro-1-69b182ae953044f4cbec3ae6/"
+   }
+  },
+  "Defy Advanced Pro 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-pro-2-655dd94be6f6694e5566b640/"
+   }
+  },
+  "Defy Advanced SL": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/defy-advanced-sl-6891e8bb06081a66f4aaf33f/"
+   }
+  },
+  "Entour E+ 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2649.0,
+    "prices": [
+     2649
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/entour-e-0-655dd8c8e6f6694e5566aee3/"
+   }
+  },
+  "Entour E+ 0 RT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/entour-e-0-rt-655dd8cce6f6694e5566aefc/"
+   }
+  },
+  "Entour E+ 1 RT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/entour-e-1-rt-655dd8d0e6f6694e5566af15/"
+   }
+  },
+  "Escape": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/escape-655dd992e6f6694e5566ba28/"
+   }
+  },
+  "Escape 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/escape-2-655dd823e6f6694e5566a67b/"
+   }
+  },
+  "Explore E+ 0": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5799.0,
+    "prices": [
+     5799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-0-69b1828b953044f4cbec31cf/"
+   }
+  },
+  "Explore E+ 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3549.0,
+    "prices": [
+     3549
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-1-655dd7d4e6f6694e55669ffb/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-1-655dd889e6f6694e5566aaa9/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-1-69b18275953044f4cbec2c4e/"
+   }
+  },
+  "Explore E+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-2-655dd88de6f6694e5566aafe/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-2-69b182a2953044f4cbec3802/"
+   }
+  },
+  "Explore E+ 2 [RC Dash]": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3049.0,
+    "prices": [
+     3049
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-2-rc-dash-655dd7d7e6f6694e5566a04d/"
+   }
+  },
+  "Explore E+ 2 [RD Evo]": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3099.0,
+    "prices": [
+     3099
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-2-rd-evo-655dd7d6e6f6694e5566a024/"
+   }
+  },
+  "Explore E+ 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2899.0,
+    "prices": [
+     2899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-3-655dd7d9e6f6694e5566a076/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2899.0,
+    "prices": [
+     2899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-3-655dd891e6f6694e5566ab53/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-3-69c2809914a2690c039b60c6/"
+   }
+  },
+  "Explore E+ 3 Pro": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-3-pro-69b18280953044f4cbec2f2a/"
+   }
+  },
+  "Explore E+ 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-4-69c280a214a2690c039b61cb/"
+   }
+  },
+  "Explore E+ Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-pro-0-655dd7d2e6f6694e55669fbd/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-pro-0-655dd882e6f6694e5566aa4f/"
+   }
+  },
+  "Explore E+ Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-pro-1-655dd7d3e6f6694e55669fda/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-pro-1-655dd887e6f6694e5566aa7c/"
+   }
+  },
+  "Explore E+ Pro 45": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5099.0,
+    "prices": [
+     5099
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/explore-e-pro-45-655dd87fe6f6694e5566aa2c/"
+   }
+  },
+  "Faith 24": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2399.0,
+    "prices": [
+     2399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/faith-24-6891e8c306081a66f4aaf783/"
+   }
+  },
+  "FastRoad AR 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fastroad-ar-1-655dd95fe6f6694e5566b72b/"
+   }
+  },
+  "FastRoad AR 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fastroad-ar-2-655dd963e6f6694e5566b749/"
+   }
+  },
+  "FastRoad AR Advanced 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fastroad-ar-advanced-0-655dd958e6f6694e5566b6ef/"
+   }
+  },
+  "FastRoad AR Advanced 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fastroad-ar-advanced-1-655dd95be6f6694e5566b70d/"
+   }
+  },
+  "FastRoad Advanced 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2099.0,
+    "prices": [
+     2099
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/fastroad-advanced-1-655dd80fe6f6694e5566a4f3/"
+   }
+  },
+  "FastRoad Advanced 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/fastroad-advanced-2-655dd810e6f6694e5566a50d/"
+   }
+  },
+  "FastRoad SL 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/fastroad-sl-1-655dd812e6f6694e5566a526/"
+   }
+  },
+  "FastRoad SL 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1049.0,
+    "prices": [
+     1049
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/fastroad-sl-2-655dd813e6f6694e5566a53f/"
+   }
+  },
+  "Fathom 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1699.0,
+    "prices": [
+     1699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-1-655dd7f0e6f6694e5566a204/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1699.0,
+    "prices": [
+     1699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-1-655dd902e6f6694e5566b177/"
+   }
+  },
+  "Fathom 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-2-655dd7f2e6f6694e5566a239/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-2-655dd905e6f6694e5566b1a4/"
+   }
+  },
+  "Fathom E+": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-69c280a514a2690c039b62a0/"
+   }
+  },
+  "Fathom E+ 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-1-655dd857e6f6694e5566a898/"
+   }
+  },
+  "Fathom E+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-2-655dd85ce6f6694e5566a8b6/"
+   }
+  },
+  "Fathom E+ EX": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3599.0,
+    "prices": [
+     3599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-ex-655dd860e6f6694e5566a8ed/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3599.0,
+    "prices": [
+     3599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-ex-69b1825e953044f4cbec25a5/"
+   }
+  },
+  "Fathom E+ Pro 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4099.0,
+    "prices": [
+     4099
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-pro-1-655dd852e6f6694e5566a866/"
+   }
+  },
+  "Fathom E+ Pro 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/fathom-e-pro-2-655dd855e6f6694e5566a87f/"
+   }
+  },
+  "Glory Advanced": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/glory-advanced-69c2806d14a2690c039b5ccb/"
+   }
+  },
+  "NewTour E+ 1 RT": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/newtour-e-1-rt-69b182b4953044f4cbec3c05/"
+   }
+  },
+  "NewTour E+ 2": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/newtour-e-2-69b18273953044f4cbec2af5/"
+   }
+  },
+  "NewTour E+ 2 RT": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/newtour-e-2-rt-69b182c5953044f4cbec3f2f/"
+   }
+  },
+  "Pre rCarbon": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/pre-rcarbon-69b1829b953044f4cbec3629/"
+   }
+  },
+  "Propel Advanced 0": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-0-69de06f5cd151428912f1e44/"
+   }
+  },
+  "Propel Advanced 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4699.0,
+    "prices": [
+     4699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-1-655dd7fae6f6694e5566a300/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-1-655dd930e6f6694e5566b4d8/"
+   },
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-1-69de06f4cd151428912f1dcd/"
+   }
+  },
+  "Propel Advanced 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2899.0,
+    "prices": [
+     2899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-2-655dd7fce6f6694e5566a319/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-2-655dd932e6f6694e5566b4f6/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-2-6891e8aa06081a66f4aaeb9d/"
+   },
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-2-69de06e9cd151428912f1b0f/"
+   }
+  },
+  "Propel Advanced Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-0-655dd7f8e6f6694e5566a2ce/"
+   }
+  },
+  "Propel Advanced Pro 0 DA": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-0-da-69b94f0978d7df552c3dde73/"
+   },
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-0-da-69de06e2cd151428912f1986/"
+   }
+  },
+  "Propel Advanced Pro 0-AXS": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-0-axs-69de06e3cd151428912f19c5/"
+   }
+  },
+  "Propel Advanced Pro 0-DI2": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-0-di2-69de06dccd151428912f17da/"
+   }
+  },
+  "Propel Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-1-655dd7f9e6f6694e5566a2e7/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5699.0,
+    "prices": [
+     5699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-1-655dd92ce6f6694e5566b4ba/"
+   }
+  },
+  "Propel Advanced Pro 1-AXS": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-1-axs-69de06dccd151428912f17ab/"
+   }
+  },
+  "Propel Advanced Pro 1-Di2": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-pro-1-di2-69de06d6cd151428912f16b4/"
+   }
+  },
+  "Propel Advanced SL": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7899.0,
+    "prices": [
+     7899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-sl-655dd7f6e6f6694e5566a2a4/"
+   }
+  },
+  "Propel Advanced SL 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-sl-0-655dd92ae6f6694e5566b49c/"
+   }
+  },
+  "Propel Advanced SL 0-Red": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-sl-0-red-69de06d6cd151428912f16af/"
+   }
+  },
+  "Propel Advanced SL LTD": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7799.0,
+    "prices": [
+     7799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/propel-advanced-sl-ltd-655dd7f7e6f6694e5566a2bd/"
+   }
+  },
+  "Reign": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-655dd7dce6f6694e5566a0c9/"
+   }
+  },
+  "Reign 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-1-655dd8dae6f6694e5566af74/"
+   }
+  },
+  "Reign 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3599.0,
+    "prices": [
+     3599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-2-655dd8dde6f6694e5566af8d/"
+   }
+  },
+  "Reign Advanced E+ 0": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/reign-advanced-e-0-69bbcd2c970a9f8e679e8c52/"
+   }
+  },
+  "Reign Advanced E+ 1": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/reign-advanced-e-1-69bbcd74970a9f8e679e8d7f/"
+   }
+  },
+  "Reign Advanced E+ 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/reign-advanced-e-2-69bbcd12970a9f8e679e8b68/"
+   }
+  },
+  "Reign Advanced Pro 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 12199.0,
+    "prices": [
+     12199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-advanced-pro-0-655dd8d2e6f6694e5566af33/"
+   }
+  },
+  "Reign Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7599.0,
+    "prices": [
+     7599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-advanced-pro-1-655dd7dae6f6694e5566a09f/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-advanced-pro-1-655dd8d5e6f6694e5566af42/"
+   }
+  },
+  "Reign Advanced Pro 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5199.0,
+    "prices": [
+     5199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-advanced-pro-2-655dd7dbe6f6694e5566a0b4/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-advanced-pro-2-655dd8d7e6f6694e5566af5b/"
+   }
+  },
+  "Reign E+ 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-0-655dd7b4e6f6694e55669dbb/"
+   }
+  },
+  "Reign E+ 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-1-655dd824e6f6694e5566a690/"
+   }
+  },
+  "Reign E+ 1 [625 Wh]": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6399.0,
+    "prices": [
+     6399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-1-625-wh-655dd7b7e6f6694e55669de5/"
+   }
+  },
+  "Reign E+ 1 [750 Wh]": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-1-750-wh-655dd7b5e6f6694e55669dd0/"
+   }
+  },
+  "Reign E+ 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5899.0,
+    "prices": [
+     5899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-2-655dd7b8e6f6694e55669dfa/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-2-655dd827e6f6694e5566a6a9/"
+   }
+  },
+  "Reign E+ 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5199.0,
+    "prices": [
+     5199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-3-655dd7b9e6f6694e55669e0f/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-e-3-655dd82ae6f6694e5566a6c2/"
+   }
+  },
+  "Reign SE": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-se-69c280a914a2690c039b6309/"
+   }
+  },
+  "Reign SX": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-sx-655dd7dee6f6694e5566a0de/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4699.0,
+    "prices": [
+     4699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/reign-sx-655dd8e0e6f6694e5566afa6/"
+   }
+  },
+  "Revolt 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1899.0,
+    "prices": [
+     1899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-0-655dd97be6f6694e5566b88e/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-0-69b1826b953044f4cbec28fe/"
+   }
+  },
+  "Revolt 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1699.0,
+    "prices": [
+     1699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-1-655dd97ee6f6694e5566b8ac/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1699.0,
+    "prices": [
+     1699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-1-69b18292953044f4cbec33a8/"
+   }
+  },
+  "Revolt 1 | V2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1599.0,
+    "prices": [
+     1599
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-1-or-v2-69c2808514a2690c039b5f26/"
+   }
+  },
+  "Revolt 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-2-655dd980e6f6694e5566b8e3/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-2-69c280ae14a2690c039b634b/"
+   }
+  },
+  "Revolt Advanced 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-0-655dd81be6f6694e5566a5d5/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-0-655dd969e6f6694e5566b79e/"
+   }
+  },
+  "Revolt Advanced 0 SE": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-0-se-69c280b114a2690c039b63d8/"
+   }
+  },
+  "Revolt Advanced 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-1-655dd81ce6f6694e5566a602/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-1-655dd96de6f6694e5566b802/"
+   }
+  },
+  "Revolt Advanced 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-2-655dd972e6f6694e5566b820/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-2-6891e8c606081a66f4aaf914/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-2-69de07f4a794563502ffe243/"
+   }
+  },
+  "Revolt Advanced 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-3-655dd976e6f6694e5566b857/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-3-69c2808214a2690c039b5ed5/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2599.0,
+    "prices": [
+     2599
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-3-69c280b714a2690c039b6438/"
+   }
+  },
+  "Revolt Advanced Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5599.0,
+    "prices": [
+     5599
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-pro-0-655dd818e6f6694e5566a5a3/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-pro-0-69c2807b14a2690c039b5e33/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-pro-0-69b18264953044f4cbec2741/"
+   }
+  },
+  "Revolt Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4899.0,
+    "prices": [
+     4899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-pro-1-655dd819e6f6694e5566a5bc/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-pro-1-655dd967e6f6694e5566b767/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 5599.0,
+    "prices": [
+     5599
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-advanced-pro-1-69c2807e14a2690c039b5e84/"
+   }
+  },
+  "Revolt E+": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-e-655dd877e6f6694e5566a9da/"
+   }
+  },
+  "Revolt EX": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-ex-69b18262953044f4cbec2662/"
+   }
+  },
+  "Revolt X Advanced Pro 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/revolt-x-advanced-pro-1-655dd982e6f6694e5566b91a/"
+   }
+  },
+  "Roam 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/roam-1-655dd81de6f6694e5566a61b/"
+   }
+  },
+  "Roam 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/roam-2-655dd98de6f6694e5566b997/"
+   }
+  },
+  "Roam 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 629.0,
+    "prices": [
+     629
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/roam-4-655dd81fe6f6694e5566a62c/"
+   }
+  },
+  "Roam EX": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/roam-ex-655dd820e6f6694e5566a641/"
+   }
+  },
+  "STP 20 FS GIANT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 579.0,
+    "prices": [
+     579
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stp-20-fs-giant-655dd99ce6f6694e5566ba64/"
+   }
+  },
+  "STP 20 GIANT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 529.0,
+    "prices": [
+     529
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stp-20-giant-655dd99fe6f6694e5566ba6e/"
+   }
+  },
+  "STP 24 GIANT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 679.0,
+    "prices": [
+     679
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stp-24-giant-655dd99ae6f6694e5566ba5a/"
+   }
+  },
+  "STP 26": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1149.0,
+    "prices": [
+     1149
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stp-26-655dd997e6f6694e5566ba4b/"
+   }
+  },
+  "STP 26 FS": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stp-26-fs-6891e8c006081a66f4aaf5c3/"
+   }
+  },
+  "Seek 1": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/seek-1-69b1826c953044f4cbec29e6/"
+   }
+  },
+  "Seek 1 Team": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/seek-1-team-69b1829f953044f4cbec374b/"
+   }
+  },
+  "Stance": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-69de08398cbd11f05c3f17da/"
+   }
+  },
+  "Stance 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-1-655dd8f1e6f6694e5566b082/"
+   }
+  },
+  "Stance 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-2-655dd8f5e6f6694e5566b0af/"
+   }
+  },
+  "Stance E+ 0": {
+   "2027": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-0-69b18269953044f4cbec28aa/"
+   }
+  },
+  "Stance E+ 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-1-655dd7c7e6f6694e55669ee1/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-1-655dd84ae6f6694e5566a807/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-1-6994517ec17f765ce5e5545b/"
+   }
+  },
+  "Stance E+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-2-655dd84de6f6694e5566a834/"
+   }
+  },
+  "Stance E+ 2 [500 Wh]": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-2-500-wh-655dd7cae6f6694e55669f1b/"
+   }
+  },
+  "Stance E+ 2 [625 Wh]": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-2-625-wh-655dd7c8e6f6694e55669f06/"
+   }
+  },
+  "Stance E+ EX": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-ex-655dd7cbe6f6694e55669f30/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-ex-655dd850e6f6694e5566a84d/"
+   }
+  },
+  "Stance E+ Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5199.0,
+    "prices": [
+     5199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-pro-0-655dd7c3e6f6694e55669ea2/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-pro-0-655dd844e6f6694e5566a7bc/"
+   }
+  },
+  "Stance E+ Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-pro-1-655dd7c4e6f6694e55669eb7/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-pro-1-655dd846e6f6694e5566a7d5/"
+   }
+  },
+  "Stance E+ Pro EX": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-pro-ex-655dd7c6e6f6694e55669ecc/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stance-e-pro-ex-655dd848e6f6694e5566a7ee/"
+   }
+  },
+  "Stormguard E+ 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stormguard-e-1-655dd87ae6f6694e5566a9fa/"
+   }
+  },
+  "Stormguard E+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stormguard-e-2-655dd87de6f6694e5566aa13/"
+   }
+  },
+  "Stormguard E+ 3": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/stormguard-e-3-6891e8a806081a66f4aae9bf/"
+   }
+  },
+  "TCR Advanced": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2099.0,
+    "prices": [
+     2099
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-655dd806e6f6694e5566a418/"
+   }
+  },
+  "TCR Advanced 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-0-655dd93fe6f6694e5566b58c/"
+   }
+  },
+  "TCR Advanced 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2899.0,
+    "prices": [
+     2899
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-1-655dd805e6f6694e5566a3eb/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-1-655dd944e6f6694e5566b5cd/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/tcr-advanced-1-69de07dca794563502ffdd13/"
+   }
+  },
+  "TCR Advanced 1+": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-1-655dd803e6f6694e5566a3be/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-1-655dd942e6f6694e5566b5aa/"
+   }
+  },
+  "TCR Advanced 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-2-655dd946e6f6694e5566b5eb/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-2-69b1826c953044f4cbec29a6/"
+   }
+  },
+  "TCR Advanced Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5799.0,
+    "prices": [
+     5799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-0-655dd800e6f6694e5566a378/"
+   }
+  },
+  "TCR Advanced Pro 0 DA": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-0-da-69b1828a953044f4cbec3144/"
+   }
+  },
+  "TCR Advanced Pro 0-AXS": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-0-axs-69b18277953044f4cbec2ce5/"
+   }
+  },
+  "TCR Advanced Pro 0-Di2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-0-di2-69b182bd953044f4cbec3e43/"
+   }
+  },
+  "TCR Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-1-655dd802e6f6694e5566a391/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-1-69c2807414a2690c039b5d55/"
+   }
+  },
+  "TCR Advanced Pro 1 AR": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5199.0,
+    "prices": [
+     5199
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-1-ar-655dd93ae6f6694e5566b550/"
+   }
+  },
+  "TCR Advanced Pro 1 Di2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-1-di2-655dd93de6f6694e5566b56e/"
+   }
+  },
+  "TCR Advanced Pro 1-AXS": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-1-axs-69c280c214a2690c039b6527/"
+   }
+  },
+  "TCR Advanced Pro 1-Di2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-pro-1-di2-69b182ac953044f4cbec3a2f/"
+   }
+  },
+  "TCR Advanced SL": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 11699.0,
+    "prices": [
+     11699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-sl-655dd7fee6f6694e5566a332/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12299.0,
+    "prices": [
+     12299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-sl-69c2807014a2690c039b5d04/"
+   }
+  },
+  "TCR Advanced SL 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 11599.0,
+    "prices": [
+     11599
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcr-advanced-sl-0-655dd935e6f6694e5566b514/"
+   }
+  },
+  "TCX Advanced Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5699.0,
+    "prices": [
+     5699
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcx-advanced-pro-0-655dd814e6f6694e5566a558/"
+   }
+  },
+  "TCX Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcx-advanced-pro-1-655dd816e6f6694e5566a571/"
+   }
+  },
+  "TCX Advanced Pro 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/tcx-advanced-pro-2-655dd817e6f6694e5566a58a/"
+   }
+  },
+  "Talon 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-0-655dd909e6f6694e5566b1d1/"
+   }
+  },
+  "Talon 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-1-655dd90ce6f6694e5566b212/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 849.0,
+    "prices": [
+     849
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-1-69c280bd14a2690c039b6498/"
+   }
+  },
+  "Talon 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-2-655dd910e6f6694e5566b253/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-2-69b182a6953044f4cbec38b2/"
+   }
+  },
+  "Talon 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 679.0,
+    "prices": [
+     679
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-3-655dd918e6f6694e5566b2c1/"
+   }
+  },
+  "Talon 3+": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-3-655dd912e6f6694e5566b276/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 749.0,
+    "prices": [
+     749
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-3-6891e89c06081a66f4aae493/"
+   }
+  },
+  "Talon 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-4-655dd920e6f6694e5566b398/"
+   }
+  },
+  "Talon E+ 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-1-655dd7cce6f6694e55669f45/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-1-655dd862e6f6694e5566a90b/"
+   }
+  },
+  "Talon E+ 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-2-655dd7cde6f6694e55669f5e/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-2-655dd865e6f6694e5566a929/"
+   }
+  },
+  "Talon E+ 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2349.0,
+    "prices": [
+     2349
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-3-655dd7cfe6f6694e55669f8b/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2349.0,
+    "prices": [
+     2349
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-3-655dd868e6f6694e5566a96f/"
+   }
+  },
+  "Talon E+ EX": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-ex-655dd7d1e6f6694e55669fa4/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-ex-655dd86ae6f6694e5566a98d/"
+   }
+  },
+  "Talon E+ EX Gen2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2749.0,
+    "prices": [
+     2749
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-ex-gen2-68c7f7c71a655b72d5298363/"
+   }
+  },
+  "Talon E+ Gen2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2599.0,
+    "prices": [
+     2599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-gen2-69b943d0a9da5b8e92927011/"
+   }
+  },
+  "Talon E+ jr. 24": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-jr-24-655dd872e6f6694e5566a9d0/"
+   }
+  },
+  "Talon E+ jr. 26": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/talon-e-jr-26-655dd870e6f6694e5566a9c4/"
+   }
+  },
+  "ToughRoad SLR 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/toughroad-slr-1-655dd985e6f6694e5566b938/"
+   }
+  },
+  "ToughRoad SLR 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/toughroad-slr-2-655dd989e6f6694e5566b951/"
+   }
+  },
+  "ToughRoad SLR EX": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1699.0,
+    "prices": [
+     1699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/toughroad-slr-ex-655dd98be6f6694e5566b96a/"
+   }
+  },
+  "Trance 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-1-655dd8eae6f6694e5566b028/"
+   }
+  },
+  "Trance 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2899.0,
+    "prices": [
+     2899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-2-655dd8ede6f6694e5566b055/"
+   }
+  },
+  "Trance Advanced Pro 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-advanced-pro-0-655dd7e5e6f6694e5566a147/"
+   }
+  },
+  "Trance Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6799.0,
+    "prices": [
+     6799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-advanced-pro-1-655dd7e6e6f6694e5566a15c/"
+   }
+  },
+  "Trance Advanced Pro 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-advanced-pro-2-655dd7e7e6f6694e5566a171/"
+   }
+  },
+  "Trance X 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-1-655dd7e2e6f6694e5566a11d/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-1-655dd8e5e6f6694e5566afd3/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-1-6891e8aa06081a66f4aaeb5b/"
+   }
+  },
+  "Trance X 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-2-655dd7e4e6f6694e5566a132/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-2-655dd8e7e6f6694e5566b000/"
+   }
+  },
+  "Trance X Advanced 0": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-0-6891e89606081a66f4aae2a3/"
+   }
+  },
+  "Trance X Advanced 1": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-1-6891e89f06081a66f4aae58f/"
+   }
+  },
+  "Trance X Advanced E+ 0": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 8799.0,
+    "prices": [
+     8799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-0-655dd7bbe6f6694e55669e24/"
+   }
+  },
+  "Trance X Advanced E+ 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7699.0,
+    "prices": [
+     7699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-1-655dd7bce6f6694e55669e39/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-1-655dd838e6f6694e5566a73f/"
+   }
+  },
+  "Trance X Advanced E+ 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6699.0,
+    "prices": [
+     6699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-2-655dd7bde6f6694e55669e4e/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-2-655dd83ae6f6694e5566a758/"
+   }
+  },
+  "Trance X Advanced E+ EL 0": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-el-0-655dd82ce6f6694e5566a6db/"
+   }
+  },
+  "Trance X Advanced E+ EL 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-el-1-655dd831e6f6694e5566a6f4/"
+   }
+  },
+  "Trance X Advanced E+ EL 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6799.0,
+    "prices": [
+     6799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-el-2-655dd833e6f6694e5566a70d/"
+   }
+  },
+  "Trance X Advanced E+ LTD": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 12799.0,
+    "prices": [
+     12799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-e-ltd-655dd835e6f6694e5566a726/"
+   }
+  },
+  "Trance X Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7599.0,
+    "prices": [
+     7599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-pro-1-655dd7dfe6f6694e5566a0f3/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7599.0,
+    "prices": [
+     7599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-pro-1-655dd8e2e6f6694e5566afba/"
+   }
+  },
+  "Trance X Advanced Pro 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-advanced-pro-2-655dd7e0e6f6694e5566a108/"
+   }
+  },
+  "Trance X E+ 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-e-1-655dd7bfe6f6694e55669e63/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6599.0,
+    "prices": [
+     6599
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-e-1-655dd83ce6f6694e5566a771/"
+   }
+  },
+  "Trance X E+ 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5699.0,
+    "prices": [
+     5699
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-e-2-655dd7c0e6f6694e55669e78/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5899.0,
+    "prices": [
+     5899
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-e-2-655dd83fe6f6694e5566a78a/"
+   }
+  },
+  "Trance X E+ 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5099.0,
+    "prices": [
+     5099
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-e-3-655dd7c1e6f6694e55669e8d/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5199.0,
+    "prices": [
+     5199
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-x-e-3-655dd841e6f6694e5566a7a3/"
+   }
+  },
+  "Trance jr.": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/trance-jr-655dd994e6f6694e5566ba41/"
+   }
+  },
+  "Trinity Advanced Pro 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/trinity-advanced-pro-1-655dd7f3e6f6694e5566a27e/"
+   }
+  },
+  "Trinity Advanced Pro 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/trinity-advanced-pro-2-655dd7f4e6f6694e5566a28f/"
+   }
+  },
+  "Trinity Advanced SL 0": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/trinity-advanced-sl-0-6891e89e06081a66f4aae55a/"
+   }
+  },
+  "Trinity Advanced SL 1": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/trinity-advanced-sl-1-6891e8ab06081a66f4aaebfc/"
+   }
+  },
+  "Trinity Advanced SL 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.tour-magazin.de/marken/giant/modell/trinity-advanced-sl-2-69c280c814a2690c039b6587/"
+   }
+  },
+  "XtC Advanced 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-advanced-1-655dd7ebe6f6694e5566a1b0/"
+   }
+  },
+  "XtC Advanced 1.5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-advanced-1-5-655dd7ede6f6694e5566a1c5/"
+   }
+  },
+  "XtC Advanced 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-advanced-2-655dd7eee6f6694e5566a1da/"
+   }
+  },
+  "XtC Advanced 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-advanced-3-655dd7efe6f6694e5566a1ef/"
+   }
+  },
+  "XtC Advanced SL": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-advanced-sl-655dd7eae6f6694e5566a19b/"
+   }
+  },
+  "XtC SLR 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-slr-1-655dd8fbe6f6694e5566b11d/"
+   }
+  },
+  "XtC SLR 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.bike-magazin.de/marken/giant/modell/xtc-slr-2-655dd900e6f6694e5566b14a/"
+   }
+  }
+ },
+ "source": "TOUR/BIKE bike database (Delius Klasing), German list prices"
+}

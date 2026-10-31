@@ -28,7 +28,9 @@ offers a dealer or product feed instead.
 ## Older model years
 
 Brand archive pages where they exist, and Web Archive snapshots of the Dutch sites. Third-party
-databases (99 Spokes, Geometry Geeks) only with a licence.
+databases (99 Spokes, Geometry Geeks) only with a licence. Exception, agreed 2026-10-31: new prices
+from the TOUR/BIKE bike database (`brand_scrapers/tourbike.py`), German list prices, used only
+where we have no Dutch price and labelled as German on the site.
 
 ## Listings
 
