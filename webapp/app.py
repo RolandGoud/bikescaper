@@ -199,6 +199,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.filters["without_generation"] = checks.without_generation
     app.jinja_env.globals["ad_title"] = ad_title.parts
+    app.jinja_env.filters["no_brand"] = ad_title.without_brand
 
     def conn():
         if "conn" not in g:
@@ -509,7 +510,7 @@ def create_app(db_path=None):
             pin["ads"].append({
                 "url": url_for("report", check_id=row["id"]),
                 "name": f"{model['brand']} {model['name']}" if model else row["title"],
-                "title": row["title"] if model else None,
+                "title": ad_title.without_brand(row["title"], model["brand"]) if model else None,
                 "price": eur(row["asking_price"]) if row["asking_price"] else None,
                 "status": result["value"]["status"] if model else "unknown",
                 "verdict": str(result["value"]["headline"]) if model else gettext("No matching model yet"),

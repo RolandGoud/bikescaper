@@ -7,6 +7,7 @@ bold, the rest (groupset, size, year) after them.
 import re
 
 from .checks import _tokens
+from .reference import BRAND_ALIASES
 
 _PRICE = re.compile(r"(?i)\b(?:(?:nieuw)?prijs|van|voor|nu|vraagprijs|nieuwprijs|was|ipv|i\.p\.v\.)?\s*:?\s*"
                     r"(?:€\s*\d[\d.,]*(?:\s*,-|-)?|\d[\d.,]*\s*(?:euro|eur)\b|\d[\d.,]*\s*,-)")
@@ -46,3 +47,19 @@ def parts(title, model=None):
     if at == 0:
         return " ".join(words), ""
     return " ".join(words[:at]), " ".join(words[at:])
+
+
+def without_brand(title, brand=None):
+    """The seller's title as written, minus the brand name: the page already shows the brand next to it.
+
+    "Trek Domane SL 6 2022 maat 56" gives "Domane SL 6 2022 maat 56". Every brand name and alias we know is
+    taken out, plus the given brand; the rest of the seller's words stay. A title that is nothing but the
+    brand stays as it is.
+    """
+    text = title or ""
+    names = sorted(set(BRAND_ALIASES) | ({brand.lower()} if brand else set()), key=len, reverse=True)
+    for name in names:
+        text = re.sub(rf"(?<![\w-]){re.escape(name)}(?![\w-])", " ", text, flags=re.I)
+    text = re.sub(r"\s+([,;:])", r"\1", re.sub(r"\s{2,}", " ", text))
+    text = re.sub(r"^[\s,;:|/·-]+|[\s,;:|/·-]+$", "", text)
+    return text or (title or "").strip()
