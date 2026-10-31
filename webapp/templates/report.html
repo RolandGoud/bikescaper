@@ -213,7 +213,7 @@
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
     <h2>{{ _('Age check') }}</h2>
     {% if r.age.timeline %}
-    {# A block per generation with its model-year photos; the years the ad's details point to (the year estimate below) are ringed. #}
+    {# A block per generation with its model-year photos, the ad's own photo under the year we go by; the years the ad's details point to (the year estimate below) are ringed. #}
     {% set est = r.year_estimate if r.year_estimate and not r.year_estimate.fallback and (r.year_estimate.first or r.year_estimate.last) else none %}
     <div class="gen-blocks{{ ' focus' if est or r.claims.year }}">
       {% for g in r.age.generations %}
@@ -223,9 +223,11 @@
           {% for y in g.years %}
           {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
           <div class="gen-year{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
-            {% if y.photo %}<img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy">{% else %}<span class="gen-none">–</span>{% endif %}
+            <div class="gen-photo">{% if y.photo %}<img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy">{% else %}<span class="gen-none">–</span>{% endif %}</div>
+            <span class="gen-dot"></span>
             <span class="gen-y">{{ y.year }}</span>
             {% if y.claimed %}<span class="gen-tag">{{ _('in the ad') }}</span>{% elif likely %}<span class="gen-tag est">{{ _('estimated') }}</span>{% endif %}
+            {% if listing.photos and r.year and y.year == r.year.year %}<div class="gen-photo gen-ad" title="{{ _('Photo from the ad') }}"><img src="{{ duo_pick(listing.photos, r.model) }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer"></div>{% endif %}
           </div>
           {% endfor %}
         </div>

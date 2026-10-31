@@ -428,17 +428,30 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gen-block.earlier, .gen-block.unknown { background: var(--raised); }
 .gen-head { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
 .gen-head span { color: var(--muted); font: 12px var(--mono); margin-left: 6px; }
-.gen-row { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(112px, 1fr); gap: 8px; overflow-x: auto; }
-.gen-year { position: relative; aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; background: var(--photo-bg); }
-.gen-block:not(.own) .gen-year, .gen-blocks.focus .gen-year { opacity: .55; }
-.gen-blocks .gen-year.likely, .gen-blocks .gen-year.claimed { opacity: 1; }
-.gen-year.likely { box-shadow: inset 0 0 0 2px var(--ok); }
-.gen-year.claimed { box-shadow: inset 0 0 0 2px var(--warn); }
-.gen-year img { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* Small photos (at most 48 px high) above a timeline line with a dot per year. */
+.gen-row { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(78px, 1fr); gap: 8px; overflow-x: auto; padding-bottom: 2px; }
+.gen-year { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.gen-photo { width: 100%; max-width: 77px; height: 48px; border-radius: 6px; overflow: hidden; background: var(--photo-bg); }
+.gen-block:not(.own) .gen-photo, .gen-blocks.focus .gen-photo { opacity: .55; }
+.gen-blocks .likely .gen-photo, .gen-blocks .claimed .gen-photo { opacity: 1; }
+.gen-year.likely .gen-photo { box-shadow: inset 0 0 0 2px var(--ok); }
+.gen-year.claimed .gen-photo { box-shadow: inset 0 0 0 2px var(--warn); }
+.gen-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .gen-none { display: grid; place-items: center; height: 100%; color: var(--muted); }
-.gen-y { position: absolute; left: 6px; top: 6px; background: #16181Dcc; color: #fff; font: 600 12px var(--mono); padding: 2px 6px; border-radius: 5px; }
-.gen-tag { position: absolute; right: 6px; bottom: 6px; background: var(--warn); color: #111; font: 600 10px var(--mono); padding: 2px 6px; border-radius: 5px; text-transform: uppercase; }
-.gen-tag.est { background: var(--ok); }
+/* The line runs from the first dot to the last, through the gaps between the years. */
+.gen-year::before { content: ""; position: absolute; top: 61px; left: -4px; right: -4px; height: 2px; background: var(--line-strong); }
+.gen-year:first-child::before { left: 50%; }
+.gen-year:last-child::before { right: 50%; }
+.gen-year:only-child::before { display: none; }
+.gen-dot { position: relative; width: 12px; height: 12px; margin-top: 6px; border-radius: 50%; background: var(--card); border: 2px solid var(--muted); }
+.gen-block.own .gen-dot { border-color: var(--text); }
+.gen-year.likely .gen-dot { background: var(--ok); border-color: var(--ok); }
+.gen-year.claimed .gen-dot { background: var(--warn); border-color: var(--warn); }
+.gen-y { margin-top: 4px; font: 600 12px var(--mono); }
+.gen-tag { margin-top: 2px; color: var(--warn); font: 600 10px var(--mono); text-transform: uppercase; }
+.gen-tag.est { color: var(--ok); }
+.gen-blocks .gen-photo.gen-ad { margin-top: 6px; opacity: 1; box-shadow: inset 0 0 0 2px var(--accent); }
+.gen-ad img { object-fit: cover; }
 .notes { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
 .spec-table { overflow-x: auto; }
 .spec-table table { min-width: 720px; width: 100%; border-collapse: collapse; font-size: 15px; }
