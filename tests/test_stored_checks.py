@@ -81,4 +81,16 @@ def test_a_recheck_keeps_the_checks_own_date(tmp_path, monkeypatch):
     client.post(f"/check/{check_id}/recheck")
     page = client.get(url + "?lang=en").data.decode()
     assert [str(d) for d in days] == ["2024-03-05"]
-    assert "Checked on 2024-03-05." in page and "Run again on " in page
+    assert "Checked on 2024-03-05." in page and "Report worked out on " in page
+
+
+def test_a_model_shown_in_another_photo_follows_a_catalogue_reload(tmp_path):
+    conn = db.connect(str(tmp_path / "x.sqlite3"))
+    seed.load(conn)
+    models = db.all_models(conn)
+    listing = {"id": 1, "title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": 2450}
+    data = stored_checks.dump(dict(checks.run_check(models, listing), model=dict(models[0], image="other.jpg")), models)
+    fresh = [dict(m, id=m["id"] + 10000) for m in db.all_models(conn)]  # as after a reload that renumbers
+    shown = stored_checks.load(data, fresh)["model"]
+    today = next(m for m in fresh if m["slug"] == models[0]["slug"])
+    assert shown["id"] == today["id"] != models[0]["id"] and shown["image"] == "other.jpg"

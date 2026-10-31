@@ -100,8 +100,8 @@ def test_report_alone_says_no_other_ads(app):
     page = client.get(f"/models/{DOMANE}?lang=en").data.decode()
     assert "1 ad in the last 90 days" in page  # the model page does count it
     assert "Only" not in page and "only 1" not in page
-    assert 'title="Not enough ads yet to give a good median price."' in page
+    assert 'title="Not enough ads yet for a reliable median price."' in page
     page = client.get(f"/models/{DOMANE}?lang=nl").data.decode()
     assert "1 advertentie in de laatste 90 dagen" in page
     assert "Pas 1" not in page and "maar 1" not in page
-    assert 'title="Nog niet genoeg advertenties voor een goede mediaanprijs."' in page
+    assert 'title="Nog niet genoeg advertenties voor een betrouwbare mediaanprijs."' in page
