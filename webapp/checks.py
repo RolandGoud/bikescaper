@@ -1781,7 +1781,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
     rows = []
     not_stated = Msg("Not stated")
     if no_sheet:
-        model = dict(model, specs={}, spec_year=None)
+        # Nothing of a later generation stands in for the original, not even the frame its name implies.
+        model, impossible = dict(model, specs={}, spec_year=None), None
 
     ref_group = detect_groupset(groupset_text(model))
     ref_group_label = spec(model, "Shifter") or (ref_group and ref_group["label"]) or Msg("Not in our data")
@@ -1801,7 +1802,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         rows.append(_row("groupset", "Groupset", ref_group_label, claimed["label"], OK, "Matches"))
 
     for key, part, ref_val, ad_val in (
-        ("frame", "Frame", ref_material(model) or (impossible and impossible["made_in"][0]), claims["material"]),
+        ("frame", "Frame", None if no_sheet else ref_material(model) or (impossible and impossible["made_in"][0]),
+         claims["material"]),
         ("brakes", "Brakes", ref_brakes(model), claims["brakes"]),
     ):
         shown = spec(model, "Frame", "Material") if key == "frame" else spec(model, "Rem")
