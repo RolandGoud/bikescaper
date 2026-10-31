@@ -710,6 +710,17 @@ def test_size_picker_groups_families_under_their_discipline(models):
     assert sum(len(f["lines"]) for f in names.values()) == len(checks.size_lines(models, "Trek"))
 
 
+def test_model_is_greyed_out_until_a_brand_is_picked(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    for url in ("/size?lang=en", "/value?lang=en"):
+        page = client.get(url).data.decode()
+        assert "Pick a brand…" in page and re.search(r'<select name="model"[^>]*disabled', page), url
+    for url in ("/size?brand=Trek&lang=en", "/value?brand=Trek&lang=en"):
+        assert not re.search(r'<select name="model"[^>]*disabled', client.get(url).data.decode()), url
+
+
 def test_size_finder_picks_a_model(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))

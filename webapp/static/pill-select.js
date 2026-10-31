@@ -185,6 +185,9 @@
       setActive(shown()[0]);
     };
     const render = () => {
+      // a disabled select (Model before a Brand is picked) shows a greyed-out button that doesn't open
+      button.disabled = select.disabled;
+      box.classList.toggle("disabled", select.disabled);
       const o = select.options[select.selectedIndex];
       button.replaceChildren(o && o.dataset.tier ? pill(o) : el("span", "plain", o ? labelOf(o) : ""));
       button.insertAdjacentHTML("beforeend", chevron);
@@ -261,7 +264,7 @@
       if (li && items.indexOf(li) !== active) setActive(li);
     });
     select.addEventListener("change", render);
-    new MutationObserver(build).observe(select, { childList: true, subtree: true });
+    new MutationObserver(build).observe(select, { childList: true, subtree: true, attributes: true, attributeFilter: ["disabled"] });
 
     select.tabIndex = -1;
     select.setAttribute("aria-hidden", "true");
