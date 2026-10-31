@@ -1047,13 +1047,15 @@ def colour_years(sheets, low):
     for y, s in dated.items() if len(dated) > 1 else ():
         # Each part of a two-tone name on its own ("Blue Dragonfly/Chrome"): an ad names the colour, not the finish.
         for name in s["colours"]:
-            for i, c in enumerate(part.strip() for part in name.split("/")):
+            first = True  # the colourway's lead colour: its first part that isn't "Carbon" or plain black
+            for c in (part.strip() for part in name.split("/")):
                 words = re.findall(r"[a-z]+", _plain(c))
                 if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
                     entry = colours.setdefault(" ".join(words), (c, set(), set()))
                     entry[1].add(y)
-                    if i == 0:
+                    if first:
                         entry[2].add(y)
+                    first = False
     words = re.findall(r"[a-z]+", low)
     ad_text = " ".join(words) + " | " + " ".join(NL_COLOURS.get(w, w) for w in words)
     for key, (name, years, lead) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first

@@ -1399,3 +1399,11 @@ def test_a_colour_the_ad_names_dates_the_years_whose_colourway_leads_with_it(mod
     r = run(models, "Giant Defy Advanced Pro 2 racefiets",
             "Ik verkoop mijn Giant Defy racefiets, kleur charcoal maat M. Shimano 105, schijfremmen, composiet frame.")
     assert r["year"]["year"] == 2019, r["year"]
+
+
+def test_a_lead_colour_skips_a_plain_carbon_first_part(models):
+    # Giant Defy Advanced 2: 2018 "Carbon Smoke/Neon Orange/Charcoal", 2021 "Carbon/Charcoal". Charcoal leads
+    # the 2021 colourway once the plain "Carbon" is skipped.
+    r = run(models, "Giant Defy Advanced 2 racefiets", "kleur charcoal maat M, Shimano 105, schijfremmen")
+    assert r["model"]["name"].startswith("Defy Advanced 2"), r["model"]["name"]
+    assert r["year"]["year"] == 2021, r["year"]
