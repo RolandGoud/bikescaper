@@ -116,7 +116,9 @@ def summarise(items):
         return [{"label": label,
                  "ads": len(group),
                  "missing": {k: round(100 * sum(k in it["missing"] for it in group) / len(group)) for k in MISSING},
-                 "problems": {k: sum(k in it["problems"] for it in group) for k in PROBLEMS}}
+                 "problems": {k: sum(k in it["problems"] for it in group) for k in PROBLEMS},
+                 "matched": {"matched": sum(it["matched"] for it in group),
+                             "unmatched": sum(not it["matched"] for it in group)}}
                 for label, group in sorted(out.items())]
 
     shaky = [it for it in items if it["problems"]]

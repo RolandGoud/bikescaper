@@ -50,6 +50,7 @@ def test_admin_page_shows_the_stats_and_the_period_charts(tmp_path):
     assert "racefiets carbon zgan" in page  # among the lowest scores
     stats = page[page.index('id="admin-data">'):]
     assert "2026-09" in stats and "2026-10" in stats
+    assert "Bikes matched to a model" in page and 'data-chart="matched"' in page and '"unmatched"' in stats
 
 
 def test_carbon_is_no_proof_of_purchase_and_a_year_photo_without_colour_is_no_colour():
