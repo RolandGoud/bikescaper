@@ -9,7 +9,7 @@
 {% macro duo_photo(ad_photo, model) -%}
 {% set fit = ad_photo_fit(ad_photo, model) %}
 <div class="photo duo" style="--cut: 50%">
-  <div class="ad-side"{% if fit and fit.bg %} style="background: {{ fit.bg }}"{% endif %}><img src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer" class="{{ 'flip' if fit and fit.flip }}{{ ' whole' if fit and fit.bg and not fit.width }}"{% if fit and fit.width %} style="left: {{ fit.left }}%; top: {{ fit.top }}%; width: {{ fit.width }}%; height: {{ fit.height }}%"{% endif %}></div>
+  <div class="ad-side{{ ' fill' if fit and fit.bg }}"{% if fit and fit.bg %} style="background: {{ fit.bg }}; --ad: url('{{ ad_photo }}')"{% endif %}><img src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer" class="{{ 'flip' if fit and fit.flip }}{{ ' whole' if fit and fit.bg and not fit.width }}"{% if fit and fit.width %} style="left: {{ fit.left }}%; top: {{ fit.top }}%; width: {{ fit.width }}%; height: {{ fit.height }}%"{% endif %}></div>
   <div class="factory">{{ photo(model) }}</div>
   {{ brand_mark(model.brand) }}
   <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
