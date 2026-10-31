@@ -406,9 +406,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .report-tab:hover { color: var(--text); filter: brightness(1.15); }
 .report-tab .mono { font-size: 11px; font-weight: 500; letter-spacing: .06em; }
 .report-tab .big { font-size: 19px; font-weight: 700; }
-.report-tab .why { font-size: 13px; color: var(--muted); }
 .report-tab .fair { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; }
-.report-tab.price .why { color: var(--text); font-weight: 600; }
 .tabbed .report-tabs { position: relative; z-index: 1; margin-bottom: -28px; }  /* main.page gap: the tabs sit on their section */
 .tabbed .report-tab { border-bottom: 0; border-radius: 18px 18px 0 0; padding-bottom: 20px; opacity: .78; }
 .tabbed .report-tab[aria-selected="true"] { position: relative; top: 2px; opacity: 1; border-color: var(--accent); background: var(--card); box-shadow: 0 -4px 18px rgba(52, 211, 153, .18); }
