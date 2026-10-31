@@ -1577,23 +1577,52 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
         # A year that came in more colours has one photo, maybe of another colour: then don't name it.
         one = len(year_sheets(model).get(year, {}).get("colours") or []) == 1
         return (year, photos[year], hit[0] if one else None) if year in photos else None
+    title, _nl, description = (text or "").partition("\n")
     fit = colour_family_years(year_sheets(model), text)
     if fit:
-        # The newest year in the seller's colours with a photo, unless the stated year is one of them.
+        # The newest year in the seller's colours with a photo, unless the stated year is one of them; of those,
+        # the years we have a photo of that colourway of first, rather than one of the year's other colours.
         shown = sorted(y for y in fit[0] if y in photos)
+        own_photo = [y for y in shown if year_colour_fits(colour_images(model, y), title, description)]
         if shown:
-            year = claimed if claimed in shown else middle_year(allowed(shown))
+            year = claimed if claimed in shown else middle_year(allowed(own_photo or shown))
             # The photo of the colourway in the seller's colours, when that year has one.
-            own = ((model.get("year_specs") or {}).get("years") or {}).get(str(year), {}).get("colour_images") or {}
-            name = next((n for n in fit[1] if n in own), None)
+            name = year_colour_fits(colour_images(model, year), title, description)
             if name:
-                return year, own[name], name
+                return year, colour_images(model, year)[name[0]], name[0] if len(name) == 1 else None
             colours = year_sheets(model)[year]["colours"]
             return year, photos[year], colours[0] if len(colours) == 1 else None
     year = comparison_year(model, claims, estimate)
     if year is None:
         year = claimed if claimed and estimate.get("status") != BAD else estimate.get("last")
-    return (year, photos[year], None) if year in photos else None
+    wanted = colour_match.ad_colours(title, description)
+    if year is None and wanted and not any(wanted[0] in colour_match.colourway_families(c)
+                                           for c in model.get("colorways") or [] if c.get("name")):
+        # No year to go by, and none of today's colourways is in the colour the ad names: the newest year with
+        # a photo in that colour ("zwart", today's colours are blue, and 2024 came in Satin Carbon).
+        year = max((y for y in photos if any(wanted[0] in colour_match.families_in(n, brand_words=True)
+                                             for n in colour_images(model, y))), default=None)
+    if year not in photos:
+        return None
+    # That year's photo in the colour the ad names, when it came in more colours.
+    fit = year_colour_fits(colour_images(model, year), title, description)
+    if fit:
+        return year, colour_images(model, year)[fit[0]], fit[0] if len(fit) == 1 else None
+    return year, photos[year], None
+
+
+def colour_images(model, year):
+    """{colour name: photo} of the model in that model year; {} when we have none."""
+    return ((model.get("year_specs") or {}).get("years") or {}).get(str(year), {}).get("colour_images") or {}
+
+
+def year_colour_fits(images, title, description=""):
+    """The colour names of a model year's photos ({name: image}) that fit the colours the ad names best;
+    [] when the ad names none or none fits."""
+    wanted = colour_match.ad_colours(title, description)
+    if not images or not wanted:
+        return []
+    return [c["name"] for c in colour_match.by_text([{"name": n} for n in images], wanted)]
 
 
 # The year clues that come from parts a bike can be given later (estimate_year), by the start of their message.
@@ -2461,15 +2490,20 @@ def run_check(models, listing, today=None):
                                                     [r["pct"] for r in report["matches"] if r is not report["match"]],
                                                     report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
-    report["colourway"] = colour_match.pick(chosen, listing["title"], listing.get("description") or "")
+    fitting = colour_match.fits(chosen, listing["title"], listing.get("description") or "")
+    report["colourway"] = fitting[0] if len(fitting) == 1 else None
     report["colour_from_photos"] = False
     if not report["colourway"] and (name := colour_match.by_photos(
-            [(w["name"], w.get("image")) for w in chosen.get("colorways") or []], listing.get("photo_paths"))):
-        # The ad doesn't name its colour: the colourway its photos show.
+            [(w["name"], w.get("image")) for w in fitting or chosen.get("colorways") or []], listing.get("photo_paths"))):
+        # The ad doesn't name its colour, or names one several colourways have: the colourway its photos show.
         report["colourway"] = next(w for w in chosen["colorways"] if w["name"] == name)
-        report["colour_from_photos"] = True
+        report["colour_from_photos"] = not fitting
     if report["colourway"] and report["colourway"].get("image"):
         report["model"] = dict(chosen, image=report["colourway"]["image"])
+    elif len(fitting) > 1 and (image := next((w["image"] for w in fitting if w.get("image")), None)):
+        # Several colourways in the colour the ad names ("zwart": Gloss Carbon and Raw Carbon): a photo in that
+        # colour rather than the catalogue's first one, without naming which of them it is.
+        report["model"] = dict(chosen, image=image)
     report["age"] = check_age(chosen, claims, today)
     seen = photo_colour(chosen, listing)
     report["year_estimate"] = estimate_year(chosen, models, claims,
@@ -2482,7 +2516,9 @@ def run_check(models, listing, today=None):
     if found and found[2] is None:
         # The ad doesn't name its colour and that year came in several: the colourway its photos show.
         own = ((chosen.get("year_specs") or {}).get("years") or {}).get(str(found[0]), {}).get("colour_images") or {}
-        name = colour_match.by_photos(list(own.items()), listing.get("photo_paths"))
+        # Among the colourways in the colour the ad names, when it names one several have.
+        said = [n for n in own if n in year_colour_fits(own, listing["title"], listing.get("description") or "")]
+        name = colour_match.by_photos([(n, own[n]) for n in said or own], listing.get("photo_paths"))
         report["colour_from_photos"] = bool(name)
         if name:
             found = (found[0], own[name], name)
