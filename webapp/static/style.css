@@ -1423,6 +1423,23 @@ select { max-width: 100%; }
 .pill-menu { margin-top: 6px; padding: 8px; background: rgba(12, 13, 16, .88); backdrop-filter: blur(6px); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 12px 32px rgba(0, 0, 0, .5); }
 .pill-menu [aria-disabled="true"] { opacity: .45; cursor: default; }
 .pill-menu .group { align-self: flex-start; margin-top: 4px; padding: 3px 8px; border-radius: var(--pill-radius); background: var(--ground); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+/* data-families (the size finder's model picker): a heading per type, its families as chips, the opened family's
+   options in a panel below the chips. While searching only the panels show, each with its family's name. */
+.pill-menu.families { max-width: min(560px, calc(100vw - 32px)); }
+.pill-menu .type { margin-top: 6px; padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--ground); font: 700 13px var(--body); color: var(--text); box-shadow: 0 6px 18px rgba(0, 0, 0, .55); }
+.pill-menu .type[hidden], .pill-menu .fam-row[hidden], .pill-menu .fam-panel[hidden] { display: none; }
+.pill-menu .fam-row { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 0 4px; }
+.pill-menu .fam { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: var(--pill-radius); background: var(--raised); color: var(--text); font: 600 14px var(--body); cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, .55); }
+.pill-menu .fam .n { opacity: 1; color: var(--muted); font-size: 12px; }
+.pill-menu .fam .chevron { width: 10px; height: 10px; fill: none; stroke: var(--muted); stroke-width: 2; transition: transform .15s; }
+.pill-menu .fam[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.pill-menu .fam.picked { border-color: var(--text); }
+.pill-menu .fam.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 6px 18px rgba(0, 0, 0, .55); }
+.pill-menu .fam-panel { display: flex; flex-direction: column; gap: 4px; margin: 0 0 6px; padding: 6px 4px 6px 10px; border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0; background: color-mix(in srgb, var(--ground) 85%, transparent); }
+.pill-menu .fam-panel ul { padding: 0; max-height: none; overflow: visible; }
+.pill-menu .fam-title { display: none; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 2px 4px; }
+.pill-menu.searching .fam-title { display: block; }
+.pill-menu.searching .fam-panel { border-left-color: var(--line-strong); }
 .pill-select .check { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; }
 @media (max-width: 640px) {
   .field-label .pill-select, .sell-match .match-pick .pill-select { width: 100%; min-width: 0; }

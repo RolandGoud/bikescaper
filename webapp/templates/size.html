@@ -11,13 +11,13 @@
       <select name="brand" onchange="this.form.model.value = ''; this.form.submit()">{% for b in brands %}<option {{ 'selected' if b.name == brand }}>{{ b.name }}</option>{% endfor %}</select>
     </label>
     <label class="field">{{ _('Model') }}
-      <select name="model">
+      <select name="model" data-families>
         <option value="">{{ _('All models (brand chart)') }}</option>
-        {% for family, family_lines in lines|groupby('family') %}
-        <optgroup label="{{ family|capitalize }}">
-          {% for l in family_lines %}<option value="{{ l.key }}" {{ 'selected' if line and l.key == line.key }}>{{ l.label }}{{ ' · ' ~ _('brand chart') if l.chart.source == 'generic' }}</option>{% endfor %}
+        {% for kind, families in picker %}{% for f in families %}
+        <optgroup label="{{ f.name }}" data-type="{{ _(kinds[kind]) }}">
+          {% for l, short in f.lines %}{% set tail = ' · ' ~ _('brand chart') if l.chart.source == 'generic' else '' %}<option value="{{ l.key }}" data-short="{{ (short or _('Other {family}', family=f.name)) ~ tail }}" {{ 'selected' if line and l.key == line.key }}>{{ l.label }}{{ tail }}</option>{% endfor %}
         </optgroup>
-        {% endfor %}
+        {% endfor %}{% endfor %}
       </select>
     </label>
     <label class="field">{{ _('Your height (cm)') }}
