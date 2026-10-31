@@ -334,3 +334,4 @@ def test_report_and_tiles_show_the_site_the_ad_was_found_on(tmp_path):
     for site in ("Marktplaats", "2dehands", "2ememain"):
         assert f'alt="Gevonden op {site}"' in tiles
     assert tiles.count('class="site-mark"') == 3
+    assert tiles.count('class="ad-source"><span class="site-mark"') == 3  # in the tile body, not on the photo
