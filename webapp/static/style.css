@@ -415,9 +415,9 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .report-tab { min-width: 0; }  /* lets a long headline shrink inside its grid column instead of widening it */
 .report-tab .big { font-size: 19px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .report-tab .fair { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; }
-.tabbed .report-tabs { position: relative; z-index: 1; margin-bottom: -28px; align-items: end; }  /* main.page gap: the tabs sit on their section */
-.tabbed .report-tab { border: 0; padding-top: 12px; padding-bottom: 14px; margin-bottom: 6px; opacity: .7; }
-.tabbed .report-tab[aria-selected="true"] { position: relative; z-index: 2; margin-bottom: -18px; padding-top: 16px; padding-bottom: 44px;  /* reaches 18px into the section, over its rounded corner */ border-radius: 16px 16px 0 0; opacity: 1; background: var(--card); color: var(--text); filter: none; }
+.tabbed .report-tabs { position: relative; z-index: 1; margin-bottom: -28px; align-items: stretch; }  /* main.page gap: the tabs sit on their section. Stretch: every tab gets the row's height, so the open one rises by the same amount whichever it is. */
+.tabbed .report-tab { border: 0; padding-top: 12px; padding-bottom: 14px; margin-top: 12px; margin-bottom: 6px; opacity: .7; }
+.tabbed .report-tab[aria-selected="true"] { position: relative; z-index: 2; margin-top: 0; margin-bottom: -18px; padding-top: 16px; padding-bottom: 44px;  /* reaches 18px into the section, over its rounded corner */ border-radius: 16px 16px 0 0; opacity: 1; background: var(--card); color: var(--text); filter: none; }
 .tabbed .report-tab[aria-selected="true"] .mono { color: var(--accent); }
 .tabbed .report-tab[aria-selected="true"] .big { color: var(--text); }
 /* The curved feet: a quarter circle cut from the card colour on each side, so the tab widens into the section. */
