@@ -520,6 +520,15 @@ def test_an_old_bike_rates_its_groupset_lower_and_says_why():
     assert checks.spec_tiers(sora, 2015, date(2026, 10, 31))["aged"] == {}
 
 
+def test_year_moves_compare_groupsets_as_new():
+    # 2021 drops a tier for age and 2022 doesn't: an Ultegra reworded is no upgrade, a 105 is still a downgrade.
+    sheets = {"2021": {"specs": {"Achterderailleur": "Shimano Ultegra R8000", "Shifter": "Shimano Ultegra R8000"}}}
+    bike = {"name": "Test SL", "brand": "Trek", "seen_on": "2022-05-01", "year_specs": {"years": sheets},
+            "specs": {"Achterderailleur": "Shimano Ultegra R8000 11-speed", "Shifter": "Shimano 105 R7000"}}
+    tab = next(t for t in checks.year_tabs(bike, date(2026, 10, 31)) if t["year"] == 2022)
+    assert tab["moves"] == {"Shifters": "down"}
+
+
 def test_carbon_frame_is_not_carbon_wheels():
     assert checks.read_claims("Trek Domane", "carbon frame, nieuwe wielen")["wheels"] is None
 

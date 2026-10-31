@@ -383,11 +383,13 @@ def year_tabs(model, today=None):
             values = {en: v for _g, rows in tab["specs"] for en, _nl, v in rows}
             tab["changed"] = set() if before is None else {
                 en for en in values.keys() | before.keys() if not _same(values.get(en, ""), before.get(en, ""))}
-            # A changed part rated both years is an upgrade or a downgrade on the year before.
-            tab["moves"] = {en: "up" if tab["tiers"]["rows"][en] > before_tiers[en] else "down"
-                            for en in tab["changed"] if en in tab["tiers"]["rows"] and en in (before_tiers or {})
-                            and tab["tiers"]["rows"][en] != before_tiers[en]}
-            before, before_tiers = values, tab["tiers"]["rows"]
+            # A changed part rated both years is an upgrade or a downgrade on the year before. Parts are compared
+            # as new: the age drop differs between the years and says nothing about the part itself.
+            as_new = dict(tab["tiers"]["rows"], **{en: a["new"] for en, a in tab["tiers"]["aged"].items()})
+            tab["moves"] = {en: "up" if as_new[en] > before_tiers[en] else "down"
+                            for en in tab["changed"] if en in as_new and en in (before_tiers or {})
+                            and as_new[en] != before_tiers[en]}
+            before, before_tiers = values, as_new
         tabs.append(tab)
     _same_order(tabs)
     return tabs
