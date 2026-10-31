@@ -126,7 +126,7 @@
 {%- endmacro %}
 
 {% macro tier_dot(t) -%}
-{% if t %}<span class="tier-dot t{{ t }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}: {{ _(tier_names[t]) }}">{{ t }}</span>{% endif %}
+{% if t %}<span class="tier-dot t{{ t }}" title="{{ _('Spec tier {tier} of 5', tier=t) }}">{{ _(tier_names[t]) }}</span>{% endif %}
 {%- endmacro %}
 
 {# A groupset rated lower for the bike's age: how old it is, and its tier when new on hover. #}
