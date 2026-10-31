@@ -11,7 +11,7 @@
     <h1 style="font-size: 44px">{{ _('Models') }}</h1>
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
     {% if groupset %}<p class="row small"><span class="chip ok-bg">{{ _('With {groupset}', groupset=groupset_name or groupset) }}</span>
-      <a href="{{ url_for('catalog', brand=picked or None, type=kind, q=q or None, current=current, tier=tier) }}">{{ _('All groupsets') }}</a>
+      <a href="{{ url_for('catalog', brand=picked or None, type=kind, q=q or None, current=None if current else 0, tier=tier) }}">{{ _('All groupsets') }}</a>
       {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a>{% endif %}</p>{% endif %}
   </div>
   {# One filter box: "All brands" and the brand logos (each click turns that brand on or off), then type, tier,
@@ -22,11 +22,11 @@
       {# "All brands" is on until a brand is picked; each brand pill then turns its own brand on or off, so several
          can be on. "All brands", turning the last brand off, or turning every brand on drops the brand filter. #}
       {% set shown = brands|selectattr('scraper')|map(attribute='name')|list %}
-      <a class="pill brand all {{ 'on' if not picked }}" href="{{ url_for('catalog', type=kind, q=q or None, current=current, tier=tier, groupset=groupset) }}"{% if not picked %} aria-current="true"{% endif %}>{{ _('All brands') }}</a>
+      <a class="pill brand all {{ 'on' if not picked }}" href="{{ url_for('catalog', type=kind, q=q or None, current=None if current else 0, tier=tier, groupset=groupset) }}"{% if not picked %} aria-current="true"{% endif %}>{{ _('All brands') }}</a>
       {% for b in brands if b.scraper %}
       {% set on = b.name in picked %}
       {% set toggled = shown|select('in', picked|reject('equalto', b.name)|list if on else picked + [b.name])|list %}
-      <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled if toggled|length < shown|length else None, q=q or None, current=current, tier=tier, groupset=groupset) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
+      <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled if toggled|length < shown|length else None, q=q or None, current=None if current else 0, tier=tier, groupset=groupset) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
       {% endfor %}
     </nav>
     <form class="filter-row" method="get">
@@ -45,6 +45,8 @@
         </select>
       </label>
       <label class="switch"><input type="checkbox" name="current" value="1" {{ 'checked' if current }} onchange="this.form.requestSubmit()"><i></i>{{ _('Only bikes still sold') }}</label>
+      {# On by default: an unticked box sends nothing, so this 0 after it says "off" (a ticked box's 1 comes first and wins). #}
+      <input type="hidden" name="current" value="0">
       <span class="search">
         <label class="sr-only" for="q">{{ _('Search models') }}</label>
         <input id="q" name="q" value="{{ q }}" placeholder="{{ _('Search, e.g. Domane') }}">
