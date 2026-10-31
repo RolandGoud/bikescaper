@@ -25,7 +25,7 @@
 {% if logos.get(brand) %}<span class="brand-mark" role="img" aria-label="{{ brand }}" style="--logo: url('{{ url_for('static', filename=logos[brand]) }}')"></span>{% elif brand %}<span class="brand-mark text">{{ brand }}</span>{% endif %}
 {%- endmacro %}
 
-{# The site we found the ad on (Marktplaats or 2dehands), its logo on a white pill, bottom left of an ad tile's photo. #}
+{# The site we found the ad on (Marktplaats or 2dehands), its logo on a white pill in front of the ad's own title on an ad tile. #}
 {# 2ememain is 2dehands' French-language site, so it shows the 2dehands logo under its own name. #}
 {% macro site_name(url) -%}
 {{ 'Marktplaats' if url and 'marktplaats' in url else ('2dehands' if url and '2dehands' in url else ('2ememain' if url and '2ememain' in url else '')) }}
@@ -56,7 +56,6 @@
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   <div class="tile-photo">
   {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
-  {{ site_mark(row.listing_url) }}
   </div>
   <div class="body">
     <div class="card-price">
@@ -65,7 +64,8 @@
       {% else %}<span class="verdict-pill unknown">{{ _('No matching model yet') }}</span>{% endif %}
     </div>
     <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ ad.name }}{% endif %}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</div>
-    {% if r.model %}<div class="ad-title">“{{ ad.name }}”</div>{% endif %}
+    {% set site = site_mark(row.listing_url)|trim %}
+    {% if r.model or site %}<div class="ad-source">{{ site }}{% if r.model %}<div class="ad-title">“{{ ad.name }}”</div>{% endif %}</div>{% endif %}
     <div class="card-foot">
       <span class="card-place">{% if row.location %}{% call place_link(row.location, row.listing_url, inside_link=True) %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ row.location }}{% endcall %}{% endif %}</span>
       {% if r.model %}<span class="card-dots">
