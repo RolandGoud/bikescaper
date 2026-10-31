@@ -1402,7 +1402,9 @@ select { max-width: 100%; }
 
 /* Dropdowns (pill-select.js): each select becomes a button showing the picked option, tier options as their
    tier's pill, and a menu of big pills (tier colours, or neutral) floating over the page with no panel behind. */
-.pill-select-native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+/* The hidden native select must stay 1px: rules like `.value-form .field select { width: 100% }` are more specific
+   and stretched it, absolutely positioned, to the page's width, which overflowed the page and gave it scrollbars. */
+.pill-select-native { position: absolute; width: 1px !important; min-width: 0 !important; height: 1px !important; padding: 0 !important; border: 0 !important; overflow: hidden; clip-path: inset(50%); opacity: 0; pointer-events: none; }
 .pill-select { position: relative; display: inline-block; vertical-align: middle; width: auto; min-width: min(var(--w, 0px), 100%); max-width: 100%; text-transform: none; letter-spacing: 0; font-family: var(--body); font-weight: 400; color: var(--text); }
 .field .pill-select, .mp-pick .pill-select { width: 100%; }
 .mp-pick .pill-select { flex: 1; }
