@@ -164,3 +164,11 @@ def test_specialized_photos_keep_the_old_page_only_for_its_year(tmp_path, monkey
     assert found["2020"]["colour_images"] == {"Red": "2020_Red_None"} and found["2020"]["colour_angles"] == {"Red": ["2020_Red_1"]}
     assert found["2020"]["image"] == "2020_Red_None" and found["2020"]["colours"] == ["Red"]
     assert "colour_images" not in found["2024"]
+
+
+def test_specialized_views_match_by_photo_not_spelling():
+    from brand_scrapers import history
+    live = {"Satin Carbon/Tarmac Black/Clean": ("https://r/image/171341-01_CRUX_HERO-SQUARE?q=80", ["front"])}
+    views = history._views_by_photo(live)
+    assert views[history._photo_stem("https://r/image/171341-01_CRUX_HERO?q=80")] == ["front"]
+    assert views["SATIN CARBON/TARMAC BLACK/CLEAN".casefold()] == ["front"]

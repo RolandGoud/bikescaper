@@ -164,6 +164,23 @@ def add_angles(brand, fetcher=None):
                 json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
 
 
+def _photo_stem(url):
+    """"94920-04_TARMAC-SL7-SW-ETAP-CARB-CMLNSILGRN" from that colour's side view URL (_HERO or _HERO-SQUARE)."""
+    from .specialized import SIDE_VIEW
+    return SIDE_VIEW.sub("", (url or "").split("/")[-1].split("?")[0])
+
+
+def _views_by_photo(colours):
+    """{photo stem or casefolded colour name: [other view URLs]}: an old copy may spell a colour in capitals
+    ("SATIN CARBON/TARMAC BLACK/CLEAN") where today's page doesn't, but the photo IDs are the same."""
+    found = {}
+    for name, (side, views) in colours.items():
+        if views:
+            found.setdefault(_photo_stem(side), views)
+            found.setdefault(name.casefold(), views)
+    return found
+
+
 def _specialized_year(page):
     from . import specialized
     try:
@@ -221,8 +238,9 @@ def specialized_photos(pages_folders=(), fetcher=None):
                     same_year = abs((live[entry["url"] + "#year"] or 0) - int(year)) <= 1
                     if same_year and not colours:
                         colours, where = live[entry["url"]], "from site"
-                    elif same_year:  # the copy's colours, with the views the page has of them
-                        colours = {c: (side, views or live[entry["url"]].get(c, (None, []))[1])
+                    elif same_year:  # the copy's colours, with the views the page has of the same photo
+                        views_of = _views_by_photo(live[entry["url"]])
+                        colours = {c: (side, views or views_of.get(_photo_stem(side)) or views_of.get(c.casefold()) or [])
                                    for c, (side, views) in colours.items()}
                 if not colours:
                     continue
