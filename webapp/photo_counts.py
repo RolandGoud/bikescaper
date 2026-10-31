@@ -8,6 +8,8 @@ own photos under None, "year unknown".
 """
 import os
 
+from . import checks
+
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 
 
@@ -27,7 +29,7 @@ def model_photos(model, galleries, exists=None):
     """{model year or None: set of photo paths under images/} for one model."""
     exists = exists or (lambda p: os.path.isfile(os.path.join(ROOT, "images", p)))
     found = {}
-    own = int(model["seen_on"][:4]) if model.get("seen_on") else None
+    own = checks.scrape_year(model)
     found[own] = set(_paths(model.get("image"))) | set(
         _paths([c.get("image") for c in model.get("colorways") or []])) | set(
         _paths(galleries.get(model.get("url")) or {}))

@@ -63,7 +63,7 @@ def year_options(model, today=None):
     today = today or date.today()
     known = checks.model_years(model, today)
     first, last = (known[0], known[1]) if known else (today.year - 10, None)
-    return list(range(last or today.year, first - 1, -1))
+    return list(range(last or checks.newest_year(model, today), first - 1, -1))
 
 
 def year_guess(model, models, claims, text, today=None):

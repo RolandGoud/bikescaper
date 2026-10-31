@@ -348,17 +348,30 @@ def refresh_status(conn):
     return count
 
 
+def model_year(bike):
+    """The model year the snapshot gives the bike (Giant's 2027 bikes were scraped in 2026), or None."""
+    try:
+        return int(bike.get("model_year")) or None
+    except (TypeError, ValueError):
+        return None
+
+
 def refresh_images(conn):
-    """Re-pick the photo, colourways and photo years of every model already in the database, keeping saved checks intact."""
+    """Re-pick the photo, colourways, photo years and model year of every model already in the database, keeping saved
+    checks intact."""
     count = 0
     for brand, rel in SOURCES:
         with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
             for bike in json.load(fh):
                 bike.setdefault("brand", brand)
                 image = pick_image(bike)
+                slug = slugify(f"{brand} {bike['name']}")
                 cur = conn.execute("UPDATE models SET image = ?, colorways = ?, photo_years = ? WHERE slug = ?",
                                    (image, json.dumps(colorways(bike, image), ensure_ascii=False),
-                                    json.dumps(photo_years(bike)), slugify(f"{brand} {bike['name']}")))
+                                    json.dumps(photo_years(bike)), slug))
+                # The model year goes with the specs and price, so only onto a row loaded from this very snapshot.
+                conn.execute("UPDATE models SET model_year = ? WHERE slug = ? AND source_file = ?",
+                             (model_year(bike), slug, rel))
                 count += cur.rowcount
     conn.commit()
     return count
@@ -454,7 +467,8 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     image = pick_image(bike)
     cur = conn.execute(
         f"{verb} INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
-        " specs, image, seen_on, source_file, colorways, photo_years, year_specs) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        " specs, image, seen_on, model_year, source_file, colorways, photo_years, year_specs)"
+        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         (
             brand,
             bike["name"].strip(),
@@ -467,6 +481,7 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
             json.dumps(bike.get("specifications") or {}, ensure_ascii=False),
             image,
             snapshot_date(rel),
+            model_year(bike),
             rel,
             json.dumps(colorways(bike, image), ensure_ascii=False),
             json.dumps(photo_years(bike)),

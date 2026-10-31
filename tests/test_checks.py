@@ -917,6 +917,28 @@ def test_year_tabs_show_our_scrape_and_archived_years():
     assert checks.year_tabs(dict(model, year_specs={}), today=date(2026, 1, 1))[0]["state"] == "unchecked"
 
 
+def test_year_tabs_put_our_scrape_under_its_model_year():
+    """Giant lists its 2027 bikes from the autumn of 2026: the scrape is the 2027 tab, the 2026 sheet stays."""
+    from datetime import date
+    model = {"name": "Defy Advanced 0", "brand": "Giant", "seen_on": "2026-10-22", "model_year": 2027,
+             "price_eur": 3799.0, "url": "u", "specs": {"Frame": "Advanced-Grade Composite"},
+             "year_specs": {"years": {"2026": {"captured": "2026-03-01", "url": "a", "price": 3999.0,
+                                               "specs": {"Frame": "Advanced-Grade Composite"}}}}}
+    tabs = {t["year"]: t for t in checks.year_tabs(model, today=date(2026, 10, 31))}
+    assert max(tabs) == 2027 and tabs[2027]["state"] == "scrape" and tabs[2027]["price"] == 3799.0
+    assert tabs[2026]["state"] == "archive" and tabs[2026]["price"] == 3999.0
+    assert checks.scrape_year(model) == 2027
+    assert checks.scrape_year(dict(model, model_year=None)) == 2026  # no model year in the snapshot: the scrape date's
+    assert checks.scrape_year(dict(model, seen_on=None)) is None  # an archived line has no scrape of its own
+
+
+def test_seed_keeps_the_model_year(tmp_path):
+    conn = db.connect(str(tmp_path / "t.sqlite3"))
+    seed.load(conn)
+    row = conn.execute("SELECT model_year, seen_on FROM models WHERE slug = 'giant-defy-advanced-0'").fetchone()
+    assert row["model_year"] == 2027 and row["seen_on"].startswith("2026")
+
+
 def test_model_page_has_year_tabs(tmp_path):
     from webapp.app import create_app
     path = str(tmp_path / "t.sqlite3")
