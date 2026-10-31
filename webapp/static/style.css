@@ -1,6 +1,7 @@
 :root {
   /* Pills and chips share the status pill's slightly rounded corners; pill-shaped buttons the buttons' corners. */
   --pill-radius: 4px;
+  --pill-weight: 500;  /* pills in normal text at a medium weight, not bold capitals */
   --pill-button-radius: 6px;
   /* Night ride: dark pages and cards, one emerald accent. --ink is the darkest surface and the text on accent fills. */
   color-scheme: dark;
@@ -225,7 +226,7 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 .verdict-outcome.bad { color: var(--bad); } .verdict-outcome.bad i { background: var(--bad); }
 .verdict-outcome.unknown { color: var(--unknown); } .verdict-outcome.unknown i { background: #9A9AAA; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; }
-.removed-tag { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 4px; background: var(--bad); color: var(--ink); font-size: 12px; max-width: 100%; box-shadow: 0 0 0 2px var(--bad-bg); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; vertical-align: middle; line-height: 1.5; }
+.removed-tag { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 4px; background: var(--bad); color: var(--ink); font-size: 12px; max-width: 100%; box-shadow: 0 0 0 2px var(--bad-bg); font-weight: var(--pill-weight); vertical-align: middle; line-height: 1.5; }
 .check-row-foot .removed-tag { margin-left: 0; }  /* the footer has its own gap */
 .chip { padding: 4px 8px; border-radius: 4px; }
 .ok-bg { background: var(--ok-bg); color: var(--ok); }
@@ -399,7 +400,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 /* The report's check tabs: the picked tab and its section share a green border, as one piece. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
 .tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: var(--pill-radius); font: 700 11px/1 var(--mono); letter-spacing: .05em; }
+.verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: var(--pill-radius); font: var(--pill-weight) 11px/1 var(--body); }
 .verdict-pill i { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-style: normal; font-size: 11px; color: var(--ink); }
 .verdict-pill.ok { background: rgba(52, 211, 153, .14); color: var(--ok); } .verdict-pill.ok i { background: var(--ok); }
 .verdict-pill.warn { background: rgba(242, 194, 122, .14); color: var(--warn); } .verdict-pill.warn i { background: var(--warn); }
@@ -579,7 +580,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 /* The model page's link to the brand's own page: its logo, then "Product page". */
 .product-link { gap: 8px; }
 h2 .count { font-size: 18px; font-weight: 600; }
-.status { display: inline-block; width: fit-content; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: var(--unknown-bg); color: var(--unknown); }
+.status { display: inline-block; width: fit-content; font-size: 12px; font-weight: var(--pill-weight); padding: 2px 8px; border-radius: 4px; background: var(--unknown-bg); color: var(--unknown); }
 .status.current { background: var(--ok-bg); color: var(--ok); }
 .model-card .photo { position: relative; }
 /* Brand logo on the photo, top left (the status badge takes top right). The SVG is used as a mask so CSS sets its colour; a thin white glow keeps it readable over the bike. */
@@ -616,7 +617,7 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .kv div { padding: 10px 0; border-bottom: 1px solid var(--faint); font-size: 15px; }
 .kv div:nth-child(odd) { font-weight: 600; padding-right: 16px; }
 /* Spec tiers: the tier name in a pill that gets bolder from Basic to Top. */
-.tier { display: inline-block; align-self: flex-start; padding: 3px 12px; border-radius: var(--pill-radius); font-size: 13px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; line-height: 1.4; }
+.tier { display: inline-block; align-self: flex-start; padding: 3px 12px; border-radius: var(--pill-radius); font-size: 13px; font-weight: var(--pill-weight); white-space: nowrap; line-height: 1.4; }
 .tier.small { padding: 2px 9px; font-size: 11px; }
 .tier.t1 { background: var(--faint); color: var(--muted); }
 .tier.t2 { background: var(--tier2-bg); color: var(--tier2); }
@@ -626,7 +627,7 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .spec-group h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .kv div.rated { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-right: 12px; }
 .rated-end { display: inline-flex; align-items: center; gap: 8px; flex: none; }
-.tier-dot { flex: none; height: 22px; padding: 0 8px; border-radius: var(--pill-radius); display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; font-weight: 600; white-space: nowrap; background: var(--faint); color: var(--muted); }
+.tier-dot { flex: none; height: 22px; padding: 0 8px; border-radius: var(--pill-radius); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: var(--pill-weight); white-space: nowrap; background: var(--faint); color: var(--muted); }
 .tier-dot.t3 { background: var(--tier3-bg); color: var(--tier3); }
 .tier-dot.t4 { background: #26A574; color: var(--ink); }
 .tier-dot.t5 { background: var(--accent); color: var(--ink); }
@@ -1098,7 +1099,7 @@ select { max-width: 100%; }
 .path-group.no-fit h3 { color: var(--bad); }
 .path-group.empty .path-head { opacity: 0.6; }
 .path-group.empty p { margin: 0; }
-.advise-against { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: var(--pill-radius); background: var(--warn-bg); color: var(--warn); }
+.advise-against { font-size: 11px; font-weight: var(--pill-weight); padding: 2px 8px; border-radius: var(--pill-radius); background: var(--warn-bg); color: var(--warn); }
 .cost-note { margin: 0; padding: 8px 10px; border-radius: 8px; background: var(--warn-bg); color: var(--warn); }
 .key-row { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .key-row > span { display: inline-flex; align-items: center; gap: 6px; }
@@ -1208,7 +1209,7 @@ select { max-width: 100%; }
 /* Listing card: price and its verdict first, location and the other checks as dots at the foot. */
 .listing-card .card-price { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; }
 .listing-card .card-price .price { font: 700 26px/1.1 var(--body); }
-.listing-card .verdict-pill { font: 600 11px var(--mono); letter-spacing: .03em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--raised); color: var(--muted); }
+.listing-card .verdict-pill { font: var(--pill-weight) 11px var(--body); padding: 3px 8px; border-radius: 6px; background: var(--raised); color: var(--muted); }
 .listing-card .verdict-pill.ok { background: rgba(52, 211, 153, .15); color: var(--accent); }
 .listing-card .verdict-pill.warn { background: var(--warn-bg); color: var(--warn); }
 .listing-card .verdict-pill.bad { background: #3a1d1d; color: #F28A8A; }
@@ -1245,7 +1246,7 @@ select { max-width: 100%; }
 .head-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .head-actions .btn { width: 100%; padding: 0 12px; text-align: center; }
 @media (max-width: 640px) { .head-actions { grid-template-columns: 1fr; } }
-/* The spec tier pill in the header tiles has the status pill's size and shape (it stays uppercase). */
+/* The spec tier pill in the header tiles has the status pill's size and shape. */
 .mini-facts .tier { font-size: 12px; line-height: inherit; padding: 2px 8px; border-radius: 4px; letter-spacing: 0; align-self: center; }
 /* A closed <details> hides its content even when CSS shows it, so the (i) notes opened only on a click:
    let hover show them too. */
@@ -1304,7 +1305,7 @@ select { max-width: 100%; }
 .map-ad-photo.catalogue { background: var(--photo-bg); } .map-ad-photo.catalogue img { object-fit: contain; }
 .map-ad-body { display: grid; gap: 3px; min-width: 0; }
 .map-ad-top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; } .map-ad-top b { font-size: 18px; }
-.map-verdict { font: 600 11px var(--mono); letter-spacing: .03em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--raised); color: var(--muted); }
+.map-verdict { font: var(--pill-weight) 11px var(--body); padding: 3px 8px; border-radius: 6px; background: var(--raised); color: var(--muted); }
 .map-verdict.ok { background: rgba(52, 211, 153, .15); color: var(--accent); } .map-verdict.warn { background: var(--warn-bg); color: var(--warn); } .map-verdict.bad { background: var(--bad-bg); color: var(--bad); }
 .map-ad-name { font-weight: 600; }
 .map-ad-title { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
