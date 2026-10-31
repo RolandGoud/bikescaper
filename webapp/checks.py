@@ -1772,9 +1772,16 @@ def photo_group(read):
     return found
 
 
-def check_specs(model, claims, impossible=None, photo_read=None):
+def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None, no_sheet=False, today=None):
+    """The ad's parts against the model's spec sheet. `bike_year` is the model year the report goes by: the ad's
+    groupset drops a tier or two for its age (groupset_age_drop), as the original's does for its sheet's year;
+    up- and downgrades still compare the tiers when new. With `no_sheet` the bike is older than any generation we
+    know (resolve_year's "older"): we have no spec sheet of its year, so its parts aren't compared with another
+    generation's sheet."""
     rows = []
     not_stated = Msg("Not stated")
+    if no_sheet:
+        model = dict(model, specs={}, spec_year=None)
 
     ref_group = detect_groupset(groupset_text(model))
     ref_group_label = spec(model, "Shifter") or (ref_group and ref_group["label"]) or Msg("Not in our data")
@@ -1834,6 +1841,13 @@ def check_specs(model, claims, impossible=None, photo_read=None):
     if claimed:
         rows[0]["ad_tier"] = claimed["tier"]
     rows[0]["from_photos"] = bool(seen)
+    # An older groupset rates lower, the ad's by the bike's year and the original's by its sheet's year.
+    for side, year in (("ad", bike_year), ("ref", None if no_sheet else model.get("spec_year") or sheet_year(model))):
+        rows[0][f"{side}_aged"] = None
+        tier, drop = rows[0][f"{side}_tier"], groupset_age_drop(year, today)
+        if tier and drop and tier > 1:
+            rows[0][f"{side}_aged"] = {"new": tier, "age": (today or date.today()).year - int(year)}
+            rows[0][f"{side}_tier"] = max(1, tier - drop)
 
     down = sum(1 for r in rows if r["step"] < 0)
     up = sum(1 for r in rows if r["step"] > 0)
@@ -1862,6 +1876,12 @@ def check_specs(model, claims, impossible=None, photo_read=None):
              Msg("{n} lower", n=down) if down else None, Msg("{n} better", n=up) if up else None]
     tab = (Msg("Original parts") if status == OK and not up else
            join_list(short) if sum(map(bool, short)) > 1 else headline)
+    if no_sheet:
+        status, headline, tab = UNKNOWN, Msg("No spec sheet for {year}", year=bike_year), Msg("No spec sheet")
+        detail = join(Msg("The oldest {name} we know is a later generation, and we don't have the spec sheet of the "
+                          "{year} bike, so we can't compare its parts with the original.", name=model["name"],
+                          year=bike_year),
+                      claims["mentions_upgrades"] and Msg("The seller mentions changed parts."))
     return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows,
             "photo_groupset": photo_read if seen else None}
 
@@ -2260,11 +2280,14 @@ def run_check(models, listing, today=None):
     report["material_alert"] = impossible_material(chosen, claims,
                                                    f"{listing['title']}\n{listing.get('description') or ''}")
     # The spec comparison uses the resolved year's sheet, else the sheet year the estimate allows closest to it.
-    year = comparison_year(chosen, dict(claims, year=report["year"]["year"]) if report["year"]["how"] != "catalogue"
-                           else claims, report["year_estimate"])
-    report["spec_year"] = year or scrape_year(chosen)
+    # A bike older than any generation we know has no sheet to compare with: not the oldest one we have.
+    no_sheet = report["year"]["how"] == "older"
+    year = None if no_sheet else comparison_year(
+        chosen, dict(claims, year=report["year"]["year"]) if report["year"]["how"] != "catalogue" else claims,
+        report["year_estimate"])
+    report["spec_year"] = None if no_sheet else year or scrape_year(chosen)
     report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"],
-                                  listing.get("photo_groupset"))
+                                  listing.get("photo_groupset"), report["year"]["year"], no_sheet, today)
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
     report["value"] = check_value(chosen, claims, listing.get("asking_price"), report["specs"], report["age"], today,
                                   report["year_estimate"], report["year"])
