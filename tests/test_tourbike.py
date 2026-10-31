@@ -26,6 +26,19 @@ def test_names_match_across_the_generation_suffix():
     assert seed.tour_bike_prices(models, "Checkpoint ALR 3 Gen 2", ours) == {}
 
 
+def test_rival_years_come_from_both_the_archive_and_the_site(tmp_path, monkeypatch):
+    (tmp_path / "data" / "years" / "site").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "tourbike").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "Acme.json").write_text(json.dumps({"checked_on": "2026-01-01", "years": [2025], "models": {
+        "Roadie Gen 2": {"2024": {"specs": {}}}, "Roadie Gen 3": {"2025": {"specs": {}}}}}))
+    (tmp_path / "data" / "years" / "site" / "Acme.json").write_text(json.dumps({"checked_on": "2026-01-01", "years": [2025], "models": {
+        "Roadie Gen 3": {"2026": {"specs": {}}}}}))
+    (tmp_path / "data" / "years" / "tourbike" / "Acme.json").write_text(json.dumps({"models": {
+        "Roadie": {"2025": {"price": 1999, "url": "u"}}}}))
+    monkeypatch.setattr(seed, "ROOT", str(tmp_path))
+    assert "list_prices" not in seed.year_specs("Acme", "Roadie Gen 2", {})  # 2025 is Gen 3's, on the archive side
+
+
 def test_german_price_only_fills_a_missing_dutch_one():
     model = {"year_specs": {"years": {"2023": {"price": 3299, "specs": {}}, "2022": {"specs": {}}},
                             "list_prices": {"2022": {"price": 3199, "url": "u"}, "2023": {"price": 3099, "url": "u"}}}}
