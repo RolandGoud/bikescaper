@@ -122,7 +122,9 @@ SCHEMA = {
         "frame": {
             "type": "object",
             "properties": {
-                "material": {"type": ["string", "null"], "enum": ["Carbon", "Aluminium", "Steel", "Titanium", None]},
+                # An enum can't be nullable through "type": the API rejects a string enum on ["string", "null"].
+                "material": {"anyOf": [{"type": "string", "enum": ["Carbon", "Aluminium", "Steel", "Titanium"]},
+                                       {"type": "null"}]},
                 "printed": {"type": ["string", "null"], "description": "the material print on the frame, as written"},
                 "confidence": {"type": "string", "enum": ["high", "medium", "low", "none"]},
                 "photos": {"type": "array", "items": {"type": "integer"}},
