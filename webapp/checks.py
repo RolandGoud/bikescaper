@@ -2072,6 +2072,8 @@ def check_size(model, claims, rider_height=None):
 
 CONDITION_FACTOR = {"like-new": 1.05, None: 1.0, "used": 0.92, "damaged": 0.6}
 CONDITION_LABEL = {"like-new": "like new", "used": "used", "damaged": "damaged"}
+# A bike this many years old isn't like new, whatever the ad says: rubber, bearings and the frame have aged.
+LIKE_NEW_MAX_AGE = 10
 
 
 def year_note(resolved, claims):
@@ -2118,7 +2120,11 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     age = max(0, today.year - model_year)
     # Rough curve: about 25% off in the first year, then about 12% a year.
     factor = 0.80 if age == 0 else 0.75 * (0.88 ** (age - 1))
-    factor *= CONDITION_FACTOR.get(claims["condition"], 1.0)
+    condition_key = claims["condition"]
+    aged_out = condition_key == "like-new" and age >= LIKE_NEW_MAX_AGE
+    if aged_out:
+        condition_key = None  # counted as normal use
+    factor *= CONDITION_FACTOR.get(condition_key, 1.0)
     # Downgraded parts lower the value: 10% for the groupset, 5% for wheels or tyres. Upgrades rarely
     # raise a used bike's price, so they don't count.
     downgraded = [r for r in spec_result["rows"] if r.get("step", 0) < 0]
@@ -2126,7 +2132,8 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
         factor *= 0.9 if r["key"] == "groupset" else 0.95
     mid = original * factor
     low, high = round(mid * 0.9, -1), round(mid * 1.1, -1)
-    condition = Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None
+    condition = (Msg("Normal use") if aged_out else
+                 Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None)
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
               "condition": condition, "asking": asking,
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
@@ -2137,6 +2144,9 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     why = year_note(resolved, claims)
     if why:
         result["notes"].append(why)
+    if aged_out:
+        result["notes"].append(Msg("The ad says like new, but a bike {age} years old isn't, so we count it as "
+                                   "normal use.", age=age))
     if not resolved["reliable"]:
         # We can't disprove the ad's year, so we go by it, but the price is this generation's.
         result["notes"].append(Msg("The bike is probably an earlier generation than {name}, whose new price we don't "
@@ -2279,6 +2289,9 @@ def run_check(models, listing, today=None):
         report["colourway"] = None
         report["model"] = dict(chosen, image=found[1], year_photo=True)
     report["age_tab"] = age_summary(report["age"], report["year_estimate"], report["year"])
+    if report["year"]["how"] == "older" and report["match"] and (report["match"].get("shifting") or {}).get("same") is False:
+        # A generation older than any we know may well shift otherwise than today's: that's no mismatch.
+        report["match"] = dict(report["match"], shifting=None)
     report["material_alert"] = impossible_material(chosen, claims,
                                                    f"{listing['title']}\n{listing.get('description') or ''}")
     # The spec comparison uses the resolved year's sheet, else the sheet year the estimate allows closest to it.
