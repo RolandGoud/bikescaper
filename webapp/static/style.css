@@ -1359,18 +1359,26 @@ select { max-width: 100%; }
 .pill-select > button .plain { padding-left: 6px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pill-select > button .tier { font-size: 14px; padding: 5px 12px; align-self: center; }
 .pill-select .chevron { flex: none; width: 14px; height: 14px; fill: none; stroke: var(--muted); stroke-width: 2; }
-.pill-menu { position: absolute; z-index: 40; top: 100%; left: 0; min-width: 100%; width: max-content; max-width: min(420px, calc(100vw - 32px)); padding-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+.pill-menu { position: absolute; z-index: 40; top: 100%; left: 0; min-width: 100%; width: max-content; max-width: min(420px, calc(100vw - 32px)); padding-top: 6px; display: flex; flex-direction: column; gap: 4px; }
 .pill-menu[hidden] { display: none; }
 .pill-search { height: 44px; width: 100%; font-size: 15px; box-shadow: 0 6px 18px rgba(0, 0, 0, .55); }
 .pill-search:focus { border-color: var(--accent); outline: none; }
-.pill-menu ul { margin: 0; padding: 4px; list-style: none; display: flex; flex-direction: column; gap: 8px; max-height: min(60vh, 460px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.pill-menu ul { margin: 0; padding: 4px; list-style: none; display: flex; flex-direction: column; gap: 4px; max-height: min(60vh, 460px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .pill-menu [role="option"] { cursor: pointer; }
 .pill-menu [role="option"][hidden], .pill-menu .group[hidden] { display: none; }
 .pill-menu [role="option"] .tier { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 8px 14px; font-size: 15px; line-height: 1.3; white-space: normal; border-radius: var(--pill-radius); box-shadow: 0 6px 18px rgba(0, 0, 0, .55); }
 .pill-select .tier.plain-pill { background: var(--raised); color: var(--text); border: 1px solid var(--line-strong); }
 .pill-menu .n { flex: none; display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; opacity: .75; }
-.pill-menu [role="option"].active .tier { box-shadow: 0 0 0 2px var(--ground), 0 0 0 4px var(--line-strong), 0 6px 18px rgba(0, 0, 0, .55); }
-.pill-menu [role="option"][aria-selected="true"] .tier { box-shadow: 0 0 0 2px var(--ground), 0 0 0 4px var(--text), 0 6px 18px rgba(0, 0, 0, .55); }
+.pill-menu [role="option"].active .tier { box-shadow: 0 0 0 1px var(--ground), 0 0 0 3px var(--line-strong), 0 6px 18px rgba(0, 0, 0, .55); }
+.pill-menu [role="option"][aria-selected="true"] .tier { box-shadow: 0 0 0 1px var(--ground), 0 0 0 3px var(--text), 0 6px 18px rgba(0, 0, 0, .55); }
+/* The menu's pills are a little see-through, with a light blur so the text stays readable over the page. */
+.pill-menu [role="option"] .tier { backdrop-filter: blur(3px); }
+.pill-menu .tier.plain-pill { background: color-mix(in srgb, var(--raised) 80%, transparent); }
+.pill-menu .tier.t1 { background: color-mix(in srgb, var(--faint) 80%, transparent); }
+.pill-menu .tier.t2 { background: color-mix(in srgb, var(--tier2-bg) 80%, transparent); }
+.pill-menu .tier.t3 { background: color-mix(in srgb, var(--tier3-bg) 80%, transparent); }
+.pill-menu .tier.t4 { background: color-mix(in srgb, var(--accent) 80%, transparent); }
+.pill-menu .tier.t5 { background: color-mix(in srgb, var(--text) 80%, transparent); }
 .pill-menu [aria-disabled="true"] { opacity: .45; cursor: default; }
 .pill-menu .group { align-self: flex-start; margin-top: 4px; padding: 3px 8px; border-radius: var(--pill-radius); background: var(--ground); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .pill-select .check { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; }
