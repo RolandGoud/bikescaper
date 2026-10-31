@@ -172,3 +172,41 @@ def test_specialized_views_match_by_photo_not_spelling():
     views = history._views_by_photo(live)
     assert views[history._photo_stem("https://r/image/171341-01_CRUX_HERO?q=80")] == ["front"]
     assert views["SATIN CARBON/TARMAC BLACK/CLEAN".casefold()] == ["front"]
+
+
+def test_giant_reads_current_pages_without_a_year():
+    from brand_scrapers import giant
+
+    class Sitemap:
+        def get(self, url):
+            return "".join(f"<loc>https://www.giant-bicycles.com/nl/{s}</loc>" for s in (
+                "contend-ar-1-2025", "contend-ar-1", "contend-ar-1-2021", "bikes-road", "tcr-advanced-2-pc-2027"))
+
+    assert giant.product_urls(Sitemap()) == [f"https://www.giant-bicycles.com/nl/{s}" for s in (
+        "contend-ar-1-2025", "contend-ar-1", "tcr-advanced-2-pc-2027")]
+    page = ("<title>Contend AR 1 (2026) | All-Rounder Fiets | Giant Bicycles Nederland</title>"
+            "<h1>Contend AR 1</h1>")
+    assert giant.parse(page, "https://www.giant-bicycles.com/nl/contend-ar-1")["model_year"] == 2026
+    assert giant.parse(page, "https://www.giant-bicycles.com/nl/contend-ar-1-2025")["model_year"] == 2025
+
+
+def test_a_renamed_giant_reads_its_earlier_names_years():
+    class Pages:
+        def get(self, url):
+            year = {"tcr-advanced-2-pc-2027": 2027, "tcr-advanced-2-2025": 2025, "tcr-advanced-2": 2026,
+                    "tcr-advanced-2-2026": 2026}.get(url.rsplit("/", 1)[1])
+            # a year without a page of its own serves the newest one
+            year = year or (2027 if "-pc" in url else 2026)
+            return (f"<title>TCR Advanced 2 ({year}) | Race Fiets | Giant Bicycles Nederland</title><h1>TCR Advanced 2</h1>"
+                    "<div class=label>Frame</div><div class=value>Advanced-grade composite</div>"
+                    "<div class=label>Achterderailleur</div><div class=value>Shimano 105</div>"
+                    "<div class=label>Vork</div><div class=value>Advanced-grade composite</div>"
+                    + "".join(f"<div class=label>{k}</div><div class=value>Shimano 105</div>" for k in (
+                        "Remmen", "Crankstel", "Cassette", "Ketting", "Voorderailleur", "Shifters", "Wielen")))
+
+    found = history.collect("Giant", [("TCR Advanced 2-PC", "https://www.giant-bicycles.com/nl/tcr-advanced-2-pc-2027")],
+                            Pages(), range(2025, 2027))
+    years = found["TCR Advanced 2-PC"]
+    assert sorted(years) == ["2025", "2026"]
+    assert years["2025"]["sheet_name"] == "TCR Advanced 2"
+    assert years["2025"]["url"].endswith("/tcr-advanced-2-2025")
