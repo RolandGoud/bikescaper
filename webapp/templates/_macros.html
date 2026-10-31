@@ -47,6 +47,12 @@
 {%- else %}<a class="place-link" href="{{ href }}" title="{{ _('Show on the map') }}">{{ caller() if caller else place }}</a>{% endif %}
 {%- endmacro %}
 
+{# A removed ad: a red ribbon across the top-right corner of its tile photo, clear of the brand logo
+   (top left) and the Ad / Catalogue labels (bottom). #}
+{% macro removed_banner(row) -%}
+{% if row.removed_at %}<span class="removed-banner" title="{{ _('We found the ad gone from the site on {date}.', date=row.removed_at[:10]) }}"><span>{{ _('Removed') }}</span></span>{% endif %}
+{%- endmacro %}
+
 {# The ad's title without the brand (that's the logo), and the year, size and colour from it as facts below. #}
 {# An ad as a card: the asking price first with the price verdict beside it, then the matched model and the
    ad's own title, and at the foot where the bike is and a dot for each age or parts check that needs a look. #}
@@ -56,6 +62,7 @@
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   <div class="tile-photo">
   {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
+  {{ removed_banner(row) }}
   </div>
   <div class="body">
     <div class="card-price">
@@ -63,7 +70,7 @@
       {% if r.model %}<span class="verdict-pill {{ r.value.status }}">{{ r.value.headline }}</span>
       {% else %}<span class="verdict-pill unknown">{{ _('No matching model yet') }}</span>{% endif %}
     </div>
-    <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ ad.name }}{% endif %}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</div>
+    <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ ad.name }}{% endif %}</div>
     {% set site = site_mark(row.listing_url)|trim %}
     {% if r.model or site %}<div class="ad-source">{{ site }}{% if r.model %}<div class="ad-title">“{{ ad.name }}”</div>{% endif %}</div>{% endif %}
     <div class="card-foot">

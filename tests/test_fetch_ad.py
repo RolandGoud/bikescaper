@@ -152,11 +152,11 @@ def test_removed_badge(tmp_path):
     assert "Verwijderd van de site op 2026-10-21" in report
     # The tag comes after the title, not before it.
     assert report.index("Trek Domane SL6 2022") < report.index('class="removed-tag"')
-    for url in ["/?lang=en", "/listings?lang=en"]:
+    # On the ad tiles it's a ribbon on the photo, not a pill by the name.
+    for url in ["/?lang=en", "/listings?lang=en", "/checks?lang=en"]:
         page = client.get(url).data.decode()
-        assert 'class="removed-tag">Removed</span>' in page, url
-        name = page[page.index('<div class="ad-name">'):]
-        assert name.index("removed-tag") > len('<div class="ad-name">') + 1, url
+        assert '<span class="removed-banner"' in page and "<span>Removed</span>" in page, url
+        assert 'class="removed-tag"' not in page, url
 
 
 def test_only_one_process_rechecks_at_a_time(tmp_path, monkeypatch):
