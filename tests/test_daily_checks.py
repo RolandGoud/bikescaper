@@ -14,8 +14,8 @@ def conn(tmp_path):
     return c
 
 
-def ads(family):
-    if family != "Trek Domane":
+def ads(family, site=daily_checks.MARKTPLAATS):
+    if family != "Trek Domane" or site != daily_checks.MARKTPLAATS:
         return []
     return [
         {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsonderdelen/m2400000001-trek-domane-frame",
@@ -49,8 +49,8 @@ def test_skips_ads_a_visitor_already_checked(conn):
 
 
 def test_skips_ads_without_photos(conn):
-    def bare(family):
-        listed = ads(family)
+    def bare(family, site):
+        listed = ads(family, site)
         if listed:  # an ad without photos comes first
             listed.insert(0, {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/"
                                      "m2400000005-trek-domane", "title": "Trek Domane AL 2", "price": 1200, "photos": 0})
@@ -62,8 +62,8 @@ def test_skips_ads_without_photos(conn):
 def test_tries_the_next_ad_when_the_ad_has_no_photos(conn):
     other = "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000006-trek-domane"
 
-    def two(family):
-        if family != "Trek Domane":
+    def two(family, site):
+        if family != "Trek Domane" or site != daily_checks.MARKTPLAATS:
             return []
         return [{"url": other, "title": "Trek Domane AL 2", "price": 1200, "photos": 2},
                 {"url": AD, "title": "Trek Domane AL 2", "price": 344, "photos": 3}]
@@ -80,11 +80,34 @@ def test_tries_the_next_ad_when_the_ad_has_no_photos(conn):
 
 
 def test_one_failing_model_does_not_stop_the_rest(conn):
-    def flaky(family):
+    def flaky(family, site):
         if family == "Giant TCR":
             raise OSError("timeout")
-        return ads(family)
+        return ads(family, site)
     assert len(daily_checks.run(conn, search=flaky, fetch=fetch, pause=0)) == 1
+
+
+def test_also_checks_three_models_on_2dehands(conn):
+    searched = []
+
+    def both(family, site):
+        searched.append((site, family))
+        if site != daily_checks.TWEEDEHANDS:
+            return ads(family, site)
+        title = {"Specialized Tarmac": "Specialized Tarmac SL7 Expert", "Trek Madone": "Trek Madone SL 6 Gen 7"}
+        return [{"url": f"https://www.2dehands.be/v/fietsen-en-brommers/fietsen-racefietsen/m246010000{len(searched)}",
+                 "title": title.get(family, family + " SL 6"), "price": 1500, "photos": 1}]
+
+    saved = daily_checks.run(conn, search=both, fetch=fetch, pause=0)
+    assert [f for s, f in searched if s == daily_checks.TWEEDEHANDS] == ["Specialized Tarmac", "Trek Emonda", "Trek Madone"]
+    urls = [conn.execute("SELECT listing_url FROM checks WHERE id = ?", (i,)).fetchone()[0] for i in saved]
+    assert urls[0] == AD and len(urls) == 4 and all("2dehands.be" in u for u in urls[1:])
+
+
+def test_the_same_ad_number_on_another_site_is_another_ad(conn):
+    conn.execute("INSERT INTO checks (listing_url, title) VALUES (?, ?)",
+                 ("https://www.2dehands.be/v/fietsen-en-brommers/fietsen-racefietsen/m2455946444-trek", "Trek"))
+    assert len(daily_checks.run(conn, search=ads, fetch=fetch, pause=0)) == 1
 
 
 def test_remove_deletes_only_daily_checks(conn, tmp_path):
