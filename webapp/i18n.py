@@ -1168,4 +1168,15 @@ NL = {
     "in the ad": "advertentie",
     "{claimed} fits": "{claimed} past",
     "Not in our catalogue": "Niet in onze catalogus",
+    # The listings map
+    "On the map": "Op de kaart",
+    "Ads on the map": "Advertenties op de kaart",
+    "Where the checked bikes are. Click a pin to see its ads and open a report.": "Waar de gecheckte fietsen staan. Klik op een speld voor de advertenties en open een rapport.",
+    "Priced too high": "Te hoog geprijsd",
+    "No price verdict": "Geen prijsoordeel",
+    "{n} ads in {p} places": "{n} advertenties in {p} plaatsen",
+    "{n} without a place we know": "{n} zonder bekende plaats",
+    "Map of the ads": "Kaart van de advertenties",
+    "No ads with a known place yet.": "Nog geen advertenties met een bekende plaats.",
+    "{n} ads": "{n} advertenties",
 }
