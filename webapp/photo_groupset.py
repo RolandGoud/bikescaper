@@ -13,8 +13,10 @@ Two sources, the first found wins:
   after its photos are stored, kept in ad-photos/<check id>/groupset.json. Without a key nothing
   is sent anywhere and the report works as before.
 
-The same read names the crankset on its own (often swapped, or another series than the rest), which
-fills in the Crankset row when the ad's text doesn't name one.
+The same read names the crankset on its own (often swapped, or another series than the rest), the
+tyres and the frame's material, which fill in those rows when the ad's text doesn't name them, and
+reads a purchase receipt when a photo shows one (date, shop, bike, price; never the buyer's details)
+for the age check and as proof of purchase.
 
 A read counts for the spec comparison only when it's sure enough (high or medium) and names a
 series we know (reference.GROUPSETS); "Shimano, 11-speed" with no series stays "Not stated".
@@ -36,7 +38,7 @@ MAX_PHOTOS = 20       # all of an ad's photos, up to 20: the crankset close-up i
 MAX_SIDE = 1024       # px; the series name on a crank arm is still readable at this size
 USED = ("high", "medium")
 
-PROMPT = """These are the photos of a second-hand bike ad. The ad's text doesn't say which groupset the bike has.
+PROMPT = """These are the photos of a second-hand bike ad. Its text often doesn't say which parts the bike has.
 
 Identify the drivetrain groupset from what is visible: the series name printed on the crank arm, \
 rear derailleur, front derailleur or shifters, and the shape of those parts (which tells \
@@ -58,9 +60,24 @@ rest: the brand, series and model code printed on the crank arm or the chainring
 FC-R7000, SRAM Force, Campagnolo Chorus, FSA Gossamer, Rotor Aldhu, Praxis Zayante), or the shape \
 when no print is readable. The same confidence rules apply; "none" when no photo shows the crankset. \
 Its evidence is about the crankset alone.
+
+Also read the tyres: brand, model and width as printed on the sidewall (e.g. Continental Grand Prix \
+5000, 28 mm; Schwalbe One, 25 mm), with the same confidence rules and evidence about the tyres alone.
+
+Also read the frame: its material (carbon, aluminium, steel or titanium) from the print on the frame \
+(e.g. "OCLV Carbon", "500 Series OCLV", "ALR", "Columbus", "Ti"), welds and tube shapes, and that print \
+as written. "high" when a print names the material, "medium" from clear welds or tube shapes only.
+
+Also say whether one of the photos shows a purchase receipt or invoice for the bike (a till receipt, \
+an invoice, an order confirmation). If so, read from it only: the purchase date, the shop, the bike \
+as written on it (brand, model, and the model year when printed), and the price paid for the bike. \
+Never copy the buyer's name, address, phone, e-mail or a frame number. "high" when you can read it, \
+"medium" when partly readable, "none" and shown false when no photo shows one.
 Photos are numbered from 1 in the order given."""
 
-READ_VERSION = 2  # 2: the crankset is read too; a stored read of version 1 is read again for it
+# 2: the crankset is read too; 3: and the tyres, the frame and a receipt. An older read is read again for them.
+READ_VERSION = 3
+NEWER_PARTS = ("crankset", "tyres", "frame", "receipt")  # what a read of an older version doesn't have
 
 SCHEMA = {
     "type": "object",
@@ -88,9 +105,54 @@ SCHEMA = {
             "required": ["brand", "series", "model_code", "confidence", "photos", "evidence_en", "evidence_nl"],
             "additionalProperties": False,
         },
+        "tyres": {
+            "type": "object",
+            "properties": {
+                "brand": {"type": ["string", "null"], "description": "e.g. Continental, Schwalbe, Vittoria, Pirelli"},
+                "model": {"type": ["string", "null"], "description": "e.g. Grand Prix 5000, Pro One, Corsa"},
+                "width_mm": {"type": ["integer", "null"]},
+                "confidence": {"type": "string", "enum": ["high", "medium", "low", "none"]},
+                "photos": {"type": "array", "items": {"type": "integer"}},
+                "evidence_en": {"type": "string"},
+                "evidence_nl": {"type": "string"},
+            },
+            "required": ["brand", "model", "width_mm", "confidence", "photos", "evidence_en", "evidence_nl"],
+            "additionalProperties": False,
+        },
+        "frame": {
+            "type": "object",
+            "properties": {
+                "material": {"type": ["string", "null"], "enum": ["Carbon", "Aluminium", "Steel", "Titanium", None]},
+                "printed": {"type": ["string", "null"], "description": "the material print on the frame, as written"},
+                "confidence": {"type": "string", "enum": ["high", "medium", "low", "none"]},
+                "photos": {"type": "array", "items": {"type": "integer"}},
+                "evidence_en": {"type": "string"},
+                "evidence_nl": {"type": "string"},
+            },
+            "required": ["material", "printed", "confidence", "photos", "evidence_en", "evidence_nl"],
+            "additionalProperties": False,
+        },
+        "receipt": {
+            "type": "object",
+            "properties": {
+                "shown": {"type": "boolean"},
+                "confidence": {"type": "string", "enum": ["high", "medium", "low", "none"]},
+                "photos": {"type": "array", "items": {"type": "integer"}},
+                "date": {"type": ["string", "null"], "description": "purchase date as YYYY-MM-DD, or YYYY-MM or YYYY"},
+                "shop": {"type": ["string", "null"]},
+                "bike": {"type": ["string", "null"], "description": "the bike as written on the receipt"},
+                "model_year": {"type": ["integer", "null"], "description": "only when printed on the receipt"},
+                "price": {"type": ["number", "null"], "description": "price paid for the bike, in euros"},
+                "evidence_en": {"type": "string"},
+                "evidence_nl": {"type": "string"},
+            },
+            "required": ["shown", "confidence", "photos", "date", "shop", "bike", "model_year", "price",
+                         "evidence_en", "evidence_nl"],
+            "additionalProperties": False,
+        },
     },
     "required": ["brand", "series", "model_code", "speeds", "electronic", "confidence", "photos", "evidence_en",
-                 "evidence_nl", "crankset"],
+                 "evidence_nl", "crankset", "tyres", "frame", "receipt"],
     "additionalProperties": False,
 }
 
@@ -115,17 +177,31 @@ def usable(read):
     return bool(read and read.get("confidence") in USED and read.get("series"))
 
 
-def crankset_of(read):
-    """The crankset part of a read when it's sure enough and names a series or model, else None."""
-    crank = (read or {}).get("crankset") or {}
-    if crank.get("confidence") in USED and (crank.get("series") or crank.get("model_code")):
-        return crank
+# Per part of a read: the fields that name it, in the order they read as ad text ("Shimano 105 FC-R7000").
+PART_FIELDS = {"crankset": ("brand", "series", "model_code"), "tyres": ("brand", "model", "width_mm"),
+               "frame": ("material",)}
+
+
+def part_of(read, key):
+    """A part of a read ("crankset", "tyres", "frame") when it's sure enough and names more than a brand."""
+    part = (read or {}).get(key) or {}
+    fields = PART_FIELDS[key]
+    if part.get("confidence") in USED and any(part.get(f) for f in (fields[1:] or fields)):
+        return part
     return None
 
 
-def crankset_text(crank):
-    """The crankset as ad text ("Shimano 105 FC-R7000")."""
-    return " ".join(p for p in (crank.get("brand"), crank.get("series"), crank.get("model_code")) if p)
+def part_text(key, part):
+    """A part of a read as ad text: "Shimano 105 FC-R7000", "Continental Grand Prix 5000 28 mm", "Carbon"."""
+    return " ".join(f"{part[f]} mm" if f == "width_mm" else str(part[f]) for f in PART_FIELDS[key] if part.get(f))
+
+
+def receipt_of(read):
+    """The receipt part of a read when a photo shows one that could be read, else None."""
+    receipt = (read or {}).get("receipt") or {}
+    if receipt.get("shown") and receipt.get("confidence") in USED:
+        return receipt
+    return None
 
 
 # ---------------------------------------------------------------- reading the photos
@@ -206,25 +282,25 @@ def _hand(listing, _cache={}):
 
 
 def stored(photo_folder, listing, photo_names):
-    """The groupset read for this check: by eye (photo_groupsets.json), else the stored automatic read of
-    these same photos. None when there's neither (yet)."""
+    """The groupset read for this check: by eye (photo_groupsets.json), else the stored automatic read of its
+    photos (possibly of fewer photos than now, until read_later has read them). None when there's neither (yet)."""
     hand = _hand(listing)
-    if hand and "crankset" in hand:
+    if hand and not outdated(hand):
         return hand
     saved = _saved(photo_folder, listing.get("id"), photo_names)
     if hand:
-        # Read by eye before the crankset was read: the automatic read adds it, once there is one.
-        return dict(hand, crankset=saved["crankset"]) if saved and "crankset" in saved else hand
+        # Read by eye before the crankset and receipt were read: the automatic read adds them, once there is one.
+        return dict(hand, **{k: saved[k] for k in NEWER_PARTS if k not in hand and saved and k in saved})
     return dict(saved, source="photos") if saved else None
 
 
-def needs_crankset(read):
-    """True when a read is from before the crankset was read too, so the photos are read again."""
-    return read is not None and "crankset" not in read
+def outdated(read):
+    """True when a read is from before the crankset and receipt were read too, so the photos are read again."""
+    return read is not None and any(k not in read for k in NEWER_PARTS)
 
 
 def _saved(photo_folder, check_id, photo_names):
-    """The stored automatic read of these same photos, or None."""
+    """The stored automatic read of the check's photos, or None."""
     if check_id is None:
         return None
     try:
@@ -232,8 +308,7 @@ def _saved(photo_folder, check_id, photo_names):
             saved = json.load(fh)
     except (OSError, ValueError):
         return None
-    if saved.get("photos") != list(photo_names):
-        return None  # other photos than were read: read again
+    # Of other photos than now is still the best read there is until read_later has read these.
     return saved.get("read") or None
 
 
@@ -263,9 +338,11 @@ def read_later(photo_folder, check_id, photo_names, client=None):
             if read is None:
                 return  # an error: the next page view tries again
             os.makedirs(os.path.join(photo_folder, str(check_id)), exist_ok=True)
-            with open(_cache_path(photo_folder, check_id), "w", encoding="utf-8") as fh:
+            # Written next to it and then moved in place, so a page view never reads half a file.
+            with open(_cache_path(photo_folder, check_id) + ".part", "w", encoding="utf-8") as fh:
                 json.dump({"photos": list(photo_names), "version": READ_VERSION, "model": MODEL, "read_on": date.today().isoformat(),
                            "read": read}, fh, ensure_ascii=False, indent=1)
+            os.replace(_cache_path(photo_folder, check_id) + ".part", _cache_path(photo_folder, check_id))
         except Exception as e:  # never take the page down
             print(f"groupset from photos of check {check_id} failed: {e!r}", file=sys.stderr, flush=True)
         finally:

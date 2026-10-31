@@ -21,7 +21,7 @@ def missing(report, listing):
                                   ("colour", not (split_title(listing.get("title") or "").get("colour")
                                                  or (not report.get("colour_from_photos")
                                                      and (report.get("colourway") or (report.get("photo_year") or {}).get("colour"))))),
-                                  ("proof", not PROOF.search(text))) if gone]
+                                  ("proof", not (PROOF.search(text) or report.get("receipt")))) if gone]
 
 
 def match_problems(report):

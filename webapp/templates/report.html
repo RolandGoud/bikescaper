@@ -284,6 +284,10 @@
     {# Without a year in the ad, the same "probably" line as the tab, not "year not stated". #}
     {% set age_line = r.age_tab if r.age_tab and not r.claims.year and r.year else r.age %}
     <p><span class="{{ age_line.status }}" style="font-weight: 700">{{ age_line.headline }}:</span> {{ age_line.detail }}</p>
+    {% if r.receipt %}{% set rc = r.receipt %}{% set why = rc.why['nl' if lang == 'nl' else 'en'] %}
+    <p class="receipt-line"><span class="photo-read" tabindex="0" data-tip="{{ why }}"><strong>{{ _('Receipt in the photos') }}{% if rc.photos %} ({{ _('photo') }} {{ rc.photos|join(', ') }}){% endif %}:</strong>
+      {%- if rc.date %} {{ _('bought on {date}', date=rc.date) }}{% endif %}{% if rc.shop %} {{ _('at {shop}', shop=rc.shop) }}{% endif %}{% if rc.price %} {{ _('for {price}', price=rc.price|eur) }}{% endif %}{% if rc.bike %} · {{ rc.bike }}{% endif %}<span class="sr-only"> {{ why }}</span></span></p>
+    {% endif %}
     {# Without a year in the ad the line above already explains the year we go by, so its note isn't repeated. #}
     {% if r.year %}<p class="small muted">{{ _('We go by {year} for the price and the specs.', year=r.year.year) }}{% if r.year.note and r.claims.year %} {{ r.year.note }}{% endif %}</p>{% endif %}
     {# Without clues the estimate only repeats the generation's years, which the lines above already weighed;

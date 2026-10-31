@@ -622,6 +622,16 @@ NL = {
     "Differs": "Wijkt af",
     "Matches": "Klopt",
     "{label} (inferred from photo analysis)": "{label} (afgeleid uit foto-analyse)",
+    "Receipt in the photos": "Aankoopbon in de foto's",
+    "photo": "foto",
+    "bought on {date}": "gekocht op {date}",
+    "at {shop}": "bij {shop}",
+    "for {price}": "voor {price}",
+    "The year is from the receipt in the ad's photos.": "Het jaar komt van de aankoopbon in de foto's.",
+    "The receipt in the ad's photos gives this as the purchase year.":
+        "Volgens de aankoopbon in de foto's is dit het aankoopjaar.",
+    "The receipt in the ad's photos dates the purchase to {claimed}; we go by model year {year}.":
+        "De aankoopbon in de foto's dateert de aankoop in {claimed}; we gaan uit van modeljaar {year}.",
     "The ad doesn't name the groupset; we read it from the photos.": "De advertentie noemt de groep niet; we hebben hem van de foto's gelezen.",
     "Electronic in ad, mechanical original": "Elektronisch in advertentie, origineel mechanisch",
     "Check photos": "Bekijk de foto's",
