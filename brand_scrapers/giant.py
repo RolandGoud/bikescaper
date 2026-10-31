@@ -55,7 +55,7 @@ def parse(page, url):
     year = re.search(r"-(20\d\d)$", url)
     model = re.sub(r"\s*\(?20\d\d\)?$", "", clean(name.group(1)))  # some h1s end in the model year
     colours = next((clean(v).split(", ") for k, v in pairs if clean(k) == "Kleuren"), [])
-    colours = [c for c in colours if c]
+    colours = [c for c in colours if c] or photo_colours(page, model)
     return {
         "name": model,
         "brand": BRAND,
@@ -69,41 +69,105 @@ def parse(page, url):
         "sizes": list(dict.fromkeys(sizes)),
         # The og:image is padded to 800x600 on white; ask for a larger one.
         "image_url": image.group(1).replace("h_600", "h_750").replace("w_800", "w_1000") if image else None,
-        "color_image_urls": [colour_photo(page, model, c) for c in colours],
-        "color_angle_urls": [colour_angles(page, model, c) for c in colours],
+        "color_image_urls": [colour_photo(page, model, c, colours) for c in colours],
+        "color_angle_urls": [colour_angles(page, model, c, colours) for c in colours],
     }
 
 
-def colour_photo(page, model, colour):
-    """The side view of one colour of this model. Giant names photos by model and colour:
-    MY25TCRAdvanced2-KOM_ColorBIllusionWhite.jpg, with -D1, -Rear, -Front and _Action for the close-ups,
-    other angles and riding photos. The page also shows other models' photos, and its colour list
-    isn't in the order of the letters, so both names have to match."""
-    name = "-?".join(re.escape(c) for c in re.sub(r"[^A-Za-z0-9]", "", model))  # "Pro 0 Di2" is filed as Pro0-Di2
-    keys = [re.sub(r"[^A-Za-z0-9]", "", part).lower() for part in colour.split("/")]
-    found = []
-    for path, shade in re.findall(r"([a-z0-9]{20}/MY\d\d%s(?:-[A-Za-z]+)?_Color[A-H]([A-Za-z0-9_-]*)\.jpg)" % name, page):
-        if re.search(r"(?i)[-_](D-?\d+|Rear|Front|Action|B)(?=[-_.\d]|$)|blacktires", shade + "."):
-            continue
-        if any(k and re.sub(r"[^A-Za-z0-9]", "", shade).lower().startswith(k) for k in keys):
-            found.append(path)
-    if not found:
-        return None
-    return "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/" + min(found, key=len)
+IMAGES = "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/"
+# Riding photos and the studio shots on a black background (_B, or a -1 twin of a close-up).
+NOT_A_VIEW = re.compile(r"(?i)action|[-_]B$")
+# The close-ups, front and rear views, as opposed to the side view: -D2, _D-005-2, -Front, _back, _Road-5, _W_03.
+CLOSE_UP = re.compile(r"(?i)[-_](D[-_]?\d+|Rear|Front|Frount|Back|F|Angle|Road|MTB|W_\d+)(?=[-_.\d]|$)")
 
 
-def colour_angles(page, model, colour):
-    """The other angles of one colour (close-ups, front, rear: the -D1, -Front and -Rear photos), in the page's
-    order; not the side view colour_photo gives, nor riding photos."""
+def _photo_sets(page, model):
+    """This model's studio photos on the page, one set per colour: [(shade, side view, [other angles])].
+
+    Giant names photos by model year, model and colour letter, but not consistently:
+    MY25TCRAdvanced2-KOM_ColorBIllusionWhite.jpg, MY23DefyAdvancedPro1ColorA_Airglow_D1.jpg,
+    MY26TCRAdvancedPro-DA_ColorACarbon_RossoCorsa.jpg (the "Dura-Ace" model) with its close-ups as
+    _ColorACarbonRossoCorsa-D4, MY21ContendAR1_ColorAMetallicNavy_Road-5, _W_03, _back. So a photo belongs
+    to this model when it starts like the page's own photo (og:image) or like the model's name, and to a
+    colour by its letter. The side view is the page's own photo or the shortest name of the letter that
+    isn't a close-up; the rest are its other angles. The page also shows other models' photos, which
+    neither prefix matches."""
     name = "-?".join(re.escape(c) for c in re.sub(r"[^A-Za-z0-9]", "", model))
-    keys = [re.sub(r"[^A-Za-z0-9]", "", part).lower() for part in colour.split("/")]
-    found = []
-    for path, shade in re.findall(r"([a-z0-9]{20}/MY\d\d%s(?:-[A-Za-z]+)?_Color[A-H]([A-Za-z0-9_-]*)\.jpg)" % name, page):
-        if not re.search(r"(?i)[-_](D-?\d+|Rear|Front)(?=[-_.\d]|$)", shade + ".") or re.search(r"(?i)action|blacktires", shade):
+    prefixes = [r"MY\d\d%s(?:-[A-Za-z]+)?" % name]
+    own = re.search(r"<meta property=og:image content=[^ >]*/(MY\d\d[A-Za-z0-9-]+?)_?Color[A-H]", page)
+    if own:
+        prefixes.insert(0, re.escape(own.group(1)))
+    sets = {}
+    for path, year, letter, rest in re.findall(r"([a-z0-9]{20}/(MY\d\d)[A-Za-z0-9-]*?_?Color([A-H])([A-Za-z0-9_-]*)\.jpg)", page):
+        stem = path.split("/", 1)[1]
+        if not any(re.match(r"(?:%s)_?Color[A-H]" % p, stem) for p in prefixes) or NOT_A_VIEW.search(rest):
             continue
-        if any(k and re.sub(r"[^A-Za-z0-9]", "", shade).lower().startswith(k) for k in keys) and path not in found:
-            found.append(path)
-    return ["https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/" + f for f in found]
+        group = sets.setdefault((year, letter), [])
+        if path not in group:
+            group.append(path)
+    og = re.search(r"<meta property=og:image content=[^ >]*/([a-z0-9]{20}/[^/ >]+\.jpg)", page)
+    found = []
+    for group in sets.values():
+        stem = {g: g.split("/", 1)[1][:-4] for g in group}
+        sides = [g for g in group if not CLOSE_UP.search(stem[g])]
+        # the side view on black tyres (-blacktires) only when there is no other
+        side = (og.group(1) if og and og.group(1) in group and "blacktires" not in og.group(1)
+                else min(sides, key=lambda g: ("blacktires" in g, len(g))) if sides else None)
+        # a close-up's twin on black is the close-up's name with -1 or -2 after it (-D11-1, _D-5-2)
+        others = set(stem.values()) - {stem.get(side)}
+        angles = [g for g in group if g != side and "blacktires" not in g
+                  and re.sub(r"-\d$", "", stem[g]) not in others - {stem[g]}]
+        shade = re.sub(r"^.*?Color[A-H]_?", "", stem[side if side else group[0]])
+        shade = shade[:CLOSE_UP.search(shade).start()] if CLOSE_UP.search(shade) else shade
+        found.append((shade, side, angles))
+    return found
+
+
+def _photo_set(page, model, colour, colours=None):
+    """(side view, other angles) of one colour: the set whose side view names the colour, or the only set
+    when the page lists one colour (MY20Contend1_ColorA.jpg names none). The side view is None when the
+    page shows only that colour's close-ups; its own photo (og:image) is then the side view."""
+    keys = [re.sub(r"[^A-Za-z0-9]", "", part).lower() for part in colour.split("/")]
+    sets = _photo_sets(page, model)
+    for shade, side, angles in sorted(sets, key=lambda s: len(s[1] or "~" * 99)):
+        if any(k and re.sub(r"[^A-Za-z0-9]", "", shade).lower().startswith(k) for k in keys):
+            return side, angles
+    if len(sets) == 1 and colours is not None and len(colours) == 1:
+        return sets[0][1], sets[0][2]
+    return None, []
+
+
+def photo_colours(page, model):
+    """The colours of this model as its side-view photos name them (MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite.jpg:
+    "Icicle White"), in the order of the letters; for the pages whose spec sheet has no Kleuren line."""
+    found = []
+    for shade, side, _angles in sorted(_photo_sets(page, model), key=lambda s: re.sub(r"^.*?(Color[A-H])", r"\1", (s[1] or "") + (s[2] or [""])[0])):
+        words = [re.sub(r"(?<=[a-z])(?=[A-Z])", " ", w) for w in re.split(r"[_-]+", re.sub(r"\d+$", "", shade)) if w]
+        if words and "/".join(words) not in found:
+            found.append("/".join(words))
+    return found
+
+
+def colour_photo(page, model, colour, colours=None):
+    """The side view of one colour of this model. The page's colour list isn't in the order of the letters,
+    so the photo's name has to match the colour."""
+    side, angles = _photo_set(page, model, colour, colours)
+    if side:
+        return IMAGES + side
+    # only its close-ups are named like the rest: the page's own photo is the side view, when it is of this colour
+    own = re.search(r"<meta property=og:image content=[^ >]*/([a-z0-9]{20}/[^/ >]+\.jpg)", page)
+    keys = [re.sub(r"[^A-Za-z0-9]", "", part).lower() for part in colour.split("/")]
+    if own and angles and (colours is not None and len(colours) == 1
+                           or any(k and k in re.sub(r"[^A-Za-z0-9]", "", own.group(1)).lower() for k in keys)):
+        return IMAGES + own.group(1)
+    return None
+
+
+def colour_angles(page, model, colour, colours=None):
+    """The other angles of one colour (close-ups, front, rear), in the page's order; not the side view
+    colour_photo gives, nor riding photos."""
+    _side, angles = _photo_set(page, model, colour, colours)
+    return [IMAGES + a for a in angles]
 
 
 def scrape(fetcher, limit=None):

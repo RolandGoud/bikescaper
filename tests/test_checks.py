@@ -756,6 +756,25 @@ def test_models_page_takes_several_brands(tmp_path):
     assert page.count('name="brand"') == 2 and "brand=Trek&amp;brand=Canyon&amp;lang=nl" in page
 
 
+def nl(msg):
+    token = i18n.current_language.set("nl")
+    try:
+        return str(msg)
+    finally:
+        i18n.current_language.reset(token)
+
+
+def test_a_price_above_the_fair_range_is_never_fair(models):
+    m = {"brand": "Trek", "name": "Trek Emonda SL 6", "price_eur": 4000, "seen_on": "2026-01-01"}
+    claims = checks.read_claims("Trek Emonda SL 6 2026", "")
+    high = checks.check_value(m, claims, None, {"rows": []}, {"status": checks.OK}, TODAY)["high"]
+    just_over = checks.check_value(m, claims, high + 10, {"rows": []}, {"status": checks.OK}, TODAY)
+    assert just_over["status"] == checks.WARN
+    assert en(just_over["headline"]) == "ca. €10 too high" and nl(just_over["headline"]) == "± €10 te hoog"
+    at_top = checks.check_value(m, claims, high, {"rows": []}, {"status": checks.OK}, TODAY)
+    assert at_top["status"] == checks.OK and en(at_top["headline"]) == "Fair price"
+
+
 def test_value_axis_runs_from_zero_to_the_end_of_the_scale():
     from webapp.checks import axis_ticks
     ticks = axis_ticks(1049)

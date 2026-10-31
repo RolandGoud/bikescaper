@@ -1876,7 +1876,8 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
         result.update(status=UNKNOWN, headline=Msg("Fair {low} to {high}", low=eur(low), high=eur(high)),
                       detail=Msg("Add the asking price to see how it compares."))
         return result
-    if asking > high * 1.05:
+    # Anything above the fair range is too high, even by a few euros: a price over the range is never called fair.
+    if asking > high:
         result.update(status=WARN, headline=Msg("ca. {diff} too high", diff=eur(asking - high)))
     elif asking < low * 0.6:
         result.update(status=BAD, headline=Msg("Suspiciously cheap"))

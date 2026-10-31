@@ -106,6 +106,35 @@
       </ul>
     </section>
   </div>
+  <section class="box photo-counts" id="catalogue-photos">
+    <h3>{{ _('Catalogue photos') }}</h3>
+    <p class="muted small">{{ _('Photos the model pages can show, per model year: for the year we scraped the main photo, colours and other angles; for earlier years those of the archived sheet. Red is no photo, amber is one.') }}</p>
+    {% macro cell(n) -%}<td class="pc{{ ' z' if not n else ' o' if n == 1 }}">{{ n or '—' }}</td>{%- endmacro %}
+    <div class="table-scroll"><table>
+      <tr><th>{{ _('Brand')|upper }}</th><th>{{ _('Models')|upper }}</th><th>{{ _('Photos')|upper }}</th>
+        <th>{{ _('No photo')|upper }}</th><th>{{ _('1 photo')|upper }}</th>
+        {% for y in photos.years %}<th class="pc">{{ y or '?' }}</th>{% endfor %}</tr>
+      {% for b in photos.brands %}
+      <tr><td><a href="#photos-{{ b.brand|lower }}">{{ b.brand }}</a></td><td class="pc">{{ b.count }}</td><td class="pc">{{ b.total }}</td>
+        <td class="pc{{ ' z' if b.none }}">{{ b.none }}</td><td class="pc{{ ' o' if b.one }}">{{ b.one }}</td>
+        {% for y in photos.years %}{{ cell(b.years[y]) }}{% endfor %}</tr>
+      {% endfor %}
+    </table></div>
+    <p class="muted small">{{ _('? is a model without a scrape date (a line no longer sold): its own photo has no year.') }}</p>
+    {% for b in photos.brands %}
+    <details id="photos-{{ b.brand|lower }}">
+      <summary>{{ _('{brand}: {n} models, {photos} photos', brand=b.brand, n=b.count, photos=b.total) }}</summary>
+      {% set ys = b.shown %}
+      <div class="table-scroll"><table>
+        <tr><th>{{ _('Model')|upper }}</th><th>{{ _('Photos')|upper }}</th>{% for y in ys %}<th class="pc">{{ y or '?' }}</th>{% endfor %}</tr>
+        {% for r in b.models %}
+        <tr><td><a href="{{ url_for('model_page', slug=r.slug) }}">{{ r.name }}</a></td>{{ cell(r.total) }}
+          {% for y in ys %}<td class="pc{{ ' o' if r.years.get(y) == 1 }}">{{ r.years.get(y) or '·' }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </table></div>
+    </details>
+    {% endfor %}
+  </section>
   <section class="box stored-box">
     <h3>{{ _('Stored check reports') }}</h3>
     <p>{{ _('Each check is worked out once and kept. Run them all again after a change to the matching or the catalogue.') }}</p>

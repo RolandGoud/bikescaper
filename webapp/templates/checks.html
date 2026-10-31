@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, duo_photo, brand_mark with context %}
+{% from "_macros.html" import photo, duo_photo, brand_mark, place_link with context %}
 {% block title %}{{ _('All checks') }} · Bike Compare{% endblock %}
 {% block body %}
 {# One tile per check: what was put in on the left, and on the right a verdict table like the Net gecheckt
@@ -19,7 +19,7 @@
       {% if row.description %}<div class="small muted clamp">{{ row.description }}</div>{% endif %}
       <div class="check-row-facts">
         <span><b>{{ row.asking_price|eur }}</b> {{ _('asking') }}</span>
-        {% if row.location %}<span>{{ row.location }}</span>{% endif %}
+        {% if row.location %}<span>{{ place_link(row.location, row.listing_url) }}</span>{% endif %}
         {% if row.rider_height %}<span>{{ _('{n} cm rider', n=row.rider_height) }}</span>{% endif %}
         {% if row.photos %}<span>{{ _('{n} photos', n=row.photos|length) }}</span>{% endif %}
       </div>
@@ -28,7 +28,7 @@
       {% if r.model %}
       <div class="check-line"><span class="verdict-topic">{{ _('Model') }}</span><span class="check-out"><a href="{{ url_for('model_page', slug=r.model.slug) }}">{{ r.model.brand }} {{ r.model.name }}</a></span><span class="check-num">{% if r.chosen_by_you %}{{ _('picked by the visitor') }}{% elif r.confidence %}{{ _('{level} confidence', level=r.confidence) }}{% endif %}</span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Price') }}</span><span class="verdict-outcome {{ r.value.status }}">{{ icon(r.value.status) }}{{ r.value.headline }}</span><span class="check-num">{% if r.value.low %}{{ _('fair {low}–{high}', low=r.value.low|eur, high=r.value.high|eur) }} · {% endif %}{{ _('new {price}', price=r.model.price_eur|eur) }}</span></div>
-      <div class="check-line"><span class="verdict-topic">{{ _('Market') }}</span><span class="check-out">{% if asking and asking.enough %}{{ asking.median|eur }}{% elif asking and asking.count %}{{ _('{n} other ad' if asking.count == 1 else '{n} other ads', n=asking.count) }}{% else %}{{ _('No other ads yet') }}{% endif %}</span><span class="check-num">{{ _('second-hand median') }}{% if asking and asking.enough %} · {{ _('{n} ads, {days} days', n=asking.count, days=asking.days) }}{% endif %}</span></div>
+      <div class="check-line"><span class="verdict-topic">{{ _('Market') }}</span><span class="check-out"{% if not (asking and asking.enough) %} title="{{ _('Not enough ads yet for a reliable median price.') }}"{% endif %}>{% if asking and asking.enough %}{{ asking.median|eur }}{% elif asking and asking.count %}{{ _('{n} other ad' if asking.count == 1 else '{n} other ads', n=asking.count) }}{% else %}{{ _('No other ads yet') }}{% endif %}</span><span class="check-num">{{ _('second-hand median') }}{% if asking and asking.enough %} · {{ _('{n} ads, {days} days', n=asking.count, days=asking.days) }}{% endif %}</span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Year') }}</span><span class="verdict-outcome {{ r.age.status }}">{{ icon(r.age.status) }}{{ r.age.headline }}</span><span class="check-num">{% if r.year_estimate %}{{ _('From the details: {v}', v=r.year_estimate.headline) }}{% endif %}</span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Specs') }}</span><span class="verdict-outcome {{ r.specs.status }}">{{ icon(r.specs.status) }}{{ r.specs.headline }}</span><span class="check-num"></span></div>
       <div class="check-line"><span class="verdict-topic">{{ _('Size') }}</span><span class="verdict-outcome {{ r.size.status }}">{{ icon(r.size.status) }}{{ r.size.headline }}</span><span class="check-num">{% if r.size.fit %}{{ r.size.fit.text }}{% endif %}</span></div>
@@ -54,6 +54,7 @@
   <div class="filters" aria-label="{{ _('Views') }}">
     <a class="pill" href="{{ url_for('listings') }}">{{ _('One card per ad') }}</a>
     <a class="pill on" href="{{ url_for('all_checks') }}" aria-current="page">{{ _('Every check') }}</a>
+    <a class="pill" href="{{ url_for('listings_map') }}">{{ _('On the map') }}</a>
   </div>
   {% if items %}
   <div class="check-rows">

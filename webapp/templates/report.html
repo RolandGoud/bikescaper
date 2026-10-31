@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_move, part_icon %}
-{% from "_macros.html" import asking_box, duo_photo, matched_ads with context %}
+{% from "_macros.html" import asking_box, duo_photo, matched_ads, place_link with context %}
 {% block title %}{{ _('Check report') }}: {{ listing.title }} · Bike Compare{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -21,7 +21,7 @@
       {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
     </div>
     <div class="info">
-      <div class="head-meta mono muted">{% if listing.listing_url and 'marktplaats' in listing.listing_url %}<span class="site-logo" role="img" aria-label="Marktplaats" title="Marktplaats" style="--logo: url('{{ url_for('static', filename='logos/marktplaats.svg') }}')"></span>{% else %}{{ '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% endif %}{% if listing.location %} · {{ listing.location }}{% endif %} · {{ listing.created_at[:10] }}</div>
+      <div class="head-meta mono muted">{% if listing.listing_url and 'marktplaats' in listing.listing_url %}<span class="site-logo" role="img" aria-label="Marktplaats" title="Marktplaats" style="--logo: url('{{ url_for('static', filename='logos/marktplaats.svg') }}')"></span>{% else %}{{ '2DEHANDS' if listing.listing_url and '2dehands' in listing.listing_url else _('PASTED AD') }}{% endif %}{% if listing.location %} · {{ place_link(listing.location, listing.listing_url) }}{% endif %} · {{ listing.created_at[:10] }}</div>
       {# The bike we matched as the title, the seller's own title under it; without a match the ad's title cleaned up. #}
       {% set removed %}{% if listing.removed_at %} <span class="removed-tag" title="{{ _('We found the ad gone from the site on {date}.', date=listing.removed_at[:10]) }}">{{ _('Removed from the site on {date}', date=listing.removed_at[:10]) }}</span>{% endif %}{% endset %}
       {% if r.model %}
@@ -347,7 +347,7 @@
   {% endif %}
   <form class="stored-note muted small" method="post" action="{{ url_for('recheck_report', check_id=listing.id) }}">
     {{ _('Checked on {when}.', when=listing.created_at[:10]) }}
-    {% if checked_at and checked_at[:10] != listing.created_at[:10] %}{{ _('Run again on {when} with the current matching, still as of that date.', when=checked_at[:10]) }}{% endif %}
+    {% if checked_at and checked_at[:10] != listing.created_at[:10] %}{{ _('Report worked out on {when} with the matching of that day, still as of the check date.', when=checked_at[:10]) }}{% endif %}
     <button class="link-button" type="submit">{{ _('Run this check again') }}</button>
   </form>
 </main>

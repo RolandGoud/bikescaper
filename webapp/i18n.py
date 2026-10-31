@@ -61,6 +61,14 @@ NL = {
     "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",
     "{n}-speed: the {years} spec sheets.": "{n}-speed: de specificaties van {years}.",
     # admin statistics page
+    "Catalogue photos": "Catalogusfoto's",
+    "Photos the model pages can show, per model year: for the year we scraped the main photo, colours and other angles; for earlier years those of the archived sheet. Red is no photo, amber is one.":
+        "Foto's die de modelpagina's kunnen tonen, per modeljaar: voor het jaar van onze scrape de hoofdfoto, kleuren en andere hoeken; voor eerdere jaren die van het gearchiveerde specblad. Rood is geen foto, oranje is één.",
+    "? is a model without a scrape date (a line no longer sold): its own photo has no year.":
+        "? is een model zonder scrapedatum (een lijn die niet meer verkocht wordt): de eigen foto heeft geen jaar.",
+    "{brand}: {n} models, {photos} photos": "{brand}: {n} modellen, {photos} foto's",
+    "No photo": "Geen foto",
+    "1 photo": "1 foto",
     "Stored check reports": "Opgeslagen checkrapporten",
     "Each check is worked out once and kept. Run them all again after a change to the matching or the catalogue.":
         "Elke check wordt één keer uitgerekend en bewaard. Draai ze allemaal opnieuw na een wijziging in de matching of de catalogus.",
@@ -70,8 +78,8 @@ NL = {
     "Run every check again": "Alle checks opnieuw draaien",
     # report page: stored report
     "Checked on {when}.": "Gecheckt op {when}.",
-    "Run again on {when} with the current matching, still as of that date.":
-        "Opnieuw gedraaid op {when} met de huidige matching, nog steeds per die datum.",
+    "Report worked out on {when} with the matching of that day, still as of the check date.":
+        "Rapport uitgerekend op {when} met de matching van die dag, nog steeds per de checkdatum.",
     "Run this check again": "Deze check opnieuw draaien",
     '{n} ads': '{n} advertenties',
     'unknown': 'onbekend',
@@ -720,8 +728,10 @@ NL = {
         "Globale schatting: alleen nieuwprijs, leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "New price is the {year} Dutch price, which can differ from what this bike cost new.":
         "De nieuwprijs is de Nederlandse prijs van {year}; die kan afwijken van wat deze fiets nieuw kostte.",
-    "New {price} (German list price)": "Nieuw {price} (Duitse adviesprijs)",
-    "German list price {price} (TOUR/BIKE)": "Duitse adviesprijs {price} (TOUR/BIKE)",
+    "* For the new price of this model, year and colour we used an alternative source (the German list price in "
+    "the TOUR/BIKE database), so we can't guarantee it is fully reliable.":
+        "* Voor de nieuwprijs van dit model, jaar en deze kleur is een alternatieve bron gebruikt (de Duitse "
+        "adviesprijs uit de database van TOUR/BIKE). De betrouwbaarheid kunnen we daarom niet voor 100% garanderen.",
     "New price is the {year} German list price (TOUR/BIKE database), which can differ from the Dutch price and "
     "from what this bike cost new.":
         "De nieuwprijs is de Duitse adviesprijs van {year} (database van TOUR/BIKE); die kan afwijken van de "
@@ -830,7 +840,8 @@ NL = {
     "Every estimate made here, newest first: what was put in, and what came out on that day.": "Elke schatting die hier gemaakt is, nieuwste eerst: wat er is ingevuld en wat eruit kwam op die dag.",
     "Shown above": "Staat hierboven",
     "Open estimate": "Schatting openen",
-    "{n} ads": "{n} advertenties",
+    "Show on the map": "Toon op de kaart",
+    "Where the checked bikes are": "Waar de gecheckte fietsen staan",
     "{n} ad": "{n} advertentie",
     "No ads yet": "Nog geen advertenties",
     "Fair range {low} to {high}": "Eerlijke prijs {low} tot {high}",
@@ -1162,4 +1173,17 @@ NL = {
     "in the ad": "advertentie",
     "{claimed} fits": "{claimed} past",
     "Not in our catalogue": "Niet in onze catalogus",
+    # The listings map
+    "On the map": "Op de kaart",
+    "Ads on the map": "Advertenties op de kaart",
+    "Where the checked bikes are. Click a pin or a town to find its ads.": "Waar de gecheckte fietsen staan. Klik op een speld of een plaats om de advertenties te vinden.",
+    "Border NL / BE": "Grens NL / BE",
+    "Priced too high": "Te hoog geprijsd",
+    "No price verdict": "Geen prijsoordeel",
+    "{n} ads in {p} places": "{n} advertenties in {p} plaatsen",
+    "{n} without a place we know": "{n} zonder bekende plaats",
+    "Map of the ads": "Kaart van de advertenties",
+    "No ads with a known place yet.": "Nog geen advertenties met een bekende plaats.",
+    "Show on the map": "Toon op de kaart",
+    "Where the checked bikes are": "Waar de gecheckte fietsen staan",
 }
