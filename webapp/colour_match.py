@@ -169,14 +169,20 @@ def by_text(colourways, wanted):
     return [s[3] for s in scored if s[:2] == scored[0][:2]]
 
 
+def fits(model, title, description=""):
+    """The colourways of the model that fit the colours the seller names best, several when they fit equally
+    ("zwart" and both "Gloss Carbon" and "Raw Carbon"); [] when the model has one colour or the ad names none."""
+    colourways = [cw for cw in (model or {}).get("colorways") or [] if cw.get("name")]
+    if len(colourways) < 2:
+        return []
+    wanted = ad_colours(title, description)
+    return by_text(colourways, wanted) if wanted else []
+
+
 def pick(model, title, description=""):
     """The colourway of the model that the ad's bike has, by the colours the seller names; None when the
     model has one colour, the ad names none, or it fits several colourways equally."""
-    colourways = [cw for cw in (model or {}).get("colorways") or [] if cw.get("name")]
-    if len(colourways) < 2:
-        return None
-    wanted = ad_colours(title, description)
-    best = by_text(colourways, wanted) if wanted else []
+    best = fits(model, title, description)
     return best[0] if len(best) == 1 else None
 
 

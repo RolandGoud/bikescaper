@@ -209,3 +209,29 @@ def test_giant_d11_is_not_taken_for_a_twin_of_d1():
                         "MY25TrinityAdvancedSL0_ColorACarbon-D-41", "MY25TrinityAdvancedSL0_ColorACarbon-D-4-1"])
     assert [a.rsplit("-", 1)[1] for a in giant.colour_angles(page, "Trinity Advanced SL 0", "Carbon")] == [
         "D1.jpg", "D11.jpg", "4.jpg", "41.jpg"]
+
+
+def _check(models, name, title):
+    m = next(m for m in models if m["name"] == name)
+    return checks.run_check(models, {"title": title, "description": "", "asking_price": None, "rider_height": None,
+                                     "model_id": m["id"]}, today=TODAY)
+
+
+def test_black_ad_shows_a_black_photo_when_several_colourways_are_black(models):  # noqa: F811
+    # "zwart" fits Gloss Carbon and RTP Raw Carbon equally: a black photo, not the first colour (Dolomite grey),
+    # and without naming which of the two it is.
+    r = _check(models, "S-Works Tarmac SL9 Frameset - FACT 12r Carbon", "Specialized Tarmac SL9 frameset zwart")
+    assert r["model"]["image"].endswith("_colour_Gloss_Carbon.jpg") and r["colourway"] is None
+
+
+def test_black_ad_shows_the_black_photo_of_the_model_year(models):  # noqa: F811
+    # One model year, in two colours: its black one, not the year's first photo.
+    r = _check(models, "Aethos Pro - Shimano Ultegra Di2", "Specialized Aethos Pro zwart")
+    assert r["photo_year"] == {"year": 2025, "colour": "Satin Carbon / Red Pearl / Black"}
+    assert r["model"]["image"] == checks.colour_images(r["model"], 2025)["Satin Carbon / Red Pearl / Black"]
+    # Most years came in black: the photo of a black one, not just the year's first photo.
+    r = _check(models, "Domane SL 6 gen 4", "Trek Domane SL6 zwart")
+    assert "black" in colour_match.families_in(r["photo_year"]["colour"], brand_words=True)
+    # Today's only colour is blue: the year we have a black photo of.
+    r = _check(models, "Roubaix SL8 Expert - Shimano Ultegra Di2", "Specialized Roubaix SL8 Expert zwart")
+    assert r["photo_year"] == {"year": 2024, "colour": "SATIN CARBON/LIQUID SILVER"}
