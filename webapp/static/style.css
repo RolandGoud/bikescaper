@@ -1136,6 +1136,9 @@ select { max-width: 100%; }
 .example-col.before h4 { color: var(--bad); }
 .example-col.after h4 { color: var(--accent); }
 .example-col .t { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
+.example-src { display: flex; align-items: flex-start; gap: 8px; min-width: 0; }
+.example-src .site-mark { margin-top: 2px; }
+.example-src .t { flex: 1; min-width: 0; }
 .example-text { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); white-space: pre-line; overflow-wrap: anywhere; }
 .example-col .miss { margin: 0; font-size: 13px; color: var(--muted); }
 .example-chips { display: flex; flex-wrap: wrap; gap: 6px; }
