@@ -69,8 +69,9 @@ NL = {
     "Done: every check runs again with the current matching.": "Klaar: elke check draait opnieuw met de huidige matching.",
     "Run every check again": "Alle checks opnieuw draaien",
     # report page: stored report
-    "Checked on {when} (UTC); the report is kept until the check is run again.":
-        "Gecheckt op {when} (UTC); het rapport blijft bewaard tot de check opnieuw wordt gedraaid.",
+    "Checked on {when}.": "Gecheckt op {when}.",
+    "Run again on {when} with the current matching, still as of that date.":
+        "Opnieuw gedraaid op {when} met de huidige matching, nog steeds per die datum.",
     "Run this check again": "Deze check opnieuw draaien",
     '{n} ads': '{n} advertenties',
     'unknown': 'onbekend',

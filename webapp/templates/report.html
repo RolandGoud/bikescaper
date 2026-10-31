@@ -343,7 +343,8 @@
   {% endif %}
   {% endif %}
   <form class="stored-note muted small" method="post" action="{{ url_for('recheck_report', check_id=listing.id) }}">
-    {% if checked_at %}{{ _('Checked on {when} (UTC); the report is kept until the check is run again.', when=checked_at[:16]) }}{% endif %}
+    {{ _('Checked on {when}.', when=listing.created_at[:10]) }}
+    {% if checked_at and checked_at[:10] != listing.created_at[:10] %}{{ _('Run again on {when} with the current matching, still as of that date.', when=checked_at[:10]) }}{% endif %}
     <button class="link-button" type="submit">{{ _('Run this check again') }}</button>
   </form>
 </main>

@@ -67,3 +67,18 @@ def test_a_stored_report_survives_a_catalogue_reload(tmp_path):
     report = stored_checks.load(row["result"], models)
     assert any(report["model"]["slug"] == m["slug"] for m in models)
     assert all(c is next(m for m in models if m["slug"] == c["slug"]) for c in report["candidates"])
+
+
+def test_a_recheck_keeps_the_checks_own_date(tmp_path, monkeypatch):
+    app, client, url = app_with_a_check(tmp_path)
+    check_id = int(url.rsplit("/", 1)[1])
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("UPDATE checks SET created_at = '2024-03-05 10:00:00' WHERE id = ?", (check_id,))
+    conn.commit()
+    days = []
+    real = checks.run_check
+    monkeypatch.setattr(checks, "run_check", lambda m, l, today=None: days.append(today) or real(m, l, today))
+    client.post(f"/check/{check_id}/recheck")
+    page = client.get(url + "?lang=en").data.decode()
+    assert [str(d) for d in days] == ["2024-03-05"]
+    assert "Checked on 2024-03-05." in page and "Run again on " in page
