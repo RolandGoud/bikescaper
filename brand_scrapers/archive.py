@@ -24,6 +24,7 @@ from .common import ROOT, clean
 BRANDS = ["Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor"]
 FIRST_YEAR = 2018
 SPRING = (4, 15)  # the copy closest to this date stands for its year
+KEPT_PHOTOS = ("image", "colours", "colour_images", "colour_angles")  # what a re-parse keeps from the file it replaces
 # The part of a product URL that names the model, per brand.
 URL_NAME = {
     "Trek": r"/([^/]+)/p/\d+$",
@@ -266,6 +267,12 @@ def parse(pages_folder, years_folder=None, db_path=None):
     report = {}
     for brand in BRANDS:
         models, counts = {}, defaultdict(int)
+        out_path = os.path.join(years_folder, f"{brand}.json")
+        try:  # the photos a later step added (history.specialized_photos) stay with the copy they came from
+            with open(out_path, encoding="utf-8") as fh:
+                before = json.load(fh)["models"]
+        except (OSError, ValueError, KeyError):
+            before = {}
         for path in sorted(glob_pages(pages_folder, brand)):
             with open(path[:-len(".html.gz")] + ".json", encoding="utf-8") as fh:
                 meta = json.load(fh)
@@ -298,10 +305,15 @@ def parse(pages_folder, years_folder=None, db_path=None):
                 shutil.copyfile(photo, os.path.join(ROOT, "images", rel))
                 entry["image"] = rel
                 counts["photos"] += 1
+            earlier = before.get(meta["name"], {}).get(str(year)) or {}
+            if earlier.get("url") == entry["url"] and earlier.get("ts") == entry["ts"]:
+                for key in KEPT_PHOTOS:
+                    if earlier.get(key) and not entry.get(key):
+                        entry[key] = earlier[key]
             models.setdefault(meta["name"], {})[str(year)] = entry
         out = {"checked_on": date.today().isoformat(), "years": list(range(FIRST_YEAR, date.today().year + 1)),
                "source": "Wayback Machine copies of the brand's NL site", "models": models}
-        with open(os.path.join(years_folder, f"{brand}.json"), "w", encoding="utf-8") as fh:
+        with open(out_path, "w", encoding="utf-8") as fh:
             json.dump(out, fh, ensure_ascii=False, indent=1, sort_keys=True)
         report[brand] = dict(counts)
     return report

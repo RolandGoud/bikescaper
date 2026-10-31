@@ -131,3 +131,36 @@ def test_giant_angles_are_the_close_ups_of_that_colour():
     angles = giant.colour_angles(page, "TCR Advanced 2", "White")
     assert [a.rsplit("/", 1)[1] for a in angles] == ["MY25TCRAdvanced2_ColorAWhite-D1.jpg",
                                                       "MY25TCRAdvanced2_ColorAWhite-Rear.jpg"]
+
+
+def test_specialized_old_pages_list_each_colours_views():
+    from brand_scrapers import specialized
+    page = ('<script>var p = {"attributes":[{"name":"Color","type":"swatch","options":[{"name":"Carbon/Silver Green",'
+            '"skus":["94920-0444"],"imageSet":[{"id":"94920-04_SL7-CARB_HERO"},{"id":"94920-04_SL7-CARB_FDSQ"},'
+            '{"id":"ROAD-3300__PDP_Carousel_Green_1"},{"id":"94920-04_SL7-CARB_D1-POV"}]}]}]};</script>')
+    side, views = specialized.page_colours(page, "u")["Carbon/Silver Green"]
+    assert side.split("/")[-1].startswith("94920-04_SL7-CARB_HERO?")
+    assert [v.split("/")[-1].split("?")[0] for v in views] == ["94920-04_SL7-CARB_FDSQ", "94920-04_SL7-CARB_D1-POV"]  # no banners
+
+
+def test_specialized_photos_keep_the_old_page_only_for_its_year(tmp_path, monkeypatch):
+    import json
+    from brand_scrapers import history, specialized
+    (tmp_path / "data" / "years").mkdir(parents=True)
+    entries = {"2020": {"url": "https://x/p/1", "ts": "20200401"}, "2024": {"url": "https://x/p/2", "ts": "20240401"}}
+    (tmp_path / "data" / "years" / "Specialized.json").write_text(json.dumps({"models": {"Tarmac": entries}}))
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(history, "save_photo", lambda f, b, slug, year, url, colour=None, angle=None: f"{year}_{colour}_{angle}")
+    years = {"https://x/p/1": 2021, "https://x/p/2": 2020}  # the second ID now shows a 2020 bike
+    monkeypatch.setattr(history, "_specialized_year", lambda page: years[page])
+    monkeypatch.setattr(specialized, "page_colours", lambda page, url: {"Red": ("side", ["front"])})
+
+    class Fake:
+        def get(self, url, binary=False):
+            return url
+
+    history.specialized_photos(fetcher=Fake())
+    found = json.loads((tmp_path / "data" / "years" / "Specialized.json").read_text())["models"]["Tarmac"]
+    assert found["2020"]["colour_images"] == {"Red": "2020_Red_None"} and found["2020"]["colour_angles"] == {"Red": ["2020_Red_1"]}
+    assert found["2020"]["image"] == "2020_Red_None" and found["2020"]["colours"] == ["Red"]
+    assert "colour_images" not in found["2024"]
