@@ -64,9 +64,8 @@ NL = {
     "Catalogue photos": "Catalogusfoto's",
     "Photos the model pages can show, per model year: for the year we scraped the main photo, colours and other angles; for earlier years those of the archived sheet. Red is no photo, amber is one.":
         "Foto's die de modelpagina's kunnen tonen, per modeljaar: voor het jaar van onze scrape de hoofdfoto, kleuren en andere hoeken; voor eerdere jaren die van het gearchiveerde specblad. Rood is geen foto, oranje is één.",
-    "? is a model without a scrape date (a line no longer sold): its own photo has no year.":
-        "? is een model zonder scrapedatum (een lijn die niet meer verkocht wordt): de eigen foto heeft geen jaar.",
-    "{brand}: {n} models, {photos} photos": "{brand}: {n} modellen, {photos} foto's",
+    "Click a brand to show its models. ? is a model without a scrape date (a line no longer sold): its own photo has no year.":
+        "Klik op een merk om de modellen te zien. ? is een model zonder scrapedatum (een lijn die niet meer verkocht wordt): de eigen foto heeft geen jaar.",
     "No photo": "Geen foto",
     "1 photo": "1 foto",
     "Stored check reports": "Opgeslagen checkrapporten",

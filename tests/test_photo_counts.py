@@ -23,5 +23,5 @@ def test_admin_page_shows_the_photo_counts(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/admin?lang=en").get_data(as_text=True)
-    assert "Catalogue photos" in page and 'id="photos-giant"' in page and "/models/giant-" in page
+    assert "Catalogue photos" in page and 'id="photos-giant-models"' in page and "/models/giant-" in page
     assert "Catalogusfoto" in app.test_client().get("/admin?lang=nl").get_data(as_text=True)

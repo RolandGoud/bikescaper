@@ -111,29 +111,35 @@
     <p class="muted small">{{ _('Photos the model pages can show, per model year: for the year we scraped the main photo, colours and other angles; for earlier years those of the archived sheet. Red is no photo, amber is one.') }}</p>
     {% macro cell(n) -%}<td class="pc{{ ' z' if not n else ' o' if n == 1 }}">{{ n or '—' }}</td>{%- endmacro %}
     <div class="table-scroll"><table>
-      <tr><th>{{ _('Brand')|upper }}</th><th>{{ _('Models')|upper }}</th><th>{{ _('Photos')|upper }}</th>
-        <th>{{ _('No photo')|upper }}</th><th>{{ _('1 photo')|upper }}</th>
-        {% for y in photos.years %}<th class="pc">{{ y or '?' }}</th>{% endfor %}</tr>
+      <thead><tr><th>{{ _('Brand')|upper }} / {{ _('Model')|upper }}</th><th class="pc">{{ _('Models')|upper }}</th><th class="pc">{{ _('Photos')|upper }}</th>
+        <th class="pc">{{ _('No photo')|upper }}</th><th class="pc">{{ _('1 photo')|upper }}</th>
+        {% for y in photos.years %}<th class="pc">{{ y or '?' }}</th>{% endfor %}</tr></thead>
       {% for b in photos.brands %}
-      <tr><td><a href="#photos-{{ b.brand|lower }}">{{ b.brand }}</a></td><td class="pc">{{ b.count }}</td><td class="pc">{{ b.total }}</td>
+      <tbody id="photos-{{ b.brand|lower }}">
+      <tr class="brand-row"><td><button type="button" class="pc-toggle" aria-expanded="false" aria-controls="photos-{{ b.brand|lower }}-models">{{ b.brand }}</button></td>
+        <td class="pc">{{ b.count }}</td><td class="pc">{{ b.total }}</td>
         <td class="pc{{ ' z' if b.none }}">{{ b.none }}</td><td class="pc{{ ' o' if b.one }}">{{ b.one }}</td>
         {% for y in photos.years %}{{ cell(b.years[y]) }}{% endfor %}</tr>
+      </tbody>
+      <tbody class="model-rows" id="photos-{{ b.brand|lower }}-models" hidden>
+      {% for r in b.models %}
+      <tr><td><a href="{{ url_for('model_page', slug=r.slug) }}">{{ r.name }}</a></td><td></td>{{ cell(r.total) }}
+        <td class="pc{{ ' z' if not r.total }}">{{ '✕' if not r.total }}</td><td class="pc{{ ' o' if r.total == 1 }}">{{ '✕' if r.total == 1 }}</td>
+        {% for y in photos.years %}<td class="pc{{ ' o' if r.years.get(y) == 1 }}">{{ r.years.get(y) or '·' }}</td>{% endfor %}</tr>
+      {% endfor %}
+      </tbody>
       {% endfor %}
     </table></div>
-    <p class="muted small">{{ _('? is a model without a scrape date (a line no longer sold): its own photo has no year.') }}</p>
-    {% for b in photos.brands %}
-    <details id="photos-{{ b.brand|lower }}">
-      <summary>{{ _('{brand}: {n} models, {photos} photos', brand=b.brand, n=b.count, photos=b.total) }}</summary>
-      {% set ys = b.shown %}
-      <div class="table-scroll"><table>
-        <tr><th>{{ _('Model')|upper }}</th><th>{{ _('Photos')|upper }}</th>{% for y in ys %}<th class="pc">{{ y or '?' }}</th>{% endfor %}</tr>
-        {% for r in b.models %}
-        <tr><td><a href="{{ url_for('model_page', slug=r.slug) }}">{{ r.name }}</a></td>{{ cell(r.total) }}
-          {% for y in ys %}<td class="pc{{ ' o' if r.years.get(y) == 1 }}">{{ r.years.get(y) or '·' }}</td>{% endfor %}</tr>
-        {% endfor %}
-      </table></div>
-    </details>
-    {% endfor %}
+    <p class="muted small">{{ _('Click a brand to show its models. ? is a model without a scrape date (a line no longer sold): its own photo has no year.') }}</p>
+    <script>
+      document.querySelectorAll("#catalogue-photos .pc-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var open = button.getAttribute("aria-expanded") !== "true";
+          button.setAttribute("aria-expanded", String(open));
+          document.getElementById(button.getAttribute("aria-controls")).hidden = !open;
+        });
+      });
+    </script>
   </section>
   <section class="box stored-box">
     <h3>{{ _('Stored check reports') }}</h3>

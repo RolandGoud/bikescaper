@@ -41,8 +41,7 @@ def model_photos(model, galleries, exists=None):
 
 def overview(models, galleries, exists=None):
     """{"years": [...], "brands": [...]} with per brand its totals and its models, each model with
-    {name, slug, years: {year: count}, total}; a brand's "shown" are the years any of its models has
-    photos for. None (year unknown) sorts last among the years."""
+    {name, slug, years: {year: count}, total}. None (year unknown) sorts last among the years."""
     brands, all_years = {}, set()
     for m in models:
         years = {y: len(ps) for y, ps in model_photos(m, galleries, exists).items() if ps}
@@ -57,7 +56,6 @@ def overview(models, galleries, exists=None):
             "brand": brand, "models": rows, "count": len(rows),
             "total": sum(r["total"] for r in rows),
             "years": {y: sum(r["years"].get(y, 0) for r in rows) for y in order},
-            "shown": [y for y in order if any(r["years"].get(y) for r in rows)],  # columns of the per-model table
             "none": sum(1 for r in rows if not r["total"]),
             "one": sum(1 for r in rows if r["total"] == 1),
         })
