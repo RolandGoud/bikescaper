@@ -16,7 +16,17 @@ RIVAL = {"brand": "SRAM", "series": "Rival", "model_code": "AXS", "speeds": 12, 
          "evidence_nl": "Foto 5: RIVAL op de achterderailleur.",
          "crankset": {"brand": "SRAM", "series": "Rival", "model_code": None, "confidence": "high", "photos": [9],
                       "evidence_en": "Photo 9: Rival printed on the crank arm.",
-                      "evidence_nl": "Foto 9: Rival op de crankarm."}}
+                      "evidence_nl": "Foto 9: Rival op de crankarm."},
+         "tyres": {"brand": None, "model": None, "width_mm": None, "confidence": "none", "photos": [],
+                   "evidence_en": "", "evidence_nl": ""},
+         "frame": {"material": None, "printed": None, "confidence": "none", "photos": [], "evidence_en": "",
+                   "evidence_nl": ""},
+         "receipt": {"shown": False, "confidence": "none", "photos": [], "date": None, "shop": None, "bike": None,
+                     "model_year": None, "price": None, "evidence_en": "", "evidence_nl": ""}}
+RECEIPT = {"shown": True, "confidence": "high", "photos": [11], "date": "2021-03-12", "shop": "Fietsenwinkel De Ronde",
+           "bike": "Trek Emonda SL 6 Disc", "model_year": None, "price": 2499.0,
+           "evidence_en": "Photo 11: a till receipt dated 12-03-2021 for a Trek Emonda SL 6 Disc.",
+           "evidence_nl": "Foto 11: een kassabon van 12-03-2021 voor een Trek Emonda SL 6 Disc."}
 NO_CRANK = dict(RIVAL, crankset={"brand": None, "series": None, "model_code": None, "confidence": "none", "photos": [],
                                  "evidence_en": "", "evidence_nl": ""})
 
@@ -161,10 +171,12 @@ def test_read_later_stores_the_read_once_per_set_of_photos(tmp_path, monkeypatch
     listing = {"id": 45, "title": "Nothing in the hand file", "asking_price": None, "listing_url": None}
     read = photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"])
     assert read["series"] == "Rival" and read["source"] == "photos"
-    # The same photos aren't sent again; other photos are read again.
+    # The same photos aren't sent again; more photos are read again, and the last read stands until then.
     assert not photo_groupset.read_later(str(tmp_path), 45, ["45/01.jpg"], client)
-    assert photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg", "45/02.jpg"]) is None
     assert len(client.calls) == 1
+    assert photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg", "45/02.jpg"])["series"] == "Rival"
+    photo(str(tmp_path / "45" / "02.jpg"))
+    assert photo_groupset.read_later(str(tmp_path), 45, ["45/01.jpg", "45/02.jpg"], client)
 
 
 def test_nothing_is_sent_without_a_key(tmp_path, monkeypatch):
@@ -203,7 +215,7 @@ def test_photos_fill_in_the_crankset_the_ad_leaves_out(models):
     assert en(row["listing"]) == "SRAM Rival (inferred from photo analysis)"
     assert row["ad_tier"] and row["result"] != "Compare photos"
     assert row["photo_why"]["nl"] == "Foto 9: Rival op de crankarm."
-    assert report["specs"]["photo_crankset"]["series"] == "Rival"
+    assert "crankset" in report["specs"]["photo_parts"]
 
 
 def test_crankset_from_photos_when_the_ad_names_only_the_groupset(models):
@@ -226,10 +238,10 @@ def test_all_photos_up_to_20_are_read():
 def test_a_read_from_before_the_crankset_is_read_again(tmp_path, monkeypatch):
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     photo(str(tmp_path / "45" / "01.jpg"))
-    old = {k: v for k, v in RIVAL.items() if k != "crankset"}
+    old = {k: v for k, v in RIVAL.items() if k not in ("crankset", "tyres", "frame", "receipt")}
     (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "read": old}))
     listing = {"id": 45, "title": "Nothing in the hand file", "asking_price": None, "listing_url": None}
-    assert photo_groupset.needs_crankset(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
+    assert photo_groupset.outdated(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
     client = FakeClient(RIVAL)
     assert photo_groupset.read_later(str(tmp_path), 45, ["45/01.jpg"], client)
     for _ in range(100):
@@ -237,23 +249,122 @@ def test_a_read_from_before_the_crankset_is_read_again(tmp_path, monkeypatch):
             break
         time.sleep(0.05)
     read = photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"])
-    assert not photo_groupset.needs_crankset(read) and read["crankset"]["series"] == "Rival"
+    assert not photo_groupset.outdated(read) and read["crankset"]["series"] == "Rival"
     assert not photo_groupset.read_later(str(tmp_path), 45, ["45/01.jpg"], client)
 
 
 def test_a_hand_read_without_crankset_takes_it_from_the_automatic_read(tmp_path, monkeypatch):
     hand = tmp_path / "hand.json"
-    hand.write_text(json.dumps({"marktplaats:m2459123766": {k: v for k, v in RIVAL.items() if k != "crankset"}}))
+    hand.write_text(json.dumps({"marktplaats:m2459123766": {k: v for k, v in RIVAL.items() if k not in ("crankset", "tyres", "frame", "receipt")}}))
     monkeypatch.setattr(photo_groupset, "HAND_FILE", str(hand))
     photo_groupset._hand.__defaults__[0].clear()
     try:
         listing = {"id": 45, "title": "Trek Emonda SL6", "asking_price": 1800,
                    "listing_url": "https://www.marktplaats.nl/v/x/y/m2459123766-trek-emonda-sl6"}
-        assert photo_groupset.needs_crankset(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
+        assert photo_groupset.outdated(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
         os.makedirs(tmp_path / "45")
-        (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "version": 2,
+        (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "version": 3,
                                                                    "read": dict(RIVAL, series="Force")}))
         read = photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"])
         assert read["source"] == "eye" and read["series"] == "Rival" and read["crankset"]["series"] == "Rival"
+        assert not photo_groupset.outdated(read)
     finally:
         photo_groupset._hand.__defaults__[0].clear()
+
+
+def test_a_receipt_in_the_photos_gives_the_year_the_ad_leaves_out(models):
+    """Check 61: the ad gives no year, one of its photos is the receipt."""
+    report = run(models, "Trek Emonda SL6", "Mooie fiets", dict(RIVAL, receipt=RECEIPT))
+    assert report["receipt"]["date"] == "12-03-2021" and report["receipt"]["price"] == 2499.0
+    assert report["claims"]["year"] == 2021 and report["claims"]["year_is_purchase"]
+    assert "receipt" in en(report["age"]["detail"])
+
+
+def test_the_receipts_model_year_wins_and_the_ads_own_year_wins_over_both(models):
+    report = run(models, "Trek Emonda SL6", "", dict(RIVAL, receipt=dict(RECEIPT, model_year=2020)))
+    assert report["claims"]["year"] == 2020 and not report["claims"]["year_is_purchase"]
+    report = run(models, "Trek Emonda SL6 2019", "", dict(RIVAL, receipt=RECEIPT))
+    assert report["claims"]["year"] == 2019 and report["receipt"]["year"] == 2021
+
+
+def test_an_unreadable_or_absent_receipt_is_left_out(models):
+    assert run(models, "Trek Emonda SL6", "", RIVAL)["receipt"] is None
+    assert run(models, "Trek Emonda SL6", "", dict(RIVAL, receipt=dict(RECEIPT, confidence="low")))["receipt"] is None
+
+
+def test_a_receipt_counts_as_proof_of_purchase(models):
+    from webapp import scores
+    listing = {"title": "Trek Emonda SL6", "description": ""}
+    assert "proof" in scores.missing(run(models, "Trek Emonda SL6", "", RIVAL), listing)
+    assert "proof" not in scores.missing(run(models, "Trek Emonda SL6", "", dict(RIVAL, receipt=RECEIPT)), listing)
+
+
+def test_report_page_shows_the_receipt(tmp_path, monkeypatch):
+    from webapp.app import create_app
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, description, asking_price, photos) VALUES (?,?,?,?,?)",
+                 ("https://www.marktplaats.nl/v/x/y/m1234567890-trek-emonda-sl6", "Trek Emonda SL6", "Mooie fiets", 1500,
+                  json.dumps(["1/01.jpg"])))
+    conn.commit()
+    folder = os.path.join(os.path.dirname(app.config["DB_PATH"]), "ad-photos")
+    photo(os.path.join(folder, "1", "01.jpg"))
+    with open(os.path.join(folder, "1", "groupset.json"), "w") as fh:
+        json.dump({"photos": ["1/01.jpg"], "version": photo_groupset.READ_VERSION, "read": dict(RIVAL, receipt=RECEIPT)}, fh)
+    page = app.test_client().get("/check/1?lang=nl").data.decode()
+    assert "Aankoopbon in de foto&#39;s" in page or "Aankoopbon in de foto's" in page
+    assert "gekocht op 12-03-2021" in page and "€2.499" in page and "kassabon" in page
+
+
+def row(report, key):
+    return next(r for r in report["specs"]["rows"] if r["key"] == key)
+
+
+def test_photos_fill_in_the_tyres_the_ad_leaves_out(models):
+    tyres = {"brand": "Continental", "model": "Grand Prix 5000", "width_mm": 28, "confidence": "high", "photos": [6],
+             "evidence_en": "Photo 6: GRAND PRIX 5000 28-622 on the sidewall.",
+             "evidence_nl": "Foto 6: GRAND PRIX 5000 28-622 op de zijwand."}
+    report = run(models, "Trek Emonda SL6", "", dict(RIVAL, tyres=tyres))
+    r = row(report, "tyres")
+    assert en(r["listing"]) == "Continental Grand Prix 5000 28 mm (inferred from photo analysis)"
+    assert r["ad_tier"] and r["photo_why"]["en"].startswith("Photo 6")
+    # A tyre we can't rate is still shown, but not compared.
+    r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, tyres=dict(tyres, brand="Noname", model="Road X"))), "tyres")
+    assert "Noname" in en(r["listing"]) and r["status"] == checks.UNKNOWN
+    # The ad's own words win.
+    assert "photo_why" not in row(run(models, "Trek Emonda SL6", "Banden: Schwalbe One 25mm", dict(RIVAL, tyres=tyres)), "tyres")
+
+
+def test_photos_fill_in_the_frame_material(models):
+    """Check 61: photo 8 shows the frame."""
+    frame = {"material": "Carbon", "printed": "500 Series OCLV", "confidence": "high", "photos": [8],
+             "evidence_en": "Photo 8: 500 SERIES OCLV printed on the top tube.",
+             "evidence_nl": "Foto 8: 500 SERIES OCLV op de bovenbuis."}
+    without = row(run(models, "Trek Emonda SL6", "", RIVAL), "frame")
+    assert en(without["listing"]) == "Not stated"
+    r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, frame=frame)), "frame")
+    assert en(r["listing"]) == "Carbon (inferred from photo analysis)" and r["status"] == checks.OK
+    r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, frame=dict(frame, material="Aluminium"))), "frame")
+    assert r["status"] == checks.BAD
+    assert en(row(run(models, "Trek Emonda SL6", "", dict(RIVAL, frame=dict(frame, confidence="low"))), "frame")["listing"]) == "Not stated"
+
+
+def test_a_photo_that_failed_to_copy_doesnt_hold_up_the_read(tmp_path, monkeypatch):
+    """Bugbot on #254: one photo of the first 20 left as a link must not stop the read for good."""
+    from webapp.app import create_app
+    calls = []
+    monkeypatch.setattr(photo_groupset, "read_later", lambda folder, check_id, names, client=None: calls.append(names))
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, description, asking_price, photos) VALUES (?,?,?,?,?)",
+                 ("https://www.marktplaats.nl/v/x/y/m1234567890-trek-emonda-sl6", "Trek Emonda SL6", "", 1500,
+                  json.dumps(["1/01.jpg", "https://images.marktplaats.com/gone.jpg", "1/03.jpg"])))
+    conn.commit()
+    for n in ("01", "03"):
+        photo(os.path.join(os.path.dirname(app.config["DB_PATH"]), "ad-photos", "1", f"{n}.jpg"))
+    app.test_client().get("/check/1")
+    assert calls and calls[-1] == ["1/01.jpg", "1/03.jpg"]

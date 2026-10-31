@@ -257,16 +257,20 @@ def create_app(db_path=None):
         # The stored photos on disk, for reading the bike's colour from them.
         listing["photo_paths"] = [os.path.join(ad_photos.folder(app.config["DB_PATH"]), p)
                                   for p in photos if ad_photos.is_stored(p)][:3]
-        # The groupset and crankset read from the photos, for ads that don't name them
-        # (webapp/photo_groupset.py): once the photos it reads are all on our disk.
+        # The groupset, crankset and any purchase receipt read from the photos (webapp/photo_groupset.py):
+        # once the photos it reads are all on our disk. Every ad is read, since any can show a receipt.
+        # While photos are still being copied it waits for them; once copying is done, a photo that failed (it
+        # stays a link) doesn't hold up the read of the others.
         first = photos[:photo_groupset.MAX_PHOTOS]
-        names = first if first and all(ad_photos.is_stored(p) for p in first) else []
+        names = [p for p in first if ad_photos.is_stored(p)]
+        if len(names) < len(first) and listing.get("id") in storing:
+            names = []
         photo_folder = ad_photos.folder(app.config["DB_PATH"])
-        read = listing["photo_groupset"] = photo_groupset.stored(photo_folder, listing, names)
-        if (read is None or photo_groupset.needs_crankset(read)) and names and listing.get("id") is not None:
-            claims = checks.read_claims(listing.get("title") or "", listing.get("description") or "")
-            if not claims["groupset"] or not claims["crankset"]:
-                photo_groupset.read_later(photo_folder, listing["id"], names)
+        # The last read, also of other photos than now (more were copied since): the next read replaces it.
+        listing["photo_groupset"] = photo_groupset.stored(photo_folder, listing, names)
+        by_eye = (listing["photo_groupset"] or {}).get("source") == "eye"
+        if names and listing.get("id") is not None and not (by_eye and not photo_groupset.outdated(listing["photo_groupset"])):
+            photo_groupset.read_later(photo_folder, listing["id"], names)  # only when these photos weren't read yet
         listing["photos"] = [p if not ad_photos.is_stored(p) else url_for("ad_photo", name=p) for p in photos]
         if height:
             listing["rider_height"] = height

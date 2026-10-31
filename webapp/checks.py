@@ -1153,7 +1153,10 @@ def check_age(model, claims, today=None):
     else:
         status, headline = OK, Msg("Adds up")
         detail = Msg("{name} was sold as new in {claimed}.", name=model["name"], claimed=claimed)
-    if claims["year_is_purchase"]:
+    if claims.get("year_from") == "receipt":
+        detail = join(detail, Msg("The year is from the receipt in the ad's photos.") if not claims["year_is_purchase"]
+                      else Msg("The receipt in the ad's photos gives this as the purchase year."))
+    elif claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
             "generations": timeline_groups(model, timeline), "notes": notes, "year": claimed,
@@ -1806,18 +1809,43 @@ def photo_group(read):
     return found
 
 
-def photo_crankset(read):
-    """The crankset a read of the ad's photos shows, as detect_part gives it ({"label", "tier"}), or None when
-    the read isn't sure enough or names no crankset we can rate."""
+def photo_part(read, key):
+    """A part ("crankset", "tyres") a read of the ad's photos shows, as detect_part gives it ({"label", "tier"},
+    the tier None when it names a part we can't rate), or None when the read isn't sure enough."""
     from . import photo_groupset
-    crank = photo_groupset.crankset_of(read)
-    if not crank:
+    part = photo_groupset.part_of(read, key)
+    if not part:
         return None
-    text = photo_groupset.crankset_text(crank)
-    tier = part_tier(PART_TABLES["crankset"], text)
-    if not tier:
+    text = photo_groupset.part_text(key, part)
+    return {"label": Msg("{label} (inferred from photo analysis)", label=text),
+            "tier": part_tier(PART_TABLES.get(key, (key,)), text)}
+
+
+def photo_frame(read):
+    """The frame material a read of the ad's photos shows ("Carbon"), or None."""
+    from . import photo_groupset
+    frame = photo_groupset.part_of(read, "frame")
+    return frame["material"] if frame and frame["material"] in MATERIAL_LOWER else None
+
+
+def photo_receipt(read):
+    """The purchase receipt a read of the ad's photos shows, for the report, or None: {"date" (as shown),
+    "year" (of purchase), "model_year", "shop", "bike", "price", "photos", "why" ({"en", "nl"})}."""
+    from . import photo_groupset
+    receipt = photo_groupset.receipt_of(read)
+    if not receipt:
         return None
-    return {"label": Msg("{label} (inferred from photo analysis)", label=text), "tier": tier}
+    date_text, year = receipt.get("date") or "", None
+    m = re.match(r"((?:19|20)\d\d)(?:-(\d\d))?(?:-(\d\d))?$", date_text.strip())
+    if m:
+        year = int(m.group(1))
+        date_text = "-".join(p for p in (m.group(3), m.group(2), m.group(1)) if p)  # 2021-03-12 as 12-03-2021
+    model_year = receipt.get("model_year")
+    today_year = date.today().year
+    return {"date": date_text or None, "year": year if year and 1980 <= year <= today_year else None,
+            "model_year": model_year if model_year and 1980 <= model_year <= today_year + 1 else None,
+            "shop": receipt.get("shop"), "bike": receipt.get("bike"), "price": receipt.get("price"),
+            "photos": receipt.get("photos") or [], "why": _photo_why(receipt)}
 
 
 def _photo_why(read):
@@ -1860,7 +1888,10 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         ("brakes", "Brakes", ref_brakes(model), claims["brakes"]),
     ):
         shown = spec(model, "Frame", "Material") if key == "frame" else spec(model, "Rem")
-        ad_shown = Msg(ad_val) if ad_val else not_stated
+        frame_seen = photo_frame(photo_read) if key == "frame" and not ad_val else None
+        ad_val = ad_val or frame_seen
+        ad_shown = Msg("{label} (inferred from photo analysis)", label=Msg(ad_val)) if frame_seen \
+            else Msg(ad_val) if ad_val else not_stated
         if not ref_val:
             rows.append(_row(key, part, shown or Msg("Not in our data"), ad_shown, UNKNOWN, "Can't compare"))
         elif not ad_val:
@@ -1872,14 +1903,16 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
                              f"Never made in {MATERIAL_LOWER[ad_val]}"))
         else:
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, BAD, "Differs"))
+        if frame_seen:
+            rows[-1]["photo_why"] = _photo_why(photo_read["frame"])
 
     for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
                               ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",))):
         ref_val, ad = spec(model, *keys), claims.get(key)
-        crank_seen = photo_crankset(photo_read) if key == "crankset" and not ad else None
-        ad = ad or crank_seen
+        part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres") and not ad else None
+        ad = ad or part_seen
         ref_tier = part_tier(PART_TABLES.get(key, (key,)), ref_val) if ref_val else None
-        if ad and ref_tier:
+        if ad and ref_tier and ad["tier"]:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
                 rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier", ad_tier=ad["tier"]))
             elif key == "wheels" and same_wheel_family(ad["label"], ref_val):
@@ -1890,8 +1923,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows.append(_row(key, part, ref_val or Msg("Not in our data"), ad["label"], UNKNOWN, "Can't compare"))
         elif ref_val:
             rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
-        if crank_seen:
-            rows[-1]["photo_why"] = _photo_why(photo_read["crankset"])
+        if part_seen:
+            rows[-1]["photo_why"] = _photo_why(photo_read[key])
     for key, part, keys in (("saddle", "Saddle", ("Zadel",)),):
         ref_val = spec(model, *keys)
         if ref_val:
@@ -1947,7 +1980,7 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
                       claims["mentions_upgrades"] and Msg("The seller mentions changed parts."))
     return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows,
             "photo_groupset": photo_read if seen else None,
-            "photo_crankset": photo_read["crankset"] if any(r.get("photo_why") and r["key"] == "crankset" for r in rows) else None}
+            "photo_parts": [r["key"] for r in rows if r.get("photo_why")]}
 
 
 def size_options(brand):
@@ -2185,6 +2218,9 @@ def year_note(resolved, claims):
     """Which year the report goes by and why, or None when it's simply the year in the ad."""
     year, how = resolved["year"], resolved["how"]
     span = _span(resolved["first"], resolved["last"])
+    if how == "purchase" and claims.get("year_from") == "receipt":
+        return Msg("The receipt in the ad's photos dates the purchase to {claimed}; we go by model year {year}.",
+                   claimed=claims["year"], year=year)
     if how == "purchase":
         return Msg("The ad gives {claimed} as the purchase year; we go by model year {year}.", claimed=claims["year"], year=year)
     if how == "details":
@@ -2391,6 +2427,11 @@ def seller_questions(model, claims, age, specs, size, material_alert=None):
 def run_check(models, listing, today=None):
     """listing: dict with title, description, asking_price, rider_height, model_id (optional override)."""
     claims = read_claims(listing["title"], listing.get("description"))
+    receipt = photo_receipt(listing.get("photo_groupset"))
+    if receipt and claims["year"] is None and (receipt["model_year"] or receipt["year"]):
+        # The ad gives no year, the receipt in its photos does: its model year, else the year it was bought.
+        claims = dict(claims, year=receipt["model_year"] or receipt["year"], year_is_purchase=not receipt["model_year"],
+                      year_from="receipt")
     ranked = match_models(models, listing["title"], listing.get("description") or "", claims)
     chosen = None
     if listing.get("model_id"):
@@ -2400,7 +2441,7 @@ def run_check(models, listing, today=None):
     # Picking our own suggestion again brings back our confidence; another model is the visitor's call.
     chosen_by_you = bool(chosen and ranked and listing.get("model_id") and chosen["id"] != ranked[0][1]["id"])
     level = confidence(ranked) if not chosen_by_you else None
-    report = {"claims": claims, "candidates": [m for _, m in ranked[:8]],
+    report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen}
     if chosen is None:
         return report
