@@ -201,3 +201,11 @@ def test_giant_black_background_twins_are_left_out():
                         "MY21FastRoadAdvanced1_ColorACarbon", "MY21FastRoadAdvanced1_ColorACarbon-2"])
     assert [a.rsplit("_", 1)[1] for a in giant.colour_angles(page, "Revolt Advanced Pro 1", "Blue Dragonfly")] == ["ColorABlueDragonfly-D11.jpg"]
     assert len(giant.colour_angles(page, "FastRoad Advanced 1", "Carbon/Chrome")) == 1  # -2 is a close-up of the side view
+
+
+def test_giant_d11_is_not_taken_for_a_twin_of_d1():
+    page = _giant_page(["MY25TrinityAdvancedSL0_ColorACarbon", "MY25TrinityAdvancedSL0_ColorACarbon-D1",
+                        "MY25TrinityAdvancedSL0_ColorACarbon-D11", "MY25TrinityAdvancedSL0_ColorACarbon-D-4",
+                        "MY25TrinityAdvancedSL0_ColorACarbon-D-41", "MY25TrinityAdvancedSL0_ColorACarbon-D-4-1"])
+    assert [a.rsplit("-", 1)[1] for a in giant.colour_angles(page, "Trinity Advanced SL 0", "Carbon")] == [
+        "D1.jpg", "D11.jpg", "4.jpg", "41.jpg"]

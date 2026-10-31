@@ -116,7 +116,7 @@ def _photo_sets(page, model):
         # a close-up's twin on black is the close-up's name with -1 or -2 after it (-D11-1, _D-5-2)
         others = set(stem.values()) - {stem.get(side)}
         angles = [g for g in group if g != side and "blacktires" not in g
-                  and re.sub(r"-\d$", "", stem[g]) not in others - {stem[g]}]
+                  and re.sub(r"(?<=\d)-\d$", "", stem[g]) not in others - {stem[g]}]
         shade = re.sub(r"^.*?Color[A-H]_?", "", stem[side if side else group[0]])
         shade = shade[:CLOSE_UP.search(shade).start()] if CLOSE_UP.search(shade) else shade
         found.append((shade, side, angles))
