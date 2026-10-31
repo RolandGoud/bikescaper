@@ -98,4 +98,8 @@ def test_report_alone_says_no_other_ads(app):
     page = client.get("/check/1?lang=nl").data.decode()
     assert "Nog geen andere advertenties voor dit model gevonden (in de laatste 90 dagen)." in page
     page = client.get(f"/models/{DOMANE}?lang=en").data.decode()
-    assert "Only 1 ads in the last 90 days" in page  # the model page does count it
+    assert "1 ad in the last 90 days" in page  # the model page does count it
+    assert "Only" not in page
+    page = client.get(f"/models/{DOMANE}?lang=nl").data.decode()
+    assert "1 advertentie in de laatste 90 dagen" in page
+    assert "Pas 1" not in page

@@ -763,15 +763,19 @@ NL = {
     "This ad asks {pct}% more than the median.": "Deze advertentie vraagt {pct}% meer dan de mediaan.",
     "This ad asks {pct}% less than the median.": "Deze advertentie vraagt {pct}% minder dan de mediaan.",
     "This ad asks the median.": "Deze advertentie vraagt precies de mediaan.",
-    "Only {n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
-        "Pas {n} advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
+    "{n} ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
+        "{n} advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
+    "{n} ad in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
+        "{n} advertentie in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
     "No ads for this model in the last {days} days yet.": "Nog geen advertenties voor dit model in de laatste {days} dagen.",
     "No other ads found for this model yet (in the last {days} days).":
         "Nog geen andere advertenties voor dit model gevonden (in de laatste {days} dagen).",
     "Based on {n} other ads from the last {days} days.":
         "Op basis van {n} andere advertenties uit de laatste {days} dagen.",
-    "Only {n} other ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
-        "Pas {n} andere advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
+    "{n} other ads in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
+        "{n} andere advertenties in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
+    "{n} other ad in the last {days} days ({low}–{high}). We show a typical price from {needed} ads.":
+        "{n} andere advertentie in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
     "From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.":
         "Uit de advertenties die op deze site zijn gecheckt, geteld bij het model waaraan ze zijn gekoppeld. Prijzen onder €100 tellen niet mee.",
     # all checks page
@@ -808,7 +812,8 @@ NL = {
     "as a {year} bike": "als fiets uit {year}",
     "Second-hand median": "Mediaan tweedehands",
     "{n} ads, {days} days": "{n} advertenties, {days} dagen",
-    "Only {n} other ads": "Pas {n} andere advertenties",
+    "{n} other ads": "{n} andere advertenties",
+    "{n} other ad": "{n} andere advertentie",
     "No other ads yet": "Nog geen andere advertenties",
     "Year": "Bouwjaar",
     "Specs": "Specs",
@@ -823,7 +828,8 @@ NL = {
     "Every estimate made here, newest first: what was put in, and what came out on that day.": "Elke schatting die hier gemaakt is, nieuwste eerst: wat er is ingevuld en wat eruit kwam op die dag.",
     "Shown above": "Staat hierboven",
     "Open estimate": "Schatting openen",
-    "Only {n} ads": "Pas {n} advertenties",
+    "{n} ads": "{n} advertenties",
+    "{n} ad": "{n} advertentie",
     "No ads yet": "Nog geen advertenties",
     "Fair range {low} to {high}": "Eerlijke prijs {low} tot {high}",
 
