@@ -87,6 +87,30 @@ def test_year_older_than_generation_is_flagged(models):
     assert "Probably older than we can check" == en(r["age"]["headline"]) and "We go by 2015" in en(r["age"]["detail"])
 
 
+def test_bike_older_than_our_catalogue_has_no_spec_sheet(models):
+    # 2011 is before any Ultimate CF SLX 8 AXS we know: don't compare it with the oldest sheet we have (2020).
+    r = run(models, "Canyon Ultimate CF SLX 8 AXS 2011", "Campagnolo Record, carbon, velgremmen, maat 56", 1500)
+    assert r["year"]["how"] == "older" and r["spec_year"] is None
+    assert r["specs"]["status"] == checks.UNKNOWN
+    assert en(r["specs"]["headline"]) == "No spec sheet for 2011" and en(r["specs"]["tab_headline"]) == "No spec sheet"
+    assert "2020" not in en(r["specs"]["detail"])
+    groupset = r["specs"]["rows"][0]
+    assert groupset["step"] == 0 and groupset["ref_tier"] is None
+    # A 2011 Record is no longer top tier: two tiers down for its age.
+    assert groupset["ad_tier"] == 3 and groupset["ad_aged"] == {"new": 5, "age": TODAY.year - 2011}
+
+
+def test_spec_comparison_ages_both_groupsets(models):
+    model = dict(next(m for m in models if m["name"] == "Ultimate CF SLX 8 Di2"), spec_year=2015)
+    claims = checks.read_claims("Canyon Ultimate", "Shimano Dura-Ace")
+    row = checks.check_specs(model, claims, bike_year=2015, today=TODAY)["rows"][0]
+    assert row["ad_aged"]["new"] == 5 and row["ad_tier"] == 3
+    assert row["ref_aged"]["age"] == TODAY.year - 2015
+    assert row["step"] == row["ad_aged"]["new"] - row["ref_aged"]["new"]  # up/downgrades compare the tiers new
+    new = checks.check_specs(model, claims, bike_year=TODAY.year, today=TODAY)["rows"][0]
+    assert new["ad_tier"] == 5 and new["ad_aged"] is None
+
+
 def test_matching_canyon(models):
     r = run(models, "Canyon Endurace CF 7 Di2 maat M", "Bouwjaar 2023, Shimano 105 Di2, carbon, schijfremmen", 1600)
     assert r["model"]["name"] == "Endurace CF 7 Di2"
