@@ -1,8 +1,10 @@
 """Giant NL: road, gravel and TT bikes from the NL sitemap.
 
-Product pages are server-rendered HTML. Their URLs end in the model year
+Product pages are server-rendered HTML. Most URLs end in the model year
 (tcr-advanced-pro-0-di2-2027); the sitemap still lists older years, so only the
-current years are read. robots.txt asks for a crawl delay of a few seconds.
+current years are read. Some current bikes have a page without a year (contend-ar-1, the
+2026 Contend AR 1, next to contend-ar-1-2025): those are read too, with the year from the
+page's title. robots.txt asks for a crawl delay of a few seconds.
 """
 import re
 
@@ -19,8 +21,9 @@ def product_urls(fetcher, first_year=FIRST_YEAR):
     xml = fetcher.get(SITEMAP) or ""
     urls = []
     for url in re.findall(r"<loc>([^<]+)</loc>", xml):
-        m = re.match(r"https://www\.giant-bicycles\.com/nl/([a-z0-9-]+)-(20\d\d)$", url)
-        if not m or m.group(1).startswith("bikes-") or int(m.group(2)) < first_year:
+        m = re.match(r"https://www\.giant-bicycles\.com/nl/([a-z0-9-]+?)(?:-(20\d\d))?$", url)
+        # a page without a year is the current bike, or a family or parts page that scrape() leaves out
+        if not m or m.group(1).startswith("bikes-") or m.group(2) and int(m.group(2)) < first_year:
             continue
         if m.group(1).startswith(FAMILIES) and not is_ebike(m.group(1).replace("-", " "), url):
             urls.append(url)
@@ -52,8 +55,11 @@ def parse(page, url):
     pairs = re.findall(r"<div class=label>(.*?)</div><div class=value>(.*?)</div>", page, re.S)
     sizes = [clean(s) for s in re.findall(r"<th scope=col name=framesize>(.*?)</th>", page)]
     product_id = re.search(r"data-product-id=(\d+)", page)
-    year = re.search(r"-(20\d\d)$", url)
+    # the URL's year, else the title's: "Contend AR 1 (2026) | All-Rounder Fiets | Giant Bicycles Nederland"
+    year = re.search(r"-(20\d\d)$", url) or re.search(r"<title>[^<|]*\((20\d\d)\)", page)
     model = re.sub(r"\s*\(?20\d\d\)?$", "", clean(name.group(1)))  # some h1s end in the model year
+    # the 2026 pages put the groupset in brackets: "TCR Advanced Pro 0 (AXS)" is the TCR Advanced Pro 0 AXS
+    model = re.sub(r"\s*\((AXS|Di2)\)$", r" \1", model)
     colours = next((clean(v).split(", ") for k, v in pairs if clean(k) == "Kleuren"), [])
     colours = [c for c in colours if c] or photo_colours(page, model)
     return {

@@ -356,6 +356,32 @@ def model_year(bike):
         return None
 
 
+def refresh_catalogue(conn):
+    """Bring the models already in the database up to each brand's newest scrape: a row loaded from an older
+    snapshot of that brand, or a line we had as discontinued, gets the newer one's URL, price, specs and model year, in place, so saved checks keep
+    their matches (a full load renumbers the models). Returns how many rows changed."""
+    count = 0
+    for brand, rel in SOURCES:
+        with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
+            # Two bikes can share a page (TCR Advanced Pro 0 Di2 and 0-Di2): the last one wins, as in a full load
+            # and in refresh_images, so a row never mixes one bike's specs with the other's year and photo.
+            bikes = {slugify(f"{brand} {b['name']}"): b for b in json.load(fh)}
+        for slug, bike in bikes.items():
+            bike.setdefault("brand", brand)
+            colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
+            price = float(bike["price"]) if bike.get("price") not in (None, "") else None
+            cur = conn.execute(
+                "UPDATE models SET category = ?, price_eur = ?, sku = ?, url = ?, colors = ?, specs = ?, seen_on = ?,"
+                " model_year = ?, source_file = ? WHERE slug = ? AND source_file != ? AND (source_file LIKE ? OR source_file = ?)",
+                (html.unescape(bike.get("category") or ""), price, str(bike.get("sku") or ""), bike.get("url"),
+                 json.dumps(colors, ensure_ascii=False), json.dumps(bike.get("specifications") or {}, ensure_ascii=False),
+                 snapshot_date(rel), model_year(bike), rel, slug, rel, f"data/{brand}/%",
+                 f"data/years/archived/{brand}.json"))  # a line on sale again
+            count += cur.rowcount
+    conn.commit()
+    return count
+
+
 def refresh_images(conn):
     """Re-pick the photo, colourways, photo years and model year of every model already in the database, keeping saved
     checks intact."""
@@ -558,7 +584,8 @@ if __name__ == "__main__":
         SOURCES = collected_sources()
     conn = db.connect(args[0] if args else None)
     if "--if-empty" in sys.argv and conn.execute("SELECT COUNT(*) FROM models").fetchone()[0]:
-        print(f"Models already loaded; refreshed photos of {refresh_images(conn)} models,"
+        print(f"Models already loaded; brought {refresh_catalogue(conn)} up to a newer scrape,"
+              f" refreshed photos of {refresh_images(conn)} models,"
               f" added {add_other_scrapes(conn)} from other scrapes and {add_archived(conn)} discontinued lines,"
               f" updated status of {refresh_status(conn)},"
               f" read earlier years for {refresh_year_specs(conn)}")

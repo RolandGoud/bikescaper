@@ -45,6 +45,18 @@ def giant_year(page):
     return int(m.group(1)) if m else None
 
 
+# Giant's 2027 names for bikes it sold under another name before: the TCR Advanced 2-PC ("Pro Compact"
+# gearing) is the TCR Advanced 2's successor. {name: (earlier name, the earlier name's page URL without a year)}.
+# Their earlier years are read from the earlier name's pages and marked with its name (sheet_name).
+RENAMED = {
+    "Giant": {
+        "TCR Advanced 0-PC": ("TCR Advanced 0", "https://www.giant-bicycles.com/nl/tcr-advanced-0"),
+        "TCR Advanced 1 - Pro Compact": ("TCR Advanced 1", "https://www.giant-bicycles.com/nl/tcr-advanced-1"),
+        "TCR Advanced 2-PC": ("TCR Advanced 2", "https://www.giant-bicycles.com/nl/tcr-advanced-2"),
+    },
+}
+
+
 # brand: (parser module, model URL -> [(year, page URL)], page -> the model year it shows, host delay)
 SITES = {
     "Giant": (giant, giant_pages, giant_year, giant.HOST_DELAY),
@@ -127,7 +139,7 @@ def add_colour_photos(brand, fetcher=None):
         json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
 
 
-def add_angles(brand, fetcher=None):
+def add_angles(brand, fetcher=None, names=None):
     """Every other angle of each colour (close-ups, front, rear) for the model years in
     data/years/site/<Brand>.json that have colour photos: entry["colour_angles"] = {colour: [saved photo]}."""
     path = os.path.join(ROOT, "data", "years", "site", f"{brand}.json")
@@ -139,7 +151,7 @@ def add_angles(brand, fetcher=None):
     for name, entries in data["models"].items():
         for year, entry in entries.items():
             # a year that gave nothing is tried again, as add_colour_photos does
-            if entry.get("source") != "site" or not entry.get("colour_images") or entry.get("colour_angles"):
+            if names and name not in names or entry.get("source") != "site" or not entry.get("colour_images") or entry.get("colour_angles"):
                 continue
             if brand == "Trek":
                 code = re.search(r"/[pa]/(\d+)", entry["url"])
@@ -518,7 +530,13 @@ def collect(brand, models, fetcher, years):
     module, pages, year_of, _delay = SITES[brand]
     found, today = {}, date.today().isoformat()
     for name, url in models:
-        for year, page_url in pages(url, years):
+        earlier = RENAMED.get(brand, {}).get(name)
+        tries = [(y, u, None) for y, u in pages(url, years)]
+        if earlier:  # after its own pages, the years only its earlier name has a page for
+            tries += [(y, u, earlier[0]) for y, u in pages(earlier[1], years)]
+        for year, page_url, sheet_name in tries:
+            if sheet_name and str(year) in found.get(name, {}):
+                continue
             page = fetcher.get(page_url)
             if not page or year_of(page) != year:
                 continue
@@ -536,17 +554,23 @@ def collect(brand, models, fetcher, years):
                 "image": save_photo(fetcher, brand, compact(name), year, bike.get("image_url")),
                 "colour_images": colour_photos(fetcher, brand, compact(name), year, dict(
                     zip(bike.get("color_names") or [], bike.get("color_image_urls") or [])))}
+            if sheet_name:
+                found[name][str(year)]["sheet_name"] = sheet_name
         log.info("%s %s: %s", brand, name, sorted(found.get(name, {})))
     return found
 
 
-def run(brands, db_path, years, cdx_folder=None):
+def run(brands, db_path, years, cdx_folder=None, names=None):
+    """Read the model years of every catalogue model, or with `names` only of those models (the others'
+    years stay as they are in the file)."""
     conn = sqlite3.connect(db_path)
     out_dir = os.path.join(ROOT, "data", "years", "site")
     os.makedirs(out_dir, exist_ok=True)
     report = {}
     for brand in brands:
         models = conn.execute("SELECT name, url FROM models WHERE brand = ? AND url != ''", (brand,)).fetchall()
+        if names:
+            models = [m for m in models if m[0] in names]
         if brand == "Trek":
             found = trek_collect(models, Fetcher(delay=1.0), years, trek_codes(cdx_folder))
         else:
@@ -560,7 +584,7 @@ def run(brands, db_path, years, cdx_folder=None):
             before = {"years": [], "models": {}}
         for name, entries in before["models"].items():
             for year, entry in entries.items():
-                if int(year) not in years:
+                if int(year) not in years or names and name not in names:
                     found.setdefault(name, {}).setdefault(year, entry)
         all_years = sorted(set(before["years"]) | set(years))
         with open(path, "w", encoding="utf-8") as fh:
@@ -583,6 +607,7 @@ if __name__ == "__main__":
     ap.add_argument("--colours", action="store_true", help="only add each colour's photo to the years already read")
     ap.add_argument("--angles", action="store_true", help="only add each colour's other angles to the years already read")
     ap.add_argument("--archived", action="store_true", help="add the discontinued lines (Trek, Giant; needs --cdx)")
+    ap.add_argument("--models", nargs="*", default=[], help="only these catalogue models (their names)")
     ap.add_argument("--pages", nargs="*", default=[],
                     help="Specialized --colours: the folders with the Wayback copies (wayback.py fetch), whose photo IDs come first")
     args = ap.parse_args()
@@ -595,7 +620,7 @@ if __name__ == "__main__":
         raise SystemExit
     if args.angles:
         for brand in brands:
-            add_angles(brand)
+            add_angles(brand, names=args.models)
         raise SystemExit
     if args.colours and "Specialized" in brands:  # each colour's photo and other views, from its image server
         print(specialized_photos(args.pages))
@@ -604,5 +629,5 @@ if __name__ == "__main__":
         for brand in brands:
             add_colour_photos(brand)
         raise SystemExit
-    for brand, counts in run(brands, args.db, range(args.first, args.last + 1), args.cdx).items():
+    for brand, counts in run(brands, args.db, range(args.first, args.last + 1), args.cdx, args.models).items():
         print(brand, counts)
