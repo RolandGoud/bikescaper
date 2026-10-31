@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, duo_photo, brand_mark with context %}
+{% from "_macros.html" import photo, duo_photo, brand_mark, place_link with context %}
 {% block title %}{{ _('All checks') }} · Bike Compare{% endblock %}
 {% block body %}
 {# One tile per check: what was put in on the left, and on the right a verdict table like the Net gecheckt
@@ -19,7 +19,7 @@
       {% if row.description %}<div class="small muted clamp">{{ row.description }}</div>{% endif %}
       <div class="check-row-facts">
         <span><b>{{ row.asking_price|eur }}</b> {{ _('asking') }}</span>
-        {% if row.location %}<span>{{ row.location }}</span>{% endif %}
+        {% if row.location %}<span>{{ place_link(row.location, row.listing_url) }}</span>{% endif %}
         {% if row.rider_height %}<span>{{ _('{n} cm rider', n=row.rider_height) }}</span>{% endif %}
         {% if row.photos %}<span>{{ _('{n} photos', n=row.photos|length) }}</span>{% endif %}
       </div>

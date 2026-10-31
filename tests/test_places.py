@@ -44,3 +44,19 @@ def test_map_page_puts_ads_with_a_known_place_on_pins(tmp_path):
     assert len(by_place["Utrecht"]["ads"]) == 2 and by_place["Gent"]["country"] == "BE"
     assert all(ad["url"].startswith("/check/") for p in pins for ad in p["ads"])
     assert 'href="/listings/map"' in client.get("/listings").data.decode()
+
+
+def test_towns_link_to_the_map_opened_there(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56", "asking_price": "1500", "location": "Gent"})
+    client.post("/check", data={"title": "Giant Defy 2020", "asking_price": "900", "location": "Nergenshuizen"})
+    link = "/listings/map?place=Gent&amp;cc=BE"
+    for page in ["/listings", "/checks", "/check/1", "/"]:
+        html = client.get(page).data.decode()
+        assert link in html, page
+        assert "place=Nergenshuizen" not in html, page  # a town the map doesn't know stays plain text
+    page = client.get("/listings/map?place=Gent&cc=BE").data.decode()
+    assert "var focus = [51.05, 3.7167]" in page
+    assert 'href="/listings/map"' in client.get("/size").data.decode()  # in the Tools menu

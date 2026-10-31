@@ -1250,3 +1250,7 @@ select { max-width: 100%; }
 .map-ad-name { font-weight: 600; font-size: 14px; line-height: 1.25; }
 .map-ad-title { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 @media (max-width: 640px) { .ads-map { height: 70vh; min-height: 360px; } .map-legend .map-count-note { margin-left: 0; width: 100%; } }
+/* An ad's town, linking to the listings map opened there. */
+.place-link { color: inherit; cursor: pointer; text-decoration: underline dotted; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.place-link:hover, .place-link:focus-visible { color: var(--link); text-decoration-color: currentColor; }
+.card-place .place-link { display: inline-flex; align-items: center; gap: 6px; }
