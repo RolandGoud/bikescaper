@@ -5,6 +5,10 @@
 {% macro note(text) -%}
 <details class="note-tip"><summary aria-label="{{ _('More info') }}">i</summary><p>{{ text }}</p></details>
 {%- endmacro %}
+{# The main parts beside the photo: what each is, and its tier. #}
+{% macro parts_list(parts) -%}
+{% for label, value, tier in parts %}<div><span class="kp-k">{{ _(label) }}</span><span class="kp-v" title="{{ value }}">{{ value }}</span>{{ tier_dot(tier) }}</div>{% endfor %}
+{%- endmacro %}
 {% block body %}
 {# The colours of the bike on show, under its photo: picking one shows that colour's photos. The year
    picked swaps them for that year's (year_facts). #}
@@ -38,6 +42,7 @@
     {# What the facts beside the photo say for that year; swapped in when the year is picked. #}
     {% macro year_facts(t) -%}
     <template class="year-facts"><span data-fact="price">{% if t.price and t.price_german %}{{ _('New {price} (German list price)', price=t.price|eur) }}{% elif t.price %}{{ _('New {price}', price=t.price|eur) }}{% else %}{{ _('New price in {year} unknown', year=t.year) }}{% endif %}</span>
+      <span data-fact="parts">{% if t.specs %}{{ parts_list(key_parts(t.specs, t.tiers.rows if t.tiers else {})) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }} ({{ t.year }})</p>{% endif %}</span>
       <span data-fact="tier">{% if t.tiers and t.tiers.overall %}{{ tier_badge(t.tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</span>
       <span data-fact="colours">{% if t.colours %}{% set shots = t.colour_images or {} %}
         <div class="v"><span class="swatches" role="group" aria-label="{{ _('Colours') }}">
@@ -116,6 +121,8 @@
       <div class="mono muted model-kicker">{{ brand_label({'name': m.brand|upper, 'logo': logos.get(m.brand)}) }} · {{ _(discipline) }}</div>
       <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px">{{ m.name }}</h1>
       <div class="price" data-fact="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
+      {% set parts = key_parts(specs, tiers.rows) %}
+      {% if parts or year_tabs|selectattr('specs')|list %}<div class="key-parts" data-fact="parts">{% if parts %}{{ parts_list(parts) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }}</p>{% endif %}</div>{% endif %}
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
       <div class="mini-facts">
         <div><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
@@ -126,8 +133,12 @@
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
           <div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div></div>
+        {# What it sells for second-hand: the median asking price of the ads matched to it (the box below has the detail). #}
+        <div class="used-tile"><div class="k">{{ _('Second-hand') }}</div>
+          <div class="v">{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</div>
+          <a class="small muted" href="#asking">{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% elif asking.count %}{{ _('only {n} ads', n=asking.count) }}{% else %}{{ _('No ads yet') }}{% endif %}</a></div>
       </div>
-      <div class="row"><a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }}</a>
+      <div class="row head-actions"><a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }}</a>
         <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
     </div>
   </section>

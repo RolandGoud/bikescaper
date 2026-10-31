@@ -224,6 +224,26 @@ def test_model_page_shows_spec_groups(tmp_path):
     assert "Aandrijving" in page and "Achterderailleur" in page
 
 
+def test_key_parts_name_the_main_parts_with_their_tiers():
+    specs = [("Frame & fork", [("Frame", "Frame", "800 Series OCLV Carbon, tapered head tube")]),
+             ("Drivetrain", [("Rear derailleur", "Achterderailleur", "SRAM Rival Rear Derailleur")]),
+             ("Brakes", [("Brakes", "Remmen", "Shimano Ultegra hydraulic disc, flat mount")]),
+             ("Weight", [("Weight", "Gewicht", "7.9 kg")])]
+    parts = checks.key_parts(specs, {"Frame": 5, "Rear derailleur": 3})
+    # No wheels on this sheet, so the weight takes the fourth place.
+    assert parts == [("Frame", "800 Series OCLV Carbon", 5), ("Groupset", "SRAM Rival", 3),
+                     ("Brakes", "Shimano Ultegra hydraulic disc", None), ("Weight", "7.9 kg", None)]
+    assert checks.key_parts([]) == []
+
+
+def test_model_page_header_lists_main_parts_and_second_hand_price(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/trek-domane-sl-6-gen-4?lang=nl").data.decode()
+    assert 'class="key-parts" data-fact="parts"' in page and '<span class="kp-k">Groep</span>' in page
+    assert "Tweedehands" in page and 'href="#asking"' in page
+
+
 def test_brand_links_open_in_a_new_tab(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
