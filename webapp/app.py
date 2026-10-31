@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -789,6 +789,7 @@ def create_app(db_path=None):
         stats = scores.summarise(items)
         worst = sorted(items, key=lambda it: (it["ad"] + (it["photo"] if it["photo"] is not None else it["ad"])))[:15]
         return render_template("admin.html", stats=stats, worst=worst, nav=None,
+                               photos=photo_counts.overview(models(), GALLERIES),
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
                                missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
 
