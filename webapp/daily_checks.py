@@ -1,11 +1,12 @@
-"""Check one current Marktplaats ad of each popular model, once a day.
+"""Check one current ad of each popular model, once a day, on Marktplaats and on 2dehands.
 
 POPULAR are the five catalogue families with the most bike ads on Marktplaats (counted on
-22 October 2026). For each, one search for the newest ads, then the first one that is a whole
+22 October 2026), POPULAR_BE the three with the most on 2dehands (counted on 31 October 2026).
+For each, one search on that site for the newest ads, then the first one that is a whole
 bike (not a part), has a real price and photos, isn't checked yet and that we confidently match
 to the family is read like a pasted link and saved as a check. If the ad turns out to have no
 photos after all, the next suitable one is read instead (at most TRIES ads per family). So about
-ten requests a day, PAUSE seconds apart. No rider height is filled in, as with a visitor who leaves it empty.
+sixteen requests a day, PAUSE seconds apart. No rider height is filled in, as with a visitor who leaves it empty.
 
 The checks get source = "daily", so they can be told apart or removed:
 
@@ -32,21 +33,24 @@ from .recheck import EVERY, _stamp
 
 SOURCE = "daily"
 POPULAR = ["Giant TCR", "Specialized Tarmac", "Giant Defy", "Trek Domane", "Trek Emonda"]
-SEARCH = "https://www.marktplaats.nl/lrp/api/search?"
-BIKES = 445  # Marktplaats' "Fietsen en Brommers"
+POPULAR_BE = ["Specialized Tarmac", "Trek Emonda", "Trek Madone"]
+MARKTPLAATS = "https://www.marktplaats.nl"
+TWEEDEHANDS = "https://www.2dehands.be"  # Marktplaats' Belgian site: the same search API and ad pages
+SEARCHES = [(MARKTPLAATS, f) for f in POPULAR] + [(TWEEDEHANDS, f) for f in POPULAR_BE]
+BIKES = 445  # "Fietsen en Brommers", on both sites
 PAUSE = 5
 TRIES = 3
 
 
-def search(query):
-    """The newest ads for a query: [{"url", "title", "price", "photos"}], photos being how many."""
+def search(query, site=MARKTPLAATS):
+    """The newest ads for a query on a site: [{"url", "title", "price", "photos"}], photos being how many."""
     params = {"query": query, "l1CategoryId": BIKES, "limit": 30, "offset": 0,
               "sortBy": "SORT_INDEX", "sortOrder": "DECREASING"}
-    request = urllib.request.Request(SEARCH + urlencode(params),
+    request = urllib.request.Request(site + "/lrp/api/search?" + urlencode(params),
                                      headers={"User-Agent": fetch_ad.USER_AGENT, "Accept-Language": "nl"})
     with urllib.request.urlopen(request, timeout=fetch_ad.TIMEOUT) as response:
         data = json.loads(response.read(fetch_ad.MAX_BYTES))
-    return [{"url": "https://www.marktplaats.nl" + ad["vipUrl"], "title": ad.get("title") or "",
+    return [{"url": site + ad["vipUrl"], "title": ad.get("title") or "",
              "price": ((ad.get("priceInfo") or {}).get("priceCents") or 0) / 100,
              "photos": len(ad.get("pictures") or ad.get("imageUrls") or [])}
             for ad in data.get("listings") or [] if ad.get("vipUrl")]
@@ -58,12 +62,17 @@ def is_bike(url):
     return len(parts) > 3 and parts[3].startswith("fietsen-")
 
 
+def key(url):
+    """The same ad, whichever form of its link: "marktplaats:m2455946444" or "2dehands:m2460153797"."""
+    return fetch_ad.ad_key({"listing_url": url, "title": "", "asking_price": None})
+
+
 def pick(models, family, ads, seen):
     """The first ad worth checking for a family ("Giant TCR"), or None."""
     brand, name = family.split(" ", 1)
     for ad in ads:
         if (not is_bike(ad["url"]) or ad["price"] < 100 or not ad.get("photos")
-                or fetch_ad.ad_id(ad["url"]) in seen):
+                or key(ad["url"]) in seen):
             continue
         ranked = checks.match_models(models, ad["title"])
         top = ranked[0][1] if ranked else None
@@ -77,14 +86,14 @@ def pick(models, family, ads, seen):
 def run(conn, search=search, fetch=fetch_ad.fetch_listing, pause=PAUSE):
     """One pass. Returns the ids of the checks it saved."""
     models = db.all_models(conn)
-    seen = {fetch_ad.ad_id(r["listing_url"]) for r in conn.execute(
+    seen = {key(r["listing_url"]) for r in conn.execute(
         "SELECT listing_url FROM checks WHERE listing_url IS NOT NULL")}
     saved = []
-    for i, family in enumerate(POPULAR):
+    for i, (site, family) in enumerate(SEARCHES):
         if i and pause:
             time.sleep(pause)
         try:
-            ads = search(family)
+            ads = search(family, site)
             skipped = set(seen)
             listing = None
             for _ in range(TRIES):
@@ -96,12 +105,12 @@ def run(conn, search=search, fetch=fetch_ad.fetch_listing, pause=PAUSE):
                 listing = fetch(ad["url"])
                 if listing["photos"]:
                     break
-                skipped.add(fetch_ad.ad_id(ad["url"]))  # no photos after all: try the next ad
+                skipped.add(key(ad["url"]))  # no photos after all: try the next ad
                 listing = None
             if listing is None:
                 continue
         except Exception as e:  # one model failing doesn't stop the others
-            print(f"daily check of {family} failed: {e}", file=sys.stderr, flush=True)
+            print(f"daily check of {family} on {site} failed: {e}", file=sys.stderr, flush=True)
             continue
         cur = conn.execute(
             "INSERT INTO checks (listing_url, title, description, asking_price, location, photos, source)"
@@ -109,7 +118,7 @@ def run(conn, search=search, fetch=fetch_ad.fetch_listing, pause=PAUSE):
             (listing["listing_url"], listing["title"], listing["description"], listing["asking_price"],
              listing["location"], json.dumps(listing["photos"]) if listing["photos"] else None, SOURCE))
         conn.commit()
-        seen.add(fetch_ad.ad_id(listing["listing_url"]))
+        seen.add(key(listing["listing_url"]))
         saved.append(cur.lastrowid)
     return saved
 
