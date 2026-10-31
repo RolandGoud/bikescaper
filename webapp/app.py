@@ -506,8 +506,9 @@ def create_app(db_path=None):
                 "removed": bool(row["removed_at"]),
             })
         focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
-        return render_template("listings_map.html", pins=list(pins.values()), unplaced=unplaced,
-                               ads=sum(len(p["ads"]) for p in pins.values()), nav="map",
+        pins = sorted(pins.values(), key=lambda p: (-len(p["ads"]), p["place"]))  # busiest towns first in the list
+        return render_template("listings_map.html", pins=pins, unplaced=unplaced,
+                               ads=sum(len(p["ads"]) for p in pins), nav="map",
                                focus=list(focus[:2]) if focus else None)
 
     @app.route("/models")

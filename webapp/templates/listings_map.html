@@ -4,98 +4,140 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 {% block body %}
-{# One pin per place where checked ads are, coloured by the price verdict (a count when a place has more ads).
-   A pin opens a list of its ads, each linking to its report. Places are looked up in webapp/places.json. #}
+{# The Netherlands and Belgium as a grid of dots (webapp/static/benelux.json), one glowing pin per town with
+   checked ads in the colour of its most urgent price verdict, and beside it the ads themselves, per town,
+   busiest town first. A pin or a town's name selects that town in both; ?place= (from a town's link
+   elsewhere on the site) opens the page with that town selected. #}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
     <h1 style="font-size: 44px">{{ _('Ads on the map') }}</h1>
-    <p class="muted">{{ _('Where the checked bikes are. Click a pin to see its ads and open a report.') }}</p>
+    <p class="muted">{{ _('Where the checked bikes are. Click a pin or a town to find its ads.') }}</p>
   </div>
   <div class="filters" aria-label="{{ _('Views') }}">
     <a class="pill" href="{{ url_for('listings') }}">{{ _('One card per ad') }}</a>
     <a class="pill" href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
     <a class="pill on" href="{{ url_for('listings_map') }}" aria-current="page">{{ _('On the map') }}</a>
   </div>
-  <div class="map-legend small muted">
-    <span><b class="map-dot ok"></b>{{ _('Fair price') }}</span>
-    <span><b class="map-dot warn"></b>{{ _('Priced too high') }}</span>
-    <span><b class="map-dot bad"></b>{{ _('Suspiciously cheap') }}</span>
-    <span><b class="map-dot unknown"></b>{{ _('No price verdict') }}</span>
-    <span class="map-count-note">{{ _('{n} ads in {p} places', n=ads, p=pins|length) }}{% if unplaced %} · {{ _('{n} without a place we know', n=unplaced) }}{% endif %}</span>
+  <div class="ads-map-page">
+    <div class="ads-map-col">
+      <div id="ads-map" class="ads-map" role="region" aria-label="{{ _('Map of the ads') }}"></div>
+      <div class="map-legend small muted">
+        <span><b class="map-dot ok"></b>{{ _('Fair price') }}</span>
+        <span><b class="map-dot warn"></b>{{ _('Priced too high') }}</span>
+        <span><b class="map-dot bad"></b>{{ _('Suspiciously cheap') }}</span>
+        <span><b class="map-dot unknown"></b>{{ _('No price verdict') }}</span>
+        <span><b class="map-border"></b>{{ _('Border NL / BE') }}</span>
+      </div>
+    </div>
+    <div class="map-towns">
+      <div class="map-towns-head mono small muted">
+        <span>{{ _('{n} ads in {p} places', n=ads, p=pins|length) }}</span>
+        {% if unplaced %}<span>{{ _('{n} without a place we know', n=unplaced) }}</span>{% endif %}
+      </div>
+      {% for pin in pins %}
+      <section class="map-town" data-pin="{{ loop.index0 }}">
+        <h2 class="map-town-name"><button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ pin.place }}</button><span class="muted">{{ pin.ads|length }}</span></h2>
+        {% for ad in pin.ads %}
+        <a class="map-ad" href="{{ ad.url }}">
+          <span class="map-ad-photo{{ ' catalogue' if ad.catalogue }}">{% if ad.photo %}<img src="{{ ad.photo }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% endif %}</span>
+          <span class="map-ad-body">
+            <span class="map-ad-top"><b>{{ ad.price or '–' }}</b><span class="map-verdict {{ ad.status }}">{{ ad.verdict }}</span></span>
+            <span class="map-ad-name">{{ ad.name }}{% if ad.removed %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</span>
+            {% if ad.title %}<span class="map-ad-title">“{{ ad.title }}”</span>{% endif %}
+          </span>
+        </a>
+        {% endfor %}
+      </section>
+      {% else %}
+      <div class="card"><p>{{ _('No ads with a known place yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
+      {% endfor %}
+    </div>
   </div>
-  <div id="ads-map" class="ads-map" role="region" aria-label="{{ _('Map of the ads') }}"></div>
-  {% if not pins %}<div class="card"><p>{{ _('No ads with a known place yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>{% endif %}
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
   var pins = {{ pins|tojson }};
-  var removedLabel = {{ _('Removed')|tojson }};
-  var adsLabel = {{ _('{n} ads')|tojson }};
-  // The Netherlands and Belgium; with ads, the map zooms to them instead.
+  var focus = {{ focus|tojson }};
+  var css = getComputedStyle(document.documentElement);
+  var dotColour = css.getPropertyValue("--map-land").trim() || "#4A4F5B";
+  var borderColour = css.getPropertyValue("--accent").trim() || "#34D399";
+  // The Netherlands and Belgium fill the map; it can zoom in but never out past them.
   var home = L.latLngBounds([49.45, 2.5], [53.6, 7.25]);
-  var map = L.map("ads-map", {scrollWheelZoom: false, maxBounds: home.pad(0.6), minZoom: 6, zoomSnap: 0.25});
-  // OpenStreetMap's own tiles, turned dark in CSS (.ads-map .leaflet-tile) to match the site.
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · <a href="https://www.geonames.org">GeoNames</a>'
-  }).addTo(map);
+  var map = L.map("ads-map", {scrollWheelZoom: false, maxBounds: home.pad(0.15), zoomSnap: 0.1, preferCanvas: true});
+  map.attributionControl.setPrefix(false);
+  map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com">Natural Earth</a> · <a href="https://www.geonames.org">GeoNames</a>');
+  map.fitBounds(home, {padding: [16, 16]});
+  // Zooming spreads the dots apart, so not much further than one step in.
+  var whole = map.getZoom();
+  map.setMinZoom(whole);
+  map.setMaxZoom(whole + 2);
   map.on("focus", function () { map.scrollWheelZoom.enable(); });
   map.on("blur", function () { map.scrollWheelZoom.disable(); });
 
-  function el(tag, cls, text) {
-    var e = document.createElement(tag);
-    if (cls) e.className = cls;
-    if (text != null) e.textContent = text;
-    return e;
-  }
-  function popup(pin) {
-    var box = el("div", "map-pop");
-    box.appendChild(el("div", "map-pop-place", pin.place + (pin.ads.length > 1 ? " · " + adsLabel.replace("{n}", pin.ads.length) : "")));
-    pin.ads.forEach(function (ad) {
-      var a = el("a", "map-ad"); a.href = ad.url;
-      var ph = el("span", "map-ad-photo" + (ad.catalogue ? " catalogue" : ""));
-      if (ad.photo) { var img = el("img"); img.src = ad.photo; img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer"; ph.appendChild(img); }
-      a.appendChild(ph);
-      var body = el("span", "map-ad-body");
-      var top = el("span", "map-ad-top");
-      top.appendChild(el("b", "map-ad-price", ad.price || "–"));
-      top.appendChild(el("span", "map-ad-verdict " + ad.status, ad.verdict));
-      body.appendChild(top);
-      var name = el("span", "map-ad-name", ad.name);
-      if (ad.removed) name.appendChild(el("span", "removed-tag", removedLabel));
-      body.appendChild(name);
-      if (ad.title) body.appendChild(el("span", "map-ad-title", "“" + ad.title + "”"));
-      a.appendChild(body);
-      box.appendChild(a);
-    });
-    return box;
-  }
-  var order = {bad: 3, warn: 2, ok: 1, unknown: 0};
-  var bounds = [], markers = [];
-  pins.forEach(function (pin) {
-    var many = pin.ads.length > 1;
-    // A single ad shows its verdict; a place with more ads shows the count, edged in the most urgent verdict.
-    var status = pin.ads.reduce(function (s, a) { return order[a.status] > order[s] ? a.status : s; }, "unknown");
-    var icon = L.divIcon({
-      className: "map-pin " + status + (many ? " many" : ""),
-      html: many ? "<span>" + pin.ads.length + "</span>" : "<span></span>",
-      iconSize: many ? [30, 30] : [18, 18]
-    });
-    var marker = L.marker([pin.lat, pin.lng], {icon: icon, title: pin.place, keyboard: true, riseOnHover: true}).addTo(map);
-    marker.bindPopup(popup(pin), {maxWidth: 320, minWidth: 260, className: "map-popup"});
-    markers.push(marker);
-    bounds.push([pin.lat, pin.lng]);
+  fetch({{ url_for('static', filename='benelux.json')|tojson }}).then(function (r) { return r.json(); }).then(function (geo) {
+    function rings(kind) {
+      var out = [];
+      geo.features.forEach(function (f) {
+        if (f.properties.kind === kind) f.geometry.coordinates.forEach(function (p) { out.push(p[0]); });
+      });
+      return out;
+    }
+    var land = rings("country"), lakes = rings("lake");
+    function within(rs, x, y) {
+      var hit = false;
+      rs.forEach(function (ring) {
+        for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+          var xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
+          if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) hit = !hit;
+        }
+      });
+      return hit;
+    }
+    // A dot every ~4.5 km where there's land: in NL or BE and not in the IJsselmeer or another big lake.
+    var renderer = L.canvas();
+    for (var lat = 49.45; lat < 53.6; lat += 0.042) {
+      for (var lng = 2.5; lng < 7.25; lng += 0.065) {
+        if (within(land, lng, lat) && !within(lakes, lng, lat)) {
+          L.circleMarker([lat, lng], {renderer: renderer, radius: 1.5, stroke: false, fillColor: dotColour, fillOpacity: 1, interactive: false}).addTo(map);
+        }
+      }
+    }
+    L.geoJSON(geo.features.filter(function (f) { return f.properties.kind === "border"; }), {interactive: false,
+      style: {color: borderColour, weight: 2.5, opacity: 0.9, dashArray: "1 7", lineCap: "round"}}).addTo(map);
   });
-  // Opened from a town's link (?place=): zoom to that town and open its pin.
-  var focus = {{ focus|tojson }};
+
+  var order = {bad: 3, warn: 2, ok: 1, unknown: 0};
+  var towns = document.querySelectorAll(".map-town");
+  var markers = pins.map(function (pin, i) {
+    var many = pin.ads.length > 1;
+    // One ad: its verdict's colour. More: the count, edged in the most urgent verdict.
+    var status = pin.ads.reduce(function (s, a) { return order[a.status] > order[s] ? a.status : s; }, "unknown");
+    var icon = L.divIcon({className: "map-pin " + status + (many ? " many" : ""),
+                          html: many ? "<span>" + pin.ads.length + "</span>" : "<span></span>",
+                          iconSize: many ? [28, 28] : [16, 16]});
+    var marker = L.marker([pin.lat, pin.lng], {icon: icon, title: pin.place, keyboard: true, riseOnHover: true}).addTo(map);
+    marker.on("click", function () { select(i, true); });
+    return marker;
+  });
+  function select(i, scroll) {
+    towns.forEach(function (t, j) { t.classList.toggle("on", j === i); });
+    markers.forEach(function (m, j) { var e = m.getElement(); if (e) e.classList.toggle("on", j === i); });
+    if (scroll && towns[i]) towns[i].scrollIntoView({block: "nearest", behavior: "smooth"});
+  }
+  towns.forEach(function (t, i) {
+    t.querySelector(".map-town-name button").addEventListener("click", function () {
+      select(i, false);
+      map.flyTo(markers[i].getLatLng(), Math.max(map.getZoom(), whole + 1), {duration: 0.5});
+    });
+    t.addEventListener("mouseenter", function () { var e = markers[i].getElement(); if (e) e.classList.add("hover"); });
+    t.addEventListener("mouseleave", function () { var e = markers[i].getElement(); if (e) e.classList.remove("hover"); });
+  });
+  // Opened from a town's link elsewhere on the site: that town selected and zoomed to.
   if (focus) {
-    map.setView(focus, 10);
-    var at = markers.filter(function (m) { var p = m.getLatLng(); return p.lat === focus[0] && p.lng === focus[1]; })[0];
-    if (at) at.openPopup();
-  } else if (bounds.length > 1) map.fitBounds(bounds, {padding: [40, 40], maxZoom: 10});
-  else if (bounds.length === 1) map.setView(bounds[0], 10);
-  else map.fitBounds(home);
+    var at = pins.findIndex(function (p) { return p.lat === focus[0] && p.lng === focus[1]; });
+    if (at >= 0) { select(at, true); map.setView(focus, whole + 1); }
+  }
 })();
 </script>
 {% endblock %}

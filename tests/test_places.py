@@ -1,4 +1,5 @@
 import json
+import os
 
 from webapp import db, places, seed
 from webapp.app import create_app
@@ -60,3 +61,21 @@ def test_towns_link_to_the_map_opened_there(tmp_path):
     page = client.get("/listings/map?place=Gent&cc=BE").data.decode()
     assert "var focus = [51.05, 3.7167]" in page
     assert 'href="/listings/map"' in client.get("/size").data.decode()  # in the Tools menu
+
+
+def test_map_lists_the_ads_per_town_busiest_first(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    for title, place in [("Canyon Endurace CF 7", "Gent"), ("Trek Domane SL6 2022", "Utrecht"),
+                         ("Trek Emonda SL5 2021", "Utrecht")]:
+        client.post("/check", data={"title": title, "asking_price": "1500", "location": place})
+    page = client.get("/listings/map?lang=en").data.decode()
+    assert page.index('class="map-town"') < page.index(">Utrecht</button>") < page.index(">Gent</button>")
+    assert page.count('class="map-ad"') == 3 and 'href="/check/1"' in page
+
+
+def test_benelux_shapes_have_the_lakes_and_the_border():
+    with open(os.path.join(os.path.dirname(places.__file__), "static", "benelux.json"), encoding="utf-8") as f:
+        kinds = [x["properties"]["kind"] for x in json.load(f)["features"]]
+    assert kinds.count("country") == 2 and "border" in kinds and "lake" in kinds
