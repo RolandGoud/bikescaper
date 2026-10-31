@@ -964,6 +964,8 @@ NL = {
     "from your text": "uit je tekst",
     "last service, mileage": "laatste beurt, aantal km",
     "median of {n} ads": "mediaan van {n} advertenties",
+    "Second-hand": "Tweedehands",
+    "only {n} ads": "maar {n} advertenties",
     "middle of the fair range": "midden van de eerlijke prijs",
     "no": "nee",
     "not filled in": "niet ingevuld",

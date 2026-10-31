@@ -440,6 +440,30 @@ def _round(x):
     return int(x + 0.5)
 
 
+# The parts the model page header lists beside the photo: (label, spec rows to try in order).
+KEY_PARTS = (("Frame", ("Frame", "Frame material")),
+             ("Groupset", ("Rear derailleur", "Drivetrain", "Shifters", "Crankset")),
+             ("Wheels", ("Front wheel", "Rims", "Rear wheel")),
+             ("Brakes", ("Brakes", "Rear brake", "Brake type")),
+             ("Weight", ("Weight",)))
+
+
+def key_parts(specs, tier_rows=None, limit=4):
+    """The main parts of a spec sheet (from spec_groups) for the model page header:
+    [(label, short value, tier or None)], at most `limit`, weight only when a part is missing.
+    The short value is the part's name, the text before its first comma."""
+    values = {en: value for _group, rows in specs or [] for en, _nl, value in rows}
+    parts = []
+    for label, keys in KEY_PARTS:
+        key = next((k for k in keys if str(values.get(k) or "").strip()), None)
+        if key:
+            short = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", str(values[key]))).split(",")[0].strip(" .;")
+            if label == "Groupset":  # "SRAM Rival Rear Derailleur" names the groupset as "SRAM Rival"
+                short = re.sub(r"\s+(rear derailleur|achterderailleur)$", "", short, flags=re.I) or short
+            parts.append((label, short, (tier_rows or {}).get(key)))
+    return parts[:limit]
+
+
 def spec_tiers(model):
     """Tiers for the model's spec sheet: {"rows": {english label: tier}, "groups": {group label: tier},
     "overall": tier or None, "lagging": [group labels two or more tiers below the overall]}.
