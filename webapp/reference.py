@@ -503,6 +503,9 @@ PART_TIERS = {
         (3, r"aeolus\s+elite|zipp|[pe]r?\s*1600|ksyrium|racing\s+[34]\b|\bslr\s*2\b|grc\s*1[68]00|carbon|\boclv\b"),
         (2, r"paradigm\s+(?:sl|elite|pro)\b|racing\s+[56]\b|aksium|r\s*470|[pe]\s*1800|x\s*1900|g\s*540|newmen"),
         (1, r"paradigm|racing\s+7|formula|bontrager\s+tubeless\s+ready"),
+        # A DT Swiss wheelset named by its hubs ("DT swiss wielen met naaf 240"), after the named wheels above.
+        (4, r"dt\s*swiss\b.*\b(?:180|240)\b"),
+        (3, r"dt\s*swiss\b.*\b350\b"),
     ],
     "hubs": [
         (5, r"dt\s*swiss\s*(?:180|240)"),
