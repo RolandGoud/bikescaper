@@ -61,7 +61,7 @@ def test_photos_fill_in_a_groupset_the_ad_leaves_out(models):
     report = run(models, "Trek Emonda SL6", "Mooie fiets, carbon, maat 56", RIVAL)
     row = groupset_row(report)
     assert row["from_photos"]
-    assert en(row["listing"]).endswith("(from the photos)")
+    assert en(row["listing"]).endswith("(inferred from photo analysis)")
     assert "Rival" in en(row["listing"])
     assert report["specs"]["photo_groupset"] == RIVAL
     assert "read it from the photos" in en(report["specs"]["detail"])
@@ -179,8 +179,8 @@ def test_report_page_shows_the_photo_read(tmp_path):
     photo(os.path.join(os.path.dirname(app.config["DB_PATH"]), "ad-photos", "1", "01.jpg"))
     client = app.test_client()
     page = client.get("/check/1?lang=en").data.decode()
-    assert "SRAM Rival AXS (from the photos)" in page
+    assert "SRAM Rival AXS (inferred from photo analysis)" in page
     assert "RIVAL" in page  # the evidence line from webapp/photo_groupsets.json
     page = client.get("/check/1?lang=nl").data.decode()
-    assert "(van de foto&#39;s)" in page or "(van de foto's)" in page
+    assert "(afgeleid uit foto-analyse)" in page
     assert "achterderailleur" in page

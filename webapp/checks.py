@@ -1709,7 +1709,7 @@ def photo_group(read):
     found = detect_groupset(photo_groupset.text_of(read))
     if found:
         extra = ELECTRONIC_NAME.get(found["name"].split()[0]) if found["electronic"] else None
-        found["label"] = Msg("{label} (from the photos)", label=f"{found['name']} {extra}" if extra else found["name"])
+        found["label"] = Msg("{label} (inferred from photo analysis)", label=f"{found['name']} {extra}" if extra else found["name"])
     return found
 
 

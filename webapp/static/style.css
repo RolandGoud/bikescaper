@@ -1296,3 +1296,11 @@ select { max-width: 100%; }
 .place-link { color: inherit; cursor: pointer; text-decoration: underline dotted; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
 .place-link:hover, .place-link:focus-visible { color: var(--link); text-decoration-color: currentColor; }
 .card-place .place-link { display: inline-flex; align-items: center; gap: 6px; }
+
+/* A groupset read from the ad's photos: what the photos show, on hover or tap. */
+.photo-read { position: relative; cursor: help; text-decoration: underline dotted var(--line-strong); text-underline-offset: 3px; outline: none; }
+.photo-read::after { content: attr(data-tip); position: absolute; z-index: 20; right: 0; top: calc(100% + 6px); width: min(320px, 80vw);
+  padding: 10px 12px; background: var(--raised); color: var(--text); border: 1px solid var(--line-strong); border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4); font-size: 13px; line-height: 1.45; font-weight: 400; text-align: left;
+  opacity: 0; visibility: hidden; transition: opacity .15s; pointer-events: none; }
+.photo-read:hover::after, .photo-read:focus::after { opacity: 1; visibility: visible; }
