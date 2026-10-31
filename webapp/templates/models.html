@@ -57,11 +57,11 @@
   <section class="stack">
     <h2>{{ _(label) }} <span class="muted count">{{ items|length }}</span></h2>
     <div class="model-grid">
-      {# Every 5th tile is an ad: one after each four models, never last in a group. The offers
-         rotate across the groups, so the next group goes on where this one stopped. #}
+      {# Tiles 5, 15, 25, … of each group are ads (after 4 models, then after every 9 more), never last
+         in a group. The offers rotate across the groups, so the next group goes on where this one stopped. #}
       {% for m in items %}
       {{ model_card(m, short=True) }}
-      {% if sponsored.tiles and loop.index % 4 == 0 and not loop.last %}{{ sponsored_tile(sponsored.tiles[ads.n % sponsored.tiles|length]) }}{% set ads.n = ads.n + 1 %}{% endif %}
+      {% if sponsored.tiles and loop.index % 9 == 4 and not loop.last %}{{ sponsored_tile(sponsored.tiles[ads.n % sponsored.tiles|length]) }}{% set ads.n = ads.n + 1 %}{% endif %}
       {% endfor %}
     </div>
   </section>

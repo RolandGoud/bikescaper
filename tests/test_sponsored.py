@@ -70,7 +70,7 @@ def test_rotation_gives_every_card_offer_in_the_visitors_language():
     assert sponsored.rotation([offer("c", ["banner"])], "nl") == []
 
 
-def test_listings_and_models_show_an_ad_as_every_fifth_tile(tmp_path):
+def test_listings_and_models_show_ads_as_tiles_5_15_25(tmp_path):
     path = tmp_path / "sponsored.json"
     path.write_text(json.dumps([offer("card1", ["card"]), offer("card2", ["card"]), offer("side", ["side"])]))
     app = create_app(str(tmp_path / "app.sqlite3"))
@@ -79,7 +79,8 @@ def test_listings_and_models_show_an_ad_as_every_fifth_tile(tmp_path):
     client = app.test_client()
     titles = ["Trek Domane SL6 2022 maat 56", "Canyon Ultimate CF SL 8 2021", "Giant TCR 2020",
               "Specialized Tarmac SL7 2021", "Cube Attain 2022", "Scott Addict 2020",
-              "Orbea Orca 2021", "Cannondale SuperSix 2019", "Trek Emonda SL5 2021"]
+              "Orbea Orca 2021", "Cannondale SuperSix 2019", "Trek Emonda SL5 2021", "Canyon Endurace CF 7 2022",
+              "Giant Defy 2021", "Trek Madone SL6 2022", "Canyon Aeroad CF SLX 2021", "Cube Agree C:62 2020"]
     client.post("/check", data={"title": titles[0]})
 
     listings = client.get("/listings").data.decode()  # fewer than four ads: the ad tile goes last
@@ -89,7 +90,7 @@ def test_listings_and_models_show_an_ad_as_every_fifth_tile(tmp_path):
     listings = client.get("/listings").data.decode()
     grid = listings[listings.index('class="grid"'):]
     tiles = re.findall(r'class="(listing-card|sponsored-card fluid)', grid)
-    assert tiles == ["listing-card"] * 4 + ["sponsored-card fluid"] + ["listing-card"] * 4 + \
+    assert tiles == ["listing-card"] * 4 + ["sponsored-card fluid"] + ["listing-card"] * 9 + \
         ["sponsored-card fluid"] + ["listing-card"]
     assert "card1 nl" in grid and "card2 nl" in grid  # the two tiles show different offers
 
@@ -98,9 +99,9 @@ def test_listings_and_models_show_an_ad_as_every_fifth_tile(tmp_path):
     grid = models[models.index('class="model-grid"'):]
     grid = grid[:grid.index("</section>")]
     tiles = re.findall(r'class="(model-card|sponsored-card fluid)', grid)
-    assert tiles[:10] == ["model-card"] * 4 + ["sponsored-card fluid"] + ["model-card"] * 4 + ["sponsored-card fluid"]
+    assert tiles[:15] == ["model-card"] * 4 + ["sponsored-card fluid"] + ["model-card"] * 9 + ["sponsored-card fluid"]
     assert tiles[-1] == "model-card"
-    assert all(tiles[i] == ("sponsored-card fluid" if i % 5 == 4 else "model-card") for i in range(len(tiles)))
+    assert all(tiles[i] == ("sponsored-card fluid" if i % 10 == 4 else "model-card") for i in range(len(tiles)))
 
     app.config["SPONSORED_PATH"] = str(tmp_path / "none.json")  # no offers: no ad tiles
     assert "sponsored-card" not in client.get("/models").data.decode()

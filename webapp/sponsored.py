@@ -2,7 +2,7 @@
 
 The offers live in sponsored.json, read on every page view so a change shows without a restart.
 Each offer has an affiliate `url` (from Daisycon, TradeTracker or Awin), the `slots` it may fill
-("card" in the Net gecheckt row and as every 5th tile in the /models and /listings grids, "banner" below that row, "side" in the right margin on wide
+("card" in the Net gecheckt row and as tiles 5, 15, 25, … in the /models and /listings grids, "banner" below that row, "side" in the right margin on wide
 screens), an optional `image` under static/ and, per language, a title, text and button text:
 
     {"id": "insurance", "slots": ["card"], "advertiser": "Example.nl",
@@ -51,7 +51,7 @@ def pick(offers, lang, rng=random, slots=SLOTS):
 
 
 def rotation(offers, lang, slot="card", rng=random):
-    """The offers for a run of ad tiles in a grid (every 5th tile on /models and /listings), in a
+    """The offers for a run of ad tiles in a grid (tiles 5, 15, 25, … on /models and /listings), in a
     random order the page cycles through, so tiles next to each other differ when there are two or
     more offers. Each in the visitor's language, as pick() gives them. [] when no offer fits."""
     fits = [o for o in offers if slot in o.get("slots", [])]
