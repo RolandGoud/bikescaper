@@ -376,7 +376,7 @@ def test_selected_filters_link_back_to_all(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models?lang=en&type=road&brand=Canyon").data.decode()
-    assert '<option value="road" selected>' in page
+    assert 'value="road" selected>' in page
     assert 'class="pill brand on" href="/models?type=road"' in page  # Canyon logo clears the brand
     assert "Mountain" not in page  # no mountain bikes yet
 

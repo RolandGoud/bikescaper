@@ -18,6 +18,8 @@
     if (!main.contains(el)) return null;
     const pill = [...main.querySelectorAll(".logo-pills a")].indexOf(el);
     if (pill >= 0) return () => main.querySelectorAll(".logo-pills a")[pill];
+    const menu = el.closest(".pill-select");
+    if (menu) return () => main.querySelector(`.pill-select[data-name="${menu.dataset.name}"] button`);
     return el.name ? () => main.querySelector(`[name="${el.name}"]`) : null;
   };
 
@@ -28,6 +30,7 @@
     // the NL/EN links carry the filters in their address, so take the new page's
     const langs = document.querySelector(".lang-switch"), newLangs = next.querySelector(".lang-switch");
     if (langs && newLangs) langs.replaceWith(newLangs);
+    window.pillSelects?.(main);  // the new form's tier menu
     scrollTo(0, y);  // keep the reader where they were; scroll anchoring would jump otherwise
     refocus?.()?.focus({ preventScroll: true });
   };
