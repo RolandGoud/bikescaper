@@ -6,7 +6,8 @@ def test_photos_count_once_per_model_year():
     model = {"brand": "Giant", "name": "Defy 1", "slug": "giant-defy-1", "seen_on": "2026-03-01", "url": "u",
              "image": "a.jpg", "colorways": [{"image": "a.jpg"}, {"image": "b.jpg"}, {"image": None}],
              "year_specs": {"years": {"2024": {"image": "y.jpg", "colour_images": {"Red": "y.jpg", "Blue": "gone.jpg"},
-                                               "colour_angles": {"Red": ["y2.jpg"]}}}}}
+                                               "colour_angles": {"Red": ["y2.jpg"]}},
+                                     "2026": {"image": "sheet.jpg"}}}}  # the scrape year shows our own photos
     galleries = {"u": {"Red": ["a.jpg", "c.jpg"]}}
     found = photo_counts.model_photos(model, galleries, exists=lambda p: p != "gone.jpg")
     assert found == {2026: {"a.jpg", "b.jpg", "c.jpg"}, 2024: {"y.jpg", "y2.jpg"}}
