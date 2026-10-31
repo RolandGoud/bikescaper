@@ -244,7 +244,7 @@
           {% set likely = y.year in ringed %}
           <div class="gen-year{{ ' has-photo' if y.photo }}{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}{{ ' matched' if y.year == matched }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
             {# A photo that doesn't load falls back to the dot alone, as a year without one. #}
-            {% if y.photo %}<div class="gen-photo"><img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or (r.model.name|model_title) }} {{ y.year }}" loading="lazy" draggable="false" onerror="this.parentNode.className='gen-photo gen-blank';this.parentNode.parentNode.classList.remove('has-photo');this.remove()"></div>
+            {% if y.photo %}<div class="gen-photo"><img src="{{ url_for('images', path=y.photo) }}" alt="{{ (y.sheet_name or r.model.name)|model_title }} {{ y.year }}" loading="lazy" draggable="false" onerror="this.parentNode.className='gen-photo gen-blank';this.parentNode.parentNode.classList.remove('has-photo');this.remove()"></div>
             {% else %}<div class="gen-photo gen-blank"></div>{% endif %}
             <span class="gen-dot"></span>
             <span class="gen-y">{{ y.year }}</span>

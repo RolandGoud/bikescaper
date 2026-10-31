@@ -57,7 +57,7 @@
         {% else %}<div class="v small">–</div>{% endif %}</span>
       {# A year of an earlier generation shows that bike: its name and the years it was sold. #}
       {% if t.generation %}{% set g = t.generation %}
-      <span data-fact="title">{{ g.title }}</span>
+      <span data-fact="title">{{ g.title|model_title }}</span>
       <span data-fact="years"><div class="k">{{ _('Model years') }}{% set src %}{% if g.source == 'sheet' %}{{ _("From {brand}'s own archive sheet of this generation.", brand=m.brand) }}{% elif g.source == 'lineage' %}{{ _('Launch years of each generation entered by hand; our spec sheets fill in the rest.') }}{% elif g.source == 'frame' %}{{ _("From {brand}'s own archive sheets: the frame reads the same in each of these years.", brand=m.brand) }}{% elif g.source == 'sheets' %}{{ _('From the model years whose spec sheets carry this name; years may be missing.') }}{% else %}{{ _("We don't know which years this generation was sold.") }}{% endif %}{% if g.counted == 'same' %} {{ _("{brand} didn't number these years, but the frame reads the same as gen {n}'s.", brand=m.brand, n=g.number) }}{% elif g.counted == 'before' %} {{ _("{brand} didn't number this generation: it is gen {n}, because the frame changed when gen {next} came.", brand=m.brand, n=g.number, next=g.number + 1) }}{% endif %}{% endset %}{{ note(src) }}</div>
         <div class="v">{% if g.first %}{{ g.first }}{% if g.last != g.first %}–{{ g.last or _('now') }}{% endif %}{% else %}{{ t.year }}{% endif %}</div>
         <div class="small earlier-gen">{{ _('earlier gen') }}{% if g.number and 'gen' not in g.title|lower %} · {{ _('gen {n}', n=g.number) }}{% endif %}</div></span>
