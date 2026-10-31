@@ -16,7 +16,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import BRANDS, DISCIPLINES, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES, TIERS
 
@@ -290,12 +290,17 @@ def create_app(db_path=None):
         args = {**request.args.to_dict(), **changes}
         return url_for(request.endpoint, **(request.view_args or {}), **args)
 
+    def on_map(place, listing_url=None):
+        """The listings map opened at this ad's town, or None when the map doesn't know the place."""
+        spot = places.locate(place, listing_url)
+        return url_for("listings_map", place=place, cc=spot[2]) if spot else None
+
     @app.context_processor
     def globals_():
         return {"brands": BRANDS, "logos": {b["name"]: b["logo"] for b in BRANDS if b.get("logo")},
                 "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
-                "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page,
+                "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
                 "periods": prices.PERIODS,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
@@ -470,6 +475,40 @@ def create_app(db_path=None):
                       if result["model"] else None)
             items.append((listing, result, asking))
         return render_template("checks.html", items=items, nav="listings")
+
+    @app.route("/listings/map")
+    def listings_map():
+        """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
+        ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
+        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        pins, unplaced = {}, 0
+        for row, count in group_checks(rows):
+            spot = places.locate(row["location"], row["listing_url"])
+            if not spot:
+                unplaced += 1
+                continue
+            listing = listing_dict(row, count=count)
+            result = stored_check(listing)
+            model = result["model"]
+            pin = pins.setdefault(spot[:2], {"lat": spot[0], "lng": spot[1], "country": spot[2],
+                                             "place": row["location"], "ads": []})
+            pin["ads"].append({
+                "url": url_for("report", check_id=row["id"]),
+                "name": f"{model['brand']} {model['name']}" if model else row["title"],
+                "title": row["title"] if model else None,
+                "price": eur(row["asking_price"]) if row["asking_price"] else None,
+                "status": result["value"]["status"] if model else "unknown",
+                "verdict": str(result["value"]["headline"]) if model else gettext("No matching model yet"),
+                # The seller's first photo, else the catalogue photo of the matched model.
+                "photo": listing["photos"][0] if listing["photos"] else
+                         url_for("images", path=model["image"]) if model and model["image"] else None,
+                "catalogue": not listing["photos"],
+                "removed": bool(row["removed_at"]),
+            })
+        focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
+        return render_template("listings_map.html", pins=list(pins.values()), unplaced=unplaced,
+                               ads=sum(len(p["ads"]) for p in pins.values()), nav="map",
+                               focus=list(focus[:2]) if focus else None)
 
     @app.route("/models")
     def catalog():

@@ -52,3 +52,14 @@ def test_trek_price_is_this_bikes_not_the_one_beside_it():
             ' {"id": "41587", "name": "Domane AL 2 Gen 4", "price": "999.0"}]')
     assert read_specs("Trek", page, "https://www.trekbikes.com/nl/nl_NL/x/p/41587/")[1] == 999.0
     assert read_specs("Trek", page, "https://www.trekbikes.com/nl/nl_NL/x/p/33037/")[1] is None
+
+
+def test_model_page_marks_a_german_price_with_an_asterisk(tmp_path):
+    from webapp import db as webdb
+    from webapp.app import create_app
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(webdb.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/trek-emonda-slr-7?lang=nl").get_data(as_text=True)
+    assert "(Duitse adviesprijs)" not in page
+    assert "Nieuw € 8.499*" in page or "Nieuw €8.499*" in page
+    assert "De betrouwbaarheid kunnen we daarom niet voor 100% garanderen." in page

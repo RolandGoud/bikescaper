@@ -10,6 +10,7 @@
 <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
 <link rel="icon" href="{{ url_for('static', filename='favicon-32.png') }}" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+{% block head %}{% endblock %}
 </head>
 <body>
 <header class="site-header">
@@ -29,10 +30,11 @@
         <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}"{% if nav == 'listings' %} aria-current="page"{% endif %}>{{ _('Listings') }}</a>
         {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}" class="{{ 'on' if nav == 'groupsets' }}">{{ _('Groupsets') }}</a>{% endif %}
         <div class="tools">
-          <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
+          <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value', 'map') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
           <div id="tools-menu" class="tools-menu">
             <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}"{% if nav == 'size' %} aria-current="page"{% endif %}>{{ _('Size finder') }}<small>{{ _('Which frame size fits you') }}</small></a>
             <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}"{% if nav == 'value' %} aria-current="page"{% endif %}>{{ _('Value estimator') }}<small>{{ _('A rough fair price for a used bike') }}</small></a>
+            <a href="{{ url_for('listings_map') }}" class="{{ 'on' if nav == 'map' }}"{% if nav == 'map' %} aria-current="page"{% endif %}>{{ _('Ads on the map') }}<small>{{ _('Where the checked bikes are') }}</small></a>
           </div>
         </div>
         {# Inside the menu, so on a phone it folds away with the links. #}
@@ -56,5 +58,6 @@
 </footer>
 <script src="{{ url_for('static', filename='duo.js') }}" defer></script>
 <script src="{{ url_for('static', filename='menu.js') }}" defer></script>
+<script src="{{ url_for('static', filename='place-links.js') }}" defer></script>
 </body>
 </html>
