@@ -1450,11 +1450,11 @@ def age_summary(age, estimate, resolved=None):
     adds_up = Msg("Model year {year}", year=age["year"]) if age["status"] == OK and age.get("year") else None
     if adds_up and resolved and resolved["how"] == "purchase":
         adds_up = Msg("Model year {year}, bought in {claimed}", year=resolved["year"], claimed=age["year"])
-    if not age.get("year") and resolved and resolved["how"] in ("estimate", "photo"):
-        # No year in the ad, but its details date the bike: say so instead of only "Year not stated".
-        return {"status": WARN, "headline": Msg("No year given; probably {years}",
-                                                years=_span(resolved["first"], resolved["last"])),
-                "detail": join(estimate["detail"], Msg("Ask for the invoice or the serial number."))}
+    if not age.get("year") and resolved:
+        # No year in the ad: the tab gives the year we go by (resolve_year), not "Year not stated".
+        return {"status": WARN, "headline": Msg("Probably {years}", years=resolved["year"]),
+                "detail": join(year_note(resolved, {"year": None}) or (estimate or {}).get("detail"),
+                               Msg("Ask for the invoice or the serial number."))}
     if not estimate or estimate["status"] == UNKNOWN and age["status"] != UNKNOWN or age.get("older"):
         # A bike older than any generation we know: say so, even when the parts fit the year.
         return {"status": age["status"], "headline": adds_up or age["headline"], "detail": age["detail"]}
@@ -1734,7 +1734,7 @@ def check_size(model, claims, rider_height=None):
             fit = {"status": BAD, "text": Msg("Wrong size for you")}
     return {"status": fit["status"] if fit else OK, "headline": Msg("Size {size}", size=size),
             "detail": Msg("Fits riders of about {lo} to {hi} cm.", lo=lo, hi=hi), "rows": rows, "fit": fit,
-            "notes": notes}
+            "fits": (lo, hi), "notes": notes}
 
 
 CONDITION_FACTOR = {"like-new": 1.05, None: 1.0, "used": 0.92, "damaged": 0.6}
@@ -1812,7 +1812,7 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
                       detail=Msg("Add the asking price to see how it compares."))
         return result
     if asking > high * 1.05:
-        result.update(status=WARN, headline=Msg("About {diff} high", diff=eur(asking - high)))
+        result.update(status=WARN, headline=Msg("ca. {diff} too high", diff=eur(asking - high)))
     elif asking < low * 0.6:
         result.update(status=BAD, headline=Msg("Suspiciously cheap"))
     elif asking < low * 0.95:

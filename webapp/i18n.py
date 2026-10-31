@@ -480,6 +480,7 @@ NL = {
     # checks: age
     "On sale in the {brand} NL catalogue on {date}.": "Te koop in de Nederlandse catalogus van {brand} op {date}.",
     "Year not stated": "Jaar niet vermeld",
+    "Ask for the invoice or the serial number.": "Vraag om de aankoopbon of het framenummer.",
     "The ad doesn't give a year. Ask for the invoice or the serial number.":
         "De advertentie noemt geen jaar. Vraag om de aankoopbon of het framenummer.",
     "Seller says {year}": "Verkoper zegt {year}",
@@ -621,7 +622,6 @@ NL = {
         "Waarschijnlijk ouder dan elke generatie die we kennen, dus de nieuwprijs kan anders zijn geweest; we gaan uit van {year}, het jaar in de advertentie.",
     "The bike is probably an earlier generation than {name}, whose new price we don't have; an older generation is usually worth less.":
         "De fiets is waarschijnlijk een eerdere generatie dan de {name}, waarvan we de nieuwprijs niet hebben; een oudere generatie is meestal minder waard.",
-    "No year given; probably {years}": "Geen jaar vermeld; waarschijnlijk {years}",
     "Model year {year}, bought in {claimed}": "Modeljaar {year}, gekocht in {claimed}",
     "Launch years of each generation entered by hand; our spec sheets fill in the rest.":
         "Introductiejaren per generatie met de hand ingevoerd; onze specificaties vullen de rest aan.",
@@ -703,7 +703,7 @@ NL = {
         "De nieuwprijs is de Nederlandse prijs van {year}; die kan afwijken van wat deze fiets nieuw kostte.",
     "Fair {low} to {high}": "Eerlijk {low} tot {high}",
     "Add the asking price to see how it compares.": "Vul de vraagprijs in om te vergelijken.",
-    "About {diff} high": "Ongeveer {diff} te hoog",
+    "ca. {diff} too high": "± {diff} te hoog",
     "Suspiciously cheap": "Verdacht goedkoop",
     "Below the fair range": "Onder de eerlijke prijs",
     "Fair price": "Eerlijke prijs",

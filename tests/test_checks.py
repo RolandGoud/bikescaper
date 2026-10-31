@@ -1375,10 +1375,13 @@ def test_an_ad_without_a_year_says_what_its_details_point_to():
     estimate = {"status": checks.UNKNOWN, "first": 2022, "last": None, "headline": checks.Msg("y"),
                 "detail": checks.Msg("The ad doesn't give a year, but its details point to {years}.", years="2022–2026")}
     tab = checks.age_summary(age, estimate, {"year": 2024, "how": "estimate", "first": 2022, "last": 2026})
-    assert tab["status"] == checks.WARN and en(tab["headline"]) == "No year given; probably 2022–2026"
-    # A colour-dated year says so too.
+    assert tab["status"] == checks.WARN and en(tab["headline"]) == "Probably 2024"
+    assert "so we go by 2024, the middle" in en(tab["detail"])
+    # A colour-dated year, and the generation's middle year without any clues, the same way.
     tab = checks.age_summary(age, estimate, {"year": 2023, "how": "photo", "first": 2023, "last": 2023})
-    assert en(tab["headline"]) == "No year given; probably 2023"
+    assert en(tab["headline"]) == "Probably 2023"
+    tab = checks.age_summary(age, None, {"year": 2025, "how": "generation", "first": 2024, "last": 2026})
+    assert en(tab["headline"]) == "Probably 2025" and "this generation was sold 2024–2026" in en(tab["detail"])
 
 
 def test_an_earlier_generation_we_have_no_sheet_of_is_priced_with_a_warning(models):

@@ -171,7 +171,8 @@
       {% else %}
       {# The verdict as a pill by the label; the headline says what we found. The detail is in the panel. #}
       <span class="tab-label"><span class="mono {{ v.status }}">{{ label|upper }}</span>
-        {% if v.status in ('ok', 'warn', 'bad') %}<span class="verdict-pill {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>{{ {'ok': _('OK'), 'warn': _('Watch out'), 'bad': _('Not OK')}[v.status]|upper }}</span>{% endif %}</span>
+        {% if v.status in ('ok', 'warn', 'bad') %}<span class="verdict-pill {{ v.status }}"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>{{ {'ok': _('OK'), 'warn': _('Watch out'), 'bad': _('Not OK')}[v.status]|upper }}</span>{% endif %}
+        {% if key == 'size' and r.size.fits %}<span class="verdict-pill info"><i aria-hidden="true">↕</i>{{ r.size.fits[0] }}–{{ r.size.fits[1] }} CM</span>{% endif %}</span>
       <span class="big {{ v.status }}">{{ v.tab_headline or v.headline }}</span>
       {% endif %}
     </a>
@@ -213,21 +214,34 @@
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
     <h2>{{ _('Age check') }}</h2>
     {% if r.age.timeline %}
-    {# A block per generation with its model-year photos, the ad's own photo under the year we go by; the years the ad's details point to (the year estimate below) are ringed. #}
+    {# A block per generation with its model-year photos on one timeline, the ad's own photo under the year we go by (filled dot, lighter block); the years the ad's details point to (the year estimate below) are ringed. #}
     {% set est = r.year_estimate if r.year_estimate and not r.year_estimate.fallback and (r.year_estimate.first or r.year_estimate.last) else none %}
-    <div class="gen-blocks{{ ' focus' if est or r.claims.year }}">
+    {% set matched = r.year.year if r.year else none %}
+    {% set ad_photo = listing.photos and matched and r.age.timeline|selectattr('year', 'equalto', matched)|list %}
+    {# Photos grow when there are few years to show: 110 px high for up to 3, 80 px up to 6, else 48 px. #}
+    {% set n_years = r.age.generations|sum(attribute='years', start=[])|length %}
+    <div class="gen-blocks{{ ' focus' if est or r.claims.year }}" style="--ph: {{ 110 if n_years <= 3 else 80 if n_years <= 6 else 48 }}px">
+      {# Row labels, laid out like a year so they line up with the photo rows. #}
+      <div class="gen-block gen-legend" aria-hidden="true">
+        <div class="gen-head">&nbsp;</div>
+        <div class="gen-row"><div class="gen-year">
+          <div class="gen-photo gen-label">{{ _('Catalogue') }}</div>
+          <span class="gen-dot"></span><span class="gen-y">&nbsp;</span><span class="gen-tag"></span>
+          {% if ad_photo %}<div class="gen-photo gen-label">{{ _('Ad') }}</div>{% endif %}
+        </div></div>
+      </div>
       {% for g in r.age.generations %}
-      <div class="gen-block {{ g.kind }}" style="flex-grow: {{ g.years|length }}">
+      <div class="gen-block {{ g.kind }}{{ ' matched' if g.years|selectattr('year', 'equalto', matched)|list }}" style="flex-grow: {{ g.years|length }}">
         <div class="gen-head">{{ g.name or (_('Earlier generation') if g.kind == 'earlier' else _('Not in our catalogue')) }} <span>{{ g.first if g.first == g.last else g.first ~ '–' ~ g.last }}</span></div>
         <div class="gen-row">
           {% for y in g.years %}
           {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
-          <div class="gen-year{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
+          <div class="gen-year{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}{{ ' matched' if y.year == matched }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
             <div class="gen-photo">{% if y.photo %}<img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy">{% else %}<span class="gen-none">–</span>{% endif %}</div>
             <span class="gen-dot"></span>
             <span class="gen-y">{{ y.year }}</span>
-            {% if y.claimed %}<span class="gen-tag">{{ _('in the ad') }}</span>{% elif likely %}<span class="gen-tag est">{{ _('estimated') }}</span>{% endif %}
-            {% if listing.photos and r.year and y.year == r.year.year %}<div class="gen-photo gen-ad" title="{{ _('Photo from the ad') }}"><img src="{{ duo_pick(listing.photos, r.model) }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer"></div>{% endif %}
+            <span class="gen-tag{{ ' est' if likely and not y.claimed }}">{% if y.claimed %}{{ _('in the ad') }}{% elif likely %}{{ _('estimated') }}{% endif %}</span>
+            {% if ad_photo and y.year == matched %}<div class="gen-photo gen-ad" title="{{ _('Photo from the ad') }}"><img src="{{ duo_pick(listing.photos, r.model) }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer"></div>{% endif %}
           </div>
           {% endfor %}
         </div>
@@ -235,10 +249,15 @@
       {% endfor %}
     </div>
     {% endif %}
-    <p><span class="{{ r.age.status }}" style="font-weight: 700">{{ r.age.headline }}:</span> {{ r.age.detail }}</p>
-    {% if r.year %}<p class="small muted">{{ _('We go by {year} for the price and the specs.', year=r.year.year) }}{% if r.year.note %} {{ r.year.note }}{% endif %}</p>{% endif %}
-    {# Without clues the estimate only repeats the generation's years, which the age check above already weighed. #}
-    {% if r.year_estimate and not (r.year_estimate.fallback and (r.age.earlier or r.age.older)) %}
+    {# Without a year in the ad, the same "probably" line as the tab, not "year not stated". #}
+    {% set age_line = r.age_tab if r.age_tab and not r.claims.year and r.year else r.age %}
+    <p><span class="{{ age_line.status }}" style="font-weight: 700">{{ age_line.headline }}:</span> {{ age_line.detail }}</p>
+    {# Without a year in the ad the line above already explains the year we go by, so its note isn't repeated. #}
+    {% if r.year %}<p class="small muted">{{ _('We go by {year} for the price and the specs.', year=r.year.year) }}{% if r.year.note and r.claims.year %} {{ r.year.note }}{% endif %}</p>{% endif %}
+    {# Without clues the estimate only repeats the generation's years, which the lines above already weighed;
+       "can't tell" would contradict the year we go by. #}
+    {% set est_says = r.year_estimate and (r.year_estimate.first or r.year_estimate.last) %}
+    {% if r.year_estimate and not (r.year_estimate.fallback and (r.age.earlier or r.age.older or r.year)) and (est_says or not r.year) %}
     <p><span class="{{ r.year_estimate.status }}" style="font-weight: 700">{{ _('Year estimate:') }} {{ r.year_estimate.headline }}.</span> {{ r.year_estimate.detail }}</p>
     <ul class="small muted" style="margin: -8px 0 12px; padding-left: 20px">{% for e in r.year_estimate.evidence %}<li>{{ e }}</li>{% endfor %}</ul>
     {% endif %}
