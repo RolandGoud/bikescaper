@@ -1080,6 +1080,7 @@ NL = {
     "“{word}” isn’t in the ad": "“{word}” staat niet in de advertentie",
     "the {year} model": "model {year}",
     "the colour the ad names": "de kleur uit de advertentie",
+    "the colour in the ad's photos": "de kleur op de foto's van de advertentie",
     "Pick the right model": "Kies het juiste model",
     "not in the ad": "niet in de advertentie",
     "The ad names a version we don’t have in the catalogue, so this is the closest bike we have. Pick the right one if it’s listed.":

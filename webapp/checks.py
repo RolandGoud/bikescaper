@@ -1913,6 +1913,12 @@ def run_check(models, listing, today=None):
                                                     report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
     report["colourway"] = colour_match.pick(chosen, listing["title"], listing.get("description") or "")
+    report["colour_from_photos"] = False
+    if not report["colourway"] and (name := colour_match.by_photos(
+            [(w["name"], w.get("image")) for w in chosen.get("colorways") or []], listing.get("photo_paths"))):
+        # The ad doesn't name its colour: the colourway its photos show.
+        report["colourway"] = next(w for w in chosen["colorways"] if w["name"] == name)
+        report["colour_from_photos"] = True
     if report["colourway"] and report["colourway"].get("image"):
         report["model"] = dict(chosen, image=report["colourway"]["image"])
     report["age"] = check_age(chosen, claims, today)
@@ -1924,6 +1930,13 @@ def run_check(models, listing, today=None):
     # One model year for the price and the spec comparison, so they can't disagree.
     report["year"] = resolve_year(chosen, claims, report["age"], report["year_estimate"], today, found)
     report["year"]["note"] = year_note(report["year"], claims)
+    if found and found[2] is None:
+        # The ad doesn't name its colour and that year came in several: the colourway its photos show.
+        own = ((chosen.get("year_specs") or {}).get("years") or {}).get(str(found[0]), {}).get("colour_images") or {}
+        name = colour_match.by_photos(list(own.items()), listing.get("photo_paths"))
+        report["colour_from_photos"] = bool(name)
+        if name:
+            found = (found[0], own[name], name)
     if found:
         report["photo_year"] = {"year": found[0], "colour": found[2]}
         report["colourway"] = None
