@@ -133,7 +133,7 @@
           const head = el("li", "group", child.label);
           head.setAttribute("role", "presentation");
           list.append(head);
-          [...child.children].forEach(add);
+          [...child.children].forEach((o) => add(o));  // not forEach(add): its index would land in "into"
         } else { flush(); add(child); }
       }
       flush();
