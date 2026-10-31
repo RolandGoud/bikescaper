@@ -1177,6 +1177,8 @@ NL = {
     "Ads on the map": "Advertenties op de kaart",
     "Where the checked bikes are. Click a pin or a town to find its ads.": "Waar de gecheckte fietsen staan. Klik op een speld of een plaats om de advertenties te vinden.",
     "Border NL / BE": "Grens NL / BE",
+    "Places": "Plaatsen",
+    "All places": "Alle plaatsen",
     "Priced too high": "Te hoog geprijsd",
     "No price verdict": "Geen prijsoordeel",
     "{n} ads in {p} places": "{n} advertenties in {p} plaatsen",

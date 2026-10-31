@@ -59,7 +59,7 @@ def test_towns_link_to_the_map_opened_there(tmp_path):
         assert link in html, page
         assert "place=Nergenshuizen" not in html, page  # a town the map doesn't know stays plain text
     page = client.get("/listings/map?place=Gent&cc=BE").data.decode()
-    assert "var focus = [51.05, 3.7167]" in page
+    assert "var selected = 0;" in page  # Gent is the first (only) town on the map
     assert 'href="/listings/map"' in client.get("/size").data.decode()  # in the Tools menu
 
 
@@ -71,8 +71,15 @@ def test_map_lists_the_ads_per_town_busiest_first(tmp_path):
                          ("Trek Emonda SL5 2021", "Utrecht")]:
         client.post("/check", data={"title": title, "asking_price": "1500", "location": place})
     page = client.get("/listings/map?lang=en").data.decode()
-    assert page.index('class="map-town"') < page.index(">Utrecht</button>") < page.index(">Gent</button>")
+    # Nothing picked: the towns, most ads first, each linking to its own address; no town's ads open yet.
+    index = page.split('<nav class="map-index"', 1)[1].split("</nav>", 1)[0]
+    assert index.index("Utrecht") < index.index("Gent") and 'href="/listings/map?place=Utrecht&amp;cc=NL"' in index
+    assert page.count('<section class="map-town" data-pin="0" hidden>') == 1
     assert page.count('class="map-ad"') == 3 and 'href="/check/1"' in page
+    # A town's address: only that town's ads shown, the town list hidden.
+    page = client.get("/listings/map?place=Gent&cc=BE&lang=en").data.decode()
+    assert '<nav class="map-index" aria-label="Places" hidden>' in page
+    assert '<section class="map-town" data-pin="1">' in page and '<section class="map-town" data-pin="0" hidden>' in page
 
 
 def test_benelux_shapes_have_the_lakes_and_the_border():

@@ -5,9 +5,9 @@
 {% endblock %}
 {% block body %}
 {# The Netherlands and Belgium as a grid of dots (webapp/static/benelux.json), one glowing pin per town with
-   checked ads in the colour of its most urgent price verdict, and beside it the ads themselves, per town,
-   busiest town first. A pin or a town's name selects that town in both; ?place= (from a town's link
-   elsewhere on the site) opens the page with that town selected. #}
+   checked ads in the colour of its most urgent price verdict, and beside it the towns, most ads first.
+   Picking a town (its pin or its name) shows only that town's ads and gives the page
+   that town's address (?place=&cc=), which links elsewhere on the site open directly. #}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
     <h1 style="font-size: 44px">{{ _('Ads on the map') }}</h1>
@@ -34,9 +34,25 @@
         <span>{{ _('{n} ads in {p} places', n=ads, p=pins|length) }}</span>
         {% if unplaced %}<span>{{ _('{n} without a place we know', n=unplaced) }}</span>{% endif %}
       </div>
+      {# No town picked: the towns, most ads first. Each is a real link (its own address), which the
+         script below turns into picking the town without reloading. #}
+      {% if pins %}
+      <nav class="map-index" aria-label="{{ _('Places') }}"{% if selected is not none %} hidden{% endif %}>
+        {% for pin in pins %}
+        <a class="map-index-town" href="{{ pin.link }}" data-pin="{{ loop.index0 }}">
+          <span class="map-index-name">{{ pin.place }}</span>
+          <span class="map-index-dots" aria-hidden="true">{% for ad in pin.ads[:8] %}<b class="map-dot {{ ad.status }}"></b>{% endfor %}</span>
+          <span class="map-index-count">{{ pin.ads|length }}</span>
+        </a>
+        {% endfor %}
+      </nav>
+      {% endif %}
       {% for pin in pins %}
-      <section class="map-town" data-pin="{{ loop.index0 }}">
-        <h2 class="map-town-name"><button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ pin.place }}</button><span class="muted">{{ pin.ads|length }}</span></h2>
+      <section class="map-town" data-pin="{{ loop.index0 }}"{% if loop.index0 != selected %} hidden{% endif %}>
+        <div class="map-town-head">
+          <a class="map-back" href="{{ url_for('listings_map') }}">← {{ _('All places') }}</a>
+          <h2 class="map-town-name"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ pin.place }}<span class="muted">{{ pin.ads|length }}</span></h2>
+        </div>
         {% for ad in pin.ads %}
         <a class="map-ad" href="{{ ad.url }}">
           <span class="map-ad-photo{{ ' catalogue' if ad.catalogue }}">{% if ad.photo %}<img src="{{ ad.photo }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% endif %}</span>
@@ -48,9 +64,10 @@
         </a>
         {% endfor %}
       </section>
-      {% else %}
-      <div class="card"><p>{{ _('No ads with a known place yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
       {% endfor %}
+      {% if not pins %}
+      <div class="card"><p>{{ _('No ads with a known place yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
+      {% endif %}
     </div>
   </div>
 </main>
@@ -58,7 +75,8 @@
 <script>
 (function () {
   var pins = {{ pins|tojson }};
-  var focus = {{ focus|tojson }};
+  var selected = {{ selected|tojson }};
+  var allUrl = {{ url_for('listings_map')|tojson }};
   var css = getComputedStyle(document.documentElement);
   var dotColour = css.getPropertyValue("--map-land").trim() || "#4A4F5B";
   var borderColour = css.getPropertyValue("--accent").trim() || "#34D399";
@@ -108,6 +126,7 @@
   });
 
   var order = {bad: 3, warn: 2, ok: 1, unknown: 0};
+  var index = document.querySelector(".map-index");
   var towns = document.querySelectorAll(".map-town");
   var markers = pins.map(function (pin, i) {
     var many = pin.ads.length > 1;
@@ -117,26 +136,43 @@
                           html: many ? "<span>" + pin.ads.length + "</span>" : "<span></span>",
                           iconSize: many ? [28, 28] : [16, 16]});
     var marker = L.marker([pin.lat, pin.lng], {icon: icon, title: pin.place, keyboard: true, riseOnHover: true}).addTo(map);
-    marker.on("click", function () { select(i, true); });
+    marker.on("click", function () { pick(i); });
     return marker;
   });
-  function select(i, scroll) {
-    towns.forEach(function (t, j) { t.classList.toggle("on", j === i); });
+
+  // Show one town's ads (i) or, with null, the list of towns; the map follows.
+  function show(i) {
+    if (index) index.hidden = i !== null;
+    towns.forEach(function (t, j) { t.hidden = j !== i; });
     markers.forEach(function (m, j) { var e = m.getElement(); if (e) e.classList.toggle("on", j === i); });
-    if (scroll && towns[i]) towns[i].scrollIntoView({block: "nearest", behavior: "smooth"});
+    if (i === null) map.flyToBounds(home, {padding: [16, 16], duration: 0.5});
+    else map.flyTo(markers[i].getLatLng(), Math.max(map.getZoom(), whole + 1), {duration: 0.5});
   }
-  towns.forEach(function (t, i) {
-    t.querySelector(".map-town-name button").addEventListener("click", function () {
-      select(i, false);
-      map.flyTo(markers[i].getLatLng(), Math.max(map.getZoom(), whole + 1), {duration: 0.5});
-    });
-    t.addEventListener("mouseenter", function () { var e = markers[i].getElement(); if (e) e.classList.add("hover"); });
-    t.addEventListener("mouseleave", function () { var e = markers[i].getElement(); if (e) e.classList.remove("hover"); });
+  // Picking a town gives the page that town's own address, so it can be shared, bookmarked or gone back from.
+  function pick(i) {
+    var url = i === null ? allUrl : pins[i].link;
+    if (location.pathname + location.search !== url) history.pushState({pin: i}, "", url);
+    show(i);
+    var list = document.querySelector(".map-towns");
+    if (list.getBoundingClientRect().top < 0) list.scrollIntoView({behavior: "smooth"});
+  }
+  window.addEventListener("popstate", function (e) {
+    show(e.state && typeof e.state.pin === "number" ? e.state.pin : null);
   });
-  // Opened from a town's link elsewhere on the site: that town selected and zoomed to.
-  if (focus) {
-    var at = pins.findIndex(function (p) { return p.lat === focus[0] && p.lng === focus[1]; });
-    if (at >= 0) { select(at, true); map.setView(focus, whole + 1); }
+  history.replaceState({pin: selected}, "");
+  document.querySelectorAll(".map-index-town").forEach(function (a) {
+    var i = +a.dataset.pin;
+    a.addEventListener("click", function (e) { e.preventDefault(); pick(i); });
+    a.addEventListener("mouseenter", function () { var el = markers[i].getElement(); if (el) el.classList.add("hover"); });
+    a.addEventListener("mouseleave", function () { var el = markers[i].getElement(); if (el) el.classList.remove("hover"); });
+  });
+  document.querySelectorAll(".map-back").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); pick(null); });
+  });
+  // Opened at a town's address: that town shown and zoomed to.
+  if (selected !== null) {
+    markers[selected].getElement() && markers[selected].getElement().classList.add("on");
+    map.setView(markers[selected].getLatLng(), whole + 1);
   }
 })();
 </script>
