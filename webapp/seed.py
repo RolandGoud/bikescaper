@@ -386,7 +386,10 @@ def year_specs(brand, name, _cache={}):
         _cache[brand] = (_years_file(f"{brand}.json"), _years_file("site", f"{brand}.json"),
                          _years_file("tourbike", f"{brand}.json"))
     archive, site, tourbike = _cache[brand]
-    ours = {**(archive or {}).get("models", {}), **(site or {}).get("models", {})}
+    ours = {}
+    for f in (archive, site):
+        for other, sheets in (f or {}).get("models", {}).items():
+            ours.setdefault(other, set()).update(sheets)
     list_prices = tour_bike_prices((tourbike or {}).get("models", {}), name, ours)
     if not archive and not site:
         return {"list_prices": list_prices} if list_prices else {}
@@ -416,7 +419,7 @@ def _price_name(name):
 def tour_bike_prices(models, name, ours=None):
     """{year: entry} of the TOUR/BIKE model with our model's name. When only one of the two names gives the
     generation ("Checkpoint ALR 3" and "Checkpoint ALR 3 Gen 2"), the names without it must match, and the year
-    counts only if no other generation of ours ({name: {year: sheet}}) has a sheet that year: it could be theirs."""
+    counts only if no other generation of ours ({name: years with a sheet}) has a sheet that year: it could be theirs."""
     gen = re.compile(r"gen\d+")
     key = _price_name(name)
     rivals = {y for other, years in (ours or {}).items() if other != name and _price_name(other) != key
