@@ -368,3 +368,17 @@ def test_a_photo_that_failed_to_copy_doesnt_hold_up_the_read(tmp_path, monkeypat
         photo(os.path.join(os.path.dirname(app.config["DB_PATH"]), "ad-photos", "1", f"{n}.jpg"))
     app.test_client().get("/check/1")
     assert calls and calls[-1] == ["1/01.jpg", "1/03.jpg"]
+
+
+def test_every_enum_in_the_schema_fits_its_declared_type():
+    """The API refused every read when the frame's material enum sat on type ["string", "null"]."""
+    def walk(node):
+        if isinstance(node, dict):
+            if "enum" in node:
+                assert node.get("type") == "string" and all(isinstance(v, str) for v in node["enum"]), node
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+    walk(photo_groupset.SCHEMA)
