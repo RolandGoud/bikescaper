@@ -538,7 +538,8 @@ def create_app(db_path=None):
         picked = [b for b in request.args.getlist("brand") if b]  # several brands can be on at once
         q = (request.args.get("q") or "").strip().lower()
         kind = request.args.get("type")
-        current = request.args.get("current")
+        # "Only bikes still sold" is on unless the address says current=0; the form's hidden 0 after the checkbox sends that.
+        current = request.args.get("current") != "0"
         tier = request.args.get("tier", type=int)
         groupset = request.args.get("groupset") or None  # from a series on the groupsets page
         groupset_name = next((name for key, name, _p, _t in GROUPSETS if key == groupset), None)

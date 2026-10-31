@@ -305,10 +305,12 @@ def test_status_on_pages(tmp_path):
     client = app.test_client()
     page = client.get("/models/canyon-endurace-7-raw?lang=en").data.decode()
     assert "Discontinued" in page and "2025-07-18" in page
-    page = client.get("/models?lang=nl").data.decode()
+    # "Only bikes still sold" is on by default; current=0 (the form's hidden field when unticked) turns it off
+    page = client.get("/models?lang=nl&current=0").data.decode()
     assert "Uit productie" in page and "Endurace 7 RAW" in page
-    page = client.get("/models?lang=en&current=1").data.decode()
-    assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and "Domane SL 6 gen 4" in page
+    for url in ["/models?lang=en", "/models?lang=en&current=1", "/models?lang=en&current=1&current=0"]:
+        page = client.get(url).data.decode()
+        assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and "Domane SL 6 gen 4" in page
 
 
 def test_old_database_gets_status_columns(tmp_path):
@@ -354,7 +356,7 @@ def test_model_years(models):
 def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    page = app.test_client().get("/models?lang=en&brand=Canyon").data.decode()
+    page = app.test_client().get("/models?lang=en&brand=Canyon&current=0").data.decode()
     assert '<span class="brand-mark" role="img" aria-label="Canyon" style="--logo: url(\'/static/logos/canyon.svg\')"></span>' in page
     assert 'class="status discontinued overlay"' in page  # Endurace 7 RAW
     assert app.test_client().get("/static/logos/trek.svg").status_code == 200

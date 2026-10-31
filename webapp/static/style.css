@@ -608,6 +608,9 @@ h2 .count { font-size: 18px; font-weight: 600; }
 /* Trek frames the bike small in a 4:3 shot; enlarge it to fill the tile like the Canyon shots. */
 .photo img.trek { transform: translateY(-3%) scale(1.12); transform-origin: 50% 100%; }
 .model-card .body { padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+/* The tier pill sits on the title's line, at its right; a long name wraps beside it. */
+.model-card .title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.model-card .title-row .tier { flex: none; margin-top: 1px; }
 /* Filter animation (models.js): a card that drops out fades where it was, underneath the cards gliding into place. */
 .model-grid .model-card { position: relative; z-index: 1; }
 .model-card.leaving { position: fixed; z-index: 0; margin: 0; pointer-events: none; }
