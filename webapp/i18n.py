@@ -518,6 +518,7 @@ NL = {
         "Catalogusfoto van het model {year} in {colour}, de kleur uit de advertentie.",
     "Catalogue photo of the {year} model.": "Catalogusfoto van het model {year}.",
     "Probably older than we can check": "Waarschijnlijk ouder dan we kunnen controleren",
+    "Older than we know": "Ouder dan we kennen",
     "From our own catalogue scrape and the model years in {brand}'s photos; earlier years may be missing.":
         "Uit onze eigen catalogus en de modeljaren in de foto's van {brand}; oudere jaren kunnen ontbreken.",
     "Earlier generations in our catalogue: {years}.": "Eerdere generaties in onze catalogus: {years}.",
@@ -642,6 +643,10 @@ NL = {
     "{n} parts downgraded": "{n} onderdelen lager",
     "{n} part upgraded": "{n} onderdeel beter",
     "{n} parts upgraded": "{n} onderdelen beter",
+    "{n} differs": "{n} wijkt af",
+    "{n} differ": "{n} wijken af",
+    "{n} lower": "{n} lager",
+    "{n} better": "{n} beter",
     "The ad gives {claimed} as the purchase year; we go by model year {year}.":
         "De advertentie noemt {claimed} als aankoopjaar; we gaan uit van modeljaar {year}.",
     "The stated {claimed} doesn't fit the ad's details ({years}), so we go by {year}.":
@@ -724,6 +729,10 @@ NL = {
     "Borderline, test ride it": "Twijfelgeval, maak een proefrit",
     "Wrong size for you": "Verkeerde maat voor jou",
     "Fits riders of about {lo} to {hi} cm.": "Past bij een lengte van ongeveer {lo} tot {hi} cm.",
+    "{brand}'s chart has no size {size}; these heights are estimated from its neighbouring sizes.":
+        "De tabel van {brand} heeft geen maat {size}; deze lengtes zijn geschat uit de maten ernaast.",
+    "{brand}'s chart has no size {size}; these heights come from a general road bike chart.":
+        "De tabel van {brand} heeft geen maat {size}; deze lengtes komen uit een algemene racefietstabel.",
     "Generic chart for this brand, not this model's own size chart yet.":
         "Algemene tabel voor dit merk, nog niet de maattabel van dit model zelf.",
     "{brand}'s own size chart for this model.": "De eigen maattabel van {brand} voor dit model.",

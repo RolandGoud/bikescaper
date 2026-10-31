@@ -1702,10 +1702,12 @@ def age_summary(age, estimate, resolved=None):
                                Msg("Ask for the invoice or the serial number."))}
     if not estimate or estimate["status"] == UNKNOWN and age["status"] != UNKNOWN or age.get("older"):
         # A bike older than any generation we know: say so, even when the parts fit the year.
-        return {"status": age["status"], "headline": adds_up or age["headline"], "detail": age["detail"]}
+        return {"status": age["status"], "headline": adds_up or age["headline"], "detail": age["detail"],
+                "tab_headline": Msg("Older than we know") if age.get("older") and not adds_up else None}
     if age["status"] == UNKNOWN or STATUS_RANK[estimate["status"]] > STATUS_RANK[age["status"]]:
+        # The tab sits under AGE, so it leaves out "Year estimate:" to keep to one line.
         return {"status": estimate["status"], "headline": Msg("Year estimate: {verdict}", verdict=estimate["headline"]),
-                "detail": estimate["detail"]}
+                "tab_headline": estimate["headline"], "detail": estimate["detail"]}
     if adds_up:
         # Both agree: the year leads ("Fits 2024 or earlier" next to a green pill reads like a warning).
         return {"status": age["status"], "headline": adds_up, "detail": join(age["detail"], estimate["detail"])}
@@ -1852,7 +1854,11 @@ def check_specs(model, claims, impossible=None, photo_read=None):
                   Msg("Compared with the {brand} spec sheet from {date}.", brand=model["brand"],
                       date=model.get("seen_on") or Msg("our catalogue")))
     # The report tab's pill says whether it matches; the tab's headline says what was compared.
-    tab = Msg("Original parts") if status == OK and not up else headline
+    # The tab keeps to one line: with more than one count, the counts without "part(s)".
+    short = [Msg("{n} differs" if differ == 1 else "{n} differ", n=differ) if differ else None,
+             Msg("{n} lower", n=down) if down else None, Msg("{n} better", n=up) if up else None]
+    tab = (Msg("Original parts") if status == OK and not up else
+           join_list(short) if sum(map(bool, short)) > 1 else headline)
     return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows,
             "photo_groupset": photo_read if seen else None}
 
@@ -1969,6 +1975,26 @@ def size_lines(models, brand):
     return sorted(lines, key=lambda l: (l["family"], l["chart"]["source"] == "generic", l["label"]))
 
 
+def estimate_size(chart, size):
+    """((low, high), how) rider heights for a frame size in cm the chart doesn't list, or None.
+
+    "between": drawn between the chart's own cm sizes either side of it; "general": the general chart's row,
+    for a chart without cm sizes around it. Letter sizes aren't guessed."""
+    if not size.isdigit():
+        return None
+    cm = int(size)
+    numeric = sorted((int(k), v) for k, v in chart.items() if k.isdigit())
+    below = [(k, v) for k, v in numeric if k < cm]
+    above = [(k, v) for k, v in numeric if k > cm]
+    if below and above:
+        (k0, (lo0, hi0)), (k1, (lo1, hi1)) = below[-1], above[0]
+        share = (cm - k0) / (k1 - k0)
+        return (round(lo0 + (lo1 - lo0) * share), round(hi0 + (hi1 - hi0) * share)), "between"
+    if size in GENERIC_SIZE_CHART:
+        return GENERIC_SIZE_CHART[size], "general"
+    return None
+
+
 def check_size(model, claims, rider_height=None):
     own = model_size_chart(model)
     size = claims["size"]
@@ -1981,6 +2007,18 @@ def check_size(model, claims, rider_height=None):
     if not size:
         return {"status": WARN, "headline": Msg("Size not stated"), "detail": Msg("Ask the seller for the frame size."),
                 "rows": [], "fit": None, "notes": notes}
+    estimated = None if size in chart else estimate_size(chart, size)
+    if estimated:
+        # A cm size the chart skips (Cube and Orbea go 50, 53; Canyon and Giant size by letter): a rider-height
+        # estimate still beats none, flagged as such.
+        (lo, hi), how = estimated
+        chart = {**chart, size: (lo, hi)}
+        notes.append(Msg("{brand}'s chart has no size {size}; these heights are estimated from its neighbouring sizes."
+                         if how == "between" else
+                         "{brand}'s chart has no size {size}; these heights come from a general road bike chart.",
+                         brand=model["brand"], size=size))
+        rows = sorted(rows + [{"size": size, "low": lo, "high": hi, "selected": True, "estimated": True}],
+                      key=lambda r: _size_order(r["size"]))
     if size not in chart:
         return {"status": UNKNOWN, "headline": Msg("Size {size}", size=size),
                 "detail": Msg("{brand} doesn't use size {size} in our chart. Ask the seller to check the frame sticker.",
