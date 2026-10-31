@@ -15,7 +15,7 @@
     <a class="pill" href="{{ url_for('listings_map') }}">{{ _('On the map') }}</a>
   </div>
   {% if cards %}
-  <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))">
+  <div class="grid listing-grid">
     {# The sponsored rectangle goes after the sixth ad (last when there are fewer). #}
     {% for row, r in cards %}{{ listing_card(row, r) }}{% if loop.index == 6 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}{% endfor %}
     {% if cards|length < 6 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}

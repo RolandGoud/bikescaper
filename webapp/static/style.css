@@ -1002,6 +1002,17 @@ select { max-width: 100%; }
 .recent-row .ad-rect .ad-copy b { font-size: 20px; }
 .recent-row .ad-rect .ad-copy span { font-size: 13px; }
 .page .sponsored-band { padding-left: 0; padding-right: 0; }
+/* Listings page: four ad cards per row on desktop, fewer as the screen narrows. A 276px column is
+   narrower than 300×250, so the card spot scales down the same way as in the Net gecheckt row. */
+.listing-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1099px) { .listing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .listing-grid { grid-template-columns: minmax(0, 1fr); } }
+.listing-grid > .sponsored-card { padding: 10px; }
+.listing-grid > .sponsored-card .ad-marker { width: 100%; max-width: 300px; }
+.listing-grid .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
+.listing-grid .ad-rect .ad-copy b { font-size: 20px; }
+.listing-grid .ad-rect .ad-copy span { font-size: 13px; }
 .model-grid > .sponsored-band { grid-column: 1 / -1; padding: 18px 0; }
 
 .sponsored-band { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px; padding-bottom: 8px; }
