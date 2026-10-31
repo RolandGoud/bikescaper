@@ -811,17 +811,21 @@ def check_age(model, claims, today=None):
     notes = [n for n in [seen, note, earlier and Msg(EARLIER_NOTE, years=_years_list(earlier))] if n]
     claimed = claims["year"]
     timeline = []
+    photos = {int(y): e["image"] for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
+              if e.get("image")}
+    if model.get("seen_on") and model.get("image") and int(model["seen_on"][:4]) not in photos:
+        photos[int(model["seen_on"][:4])] = model["image"]
     if years:
         first, last = years
         end = last or today.year
         for y in range(min([first, claimed or first] + list(catalogue)), max([end, claimed or end] + list(catalogue)) + 1):
             sold = first <= y <= end
-            timeline.append({"year": y, "sold": sold, "claimed": y == claimed,
+            timeline.append({"year": y, "sold": sold, "claimed": y == claimed, "photo": photos.get(y),
                              "earlier": not sold and y in earlier, "sheet_name": earlier.get(y)})
     if claimed is None:
         return {"status": WARN, "headline": Msg("Year not stated"),
                 "detail": Msg("The ad doesn't give a year. Ask for the invoice or the serial number."),
-                "timeline": timeline, "notes": notes}
+                "timeline": timeline, "generations": timeline_groups(model, timeline), "notes": notes}
     if not years:
         return {"status": UNKNOWN, "headline": Msg("Seller says {year}", year=claimed),
                 "detail": Msg("We don't have the model years for this bike yet, so we can't confirm the age."),
@@ -865,7 +869,27 @@ def check_age(model, claims, today=None):
     if claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
-            "notes": notes, "year": claimed, "earlier": bool(other), "older": older}
+            "generations": timeline_groups(model, timeline), "notes": notes, "year": claimed,
+            "earlier": bool(other), "older": older}
+
+
+def timeline_groups(model, timeline):
+    """The age timeline as blocks of years in a row that belong together, for the age tab: this model's own
+    years, an earlier generation's (named after its spec sheet when we have one) and years we know nothing of.
+    Each block: {"kind": "own" | "earlier" | "unknown", "name", "first", "last", "years"}."""
+    groups = []
+    for y in timeline:
+        kind = "own" if y["sold"] else "earlier" if y["earlier"] else "unknown"
+        if groups and groups[-1]["kind"] == kind and (kind != "earlier" or not y["sheet_name"]
+                                                      or groups[-1]["name"] in (None, y["sheet_name"])):
+            groups[-1]["years"].append(y)
+            groups[-1]["name"] = groups[-1]["name"] or (y["sheet_name"] if kind == "earlier" else None)
+        else:
+            groups.append({"kind": kind, "years": [y],
+                           "name": model["name"] if kind == "own" else y["sheet_name"] if kind == "earlier" else None})
+    for g in groups:
+        g["first"], g["last"] = g["years"][0]["year"], g["years"][-1]["year"]
+    return groups
 
 
 def colourway_year(colourway):
@@ -1275,7 +1299,8 @@ def estimate_year(model, models, claims, text, seen_colour=None):
                       years=span) if fallback else
                   Msg("The ad doesn't give a year, but its details point to {years}.", years=span))
     elif inside:
-        status, headline = OK, Msg("Fits {years}", years=span)
+        # No window left when the only clues were parts the stated year overrules (estimate's swappable clues).
+        status, headline = OK, Msg("Fits {years}", years=span) if first or last else Msg("{claimed} fits", claimed=claimed)
         detail = (Msg("{claimed} fits the years we know {name} from.", claimed=claimed, name=model["name"])
                   if fallback else Msg("{claimed} fits the ad's details.", claimed=claimed))
     elif claims["year_is_purchase"] and last and claimed > last:

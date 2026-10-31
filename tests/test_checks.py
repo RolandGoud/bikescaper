@@ -913,6 +913,10 @@ def test_age_timeline_shows_every_catalogue_year(models):
         (2025, True, False), (2026, True, False)]
     assert age["status"] == checks.WARN and age["earlier"] and "Domane SL 7 gen 3" in en(age["detail"])
     assert "2020, 2022" in en(age["notes"][-1])
+    # The age tab groups those years into blocks: each earlier generation under its sheet's name, then this model.
+    assert [(g["kind"], g["name"], g["first"], g["last"]) for g in age["generations"]] == [
+        ("earlier", "Domane SL 7", 2020, 2020), ("unknown", None, 2021, 2021),
+        ("earlier", "Domane SL 7 gen 3", 2022, 2022), ("own", "Domane SL 7 Gen 4", 2023, 2026)]
 
 
 def test_spec_comparison_uses_a_year_the_estimate_allows(models):
@@ -1217,7 +1221,7 @@ def test_age_timeline_rings_the_estimated_years(tmp_path):
     client.post("/check", data={"title": "Trek Domane SL 6 gen 4", "asking_price": "2500",
                                 "description": "Shimano 105 Di2 2x12, schijfremmen"})
     page = client.get("/check/1?lang=en").get_data(as_text=True)
-    ringed = re.findall(r'<div class="[a-z-]+ likely"[^>]*>(\d{4})<br>', page)
+    ringed = re.findall(r'<div class="gen-year likely[^"]*"[^>]*>\s*(?:<img[^>]*>|<span class="gen-none">–</span>)\s*<span class="gen-y">(\d{4})</span>', page)
     assert ringed and min(int(y) for y in ringed) == 2023  # "Probably 2023 or later"
     assert "estimated" in page
 
@@ -1285,7 +1289,7 @@ def test_a_two_tone_colour_shows_its_own_photo_not_another_with_the_same_first_p
 def test_a_stated_year_wins_over_a_groupset_that_could_be_an_upgrade(models):
     # The 12-speed 105 came on the Domane AL 4 from 2024, but parts get swapped: a 2022 bike with a newer groupset.
     r = run(models, "Racefiets Trek Domane AL4 - Shimano 105 12-speed - maat 54", "Bouwjaar 2022, nette staat", 975)
-    assert r["year_estimate"]["status"] == checks.OK
+    assert r["year_estimate"]["status"] == checks.OK and en(r["year_estimate"]["headline"]) == "2022 fits"
     assert "probably upgraded" in " ".join(en(e) for e in r["year_estimate"]["evidence"])
     assert r["spec_year"] == 2022
     groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")

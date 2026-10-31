@@ -213,12 +213,23 @@
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
     <h2>{{ _('Age check') }}</h2>
     {% if r.age.timeline %}
-    {# The years the ad's own details point to (the year estimate below) are ringed. #}
+    {# A block per generation with its model-year photos; the years the ad's details point to (the year estimate below) are ringed. #}
     {% set est = r.year_estimate if r.year_estimate and not r.year_estimate.fallback and (r.year_estimate.first or r.year_estimate.last) else none %}
-    <div class="timeline">
-      {% for y in r.age.timeline %}
-      {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
-      <div class="{{ ('warn-bg' if y.earlier else 'bad-bg') if y.claimed and not y.sold else ('ok-bg' if y.sold else ('warn-bg' if y.earlier else 'unknown-bg')) }}{{ ' likely' if likely }}"{% if y.sheet_name or likely %} title="{{ y.sheet_name or '' }}{{ ' · ' if y.sheet_name and likely }}{{ _('Year estimate:') ~ ' ' ~ est.headline if likely }}"{% endif %}>{{ y.year }}<br>{{ _('claimed') if y.claimed else (_('sold') if y.sold else (_('earlier gen') if y.earlier else '–')) }}{% if likely %}<span class="likely-tag">{{ _('estimated') }}</span>{% endif %}</div>
+    <div class="gen-blocks{{ ' focus' if est or r.claims.year }}">
+      {% for g in r.age.generations %}
+      <div class="gen-block {{ g.kind }}" style="flex-grow: {{ g.years|length }}">
+        <div class="gen-head">{{ g.name or (_('Earlier generation') if g.kind == 'earlier' else _('Not in our catalogue')) }} <span>{{ g.first if g.first == g.last else g.first ~ '–' ~ g.last }}</span></div>
+        <div class="gen-row">
+          {% for y in g.years %}
+          {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
+          <div class="gen-year{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
+            {% if y.photo %}<img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy">{% else %}<span class="gen-none">–</span>{% endif %}
+            <span class="gen-y">{{ y.year }}</span>
+            {% if y.claimed %}<span class="gen-tag">{{ _('in the ad') }}</span>{% elif likely %}<span class="gen-tag est">{{ _('estimated') }}</span>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
       {% endfor %}
     </div>
     {% endif %}
@@ -343,6 +354,11 @@
         document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
       });
       if (scroll) tab.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      // On a phone the age blocks scroll sideways: start at the ad's year or the first estimated one.
+      document.querySelectorAll("#" + key + " .gen-row").forEach(function (row) {
+        var year = row.querySelector(".claimed") || row.querySelector(".likely");
+        if (year) row.scrollLeft = year.offsetLeft - 8;  // the row is the year's offset parent
+      });
       return true;
     }
     tabs.forEach(function (t) {
