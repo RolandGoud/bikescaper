@@ -119,6 +119,7 @@ def remove(conn, db_path):
     ids = [r["id"] for r in conn.execute("SELECT id FROM checks WHERE source = ?", (SOURCE,))]
     for check_id in ids:
         shutil.rmtree(os.path.join(ad_photos.folder(db_path), str(check_id)), ignore_errors=True)
+    conn.execute("DELETE FROM check_results WHERE check_id IN (SELECT id FROM checks WHERE source = ?)", (SOURCE,))
     conn.execute("DELETE FROM checks WHERE source = ?", (SOURCE,))
     conn.commit()
     return len(ids)
