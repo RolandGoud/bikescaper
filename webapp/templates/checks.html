@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import photo, duo_photo, brand_mark, place_link with context %}
+{% from "_macros.html" import photo, duo_photo, brand_mark, place_link, removed_banner with context %}
 {% block title %}{{ _('All checks') }} · Bike Compare{% endblock %}
 {% block body %}
 {# One tile per check: what was put in on the left, and on the right a verdict table like the Net gecheckt
@@ -12,6 +12,7 @@
     <div class="check-row-ad">
       <a class="check-row-photo" href="{{ url_for('report', check_id=row.id) }}" tabindex="-1" aria-hidden="true">
         {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% elif row.photos %}<div class="photo"><img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
+        {{ removed_banner(row) }}
       </a>
       <div class="check-row-title">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ row.title }}{% endif %}</div>
       {% if r.model %}<div class="ad-title">“{{ row.title|no_brand(r.model.brand) }}”</div>{% endif %}
@@ -41,7 +42,6 @@
   <footer class="check-row-foot">
     <span class="mono">#{{ row.id }} · {{ row.created_at[:10] }}</span>
     {% if row.times_checked > 1 %}<span class="badge">{{ _('This ad: {n}× checked', n=row.times_checked) }}</span>{% endif %}
-    {% if row.removed_at %}<span class="removed-tag">{{ _('Removed') }}</span>{% endif %}
     <a class="open" href="{{ url_for('report', check_id=row.id) }}">{{ _('Open report') }} →</a>
   </footer>
 </article>
