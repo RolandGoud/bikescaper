@@ -1409,6 +1409,8 @@ select { max-width: 100%; }
 .field-label .pill-select { width: auto; min-width: 230px; }
 .pill-select > button { width: 100%; height: var(--h, 48px); display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 12px 0 8px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--raised); color: var(--text); font: 600 15px var(--body); text-align: left; cursor: pointer; }
 .pill-select.open > button, .pill-select > button:focus-visible { border-color: var(--accent); outline: none; }
+.pill-select > button:disabled { opacity: .45; cursor: not-allowed; }
+.pill-select > button:disabled .plain { color: var(--muted); }
 .pill-select > button .plain { padding-left: 6px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pill-select > button .tier { font-size: 14px; padding: 5px 12px; align-self: center; }
 .pill-select .chevron { flex: none; width: 14px; height: 14px; fill: none; stroke: var(--muted); stroke-width: 2; }

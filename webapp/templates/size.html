@@ -8,10 +8,10 @@
   </div>
   <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
     <label class="field">{{ _('Brand') }}
-      <select name="brand" onchange="this.form.model.value = ''; this.form.submit()">{% for b in brands %}<option {{ 'selected' if b.name == brand }}{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %}>{{ b.name }}</option>{% endfor %}</select>
+      <select name="brand" onchange="this.form.model.value = ''; this.form.submit()"><option value="" {{ 'selected' if not brand }} disabled>{{ _('Pick a brand…') }}</option>{% for b in brands %}<option {{ 'selected' if b.name == brand }}{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %}>{{ b.name }}</option>{% endfor %}</select>
     </label>
     <label class="field">{{ _('Model') }}
-      <select name="model" data-families>
+      <select name="model" data-families {{ 'disabled' if not brand }}>
         <option value="">{{ _('All models (brand chart)') }}</option>
         {% for kind, families in picker %}{% for f in families %}
         <optgroup label="{{ f.name }}" data-type="{{ _(kinds[kind]) }}">
@@ -25,6 +25,9 @@
     </label>
     <button class="btn" type="submit">{{ _('Find my size') }}</button>
   </form>
+  {% if not brand %}
+  <section class="card"><p class="muted">{{ _('Pick a brand first, then a model if you know it.') }}</p></section>
+  {% else %}
   <section class="card">
     <h2>{{ _('{model} sizes for {height} cm', model=line.label if line else brand, height=height) }}</h2>
     {% for heading, group in rows %}
@@ -42,5 +45,6 @@
     <p class="small muted">{% if own.brand %}{{ _('{own} of {total} {brand} models have their own size chart.', own=own.brand, total=total, brand=brand) }}{% endif %}
       {% if own.geometry %}{{ _('{own} of {total} {brand} models have their own sizes and geometry.', own=own.geometry, total=total, brand=brand) }}{% endif %}</p>
   </section>
+  {% endif %}
 </main>
 {% endblock %}

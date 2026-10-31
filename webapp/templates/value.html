@@ -9,12 +9,12 @@
   </div>
   <form class="card value-form" method="post" action="{{ url_for('value') }}" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
     {% set ns = namespace(brands=[]) %}{% for m in models if m.brand not in ns.brands %}{% set ns.brands = ns.brands + [m.brand] %}{% endfor %}
-    {% set picked = brand if brand in ns.brands else ns.brands[0] %}
+    {% set picked = brand if brand in ns.brands else (model.brand if model else None) %}
     <label class="field brand-field">{{ _('Brand') }}
-      <select name="brand">{% for b in ns.brands %}<option value="{{ b }}" {{ 'selected' if b == picked }}>{{ b }}</option>{% endfor %}</select>
+      <select name="brand"><option value="" {{ 'selected' if not picked }} disabled>{{ _('Pick a brand…') }}</option>{% for b in ns.brands %}<option value="{{ b }}" {{ 'selected' if b == picked }}>{{ b }}</option>{% endfor %}</select>
     </label>
     <label class="field model-field">{{ _('Model') }}
-      <select name="model">{% for b in ns.brands %}<optgroup label="{{ b }}" data-brand="{{ b }}">{% for m in models if m.brand == b %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.name|model_title }}</option>{% endfor %}</optgroup>{% endfor %}</select>
+      <select name="model" data-placeholder="{{ _('Pick a brand first') }}" {{ 'disabled' if not picked }}>{% for b in ns.brands %}<optgroup label="{{ b }}" data-brand="{{ b }}">{% for m in models if m.brand == b %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.name|model_title }}</option>{% endfor %}</optgroup>{% endfor %}</select>
     </label>
     <label class="field year-field">{{ _('Model year') }}
       <input name="year" type="number" min="2000" max="{{ this_year }}" value="{{ year or '' }}" placeholder="{{ this_year - 2 }}">

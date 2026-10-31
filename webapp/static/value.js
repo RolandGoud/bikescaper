@@ -1,5 +1,5 @@
-// Value estimator: the Model list only shows the models of the brand picked in Brand. Without
-// JavaScript the list shows every model, grouped by brand.
+// Value estimator: the Model list only shows the models of the brand picked in Brand, and stays greyed out
+// (disabled) until a brand is picked. Without JavaScript the list shows every model, grouped by brand.
 (() => {
   const form = document.querySelector(".value-form");
   if (!form) return;
@@ -7,7 +7,8 @@
   const groups = [...model.querySelectorAll("optgroup")];
   const show = (keepSelection) => {
     const group = groups.find((g) => g.dataset.brand === brand.value);
-    if (!group) return;
+    model.disabled = !group;
+    if (!group) { model.replaceChildren(new Option(model.dataset.placeholder, "")); return; }
     const chosen = keepSelection ? model.value : null;
     model.replaceChildren(...group.cloneNode(true).children);
     if (chosen && [...model.options].some((o) => o.value === chosen)) model.value = chosen;

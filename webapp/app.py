@@ -651,8 +651,10 @@ def create_app(db_path=None):
     def size_finder():
         slug = request.args.get("model")
         picked = db.get_model(conn(), slug=slug) if slug else None
-        brand = request.args.get("brand") or (picked and picked["brand"]) or "Trek"
+        brand = request.args.get("brand") or (picked and picked["brand"]) or None
         height = request.args.get("height", type=int) or 178
+        if brand is None:  # nothing to show until a brand is picked; the Model list stays greyed out
+            return render_template("size.html", brand=None, height=height, picker=[], line=None, nav="size")
         lines = checks.size_lines(models(), brand)
         line = next((l for l in lines if picked and any(m["slug"] == slug for m in l["models"])), None)
         chart = line["chart"] if line else {"sizes": checks.size_options(brand), "geometry": {}, "source": "generic"}
