@@ -212,7 +212,7 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 /* The ad's site, a logo on a white pill in front of the ad's own title. */
 .tile-photo { position: relative; overflow: hidden; }
 /* A removed ad: a red ribbon across the photo's top-right corner (macro removed_banner). */
-.removed-banner { position: absolute; z-index: 3; top: 22px; right: -46px; width: 180px; padding: 5px 0; transform: rotate(35deg); background: var(--bad); color: var(--ink); text-align: center; box-shadow: 0 2px 6px rgba(0, 0, 0, .35); pointer-events: none; }
+.removed-banner { position: absolute; z-index: 3; top: 22px; right: -46px; width: 180px; padding: 5px 0; transform: rotate(35deg); background: var(--bad); color: var(--ink); text-align: center; box-shadow: 0 2px 6px rgba(0, 0, 0, .35); cursor: help; }
 .removed-banner > span { font-family: var(--mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 .listing-card .ad-source { display: flex; align-items: flex-start; gap: 8px; margin-top: -6px; min-width: 0; }
 .listing-card .ad-source .ad-title { margin-top: 0; flex: 1; min-width: 0; }
