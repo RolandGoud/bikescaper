@@ -235,3 +235,29 @@ def test_black_ad_shows_the_black_photo_of_the_model_year(models):  # noqa: F811
     # Today's only colour is blue: the year we have a black photo of.
     r = _check(models, "Roubaix SL8 Expert - Shimano Ultegra Di2", "Specialized Roubaix SL8 Expert zwart")
     assert r["photo_year"] == {"year": 2024, "colour": "SATIN CARBON/LIQUID SILVER"}
+
+
+def test_ad_photo_red_one_hue_off_the_catalogues_still_counts(tmp_path):
+    # Radioactive Red at 5 degrees in the catalogue, at 355 in the seller's light: still the black/red one, not grey.
+    import numpy as np
+    from PIL import Image
+    own = [("Lithium Grey/Brushed Chrome", "Trek/years/emondasl6discpro_2021_lithiumgreybrushedchrome_site.jpg"),
+           ("Trek Black/Radioactive Red", "Trek/years/emondasl6discpro_2021_trekblackradioactivered_site.jpg")]
+    photo = Image.open(ad_photo(tmp_path, own[1][1], "red.jpg")).convert("HSV")
+    hsv = np.asarray(photo).copy()
+    red = (hsv[..., 1] > 80) & ((hsv[..., 0] < 11) | (hsv[..., 0] > 245))
+    hsv[..., 0][red] = 251  # 355 degrees
+    Image.fromarray(hsv, "HSV").convert("RGB").save(tmp_path / "shifted.jpg")
+    assert colour_match.by_photos(own, [str(tmp_path / "shifted.jpg")]) == "Trek Black/Radioactive Red"
+
+
+def test_a_wooden_stand_is_not_a_colourways_decal(tmp_path):
+    # A black bike on a wooden shop stand: the wood's orange matches Navy Smoke's small decal, but none of its navy.
+    from PIL import Image, ImageDraw
+    own = [("Matte Deep Smoke", "Trek/Domane_SLR_7_gen_5_colour_Matte_Deep_Smoke.jpg"),
+           ("Navy Smoke/Trek White", "Trek/Domane_SLR_7_gen_5_colour_Navy_Smoke_Trek_White.jpg")]
+    photo = Image.open(ad_photo(tmp_path, own[0][1], "black.jpg", background=(150, 150, 150)))
+    w, h = photo.size
+    ImageDraw.Draw(photo).rectangle([w * .3, h * .7, w * .7, h * .85], fill=(180, 160, 70))
+    photo.save(tmp_path / "stand.jpg")
+    assert colour_match.by_photos(own, [str(tmp_path / "stand.jpg")]) == "Matte Deep Smoke"

@@ -231,6 +231,7 @@ def _cached(fn, path):
 
 
 MIN_PHOTO_SCORE = 0.002   # share of the ad photo that must look like what sets a colourway apart
+MIN_HUE_COVER = 0.2       # share of what sets a colourway's paint apart that the ad's photos must show
 MIN_PHOTO_LEAD = 0.15     # and how much more than the next colourway, as a share of the best score
 
 
@@ -245,14 +246,24 @@ def by_photos(options, photo_paths):
     ad = np.sum(ads, axis=0) / len(ads)
     owns = [(name, np.clip(t - np.max([o for j, (_, o) in enumerate(tones) if j != i], axis=0), 0, None))
             for i, (name, t) in enumerate(tones)]
+    # A paint's hue as the ad's light shows it may fall in the bin next to the catalogue's: Radioactive Red at
+    # 355 degrees in the ad, 5 in the catalogue. When the hues as they are don't settle it, each hue of the
+    # ad counts in its neighbours too (around the circle).
+    near = ad.copy()
+    near[:24] = np.max([ad[:24], np.roll(ad[:24], 1), np.roll(ad[:24], -1)], axis=0)
     # The paint's colours first; dark, grey and light only when those don't settle it, and at half
     # weight, since they're as much shadow, carbon and background as paint.
-    for weight in (0, 0.5):
+    for seen, weight in ((ad, 0), (near, 0), (near, 0.5)):
         scored = []
         for name, own in owns:
             own = own.copy()
             own[24:] *= weight
-            scored.append((float(np.minimum(ad, own).sum()), name))
+            score = float(np.minimum(seen, own).sum())
+            if not weight and score < MIN_HUE_COVER * float(own[:24].sum()):
+                # Little of the colours that set it apart: what matched is the ad's surroundings, not its paint,
+                # like a wooden shop stand against Navy Smoke's small orange decal, with no navy in sight.
+                score = 0.0
+            scored.append((score, name))
         scored.sort(reverse=True)
         best, second = scored[0][0], scored[1][0]
         if best >= MIN_PHOTO_SCORE and best - second >= max(MIN_PHOTO_SCORE, MIN_PHOTO_LEAD * best):
