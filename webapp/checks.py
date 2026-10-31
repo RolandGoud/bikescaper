@@ -2135,22 +2135,34 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     age = max(0, today.year - model_year)
     # Rough curve: about 25% off in the first year, then about 12% a year.
     factor = 0.80 if age == 0 else 0.75 * (0.88 ** (age - 1))
+    # How the estimate is built, step by step, for the "how we estimate this" fold.
+    steps = [{"label": Msg("New price"), "value": original},
+             {"label": Msg("{n} years old", n=age) if age != 1 else Msg("1 year old"),
+              "value": round(original * factor, -1), "change": factor - 1}]
     condition_key = claims["condition"]
     aged_out = condition_key == "like-new" and age >= LIKE_NEW_MAX_AGE
     if aged_out:
         condition_key = None  # counted as normal use
     factor *= CONDITION_FACTOR.get(condition_key, 1.0)
+    if CONDITION_FACTOR.get(condition_key, 1.0) != 1.0:
+        steps.append({"label": Msg("Condition: {condition}", condition=Msg(CONDITION_LABEL[condition_key])),
+                      "value": round(original * factor, -1), "change": CONDITION_FACTOR[condition_key] - 1})
     # Downgraded parts lower the value: 10% for the groupset, 5% for wheels or tyres. Upgrades rarely
     # raise a used bike's price, so they don't count.
     downgraded = [r for r in spec_result["rows"] if r.get("step", 0) < 0]
     for r in downgraded:
         factor *= 0.9 if r["key"] == "groupset" else 0.95
+    if downgraded:
+        down = 1.0
+        for r in downgraded:
+            down *= 0.9 if r["key"] == "groupset" else 0.95
+        steps.append({"label": Msg("Downgraded parts"), "value": round(original * factor, -1), "change": down - 1})
     mid = original * factor
     low, high = round(mid * 0.9, -1), round(mid * 1.1, -1)
     condition = (Msg("Normal use") if aged_out else
                  Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None)
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
-              "condition": condition, "asking": asking,
+              "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, asking),
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} German list price (TOUR/BIKE database), which can differ "
                             "from the Dutch price and from what this bike cost new.", year=price_year) if german else
@@ -2186,9 +2198,20 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
                      low=eur(low), high=eur(high), year=model_year, condition=condition)
     else:
         detail = Msg("Fair range {low} to {high} for a {year} bike.", low=eur(low), high=eur(high), year=model_year)
+    # One line under the verdict: how far the asking price is from the range, and what that means.
+    if asking > high:
+        verdict = Msg("The asking price is {diff} above the fair range, which goes up to {high}. "
+                      "There's room to negotiate.", diff=eur(asking - high), high=eur(high))
+    elif asking < low:
+        verdict = Msg("The asking price is {diff} below the fair range. A good deal, if the condition matches "
+                      "the ad.", diff=eur(low - asking))
+    else:
+        verdict = Msg("The asking price is within the fair range.")
     if result["status"] == BAD:
-        detail = join(detail, Msg("A price this low can mean a stolen bike or a scam. "
-                                  "Ask for the invoice and meet in person."))
+        warning = Msg("A price this low can mean a stolen bike or a scam. Ask for the invoice and meet in person.")
+        detail = join(detail, warning)
+        verdict = join(Msg("The asking price is {diff} below the fair range.", diff=eur(low - asking)), warning)
+    result["verdict"] = verdict
     result["detail"] = detail
     result["bar"] = value_bar(low, high, original, asking)
     return result
@@ -2200,6 +2223,41 @@ def value_bar(low, high, original, asking=None):
     return {"low": 100 * low / hi_axis, "width": 100 * (high - low) / hi_axis,
             "asking": min(99.5, 100 * asking / hi_axis) if asking else None,
             "max": hi_axis, "ticks": axis_ticks(hi_axis)}
+
+
+def price_slider(low, high, asking=None):
+    """The report's slider: an axis zoomed in on the fair range and the asking price, not from €0, so the gap
+    between them is easy to see. Positions are % along the track."""
+    lo, hi = min(low, asking or low), max(high, asking or high)
+    pad = max((hi - lo) * 0.3, high * 0.1)
+    raw = (hi - lo + 2 * pad) / 4
+    magnitude = 10 ** (len(str(int(raw))) - 1)
+    step = next(m * magnitude for m in (1, 2, 2.5, 5, 10) if m * magnitude >= raw)
+    start = max(0, (lo - pad) // step * step)
+    end = -(-(hi + pad) // step) * step
+
+    def at(value):
+        return round(100 * (value - start) / (end - start), 2)
+
+    ticks, value = [], start
+    while value <= end:
+        ticks.append((value, at(value)))
+        value += step
+    # On a phone only the ends and the tick nearest the middle fit; the others are marked minor.
+    middle = min(range(1, len(ticks) - 1), key=lambda i: abs(ticks[i][1] - 50), default=None)
+    ticks = [(v, pos, i not in (0, len(ticks) - 1, middle)) for i, (v, pos) in enumerate(ticks)]
+    # Below this the asking price is "suspiciously cheap" (see check_value), tinted red on the track.
+    suspect = max(0.0, at(low * 0.6))
+    out = {"low": at(low), "high": at(high), "suspect": suspect, "ticks": ticks,
+           "label": at(high) - at(low) >= 14,  # room for "FAIR" in the band
+           "narrow": at(high) - at(low) < 30}  # but not on a phone
+    if asking:
+        out["asking"] = at(asking)
+        # The label above the knob stays inside the track near its ends.
+        out["align"] = "start" if out["asking"] < 25 else "end" if out["asking"] > 75 else "middle"
+        if low <= asking <= high:
+            out["label"] = False  # the knob sits on the band: no label under it
+    return out
 
 
 def axis_ticks(top):

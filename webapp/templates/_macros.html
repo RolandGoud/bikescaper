@@ -148,6 +148,15 @@
 
 {# Import with context: the period links use this_page. #}
 {% macro asking_box(a, compare=None) -%}
+{% if not a.count %}
+{# Nothing to show yet: one line with the period switch, not a whole block. #}
+<div class="asking asking-empty" id="asking">
+  <span><strong>{{ _('Second-hand asking price') }}:</strong> {% if a.others %}{{ _('No other ads found for this model yet (in the last {days} days).', days=a.days) }}{% else %}{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}{% endif %}</span>
+  <div class="row" role="group" aria-label="{{ _('Period') }}">
+    {% for p in periods %}<a class="pill small-pill {{ 'on' if p == a.days }}" href="{{ this_page(period=p) }}#asking">{{ _('{n} days', n=p) }}</a>{% endfor %}
+  </div>
+</div>
+{% else %}
 <div class="asking" id="asking">
   <div class="row" style="justify-content: space-between; align-items: baseline">
     <h3>{{ _('Second-hand asking price') }}</h3>
@@ -173,6 +182,7 @@
   {% endif %}
   <p class="small muted">{{ _('From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.') }}</p>
 </div>
+{% endif %}
 {%- endmacro %}
 
 
