@@ -549,7 +549,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .inline-form input { width: 110px; height: 44px; }
 .value-bar { position: relative; height: 44px; background: var(--ground); border-radius: 6px; }
 .value-bar .range { position: absolute; top: 0; bottom: 0; background: var(--accent-soft); border-radius: 6px; }
-.value-bar .ask { position: absolute; top: -6px; bottom: -6px; width: 3px; background: var(--warn); }
+.value-bar .ask { position: absolute; top: -6px; bottom: -6px; width: 3px; border-radius: 2px; background: var(--warn); }
 .value-axis { position: relative; height: 26px; margin-top: -8px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
 .value-axis span { position: absolute; top: 8px; white-space: nowrap; transform: translateX(-50%); }
 .value-axis span::before { content: ""; position: absolute; left: 50%; top: -8px; width: 1px; height: 6px; background: var(--line-strong); }
