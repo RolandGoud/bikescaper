@@ -1140,16 +1140,14 @@ select { max-width: 100%; }
 /* Selling page: one checked ad next to the ad we would write for it, paged with the arrows. */
 .example { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
 .example[hidden] { display: none; }
-.example-photo { display: block; border-radius: 12px; overflow: hidden; background: #fff; min-height: 260px; }
-.example-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.example-photo { position: relative; display: block; border-radius: 12px; overflow: hidden; background: #fff; min-height: 260px; }
+.example-photo .site-mark { position: absolute; top: 10px; right: 10px; z-index: 1; box-shadow: 0 1px 3px rgba(16, 17, 20, .25); }
+.example-photo > img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .example-col { border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .example-col h4 { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; margin: 0; }
 .example-col.before h4 { color: var(--bad); }
 .example-col.after h4 { color: var(--accent); }
 .example-col .t { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
-.example-src { display: flex; align-items: flex-start; gap: 8px; min-width: 0; }
-.example-src .site-mark { margin-top: 2px; }
-.example-src .t { flex: 1; min-width: 0; }
 .example-text { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); white-space: pre-line; overflow-wrap: anywhere; }
 .example-col .miss { margin: 0; font-size: 13px; color: var(--muted); }
 .example-chips { display: flex; flex-wrap: wrap; gap: 6px; }

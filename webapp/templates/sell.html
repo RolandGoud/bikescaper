@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_macros.html" import part_icon %}
 {% from "_macros.html" import photo with context %}
-{% from "_macros.html" import site_mark with context %}
+{% from "_macros.html" import site_mark, brand_mark with context %}
 {% block title %}{{ _('Sell your bike') }} · Bike Compare{% endblock %}
 {% block body %}
 {# One form for the draft and the answers: the answer fields further down the page join it with form="sell-form",
@@ -68,12 +68,12 @@
   </div>
   {% for e in examples %}
   <article class="example"{% if not loop.first %} hidden{% endif %}>
-    <a class="example-photo" href="{{ url_for('report', check_id=e.listing.id) }}">{% if e.photo %}<img src="{{ e.photo }}" alt="" loading="lazy">{% else %}{{ photo(e.r.model) }}{% endif %}</a>
+    <a class="example-photo" href="{{ url_for('report', check_id=e.listing.id) }}">{% if e.photo %}<img src="{{ e.photo }}" alt="" loading="lazy">{% else %}{{ photo(e.r.model) }}{% endif %}
+      {# The bike's brand top left and the site the ad was placed on top right. #}
+      {{ brand_mark(e.r.model.brand) }}{{ site_mark(e.listing.listing_url) }}</a>
     <div class="example-col before">
       <h4>✕ {{ _('Original') }}</h4>
-      {# The site the ad was placed on, before its title, as on the ad tiles. #}
-      {% set site = site_mark(e.listing.listing_url)|trim %}
-      {% if site %}<div class="example-src">{{ site }}<p class="t">{{ e.listing.title }}</p></div>{% else %}<p class="t">{{ e.listing.title }}</p>{% endif %}
+      <p class="t">{{ e.listing.title }}</p>
       {% if e.listing.description %}<p class="example-text">{{ e.listing.description|truncate(240) }}</p>{% endif %}
       {% if e.missing %}<p class="miss">{{ _('Missing') }}: {{ e.missing|map('string')|map('lower')|join(' · ') }}</p>{% endif %}
       <div class="example-price"><span>{{ _('Asking price') }}</span><b>{{ e.listing.asking_price|eur if e.listing.asking_price else '–' }}</b></div>
