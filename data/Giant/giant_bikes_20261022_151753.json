@@ -206,11 +206,11 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cp0cgdd9emj2ons3sxuy/MY25-Propel-Advanced-Pro-0-Di2_Color-A-Ocean-Twilight-1.jpg",
     "image": "Giant/Propel_Advanced_Pro_0_Di2.jpg",
     "color_image_urls": [
-      null,
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/cp0cgdd9emj2ons3sxuy/MY25-Propel-Advanced-Pro-0-Di2_Color-A-Ocean-Twilight-1.jpg",
       "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/mdal7d8xl57dtawbfpwp/MY25PropelAdvancedPro0-Di2_ColorBMercury.jpg"
     ],
     "color_images": [
-      null,
+      "Giant/Propel_Advanced_Pro_0_Di2_colour_Ocean_Twilight_Chrome.jpg",
       "Giant/Propel_Advanced_Pro_0_Di2_colour_Mercury.jpg"
     ]
   },
@@ -315,10 +315,10 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/dydeblaotqu3drhq87eq/MY25PropelAdvancedPro1_ColorAFrostSilver(1).jpg",
     "image": "Giant/Propel_Advanced_Pro_1.jpg",
     "color_image_urls": [
-      null
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/dydeblaotqu3drhq87eq/MY25PropelAdvancedPro1_ColorAFrostSilver(1).jpg"
     ],
     "color_images": [
-      null
+      "Giant/Propel_Advanced_Pro_1_colour_Frost_Silver.jpg"
     ]
   },
   {
@@ -984,7 +984,9 @@
       "Maximale maat kettingblad": "Double 50/34 Single 42t",
       "Gewicht": "10,50 kg (maat M)"
     },
-    "color_names": [],
+    "color_names": [
+      "Pearl White"
+    ],
     "sizes": [
       "S",
       "M",
@@ -993,7 +995,13 @@
       "XL"
     ],
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/q1a86rnniv4it1lqgow5/MY27FastRoadAR2_ColorAPearlWhite.jpg",
-    "image": "Giant/FastRoad_AR_2.jpg"
+    "image": "Giant/FastRoad_AR_2.jpg",
+    "color_image_urls": [
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/q1a86rnniv4it1lqgow5/MY27FastRoadAR2_ColorAPearlWhite.jpg"
+    ],
+    "color_images": [
+      "Giant/FastRoad_AR_2_colour_Pearl_White.jpg"
+    ]
   },
   {
     "name": "Revolt 0",
@@ -1304,11 +1312,11 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/jnehr5tuzrihsmikjbie/MY25RevoltAdvanced2_ColorACarbonSmoke-blacktires.jpg",
     "image": "Giant/Revolt_Advanced_2.jpg",
     "color_image_urls": [
-      null,
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/jnehr5tuzrihsmikjbie/MY25RevoltAdvanced2_ColorACarbonSmoke-blacktires.jpg",
       "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/pcw0t9dqcabmqma81fwt/MY25RevoltAdvanced2_ColorBSolarFlare.jpg"
     ],
     "color_images": [
-      null,
+      "Giant/Revolt_Advanced_2_colour_Carbon.jpg",
       "Giant/Revolt_Advanced_2_colour_Solar_Flare.jpg"
     ]
   },
@@ -1358,10 +1366,10 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/maj1vmd8aksxn408syky/MY25RevoltAdvanced3_ColorAPanther-blacktires.jpg",
     "image": "Giant/Revolt_Advanced_3.jpg",
     "color_image_urls": [
-      null
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/maj1vmd8aksxn408syky/MY25RevoltAdvanced3_ColorAPanther-blacktires.jpg"
     ],
     "color_images": [
-      null
+      "Giant/Revolt_Advanced_3_colour_Panther.jpg"
     ]
   },
   {
@@ -1820,7 +1828,10 @@
       "Maximale bandenmaat": "700x33mm",
       "Gewicht": "8,20 kg (maat M)"
     },
-    "color_names": [],
+    "color_names": [
+      "Camel Silk",
+      "Plasma Coral"
+    ],
     "sizes": [
       "S",
       "M",
@@ -1829,7 +1840,15 @@
       "XL"
     ],
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ohdllcaqjboogtnljpwa/MY27TCRAdvanced1-PC_ColorACamelSilk.jpg",
-    "image": "Giant/TCR_Advanced_1_Pro_Compact.jpg"
+    "image": "Giant/TCR_Advanced_1_Pro_Compact.jpg",
+    "color_image_urls": [
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ohdllcaqjboogtnljpwa/MY27TCRAdvanced1-PC_ColorACamelSilk.jpg",
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/phqnvdmitiaih2k3hjgz/MY27TCRAdvanced1-PC_ColorBPlasmaCoral.jpg"
+    ],
+    "color_images": [
+      "Giant/TCR_Advanced_1_Pro_Compact_colour_Camel_Silk.jpg",
+      "Giant/TCR_Advanced_1_Pro_Compact_colour_Plasma_Coral.jpg"
+    ]
   },
   {
     "name": "TCR Advanced 2",
@@ -1989,10 +2008,10 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/t9saeajikci4kdmx3ggb/MY27TCRAdvancedPro-DA_ColorACryoSilver.jpg",
     "image": "Giant/TCR_Advanced_Pro_Dura_Ace.jpg",
     "color_image_urls": [
-      null
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/t9saeajikci4kdmx3ggb/MY27TCRAdvancedPro-DA_ColorACryoSilver.jpg"
     ],
     "color_images": [
-      null
+      "Giant/TCR_Advanced_Pro_Dura_Ace_colour_Cryo_Silver.jpg"
     ]
   },
   {
@@ -2139,7 +2158,10 @@
       "Maximale bandenmaat": "700x33mm",
       "Gewicht": "7,30 kg (maat M)"
     },
-    "color_names": [],
+    "color_names": [
+      "Icicle White",
+      "Ultra Navy"
+    ],
     "sizes": [
       "S",
       "M",
@@ -2148,7 +2170,15 @@
       "XL"
     ],
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/vsd3feen90ddmcyet2jk/MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite.jpg",
-    "image": "Giant/TCR_Advanced_Pro_0_Di2.jpg"
+    "image": "Giant/TCR_Advanced_Pro_0_Di2.jpg",
+    "color_image_urls": [
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/vsd3feen90ddmcyet2jk/MY27TCRAdvancedPro0-Di2_ColorAIcicleWhite.jpg",
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/y9fyichmfypl38j7dq6g/MY27TCRAdvancedPro0-Di2_ColorBUltraNavy.jpg"
+    ],
+    "color_images": [
+      "Giant/TCR_Advanced_Pro_0_Di2_colour_Icicle_White.jpg",
+      "Giant/TCR_Advanced_Pro_0_Di2_colour_Ultra_Navy.jpg"
+    ]
   },
   {
     "name": "TCR Advanced Pro 1 AXS",
@@ -2447,7 +2477,9 @@
       "Maximale bandenmaat": "700x33mm",
       "Gewicht": "7,71 kg (maat M)"
     },
-    "color_names": [],
+    "color_names": [
+      "Arctic Light"
+    ],
     "sizes": [
       "S",
       "M",
@@ -2456,7 +2488,13 @@
       "XL"
     ],
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/xdkdmtnpui1bxywg4ivs/MY27TCRAdvanced-Ui2_ColorAArcticLight.jpg",
-    "image": "Giant/TCR_Advanced_Ui2.jpg"
+    "image": "Giant/TCR_Advanced_Ui2.jpg",
+    "color_image_urls": [
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/xdkdmtnpui1bxywg4ivs/MY27TCRAdvanced-Ui2_ColorAArcticLight.jpg"
+    ],
+    "color_images": [
+      "Giant/TCR_Advanced_Ui2_colour_Arctic_Light.jpg"
+    ]
   },
   {
     "name": "Trinity Advanced SL 0",
@@ -2586,10 +2624,10 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/kkhspfjdiywzjx6nvwos/MY25TrinityAdvancedSLTT-FF_ColorACarbon_Chrome.jpg",
     "image": "Giant/Trinity_Advanced_SL_Time_Trial_Frameset.jpg",
     "color_image_urls": [
-      null
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/kkhspfjdiywzjx6nvwos/MY25TrinityAdvancedSLTT-FF_ColorACarbon_Chrome.jpg"
     ],
     "color_images": [
-      null
+      "Giant/Trinity_Advanced_SL_Time_Trial_Frameset_colour_Carbon_Chrome.jpg"
     ]
   },
   {
@@ -2622,10 +2660,10 @@
     "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/e8inxnwuh2kaw9vonlgo/MY25TrinityAdvancedSLTri-FF_ColorACarbon_Chrome.jpg",
     "image": "Giant/Trinity_Advanced_SL_Triathlon_Frameset.jpg",
     "color_image_urls": [
-      null
+      "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/e8inxnwuh2kaw9vonlgo/MY25TrinityAdvancedSLTri-FF_ColorACarbon_Chrome.jpg"
     ],
     "color_images": [
-      null
+      "Giant/Trinity_Advanced_SL_Triathlon_Frameset_colour_Carbon_Chrome.jpg"
     ]
   }
 ]
