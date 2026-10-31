@@ -182,31 +182,52 @@
   <section id="value" class="card report-panel" role="tabpanel" aria-labelledby="tab-value">
     <h2>{{ _('Value estimate') }}</h2>
     {% set v = r.value %}
+    {# The verdict first, in words; then the three prices, the slider, what the estimate goes by, and how it's made (folded). #}
+    {% if v.low and listing.asking_price and v.status in ('ok', 'warn', 'bad') %}
+    <div class="value-verdict {{ v.status }}-bg">
+      <i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>
+      <div><strong>{{ v.headline }}</strong><span>{{ v.verdict or v.detail }}</span></div>
+    </div>
+    {% endif %}
     {% if v.low %}
-    <div class="fair-big">
-      <div><div class="k">{{ _('Fair price') }}</div><div class="n">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
-      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="a {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
+    <div class="value-prices">
+      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="n {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
+      <div><div class="k">{{ _('Fair price') }}</div><div class="n fair">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
+      {% if v.original %}<div class="new"><div class="k">{{ _('New price') }}</div><div class="n">{{ v.original|eur }}</div></div>{% endif %}
     </div>
     {% endif %}
-    {% if v.bar %}
-    <div class="stack" style="gap: 8px">
-      <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=v.asking|eur) }}">
-        <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
-        <div class="ask" style="left: {{ v.bar.asking }}%"></div>
+    {% set sl = v.slider %}
+    {% if sl %}
+    <div class="price-slider{{ ' with-pin' if sl.asking is defined }}" style="--lo: {{ sl.low }}%; --hi: {{ sl.high }}%; --suspect: {{ sl.suspect }}%{% if sl.asking is defined %}; --ask: {{ sl.asking }}%{% endif %}"
+         role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=listing.asking_price|eur) if listing.asking_price else _('Fair range {low} to {high}', low=v.low|eur, high=v.high|eur) }}">
+      {% if sl.asking is defined %}<div class="pin {{ v.status }} {{ sl.align }}" aria-hidden="true"><b>{{ _('Asking {asking}', asking=listing.asking_price|eur) }}</b></div>{% endif %}
+      <div class="track" aria-hidden="true">
+        <div class="band{{ ' narrow' if sl.narrow }}">{% if sl.label %}{{ _('FAIR') }}{% endif %}</div>
+        {% if sl.asking is defined %}<div class="knob {{ v.status }}"></div>{% endif %}
       </div>
-      <div class="value-axis" aria-hidden="true">{% for value, at in v.bar.ticks %}<span class="{{ 'first' if loop.first else 'last' if loop.last }}" style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
-      <div class="value-legend"><span><i style="background: var(--accent-soft)"></i>{{ _('Fair {low}–{high}', low=v.low|eur, high=v.high|eur) }}</span><span class="{{ v.status }}" style="font-weight: 600"><i style="background: var(--warn); width: 3px"></i>{{ _('Asking {asking}', asking=v.asking|eur) }}</span></div>
+      <div class="axis" aria-hidden="true">{% for value, at, minor in sl.ticks %}<span{% if minor %} class="minor"{% endif %} style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
+      <div class="zones" aria-hidden="true"><span class="ok">← {{ _('Cheaper than fair') }}</span><span class="warn">{{ _('Dearer than fair') }} →</span></div>
     </div>
     {% endif %}
-    <p>{{ v.detail }}</p>
+    {% if v.detail and not (v.low and listing.asking_price) %}<p>{{ v.detail }}</p>{% endif %}
     {% if v.original %}
-    <div class="facts">
-      <div><div class="k">{{ _('New price') }}</div><div class="v">{{ v.original|eur }}</div></div>
-      <div><div class="k">{{ _('Model year used') }}</div><div class="v">{{ v.model_year }}</div></div>
-      <div><div class="k">{{ _('Condition from the ad') }}</div><div class="v">{{ v.condition or _('not stated') }}</div></div>
+    <div class="value-chips">
+      <span><em>{{ _('Model year') }}</em>{{ v.model_year }}</span>
+      <span><em>{{ _('Condition') }}</em>{{ v.condition or _('not stated') }}</span>
     </div>
     {% endif %}
-    <div class="notes">{% for n in v.notes or [] %}<span>{{ n }}</span>{% endfor %}</div>
+    {% if v.steps or v.notes %}
+    <details class="value-how">
+      <summary>{{ _('How we estimate this') }}</summary>
+      {% if v.steps %}
+      <div class="value-steps">
+        {% for s in v.steps %}<div><div class="k">{{ s.label }}</div><div class="v">{{ s.value|eur }}{% if s.change is defined %} <small>{{ '+' if s.change > 0 else '−' }}{{ (s.change|abs * 100)|round|int }}%</small>{% endif %}</div></div>{% endfor %}
+        <div class="last"><div class="k">{{ _('Fair, ±10%') }}</div><div class="v">{{ v.low|eur }}–{{ v.high|eur }}</div></div>
+      </div>
+      {% endif %}
+      <ul>{% for n in v.notes or [] %}<li>{{ n }}</li>{% endfor %}</ul>
+    </details>
+    {% endif %}
     {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
     {% if other_ads %}{{ matched_ads(other_ads, _('Other ads for this model'), '') }}{% endif %}
   </section>

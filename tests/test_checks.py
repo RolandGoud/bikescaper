@@ -874,6 +874,34 @@ def test_value_axis_runs_from_zero_to_the_end_of_the_scale():
     assert ticks[0][1] == 0 and ticks[-1][1] == 100
 
 
+def test_price_slider_zooms_in_on_the_fair_range_and_the_asking_price():
+    from webapp.checks import price_slider
+    s = price_slider(3720, 4550, 3499)
+    values = [v for v, _, _ in s["ticks"]]
+    assert sum(not minor for _, _, minor in s["ticks"]) == 3
+    assert values[0] > 0 and values[0] <= 3499 and values[-1] >= 4550  # not from €0, but everything on it
+    assert s["ticks"][0][1] == 0 and s["ticks"][-1][1] == 100
+    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "middle" and s["label"]
+    far = price_slider(950, 1160, 2950)
+    assert far["asking"] > far["high"] and not far["label"]  # a narrow band leaves out its label
+    assert price_slider(950, 1160)["ticks"] and "asking" not in price_slider(950, 1160)
+    assert not price_slider(3720, 4550, 4000)["label"]  # the knob would sit on it
+
+
+def test_value_says_how_far_the_asking_price_is_from_the_range(models):
+    m = {"brand": "Trek", "name": "Trek Emonda SL 6", "price_eur": 4000, "seen_on": "2026-01-01"}
+    claims = checks.read_claims("Trek Emonda SL 6 2026", "")
+    v = checks.check_value(m, claims, None, {"rows": []}, {"status": checks.OK}, TODAY)
+    low, high = v["low"], v["high"]
+    over = checks.check_value(m, claims, high + 100, {"rows": []}, {"status": checks.OK}, TODAY)
+    assert en(over["verdict"]).startswith("The asking price is €100 above the fair range")
+    under = checks.check_value(m, claims, low - 50, {"rows": []}, {"status": checks.OK}, TODAY)
+    assert nl(under["verdict"]).startswith("De vraagprijs ligt €50 onder de eerlijke prijs")
+    inside = checks.check_value(m, claims, low + 10, {"rows": []}, {"status": checks.OK}, TODAY)
+    assert en(inside["verdict"]) == "The asking price is within the fair range."
+    assert [round(s["value"]) for s in v["steps"]][0] == 4000 and len(v["steps"]) == 2  # new price, age
+
+
 def test_models_page_starts_on_all_brands(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     page = app.test_client().get("/models?lang=nl").data.decode()
@@ -1698,3 +1726,16 @@ def test_only_the_estimated_years_next_to_the_ads_year_are_ringed():
     # No year in the ad: the whole estimate.
     assert checks.ringed_years(years, {"first": 2023, "last": None}) == {2023, 2024, 2025, 2026}
     assert checks.ringed_years(years, None, 2011) == set()
+
+
+def test_report_value_section_without_and_with_an_asking_price(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    bare = client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56"})
+    page = client.get(bare.headers["Location"] + "?lang=en").data.decode()
+    assert 'class="price-slider"' in page and 'class="pin' not in page and "value-verdict" not in page
+    priced = client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56", "asking_price": "9000"})
+    page = client.get(priced.headers["Location"] + "?lang=en").data.decode()
+    assert 'class="price-slider with-pin"' in page and 'class="value-verdict warn-bg"' in page
+    assert "above the fair range" in page and "How we estimate this" in page
