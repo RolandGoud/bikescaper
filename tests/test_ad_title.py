@@ -23,3 +23,11 @@ def test_heading_facts_use_the_catalogue_price_of_the_model_year():
     assert facts[-1] == ("Nieuw in 2024", "€3.599")  # the catalogue's price that year, not the seller's €3999
     assert ("Groep", "Shimano 105 Di2") in facts
     assert checks.new_price(model, 2026) == 3399 and checks.new_price(model, 2022) is None
+
+
+def test_the_quoted_title_loses_the_brand_only():
+    assert ad_title.without_brand("Trek Domane SL 6 2022 maat 56", "Trek") == "Domane SL 6 2022 maat 56"
+    assert ad_title.without_brand("TREK - Domane SL6 te koop", "Trek") == "Domane SL6 te koop"
+    assert ad_title.without_brand("Racefiets Giant Defy, maat M", "Giant") == "Racefiets Defy, maat M"
+    assert ad_title.without_brand("Trek", "Trek") == "Trek"  # nothing left: keep the seller's title
+    assert ad_title.without_brand("Defy Advanced 1", "Giant") == "Defy Advanced 1"

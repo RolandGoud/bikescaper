@@ -85,7 +85,7 @@ def test_model_page_lists_matched_ads_also_removed_ones(app):
     client = app.test_client()
     page = client.get(f"/models/{DOMANE}?lang=en").data.decode()
     assert 'Matched ads <span class="muted count">2</span>' in page
-    assert "Trek Domane SL 6 Gen 4 rood" in page and "Removed" in page
+    assert "Domane SL 6 Gen 4 rood" in page and "Trek Domane SL 6 Gen 4 rood" not in page and "Removed" in page
     assert "not in the asking price" in page  # the €50 one
     assert "Mooie racefiets" not in page
     models_page = client.get("/models?lang=en&q=domane sl 6 gen 4").data.decode()
