@@ -695,7 +695,15 @@ select { max-width: 100%; }
 @media (max-width: 1100px) { .recent-row > .listing-card, .recent-row > .sponsored-card { flex-basis: calc((100% - 32px) / 3); } }
 @media (max-width: 820px) { .recent-row > .listing-card, .recent-row > .sponsored-card { flex-basis: calc((100% - 16px) / 2); } }
 @media (max-width: 600px) { .recent-row > .listing-card, .recent-row > .sponsored-card { flex-basis: 86%; } }
-.wide-btn { width: 100%; margin-top: 8px; }
+.row-tools { display: flex; align-items: center; gap: 8px; }
+.see-all { display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 19px; border: 1px solid var(--line-strong); background: var(--card); color: var(--text); font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap; }
+.see-all:hover { border-color: var(--accent); color: var(--accent); }
+.see-all-short { display: none; }
+@media (max-width: 600px) {
+  .row-count { display: none; }
+  .see-all-long { display: none; }
+  .see-all-short { display: inline; }
+}
 
 /* Model page: the ads matched to the model, under its asking price. */
 .matched-ads { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }

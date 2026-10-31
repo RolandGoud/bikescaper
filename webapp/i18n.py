@@ -179,6 +179,8 @@ NL = {
     "Recently checked": "Net gecheckt",
     "See all listings": "Alle advertenties",
     "Show all {count} checked ads": "Bekijk alle {count} gecheckte advertenties",
+    "Show all {count}": "Bekijk alle {count}",
+    "All {count}": "Alle {count}",
     "Ad": "Advertentie",
     "Sponsored": "Gesponsord",
     "Catalogue": "Catalogus",
