@@ -1,5 +1,5 @@
 {
- "checked_on": "2026-10-24",
+ "checked_on": "2026-10-31",
  "models": {
   "Contend 1": {
    "2018": {
@@ -583,7 +583,7 @@
   },
   "Contend AR 2": {
    "2021": {
-    "captured": "2026-10-27",
+    "captured": "2026-10-31",
     "colour_angles": {},
     "colour_images": {
      "Rosewood": "Giant/years/contendar2_2021_rosewood_site.jpg"
@@ -622,7 +622,7 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-2-2021"
    },
    "2022": {
-    "captured": "2026-10-27",
+    "captured": "2026-10-31",
     "colour_angles": {},
     "colour_images": {
      "Deep Lake": "Giant/years/contendar2_2022_deeplake_site.jpg"
@@ -662,7 +662,7 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-2-2022"
    },
    "2024": {
-    "captured": "2026-10-27",
+    "captured": "2026-10-31",
     "colour_angles": {
      "Sandshell": [
       "Giant/years/contendar2_2024_sandshell_1_site.jpg"
@@ -708,7 +708,7 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-2-2024"
    },
    "2025": {
-    "captured": "2026-10-27",
+    "captured": "2026-10-31",
     "colour_angles": {
      "Dark Iridescent": [
       "Giant/years/contendar2_2025_darkiridescent_1_site.jpg",
@@ -756,7 +756,7 @@
     "url": "https://www.giant-bicycles.com/nl/contend-ar-2-2025"
    },
    "2026": {
-    "captured": "2026-10-27",
+    "captured": "2026-10-31",
     "colour_angles": {},
     "colour_images": {
      "Thundercloud": "Giant/years/contendar2_2026_thundercloud_site.jpg"
@@ -8703,6 +8703,161 @@
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2026"
    }
   },
+  "TCR Advanced 0-PC": {
+   "2018": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Carbon Smoke/ Yellow/Charcoal"
+    ],
+    "image": "Giant/years/tcradvanced0pc_2018_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 0",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Bottom bracket": "Shimano PressFit",
+     "Buitenband": "Giant Gavia 1 Tubeless, 700x25, Folding",
+     "Cassette": "Shimano 105, 11x28",
+     "Crankstel": "Shimano Ultegra, 34/50",
+     "Frame": "Advanced-grade Composite",
+     "Gewicht": "7,65 kg",
+     "Naven": "Giant PR-2",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra Di2",
+     "Shifter": "Shimano Ultegra Di2",
+     "Spaken": "Giant PR-2",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Connect",
+     "Velg": "Giant PR-2",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Advanced-Grade Composite",
+     "Zadel": "Contact SL (Forward)",
+     "Zadelpen": "Giant Variant, Composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2018"
+   },
+   "2019": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Carbon / Pure Red / Chrome"
+    ],
+    "image": "Giant/years/tcradvanced0pc_2019_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 0",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Bottom bracket": "Shimano Press Fit",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+     "Cassette": "Shimano 105, 11x30",
+     "Crankstel": "Shimano Ultegra, 36/52",
+     "Demper": "N/A",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "7,7 kg",
+     "Naven": "Giant PR-2 wheelset",
+     "Pedaal": "N/A",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra Di2",
+     "Shifter": "Shimano Ultegra Di2",
+     "Spaken": "Giant PR-2 wheelset",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Connect",
+     "Velg": "Giant PR-2 wheelset",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Advanced-Grade Composite, Alloy OverDrive Steerer",
+     "Zadel": "Contact (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2019"
+   },
+   "2020": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Carbon / Chameleon Blue"
+    ],
+    "image": "Giant/years/tcradvanced0pc_2020_site.jpg",
+    "price": 3299.0,
+    "sheet_name": "TCR Advanced 0",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25, folding",
+     "Cassette": "Shimano 105, 11x30",
+     "Crankstel": "Shimano Ultegra, 36/52",
+     "Demper": "N/A",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "8.0 KG",
+     "Naven": "Giant PR-2 wheelset",
+     "Pedaal": "N/A",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra Di2",
+     "Shifter": "Shimano Ultegra Di2",
+     "Spaken": "Giant PR-2 wheelset",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact",
+     "Velg": "Giant PR-2 wheelset",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Advanced-Grade Composite",
+     "Zadel": "Giant Contact (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2020"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "colour_angles": {
+     "Alpine Green": [
+      "Giant/years/tcradvanced0pc_2026_alpinegreen_1_site.jpg",
+      "Giant/years/tcradvanced0pc_2026_alpinegreen_2_site.jpg",
+      "Giant/years/tcradvanced0pc_2026_alpinegreen_3_site.jpg",
+      "Giant/years/tcradvanced0pc_2026_alpinegreen_4_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Alpine Green": "Giant/years/tcradvanced0pc_2026_alpinegreen_site.jpg"
+    },
+    "colours": [
+     "Alpine Green"
+    ],
+    "image": "Giant/years/tcradvanced0pc_2026_site.jpg",
+    "price": 3999.0,
+    "sheet_name": "TCR Advanced 0",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X12L-1",
+     "Achterderailleur": "Shimano 105 Di2 RD-R8150",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia Course 0, tubeless, 700x28c (28mm), folding",
+     "Cassette": "Shimano 105, 12-speed, 11x34",
+     "Crankstel": "Shimano 105, 36/52 XS:165mm, S:165mm, M:170mm, M/L:170mm, L:172.5mm, XL:172.5mm",
+     "Extra's": "tubeless prepared, 33mm max tire size",
+     "Frame": "Advanced-grade Composite, 12x142mm thru-axle, disc",
+     "Gewicht": "-",
+     "Handvatten": "Stratus Lite 2.0",
+     "Maximale bandenmaat": "33mm",
+     "Naven": "[F] Giant Low Friction Hub, CenterLock, 12mm thru-axle, [R] Giant Low Friction Hub, 30T pawl driver, CenterLock, 12mm thru-axle",
+     "Rem": "Shimano 105 Di2 hydraulic, Shimano RT-CL700 rotors [F]160mm, [R]140mm",
+     "Remgreep": "Shimano 105 Di2",
+     "Shifter": "Shimano 105 Di2",
+     "Spaken": "Sapim",
+     "Stuur": "Giant Contact XS:38cm, S:38cm, M:40cm, M/L:40cm, L:42cm, XL:42cm",
+     "Stuurpen": "Giant Contact AeroLight XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+     "Velg": "Giant SLR 2 40 WheelSystem, [F]40mm, [R]40mm",
+     "Voorderailleur": "Shimano 105 Di2 FD-R8150",
+     "Voorvork": "Advanced-grade Composite, full-composite OverDrive steerer, 12x100mm thru-axle, disc",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-0-2026"
+   }
+  },
   "TCR Advanced 1": {
    "2017": {
     "captured": "2026-10-24",
@@ -8863,6 +9018,201 @@
     ],
     "image": "Giant/years/tcradvanced1_2026_site.jpg",
     "price": 3499.0,
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X12L-1",
+     "Achterderailleur": "Shimano 105 Di2 RD-7150",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia Course 0, tubeless, 700x28c (28mm), folding",
+     "Cassette": "Shimano 105, 12-speed, 11x34",
+     "Crankstel": "Shimano 105, 36/52 XS:165mm, S:165mm, M:170mm, M/L:170mm, L:172.5mm, XL:172.5mm",
+     "Demper": "N/A",
+     "Extra's": "tubeless prepared, 33mm max tire size",
+     "Frame": "Advanced-grade Composite, 12x142mm thru-axle, disc",
+     "Gewicht": "-",
+     "Handvatten": "Stratus Lite 2.0",
+     "Maximale bandenmaat": "33mm",
+     "Naven": "Giant alloy, 12mm thru-axle",
+     "Rem": "Shimano 105 Di2 hydraulic, Shimano SM-RT64 rotors [F]160mm, [R]140mm",
+     "Remgreep": "Shimano 105 Di2",
+     "Shifter": "Shimano 105 Di2",
+     "Spaken": "stainless",
+     "Stuur": "Giant Contact XS:38cm, S:38cm, M:40cm, M/L:40cm, L:42cm, XL:42cm",
+     "Stuurpen": "Giant Contact AeroLight XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+     "Velg": "Giant P-R1 Disc wheelset, alloy, [F]30mm, [R]30mm",
+     "Voorderailleur": "Shimano 105 Di2 FD-7150",
+     "Voorvork": "Advanced-grade Composite, full-composite OverDrive steerer, 12x100mm thru-axle, disc",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2026"
+   }
+  },
+  "TCR Advanced 1 - Pro Compact": {
+   "2017": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Comp"
+    ],
+    "image": "Giant/years/tcradvanced1procompact_2017_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 1",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra",
+     "Bottom bracket": "Shimano, Press Fit BB71",
+     "Buitenband": "Giant P-SL 1, voor en achter specifiek, 700x25 vouwbaar",
+     "Cassette": "Shimano 105 11x28, 11-versnellingen",
+     "Crankstel": "Shimano Ult 34/50",
+     "Frame": "Advanced Pro-Grade Composite",
+     "Gewicht": "7,55",
+     "Naven": "PR2 DBL",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Spaken": "PR2 DBL",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Velg": "PR2 DBL",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Advanced Grade Composite",
+     "Zadel": "Contact forward",
+     "Zadelpen": "Variant"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2017"
+   },
+   "2018": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Carbon Smoke/Neon Orange/Charcoal"
+    ],
+    "image": "Giant/years/tcradvanced1procompact_2018_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 1",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra",
+     "Bottom bracket": "Shimano, PressFit 71",
+     "Buitenband": "Giant Gavia 1 Tubeless, 700x25, Folding",
+     "Cassette": "Shimano 105, 11x28",
+     "Crankstel": "Shimano Ultegra, 34/50",
+     "Frame": "Advanced-grade Composite",
+     "Gewicht": "7,60 kg",
+     "Naven": "Giant PR-2",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Spaken": "Giant PR-2",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Velg": "Giant PR-2",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Advanced-Grade Composite",
+     "Zadel": "Contact (Forward)",
+     "Zadelpen": "Giant Variant, Composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2018"
+   },
+   "2019": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Charcoal / Black / Gold"
+    ],
+    "image": "Giant/years/tcradvanced1procompact_2019_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 1",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra",
+     "Bottom bracket": "Shimano Press Fit 71",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+     "Cassette": "Shimano 105, 11x30",
+     "Crankstel": "Shimano Ultegra, 36/52",
+     "Demper": "N/A",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "7,7 kg",
+     "Naven": "Giant PR-2 wheelset",
+     "Pedaal": "N/A",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Spaken": "Giant PR-2 wheelset",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Velg": "Giant PR-2 wheelset",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Advanced-Grade Composite, Alloy OverDrive Steerer",
+     "Zadel": "Contact (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2019"
+   },
+   "2021": {
+    "captured": "2026-10-31",
+    "colour_angles": {},
+    "colour_images": {
+     "Matte Carbon/Gloss Unicorn White": "Giant/years/tcradvanced1procompact_2021_mattecarbonglossunicornwhite_site.jpg"
+    },
+    "colours": [
+     "Matte Carbon/Gloss Unicorn White"
+    ],
+    "image": "Giant/years/tcradvanced1procompact_2021_site.jpg",
+    "price": 2299.0,
+    "sheet_name": "TCR Advanced 1",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano Ultegra",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia AC 1, tubeless, 700x28mm (25c), folding",
+     "Cassette": "Shimano Ultegra, 11x30",
+     "Crankstel": "Shimano Ultegra, 36/52",
+     "Demper": "N/A",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "7,85 kg",
+     "Naven": "Giant PR-2 wheelset",
+     "Pedaal": "N/A",
+     "Rem": "Shimano Ultegra",
+     "Remgreep": "Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Spaken": "Giant PR-2 wheelset",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Velg": "Giant PR-2 wheelset",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Advanced-Grade Composite, OverDrive steerer",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-1-2021"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "colour_angles": {
+     "Dreamy Blue": [
+      "Giant/years/tcradvanced1procompact_2026_dreamyblue_1_site.jpg",
+      "Giant/years/tcradvanced1procompact_2026_dreamyblue_2_site.jpg",
+      "Giant/years/tcradvanced1procompact_2026_dreamyblue_3_site.jpg",
+      "Giant/years/tcradvanced1procompact_2026_dreamyblue_4_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Dreamy Blue": "Giant/years/tcradvanced1procompact_2026_dreamyblue_site.jpg",
+     "Purple Haze/Ultra Violet": "Giant/years/tcradvanced1procompact_2026_purplehazeultraviolet_site.jpg"
+    },
+    "colours": [
+     "Purple Haze/Ultra Violet",
+     "Dreamy Blue"
+    ],
+    "image": "Giant/years/tcradvanced1procompact_2026_site.jpg",
+    "price": 3499.0,
+    "sheet_name": "TCR Advanced 1",
     "source": "site",
     "specs": {
      "Aandrijving": "KMC X12L-1",
@@ -9253,6 +9603,254 @@
      "Zadelpen": "Giant Variant, composite"
     },
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-disc-pro-compact-2020"
+   }
+  },
+  "TCR Advanced 2-PC": {
+   "2017": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Comp"
+    ],
+    "image": "Giant/years/tcradvanced2pc_2017_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 2",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano RS500",
+     "Buitenband": "Giant P-SL 1, voor en achter specifiek, 700x25 vouwbaar",
+     "Cassette": "Shimano 105 11x28, 11-versnellingen",
+     "Crankstel": "Shimano 105 34/50",
+     "Frame": "Advanced Pro-Grade Composite",
+     "Gewicht": "7,90",
+     "Naven": "PR2 DBL",
+     "Rem": "Shimano 105",
+     "Remgreep": "Shimano 105",
+     "Shifter": "Shimano 105",
+     "Spaken": "PR2 DBL",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Velg": "PR2 DBL",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced Grade Composite",
+     "Zadel": "Contact forward",
+     "Zadelpen": "Variant"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2017"
+   },
+   "2018": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Carbon Smoke/Green/Gray",
+     "Matt/Neon Red/Black"
+    ],
+    "image": "Giant/years/tcradvanced2pc_2018_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 2",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano RS500",
+     "Buitenband": "Giant Gavia 1 Tubeless, 700x25, Folding",
+     "Cassette": "Shimano 105, 11x28",
+     "Crankstel": "Shimano 105, 34/50",
+     "Extra's": "Factory Tubeless",
+     "Frame": "Advanced-grade Composite",
+     "Gewicht": "7,80 kg",
+     "Naven": "Giant PR-2",
+     "Rem": "Shimano 105",
+     "Remgreep": "Shimano 105",
+     "Shifter": "Shimano 105",
+     "Spaken": "Giant PR-2",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Velg": "Giant PR-2",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-Grade Composite",
+     "Zadel": "Contact (Forward)",
+     "Zadelpen": "Giant Variant, Composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2018"
+   },
+   "2019": {
+    "captured": "2026-10-31",
+    "colour_images": {},
+    "colours": [
+     "Metallic Black / Silver / Pure Red",
+     "Electric Blue / Metallic Green"
+    ],
+    "image": "Giant/years/tcradvanced2pc_2019_site.jpg",
+    "price": null,
+    "sheet_name": "TCR Advanced 2",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+     "Cassette": "Shimano 105, 11x30",
+     "Crankstel": "Shimano 105, 34/50",
+     "Demper": "N/A",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "-",
+     "Naven": "Giant PR-2 wheelset",
+     "Pedaal": "N/A",
+     "Rem": "Shimano 105",
+     "Remgreep": "Shimano 105",
+     "Shifter": "Shimano 105",
+     "Spaken": "Giant PR-2 wheelset",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Velg": "Giant PR-2 wheelset",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-Grade Composite, Alloy OverDrive Steerer",
+     "Zadel": "Contact (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2019"
+   },
+   "2021": {
+    "captured": "2026-10-31",
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon": "Giant/years/tcradvanced2pc_2021_carbon_site.jpg"
+    },
+    "colours": [
+     "Carbon",
+     "Unicorn White"
+    ],
+    "image": "Giant/years/tcradvanced2pc_2021_site.jpg",
+    "price": 1899.0,
+    "sheet_name": "TCR Advanced 2",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X11EL-1",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia AC 1, tubeless, 700x28mm (25c), folding",
+     "Cassette": "Shimano 105, 11x30",
+     "Crankstel": "Shimano 105, 36/52",
+     "Demper": "N/A",
+     "Frame": "Advanced-Grade Composite",
+     "Gewicht": "8,10 kg",
+     "Naven": "Giant PR-2 wheelset",
+     "Pedaal": "N/A",
+     "Rem": "Shimano 105",
+     "Remgreep": "Shimano 105",
+     "Shifter": "Shimano 105",
+     "Spaken": "Giant PR-2 wheelset",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Velg": "Giant PR-2 wheelset",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-Grade Composite, OverDrive steerer",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2021"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "colour_angles": {
+     "Carbon": [
+      "Giant/years/tcradvanced2pc_2025_carbon_1_site.jpg",
+      "Giant/years/tcradvanced2pc_2025_carbon_2_site.jpg",
+      "Giant/years/tcradvanced2pc_2025_carbon_3_site.jpg",
+      "Giant/years/tcradvanced2pc_2025_carbon_4_site.jpg",
+      "Giant/years/tcradvanced2pc_2025_carbon_5_site.jpg"
+     ],
+     "Illusion White": [
+      "Giant/years/tcradvanced2pc_2025_illusionwhite_1_site.jpg",
+      "Giant/years/tcradvanced2pc_2025_illusionwhite_2_site.jpg",
+      "Giant/years/tcradvanced2pc_2025_illusionwhite_3_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Carbon": "Giant/years/tcradvanced2pc_2025_carbon_site.jpg",
+     "Illusion White": "Giant/years/tcradvanced2pc_2025_illusionwhite_site.jpg"
+    },
+    "colours": [
+     "Carbon",
+     "Illusion White"
+    ],
+    "image": "Giant/years/tcradvanced2pc_2025_site.jpg",
+    "price": 2799.0,
+    "sheet_name": "TCR Advanced 2",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X12L-1",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia Course 1, tubeless, 700x25c, folding",
+     "Cassette": "Shimano 105, 12-speed, 11x34",
+     "Crankstel": "Shimano 105, 36/52 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+     "Extra's": "tubeless prepared, 33mm max tire size",
+     "Frame": "Advanced-Grade Composite, 12x142mm thru-axle, disc",
+     "Gewicht": "-",
+     "Handvatten": "Stratus Lite 2.0",
+     "Maximale bandenmaat": "33mm",
+     "Naven": "12mm thru-axle",
+     "Pedaal": "N/A",
+     "Rem": "Shimano 105 hydraulic, Giant MPH rotors [F]160mm, [R]140mm",
+     "Remgreep": "Shimano 105",
+     "Shifter": "Shimano 105",
+     "Spaken": "stainless",
+     "Stuur": "Giant Contact XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+     "Stuurpen": "Giant Contact AeroLight XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+     "Velg": "Giant P-R2, [F]25mm, [R]25mm",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, 12x100mm thru-axle, disc",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2025"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "colour_angles": {},
+    "colour_images": {
+     "Capri Blue": "Giant/years/tcradvanced2pc_2026_capriblue_site.jpg",
+     "Stealth Chrome": "Giant/years/tcradvanced2pc_2026_stealthchrome_site.jpg"
+    },
+    "colours": [
+     "Stealth Chrome",
+     "Capri Blue"
+    ],
+    "image": "Giant/years/tcradvanced2pc_2026_site.jpg",
+    "price": 2799.0,
+    "sheet_name": "TCR Advanced 2",
+    "source": "site",
+    "specs": {
+     "Aandrijving": "KMC X12L-1",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Giant Gavia Course 0, tubeless, 700x28c (28mm), folding",
+     "Cassette": "Shimano 105, 12-speed, 11x34",
+     "Crankstel": "Shimano 105, 36/52 XS:165mm, S:165mm, M:170mm, M/L:170mm, L:172.5mm, XL:172.5mm",
+     "Demper": "N/A",
+     "Extra's": "tubeless prepared, 33mm max tire size",
+     "Frame": "Advanced-grade Composite, 12x142mm thru-axle, disc",
+     "Gewicht": "-",
+     "Handvatten": "Stratus Lite 2.0",
+     "Maximale bandenmaat": "33mm",
+     "Naven": "Giant alloy, 12mm thru-axle",
+     "Rem": "Shimano 105 hydraulic, Shimano SM-RT64 rotors [F]160mm, [R]140mm",
+     "Remgreep": "Shimano 105",
+     "Shifter": "Shimano 105",
+     "Spaken": "stainless",
+     "Stuur": "Giant Contact XS:38cm, S:38cm, M:40cm, M/L:40cm, L:42cm, XL:42cm",
+     "Stuurpen": "Giant Contact AeroLight XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+     "Velg": "Giant P-R1 Disc wheelset, alloy, [F]30mm, [R]30mm",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-grade Composite, full-composite OverDrive steerer, 12x100mm thru-axle, disc",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-2-2026"
    }
   },
   "TCR Advanced Disc 1 - Di2": {

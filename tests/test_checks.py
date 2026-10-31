@@ -995,6 +995,20 @@ def test_seed_keeps_the_model_year(tmp_path):
     assert row["model_year"] == 2027 and row["seen_on"].startswith("2026")
 
 
+def test_seed_brings_loaded_models_up_to_a_newer_scrape(tmp_path):
+    conn = db.connect(str(tmp_path / "t.sqlite3"))
+    seed.load(conn)
+    old_id = conn.execute("SELECT id FROM models WHERE slug = 'giant-contend-ar-1'").fetchone()["id"]
+    # as on a database loaded from the 22 October Giant scrape, when Contend AR 1 was its 2025 page
+    conn.execute("UPDATE models SET url = 'old', model_year = 2025, source_file = 'data/Giant/giant_bikes_20261022_151753.json'"
+                 " WHERE slug = 'giant-contend-ar-1'")
+    assert seed.refresh_catalogue(conn) >= 1
+    row = conn.execute("SELECT id, url, model_year FROM models WHERE slug = 'giant-contend-ar-1'").fetchone()
+    assert row["id"] == old_id  # saved checks keep their match
+    assert row["url"] == "https://www.giant-bicycles.com/nl/contend-ar-1" and row["model_year"] == 2026
+    assert seed.refresh_catalogue(conn) == 0  # nothing newer the second time
+
+
 def test_model_page_has_year_tabs(tmp_path):
     from webapp.app import create_app
     path = str(tmp_path / "t.sqlite3")
