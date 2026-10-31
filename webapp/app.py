@@ -517,9 +517,12 @@ def create_app(db_path=None):
             })
         focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
         pins = sorted(pins.values(), key=lambda p: (-len(p["ads"]), p["place"]))  # busiest towns first in the list
+        for pin in pins:  # each town's own address: the page with that town selected
+            pin["link"] = url_for("listings_map", place=pin["place"], cc=pin["country"])
+        selected = next((i for i, p in enumerate(pins) if focus and [p["lat"], p["lng"]] == list(focus[:2])), None)
         return render_template("listings_map.html", pins=pins, unplaced=unplaced,
                                ads=sum(len(p["ads"]) for p in pins), nav="map",
-                               focus=list(focus[:2]) if focus else None)
+                               selected=selected)
 
     @app.route("/models")
     def catalog():
