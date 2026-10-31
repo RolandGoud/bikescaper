@@ -839,6 +839,8 @@ NL = {
     "Shown above": "Staat hierboven",
     "Open estimate": "Schatting openen",
     "{n} ads": "{n} advertenties",
+    "Show on the map": "Toon op de kaart",
+    "Where the checked bikes are": "Waar de gecheckte fietsen staan",
     "{n} ad": "{n} advertentie",
     "No ads yet": "Nog geen advertenties",
     "Fair range {low} to {high}": "Eerlijke prijs {low} tot {high}",
@@ -1181,4 +1183,6 @@ NL = {
     "Map of the ads": "Kaart van de advertenties",
     "No ads with a known place yet.": "Nog geen advertenties met een bekende plaats.",
     "{n} ads": "{n} advertenties",
+    "Show on the map": "Toon op de kaart",
+    "Where the checked bikes are": "Waar de gecheckte fietsen staan",
 }

@@ -290,12 +290,17 @@ def create_app(db_path=None):
         args = {**request.args.to_dict(), **changes}
         return url_for(request.endpoint, **(request.view_args or {}), **args)
 
+    def on_map(place, listing_url=None):
+        """The listings map opened at this ad's town, or None when the map doesn't know the place."""
+        spot = places.locate(place, listing_url)
+        return url_for("listings_map", place=place, cc=spot[2]) if spot else None
+
     @app.context_processor
     def globals_():
         return {"brands": BRANDS, "logos": {b["name"]: b["logo"] for b in BRANDS if b.get("logo")},
                 "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
-                "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page,
+                "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
                 "periods": prices.PERIODS,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
@@ -473,7 +478,8 @@ def create_app(db_path=None):
 
     @app.route("/listings/map")
     def listings_map():
-        """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports."""
+        """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
+        ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
         pins, unplaced = {}, 0
         for row, count in group_checks(rows):
@@ -499,8 +505,10 @@ def create_app(db_path=None):
                 "catalogue": not listing["photos"],
                 "removed": bool(row["removed_at"]),
             })
+        focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
         return render_template("listings_map.html", pins=list(pins.values()), unplaced=unplaced,
-                               ads=sum(len(p["ads"]) for p in pins.values()), nav="listings")
+                               ads=sum(len(p["ads"]) for p in pins.values()), nav="map",
+                               focus=list(focus[:2]) if focus else None)
 
     @app.route("/models")
     def catalog():

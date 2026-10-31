@@ -72,7 +72,7 @@
     return box;
   }
   var order = {bad: 3, warn: 2, ok: 1, unknown: 0};
-  var bounds = [];
+  var bounds = [], markers = [];
   pins.forEach(function (pin) {
     var many = pin.ads.length > 1;
     // A single ad shows its verdict; a place with more ads shows the count, edged in the most urgent verdict.
@@ -84,9 +84,16 @@
     });
     var marker = L.marker([pin.lat, pin.lng], {icon: icon, title: pin.place, keyboard: true, riseOnHover: true}).addTo(map);
     marker.bindPopup(popup(pin), {maxWidth: 320, minWidth: 260, className: "map-popup"});
+    markers.push(marker);
     bounds.push([pin.lat, pin.lng]);
   });
-  if (bounds.length > 1) map.fitBounds(bounds, {padding: [40, 40], maxZoom: 10});
+  // Opened from a town's link (?place=): zoom to that town and open its pin.
+  var focus = {{ focus|tojson }};
+  if (focus) {
+    map.setView(focus, 10);
+    var at = markers.filter(function (m) { var p = m.getLatLng(); return p.lat === focus[0] && p.lng === focus[1]; })[0];
+    if (at) at.openPopup();
+  } else if (bounds.length > 1) map.fitBounds(bounds, {padding: [40, 40], maxZoom: 10});
   else if (bounds.length === 1) map.setView(bounds[0], 10);
   else map.fitBounds(home);
 })();

@@ -48,11 +48,12 @@ def _tries(name):
     yield bare.split("-")[0]
 
 
-def locate(place, listing_url=None):
-    """(lat, lng, country) of the ad's place, or None when we can't tell where it is."""
+def locate(place, listing_url=None, in_country=None):
+    """(lat, lng, country) of the ad's place, or None when we can't tell where it is.
+    in_country (NL, BE) stands in for the site, e.g. for a map link that already knows the country."""
     if not place:
         return None
-    site = country(listing_url)
+    site = in_country if in_country in COUNTRIES else country(listing_url)
     places = _places()
     for attempt in _tries(place):
         key = normalise(attempt)
