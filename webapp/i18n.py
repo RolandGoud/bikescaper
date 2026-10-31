@@ -61,6 +61,14 @@ NL = {
     "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",
     "{n}-speed: the {years} spec sheets.": "{n}-speed: de specificaties van {years}.",
     # admin statistics page
+    "Catalogue photos": "Catalogusfoto's",
+    "Photos the model pages can show, per model year: for the year we scraped the main photo, colours and other angles; for earlier years those of the archived sheet. Red is no photo, amber is one.":
+        "Foto's die de modelpagina's kunnen tonen, per modeljaar: voor het jaar van onze scrape de hoofdfoto, kleuren en andere hoeken; voor eerdere jaren die van het gearchiveerde specblad. Rood is geen foto, oranje is één.",
+    "? is a model without a scrape date (a line no longer sold): its own photo has no year.":
+        "? is een model zonder scrapedatum (een lijn die niet meer verkocht wordt): de eigen foto heeft geen jaar.",
+    "{brand}: {n} models, {photos} photos": "{brand}: {n} modellen, {photos} foto's",
+    "No photo": "Geen foto",
+    "1 photo": "1 foto",
     "Stored check reports": "Opgeslagen checkrapporten",
     "Each check is worked out once and kept. Run them all again after a change to the matching or the catalogue.":
         "Elke check wordt één keer uitgerekend en bewaard. Draai ze allemaal opnieuw na een wijziging in de matching of de catalogus.",
