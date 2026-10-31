@@ -540,7 +540,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
   .spec-table td { border: 0; padding: 4px 0; }
   .spec-table td[data-label]::before { content: attr(data-label); display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); }
 }
-.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; font-size: 13px; text-align: center; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 6px; font-size: 13px; text-align: center; }
 .sizes div { padding: 10px 2px; border-radius: 6px; background: var(--ground); }
 .sizes div.on { background: var(--link); color: var(--ink); font-weight: 700; }
 .sizes div.near { background: var(--ok-bg); color: var(--ok); }

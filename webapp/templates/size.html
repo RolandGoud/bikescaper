@@ -30,11 +30,10 @@
     {% for heading, group in rows %}
     {% if rows|length > 1 %}<div class="small muted size-system">{{ _(heading) }}</div>{% endif %}
     <div class="sizes">
-      {% for s in group %}<div class="{{ 'on' if s.fit else ('near' if s.near) }}">{{ s.size }}<br>{{ s.low }}–{{ s.high }}{% if s.geometry %}<br><span class="small">{{ s.geometry[0]|int }} / {{ s.geometry[1]|int }}</span>{% endif %}</div>{% endfor %}
+      {% for s in group %}<div class="{{ 'on' if s.fit else ('near' if s.near) }}">{{ s.size }}<br>{{ s.low }}–{{ s.high }} cm</div>{% endfor %}
     </div>
     {% endfor %}
     <p class="small muted">{{ _('Dark blue fits, light blue is borderline.') }}
-      {% if chart.geometry %}{{ _('Under each size: stack / reach in mm.') }}{% endif %}
       {% if line %}{{ note }}{% else %}{{ _('Generic chart for this brand') if brand in charted else _("Generic chart, not {brand}'s own", brand=brand) }}; {{ _('pick a model for its own chart.') }}{% endif %}{% if chart.url %} <a href="{{ chart.url }}" rel="noopener">{{ _('{brand} product page', brand=brand) }}</a>{% endif %}</p>
     {% if line and line.models|length > 1 %}
     <p class="small muted">{{ _('Same chart for {count} models:', count=line.models|length) }}
