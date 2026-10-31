@@ -1290,7 +1290,7 @@ def test_age_timeline_rings_the_estimated_years(tmp_path):
     client.post("/check", data={"title": "Trek Domane SL 6 gen 4", "asking_price": "2500",
                                 "description": "Shimano 105 Di2 2x12, schijfremmen"})
     page = client.get("/check/1?lang=en").get_data(as_text=True)
-    ringed = re.findall(r'<div class="gen-year likely[^"]*"[^>]*>\s*<div class="gen-photo">(?:<img[^>]*>|<span class="gen-none">–</span>)</div>\s*<span class="gen-dot"></span>\s*<span class="gen-y">(\d{4})</span>', page)
+    ringed = re.findall(r'<div class="gen-year(?: has-photo)? likely[^"]*"[^>]*>\s*<div class="gen-photo(?: gen-blank)?">(?:<img[^>]*>)?</div>\s*<span class="gen-dot"></span>\s*<span class="gen-y">(\d{4})</span>', page)
     assert ringed and min(int(y) for y in ringed) == 2023  # "Probably 2023 or later"
     assert "estimated" in page
 

@@ -425,40 +425,51 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .verdict .mono { font-weight: 500; }
 .verdict .big { font-size: 22px; font-weight: 700; }
 .verdict .why { font-size: 14px; color: var(--text); }
-.gen-blocks { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
-/* A block is at least as wide as its years (they're never squeezed or spilled over the next block): blocks that don't fit
-   side by side wrap to the next line, and a block with more years than the section is wide scrolls sideways. */
-.gen-block { flex-basis: 0; max-width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
+/* All generations on one row. When they don't fit, the row slides sideways (drag, swipe, the arrow buttons or the
+   trackpad) without a scrollbar; the row labels stay put on the left. */
+.gen-slider { position: relative; margin-bottom: 16px; }
+.gen-blocks { display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+.gen-blocks::-webkit-scrollbar { display: none; }
+.gen-blocks.dragging { cursor: grabbing; user-select: none; }
+.gen-blocks.dragging img { pointer-events: none; }
+.gen-block { flex: 1 0 auto; border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
 .gen-block.matched { background: var(--raised); }
-.gen-block.gen-legend { flex: none; min-width: 0; border-color: transparent; padding-left: 0; padding-right: 0; }
-.gen-legend .gen-row { grid-auto-columns: 84px; }
+.gen-block.gen-legend { flex: none; position: sticky; left: 0; z-index: 3; border-color: transparent; border-radius: 0; padding-left: 0; padding-right: 12px; margin-right: -12px; background: var(--card); }
+.gen-legend .gen-year { min-width: 84px; }
 .gen-legend .gen-year::before, .gen-legend .gen-year::after, .gen-legend .gen-dot { visibility: hidden; }
-.gen-photo.gen-label { display: grid; place-items: center; background: none; color: var(--muted); font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
-.gen-head { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.gen-photo.gen-label { display: grid; place-items: center; width: auto; background: none; color: var(--muted); font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+.gen-head { font-weight: 700; font-size: 14px; margin-bottom: 8px; white-space: nowrap; }
 .gen-head span { color: var(--muted); font: 12px var(--mono); margin-left: 6px; }
-/* Photos (--ph high: bigger when there are few years) above a timeline line with a dot per year. */
-.gen-row { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(max(78px, calc(var(--ph) * 1.6)), 1fr); gap: 8px; overflow-x: auto; padding-bottom: 2px; }
-/* The row reaches through the block's padding, so the line can run up to the block's edge without the scroll edge clipping it. */
-.gen-block:not(.gen-legend) .gen-row { margin: 0 -10px; padding: 0 10px 2px; }
-/* On a phone the row labels would sit alone on a line of their own above the blocks. */
+/* Photos (--ph high: bigger when there are few) above a timeline line with a dot per year.
+   A year without a photo is only its dot, so it takes little room. */
+.gen-row { position: relative; display: flex; gap: 8px; padding-bottom: 2px; }
+/* On a phone the row labels would take a third of the width. */
 @media (max-width: 700px) { .gen-legend { display: none; } }
-.gen-year { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.gen-year { position: relative; flex: 1 0 auto; min-width: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.gen-year.has-photo { min-width: max(78px, calc(var(--ph) * 1.6)); }
 .gen-blocks { --ph: 48px; }
 .gen-photo { width: 100%; max-width: calc(var(--ph) * 1.6); height: var(--ph); border-radius: 6px; overflow: hidden; background: var(--photo-bg); }
+.gen-photo.gen-blank { background: none; }
 .gen-block:not(.own) .gen-photo, .gen-blocks.focus .gen-photo { opacity: .55; }
 .gen-blocks .likely .gen-photo, .gen-blocks .claimed .gen-photo { opacity: 1; }
-.gen-year.likely .gen-photo { box-shadow: inset 0 0 0 2px var(--ok); }
-.gen-year.claimed .gen-photo { box-shadow: inset 0 0 0 2px var(--warn); }
+.gen-year.likely .gen-photo:not(.gen-blank) { box-shadow: inset 0 0 0 2px var(--ok); }
+.gen-year.claimed .gen-photo:not(.gen-blank) { box-shadow: inset 0 0 0 2px var(--warn); }
 .gen-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.gen-none { display: grid; place-items: center; height: 100%; color: var(--muted); }
 /* The line runs from the first dot to the last, through the gaps between the years. */
 .gen-year::before { content: ""; position: absolute; top: calc(var(--ph) + 11px); left: -4px; right: -4px; height: 2px; background: var(--line-strong); }
 .gen-year:first-child::before { left: 50%; }
 .gen-year:last-child::before { right: 50%; }
-/* Across the blocks too: the first and last year reach through the block's padding to its edge. */
-.gen-block:not(.gen-legend) + .gen-block .gen-year:first-child::before { left: -10px; }
-.gen-block:not(:last-child) .gen-year:last-child::before { right: -10px; }
+/* Across the blocks too: the first and last year reach through the block's padding into the gap. */
+.gen-block:not(.gen-legend) + .gen-block .gen-year:first-child::before { left: -17px; }
+.gen-block:not(:last-child) .gen-year:last-child::before { right: -17px; }
 .gen-blocks .gen-legend + .gen-block .gen-year:first-child::before { left: 50%; }
+/* Arrow buttons at the ends, only while there's more to slide to that way. */
+.gen-slide { position: absolute; top: 50%; z-index: 4; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-strong);
+  background: var(--card); color: var(--text); font: 600 18px/1 var(--mono); cursor: pointer; box-shadow: 0 2px 10px rgba(0, 0, 0, .35); }
+.gen-slide:hover { border-color: var(--accent); color: var(--accent); }
+.gen-slide.prev { left: 4px; }
+.gen-slide.next { right: 4px; }
+.gen-slide[hidden] { display: none; }
 /* Outline dots; only the year we go by is filled. */
 /* The block's own background as a soft halo round each dot, so the line fades out as it reaches it. */
 .gen-block { --gen-bg: var(--card); }
@@ -474,8 +485,9 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gen-y { margin-top: 4px; font: 600 12px var(--mono); }
 .gen-tag { min-height: 14px; margin-top: 2px; color: var(--warn); font: 600 10px var(--mono); text-transform: uppercase; }
 .gen-tag.est { color: var(--ok); }
-.gen-blocks .gen-photo.gen-ad { margin-top: 6px; opacity: 1; box-shadow: inset 0 0 0 2px var(--accent); }
+.gen-blocks .gen-photo.gen-ad { width: calc(var(--ph) * 1.6); min-width: 78px; max-width: none; height: max(var(--ph), 48px); margin-top: 6px; opacity: 1; box-shadow: inset 0 0 0 2px var(--accent); }
 .gen-ad img { object-fit: cover; }
+.gen-photo.gen-label.gen-ad-row { height: max(var(--ph), 48px); margin-top: 6px; }
 .notes { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
 .spec-table { overflow-x: auto; }
 .spec-table table { min-width: 720px; width: 100%; border-collapse: collapse; font-size: 15px; }

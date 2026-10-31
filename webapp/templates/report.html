@@ -218,35 +218,44 @@
     {% set est = r.year_estimate if r.year_estimate and not r.year_estimate.fallback and (r.year_estimate.first or r.year_estimate.last) else none %}
     {% set matched = r.year.year if r.year else none %}
     {% set ad_photo = listing.photos and matched and r.age.timeline|selectattr('year', 'equalto', matched)|list %}
-    {# Photos grow when there are few years to show: 110 px high for up to 3, 80 px up to 6, else 48 px. #}
-    {% set n_years = r.age.generations|sum(attribute='years', start=[])|length %}
-    <div class="gen-blocks{{ ' focus' if est or r.claims.year }}" style="--ph: {{ 110 if n_years <= 3 else 80 if n_years <= 6 else 48 }}px">
-      {# Row labels, laid out like a year so they line up with the photo rows. #}
+    {# A year without a photo is only its dot, about half as wide; without any photos there's no photo row at all.
+       Photos grow when there's little to show: 110 px high for up to 3 photo-wide years, 80 px up to 6, else 48 px. #}
+    {% set all_years = r.age.generations|sum(attribute='years', start=[]) %}
+    {% set n_photos = all_years|selectattr('photo')|list|length %}
+    {% set n_wide = n_photos + (all_years|length - n_photos) / 2 %}
+    <div class="gen-slider">
+    <div class="gen-blocks{{ ' focus' if est or r.claims.year }}" style="--ph: {{ 0 if not n_photos else 110 if n_wide <= 3 else 80 if n_wide <= 6 else 48 }}px">
+      {# Row labels, laid out like a year so they line up with the photo rows; they stay put while the years slide. #}
       <div class="gen-block gen-legend" aria-hidden="true">
         <div class="gen-head">&nbsp;</div>
         <div class="gen-row"><div class="gen-year">
-          <div class="gen-photo gen-label">{{ _('Catalogue') }}</div>
+          <div class="gen-photo gen-label">{% if n_photos %}{{ _('Catalogue') }}{% endif %}</div>
           <span class="gen-dot"></span><span class="gen-y">&nbsp;</span><span class="gen-tag"></span>
-          {% if ad_photo %}<div class="gen-photo gen-label">{{ _('Ad') }}</div>{% endif %}
+          {% if ad_photo %}<div class="gen-photo gen-label gen-ad-row">{{ _('Ad') }}</div>{% endif %}
         </div></div>
       </div>
       {% for g in r.age.generations %}
-      <div class="gen-block {{ g.kind }}{{ ' matched' if g.years|selectattr('year', 'equalto', matched)|list }}" style="flex-grow: {{ g.years|length }}">
+      <div class="gen-block {{ g.kind }}{{ ' matched' if g.years|selectattr('year', 'equalto', matched)|list }}">
         <div class="gen-head">{{ g.name or (_('Earlier generation') if g.kind == 'earlier' else _('Not in our catalogue')) }} <span>{{ g.first if g.first == g.last else g.first ~ '–' ~ g.last }}</span></div>
         <div class="gen-row">
           {% for y in g.years %}
           {% set likely = est and (not est.first or y.year >= est.first) and (not est.last or y.year <= est.last) %}
-          <div class="gen-year{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}{{ ' matched' if y.year == matched }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
-            <div class="gen-photo">{% if y.photo %}<img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy">{% else %}<span class="gen-none">–</span>{% endif %}</div>
+          <div class="gen-year{{ ' has-photo' if y.photo }}{{ ' likely' if likely }}{{ ' claimed' if y.claimed }}{{ ' matched' if y.year == matched }}"{% if likely %} title="{{ _('Year estimate:') }} {{ est.headline }}"{% endif %}>
+            {# A photo that doesn't load falls back to the dot alone, as a year without one. #}
+            {% if y.photo %}<div class="gen-photo"><img src="{{ url_for('images', path=y.photo) }}" alt="{{ y.sheet_name or r.model.name }} {{ y.year }}" loading="lazy" draggable="false" onerror="this.parentNode.className='gen-photo gen-blank';this.parentNode.parentNode.classList.remove('has-photo');this.remove()"></div>
+            {% else %}<div class="gen-photo gen-blank"></div>{% endif %}
             <span class="gen-dot"></span>
             <span class="gen-y">{{ y.year }}</span>
             <span class="gen-tag{{ ' est' if likely and not y.claimed }}">{% if y.claimed %}{{ _('in the ad') }}{% elif likely %}{{ _('estimated') }}{% endif %}</span>
-            {% if ad_photo and y.year == matched %}<div class="gen-photo gen-ad" title="{{ _('Photo from the ad') }}"><img src="{{ duo_pick(listing.photos, r.model) }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer"></div>{% endif %}
+            {% if ad_photo and y.year == matched %}<div class="gen-photo gen-ad" title="{{ _('Photo from the ad') }}"><img src="{{ duo_pick(listing.photos, r.model) }}" alt="{{ _('Photo from the ad') }}" loading="lazy" draggable="false" referrerpolicy="no-referrer"></div>{% endif %}
           </div>
           {% endfor %}
         </div>
       </div>
       {% endfor %}
+    </div>
+    <button type="button" class="gen-slide prev" aria-label="{{ _('Earlier years') }}" hidden>‹</button>
+    <button type="button" class="gen-slide next" aria-label="{{ _('Later years') }}" hidden>›</button>
     </div>
     {% endif %}
     {# Without a year in the ad, the same "probably" line as the tab, not "year not stated". #}
@@ -373,6 +382,45 @@
   });
   // The check tabs: one section at a time, picked by its tab, by the address (#age) or by a link to it.
   (function () {
+  // The age timeline: slide it by dragging, swiping or the arrow buttons, without a scrollbar.
+  function centreAdYear(track) {
+    var year = track.querySelector(".gen-year.claimed") || track.querySelector(".gen-year.matched") || track.querySelector(".gen-year.likely");
+    if (!year) return;
+    var legend = track.querySelector(".gen-legend"), from = legend ? legend.offsetWidth : 0;
+    var t = track.getBoundingClientRect(), y = year.getBoundingClientRect();
+    track.scrollLeft += (y.left + y.width / 2) - (t.left + from + (t.width - from) / 2);
+  }
+  document.querySelectorAll(".gen-slider").forEach(function (slider) {
+    var track = slider.querySelector(".gen-blocks");
+    var prev = slider.querySelector(".gen-slide.prev"), next = slider.querySelector(".gen-slide.next");
+    function arrows() {
+      var max = track.scrollWidth - track.clientWidth;
+      prev.hidden = track.scrollLeft <= 1;
+      next.hidden = track.scrollLeft >= max - 1;
+    }
+    function by(dir) { track.scrollBy({ left: dir * track.clientWidth * 0.7, behavior: "smooth" }); }
+    prev.addEventListener("click", function () { by(-1); });
+    next.addEventListener("click", function () { by(1); });
+    track.addEventListener("scroll", arrows, { passive: true });
+    window.addEventListener("resize", arrows);
+    new ResizeObserver(arrows).observe(track);
+    // Drag with the mouse; touch screens swipe natively.
+    var start = null, moved = false;
+    track.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse" || e.button !== 0 || track.scrollWidth <= track.clientWidth) return;
+      start = { x: e.clientX, left: track.scrollLeft }; moved = false;
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!start) return;
+      var dx = e.clientX - start.x;
+      if (!moved && Math.abs(dx) < 4) return;
+      moved = true; track.classList.add("dragging");
+      track.scrollLeft = start.left - dx;
+    });
+    window.addEventListener("pointerup", function () { start = null; track.classList.remove("dragging"); });
+    track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    arrows();
+  });
     var tabs = Array.prototype.slice.call(document.querySelectorAll(".report-tab"));
     if (!tabs.length) return;
     document.body.classList.add("tabbed");
@@ -385,11 +433,8 @@
         document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
       });
       if (scroll) tab.scrollIntoView({ block: "nearest", behavior: "smooth" });
-      // On a phone the age blocks scroll sideways: start at the ad's year or the first estimated one.
-      document.querySelectorAll("#" + key + " .gen-row").forEach(function (row) {
-        var year = row.querySelector(".claimed") || row.querySelector(".likely");
-        if (year) row.scrollLeft = year.offsetLeft - 8;  // the row is the year's offset parent
-      });
+      // The age timeline slides sideways when it's too wide: start with the ad's year in the middle.
+      document.querySelectorAll("#" + key + " .gen-blocks").forEach(centreAdYear);
       return true;
     }
     tabs.forEach(function (t) {
