@@ -684,6 +684,20 @@ def test_size_lines_group_builds_that_share_a_chart(models):
             or line["chart"]["source"] == "generic"
 
 
+def test_size_picker_groups_families_under_their_discipline(models):
+    picker = checks.size_picker(checks.size_lines(models, "Trek"))
+    kinds = dict(picker)
+    names = {f["name"]: f for fs in kinds.values() for f in fs}
+    assert [k for k, _ in picker][0] == "road"
+    assert "Domane" in [f["name"] for f in kinds["road"]] and "Domane+" in [f["name"] for f in kinds["ebike"]]
+    assert "Speed Concept" in names and "FX Sport" in names
+    domane = dict((line["label"], short) for line, short in names["Domane"]["lines"])
+    assert domane["Domane AL 2 Gen 4"] == "AL 2 Gen 4"
+    assert None in domane.values()  # the family's brand chart line, shown as 'Other Domane'
+    # every line of the brand shows up once
+    assert sum(len(f["lines"]) for f in names.values()) == len(checks.size_lines(models, "Trek"))
+
+
 def test_size_finder_picks_a_model(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
@@ -694,6 +708,7 @@ def test_size_finder_picks_a_model(tmp_path):
     assert "own size chart for this model" in page and "selected" in page
     page = client.get("/size?brand=Giant&height=181&lang=en").data.decode()
     assert "pick a model for its own chart" in page
+    assert 'data-type="Road"' in page and "data-short=" in page
 
 
 def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):

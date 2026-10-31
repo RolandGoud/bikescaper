@@ -655,6 +655,7 @@ def create_app(db_path=None):
         own = {source: sum(len(l["models"]) for l in lines if l["chart"]["source"] == source)
                for source in ("brand", "geometry")}
         return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,
+                               picker=checks.size_picker(lines), kinds=dict(DISCIPLINES + OTHER),
                                chart=chart, note=checks.size_note(chart, brand), own=own,
                                total=sum(len(l["models"]) for l in lines), nav="size")
 

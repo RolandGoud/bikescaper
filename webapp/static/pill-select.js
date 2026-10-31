@@ -3,6 +3,10 @@
 // hidden, and keeps the value: picking a pill sets it and fires its change event, so the forms and the
 // scripts that listen to them work as before. Long lists get a search box. Without JavaScript the plain
 // selects show. A select with data-native is left alone.
+// A select with data-families (the size finder's model picker) gets one more level: its optgroups are families,
+// each with a data-type (Road, Gravel…). The menu shows each type's families as small chips; a chip opens that
+// family's options below the row (a family with one option picks it straight away). Typing in the search box
+// shows every matching option under its family instead. Options there show their data-short label.
 (() => {
   const check = '<svg class="check" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 4"/></svg>';
   const chevron = '<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>';
@@ -18,7 +22,7 @@
     return e;
   };
   const labelOf = (o) => o.dataset.label || o.textContent.trim();
-  const pill = (o) => el("span", o.dataset.tier ? `tier t${o.dataset.tier}` : "tier plain-pill", labelOf(o));
+  const pill = (o, text = labelOf(o)) => el("span", o.dataset.tier ? `tier t${o.dataset.tier}` : "tier plain-pill", text);
 
   // The select's name for screen readers: its aria-label, or its label's own text (not the options').
   const nameOf = (select) => {
@@ -52,8 +56,10 @@
     let search = null;
     menu.append(list);
 
-    let items = [], active = -1;
-    const shown = () => items.filter((li) => !li.hidden);
+    const families = select.hasAttribute("data-families");
+    if (families) menu.classList.add("families");
+    let items = [], active = -1, opened = null;  // opened: the family whose options show below its chips
+    const shown = () => items.filter((li) => !li.hidden && !li.closest(".fam-panel")?.hidden);
     const setActive = (li) => {
       items.forEach((x) => x.classList.toggle("active", x === li));
       active = items.indexOf(li);
@@ -73,27 +79,64 @@
       list.replaceChildren();
       items = [];
       let n = 0;
-      const add = (o) => {
+      const add = (o, into = list) => {
         const li = el("li");
         li.setAttribute("role", "option");
         li.id = `${id}-${n++}`;
         li.option = o;
-        const p = pill(o);
+        li.dataset.search = o.textContent.toLowerCase();
+        const p = pill(o, families && o.dataset.short ? o.dataset.short : labelOf(o));
         const count = el("span", "n", o.dataset.count ?? "");
         p.append(count);
         li.append(p);
         if (o.disabled) li.setAttribute("aria-disabled", "true");
-        list.append(li);
+        into.append(li);
         items.push(li);
       };
+      let row = null, type = null, panels = [];
+      const flush = () => { panels.forEach((p) => list.append(p)); panels = []; };
       for (const child of select.children) {
-        if (child.tagName === "OPTGROUP") {
+        if (families && child.tagName === "OPTGROUP") {
+          // a type heading and a row of family chips, then each family's options in a panel below the row
+          if (child.dataset.type !== type) {
+            flush();
+            type = child.dataset.type;
+            const head = el("li", "type", type);
+            head.setAttribute("role", "presentation");
+            row = el("li", "fam-row");
+            row.setAttribute("role", "presentation");
+            list.append(head, row);
+          }
+          const opts = [...child.children];
+          const chip = el("button", "fam");
+          chip.type = "button";
+          chip.tabIndex = -1;
+          chip.append(el("span", null, opts.length === 1 ? labelOf(opts[0]) : child.label));
+          if (opts.length > 1) {
+            chip.append(el("span", "n", opts.length));
+            chip.insertAdjacentHTML("beforeend", chevron);
+            chip.setAttribute("aria-expanded", "false");
+          }
+          const panel = el("li", "fam-panel");
+          panel.setAttribute("role", "group");
+          panel.setAttribute("aria-label", child.label);
+          panel.append(el("div", "fam-title", child.label));
+          const inner = el("ul");
+          inner.setAttribute("role", "none");
+          panel.append(inner);
+          opts.forEach((o) => add(o, inner));
+          chip.panel = panel;
+          panel.chip = chip;
+          row.append(chip);
+          panels.push(panel);
+        } else if (child.tagName === "OPTGROUP") {
           const head = el("li", "group", child.label);
           head.setAttribute("role", "presentation");
           list.append(head);
           [...child.children].forEach(add);
-        } else add(child);
+        } else { flush(); add(child); }
       }
+      flush();
       const wantSearch = items.length >= SEARCH_FROM;
       if (wantSearch && !search) {
         search = el("input", "pill-search");
@@ -110,15 +153,35 @@
       } else if (!wantSearch && search) { search.remove(); search = null; }
       render();
     };
+    // Families: while searching every family with a match shows its options; otherwise only the opened one does.
+    const layout = () => {
+      if (!families) return;
+      const searching = !!(search && search.value.trim());
+      menu.classList.toggle("searching", searching);
+      list.querySelectorAll(".fam-panel").forEach((p) => {
+        const any = [...p.querySelectorAll('[role="option"]')].some((li) => !li.hidden);
+        const one = p.querySelectorAll('[role="option"]').length === 1;
+        p.hidden = searching ? !any : (p !== opened || one);
+        p.chip.classList.toggle("on", p === opened && !searching);
+        if (!one) p.chip.setAttribute("aria-expanded", p === opened && !searching);
+      });
+      list.querySelectorAll(".type, .fam-row").forEach((x) => { x.hidden = searching; });
+    };
+    const openFamily = (panel) => {
+      opened = opened === panel ? null : panel;
+      layout();
+      if (opened) opened.scrollIntoView({ block: "nearest" });
+    };
     const filter = () => {
       const words = search.value.toLowerCase().split(/\s+/).filter(Boolean);
-      items.forEach((li) => { const t = li.textContent.toLowerCase(); li.hidden = !words.every((w) => t.includes(w)); });
+      items.forEach((li) => { const t = li.dataset.search; li.hidden = !words.every((w) => t.includes(w)); });
       // a group heading shows while one of its options does
       list.querySelectorAll(".group").forEach((g) => {
         let next = g.nextElementSibling, any = false;
         while (next && !next.classList.contains("group")) { any ||= !next.hidden; next = next.nextElementSibling; }
         g.hidden = !any;
       });
+      layout();
       setActive(shown()[0]);
     };
     const render = () => {
@@ -128,6 +191,7 @@
       items.forEach((li) => {
         const on = li.option === o;
         li.setAttribute("aria-selected", on);
+        li.closest(".fam-panel")?.chip.classList.toggle("picked", on);
         li.querySelector(".check")?.remove();
         if (on) li.querySelector(".n").insertAdjacentHTML("beforeend", check);
       });
@@ -141,6 +205,10 @@
       const over = menu.getBoundingClientRect().right - (document.documentElement.clientWidth - 16);
       if (over > 0) menu.style.left = -over + "px";
       button.setAttribute("aria-expanded", "true");
+      // the picked option's family starts open
+      const at = items.find((li) => li.option === select.options[select.selectedIndex]);
+      opened = at?.closest(".fam-panel") || null;
+      layout();
       if (search) { search.value = ""; filter(); search.focus(); }
       setActive(items.find((li) => li.option === select.options[select.selectedIndex]) || shown()[0]);
       document.addEventListener("pointerdown", outside, true);
@@ -179,7 +247,15 @@
 
     button.addEventListener("click", () => (menu.hidden ? open() : close()));
     button.addEventListener("keydown", keys);
-    list.addEventListener("click", (e) => pick(e.target.closest('[role="option"]')));
+    list.addEventListener("click", (e) => {
+      const chip = e.target.closest(".fam");
+      if (!chip) return pick(e.target.closest('[role="option"]'));
+      const opts = chip.panel.querySelectorAll('[role="option"]');
+      if (opts.length === 1) return pick(opts[0]);
+      openFamily(chip.panel);
+      setActive(shown().find((li) => chip.panel.contains(li)));
+    });
+    list.addEventListener("pointerdown", (e) => { if (e.target.closest(".fam")) e.preventDefault(); });  // keep focus in the search box
     list.addEventListener("pointermove", (e) => {
       const li = e.target.closest('[role="option"]');
       if (li && items.indexOf(li) !== active) setActive(li);

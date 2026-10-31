@@ -448,6 +448,7 @@ NL = {
     "Model": "Model",
     "All models (brand chart)": "Alle modellen (tabel van het merk)",
     "brand chart": "tabel van het merk",
+    "Other {family}": "Overige {family}",
     "{model} sizes for {height} cm": "Maten van {model} bij {height} cm",
     "pick a model for its own chart.": "kies een model voor de eigen tabel.",
     "Same chart for {count} models:": "Dezelfde tabel voor {count} modellen:",

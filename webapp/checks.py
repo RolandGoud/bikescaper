@@ -11,7 +11,7 @@ from datetime import date
 
 from . import colour_match
 from .i18n import Msg, join, join_list
-from .reference import (BRAND_ALIASES, CATEGORY_WORDS, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
+from .reference import (BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
                         RIM_BRAKE_LAST_YEAR, SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
@@ -2013,6 +2013,49 @@ def size_lines(models, brand):
         if (seen[line["label"]] > 1 or bare) and line["chart"]["source"] != "generic":
             line["label"] += f" ({sizes[0]}–{sizes[-1]})" if len(sizes) > 1 else f" ({sizes[0]})"
     return sorted(lines, key=lambda l: (l["family"], l["chart"]["source"] == "generic", l["label"]))
+
+
+def size_picker(lines):
+    """The size finder's model picker: [(discipline key, [family])], each family {"name", "lines": [(line, short)]}.
+
+    A family is the first word of its lines' labels, plus any plain words they all share after it ('Domane',
+    'Domane+', 'FX Sport', 'Speed Concept'; not grades like 'SLR'). Short is the line's label without the family
+    ('AL 2 Gen 4'), the whole label where that leaves only a size range or a number, or None for the family's
+    brand chart line (shown as 'Other Domane').
+    A family goes under the discipline most of its models have, in reference.DISCIPLINES order.
+    """
+    by_word = {}
+    for line in lines:
+        by_word.setdefault(_plain(line["label"].split(" ")[0]), []).append(line)
+    order = [k for k, _ in DISCIPLINES] + ["other"]
+    types = {}
+    for group in by_word.values():
+        group.sort(key=lambda l: l["chart"]["source"] == "generic")  # stable: keeps size_lines' order otherwise
+        words = [l["label"].split(" ") for l in group]
+        shared = [words[0][0]]
+        for column in list(zip(*words))[1:]:
+            word = column[0]
+            if len({w.lower() for w in column}) > 1 or not (word.isalpha() and word[0].isupper() and word[1:].islower()):
+                break
+            shared.append(word)
+        name = " ".join(shared)
+        votes = {}
+        for line in group:
+            for m in line["models"]:
+                votes[discipline_of(m)] = votes.get(discipline_of(m), 0) + 1
+        kind = max(votes, key=lambda k: (votes[k], -order.index(k)))
+        family = {"name": name, "lines": []}
+        for line in group:
+            rest = line["label"][len(name):].strip()
+            if len(group) == 1 or not any(c.isalpha() for c in rest):
+                rest = ""
+            if line["chart"]["source"] == "generic" and len(group) > 1:
+                short = None
+            else:
+                short = line["label"] if not rest or rest.startswith("(") else rest
+            family["lines"].append((line, short))
+        types.setdefault(kind, []).append(family)
+    return [(k, sorted(types[k], key=lambda f: _plain(f["name"]))) for k in order if k in types]
 
 
 def _cm_between(chart, cm):
