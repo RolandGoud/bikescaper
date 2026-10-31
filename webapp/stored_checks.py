@@ -4,7 +4,8 @@ A stored report is used as long as what went into it is the same: the ad's title
 link, the rider's height, the model someone picked, and the ad photos stored on our disk. When one of
 those changes (a different model picked, the photos finished downloading) the check runs again by itself.
 A change to the matching itself, or to the catalogue, does not: that's what a recheck is for, from the
-report page (one check) or the Statistics page (all of them), or by hand:
+report page (one check) or the Statistics page (all of them), or by hand. A recheck keeps the check's
+own date: the ad's age and value stay as of the day it was checked.
 
     python -m webapp.stored_checks           # forget every stored report; each runs again when next shown
 
@@ -17,6 +18,7 @@ import json
 import os
 import pickle
 import sys
+from datetime import date
 
 from . import checks, db
 
@@ -61,7 +63,11 @@ def load(data, models):
 def report(conn, models, listing, store=True, today=None):
     """The check report for a listing (a checks row as listing_dict makes it): the stored one when its inputs
     haven't changed, otherwise a fresh run_check. That fresh one is stored, unless `store` is False (a
-    report for another rider height than the check's own, say). A listing without an id is never stored."""
+    report for another rider height than the check's own, say). A listing without an id is never stored.
+    Age and value are worked out as of the day the check was made, not the day it runs (again), so a
+    recheck changes what the matching finds but keeps the check's own date."""
+    if today is None and listing.get("created_at"):
+        today = date.fromisoformat(listing["created_at"][:10])
     if listing.get("id") is None:
         return checks.run_check(models, listing, today)
     key = inputs_key(listing)
