@@ -20,14 +20,14 @@
       <div class="tagline">{{ _('Second-hand bike check · Netherlands') }}</div>
     </div>
     <div class="header-right">
-      {# The main tasks and the listings up front, the smaller tools in one dropdown. On a phone the menu folds behind one button
+      {# Home, the listings and the main tasks up front, the smaller tools in one dropdown. On a phone the menu folds behind one button
          (webapp/static/menu.js). The groupsets page is hidden for now (SHOW_GROUPSETS in webapp/app.py). #}
       <button type="button" class="menu-button" aria-expanded="false" aria-controls="main-nav">☰ {{ _('Menu') }}</button>
       <nav id="main-nav" class="main-nav" aria-label="{{ _('Main') }}">
-        <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}"{% if nav == 'check' %} aria-current="page"{% endif %}>{{ _('Check a bike') }}</a>
-        <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}"{% if nav == 'sell' %} aria-current="page"{% endif %}>{{ _('Sell a bike') }}</a>
-        <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}"{% if nav == 'models' %} aria-current="page"{% endif %}>{{ _('Models') }}</a>
+        <a href="{{ url_for('home') }}" class="{{ 'on' if nav == 'check' }}"{% if nav == 'check' %} aria-current="page"{% endif %}>{{ _('Home') }}</a>
         <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}"{% if nav == 'listings' %} aria-current="page"{% endif %}>{{ _('Listings') }}</a>
+        <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}"{% if nav == 'sell' %} aria-current="page"{% endif %}>{{ _('Improve my ad') }}</a>
+        <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}"{% if nav == 'models' %} aria-current="page"{% endif %}>{{ _('Our catalogue') }}</a>
         {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}" class="{{ 'on' if nav == 'groupsets' }}">{{ _('Groupsets') }}</a>{% endif %}
         <div class="tools">
           <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value', 'map') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
