@@ -1009,6 +1009,18 @@ def test_seed_brings_loaded_models_up_to_a_newer_scrape(tmp_path):
     assert seed.refresh_catalogue(conn) == 0  # nothing newer the second time
 
 
+def test_seed_refresh_takes_the_last_bike_of_a_shared_page(tmp_path):
+    conn = db.connect(str(tmp_path / "t.sqlite3"))
+    seed.load(conn)
+    full = dict(conn.execute("SELECT url, specs, model_year FROM models WHERE slug = 'giant-tcr-advanced-pro-0-di2'").fetchone())
+    conn.execute("UPDATE models SET url = 'old', specs = '{}', source_file = 'data/Giant/giant_bikes_20261022_151753.json'"
+                 " WHERE slug = 'giant-tcr-advanced-pro-0-di2'")
+    seed.refresh_catalogue(conn)
+    seed.refresh_images(conn)
+    row = dict(conn.execute("SELECT url, specs, model_year FROM models WHERE slug = 'giant-tcr-advanced-pro-0-di2'").fetchone())
+    assert row == full  # the same bike as a full load: the 2027 TCR Advanced Pro 0-Di2, not the 2026 Pro 0 Di2
+
+
 def test_model_page_has_year_tabs(tmp_path):
     from webapp.app import create_app
     path = str(tmp_path / "t.sqlite3")

@@ -363,8 +363,10 @@ def refresh_catalogue(conn):
     count = 0
     for brand, rel in SOURCES:
         with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
-            bikes = json.load(fh)
-        for bike in bikes:
+            # Two bikes can share a page (TCR Advanced Pro 0 Di2 and 0-Di2): the last one wins, as in a full load
+            # and in refresh_images, so a row never mixes one bike's specs with the other's year and photo.
+            bikes = {slugify(f"{brand} {b['name']}"): b for b in json.load(fh)}
+        for slug, bike in bikes.items():
             bike.setdefault("brand", brand)
             colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
             price = float(bike["price"]) if bike.get("price") not in (None, "") else None
@@ -373,7 +375,7 @@ def refresh_catalogue(conn):
                 " model_year = ?, source_file = ? WHERE slug = ? AND source_file != ? AND (source_file LIKE ? OR source_file = ?)",
                 (html.unescape(bike.get("category") or ""), price, str(bike.get("sku") or ""), bike.get("url"),
                  json.dumps(colors, ensure_ascii=False), json.dumps(bike.get("specifications") or {}, ensure_ascii=False),
-                 snapshot_date(rel), model_year(bike), rel, slugify(f"{brand} {bike['name']}"), rel, f"data/{brand}/%",
+                 snapshot_date(rel), model_year(bike), rel, slug, rel, f"data/{brand}/%",
                  f"data/years/archived/{brand}.json"))  # a line on sale again
             count += cur.rowcount
     conn.commit()
