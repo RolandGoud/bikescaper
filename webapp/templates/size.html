@@ -38,7 +38,7 @@
       {% if line %}{{ note }}{% else %}{{ _('Generic chart for this brand') if brand in charted else _("Generic chart, not {brand}'s own", brand=brand) }}; {{ _('pick a model for its own chart.') }}{% endif %}{% if chart.url %} <a href="{{ chart.url }}" rel="noopener">{{ _('{brand} product page', brand=brand) }}</a>{% endif %}</p>
     {% if line and line.models|length > 1 %}
     <p class="small muted">{{ _('Same chart for {count} models:', count=line.models|length) }}
-      {% for m in line.models %}<a href="{{ url_for('model_page', slug=m.slug) }}">{{ m.name }}</a>{{ ', ' if not loop.last }}{% endfor %}</p>
+      {% for m in line.models %}<a href="{{ url_for('model_page', slug=m.slug) }}">{{ m.name|model_title }}</a>{{ ', ' if not loop.last }}{% endfor %}</p>
     {% endif %}
     <p class="small muted">{% if own.brand %}{{ _('{own} of {total} {brand} models have their own size chart.', own=own.brand, total=total, brand=brand) }}{% endif %}
       {% if own.geometry %}{{ _('{own} of {total} {brand} models have their own sizes and geometry.', own=own.geometry, total=total, brand=brand) }}{% endif %}</p>

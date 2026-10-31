@@ -83,7 +83,7 @@
       {% for it in worst %}
       <tr>
         <td><a href="{{ url_for('report', check_id=it.listing.id) }}">{{ it.listing.title }}</a></td>
-        <td>{% if it.model %}{{ it.model.name }}{% else %}—{% endif %}</td>
+        <td>{% if it.model %}{{ it.model.name|model_title }}{% else %}—{% endif %}</td>
         <td>{{ _(it.confidence) if it.confidence else '—' }}</td>
         <td>{{ score(it.photo) }}</td>
         <td>{{ score(it.ad) }}</td>

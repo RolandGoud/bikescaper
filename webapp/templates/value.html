@@ -14,7 +14,7 @@
       <select name="brand">{% for b in ns.brands %}<option value="{{ b }}" {{ 'selected' if b == picked }}>{{ b }}</option>{% endfor %}</select>
     </label>
     <label class="field model-field">{{ _('Model') }}
-      <select name="model">{% for b in ns.brands %}<optgroup label="{{ b }}" data-brand="{{ b }}">{% for m in models if m.brand == b %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.name }}</option>{% endfor %}</optgroup>{% endfor %}</select>
+      <select name="model">{% for b in ns.brands %}<optgroup label="{{ b }}" data-brand="{{ b }}">{% for m in models if m.brand == b %}<option value="{{ m.slug }}" {{ 'selected' if model and m.id == model.id }}>{{ m.name|model_title }}</option>{% endfor %}</optgroup>{% endfor %}</select>
     </label>
     <label class="field year-field">{{ _('Model year') }}
       <input name="year" type="number" min="2000" max="{{ this_year }}" value="{{ year or '' }}" placeholder="{{ this_year - 2 }}">
@@ -34,7 +34,7 @@
   </form>
   {% if result %}
   <section class="card">
-    <h2>{{ model.brand }} {{ model.name }}</h2>
+    <h2>{{ model.brand }} {{ model.name|model_title }}</h2>
     <div class="verdict {{ result.status }}-bg">
       <span class="big {{ result.status }}">{{ _('{low} to {high}', low=result.low|eur, high=result.high|eur) }}</span>
       <span class="why">{{ result.headline if result.asking else '' }} {{ result.detail }}</span>
@@ -63,7 +63,7 @@
             <h2>{{ _('Request') }}</h2>
             <dl>
               <dt>{{ _('Brand') }}</dt><dd>{{ h.model.brand }}</dd>
-              <dt>{{ _('Model') }}</dt><dd class="strong"><a href="{{ url_for('model_page', slug=h.model.slug) }}">{{ h.model.name }}</a></dd>
+              <dt>{{ _('Model') }}</dt><dd class="strong"><a href="{{ url_for('model_page', slug=h.model.slug) }}">{{ h.model.name|model_title }}</a></dd>
               <dt>{{ _('Model year') }}</dt><dd>{{ h.row.year or '–' }}</dd>
               <dt>{{ _('Condition') }}</dt><dd>{{ {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(h.row.condition, _('Normal use')) }}</dd>
               <dt>{{ _('Asking price') }}</dt><dd>{{ h.row.asking_price|eur }}</dd>

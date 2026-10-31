@@ -946,6 +946,13 @@ def without_generation(name):
     return re.sub(r"\s*\bgen\s*\d+\b", "", name or "", flags=re.I).strip() or name
 
 
+def model_title(name):
+    """"Tarmac SL9 Comp - Shimano 105 Di2" -> "Tarmac SL9 Comp - 105 Di2": the name we show, without "Shimano"."""
+    shown = re.sub(r"\s*\bShimano\b\s*", " ", name or "", flags=re.I)
+    shown = re.sub(r"\s+[-\u2013]\s*$", "", re.sub(r"\s{2,}", " ", shown)).strip()
+    return shown or name
+
+
 def _sheet_span(text):
     """"2021 - 2023" (the model years a brand's own archive sheet covers) -> (2021, 2023), else None."""
     found = [int(y) for y in re.findall(r"\b(?:19|20)\d\d\b", text or "")]

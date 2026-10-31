@@ -1660,6 +1660,20 @@ def test_frame_decides_an_unnumbered_generation_only_when_clear():
     assert unsure[2020]["number"] is None and unsure[2020]["title"] == "Domane AL 2"
 
 
+def test_model_titles_leave_shimano_out(tmp_path):
+    assert checks.model_title("Tarmac SL9 Comp - Shimano 105 Di2") == "Tarmac SL9 Comp - 105 Di2"
+    assert checks.model_title("Diverge 4 Pro LTD - Shimano XTR/GRX Di2") == "Diverge 4 Pro LTD - XTR/GRX Di2"
+    assert checks.model_title("Defy Advanced 1 Shimano") == "Defy Advanced 1"
+    assert checks.model_title("Aethos 2 Pro - SRAM Force AXS") == "Aethos 2 Pro - SRAM Force AXS"
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    client = create_app(path).test_client()
+    tiles = client.get("/models?brand=Specialized&lang=nl").get_data(as_text=True)
+    assert ">Tarmac SL9 Comp - 105 Di2</span>" in tiles and "Shimano 105 Di2</span>" not in tiles
+    page = client.get("/models/" + seed.slugify("Specialized Tarmac SL9 Comp - Shimano 105 Di2")).get_data(as_text=True)
+    assert ">Tarmac SL9 Comp - 105 Di2</h1>" in page
+
+
 def test_models_page_tiles_leave_the_generation_out(tmp_path):
     assert checks.without_generation("Domane AL 2 Gen 4") == "Domane AL 2"
     assert checks.without_generation("Madone SLR 9 gen 8 frameset") == "Madone SLR 9 frameset"

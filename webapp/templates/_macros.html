@@ -1,5 +1,5 @@
 {% macro photo(model, alt='') -%}
-{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ model.name }}" loading="lazy"{% if model.brand != 'Canyon' %} class="on-white{{ ' trek' if model.brand == 'Trek' and not model.year_photo and 'Primary' in model.image }}"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
+{% if model and model.image %}<img src="{{ url_for('images', path=model.image) }}" alt="{{ alt or model.brand ~ ' ' ~ (model.name|model_title) }}" loading="lazy"{% if model.brand != 'Canyon' %} class="on-white{{ ' trek' if model.brand == 'Trek' and not model.year_photo and 'Primary' in model.image }}"{% endif %}>{% else %}<span>{{ _('[no photo yet]') }}</span>{% endif %}
 {%- endmacro %}
 
 {# The seller's own photo and the brand's catalogue photo of the matched model in one tile, split by a
@@ -70,7 +70,7 @@
       {% if r.model %}<span class="verdict-pill {{ r.value.status }}">{{ r.value.headline }}</span>
       {% else %}<span class="verdict-pill unknown">{{ _('No matching model yet') }}</span>{% endif %}
     </div>
-    <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name }}{% else %}{{ ad.name }}{% endif %}</div>
+    <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ ad.name }}{% endif %}</div>
     {% set site = site_mark(row.listing_url)|trim %}
     {% if r.model or site %}<div class="ad-source">{{ site }}{% if r.model %}<div class="ad-title">“{{ ad.name }}”</div>{% endif %}</div>{% endif %}
     <div class="card-foot">
@@ -184,7 +184,7 @@
 <a class="model-card" href="{{ url_for('model_page', slug=m.slug) }}">
   <div class="photo">{{ photo(m) }}{% if logos.get(m.brand) %}<span class="brand-mark" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% else %}<span class="brand-mark text">{{ m.brand }}</span>{% endif %}{% if m.status == 'discontinued' %}<span class="status discontinued overlay">{{ _(status_labels[m.status]) }}</span>{% endif %}</div>
   <div class="body">
-    <div class="title-row"><span style="font-weight: 700">{{ m.name|without_generation if short else m.name }}</span>{{ tier_badge(m.tier, small=true) }}</div>
+    <div class="title-row"><span style="font-weight: 700">{{ (m.name|without_generation if short else m.name)|model_title }}</span>{{ tier_badge(m.tier, small=true) }}</div>
     <span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span>
     {% if m.matched %}<span class="small muted">{{ _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) }}</span>{% endif %}
   </div>
@@ -280,7 +280,7 @@
           <span class="thumb">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}</span>
           <span class="what">
             {# Same title as the check's own page: the matched bike, else the ad's title cleaned up. #}
-            {% if r.model %}{% set name = r.model.brand ~ ' ' ~ r.model.name %}{% else %}{% set name = ad_title(row.title, none)[0] %}{% endif %}
+            {% if r.model %}{% set name = r.model.brand ~ ' ' ~ r.model.name|model_title %}{% else %}{% set name = ad_title(row.title, none)[0] %}{% endif %}
             <span class="ad-name" title="{{ _('Original ad title: {title}', title=row.title) }}">{{ name }}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</span>
             <span class="small muted">{% if row.times_checked > 1 %}{{ _('Checked {n}× · last on {date}', n=row.times_checked, date=row.created_at[:10]) }}{% else %}{{ _('Checked on {date}', date=row.created_at[:10]) }}{% endif %}{% if row.location %} · {{ place_link(row.location, row.listing_url, inside_link=True) }}{% endif %}{% if not row.in_price %} · {{ _('not in the asking price') }}{% endif %}</span>
           </span>

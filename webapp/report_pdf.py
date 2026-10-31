@@ -8,6 +8,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 from xml.sax.saxutils import escape
 
+from . import checks
 from .i18n import gettext as _
 
 INK, MUTED, ACCENT = colors.HexColor("#111216"), colors.HexColor("#6B6B78"), colors.HexColor("#0E9F6E")
@@ -81,7 +82,7 @@ def build(listing, r, height=None, report_url=None):
     label = _("Chosen by you") if r.get("chosen_by_you") else (
         _("{level} confidence", level=r["confidence"]) if r.get("confidence") else "")
     story.append(Spacer(1, 6))
-    story.append(_p(f"{_('Matched to')} {m['brand']} {m['name']}" + (f" ({label})" if label else ""), s["body"]))
+    story.append(_p(f"{_('Matched to')} {m['brand']} {checks.model_title(m['name'])}" + (f" ({label})" if label else ""), s["body"]))
 
     alert = r.get("material_alert")
     if alert:
