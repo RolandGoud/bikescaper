@@ -13,6 +13,9 @@ Two sources, the first found wins:
   after its photos are stored, kept in ad-photos/<check id>/groupset.json. Without a key nothing
   is sent anywhere and the report works as before.
 
+The same read names the crankset on its own (often swapped, or another series than the rest), which
+fills in the Crankset row when the ad's text doesn't name one.
+
 A read counts for the spec comparison only when it's sure enough (high or medium) and names a
 series we know (reference.GROUPSETS); "Shimano, 11-speed" with no series stays "Not stated".
 """
@@ -29,7 +32,7 @@ from PIL import Image
 HAND_FILE = os.path.join(os.path.dirname(__file__), "photo_groupsets.json")
 CACHE_NAME = "groupset.json"
 MODEL = os.environ.get("PHOTO_GROUPSET_MODEL", "claude-opus-5-5")
-MAX_PHOTOS = 8        # close-ups of the drivetrain are rarely the first photo, so more than the colour check's 3
+MAX_PHOTOS = 20       # all of an ad's photos, up to 20: the crankset close-up is often one of the last (check 63: photo 9)
 MAX_SIDE = 1024       # px; the series name on a crank arm is still readable at this size
 USED = ("high", "medium")
 
@@ -49,7 +52,15 @@ If the drivetrain isn't visible at all, use "none" and leave series empty.
 shifters' and rear derailleur's series and say so in the evidence.
 - Ignore the bike brand's own parts (wheels, cockpit) and any text that isn't on a drivetrain part.
 - The evidence is one or two short sentences saying which photo shows what, in English and in Dutch.
+
+Also identify the crankset on its own, because it is often swapped or of another series than the \
+rest: the brand, series and model code printed on the crank arm or the chainrings (e.g. Shimano 105 \
+FC-R7000, SRAM Force, Campagnolo Chorus, FSA Gossamer, Rotor Aldhu, Praxis Zayante), or the shape \
+when no print is readable. The same confidence rules apply; "none" when no photo shows the crankset. \
+Its evidence is about the crankset alone.
 Photos are numbered from 1 in the order given."""
+
+READ_VERSION = 2  # 2: the crankset is read too; a stored read of version 1 is read again for it
 
 SCHEMA = {
     "type": "object",
@@ -63,9 +74,23 @@ SCHEMA = {
         "photos": {"type": "array", "items": {"type": "integer"}, "description": "the photos that show it"},
         "evidence_en": {"type": "string"},
         "evidence_nl": {"type": "string"},
+        "crankset": {
+            "type": "object",
+            "properties": {
+                "brand": {"type": ["string", "null"], "description": "e.g. Shimano, SRAM, Campagnolo, FSA, Rotor"},
+                "series": {"type": ["string", "null"], "description": "e.g. 105, Ultegra, Force, Gossamer"},
+                "model_code": {"type": ["string", "null"], "description": "e.g. FC-R7000, FC-R8100"},
+                "confidence": {"type": "string", "enum": ["high", "medium", "low", "none"]},
+                "photos": {"type": "array", "items": {"type": "integer"}},
+                "evidence_en": {"type": "string"},
+                "evidence_nl": {"type": "string"},
+            },
+            "required": ["brand", "series", "model_code", "confidence", "photos", "evidence_en", "evidence_nl"],
+            "additionalProperties": False,
+        },
     },
     "required": ["brand", "series", "model_code", "speeds", "electronic", "confidence", "photos", "evidence_en",
-                 "evidence_nl"],
+                 "evidence_nl", "crankset"],
     "additionalProperties": False,
 }
 
@@ -88,6 +113,19 @@ def text_of(read):
 def usable(read):
     """True when the read is sure enough to compare with the catalogue."""
     return bool(read and read.get("confidence") in USED and read.get("series"))
+
+
+def crankset_of(read):
+    """The crankset part of a read when it's sure enough and names a series or model, else None."""
+    crank = (read or {}).get("crankset") or {}
+    if crank.get("confidence") in USED and (crank.get("series") or crank.get("model_code")):
+        return crank
+    return None
+
+
+def crankset_text(crank):
+    """The crankset as ad text ("Shimano 105 FC-R7000")."""
+    return " ".join(p for p in (crank.get("brand"), crank.get("series"), crank.get("model_code")) if p)
 
 
 # ---------------------------------------------------------------- reading the photos
@@ -171,18 +209,32 @@ def stored(photo_folder, listing, photo_names):
     """The groupset read for this check: by eye (photo_groupsets.json), else the stored automatic read of
     these same photos. None when there's neither (yet)."""
     hand = _hand(listing)
-    if hand:
+    if hand and "crankset" in hand:
         return hand
-    if listing.get("id") is None:
+    saved = _saved(photo_folder, listing.get("id"), photo_names)
+    if hand:
+        # Read by eye before the crankset was read: the automatic read adds it, once there is one.
+        return dict(hand, crankset=saved["crankset"]) if saved and "crankset" in saved else hand
+    return dict(saved, source="photos") if saved else None
+
+
+def needs_crankset(read):
+    """True when a read is from before the crankset was read too, so the photos are read again."""
+    return read is not None and "crankset" not in read
+
+
+def _saved(photo_folder, check_id, photo_names):
+    """The stored automatic read of these same photos, or None."""
+    if check_id is None:
         return None
     try:
-        with open(_cache_path(photo_folder, listing["id"]), encoding="utf-8") as fh:
+        with open(_cache_path(photo_folder, check_id), encoding="utf-8") as fh:
             saved = json.load(fh)
     except (OSError, ValueError):
         return None
     if saved.get("photos") != list(photo_names):
         return None  # other photos than were read: read again
-    return dict(saved["read"], source="photos") if saved.get("read") else None
+    return saved.get("read") or None
 
 
 _running = set()
@@ -197,8 +249,9 @@ def read_later(photo_folder, check_id, photo_names, client=None):
     if os.path.exists(_cache_path(photo_folder, check_id)):
         try:
             with open(_cache_path(photo_folder, check_id), encoding="utf-8") as fh:
-                if json.load(fh).get("photos") == list(photo_names):
-                    return False  # read before, also when nothing usable came out
+                saved = json.load(fh)
+            if saved.get("photos") == list(photo_names) and saved.get("version", 1) >= READ_VERSION:
+                return False  # read before, also when nothing usable came out
         except (OSError, ValueError):
             pass
     _running.add(check_id)
@@ -211,7 +264,7 @@ def read_later(photo_folder, check_id, photo_names, client=None):
                 return  # an error: the next page view tries again
             os.makedirs(os.path.join(photo_folder, str(check_id)), exist_ok=True)
             with open(_cache_path(photo_folder, check_id), "w", encoding="utf-8") as fh:
-                json.dump({"photos": list(photo_names), "model": MODEL, "read_on": date.today().isoformat(),
+                json.dump({"photos": list(photo_names), "version": READ_VERSION, "model": MODEL, "read_on": date.today().isoformat(),
                            "read": read}, fh, ensure_ascii=False, indent=1)
         except Exception as e:  # never take the page down
             print(f"groupset from photos of check {check_id} failed: {e!r}", file=sys.stderr, flush=True)
