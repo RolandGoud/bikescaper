@@ -235,6 +235,15 @@
 </div>
 {%- endmacro %}
 
+{# Every 5th tile of a grid (/models, /listings): the same hatched panel, as wide as the tiles around it,
+   with the 300×250 scaled down to fit (same 6:5 shape). #}
+{% macro sponsored_tile(o) -%}
+<div class="sponsored-card fluid" role="complementary" aria-label="{{ _('Sponsored') }}">
+  {{ ad_marker() }}
+  {{ ad_unit(o, "rect") }}
+</div>
+{%- endmacro %}
+
 {# 970×250 billboard, 728×90 leaderboard or 300×250 rectangle, by screen width. #}
 {% macro sponsored_banner(o) -%}
 <section class="wrap sponsored-band" aria-label="{{ _('Sponsored') }}">

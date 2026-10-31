@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import brand_label %}
-{% from "_macros.html" import model_card, sponsored_banner, sponsored_side with context %}
+{% from "_macros.html" import model_card, sponsored_tile, sponsored_side with context %}
 {% block title %}{{ _('Models') }} · Bike Compare{% endblock %}
 {% block body %}
 {# The side offer sits outside main, which models.js swaps on a filter change. #}
@@ -54,18 +54,17 @@
       </span>
     </form>
   </div>
+  {% set ads = namespace(n=0) %}
   {% for key, label, items in groups %}
   <section class="stack">
     <h2>{{ _(label) }} <span class="muted count">{{ items|length }}</span></h2>
     <div class="model-grid">
-      {# The banner goes in the first group, across the grid after two rows (eight models), or after
-         the group when it's shorter. #}
-      {% set show_ad = loop.first and sponsored.banner %}
+      {# Tiles 5, 15, 25, … of each group are ads (after 4 models, then after every 9 more), never last
+         in a group. The offers rotate across the groups, so the next group goes on where this one stopped. #}
       {% for m in items %}
       {{ model_card(m, short=True) }}
-      {% if show_ad and loop.index == 8 %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
+      {% if sponsored.tiles and loop.index % 9 == 4 and not loop.last %}{{ sponsored_tile(sponsored.tiles[ads.n % sponsored.tiles|length]) }}{% set ads.n = ads.n + 1 %}{% endif %}
       {% endfor %}
-      {% if show_ad and items|length < 8 %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
     </div>
   </section>
   {% else %}

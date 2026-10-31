@@ -320,10 +320,14 @@ def create_app(db_path=None):
                 "periods": prices.PERIODS,
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
-    def offers(slots=sponsored.SLOTS):
-        """The sponsored offers for this page's slots (webapp/sponsored.py)."""
-        return sponsored.pick(sponsored.load(app.config["SPONSORED_PATH"]), g.get("lang", DEFAULT_LANGUAGE),
-                              slots=slots)
+    def offers(slots=sponsored.SLOTS, tiles=False):
+        """The sponsored offers for this page's slots (webapp/sponsored.py); with tiles, also the
+        offers the grid's every-5th ad tiles cycle through, under "tiles"."""
+        lang, every = g.get("lang", DEFAULT_LANGUAGE), sponsored.load(app.config["SPONSORED_PATH"])
+        picked = sponsored.pick(every, lang, slots=slots)
+        if tiles:
+            picked["tiles"] = sponsored.rotation(every, lang)
+        return picked
 
     @app.template_filter("eur")
     def eur(value):
@@ -473,7 +477,7 @@ def create_app(db_path=None):
         rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
         cards = [(listing_dict(r, count=n), stored_check(listing_dict(r)))
                  for r, n in group_checks(rows)]
-        return render_template("listings.html", cards=cards, nav="listings", sponsored=offers(("card", "side")))
+        return render_template("listings.html", cards=cards, nav="listings", sponsored=offers(("side",), tiles=True))
 
     @app.route("/checks")
     def all_checks():
@@ -562,7 +566,7 @@ def create_app(db_path=None):
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
                                counts=counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
-                               nav="models", sponsored=offers(("banner", "side")))
+                               nav="models", sponsored=offers(("side",), tiles=True))
 
     def groupset_key(model):
         found = checks.detect_groupset(checks.groupset_text(model))
