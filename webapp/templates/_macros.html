@@ -26,9 +26,16 @@
 {%- endmacro %}
 
 {# The site we found the ad on (Marktplaats or 2dehands), its logo on a white pill, bottom left of an ad tile's photo. #}
+{# 2ememain is 2dehands' French-language site, so it shows the 2dehands logo under its own name. #}
+{% macro site_name(url) -%}
+{{ 'Marktplaats' if url and 'marktplaats' in url else ('2dehands' if url and '2dehands' in url else ('2ememain' if url and '2ememain' in url else '')) }}
+{%- endmacro %}
+{% macro site_logo(name) -%}
+{{ url_for('static', filename='logos/marktplaats.svg' if name == 'Marktplaats' else 'logos/2dehands.svg') }}
+{%- endmacro %}
 {% macro site_mark(url) -%}
-{% set site = 'marktplaats' if url and 'marktplaats' in url else ('2dehands' if url and '2dehands' in url else none) %}
-{% if site %}<span class="site-mark"><img src="{{ url_for('static', filename='logos/' ~ site ~ '.svg') }}" alt="{{ _('Found on {site}', site='Marktplaats' if site == 'marktplaats' else '2dehands') }}" title="{{ _('Found on {site}', site='Marktplaats' if site == 'marktplaats' else '2dehands') }}" height="11"></span>{% endif %}
+{% set site = site_name(url) %}
+{% if site %}<span class="site-mark"><img src="{{ site_logo(site) }}" alt="{{ _('Found on {site}', site=site) }}" title="{{ _('Found on {site}', site=site) }}" height="11"></span>{% endif %}
 {%- endmacro %}
 
 {# An ad's town, linking to the listings map opened there (when the map knows the place). Inside another
