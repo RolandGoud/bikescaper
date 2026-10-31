@@ -17,6 +17,7 @@ def test_a_district_postcode_or_province_still_finds_the_town():
     utrecht = places.locate("Utrecht")
     assert places.locate("Utrecht (3512)") == places.locate("3512 AB Utrecht") == utrecht
     assert places.locate("Gent, Oost-Vlaanderen") == places.locate("Gent")
+    assert places.locate("Martelange + Partie D'Anlier", "https://www.2dehands.be/v/x/m1")[2] == "BE"
     assert places.locate("Amsterdam-Noord")[2] == "NL"
 
 
@@ -39,7 +40,7 @@ def test_map_page_puts_ads_with_a_known_place_on_pins(tmp_path):
                          ("Canyon Endurace CF 7", "Gent"), ("Giant Defy 2020", "Nergenshuizen")]:
         client.post("/check", data={"title": title, "asking_price": "1500", "location": place})
     page = client.get("/listings/map?lang=en").data.decode()
-    assert "3 ads in 2 places" in page and "1 without a place we know" in page
+    assert "Nergenshuizen" not in page  # a town the map doesn't know is left off
     pins = json.loads(page.split("var pins = ", 1)[1].split(";\n", 1)[0])
     by_place = {p["place"]: p for p in pins}
     assert len(by_place["Utrecht"]["ads"]) == 2 and by_place["Gent"]["country"] == "BE"

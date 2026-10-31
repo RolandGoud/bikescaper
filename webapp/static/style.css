@@ -1269,7 +1269,6 @@ select { max-width: 100%; }
 .map-pin:hover span, .map-pin:focus span, .map-pin.hover span { transform: scale(1.2); }
 .map-pin.on span { transform: scale(1.3); box-shadow: 0 0 0 3px var(--accent), 0 0 18px var(--c); }
 .map-towns { display: grid; gap: 14px; }
-.map-towns-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .map-town { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 6px; transition: border-color .15s, box-shadow .15s; scroll-margin: 16px; }
 .map-town-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px 4px; }
 .map-town-name { display: inline-flex; gap: 8px; align-items: center; font: 600 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; margin: 0; }

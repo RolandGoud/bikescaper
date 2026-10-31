@@ -37,13 +37,14 @@ def country(listing_url):
 
 
 def _tries(name):
-    """The place as written, then without a postcode, a bracketed part or a district after a dash or comma:
-    "Amsterdam-Noord", "Utrecht (3512)", "3512 AB Utrecht" and "Gent, Oost-Vlaanderen" all find their town."""
+    """The place as written, then without a postcode, a bracketed part or a district after a dash, comma or plus:
+    "Amsterdam-Noord", "Utrecht (3512)", "3512 AB Utrecht", "Gent, Oost-Vlaanderen" and
+    "Martelange + Partie D'Anlier" (2dehands' town plus its part) all find their town."""
     yield name
     bare = re.sub(r"\(.*?\)", " ", name)
     bare = re.sub(r"\b\d{4}\s?[a-zA-Z]{2}\b|\b\d{4}\b", " ", bare)
     yield bare
-    for part in re.split(r"[,/]| - ", bare):
+    for part in re.split(r"[,/+]| - ", bare):
         yield part
     yield bare.split("-")[0]
 

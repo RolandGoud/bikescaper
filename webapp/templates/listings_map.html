@@ -30,10 +30,6 @@
       </div>
     </div>
     <div class="map-towns">
-      <div class="map-towns-head mono small muted">
-        <span>{{ _('{n} ads in {p} places', n=ads, p=pins|length) }}</span>
-        {% if unplaced %}<span>{{ _('{n} without a place we know', n=unplaced) }}</span>{% endif %}
-      </div>
       {# No town picked: the towns, most ads first, {{ per_page }} to a page. Towns and pages are real links (their own
          addresses), which the script below turns into switching without reloading. #}
       {% if pins %}
