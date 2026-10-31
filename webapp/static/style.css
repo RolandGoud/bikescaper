@@ -397,7 +397,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
   .mp-text .n { font-size: 15px; }
   .mb-meter { margin-left: 0; }
 }
-/* The report's check tabs: the picked tab and its section share a green border, as one piece. */
+/* The report's check tabs: the picked tab is filled emerald with dark text; its section below is a plain card. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
 .tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: var(--pill-radius); font: var(--pill-weight) 11px/1 var(--body); }
@@ -412,10 +412,10 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .report-tab { min-width: 0; }  /* lets a long headline shrink inside its grid column instead of widening it */
 .report-tab .big { font-size: 19px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .report-tab .fair { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; }
-.tabbed .report-tabs { position: relative; z-index: 1; margin-bottom: -28px; }  /* main.page gap: the tabs sit on their section */
-.tabbed .report-tab { border-bottom: 0; border-radius: 18px 18px 0 0; padding-bottom: 20px; opacity: .78; }
-.tabbed .report-tab[aria-selected="true"] { position: relative; top: 2px; opacity: 1; border-color: var(--accent); background: var(--card); box-shadow: 0 -4px 18px rgba(52, 211, 153, .18); }
-.tabbed .report-panel { border: 2px solid var(--accent); border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 8px 24px rgba(52, 211, 153, .12); }
+.tabbed .report-tab[aria-selected="true"] { background: var(--accent); color: var(--ink); box-shadow: 0 8px 24px rgba(52, 211, 153, .25); }
+.tabbed .report-tab[aria-selected="true"] :is(.mono, .big, .fair, .verdict-pill) { color: var(--ink); }
+.tabbed .report-tab[aria-selected="true"] .verdict-pill { background: rgba(12, 13, 16, .14); }
+.tabbed .report-tab[aria-selected="true"] .verdict-pill i { background: var(--ink); color: var(--accent); }
 .report-panel[hidden] { display: none; }
 .fair-big { display: flex; gap: 28px; align-items: end; flex-wrap: wrap; }
 .fair-big .k { margin-bottom: 6px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
