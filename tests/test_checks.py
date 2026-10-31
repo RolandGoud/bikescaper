@@ -1568,3 +1568,16 @@ def test_models_page_tiles_leave_the_generation_out(tmp_path):
     assert ">Domane AL 2</span>" in tiles and ">Domane AL 2 Gen 4</span>" not in tiles
     # the model page itself keeps the generation
     assert "Domane AL 2 Gen 4" in client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
+
+
+def test_only_the_estimated_years_next_to_the_ads_year_are_ringed():
+    years = list(range(2011, 2027))
+    # The ad says 2011, the details say 2012 or later: only 2012, not 2012-2026.
+    assert checks.ringed_years(years, {"first": 2012, "last": None}, 2011) == {2012}
+    # The estimate agrees with the ad's 2018: the year itself and one either side.
+    assert checks.ringed_years(years, {"first": 2015, "last": 2022}, 2018) == {2017, 2018, 2019}
+    # The estimate rules the ad's year out by far: where it points, the closest year and the one next to it.
+    assert checks.ringed_years(years, {"first": 2020, "last": 2023}, 2011) == {2020, 2021}
+    # No year in the ad: the whole estimate.
+    assert checks.ringed_years(years, {"first": 2023, "last": None}) == {2023, 2024, 2025, 2026}
+    assert checks.ringed_years(years, None, 2011) == set()

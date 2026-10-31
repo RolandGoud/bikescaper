@@ -1560,6 +1560,26 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
 PART_CLUES = ("{part}: bikes from", "Parts {parts}", "{n}-speed")
 
 
+def ringed_years(years, estimate, claimed=None):
+    """The years on the age timeline marked "estimated": the estimate's years, kept close to the year in the ad.
+
+    With a year in the ad, only the estimated years right next to it (one before, one after, and the year itself)
+    are marked, not every year the estimate leaves open. When none of those are estimated, the estimate rules
+    the ad's year out and it makes sense to show where it points: its year closest to the ad's and the one next
+    to that. Without a year in the ad, all of it."""
+    if not estimate:
+        return set()
+    first, last = estimate.get("first"), estimate.get("last")
+    inside = [y for y in years if (not first or y >= first) and (not last or y <= last)]
+    if not claimed or not inside:
+        return set(inside)
+    near = {y for y in inside if abs(y - claimed) <= 1}
+    if near:
+        return near
+    closest = min(inside, key=lambda y: (abs(y - claimed), y))
+    return {y for y in inside if abs(y - closest) <= 1}
+
+
 def estimate_year(model, models, claims, text, seen_colour=None):
     """The model years the ad's own details allow, and whether the claimed year fits them.
 
