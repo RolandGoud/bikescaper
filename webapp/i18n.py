@@ -726,8 +726,10 @@ NL = {
         "Globale schatting: alleen nieuwprijs, leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "New price is the {year} Dutch price, which can differ from what this bike cost new.":
         "De nieuwprijs is de Nederlandse prijs van {year}; die kan afwijken van wat deze fiets nieuw kostte.",
-    "New {price} (German list price)": "Nieuw {price} (Duitse adviesprijs)",
-    "German list price {price} (TOUR/BIKE)": "Duitse adviesprijs {price} (TOUR/BIKE)",
+    "* For the new price of this model, year and colour we used an alternative source (the German list price in "
+    "the TOUR/BIKE database), so we can't guarantee it is fully reliable.":
+        "* Voor de nieuwprijs van dit model, jaar en deze kleur is een alternatieve bron gebruikt (de Duitse "
+        "adviesprijs uit de database van TOUR/BIKE). De betrouwbaarheid kunnen we daarom niet voor 100% garanderen.",
     "New price is the {year} German list price (TOUR/BIKE database), which can differ from the Dutch price and "
     "from what this bike cost new.":
         "De nieuwprijs is de Duitse adviesprijs van {year} (database van TOUR/BIKE); die kan afwijken van de "
@@ -1168,4 +1170,15 @@ NL = {
     "in the ad": "advertentie",
     "{claimed} fits": "{claimed} past",
     "Not in our catalogue": "Niet in onze catalogus",
+    # The listings map
+    "On the map": "Op de kaart",
+    "Ads on the map": "Advertenties op de kaart",
+    "Where the checked bikes are. Click a pin to see its ads and open a report.": "Waar de gecheckte fietsen staan. Klik op een speld voor de advertenties en open een rapport.",
+    "Priced too high": "Te hoog geprijsd",
+    "No price verdict": "Geen prijsoordeel",
+    "{n} ads in {p} places": "{n} advertenties in {p} plaatsen",
+    "{n} without a place we know": "{n} zonder bekende plaats",
+    "Map of the ads": "Kaart van de advertenties",
+    "No ads with a known place yet.": "Nog geen advertenties met een bekende plaats.",
+    "{n} ads": "{n} advertenties",
 }

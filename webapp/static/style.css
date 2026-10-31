@@ -1200,6 +1200,8 @@ select { max-width: 100%; }
 .key-parts .kp-k { color: var(--muted); font-size: 12px; }
 .key-parts .kp-v { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .key-parts .kp-none { margin: 8px 0 0; }
+.price-note:empty { display: none; }
+.info .price-note { margin: 12px 0 0; }
 .used-tile a { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); text-decoration: none; }
 .used-tile a:hover { color: var(--text); text-decoration: underline; }
 .head-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -1210,3 +1212,41 @@ select { max-width: 100%; }
 /* A closed <details> hides its content even when CSS shows it, so the (i) notes opened only on a click:
    let hover show them too. */
 .note-tip:hover::details-content { content-visibility: visible; display: contents; }
+
+/* The listings map (/listings/map): Leaflet with OpenStreetMap tiles turned dark, pins in the verdict colours. */
+.ads-map { height: min(72vh, 720px); min-height: 420px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); z-index: 0; }
+.map-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.map-legend .map-count-note { margin-left: auto; font-family: var(--mono); }
+.map-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); --c: var(--unknown); }
+.map-dot.ok, .map-pin.ok { --c: var(--ok); } .map-dot.warn, .map-pin.warn { --c: var(--warn); }
+.map-dot.bad, .map-pin.bad { --c: var(--bad); } .map-dot.unknown, .map-pin.unknown { --c: var(--unknown); }
+.map-pin { --c: var(--unknown); }
+.map-pin span { display: grid; place-items: center; width: 100%; height: 100%; box-sizing: border-box; border-radius: 50%; background: var(--c); border: 2px solid var(--ink); box-shadow: 0 0 0 2px rgba(255, 255, 255, .15), 0 2px 8px rgba(0, 0, 0, .5); transition: transform .12s; }
+.map-pin.many span { background: var(--ink); color: var(--text); border: 3px solid var(--c); font: 700 12px/1 var(--mono); }
+.map-pin:hover span, .map-pin:focus span { transform: scale(1.15); }
+.leaflet-container { font-family: var(--body); background: var(--ground); }
+.ads-map .leaflet-tile { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.35); }
+.ads-map.leaflet-container .leaflet-control-attribution { background: rgba(12, 13, 16, .75); color: var(--muted); }
+.ads-map.leaflet-container .leaflet-control-attribution a { color: var(--link); }
+.ads-map .leaflet-bar a { background: var(--card); color: var(--text); border-color: var(--line); }
+.leaflet-container a.map-ad { color: var(--text); }
+.map-popup .leaflet-popup-content-wrapper, .map-popup .leaflet-popup-tip { background: var(--card); color: var(--text); border: 1px solid var(--line-strong); }
+.map-popup .leaflet-popup-content { margin: 12px; }
+.map-popup a.leaflet-popup-close-button { color: var(--muted); }
+.map-pop { display: grid; gap: 6px; max-height: 340px; overflow-y: auto; }
+.map-pop-place { font: 600 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); padding-right: 16px; }
+.map-ad { display: grid; grid-template-columns: 64px 1fr; gap: 10px; align-items: center; padding: 6px; margin: 0 -6px; border-radius: 8px; text-decoration: none; }
+.map-ad:hover, .map-ad:focus { background: var(--raised); }
+.map-ad-photo { width: 64px; height: 48px; border-radius: 6px; background: var(--raised); overflow: hidden; }
+.map-ad-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.map-ad-photo.catalogue { background: var(--photo-bg); } .map-ad-photo.catalogue img { object-fit: contain; }
+.map-ad-body { display: grid; gap: 2px; min-width: 0; }
+.map-ad-top { display: flex; gap: 8px; align-items: center; }
+.map-ad-price { font-size: 15px; }
+.map-ad-verdict { font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .03em; padding: 2px 6px; border-radius: 5px; background: var(--raised); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.map-ad-verdict.ok { background: var(--ok-bg); color: var(--ok); } .map-ad-verdict.warn { background: var(--warn-bg); color: var(--warn); }
+.map-ad-verdict.bad { background: var(--bad-bg); color: var(--bad); }
+.map-ad-name { font-weight: 600; font-size: 14px; line-height: 1.25; }
+.map-ad-title { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) { .ads-map { height: 70vh; min-height: 360px; } .map-legend .map-count-note { margin-left: 0; width: 100%; } }

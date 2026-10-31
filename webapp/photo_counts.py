@@ -32,6 +32,8 @@ def model_photos(model, galleries, exists=None):
         _paths([c.get("image") for c in model.get("colorways") or []])) | set(
         _paths(galleries.get(model.get("url")) or {}))
     for year, entry in ((model.get("year_specs") or {}).get("years") or {}).items():
+        if int(year) == own:
+            continue  # the model page shows our own scrape for that year, never the sheet's photos
         found.setdefault(int(year), set()).update(
             _paths([entry.get("image"), entry.get("colour_images") or {}, entry.get("colour_angles") or {}]))
     return {y: {p for p in ps if p and exists(p)} for y, ps in found.items()}
