@@ -86,3 +86,26 @@ def test_benelux_shapes_have_the_lakes_and_the_border():
     with open(os.path.join(os.path.dirname(places.__file__), "static", "benelux.json"), encoding="utf-8") as f:
         kinds = [x["properties"]["kind"] for x in json.load(f)["features"]]
     assert kinds.count("country") == 2 and "border" in kinds and "lake" in kinds
+
+
+def test_town_list_comes_in_pages(tmp_path, monkeypatch):
+    from webapp import app as app_module
+    monkeypatch.setattr(app_module, "TOWNS_PER_PAGE", 2)
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    for title, place in [("Trek Domane SL6 2022", "Utrecht"), ("Trek Emonda SL5 2021", "Utrecht"),
+                         ("Canyon Endurace CF 7", "Gent"), ("Giant Defy 2020", "Zwolle")]:
+        client.post("/check", data={"title": title, "asking_price": "1500", "location": place})
+
+    def shown(page):  # the towns on the visible page of the list
+        towns = page.split('<nav class="map-index"', 1)[1].split('<div class="map-pager"', 1)[0].split("<a ")[1:]
+        return [t.split('class="map-index-name">')[1].split("<")[0] for t in towns if " hidden>" not in t.split(">")[0] + ">"]
+    page = client.get("/listings/map?lang=en").data.decode()
+    assert shown(page) == ["Utrecht", "Gent"] and 'href="/listings/map?page=2"' in page
+    page = client.get("/listings/map?page=2&lang=en").data.decode()
+    assert shown(page) == ["Zwolle"] and 'aria-current="page">2</a>' in page
+    assert shown(client.get("/listings/map?page=99").data.decode()) == ["Zwolle"]  # past the end: the last page
+    # A picked town's "All places" goes back to the page it's on.
+    page = client.get("/listings/map?place=Zwolle&cc=NL").data.decode()
+    assert '<a class="map-back" href="/listings/map?page=2">' in page
