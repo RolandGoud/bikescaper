@@ -203,12 +203,15 @@
     a.addEventListener("click", function (e) { e.preventDefault(); go(null, page); });
   });
   // The map column scrolls along with the town list: it stays in view like a sticky column, and by the time the
-  // page is scrolled to the end it has moved down so the map's foot lines up with the end of the list.
+  // page is scrolled to the end it has moved down so the map's foot lines up with the last town box (not the
+  // pager below it), or with the end of a picked town's ads.
   var col = document.querySelector(".ads-map-col"), list = document.querySelector(".map-towns"), queued = false;
   function follow() {
     queued = false;
     col.style.transform = "";
-    var room = list.offsetHeight - col.offsetHeight;
+    var towns = list.querySelectorAll(".map-index:not([hidden]) .map-index-town:not([hidden])");
+    var last = towns.length ? towns[towns.length - 1] : list;
+    var room = last.getBoundingClientRect().bottom - list.getBoundingClientRect().top - col.offsetHeight;
     if (room <= 0 || getComputedStyle(col).position === "static") return;
     var top = col.getBoundingClientRect().top + window.scrollY;
     var end = document.documentElement.scrollHeight - window.innerHeight;
