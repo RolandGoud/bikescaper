@@ -386,7 +386,8 @@ def year_specs(brand, name, _cache={}):
         _cache[brand] = (_years_file(f"{brand}.json"), _years_file("site", f"{brand}.json"),
                          _years_file("tourbike", f"{brand}.json"))
     archive, site, tourbike = _cache[brand]
-    list_prices = tour_bike_prices((tourbike or {}).get("models", {}), name)
+    ours = {**(archive or {}).get("models", {}), **(site or {}).get("models", {})}
+    list_prices = tour_bike_prices((tourbike or {}).get("models", {}), name, ours)
     if not archive and not site:
         return {"list_prices": list_prices} if list_prices else {}
     years = dict((archive or {}).get("models", {}).get(name.strip(), {}))
@@ -412,19 +413,23 @@ def _price_name(name):
     return re.sub(r"[^a-z0-9]+", "", re.sub(r"\bdisc\b", " ", name))
 
 
-def tour_bike_prices(models, name):
+def tour_bike_prices(models, name, ours=None):
     """{year: entry} of the TOUR/BIKE model with our model's name. When only one of the two names gives the
-    generation ("Checkpoint ALR 3" and "Checkpoint ALR 3 Gen 2"), the names without it must match."""
-    ours = _price_name(name)
+    generation ("Checkpoint ALR 3" and "Checkpoint ALR 3 Gen 2"), the names without it must match, and the year
+    counts only if no other generation of ours ({name: {year: sheet}}) has a sheet that year: it could be theirs."""
     gen = re.compile(r"gen\d+")
-    exact = [e for theirs, e in models.items() if _price_name(theirs) == ours]
-    loose = [e for theirs, e in models.items() if _price_name(theirs) != ours
-             and bool(gen.search(_price_name(theirs))) != bool(gen.search(ours))
-             and gen.sub("", _price_name(theirs)) == gen.sub("", ours)]
+    key = _price_name(name)
+    rivals = {y for other, years in (ours or {}).items() if other != name and _price_name(other) != key
+              and gen.sub("", _price_name(other)) == gen.sub("", key) for y in years}
+    exact = [(e, False) for theirs, e in models.items() if _price_name(theirs) == key]
+    loose = [(e, True) for theirs, e in models.items() if _price_name(theirs) != key
+             and bool(gen.search(_price_name(theirs))) != bool(gen.search(key))
+             and gen.sub("", _price_name(theirs)) == gen.sub("", key)]
     years = {}
-    for entries in exact + loose:
+    for entries, is_loose in exact + loose:
         for year, entry in entries.items():
-            years.setdefault(year, entry)
+            if not (is_loose and year in rivals):
+                years.setdefault(year, entry)
     return years
 
 
