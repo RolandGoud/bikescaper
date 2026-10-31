@@ -164,12 +164,15 @@ def detect_part(text, part):
     # "Zipp 404 wielen en GP5000 banden" is two clauses, so the wheel name doesn't rate the tyres.
     clauses = re.split(r"[\n.,;!?]+|\s(?:en|and|met|with)\s", text or "")
     words = PART_WORDS[part] + (f"|{WHEEL_NAMES}" if part == "wheels" else "")
+    found = []
     for clause in clauses:
         if re.search(words, _plain(clause)):
             tier = part_tier((part,), clause)
             if tier:
-                return {"label": clause.split(":")[-1].strip(" \t-•*"), "tier": tier}
-    return None
+                found.append({"label": clause.split(":")[-1].strip(" \t-•*"), "tier": tier})
+    # A named wheelset ("Wielen: Bontrager Aeolus Pro 37") says more than an earlier "carbon wielen".
+    named = [f for f in found if part == "wheels" and re.search(WHEEL_NAMES, _plain(f["label"]))]
+    return (named or found or [None])[0]
 
 
 def read_claims(title, description=""):
