@@ -4,7 +4,7 @@
 {% block body %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
-    <h1 style="font-size: 44px">{{ _('Value estimator') }}</h1>
+    <h1 style="font-size: clamp(32px, 9vw, 44px)">{{ _('Value estimator') }}</h1>
     <p class="muted">{{ _('A rough fair price for a used bike from its new price, age and condition.') }}</p>
   </div>
   <form class="card value-form" method="post" action="{{ url_for('value') }}" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
