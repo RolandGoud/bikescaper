@@ -1391,3 +1391,11 @@ def test_an_earlier_generation_we_have_no_sheet_of_is_priced_with_a_warning(mode
     assert r["age"]["earlier"] and not r["year"]["reliable"]
     assert r["value"]["model_year"] == 2017
     assert any("probably an earlier generation" in en(n) for n in r["value"]["notes"])
+
+
+def test_a_colour_the_ad_names_dates_the_years_whose_colourway_leads_with_it(models):
+    # Giant Defy Advanced Pro 2: 2018 "Carbon Smoke/ Neon Red/ Charcoal", 2019 "Charcoal / Iris". A seller's
+    # "kleur charcoal" is the charcoal bike of 2019, not the 2018 one with charcoal trim (check 53).
+    r = run(models, "Giant Defy Advanced Pro 2 racefiets",
+            "Ik verkoop mijn Giant Defy racefiets, kleur charcoal maat M. Shimano 105, schijfremmen, composiet frame.")
+    assert r["year"]["year"] == 2019, r["year"]

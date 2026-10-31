@@ -1034,15 +1034,21 @@ def colour_years(sheets, low):
     colours = {}
     for y, s in dated.items() if len(dated) > 1 else ():
         # Each part of a two-tone name on its own ("Blue Dragonfly/Chrome"): an ad names the colour, not the finish.
-        for c in (part.strip() for name in s["colours"] for part in name.split("/")):
-            words = re.findall(r"[a-z]+", _plain(c))
-            if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
-                colours.setdefault(" ".join(words), (c, set()))[1].add(y)
+        for name in s["colours"]:
+            for i, c in enumerate(part.strip() for part in name.split("/")):
+                words = re.findall(r"[a-z]+", _plain(c))
+                if words and not all(GENERIC_COLOUR.match(w) or PLAIN_COLOURS.match(w) for w in words):
+                    entry = colours.setdefault(" ".join(words), (c, set(), set()))
+                    entry[1].add(y)
+                    if i == 0:
+                        entry[2].add(y)
     words = re.findall(r"[a-z]+", low)
     ad_text = " ".join(words) + " | " + " ".join(NL_COLOURS.get(w, w) for w in words)
-    for key, (name, years) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first
+    for key, (name, years, lead) in sorted(colours.items(), key=lambda kv: -len(kv[0])):  # the longest name first
         if len(years) < len(dated) and re.search(rf"\b{re.escape(key)}\b", ad_text):
-            return name, years
+            # "kleur charcoal" is a Charcoal bike: "Charcoal / Iris" (2019), not "Carbon Smoke / Neon Red / Charcoal"
+            # (2018), where charcoal is only the trim. The years whose colourway leads with it, when only some do.
+            return name, (lead if lead and lead != years else years)
     return None
 
 

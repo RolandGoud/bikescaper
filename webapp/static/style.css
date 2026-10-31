@@ -430,7 +430,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gen-block.matched { background: var(--raised); }
 .gen-block.gen-legend { flex: none; min-width: 0; border-color: transparent; padding-left: 0; padding-right: 0; }
 .gen-legend .gen-row { grid-auto-columns: 84px; }
-.gen-legend .gen-year::before, .gen-legend .gen-dot { visibility: hidden; }
+.gen-legend .gen-year::before, .gen-legend .gen-year::after, .gen-legend .gen-dot { visibility: hidden; }
 .gen-photo.gen-label { display: grid; place-items: center; background: none; color: var(--muted); font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
 .gen-head { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
 .gen-head span { color: var(--muted); font: 12px var(--mono); margin-left: 6px; }
@@ -446,7 +446,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gen-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .gen-none { display: grid; place-items: center; height: 100%; color: var(--muted); }
 /* The line runs from the first dot to the last, through the gaps between the years. */
-.gen-year::before { content: ""; position: absolute; top: calc(var(--ph) + 13px); left: -4px; right: -4px; height: 2px; background: var(--line-strong); }
+.gen-year::before { content: ""; position: absolute; top: calc(var(--ph) + 11px); left: -4px; right: -4px; height: 2px; background: var(--line-strong); }
 .gen-year:first-child::before { left: 50%; }
 .gen-year:last-child::before { right: 50%; }
 /* Across the blocks too: the first and last year reach through the block's padding into the gap. */
@@ -455,8 +455,12 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gen-blocks .gen-legend + .gen-block .gen-year:first-child::before { left: 50%; }
 @media (min-width: 701px) { .gen-row { overflow: visible; } }
 /* Outline dots; only the year we go by is filled. */
-.gen-dot { position: relative; width: 12px; height: 12px; margin-top: 6px; border-radius: 50%; background: var(--card); border: 2px solid var(--muted); }
-.gen-block.matched .gen-dot { background: var(--raised); }
+/* The block's own background as a soft halo round each dot, so the line fades out as it reaches it. */
+.gen-block { --gen-bg: var(--card); }
+.gen-block.matched { --gen-bg: var(--raised); }
+.gen-dot { position: relative; width: 12px; height: 12px; margin-top: 6px; border-radius: 50%; background: var(--gen-bg); border: 2px solid var(--muted); z-index: 1; }
+.gen-year::after { content: ""; position: absolute; z-index: 0; top: calc(var(--ph) + 10px); left: 50%; width: 44px; height: 4px; transform: translateX(-50%);
+  background: linear-gradient(to right, transparent, var(--gen-bg) 38%, var(--gen-bg) 62%, transparent); }
 .gen-block.own .gen-dot { border-color: var(--text); }
 .gen-year.likely .gen-dot { border-color: var(--ok); }
 .gen-year.claimed .gen-dot { border-color: var(--warn); }
