@@ -13,7 +13,12 @@ from webapp import checks, db, i18n, photo_groupset, seed
 TODAY = date(2026, 10, 31)
 RIVAL = {"brand": "SRAM", "series": "Rival", "model_code": "AXS", "speeds": 12, "electronic": True,
          "confidence": "high", "photos": [5], "evidence_en": "Photo 5: RIVAL on the rear derailleur.",
-         "evidence_nl": "Foto 5: RIVAL op de achterderailleur."}
+         "evidence_nl": "Foto 5: RIVAL op de achterderailleur.",
+         "crankset": {"brand": "SRAM", "series": "Rival", "model_code": None, "confidence": "high", "photos": [9],
+                      "evidence_en": "Photo 9: Rival printed on the crank arm.",
+                      "evidence_nl": "Foto 9: Rival op de crankarm."}}
+NO_CRANK = dict(RIVAL, crankset={"brand": None, "series": None, "model_code": None, "confidence": "none", "photos": [],
+                                 "evidence_en": "", "evidence_nl": ""})
 
 
 @pytest.fixture(scope="module")
@@ -33,6 +38,10 @@ def en(msg):
 
 def groupset_row(report):
     return next(r for r in report["specs"]["rows"] if r["key"] == "groupset")
+
+
+def crank_row(report):
+    return next(r for r in report["specs"]["rows"] if r["key"] == "crankset")
 
 
 def run(models, title, description="", read=None):
@@ -184,3 +193,67 @@ def test_report_page_shows_the_photo_read(tmp_path):
     page = client.get("/check/1?lang=nl").data.decode()
     assert "(afgeleid uit foto-analyse)" in page
     assert "achterderailleur" in page
+
+
+def test_photos_fill_in_the_crankset_the_ad_leaves_out(models):
+    """Check 63: the ad doesn't name the crankset, photo 9 shows it."""
+    assert crank_row(run(models, "Trek Emonda SL6", "", None))["listing"] is None
+    report = run(models, "Trek Emonda SL6", "", RIVAL)
+    row = crank_row(report)
+    assert en(row["listing"]) == "SRAM Rival (inferred from photo analysis)"
+    assert row["ad_tier"] and row["result"] != "Compare photos"
+    assert row["photo_why"]["nl"] == "Foto 9: Rival op de crankarm."
+    assert report["specs"]["photo_crankset"]["series"] == "Rival"
+
+
+def test_crankset_from_photos_when_the_ad_names_only_the_groupset(models):
+    report = run(models, "Trek Emonda SL6 Ultegra", "", RIVAL)
+    assert not groupset_row(report)["from_photos"]
+    assert "Rival" in en(crank_row(report)["listing"])
+
+
+def test_ad_text_crankset_wins_and_unsure_crank_reads_are_left_out(models):
+    report = run(models, "Trek Emonda SL6", "Crankstel Shimano Ultegra", RIVAL)
+    assert "Ultegra" in en(crank_row(report)["listing"]) and "photo_why" not in crank_row(report)
+    assert crank_row(run(models, "Trek Emonda SL6", "", NO_CRANK))["listing"] is None
+    assert crank_row(run(models, "Trek Emonda SL6", "", dict(RIVAL, crankset=dict(RIVAL["crankset"], confidence="low"))))["listing"] is None
+
+
+def test_all_photos_up_to_20_are_read():
+    assert photo_groupset.MAX_PHOTOS >= 9  # check 63's crankset is on photo 9
+
+
+def test_a_read_from_before_the_crankset_is_read_again(tmp_path, monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
+    photo(str(tmp_path / "45" / "01.jpg"))
+    old = {k: v for k, v in RIVAL.items() if k != "crankset"}
+    (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "read": old}))
+    listing = {"id": 45, "title": "Nothing in the hand file", "asking_price": None, "listing_url": None}
+    assert photo_groupset.needs_crankset(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
+    client = FakeClient(RIVAL)
+    assert photo_groupset.read_later(str(tmp_path), 45, ["45/01.jpg"], client)
+    for _ in range(100):
+        if "crankset" in json.loads((tmp_path / "45" / "groupset.json").read_text())["read"]:
+            break
+        time.sleep(0.05)
+    read = photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"])
+    assert not photo_groupset.needs_crankset(read) and read["crankset"]["series"] == "Rival"
+    assert not photo_groupset.read_later(str(tmp_path), 45, ["45/01.jpg"], client)
+
+
+def test_a_hand_read_without_crankset_takes_it_from_the_automatic_read(tmp_path, monkeypatch):
+    hand = tmp_path / "hand.json"
+    hand.write_text(json.dumps({"marktplaats:m2459123766": {k: v for k, v in RIVAL.items() if k != "crankset"}}))
+    monkeypatch.setattr(photo_groupset, "HAND_FILE", str(hand))
+    photo_groupset._hand.__defaults__[0].clear()
+    try:
+        listing = {"id": 45, "title": "Trek Emonda SL6", "asking_price": 1800,
+                   "listing_url": "https://www.marktplaats.nl/v/x/y/m2459123766-trek-emonda-sl6"}
+        assert photo_groupset.needs_crankset(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
+        os.makedirs(tmp_path / "45")
+        (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "version": 2,
+                                                                   "read": dict(RIVAL, series="Force")}))
+        read = photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"])
+        assert read["source"] == "eye" and read["series"] == "Rival" and read["crankset"]["series"] == "Rival"
+    finally:
+        photo_groupset._hand.__defaults__[0].clear()

@@ -257,15 +257,16 @@ def create_app(db_path=None):
         # The stored photos on disk, for reading the bike's colour from them.
         listing["photo_paths"] = [os.path.join(ad_photos.folder(app.config["DB_PATH"]), p)
                                   for p in photos if ad_photos.is_stored(p)][:3]
-        # The groupset read from the photos, for ads that don't name it (webapp/photo_groupset.py): once the
-        # photos it reads are all on our disk.
+        # The groupset and crankset read from the photos, for ads that don't name them
+        # (webapp/photo_groupset.py): once the photos it reads are all on our disk.
         first = photos[:photo_groupset.MAX_PHOTOS]
         names = first if first and all(ad_photos.is_stored(p) for p in first) else []
         photo_folder = ad_photos.folder(app.config["DB_PATH"])
-        listing["photo_groupset"] = photo_groupset.stored(photo_folder, listing, names)
-        if listing["photo_groupset"] is None and names and listing.get("id") is not None \
-                and not checks.read_claims(listing.get("title") or "", listing.get("description") or "")["groupset"]:
-            photo_groupset.read_later(photo_folder, listing["id"], names)
+        read = listing["photo_groupset"] = photo_groupset.stored(photo_folder, listing, names)
+        if (read is None or photo_groupset.needs_crankset(read)) and names and listing.get("id") is not None:
+            claims = checks.read_claims(listing.get("title") or "", listing.get("description") or "")
+            if not claims["groupset"] or not claims["crankset"]:
+                photo_groupset.read_later(photo_folder, listing["id"], names)
         listing["photos"] = [p if not ad_photos.is_stored(p) else url_for("ad_photo", name=p) for p in photos]
         if height:
             listing["rider_height"] = height

@@ -1,5 +1,5 @@
 {
- "_about": "The groupset seen in a checked ad's photos, read by eye, for ads whose text doesn't name it (see webapp/photo_groupset.py). Keyed like fetch_ad.ad_key. Same fields as an automatic read: brand, series, model_code, speeds, electronic, confidence (high/medium/low), evidence_en, evidence_nl. An entry here wins over the automatic read, so it also corrects one.",
+ "_about": "The groupset seen in a checked ad's photos, read by eye, for ads whose text doesn't name it (see webapp/photo_groupset.py). Keyed like fetch_ad.ad_key. Same fields as an automatic read: brand, series, model_code, speeds, electronic, confidence (high/medium/low), evidence_en, evidence_nl, and optionally crankset (brand, series, model_code, confidence, photos, evidence_en, evidence_nl); without it the automatic read adds the crankset. An entry here wins over the automatic read, so it also corrects one.",
  "marktplaats:m2459123766": {
   "brand": "SRAM",
   "series": "Rival",
@@ -59,7 +59,18 @@
   ],
   "evidence_en": "Photo 4: rear derailleur printed CENTAUR (Campagnolo); photo 5: the crank is a Shimano 105 5800, so the drivetrain is mixed.",
   "evidence_nl": "Foto 4: achterderailleur met CENTAUR erop (Campagnolo); foto 5: de crank is een Shimano 105 5800, dus de aandrijving is gemengd.",
-  "seen_on": "2026-10-31"
+  "seen_on": "2026-10-31",
+  "crankset": {
+   "brand": "Shimano",
+   "series": "105",
+   "model_code": "FC-5800",
+   "confidence": "medium",
+   "photos": [
+    5
+   ],
+   "evidence_en": "Photo 5: a Shimano 105 5800 crank (shape and print), on an otherwise Campagnolo drivetrain.",
+   "evidence_nl": "Foto 5: een Shimano 105 5800-crank (vorm en opdruk), bij verder Campagnolo-onderdelen."
+  }
  },
  "marktplaats:m2459439729": {
   "brand": "Shimano",

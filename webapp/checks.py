@@ -1787,6 +1787,25 @@ def photo_group(read):
     return found
 
 
+def photo_crankset(read):
+    """The crankset a read of the ad's photos shows, as detect_part gives it ({"label", "tier"}), or None when
+    the read isn't sure enough or names no crankset we can rate."""
+    from . import photo_groupset
+    crank = photo_groupset.crankset_of(read)
+    if not crank:
+        return None
+    text = photo_groupset.crankset_text(crank)
+    tier = part_tier(PART_TABLES["crankset"], text)
+    if not tier:
+        return None
+    return {"label": Msg("{label} (inferred from photo analysis)", label=text), "tier": tier}
+
+
+def _photo_why(read):
+    """The evidence of a photo read, by language, for the hover on the row."""
+    return {"en": read.get("evidence_en") or "", "nl": read.get("evidence_nl") or ""}
+
+
 def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None, no_sheet=False, today=None):
     """The ad's parts against the model's spec sheet. `bike_year` is the model year the report goes by: the ad's
     groupset drops a tier or two for its age (groupset_age_drop), as the original's does for its sheet's year;
@@ -1838,6 +1857,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
     for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
                               ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",))):
         ref_val, ad = spec(model, *keys), claims.get(key)
+        crank_seen = photo_crankset(photo_read) if key == "crankset" and not ad else None
+        ad = ad or crank_seen
         ref_tier = part_tier(PART_TABLES.get(key, (key,)), ref_val) if ref_val else None
         if ad and ref_tier:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
@@ -1848,6 +1869,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows.append(_row(key, part, ref_val or Msg("Not in our data"), ad["label"], UNKNOWN, "Can't compare"))
         elif ref_val:
             rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
+        if crank_seen:
+            rows[-1]["photo_why"] = _photo_why(photo_read["crankset"])
     for key, part, keys in (("saddle", "Saddle", ("Zadel",)),):
         ref_val = spec(model, *keys)
         if ref_val:
@@ -1858,6 +1881,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
     if claimed:
         rows[0]["ad_tier"] = claimed["tier"]
     rows[0]["from_photos"] = bool(seen)
+    if seen:
+        rows[0]["photo_why"] = _photo_why(photo_read)
     # An older groupset rates lower, the ad's by the bike's year and the original's by its sheet's year.
     for side, year in (("ad", bike_year), ("ref", None if no_sheet else model.get("spec_year") or sheet_year(model))):
         rows[0][f"{side}_aged"] = None
@@ -1900,7 +1925,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
                           year=bike_year),
                       claims["mentions_upgrades"] and Msg("The seller mentions changed parts."))
     return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows,
-            "photo_groupset": photo_read if seen else None}
+            "photo_groupset": photo_read if seen else None,
+            "photo_crankset": photo_read["crankset"] if any(r.get("photo_why") and r["key"] == "crankset" for r in rows) else None}
 
 
 def size_options(brand):

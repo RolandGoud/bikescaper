@@ -30,8 +30,8 @@ def inputs_key(listing):
                                           "rider_height", "model_id")}
     if listing.get("photo_groupset"):
         # Only when there is one, so checks without it keep the reports they have.
-        # The version makes reports stored with the old "(from the photos)" label run again.
-        wanted["photo_groupset"] = dict(listing["photo_groupset"], label_version=2)
+        # The version makes reports stored before the crankset and the hover on each row run again.
+        wanted["photo_groupset"] = dict(listing["photo_groupset"], label_version=3)
     return hashlib.sha1(json.dumps(dict(wanted, photos=photos), sort_keys=True, default=str).encode()).hexdigest()
 
 
