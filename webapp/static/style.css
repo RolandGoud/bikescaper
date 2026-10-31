@@ -456,8 +456,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .gen-year:first-child::before { left: 50%; }
 .gen-year:last-child::before { right: 50%; }
 /* Across the blocks too: the first and last year reach through the block's padding to its edge. */
-.gen-block:not(.gen-legend) + .gen-block .gen-year:first-child::before { left: -18px; }
-.gen-block:not(:last-child) .gen-year:last-child::before { right: -18px; }
+.gen-block:not(.gen-legend) + .gen-block .gen-year:first-child::before { left: -10px; }
+.gen-block:not(:last-child) .gen-year:last-child::before { right: -10px; }
 .gen-blocks .gen-legend + .gen-block .gen-year:first-child::before { left: 50%; }
 /* Outline dots; only the year we go by is filled. */
 /* The block's own background as a soft halo round each dot, so the line fades out as it reaches it. */
