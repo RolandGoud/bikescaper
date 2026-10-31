@@ -96,6 +96,7 @@ def test_bike_older_than_our_catalogue_has_no_spec_sheet(models):
     assert "2020" not in en(r["specs"]["detail"])
     groupset = r["specs"]["rows"][0]
     assert groupset["step"] == 0 and groupset["ref_tier"] is None
+    assert all(row["status"] == checks.UNKNOWN for row in r["specs"]["rows"])  # not even the frame its name implies
     # A 2011 Record is no longer top tier: two tiers down for its age.
     assert groupset["ad_tier"] == 3 and groupset["ad_aged"] == {"new": 5, "age": TODAY.year - 2011}
 
