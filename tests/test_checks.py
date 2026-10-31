@@ -775,15 +775,17 @@ def test_report_says_when_we_dispute_the_model(tmp_path):
     assert 'class="mb-chip bad"' in page and "De advertentie zegt Gen 3, dit is een Gen 4" in page
 
 
-def test_value_uses_the_oldest_estimated_year(models):
+def test_value_uses_the_middle_estimated_year(models):
+    # No year in the ad: the middle of the years its details allow within the generation's years (2023–2026).
     r = run(models, "Trek Domane SL 6 gen 4", "Shimano 105 Di2 2x12, schijfremmen", price=2000)
-    assert r["value"]["model_year"] == 2023
-    assert any("probably from 2023 or later" in en(n) for n in r["value"]["notes"])
+    assert r["value"]["model_year"] == 2024 and r["year"]["how"] == "estimate"
+    assert any("details point to 2023–2026, so we go by 2024" in en(n) for n in r["value"]["notes"])
     # A stated year still wins.
     assert run(models, "Trek Domane SL 6 gen 4 2025", "Shimano 105 Di2 2x12", price=2000)["value"]["model_year"] == 2025
-    # No clue in the ad: the first year of the brand's photos, not the catalogue year.
+    # No clue in the ad: the middle of the years the generation was sold (launched as the 2021 model), not the
+    # catalogue year.
     r = run(models, "Trek Emonda SL 6", price=1500)
-    assert r["model"]["photo_years"] == [2024] and r["value"]["model_year"] == 2024
+    assert r["value"]["model_year"] == 2023 and r["year"]["how"] == "generation"
 
 
 def test_condition_reads_negated_damage_and_the_ads_condition_field():
@@ -800,15 +802,17 @@ def test_year_is_always_estimated(models):
     e = run(models, "Trek Domane SL 6 2019")["year_estimate"]
     assert e["first"] == 2023 and en(e["headline"]) == "Can't check 2019"
     assert run(models, "Trek Domane SL 6 2024")["year_estimate"]["status"] == checks.OK
+    # The Émonda's launch year is entered by hand (reference.LINEAGES), so 2021 can be checked.
     e = run(models, "Trek Emonda SL 6 2021")["year_estimate"]
-    assert e["status"] == checks.UNKNOWN and en(e["headline"]) == "Can't check 2021"
-    assert en(run(models, "Trek Emonda SL 6")["year_estimate"]["headline"]) == "Probably 2024"
+    assert e["status"] == checks.OK and en(e["headline"]) == "Fits 2021 or later"
+    assert en(run(models, "Trek Emonda SL 6")["year_estimate"]["headline"]) == "Probably 2021 or later"
 
 
 def test_value_replaces_a_stated_year_the_details_rule_out(models):
     r = run(models, "Trek Domane SL 6 gen 4 2019", "Shimano 105 Di2 2x12", price=2000)
-    assert r["value"]["model_year"] == 2023
-    assert any("stated 2019 doesn't fit" in en(n) for n in r["value"]["notes"])
+    assert r["value"]["model_year"] == 2024
+    assert any("stated 2019 doesn't fit the ad's details (2023–2026), so we go by 2024" in en(n)
+               for n in r["value"]["notes"])
     assert run(models, "Trek Domane SL 6 gen 4 2024", "Shimano 105 Di2 2x12", price=2000)["value"]["model_year"] == 2024
 
 
@@ -909,14 +913,13 @@ def test_age_timeline_shows_every_catalogue_year(models):
                  "2023": {"specs": {"Frame": "x"}}}})
     age = checks.check_age(m, checks.read_claims("Trek Domane SL 7 2022", ""), TODAY)
     assert [(t["year"], t["sold"], t["earlier"]) for t in age["timeline"]] == [
-        (2020, False, True), (2021, False, False), (2022, False, True), (2023, True, False), (2024, True, False),
+        (2020, False, True), (2021, False, True), (2022, False, True), (2023, True, False), (2024, True, False),
         (2025, True, False), (2026, True, False)]
     assert age["status"] == checks.WARN and age["earlier"] and "Domane SL 7 gen 3" in en(age["detail"])
     assert "2020, 2022" in en(age["notes"][-1])
-    # The age tab groups those years into blocks: each earlier generation under its sheet's name, then this model.
+    # The age tab groups those years into blocks: gen 3 (2020–2022) under its newest sheet's name, then this model.
     assert [(g["kind"], g["name"], g["first"], g["last"]) for g in age["generations"]] == [
-        ("earlier", "Domane SL 7", 2020, 2020), ("unknown", None, 2021, 2021),
-        ("earlier", "Domane SL 7 gen 3", 2022, 2022), ("own", "Domane SL 7 Gen 4", 2023, 2026)]
+        ("earlier", "Domane SL 7 gen 3", 2020, 2022), ("own", "Domane SL 7 Gen 4", 2023, 2026)]
 
 
 def test_spec_comparison_uses_a_year_the_estimate_allows(models):
@@ -1024,8 +1027,8 @@ def test_age_tab_says_what_its_section_says():
     assert tab["status"] == checks.OK and en(tab["headline"]) == "Year estimate: Fits 2025"
     ok = dict(age, status=checks.OK, headline=checks.Msg("Adds up"))
     assert en(checks.age_summary(ok, estimate)["headline"]) == "Adds up · Fits 2025"
-    # The tab's pill says it adds up, so the headline gives the year.
-    assert en(checks.age_summary(dict(ok, year=2025), estimate)["headline"]) == "Fits 2025"
+    # The tab's pill says it adds up, so the headline gives the year, also when the estimate agrees.
+    assert en(checks.age_summary(dict(ok, year=2025), estimate)["headline"]) == "Model year 2025"
     assert en(checks.age_summary(dict(ok, year=2025), None)["headline"]) == "Model year 2025"
     bad = dict(estimate, status=checks.BAD, headline=checks.Msg("Doesn't fit {years}", years="2023"))
     assert checks.age_summary(ok, bad)["status"] == checks.BAD
@@ -1271,9 +1274,10 @@ def test_an_ad_without_a_year_shows_the_middle_year_its_details_allow(models):
     assert r["model"]["name"] == "Émonda SLR 7"
     assert (r["year_estimate"]["first"], r["year_estimate"]["last"]) == (2022, None)
     assert r["spec_year"] == 2023 and r["photo_year"]["year"] == 2023
-    # 11-speed leaves 2020-2021: of two middle years, the earlier.
+    # 11-speed leaves 2020-2021, but this generation launched as the 2021 model (reference.LINEAGES): 2020's sheet is
+    # the previous one.
     r = checks.run_check(models, {"title": "Trek Emonda SLR 7", "description": "Ultegra Di2 2x11"})
-    assert r["spec_year"] == 2020
+    assert r["spec_year"] == 2021 and r["year"]["year"] == 2021
     assert checks.middle_year([2020, 2021, 2022, 2023, 2024]) == 2022 and checks.middle_year([2021, 2022]) == 2021
 
 
@@ -1294,3 +1298,93 @@ def test_a_stated_year_wins_over_a_groupset_that_could_be_an_upgrade(models):
     assert r["spec_year"] == 2022
     groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
     assert groupset["step"] > 0  # an upgrade on the 2022 sheet
+
+
+def _tarmac_sl8(models):
+    # Like the S-Works Tarmac SL8 on the NAS: an archived line with only its 2026 sheet, so our oldest year is
+    # two years after the real launch (the 2024 model, launched in 2023).
+    return dict(models[0], brand="Specialized", name="S-Works Tarmac SL8 - SRAM RED AXS", seen_on=None, photo_years=[],
+                source_file="years/archived/x.json", price_eur=None, specs={"Frame": "x"},
+                year_specs={"checked": [2026], "years": {"2026": {"specs": {"Frame": "x"}, "price": 13000}}})
+
+
+def test_a_generation_starts_at_its_launch_not_at_our_oldest_sheet(models):
+    m = _tarmac_sl8(models)
+    gen = checks.generation(m)
+    assert (gen["first"], gen["name"]) == (2024, "Tarmac SL8") and gen["earlier"][-1] == (2021, 2023, "Tarmac SL7")
+    age = checks.check_age(m, checks.read_claims("Specialized Tarmac SL8 2024", ""), TODAY)
+    assert age["status"] == checks.OK
+    # The year before launch is most likely when it was bought: priced as the 2024 model, not the 2023 one.
+    claims = checks.read_claims("Specialized Tarmac SL8 2023", "")
+    age = checks.check_age(m, claims, TODAY)
+    assert age["status"] == checks.WARN and age["purchase"] and not age["earlier"]
+    assert checks.resolve_year(m, claims, age, None, TODAY)["year"] == 2024
+    # Two years before: the previous generation, by name.
+    age = checks.check_age(m, checks.read_claims("Specialized Tarmac SL8 2021", ""), TODAY)
+    assert age["earlier"] and "Tarmac SL7" in en(age["detail"])
+    # Only a spec sheet of that year makes it this model's predecessor; a photo year doesn't.
+    assert not age["earlier_sheet"]
+    assert not checks.check_age(dict(m, photo_years=[2021]), checks.read_claims("Specialized Tarmac SL8 2021", ""),
+                                TODAY)["earlier_sheet"]
+    assert [g["name"] for g in age["generations"]] == ["Tarmac SL7", "S-Works Tarmac SL8 - SRAM RED AXS"]
+
+
+def test_details_outside_the_generation_are_another_generation(models):
+    # The details point to 2018-2020, before the SL8 launched (2024): priced at their middle, but not reliable.
+    m = _tarmac_sl8(models)
+    resolved = checks.resolve_year(m, checks.read_claims("Specialized Tarmac SL8", ""), {"status": checks.WARN},
+                                   {"status": checks.UNKNOWN, "first": 2018, "last": 2020}, TODAY)
+    assert (resolved["year"], resolved["reliable"]) == (2019, False)
+    # A lineage's end doesn't retire a version the brand still lists.
+    sl7 = dict(models[0], brand="Specialized", name="Tarmac SL7 Sport - Shimano 105", missed_scrapes=0,
+               last_seen="2026-10-01", source_file="x.json")
+    assert checks.catalogue_status(sl7, TODAY)[0] == "current"
+    assert checks.catalogue_status(dict(sl7, missed_scrapes=2, latest_scrape="2026-10-01"), TODAY)[0] == "discontinued"
+    assert checks.catalogue_status(dict(sl7, missed_scrapes=None), TODAY)[0] == "unknown"  # never checked
+
+
+def test_one_year_for_the_price_and_the_specs(models):
+    m = _tarmac_sl8(models)
+    age = {"status": checks.WARN}
+    no_year = checks.read_claims("Specialized Tarmac SL8", "")
+    # No year and no clues: the middle of the generation's years (2024–2026), never as new.
+    assert checks.resolve_year(m, no_year, age, None, TODAY)["year"] == 2025
+    # Clues: the middle of what they allow within the generation.
+    assert checks.resolve_year(m, no_year, age, {"status": checks.UNKNOWN, "first": 2025, "last": None}, TODAY)[
+        "year"] == 2025
+    # A purchase year after the years the details allow: the newest model year they allow (check 20).
+    bought = checks.read_claims("Trek Emonda ALR 5", "gekocht in 2024")
+    assert bought["year_is_purchase"]
+    resolved = checks.resolve_year(m, bought, {"status": checks.OK, "year": 2024},
+                                   {"status": checks.OK, "first": None, "last": 2025}, TODAY)
+    assert (resolved["year"], resolved["how"]) == (2024, "ad")
+    resolved = checks.resolve_year(m, dict(bought, year=2026), {"status": checks.OK, "year": 2026},
+                                   {"status": checks.OK, "first": None, "last": 2025}, TODAY)
+    assert (resolved["year"], resolved["how"]) == (2025, "purchase")
+    tab = checks.age_summary({"status": checks.OK, "year": 2026, "headline": checks.Msg("Adds up"), "detail": checks.Msg("x")},
+                             {"status": checks.OK, "headline": checks.Msg("y"), "detail": checks.Msg("z")}, resolved)
+    assert en(tab["headline"]) == "Model year 2025, bought in 2026"
+    # The value uses that year's own new price when we have it.
+    value = checks.check_value(m, checks.read_claims("Specialized Tarmac SL8 2026", ""), 9000, {"rows": []},
+                               {"status": checks.OK}, TODAY)
+    assert value["original"] == 13000 and value["model_year"] == 2026
+
+
+def test_an_ad_without_a_year_says_what_its_details_point_to():
+    age = {"status": checks.WARN, "headline": checks.Msg("Year not stated"), "detail": checks.Msg("x")}
+    estimate = {"status": checks.UNKNOWN, "first": 2022, "last": None, "headline": checks.Msg("y"),
+                "detail": checks.Msg("The ad doesn't give a year, but its details point to {years}.", years="2022–2026")}
+    tab = checks.age_summary(age, estimate, {"year": 2024, "how": "estimate", "first": 2022, "last": 2026})
+    assert tab["status"] == checks.WARN and en(tab["headline"]) == "No year given; probably 2022–2026"
+    # A colour-dated year says so too.
+    tab = checks.age_summary(age, estimate, {"year": 2023, "how": "photo", "first": 2023, "last": 2023})
+    assert en(tab["headline"]) == "No year given; probably 2023"
+
+
+def test_an_earlier_generation_we_have_no_sheet_of_is_priced_with_a_warning(models):
+    # Check 50: an Émonda SL 5 from 2017 is the first Émonda generation; we go by the ad's year but say its new
+    # price was another one.
+    r = run(models, "Trek Émonda SL 5", "Bouwjaar 2017", price=600)
+    assert r["age"]["earlier"] and not r["year"]["reliable"]
+    assert r["value"]["model_year"] == 2017
+    assert any("probably an earlier generation" in en(n) for n in r["value"]["notes"])

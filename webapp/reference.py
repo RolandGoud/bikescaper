@@ -18,6 +18,28 @@ GENERATIONS = {
 }
 GENERATIONS_NOTE = "Model years entered by hand from launch dates; not yet checked against the brand's archive."
 
+# The generations of a model line, oldest first: (first model year, last or None, a word in the model's name that
+# says it is this generation or None, name). A model belongs to the generation its name says, else to the one its
+# newest catalogue year falls in. Entered by hand from launch dates (a bike launched mid-year is sold as next
+# year's model), because our oldest spec sheet is often years after the real launch. Wins over GENERATIONS.
+LINEAGES = [
+    ("Specialized", r"\btarmac\b", [(2017, 2020, "sl6", "Tarmac SL6"), (2021, 2023, "sl7", "Tarmac SL7"),
+                                    (2024, None, "sl8", "Tarmac SL8")]),
+    ("Trek", r"\bemonda sl", [(2015, 2017, None, "Émonda (2015–2017)"), (2018, 2020, None, "Émonda (2018–2020)"),
+                              (2021, None, None, "Émonda (2021–)")]),
+    ("Trek", r"\bdomane al\b", [(2021, 2023, "gen 3", "Domane AL Gen 3"), (2024, None, "gen 4", "Domane AL Gen 4")]),
+    ("Giant", r"\btcr advanced\b", [(2016, 2020, None, "TCR Advanced (2016–2020)"),
+                                    (2021, 2024, None, "TCR Advanced (2021–2024)"),
+                                    (2025, None, None, "TCR Advanced (2025–)")]),
+    ("Cannondale", r"\bsupersix evo\b", [(2016, 2019, None, "SuperSix EVO (2016–2019)"),
+                                         (2020, 2022, None, "SuperSix EVO (2020–2022)"),
+                                         (2023, None, None, "SuperSix EVO (2023–)")]),
+    ("Cannondale", r"\bsynapse carbon\b", [(2018, 2021, None, "Synapse Carbon (2018–2021)"),
+                                           (2022, None, None, "Synapse Carbon (2022–)")]),
+    ("Canyon", r"\baeroad\b", [(2015, 2020, None, "Aeroad (2015–2020)"), (2021, None, None, "Aeroad (2021–)")]),
+]
+LINEAGES_NOTE = "Launch years of each generation entered by hand; our spec sheets fill in the rest."
+
 # Generic rider-height charts (cm) per brand and size label, used until the
 # scraper collects each model's own size chart.
 SIZE_CHARTS = {

@@ -234,7 +234,9 @@
     </div>
     {% endif %}
     <p><span class="{{ r.age.status }}" style="font-weight: 700">{{ r.age.headline }}:</span> {{ r.age.detail }}</p>
-    {% if r.year_estimate %}
+    {% if r.year %}<p class="small muted">{{ _('We go by {year} for the price and the specs.', year=r.year.year) }}{% if r.year.note %} {{ r.year.note }}{% endif %}</p>{% endif %}
+    {# Without clues the estimate only repeats the generation's years, which the age check above already weighed. #}
+    {% if r.year_estimate and not (r.year_estimate.fallback and (r.age.earlier or r.age.older)) %}
     <p><span class="{{ r.year_estimate.status }}" style="font-weight: 700">{{ _('Year estimate:') }} {{ r.year_estimate.headline }}.</span> {{ r.year_estimate.detail }}</p>
     <ul class="small muted" style="margin: -8px 0 12px; padding-left: 20px">{% for e in r.year_estimate.evidence %}<li>{{ e }}</li>{% endfor %}</ul>
     {% endif %}
