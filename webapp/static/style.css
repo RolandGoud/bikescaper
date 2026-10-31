@@ -400,7 +400,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
   .mp-text .n { font-size: 15px; }
   .mb-meter { margin-left: 0; }
 }
-/* The report's check tabs: the picked tab is filled emerald with dark text; its section below is a plain card. */
+/* The report's check tabs, as folder tabs: the picked tab has its section's colour and flows into it on curved feet; the others sit lower and dimmer. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
 .tab-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .verdict-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 4px; border-radius: var(--pill-radius); font: var(--pill-weight) 11px/1 var(--body); }
@@ -415,10 +415,17 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .report-tab { min-width: 0; }  /* lets a long headline shrink inside its grid column instead of widening it */
 .report-tab .big { font-size: 19px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .report-tab .fair { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; }
-.tabbed .report-tab[aria-selected="true"] { background: var(--accent); color: var(--ink); box-shadow: 0 8px 24px rgba(52, 211, 153, .25); }
-.tabbed .report-tab[aria-selected="true"] :is(.mono, .big, .fair, .verdict-pill) { color: var(--ink); }
-.tabbed .report-tab[aria-selected="true"] .verdict-pill { background: rgba(12, 13, 16, .14); }
-.tabbed .report-tab[aria-selected="true"] .verdict-pill i { background: var(--ink); color: var(--accent); }
+.tabbed .report-tabs { position: relative; z-index: 1; margin-bottom: -28px; align-items: end; }  /* main.page gap: the tabs sit on their section */
+.tabbed .report-tab { border: 0; padding-top: 12px; padding-bottom: 14px; margin-bottom: 6px; opacity: .7; }
+.tabbed .report-tab[aria-selected="true"] { position: relative; z-index: 2; margin-bottom: -18px; padding-top: 16px; padding-bottom: 44px;  /* reaches 18px into the section, over its rounded corner */ border-radius: 16px 16px 0 0; opacity: 1; background: var(--card); color: var(--text); filter: none; }
+.tabbed .report-tab[aria-selected="true"] .mono { color: var(--accent); }
+.tabbed .report-tab[aria-selected="true"] .big { color: var(--text); }
+/* The curved feet: a quarter circle cut from the card colour on each side, so the tab widens into the section. */
+.tabbed .report-tab[aria-selected="true"]::before, .tabbed .report-tab[aria-selected="true"]::after { content: ""; position: absolute; bottom: 18px; width: 12px; height: 12px; pointer-events: none; }
+.tabbed .report-tab[aria-selected="true"]::before { left: -12px; background: radial-gradient(circle at 0 0, transparent 11.5px, var(--card) 12px); }
+.tabbed .report-tab[aria-selected="true"]::after { right: -12px; background: radial-gradient(circle at 100% 0, transparent 11.5px, var(--card) 12px); }
+.tabbed .report-tab[aria-selected="true"]:first-child::before, .tabbed .report-tab[aria-selected="true"]:last-child::after { display: none; }
+.tabbed .report-panel { border: 0; }
 .report-panel[hidden] { display: none; }
 .fair-big { display: flex; gap: 28px; align-items: end; flex-wrap: wrap; }
 .fair-big .k { margin-bottom: 6px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -427,6 +434,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 @media (max-width: 800px) {
   .report-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
   .report-tabs::-webkit-scrollbar { display: none; }
+  .tabbed .report-tabs { padding-bottom: 18px; margin-bottom: -46px; }  /* room inside the scroller for the open tab's 18px reach */
   .report-tab { flex: 0 0 64%; }
   .report-tab.price { flex-basis: 78%; }
   .fair-big .n { font-size: 34px; }
