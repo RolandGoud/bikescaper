@@ -2205,7 +2205,7 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     condition = (Msg("Normal use") if aged_out else
                  Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None)
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
-              "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, asking),
+              "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, original, asking),
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} German list price (TOUR/BIKE database), which can differ "
                             "from the Dutch price and from what this bike cost new.", year=price_year) if german else
@@ -2268,34 +2268,32 @@ def value_bar(low, high, original, asking=None):
             "max": hi_axis, "ticks": axis_ticks(hi_axis)}
 
 
-def price_slider(low, high, asking=None):
-    """The report's slider: an axis zoomed in on the fair range and the asking price, not from €0, so the gap
-    between them is easy to see. Positions are % along the track."""
-    lo, hi = min(low, asking or low), max(high, asking or high)
-    pad = max((hi - lo) * 0.3, high * 0.1)
-    raw = (hi - lo + 2 * pad) / 4
+def price_slider(low, high, original, asking=None):
+    """The report's slider: from €0 to the new price the estimate went by (that model year's), so the fair range
+    reads as a share of what the bike cost new. Positions are % along the track; an asking price above the new
+    price sits at the end, marked beyond."""
+    raw = original / 5
     magnitude = 10 ** (len(str(int(raw))) - 1)
     step = next(m * magnitude for m in (1, 2, 2.5, 5, 10) if m * magnitude >= raw)
-    start = max(0, (lo - pad) // step * step)
-    end = -(-(hi + pad) // step) * step
 
     def at(value):
-        return round(100 * (value - start) / (end - start), 2)
+        return round(min(100.0, 100 * value / original), 2)
 
-    ticks, value = [], start
-    while value <= end:
+    ticks, value = [], 0
+    while value < original * 0.88:  # a round tick too close to the new price would collide with its label
         ticks.append((value, at(value)))
         value += step
+    ticks.append((original, 100.0))
     # On a phone only the ends and the tick nearest the middle fit; the others are marked minor.
     middle = min(range(1, len(ticks) - 1), key=lambda i: abs(ticks[i][1] - 50), default=None)
     ticks = [(v, pos, i not in (0, len(ticks) - 1, middle)) for i, (v, pos) in enumerate(ticks)]
-    # Below this the asking price is "suspiciously cheap" (see check_value), tinted red on the track.
-    suspect = max(0.0, at(low * 0.6))
-    out = {"low": at(low), "high": at(high), "suspect": suspect, "ticks": ticks,
+    out = {"low": at(low), "high": at(high), "suspect": at(low * 0.6), "ticks": ticks,
+           # Below this the asking price is "suspiciously cheap" (see check_value), tinted red on the track.
            "label": at(high) - at(low) >= 14,  # room for "FAIR" in the band
            "narrow": at(high) - at(low) < 30}  # but not on a phone
     if asking:
         out["asking"] = at(asking)
+        out["beyond"] = asking > original
         # The label above the knob stays inside the track near its ends.
         out["align"] = "start" if out["asking"] < 25 else "end" if out["asking"] > 75 else "middle"
         if low <= asking <= high:

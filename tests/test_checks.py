@@ -889,19 +889,18 @@ def test_value_axis_runs_from_zero_to_the_end_of_the_scale():
     assert ticks[0][1] == 0 and ticks[-1][1] == 100
 
 
-def test_price_slider_zooms_in_on_the_fair_range_and_the_asking_price():
+def test_price_slider_runs_from_zero_to_the_new_price():
     from webapp.checks import price_slider
-    s = price_slider(3720, 4550, 3499)
-    values = [v for v, _, _ in s["ticks"]]
-    assert sum(not minor for _, _, minor in s["ticks"]) == 3
-    assert values[0] > 0 and values[0] <= 3499 and values[-1] >= 4550  # not from €0, but everything on it
-    assert s["ticks"][0][1] == 0 and s["ticks"][-1][1] == 100
-    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "start" and s["label"]
-    far = price_slider(950, 1160, 2950)
-    assert far["asking"] > far["high"] and not far["label"]  # a narrow band leaves out its label
-    assert price_slider(950, 1160)["ticks"] and "asking" not in price_slider(950, 1160)
-    inside = price_slider(3720, 4550, 4000)
-    assert not inside["label"] and inside["align"] == "middle"  # the knob would sit on the label
+    s = price_slider(3720, 4550, 7700, 3499)
+    assert s["ticks"][0][:2] == (0, 0) and s["ticks"][-1][:2] == (7700, 100.0)
+    assert sum(not minor for _, _, minor in s["ticks"]) == 3  # the ends and the middle, on a phone
+    assert 0 < s["asking"] < s["low"] < s["high"] < 100 and s["align"] == "middle" and not s["beyond"]
+    over = price_slider(950, 1160, 2349, 2950)
+    assert over["asking"] == 100.0 and over["beyond"] and over["align"] == "end"
+    assert not over["label"]  # a narrow band leaves out its label
+    assert "asking" not in price_slider(950, 1160, 2349)
+    inside = price_slider(3720, 4550, 7700, 4000)
+    assert not inside["label"]  # the knob would sit on it
 
 
 def test_value_says_how_far_the_asking_price_is_from_the_range(models):
@@ -1755,3 +1754,4 @@ def test_report_value_section_without_and_with_an_asking_price(tmp_path):
     page = client.get(priced.headers["Location"] + "?lang=en").data.decode()
     assert 'class="price-slider with-pin"' in page and 'class="value-verdict warn-bg"' in page
     assert "above the fair range" in page and "How we estimate this" in page
+    assert "above fair" in page and "Middle €" in page and 'class="new"' in page

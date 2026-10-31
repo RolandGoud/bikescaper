@@ -189,22 +189,31 @@
     </div>
     {% endif %}
     {% if v.low %}
-    <div class="value-prices">
-      {% if listing.asking_price %}<div><div class="k">{{ _('Asking price') }}</div><div class="n {{ v.status }}">{{ listing.asking_price|eur }}</div></div>{% endif %}
-      <div><div class="k">{{ _('Fair price') }}</div><div class="n fair">{{ v.low|eur }} – {{ v.high|eur }}</div></div>
-      {% if v.original %}<div class="new"><div class="k">{{ _('New price') }}</div><div class="n">{{ v.original|eur }}</div></div>{% endif %}
+    {# Three tiles across the width, each with a line on what its number means; the fair one is widest. #}
+    {% set mid = ((v.low + v.high) / 2)|round(-1) %}
+    <div class="value-prices{{ ' no-ask' if not listing.asking_price }}">
+      {% if listing.asking_price %}{% set ask = listing.asking_price %}
+      <div class="ask {{ v.status }}-bg"><div class="k">{{ _('Asking price') }}</div><div class="n {{ v.status }}">{{ ask|eur }}</div>
+        <div class="sub">{% if ask > v.high %}{{ _('{diff} above fair', diff=(ask - v.high)|eur) }}{% elif ask < v.low %}{{ _('{diff} below fair', diff=(v.low - ask)|eur) }}{% else %}{{ _('Within the fair range') }}{% endif %}</div></div>
+      {% endif %}
+      <div class="fair"><div class="k">{{ _('Fair price') }}</div><div class="n">{{ v.low|eur }} – {{ v.high|eur }}</div>
+        <div class="sub">{{ _('Middle {mid}', mid=mid|eur) }}</div></div>
+      {% if v.original %}{% set pct = ((1 - mid / v.original) * 100)|round|int %}
+      <div class="new"><div class="k">{{ _('New price') }}</div><div class="n">{{ v.original|eur }}</div>
+        <div class="sub">{% if v.age is not defined %}{% elif v.age == 1 %}{{ _('−{pct}% after 1 year', pct=pct) }}{% elif v.age %}{{ _('−{pct}% after {n} years', pct=pct, n=v.age) }}{% else %}{{ _('−{pct}% in its first year', pct=pct) }}{% endif %}</div></div>
+      {% endif %}
     </div>
     {% endif %}
     {% set sl = v.slider %}
     {% if sl %}
     <div class="price-slider{{ ' with-pin' if sl.asking is defined }}" style="--lo: {{ sl.low }}%; --hi: {{ sl.high }}%; --suspect: {{ sl.suspect }}%{% if sl.asking is defined %}; --ask: {{ sl.asking }}%{% endif %}"
          role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=listing.asking_price|eur) if listing.asking_price else _('Fair range {low} to {high}', low=v.low|eur, high=v.high|eur) }}">
-      {% if sl.asking is defined %}<div class="pin {{ v.status }} {{ sl.align }}" aria-hidden="true"><b>{{ _('Asking {asking}', asking=listing.asking_price|eur) }}</b></div>{% endif %}
+      {% if sl.asking is defined %}<div class="pin {{ v.status }} {{ sl.align }}" aria-hidden="true"><b>{{ _('Asking {asking}', asking=listing.asking_price|eur) }}{% if sl.beyond %} →{% endif %}</b></div>{% endif %}
       <div class="track" aria-hidden="true">
         <div class="band{{ ' narrow' if sl.narrow }}">{% if sl.label %}{{ _('FAIR') }}{% endif %}</div>
         {% if sl.asking is defined %}<div class="knob {{ v.status }}"></div>{% endif %}
       </div>
-      <div class="axis" aria-hidden="true">{% for value, at, minor in sl.ticks %}<span{% if minor %} class="minor"{% endif %} style="left: {{ at }}%">{{ value|eur }}</span>{% endfor %}</div>
+      <div class="axis" aria-hidden="true">{% for value, at, minor in sl.ticks %}<span{% if minor %} class="minor"{% elif loop.last %} class="new"{% endif %} style="left: {{ at }}%">{{ _('New {price}', price=value|eur) if loop.last else value|eur }}</span>{% endfor %}</div>
       <div class="zones" aria-hidden="true"><span class="ok">← {{ _('Cheaper than fair') }}</span><span class="warn">{{ _('Dearer than fair') }} →</span></div>
     </div>
     {% endif %}
