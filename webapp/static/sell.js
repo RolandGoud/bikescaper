@@ -34,7 +34,9 @@
     });
   });
   if (dialog) {
-    dialog.querySelector("[data-close]").addEventListener("click", function () { dialog.close(); });
+    // A missing close button used to throw here and stop the rest of this file, so the examples' arrows did nothing.
+    var close = dialog.querySelector("[data-close]");
+    if (close) close.addEventListener("click", function () { dialog.close(); });
     var notify = dialog.querySelector("form");  // only there when the site can send mail
     if (notify) notify.addEventListener("submit", function (e) {
       e.preventDefault();

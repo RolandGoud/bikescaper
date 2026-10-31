@@ -274,7 +274,10 @@
     </label>
     <span class="small muted">{{ _('We only use it for this one email.') }}</span>
     <div class="row"><button class="btn" type="submit">{{ _('Let me know') }}</button><button class="btn ghost" type="button" data-close>{{ _('Close') }}</button></div>
-  </form>{% endif %}
+  </form>{% else %}
+  {# Without mail there's no form, but the dialog still needs a way out. #}
+  <div class="row"><button class="btn ghost" type="button" data-close>{{ _('Close') }}</button></div>
+  {% endif %}
   <p class="thanks" hidden>{{ _('Check your inbox. We sent you a link. Open it to confirm your email; until then we won’t use it.') }}</p>
 </dialog>
 <script src="{{ url_for('static', filename='sell.js') }}" defer></script>
