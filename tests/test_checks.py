@@ -606,6 +606,13 @@ def test_named_wheels_on_a_model_without_wheel_data(models):
     checks.seller_questions(model, claims, {"status": checks.OK}, specs, {"status": checks.OK})
 
 
+def test_check_63_aeolus_carbon_wheels_match_the_aeolus_pro(models):
+    model = next(m for m in models if "Aeolus Pro 37" in (checks.spec(m, "Wiel voor", "Velg", "Wheelset") or ""))
+    claims = checks.read_claims(model["name"], "Bontrager Aeolus Carbon wielen")
+    wheels = next(row for row in checks.check_specs(model, claims)["rows"] if row["key"] == "wheels")
+    assert wheels["status"] == checks.OK and not wheels["step"]
+
+
 def test_missing_brand_snapshot_is_downloaded(tmp_path, monkeypatch):
     # An older NAS compose file unpacks only data/Trek and data/Canyon; the seed fetches the rest.
     import io
@@ -985,6 +992,15 @@ def test_wheels_named_without_the_word_wheels():
     assert checks.detect_part(text, "wheels") == {"label": "Bontrager Aeolus Pro 37 (Carbon 37mm)", "tier": 4}
     assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
 
+
+
+def test_wheels_of_the_same_family_without_a_version_match():
+    # Check 63: the ad says "Bontrager Aeolus Carbon wielen", the original is the Aeolus Pro 37.
+    original = "Bontrager Aeolus Pro 37, OCLV Carbon, Tubeless Ready, 37 mm velghoogte"
+    assert checks.same_wheel_family("Bontrager Aeolus Carbon wielen", original)
+    assert not checks.same_wheel_family("Bontrager Aeolus Elite 35 wielen", original)  # a version of its own
+    assert not checks.same_wheel_family("Zipp carbon wielen", original)  # another family
+    assert not checks.same_wheel_family("carbon wielen", original)
 
 
 def test_wheels_rated_by_their_hubs_and_the_crankset_read():

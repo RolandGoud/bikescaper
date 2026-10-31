@@ -157,6 +157,22 @@ WHEEL_NAMES = (r"aeolus\s+(?:rsl|pro|elite|comp)\s*\d{2}\b|zipp\s*\d{3}\b|\b[aep
                r"|princeton\s+(?:carbon\s*works\s+)?\w*\s*\d{4}\b|black\s+inc\s+\d{2}\b|newmen\s+(?:advanced|evolution)")
 
 
+# Wheel families, so "Bontrager Aeolus Carbon wielen" can be matched with an original "Aeolus Pro 37".
+WHEEL_FAMILIES = (r"aeolus|zipp|roval|dt\s*swiss|mavic|ksyrium|cosmic|fulcrum|bora|shamal|reynolds|enve|cadex|newmen"
+                  r"|paradigm|princeton|black\s+inc|giant\s+slr|vision|hunt|campagnolo")
+# Words that say what a wheel is made of, not which wheel it is.
+GENERIC_PART_WORDS = r"\b(?:carbon|oclv|alumini?um|alloy|lichtmetaal)\b"
+
+
+def same_wheel_family(ad_label, original):
+    """The ad names the original's wheel family but no version of its own ("Bontrager Aeolus Carbon wielen" on a
+    bike sold with "Aeolus Pro 37"): most likely the original wheels, so they match."""
+    ad, ref = _plain(ad_label), _plain(original)
+    families = {m.group(0).replace(" ", "") for m in re.finditer(WHEEL_FAMILIES, ad)}
+    shared = families & {m.group(0).replace(" ", "") for m in re.finditer(WHEEL_FAMILIES, ref)}
+    return bool(shared) and not part_tier(("wheels",), re.sub(GENERIC_PART_WORDS, " ", ad))
+
+
 def detect_part(text, part):
     """The first clause of the ad that names this part and a part we can rate: {"label", "tier"} or None.
 
@@ -1842,6 +1858,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         if ad and ref_tier:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
                 rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier", ad_tier=ad["tier"]))
+            elif key == "wheels" and same_wheel_family(ad["label"], ref_val):
+                rows.append(_row(key, part, ref_val, ad["label"], OK, "Matches", ad_tier=ref_tier))
             else:
                 rows.append(_compare_tiers(key, part, ref_val, ad["label"], ref_tier, ad["tier"]))
         elif ad:
