@@ -996,11 +996,11 @@ select { max-width: 100%; }
 .sponsored-card .ad-marker { width: 300px; }
 /* in the Net gecheckt row the panel is as wide as a bike card, and the 300×250 scales down with it
    (same 6:5 shape) so the cards next to it stay fully in view */
-.recent-row > .sponsored-card { padding: 10px; }
-.recent-row > .sponsored-card .ad-marker { width: 100%; max-width: 300px; }
-.recent-row .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
-.recent-row .ad-rect .ad-copy b { font-size: 20px; }
-.recent-row .ad-rect .ad-copy span { font-size: 13px; }
+.recent-row > .sponsored-card, .sponsored-card.fluid { padding: 10px; }
+.recent-row > .sponsored-card .ad-marker, .sponsored-card.fluid .ad-marker { width: 100%; max-width: 300px; }
+.recent-row .ad-rect, .sponsored-card.fluid .ad-rect { width: 100%; max-width: 300px; height: auto; aspect-ratio: 6 / 5; padding: 10px; gap: 8px; grid-template-rows: minmax(0, 52px) 1fr auto; }
+.recent-row .ad-rect .ad-copy b, .sponsored-card.fluid .ad-rect .ad-copy b { font-size: 20px; }
+.recent-row .ad-rect .ad-copy span, .sponsored-card.fluid .ad-rect .ad-copy span { font-size: 13px; }
 .page .sponsored-band { padding-left: 0; padding-right: 0; }
 /* Listings page: four ad cards per row on desktop, fewer as the screen narrows. A 276px column is
    narrower than 300×250, so the card spot scales down the same way as in the Net gecheckt row. */

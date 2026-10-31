@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import listing_card, sponsored_card, sponsored_side with context %}
+{% from "_macros.html" import listing_card, sponsored_tile, sponsored_side with context %}
 {% block title %}{{ _('Listings') }} · Bike Compare{% endblock %}
 {% block body %}
 <div class="side-host">
@@ -16,9 +16,10 @@
   </div>
   {% if cards %}
   <div class="grid listing-grid">
-    {# The sponsored rectangle goes after the sixth ad (last when there are fewer). #}
-    {% for row, r in cards %}{{ listing_card(row, r) }}{% if loop.index == 6 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}{% endfor %}
-    {% if cards|length < 6 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}
+    {# Every 5th tile is a sponsored one: after each four checked ads, never last; with fewer than
+       four ads it goes at the end. #}
+    {% for row, r in cards %}{{ listing_card(row, r) }}{% if sponsored.tiles and loop.index % 4 == 0 and not loop.last %}{{ sponsored_tile(sponsored.tiles[(loop.index // 4 - 1) % sponsored.tiles|length]) }}{% endif %}{% endfor %}
+    {% if cards|length < 4 and sponsored.tiles %}{{ sponsored_tile(sponsored.tiles[0]) }}{% endif %}
   </div>
   {% else %}
   <div class="card"><p>{{ _('No checks yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
