@@ -373,6 +373,9 @@ def year_tabs(model, today=None):
         else:
             tab, sheet = {"state": "none" if year in checked else "unchecked"}, None
         tab["year"] = year
+        listed = (found.get("list_prices") or {}).get(str(year))
+        if not tab.get("price") and listed:
+            tab.update(price=listed["price"], price_german=True, price_url=listed["url"])
         tab["earlier"] = catalogue.get(year, (None, False))[1]
         if sheet:
             this = dict(model, specs=sheet)
@@ -994,17 +997,26 @@ def year_sheets(model):
     return out
 
 
+def year_prices(model):
+    """{year: (new price, German?)}: the Dutch price from that year's spec sheet, else the German list price
+    from the TOUR/BIKE database (see webapp/seed.py year_specs)."""
+    found = model.get("year_specs") or {}
+    prices = {int(y): (e["price"], True) for y, e in (found.get("list_prices") or {}).items() if e.get("price")}
+    prices.update({int(y): (e["price"], False) for y, e in (found.get("years") or {}).items() if e.get("price")})
+    return prices
+
+
 def new_price(model, year):
-    """The model's Dutch new price in that model year, from that year's spec sheet or our own scrape; None
-    when we don't have that year's price."""
+    """The model's new price in that model year, from that year's spec sheet or our own scrape, else the German
+    list price; None when we don't have that year's price."""
     if not year:
         return None
     entry = ((model.get("year_specs") or {}).get("years") or {}).get(str(year)) or {}
     if entry.get("price"):
         return entry["price"]
-    if model.get("seen_on") and int(model["seen_on"][:4]) == year:
-        return model.get("price_eur")
-    return None
+    if model.get("seen_on") and int(model["seen_on"][:4]) == year and model.get("price_eur"):
+        return model["price_eur"]
+    return year_prices(model).get(year, (None, False))[0]
 
 
 def _widen(years, sheets):
@@ -1777,13 +1789,14 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     model_year = resolved["year"]
     # Our catalogue's new price; for a line no longer sold, the price on the sheet of that year or the closest one
     # (the archived sheets' prices are less sure: a sheet can list another version's price).
-    prices = {int(y): e["price"] for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("price")}
+    prices = year_prices(model)
+    german = False
     if model.get("price_eur"):
         original = model["price_eur"]
         price_year = int(model["seen_on"][:4]) if model.get("seen_on") else None
     else:
         price_year = min(prices, key=lambda y: (abs(y - model_year), -y)) if prices else None
-        original = prices.get(price_year)
+        original, german = prices.get(price_year, (None, False))
     if not original:
         return {"status": UNKNOWN, "headline": Msg("No original price"),
                 "detail": Msg("We don't have a new price for this model.")}
@@ -1802,6 +1815,8 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
               "condition": condition, "asking": asking,
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
+                        Msg("New price is the {year} German list price (TOUR/BIKE database), which can differ "
+                            "from the Dutch price and from what this bike cost new.", year=price_year) if german else
                         Msg("New price is the {year} Dutch price, which can differ from what this bike cost new.",
                             year=price_year or today.year)]}
     why = year_note(resolved, claims)

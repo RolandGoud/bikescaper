@@ -717,6 +717,12 @@ NL = {
         "Globale schatting: alleen nieuwprijs, leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "New price is the {year} Dutch price, which can differ from what this bike cost new.":
         "De nieuwprijs is de Nederlandse prijs van {year}; die kan afwijken van wat deze fiets nieuw kostte.",
+    "New {price} (German list price)": "Nieuw {price} (Duitse adviesprijs)",
+    "German list price {price} (TOUR/BIKE)": "Duitse adviesprijs {price} (TOUR/BIKE)",
+    "New price is the {year} German list price (TOUR/BIKE database), which can differ from the Dutch price and "
+    "from what this bike cost new.":
+        "De nieuwprijs is de Duitse adviesprijs van {year} (database van TOUR/BIKE); die kan afwijken van de "
+        "Nederlandse prijs en van wat deze fiets nieuw kostte.",
     "Fair {low} to {high}": "Eerlijk {low} tot {high}",
     "Add the asking price to see how it compares.": "Vul de vraagprijs in om te vergelijken.",
     "ca. {diff} too high": "± {diff} te hoog",

@@ -232,8 +232,15 @@ def read_specs(brand, page, url):
     numeric = [k for k, v in specs.items() if not re.search(r"[^\W\d_]", str(v))]
     specs = {} if len(numeric) >= 3 else {k: v for k, v in specs.items() if k not in numeric}
     if price is None:
-        m = (re.search(r'"price"\s*:\s*"?([\d.,]+)', page)
-             or re.search(r'<meta[^>]+(?:product:price:amount|itemprop="price")[^>]+content="([\d.,]+)"', page))
+        meta = r'<meta[^>]+(?:product:price:amount|itemprop="price")[^>]+content="([\d.,]+)"'
+        if brand == "Trek":
+            # Trek's analytics list the bikes shown beside this one first ("impressions"): take only the
+            # entry with this page's product number.
+            code = re.search(r"/[pa]/(\d+)", url)
+            m = code and re.search(r'"id"\s*:\s*"%s"[^{}]*?"price"\s*:\s*"?([\d.,]+)' % code.group(1), page)
+            m = m or re.search(meta, page)
+        else:
+            m = re.search(r'"price"\s*:\s*"?([\d.,]+)', page) or re.search(meta, page)
         price = parse_price(m.group(1)) if m else None
     return specs, (price if price and 100 <= price <= 30000 else None)
 

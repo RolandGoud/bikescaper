@@ -1,0 +1,6166 @@
+{
+ "checked_on": "2026-10-31",
+ "models": {
+  "1120": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/1120-655e66fd26f547878a5898fa/"
+   }
+  },
+  "520": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1749.0,
+    "prices": [
+     1749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/520-655e630126f547878a586a65/"
+   }
+  },
+  "Allant+ 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-655e670526f547878a589918/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-655e670726f547878a58992c/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3849.0,
+    "prices": [
+     3849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-696f5a4e9817012a62e34dca/"
+   }
+  },
+  "Allant+ 5 Lowstep": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-lowstep-655e66e926f547878a589850/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-lowstep-655e66ec26f547878a58985a/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3849.0,
+    "prices": [
+     3849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-lowstep-696f5a4c9817012a62e34d85/"
+   }
+  },
+  "Allant+ 5 Midstep": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3749.0,
+    "prices": [
+     3749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-midstep-696f5a4c9817012a62e34d57/"
+   }
+  },
+  "Allant+ 5 Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3149.0,
+    "prices": [
+     3149
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-5-stagger-655e671026f547878a58998b/"
+   }
+  },
+  "Allant+ 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-6-655e671526f547878a5899bd/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4249.0,
+    "prices": [
+     4249
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-6-696f5a1d9817012a62e346d5/"
+   }
+  },
+  "Allant+ 6 Lowstep": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3649.0,
+    "prices": [
+     3649
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-6-lowstep-655e671d26f547878a589a1c/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-6-lowstep-696f5a1d9817012a62e346ba/"
+   }
+  },
+  "Allant+ 6 Midstep": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4249.0,
+    "prices": [
+     4249
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-6-midstep-696f5a179817012a62e3461c/"
+   }
+  },
+  "Allant+ 6 Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-6-stagger-655e672526f547878a589a99/"
+   }
+  },
+  "Allant+ 7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-655e672d26f547878a589aee/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-655e672926f547878a589acb/"
+   }
+  },
+  "Allant+ 7 Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-gen-2-696f5a139817012a62e34600/"
+   }
+  },
+  "Allant+ 7 Lowstep": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-lowstep-655e673226f547878a589b34/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-lowstep-655e672f26f547878a589b11/"
+   }
+  },
+  "Allant+ 7 Lowstep Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-lowstep-gen-2-69c2853d14a2690c039be3bf/"
+   }
+  },
+  "Allant+ 7 Mid-step Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-mid-step-gen-2-69c2814914a2690c039b75f5/"
+   }
+  },
+  "Allant+ 7 Midstep Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-midstep-gen-2-69c2854014a2690c039be41c/"
+   }
+  },
+  "Allant+ 7 Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-7-stagger-655e673926f547878a589b52/"
+   }
+  },
+  "Allant+ 8": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-8-655e673c26f547878a589b66/"
+   }
+  },
+  "Allant+ 8 Stagger": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-8-stagger-655e673e26f547878a589b7a/"
+   },
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-8-stagger-655e674226f547878a589b89/"
+   }
+  },
+  "Allant+ 9": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-655e674d26f547878a589bc0/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-655e675126f547878a589bd4/"
+   }
+  },
+  "Allant+ 9 Lowstep": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-lowstep-655e675726f547878a589be8/"
+   }
+  },
+  "Allant+ 9 Stagger": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5399.0,
+    "prices": [
+     5399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-stagger-655e675b26f547878a589bfc/"
+   }
+  },
+  "Allant+ 9.9S": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-9s-655e676726f547878a589c24/"
+   },
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-9s-655e676226f547878a589c10/"
+   }
+  },
+  "Allant+ 9.9S Stagger": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-9s-stagger-655e627026f547878a58665a/"
+   },
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9-9s-stagger-655e676a26f547878a589c2e/"
+   }
+  },
+  "Allant+ 9S": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/allant-9s-655e677126f547878a589c47/"
+   }
+  },
+  "Boone 5": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/boone-5-655e677426f547878a589c56/"
+   }
+  },
+  "Charter+ 4 Enviolo Belt Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4399.0,
+    "prices": [
+     4399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-enviolo-belt-lowstep-6a71ac9c68d1b0aec11fa5ed/"
+   }
+  },
+  "Charter+ 4 Nexus 5 Belt": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4099.0,
+    "prices": [
+     4099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-nexus-5-belt-6a71ac9b68d1b0aec11fa551/"
+   }
+  },
+  "Charter+ 4 Nexus 5 Belt Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4099.0,
+    "prices": [
+     4099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-nexus-5-belt-lowstep-6a71ac9a68d1b0aec11fa4f6/"
+   }
+  },
+  "Charter+ 4 R9": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-r9-6a71ac9668d1b0aec11fa393/"
+   }
+  },
+  "Charter+ 4 R9 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-r9-lowstep-6a71ac9668d1b0aec11fa375/"
+   }
+  },
+  "Charter+ 4 Trail": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-trail-6a71ac9368d1b0aec11fa267/"
+   }
+  },
+  "Charter+ 4 Trail Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-4-trail-lowstep-6a71ac9268d1b0aec11fa1fc/"
+   }
+  },
+  "Charter+ 5 Auto Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5099.0,
+    "prices": [
+     5099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-5-auto-lowstep-6a71ac8d68d1b0aec11fa06f/"
+   }
+  },
+  "Charter+ 5 R10 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/charter-5-r10-lowstep-6a71ac8d68d1b0aec11fa06d/"
+   }
+  },
+  "CheckOUT SL 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkout-sl-5-690da0c137fa31da8519f34f/"
+   }
+  },
+  "CheckOUT SL 7 AXS": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkout-sl-7-axs-690da0c137fa31da8519f34d/"
+   }
+  },
+  "Checkmate SLR 7 AXS": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkmate-slr-7-axs-69c2816c14a2690c039b79e5/"
+   }
+  },
+  "Checkmate SLR 8 AXS": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkmate-slr-8-axs-696f59419817012a62e32cd7/"
+   }
+  },
+  "Checkpoint ALR 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-3-69c280e614a2690c039b66ce/"
+   }
+  },
+  "Checkpoint ALR 3 Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-3-gen-3-69c282f214a2690c039ba50f/"
+   }
+  },
+  "Checkpoint ALR 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-4-655e677726f547878a589c79/"
+   }
+  },
+  "Checkpoint ALR 4 Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-4-gen-3-69c282f914a2690c039ba584/"
+   }
+  },
+  "Checkpoint ALR 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2699.0,
+    "prices": [
+     2699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-5-655e677c26f547878a589cba/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-5-655e678026f547878a589cfb/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-5-69c280eb14a2690c039b6764/"
+   }
+  },
+  "Checkpoint ALR 5 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-5-axs-655e678326f547878a589d3c/"
+   }
+  },
+  "Checkpoint ALR 5 Driftless": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-5-driftless-655e678626f547878a589d5f/"
+   }
+  },
+  "Checkpoint ALR 5 Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-alr-5-gen-3-69c2830314a2690c039ba659/"
+   }
+  },
+  "Checkpoint SL 5": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-5-655e678b26f547878a589d91/"
+   }
+  },
+  "Checkpoint SL 5 AXS Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-5-axs-gen-3-69c2830f14a2690c039ba72e/"
+   }
+  },
+  "Checkpoint SL 6 AXS": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-6-axs-655e678f26f547878a589dd2/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-6-axs-655e679626f547878a589df5/"
+   }
+  },
+  "Checkpoint SL 6 AXS Gen 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-6-axs-gen-3-69c280dc14a2690c039b65db/"
+   }
+  },
+  "Checkpoint SL 7 AXS": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6899.0,
+    "prices": [
+     6899
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-7-axs-655e679a26f547878a589e18/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-7-axs-655e679d26f547878a589e3b/"
+   }
+  },
+  "Checkpoint SL 7 AXS Gen 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-7-axs-gen-3-69c280e014a2690c039b6638/"
+   }
+  },
+  "Checkpoint SLR 6 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-slr-6-axs-655e679f26f547878a589e5e/"
+   }
+  },
+  "Checkpoint SLR 7 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9599.0,
+    "prices": [
+     9599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-slr-7-axs-655e67aa26f547878a589f26/"
+   }
+  },
+  "Checkpoint SLR 9 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-slr-9-axs-655e67b026f547878a589fc1/"
+   }
+  },
+  "Checkpoint+ SL 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-5-690da0b737fa31da8519f278/"
+   }
+  },
+  "Checkpoint+ SL 6 AXS": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-6-axs-690da0b737fa31da8519f277/"
+   }
+  },
+  "Checkpoint+ SL 7 AXS": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/checkpoint-sl-7-axs-690da0b737fa31da8519f271/"
+   }
+  },
+  "District+ 1": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-1-69c2854514a2690c039be485/"
+   }
+  },
+  "District+ 1 Coaster Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2599.0,
+    "prices": [
+     2599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-1-coaster-lowstep-69c2854714a2690c039be4b2/"
+   }
+  },
+  "District+ 1 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-1-lowstep-69c2854a14a2690c039be50f/"
+   }
+  },
+  "District+ 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-2-69c2854c14a2690c039be56c/"
+   }
+  },
+  "District+ 2 Belt Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-2-belt-lowstep-69c2854f14a2690c039be599/"
+   }
+  },
+  "District+ 2 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-2-lowstep-69c2855114a2690c039be5d2/"
+   }
+  },
+  "District+ 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-3-696f5a0b9817012a62e344ee/"
+   }
+  },
+  "District+ 3 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-3-lowstep-696f5a099817012a62e34485/"
+   }
+  },
+  "District+ 3 Lowstep Belt": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-3-lowstep-belt-69c2855314a2690c039be62f/"
+   }
+  },
+  "District+ 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-4-69c2819f14a2690c039b7fe8/"
+   }
+  },
+  "District+ 4 Coaster Belt Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-4-coaster-belt-lowstep-696f59ba9817012a62e33b6e/"
+   }
+  },
+  "District+ 4 Coaster Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-4-coaster-lowstep-696f59b99817012a62e33b5e/"
+   }
+  },
+  "District+ 4 Guard Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3599.0,
+    "prices": [
+     3599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-4-guard-lowstep-69c2855814a2690c039be766/"
+   }
+  },
+  "District+ 4 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3649.0,
+    "prices": [
+     3649
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-4-lowstep-696f5a589817012a62e3501a/"
+   }
+  },
+  "District+ 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5549.0,
+    "prices": [
+     5549
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-5-696f59ec9817012a62e340d5/"
+   }
+  },
+  "District+ 5 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5549.0,
+    "prices": [
+     5549
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/district-5-lowstep-696f59e99817012a62e34097/"
+   }
+  },
+  "Domane AL 2 Disc": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 974.0,
+    "prices": [
+     974
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-2-disc-655e62d826f547878a5869ac/"
+   }
+  },
+  "Domane AL 2 Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 974.0,
+    "prices": [
+     974
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-2-gen-3-655e67bb26f547878a58a05c/"
+   }
+  },
+  "Domane AL 2 Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-2-gen-4-655e67c326f547878a58a08e/"
+   }
+  },
+  "Domane AL 2 Rim": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-2-rim-655e67c826f547878a58a0d9/"
+   }
+  },
+  "Domane AL 3 Disc": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1149.0,
+    "prices": [
+     1149
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-3-disc-655e618026f547878a586140/"
+   }
+  },
+  "Domane AL 3 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-3-gen-3-655e67d026f547878a58a12e/"
+   }
+  },
+  "Domane AL 4 Disc": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1749.0,
+    "prices": [
+     1749
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-4-disc-655e62c026f547878a586948/"
+   }
+  },
+  "Domane AL 4 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-4-gen-3-655e67d526f547878a58a179/"
+   }
+  },
+  "Domane AL 4 Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-4-gen-4-655e67d826f547878a58a183/"
+   }
+  },
+  "Domane AL 5 Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-5-gen-4-655e67db26f547878a58a1ab/"
+   }
+  },
+  "Domane SL 5 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-5-gen-4-655e67e326f547878a58a1e2/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3099.0,
+    "prices": [
+     3099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-5-gen-4-655e67e826f547878a58a26e/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-5-gen-4-696f5a089817012a62e34439/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-5-gen-4-69c2831e14a2690c039ba896/"
+   }
+  },
+  "Domane SL 6": {
+   "2020": {
+    "captured": "2026-10-31",
+    "price": 3508.0,
+    "prices": [
+     3508
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-655e618626f547878a586168/"
+   }
+  },
+  "Domane SL 6 AXS Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4699.0,
+    "prices": [
+     4699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-axs-gen-3-655e623a26f547878a5865a6/"
+   }
+  },
+  "Domane SL 6 AXS Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-axs-gen-4-655e67f726f547878a58a304/"
+   }
+  },
+  "Domane SL 6 Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-gen-3-655e67fc26f547878a58a363/"
+   }
+  },
+  "Domane SL 6 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-gen-4-655e680026f547878a58a3c2/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-gen-4-69c2819214a2690c039b7e8f/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-6-gen-4-69c2832f14a2690c039baa5b/"
+   }
+  },
+  "Domane SL 7": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-655e680326f547878a58a421/"
+   }
+  },
+  "Domane SL 7 AXS Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-axs-gen-3-655e680626f547878a58a42b/"
+   }
+  },
+  "Domane SL 7 AXS Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-axs-gen-4-655e680926f547878a58a43f/"
+   }
+  },
+  "Domane SL 7 Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-gen-3-655e680c26f547878a58a46c/"
+   }
+  },
+  "Domane SL 7 Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-gen-4-655e681026f547878a58a48f/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-gen-4-696f59c69817012a62e33d17/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-sl-7-gen-4-69c2834414a2690c039bac3d/"
+   }
+  },
+  "Domane SLR 6 AXS Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-6-axs-gen-4-655e681326f547878a58a4c1/"
+   }
+  },
+  "Domane SLR 6 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-6-gen-4-655e683126f547878a58a6bf/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-6-gen-4-655e682226f547878a58a5ca/"
+   }
+  },
+  "Domane SLR 7 AXS Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 10499.0,
+    "prices": [
+     10499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-axs-gen-4-655e683626f547878a58a705/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-axs-gen-4-69c280ef14a2690c039b67d3/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-axs-gen-4-69c2835014a2690c039bad72/"
+   }
+  },
+  "Domane SLR 7 Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-gen-4-655e684326f547878a58a7fa/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-gen-4-69c2814c14a2690c039b7616/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-gen-4-69c2835614a2690c039baf07/"
+   }
+  },
+  "Domane SLR 8 AXS Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-8-axs-gen-4-69c280f314a2690c039b6890/"
+   }
+  },
+  "Domane SLR 9 AXS Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 13999.0,
+    "prices": [
+     13999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-axs-gen-4-655e685226f547878a58a903/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-axs-gen-4-69c280fc14a2690c039b6a25/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-axs-gen-4-69c2835c14a2690c039bb09c/"
+   }
+  },
+  "Domane SLR 9 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 13499.0,
+    "prices": [
+     13499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-gen-4-655e686226f547878a58aaca/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-gen-4-655e685c26f547878a58a9f8/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-gen-4-69c2810414a2690c039b6bba/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 10499.0,
+    "prices": [
+     10499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-gen-4-69c2836114a2690c039bb231/"
+   }
+  },
+  "Domane+ AL 5": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-5-655e686426f547878a58aaf2/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-al-5-696f59629817012a62e333b8/"
+   }
+  },
+  "Domane+ ALR": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4199.0,
+    "prices": [
+     4199
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-alr-655e686826f547878a58ab33/"
+   }
+  },
+  "Domane+ ALR 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-alr-5-696f595e9817012a62e332ee/"
+   }
+  },
+  "Domane+ LT 7 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-lt-7-gen-2-655e61e526f547878a586339/"
+   }
+  },
+  "Domane+ LT 9 Gen 1": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-lt-9-gen-1-655e61e826f547878a586384/"
+   }
+  },
+  "Domane+ LT 9 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-lt-9-gen-2-655e61ee26f547878a5863f2/"
+   }
+  },
+  "Domane+ LT Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6099.0,
+    "prices": [
+     6099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-lt-gen-2-655e61f326f547878a58643d/"
+   }
+  },
+  "Domane+ SLR 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-6-655e686b26f547878a58ab3d/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-6-696f595c9817012a62e33260/"
+   }
+  },
+  "Domane+ SLR 6 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9099.0,
+    "prices": [
+     9099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-6-axs-655e687a26f547878a58abec/"
+   }
+  },
+  "Domane+ SLR 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9599.0,
+    "prices": [
+     9599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-655e688926f547878a58acb4/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-696f595b9817012a62e33218/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-696f59549817012a62e3313c/"
+   }
+  },
+  "Domane+ SLR 7 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9599.0,
+    "prices": [
+     9599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-axs-655e689826f547878a58ade5/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 10599.0,
+    "prices": [
+     10599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-7-axs-696f59539817012a62e330b8/"
+   }
+  },
+  "Domane+ SLR 8 AXS": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 10599.0,
+    "prices": [
+     10599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-8-axs-69c2810814a2690c039b6c77/"
+   }
+  },
+  "Domane+ SLR 9": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12499.0,
+    "prices": [
+     12499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-655e68a126f547878a58ae99/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12499.0,
+    "prices": [
+     12499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-696f594f9817012a62e33030/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-696f594f9817012a62e3302f/"
+   }
+  },
+  "Domane+ SLR 9 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12499.0,
+    "prices": [
+     12499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/domane-slr-9-axs-655e68a826f547878a58af4d/"
+   }
+  },
+  "Dual Sport 1 Gen 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 624.0,
+    "prices": [
+     624
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-1-gen-4-655e624a26f547878a5865dd/"
+   }
+  },
+  "Dual Sport 1 Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-1-gen-5-655e68b526f547878a58b015/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-1-gen-5-696f5a2d9817012a62e3492e/"
+   }
+  },
+  "Dual Sport 2 Equipped Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-equipped-gen-5-655e68bf26f547878a58b06f/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-equipped-gen-5-696f5a449817012a62e34cae/"
+   }
+  },
+  "Dual Sport 2 Equipped Stagger Gen 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 824.0,
+    "prices": [
+     824
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-equipped-stagger-gen-4-655e68c226f547878a58b09c/"
+   }
+  },
+  "Dual Sport 2 Equipped Stagger Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-equipped-stagger-gen-5-655e68c526f547878a58b0ba/"
+   }
+  },
+  "Dual Sport 2 Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-gen-5-655e68cd26f547878a58b0f6/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 799.0,
+    "prices": [
+     799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-gen-5-696f5a289817012a62e348d0/"
+   }
+  },
+  "Dual Sport 2 Mid-step Gen 5": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-mid-step-gen-5-69c2815014a2690c039b76d3/"
+   }
+  },
+  "Dual Sport 2 Midstep Gen 5": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-midstep-gen-5-69c282e814a2690c039ba3c5/"
+   }
+  },
+  "Dual Sport 3 Equipped": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-equipped-655e68d026f547878a58b137/"
+   }
+  },
+  "Dual Sport 3 Equipped Gen 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 974.0,
+    "prices": [
+     974
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-equipped-gen-4-655e62f526f547878a586a33/"
+   }
+  },
+  "Dual Sport 3 Equipped Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-equipped-gen-5-655e68d526f547878a58b155/"
+   }
+  },
+  "Dual Sport 3 Equipped Stagger Gen 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 974.0,
+    "prices": [
+     974
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-equipped-stagger-gen-4-655e627826f547878a58666e/"
+   }
+  },
+  "Dual Sport 3 Equipped Stagger Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-equipped-stagger-gen-5-655e68d926f547878a58b178/"
+   }
+  },
+  "Dual Sport 3 Gen 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 874.0,
+    "prices": [
+     874
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-gen-4-655e62ca26f547878a58696b/"
+   }
+  },
+  "Dual Sport 3 Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1049.0,
+    "prices": [
+     1049
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-gen-5-655e68e026f547878a58b1a0/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1049.0,
+    "prices": [
+     1049
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-gen-5-655e68e426f547878a58b1e1/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1049.0,
+    "prices": [
+     1049
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-gen-5-696f5a249817012a62e3484f/"
+   }
+  },
+  "Dual Sport 3 Stagger": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-3-stagger-655e68e726f547878a58b218/"
+   }
+  },
+  "Dual Sport+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-655e68eb26f547878a58b22c/"
+   }
+  },
+  "Dual Sport+ 2 LT": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-lt-696f5a499817012a62e34d1b/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2099.0,
+    "prices": [
+     2099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-lt-69c2855c14a2690c039be80b/"
+   }
+  },
+  "Dual Sport+ 2 Mid-step LT": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-mid-step-lt-69c2815514a2690c039b773f/"
+   }
+  },
+  "Dual Sport+ 2 Midstep LT": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-midstep-lt-69c2856b14a2690c039be878/"
+   }
+  },
+  "Dual Sport+ 2 Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/dual-sport-2-stagger-655e68ee26f547878a58b24f/"
+   }
+  },
+  "E-Caliber 9.6 Gen 1": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 6799.0,
+    "prices": [
+     6799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/e-caliber-9-6-gen-1-655e68f326f547878a58b272/"
+   }
+  },
+  "E-Caliber 9.6 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6899.0,
+    "prices": [
+     6899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/e-caliber-9-6-gen-2-655e68f726f547878a58b27c/"
+   }
+  },
+  "E-Caliber 9.8 Gen 1": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/e-caliber-9-8-gen-1-655e627d26f547878a586682/"
+   }
+  },
+  "E-Caliber 9.9 XTR Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 12099.0,
+    "prices": [
+     12099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/e-caliber-9-9-xtr-gen-2-655e628c26f547878a58674a/"
+   }
+  },
+  "E-Caliber 9.9 XX1 AXS Gen 1": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/e-caliber-9-9-xx1-axs-gen-1-655e629126f547878a58679f/"
+   }
+  },
+  "E-Caliber 9.9 XX1 AXS Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 13099.0,
+    "prices": [
+     13099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/e-caliber-9-9-xx1-axs-gen-2-655e629526f547878a5867ef/"
+   }
+  },
+  "FX 1": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 549.0,
+    "prices": [
+     549
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-1-655e6a1426f547878a58c46f/"
+   }
+  },
+  "FX 1 Disc": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-1-disc-655e6a1826f547878a58c48d/"
+   }
+  },
+  "FX 1 Disc Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-1-disc-stagger-655e6a1d26f547878a58c4ce/"
+   }
+  },
+  "FX 1 Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-1-gen-4-696f5a389817012a62e349d3/"
+   }
+  },
+  "FX 1 Mid-step Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-1-mid-step-gen-4-69c280e314a2690c039b6695/"
+   }
+  },
+  "FX 1 Midstep Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-1-midstep-gen-4-69c2841e14a2690c039bc772/"
+   }
+  },
+  "FX 1 Stagger": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 549.0,
+    "prices": [
+     549
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-1-stagger-655e6a1f26f547878a58c4e2/"
+   }
+  },
+  "FX 1 Stepover Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-1-stepover-gen-4-69c2842414a2690c039bc7ff/"
+   }
+  },
+  "FX 2 Disc": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-disc-655e6a2126f547878a58c4f6/"
+   }
+  },
+  "FX 2 Disc Equipped": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 849.0,
+    "prices": [
+     849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-disc-equipped-655e6a2726f547878a58c573/"
+   }
+  },
+  "FX 2 Disc Equipped Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 849.0,
+    "prices": [
+     849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-disc-equipped-stagger-655e6a2926f547878a58c5a0/"
+   }
+  },
+  "FX 2 Disc Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-disc-stagger-655e6a2d26f547878a58c5c3/"
+   }
+  },
+  "FX 2 Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 849.0,
+    "prices": [
+     849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-equipped-69c2817c14a2690c039b7c31/"
+   }
+  },
+  "FX 2 Equipped Mid-step": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 849.0,
+    "prices": [
+     849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-equipped-mid-step-69c2815d14a2690c039b7835/"
+   }
+  },
+  "FX 2 Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-gen-4-696f5a339817012a62e349ae/"
+   }
+  },
+  "FX 2 Mid-step Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-mid-step-gen-4-69c2816114a2690c039b7892/"
+   }
+  },
+  "FX 2 Midstep Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-2-midstep-gen-4-69c2842f14a2690c039bc937/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-2-midstep-gen-4-69c2842914a2690c039bc8aa/"
+   }
+  },
+  "FX 2 Stepover Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-2-stepover-gen-4-69c2843a14a2690c039bc974/"
+   }
+  },
+  "FX 3 Disc": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-disc-655e6a3226f547878a58c5e6/"
+   }
+  },
+  "FX 3 Disc Equipped": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1149.0,
+    "prices": [
+     1149
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-disc-equipped-655e6a3926f547878a58c663/"
+   }
+  },
+  "FX 3 Disc Equipped Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1149.0,
+    "prices": [
+     1149
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-disc-equipped-stagger-655e6a4026f547878a58c690/"
+   }
+  },
+  "FX 3 Disc Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-disc-stagger-655e6a4526f547878a58c6b3/"
+   }
+  },
+  "FX 3 Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-equipped-69c2818014a2690c039b7ca6/"
+   }
+  },
+  "FX 3 Equipped Mid-step": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-equipped-mid-step-69c2816514a2690c039b78ef/"
+   }
+  },
+  "FX 3 Equipped Midstep": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-equipped-midstep-69c2818314a2690c039b7ceb/"
+   }
+  },
+  "FX 3 Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1149.0,
+    "prices": [
+     1149
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-3-gen-4-696f5a2d9817012a62e34945/"
+   }
+  },
+  "FX 3 Stepover Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-3-stepover-gen-4-69c2844314a2690c039bca6a/"
+   }
+  },
+  "FX Sport 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-sport-4-655e6a4926f547878a58c6d6/"
+   }
+  },
+  "FX Sport 5": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-sport-5-655e6a4c26f547878a58c6f4/"
+   }
+  },
+  "FX Sport 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-sport-6-655e6a4f26f547878a58c712/"
+   }
+  },
+  "FX Sport AL 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-sport-al-3-69c2844c14a2690c039bcb60/"
+   }
+  },
+  "FX Sport AL Equipped": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-sport-al-equipped-69c282eb14a2690c039ba3fe/"
+   }
+  },
+  "FX Sport AL Equipped Midstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-sport-al-equipped-midstep-69c282ee14a2690c039ba473/"
+   }
+  },
+  "FX Sport SL 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-sport-sl-4-69c2845614a2690c039bcc56/"
+   }
+  },
+  "FX Sport SL 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-sport-sl-5-69c2845b14a2690c039bccb6/"
+   }
+  },
+  "FX Sport SL 6": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/fx-sport-sl-6-69c2846114a2690c039bcd16/"
+   }
+  },
+  "FX+ 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-655e6a5526f547878a58c730/"
+   }
+  },
+  "FX+ 2 LT": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-lt-696f5a499817012a62e34d11/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-lt-69c2857f14a2690c039be934/"
+   }
+  },
+  "FX+ 2 LT Midstep": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-lt-midstep-696f5a489817012a62e34d0a/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-lt-midstep-69c2858214a2690c039be9a9/"
+   }
+  },
+  "FX+ 2 Stagger": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-2-stagger-655e66f926f547878a5898e6/"
+   }
+  },
+  "FX+ 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-7-69c2858514a2690c039bea1e/"
+   }
+  },
+  "FX+ 7 Midstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fx-7-midstep-69c2858b14a2690c039beaab/"
+   }
+  },
+  "Farley 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2049.0,
+    "prices": [
+     2049
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/farley-5-655e666926f547878a5896f8/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/farley-5-655e699a26f547878a58bcef/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1899.0,
+    "prices": [
+     1899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/farley-5-696f59929817012a62e33809/"
+   }
+  },
+  "Farley 9.6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/farley-9-6-655e699c26f547878a58bd08/"
+   }
+  },
+  "Fetch+ 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fetch-2-655e699e26f547878a58bd21/"
+   }
+  },
+  "Fetch+ 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fetch-4-655e69a126f547878a58bd35/"
+   }
+  },
+  "Fuel EX 5 Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-5-gen-5-655e69a526f547878a58bd44/"
+   }
+  },
+  "Fuel EX 5 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-5-gen-7-69c281f514a2690c039b87cb/"
+   }
+  },
+  "Fuel EX 7": {
+   "2020": {
+    "captured": "2026-10-31",
+    "price": 2630.0,
+    "prices": [
+     2630
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-7-655e619e26f547878a5861c2/"
+   }
+  },
+  "Fuel EX 7 Gen 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-7-gen-5-655e69a926f547878a58bd99/"
+   }
+  },
+  "Fuel EX 7 Gen 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-7-gen-6-655e69ac26f547878a58bdc6/"
+   }
+  },
+  "Fuel EX 8 GX AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-gx-axs-t-type-gen-6-655e69b626f547878a58bec0/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-gx-axs-t-type-gen-6-696f5a0d9817012a62e3452f/"
+   }
+  },
+  "Fuel EX 8 Gen 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-gen-5-655e669d26f547878a58971a/"
+   }
+  },
+  "Fuel EX 8 Gen 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-gen-6-655e69b326f547878a58be6b/"
+   }
+  },
+  "Fuel EX 8 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-gen-7-69c281fc14a2690c039b8858/"
+   }
+  },
+  "Fuel EX 8 XT Gen 6": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-xt-gen-6-69c2815814a2690c039b7778/"
+   }
+  },
+  "Fuel EX 9 Eagle 90 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-eagle-90-gen-7-69c2820114a2690c039b88e5/"
+   }
+  },
+  "Fuel EX 9 X0 AXS Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-x0-axs-gen-7-69c2820a14a2690c039b89ae/"
+   }
+  },
+  "Fuel EX 9 XT Di2 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-xt-di2-gen-7-69c2821414a2690c039b8a77/"
+   }
+  },
+  "Fuel EX 9 XT Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-xt-gen-7-69c2821c14a2690c039b8b3c/"
+   }
+  },
+  "Fuel EX 9.7 Gen 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-7-gen-6-655e69be26f547878a58bf15/"
+   }
+  },
+  "Fuel EX 9.8 Eagle 90 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-eagle-90-gen-7-69c2822514a2690c039b8c05/"
+   }
+  },
+  "Fuel EX 9.8 GX AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-gx-axs-t-type-gen-6-655e69cb26f547878a58bfba/"
+   }
+  },
+  "Fuel EX 9.8 GX Gen 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6399.0,
+    "prices": [
+     6399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-gx-gen-5-655e623126f547878a586583/"
+   }
+  },
+  "Fuel EX 9.8 XT Di2 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-xt-di2-gen-7-69c2822d14a2690c039b8cec/"
+   }
+  },
+  "Fuel EX 9.8 XT Gen 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-xt-gen-6-655e69d126f547878a58bffb/"
+   }
+  },
+  "Fuel EX 9.8 XT Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-xt-gen-7-69c2823514a2690c039b8dd3/"
+   }
+  },
+  "Fuel EX 9.9 X0 AXS Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-x0-axs-gen-7-69c2823c14a2690c039b8eba/"
+   }
+  },
+  "Fuel EX 9.9 X0 AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-x0-axs-t-type-gen-6-655e621026f547878a5864e7/"
+   }
+  },
+  "Fuel EX 9.9 XO1 Gen 5": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 8599.0,
+    "prices": [
+     8599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-xo1-gen-5-655e69d926f547878a58c0b9/"
+   }
+  },
+  "Fuel EX 9.9 XTR Gen 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-xtr-gen-6-655e62ea26f547878a586a01/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-xtr-gen-6-655e69dc26f547878a58c0c8/"
+   }
+  },
+  "Fuel EX 9.9 XX AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-xx-axs-t-type-gen-6-655e69e326f547878a58c131/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-xx-axs-t-type-gen-6-69c2811114a2690c039b6dfa/"
+   }
+  },
+  "Fuel EXe 5": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-5-655e69ea26f547878a58c1d1/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-5-696f5a089817012a62e34406/"
+   }
+  },
+  "Fuel EXe 8 GX AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-8-gx-axs-t-type-655e69ec26f547878a58c1fe/"
+   }
+  },
+  "Fuel EXe 8 XT": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-8-xt-655e69ef26f547878a58c22b/"
+   }
+  },
+  "Fuel EXe 9.5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-5-655e69f426f547878a58c258/"
+   }
+  },
+  "Fuel EXe 9.7": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6599.0,
+    "prices": [
+     6599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-7-696f5a019817012a62e34323/"
+   }
+  },
+  "Fuel EXe 9.8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-8-69c2817614a2690c039b7b5c/"
+   }
+  },
+  "Fuel EXe 9.8 GX AXS T-Type": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-8-gx-axs-t-type-69c2819814a2690c039b7f64/"
+   }
+  },
+  "Fuel EXe 9.8 XT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-8-xt-655e69ff26f547878a58c316/"
+   }
+  },
+  "Fuel EXe 9.9 X0 AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-x0-axs-t-type-655e6a0226f547878a58c357/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-x0-axs-t-type-696f59b19817012a62e33a6d/"
+   }
+  },
+  "Fuel EXe 9.9 XTR": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 13499.0,
+    "prices": [
+     13499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-xtr-655e6a0926f547878a58c3c5/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 13499.0,
+    "prices": [
+     13499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-xtr-655e6a0626f547878a58c3ac/"
+   }
+  },
+  "Fuel EXe 9.9 XX AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 13999.0,
+    "prices": [
+     13999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-xx-axs-t-type-655e6a0b26f547878a58c3f2/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-xx-axs-t-type-69c2811914a2690c039b6f2f/"
+   }
+  },
+  "Fuel EXe 9.9 XX1 AXS": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 14499.0,
+    "prices": [
+     14499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-exe-9-9-xx1-axs-655e6a1126f547878a58c447/"
+   }
+  },
+  "Fuel LX 9 Eagle 90 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5699.0,
+    "prices": [
+     5699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-eagle-90-gen-7-69c2824414a2690c039b8fa1/"
+   }
+  },
+  "Fuel LX 9 X0 AXS Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6699.0,
+    "prices": [
+     6699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-x0-axs-gen-7-69c2824714a2690c039b9046/"
+   }
+  },
+  "Fuel LX 9 XT Di2 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6199.0,
+    "prices": [
+     6199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-xt-di2-gen-7-69c2824b14a2690c039b90eb/"
+   }
+  },
+  "Fuel LX 9 XT Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5699.0,
+    "prices": [
+     5699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-xt-gen-7-69c2824e14a2690c039b9190/"
+   }
+  },
+  "Fuel LX 9.8 Eagle 90 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6699.0,
+    "prices": [
+     6699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-8-eagle-90-gen-7-69c2825214a2690c039b9235/"
+   }
+  },
+  "Fuel LX 9.8 XT Di2 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7199.0,
+    "prices": [
+     7199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-8-xt-di2-gen-7-69c2825514a2690c039b92fe/"
+   }
+  },
+  "Fuel LX 9.8 XT Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6699.0,
+    "prices": [
+     6699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-8-xt-gen-7-69c2825814a2690c039b93c7/"
+   }
+  },
+  "Fuel LX 9.9 X0 AXS Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8699.0,
+    "prices": [
+     8699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-9-x0-axs-gen-7-69c2825d14a2690c039b9490/"
+   }
+  },
+  "Fuel MX 9 Eagle 90 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-eagle-90-gen-7-69c2826114a2690c039b9559/"
+   }
+  },
+  "Fuel MX 9 X0 AXS Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-x0-axs-gen-7-69c2826414a2690c039b95fe/"
+   }
+  },
+  "Fuel MX 9 XT Di2 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-xt-di2-gen-7-69c2826714a2690c039b96a3/"
+   }
+  },
+  "Fuel MX 9 XT Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-xt-gen-7-69c2826b14a2690c039b9748/"
+   }
+  },
+  "Fuel MX 9.8 Eagle 90 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-8-eagle-90-gen-7-69c2826f14a2690c039b97ed/"
+   }
+  },
+  "Fuel MX 9.8 XT Di2 Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-8-xt-di2-gen-7-69c2827214a2690c039b98b6/"
+   }
+  },
+  "Fuel MX 9.8 XT Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-8-xt-gen-7-69c2827614a2690c039b997f/"
+   }
+  },
+  "Fuel MX 9.9 X0 AXS Gen 7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-9-x0-axs-gen-7-69c2827914a2690c039b9a48/"
+   }
+  },
+  "Fuel+ EX 5 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-5-gen-2-69c2849b14a2690c039bd1a5/"
+   }
+  },
+  "Fuel+ EX 8 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-8-gen-2-69c284a214a2690c039bd22a/"
+   }
+  },
+  "Fuel+ EX 9.7 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-7-gen-2-69c284a614a2690c039bd2af/"
+   }
+  },
+  "Fuel+ EX 9.8 Eagle 90 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-eagle-90-gen-2-69c284ab14a2690c039bd350/"
+   }
+  },
+  "Fuel+ EX 9.8 XT Di2 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-xt-di2-gen-2-69c284b314a2690c039bd437/"
+   }
+  },
+  "Fuel+ EX 9.8 XT Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-8-xt-gen-2-69c284bc14a2690c039bd51e/"
+   }
+  },
+  "Fuel+ EX 9.9 X0 AXS Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-ex-9-9-x0-axs-gen-2-69c284c514a2690c039bd605/"
+   }
+  },
+  "Fuel+ LX 9.8 Eagle 90 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8699.0,
+    "prices": [
+     8699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-8-eagle-90-gen-2-69c284cd14a2690c039bd6ec/"
+   }
+  },
+  "Fuel+ LX 9.8 XT Di2 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 10199.0,
+    "prices": [
+     10199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-8-xt-di2-gen-2-69c284d114a2690c039bd7b5/"
+   }
+  },
+  "Fuel+ LX 9.8 XT Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8699.0,
+    "prices": [
+     8699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-8-xt-gen-2-69c284d514a2690c039bd87e/"
+   }
+  },
+  "Fuel+ LX 9.9 X0 AXS Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11699.0,
+    "prices": [
+     11699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-lx-9-9-x0-axs-gen-2-69c284d914a2690c039bd947/"
+   }
+  },
+  "Fuel+ MX 9.8 Eagle 90 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-8-eagle-90-gen-2-69c284dc14a2690c039bda10/"
+   }
+  },
+  "Fuel+ MX 9.8 XT Di2 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-8-xt-di2-gen-2-69c284df14a2690c039bdad9/"
+   }
+  },
+  "Fuel+ MX 9.8 XT Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-8-xt-gen-2-69c284e314a2690c039bdba2/"
+   }
+  },
+  "Fuel+ MX 9.9 X0 AXS Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/fuel-mx-9-9-x0-axs-gen-2-69c284e714a2690c039bdc6b/"
+   }
+  },
+  "Kickster": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 224.0,
+    "prices": [
+     224
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/kickster-655e6a6026f547878a58c7a3/"
+   }
+  },
+  "Madone SL 5 Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-5-gen-8-696f59ce9817012a62e33e1c/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-5-gen-8-69c2837314a2690c039bb4eb/"
+   }
+  },
+  "Madone SL 6": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5099.0,
+    "prices": [
+     5099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-655e620126f547878a5864ab/"
+   }
+  },
+  "Madone SL 6 AXS Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-axs-gen-8-696f59ca9817012a62e33d69/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-axs-gen-8-69c2838314a2690c039bb680/"
+   }
+  },
+  "Madone SL 6 Gen 6": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5099.0,
+    "prices": [
+     5099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-gen-6-655e6a6526f547878a58c7bc/"
+   }
+  },
+  "Madone SL 6 Gen 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-gen-7-655e6a6826f547878a58c7cb/"
+   }
+  },
+  "Madone SL 6 Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-gen-8-696f59cd9817012a62e33de3/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-6-gen-8-69c2838a14a2690c039bb6f5/"
+   }
+  },
+  "Madone SL 7 AXS": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7399.0,
+    "prices": [
+     7399
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-axs-655e61c926f547878a586276/"
+   }
+  },
+  "Madone SL 7 AXS Gen 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7299.0,
+    "prices": [
+     7299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-axs-gen-6-655e6a6b26f547878a58c820/"
+   }
+  },
+  "Madone SL 7 Gen 6": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7099.0,
+    "prices": [
+     7099
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-gen-6-655e6a6e26f547878a58c848/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-gen-6-655e6a7226f547878a58c861/"
+   }
+  },
+  "Madone SL 7 Gen 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-gen-7-655e6a7426f547878a58c870/"
+   }
+  },
+  "Madone SL 7 Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-gen-8-696f59cc9817012a62e33daf/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-sl-7-gen-8-69c2839a14a2690c039bb88a/"
+   }
+  },
+  "Madone SLR 6 AXS Gen 7": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 8899.0,
+    "prices": [
+     8899
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-6-axs-gen-7-655e6a7f26f547878a58c96a/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 8899.0,
+    "prices": [
+     8899
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-6-axs-gen-7-655e6a7726f547878a58c89d/"
+   }
+  },
+  "Madone SLR 6 Gen 7": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 8199.0,
+    "prices": [
+     8199
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-6-gen-7-655e6a8726f547878a58ca50/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 8199.0,
+    "prices": [
+     8199
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-6-gen-7-655e6a8126f547878a58c983/"
+   }
+  },
+  "Madone SLR 7 AXS": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-7-axs-69c283aa14a2690c039bba1f/"
+   }
+  },
+  "Madone SLR 7 AXS Gen 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-7-axs-gen-7-655e6a8c26f547878a58caa0/"
+   }
+  },
+  "Madone SLR 7 AXS Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-7-axs-gen-8-69c2811e14a2690c039b7004/"
+   }
+  },
+  "Madone SLR 7 Gen 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-7-gen-7-655e6a9426f547878a58cb6d/"
+   }
+  },
+  "Madone SLR 7 Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-7-gen-8-69c2812614a2690c039b7181/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-7-gen-8-69c283bc14a2690c039bbbe1/"
+   }
+  },
+  "Madone SLR 8 AXS Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-8-axs-gen-8-69c2812a14a2690c039b71ea/"
+   }
+  },
+  "Madone SLR 9 AXS 1x Gen 8": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-axs-1x-gen-8-69c283d114a2690c039bbe36/"
+   }
+  },
+  "Madone SLR 9 AXS Gen 7": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 15699.0,
+    "prices": [
+     15699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-axs-gen-7-655e6aa726f547878a58cd2f/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 15699.0,
+    "prices": [
+     15699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-axs-gen-7-655e6a9f26f547878a58cc62/"
+   }
+  },
+  "Madone SLR 9 AXS Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 16899.0,
+    "prices": [
+     16899
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-axs-gen-8-696f59d59817012a62e33f23/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 14399.0,
+    "prices": [
+     14399
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-axs-gen-8-69c283d514a2690c039bbf6b/"
+   }
+  },
+  "Madone SLR 9 Gen 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 14699.0,
+    "prices": [
+     14699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-gen-7-655e6aa926f547878a58cd39/"
+   }
+  },
+  "Madone SLR 9 Gen 8": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 13499.0,
+    "prices": [
+     13499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-gen-8-69c2813214a2690c039b7367/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/madone-slr-9-gen-8-69c283ed14a2690c039bc208/"
+   }
+  },
+  "Marlin 4 Gen 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 549.0,
+    "prices": [
+     549
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-4-gen-2-655e6ab426f547878a58ce15/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 549.0,
+    "prices": [
+     549
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-4-gen-2-696f59829817012a62e336bf/"
+   }
+  },
+  "Marlin 4 Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 579.0,
+    "prices": [
+     579
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-4-gen-3-696f596e9817012a62e33572/"
+   }
+  },
+  "Marlin 5 Gen 2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 599.0,
+    "prices": [
+     599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-5-gen-2-655e6aba26f547878a58ce9c/"
+   }
+  },
+  "Marlin 5 Gen 3": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 649.0,
+    "prices": [
+     649
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-5-gen-3-655e6ac426f547878a58cf41/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 649.0,
+    "prices": [
+     649
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-5-gen-3-696f5a389817012a62e34a31/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 679.0,
+    "prices": [
+     679
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-5-gen-3-69c281a414a2690c039b8057/"
+   }
+  },
+  "Marlin 6 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 724.0,
+    "prices": [
+     724
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-gen-2-655e6ad026f547878a58cfe6/"
+   }
+  },
+  "Marlin 6 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 699.0,
+    "prices": [
+     699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-gen-3-655e6ad226f547878a58d009/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-gen-3-655e6adc26f547878a58d09a/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-gen-3-696f5a219817012a62e347a0/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 949.0,
+    "prices": [
+     949
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-gen-3-69c281b414a2690c039b81bc/"
+   }
+  },
+  "Marlin 7 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 924.0,
+    "prices": [
+     924
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-7-gen-2-655e666b26f547878a589702/"
+   }
+  },
+  "Marlin 7 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 849.0,
+    "prices": [
+     849
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-7-gen-3-655e6ae826f547878a58d167/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1149.0,
+    "prices": [
+     1149
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-7-gen-3-696f5a0e9817012a62e3458c/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-7-gen-3-69c281c414a2690c039b8321/"
+   }
+  },
+  "Marlin 8 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-8-gen-3-655e6aef26f547878a58d1f8/"
+   }
+  },
+  "Marlin+ 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-655e6af526f547878a58d24d/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-6-696f5a1f9817012a62e34745/"
+   }
+  },
+  "Marlin+ 8": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-8-655e6af926f547878a58d284/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-8-696f59f39817012a62e3417e/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/marlin-8-69c2846614a2690c039bcd76/"
+   }
+  },
+  "Powerfly 4 625 Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-625-gen-3-655e6afc26f547878a58d2bb/"
+   }
+  },
+  "Powerfly 4 625w Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-625w-gen-4-655e6b0126f547878a58d2e3/"
+   }
+  },
+  "Powerfly 4 Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-gen-3-655e61a326f547878a5861db/"
+   }
+  },
+  "Powerfly 5 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-5-gen-4-655e6b1126f547878a58d3d8/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-5-gen-4-655e6b0d26f547878a58d3ba/"
+   }
+  },
+  "Powerfly 7 Equipped Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-7-equipped-gen-3-655e620626f547878a5864b5/"
+   }
+  },
+  "Powerfly 7 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-7-gen-4-655e6b1626f547878a58d43c/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-7-gen-4-655e6b1926f547878a58d473/"
+   }
+  },
+  "Powerfly FS 4 500 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4599.0,
+    "prices": [
+     4599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-500-gen-2-655e61a526f547878a5861ea/"
+   }
+  },
+  "Powerfly FS 4 Equipped Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-equipped-gen-2-655e6b2326f547878a58d4ff/"
+   }
+  },
+  "Powerfly FS 4 Equipped Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-equipped-gen-3-655e6b2626f547878a58d545/"
+   }
+  },
+  "Powerfly FS 4 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-gen-3-655e6b2a26f547878a58d57c/"
+   }
+  },
+  "Powerfly FS 7 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-7-gen-3-655e6b3326f547878a58d617/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-7-gen-3-655e6b2f26f547878a58d5f9/"
+   }
+  },
+  "Powerfly FS 9 Equipped Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7299.0,
+    "prices": [
+     7299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-9-equipped-gen-2-655e62a626f547878a586880/"
+   }
+  },
+  "Powerfly FS 9 Equipped Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-9-equipped-gen-3-655e6b3a26f547878a58d662/"
+   }
+  },
+  "Powerfly FS+ 4 800Wh Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4699.0,
+    "prices": [
+     4699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-800wh-gen-4-69c284eb14a2690c039bdd34/"
+   }
+  },
+  "Powerfly FS+ 4 Equipped 800Wh Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-equipped-800wh-gen-4-69c284ed14a2690c039bdd79/"
+   }
+  },
+  "Powerfly FS+ 4 Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-gen-4-69c284f014a2690c039bddbe/"
+   }
+  },
+  "Powerfly Sport 4 Equipped Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-sport-4-equipped-gen-2-655e6b3c26f547878a58d699/"
+   }
+  },
+  "Powerfly Sport 4 Equipped Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-sport-4-equipped-gen-4-655e6b3f26f547878a58d6b2/"
+   }
+  },
+  "Powerfly Sport 7 Equipped Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-sport-7-equipped-gen-4-655e6b4326f547878a58d6d0/"
+   }
+  },
+  "Powerfly+ 4 800 Wh Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-800-wh-gen-5-69c2846e14a2690c039bce2b/"
+   }
+  },
+  "Powerfly+ 4 Equipped 800 Wh Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-equipped-800-wh-gen-5-69c2847514a2690c039bce80/"
+   }
+  },
+  "Powerfly+ 4 Equipped Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3599.0,
+    "prices": [
+     3599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-equipped-gen-5-69c2847c14a2690c039bced5/"
+   }
+  },
+  "Powerfly+ 4 Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-4-gen-5-69c2848314a2690c039bcf5a/"
+   }
+  },
+  "Powerfly+ 6 Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-6-gen-5-69c2848a14a2690c039bd00f/"
+   }
+  },
+  "Powerfly+ 8 Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-8-gen-5-69c2849214a2690c039bd0c4/"
+   }
+  },
+  "Powerfly+ FS 4 Equipped Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-4-equipped-gen-4-69c284f714a2690c039bde43/"
+   }
+  },
+  "Powerfly+ FS 6 Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-6-gen-4-69c284fe14a2690c039bdec8/"
+   }
+  },
+  "Powerfly+ FS 8 Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/powerfly-fs-8-gen-4-69c2850514a2690c039bdf4d/"
+   }
+  },
+  "Precaliber 12": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 294.0,
+    "prices": [
+     294
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-12-655e6b4c26f547878a58d720/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 269.0,
+    "prices": [
+     269
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-12-655e6b4626f547878a58d707/"
+   }
+  },
+  "Precaliber 16": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 324.0,
+    "prices": [
+     324
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-16-655e626826f547878a58663c/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 299.0,
+    "prices": [
+     299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-16-655e6b4e26f547878a58d72a/"
+   }
+  },
+  "Precaliber 20": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 344.0,
+    "prices": [
+     344
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-20-655e622d26f547878a586579/"
+   }
+  },
+  "Precaliber 20 7-Gang": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 414.0,
+    "prices": [
+     414
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-20-7-gang-655e62d626f547878a5869a2/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 349.0,
+    "prices": [
+     349
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-20-7-gang-655e6b5126f547878a58d743/"
+   }
+  },
+  "Precaliber 20 Freilauf": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 299.0,
+    "prices": [
+     299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-20-freilauf-655e6b5326f547878a58d75c/"
+   }
+  },
+  "Precaliber 24 8-Gang": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 349.0,
+    "prices": [
+     349
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-24-8-gang-655e6b5626f547878a58d775/"
+   }
+  },
+  "Precaliber 24 8-Gang Federgabel": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 474.0,
+    "prices": [
+     474
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-24-8-gang-federgabel-655e626c26f547878a586646/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 369.0,
+    "prices": [
+     369
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/precaliber-24-8-gang-federgabel-655e6b5b26f547878a58d78e/"
+   }
+  },
+  "Procaliber 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-6-655e6b6026f547878a58d7a7/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-6-696f5a019817012a62e342dc/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1199.0,
+    "prices": [
+     1199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-6-69c281d514a2690c039b8486/"
+   }
+  },
+  "Procaliber 8": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-8-655e6b6326f547878a58d7de/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1499.0,
+    "prices": [
+     1499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-8-696f59fd9817012a62e34254/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1399.0,
+    "prices": [
+     1399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-8-69c281db14a2690c039b84f5/"
+   }
+  },
+  "Procaliber 9.5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-5-655e6b7026f547878a58d865/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-5-655e6b6c26f547878a58d824/"
+   }
+  },
+  "Procaliber 9.5 Gen 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-5-gen-3-696f59c59817012a62e33ccb/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-5-gen-3-69c281e114a2690c039b85aa/"
+   }
+  },
+  "Procaliber 9.6": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-6-655e668626f547878a58970e/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-6-655e6b7226f547878a58d888/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2199.0,
+    "prices": [
+     2199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-6-655e6b7926f547878a58d8dd/"
+   }
+  },
+  "Procaliber 9.6 Gen 3": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-6-gen-3-696f59c19817012a62e33c66/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-6-gen-3-69c281e814a2690c039b865f/"
+   }
+  },
+  "Procaliber 9.7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3299.0,
+    "prices": [
+     3299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-7-655e6b8126f547878a58d95f/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-7-655e6b7c26f547878a58d91e/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-7-655e6b8526f547878a58d97d/"
+   }
+  },
+  "Procaliber 9.7 AXS Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-7-axs-gen-3-69c281ee14a2690c039b8714/"
+   }
+  },
+  "Procaliber 9.8": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4099.0,
+    "prices": [
+     4099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-8-655e62fa26f547878a586a47/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/procaliber-9-8-655e6b8926f547878a58d9be/"
+   }
+  },
+  "Rail 5 500 W Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4899.0,
+    "prices": [
+     4899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-5-500-w-gen-2-655e62ab26f547878a58688a/"
+   }
+  },
+  "Rail 5 625 W Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5299.0,
+    "prices": [
+     5299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-5-625-w-gen-2-655e6b9026f547878a58da0e/"
+   }
+  },
+  "Rail 5 625Wh Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-5-625wh-gen-3-655e6b9626f547878a58da54/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-5-625wh-gen-3-655e6b9426f547878a58da3b/"
+   }
+  },
+  "Rail 7 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-7-gen-2-655e6b9926f547878a58da6d/"
+   }
+  },
+  "Rail 7 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-7-gen-3-655e6b9e26f547878a58dab3/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-7-gen-3-655e6b9b26f547878a58da9a/"
+   }
+  },
+  "Rail 9 GX Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7399.0,
+    "prices": [
+     7399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-gx-gen-2-655e6ba626f547878a58dae5/"
+   }
+  },
+  "Rail 9 Gen 3": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-gen-3-655e6ba126f547878a58dacc/"
+   }
+  },
+  "Rail 9.5 Gen 2": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-5-gen-2-655e6baa26f547878a58dafe/"
+   }
+  },
+  "Rail 9.5 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-5-gen-4-655e6bb326f547878a58db3f/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-5-gen-4-655e6bb026f547878a58db26/"
+   }
+  },
+  "Rail 9.7 Gen 4": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-7-gen-4-655e6bbb26f547878a58db94/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6799.0,
+    "prices": [
+     6799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-7-gen-4-655e6bb926f547878a58db7b/"
+   }
+  },
+  "Rail 9.8 GX AXS Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 10299.0,
+    "prices": [
+     10299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-gx-axs-gen-3-655e61ae26f547878a586212/"
+   }
+  },
+  "Rail 9.8 GX Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 9699.0,
+    "prices": [
+     9699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-gx-gen-3-655e61b226f547878a58621c/"
+   }
+  },
+  "Rail 9.8 XT Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 9699.0,
+    "prices": [
+     9699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-xt-gen-3-655e62b026f547878a5868a8/"
+   }
+  },
+  "Rail 9.8 XT Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-xt-gen-4-655e6bc526f547878a58dc11/"
+   }
+  },
+  "Rail 9.9 CXR Gen 4": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-9-cxr-gen-4-655e6bca26f547878a58dc52/"
+   }
+  },
+  "Rail 9.9 XTR Gen 3": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 11599.0,
+    "prices": [
+     11599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-9-xtr-gen-3-655e62b326f547878a5868c6/"
+   }
+  },
+  "Rail+ 5 Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-5-gen-5-69c2850b14a2690c039bdfd2/"
+   }
+  },
+  "Rail+ 8 Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-8-gen-5-69c2850e14a2690c039be047/"
+   }
+  },
+  "Rail+ 9.7 Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-7-gen-5-69c2851114a2690c039be0bc/"
+   }
+  },
+  "Rail+ 9.8 GX AXS T-Type Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-gx-axs-t-type-gen-5-69c2851314a2690c039be131/"
+   }
+  },
+  "Rail+ 9.8 GX AXS T-Type Gen5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-gx-axs-t-type-gen5-691aca4af6476ff9a58f038d/"
+   }
+  },
+  "Rail+ 9.8 XT Gen 5": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-8-xt-gen-5-696f59a19817012a62e3394f/"
+   }
+  },
+  "Rail+ 9.9 X0 AXS T-Type Gen 5": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-9-x0-axs-t-type-gen-5-69c2851614a2690c039be1a6/"
+   }
+  },
+  "Rail+ 9.9 XX AXS T-Type Gen 5": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/rail-9-9-xx-axs-t-type-gen-5-69c2818614a2690c039b7d0c/"
+   }
+  },
+  "Remedy 8": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3699.0,
+    "prices": [
+     3699
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/remedy-8-655e62be26f547878a58693e/"
+   }
+  },
+  "Remedy 7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3099.0,
+    "prices": [
+     3099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/remedy-7-655e61b526f547878a586230/"
+   }
+  },
+  "Roscoe 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/roscoe-6-655e6bec26f547878a58dd65/"
+   }
+  },
+  "Roscoe 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/roscoe-7-655e6bf326f547878a58ddd3/"
+   }
+  },
+  "Roscoe 8": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1799.0,
+    "prices": [
+     1799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/roscoe-8-655e6bf826f547878a58de6e/"
+   }
+  },
+  "Roscoe 9": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/roscoe-9-655e6bfb26f547878a58deaf/"
+   }
+  },
+  "Session 8": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/session-8-655e6bfe26f547878a58def0/"
+   }
+  },
+  "Session 8 29 GX": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/session-8-29-gx-69c2827d14a2690c039b9b11/"
+   }
+  },
+  "Session 9": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/session-9-655e6c0126f547878a58df04/"
+   }
+  },
+  "Session 9 X01": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/session-9-x01-655e6c0326f547878a58df18/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/session-9-x01-69c2819c14a2690c039b7faf/"
+   }
+  },
+  "Slash 7 Gen 5": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 3199.0,
+    "prices": [
+     3199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-7-gen-5-655e6c0626f547878a58df2c/"
+   },
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-7-gen-5-655e6c0826f547878a58df36/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-7-gen-5-655e6c0e26f547878a58df45/"
+   }
+  },
+  "Slash 8": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-8-655e61cd26f547878a586280/"
+   }
+  },
+  "Slash 8 Gen 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3899.0,
+    "prices": [
+     3899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-8-gen-5-655e6c1026f547878a58df7c/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-8-gen-5-655e6c1326f547878a58df86/"
+   }
+  },
+  "Slash 8 Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-8-gen-6-655e6c1626f547878a58dfbd/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-8-gen-6-696f59f89817012a62e34211/"
+   }
+  },
+  "Slash 9 GX AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-gx-axs-t-type-gen-6-655e6c1826f547878a58dff4/"
+   }
+  },
+  "Slash 9.7 Gen 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-7-gen-5-655e6c2226f547878a58e062/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-7-gen-5-655e6c1e26f547878a58e02b/"
+   }
+  },
+  "Slash 9.8 GX AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-gx-axs-t-type-gen-6-655e6c3626f547878a58e102/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-gx-axs-t-type-gen-6-69c2828614a2690c039b9b9e/"
+   }
+  },
+  "Slash 9.8 GX Gen 5": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-gx-gen-5-655e6c3926f547878a58e120/"
+   },
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 7199.0,
+    "prices": [
+     7199
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-gx-gen-5-655e6c3c26f547878a58e134/"
+   }
+  },
+  "Slash 9.8 XT Di2 Gen 6": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-xt-di2-gen-6-69c2828c14a2690c039b9c03/"
+   }
+  },
+  "Slash 9.8 XT Gen 5": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 6299.0,
+    "prices": [
+     6299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-xt-gen-5-655e6c4026f547878a58e14d/"
+   },
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6599.0,
+    "prices": [
+     6599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-xt-gen-5-655e6c4726f547878a58e166/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6899.0,
+    "prices": [
+     6899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-xt-gen-5-655e6c4c26f547878a58e1ac/"
+   }
+  },
+  "Slash 9.8 XT Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7899.0,
+    "prices": [
+     7899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-xt-gen-6-655e6c5426f547878a58e1fc/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7899.0,
+    "prices": [
+     7899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-8-xt-gen-6-69c2816714a2690c039b791c/"
+   }
+  },
+  "Slash 9.9 X0 AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-x0-axs-t-type-gen-6-655e6c5926f547878a58e24c/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-x0-axs-t-type-gen-6-69c2829314a2690c039b9c68/"
+   }
+  },
+  "Slash 9.9 XTR Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 10499.0,
+    "prices": [
+     10499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-xtr-gen-5-655e6c6026f547878a58e29c/"
+   }
+  },
+  "Slash 9.9 XTR Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-xtr-gen-6-655e6c6326f547878a58e2ec/"
+   }
+  },
+  "Slash 9.9 XX AXS T-Type Gen 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12499.0,
+    "prices": [
+     12499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-xx-axs-t-type-gen-6-655e6c6926f547878a58e33c/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12499.0,
+    "prices": [
+     12499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-xx-axs-t-type-gen-6-696f59b99817012a62e33b07/"
+   }
+  },
+  "Slash 9.9 XX1 AXS Flight Attendant Gen 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 13099.0,
+    "prices": [
+     13099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-xx1-axs-flight-attendant-gen-5-655e6c6d26f547878a58e37d/"
+   }
+  },
+  "Slash 9.9 XX1 Flight Attendant Gen 5": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-xx1-flight-attendant-gen-5-655e6c7226f547878a58e38c/"
+   }
+  },
+  "Slash SE Gen 5": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-se-gen-5-69c2818c14a2690c039b7e11/"
+   }
+  },
+  "Slash+ 9.7": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-7-69c2851d14a2690c039be1fb/"
+   }
+  },
+  "Slash+ 9.7 SLX/XT": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-7-slx-xt-69c2852414a2690c039be290/"
+   }
+  },
+  "Slash+ 9.9": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 10499.0,
+    "prices": [
+     10499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-69c2852d14a2690c039be325/"
+   }
+  },
+  "Slash+ 9.9 X0 AXS T-Type": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/slash-9-9-x0-axs-t-type-69c2853514a2690c039be37a/"
+   }
+  },
+  "Speed Concept SLR 6 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9599.0,
+    "prices": [
+     9599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-6-axs-655e6c7b26f547878a58e3dc/"
+   }
+  },
+  "Speed Concept SLR 7": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-655e6c8b26f547878a58e4d1/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-655e6c8326f547878a58e459/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-69c2813614a2690c039b73c4/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-69c2840314a2690c039bc45d/"
+   }
+  },
+  "Speed Concept SLR 7 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 10499.0,
+    "prices": [
+     10499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-axs-655e6c9926f547878a58e4ef/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-axs-69c2813914a2690c039b7409/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-7-axs-69c2840914a2690c039bc4fa/"
+   }
+  },
+  "Speed Concept SLR 8 AXS": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-8-axs-69c2813d14a2690c039b7496/"
+   }
+  },
+  "Speed Concept SLR 9": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 14499.0,
+    "prices": [
+     14499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-9-655e6ca026f547878a58e56c/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-9-69c2814214a2690c039b756b/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-9-69c2840d14a2690c039bc5cf/"
+   }
+  },
+  "Speed Concept SLR 9 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 14499.0,
+    "prices": [
+     14499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-9-axs-655e6ca926f547878a58e5e9/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12499.0,
+    "prices": [
+     12499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-9-axs-69c2814614a2690c039b75b0/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/speed-concept-slr-9-axs-69c2841414a2690c039bc66c/"
+   }
+  },
+  "Supercaliber 9.6": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4099.0,
+    "prices": [
+     4099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-6-655e62ee26f547878a586a10/"
+   }
+  },
+  "Supercaliber 9.6 Gen 1": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-6-gen-1-655e66d226f547878a58980a/"
+   }
+  },
+  "Supercaliber 9.7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-7-655e621626f547878a586506/"
+   }
+  },
+  "Supercaliber 9.8 GX": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6099.0,
+    "prices": [
+     6099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-8-gx-655e621926f547878a586510/"
+   }
+  },
+  "Supercaliber 9.8 XT": {
+   "2020": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-8-xt-655e61bc26f547878a586244/"
+   }
+  },
+  "Supercaliber 9.8 XT Gen 1": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 6099.0,
+    "prices": [
+     6099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-8-xt-gen-1-655e6ccb26f547878a58e6d9/"
+   }
+  },
+  "Supercaliber 9.9 XTR": {
+   "2020": {
+    "captured": "2026-10-31",
+    "price": 10099.0,
+    "prices": [
+     10099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-9-xtr-655e61c026f547878a586258/"
+   }
+  },
+  "Supercaliber 9.9 XTR Gen 1": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 11099.0,
+    "prices": [
+     11099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-9-xtr-gen-1-655e6cd726f547878a58e70b/"
+   }
+  },
+  "Supercaliber 9.9 XX1 Gen 1": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-9-9-xx1-gen-1-655e66b626f547878a589738/"
+   }
+  },
+  "Supercaliber SL 9.6 Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-sl-9-6-gen-2-655e6cda26f547878a58e715/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-sl-9-6-gen-2-69c2829a14a2690c039b9ccd/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-sl-9-6-gen-2-69c282a214a2690c039b9d41/"
+   }
+  },
+  "Supercaliber SL 9.7 AXS Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-sl-9-7-axs-gen-2-655e6ce026f547878a58e74c/"
+   }
+  },
+  "Supercaliber SL 9.7 GX AXS Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 4999.0,
+    "prices": [
+     4999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-sl-9-7-gx-axs-gen-2-69c282a814a2690c039b9df6/"
+   }
+  },
+  "Supercaliber SL 9.7 GX AXS T-Type Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-sl-9-7-gx-axs-t-type-gen-2-69c282b014a2690c039b9eab/"
+   }
+  },
+  "Supercaliber SLR 9.8 GX AXS Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-gx-axs-gen-2-655e6ce426f547878a58e783/"
+   }
+  },
+  "Supercaliber SLR 9.8 X0 AXS T-Type Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-x0-axs-t-type-gen-2-688b6cdb3ba3a0d577ecba5a/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-x0-axs-t-type-gen-2-69c282b614a2690c039b9f60/"
+   }
+  },
+  "Supercaliber SLR 9.8 X0 Flight Attendant Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-x0-flight-attendant-gen-2-69c282be14a2690c039ba015/"
+   }
+  },
+  "Supercaliber SLR 9.8 XT Di2 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 7999.0,
+    "prices": [
+     7999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-xt-di2-gen-2-69c282c914a2690c039ba110/"
+   }
+  },
+  "Supercaliber SLR 9.8 XT Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-xt-gen-2-655e6ce926f547878a58e7ba/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-8-xt-gen-2-688b6cda3ba3a0d577ecba0e/"
+   }
+  },
+  "Supercaliber SLR 9.9 Flight Attendant Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-flight-attendant-gen-2-688b6cd83ba3a0d577ecb87b/"
+   }
+  },
+  "Supercaliber SLR 9.9 X0 AXS Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-x0-axs-gen-2-655e6cf026f547878a58e80a/"
+   }
+  },
+  "Supercaliber SLR 9.9 XTR Di2 Gen 2": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xtr-di2-gen-2-688b6cd73ba3a0d577ecb7c7/"
+   }
+  },
+  "Supercaliber SLR 9.9 XTR Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 10999.0,
+    "prices": [
+     10999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xtr-gen-2-655e6cf326f547878a58e85a/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xtr-gen-2-688b6cd33ba3a0d577ecb597/"
+   }
+  },
+  "Supercaliber SLR 9.9 XX AXS Gen 2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xx-axs-gen-2-655e6cf826f547878a58e8aa/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xx-axs-gen-2-688b6cd13ba3a0d577ecb4d3/"
+   }
+  },
+  "Supercaliber SLR 9.9 XX Flight Attendant Gen 2": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xx-flight-attendant-gen-2-69c2818f14a2690c039b7e62/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 13999.0,
+    "prices": [
+     13999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/supercaliber-slr-9-9-xx-flight-attendant-gen-2-69c282d614a2690c039ba215/"
+   }
+  },
+  "Top Fuel 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-5-655e66d626f547878a58981e/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-5-655e6cfd26f547878a58e8fa/"
+   }
+  },
+  "Top Fuel 5 Gen 3": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2099.0,
+    "prices": [
+     2099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-5-gen-3-688b6cd13ba3a0d577ecb473/"
+   }
+  },
+  "Top Fuel 5 Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-5-gen-4-688b6cd03ba3a0d577ecb3d6/"
+   }
+  },
+  "Top Fuel 7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-7-655e6d0a26f547878a58e990/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-7-655e6d0426f547878a58e94f/"
+   }
+  },
+  "Top Fuel 8 GX AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-8-gx-axs-t-type-655e6d1726f547878a58e9db/"
+   }
+  },
+  "Top Fuel 8 Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-8-gen-4-688b6cce3ba3a0d577ecb362/"
+   }
+  },
+  "Top Fuel 8 NX": {
+   "2021": {
+    "captured": "2026-10-31",
+    "price": 3099.0,
+    "prices": [
+     3099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-8-nx-655e61d226f547878a58628a/"
+   }
+  },
+  "Top Fuel 8 XT": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-8-xt-655e6d2c26f547878a58ea3f/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-8-xt-655e6d1f26f547878a58ea1c/"
+   }
+  },
+  "Top Fuel 9 Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 4799.0,
+    "prices": [
+     4799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-gen-4-688b6cce3ba3a0d577ecb2d9/"
+   }
+  },
+  "Top Fuel 9,7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 5099.0,
+    "prices": [
+     5099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-7-655e62f026f547878a586a1a/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-7-655e6d2e26f547878a58ea62/"
+   }
+  },
+  "Top Fuel 9.8 GX AXS Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-8-gx-axs-gen-4-688b6ccb3ba3a0d577ecb163/"
+   }
+  },
+  "Top Fuel 9.8 GX AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-8-gx-axs-t-type-655e6d3c26f547878a58eada/"
+   }
+  },
+  "Top Fuel 9.8 XT": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6599.0,
+    "prices": [
+     6599
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-8-xt-655e6d4226f547878a58eb1b/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-8-xt-655e6d4526f547878a58eb43/"
+   }
+  },
+  "Top Fuel 9.8 XT Di2 Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 5999.0,
+    "prices": [
+     5999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-8-xt-di2-gen-4-69c282e114a2690c039ba310/"
+   }
+  },
+  "Top Fuel 9.8 XT Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 6499.0,
+    "prices": [
+     6499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-8-xt-gen-4-688b6ccb3ba3a0d577ecb0d3/"
+   }
+  },
+  "Top Fuel 9.9 X0 AXS Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-x0-axs-gen-4-688b6cc93ba3a0d577ecafd9/"
+   }
+  },
+  "Top Fuel 9.9 X0 AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 8999.0,
+    "prices": [
+     8999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-x0-axs-t-type-655e621b26f547878a58651f/"
+   }
+  },
+  "Top Fuel 9.9 XTR": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 9999.0,
+    "prices": [
+     9999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-xtr-655e6d5526f547878a58ebe3/"
+   }
+  },
+  "Top Fuel 9.9 XTR Di2 Gen 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-xtr-di2-gen-4-688b6cc63ba3a0d577ecaea8/"
+   }
+  },
+  "Top Fuel 9.9 XTR Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-xtr-gen-4-688b6cc63ba3a0d577ecae8a/"
+   }
+  },
+  "Top Fuel 9.9 XX AXS Gen 4": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-xx-axs-gen-4-688b6cc63ba3a0d577ecae6e/"
+   }
+  },
+  "Top Fuel 9.9 XX AXS T-Type": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11499.0,
+    "prices": [
+     11499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-xx-axs-t-type-655e6d5926f547878a58ec33/"
+   }
+  },
+  "Top Fuel 9.9 XX1 AXS": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 12249.0,
+    "prices": [
+     12249
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/top-fuel-9-9-xx1-axs-655e6d6126f547878a58eca6/"
+   }
+  },
+  "Verve 1 Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 749.0,
+    "prices": [
+     749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-1-equipped-688b6cc33ba3a0d577ecad49/"
+   }
+  },
+  "Verve 1 Lowstep Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 749.0,
+    "prices": [
+     749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-1-lowstep-equipped-688b6cc23ba3a0d577ecacfb/"
+   }
+  },
+  "Verve 2 Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-2-equipped-688b6cc23ba3a0d577ecace2/"
+   }
+  },
+  "Verve 2 Lowstep Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-2-lowstep-equipped-688b6cbf3ba3a0d577ecac56/"
+   }
+  },
+  "Verve 3 Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-3-equipped-688b6cbf3ba3a0d577ecabe4/"
+   }
+  },
+  "Verve 3 Lowstep Equipped": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1099.0,
+    "prices": [
+     1099
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-3-lowstep-equipped-688b6cbe3ba3a0d577ecab9a/"
+   }
+  },
+  "Verve Equipped": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-equipped-688b6cbd3ba3a0d577ecaaad/"
+   }
+  },
+  "Verve Lowstep Equipped": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 899.0,
+    "prices": [
+     899
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-lowstep-equipped-688b6cbc3ba3a0d577ecaa2d/"
+   }
+  },
+  "Verve+ 1 LT Lowstep": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-1-lt-lowstep-688b6cb73ba3a0d577eca931/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-1-lt-lowstep-688b6cb93ba3a0d577eca981/"
+   }
+  },
+  "Verve+ 1 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-1-lowstep-688b6cbb3ba3a0d577eca9f4/"
+   }
+  },
+  "Verve+ 2 Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-2-gen-3-688b6cb73ba3a0d577eca925/"
+   }
+  },
+  "Verve+ 2 Lowstep Gen 3": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 2799.0,
+    "prices": [
+     2799
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-2-lowstep-gen-3-688b6cb33ba3a0d577eca6c6/"
+   }
+  },
+  "Verve+ 4": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3399.0,
+    "prices": [
+     3399
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-4-688b6cb33ba3a0d577eca695/"
+   }
+  },
+  "Verve+ 4 Lowstep": {
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 3149.0,
+    "prices": [
+     3149
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/verve-4-lowstep-688b6cb13ba3a0d577eca5ce/"
+   }
+  },
+  "Wahoo 20": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 474.0,
+    "prices": [
+     474
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-655e6d6e26f547878a58ecd3/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 449.0,
+    "prices": [
+     449
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-655e6d6626f547878a58ecb0/"
+   }
+  },
+  "Wahoo 20 Path": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 449.0,
+    "prices": [
+     449
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-path-688b6cb03ba3a0d577eca57f/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 449.0,
+    "prices": [
+     449
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-path-690da0d037fa31da8519f5ad/"
+   }
+  },
+  "Wahoo 20 Trail": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 729.0,
+    "prices": [
+     729
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-trail-655e6d7326f547878a58ece2/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 729.0,
+    "prices": [
+     729
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-trail-688b6cb03ba3a0d577eca55e/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 729.0,
+    "prices": [
+     729
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-20-trail-690da0cd37fa31da8519f526/"
+   }
+  },
+  "Wahoo 24": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 524.0,
+    "prices": [
+     524
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-655e625526f547878a586605/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 499.0,
+    "prices": [
+     499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-655e6d7b26f547878a58ed05/"
+   }
+  },
+  "Wahoo 24 Path": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 499.0,
+    "prices": [
+     499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-path-688b6cac3ba3a0d577eca4a4/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 499.0,
+    "prices": [
+     499
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-path-690da0c737fa31da8519f43a/"
+   }
+  },
+  "Wahoo 24 Trail": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 749.0,
+    "prices": [
+     749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-trail-655e6d8126f547878a58ed28/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 749.0,
+    "prices": [
+     749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-trail-688b6cac3ba3a0d577eca4c7/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 749.0,
+    "prices": [
+     749
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-24-trail-690da0c737fa31da8519f406/"
+   }
+  },
+  "Wahoo 26": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 574.0,
+    "prices": [
+     574
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-26-655e626e26f547878a586650/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 529.0,
+    "prices": [
+     529
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-26-655e6d8f26f547878a58ed4b/"
+   }
+  },
+  "Wahoo 26 Path": {
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 529.0,
+    "prices": [
+     529
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-26-path-688b6cac3ba3a0d577eca4a6/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 529.0,
+    "prices": [
+     529
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/wahoo-26-path-690da0c537fa31da8519f3c3/"
+   }
+  },
+  "X-Caliber 8": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 999.0,
+    "prices": [
+     999
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/x-caliber-8-655e6d9326f547878a58ed6e/"
+   }
+  },
+  "X-Caliber 9": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1649.0,
+    "prices": [
+     1649
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/x-caliber-9-655e6d9b26f547878a58edcd/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1299.0,
+    "prices": [
+     1299
+    ],
+    "url": "https://www.bike-magazin.de/marken/trek/modell/x-caliber-9-655e6da026f547878a58eddc/"
+   }
+  },
+  "Émonda ALR 4": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 1949.0,
+    "prices": [
+     1949
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-4-655e631226f547878a586ab0/"
+   }
+  },
+  "Émonda ALR 5": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2399.0,
+    "prices": [
+     2399
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-5-655e61c626f547878a58626c/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-5-655e690c26f547878a58b330/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-5-655e691126f547878a58b385/"
+   },
+   "2025": {
+    "captured": "2026-10-31",
+    "price": 2299.0,
+    "prices": [
+     2299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-5-696f5a019817012a62e3439b/"
+   },
+   "2026": {
+    "captured": "2026-10-31",
+    "price": 1999.0,
+    "prices": [
+     1999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-5-69c2836714a2690c039bb3c6/"
+   }
+  },
+  "Émonda ALR 6": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 2499.0,
+    "prices": [
+     2499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-alr-6-655e691626f547878a58b3da/"
+   }
+  },
+  "Émonda SL 5": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-5-655e692026f547878a58b443/"
+   }
+  },
+  "Émonda SL 5 Disc": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 2999.0,
+    "prices": [
+     2999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-5-disc-655e61f726f547878a586483/"
+   }
+  },
+  "Émonda SL 6": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 4499.0,
+    "prices": [
+     4499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-6-655e692626f547878a58b4c0/"
+   }
+  },
+  "Émonda SL 6 AXS": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-6-axs-655e692c26f547878a58b515/"
+   }
+  },
+  "Émonda SL 6 Di2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3499.0,
+    "prices": [
+     3499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-6-di2-655e693026f547878a58b542/"
+   }
+  },
+  "Émonda SL 6 Disc": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 3799.0,
+    "prices": [
+     3799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-6-disc-655e61fb26f547878a586497/"
+   }
+  },
+  "Émonda SL 6 Disc Pro": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 4299.0,
+    "prices": [
+     4299
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-6-disc-pro-655e622826f547878a586560/"
+   }
+  },
+  "Émonda SL 6 Pro Di2": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 3999.0,
+    "prices": [
+     3999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-6-pro-di2-655e693826f547878a58b5e7/"
+   }
+  },
+  "Émonda SL 7": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 5499.0,
+    "prices": [
+     5499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-7-655e694026f547878a58b66e/"
+   }
+  },
+  "Émonda SL 7 AXS": {
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 6799.0,
+    "prices": [
+     6799
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-7-axs-655e694426f547878a58b69b/"
+   }
+  },
+  "Émonda SL 7 Disc eTap": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 6699.0,
+    "prices": [
+     6699
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-sl-7-disc-etap-655e619a26f547878a5861b8/"
+   }
+  },
+  "Émonda SLR 6 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 7499.0,
+    "prices": [
+     7499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-6-axs-655e694a26f547878a58b6cd/"
+   }
+  },
+  "Émonda SLR 6 Di2": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 6999.0,
+    "prices": [
+     6999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-6-di2-655e695226f547878a58b7c2/"
+   }
+  },
+  "Émonda SLR 7": {
+   "2022": {
+    "captured": "2026-10-31",
+    "price": 8599.0,
+    "prices": [
+     8599
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-7-655e695a26f547878a58b8b7/"
+   },
+   "2023": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-7-655e696926f547878a58b9b1/"
+   },
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 8499.0,
+    "prices": [
+     8499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-7-655e695d26f547878a58b8c1/"
+   }
+  },
+  "Émonda SLR 7 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 9499.0,
+    "prices": [
+     9499
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-7-axs-655e697526f547878a58ba06/"
+   }
+  },
+  "Émonda SLR 9": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 11999.0,
+    "prices": [
+     11999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-9-655e697f26f547878a58bafb/"
+   }
+  },
+  "Émonda SLR 9 AXS": {
+   "2024": {
+    "captured": "2026-10-31",
+    "price": 12999.0,
+    "prices": [
+     12999
+    ],
+    "url": "https://www.tour-magazin.de/marken/trek/modell/emonda-slr-9-axs-655e698a26f547878a58bbf0/"
+   }
+  }
+ },
+ "source": "TOUR/BIKE bike database (Delius Klasing), German list prices"
+}
