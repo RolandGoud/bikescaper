@@ -2040,9 +2040,11 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         ref_val, ad = spec(model, *keys), claims.get(key)
         # The ad's words first; when they don't name the part, what its photos show. Wheels the ad only calls
         # "carbonwielen" (check 71) give way to the wheelset its photos name.
-        # Vague: rated only for the word "carbon", naming no wheelset ("Wielen: Fulcrum Racing 5" isn't vague).
-        vague = key == "wheels" and ad and not part_tier(("wheels",), re.sub(r"carbon\w*|\boclv\b", " ",
-                                                                               _plain(str(ad["label"]))))
+        # Vague: names no wheelset (WHEEL_NAMES) and rates only for the word "carbon" ("Wielen: Fulcrum Racing 5"
+        # and "Princeton CarbonWorks 4550" aren't vague; "carbonwielen" is).
+        label = _plain(str(ad["label"])) if ad else ""
+        vague = key == "wheels" and ad and not re.search(WHEEL_NAMES, label) \
+            and not part_tier(("wheels",), re.sub(r"carbon\w*|\boclv\b", " ", label))
         part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres", "wheels") and (not ad or vague) else None
         if part_seen and ad and not part_seen["tier"]:
             part_seen = None  # a wheelset we can't rate says less than "carbon"

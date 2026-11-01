@@ -433,3 +433,7 @@ def test_a_named_wheelset_outside_the_wheel_names_list_still_wins(models):
               "confidence": "high", "photos": [2], "evidence_en": "", "evidence_nl": ""}
     r = row(run(models, "Trek Emonda SL6", "Wielen: Fulcrum Racing 5", dict(RIVAL, wheels=wheels)), "wheels")
     assert "Fulcrum" in en(r["listing"]) and "photo_why" not in r
+    # Nor a name from WHEEL_NAMES that the wheel tiers only rate through "carbon".
+    assert not checks.part_tier(("wheels",), "fulcrum wind 40")
+    r = row(run(models, "Trek Emonda SL6", "Carbon wielen: Fulcrum Wind 40", dict(RIVAL, wheels=wheels)), "wheels")
+    assert "photo_why" not in r
