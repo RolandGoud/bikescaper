@@ -1286,6 +1286,7 @@ NL = {
     "Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't keep checks like this.":
         "Onze catalogus begint bij modeljaar {year}, dus we kunnen de onderdelen, leeftijd en prijs van deze fiets niet met het origineel vergelijken. Zulke checks bewaren we niet.",
     "Check another ad": "Check een andere advertentie",
+    "Check an ad": "Check een advertentie",
     # The report's heading: the ad, and our match under it.
     "The ad": "De advertentie",
     "Our match": "Onze match",
