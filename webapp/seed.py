@@ -12,7 +12,7 @@ import sys
 import urllib.request
 
 from . import db
-from .reference import COLOUR_WORDS
+from .reference import COLOUR_WORDS, FIRST_YEAR
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -430,7 +430,8 @@ def year_specs(brand, name, _cache={}):
     for f in (archive, site):
         for other, sheets in (f or {}).get("models", {}).items():
             ours.setdefault(other, set()).update(sheets)
-    list_prices = tour_bike_prices((tourbike or {}).get("models", {}), name, ours)
+    list_prices = {y: e for y, e in tour_bike_prices((tourbike or {}).get("models", {}), name, ours).items()
+                   if int(y) >= FIRST_YEAR}
     if not archive and not site:
         return {"list_prices": list_prices} if list_prices else {}
     years = dict((archive or {}).get("models", {}).get(name.strip(), {}))
@@ -442,8 +443,10 @@ def year_specs(brand, name, _cache={}):
                 entry = dict(entry, price=copy["price"], price_url=copy.get("url"), price_captured=copy.get("captured"))
             years[year] = entry
     found = [f for f in (archive, site) if f]
-    out = {"checked": sorted({y for f in found for y in f["years"]}),
-           "checked_on": max(f["checked_on"] for f in found), "years": years}
+    # Nothing from before FIRST_YEAR: we keep no data for those years.
+    out = {"checked": sorted({y for f in found for y in f["years"] if int(y) >= FIRST_YEAR}),
+           "checked_on": max(f["checked_on"] for f in found),
+           "years": {y: e for y, e in years.items() if int(y) >= FIRST_YEAR}}
     if list_prices:
         out["list_prices"] = list_prices
     return out
@@ -488,6 +491,8 @@ def refresh_year_specs(conn):
 
 
 def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
+    if (model_year(bike) or FIRST_YEAR) < FIRST_YEAR:  # we keep no data from before FIRST_YEAR
+        return 0
     bike.setdefault("brand", brand)
     colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
     price = float(bike["price"]) if bike.get("price") not in (None, "") else None
@@ -565,6 +570,26 @@ def add_archived(conn):
     return count
 
 
+def remove_old_models(conn):
+    """Take the bikes from before FIRST_YEAR out of a catalogue loaded before it left them out (BMC's and
+    Specialized's discontinued lines go back to 2006). A saved check matched to one by hand goes back to the
+    automatic match, and every check's age is worked out again (webapp/stored_checks.py settle_ages), so the
+    checks of those bikes leave the site. Returns how many models went."""
+    ids = [r[0] for r in conn.execute("SELECT id FROM models WHERE model_year < ?", (FIRST_YEAR,))]
+    if not ids:
+        return 0
+    marks = ",".join("?" * len(ids))
+    conn.execute(f"DELETE FROM check_results WHERE check_id IN (SELECT id FROM checks WHERE model_id IN ({marks}))", ids)
+    conn.execute(f"UPDATE checks SET model_id = NULL WHERE model_id IN ({marks})", ids)
+    # A later model may get one of these ids again: nothing may still point at them.
+    conn.execute(f"DELETE FROM estimates WHERE model_id IN ({marks})", ids)
+    conn.execute(f"UPDATE photo_review_interest SET model_id = NULL WHERE model_id IN ({marks})", ids)
+    conn.execute(f"DELETE FROM models WHERE id IN ({marks})", ids)
+    conn.execute("UPDATE checks SET too_old = NULL")
+    conn.commit()
+    return len(ids)
+
+
 def load(conn):
     conn.execute("DELETE FROM models")
     count = 0
@@ -589,6 +614,7 @@ if __name__ == "__main__":
               f" refreshed photos of {refresh_images(conn)} models,"
               f" added {add_other_scrapes(conn)} from other scrapes and {add_archived(conn)} discontinued lines,"
               f" updated status of {refresh_status(conn)},"
-              f" read earlier years for {refresh_year_specs(conn)}")
+              f" read earlier years for {refresh_year_specs(conn)},"
+              f" removed {remove_old_models(conn)} from before {FIRST_YEAR}")
     else:
         print(f"Loaded {load(conn)} models into {db.DB_PATH}")

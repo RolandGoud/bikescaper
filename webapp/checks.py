@@ -12,7 +12,7 @@ from datetime import date
 
 from . import colour_match
 from .i18n import Msg, join, join_list
-from .reference import (BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
+from .reference import (FIRST_YEAR, BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
                         RIM_BRAKE_LAST_YEAR, SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
@@ -2730,6 +2730,23 @@ def run_check(models, listing, today=None):
                                            report["material_alert"])
     report["facts"] = head_facts(chosen, claims, report["value"])
     return report
+
+
+def pre_2018_year(report):
+    """The bike's model year when the report says it's from before FIRST_YEAR, else None. Such a check isn't
+    published: we have no data for those years. It goes by the year the report goes by (resolve_year, where a year
+    the ad states wins), or by the ad's own year when no model matched. A year the report only guesses (the middle
+    of the years the ad's details or the generation allow) counts only when all of those years are that old."""
+    claims = report.get("claims") or {}
+    year = report.get("year") if report.get("model") else None
+    if not year:
+        claimed = claims.get("year")
+        return claimed if claimed and claimed < FIRST_YEAR else None
+    if not year.get("year") or year["year"] >= FIRST_YEAR:
+        return None
+    if year.get("how") in ("ad", "older", "purchase", "photo") or (year.get("last") or year["year"]) < FIRST_YEAR:
+        return year["year"]
+    return None
 
 
 ELECTRONIC_NAME = {"Shimano": "Di2", "SRAM": "AXS", "Campagnolo": "EPS"}

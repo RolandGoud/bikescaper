@@ -8,7 +8,7 @@ one silly price can't drag it around; the average is shown next to it.
 from datetime import date, timedelta
 from statistics import mean, median
 
-from . import checks, fetch_ad
+from . import checks, db, fetch_ad
 
 PERIODS = (30, 90, 365)
 DEFAULT_PERIOD = 90
@@ -23,7 +23,7 @@ def known_ads(conn, models):
     # The same ad checked again counts once, at its newest price; all its checks are remembered
     # (also the ones without a usable price) so a report can leave its own ad out whichever of
     # those checks it shows.
-    for row in conn.execute("SELECT * FROM checks ORDER BY id DESC"):
+    for row in conn.execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC"):  # not bikes before 2018
         key = fetch_ad.ad_key(row)
         all_checks.setdefault(key, set()).add(row["id"])
         if key in seen_ads or (row["asking_price"] or 0) < MIN_PRICE:
