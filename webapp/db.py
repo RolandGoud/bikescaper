@@ -43,6 +43,8 @@ CREATE TABLE IF NOT EXISTS checks (
     photos TEXT,          -- JSON list of photo URLs read from the ad's link, NULL when typed in
     last_checked_at TEXT, -- when the ad's link was last re-checked (UTC)
     removed_at TEXT,      -- when we first found the ad gone from the site, NULL while it's up
+    posted_at TEXT,       -- when the ad was placed on the site (UTC), read from the ad; NULL = unknown
+    gone_reason TEXT,     -- with removed_at: "expired", "removed" (by the seller) or NULL = can't tell
     source TEXT           -- NULL = a visitor's check, "daily" = made by webapp.daily_checks
 );
 CREATE TABLE IF NOT EXISTS check_results (
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS photo_review_interest (
 );
 """
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
-                       ("source", "TEXT")]
+                       ("source", "TEXT"), ("posted_at", "TEXT"), ("gone_reason", "TEXT")]
 ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT"),

@@ -249,6 +249,13 @@ NL = {
     "This ad has been checked {n} times.": "Deze advertentie is {n} keer gecheckt.",
     "Removed from the site on {date}": "Verwijderd van de site op {date}",
     "We found the ad gone from the site on {date}.": "Op {date} zagen we dat de advertentie van de site is verdwenen.",
+    "Expired": "Verlopen",
+    "Expired on {date}": "Verlopen op {date}",
+    "Removed by the seller on {date}": "Verwijderd door verkoper op {date}",
+    "The ad went offline on {date}, right when its {days}-day run on the site ended, so it most likely expired without being sold.":
+        "De advertentie ging op {date} offline, precies toen de looptijd van {days} dagen afliep. Hij is dus waarschijnlijk verlopen zonder verkocht te zijn.",
+    "The ad went offline on {date}, before its run on the site ended, so the seller took it down, most likely because it sold.":
+        "De advertentie ging op {date} offline voordat de looptijd afliep. De verkoper heeft hem dus weggehaald, waarschijnlijk omdat hij verkocht is.",
     "Photo {n} from the ad": "Foto {n} uit de advertentie",
     "Photo {n} of {total}": "Foto {n} van {total}",
     "Close": "Sluiten",

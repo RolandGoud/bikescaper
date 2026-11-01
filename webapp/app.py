@@ -17,7 +17,7 @@ from datetime import date
 from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_gone, ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -107,7 +107,7 @@ def open_in_new_tab(tag):
 
 def group_checks(rows):
     """One entry per ad, newest check first: (newest row as a dict, times checked).
-    The ad counts as removed once any of its checks found it gone."""
+    The ad counts as removed once any of its checks found it gone, for the reason that check saw."""
     groups = {}
     for row in rows:  # newest first
         key = fetch_ad.ad_key(row)
@@ -115,7 +115,8 @@ def group_checks(rows):
             groups[key] = [dict(row), 0]
         newest, _ = groups[key]
         groups[key][1] += 1
-        newest["removed_at"] = newest.get("removed_at") or row["removed_at"]
+        if not newest.get("removed_at") and row["removed_at"]:
+            newest["removed_at"], newest["gone_reason"] = row["removed_at"], row["gone_reason"]
     return [(newest, count) for newest, count in groups.values()]
 
 
@@ -156,6 +157,7 @@ def create_app(db_path=None):
                 pass
     app.jinja_env.globals["_"] = gettext  # also reaches imported macros, which get no request context
     app.jinja_env.globals["tier_names"] = TIERS
+    app.jinja_env.globals["gone"] = ad_gone.label  # how a gone ad's badge reads: expired, removed or just gone
     app.jinja_env.globals["age_step"] = GROUPSET_AGE_STEP
     app.jinja_env.globals["age_max_drop"] = GROUPSET_AGE_MAX_DROP
     app.jinja_env.globals["size_systems"] = checks.size_systems
@@ -370,18 +372,18 @@ def create_app(db_path=None):
                 form.update(mode="manual", listing_url=fetch_ad.with_scheme(url))
                 return again(gettext("{reason} Fill in the details yourself instead.", reason=gettext(str(e))))
             return save_check(ad["listing_url"], ad["title"], ad["description"], ad["asking_price"],
-                              ad["location"], height, ad["photos"])
+                              ad["location"], height, ad["photos"], ad.get("posted_at"))
         title = (form.get("title") or "").strip()
         if not title:
             return again(gettext("Paste at least the ad's title."))
         return save_check(form.get("listing_url") or None, title, form.get("description") or "",
                           number(form.get("asking_price")), form.get("location") or None, height)
 
-    def save_check(url, title, description, price, location, height, photos=None):
+    def save_check(url, title, description, price, location, height, photos=None, posted_at=None):
         cur = conn().execute(
-            "INSERT INTO checks (listing_url, title, description, asking_price, location, rider_height, photos)"
-            " VALUES (?,?,?,?,?,?,?)",
-            (url, title, description, price, location, height, json.dumps(photos) if photos else None),
+            "INSERT INTO checks (listing_url, title, description, asking_price, location, rider_height, photos,"
+            " posted_at) VALUES (?,?,?,?,?,?,?,?)",
+            (url, title, description, price, location, height, json.dumps(photos) if photos else None, posted_at),
         )
         conn().commit()
         if photos and app.config.get("STORE_AD_PHOTOS", True):
@@ -532,7 +534,7 @@ def create_app(db_path=None):
                 "photo": listing["photos"][0] if listing["photos"] else
                          url_for("images", path=model["image"]) if model and model["image"] else None,
                 "catalogue": not listing["photos"],
-                "removed": bool(row["removed_at"]),
+                "removed": ad_gone.label(row),
             })
         focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
         pins = sorted(pins.values(), key=lambda p: (-len(p["ads"]), p["place"]))  # busiest towns first in the list
