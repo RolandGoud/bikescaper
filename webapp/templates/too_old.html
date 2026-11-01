@@ -9,13 +9,14 @@
     <p class="ad-title">“{{ listing.title }}”</p>
     {% set how = r.year.how if r.model and r.year else 'ad' %}
     <p>
-      {{ _('This bike is from {year}.', year=year) }}
-      {% if how == 'purchase' or (how == 'ad' and r.claims.year_is_purchase) %}{{ _('The ad says it was bought in {year}.', year=r.claims.year) }}
+      {% if how == 'purchase' or r.claims.year_is_purchase %}{{ _('The ad says it was bought in {year}, so it is a model from before {first}.', year=r.claims.year, first=first_year) }}
+      {% else %}{{ _('This bike is from {year}.', year=year) }}{% endif %}
+      {% if how == 'purchase' or r.claims.year_is_purchase %}
       {% elif how in ('ad', 'older') %}{{ _('That is the year the ad gives.') }}
       {% elif how == 'photo' %}{{ _('Its colour is one only the {year} model came in.', year=year) }}
       {% else %}{{ _("The ad's details only fit bikes from before {year}.", year=first_year) }}{% endif %}
     </p>
-    <p>{{ _("Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't put checks like this on the site.", year=first_year) }}</p>
+    <p>{{ _("Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't keep checks like this.", year=first_year) }}</p>
     <p><a class="btn" href="{{ url_for('home') }}">{{ _('Check another ad') }}</a></p>
   </section>
 </main>

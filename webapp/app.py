@@ -318,6 +318,9 @@ def create_app(db_path=None):
         off it (webapp/stored_checks.py). Only checks made or rechecked since the last page view need it."""
         if request.method == "GET" and request.endpoint not in ("static", "images", "ad_photo", "duo_side"):
             stored_checks.settle_ages(conn(), lambda row: stored_check(listing_dict(row)))
+            # We keep nothing of a bike that old (the check's own page says why, see report()).
+            if request.endpoint != "report":
+                stored_checks.delete_old(conn(), ad_photos.folder(app.config["DB_PATH"]))
 
     @app.after_request
     def external_links_in_new_tab(response):
@@ -408,7 +411,17 @@ def create_app(db_path=None):
         return save_check(form.get("listing_url") or None, title, form.get("description") or "",
                           number(form.get("asking_price")), form.get("location") or None, height)
 
+    def too_old_page(listing, result):
+        return render_template("too_old.html", listing=listing, r=result, year=checks.pre_2018_year(result),
+                               first_year=checks.FIRST_YEAR, nav="check")
+
     def save_check(url, title, description, price, location, height, photos=None, posted_at=None):
+        # A bike from before checks.FIRST_YEAR, by what the ad says: we have no data for it, so it isn't saved at all.
+        listing = {"listing_url": url, "title": title, "description": description, "asking_price": price,
+                   "location": location, "rider_height": height, "photos": photos or [], "created_at": None}
+        result = checks.run_check(models(), listing)
+        if checks.pre_2018_year(result):
+            return too_old_page(listing, result)
         cur = conn().execute(
             "INSERT INTO checks (listing_url, title, description, asking_price, location, rider_height, photos,"
             " posted_at) VALUES (?,?,?,?,?,?,?,?)",
@@ -427,9 +440,10 @@ def create_app(db_path=None):
         height = request.args.get("height", type=int)
         # Another rider height than the check's own changes the size check: shown, but not kept.
         result = stored_check(listing_dict(row, height), store=height in (None, row["rider_height"]))
-        if checks.pre_2018_year(result):  # not published: we have no data for bikes that old
-            return render_template("too_old.html", listing=listing_dict(row), r=result,
-                                   year=checks.pre_2018_year(result), first_year=checks.FIRST_YEAR, nav="check")
+        if checks.pre_2018_year(result):  # we have no data for bikes that old: say so, and keep nothing of it
+            page = too_old_page(dict(row), result)
+            stored_checks.delete_old(conn(), ad_photos.folder(app.config["DB_PATH"]))
+            return page
         value = result.get("value") or {}
         if value.get("low") and value.get("original"):  # also for reports stored with an older slider
             value["slider"] = checks.price_slider(value["low"], value["high"], value["original"], value.get("asking"))

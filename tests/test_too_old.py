@@ -1,10 +1,10 @@
-"""Bikes from before 2018: we have no data for them, so the catalogue leaves them out and their checks aren't published."""
-import json
+"""Bikes from before 2018: we have no data for them, so the catalogue leaves them out and we keep no checks of them."""
+import os
 import shutil
 
 import pytest
 
-from webapp import checks, daily_checks, db, seed
+from webapp import ad_photos, checks, daily_checks, db, seed
 from webapp.app import create_app
 from webapp.reference import FIRST_YEAR
 
@@ -53,41 +53,63 @@ def test_the_year_the_report_goes_by_decides(seeded):
     assert checks.pre_2018_year(run(models, "Trek Domane SL 6 2022", "maat 56")) is None
     # A stated model year wins over a later purchase year (#273).
     assert checks.pre_2018_year(run(models, "Trek Domane SL 6", "gekocht in 2018, een 2017 model")) == 2017
+    # Bought new in 2016: at most a 2017 model, though the report moves it up to the generation's first year (#291's miss,
+    # check 74). Bought in 2017 it may be a 2018 model.
+    assert checks.pre_2018_year(run(models, "Giant Contend racefiets, maat L", "Te koop: Giant Contend racefiets, gekocht in 2016.")) == 2016
+    assert checks.pre_2018_year(run(models, "Giant Contend racefiets, maat L", "Te koop: Giant Contend racefiets, gekocht in 2017.")) is None
     # No model matched: the ad's own year.
     assert checks.pre_2018_year(run(models, "Batavus racefiets 2012")) == 2012
     assert checks.pre_2018_year(run(models, "Batavus racefiets")) is None
 
 
-def test_a_check_of_an_old_bike_says_so_and_stays_off_the_site(app):
+def test_a_check_of_an_old_bike_says_so_and_isnt_saved(app):
     client = app.test_client()
-    old = check(client, "Trek Domane SL 6", "Bouwjaar 2016, maat 56, Ultegra")
+    resp = client.post("/check?lang=en", data={"title": "Trek Domane SL 6", "description": "Bouwjaar 2016, maat 56"})
+    assert resp.status_code == 200 and b"We have no data for bikes from before 2018" in resp.data and b"2016" in resp.data
+    assert b"Age check" not in resp.data
+    resp = client.post("/check?lang=nl", data={"title": "Giant Contend racefiets", "description": "gekocht in 2016"})
+    assert b"in 2016 gekocht, dus het is een model van v" in resp.data
+    assert db.connect(app.config["DB_PATH"]).execute("SELECT count(*) FROM checks").fetchone()[0] == 0
     new = check(client, "Trek Domane SL 6 2022", "maat 56, Ultegra")
-    page = client.get(old + "?lang=en")
-    assert page.status_code == 200
-    assert b"We have no data for bikes from before 2018" in page.data and b"2016" in page.data
-    assert b"Age check" not in page.data
-    assert b"We hebben geen gegevens van fietsen van v" in client.get(old + "?lang=nl").data
     assert b"Age check" in client.get(new + "?lang=en").data
-    old_id, new_id = old.rsplit("/", 1)[1], new.rsplit("/", 1)[1]
-    models = db.all_models(db.connect(app.config["DB_PATH"]))
-    slug = run(models, "Trek Domane SL 6 2022", "maat 56, Ultegra")["model"]["slug"]
-    for path in ("/", "/listings", "/checks", "/admin", "/listings/map", f"/models/{slug}"):
-        html = client.get(path).data.decode()
-        assert f"/check/{old_id}\"" not in html and f"/check/{new_id}" in html, path
-    assert client.get(f"/check/{old_id}/report.pdf").status_code == 404
-    row = db.connect(app.config["DB_PATH"]).execute("SELECT too_old FROM checks WHERE id = ?", (old_id,)).fetchone()
-    assert row["too_old"] == 2016
 
 
-def test_checks_made_before_this_are_hidden_too(app):
+def old_check(app, title="Specialized Tarmac SL4", description="modeljaar 2014, maat 54"):
+    """A check saved before old bikes were turned away, with a stored report and photos."""
     conn = db.connect(app.config["DB_PATH"])
-    conn.execute("INSERT INTO checks (title, description, asking_price) VALUES (?, ?, ?)",
-                 ("Specialized Tarmac SL4", "modeljaar 2014, maat 54", 900))
-    conn.commit()
+    conn.execute("INSERT INTO checks (title, description, asking_price, location) VALUES (?, ?, ?, 'Utrecht')",
+                 (title, description, 900))
     old_id = conn.execute("SELECT max(id) FROM checks").fetchone()[0]
-    assert conn.execute("SELECT too_old FROM checks WHERE id = ?", (old_id,)).fetchone()[0] is None
-    assert f"/check/{old_id}\"" not in app.test_client().get("/listings").data.decode()
-    assert conn.execute("SELECT too_old FROM checks WHERE id = ?", (old_id,)).fetchone()[0] == 2014
+    conn.execute("INSERT INTO check_results (check_id, inputs, result, computed_at) VALUES (?, 'x', x'00', 'now')",
+                 (old_id,))
+    conn.commit()
+    folder = ad_photos.folder(app.config["DB_PATH"])
+    os.makedirs(os.path.join(folder, str(old_id)))
+    return conn, old_id, os.path.join(folder, str(old_id))
+
+
+def test_checks_made_before_this_are_deleted(app):
+    client = app.test_client()
+    new = check(client, "Trek Domane SL 6 2022", "maat 56, Ultegra")
+    new_id = new.rsplit("/", 1)[1]
+    conn, old_id, photos = old_check(app)
+    html = client.get("/listings").data.decode()
+    assert f"/check/{old_id}\"" not in html and f"/check/{new_id}" in html
+    assert not conn.execute("SELECT 1 FROM checks WHERE id = ?", (old_id,)).fetchone()
+    assert not conn.execute("SELECT 1 FROM check_results WHERE check_id = ?", (old_id,)).fetchone()
+    assert not os.path.exists(photos)
+    assert conn.execute("SELECT 1 FROM checks WHERE id = ?", (new_id,)).fetchone()
+    assert client.get(f"/check/{old_id}").status_code == 404
+
+
+def test_an_old_checks_own_page_says_why_once(app):
+    client = app.test_client()
+    conn, old_id, _photos = old_check(app)
+    page = client.get(f"/check/{old_id}?lang=en")
+    assert page.status_code == 200 and b"We have no data for bikes from before 2018" in page.data
+    assert not conn.execute("SELECT 1 FROM checks WHERE id = ?", (old_id,)).fetchone()
+    assert client.get(f"/check/{old_id}").status_code == 404
+    assert client.get(f"/check/{old_id}/report.pdf").status_code == 404
 
 
 def test_removing_old_models_keeps_checks_working(app):
