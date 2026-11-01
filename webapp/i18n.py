@@ -720,10 +720,9 @@ NL = {
     "Do you still have the original {part} ({original})?": "Heb je de originele {part} nog ({original})?",
     "Matches the original": "Klopt met het origineel",
     "The seller mentions changed parts.": "De verkoper noemt vervangen onderdelen.",
-    "Compared with the {brand} spec sheet from {date}.": "Vergeleken met de specificaties van {brand} van {date}.",
-    "Compared with the {brand} spec sheet of the {year} model.":
-        "Vergeleken met de specificaties van {brand} van het model {year}.",
-    "our catalogue": "onze catalogus",
+    "Parts compared with the specs of {brand} {name} {year}":
+        "Onderdelen vergeleken met de specificaties van {brand} {name} {year}",
+    "Parts compared with the specs of {brand} {name}": "Onderdelen vergeleken met de specificaties van {brand} {name}",
 
     # spec tiers
     "Basic": "Basis",
