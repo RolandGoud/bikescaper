@@ -8,7 +8,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 from xml.sax.saxutils import escape
 
-from . import checks
+from . import ad_gone, checks
 from .i18n import gettext as _
 
 INK, MUTED, ACCENT = colors.HexColor("#111216"), colors.HexColor("#6B6B78"), colors.HexColor("#0E9F6E")
@@ -67,8 +67,9 @@ def build(listing, r, height=None, report_url=None):
         facts.append(_("Asking {price}", price=eur(listing["asking_price"])))
     if listing.get("location"):
         facts.append(listing["location"])
-    if listing.get("removed_at"):
-        facts.append(_("Removed from the site on {date}", date=listing["removed_at"][:10]))
+    gone = ad_gone.label(listing)
+    if gone:
+        facts.append(gone["text"])
     story.append(_p(" · ".join(facts), s["muted"]))
     if listing.get("listing_url"):
         story.append(_p(listing["listing_url"], s["muted"]))

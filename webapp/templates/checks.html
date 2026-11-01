@@ -36,7 +36,7 @@
       {% else %}
       <div class="check-line"><span class="verdict-topic">{{ _('Model') }}</span><span class="verdict-outcome unknown">{{ icon('unknown') }}{{ _('No matching model yet') }}</span><span class="check-num">{{ _('Without a model there is no value estimate. The report lets you pick one.') }}</span></div>
       {% endif %}
-      <div class="check-line"><span class="verdict-topic">{{ _('Online') }}</span><span class="check-out">{% if row.removed_at %}<span class="bad">{{ _('Removed, found gone on {date}', date=row.removed_at[:10]) }}</span>{% elif row.last_checked_at %}{{ _('Still online on {date}', date=row.last_checked_at[:10]) }}{% elif row.listing_url %}{{ _('Not re-checked yet') }}{% else %}{{ _('No link to re-check') }}{% endif %}</span><span class="check-num"></span></div>
+      <div class="check-line"><span class="verdict-topic">{{ _('Online') }}</span><span class="check-out">{% set g = gone(row) %}{% if g %}<span class="{{ 'warn' if g.kind == 'expired' else 'bad' }}" title="{{ g.tip }}">{{ g.text if g.kind != 'gone' else _('Removed, found gone on {date}', date=row.removed_at[:10]) }}</span>{% elif row.last_checked_at %}{{ _('Still online on {date}', date=row.last_checked_at[:10]) }}{% elif row.listing_url %}{{ _('Not re-checked yet') }}{% else %}{{ _('No link to re-check') }}{% endif %}</span><span class="check-num"></span></div>
     </div>
   </div>
   <footer class="check-row-foot">

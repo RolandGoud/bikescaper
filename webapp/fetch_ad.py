@@ -79,24 +79,41 @@ def ad_id(url):
 
 
 def ad_status(url):
-    """"live", "removed", or None when we couldn't tell (site down, blocked, not an ad link).
+    """"live", "removed", or None when we couldn't tell (site down, blocked, not an ad link)."""
+    return ad_state(url)[0]
+
+
+def ad_state(url):
+    """(status, posted_at): ad_status's answer, plus when a live ad was placed (see posted_at).
+
+    The site answers a gone ad with a bare 404, whether it expired or the seller took it down,
+    so the reason is worked out from the placing date (webapp/ad_gone.py).
 
     Asks for the short link (https://www.marktplaats.nl/a123...): it redirects to the ad wherever
     the site files it now, and a saved long link can 404 after the site renames a category.
     """
     item = ad_id(url)
     if not item or not supported(with_scheme(url)):
-        return None
+        return None, None
     short = f"https://{urlsplit(with_scheme(url)).hostname.lower()}/{item}"
     request = urllib.request.Request(short, headers={"User-Agent": USER_AGENT, "Accept-Language": "nl"})
     try:
         with _opener.open(request, timeout=TIMEOUT) as response:
             # Sent somewhere that isn't this ad (a category page, the home page): it's gone.
-            return "live" if item in response.geturl() else "removed"
+            if item not in response.geturl():
+                return "removed", None
+            return "live", posted_at(_config(response.read(MAX_BYTES).decode("utf-8", "replace")))
     except urllib.error.HTTPError as e:
-        return "removed" if e.code in (404, 410) else None
+        return ("removed" if e.code in (404, 410) else None), None
     except (FetchError, urllib.error.URLError, TimeoutError, OSError):
-        return None
+        return None, None
+
+
+def posted_at(config):
+    """When the ad was placed, "YYYY-MM-DD HH:MM:SS" UTC, from the page's `stats.since`."""
+    since = (((config or {}).get("listing") or {}).get("stats") or {}).get("since")
+    m = re.match(r"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})", since or "")
+    return f"{m.group(1)} {m.group(2)}" if m else None
 
 
 def ad_key(row):
@@ -131,7 +148,7 @@ def parse_listing(html):
         description += "\n\n" + "\n".join(f"{k}: {v}" for k, v in pairs)
     return {"title": title.strip(), "description": description.strip(),
             "asking_price": price / 100 if price else None,
-            "location": location, "photos": photos}
+            "location": location, "photos": photos, "posted_at": posted_at(config)}
 
 
 def _config(html):

@@ -1,4 +1,5 @@
-"""Mark checked ads as removed once they're gone from Marktplaats or 2dehands.
+"""Mark checked ads as removed once they're gone from Marktplaats or 2dehands, and guess why:
+the ad's run ended or the seller took it down (webapp/ad_gone.py).
 
 Only ads someone pasted a link for are looked at, each at most once a day, a few seconds apart,
 and only for the first DAYS_WATCHED days after the check (ads rarely live longer).
@@ -16,7 +17,7 @@ import threading
 import time
 from datetime import datetime, timedelta, timezone
 
-from . import db, fetch_ad
+from . import ad_gone, db, fetch_ad
 
 EVERY = timedelta(hours=20)  # a bit under a day, so the hourly loop doesn't drift past 24 h
 DAYS_WATCHED = 90
@@ -29,14 +30,15 @@ def _stamp(t):
 
 def due(conn, now):
     return conn.execute(
-        "SELECT id, listing_url FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL"
+        "SELECT id, listing_url, created_at, last_checked_at, posted_at FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL"
         " AND created_at >= ? AND (last_checked_at IS NULL OR last_checked_at <= ?) ORDER BY id",
         (_stamp(now - timedelta(days=DAYS_WATCHED)), _stamp(now - EVERY)),
     ).fetchall()
 
 
-def run(conn, now=None, status=fetch_ad.ad_status, pause=PAUSE):
-    """One pass. Returns how many ads it found removed."""
+def run(conn, now=None, status=fetch_ad.ad_state, pause=PAUSE):
+    """One pass. Returns how many ads it found removed.
+    `status(url)` answers "live", "removed" or None, or a (that, posted_at) pair."""
     removed = 0
     for i, row in enumerate(due(conn, now or datetime.now(timezone.utc))):
         if not fetch_ad.supported(fetch_ad.with_scheme(row["listing_url"])):
@@ -44,11 +46,15 @@ def run(conn, now=None, status=fetch_ad.ad_status, pause=PAUSE):
         if i and pause:
             time.sleep(pause)
         result = status(row["listing_url"])
+        result, posted = result if isinstance(result, tuple) else (result, None)
         if result is None:
             continue  # couldn't tell; try again next pass
         stamp = _stamp(now or datetime.now(timezone.utc))
-        conn.execute("UPDATE checks SET last_checked_at = ?, removed_at = ? WHERE id = ?",
-                     (stamp, stamp if result == "removed" else None, row["id"]))
+        posted = posted or row["posted_at"]  # the live page has it; refreshed in case a renewal moves it
+        gone = stamp if result == "removed" else None
+        why = ad_gone.reason(posted, row["last_checked_at"] or row["created_at"], stamp) if gone else None
+        conn.execute("UPDATE checks SET last_checked_at = ?, removed_at = ?, posted_at = ?, gone_reason = ?"
+                     " WHERE id = ?", (stamp, gone, posted, why, row["id"]))
         conn.commit()
         removed += result == "removed"
     return removed

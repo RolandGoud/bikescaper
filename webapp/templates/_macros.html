@@ -47,10 +47,10 @@
 {%- else %}<a class="place-link" href="{{ href }}" title="{{ _('Show on the map') }}">{{ caller() if caller else place }}</a>{% endif %}
 {%- endmacro %}
 
-{# A removed ad: a red ribbon across the top-right corner of its tile photo, clear of the brand logo
-   (top left) and the Ad / Catalogue labels (bottom). #}
+{# A gone ad: a ribbon across the top-right corner of its tile photo, clear of the brand logo
+   (top left) and the Ad / Catalogue labels (bottom). Amber when its run on the site ended, red otherwise. #}
 {% macro removed_banner(row) -%}
-{% if row.removed_at %}<span class="removed-banner" title="{{ _('We found the ad gone from the site on {date}.', date=row.removed_at[:10]) }}"><span>{{ _('Removed') }}</span></span>{% endif %}
+{% set g = gone(row) %}{% if g %}<span class="removed-banner {{ g.kind }}" title="{{ g.tip }}"><span>{{ g.short }}</span></span>{% endif %}
 {%- endmacro %}
 
 {# The ad's title without the brand (that's the logo), and the year, size and colour from it as facts below. #}
@@ -291,7 +291,7 @@
           <span class="what">
             {# Same title as the check's own page: the matched bike, else the ad's title cleaned up. #}
             {% if r.model %}{% set name = r.model.brand ~ ' ' ~ r.model.name|model_title %}{% else %}{% set name = ad_title(row.title, none)[0] %}{% endif %}
-            <span class="ad-name" title="{{ _('Original ad title: {title}', title=row.title) }}">{{ name }}{% if row.removed_at %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</span>
+            <span class="ad-name" title="{{ _('Original ad title: {title}', title=row.title) }}">{{ name }}{% set g = gone(row) %}{% if g %} <span class="removed-tag {{ g.kind }}" title="{{ g.tip }}">{{ g.short }}</span>{% endif %}</span>
             <span class="small muted">{% if row.times_checked > 1 %}{{ _('Checked {n}× · last on {date}', n=row.times_checked, date=row.created_at[:10]) }}{% else %}{{ _('Checked on {date}', date=row.created_at[:10]) }}{% endif %}{% if row.location %} · {{ place_link(row.location, row.listing_url, inside_link=True) }}{% endif %}{% if not row.in_price %} · {{ _('not in the asking price') }}{% endif %}</span>
           </span>
           <span class="ask">{{ row.asking_price|eur }}</span>

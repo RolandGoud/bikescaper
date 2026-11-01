@@ -9,7 +9,8 @@ AD_HTML = """<html><head>
 <script>window.__CONFIG__ = {"listing":{"itemId":"a1","title":"Trek Domane SL6 2022 maat 56",
 "priceInfo":{"priceCents":245000,"priceType":"FIXED"},
 "seller":{"name":"Jan","location":{"cityName":"Utrecht"}},
-"gallery":{"imageUrls":["//images.marktplaats.com/api/v1/x/images/aa/1?rule=eps_#.JPG"]}}};</script>
+"gallery":{"imageUrls":["//images.marktplaats.com/api/v1/x/images/aa/1?rule=eps_#.JPG"]},
+"stats":{"favoritedCount":18,"viewCount":2520,"since":"2026-10-09T09:33:59Z"}}};</script>
 </head><body>
 <div class="Attributes-module-root"><div class="Attributes-module-list">
 <div class="Attributes-module-item"><div class="Attributes-module-label">Conditie</div><div class="Attributes-module-value">Zo goed als nieuw</div></div>
@@ -29,6 +30,7 @@ def test_parses_marktplaats_ad():
     assert ad["photos"] == ["https://images.marktplaats.com/api/v1/x/images/aa/1?rule=eps_85.JPG"]
     assert ad["description"] == ("Mooie fiets, Ultegra.\n\n- Maat: 56\n- Bouwjaar: 2022\n\nWeinig gereden\n\n"
                                  "Conditie: Zo goed als nieuw\nMateriaal: Carbon")
+    assert ad["posted_at"] == "2026-10-09 09:33:59"
 
 
 def test_only_known_sites_are_fetched():
@@ -140,6 +142,60 @@ def test_recheck_marks_removed_ads(tmp_path):
     assert [fetch_ad.ad_id(u) for u in asked] == ["a200000", "a300000"]
 
 
+def test_recheck_tells_expired_from_removed(tmp_path):
+    from datetime import datetime, timedelta
+
+    from webapp import recheck
+
+    conn = db.connect(str(tmp_path / "app.sqlite3"))
+    now = datetime(2026, 10, 22, 12, 0)
+    seen = recheck._stamp(now - timedelta(days=1))
+    # Placed 28 days ago (its run just ended), 10 days ago (mid-run), 56 days ago (an extended run
+    # just ended), and one we never learnt the placing date of.
+    for ad, posted in [("a100000", now - timedelta(days=28, hours=3)), ("a200000", now - timedelta(days=10)),
+                       ("a300000", now - timedelta(days=56, hours=-2)), ("a400000", None)]:
+        conn.execute("INSERT INTO checks (listing_url, title, last_checked_at, posted_at) VALUES (?, 't', ?, ?)",
+                     (f"https://www.marktplaats.nl/v/a/b/{ad}-x", seen, posted and recheck._stamp(posted)))
+    conn.execute("INSERT INTO checks (listing_url, title, last_checked_at) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/a500000-x', 't', ?)", (seen,))
+    live_since = "2026-10-01 08:00:00"
+
+    def status(url):
+        return ("live", live_since) if fetch_ad.ad_id(url) == "a500000" else ("removed", None)
+
+    assert recheck.run(conn, now=now, status=status, pause=0) == 4
+    got = {r["id"]: (r["gone_reason"], r["posted_at"]) for r in conn.execute("SELECT * FROM checks")}
+    assert [got[i][0] for i in (1, 2, 3, 4, 5)] == ["expired", "removed", "expired", None, None]
+    assert got[5][1] == live_since  # learnt from the live page for next time
+
+
+def test_gone_reason_needs_a_short_gap():
+    from webapp import ad_gone
+
+    # Last seen live a week before we found it gone: a run ended in between, but that says nothing.
+    assert ad_gone.reason("2026-09-20 10:00:00", "2026-10-15 10:00:00", "2026-10-22 10:00:00") is None
+    assert ad_gone.reason("2026-09-24 10:00:00", "2026-10-21 10:00:00", "2026-10-22 10:00:00") == "expired"
+    assert ad_gone.reason("2026-10-05 10:00:00", "2026-10-21 10:00:00", "2026-10-22 10:00:00") == "removed"
+
+
+def test_expired_and_removed_badges(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, removed_at, gone_reason) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/a1-x', 'Trek Domane SL6 2022', '2026-10-21 08:00:00', 'expired'),"
+                 " ('https://www.marktplaats.nl/v/a/b/a2-x', 'Trek Domane AL4 2021', '2026-10-22 08:00:00', 'removed')")
+    conn.commit()
+    client = app.test_client()
+    expired = client.get("/check/1?lang=nl").data.decode()
+    assert "Verlopen op 2026-10-21" in expired and 'class="removed-tag expired"' in expired
+    removed = client.get("/check/2?lang=nl").data.decode()
+    assert "Verwijderd door verkoper op 2026-10-22" in removed and 'class="removed-tag removed"' in removed
+    page = client.get("/listings?lang=nl").data.decode()
+    assert '<span class="removed-banner expired"' in page and "<span>Verlopen</span>" in page
+    assert '<span class="removed-banner removed"' in page and "<span>Verwijderd</span>" in page
+
+
 def test_removed_badge(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
@@ -151,12 +207,12 @@ def test_removed_badge(tmp_path):
     report = client.get("/check/1?lang=nl").data.decode()
     assert "Verwijderd van de site op 2026-10-21" in report
     # The tag comes after the title, not before it.
-    assert report.index("Trek Domane SL6 2022") < report.index('class="removed-tag"')
+    assert report.index("Trek Domane SL6 2022") < report.index('class="removed-tag gone"')
     # On the ad tiles it's a ribbon on the photo, not a pill by the name.
     for url in ["/?lang=en", "/listings?lang=en", "/checks?lang=en"]:
         page = client.get(url).data.decode()
-        assert '<span class="removed-banner"' in page and "<span>Removed</span>" in page, url
-        assert 'class="removed-tag"' not in page, url
+        assert '<span class="removed-banner gone"' in page and "<span>Removed</span>" in page, url
+        assert 'class="removed-tag' not in page, url
 
 
 def test_only_one_process_rechecks_at_a_time(tmp_path, monkeypatch):

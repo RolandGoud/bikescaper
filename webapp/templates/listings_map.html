@@ -62,7 +62,7 @@
           <span class="map-ad-photo{{ ' catalogue' if ad.catalogue }}">{% if ad.photo %}<img src="{{ ad.photo }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% endif %}</span>
           <span class="map-ad-body">
             <span class="map-ad-top"><b>{{ ad.price or '–' }}</b><span class="map-verdict {{ ad.status }}">{{ ad.verdict }}</span></span>
-            <span class="map-ad-name">{{ ad.name }}{% if ad.removed %} <span class="removed-tag">{{ _('Removed') }}</span>{% endif %}</span>
+            <span class="map-ad-name">{{ ad.name }}{% if ad.removed %} <span class="removed-tag {{ ad.removed.kind }}" title="{{ ad.removed.tip }}">{{ ad.removed.short }}</span>{% endif %}</span>
             {% if ad.title %}<span class="map-ad-title">“{{ ad.title }}”</span>{% endif %}
           </span>
         </a>
