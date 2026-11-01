@@ -55,11 +55,12 @@ def detect_groupset(text):
 NON_FRAME_PARTS = (r"vork|voorvork|fork|zadelpen|zadelpi[jg]p|seat\s*post|stuur|stuurpen|handlebars?|bars?|stem|"
                    r"wiel(?:en|set)?|wheels?(?:et)?|velgen|rims?(?![\s-]*brakes?)|cranks?(?:et|stel)?|crankarmen|"
                    r"zadel|saddle|kooitjes|bidonhouders?|cages?|spacers?")
-NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?carbon[\s-]+(?:{NON_FRAME_PARTS})\b"
-                              rf"|\b(?:{NON_FRAME_PARTS})\b\s*(?::|=|-|van|in|uit|of|is|zijn|made of)?\s*(?:volledig\s+)?carbon\b")
+NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?(?:carbon|composite)[\s-]+(?:{NON_FRAME_PARTS})\b"
+                              rf"|\b(?:{NON_FRAME_PARTS})\b\s*(?::|=|-|van|in|uit|of|is|zijn|made of)?\s*(?:volledig\s+)?"
+                              rf"(?:carbon|composite)\b")
 
 
-MATERIAL_WORDS = {"Carbon": r"\bcarbon\b|\boclv\b|\bcf\b", "Aluminium": r"alumini?um|\balu\b|lichtmetaal|\balr\b",
+MATERIAL_WORDS = {"Carbon": r"\bcarbon\b|\boclv\b|\bcf\b|\bcomposite\b", "Aluminium": r"alumini?um|\balu\b|lichtmetaal|\balr\b",
                   "Steel": r"\bstaal\b|\bsteel\b"}
 
 
@@ -69,6 +70,50 @@ def detect_material(text, model_name=False):
         if re.search(pattern, low) or (material == "Aluminium" and model_name and re.search(r"\bal\b", low)):
             return material
     return None
+
+
+# A frame's carbon (or aluminium) grade or series, as brands name it: Trek's "800 Series OCLV", Specialized's
+# "FACT 10r", Canyon's "CF SLX", Giant's "Advanced SL-grade", Cannondale's "Hi-MOD", Scott's "HMX", Orbea's "OMX",
+# Cube's "C:68X". Only names the frame tiers (PART_TIERS["frame"]) can rate; no "S-Works" (a seller's "S-Works
+# crankset" is no frame).
+FRAME_GRADE = (r"\b[1-9]00\s+series(?:\s+(?:oclv|alpha))?\b|\boclv\s*[1-9]00\b|\bfact\s*\d{1,2}r\b|\bcf\s*slx?\b|\bcfr\b"
+               r"|\badvanced(?:\s+sl|\s+pro)?[\s-]+grade\b|\badvanced\s+(?:sl|pro)\b|\bhi-?mod\b|\bhm[xf]\b|\bom[xr]\b"
+               r"|\bc:?6[28]x?\b|\blab\s*71\b|\b(?:pan|pitch)-based\b|\baluxx(?:\s+sl)?\b")
+FRAME_GENERATION = r"\bgen(?:eration)?\s*\d+\b"
+
+
+def frame_grade(text):
+    """The frame grade a text names ("800 Series OCLV", "FACT 10r") as written, or None. A clause about another
+    part ("Advanced SL-grade composite fork") is no frame grade, unless it names the frame too."""
+    for clause in re.split(r"[,;.\n]+", html.unescape(text or "")):
+        low = _plain(clause)
+        if re.search(rf"\b(?:{NON_FRAME_PARTS})\b", low) and not re.search(r"\bframe", low):
+            continue
+        m = re.search(FRAME_GRADE, clause, re.I)
+        if m:
+            return m.group(0)
+    return None
+
+
+def frame_essentials(text):
+    """What of a spec sheet's frame line we compare: the parts naming its material, carbon grade or series and its
+    generation. "Ultralight 800 Series OCLV Carbon, Ride Tuned seatmast, internal cable routing, 142 x 12 mm" ->
+    "Ultralight 800 Series OCLV Carbon"; "SuperSix EVO Carbon, Gen 5, integrated cable routing" -> "SuperSix EVO
+    Carbon, Gen 5". The tube shapes, cable routing, axles and mounts are the brand's description of the frame, not
+    something an ad names or a buyer can check, so they're left out. The whole line when no part names any of it."""
+    patterns = [*MATERIAL_WORDS.values(), FRAME_GRADE, FRAME_GENERATION]
+    keep = []
+    for clause in re.split(r"[,;/]\s*|\s+\(|\)", text or ""):
+        # Up to its last word that counts: "100 Series Alpha Aluminium taps toelopende balhoofdbuis" (no comma)
+        # -> "100 Series Alpha Aluminium". _plain keeps the length, so its positions fit the clause.
+        low = NON_FRAME_CARBON.sub(lambda m: " " * len(m.group(0)), _plain(clause))
+        ends = [m.end() for p in patterns for m in re.finditer(p, low)] if len(low) == len(clause) else []
+        if (keep and not re.search(FRAME_GRADE, low) and not re.search(FRAME_GENERATION, low)
+                and detect_material(clause) == detect_material(", ".join(keep))):
+            continue  # a later "carbon OSBB" names no more than the material we already have
+        if ends:
+            keep.append(clause[:max(ends)].strip())
+    return ", ".join(keep) if keep else text
 
 
 def detect_brakes(text):
@@ -227,6 +272,7 @@ def read_claims(title, description=""):
         "size": detect_size(text),
         "groupset": detect_groupset(text),
         "material": detect_material(title) or detect_material(description),
+        "frame_grade": frame_grade(text),
         "brakes": detect_brakes(text),
         "wheels": detect_part(text, "wheels"),
         "tyres": detect_part(text, "tyres"),
@@ -855,8 +901,22 @@ def groupset_text(model):
     return " ".join(filter(None, [spec(model, "Shifter"), spec(model, "Achterderailleur"), spec(model, "Crankstel")]))
 
 
+FRAME_SPECS = ("Frame", "Frameset", "Frame plus vork")  # the spec sheet's frame line, by brand
+
+
 def ref_material(model):
-    return detect_material(spec(model, "Material", "Frame") or "") or detect_material(model["name"], model_name=True)
+    return detect_material(spec(model, "Material", *FRAME_SPECS) or "") or detect_material(model["name"], model_name=True)
+
+
+def ref_frame(model):
+    """The matched model's frame as we compare it: (shown, its grade or None, the grade's tier or None).
+
+    Shown is the frame line's material, grade and generation (frame_essentials), else the sheet's material."""
+    line = spec(model, *FRAME_SPECS)
+    shown = frame_essentials(line) if line else spec(model, "Material")
+    grade = frame_grade(shown) or frame_grade(model["name"])
+    tier = part_tier(("frame",), f"{shown} {model['name']}") if grade else None
+    return shown, grade, tier
 
 
 def model_materials(model):
@@ -865,7 +925,7 @@ def model_materials(model):
     count too (under None: we don't know its year), only for a material no year's sheet gives."""
     out = {}
     for year, sheet in sorted(year_sheets(model).items()):
-        material = detect_material(spec(dict(model, specs=sheet["specs"]), "Material", "Frame") or "")
+        material = detect_material(spec(dict(model, specs=sheet["specs"]), "Material", *FRAME_SPECS) or "")
         if material:
             out.setdefault(material, []).append(year)
     current = ref_material(model)
@@ -1815,7 +1875,7 @@ def _row(key, part, original, listing, status, result, step=0, ad_tier=None):
 
 
 # The spec sheet labels a comparison row's original part is rated from, first found wins.
-ROW_SPECS = {"frame": ("Frame", "Frameset", "Material"), "brakes": ("Rem",), "wheels": ("Wiel voor", "Velg", "Wheelset"),
+ROW_SPECS = {"frame": ("Frame", "Frameset", "Frame plus vork", "Material"), "brakes": ("Rem",), "wheels": ("Wiel voor", "Velg", "Wheelset"),
              "tyres": ("Buitenband", "Voorband"), "crankset": ("Crankstel",), "saddle": ("Zadel",)}
 
 
@@ -1824,7 +1884,7 @@ def _ref_tier(model, key):
     for label in ROW_SPECS.get(key, ()):
         value = spec(model, label)
         if value and label in SPEC_PARTS:
-            text = f"{value} {model['name']}" if SPEC_PARTS[label] == ("frame",) else str(value)
+            text = f"{frame_essentials(value)} {model['name']}" if SPEC_PARTS[label] == ("frame",) else str(value)
             return part_tier(SPEC_PARTS[label], text)
     return None
 
@@ -1932,7 +1992,7 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
          claims["material"]),
         ("brakes", "Brakes", ref_brakes(model), claims["brakes"]),
     ):
-        shown = spec(model, "Frame", "Material") if key == "frame" else spec(model, "Rem")
+        shown, ref_grade, ref_grade_tier = ref_frame(model) if key == "frame" else (spec(model, "Rem"), None, None)
         frame_seen = photo_frame(photo_read) if key == "frame" and not ad_val else None
         ad_val = ad_val or frame_seen
         ad_shown = Msg("{label} (inferred from photo analysis)", label=Msg(ad_val)) if frame_seen \
@@ -1941,6 +2001,14 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows.append(_row(key, part, shown or Msg("Not in our data"), ad_shown, UNKNOWN, "Can't compare"))
         elif not ad_val:
             rows.append(_row(key, part, shown or Msg(ref_val), not_stated, WARN, "Ask seller"))
+        elif ad_val == ref_val and key == "frame" and claims.get("frame_grade") and ref_grade_tier and not frame_seen:
+            # Same material, and the ad names its grade: a 500 Series frame isn't the 800 Series original.
+            ad_tier = part_tier(("frame",), claims["frame_grade"])
+            ad_shown = Msg("{material}, {grade}", material=ad_shown, grade=claims["frame_grade"])
+            if not ad_tier or ad_tier == ref_grade_tier:
+                rows.append(_row(key, part, shown, ad_shown, OK, "Matches", ad_tier=ad_tier))
+            else:
+                rows.append(_compare_tiers(key, part, shown, ad_shown, ref_grade_tier, ad_tier))
         elif ad_val == ref_val:
             rows.append(_row(key, part, shown or Msg(ref_val), ad_shown, OK, "Matches"))
         elif key == "frame" and impossible:
