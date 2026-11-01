@@ -133,13 +133,68 @@ def test_recheck_marks_removed_ads(tmp_path):
     assert got[1] == ("2026-10-22 12:00:00", "2026-10-22 12:00:00")
     assert got[2] == ("2026-10-22 12:00:00", None)
     assert got[3] == (None, None)
-    # Checked ones wait a day; removed ones are never asked again; the unsure one is retried.
+    # Checked ones wait a day; the unsure one is retried.
     asked.clear()
     recheck.run(conn, now=now + timedelta(hours=2), status=status, pause=0)
     assert [fetch_ad.ad_id(u) for u in asked] == ["a300000"]
+    # A day on, removed ones are asked again too: still gone keeps the first date, not counted twice.
     asked.clear()
-    recheck.run(conn, now=now + timedelta(hours=21), status=status, pause=0)
-    assert [fetch_ad.ad_id(u) for u in asked] == ["a200000", "a300000"]
+    assert recheck.run(conn, now=now + timedelta(hours=21), status=status, pause=0) == 0
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a100000", "a200000", "a300000"]
+    assert conn.execute("SELECT removed_at FROM checks WHERE id = 1").fetchone()[0] == "2026-10-22 12:00:00"
+
+
+def test_recheck_brings_back_a_wrongly_removed_ad(tmp_path):
+    from datetime import datetime
+
+    from webapp import recheck
+
+    conn = db.connect(str(tmp_path / "app.sqlite3"))
+    conn.execute("INSERT INTO checks (listing_url, title, last_checked_at, removed_at, gone_reason) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/a100000-x', 't', '2026-10-20 12:00:00', '2026-10-20 12:00:00', 'removed')")
+    recheck.run(conn, now=datetime(2026, 10, 22, 12, 0), status=lambda url: ("live", None), pause=0)
+    assert tuple(conn.execute("SELECT removed_at, gone_reason FROM checks").fetchone()) == (None, None)
+
+
+def test_only_a_real_not_found_counts_as_gone(monkeypatch):
+    import io
+    import urllib.error
+
+    asked = []
+
+    class Response(io.BytesIO):
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    def fake(by_link):
+        def open_(request, timeout=None):
+            asked.append(request.full_url)
+            code, final = by_link(request.full_url)
+            if code != 200:
+                raise urllib.error.HTTPError(request.full_url, code, "x", {}, io.BytesIO(b"Not Found"))
+            r = Response(b"<html></html>")
+            r.geturl = lambda: final
+            return r
+        return open_
+
+    link = "https://m.marktplaats.nl/v/a/b/a1532161261-x"
+    # Asked on www, not on the host it was pasted with.
+    monkeypatch.setattr(fetch_ad._opener, "open", fake(lambda u: (200, u + "-pinarello")))
+    assert fetch_ad.ad_status(link) == "live"
+    assert asked == ["https://www.marktplaats.nl/a1532161261"]
+    # Sent to the home page, blocked, or rate limited: can't tell, not gone.
+    for answer in [(200, "https://www.marktplaats.nl/"), (403, None), (429, None)]:
+        monkeypatch.setattr(fetch_ad._opener, "open", fake(lambda u, a=answer: a))
+        assert fetch_ad.ad_status(link) is None, answer
+    # A 404 on the short link that the long link doesn't confirm: not gone.
+    asked.clear()
+    monkeypatch.setattr(fetch_ad._opener, "open", fake(lambda u: (404, None) if u.endswith("/a1532161261") else (503, None)))
+    assert fetch_ad.ad_status(link) is None and len(asked) == 2
+    monkeypatch.setattr(fetch_ad._opener, "open", fake(lambda u: (404, None)))
+    assert fetch_ad.ad_status(link) == "removed"
 
 
 def test_recheck_tells_expired_from_removed(tmp_path):
