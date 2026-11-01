@@ -341,11 +341,15 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .listing-head .info { min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 .listing-head h1 { margin: 0; font-size: 28px; line-height: 1.2; text-transform: none; font-family: var(--body); font-style: normal; font-weight: 700; letter-spacing: 0; }
 .price { font-size: 26px; font-weight: 700; }
-.match-box { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px 16px; background: var(--ground); border-radius: 14px; font-size: 15px; }
+.match-box { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: var(--ground); border-radius: 14px; font-size: 15px; }
+.mb-body { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+/* The matched bike's catalogue photo, left of the name. */
+.mb-photo { flex: none; display: grid; place-items: center; width: 132px; height: 88px; padding: 0; border-radius: 10px; background: var(--photo-bg); overflow: hidden; }
+.mb-photo img { width: 100%; height: 100%; object-fit: contain; }
 .mb-k { font-size: 11px; letter-spacing: .08em; }
 .mb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; width: 100%; }
 .mb-name { font-size: 19px; font-weight: 700; color: var(--text); text-decoration: none; }
-.mb-meter { display: flex; align-items: center; gap: 10px; margin-left: auto; --c: var(--accent); }
+.mb-meter { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-left: auto; --c: var(--accent); }  /* wraps when the photo leaves too little room */
 .mb-meter.mid { --c: var(--warn); } .mb-meter.lo { --c: var(--bad); }
 .mb-meter .mono { font-size: 12px; font-weight: 600; color: var(--c); white-space: nowrap; }
 .mb-meter b { font: 800 22px/1 var(--mono); color: var(--c); }
@@ -401,6 +405,8 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
   .mp-photo { height: 76px; }
   .mp-text .n { font-size: 15px; }
   .mb-meter { margin-left: 0; }
+  .match-box { align-items: flex-start; gap: 12px; }
+  .mb-photo { width: 88px; height: 60px; margin-top: 22px; }
 }
 /* The report's check tabs, as folder tabs: the picked tab has its section's colour and flows into it on curved feet; the others sit lower and dimmer. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
