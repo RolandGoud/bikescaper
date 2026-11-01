@@ -261,3 +261,21 @@ def test_a_wooden_stand_is_not_a_colourways_decal(tmp_path):
     ImageDraw.Draw(photo).rectangle([w * .3, h * .7, w * .7, h * .85], fill=(180, 160, 70))
     photo.save(tmp_path / "stand.jpg")
     assert colour_match.by_photos(own, [str(tmp_path / "stand.jpg")]) == "Matte Deep Smoke"
+
+
+def test_photos_pick_the_year_of_the_black_colourway_the_ad_shows(models, tmp_path):  # noqa: F811
+    # "matzwart": black came as Trek Black/Trek White (2020) and Trek Black/Radioactive Red (2021, 2022).
+    # The photos show no red: the 2020 bike's photo, though that's an earlier generation.
+    m = next(m for m in models if m["slug"] == "trek-emonda-sl-6-disc-pro")
+    photo = ad_photo(tmp_path, "Trek/years/emondasl6discpro_2020_trekblacktrekwhite_site.jpg", "ad.jpg")
+    r = checks.run_check(models, {"title": "Trek Emonda SL6 Pro maat 54 matzwart", "description": "", "asking_price": None,
+                                  "rider_height": None, "model_id": m["id"], "photo_paths": [photo]}, today=TODAY)
+    assert r["photo_year"] == {"year": 2020, "colour": "Trek Black/Trek White"}
+    # The report goes by 2020 too when the ad's details allow it (rim brakes: 2022 or older), as another generation.
+    r = checks.run_check(models, {"title": "Trek Emonda SL6 Pro maat 54 matzwart", "description": "Rem: Velgrem",
+                                  "asking_price": None, "rider_height": None, "model_id": m["id"],
+                                  "photo_paths": [photo]}, today=TODAY)
+    assert r["photo_year"]["year"] == 2020 and r["year"]["year"] == 2020 and not r["year"]["reliable"]
+    no_photos = checks.run_check(models, {"title": "Trek Emonda SL6 Pro maat 54 matzwart", "description": "",
+                                          "asking_price": None, "rider_height": None, "model_id": m["id"]}, today=TODAY)
+    assert no_photos["photo_year"]["year"] == 2021
