@@ -114,6 +114,15 @@ def model_from_row(row):
     return m
 
 
+def catalogue_version(conn):
+    """A cheap fingerprint of the models table that changes when the seed reloads or refreshes it."""
+    return tuple(conn.execute(
+        "SELECT count(*), max(id), total(length(name) + length(slug) + length(coalesce(specs, ''))"
+        " + length(coalesce(year_specs, '')) + length(coalesce(colors, '')) + length(coalesce(colorways, ''))"
+        " + length(coalesce(image, '')) + length(coalesce(last_seen, '')) + length(coalesce(latest_scrape, ''))"
+        " + coalesce(price_eur, 0) + coalesce(missed_scrapes, 0) + coalesce(model_year, 0)) FROM models").fetchone())
+
+
 def all_models(conn):
     return [model_from_row(r) for r in conn.execute("SELECT * FROM models ORDER BY brand, name")]
 
