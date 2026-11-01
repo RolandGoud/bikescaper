@@ -197,6 +197,39 @@ def test_only_a_real_not_found_counts_as_gone(monkeypatch):
     assert fetch_ad.ad_status(link) == "removed"
 
 
+def test_the_sites_expired_page_means_expired(monkeypatch):
+    import io
+    import urllib.error
+
+    # Trimmed from Marktplaats's answer for an ad whose run ran out: 410 and this page.
+    page = (b'<div id="eVip-root"><div class="ExpiredListing-module-root"><h1>Deze advertentie is helaas verlopen</h1>'
+            b'<span>VERLOPEN</span></div></div><script>window.__CONFIG__ = {"listing":{"itemId":"m2459438595"}};</script>')
+
+    def answer(body, code):
+        def open_(request, timeout=None):
+            raise urllib.error.HTTPError(request.full_url, code, "x", {}, io.BytesIO(body))
+        return open_
+
+    link = "https://www.marktplaats.nl/v/a/b/m2459438595-trek-domane"
+    monkeypatch.setattr(fetch_ad._opener, "open", answer(page, 410))
+    assert fetch_ad.ad_status(link) == "expired"
+    monkeypatch.setattr(fetch_ad._opener, "open", answer(b"Not Found", 404))
+    assert fetch_ad.ad_status(link) == "removed"
+
+
+def test_recheck_takes_expired_from_the_site(tmp_path):
+    from datetime import datetime
+
+    from webapp import recheck
+
+    conn = db.connect(str(tmp_path / "app.sqlite3"))
+    # Marked gone before we could tell why; the site now says it expired.
+    conn.execute("INSERT INTO checks (listing_url, title, last_checked_at, removed_at) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/m100000-x', 't', '2026-10-20 12:00:00', '2026-10-20 12:00:00')")
+    recheck.run(conn, now=datetime(2026, 10, 22, 12, 0), status=lambda url: ("expired", None), pause=0)
+    assert tuple(conn.execute("SELECT removed_at, gone_reason FROM checks").fetchone()) == ("2026-10-20 12:00:00", "expired")
+
+
 def test_recheck_tells_expired_from_removed(tmp_path):
     from datetime import datetime, timedelta
 

@@ -79,17 +79,18 @@ def ad_id(url):
 
 
 def ad_status(url):
-    """"live", "removed", or None when we couldn't tell (site down, blocked, not an ad link)."""
+    """"live", "expired", "removed", or None when we couldn't tell (site down, blocked, not an ad link)."""
     return ad_state(url)[0]
 
 
 def ad_state(url):
     """(status, posted_at): ad_status's answer, plus when a live ad was placed (see posted_at).
 
-    The site answers a gone ad with a bare 404, whether it expired or the seller took it down,
-    so the reason is worked out from the placing date (webapp/ad_gone.py).
+    An ad whose run ran out answers 410 with Marktplaats's "Deze advertentie is helaas verlopen"
+    page: that's "expired", straight from the site. Any other 404 or 410 is "removed"; why it went
+    is then guessed from the placing date (webapp/ad_gone.py).
 
-    Only a plain "Not Found" counts as gone, and only when the ad's own long link says so too:
+    A "Not Found" only counts as gone when the ad's own long link says so too:
     a block, a time-out, or a redirect somewhere else (the home page, a consent page) means we
     couldn't tell, and is asked again next pass.
 
@@ -104,9 +105,18 @@ def ad_state(url):
     if status == "removed":
         # A saved long link can 404 after a category rename, so it only confirms "gone", never "live" alone.
         status, posted = _ask(clean_url(with_scheme(url)), item)
-        if status != "live" and status != "removed":
+        if status not in ("live", "expired", "removed"):
             return None, None
     return status, posted
+
+
+def _expired_page(error, item):
+    """Whether a 404/410 answer is the site's "this ad has expired" page for this ad."""
+    try:
+        body = error.read(MAX_BYTES).decode("utf-8", "replace")
+    except (OSError, ValueError):
+        return False
+    return item in body and ("ExpiredListing" in body or "advertentie is helaas verlopen" in body)
 
 
 def _site(url):
@@ -122,7 +132,9 @@ def _ask(link, item):
                 return None, None  # sent somewhere that isn't this ad: not proof it's gone
             return "live", posted_at(_config(response.read(MAX_BYTES).decode("utf-8", "replace")))
     except urllib.error.HTTPError as e:
-        return ("removed" if e.code in (404, 410) else None), None
+        if e.code not in (404, 410):
+            return None, None
+        return ("expired" if _expired_page(e, item) else "removed"), None
     except (FetchError, urllib.error.URLError, TimeoutError, OSError):
         return None, None
 

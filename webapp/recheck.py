@@ -40,7 +40,7 @@ def due(conn, now):
 
 def run(conn, now=None, status=fetch_ad.ad_state, pause=PAUSE):
     """One pass. Returns how many ads it found removed.
-    `status(url)` answers "live", "removed" or None, or a (that, posted_at) pair."""
+    `status(url)` answers "live", "expired", "removed" or None, or a (that, posted_at) pair."""
     removed = 0
     for i, row in enumerate(due(conn, now or datetime.now(timezone.utc))):
         if not fetch_ad.supported(fetch_ad.with_scheme(row["listing_url"])):
@@ -60,7 +60,9 @@ def check_one(conn, row, now=None, status=fetch_ad.ad_state):
         return None  # couldn't tell; try again next pass
     stamp = _stamp(now or datetime.now(timezone.utc))
     posted = posted or row["posted_at"]  # the live page has it; refreshed in case a renewal moves it
-    if result == "removed" and row["removed_at"]:
+    if result == "expired":  # the site's own "verlopen" page: no guessing needed
+        gone, why = row["removed_at"] or stamp, "expired"
+    elif result == "removed" and row["removed_at"]:
         gone, why = row["removed_at"], row["gone_reason"]  # still gone: keep when and why we first saw it
     elif result == "removed":
         gone, why = stamp, ad_gone.reason(posted, row["last_checked_at"] or row["created_at"], stamp)
