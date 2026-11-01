@@ -55,8 +55,9 @@ def detect_groupset(text):
 NON_FRAME_PARTS = (r"vork|voorvork|fork|zadelpen|zadelpi[jg]p|seat\s*post|stuur|stuurpen|handlebars?|bars?|stem|"
                    r"wiel(?:en|set)?|wheels?(?:et)?|velgen|rims?(?![\s-]*brakes?)|cranks?(?:et|stel)?|crankarmen|"
                    r"zadel|saddle|kooitjes|bidonhouders?|cages?|spacers?")
-NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?carbon[\s-]+(?:{NON_FRAME_PARTS})\b"
-                              rf"|\b(?:{NON_FRAME_PARTS})\b\s*(?::|=|-|van|in|uit|of|is|zijn|made of)?\s*(?:volledig\s+)?carbon\b")
+NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?(?:carbon|composite)[\s-]+(?:{NON_FRAME_PARTS})\b"
+                              rf"|\b(?:{NON_FRAME_PARTS})\b\s*(?::|=|-|van|in|uit|of|is|zijn|made of)?\s*(?:volledig\s+)?"
+                              rf"(?:carbon|composite)\b")
 
 
 MATERIAL_WORDS = {"Carbon": r"\bcarbon\b|\boclv\b|\bcf\b|\bcomposite\b", "Aluminium": r"alumini?um|\balu\b|lichtmetaal|\balr\b",
@@ -82,9 +83,16 @@ FRAME_GENERATION = r"\bgen(?:eration)?\s*\d+\b"
 
 
 def frame_grade(text):
-    """The frame grade a text names ("800 Series OCLV", "FACT 10r") as written, or None."""
-    m = re.search(FRAME_GRADE, html.unescape(text or ""), re.I)
-    return m.group(0) if m else None
+    """The frame grade a text names ("800 Series OCLV", "FACT 10r") as written, or None. A clause about another
+    part ("Advanced SL-grade composite fork") is no frame grade, unless it names the frame too."""
+    for clause in re.split(r"[,;.\n]+", html.unescape(text or "")):
+        low = _plain(clause)
+        if re.search(rf"\b(?:{NON_FRAME_PARTS})\b", low) and not re.search(r"\bframe", low):
+            continue
+        m = re.search(FRAME_GRADE, clause, re.I)
+        if m:
+            return m.group(0)
+    return None
 
 
 def frame_essentials(text):
@@ -917,7 +925,7 @@ def model_materials(model):
     count too (under None: we don't know its year), only for a material no year's sheet gives."""
     out = {}
     for year, sheet in sorted(year_sheets(model).items()):
-        material = detect_material(spec(dict(model, specs=sheet["specs"]), "Material", "Frame") or "")
+        material = detect_material(spec(dict(model, specs=sheet["specs"]), "Material", *FRAME_SPECS) or "")
         if material:
             out.setdefault(material, []).append(year)
     current = ref_material(model)

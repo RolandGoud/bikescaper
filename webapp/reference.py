@@ -456,11 +456,11 @@ NO_MOTOR_GROUP = {"electric": "drivetrain"}
 PART_TIERS = {
     # Read with the model name, which carries Canyon's carbon grade ("Ultimate CF SLX 8").
     "frame": [
-        (5, r"\b900\s+series\s+oclv|oclv\s*900|\bcfr\b|\bfact\s*12r|s-?works|advanced\s+sl\b|lab\s*71|hmx[\s-]*sl\b"
+        (5, r"\b900\s+series\b(?!\s+alpha)|oclv\s*900|\bcfr\b|\bfact\s*12r|s-?works|advanced\s+sl\b|lab\s*71|hmx[\s-]*sl\b"
             r"|pitch-based"),
-        (4, r"\b[678]00\s+series\s+oclv|oclv\s*[678]00|\bcf\s*slx\b|\bfact\s*1[01]r|advanced\s+pro\b|hi-?mod|\bhmx\b"
+        (4, r"\b[678]00\s+series\b(?!\s+alpha)|oclv\s*[678]00|\bcf\s*slx\b|\bfact\s*1[01]r|advanced\s+pro\b|hi-?mod|\bhmx\b"
             r"|\bomx\b|c:?68x|titani?um|titaan|pan-based|toray|textreme"),
-        (3, r"\b[345]00\s+series\s+oclv|oclv\s*[345]00|\bcf\s*sl\b|\bcf\b|\bfact\s*[89]r|\badvanced\b|ballistec"
+        (3, r"\b[345]00\s+series\b(?!\s+alpha)|oclv\s*[345]00|\bcf\s*sl\b|\bcf\b|\bfact\s*[89]r|\badvanced\b|ballistec"
             r"|\bhmf\b|\bomr\b|c:?62|carbon|\boclv\b"),
         (1, r"\b[12]00\s+series\s+alpha|\bsteel\b|\bstaal\b|hi-?ten"),
         (2, r"alumini?um|\balloy\b|lichtmetaal|\balr\b|\bal\b|caad|smartform|aluxx|alpha"),

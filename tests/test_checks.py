@@ -1834,3 +1834,22 @@ def test_a_frame_plus_fork_line_is_the_frame():
     model = {"name": "Madone SLR 7", "brand": "Trek", "specs": {"Frame plus vork": "800 Series OCLV Carbon, IsoFlow"}}
     assert checks.ref_material(model) == "Carbon"
     assert checks.ref_frame(model)[0] == "800 Series OCLV Carbon"
+
+
+def test_a_grade_without_oclv_or_on_another_part_is_read_right(models):
+    model = next(m for m in models if m["name"] == "Émonda SLR 9")
+    row = next(r for r in checks.check_specs(model, checks.read_claims("Trek Emonda SLR 9", "500 Series carbon frame"))[
+        "rows"] if r["key"] == "frame")
+    assert row["status"] == checks.BAD and row["ad_tier"] == 3
+    assert checks.read_claims("Giant TCR", "Advanced-grade frame, Advanced SL-grade composite fork")["frame_grade"] \
+        == "Advanced-grade"
+    assert checks.read_claims("Giant TCR", "ALUXX frame, Advanced SL-grade vork")["frame_grade"] == "ALUXX"
+    # A composite fork on an aluminium frame is no carbon frame.
+    assert checks.read_claims("Giant Contend AR", "aluxx alu frame, composite fork")["material"] == "Aluminium"
+    assert checks.read_claims("Giant Contend", "composite vork")["material"] is None
+
+
+def test_a_year_sheets_frame_plus_fork_line_gives_its_material():
+    model = {"name": "Madone SLR 7", "brand": "Trek", "specs": {}, "seen_on": None,
+             "year_specs": {"years": {"2021": {"specs": {"Frame plus vork": "800 Series OCLV Carbon, IsoFlow"}}}}}
+    assert checks.model_materials(model) == {"Carbon": [2021]}
