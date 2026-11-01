@@ -1538,13 +1538,11 @@ select { max-width: 100%; }
 .ad-gallery { display: flex; flex-direction: column; gap: 8px; padding: 14px; border-right: 1px solid var(--line); min-width: 0; }
 .ag-head { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .08em; color: var(--muted); }
 .ag-main { position: relative; }
-/* The arrows sit beside the big photo, small, not on it. */
-.ag-main.has-arrows { display: grid; grid-template-columns: 22px minmax(0, 1fr) 22px; align-items: center; gap: 6px; }
-.ag-main.has-arrows .ag-photo { grid-row: 1; grid-column: 2; }
-.ag-main .gallery-arrow { position: static; grid-row: 1; transform: none; width: 22px; height: 22px; font-size: 14px; line-height: 1; padding: 0; background: var(--raised); border: 1px solid var(--line); }
-.ag-main .gallery-arrow.prev { grid-column: 1; }
-.ag-main .gallery-arrow.next { grid-column: 3; }
-.ag-main .gallery-arrow:hover { border-color: var(--accent); color: var(--accent); }
+/* Small arrows on the big photo. */
+.ag-main .gallery-arrow { width: 24px; height: 24px; font-size: 14px; line-height: 1; padding: 0; }
+.ag-main .gallery-arrow.prev { left: 6px; }
+.ag-main .gallery-arrow.next { right: 6px; }
+.ag-main .gallery-arrow:hover { color: var(--accent); }
 .ag-photo { display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; border: 0; border-radius: 8px; overflow: hidden; background: #111; cursor: zoom-in; }
 .ag-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .ad-gallery .ad-photos img { height: 46px; opacity: .55; }
