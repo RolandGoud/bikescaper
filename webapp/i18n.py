@@ -639,6 +639,7 @@ NL = {
     "Differs": "Wijkt af",
     "Matches": "Klopt",
     "{label} (inferred from photo analysis)": "{label} (afgeleid uit foto-analyse)",
+    "From photo analysis": "Uit foto-analyse",
     "Receipt in the photos": "Aankoopbon in de foto's",
     "photo": "foto",
     "bought on {date}": "gekocht op {date}",
