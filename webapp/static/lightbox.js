@@ -23,7 +23,10 @@
   };
   const open = (i, e) => { show(i); box.showModal(); openedAt = e.timeStamp; };
 
-  document.querySelectorAll(".ad-photos [data-photo]").forEach((link) => {
+  // On the report the strip picks the big photo (photo-strip.js), and the big photo opens here; elsewhere a photo opens here.
+  const picked = document.querySelector(".ad-gallery .ag-photo");
+  if (picked) picked.addEventListener("click", (e) => open(Number(picked.dataset.at) + first, e));
+  else document.querySelectorAll(".ad-photos [data-photo]").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       open(Number(link.dataset.photo) + first, e);

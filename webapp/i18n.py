@@ -1285,4 +1285,17 @@ NL = {
     "Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't keep checks like this.":
         "Onze catalogus begint bij modeljaar {year}, dus we kunnen de onderdelen, leeftijd en prijs van deze fiets niet met het origineel vergelijken. Zulke checks bewaren we niet.",
     "Check another ad": "Check een andere advertentie",
+    # The report's heading: the ad, and our match under it.
+    "The ad": "De advertentie",
+    "Our match": "Onze match",
+    "Placed on {date}": "Geplaatst op {date}",
+    "the seller's title": "titel van de verkoper",
+    "Open the photos": "Open de foto's",
+    "The ad has no text of its own.": "De advertentie heeft geen eigen tekst.",
+    "Read the whole text": "Lees de hele tekst",
+    "Fold up": "Inklappen",
+    "Open the ad on {site}": "Open de advertentie op {site}",
+    "No model words in the ad": "Geen modelwoorden in de advertentie",
+    "All model words are in the ad": "Alle modelwoorden staan in de advertentie",
+    "Match with another model": "Match met ander model",
 }
