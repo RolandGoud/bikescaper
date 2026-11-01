@@ -2,7 +2,8 @@
 the ad's run ended or the seller took it down (webapp/ad_gone.py).
 
 Only ads someone pasted a link for are looked at, each at most once a day, a few seconds apart,
-and only for the first DAYS_WATCHED days after the check (ads rarely live longer).
+and only for the first DAYS_WATCHED days after the check (ads rarely live longer). Ads already
+marked gone are asked again too, so one the site wrongly answered for comes back the next day.
 
     python -m webapp.recheck            # one pass by hand
 
@@ -30,7 +31,8 @@ def _stamp(t):
 
 def due(conn, now):
     return conn.execute(
-        "SELECT id, listing_url, created_at, last_checked_at, posted_at FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL"
+        "SELECT id, listing_url, created_at, last_checked_at, posted_at, removed_at, gone_reason FROM checks"
+        " WHERE listing_url IS NOT NULL"
         " AND created_at >= ? AND (last_checked_at IS NULL OR last_checked_at <= ?) ORDER BY id",
         (_stamp(now - timedelta(days=DAYS_WATCHED)), _stamp(now - EVERY)),
     ).fetchall()
@@ -51,12 +53,16 @@ def run(conn, now=None, status=fetch_ad.ad_state, pause=PAUSE):
             continue  # couldn't tell; try again next pass
         stamp = _stamp(now or datetime.now(timezone.utc))
         posted = posted or row["posted_at"]  # the live page has it; refreshed in case a renewal moves it
-        gone = stamp if result == "removed" else None
-        why = ad_gone.reason(posted, row["last_checked_at"] or row["created_at"], stamp) if gone else None
+        if result == "removed" and row["removed_at"]:
+            gone, why = row["removed_at"], row["gone_reason"]  # still gone: keep when and why we first saw it
+        elif result == "removed":
+            gone, why = stamp, ad_gone.reason(posted, row["last_checked_at"] or row["created_at"], stamp)
+        else:
+            gone, why = None, None  # live, or back again after a false "gone"
+        removed += result == "removed" and not row["removed_at"]
         conn.execute("UPDATE checks SET last_checked_at = ?, removed_at = ?, posted_at = ?, gone_reason = ?"
                      " WHERE id = ?", (stamp, gone, posted, why, row["id"]))
         conn.commit()
-        removed += result == "removed"
     return removed
 
 
