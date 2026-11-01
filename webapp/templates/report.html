@@ -40,7 +40,8 @@
   {% set colour_said = r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour %}
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
-  {% if c.year %}{% if facts.append((_('Year'), c.year, None)) %}{% endif %}{% endif %}
+  {# The year always has a tile, also when the ad doesn't give one. #}
+  {% if facts.append((_('Year'), c.year or _('Not stated'), None if c.year else 'none')) %}{% endif %}
   {% if c.size %}{% if facts.append((_('Size'), c.size, None)) %}{% endif %}{% endif %}
   {% if colour_said %}{% if facts.append((_('Colour'), colour_said, None)) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
@@ -59,7 +60,7 @@
     {% endif %}
     <div class="ad-info">
       {% if facts %}<div class="ad-tiles" style="--n: {{ facts|length }}">{% for label, value, kind in facts %}
-        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b>{{ value }}</b>{% endif %}</div>{% endfor %}
+        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}</span>
