@@ -973,9 +973,10 @@ def test_seller_named_version_wins(models):
     # An S-Works Tarmac SL7 is not an SL9: the version number the seller names outweighs "S-Works".
     r = run(models, "Specialized S-Works Tarmac SL7", "", 3400)
     assert r["model"]["name"].startswith("S-Works Tarmac SL7")  # a discontinued line we keep
-    # With no SL5 at all we still compare with a Tarmac, but say it isn't the version the seller named.
+    # With no SL5 at all (nothing from before 2018) we still compare with a Tarmac, but say it isn't the version the
+    # seller named.
     r = run(models, "Specialized S-Works Tarmac SL5 2017", "", 2500)
-    assert "SL5" in r["name_check"]["extra"]
+    assert ("SL7", "SL5") in r["name_check"]["conflicts"]
     assert r["confidence"] is not None and str(r["confidence"]) in ("low", "laag")
     # The generation counts too, and an exact name has nothing to say.
     assert run(models, "Trek Domane SL6 gen 3", "", 1500)["name_check"]["conflicts"] == [("Gen 4", "Gen 3")]

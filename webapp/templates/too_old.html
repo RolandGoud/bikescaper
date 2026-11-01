@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ _('No data for bikes from before {year}', year=first_year) }} · Bike Compare{% endblock %}
+{% block body %}
+<main class="wrap page">
+  <div class="crumbs"><a href="{{ url_for('home') }}">{{ _('Check a listing') }}</a> / {{ _('Check report') }}</div>
+  <section class="card too-old">
+    <div class="mono muted">{{ _('Not checked')|upper }}</div>
+    <h1>{{ _('We have no data for bikes from before {year}', year=first_year) }}</h1>
+    <p class="ad-title">“{{ listing.title }}”</p>
+    {% set how = r.year.how if r.model and r.year else 'ad' %}
+    <p>
+      {{ _('This bike is from {year}.', year=year) }}
+      {% if how == 'purchase' or (how == 'ad' and r.claims.year_is_purchase) %}{{ _('The ad says it was bought in {year}.', year=r.claims.year) }}
+      {% elif how in ('ad', 'older') %}{{ _('That is the year the ad gives.') }}
+      {% elif how == 'photo' %}{{ _('Its colour is one only the {year} model came in.', year=year) }}
+      {% else %}{{ _("The ad's details only fit bikes from before {year}.", year=first_year) }}{% endif %}
+    </p>
+    <p>{{ _("Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't put checks like this on the site.", year=first_year) }}</p>
+    <p><a class="btn" href="{{ url_for('home') }}">{{ _('Check another ad') }}</a></p>
+  </section>
+</main>
+{% endblock %}
