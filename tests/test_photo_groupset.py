@@ -19,6 +19,8 @@ RIVAL = {"brand": "SRAM", "series": "Rival", "model_code": "AXS", "speeds": 12, 
                       "evidence_nl": "Foto 9: Rival op de crankarm."},
          "tyres": {"brand": None, "model": None, "width_mm": None, "confidence": "none", "photos": [],
                    "evidence_en": "", "evidence_nl": ""},
+         "wheels": {"brand": "", "model": "", "rim_depth_mm": 0, "rim_material": "unknown", "confidence": "none",
+                    "photos": [], "evidence_en": "", "evidence_nl": ""},
          "frame": {"material": None, "printed": None, "confidence": "none", "photos": [], "evidence_en": "",
                    "evidence_nl": ""},
          "receipt": {"shown": False, "confidence": "none", "photos": [], "date": None, "shop": None, "bike": None,
@@ -238,7 +240,7 @@ def test_all_photos_up_to_20_are_read():
 def test_a_read_from_before_the_crankset_is_read_again(tmp_path, monkeypatch):
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     photo(str(tmp_path / "45" / "01.jpg"))
-    old = {k: v for k, v in RIVAL.items() if k not in ("crankset", "tyres", "frame", "receipt")}
+    old = {k: v for k, v in RIVAL.items() if k not in ("crankset", "tyres", "wheels", "frame", "receipt")}
     (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "read": old}))
     listing = {"id": 45, "title": "Nothing in the hand file", "asking_price": None, "listing_url": None}
     assert photo_groupset.outdated(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
@@ -255,7 +257,7 @@ def test_a_read_from_before_the_crankset_is_read_again(tmp_path, monkeypatch):
 
 def test_a_hand_read_without_crankset_takes_it_from_the_automatic_read(tmp_path, monkeypatch):
     hand = tmp_path / "hand.json"
-    hand.write_text(json.dumps({"marktplaats:m2459123766": {k: v for k, v in RIVAL.items() if k not in ("crankset", "tyres", "frame", "receipt")}}))
+    hand.write_text(json.dumps({"marktplaats:m2459123766": {k: v for k, v in RIVAL.items() if k not in ("crankset", "tyres", "wheels", "frame", "receipt")}}))
     monkeypatch.setattr(photo_groupset, "HAND_FILE", str(hand))
     photo_groupset._hand.__defaults__[0].clear()
     try:
@@ -263,7 +265,7 @@ def test_a_hand_read_without_crankset_takes_it_from_the_automatic_read(tmp_path,
                    "listing_url": "https://www.marktplaats.nl/v/x/y/m2459123766-trek-emonda-sl6"}
         assert photo_groupset.outdated(photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"]))
         os.makedirs(tmp_path / "45")
-        (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "version": 3,
+        (tmp_path / "45" / "groupset.json").write_text(json.dumps({"photos": ["45/01.jpg"], "version": 4,
                                                                    "read": dict(RIVAL, series="Force")}))
         read = photo_groupset.stored(str(tmp_path), listing, ["45/01.jpg"])
         assert read["source"] == "eye" and read["series"] == "Rival" and read["crankset"]["series"] == "Rival"
@@ -394,3 +396,16 @@ def test_the_schema_stays_within_the_apis_limit_of_16_union_fields():
             return sum(unions(v) for v in node)
         return 0
     assert unions(photo_groupset.SCHEMA) <= 16
+
+
+def test_photos_fill_in_the_wheels_the_ad_leaves_out(models):
+    """Check 50: Vision Team rims in the photos."""
+    wheels = {"brand": "Vision", "model": "Team 30", "rim_depth_mm": 30, "rim_material": "aluminium",
+              "confidence": "high", "photos": [3], "evidence_en": "Photo 3: VISION TEAM 30 on the rims.",
+              "evidence_nl": "Foto 3: VISION TEAM 30 op de velgen."}
+    r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, wheels=wheels)), "wheels")
+    assert en(r["listing"]) == "Vision Team 30 aluminium 30 mm (inferred from photo analysis)"
+    assert r["ad_tier"] == 2 and r["photo_why"]["nl"].startswith("Foto 3")
+    # A brand alone isn't enough.
+    only_brand = dict(wheels, model="", rim_depth_mm=0, rim_material="unknown")
+    assert row(run(models, "Trek Emonda SL6", "", dict(RIVAL, wheels=only_brand)), "wheels")["listing"] is None

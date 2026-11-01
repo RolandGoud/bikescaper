@@ -1839,14 +1839,14 @@ def photo_group(read):
 
 
 def photo_part(read, key):
-    """A part ("crankset", "tyres") a read of the ad's photos shows, as detect_part gives it ({"label", "tier"},
+    """A part ("crankset", "tyres", "wheels") a read of the ad's photos shows, as detect_part gives it ({"label", "tier"},
     the tier None when it names a part we can't rate), or None when the read isn't sure enough."""
     from . import photo_groupset
     part = photo_groupset.part_of(read, key)
     if not part:
         return None
     text = photo_groupset.part_text(key, part)
-    return {"label": Msg("{label} (inferred from photo analysis)", label=text),
+    return {"label": Msg("{label} (inferred from photo analysis)", label=text), "text": text,
             "tier": part_tier(PART_TABLES.get(key, (key,)), text)}
 
 
@@ -1938,13 +1938,13 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
     for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
                               ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",))):
         ref_val, ad = spec(model, *keys), claims.get(key)
-        part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres") and not ad else None
+        part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres", "wheels") and not ad else None
         ad = ad or part_seen
         ref_tier = part_tier(PART_TABLES.get(key, (key,)), ref_val) if ref_val else None
         if ad and ref_tier and ad["tier"]:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
                 rows.append(_row(key, part, ref_val, ad["label"], OK, "Same tier", ad_tier=ad["tier"]))
-            elif key == "wheels" and same_wheel_family(ad["label"], ref_val):
+            elif key == "wheels" and same_wheel_family(ad.get("text") or ad["label"], ref_val):
                 rows.append(_row(key, part, ref_val, ad["label"], OK, "Matches", ad_tier=ref_tier))
             else:
                 rows.append(_compare_tiers(key, part, ref_val, ad["label"], ref_tier, ad["tier"]))

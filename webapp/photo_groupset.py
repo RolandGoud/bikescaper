@@ -14,7 +14,7 @@ Two sources, the first found wins:
   is sent anywhere and the report works as before.
 
 The same read names the crankset on its own (often swapped, or another series than the rest), the
-tyres and the frame's material, which fill in those rows when the ad's text doesn't name them, and
+tyres, the wheels and the frame's material, which fill in those rows when the ad's text doesn't name them, and
 reads a purchase receipt when a photo shows one (date, shop, bike, price; never the buyer's details)
 for the age check and as proof of purchase.
 
@@ -64,6 +64,10 @@ Its evidence is about the crankset alone.
 Also read the tyres: brand, model and width as printed on the sidewall (e.g. Continental Grand Prix \
 5000, 28 mm; Schwalbe One, 25 mm), with the same confidence rules and evidence about the tyres alone.
 
+Also read the wheels: the brand and model printed on the rims or hubs (e.g. Vision Team 30, Fulcrum \
+Racing 5, Bontrager Aeolus Elite 35, Zipp 303, DT Swiss R470), the rim depth in mm when printed or \
+clear, and whether the rims are carbon or aluminium. Same confidence rules; evidence about the wheels alone.
+
 Also read the frame: its material (carbon, aluminium, steel or titanium) from the print on the frame \
 (e.g. "OCLV Carbon", "500 Series OCLV", "ALR", "Columbus", "Ti"), welds and tube shapes, and that print \
 as written. "high" when a print names the material, "medium" from clear welds or tube shapes only.
@@ -75,9 +79,10 @@ Never copy the buyer's name, address, phone, e-mail or a frame number. "high" wh
 "medium" when partly readable, "none" and shown false when no photo shows one.
 Photos are numbered from 1 in the order given."""
 
-# 2: the crankset is read too; 3: and the tyres, the frame and a receipt. An older read is read again for them.
-READ_VERSION = 3
-NEWER_PARTS = ("crankset", "tyres", "frame", "receipt")  # what a read of an older version doesn't have
+# 2: the crankset is read too; 3: and the tyres, the frame and a receipt; 4: and the wheels. An older read is read
+# again for them.
+READ_VERSION = 4
+NEWER_PARTS = ("crankset", "tyres", "wheels", "frame", "receipt")  # what a read of an older version doesn't have
 
 SCHEMA = {
     "type": "object",
@@ -119,6 +124,23 @@ SCHEMA = {
             "required": ["brand", "model", "width_mm", "confidence", "photos", "evidence_en", "evidence_nl"],
             "additionalProperties": False,
         },
+        # Wheels without nullable fields: the API allows at most 16 of them; empty or 0 is unknown.
+        "wheels": {
+            "type": "object",
+            "properties": {
+                "brand": {"type": "string", "description": "e.g. Vision, Fulcrum, Bontrager, Zipp; empty if unknown"},
+                "model": {"type": "string", "description": "e.g. Team 30, Racing 5, Aeolus Elite 35; empty if unknown"},
+                "rim_depth_mm": {"type": "integer", "description": "0 if unknown"},
+                "rim_material": {"type": "string", "enum": ["carbon", "aluminium", "unknown"]},
+                "confidence": {"type": "string", "enum": ["high", "medium", "low", "none"]},
+                "photos": {"type": "array", "items": {"type": "integer"}},
+                "evidence_en": {"type": "string"},
+                "evidence_nl": {"type": "string"},
+            },
+            "required": ["brand", "model", "rim_depth_mm", "rim_material", "confidence", "photos", "evidence_en",
+                         "evidence_nl"],
+            "additionalProperties": False,
+        },
         "frame": {
             "type": "object",
             "properties": {
@@ -155,7 +177,7 @@ SCHEMA = {
         },
     },
     "required": ["brand", "series", "model_code", "speeds", "electronic", "confidence", "photos", "evidence_en",
-                 "evidence_nl", "crankset", "tyres", "frame", "receipt"],
+                 "evidence_nl", "crankset", "tyres", "wheels", "frame", "receipt"],
     "additionalProperties": False,
 }
 
@@ -182,21 +204,27 @@ def usable(read):
 
 # Per part of a read: the fields that name it, in the order they read as ad text ("Shimano 105 FC-R7000").
 PART_FIELDS = {"crankset": ("brand", "series", "model_code"), "tyres": ("brand", "model", "width_mm"),
-               "frame": ("material",)}
+               "wheels": ("brand", "model", "rim_material", "rim_depth_mm"), "frame": ("material",)}
 
 
 def part_of(read, key):
     """A part of a read ("crankset", "tyres", "frame") when it's sure enough and names more than a brand."""
     part = (read or {}).get(key) or {}
     fields = PART_FIELDS[key]
-    if part.get("confidence") in USED and any(part.get(f) for f in (fields[1:] or fields)):
+    if part.get("confidence") in USED and any(part.get(f) not in (None, "", 0, "unknown") for f in (fields[1:] or fields)):
         return part
     return None
 
 
 def part_text(key, part):
     """A part of a read as ad text: "Shimano 105 FC-R7000", "Continental Grand Prix 5000 28 mm", "Carbon"."""
-    return " ".join(f"{part[f]} mm" if f == "width_mm" else str(part[f]) for f in PART_FIELDS[key] if part.get(f))
+    words = []
+    for f in PART_FIELDS[key]:
+        value = part.get(f)
+        if not value or value == "unknown" or (f == "rim_material" and str(value).lower() in " ".join(words).lower()):
+            continue
+        words.append(f"{value} mm" if f.endswith("_mm") else str(value))
+    return " ".join(words)
 
 
 def receipt_of(read):
