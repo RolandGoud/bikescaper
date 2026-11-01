@@ -482,23 +482,48 @@ OLD_PAGES = {
 
 def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     """The discontinued bikes of a brand that still serves its old product pages (Specialized: the Tarmac SL8
-    builds, the Venge): every road and gravel page in the Wayback listings that no catalogue model has,
-    read from the brand's own site, with the model year and price the page gives."""
+    builds, the Venge): every road and gravel page that no catalogue model has, read from the brand's own site,
+    with the model year and price the page gives.
+
+    The pages come from the Wayback listings (with cdx_folder) and, for a brand whose scraper has a
+    sitemap_urls (Specialized), from the brand's own sitemap, which also lists the pages the Wayback Machine
+    never saved. The bikes already in data/years/archived/<Brand>.json stay, so a run without the Wayback
+    listings keeps the ones only those found. A page of a model we already have under another product number
+    (the 2024 S-Works Tarmac SL8 next to the 2026 one) adds its model year to that model."""
     import importlib
     from .archive import url_name
     from .common import is_ebike
     module = importlib.import_module(f".{brand.lower()}", __package__)
     family, skip = (re.compile(r) for r in OLD_PAGES[brand])
     fetcher = fetcher or Fetcher(delay=1.0)
+    out = os.path.join(ROOT, "data", "years", "archived", f"{brand}.json")
+    try:
+        with open(out, encoding="utf-8") as fh:
+            bikes = json.load(fh)
+    except (OSError, ValueError):
+        bikes = []
+    archived = {compact(b["name"]): b for b in bikes}
     conn = sqlite3.connect(db_path)
-    seen = {compact(n) for (n,) in conn.execute("SELECT name FROM models WHERE brand = ?", (brand,))}
-    urls = {}
-    for _ts, url in sorted(read_cdx(cdx_folder, brand), reverse=True):  # the newest copy of each URL name
+    seen = {compact(n) for (n,) in conn.execute("SELECT name FROM models WHERE brand = ?", (brand,))} - set(archived)
+    known = {str(b.get("sku")) for b in bikes} | set().union(*(b.get("skus") or [] for b in bikes))
+
+    def wanted(url):
         name = url_name(brand, url)
-        if name and family.match(name) and not skip.search(name) and name not in seen:
-            urls.setdefault(name, url)
-    bikes, sheets, today = [], {}, date.today().isoformat()
-    for _name, url in sorted(urls.items()):
+        return name and family.match(name) and not skip.search(name) and name not in seen
+
+    urls = {}
+    for url in getattr(module, "sitemap_urls", lambda _f: [])(fetcher):  # every product number
+        if wanted(url):
+            urls.setdefault(url.rsplit("/", 1)[-1], url)
+    named = {url_name(brand, u) for u in urls.values()}
+    for _ts, url in sorted(read_cdx(cdx_folder, brand) if cdx_folder else [], reverse=True):
+        if wanted(url) and url_name(brand, url) not in named:  # the newest copy of each URL name the sitemap lacks
+            named.add(url_name(brand, url))
+            urls.setdefault(url.rsplit("/", 1)[-1], url)
+    sheets, today, added = {}, date.today().isoformat(), 0
+    for pid, url in sorted(urls.items()):
+        if pid in known:
+            continue
         page = fetcher.get(url)
         try:
             bike = module.parse(page, url) if page else None
@@ -508,20 +533,31 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
         if not bike or recognised(bike.get("specifications") or {}) < MIN_SPECS or is_ebike(bike["name"], bike["category"], url):
             continue
         bike["name"] = re.sub(r"\s+[–—]\s+", " - ", bike["name"])  # the catalogue writes "SL8 - SRAM RED AXS"
-        if compact(bike["name"]) in seen:  # an old URL that now shows a current bike
-            continue
-        seen.add(compact(bike["name"]))
         slug = compact(bike["name"])
+        if slug in seen:  # an old URL that now shows a current bike
+            continue
         year = str(bike.get("model_year") or "")
-        bike = dict(bike, image=save_photo(fetcher, brand, slug, None, bike.get("image_url"), rel=f"{brand}/archived/{slug}.jpg"),
-                    years=[int(year)] if year.isdigit() else [])
-        bikes.append(bike)
+        ours = archived.get(slug)
+        if ours:  # another model year of a bike we have
+            ours.setdefault("skus", []).append(str(bike.get("sku")))
+            if year.isdigit() and int(year) not in ours.setdefault("years", []):
+                ours["years"] = sorted(ours["years"] + [int(year)])
+            else:
+                continue
+        else:
+            bike = dict(bike, image=save_photo(fetcher, brand, slug, None, bike.get("image_url"), rel=f"{brand}/archived/{slug}.jpg"),
+                        years=[int(year)] if year.isdigit() else [])
+            bikes.append(bike)
+            archived[slug] = bike
+            added += 1
         if year.isdigit():
-            sheets[bike["name"]] = {year: {"captured": today, "url": url, "source": "site", "specs": bike["specifications"],
-                                           "price": bike.get("price"), "colours": bike.get("color_names") or [],
-                                           "image": bike["image"]}}
-        log.info("%s archived: %s %s", brand, bike["name"], year)
+            sheets.setdefault(archived[slug]["name"], {})[year] = {
+                "captured": today, "url": url, "source": "site", "specs": bike["specifications"],
+                "price": bike.get("price"), "colours": bike.get("color_names") or [],
+                "image": bike.get("image") or save_photo(fetcher, brand, slug, year, bike.get("image_url"))}
+        log.info("%s archived: %s %s%s", brand, bike["name"], year, "" if not ours else " (another year)")
     _save_archived(brand, bikes, sheets)
+    log.info("%s archived: %d new models, %d in all", brand, added, len(bikes))
     return bikes
 
 
@@ -606,7 +642,7 @@ if __name__ == "__main__":
     ap.add_argument("--cdx", help="folder with the Wayback Machine listings (for Trek's product numbers)")
     ap.add_argument("--colours", action="store_true", help="only add each colour's photo to the years already read")
     ap.add_argument("--angles", action="store_true", help="only add each colour's other angles to the years already read")
-    ap.add_argument("--archived", action="store_true", help="add the discontinued lines (Trek, Giant; needs --cdx)")
+    ap.add_argument("--archived", action="store_true", help="add the discontinued lines (Trek, Giant: needs --cdx; Specialized also reads its sitemap)")
     ap.add_argument("--models", nargs="*", default=[], help="only these catalogue models (their names)")
     ap.add_argument("--pages", nargs="*", default=[],
                     help="Specialized --colours: the folders with the Wayback copies (wayback.py fetch), whose photo IDs come first")
@@ -615,7 +651,7 @@ if __name__ == "__main__":
     if args.archived:
         for brand in brands:
             read = {"Trek": trek_archived, "Giant": giant_archived}.get(brand)
-            bikes = read(args.cdx, args.db) if read else pages_archived(brand, args.cdx, args.db)
+            bikes = read(args.cdx, args.db) if read else pages_archived(brand, args.cdx, args.db)  # Specialized: --cdx optional
             print(len(bikes), "discontinued", brand, "lines")
         raise SystemExit
     if args.angles:

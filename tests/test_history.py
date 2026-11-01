@@ -210,3 +210,67 @@ def test_a_renamed_giant_reads_its_earlier_names_years():
     assert sorted(years) == ["2025", "2026"]
     assert years["2025"]["sheet_name"] == "TCR Advanced 2"
     assert years["2025"]["url"].endswith("/tcr-advanced-2-2025")
+
+
+def test_specialized_sitemap_lists_pages_the_shop_dropped():
+    from brand_scrapers import specialized
+
+    class Fake:
+        pages = {
+            specialized.SITEMAP: "<sitemapindex><sitemap><loc>https://media.specialized.com/sitemaps/NL-Category-nl-EUR.xml</loc>"
+                                 "</sitemap><sitemap><loc>https://media.specialized.com/sitemaps/NL-Product-nl-EUR.xml</loc></sitemap>",
+            "https://media.specialized.com/sitemaps/NL-Product-nl-EUR.xml":
+                "<url><loc>https://www.specialized.com/nl/p/216955</loc></url>"
+                "<url><loc>https://www.specialized.com/nl/tarmac-sl8-expert-sram-rival-axs/p/216955</loc></url>"
+                "<url><loc>https://www.specialized.com/nl/s-works-venge/p/171336</loc></url>",
+        }
+
+        def get(self, url):
+            return self.pages.get(url)
+
+    assert specialized.sitemap_urls(Fake()) == [
+        "https://www.specialized.com/nl/nl/tarmac-sl8-expert-sram-rival-axs/p/216955",
+        "https://www.specialized.com/nl/nl/s-works-venge/p/171336"]
+
+
+def test_specialized_archived_keeps_what_it_had_and_adds_other_years(tmp_path, monkeypatch):
+    import json
+    import sqlite3
+    from brand_scrapers import specialized
+    (tmp_path / "data" / "years" / "archived").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "site").mkdir()
+    old = {"name": "S-Works Venge", "sku": "171336", "model_year": 2020, "years": [2020], "specifications": {}}
+    (tmp_path / "data" / "years" / "archived" / "Specialized.json").write_text(json.dumps([old]))
+    db = tmp_path / "t.db"
+    conn = sqlite3.connect(db)
+    conn.execute("CREATE TABLE models (brand, name)")
+    conn.executemany("INSERT INTO models VALUES ('Specialized', ?)", [("S-Works Venge",), ("Tarmac SL9 Comp",)])
+    conn.commit()
+    urls = ["https://www.specialized.com/nl/nl/s-works-venge/p/171336",          # already there
+            "https://www.specialized.com/nl/nl/s-works-venge/p/154592",          # another year of it
+            "https://www.specialized.com/nl/nl/tarmac-sl8-expert/p/216955",      # new
+            "https://www.specialized.com/nl/nl/tarmac-sl9-comp/p/4293528",       # on sale
+            "https://www.specialized.com/nl/nl/s-works-venge-frameset/p/171335"]  # a frameset
+    bikes = {"154592": ("S-Works Venge", 2019), "216955": ("Tarmac SL8 Expert – SRAM Rival AXS", 2024)}
+    fetched = []
+
+    def parse(page, url):
+        name, year = bikes[url.rsplit("/", 1)[-1]]
+        return {"name": name, "model_year": year, "sku": url.rsplit("/", 1)[-1], "category": "Race", "price": 1,
+                "specifications": {}, "image_url": None, "color_names": []}
+
+    class Fake:
+        def get(self, url):
+            fetched.append(url)
+            return "page"
+
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(specialized, "sitemap_urls", lambda _f: urls)
+    monkeypatch.setattr(specialized, "parse", parse)
+    monkeypatch.setattr(history, "recognised", lambda _s: 99)
+    found = history.pages_archived("Specialized", None, str(db), fetcher=Fake())
+    assert sorted(fetched) == sorted(urls[1:3])
+    assert [(b["name"], b["years"]) for b in found] == [("S-Works Venge", [2019, 2020]),
+                                                         ("Tarmac SL8 Expert - SRAM Rival AXS", [2024])]
+    sheets = json.loads((tmp_path / "data" / "years" / "site" / "Specialized.json").read_text())["models"]
+    assert sorted(sheets["S-Works Venge"]) == ["2019"] and sorted(sheets["Tarmac SL8 Expert - SRAM Rival AXS"]) == ["2024"]
