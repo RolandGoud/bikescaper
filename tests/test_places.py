@@ -83,6 +83,29 @@ def test_map_lists_the_ads_per_town_busiest_first(tmp_path):
     assert '<section class="map-town" data-pin="1">' in page and '<section class="map-town" data-pin="0" hidden>' in page
 
 
+def test_map_switches_between_the_netherlands_and_belgium(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    for title, place in [("Trek Domane SL6 2022", "Utrecht"), ("Trek Emonda SL5 2021", "Utrecht"),
+                         ("Canyon Endurace CF 7", "Gent")]:
+        client.post("/check", data={"title": title, "asking_price": "1500", "location": place})
+    page = client.get("/listings/map?lang=en").data.decode()
+    switch = page.split('<div class="filters map-countries"', 1)[1].split("</div>", 1)[0]
+    assert 'aria-current="page">All<span class="count">3</span>' in switch
+    assert 'Netherlands<span class="count">2</span>' in switch and 'Belgium<span class="count">1</span>' in switch
+    assert 'href="/listings/map?country=BE"' in switch
+    assert page.count('class="map-flag"') == 2 + 2  # one per country in the switch, one per town in the list
+    # Belgium only: just Gent on the map and in the list, and its town link stays in Belgium.
+    page = client.get("/listings/map?country=be&lang=en").data.decode()
+    pins = json.loads(page.split("var pins = ", 1)[1].split(";\n", 1)[0])
+    assert [p["place"] for p in pins] == ["Gent"]
+    assert '<a class="pill on" href="/listings/map?country=BE" aria-current="page">' in page
+    assert 'href="/listings/map?place=Gent&amp;cc=BE&amp;country=BE"' in page
+    # An unknown country shows everything.
+    assert len(json.loads(client.get("/listings/map?country=XX").data.decode().split("var pins = ", 1)[1].split(";\n", 1)[0])) == 2
+
+
 def test_benelux_shapes_have_the_lakes_and_the_border():
     with open(os.path.join(os.path.dirname(places.__file__), "static", "benelux.json"), encoding="utf-8") as f:
         kinds = [x["properties"]["kind"] for x in json.load(f)["features"]]
@@ -101,7 +124,8 @@ def test_town_list_comes_in_pages(tmp_path, monkeypatch):
 
     def shown(page):  # the towns on the visible page of the list
         towns = page.split('<nav class="map-index"', 1)[1].split('<div class="map-pager"', 1)[0].split("<a ")[1:]
-        return [t.split('class="map-index-name">')[1].split("<")[0] for t in towns if " hidden>" not in t.split(">")[0] + ">"]
+        return [t.split('class="map-index-name">')[1].split("</svg><span>")[1].split("<")[0]
+                for t in towns if " hidden>" not in t.split(">")[0] + ">"]
     page = client.get("/listings/map?lang=en").data.decode()
     assert shown(page) == ["Utrecht", "Gent"] and 'href="/listings/map?page=2"' in page
     page = client.get("/listings/map?page=2&lang=en").data.decode()

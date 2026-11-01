@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 {% block body %}
+{# A small flag in muted colours: the Netherlands in horizontal stripes, Belgium in vertical ones. #}
+{% macro flag(cc) %}<svg class="map-flag" viewBox="0 0 3 3" preserveAspectRatio="none" aria-hidden="true">{% if cc == 'BE' %}<rect width="1" height="3" fill="var(--flag-black)"/><rect x="1" width="1" height="3" fill="var(--flag-gold)"/><rect x="2" width="1" height="3" fill="var(--flag-red)"/>{% else %}<rect width="3" height="1" fill="var(--flag-red)"/><rect y="1" width="3" height="1" fill="var(--flag-white)"/><rect y="2" width="3" height="1" fill="var(--flag-blue)"/>{% endif %}</svg>{% endmacro %}
 {# The Netherlands and Belgium as a grid of dots (webapp/static/benelux.json), one glowing pin per town with
    checked ads in the colour of its most urgent price verdict, and beside it the towns, most ads first.
    Picking a town (its pin or its name) shows only that town's ads and gives the page
@@ -18,6 +20,14 @@
     <a class="pill" href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
     <a class="pill on" href="{{ url_for('listings_map') }}" aria-current="page">{{ _('On the map') }}</a>
   </div>
+  {% if countries|sum(attribute='ads') %}
+  <div class="filters map-countries" aria-label="{{ _('Countries') }}">
+    <a class="pill{{ ' on' if not country }}" href="{{ all_url }}"{% if not country %} aria-current="page"{% endif %}>{{ _('All') }}<span class="count">{{ countries|sum(attribute='ads') }}</span></a>
+    {% for c in countries %}
+    <a class="pill{{ ' on' if country == c.code }}" href="{{ c.url }}"{% if country == c.code %} aria-current="page"{% endif %}>{{ flag(c.code) }}{{ c.name }}<span class="count">{{ c.ads }}</span></a>
+    {% endfor %}
+  </div>
+  {% endif %}
   <div class="ads-map-page">
     <div class="ads-map-col">
       <div class="map-legend small muted">{# above the map, so the map's foot lines up with the end of the town list #}
@@ -37,7 +47,7 @@
         {% for pin in pins %}
         {% set on_page = loop.index0 // per_page + 1 %}
         <a class="map-index-town" href="{{ pin.link }}" data-pin="{{ loop.index0 }}" data-page="{{ on_page }}"{% if on_page != page %} hidden{% endif %}>
-          <span class="map-index-name">{{ pin.place }}</span>
+          <span class="map-index-name">{{ flag(pin.country) }}<span>{{ pin.place }}</span></span>
           <span class="map-index-dots" aria-hidden="true">{% for ad in pin.ads[:8] %}<b class="map-dot {{ ad.status }}"></b>{% endfor %}</span>
           <span class="map-index-count">{{ pin.ads|length }}</span>
         </a>
@@ -70,7 +80,11 @@
       </section>
       {% endfor %}
       {% if not pins %}
+      {% if country %}
+      <div class="card"><p>{{ _('No ads with a known place in this country yet.') }} <a href="{{ all_url }}">{{ _('All places') }}</a></p></div>
+      {% else %}
       <div class="card"><p>{{ _('No ads with a known place yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
+      {% endif %}
       {% endif %}
     </div>
   </div>

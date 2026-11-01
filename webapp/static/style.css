@@ -1335,7 +1335,13 @@ select { max-width: 100%; }
 
 /* The listings map (/listings/map): NL and BE as a grid of dots, glowing pins in the verdict colours,
    and the ads per town beside it. */
-:root { --map-land: #4A4F5B; }
+:root { --map-land: #4A4F5B; --flag-red: #B9545A; --flag-white: #E6E3DE; --flag-blue: #3F5F97; --flag-black: #25262B; --flag-gold: #D8B44A; }
+/* The country switch (All / Netherlands / Belgium) and the small flags in it and in the town list. */
+.map-countries .pill { display: inline-flex; align-items: center; gap: 9px; }
+.map-countries .pill .count { margin-left: 0; }
+.map-flag { width: 21px; height: 14px; flex: none; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .18); }
+.map-index-name { display: flex; align-items: center; gap: 10px; }
+.map-index-name > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .ads-map-page { display: grid; grid-template-columns: minmax(340px, 460px) 1fr; gap: 24px; align-items: start; }
 .ads-map-col { position: relative; display: grid; gap: 12px; will-change: transform; }  /* moved along by the page script */
 .ads-map { aspect-ratio: 3 / 4; width: 100%; border-radius: 14px; border: 1px solid var(--line); z-index: 0; }
@@ -1395,6 +1401,7 @@ select { max-width: 100%; }
   .ads-map-col { position: static; }
   .ads-map { aspect-ratio: auto; height: 70vh; max-height: 560px; }
 }
+@media (max-width: 480px) { .map-countries { gap: 8px; } .map-countries .pill { padding: 8px 11px; gap: 6px; } }
 @media (max-width: 480px) { .map-ad { grid-template-columns: 76px 1fr; gap: 10px; } .map-ad-photo { width: 76px; height: 56px; } }
 /* An ad's town, linking to the listings map opened there. */
 .place-link { color: inherit; cursor: pointer; text-decoration: underline dotted; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
