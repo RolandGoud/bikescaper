@@ -360,3 +360,24 @@ def test_a_rerun_keeps_the_years_it_did_not_read_again(tmp_path, monkeypatch):
     years = json.loads(sheet.read_text())["models"]["Domane AL 2 Gen 4"]
     assert sorted(years) == ["2022", "2025"]
     assert years["2022"]["colour_angles"]  # as it was
+
+
+def test_a_rerun_keeps_a_year_set_by_hand(tmp_path, monkeypatch):
+    import json
+    import sqlite3
+    from brand_scrapers import history
+    (tmp_path / "data" / "years" / "site").mkdir(parents=True)
+    sheet = tmp_path / "data" / "years" / "site" / "Trek.json"
+    sheet.write_text(json.dumps({"years": [2023], "models": {"Émonda SL 6": {
+        "2023": {"colours": ["Trek Black/Radioactive Red"], "manual": "by hand"}}}}))
+    db = tmp_path / "t.sqlite3"
+    conn = sqlite3.connect(db)
+    conn.execute("CREATE TABLE models (brand, name, url)")
+    conn.execute("INSERT INTO models VALUES ('Trek', 'Émonda SL 6', 'x')")
+    conn.commit()
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(history, "trek_codes", lambda folder: [])
+    monkeypatch.setattr(history, "trek_collect", lambda models, fetcher, years, codes: {
+        "Émonda SL 6": {"2023": {"colours": ["Crimson"]}}})
+    history.run(["Trek"], str(db), range(2020, 2027), names=["Émonda SL 6"])
+    assert json.loads(sheet.read_text())["models"]["Émonda SL 6"]["2023"]["colours"] == ["Trek Black/Radioactive Red"]

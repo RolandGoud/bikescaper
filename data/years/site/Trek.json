@@ -20630,6 +20630,62 @@
     },
     "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/%C3%A9monda/%C3%A9monda-sl/%C3%A9monda-sl-6-disc/a/32561/"
    },
+   "2023": {
+    "captured": "2026-11-01",
+    "colour_angles": {
+     "Trek Black/Radioactive Red": [
+      "Trek/years/emondasl6_2023_trekblackradioactivered_1_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_2_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_3_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_4_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_5_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_6_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_7_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_8_site.jpg",
+      "Trek/years/emondasl6_2023_trekblackradioactivered_9_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Trek Black/Radioactive Red": "Trek/years/emondasl6_2023_trekblackradioactivered_site.jpg"
+    },
+    "colours": [
+     "Trek Black/Radioactive Red"
+    ],
+    "image": "Trek/years/emondasl6_2023_trekblackradioactivered_site.jpg",
+    "manual": "colours from the 2022 sheet, specs from the 2023 Émonda SL 6 Di2 sheet (Roland, 2026-11-01)",
+    "price": null,
+    "sheet_name": "Émonda SL 6 Di2",
+    "sheet_years": "2023",
+    "source": "site",
+    "specs": {
+     "Accu": "Shimano BT-DN300",
+     "Achterderailleur": "Shimano 105 R7150 Di2, max. tandwielgrootte 36T",
+     "Armor": "Trek P1 Road achterbrugbeschermer",
+     "As achterwiel": "Bontrager Switch steekas",
+     "As voorwiel": "Bontrager Switch steekas",
+     "Bottom bracket": "Praxis, T47 met schroefdraad, interne lagers",
+     "Buitenband": "Bontrager R2 Hard-Case Lite, aramide hieldraad, 60 tpi, 700 x 28 mm",
+     "Cassette": "Shimano 105 7100, 11-34, 12-speed",
+     "Crankstel": "Shimano 105 R7100, 50/34, 165 mm lengte",
+     "Frame": "Ultralicht 500 Series OCLV Carbon, Ride Tuned prestatiegerichte buisoptimalisatie, taps toelopende balhoofdbuis, interne kabelgeleiding, geschikt voor DuoTrap S, flat-mount schijfrembevestiging, 142 x 12 mm steekas",
+     "Ketting": "Shimano SLX M7100, 12-speed",
+     "Lager": "FSA geïntegreerd, afgedichte industrielagers, 1-1/8\" bovenzijde, 1.5\" onderzijde",
+     "Naaf achter": "Bontrager Affinity Comp, Shimano 11/12 speed freehub, 142x12mm thru axle",
+     "Naaf voor": "Bontrager lichtmetaal, afgedichte lagers, centerlock disc, 100 x 12 mm steekas",
+     "Rem": "Shimano 105 hydraulic disc, BR-R7170 flat mount caliper, resin pad w/fin",
+     "Remschijf": "Shimano RT70, centerlock, 160 mm",
+     "Shifter": "Shimano 105 R7170 Di2, 12-speed",
+     "Stuur": "Bontrager Elite VR-C, lichtmetaal, 31,8 mm, 100 mm reach, 124 mm drop, 38 cm breedte",
+     "Stuurlint": "Bontrager Supertack geperforeerd stuurlint",
+     "Stuurpen": "Bontrager Pro, 31,8 mm, geschikt voor Blendr, 7 graden, 70 mm lengte",
+     "Velg": "Bontrager Paradigm Comp, Tubeless Ready, 24-gaats, 21 mm velgbreedte, Presta-ventiel",
+     "Voorderailleur": "Shimano 105 R7150 Di2, aanlasnok, down-swing",
+     "Voorvork": "Émonda SL full carbon, taps toelopende carbon stuurbuis, interne remkabelgeleiding, Flat-Mount schijfrem, 12 x 100 mm steekas",
+     "Zadel": "Bontrager Aeolus Comp, stalen rails, 145 mm breedte",
+     "Zadelpen": "Bontrager carbon seatmast cap, 20 mm offset, korte versie"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/%C3%A9monda/%C3%A9monda-sl/%C3%A9monda-sl-6-di2/a/36958/"
+   },
    "2024": {
     "captured": "2026-10-24",
     "colour_angles": {
