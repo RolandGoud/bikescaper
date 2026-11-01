@@ -133,15 +133,32 @@ def test_recheck_marks_removed_ads(tmp_path):
     assert got[1] == ("2026-10-22 12:00:00", "2026-10-22 12:00:00")
     assert got[2] == ("2026-10-22 12:00:00", None)
     assert got[3] == (None, None)
-    # Checked ones wait a day; the unsure one is retried.
+    # The next pass asks the just-removed one once more to be sure, and retries the unsure one;
+    # the live one waits a day. Still gone keeps the first date and isn't counted twice.
     asked.clear()
-    recheck.run(conn, now=now + timedelta(hours=2), status=status, pause=0)
-    assert [fetch_ad.ad_id(u) for u in asked] == ["a300000"]
-    # A day on, removed ones are asked again too: still gone keeps the first date, not counted twice.
-    asked.clear()
-    assert recheck.run(conn, now=now + timedelta(hours=21), status=status, pause=0) == 0
-    assert [fetch_ad.ad_id(u) for u in asked] == ["a100000", "a200000", "a300000"]
+    assert recheck.run(conn, now=now + timedelta(hours=2), status=status, pause=0) == 0
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a100000", "a300000"]
     assert conn.execute("SELECT removed_at FROM checks WHERE id = 1").fetchone()[0] == "2026-10-22 12:00:00"
+    asked.clear()
+    recheck.run(conn, now=now + timedelta(hours=3), status=status, pause=0)
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a300000"]
+    asked.clear()
+    recheck.run(conn, now=now + timedelta(hours=23), status=status, pause=0)
+    assert [fetch_ad.ad_id(u) for u in asked] == ["a100000", "a200000", "a300000"]
+
+
+def test_ads_marked_gone_by_older_code_are_asked_again_whatever_their_age(tmp_path):
+    from datetime import datetime
+
+    from webapp import recheck
+
+    conn = db.connect(str(tmp_path / "app.sqlite3"))
+    # Checked 200 days ago, wrongly marked gone the moment it was last asked.
+    conn.execute("INSERT INTO checks (listing_url, title, created_at, last_checked_at, removed_at) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/a100000-x', 't', '2026-04-05 10:00:00',"
+                 " '2026-10-21 10:00:00', '2026-10-21 10:00:00')")
+    recheck.run(conn, now=datetime(2026, 10, 21, 11, 0), status=lambda url: "live", pause=0)
+    assert conn.execute("SELECT removed_at FROM checks").fetchone()[0] is None
 
 
 def test_recheck_brings_back_a_wrongly_removed_ad(tmp_path):
@@ -195,6 +212,39 @@ def test_only_a_real_not_found_counts_as_gone(monkeypatch):
     assert fetch_ad.ad_status(link) is None and len(asked) == 2
     monkeypatch.setattr(fetch_ad._opener, "open", fake(lambda u: (404, None)))
     assert fetch_ad.ad_status(link) == "removed"
+
+
+def test_the_sites_expired_page_means_expired(monkeypatch):
+    import io
+    import urllib.error
+
+    # Trimmed from Marktplaats's answer for an ad whose run ran out: 410 and this page.
+    page = (b'<div id="eVip-root"><div class="ExpiredListing-module-root"><h1>Deze advertentie is helaas verlopen</h1>'
+            b'<span>VERLOPEN</span></div></div><script>window.__CONFIG__ = {"listing":{"itemId":"m2459438595"}};</script>')
+
+    def answer(body, code):
+        def open_(request, timeout=None):
+            raise urllib.error.HTTPError(request.full_url, code, "x", {}, io.BytesIO(body))
+        return open_
+
+    link = "https://www.marktplaats.nl/v/a/b/m2459438595-trek-domane"
+    monkeypatch.setattr(fetch_ad._opener, "open", answer(page, 410))
+    assert fetch_ad.ad_status(link) == "expired"
+    monkeypatch.setattr(fetch_ad._opener, "open", answer(b"Not Found", 404))
+    assert fetch_ad.ad_status(link) == "removed"
+
+
+def test_recheck_takes_expired_from_the_site(tmp_path):
+    from datetime import datetime
+
+    from webapp import recheck
+
+    conn = db.connect(str(tmp_path / "app.sqlite3"))
+    # Marked gone before we could tell why; the site now says it expired.
+    conn.execute("INSERT INTO checks (listing_url, title, last_checked_at, removed_at) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/m100000-x', 't', '2026-10-20 12:00:00', '2026-10-20 12:00:00')")
+    recheck.run(conn, now=datetime(2026, 10, 22, 12, 0), status=lambda url: ("expired", None), pause=0)
+    assert tuple(conn.execute("SELECT removed_at, gone_reason FROM checks").fetchone()) == ("2026-10-20 12:00:00", "expired")
 
 
 def test_recheck_tells_expired_from_removed(tmp_path):
@@ -446,3 +496,24 @@ def test_report_and_tiles_show_the_site_the_ad_was_found_on(tmp_path):
         assert f'alt="Gevonden op {site}"' in tiles
     assert tiles.count('class="site-mark"') == 3
     assert tiles.count('class="ad-source"><span class="site-mark"') == 3  # in the tile body, not on the photo
+
+
+def test_the_recheck_button_asks_the_site_again(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, removed_at, gone_reason) VALUES"
+                 " ('https://www.marktplaats.nl/v/a/b/a1-x', 'Trek Domane SL6 2022', '2026-10-21 08:00:00', 'removed')")
+    conn.commit()
+    app.config["AD_STATUS"] = lambda url: ("live", "2026-10-01 08:00:00")
+    client = app.test_client()
+    assert client.post("/check/1/recheck").status_code == 302
+    row = conn.execute("SELECT removed_at, gone_reason, posted_at FROM checks WHERE id = 1").fetchone()
+    assert tuple(row) == (None, None, "2026-10-01 08:00:00")
+    assert "removed-tag" not in client.get("/check/1?lang=nl").data.decode()
+    # Couldn't tell (blocked, time-out): the mark stays as it was.
+    conn.execute("UPDATE checks SET removed_at = '2026-10-21 08:00:00' WHERE id = 1")
+    conn.commit()
+    app.config["AD_STATUS"] = lambda url: (None, None)
+    client.post("/check/1/recheck")
+    assert conn.execute("SELECT removed_at FROM checks WHERE id = 1").fetchone()[0] == "2026-10-21 08:00:00"
