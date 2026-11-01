@@ -2799,8 +2799,10 @@ def pre_2018_year(report):
     claimed = claims.get("year")
     year = report.get("year") if report.get("model") else None
     purchase = claims.get("year_is_purchase") or (year or {}).get("how") == "purchase"
-    if claimed and purchase and claimed + 1 < FIRST_YEAR:
-        return claimed
+    if claimed and purchase:
+        # Only the purchase year counts, however the report places the bike ("older" than the generations we know
+        # when they start later than it was bought): bought in 2017, it may be a 2018 model.
+        return claimed if claimed + 1 < FIRST_YEAR else None
     if not year:
         return claimed if claimed and claimed < FIRST_YEAR and not purchase else None
     if not year.get("year") or year["year"] >= FIRST_YEAR:
