@@ -1425,11 +1425,25 @@ select { max-width: 100%; }
 .pill-menu[hidden] { display: none; }
 .pill-search { height: 40px; width: 100%; font-size: 15px; }
 .pill-search:focus { border-color: var(--accent); outline: none; }
-.pill-menu ul { margin: 0; padding: 4px; list-style: none; display: flex; flex-direction: column; gap: 4px; max-height: min(60vh, 460px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
-/* At most 8 pills show (36px each, 4px apart, plus the list's padding); the rest scroll, with a visible scrollbar. */
-.pill-menu ul { --rows: 8; max-height: calc(var(--rows) * 36px + (var(--rows) - 1) * 4px + 8px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; scrollbar-gutter: stable; }
-.pill-menu ul::-webkit-scrollbar { width: 8px; }
-.pill-menu ul::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
+.pill-menu ul { margin: 0; padding: 4px; list-style: none; display: flex; flex-direction: column; gap: 4px; overscroll-behavior: contain; }
+/* At most 8 pills show (36px each, 4px apart, plus the list's padding); the rest scroll. There's no scrollbar:
+   round arrow buttons (pill-select.js) show centred over the top and bottom edge while there's more that way.
+   The frame reaches 4px past the search box on each side, so the pills inside the list's 4px padding (room for the
+   picked pill's ring) are exactly as wide as the search box. scroll-padding keeps a pill reached with the keys clear
+   of the arrows. */
+.pill-scroll { position: relative; margin: 0 -4px; }
+.pill-scroll > ul { --rows: 8; max-height: calc(var(--rows) * 36px + (var(--rows) - 1) * 4px + 8px); overflow-y: auto; scrollbar-width: none; scroll-padding-block: 40px; }
+.pill-scroll > ul::-webkit-scrollbar { display: none; }
+.pill-arrow { position: absolute; left: 0; right: 0; z-index: 2; height: 44px; display: flex; justify-content: center; align-items: center; padding: 0; border: 0; background: none; cursor: pointer; pointer-events: none; }
+.pill-arrow[hidden] { display: none; }
+.pill-arrow.up { top: 0; padding-bottom: 10px; background: linear-gradient(rgba(12, 13, 16, .95), rgba(12, 13, 16, 0)); }
+.pill-arrow.down { bottom: 0; padding-top: 10px; background: linear-gradient(rgba(12, 13, 16, 0), rgba(12, 13, 16, .95)); }
+.pill-arrow::before { content: ""; position: absolute; left: 50%; width: 30px; height: 30px; margin-left: -15px; border-radius: 50%; background: var(--raised); border: 1px solid var(--line-strong); box-shadow: 0 4px 12px rgba(0, 0, 0, .6); pointer-events: auto; }
+.pill-arrow.up::before { top: 2px; }
+.pill-arrow.down::before { bottom: 2px; }
+@media (hover: hover) { .pill-arrow:hover::before { border-color: var(--accent); } }
+.pill-arrow .chevron { position: relative; width: 14px; height: 14px; fill: none; stroke: var(--text); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pill-arrow.up .chevron { transform: rotate(180deg); }
 .pill-menu [role="option"] { cursor: pointer; }
 .pill-menu [role="option"][hidden], .pill-menu .group[hidden] { display: none; }
 .pill-menu [role="option"] .tier { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 36px; padding: 6px 12px; font-size: 15px; line-height: 1.3; white-space: normal; border-radius: var(--pill-radius); }

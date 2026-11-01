@@ -9,9 +9,12 @@
 // shows every matching option under its family instead. Options there show their data-short label.
 // An option with data-logo (an image URL) shows that logo instead of its name, in the pill and in the closed button,
 // tinted in the text colour so it reads on the dark pills. The name stays for screen readers and the search box.
+// A list too long for the menu has no scrollbar: a round arrow button shows centred above and/or below the visible
+// pills while there's more that way, over a fade. Clicking one scrolls a few rows; the wheel, swipes and keys work as before.
 (() => {
   const check = '<svg class="check" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 4"/></svg>';
   const chevron = '<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>';
+  const STEP = 3 * 40;  // an arrow click scrolls three pills (36px each, 4px apart)
   const SEARCH_FROM = 13;  // options; shorter lists are quick enough to scan
   const lang = document.documentElement.lang || "nl";
   const searchText = lang.startsWith("en") ? "Search…" : "Zoeken…";
@@ -70,7 +73,28 @@
     const name = nameOf(select);
     if (name) { button.setAttribute("aria-label", name); list.setAttribute("aria-label", name); }
     let search = null;
-    menu.append(list);
+    // the list sits in a frame with the scroll arrows over its top and bottom edges
+    const frame = el("div", "pill-scroll");
+    const arrow = (dir) => {
+      const a = el("button", `pill-arrow ${dir}`);
+      a.type = "button";
+      a.tabIndex = -1;  // keyboard users move with the arrow keys
+      a.setAttribute("aria-hidden", "true");
+      a.innerHTML = chevron;
+      a.hidden = true;
+      a.addEventListener("pointerdown", (e) => e.preventDefault());  // keep focus in the search box
+      a.addEventListener("click", () => list.scrollBy({ top: dir === "up" ? -STEP : STEP, behavior: "smooth" }));
+      return a;
+    };
+    const up = arrow("up"), down = arrow("down");
+    const arrows = () => {
+      up.hidden = list.scrollTop <= 1;
+      down.hidden = list.scrollTop + list.clientHeight >= list.scrollHeight - 1;
+    };
+    list.addEventListener("scroll", arrows, { passive: true });
+    if (window.ResizeObserver) new ResizeObserver(arrows).observe(list);
+    frame.append(list, up, down);
+    menu.append(frame);
 
     const families = select.hasAttribute("data-families");
     if (families) menu.classList.add("families");
@@ -182,6 +206,7 @@
         if (!one) p.chip.setAttribute("aria-expanded", p === opened && !searching);
       });
       list.querySelectorAll(".type, .fam-row").forEach((x) => { x.hidden = searching; });
+      arrows();
     };
     const openFamily = (panel) => {
       opened = opened === panel ? null : panel;
@@ -199,6 +224,7 @@
       });
       layout();
       setActive(shown()[0]);
+      arrows();
     };
     const render = () => {
       // a disabled select (Model before a Brand is picked) shows a greyed-out button that doesn't open
@@ -232,6 +258,7 @@
       layout();
       if (search) { search.value = ""; filter(); search.focus(); }
       setActive(items.find((li) => li.option === select.options[select.selectedIndex]) || shown()[0]);
+      arrows();
       document.addEventListener("pointerdown", outside, true);
     };
     const close = (refocus) => {
