@@ -21,6 +21,9 @@ overwritten, so the catalogue builds history over time.
 | Orbea | https://www.orbea.com/nl-nl/ | Built (`brand_scrapers/orbea.py`): family pages and embedded product data, fetched with a visible Chrome window from a home PC (Cloudflare blocks servers and headless browsers) |
 | Cube | https://www.cube.eu/nl-nl/ | Built (`brand_scrapers/cube.py`): family pages, one product per colour |
 | Factor | https://eu.factorbikes.com/ | Built (`brand_scrapers/factor.py`): EU store (eu.factorbikes.com), euro prices |
+| Lapierre | https://lapierrebikes.com/en-be | Built (`brand_scrapers/lapierre.py`): Shopify store, Belgian prices (no Dutch site); model year from the photo names |
+| Bianchi | https://www.bianchi.com/en/ | Built (`brand_scrapers/bianchi.py`): WooCommerce Store API, euro list prices (no Dutch site); model year from the product code; older builds into `data/years/site/` |
+| BMC | https://nl.bmc-switzerland.com/ | Built (`brand_scrapers/bmc.py`): Shopify store with NL prices and rider heights per model; the Bike Archive (2016 on) gives earlier years and discontinued lines |
 
 Before building each adapter: check the site's terms and robots.txt, and whether the brand
 offers a dealer or product feed instead.

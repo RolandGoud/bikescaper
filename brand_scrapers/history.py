@@ -436,6 +436,53 @@ def _save_archived(brand, bikes, sheets):
         json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
 
 
+def own_years(brand, found, kept, fetcher):
+    """The model years a brand's own store still lists besides the newest (Bianchi sells one build under the same
+    name for several seasons; BMC keeps a Bike Archive back to 2016), read in the same run as the catalogue.
+
+    `found` is every bike the adapter read, `kept` the catalogue after dedupe (the newest year of each name). The
+    older years of a catalogue model go into data/years/site/<Brand>.json; a line that only older years have (the
+    BMC Timemachine 01) into data/years/archived/<Brand>.json, with its years next to the others. Both files are
+    written anew, since the store lists every year it has each time."""
+    today = date.today().isoformat()
+    newest = {b["name"]: b.get("model_year") for b in kept}
+
+    def sheet(bike, year):
+        slug = compact(bike["name"])
+        urls = dict(zip(bike.get("color_names") or [], bike.get("color_image_urls") or []))
+        return {"captured": today, "url": bike["url"], "source": "site", "specs": bike.get("specifications") or {},
+                "price": bike.get("price"), "colours": bike.get("color_names") or [],
+                "image": save_photo(fetcher, brand, slug, year, bike.get("image_url")),
+                "colour_images": colour_photos(fetcher, brand, slug, year, urls)}
+
+    sheets, lines = {}, {}
+    for bike in found:
+        year = bike.get("model_year")
+        if not year or recognised(bike.get("specifications") or {}) < MIN_SPECS:
+            continue
+        if bike["name"] in newest:
+            if year != newest[bike["name"]]:
+                sheets.setdefault(bike["name"], {})[str(year)] = sheet(bike, year)
+        else:
+            lines.setdefault(bike["name"], []).append(bike)
+    years = sorted({b["model_year"] for b in found if b.get("model_year")})
+    os.makedirs(os.path.join(ROOT, "data", "years", "site"), exist_ok=True)
+    with open(os.path.join(ROOT, "data", "years", "site", f"{brand}.json"), "w", encoding="utf-8") as fh:
+        json.dump({"checked_on": today, "years": years, "source": f"{brand}'s own store", "models": sheets},
+                  fh, ensure_ascii=False, indent=1, sort_keys=True)
+    archived, archived_sheets = [], {}
+    for name, bikes in sorted(lines.items()):
+        bikes.sort(key=lambda b: b["model_year"])
+        line = dict(bikes[-1], years=[b["model_year"] for b in bikes],
+                    image=save_photo(fetcher, brand, compact(name), None, bikes[-1].get("image_url"),
+                                     rel=f"{brand}/archived/{compact(name)}.jpg"))
+        archived.append(line)
+        archived_sheets[name] = {str(b["model_year"]): sheet(b, b["model_year"]) for b in bikes}
+        log.info("%s archived: %s %s", brand, name, line["years"])
+    _save_archived(brand, archived, archived_sheets)
+    return sum(len(v) for v in sheets.values()), len(archived)
+
+
 def giant_archived(cdx_folder, db_path, fetcher=None, years=range(FIRST_YEAR, date.today().year + 1)):
     """Giant's discontinued lines (Defy Advanced SL, Contend SL): the bike pages in the Wayback listings whose
     line no catalogue model carries. Giant still serves a page per model year (/nl/defy-advanced-sl-1-2022)."""

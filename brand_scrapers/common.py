@@ -59,6 +59,21 @@ class Fetcher:
         return None
 
 
+def shopify_products(fetcher, base):
+    """Every product of a Shopify store, from its public /products.json (250 a page)."""
+    products = []
+    for page in range(1, 41):
+        text = fetcher.get(f"{base}/products.json?limit=250&page={page}")
+        try:
+            batch = json.loads(text or "{}").get("products") or []
+        except ValueError:
+            batch = []
+        products += batch
+        if len(batch) < 250:
+            break
+    return products
+
+
 def clean(text):
     text = html.unescape(re.sub(r"<[^>]+>", " ", text or ""))
     return re.sub(r"\s+", " ", text).replace(" ", " ").strip()
@@ -139,6 +154,20 @@ def normalize_specs(pairs):
         elif label not in specs:
             specs[label] = value
     return specs
+
+
+def first_of_each(pairs, labels=None):
+    """[(label, value)] with a brand's own labels mapped (None drops the row) and only the first row of each
+    spec kept: Bianchi's pages repeat part of the sheet under other labels ("Seatpost" after "Seat post")."""
+    seen, out = set(), []
+    for label, value in pairs:
+        label = clean(label)
+        label = (labels or {}).get(label.lower().rstrip(":"), label)
+        key = label and _LABEL_TO_KEY.get(label.lower().rstrip(":"), label)
+        if key and clean(value) and key not in seen:
+            seen.add(key)
+            out.append((label, value))
+    return out
 
 
 def parse_price(text):

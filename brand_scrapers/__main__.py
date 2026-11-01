@@ -11,10 +11,13 @@ import argparse
 import logging
 from datetime import datetime
 
-from . import cannondale, cube, factor, giant, orbea, scott, specialized, trek
+from . import bianchi, bmc, cannondale, cube, factor, giant, lapierre, orbea, scott, specialized, trek
 from .common import Fetcher, dedupe, log, save_colour_images, save_image, write_snapshot
 
-ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea, trek)}
+ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea, trek,
+                                         lapierre, bianchi, bmc)}
+# Brands whose store lists earlier model years too (and BMC its Bike Archive): those go to data/years/ in the same run.
+OWN_YEARS = (bianchi, bmc)
 
 
 def run(names, limit=None, images=True):
@@ -23,13 +26,19 @@ def run(names, limit=None, images=True):
     written = {}
     for name in names:
         adapter = ADAPTERS[name]
-        bikes = dedupe(adapter.scrape(fetcher, limit=limit))
+        found = adapter.scrape(fetcher, limit=limit)
+        bikes = dedupe(found)
         for bike in bikes:
             bike["image"] = save_image(fetcher, adapter.BRAND, bike["name"], bike.get("image_url")) if images else None
             if images:
                 save_colour_images(fetcher, bike)
         bikes.sort(key=lambda b: (b["category"], b["name"]))
         written[adapter.BRAND] = (write_snapshot(adapter.BRAND, bikes, stamp), len(bikes))
+        if adapter in OWN_YEARS and images and limit is None:
+            from .history import own_years
+            older = found + (adapter.archive(fetcher) if hasattr(adapter, "archive") else [])
+            log.info("%s: %d earlier model years, %d lines no longer sold", adapter.BRAND,
+                     *own_years(adapter.BRAND, older, bikes, fetcher))
         log.info("%s: %d bikes written to %s", adapter.BRAND, len(bikes), written[adapter.BRAND][0])
     return written
 

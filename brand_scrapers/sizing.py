@@ -5,8 +5,8 @@
     python -m brand_scrapers.sizing trek --limit 3
 
 Writes webapp/size_charts.json, keyed by model slug. Where a brand publishes rider heights per
-model (Trek, Canyon, Cannondale) they are copied as they are. Specialized, Giant, Cube and Factor
-only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
+model (Trek, Canyon, Cannondale, BMC) they are copied as they are. Specialized, Giant, Cube, Factor,
+Lapierre and Bianchi only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
 the rider heights from the brand's general size guide. (Stack and reach don't predict a brand's
 rider heights well: a fit through the Trek and Canyon charts misses the other brand by 5-8 cm,
 while each brand gives the same size the same heights on nearly every model.)
@@ -48,7 +48,7 @@ def heights(text):
 def geometry_table(page):
     """Stack and reach per size from the first HTML table with a Stack row (Specialized, Giant, Cube)."""
     for table in re.findall(r"<table.*?</table>", page, re.S):
-        if not re.search(r">\s*(?:<span[^>]*>[A-Z]{1,2}</span>)?\s*Stack\b", table):
+        if not re.search(r">\s*(?:<span[^>]*>[A-Z]{1,2}</span>|[A-Z]{1,2}:)?\s*Stack\b", table):
             continue
         rows = []
         for row in re.findall(r"<tr.*?</tr>", table, re.S):
@@ -61,7 +61,7 @@ def geometry_table(page):
         sizes = [size_label(s) for s in rows[0][1:]]
         found = {}
         for row in rows[1:]:
-            name = re.sub(r"^[A-Z]{1,2}\s+", "", row[0]).split("(")[0].strip().lower()
+            name = re.sub(r"^[A-Z]{1,2}:?\s+", "", row[0]).split("(")[0].strip().lower()  # "H: Stack (mm)" (Lapierre)
             if name in ("stack", "reach"):
                 found[name] = [mm(v) for v in row[1:]]
         if "stack" in found and "reach" in found:
@@ -143,14 +143,42 @@ def factor(fetcher, model):
     return sizes and {"source": "geometry", "sizes": sizes}
 
 
+def bmc(fetcher, model):
+    """BMC's geometry table gives the rider height per size ("<166", "166-174", ">190") above stack and reach."""
+    page = model["url"] and fetcher.get(model["url"])
+    sizes = page and geometry_table(page)
+    if not sizes:
+        return None
+    for table in re.findall(r"<table.*?</table>", page, re.S):
+        rows = [[clean(c) for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", row, re.S)]
+                for row in re.findall(r"<tr.*?</tr>", table, re.S)]
+        height = next((r[1:] for r in rows if r and r[0].lower() == "rider height"), None)
+        if rows and height:
+            for size, text in zip((size_label(s) for s in rows[0][1:]), height):
+                span = heights(text)
+                if span and size in sizes:
+                    sizes[size].update(low=span[0], high=span[1])
+            break
+    source = "brand" if all("low" in s for s in sizes.values()) else "geometry"
+    return {"source": source, "sizes": sizes}
+
+
+def bianchi(fetcher, model):
+    from .bianchi import geometry
+    page = model["url"] and fetcher.get(model["url"])
+    sizes = page and geometry(page)[1]
+    return sizes and {"source": "geometry", "sizes": sizes}
+
+
 def geometry_page(fetcher, model):
     page = model["url"] and fetcher.get(model["url"])
     sizes = page and geometry_table(page)
     return sizes and {"source": "geometry", "sizes": sizes}
 
 
-ADAPTERS = {"Trek": trek, "Canyon": canyon, "Cannondale": cannondale, "Factor": factor,
-            "Specialized": geometry_page, "Giant": geometry_page, "Cube": geometry_page}
+ADAPTERS = {"Trek": trek, "Canyon": canyon, "Cannondale": cannondale, "Factor": factor, "BMC": bmc,
+            "Specialized": geometry_page, "Giant": geometry_page, "Cube": geometry_page, "Lapierre": geometry_page,
+            "Bianchi": bianchi}
 
 
 def load_models():

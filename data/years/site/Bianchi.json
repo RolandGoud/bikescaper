@@ -1,0 +1,340 @@
+{
+  "checked_on": "2026-11-01",
+  "models": {
+    "Oltre Comp 105 Di2": {
+      "2024": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "CK Metallic / Graphite": "Bianchi/years/oltrecomp105di2_2024_ckmetallicgraphite_site.jpg",
+          "Velvet Navy / Off White Matt": "Bianchi/years/oltrecomp105di2_2024_velvetnavyoffwhitematt_site.jpg"
+        },
+        "colours": [
+          "CK Metallic / Graphite",
+          "Velvet Navy / Off White Matt"
+        ],
+        "image": "Bianchi/years/oltrecomp105di2_2024_site.jpg",
+        "price": 4800.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Shimano, 105 Di2 RD-R7150, 12-speed",
+          "Balhoofdstel": "Fsa TH-073E ACB 1.5″ 51.8x40x8",
+          "Bottom bracket": "Shimano, SM-BB72-41B, press fit for road, bearing, inner cover",
+          "Buitenband": "Pirelli P7, 700 x 28c, 60TPI",
+          "Crankstel": "Shimano 105 12sp, FC-R7100, Ultegra hollowtech 2, for rear 12- speed, 50x34T, Crank Length: 170mm-47/53cm, 172.5mm-55/59cm",
+          "Frame": "Oltre Comp, carbon, disc brakes, electronic and mechanical shifting compatible, internal cable routing 1.5-1.5 headset, BB-PressFit 86,5×41, flat mount brakes, thru axle 12x142mm sizes 47-50-53-55-57-59cm",
+          "Ketting": "Shimano, 105 12sp, CN-M7100",
+          "Rem": "Shimano BR-R8170 Hydraulic disc brake, included in the shifter",
+          "Remschijf": "Shimano rotor for disc brake center lock, 160mm",
+          "Shifter": "Shimano 105 Di2 hydraulic disc brake for road, ST-R7170, BR-R7170, for 160mm rotor",
+          "Stuur": "Velomann Aero Compact handlebar, alloy diam. 31,8mm, reach 74mm, drop 116mm, for fully internal cable routing Size: 400mm-47~53cm, 420mm-55~59cm",
+          "Stuurpen": "Velomann Aero stem, material alloy, Oversize, 1.1/8″, size: 90mm-47/50cm, 100mm-53cm, 110mm-55/57cm, 120mm-59cm",
+          "Voorderailleur": "Shimano 105 Di2, FD-R7150 12-speed",
+          "Voorvork": "Full Carbon aero, disc brakes, integrated head 1,5″, thru axle 12x100mm, compatible with 700×30 tire",
+          "Wiel voor": "Velomann Carbon V50R 50mm profile, 700x21c, HG body, UD carbon fiber, tubeless ready and clincher, Internal width: 21 mm, weight per set: 1.630g",
+          "Zadel": "Velomann Mitora139 Hyper, open flow, carbon rails, carbon-reinforced nylon, Large 139mm Lenght 250mm",
+          "Zadelpen": "Oltre Full Carbon Aero special dimension seatpost, 20mm offset, length: 280mm-47cm, 300mm-50~55cm, 350mm-57~59cm"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-comp-oltre-comp-4/"
+      }
+    },
+    "Oltre Comp Rival eTap AXS E1": {
+      "2026": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "CK Metallic / Graphite": "Bianchi/years/oltrecomprivaletapaxse1_2026_ckmetallicgraphite_site.jpg",
+          "Velvet Navy / Off White Matt": "Bianchi/years/oltrecomprivaletapaxse1_2026_velvetnavyoffwhitematt_site.jpg"
+        },
+        "colours": [
+          "CK Metallic / Graphite",
+          "Velvet Navy / Off White Matt"
+        ],
+        "image": "Bianchi/years/oltrecomprivaletapaxse1_2026_site.jpg",
+        "price": 4800.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Sram Rival AXS E1, 12sp",
+          "Balhoofdstel": "FSA TH-073E ACB 1.5 51.8x40x8",
+          "Bottom bracket": "Sram Press-Fit Road 86.5×41",
+          "Buitenband": "Vittoria Rubino V, 28-622, TLR, Full Black, G2.0, Graphene + Silica, 100 TPI",
+          "Crankstel": "Sram Rival E1, 48x35T Crank length: 165 mm (47-50 cm); 170 mm (53-55 cm); 172.5 mm (57-59 cm)",
+          "Frame": "Bianchi Oltre Comp, full carbon, Aero shape, electronic and mechanical groupsets, fully internal cable routing, headset 1.5″ – 1.5″, flat mount brakes, BB-PressFit 86.5×41 sizes 47-50-53-55-57-59",
+          "Ketting": "Sram Rival E1",
+          "Rem": "Sram Rival E1, Hydraulic disc brake",
+          "Remschijf": "Sram Centerline, Center Lock, 160 mm",
+          "Shifter": "Sram Rival AXS E1",
+          "Stuur": "Velomann Aero Compact handlebar, alloy, diameter 31.8 mm, reach 74 mm, drop 116 mm Size: 400 mm (47-53 cm); 420 mm (55-59 cm)",
+          "Stuurpen": "Velomann Aero stem, alloy, Diameter 28.6 mm, Barbore 31.8 mm Size: 90 mm (47-50 cm); 100 mm (53 cm); 110 mm (55-57 cm); 120 mm (59 cm)",
+          "Voorderailleur": "Sram Rival AXS E1",
+          "Voorvork": "Bianchi Oltre COMP full carbon, Aero shape, integrated head 1.5″, disc, 12×100 mm thru axle",
+          "Wiel voor": "Velomann Plutonium, Carbon rim, 50 mm profile, 700x21c, 24h, XDR body",
+          "Zadel": "Velomann Mitora 139, AISI rail, width 139 mm, length 250 mm",
+          "Zadelpen": "Bianchi Oltre, full carbon, aero shape, 20 mm offset length: 280 mm (47 cm); 300 mm (50-55 cm); 350 mm (57-59 cm)"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-comp-oltre-comp-3/"
+      }
+    },
+    "Oltre Comp Ultegra Di2": {
+      "2024": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "CK Metallic / Graphite": "Bianchi/years/oltrecompultegradi2_2024_ckmetallicgraphite_site.jpg",
+          "Velvet Navy / Off White Matt": "Bianchi/years/oltrecompultegradi2_2024_velvetnavyoffwhitematt_site.jpg"
+        },
+        "colours": [
+          "CK Metallic / Graphite",
+          "Velvet Navy / Off White Matt"
+        ],
+        "image": "Bianchi/years/oltrecompultegradi2_2024_site.jpg",
+        "price": 5900.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Shimano Ultegra Di2 12sp, RD-R8150",
+          "Balhoofdstel": "Fsa TH-073E ACB 1.5 51.8x40x8",
+          "Bottom bracket": "Shimano, SM-BB72-41B, press fit for road, bearing, inner cover",
+          "Buitenband": "Vittoria Rubino 28-622 full black G2.0, graphene + silica, 100TPI",
+          "Cassette": "Shimano Ultegra, CS-R8100, 11-12-13-14-15-16-17-19- 21-24-27-30T",
+          "Crankstel": "Shimano, Ultegra 12sp, FC-R8100, for rear 12- speed, 52x36T, Crank Length: 170mm-47/53cm, 172.5mm-55/59cm",
+          "Frame": "Oltre Comp, carbon, disc brakes, electronic and mechanical shifting compatible, internal cable routing 1.5-1.5 headset, BB-PressFit 86,5×41, flat mount brakes, thru axle 12x142mm, sizes 47-50-53-55-57-59cm",
+          "Ketting": "Shimano, Ultegra 12 sp, CN-M8100",
+          "Rem": "Shimano BR-R8170 Hydraulic disc brake, included in the shifter",
+          "Remschijf": "Shimano, centerlock type w/Ice Tech, 160mm front and rear",
+          "Shifter": "Shimano Ultegra Di2 hydraulic disc brake for road, ST-R8170, BR-R8170, for 160mm rotor",
+          "Stuur": "Velomann Aero Compact handlebar, alloy diam. 31,8mm, reach 74mm, drop 116mm, for fully internal cable routing Size: 400mm-47~53cm, 420mm-55~59cm",
+          "Stuurpen": "Velomann Aero stem, material alloy, Oversize, 1.1/8, size: 90mm-47/50cm, 100mm-53cm, 110mm55/57cm, 120mm-59cm",
+          "Voorderailleur": "Shimano Ultegra Di2 12sp, FD-R8150",
+          "Voorvork": "Full Carbon aero, Disc brakes, integrated head 1.5, flat mount caliper, thru axle 12x100mm",
+          "Wiel voor": "Velomann Plutonium, 50mm profile, 700x21c, 24h, HG body",
+          "Zadel": "Velomann Mitora139, open flow, AISI rails 7x7mm, carbon-reinforced nylon, Wide: 139mm, Lenght: 250mm",
+          "Zadelpen": "Oltre Full Carbon Aero special dimension seatpost, 20mm offset, length: 280mm-47cm, 300mm-50~55cm, 350mm-57~59cm"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-comp-oltre-comp-2/"
+      }
+    },
+    "Oltre Pro Force eTap AXS E1": {
+      "2026": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "Carbon Glossy": "Bianchi/years/oltreproforceetapaxse1_2026_carbonglossy_site.jpg",
+          "Celeste Metallic": "Bianchi/years/oltreproforceetapaxse1_2026_celestemetallic_site.jpg"
+        },
+        "colours": [
+          "Celeste Metallic",
+          "Carbon Glossy"
+        ],
+        "image": "Bianchi/years/oltreproforceetapaxse1_2026_site.jpg",
+        "price": 8000.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Sram Force AXS E1, 12sp",
+          "Balhoofdstel": "FSA No. 54 – upper bearing MR137; lower bearing MR082R",
+          "Bottom bracket": "Sram Press-Fit Road 86.5×41",
+          "Buitenband": "Pirelli P Zero Race SL TLR, 28-622, 120 TPI",
+          "Crankstel": "Sram Force E1, Quarq Power Meter, 48x35T Crank length: 165 mm (47-50 cm); 170 mm (53-55 cm); 172.5 mm (57-59 cm)",
+          "Frame": "Bianchi Oltre PRO full carbon, with Bianchi CV system, Aero shape, only electronic groupsets, fully internal cable routing, headset 1″1/4 – 1″1/4, direct mount brakes, BB-PressFit 86.5×41 sizes 47-50-53-55-57-59",
+          "Ketting": "Sram Force E1",
+          "Rem": "Sram Force E1, Hydraulic disc brake",
+          "Remschijf": "Sram Paceline, Center Lock, 160 mm",
+          "Shifter": "Sram Force AXS E1",
+          "Stuur": "Included in the stem",
+          "Stuurpen": "Bianchi Reparto Corse integrated handlebar, Aero bar, Carbon, for internal cable routing, drop 125 mm, reach 80 mm Size: 90/400 mm (47-50 cm) ; 100/420 mm (53 cm) ; 110/420 mm (55-57 cm); 120/440 mm (59 cm)",
+          "Voorderailleur": "Sram Force AXS E1",
+          "Voorvork": "Bianchi Oltre PRO full Carbon High Modulus, with Bianchi CV System, Aero shape, integrated head, disc, 1″1/4 head, 12×100 mm thru axle",
+          "Wiel voor": "Velomann Plutonium, Carbon rim, 50 mm profile, 700x21c, 24h, XDR body",
+          "Zadel": "Velomann Mitora 139 Lite, open flow, Carbon rails 7×9.1 mm, Carbon-reinforced nylon shell, length 250 mm, width 139 mm",
+          "Zadelpen": "Bianchi Oltre, full carbon, aero shape, 20 mm offset length: 280 mm (47 cm); 300 mm (50-55 cm); 350 mm (57-59 cm)"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-pro-oltre-pro-2/"
+      }
+    },
+    "Oltre Pro Ultegra Di2": {
+      "2025": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "Carbon Glossy": "Bianchi/years/oltreproultegradi2_2025_carbonglossy_site.jpg",
+          "Celeste Metallic": "Bianchi/years/oltreproultegradi2_2025_celestemetallic_site.jpg"
+        },
+        "colours": [
+          "Celeste Metallic",
+          "Carbon Glossy"
+        ],
+        "image": "Bianchi/years/oltreproultegradi2_2025_site.jpg",
+        "price": 8000.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Shimano Ultegra Di2 12sp, RD-R8150",
+          "Balhoofdstel": "Fsa No. 54 – MR137 – ACB 1-1/4 diam.46.9xdiam.37×7 Fsa TH970E – MR168 – Alloy ACB 1-1/4 diam.46.8x diam.34×7",
+          "Bottom bracket": "Shimano, SM-BB72-41B, press fit for road, bearing, inner cover",
+          "Buitenband": "Pirelli P ZERO™ Race SL TLR , 28-622, 120 tpi",
+          "Cassette": "Shimano Ultegra, CS-R8100, 11-12-13-14-15-16-17-19- 21-24-27-30T",
+          "Crankstel": "Shimano, Ultegra 12sp, FC-R8100, 4iiii precision 3+ power meter, for rear 12- speed, 52x36T, Crank Length: 170mm-47/53cm, 172.5mm-55/59cm",
+          "Frame": "Oltre PRO carbon w/Bianchi CV System aero shape, electronic drivetrain only, headset 1.1/4-1.1/4,BBPressFit 86,5x41mm, integrated seat clamp, for flat mount caliper, internal cable routing for disc brakes, thru axle 12x142mm, sizes 47-50-53-55-57-59cm",
+          "Ketting": "Shimano, Ultegra 12 sp, CN-M8100",
+          "Rem": "Shimano BR-R8170 Hydraulic disc brake, included in the shifter",
+          "Remschijf": "Shimano CL900, centerlock type w/Ice Tech, 160mm front and rear",
+          "Shifter": "Shimano Ultegra Di2 hydraulic disc brake for road, ST-R8170, BR-R8170, for 160mm rotor",
+          "Stuur": "Included in the stem",
+          "Stuurpen": "Integrated handlebar Integrated Aero bar, material carbon, drop 125mm, reach 80mm, Di2 compatible Ext: 90×400-47/50cm ; 100×420-53cm; 110×420-55/57cm; 120×440-59cm",
+          "Voorderailleur": "Shimano Ultegra Di2 12sp, FD-R8150",
+          "Voorvork": "Full Carbon aero w/Bianchi CV System, Disc brakes, integrated head 1.1/4, flat mount caliper, thru axle 12x100mm",
+          "Wiel voor": "Velomann Plutonium, 50mm profile, 700x21c, 24h, HG body",
+          "Zadel": "Velomann Mitora139 Lite, open flow, carbon rails 7×9,3mm, carbon-reinforced nylon, Wide: 139mm, Lenght: 250mm",
+          "Zadelpen": "Oltre Full Carbon Aero special dimension seatpost, 20mm offset, length: 280mm-47cm, 300mm-50~55cm, 350mm-57~59cm"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-pro-oltre-pro-3/"
+      }
+    },
+    "Oltre RC Dura-Ace Di2": {
+      "2025": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "Carbon / Metallic Celeste": "Bianchi/years/oltrercduraacedi2_2025_carbonmetallicceleste_site.jpg",
+          "Metallic Celeste / CK16": "Bianchi/years/oltrercduraacedi2_2025_metalliccelesteck16_site.jpg"
+        },
+        "colours": [
+          "Metallic Celeste / CK16",
+          "Carbon / Metallic Celeste"
+        ],
+        "image": "Bianchi/years/oltrercduraacedi2_2025_site.jpg",
+        "price": 12600.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Shimano Durace Di2 12sp, RD-R9250",
+          "Balhoofdstel": "Fsa No. 54 – MR137 – ACB 1-1/4diam.46.9x diam.37×7",
+          "Bottom bracket": "Shimano, SM-BB92-41B, press fit for road",
+          "Buitenband": "Pirelli P ZERO™ Race SL TLR , 28-622, 120 tpi",
+          "Cassette": "Shimano Durace 12sp, CS-R9200, 11-12-13-14-15-16-17-19-21-24-27-30T",
+          "Crankstel": "Shimano, Durace 12sp, FC-R9200, 4iiii precision 3+ dual side power meter, 52x36T, Crank Length: 170mm-47/54cm, 172.5mm-55/59cm",
+          "Frame": "Oltre RC carbon aero shape, electronic drivetrain only, headset 1.1/4-1.1/4,BB-PressFit 86,5x41mm, integrated seat clamp, for flat mount caliper, internal cable routing for disc brakes, thru axle 12x142mm sizes 47-50-53-55-57-59cm",
+          "Ketting": "Shimano Durace 12sp, CN-M9100",
+          "Rem": "Shimano BR-R9270 Hydraulic disc brake, included in the shifter",
+          "Remschijf": "Shimano CL900, centerlock type w/Ice Tech, 160mm front and rear",
+          "Shifter": "Shimano Durace Di2 hydraulic disc brake for road, ST-R9270, BR-R9270, for 160mm roto",
+          "Stuur": "Included in the stem",
+          "Stuurpen": "Integrated handlebar Integrated Aero bar, material carbon, drop 125mm, reach 80mm, Di2 compatible Ext: 90×400-47/50cm ; 100×420-53cm; 110×420-55/57cm; 120×440-59cm",
+          "Voorderailleur": "Shimano Durace Di2 12sp,FD-R9250",
+          "Voorvork": "Full Carbon aero, Disc brakes, integrated head 1.1/4, flat mount caliper, thru axle 12x100mm",
+          "Wiel voor": "Reparto Corse Carbon SPB 50mm profile, 700x21c, (front), Reparto Corse Carbon SPB 65mm profile, 700x21c, XDR body (rear), 3K and UD high strength carbon fiber, tubeless ready, weight per set: 1520 gr (+/-5%)",
+          "Zadel": "Bianchi RC139 Carbon Air, weight 168g, Lenght: 250mm, Wide: 139mm, Rails: 7×9,3mm",
+          "Zadelpen": "Oltre Full Carbon Aero special dimension seatpost, 20mm offset, length: 280mm-47cm, 300mm-50~55cm, 350mm-57~59cm"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-rc-oltre-rc-4/"
+      }
+    },
+    "Specialissima Pro Force eTap AXS E1": {
+      "2026": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "Blue Purple / Chrome": "Bianchi/years/specialissimaproforceetapaxse1_2026_bluepurplechrome_site.jpg",
+          "Blue Tail / Metallic Celeste / CK16": "Bianchi/years/specialissimaproforceetapaxse1_2026_bluetailmetalliccelesteck16_site.jpg"
+        },
+        "colours": [
+          "Blue Purple / Chrome",
+          "Blue Tail / Metallic Celeste / CK16"
+        ],
+        "image": "Bianchi/years/specialissimaproforceetapaxse1_2026_site.jpg",
+        "price": 7700.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Sram Force AXS E1, 12sp",
+          "Balhoofdstel": "Acros Acros IS52 Integrated Cable Routing",
+          "Bottom bracket": "Sram Press fit Road 86.5×41",
+          "Buitenband": "Pirelli P ZERO Race TLR, 28-622, 127 TPI, SPEEDCore",
+          "Cassette": "Sram Force XG 1270 E1, 10-33, 10-11-12-13-14- 15-17-19-21-24-28-33T",
+          "Crankstel": "Sram Force E1, Quarq Power Meter, 48x35T Crank length: 165 mm (47-50 cm); 170 mm (53- 55 cm); 172.5 mm (57-59 cm)",
+          "Frame": "Bianchi Specialissima PRO carbon HM with Bianchi CV System, only electronic groupsets, fully internal cable routing, headset Acros ICR, direct mount brakes, BB-PressFit 86.5×41 sizes 47-50-53-55-57-59",
+          "Ketting": "Sram Force E1",
+          "Rem": "Sram Force E1, Hydraulic disc brake. Brake lever included in the shifter.",
+          "Remschijf": "Front: Sram Paceline, Center Lock, 160 mm",
+          "Shifter": "Sram Force AXS E1",
+          "Stuur": "Included in the stem",
+          "Stuurpen": "Bianchi Reparto Corse integrated handlebar, carbon, for Acros Integrated Cable Routing headset, drop 125 mm, reach 80 mm Size: 90/380 mm (47-50 cm) ; 100/400 mm (53 cm) ; 110/400 mm (55-57 cm); 120/420 mm (59 cm)",
+          "Voorderailleur": "Sram Force AXS E1",
+          "Voorvork": "Bianchi Specialissima PRO full Carbon High Modulus aero with Bianchi CV System, integrated head, disc, 1.5 head, 12×100 mm thru axle",
+          "Wiel voor": "Velomann Plutonium, Carbon rim, 50 mm profile, 700x21c, 24h, XDR body",
+          "Zadel": "Velomann Mitora 139 Lite, open flow, Carbon rails 7×9.1 mm, Carbon-reinforced nylon shell, length 250 mm, width 139 mm",
+          "Zadelpen": "Bianchi Specialissima, full carbon, aero shape, 20 mm offset length: 280 mm (47 cm); 300 mm (50-53 cm); 350 mm (55-59 cm)"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-pro/specialissima-pro-specialissima-pro/"
+      }
+    },
+    "Specialissima Pro Ultegra Di2": {
+      "2025": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "Blue Purple / Chrome": "Bianchi/years/specialissimaproultegradi2_2025_bluepurplechrome_site.jpg",
+          "Blue Tail / Metallic Celeste / CK16": "Bianchi/years/specialissimaproultegradi2_2025_bluetailmetalliccelesteck16_site.jpg"
+        },
+        "colours": [
+          "Blue Purple / Chrome",
+          "Blue Tail / Metallic Celeste / CK16"
+        ],
+        "image": "Bianchi/years/specialissimaproultegradi2_2025_site.jpg",
+        "price": 7700.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Shimano Ultegra Di2, RD-R8150, 12sp",
+          "Balhoofdstel": "Acros Acros IS52 Integrated Cable Routing",
+          "Bottom bracket": "Shimano SM-BB72-41B, press fit type for road",
+          "Buitenband": "Pirelli P Zero Race SL TLR, 28-622, 120 TPI",
+          "Crankstel": "Shimano Ultegra, FC-R8100, 4iiii precision 3 single side power meter, 52x36T Crank length: 165 mm (47-50 cm); 170 mm (53-55 cm); 172.5 mm (57-59 cm)",
+          "Frame": "Bianchi Specialissima PRO carbon HM with Bianchi CV System, only electronic groupsets, fully internal cable routing, headset Acros ICR, direct mount brakes, BB-PressFit 86.5×41 sizes 47-50-53-55-57-59",
+          "Ketting": "Shimano Ultegra, CN-M8100",
+          "Rem": "Shimano BR-R8170 Hydraulic disc brake. Brake lever included in the shifter.",
+          "Remschijf": "Front: Shimano RT-CL800 Center Lock with Ice Tech,160 mm",
+          "Shifter": "Shimano Ultegra Di2, shifter lever ST-R8170, caliper BR-R8170",
+          "Stuur": "Included in the stem",
+          "Stuurpen": "Bianchi Reparto Corse integrated handlebar, carbon, for Acros Integrated Cable Routing headset, drop 125 mm, reach 80 mm Size: 90/380 mm (47-50 cm) ; 100/400 mm (53 cm) ; 110/400 mm (55-57 cm); 120/420 mm (59 cm)",
+          "Voorderailleur": "Shimano Ultegra Di2, FD-R8150",
+          "Voorvork": "Bianchi Specialissima PRO full Carbon High Modulus aero with Bianchi CV System, integrated head, disc, 1.5 head, 12×100 mm thru axle",
+          "Wiel voor": "Velomann Plutonium, Carbon rim, 50 mm profile, 700x21c, 24h, HG11 body",
+          "Zadel": "Velomann Mitora 139 Lite, open flow, Carbon rails 7×9.1 mm, Carbon-reinforced nylon shell, length 250 mm, width 139 mm",
+          "Zadelpen": "Bianchi Specialissima, full carbon, aero shape, 20 mm offset length: 280 mm (47 cm); 300 mm (50-53 cm); 350 mm (55-59 cm)"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-pro/specialissima-pro-specialissima-pro-copia/"
+      }
+    },
+    "Specialissima RC Dura-Ace Di2": {
+      "2025": {
+        "captured": "2026-11-01",
+        "colour_images": {
+          "Carbon / CK Metallic - CK16": "Bianchi/years/specialissimarcduraacedi2_2025_carbonckmetallicck16_site.jpg",
+          "Carbon UD / CK16 Marble / CK16": "Bianchi/years/specialissimarcduraacedi2_2025_carbonudck16marbleck16_site.jpg"
+        },
+        "colours": [
+          "Carbon UD / CK16 Marble / CK16",
+          "Carbon / CK Metallic - CK16"
+        ],
+        "image": "Bianchi/years/specialissimarcduraacedi2_2025_site.jpg",
+        "price": 11550.0,
+        "source": "site",
+        "specs": {
+          "Achterderailleur": "Shimano Dura-Ace Di2, RD-R9250, 12sp",
+          "Balhoofdstel": "Acros IS52 Integrated Cable Routing",
+          "Bottom bracket": "Shimano SM-BB92-41B, press fit type for road",
+          "Buitenband": "Pirelli P Zero Race SL TLR, 28-622, 120 TPI",
+          "Crankstel": "Shimano Dura-Ace, FC-R9200, 4iiii precision 3+ dual side power meter, 52x36T Crank length: 165 mm (47-50 cm); 170 mm (53-55 cm); 172.5 mm (57-59 cm)",
+          "Frame": "Bianchi Specialissima RC carbon High Modulus, only electronic groupsets, fully internal cable routing, headset Acros ICR, direct mount brakes, BB-PressFit 86.5×41 sizes 47-50-53-55-57-59",
+          "Ketting": "Shimano Dura-Ace, CN-M9100",
+          "Rem": "Shimano BR-R9270 Hydraulic disc brake. Brake lever included in the shifter.",
+          "Remschijf": "Front: Shimano RT-CL900 Center Lock with Ice Tech, 160 mm",
+          "Shifter": "Shimano Dura-Ace Di2, shifter lever ST-R9270",
+          "Stuur": "Included in the stem",
+          "Stuurpen": "Bianchi Reparto Corse integrated handlebar, carbon, for Acros Integrated Cable Routing headset, drop 125 mm, reach 80 mm Size: 90/380 mm (47-50 cm) ; 100/400 mm (53 cm) ; 110/400 mm (55-57 cm); 120/420 mm (59 cm)",
+          "Voorderailleur": "Shimano Dura-Ace Di2, FD-R9250",
+          "Voorvork": "Bianchi Specialissima RC full Carbon High Modulus aero, integrated head, disc, 1.5 head, 12×100 mm thru axle",
+          "Wiel voor": "Bianchi Reparto Corse RC50R, Carbon rim, 50mm profile, 700x21c, 24h, HG11 body",
+          "Zadel": "Bianchi Reparto Corse RC139 Carbon, 139×250 mm, full carbon",
+          "Zadelpen": "Bianchi Specialissima, full carbon, aero shape, 20 mm offset length: 280 mm (47 cm); 300 mm (50-53 cm); 350 mm (55-59 cm)"
+        },
+        "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-rc/specialissima-rc-2/"
+      }
+    }
+  },
+  "source": "Bianchi's own store",
+  "years": [
+    2024,
+    2025,
+    2026,
+    2027
+  ]
+}

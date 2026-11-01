@@ -16,6 +16,11 @@ def models(tmp_path_factory):
     return db.all_models(conn)
 
 
+def first(models):
+    """A current bike to build test models on (Bianchi and BMC sort before it, with archived bikes)."""
+    return next(m for m in models if m["brand"] == "Cannondale")
+
+
 def en(msg):
     token = i18n.current_language.set("en")
     try:
@@ -378,7 +383,8 @@ def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
 def test_brand_menu_shows_logos(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     page = app.test_client().get("/models?lang=en").data.decode()
-    for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"):
+    for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea",
+                 "Lapierre", "Bianchi", "BMC"):
         assert f'data-logo="/static/logos/{name.lower()}.svg"' in page
         assert app.test_client().get(f"/static/logos/{name.lower()}.svg").status_code == 200
     home = app.test_client().get("/?lang=en").data.decode()
@@ -415,6 +421,9 @@ def test_s_works_names_specialized():
     ("Factor Monza Ultegra maat 54", "", "Factor", "monza"),
     ("Scott Addict RC 30 maat 54", "Shimano 105 Di2", "Scott", "addict"),
     ("Orbea Orca M30 maat 53", "2027, 105", "Orbea", "orca"),
+    ("Lapierre Xelius DRS 7.0 maat M", "carbon, Shimano 105 Di2", "Lapierre", "xelius"),
+    ("Bianchi Oltre Comp Ultegra Di2 maat 55", "2027", "Bianchi", "oltre"),
+    ("BMC Teammachine SLR 01 TWO maat 54", "Dura-Ace Di2", "BMC", "teammachine"),
 ])
 def test_matching_new_brands(models, title, description, brand, family):
     r = run(models, title, description, height=178)
@@ -426,7 +435,7 @@ def test_matching_new_brands(models, title, description, brand, family):
 
 def test_new_brands_have_their_own_size_chart():
     from webapp.reference import SIZE_CHARTS
-    for brand in ("Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"):
+    for brand in ("Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea", "Bianchi"):
         assert checks.size_options(brand) is SIZE_CHARTS[brand]
 
 
@@ -656,7 +665,7 @@ def test_models_use_their_own_size_chart(models):
             assert got["source"] == chart["source"] and got["sizes"], slug
     published = [m for m in models if checks.model_size_chart(m)["source"] == "brand"]
     assert {m["brand"] for m in published} >= {"Trek", "Canyon", "Cannondale"}
-    unknown = dict(models[0], slug="no-such-model")
+    unknown = dict(first(models), slug="no-such-model")
     assert checks.model_size_chart(unknown)["source"] == "generic"
 
 
@@ -1153,14 +1162,14 @@ def test_model_page_year_selector_runs_current_to_oldest(tmp_path):
 
 
 def test_sheet_years_skip_predecessor_sheets(models):
-    m = dict(models[0], year_specs={"years": {"2019": {"specs": {"Frame": "x"}, "sheet_name": "Old"},
+    m = dict(first(models), year_specs={"years": {"2019": {"specs": {"Frame": "x"}, "sheet_name": "Old"},
                                               "2021": {"specs": {"Frame": "x"}}, "2022": {"unreadable": True}}})
     assert checks.sheet_years(m, TODAY)[0] == 2021
     assert checks.sheet_years(dict(m, year_specs={}), TODAY) is None
 
 
 def test_year_clues_from_the_spec_sheets_of_each_year(models):
-    m = dict(models[0], seen_on="2026-01-01", colorways=[], colors=[], specs={"Cassette": "Shimano 105, 11-36"},
+    m = dict(first(models), seen_on="2026-01-01", colorways=[], colors=[], specs={"Cassette": "Shimano 105, 11-36"},
              year_specs={"years": {"2021": {"specs": {"Achterderailleur": "Shimano GRX RX810", "Cassette": "11-34"}, "colours": ["Carbon", "Matte Pennyflake"]},
                                    "2023": {"specs": {"Achterderailleur": "Shimano GRX RX810", "Cassette": "11-34"}, "colours": ["Crimson"]},
                                    "2025": {"specs": {"Achterderailleur": "Shimano GRX RX820", "Cassette": "11-36"}, "colours": ["Crimson"]}}})
@@ -1175,7 +1184,7 @@ def test_year_clues_from_the_spec_sheets_of_each_year(models):
 
 
 def test_age_from_the_year_sheets_without_a_generation(models):
-    m = dict(models[0], name="Defy Advanced 1", brand="Giant", missed_scrapes=0, last_seen="2026-10-01",
+    m = dict(first(models), name="Defy Advanced 1", brand="Giant", missed_scrapes=0, last_seen="2026-10-01",
              year_specs={"checked": list(range(2018, 2027)), "years": {
                  "2018": {"specs": {"Frame": "x"}}, "2024": {"specs": {"Frame": "x"}}, "2025": {"specs": {"Frame": "x"}}}})
     claims = checks.read_claims("Giant Defy Advanced 1 2025", "")
@@ -1187,14 +1196,14 @@ def test_age_from_the_year_sheets_without_a_generation(models):
 
 def test_age_timeline_shows_every_catalogue_year(models):
     # No archived sheets: our own scrape and the brand's photo years still give a timeline, with an open start.
-    m = dict(models[0], name="Endurace CF 6", brand="Canyon", missed_scrapes=0, last_seen="2026-10-01",
+    m = dict(first(models), name="Endurace CF 6", brand="Canyon", missed_scrapes=0, last_seen="2026-10-01",
              seen_on="2025-08-03", specs={"Frame": "x"}, photo_years=[2024, 2026], year_specs={})
     age = checks.check_age(m, checks.read_claims("Canyon Endurace CF 6 2023", ""), TODAY)
     assert [t["year"] for t in age["timeline"] if t["sold"]] == [2024, 2025, 2026]
     assert age["status"] == checks.UNKNOWN and "2024" in en(age["detail"])
     assert checks.check_age(m, checks.read_claims("Canyon Endurace CF 6 2025", ""), TODAY)["status"] == checks.OK
     # A predecessor's sheets of an earlier generation show as such, before the generation table's first year.
-    m = dict(models[0], name="Domane SL 7 Gen 4", brand="Trek", missed_scrapes=0, last_seen="2026-10-01",
+    m = dict(first(models), name="Domane SL 7 Gen 4", brand="Trek", missed_scrapes=0, last_seen="2026-10-01",
              seen_on="2025-07-18", specs={"Frame": "x"}, photo_years=[], year_specs={"checked": list(range(2018, 2026)), "years": {
                  "2020": {"specs": {"Frame": "x"}, "sheet_name": "Domane SL 7"},
                  "2022": {"specs": {"Frame": "x"}, "sheet_name": "Domane SL 7 gen 3"},
@@ -1213,7 +1222,7 @@ def test_age_timeline_shows_every_catalogue_year(models):
 def test_spec_comparison_uses_a_year_the_estimate_allows(models):
     sheets = {"2021": {"specs": {"Shifter": "Shimano 105 R7000"}}, "2023": {"specs": {"Shifter": "Shimano 105 R7100"}},
               "2025": {"specs": {"Shifter": "Shimano 105 R7100"}}}
-    m = dict(models[0], seen_on="2026-01-01", year_specs={"years": sheets})
+    m = dict(first(models), seen_on="2026-01-01", year_specs={"years": sheets})
     claims = checks.read_claims("Fiets 2022", "")
     assert checks.comparison_year(m, claims, {"status": checks.OK, "first": 2021, "last": 2022}) == 2021
     assert checks.comparison_year(m, claims, {"status": checks.BAD, "first": 2023, "last": None}) == 2023
@@ -1227,7 +1236,7 @@ def test_spec_comparison_uses_a_year_the_estimate_allows(models):
 
 
 def test_colour_clue_reads_dutch_colour_words(models):
-    m = dict(models[0], seen_on="2026-10-22", colorways=[{"name": "Cryo Silver/Chrome"}], specs={"Frame": "x"},
+    m = dict(first(models), seen_on="2026-10-22", colorways=[{"name": "Cryo Silver/Chrome"}], specs={"Frame": "x"},
              year_specs={"years": {"2024": {"specs": {"Frame": "x"}, "colours": ["Charcoal/Milky Way"]},
                                    "2025": {"specs": {"Frame": "x"}, "colours": ["Frost Silver/Cordovan"]},
                                    "2026": {"specs": {"Frame": "x"}, "colours": ["Cyber Lime"]}}})
@@ -1238,7 +1247,7 @@ def test_colour_clue_reads_dutch_colour_words(models):
 
 
 def test_plain_colours_in_the_ad_rule_out_years_without_them(models):
-    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
+    m = dict(first(models), seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
              year_specs={"years": {"2020": {"specs": {"Frame": "x"}, "colours": ["Gunmetal Black / Metallic Orange"]},
                                    "2021": {"specs": {"Frame": "x"}, "colours": ["Carbon/Charcoal"]},
                                    "2022": {"specs": {"Frame": "x"}, "colours": ["Deep Lake / Black"]},
@@ -1256,7 +1265,7 @@ def test_plain_colours_in_the_ad_rule_out_years_without_them(models):
 
 
 def test_colour_seen_in_the_photos_dates_the_frame_before_swappable_parts(models):
-    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Cassette": "11-28"},
+    m = dict(first(models), seen_on="2026-10-22", colorways=[], specs={"Cassette": "11-28"},
              year_specs={"years": {"2019": {"specs": {"Cassette": "11-28"}, "colours": ["Matte Trek Black", "Royal"]},
                                    "2021": {"specs": {"Cassette": "11-28"}, "colours": ["Trek Black/Radioactive Red", "Gloss Blue/Matte Trek Black"]},
                                    "2024": {"specs": {"Cassette": "11-34"}, "colours": ["Crimson"]}}})
@@ -1272,7 +1281,7 @@ def test_colour_seen_in_the_photos_dates_the_frame_before_swappable_parts(models
 
 
 def test_slider_shows_the_photo_of_the_colour_in_the_ad(models):
-    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
+    m = dict(first(models), seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
              year_specs={"years": {"2021": {"specs": {"Frame": "x"}, "image": "y/2021.jpg",
                                             "colours": ["Quicksilver/Brushed Chrome", "Carbon Blue Smoke/Metallic Blue"],
                                             "colour_images": {"Quicksilver/Brushed Chrome": "y/2021_q.jpg",
@@ -1284,7 +1293,7 @@ def test_slider_shows_the_photo_of_the_colour_in_the_ad(models):
 
 
 def test_photo_colours_file_only_applies_to_its_model(models, monkeypatch):
-    m = dict(models[0], slug="trek-emonda-sl-6")
+    m = dict(first(models), slug="trek-emonda-sl-6")
     monkeypatch.setitem(checks.photo_colour.__defaults__[0], "data", {
         "marktplaats:m2435934805": {"model": "trek-emonda-sl-6", "colour": "Crimson"}})
     ad = {"listing_url": "https://www.marktplaats.nl/v/fietsen-racefietsen/m2435934805-trek", "title": "Trek", "asking_price": 1}
@@ -1293,7 +1302,7 @@ def test_photo_colours_file_only_applies_to_its_model(models, monkeypatch):
 
 
 def test_slider_shows_the_year_photo_that_fits_the_ad(models):
-    m = dict(models[0], seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
+    m = dict(first(models), seen_on="2026-10-22", colorways=[], specs={"Frame": "x"},
              year_specs={"years": {"2024": {"specs": {"Frame": "x"}, "colours": ["Charcoal/Milky Way"], "image": "y/2024.jpg"},
                                    "2025": {"specs": {"Frame": "x"}, "colours": ["Frost Silver/Cordovan"], "image": "y/2025.jpg"},
                                    "2026": {"specs": {"Frame": "x"}, "colours": ["Thundercloud", "Cyber Lime"], "image": "y/2026.jpg"}}})
@@ -1591,7 +1600,7 @@ def test_a_stated_year_wins_over_a_groupset_that_could_be_an_upgrade(models):
 def _tarmac_sl8(models):
     # Like the S-Works Tarmac SL8 on the NAS: an archived line with only its 2026 sheet, so our oldest year is
     # two years after the real launch (the 2024 model, launched in 2023).
-    return dict(models[0], brand="Specialized", name="S-Works Tarmac SL8 - SRAM RED AXS", seen_on=None, photo_years=[],
+    return dict(first(models), brand="Specialized", name="S-Works Tarmac SL8 - SRAM RED AXS", seen_on=None, photo_years=[],
                 source_file="years/archived/x.json", price_eur=None, specs={"Frame": "x"},
                 year_specs={"checked": [2026], "years": {"2026": {"specs": {"Frame": "x"}, "price": 13000}}})
 
@@ -1624,7 +1633,7 @@ def test_details_outside_the_generation_are_another_generation(models):
                                    {"status": checks.UNKNOWN, "first": 2018, "last": 2020}, TODAY)
     assert (resolved["year"], resolved["reliable"]) == (2019, False)
     # A lineage's end doesn't retire a version the brand still lists.
-    sl7 = dict(models[0], brand="Specialized", name="Tarmac SL7 Sport - Shimano 105", missed_scrapes=0,
+    sl7 = dict(first(models), brand="Specialized", name="Tarmac SL7 Sport - Shimano 105", missed_scrapes=0,
                last_seen="2026-10-01", source_file="x.json")
     assert checks.catalogue_status(sl7, TODAY)[0] == "current"
     assert checks.catalogue_status(dict(sl7, missed_scrapes=2, latest_scrape="2026-10-01"), TODAY)[0] == "discontinued"
