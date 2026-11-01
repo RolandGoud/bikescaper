@@ -135,10 +135,13 @@ def generation_years(brand, name):
     out = {n: span for (b, family, n), span in GENERATIONS.items() if b == brand and plain.startswith(family)}
     for b, pattern, gens in LINEAGES:
         if b == brand and re.search(pattern, plain):
-            for first, last, word, _label in gens:
-                m = re.fullmatch(r"gen (\d+)", word or "")
-                if m:
-                    out[int(m.group(1))] = (first, last)
+            # The line's own generations replace the family's (the Domane AL's aren't the carbon Domane's), and a
+            # year before the first one belongs to the generation before it: the 2020 Domane AL 3 is a Gen 2.
+            numbered = {int(m.group(1)): (first, last) for first, last, word, _label in gens
+                        if (m := re.fullmatch(r"gen (\d+)", word or ""))}
+            if numbered:
+                oldest = min(numbered)
+                out = {**numbered, oldest - 1: (None, numbered[oldest][0] - 1)}
     return out
 
 
@@ -148,7 +151,7 @@ def with_generation(brand, name, year):
     if GEN.search(name):
         return name
     for n, (first, last) in sorted(generation_years(brand, name).items()):
-        if first <= year <= (last or 9999):
+        if (first or 0) <= year <= (last or 9999):
             return f"{name} Gen {n}"
     return name
 

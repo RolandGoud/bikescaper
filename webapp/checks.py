@@ -392,6 +392,8 @@ def generation(model):
             if scrape_year(model):
                 own.append(scrape_year(model))
             newest = max(own) if own else None
+            if newest and newest < gens[0][0]:  # older than every generation entered: one we don't list
+                continue
             mine = next((g for g in reversed(gens) if newest and g[0] <= newest), gens[-1])
         at = gens.index(mine)
         return {"first": mine[0], "last": mine[1], "name": mine[3], "note": Msg(LINEAGES_NOTE), "source": "lineage",
@@ -437,6 +439,12 @@ def sheet_years(model, today=None):
         " earlier years may be missing.", brand=model["brand"])
 
 
+def archived_line(model):
+    """A line the brand no longer sells, from its own old pages or Mantel's (seed.add_archived): never in a scrape."""
+    source = model.get("source_file") or ""
+    return "years/archived/" in source or "years/mantel/lines/" in source
+
+
 def catalogue_status(model, today=None):
     """Whether the brand still sells the model: (status, message).
 
@@ -450,7 +458,7 @@ def catalogue_status(model, today=None):
     # generation (the Tarmac SL7 Sport after the SL8 came).
     if gen and gen["last"] and gen["last"] < today.year and (gen["source"] == "table" or missed):
         return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=gen["last"])
-    if "years/archived/" in (model.get("source_file") or ""):  # a line the brand no longer sells (seed.add_archived)
+    if archived_line(model):  # a line the brand no longer sells (seed.add_archived)
         sheets = [int(y) for y in ((model.get("year_specs") or {}).get("years") or {})]
         if sheets:
             return "discontinued", Msg("Discontinued: this generation was sold until {year}.", year=max(sheets))
@@ -606,7 +614,7 @@ def groupset_age_drop(year, today=None):
 def sheet_year(model):
     """The model year of the model's own spec sheet: its newest archived sheet for a line the brand no longer
     sells, otherwise the year we scraped it. None when nothing tells us."""
-    if "years/archived/" in (model.get("source_file") or ""):
+    if archived_line(model):
         sheets = [int(y) for y, e in ((model.get("year_specs") or {}).get("years") or {}).items() if e.get("specs")]
         if sheets:
             return max(sheets)

@@ -72,3 +72,17 @@ def test_mantel_fills_only_the_years_the_brand_lacks(tmp_path, monkeypatch):
     # a brand with only Mantel's sheets still gets them
     (tmp_path / "data" / "years" / "Acme.json").unlink()
     assert seed.year_specs("Acme", "Roadie", {})["years"]["2021"]["specs"]["Frame"] == "mantel"
+
+
+def test_a_year_before_a_lines_own_generations_is_the_one_before():
+    # The Domane AL's generations are its own (Gen 3 from 2021), not the carbon Domane's (Gen 3 from 2020).
+    assert mantel.with_generation("Trek", "Domane AL 3", 2020) == "Domane AL 3 Gen 2"
+    assert mantel.with_generation("Trek", "Domane AL 2", 2021) == "Domane AL 2 Gen 3"
+
+
+def test_mantel_lines_count_as_discontinued():
+    from webapp import checks
+    line = {"brand": "Lapierre", "name": "Xelius SL 6.0", "source_file": "data/years/mantel/lines/Lapierre.json",
+            "year_specs": {"years": {"2022": {"specs": {"Frame": "x"}}}}}
+    assert checks.catalogue_status(line)[0] == "discontinued"
+    assert checks.sheet_year(line) == 2022

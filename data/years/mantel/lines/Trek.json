@@ -209,7 +209,7 @@
   "source": "mantel"
  },
  {
-  "name": "Domane AL 2 Women's",
+  "name": "Domane AL 2 Women's Gen 2",
   "brand": "Trek",
   "url": "https://web.archive.org/web/20190922204118/https://www.mantel.com/be/trek-domane-al-2-dames-racefiets",
   "sku": "",
@@ -235,39 +235,7 @@
   ],
   "model_year": 2020,
   "price": null,
-  "image": "Trek/years/domaneal2womens_2020_mantel.jpg",
-  "source": "mantel"
- },
- {
-  "name": "Domane AL 3",
-  "brand": "Trek",
-  "url": "https://web.archive.org/web/20201001213449/https://www.mantel.com/trek-domane-al-3-2019",
-  "sku": "",
-  "category": "Performance road bikes",
-  "specifications": {
-   "Material": "Aluminium 100 Serie Alpha",
-   "Voorvork": "Carbon",
-   "Shifter_speed": "18 versnellingen",
-   "Shifter": "Shimano Sora",
-   "Achterderailleur": "Shimano Sora R3000",
-   "Voorderailleur": "Shimano Sora R3000",
-   "Crankstel": "Shimano Sora R3000, 50/34",
-   "Cassette": "Shimano Sora HG400, 11-32",
-   "Wiel voor": "Bontrager Affinity",
-   "Gewicht": "9,75 kg",
-   "Buitenband": "Bontrager R1 Hard-Case Lite",
-   "Zadelpen": "Bontrager Approved",
-   "Zadel": "Bontrager Arvada Comp",
-   "Stuur": "Bontrager Comp VR-C",
-   "Stuurpen": "Bontrager Elite",
-   "Rem": "Velgremmen"
-  },
-  "years": [
-   2020
-  ],
-  "model_year": 2020,
-  "price": null,
-  "image": "Trek/years/domaneal3_2020_mantel.jpg",
+  "image": "Trek/years/domaneal2womensgen2_2020_mantel.jpg",
   "source": "mantel"
  },
  {
@@ -308,37 +276,38 @@
  {
   "name": "Domane AL 3 Gen 2",
   "brand": "Trek",
-  "url": "https://web.archive.org/web/20191018083508/https://www.mantel.com/be-fr/trek-domane-al-3",
+  "url": "https://web.archive.org/web/20201001213449/https://www.mantel.com/trek-domane-al-3-2019",
   "sku": "",
   "category": "Performance road bikes",
   "specifications": {
-   "Material": "Aluminium 100 Series Alpha Aluminium",
+   "Material": "Aluminium 100 Serie Alpha",
    "Voorvork": "Carbon",
    "Shifter_speed": "18 versnellingen",
-   "Shifter": "Shimano Sora 2 x 9 speed",
-   "Achterderailleur": "Shimano Sora",
-   "Voorderailleur": "Shimano Sora",
-   "Crankstel": "Shimano Sora",
-   "Cassette": "Shimano Sora 11 - 28",
-   "Wiel voor": "Bontrager Tubeless Ready",
-   "Buitenband": "Bontrager T2, 700x25c",
-   "Balhoofdstel": "FSA 1-1/8",
-   "Zadelpen": "Bontrager 27,2 mm, 8 mm offset",
-   "Zadel": "Bontrager Montrose Comp",
-   "Stuur": "Bontrager Race VR-C, 31,8 mm",
-   "Stuurpen": "Bontrager Elite, 31,8 mm, 7 graden",
+   "Shifter": "Shimano Sora",
+   "Achterderailleur": "Shimano Sora R3000",
+   "Voorderailleur": "Shimano Sora R3000",
+   "Crankstel": "Shimano Sora R3000, 50/34",
+   "Cassette": "Shimano Sora HG400, 11-32",
+   "Wiel voor": "Bontrager Affinity",
+   "Gewicht": "9,75 kg",
+   "Buitenband": "Bontrager R1 Hard-Case Lite",
+   "Zadelpen": "Bontrager Approved",
+   "Zadel": "Bontrager Arvada Comp",
+   "Stuur": "Bontrager Comp VR-C",
+   "Stuurpen": "Bontrager Elite",
    "Rem": "Velgremmen"
   },
   "years": [
-   2018
+   2018,
+   2020
   ],
-  "model_year": 2018,
+  "model_year": 2020,
   "price": null,
-  "image": "Trek/years/domaneal3gen2_2018_mantel.jpg",
+  "image": "Trek/years/domaneal3gen2_2020_mantel.jpg",
   "source": "mantel"
  },
  {
-  "name": "Domane AL 3 WSD",
+  "name": "Domane AL 3 WSD Gen 2",
   "brand": "Trek",
   "url": "https://web.archive.org/web/20210119160250/https://www.mantel.com/trek-domane-al-3-dames-racefiets",
   "sku": "",
@@ -366,7 +335,7 @@
   ],
   "model_year": 2020,
   "price": null,
-  "image": "Trek/years/domaneal3wsd_2020_mantel.jpg",
+  "image": "Trek/years/domaneal3wsdgen2_2020_mantel.jpg",
   "source": "mantel"
  },
  {
