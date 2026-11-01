@@ -1580,10 +1580,12 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
     if photo and photo[2] and (not first or photo[0] >= first) and (not last or photo[0] <= last):
         # The colour in the ad dates it more closely than the window.
         return {"year": photo[0], "how": "photo", "reliable": inside, "first": photo[0], "last": photo[0]}
-    if (photo and photo[2] and (not e_first or photo[0] >= e_first) and (not e_last or photo[0] <= e_last)
+    if (photo and photo[2] and (not est.get("first") or photo[0] >= est["first"])
+            and (not est.get("last") or photo[0] <= est["last"])
             and gen_first and not gen_first <= photo[0] <= (gen_last or photo[0])):
-        # The ad's colour is a colourway only an earlier (or later) generation came in, and its details allow
-        # that year: probably that generation, whose specs and price we may not have.
+        # The ad's colour is a colourway only an earlier (or later) generation came in, and every year the
+        # estimate keeps (its fallback ones too, which the spec comparison goes by) allows that year: probably
+        # that generation, whose specs and price we may not have.
         return {"year": photo[0], "how": "photo", "reliable": False, "first": photo[0], "last": photo[0]}
     if e_first or e_last:
         return {"year": middle(first, last), "how": "estimate", "reliable": inside, "first": first, "last": last}
