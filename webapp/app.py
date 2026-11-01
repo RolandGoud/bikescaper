@@ -552,16 +552,28 @@ def create_app(db_path=None):
             })
         focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
         pins = sorted(pins.values(), key=lambda p: (-len(p["ads"]), p["place"]))  # busiest towns first in the list
+        # ?country=NL or BE shows only that country's towns; the switch above the map counts the ads per country.
+        countries = [{"code": cc, "name": name, "ads": sum(len(p["ads"]) for p in pins if p["country"] == cc)}
+                     for cc, name in [("NL", gettext("Netherlands")), ("BE", gettext("Belgium"))]]
+        country = (request.args.get("country") or "").upper()
+        country = country if country in {c["code"] for c in countries} else None
+        keep = {"country": country} if country else {}  # every link on the page stays in the picked country
+        for c in countries:
+            c["url"] = url_for("listings_map", country=c["code"])
+        all_url = url_for("listings_map")
+        if country:
+            pins = [p for p in pins if p["country"] == country]
         for pin in pins:  # each town's own address: the page with that town selected
-            pin["link"] = url_for("listings_map", place=pin["place"], cc=pin["country"])
+            pin["link"] = url_for("listings_map", place=pin["place"], cc=pin["country"], **keep)
         selected = next((i for i, p in enumerate(pins) if focus and [p["lat"], p["lng"]] == list(focus[:2])), None)
         # The town list comes in pages (?page=, busiest towns on page 1); a picked town opens on its own page,
         # so "All places" goes back to where it is in the list.
         pages = max(1, -(-len(pins) // TOWNS_PER_PAGE))
         page = selected // TOWNS_PER_PAGE + 1 if selected is not None else min(max(number(request.args.get("page"), int) or 1, 1), pages)
-        page_urls = [url_for("listings_map", **({"page": n} if n > 1 else {})) for n in range(1, pages + 1)]
+        page_urls = [url_for("listings_map", **keep, **({"page": n} if n > 1 else {})) for n in range(1, pages + 1)]
         return render_template("listings_map.html", pins=pins, nav="map", selected=selected,
-                               page=page, page_urls=page_urls, per_page=TOWNS_PER_PAGE)
+                               page=page, page_urls=page_urls, per_page=TOWNS_PER_PAGE,
+                               countries=countries, country=country, all_url=all_url)
 
     @app.route("/models")
     def catalog():
