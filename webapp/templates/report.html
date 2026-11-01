@@ -43,6 +43,9 @@
       {% if r.model %}
       {% set mt = r.match %}
       <div class="match-box">
+        {# The matched bike's catalogue photo on the left, in the colourway the report picked (r.model.image). #}
+        {% if r.model.image %}<a class="mb-photo photo" href="{{ url_for('model_page', slug=r.model.slug) }}" tabindex="-1" aria-hidden="true">{{ photo(r.model) }}</a>{% endif %}
+        <div class="mb-body">
         <div class="mono muted mb-k">{{ _('Matched to')|upper }}</div>
         <div class="mb-row">
           <a class="mb-name" href="{{ url_for('model_page', slug=r.model.slug) }}" title="{{ r.model.brand }} {{ r.model.name|model_title }}">{{ r.model.name|model_title }}</a>
@@ -76,6 +79,7 @@
         {% else %}
         <a class="mb-open" href="#pick-model">{{ _('Other model →') }}</a>
         {% endif %}
+        </div>
       </div>
       {# The other candidates, best fit first, in a panel that slides in; it opens and closes by its address (#_ is no element, so
          closing doesn't scroll), so without JS too. #}
