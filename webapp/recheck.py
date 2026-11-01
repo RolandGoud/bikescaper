@@ -3,7 +3,8 @@ the ad's run ended or the seller took it down (webapp/ad_gone.py).
 
 Only ads someone pasted a link for are looked at, each at most once a day, a few seconds apart,
 and only for the first DAYS_WATCHED days after the check (ads rarely live longer). Ads already
-marked gone are asked again too, so one the site wrongly answered for comes back the next day.
+marked gone are asked again too: once more on the next hourly pass, then daily, so one the site
+wrongly answered for comes back quickly.
 
     python -m webapp.recheck            # one pass by hand
 
@@ -32,8 +33,12 @@ def _stamp(t):
 def due(conn, now):
     return conn.execute(
         "SELECT id, listing_url, created_at, last_checked_at, posted_at, removed_at, gone_reason FROM checks"
-        " WHERE listing_url IS NOT NULL"
-        " AND created_at >= ? AND (last_checked_at IS NULL OR last_checked_at <= ?) ORDER BY id",
+        " WHERE listing_url IS NOT NULL AND ("
+        "   (created_at >= ? AND (last_checked_at IS NULL OR last_checked_at <= ?))"
+        # Found gone and not asked since: ask once more on the next pass, whatever its age, so a
+        # wrong "gone" (like the ones older code marked) is caught within the hour.
+        "   OR (removed_at IS NOT NULL AND last_checked_at <= removed_at)"
+        " ) ORDER BY id",
         (_stamp(now - timedelta(days=DAYS_WATCHED)), _stamp(now - EVERY)),
     ).fetchall()
 
