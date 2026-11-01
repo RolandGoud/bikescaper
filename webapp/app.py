@@ -5,6 +5,7 @@ Run from the repo root:
     flask --app webapp.app run --debug
 """
 import json
+from collections import Counter
 import os
 import random
 import re
@@ -558,9 +559,13 @@ def create_app(db_path=None):
         groupset_name = next((name for key, name, _p, _t in GROUPSETS if key == groupset), None)
         items = [dict(m, discipline=checks.discipline_of(m), status=checks.catalogue_status(m)[0],
                       tier=checks.model_tier(m))
-                 for m in models() if (not picked or m["brand"] in picked) and (not q or q in m["name"].lower())
+                 for m in models() if (not q or q in m["name"].lower())
                  and (not groupset or groupset_key(m) == groupset)]
         items = [m for m in items if not current or m["status"] == "current"]
+        # each brand's count in the brand menu: what picking it would show with the other filters kept
+        brand_counts = Counter(m["brand"] for m in items
+                               if (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind))
+        items = [m for m in items if not picked or m["brand"] in picked]
         tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
                        for t in TIERS}
         items = [m for m in items if not tier or m["tier"] == tier]
@@ -573,7 +578,7 @@ def create_app(db_path=None):
                                       key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
-                               counts=counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
+                               counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
                                nav="models", sponsored=offers(("side",), tiles=True))
 

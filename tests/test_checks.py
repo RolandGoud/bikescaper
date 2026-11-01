@@ -367,11 +367,11 @@ def test_tiles_show_brand_logo_and_discontinued_badge(tmp_path):
     assert app.test_client().get("/static/logos/trek.svg").status_code == 200
 
 
-def test_brand_pills_show_logos(tmp_path):
+def test_brand_menu_shows_logos(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     page = app.test_client().get("/models?lang=en").data.decode()
     for name in ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"):
-        assert f'class="pill-logo" role="img" aria-label="{name}"' in page
+        assert f'data-logo="/static/logos/{name.lower()}.svg"' in page
         assert app.test_client().get(f"/static/logos/{name.lower()}.svg").status_code == 200
     home = app.test_client().get("/?lang=en").data.decode()
     assert 'aria-label="Orbea"' in home and ">Orbea</a>" not in home  # every brand shows its logo
@@ -382,7 +382,7 @@ def test_selected_filters_link_back_to_all(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models?lang=en&type=road&brand=Canyon").data.decode()
     assert 'value="road" selected>' in page
-    assert 'class="pill brand on" href="/models?type=road"' in page  # Canyon logo clears the brand
+    assert 'value="Canyon" data-label="Canyon"' in page and '<option value="" data-label="All brands"' in page
     assert "Mountain" not in page  # no mountain bikes yet
 
 
@@ -875,15 +875,12 @@ def test_model_page_shows_family_as_tiles(tmp_path):
 
 
 def test_models_page_takes_several_brands(tmp_path):
+    # the brand menu picks one brand; an older address with several still filters on all of them
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    client = app.test_client()
-    page = client.get("/models?lang=en&brand=Trek&brand=Canyon").data.decode()
+    page = app.test_client().get("/models?lang=en&brand=Trek&brand=Canyon").data.decode()
     assert "Madone" in page and "Speedmax" in page and "Tarmac" not in page
-    # each pill turns its own brand on or off and keeps the others
-    assert 'href="/models?brand=Canyon" aria-current="true"' in page
-    assert 'href="/models?brand=Trek&amp;brand=Canyon&amp;brand=Specialized"' in page
-    assert page.count('name="brand"') == 2 and "brand=Trek&amp;brand=Canyon&amp;lang=nl" in page
+    assert 'selected disabled data-label="Trek + Canyon"' in page
 
 
 def nl(msg):
@@ -941,13 +938,18 @@ def test_value_says_how_far_the_asking_price_is_from_the_range(models):
 
 
 def test_models_page_starts_on_all_brands(tmp_path):
+    # the brands are a menu like type and tier, with "All brands" first and each brand's logo
     app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models?lang=nl").data.decode()
-    assert 'class="pill brand all on" href="/models" aria-current="true">Alle merken' in page
-    assert page.count('class="pill brand on"') == 0 and 'href="/models?brand=Trek"' in page
+    menu = page.split('<select name="brand"')[1].split("</select>")[0]
+    assert '<option value="" data-label="Alle merken"' in menu and "selected" not in menu
+    assert 'value="Trek"' in menu and "data-logo=" in menu and "logo-pills" not in page
     page = app.test_client().get("/models?lang=en&brand=Trek").data.decode()
-    assert 'class="pill brand all " href="/models">All brands' in page
-    assert page.count('class="pill brand on"') == 1 and 'href="/models" aria-current="true"' in page
+    menu = page.split('<select name="brand"')[1].split("</select>")[0]
+    assert menu.count("selected") == 1
+    trek = [o for o in menu.split("<option") if 'value="Trek"' in o][0]
+    assert "selected" in trek and 'data-count="0"' not in trek
 
 
 def test_seller_named_version_wins(models):
