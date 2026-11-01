@@ -89,19 +89,37 @@ def ad_state(url):
     The site answers a gone ad with a bare 404, whether it expired or the seller took it down,
     so the reason is worked out from the placing date (webapp/ad_gone.py).
 
-    Asks for the short link (https://www.marktplaats.nl/a123...): it redirects to the ad wherever
-    the site files it now, and a saved long link can 404 after the site renames a category.
+    Only a plain "Not Found" counts as gone, and only when the ad's own long link says so too:
+    a block, a time-out, or a redirect somewhere else (the home page, a consent page) means we
+    couldn't tell, and is asked again next pass.
+
+    Asks for the short link on the site's main host (https://www.marktplaats.nl/a123...): it
+    redirects to the ad wherever the site files it now. The host the link was pasted with may not
+    serve short links (m.marktplaats.nl sends every path to the home page).
     """
     item = ad_id(url)
     if not item or not supported(with_scheme(url)):
         return None, None
-    short = f"https://{urlsplit(with_scheme(url)).hostname.lower()}/{item}"
-    request = urllib.request.Request(short, headers={"User-Agent": USER_AGENT, "Accept-Language": "nl"})
+    status, posted = _ask(f"https://www.{_site(url)}/{item}", item)
+    if status == "removed":
+        # A saved long link can 404 after a category rename, so it only confirms "gone", never "live" alone.
+        status, posted = _ask(clean_url(with_scheme(url)), item)
+        if status != "live" and status != "removed":
+            return None, None
+    return status, posted
+
+
+def _site(url):
+    host = (urlsplit(with_scheme(url)).hostname or "").lower()
+    return next(h for h in HOSTS if host == h or host.endswith("." + h))
+
+
+def _ask(link, item):
+    request = urllib.request.Request(link, headers={"User-Agent": USER_AGENT, "Accept-Language": "nl"})
     try:
         with _opener.open(request, timeout=TIMEOUT) as response:
-            # Sent somewhere that isn't this ad (a category page, the home page): it's gone.
             if item not in response.geturl():
-                return "removed", None
+                return None, None  # sent somewhere that isn't this ad: not proof it's gone
             return "live", posted_at(_config(response.read(MAX_BYTES).decode("utf-8", "replace")))
     except urllib.error.HTTPError as e:
         return ("removed" if e.code in (404, 410) else None), None
