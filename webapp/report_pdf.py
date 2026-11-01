@@ -107,12 +107,12 @@ def build(listing, r, height=None, report_url=None):
     story.append(_p(size["detail"], s["body"]))
     if size.get("rows"):
         cells = [[_p(str(x["size"]), s["cell"]) for x in size["rows"]],
-                 [_p(f"{x['low']}–{x['high']}", s["cell"]) for x in size["rows"]]]
+                 [_p(f"{x['low']}–{x['high']} cm", s["cell"]) for x in size["rows"]]]
         t = Table(cells, colWidths=[min(22 * mm, width / len(size["rows"]))] * len(size["rows"]), hAlign="LEFT")
         t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.HexColor("#DDDDE3"))] +
                               [("BACKGROUND", (i, 0), (i, -1), colors.HexColor("#FFE3D6"))
                                for i, x in enumerate(size["rows"]) if x.get("selected")]))
-        story += [Spacer(1, 4), t, _p(_("Rider height in cm."), s["muted"])]
+        story += [Spacer(1, 4), t]
 
     story.append(_p(_("Age check"), s["h2"]))
     story.append(_p(f"{r['age']['headline']}: {r['age']['detail']}", s["body"]))

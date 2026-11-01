@@ -338,7 +338,6 @@ NL = {
     "IN THE AD": "IN DE ADVERTENTIE",
     "RESULT": "RESULTAAT",
     "Size fit": "Maat",
-    "Rider height in cm.": "Lichaamslengte in cm.",
     "Your height": "Je lengte",
     "Check fit": "Check pasvorm",
     "Open the size finder": "Open de maatzoeker",
