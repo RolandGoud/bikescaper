@@ -14,7 +14,8 @@ import sys
 import threading
 from datetime import date
 
-from flask import Flask, Response, abort, g, redirect, render_template, request, send_from_directory, url_for
+from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, redirect, render_template, request,
+                   send_from_directory, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import ad_gone, ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
@@ -164,17 +165,30 @@ def create_app(db_path=None):
     app.jinja_env.globals["key_parts"] = checks.key_parts
     app.jinja_env.globals["ringed_years"] = checks.ringed_years
 
-    def ad_photo_fit(ad_photo, model):
-        """Where to draw a stored ad photo so its bike sits on the catalogue bike (bike_fit), or None."""
+    def fit_files(ad_photo, model):
+        """The stored ad photo, the catalogue photo and its zoom that bike_fit lines up, or None."""
         prefix = url_for("ad_photo", name="")
-        if not (model and model.get("image") and ad_photo.startswith(prefix)):
+        if not (model and model.get("image") and ad_photo and ad_photo.startswith(prefix)):
             return None
         stored = os.path.join(ad_photos.folder(app.config["DB_PATH"]), ad_photo[len(prefix):])
         # .photo img.trek in style.css: Trek's own product shots (…-Primary_01.jpg) come with a wide white margin
         zoom = (1.12, 0.03) if model.get("brand") == "Trek" and not model.get("year_photo") and "Primary" in model["image"] else None
-        return bike_fit.style(stored, os.path.join(ROOT, "images", model["image"]), zoom)
+        return stored, os.path.join(ROOT, "images", model["image"]), zoom
+
+    def ad_photo_fit(ad_photo, model):
+        """Where to draw a stored ad photo so its bike sits on the catalogue bike (bike_fit), or None."""
+        files = fit_files(ad_photo, model)
+        return bike_fit.style(*files) if files else None
+
+    def ad_photo_settled(ad_photo, model):
+        """Whether the merged tile already shows the ad photo as it will stay: copied to our disk and lined up.
+        A new ad's photos are copied, and then lined up, in the background after the first page view, so until
+        then the tile asks for its finished ad side (duo_side below) instead of waiting for a reload."""
+        files = fit_files(ad_photo, model)
+        return bool(files) and bike_fit.settled(*files)
 
     app.jinja_env.globals["ad_photo_fit"] = ad_photo_fit
+    app.jinja_env.globals["ad_photo_settled"] = ad_photo_settled
 
     def duo_pick(photos, model=None, look=6):
         """The ad photo for the merged slider: the first one, unless its bike faces left and a later one
@@ -892,6 +906,28 @@ def create_app(db_path=None):
                                photos=photo_counts.overview(models(), GALLERIES),
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
                                missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
+
+    @app.route("/check/<int:check_id>/duo-side")
+    def duo_side(check_id):
+        """The ad side of a merged photo tile as it is now (_macros.html duo_ad_side), for static/duo.js to swap
+        in while the photo is still being copied or lined up: {"html", "settled"}. The tile says which catalogue
+        photo it shows (image, year_photo), of which model, and whether the photo was picked with it (duo_pick)."""
+        row = conn().execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
+        model = next((m for m in models() if m["id"] == request.args.get("model", type=int)), None)
+        image = request.args.get("image", "")
+        images = os.path.realpath(os.path.join(ROOT, "images"))
+        path = os.path.realpath(os.path.join(images, image))
+        if row is None or model is None or not image or not path.startswith(images + os.sep) or not os.path.isfile(path):
+            abort(404)
+        model = dict(model, image=image, year_photo=bool(request.args.get("year_photo")))
+        photos = listing_dict(row)["photos"]
+        if not photos:
+            abort(404)
+        ad_photo = duo_pick(photos, model if request.args.get("pick") else None)
+        html = get_template_attribute("_macros.html", "duo_ad_side")(ad_photo, model)
+        response = jsonify(html=str(html), settled=ad_photo_settled(ad_photo, model))
+        response.cache_control.no_store = True
+        return response
 
     @app.route("/ad-photos/<path:name>")
     def ad_photo(name):

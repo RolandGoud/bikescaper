@@ -1,4 +1,5 @@
 import json
+import re
 import os
 import time
 
@@ -154,3 +155,37 @@ def test_a_shop_photo_filling_its_frame_keeps_the_whole_bike_in_view():
     top = place["top"] + fit["y"] * place["height"]
     assert top > 0 and top + fit["h"] * place["height"] < tile_h
     assert place["left"] > 0 and place["left"] + place["width"] < 100
+
+
+def test_a_tile_not_lined_up_yet_fetches_its_framing_without_a_reload(tmp_path, monkeypatch):
+    # The first view of a new ad: its photo is lined up in the background, so the tile shows it as it is and
+    # asks for its finished ad side (static/duo.js) instead of the framing only coming right after a reload.
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    model = next(m for m in db.all_models(conn) if m["name"] == "Domane AL 4 Gen 4")
+    catalogue = os.path.join(ROOT, "images", model["image"])
+    os.makedirs(tmp_path / "ad-photos" / "1")
+    stored = str(tmp_path / "ad-photos" / "1" / "01.jpg")
+    fake_ad(catalogue, stored, True, width=800)
+    conn.execute("INSERT INTO checks (title, asking_price, photos) VALUES (?, ?, ?)",
+                 ("Trek Domane AL 4 Gen 4 maat 54", 1050, '["1/01.jpg"]'))
+    conn.commit()
+    work_out = bike_fit.work_out
+    def busy(*job):
+        raise OSError("still busy")  # the background never gets this one done
+    monkeypatch.setattr(bike_fit, "work_out", busy)
+    client = app.test_client()
+    page = client.get("/listings?lang=en").get_data(as_text=True)
+    refresh = re.search(r'data-refresh="([^"]+)"', page).group(1).replace("&amp;", "&")
+    side = client.get(refresh).get_json()
+    assert side["settled"] is False and 'class="ad-side' in side["html"] and "width:" not in side["html"]
+
+    place = work_out(stored, catalogue)  # now the background has lined it up
+    with open(stored + ".fit.json", "w") as f:
+        json.dump({bike_fit._key(catalogue, None): place}, f)
+    side = client.get(refresh).get_json()
+    assert side["settled"] is True and f'left: {place["left"]}%; top: {place["top"]}%;' in side["html"]
+    assert "data-refresh" not in client.get("/listings?lang=en").get_data(as_text=True)  # lined up: nothing to ask
+    assert client.get(refresh.replace("image=", "image=../")).status_code == 404

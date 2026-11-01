@@ -6,10 +6,12 @@
    slanted cut that the mouse, a finger or the arrow keys slide across (static/duo.js).
    The ad photo is mirrored when its bike faces left, and sized and shifted so its bike sits on the
    catalogue bike when the whole bike was found (bike_fit). #}
-{% macro duo_photo(ad_photo, model) -%}
-{% set fit = ad_photo_fit(ad_photo, model) %}
-<div class="photo duo" style="--cut: 50%">
-  <div class="ad-side{{ ' fill' if fit and fit.bg }}"{% if fit and fit.bg %} style="background: {{ fit.bg }}; --ad: url('{{ ad_photo }}')"{% endif %}><img src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer" class="{{ 'flip' if fit and fit.flip }}{{ ' whole' if fit and fit.bg and not fit.width }}"{% if fit and fit.width %} style="left: {{ fit.left }}%; top: {{ fit.top }}%; width: {{ fit.width }}%; height: {{ fit.height }}%"{% endif %}></div>
+{# check_id lets a tile whose ad photo isn't copied or lined up yet fetch its finished ad side (static/duo.js);
+   picked says the photo was chosen with the catalogue photo (duo_pick with the model), so it's chosen alike then. #}
+{% macro duo_photo(ad_photo, model, check_id=None, picked=False) -%}
+{% set refresh = url_for('duo_side', check_id=check_id, model=model.id, image=model.image, year_photo=1 if model.year_photo else None, pick=1 if picked else None) if check_id and model.id and not ad_photo_settled(ad_photo, model) %}
+<div class="photo duo" style="--cut: 50%"{% if refresh %} data-refresh="{{ refresh }}"{% endif %}>
+  {{ duo_ad_side(ad_photo, model) }}
   <div class="factory">{{ photo(model) }}</div>
   {{ brand_mark(model.brand) }}
   <input class="duo-range" type="range" min="-10" max="110" value="50" aria-label="{{ _('Slide between the ad photo and the catalogue photo') }}">
@@ -18,6 +20,11 @@
   <span class="duo-label ad"><span>{{ _('Ad') }}</span></span>
   <span class="duo-label brand"><span>{{ _('Catalogue') }}</span></span>
 </div>
+{%- endmacro %}
+
+{% macro duo_ad_side(ad_photo, model) -%}
+{% set fit = ad_photo_fit(ad_photo, model) %}
+<div class="ad-side{{ ' fill' if fit and fit.bg }}"{% if fit and fit.bg %} style="background: {{ fit.bg }}; --ad: url('{{ ad_photo }}')"{% endif %}><img src="{{ ad_photo }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer" class="{{ 'flip' if fit and fit.flip }}{{ ' whole' if fit and fit.bg and not fit.width }}"{% if fit and fit.width %} style="left: {{ fit.left }}%; top: {{ fit.top }}%; width: {{ fit.width }}%; height: {{ fit.height }}%"{% endif %}></div>
 {%- endmacro %}
 
 {# The brand's logo on a photo, top left, as on the Models tiles; brands without a logo show their name. #}
@@ -61,7 +68,7 @@
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   <div class="tile-photo">
-  {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
+  {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model, row.id) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
   {{ removed_banner(row) }}
   </div>
   <div class="body">
