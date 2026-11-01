@@ -271,7 +271,9 @@ def test_photos_pick_the_year_of_the_black_colourway_the_ad_shows(models, tmp_pa
     r = checks.run_check(models, {"title": "Trek Emonda SL6 Pro maat 54 matzwart", "description": "", "asking_price": None,
                                   "rider_height": None, "model_id": m["id"], "photo_paths": [photo]}, today=TODAY)
     assert r["photo_year"] == {"year": 2020, "colour": "Trek Black/Trek White"}
-    # The report goes by 2020 too when the ad's details allow it (rim brakes: 2022 or older), as another generation.
+    # Every part of the report goes by that year, as another generation: the age, the specs and the value.
+    assert r["year"]["year"] == r["spec_year"] == r["value"]["model_year"] == 2020 and not r["year"]["reliable"]
+    # The same when the ad's details allow it (rim brakes: 2022 or older).
     r = checks.run_check(models, {"title": "Trek Emonda SL6 Pro maat 54 matzwart", "description": "Rem: Velgrem",
                                   "asking_price": None, "rider_height": None, "model_id": m["id"],
                                   "photo_paths": [photo]}, today=TODAY)

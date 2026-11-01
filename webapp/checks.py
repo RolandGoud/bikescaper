@@ -1596,12 +1596,11 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
     if photo and photo[2] and (not first or photo[0] >= first) and (not last or photo[0] <= last):
         # The colour in the ad dates it more closely than the window.
         return {"year": photo[0], "how": "photo", "reliable": inside, "first": photo[0], "last": photo[0]}
-    if (photo and photo[2] and (not est.get("first") or photo[0] >= est["first"])
-            and (not est.get("last") or photo[0] <= est["last"])
+    if (photo and photo[2] and (not e_first or photo[0] >= e_first) and (not e_last or photo[0] <= e_last)
             and gen_first and not gen_first <= photo[0] <= (gen_last or photo[0])):
-        # The ad's colour is a colourway only an earlier (or later) generation came in, and every year the
-        # estimate keeps (its fallback ones too, which the spec comparison goes by) allows that year: probably
-        # that generation, whose specs and price we may not have.
+        # The ad's colour is a colourway only an earlier (or later) generation came in, and the ad's details allow
+        # that year (a fallback estimate, the generation's years and nothing from the ad, doesn't count): probably
+        # that generation, whose specs and price we may not have. The spec comparison goes by it too.
         return {"year": photo[0], "how": "photo", "reliable": False, "first": photo[0], "last": photo[0]}
     if e_first or e_last:
         return {"year": middle(first, last), "how": "estimate", "reliable": inside, "first": first, "last": last}
@@ -2681,7 +2680,9 @@ def run_check(models, listing, today=None):
     no_sheet = report["year"]["how"] == "older"
     year = None if no_sheet else comparison_year(
         chosen, dict(claims, year=report["year"]["year"]) if report["year"]["how"] != "catalogue" else claims,
-        report["year_estimate"])
+        # The year of the colourway the ad shows, when that's what the report goes by: its sheet, not the estimate's.
+        {"first": report["year"]["year"], "last": report["year"]["year"]} if report["year"]["how"] == "photo"
+        else report["year_estimate"])
     report["spec_year"] = None if no_sheet else year or scrape_year(chosen)
     report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"],
                                   listing.get("photo_groupset"), report["year"]["year"], no_sheet, today)
