@@ -1573,6 +1573,8 @@ select { max-width: 100%; }
 .ms-swap { width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; background: var(--raised); border-left: 1px solid var(--line); color: var(--accent); text-decoration: none; font: 600 11px/1.2 var(--body); text-align: center; text-transform: uppercase; letter-spacing: .04em; }
 .ms-swap:hover { background: var(--ok-bg); color: var(--accent-soft); }
 .match-strip ~ .match-panel { margin: 0; }
+/* Picked by the visitor (or no match words): no check cells, so the model takes the room up to the side bar. */
+.match-strip.no-checks { grid-template-columns: minmax(0, 1fr) auto; }
 
 @media (max-width: 760px) {
   .ad-stage { aspect-ratio: auto; display: flex; flex-direction: column; background: var(--card); }

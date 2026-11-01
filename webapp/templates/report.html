@@ -78,7 +78,7 @@
   {# Our match: the model (to its catalogue page), how sure we are, whether the ad's model words and year fit it, and
      a bar to link the ad to another model. #}
   <div class="block-head"><span>{{ _('Our match') }}</span></div>
-  <section class="match-strip">
+  <section class="match-strip{{ ' no-checks' if not (mt and not r.chosen_by_you) }}">
     <a class="ms-model" href="{{ url_for('model_page', slug=r.model.slug) }}">
       <span class="ms-row"><svg class="ms-bike" width="38" height="23" viewBox="0 0 600 360" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="134.0" cy="226.0" r="112"/><circle cx="134.0" cy="226.0" r="90"/><circle cx="465.3" cy="226.0" r="112"/><circle cx="465.3" cy="226.0" r="90"/><circle cx="134.0" cy="226.0" r="7"/><circle cx="465.3" cy="226.0" r="7"/><path d="M134.0 226.0 L269.3 249.4 L219.8 82.3 L398.3 61.8 L413.1 109.8 L269.3 249.4"/><path d="M134.0 226.0 L219.8 82.3"/><path d="M413.1 109.8 Q437.2 185.8 465.3 226.0"/><path d="M398.3 61.8 L396.3 53.5 L433.8 46.8 h20.1 c15.1 0 19.4 16.1 14.1 30.2 c-3.4 8.7 -11.4 12.7 -20.8 12.1"/><path d="M219.8 82.3 L210 44"/><path d="M186 38 L236 40"/><circle cx="269.3" cy="249.4" r="30"/><path d="M269.3 249.4 L310 284"/></svg>
         <span class="ms-name">{{ r.model.brand }} {{ r.model.name|model_title }}</span>

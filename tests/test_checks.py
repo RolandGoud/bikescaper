@@ -825,6 +825,7 @@ def test_certainty_comes_back_when_our_match_is_picked_again(tmp_path):
     client.post("/check/1/match", data={"model_id": other})
     page = client.get("/check/1?lang=nl").data.decode()
     assert "Gekozen door jou" in page and "zekerheid:" not in page
+    assert 'class="match-strip no-checks"' in page  # no check cells: the strip closes up to the side bar
 
     client.post("/check/1/match", data={"model_id": ours})
     page = client.get("/check/1?lang=nl").data.decode()
