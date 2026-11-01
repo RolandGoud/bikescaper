@@ -47,23 +47,31 @@ def run(conn, now=None, status=fetch_ad.ad_state, pause=PAUSE):
             continue  # typed-in links to other sites
         if i and pause:
             time.sleep(pause)
-        result = status(row["listing_url"])
-        result, posted = result if isinstance(result, tuple) else (result, None)
-        if result is None:
-            continue  # couldn't tell; try again next pass
-        stamp = _stamp(now or datetime.now(timezone.utc))
-        posted = posted or row["posted_at"]  # the live page has it; refreshed in case a renewal moves it
-        if result == "removed" and row["removed_at"]:
-            gone, why = row["removed_at"], row["gone_reason"]  # still gone: keep when and why we first saw it
-        elif result == "removed":
-            gone, why = stamp, ad_gone.reason(posted, row["last_checked_at"] or row["created_at"], stamp)
-        else:
-            gone, why = None, None  # live, or back again after a false "gone"
-        removed += result == "removed" and not row["removed_at"]
-        conn.execute("UPDATE checks SET last_checked_at = ?, removed_at = ?, posted_at = ?, gone_reason = ?"
-                     " WHERE id = ?", (stamp, gone, posted, why, row["id"]))
-        conn.commit()
+        removed += check_one(conn, row, now, status) == "found gone"
     return removed
+
+
+def check_one(conn, row, now=None, status=fetch_ad.ad_state):
+    """Ask the site about one check's ad and store the answer.
+    Returns "found gone", "still gone", "live" or None (couldn't tell, nothing changed)."""
+    result = status(row["listing_url"])
+    result, posted = result if isinstance(result, tuple) else (result, None)
+    if result is None:
+        return None  # couldn't tell; try again next pass
+    stamp = _stamp(now or datetime.now(timezone.utc))
+    posted = posted or row["posted_at"]  # the live page has it; refreshed in case a renewal moves it
+    if result == "removed" and row["removed_at"]:
+        gone, why = row["removed_at"], row["gone_reason"]  # still gone: keep when and why we first saw it
+    elif result == "removed":
+        gone, why = stamp, ad_gone.reason(posted, row["last_checked_at"] or row["created_at"], stamp)
+    else:
+        gone, why = None, None  # live, or back again after a false "gone"
+    conn.execute("UPDATE checks SET last_checked_at = ?, removed_at = ?, posted_at = ?, gone_reason = ?"
+                 " WHERE id = ?", (stamp, gone, posted, why, row["id"]))
+    conn.commit()
+    if result == "live":
+        return "live"
+    return "still gone" if row["removed_at"] else "found gone"
 
 
 def run_locked(db_path):

@@ -474,7 +474,13 @@ def create_app(db_path=None):
 
     @app.route("/check/<int:check_id>/recheck", methods=["POST"])
     def recheck_report(check_id):
-        """Run this check again with today's matching and catalogue, e.g. after the matching changed."""
+        """Run this check again with today's matching and catalogue, e.g. after the matching changed,
+        and ask the site again whether the ad is still up, so a wrong "removed" clears right away."""
+        row = conn().execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
+        if row is None:
+            abort(404)
+        if row["listing_url"] and fetch_ad.supported(fetch_ad.with_scheme(row["listing_url"])):
+            recheck.check_one(conn(), row, status=app.config.get("AD_STATUS", fetch_ad.ad_state))
         stored_checks.forget(conn(), check_id)
         return redirect(url_for("report", check_id=check_id))
 
