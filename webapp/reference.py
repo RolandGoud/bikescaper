@@ -248,7 +248,7 @@ FAMILY_DISCIPLINES = {
         "Factor": ["ostro", "o", "monza", "one", "bugatti"],
         "Lapierre": ["xelius", "pulsium", "sensium", "aircode", "audacio"],
         "Bianchi": ["oltre", "specialissima", "infinito", "sprint", "intenso", "aria"],
-        "BMC": ["teammachine", "roadmachine", "speedmachine", "granfondo"],
+        "BMC": ["teammachine", "roadmachine", "granfondo"],
     },
     "gravel": {
         "Trek": ["checkpoint", "checkmate", "boone"],
@@ -275,6 +275,7 @@ FAMILY_DISCIPLINES = {
         "Cannondale": ["superslice"],
         "Lapierre": ["aerostorm"],
         "Bianchi": ["aquila"],
+        "BMC": ["speedmachine", "timemachine"],
     },
     "fitness": {
         "Trek": ["fx"],

@@ -50,7 +50,7 @@ def discipline(product):
 
 def category_of(product, name):
     low = name.lower()
-    if low.startswith("timemachine") and "road" not in low:
+    if low.startswith("speedmachine") or (low.startswith("timemachine") and "road" not in low):
         return "Triathlon / TT"
     if low.startswith("crossmachine"):
         return "Cyclocross"
@@ -66,7 +66,7 @@ def photo_facts(src):
     """(model year, colour) from a photo name: bmc-2027-teammachine-slr-three-road-bike-white-1_<uuid>.jpg."""
     stem = (src or "").split("/")[-1].split("?")[0]
     year = re.match(r"bmc-(20\d\d)-", stem)
-    colour = re.search(r"-(?:road|gravel|track)-(?:bike|frameset)(?:-frame)?-([a-z-]+?)-\d+(?:[_.-]|$)", stem)
+    colour = re.search(r"-(?:road|gravel|track|aero)-(?:bike|frameset|module)(?:-frame)?-([a-z-]+?)-\d+(?:[_.-]|$)", stem)
     return (int(year.group(1)) if year else None,
             re.sub(r"^(?:road|gravel) bike ", "", colour.group(1).replace("-", " ")).title() if colour else None)
 

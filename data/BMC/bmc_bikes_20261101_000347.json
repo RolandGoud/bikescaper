@@ -5,7 +5,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-four-bikes-bmc-26a-000005",
     "sku": "speedmachine-01-four-bikes-bmc-26a-000005",
     "price": 7499.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2026,
     "specifications": {
       "Frame": "Speedmachine 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Stealth Dropout Design | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -30,16 +30,22 @@
       "Maximale bandenmaat": "30mm measured tire",
       "Gewicht": "10.1kg | Size M as pictured with all accessories"
     },
-    "color_names": [],
+    "color_names": [
+      "White"
+    ],
     "sizes": [
       "S",
       "M",
       "L"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2026-speedmachine-01-four-aero-bike-white-1_65739d61-f48c-4112-a90d-1f99ffe390f9.jpg?v=1793198559&width=1200",
-    "color_image_urls": [],
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2026-speedmachine-01-four-aero-bike-white-1_65739d61-f48c-4112-a90d-1f99ffe390f9.jpg?v=1793198559&width=1200"
+    ],
     "image": "BMC/Speedmachine_01_FOUR.jpg",
-    "color_images": []
+    "color_images": [
+      "BMC/Speedmachine_01_FOUR_colour_White.jpg"
+    ]
   },
   {
     "name": "Speedmachine 01 LTD",
@@ -47,7 +53,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-ltd-bikes-bmc-24-10627-001",
     "sku": "speedmachine-01-ltd-bikes-bmc-24-10627-001",
     "price": 16999.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2024,
     "specifications": {
       "Frame": "Speedmachine 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Stealth Dropout Design | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -96,7 +102,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-mod-bike-frames-bmc-24-10627-003",
     "sku": "speedmachine-01-mod-bike-frames-bmc-24-10627-003",
     "price": 6999.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2024,
     "specifications": {
       "Frame": "Speedmachine 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Stealth Dropout Design | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -130,7 +136,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-module-frames-bmc-27a-000036",
     "sku": "speedmachine-01-module-frames-bmc-27a-000036",
     "price": 6499.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2027,
     "specifications": {
       "Frame": "Speedmachine 01 | 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Full Mount - UDH | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -144,16 +150,22 @@
       "Maximale bandenmaat": "30mm measured tire",
       "Gewicht": "4035g | Size M as pictured with all accessories"
     },
-    "color_names": [],
+    "color_names": [
+      "Black"
+    ],
     "sizes": [
       "S",
       "M",
       "L"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-aero-module-black-1_447f42a3-1c3f-48e1-969e-b1cf417eafb9.jpg?v=1793012824&width=1200",
-    "color_image_urls": [],
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-aero-module-black-1_447f42a3-1c3f-48e1-969e-b1cf417eafb9.jpg?v=1793012824&width=1200"
+    ],
     "image": "BMC/Speedmachine_01_Module.jpg",
-    "color_images": []
+    "color_images": [
+      "BMC/Speedmachine_01_Module_colour_Black.jpg"
+    ]
   },
   {
     "name": "Speedmachine 01 ONE",
@@ -161,7 +173,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-one-bikes-bmc-27a-000037",
     "sku": "speedmachine-01-one-bikes-bmc-27a-000037",
     "price": 10999.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2027,
     "specifications": {
       "Frame": "Speedmachine 01 | 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Full Mount - UDH | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -188,16 +200,22 @@
       "Maximale bandenmaat": "30mm measured tire",
       "Gewicht": "9.2kg | Size M as pictured with all accessories"
     },
-    "color_names": [],
+    "color_names": [
+      "Red"
+    ],
     "sizes": [
       "S",
       "M",
       "L"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-one-aero-bike-red-1_93077cd4-269e-4599-b2c1-4d329533b912.jpg?v=1793010968&width=1200",
-    "color_image_urls": [],
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-one-aero-bike-red-1_93077cd4-269e-4599-b2c1-4d329533b912.jpg?v=1793010968&width=1200"
+    ],
     "image": "BMC/Speedmachine_01_ONE.jpg",
-    "color_images": []
+    "color_images": [
+      "BMC/Speedmachine_01_ONE_colour_Red.jpg"
+    ]
   },
   {
     "name": "Speedmachine 01 THREE",
@@ -205,7 +223,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-three-bikes-bmc-27a-000038",
     "sku": "speedmachine-01-three-bikes-bmc-27a-000038",
     "price": 7499.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2027,
     "specifications": {
       "Frame": "Speedmachine 01 | 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Full Mount - UDH | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -231,16 +249,22 @@
       "Maximale bandenmaat": "30mm measured tire",
       "Gewicht": "10.3kg | Size M as pictured with all accessories"
     },
-    "color_names": [],
+    "color_names": [
+      "Silver"
+    ],
     "sizes": [
       "S",
       "M",
       "L"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-three-aero-bike-silver-1.jpg?v=1793014408&width=1200",
-    "color_image_urls": [],
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-three-aero-bike-silver-1.jpg?v=1793014408&width=1200"
+    ],
     "image": "BMC/Speedmachine_01_THREE.jpg",
-    "color_images": []
+    "color_images": [
+      "BMC/Speedmachine_01_THREE_colour_Silver.jpg"
+    ]
   },
   {
     "name": "Speedmachine 01 TWO",
@@ -248,7 +272,7 @@
     "url": "https://nl.bmc-switzerland.com/products/speedmachine-01-two-bikes-bmc-27a-000039",
     "sku": "speedmachine-01-two-bikes-bmc-27a-000039",
     "price": 9999.0,
-    "category": "Aero Race",
+    "category": "Triathlon / TT",
     "model_year": 2027,
     "specifications": {
       "Frame": "Speedmachine 01 | 01 Premium Carbon | ICS Technology Stealth Cable Routing | Integrated Fuel Tank 1200 Hydration System | Integrated Rear Storage 260 | Full Mount - UDH | Flat Mount Disc | 142x12mm Thru-Axle",
@@ -275,16 +299,22 @@
       "Maximale bandenmaat": "30mm measured tire",
       "Gewicht": "9.5kg | Size M as pictured with all accessories"
     },
-    "color_names": [],
+    "color_names": [
+      "Blue"
+    ],
     "sizes": [
       "S",
       "M",
       "L"
     ],
     "image_url": "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-two-aero-bike-blue-1_61d5f7ca-3776-4432-a823-5c7bedd0a083.jpg?v=1793015771&width=1200",
-    "color_image_urls": [],
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/2361/3567/files/bmc-2027-speedmachine-01-two-aero-bike-blue-1_61d5f7ca-3776-4432-a823-5c7bedd0a083.jpg?v=1793015771&width=1200"
+    ],
     "image": "BMC/Speedmachine_01_TWO.jpg",
-    "color_images": []
+    "color_images": [
+      "BMC/Speedmachine_01_TWO_colour_Blue.jpg"
+    ]
   },
   {
     "name": "Roadmachine 01 FOUR",

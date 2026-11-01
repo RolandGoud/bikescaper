@@ -92,6 +92,8 @@ def test_bianchi_skips_mountain_and_city_bikes():
      2018, "Team Red"),
     ("https://cdn.shopify.com/s/files/1/files/bmc-2027-teammachine-r-01-road-frameset-purple-1.jpg?v=1", 2027, "Purple"),
     ("https://cdn.shopify.com/s/files/1/files/bmc-2024-urs-two-gravel-bike-red-1_9a13.jpg?v=1", 2024, "Red"),
+    ("https://cdn.shopify.com/s/files/1/files/bmc-2027-speedmachine-01-two-aero-bike-blue-1_61d5.jpg?v=1", 2027, "Blue"),
+    ("https://cdn.shopify.com/s/files/1/files/bmc-2027-speedmachine-01-aero-module-black-1_447f.jpg?v=1", 2027, "Black"),
 ])
 def test_bmc_year_and_colour_from_photo_name(src, year, colour):
     assert bmc.photo_facts(src) == (year, colour)
@@ -105,6 +107,8 @@ def test_bmc_names_and_disciplines():
     assert bmc.wanted(road) and bmc.category_of(road, road["title"]) == "Race"
     assert not bmc.wanted(dict(road, title="Roadmachine 01 AMP ONE"))  # an e-bike
     assert not bmc.wanted(dict(road, tags=["Bikes | Mountain | Cross-Country"]))
+    speed = {"title": "Speedmachine 01 TWO", "product_type": "Bikes", "tags": ["Bikes | Road | Aero | Speedmachine"]}
+    assert bmc.category_of(speed, speed["title"]) == "Triathlon / TT"
     archived = {"title": "Timemachine 01 ONE", "product_type": "Bike Archive", "tags": ["Road | Aero | Timemachine"]}
     assert bmc.wanted(archived) and bmc.category_of(archived, archived["title"]) == "Triathlon / TT"
 
