@@ -1596,6 +1596,13 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
     if photo and photo[2] and (not first or photo[0] >= first) and (not last or photo[0] <= last):
         # The colour in the ad dates it more closely than the window.
         return {"year": photo[0], "how": "photo", "reliable": inside, "first": photo[0], "last": photo[0]}
+    if (photo and photo[2] and (not est.get("first") or photo[0] >= est["first"])
+            and (not est.get("last") or photo[0] <= est["last"])
+            and gen_first and not gen_first <= photo[0] <= (gen_last or photo[0])):
+        # The ad's colour is a colourway only an earlier (or later) generation came in, and every year the
+        # estimate keeps (its fallback ones too, which the spec comparison goes by) allows that year: probably
+        # that generation, whose specs and price we may not have.
+        return {"year": photo[0], "how": "photo", "reliable": False, "first": photo[0], "last": photo[0]}
     if e_first or e_last:
         return {"year": middle(first, last), "how": "estimate", "reliable": inside, "first": first, "last": last}
     if gen_first:
@@ -1632,7 +1639,7 @@ def year_model(model, year):
     return dict(model, specs=sheet["specs"], spec_year=year)
 
 
-def year_photo(model, claims, estimate, text, seen_colour=None):
+def year_photo(model, claims, estimate, text, seen_colour=None, photo_paths=None):
     """(year, image, colour or None) of the model-year photo that fits the ad best, or None to keep the
     current one: the year of the colour the ad names, else the year the spec comparison uses
     (comparison_year), else the stated year unless the details rule it out, else the newest year they allow."""
@@ -1670,6 +1677,9 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
         one = len(year_sheets(model).get(year, {}).get("colours") or []) == 1
         return (year, photos[year], hit[0] if one else None) if year in photos else None
     title, _nl, description = (text or "").partition("\n")
+    by_photo = colour_year_by_photos(model, photos, allowed, title, description, photo_paths) if not claimed else None
+    if by_photo:
+        return by_photo
     fit = colour_family_years(year_sheets(model), text)
     if fit:
         # The newest year in the seller's colours with a photo, unless the stated year is one of them; of those,
@@ -1701,6 +1711,27 @@ def year_photo(model, claims, estimate, text, seen_colour=None):
     if fit:
         return year, colour_images(model, year)[fit[0]], fit[0] if len(fit) == 1 else None
     return year, photos[year], None
+
+
+def colour_year_by_photos(model, photos, allowed, title, description, photo_paths):
+    """(year, image, colour) of the colourway in the colour the ad names that its photos show, when the years the
+    estimate allows came in several of those ("matzwart": Trek Black/Trek White in 2020, Trek Black/Radioactive Red
+    in 2021, and the photos show no red); None when they don't tell them apart."""
+    if not photo_paths:
+        return None
+    # Every year, as for a colour the ad names (year_photo): the generation's first year in the estimate is a
+    # guess, and a colourway only an earlier generation came in says otherwise.
+    found = {}  # colour name: (its years, its newest photo)
+    for year in sorted(photos):
+        for name in year_colour_fits(colour_images(model, year), title, description):
+            found[name] = (found.get(name, ([], None))[0] + [year], colour_images(model, year)[name])
+    if len(found) < 2:
+        return None
+    name = colour_match.by_photos([(n, image) for n, (_, image) in found.items()], photo_paths)
+    if not name:
+        return None
+    year = middle_year(allowed(found[name][0]))
+    return year, colour_images(model, year)[name], name
 
 
 def colour_images(model, year):
@@ -2618,7 +2649,8 @@ def run_check(models, listing, today=None):
     report["year_estimate"] = estimate_year(chosen, models, claims,
                                             f"{listing['title']}\n{listing.get('description') or ''}", seen)
     # The photo of the model year the ad's bike is, rather than of today's model, when we have one.
-    found = year_photo(chosen, claims, report["year_estimate"], f"{listing['title']}\n{listing.get('description') or ''}", seen)
+    found = year_photo(chosen, claims, report["year_estimate"], f"{listing['title']}\n{listing.get('description') or ''}", seen,
+                       listing.get("photo_paths"))
     # One model year for the price and the spec comparison, so they can't disagree.
     report["year"] = resolve_year(chosen, claims, report["age"], report["year_estimate"], today, found)
     report["year"]["note"] = year_note(report["year"], claims)
