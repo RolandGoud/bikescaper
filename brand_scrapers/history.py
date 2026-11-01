@@ -711,6 +711,8 @@ def run(brands, db_path, years, cdx_folder=None, names=None):
             before = {"years": [], "models": {}}
         for name, entries in before["models"].items():
             for year, entry in entries.items():
+                if entry.get("manual"):  # set by hand: a run doesn't overwrite it
+                    found.setdefault(name, {})[year] = entry
                 found.setdefault(name, {}).setdefault(year, entry)
         all_years = sorted(set(before["years"]) | set(years))
         with open(path, "w", encoding="utf-8") as fh:
