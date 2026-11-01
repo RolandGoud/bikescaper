@@ -275,7 +275,7 @@ FAMILY_DISCIPLINES = {
         "Cannondale": ["superslice"],
         "Lapierre": ["aerostorm"],
         "Bianchi": ["aquila"],
-        "BMC": ["speedmachine", "timemachine"],
+        "BMC": ["speedmachine"],  # Timemachine is TT or aero road (Timemachine Road): its category decides
     },
     "fitness": {
         "Trek": ["fx"],

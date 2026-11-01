@@ -109,6 +109,8 @@ def test_bmc_names_and_disciplines():
     assert not bmc.wanted(dict(road, tags=["Bikes | Mountain | Cross-Country"]))
     speed = {"title": "Speedmachine 01 TWO", "product_type": "Bikes", "tags": ["Bikes | Road | Aero | Speedmachine"]}
     assert bmc.category_of(speed, speed["title"]) == "Triathlon / TT"
+    aero_road = {"title": "Timemachine TMR01 Ultegra", "product_type": "Bike Archive", "tags": ["Road | Aero"]}
+    assert bmc.category_of(aero_road, aero_road["title"]) == "Aero Race"
     archived = {"title": "Timemachine 01 ONE", "product_type": "Bike Archive", "tags": ["Road | Aero | Timemachine"]}
     assert bmc.wanted(archived) and bmc.category_of(archived, archived["title"]) == "Triathlon / TT"
 

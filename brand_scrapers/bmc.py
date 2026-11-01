@@ -50,7 +50,8 @@ def discipline(product):
 
 def category_of(product, name):
     low = name.lower()
-    if low.startswith("speedmachine") or (low.startswith("timemachine") and "road" not in low):
+    road = re.search(r"\broad\b|\btmr\s*0", low)  # Timemachine Road, once named TMR01: an aero road bike
+    if low.startswith("speedmachine") or (low.startswith("timemachine") and not road):
         return "Triathlon / TT"
     if low.startswith("crossmachine"):
         return "Cyclocross"
