@@ -1727,7 +1727,7 @@ def test_an_earlier_year_shows_its_own_generation(tmp_path):
     assert 2024 not in gens  # our own generation
     from webapp.app import create_app
     page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
-    assert 'data-fact="title">Domane AL 2 Gen 4</h1>' in page
+    assert 'data-fact="title"><span class="sr-only">Trek </span>Domane <span class="acc">AL 2</span></h1>' in page
     assert '<span data-fact="title">Domane AL 2 Gen 3</span>' in page
     assert '<div class="v">2021–2023</div>' in page and "eerdere gen. · gen 2" in page
 
@@ -1772,7 +1772,7 @@ def test_model_titles_leave_shimano_out(tmp_path):
     tiles = client.get("/models?brand=Specialized&lang=nl").get_data(as_text=True)
     assert ">Tarmac SL9 Comp - 105 Di2</span>" in tiles and "Shimano 105 Di2</span>" not in tiles
     page = client.get("/models/" + seed.slugify("Specialized Tarmac SL9 Comp - Shimano 105 Di2")).get_data(as_text=True)
-    assert ">Tarmac SL9 Comp - 105 Di2</h1>" in page
+    assert 'Tarmac <span class="acc">SL9 Comp - 105 Di2</span></h1>' in page
 
 
 def test_models_page_tiles_leave_the_generation_out(tmp_path):
