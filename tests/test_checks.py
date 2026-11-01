@@ -1153,13 +1153,13 @@ def test_model_page_has_year_tabs(tmp_path):
     assert 'class="year-tab archive" id="tab-2024"' in page and "Trek/years/domaneslr7axsgen4_2024.jpg" in page
 
 
-def test_model_page_year_selector_runs_current_to_oldest(tmp_path):
+def test_model_page_year_selector_runs_oldest_to_current(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/giant-defy-advanced-2?lang=nl").data.decode()
     years = re.findall(r'class="gallery-thumb[^"]*" aria-pressed="(\w+)" data-year="(\d+)"', page)
-    assert len(years) > 2 and [int(y) for _p, y in years] == sorted((int(y) for _p, y in years), reverse=True)
-    assert [p for p, _y in years] == ["true"] + ["false"] * (len(years) - 1)  # the current bike, on top, is shown first
+    assert len(years) > 2 and [int(y) for _p, y in years] == sorted(int(y) for _p, y in years)
+    assert [p for p, _y in years] == ["false"] * (len(years) - 1) + ["true"]  # the current bike, last, is shown first
     assert 'class="year-rail' in page  # the years pick the bike; the arrows on the photo go through its photos
     assert "year-photo" not in page  # the year photos moved out of the spec tabs
     shown = {int(y) for _p, y in years}
@@ -1905,3 +1905,21 @@ def test_the_ad_card_always_has_a_year_tile(tmp_path):
     client.post("/check", data={"title": "Trek Domane SL 6 maat 56", "asking_price": "2450"})
     page = client.get("/check/1?lang=nl").data.decode()
     assert '<span class="k">BOUWJAAR</span><b class="muted">Niet vermeld</b>' in page
+
+def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_strip(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/giant-defy-advanced-2?lang=nl").data.decode()
+    stage, card, strip = (page.index(k) for k in ('class="ad-stage model-stage', 'class="ad-card model-card"', 'class="match-strip used-strip"'))
+    assert stage < card < strip < page.index('id="asking"')
+    assert 'class="price-sticker"><b data-fact="sticker">' in page and "NIEUWPRIJS" in page
+    assert '<span class="acc">' in page[stage:card] and "Het model" in page and "Tweedehands" in page
+    assert 'href="#spec-sheet"' in page and 'id="spec-sheet"' in page
+    assert 'href="/value?model=giant-defy-advanced-2"' in page[strip:]
+
+
+def test_home_shows_what_a_check_tells_you_as_one_strip(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    page = app.test_client().get("/?lang=nl").data.decode()
+    assert page.count('class="ws-cell"') == 4 and 'href="#check-ad"' in page and 'id="check-ad"' in page
+    assert "Check een advertentie" in page and "Is de prijs eerlijk?" in page
