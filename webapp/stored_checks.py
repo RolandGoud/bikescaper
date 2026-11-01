@@ -8,8 +8,8 @@ report page (one check) or the Statistics page (all of them), or by hand. A rech
 own date: the ad's age and value stay as of the day it was checked.
 
 Every time a check's report is worked out or read back, checks.too_old is set: the bike's model year when it's
-from before checks.FIRST_YEAR (we have no data for those years, so the check isn't published), else 0. NULL means
-not worked out yet; settle_ages works those out before a page lists checks.
+from before checks.FIRST_YEAR (we have no data for those years), else 0. NULL means not worked out yet; settle_ages
+works those out before a page lists checks, and delete_old then deletes the checks of bikes that old.
 
     python -m webapp.stored_checks           # forget every stored report; each runs again when next shown
 
@@ -21,6 +21,7 @@ import io
 import json
 import os
 import pickle
+import shutil
 import sys
 from datetime import date
 
@@ -125,6 +126,18 @@ def settle_ages(conn, report_of):
             conn.execute("UPDATE checks SET too_old = 0 WHERE id = ?", (row["id"],))
             conn.commit()
     return len(rows)
+
+
+def delete_old(conn, photo_folder):
+    """Delete the checks of bikes from before checks.FIRST_YEAR (too_old set), with their stored reports and
+    photos: we keep nothing of them. Returns how many."""
+    ids = [r[0] for r in conn.execute("SELECT id FROM checks WHERE too_old > 0")]
+    for check_id in ids:
+        shutil.rmtree(os.path.join(photo_folder, str(check_id)), ignore_errors=True)
+    conn.execute("DELETE FROM check_results WHERE check_id IN (SELECT id FROM checks WHERE too_old > 0)")
+    conn.execute("DELETE FROM checks WHERE too_old > 0")
+    conn.commit()
+    return len(ids)
 
 
 def computed_at(conn, check_id):

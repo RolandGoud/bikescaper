@@ -1277,11 +1277,12 @@ NL = {
     "We have no data for bikes from before {year}": "We hebben geen gegevens van fietsen van vóór {year}",
     "Not checked": "Niet gecheckt",
     "This bike is from {year}.": "Deze fiets is uit {year}.",
-    "The ad says it was bought in {year}.": "Volgens de advertentie is hij in {year} gekocht.",
+    "The ad says it was bought in {year}, so it is a model from before {first}.":
+        "Volgens de advertentie is hij in {year} gekocht, dus het is een model van vóór {first}.",
     "That is the year the ad gives.": "Dat is het jaar dat de advertentie noemt.",
     "Its colour is one only the {year} model came in.": "Alleen het model van {year} kwam in deze kleur.",
     "The ad's details only fit bikes from before {year}.": "De details in de advertentie passen alleen bij fietsen van vóór {year}.",
-    "Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't put checks like this on the site.":
-        "Onze catalogus begint bij modeljaar {year}, dus we kunnen de onderdelen, leeftijd en prijs van deze fiets niet met het origineel vergelijken. Zulke checks zetten we niet op de site.",
+    "Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't keep checks like this.":
+        "Onze catalogus begint bij modeljaar {year}, dus we kunnen de onderdelen, leeftijd en prijs van deze fiets niet met het origineel vergelijken. Zulke checks bewaren we niet.",
     "Check another ad": "Check een andere advertentie",
 }

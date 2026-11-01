@@ -2789,15 +2789,20 @@ def run_check(models, listing, today=None):
 
 
 def pre_2018_year(report):
-    """The bike's model year when the report says it's from before FIRST_YEAR, else None. Such a check isn't
-    published: we have no data for those years. It goes by the year the report goes by (resolve_year, where a year
-    the ad states wins), or by the ad's own year when no model matched. A year the report only guesses (the middle
-    of the years the ad's details or the generation allow) counts only when all of those years are that old."""
+    """The bike's model year when the report says it's from before FIRST_YEAR, else None: we have no data for those
+    years, so such a check isn't kept. It goes by the year the report goes by (resolve_year, where a year the ad
+    states wins), or by the ad's own year when no model matched. A year the report only guesses (the middle of the
+    years the ad's details or the generation allow) counts only when all of those years are that old. A purchase year
+    counts when even a bike bought new that year ("gekocht in 2016") was at most the next year's model: the report
+    can't place such a bike in a generation older than our catalogue, so it moves it up to the generation's first year."""
     claims = report.get("claims") or {}
+    claimed = claims.get("year")
     year = report.get("year") if report.get("model") else None
+    purchase = claims.get("year_is_purchase") or (year or {}).get("how") == "purchase"
+    if claimed and purchase and claimed + 1 < FIRST_YEAR:
+        return claimed
     if not year:
-        claimed = claims.get("year")
-        return claimed if claimed and claimed < FIRST_YEAR else None
+        return claimed if claimed and claimed < FIRST_YEAR and not purchase else None
     if not year.get("year") or year["year"] >= FIRST_YEAR:
         return None
     if year.get("how") in ("ad", "older", "purchase", "photo") or (year.get("last") or year["year"]) < FIRST_YEAR:
