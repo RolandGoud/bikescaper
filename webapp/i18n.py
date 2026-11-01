@@ -525,8 +525,8 @@ NL = {
     "Limits of this prototype": "Beperkingen van dit prototype",
     "Model years are entered by hand for a few Trek generations only.":
         "Modeljaren zijn alleen voor een paar Trek-generaties met de hand ingevoerd.",
-    "Trek, Canyon and Cannondale publish each model's own size chart. Specialized, Giant, Cube and Factor publish the sizes and geometry per model, but rider heights only in a general size guide.":
-        "Trek, Canyon en Cannondale publiceren per model een eigen maattabel. Specialized, Giant, Cube en Factor geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel.",
+    "Trek, Canyon, Cannondale and BMC publish each model's own size chart. Specialized, Giant, Cube, Factor and Bianchi publish the sizes and geometry per model, but rider heights only in a general size guide. Lapierre publishes no rider heights, so its bikes use a generic chart.":
+        "Trek, Canyon, Cannondale en BMC publiceren per model een eigen maattabel. Specialized, Giant, Cube, Factor en Bianchi geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel. Lapierre geeft geen lichaamslengtes, dus voor hun fietsen gebruiken we een algemene tabel.",
     "The value is a simple age and condition curve. Comparable ads aren't used yet.":
         "De waarde is een eenvoudige berekening op leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "Only current-catalogue models are covered; older generations come with the reworked scraper.":

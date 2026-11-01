@@ -3,7 +3,8 @@
 A first working version of the Bike Compare site: paste a second-hand bike ad and get a
 check report on age, specs, size and value, matched against the road and gravel catalogue
 that bikescaper collected from the brands' own sites: Trek and Canyon in July and August 2025,
-Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea in October 2026.
+Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea in October 2026, Lapierre, Bianchi and BMC
+in November 2026.
 
 ## Run it
 
@@ -79,7 +80,7 @@ hand-entered reference data (brands, Trek generation years, generic size charts,
 ## Brands
 
 Trek and Canyon come from their own scrapers (`trek_bikes_scraper.py`, `canyon_bikes_scraper.py`).
-Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea come from `brand_scrapers/`, one adapter per
+Specialized, Giant, Cannondale, Cube, Factor, Scott, Orbea, Lapierre, Bianchi and BMC come from `brand_scrapers/`, one adapter per
 brand; refresh them with `python -m brand_scrapers` (or name brands: `python -m brand_scrapers
 giant cube`). It writes a new snapshot to `data/<Brand>/` and one photo per model and one per
 colour to `images/<Brand>/`, and the seed picks the newest snapshot. `python -m
@@ -88,7 +89,11 @@ the rest again (Scott from `data/Scott/scott_gallery.json`; Orbea only from a ho
 itself on the next start when a new snapshot is in `main`.
 
 Only road, gravel, cyclocross and time trial bikes are collected, like the Trek and Canyon data.
-Factor has no Dutch site, so its prices come from the EU store. Scott and Orbea block requests
+Factor has no Dutch site, so its prices come from the EU store; Lapierre's come from its Belgian store and
+Bianchi's are its euro list prices from bianchi.com/en. Bianchi and BMC list earlier model years in their own
+stores (Bianchi sells a build for several seasons, BMC keeps a Bike Archive back to 2016), so `python -m
+brand_scrapers bianchi bmc` also writes those years to `data/years/site/` and the lines BMC no longer sells to
+`data/years/archived/`. Scott and Orbea block requests
 from servers and headless browsers (Imperva and Cloudflare), so `brand_scrapers/browser.py` opens a
 visible Chrome window through Playwright: run `python -m brand_scrapers scott orbea` on a home PC
 with `pip install playwright`. Their rider heights come from the brands' general size guides.
@@ -102,6 +107,6 @@ See `docs/scraper-plan.md`.
   shows only the year of our own scrape, and the other tabs say the archive wasn't searched yet.
 - The catalogue photo on a check shows the colour the ad names (title, a "kleur:" line, or "zwarte racefiets"), matched to the brand's colour names (`webapp/colour_match.py`); without a colour in the text it shows the model's first colour. Trek's colours aren't collected per model, and Orbea's colour photos wait for a run from a home PC.
 - The age check also estimates the model year from the ad's details: groupset generation, a named frame generation, rim brakes and a named colourway we have a dated photo of (`GROUPSET_YEARS` in `webapp/reference.py`). The ad's photos aren't read: without a vision model their colours are mostly the background.
-- Rider heights per model come from Trek, Canyon and Cannondale; Specialized, Giant, Cube and Factor only publish sizes and geometry per model, so their heights come from the brand size guide. Refresh with `python -m brand_scrapers.sizing`.
+- Rider heights per model come from Trek, Canyon, Cannondale and BMC; Specialized, Giant, Cube, Factor and Bianchi only publish sizes and geometry per model, so their heights come from the brand size guide. Lapierre publishes no rider heights, so its bikes use the generic chart. Refresh with `python -m brand_scrapers.sizing`.
 - The value is a simple age and condition curve; comparable ads aren't used.
 - Only the 2025 catalogue is covered, so older generations can't be matched yet.

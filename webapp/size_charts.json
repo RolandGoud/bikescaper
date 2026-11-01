@@ -1,5 +1,4743 @@
 {
  "models": {
+  "bianchi-aquila-rc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "S": {
+     "stack": 486.0,
+     "reach": 402.0
+    },
+    "M": {
+     "stack": 500.0,
+     "reach": 420.0
+    },
+    "L": {
+     "stack": 524.0,
+     "reach": 440.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Aquila RC Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/tt-triathlon/aquila/aquila-rc/aquila-rc-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-al-cues": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 537.0,
+     "reach": 389.0
+    },
+    "S": {
+     "stack": 556.0,
+     "reach": 396.0
+    },
+    "M": {
+     "stack": 576.0,
+     "reach": 404.0
+    },
+    "L": {
+     "stack": 597.0,
+     "reach": 413.0
+    },
+    "XL": {
+     "stack": 616.0,
+     "reach": 423.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex AL Cues",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex-al/arcadex-alu/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-al-grx610-822": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 537.0,
+     "reach": 389.0
+    },
+    "S": {
+     "stack": 556.0,
+     "reach": 396.0
+    },
+    "M": {
+     "stack": 576.0,
+     "reach": 404.0
+    },
+    "L": {
+     "stack": 597.0,
+     "reach": 413.0
+    },
+    "XL": {
+     "stack": 616.0,
+     "reach": 423.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex AL GRX610/822",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex-al/gravel-adventure-arcadex-al-arcadex-al-arcadex-al/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-comp-apex-sx": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 544.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 563.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 584.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 402.0
+    },
+    "XL": {
+     "stack": 638.0,
+     "reach": 410.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex Comp Apex/SX",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex/gravel-adventure-arcadex-arcadex-comp-arcadex-comp/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-comp-grx-610": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 544.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 563.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 584.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 402.0
+    },
+    "XL": {
+     "stack": 638.0,
+     "reach": 410.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex Comp GRX 610",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex/gravel-adventure-arcadex-arcadex-comp-arcadex-comp-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-pro-apex-gx-etap": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 544.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 563.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 584.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 402.0
+    },
+    "XL": {
+     "stack": 638.0,
+     "reach": 410.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex Pro Apex/GX eTap",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex/arcadex-pro/gravel-adventure-arcadex-arcadex-pro-arcadex-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-pro-grx-820": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 544.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 563.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 584.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 402.0
+    },
+    "XL": {
+     "stack": 638.0,
+     "reach": 410.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex Pro GRX 820",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex/arcadex-pro/gravel-adventure-arcadex-arcadex-pro-arcadex-pro-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-pro-rival-gx-axs": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 544.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 563.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 584.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 402.0
+    },
+    "XL": {
+     "stack": 638.0,
+     "reach": 410.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex Pro Rival GX AXS",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex/arcadex-pro/arcadex-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-arcadex-pro-rival-gx-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 544.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 563.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 584.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 402.0
+    },
+    "XL": {
+     "stack": 638.0,
+     "reach": 410.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Arcadex Pro Rival GX AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/arcadex/arcadex-pro/gravel-adventure-arcadex-arcadex-pro-arcadex-pro-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-comp-ekar-gt": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso Comp Ekar GT",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/impulso-comp/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-comp-grx-610": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso Comp GRX 610",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/impulso-comp/gravel-racing-impulso-impulso-comp-impulso-comp/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-pro-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso Pro Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/impulso-pro-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-pro-grx-717-di2": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso Pro GRX 717 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/impulso-pro-copia/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-pro-grx-820": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso Pro GRX 820",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/gravel-racing-impulso-impulso-pro-impulso-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-pro-rival-xplr": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso Pro Rival XPLR",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/impulso-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-rc-grx-825-di2": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso RC GRX 825 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/gravel-racing-impulso-impulso-rc-impulso-rc-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-impulso-rc-red-xplr-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 534.0,
+     "reach": 378.0
+    },
+    "M": {
+     "stack": 554.0,
+     "reach": 391.0
+    },
+    "L": {
+     "stack": 580.0,
+     "reach": 401.0
+    },
+    "XL": {
+     "stack": 608.0,
+     "reach": 414.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Impulso RC Red XPLR eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/racing/impulso/gravel-racing-impulso-impulso-rc-impulso-rc/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-105": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito 105",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito/infinito-infinito-infinito-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-105-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito 105 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito/infinito-infinito/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-105-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro 105 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-pro/infinito-pro-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-force-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro Force eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-pro/infinito-pro-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-launch-edition-force-xplr-axs": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro Launch Edition Force XPLR AXS",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-launch-edition/infinito-launch-edition-infinito-launch-edition-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-launch-edition-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro Launch Edition Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-launch-edition/bikes-road-all-rounder-infinito-infinito-launch-edition-infinito-launch-edition/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-paris-roubaix-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro Paris-Roubaix Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-pro/infinito-pro-infinito-paris-roubaix/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-rival-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro Rival eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-pro/infinito-pro-4/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-infinito-pro-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 531.0,
+     "reach": 370.0
+    },
+    "50": {
+     "stack": 552.0,
+     "reach": 372.0
+    },
+    "53": {
+     "stack": 566.0,
+     "reach": 373.0
+    },
+    "55": {
+     "stack": 584.0,
+     "reach": 377.0
+    },
+    "57": {
+     "stack": 600.0,
+     "reach": 382.0
+    },
+    "59": {
+     "stack": 614.5,
+     "reach": 384.0
+    },
+    "61": {
+     "stack": 629.0,
+     "reach": 387.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Infinito Pro Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/infinito/infinito-pro/infinito-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-comp-105-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Comp 105 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-comp-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-comp-rival-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Comp Rival eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-comp-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-comp-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Comp Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-comp/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-pro-force-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Pro Force eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-pro-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Pro Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-pro-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-pro-team-replica-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Pro Team Replica Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-pro-team-replica/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-pro-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Pro Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-pro-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-race-105": {
+   "source": "geometry",
+   "sizes": {
+    "44": {
+     "stack": 481.0,
+     "reach": 376.0
+    },
+    "47": {
+     "stack": 490.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 499.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 525.0,
+     "reach": 385.0
+    },
+    "55": {
+     "stack": 541.0,
+     "reach": 390.0
+    },
+    "57": {
+     "stack": 557.0,
+     "reach": 395.0
+    },
+    "59": {
+     "stack": 576.0,
+     "reach": 397.0
+    },
+    "61": {
+     "stack": 595.0,
+     "reach": 398.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Race 105",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-race-oltre-race-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-race-105-di2": {
+   "source": "geometry",
+   "sizes": {
+    "44": {
+     "stack": 481.0,
+     "reach": 376.0
+    },
+    "47": {
+     "stack": 490.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 499.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 525.0,
+     "reach": 385.0
+    },
+    "55": {
+     "stack": 541.0,
+     "reach": 390.0
+    },
+    "57": {
+     "stack": 557.0,
+     "reach": 395.0
+    },
+    "59": {
+     "stack": 576.0,
+     "reach": 397.0
+    },
+    "61": {
+     "stack": 595.0,
+     "reach": 398.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre Race 105 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-race-oltre-race-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-rc-dura-ace-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre RC Dura-Ace Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-rc-new-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-rc-founder-edition": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre RC Founder Edition",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/road-aero-oltre-oltre-rc-oltre-rc-founder-edition/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-rc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre RC Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-rc-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-rc-red-e1-etap-axs": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre RC Red E1 eTap AXS",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/oltre-rc-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-rc-red-etap-axs": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre RC RED eTap AXS",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/aero-oltre-oltre-rc-oltre-rc-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-oltre-rc-team-replica-dura-ace-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 470.0,
+     "reach": 385.0
+    },
+    "50": {
+     "stack": 478.0,
+     "reach": 392.0
+    },
+    "53": {
+     "stack": 504.0,
+     "reach": 393.0
+    },
+    "55": {
+     "stack": 520.0,
+     "reach": 397.0
+    },
+    "57": {
+     "stack": 536.0,
+     "reach": 402.0
+    },
+    "59": {
+     "stack": 555.0,
+     "reach": 406.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Oltre RC Team Replica Dura-Ace Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/aero/oltre/road-aero-oltre-oltre-rc-oltre-rc-team-replica-2026/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-105-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima 105 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-new-comp/specialissima/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-comp-105-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Comp 105 Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-comp/specialissima-comp-specialissima-comp-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-comp-rival-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Comp Rival eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-comp/specialissima-comp-specialissima-comp-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-comp-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Comp Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-comp/specialissima-comp-specialissima-comp/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-pro-force-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Pro Force eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-pro-new/specialissima-pro-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-pro-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Pro Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-pro-new/specialissima-pro-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-pro-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Pro Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-pro-new/specialissima-pro/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-dura-ace-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Dura-Ace Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-rc-new/specialissima-rc-4/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-founder-edition": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Founder Edition",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-rc/road-all-rounder-specialissima-specialissima-rc-specialissima-rc-founder-edition/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-rc-new/specialissima-rc-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-pantani-super-record": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Pantani Super Record",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-rc/road-aero-oltre-oltre-race-specialissima-rc-pantani/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-red-e1-etap-axs": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Red E1 eTap AXS",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-rc-new/specialissima-rc-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-red-etap-axs": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Red eTap AXS",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-rc/specialissima-rc/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rc-tour-de-france-dura-ace-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima RC Tour de France Dura-Ace Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima/specialissima-rc/specialissima-tour-de-france/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-rival-etap-axs-e1": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Rival eTap AXS E1",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-new-comp/specialissima-3/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-specialissima-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 387.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Specialissima Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/all-rounder/specialissima-new/specialissima-new-comp/specialissima-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-via-nirone-7-cues": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 527.0,
+     "reach": 375.0
+    },
+    "50": {
+     "stack": 541.0,
+     "reach": 380.0
+    },
+    "53": {
+     "stack": 556.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 570.0,
+     "reach": 392.0
+    },
+    "57": {
+     "stack": 591.0,
+     "reach": 400.0
+    },
+    "59": {
+     "stack": 612.0,
+     "reach": 409.0
+    },
+    "61": {
+     "stack": 634.0,
+     "reach": 416.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Via Nirone 7 Cues",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/via-nirone-7/via-nirone-7-2/via-nirone-7/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-via-nirone-7-grx-610": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 527.0,
+     "reach": 375.0
+    },
+    "50": {
+     "stack": 541.0,
+     "reach": 380.0
+    },
+    "53": {
+     "stack": 556.0,
+     "reach": 386.0
+    },
+    "55": {
+     "stack": 570.0,
+     "reach": 392.0
+    },
+    "57": {
+     "stack": 591.0,
+     "reach": 400.0
+    },
+    "59": {
+     "stack": 612.0,
+     "reach": 409.0
+    },
+    "61": {
+     "stack": 634.0,
+     "reach": 416.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Via Nirone 7 GRX 610",
+   "url": "https://www.bianchi.com/en/shop/bikes/gravel/adventure/via-nirone-7/via-nirone-7-2/gravel-adventure-via-nirone-7-via-nirone-7-via-nirone-7/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-zolder-pro-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "47": {
+     "stack": 486.0,
+     "reach": 379.0
+    },
+    "50": {
+     "stack": 494.0,
+     "reach": 386.0
+    },
+    "53": {
+     "stack": 520.0,
+     "reach": 387.0
+    },
+    "55": {
+     "stack": 536.0,
+     "reach": 391.0
+    },
+    "57": {
+     "stack": 552.0,
+     "reach": 397.0
+    },
+    "59": {
+     "stack": 571.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Zolder Pro Frameset",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/cyclocross/zolder/zolder-pro/zolder-pro-frameset/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-zolder-pro-grx-610": {
+   "source": "geometry",
+   "sizes": {
+    "48": {
+     "stack": 510.0,
+     "reach": 378.0
+    },
+    "50": {
+     "stack": 529.0,
+     "reach": 383.0
+    },
+    "52": {
+     "stack": 542.0,
+     "reach": 385.0
+    },
+    "54": {
+     "stack": 554.0,
+     "reach": 386.0
+    },
+    "56": {
+     "stack": 569.0,
+     "reach": 391.0
+    },
+    "58": {
+     "stack": 583.0,
+     "reach": 396.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Zolder Pro GRX 610",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/cyclocross/zolder/zolder-pro/cyclocross-zolder-zolder-pro-zolder-pro-2/",
+   "checked": "2026-11-01"
+  },
+  "bianchi-zolder-pro-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "48": {
+     "stack": 510.0,
+     "reach": 378.0
+    },
+    "50": {
+     "stack": 529.0,
+     "reach": 383.0
+    },
+    "52": {
+     "stack": 542.0,
+     "reach": 385.0
+    },
+    "54": {
+     "stack": 554.0,
+     "reach": 386.0
+    },
+    "56": {
+     "stack": 569.0,
+     "reach": 391.0
+    },
+    "58": {
+     "stack": 583.0,
+     "reach": 396.0
+    }
+   },
+   "brand": "Bianchi",
+   "name": "Zolder Pro Ultegra Di2",
+   "url": "https://www.bianchi.com/en/shop/bikes/road/cyclocross/zolder/zolder-pro/cyclocross-zolder-zolder-pro-zolder-pro/",
+   "checked": "2026-11-01"
+  },
+  "bmc-kaius-01-four": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 510.0,
+     "reach": 390.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 397.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 401.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 570.0,
+     "reach": 405.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 595.0,
+     "reach": 410.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 620.0,
+     "reach": 414.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Kaius 01 FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/kaius-01-four-bikes-bmc-26a-000038",
+   "checked": "2026-11-01"
+  },
+  "bmc-kaius-01-frameset": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 521.0,
+     "reach": 385.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 541.0,
+     "reach": 392.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 561.0,
+     "reach": 396.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 581.0,
+     "reach": 400.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 606.0,
+     "reach": 405.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 631.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Kaius 01 Frameset",
+   "url": "https://nl.bmc-switzerland.com/products/kaius-01-frameset-frames-bmc-27a-000007",
+   "checked": "2026-11-01"
+  },
+  "bmc-kaius-01-ltd": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 510.0,
+     "reach": 390.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 397.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 401.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 570.0,
+     "reach": 405.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 595.0,
+     "reach": 410.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 620.0,
+     "reach": 414.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Kaius 01 LTD",
+   "url": "https://nl.bmc-switzerland.com/products/kaius-01-ltd-bikes-bmc-24-10624-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-kaius-01-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 521.0,
+     "reach": 385.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 541.0,
+     "reach": 392.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 561.0,
+     "reach": 396.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 581.0,
+     "reach": 400.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 606.0,
+     "reach": 405.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 631.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Kaius 01 ONE",
+   "url": "https://nl.bmc-switzerland.com/products/kaius-01-one-bikes-bmc-27a-000072",
+   "checked": "2026-11-01"
+  },
+  "bmc-kaius-01-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 521.0,
+     "reach": 385.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 541.0,
+     "reach": 392.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 561.0,
+     "reach": 396.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 581.0,
+     "reach": 400.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 606.0,
+     "reach": 405.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 631.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Kaius 01 THREE",
+   "url": "https://nl.bmc-switzerland.com/products/kaius-01-three-bikes-bmc-27a-000074",
+   "checked": "2026-11-01"
+  },
+  "bmc-kaius-01-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 521.0,
+     "reach": 385.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 541.0,
+     "reach": 392.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 561.0,
+     "reach": 396.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 581.0,
+     "reach": 400.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 606.0,
+     "reach": 405.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 631.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Kaius 01 TWO",
+   "url": "https://nl.bmc-switzerland.com/products/kaius-01-two-bikes-bmc-27a-000073",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-01-four": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine 01 FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-01-four-bikes-bmc-26a-000026",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-01-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine 01 ONE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-01-one-bikes-bmc-27a-000016",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-01-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine 01 THREE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-01-three-bikes-bmc-27a-000014",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-01-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine 01 TWO",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-01-two-bikes-bmc-27a-000015",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-01-x-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine 01 X ONE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-01-x-one-bikes-bmc-24-10626-001",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-al-x-one": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 525.0,
+     "reach": 390.0,
+     "low": 159,
+     "high": 165
+    },
+    "S": {
+     "stack": 550.0,
+     "reach": 400.0,
+     "low": 162,
+     "high": 172
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 170,
+     "high": 182
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 180,
+     "high": 192
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine AL X ONE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-al-x-one-bikes-bmc-23-10607-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-al-x-two": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 525.0,
+     "reach": 390.0,
+     "low": 159,
+     "high": 165
+    },
+    "S": {
+     "stack": 550.0,
+     "reach": 400.0,
+     "low": 162,
+     "high": 172
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 170,
+     "high": 182
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 180,
+     "high": 192
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine AL X TWO",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-al-x-two-bikes-bmc-23-10607-002",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-five": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine FIVE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-five-bikes-bmc-24-10605-004",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-four": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-four-bikes-bmc-24-10605-006",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine ONE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-one-bikes-bmc-27a-000008",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-seven": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 516.0,
+     "reach": 374.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 541.0,
+     "reach": 382.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 562.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 586.0,
+     "reach": 390.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 610.0,
+     "reach": 394.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 644.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine SEVEN",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-seven-bikes-bmc-22-10605-007",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine THREE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-three-bikes-bmc-27a-000009",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine TWO",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-two-bikes-bmc-27a-000012",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-x-al-one": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 525.0,
+     "reach": 390.0,
+     "low": 159,
+     "high": 165
+    },
+    "S": {
+     "stack": 550.0,
+     "reach": 400.0,
+     "low": 162,
+     "high": 172
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 170,
+     "high": 182
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 180,
+     "high": 192
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine X AL ONE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-x-al-one-bikes-bmc-22-10607-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-x-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine X THREE",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-x-three-bikes-bmc-24-10607-001",
+   "checked": "2026-11-01"
+  },
+  "bmc-roadmachine-x-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 525.0,
+     "reach": 370.0,
+     "low": 154,
+     "high": 160
+    },
+    "51": {
+     "stack": 550.0,
+     "reach": 379.0,
+     "low": 158,
+     "high": 174
+    },
+    "54": {
+     "stack": 570.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 595.0,
+     "reach": 388.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 620.0,
+     "reach": 393.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 645.0,
+     "reach": 398.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Roadmachine X TWO",
+   "url": "https://nl.bmc-switzerland.com/products/roadmachine-x-two-bikes-bmc-24-10607-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-alr-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 515.0,
+     "reach": 365.0,
+     "low": 162,
+     "high": 168
+    },
+    "51": {
+     "stack": 539.0,
+     "reach": 374.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 559.0,
+     "reach": 383.0,
+     "low": 172,
+     "high": 180
+    },
+    "57": {
+     "stack": 583.0,
+     "reach": 391.0,
+     "low": 178,
+     "high": 188
+    },
+    "60": {
+     "stack": 610.0,
+     "reach": 402.0,
+     "low": 186,
+     "high": 192
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine ALR TWO",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-alr-two-bikes-bmc-22-10602-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-five": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 FIVE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-five-bikes-bmc-27a-000043",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-four": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-four-bikes-bmc-27a-000044",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-frameset": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 Frameset",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-frameset-frames-bmc-27a-000046",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-ltd": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 LTD",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-ltd-bikes-bmc-24-10628-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-mod": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 MOD",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-mod-frames-bmc-24a-000003",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 ONE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-one-bikes-bmc-27a-000050",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 THREE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-three-bikes-bmc-27a-000051",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-r-01-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 504.0,
+     "reach": 368.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 528.0,
+     "reach": 378.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 548.0,
+     "reach": 387.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 563.0,
+     "reach": 393.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 582.0,
+     "reach": 402.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine R 01 TWO",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-r-01-two-bikes-bmc-27a-000052",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-five": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 FIVE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-five-bikes-bmc-27a-000019",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-four": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-four-bikes-bmc-27a-000024",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-frameset": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 Frameset",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-frameset-frames-bmc-27a-000025",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-mod": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 MOD",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-mod-bike-frames-bmc-24-10608-006",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 ONE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-one-bikes-bmc-27a-000030",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-seven": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 SEVEN",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-seven-bikes-bmc-27a-000031",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-six": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 SIX",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-six-bikes-bmc-27a-000032",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 THREE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-three-bikes-bmc-27a-000034",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-01-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR 01 TWO",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-01-two-bikes-bmc-27a-000035",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-five": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR FIVE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-five-bikes-bmc-24-10611-001",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-four": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-four-bikes-bmc-26a-000022",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-one": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR ONE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-one-bikes-bmc-27a-000018",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-seven": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR SEVEN",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-seven-bikes-bmc-23-10611-013",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-six": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR SIX",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-six-bikes-bmc-23-10611-014",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-three": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR THREE",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-three-bikes-bmc-27a-000020",
+   "checked": "2026-11-01"
+  },
+  "bmc-teammachine-slr-two": {
+   "source": "brand",
+   "sizes": {
+    "47": {
+     "stack": 506.0,
+     "reach": 367.0,
+     "low": 160,
+     "high": 166
+    },
+    "51": {
+     "stack": 530.0,
+     "reach": 377.0,
+     "low": 166,
+     "high": 174
+    },
+    "54": {
+     "stack": 550.0,
+     "reach": 386.0,
+     "low": 172,
+     "high": 180
+    },
+    "56": {
+     "stack": 565.0,
+     "reach": 392.0,
+     "low": 178,
+     "high": 186
+    },
+    "58": {
+     "stack": 584.0,
+     "reach": 401.0,
+     "low": 184,
+     "high": 192
+    },
+    "61": {
+     "stack": 608.0,
+     "reach": 409.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Teammachine SLR TWO",
+   "url": "https://nl.bmc-switzerland.com/products/teammachine-slr-two-bikes-bmc-27a-000023",
+   "checked": "2026-11-01"
+  },
+  "bmc-timemachine": {
+   "source": "brand",
+   "sizes": {
+    "S": {
+     "stack": 480.0,
+     "reach": 393.0,
+     "low": 164,
+     "high": 170
+    },
+    "S-M": {
+     "stack": 515.0,
+     "reach": 377.0,
+     "low": 172,
+     "high": 180
+    },
+    "M-L": {
+     "stack": 515.0,
+     "reach": 418.0,
+     "low": 178,
+     "high": 188
+    },
+    "L": {
+     "stack": 556.0,
+     "reach": 442.0,
+     "low": 186,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Timemachine",
+   "url": "https://nl.bmc-switzerland.com/products/timemachine-bikes-bmc-22-10615-003",
+   "checked": "2026-11-01"
+  },
+  "bmc-timemachine-01-disc-one": {
+   "source": "brand",
+   "sizes": {
+    "S": {
+     "stack": 480.0,
+     "reach": 393.0,
+     "low": 164,
+     "high": 170
+    },
+    "S-M": {
+     "stack": 515.0,
+     "reach": 377.0,
+     "low": 172,
+     "high": 180
+    },
+    "M-L": {
+     "stack": 515.0,
+     "reach": 418.0,
+     "low": 178,
+     "high": 188
+    },
+    "L": {
+     "stack": 556.0,
+     "reach": 442.0,
+     "low": 186,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Timemachine 01 DISC ONE",
+   "url": "https://nl.bmc-switzerland.com/products/timemachine-01-disc-one-bikes-bmc-23-10613-006",
+   "checked": "2026-11-01"
+  },
+  "bmc-timemachine-01-disc-two": {
+   "source": "brand",
+   "sizes": {
+    "S": {
+     "stack": 480.0,
+     "reach": 393.0,
+     "low": 164,
+     "high": 170
+    },
+    "S-M": {
+     "stack": 515.0,
+     "reach": 377.0,
+     "low": 172,
+     "high": 180
+    },
+    "M-L": {
+     "stack": 515.0,
+     "reach": 418.0,
+     "low": 178,
+     "high": 188
+    },
+    "L": {
+     "stack": 556.0,
+     "reach": 442.0,
+     "low": 186,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "Timemachine 01 DISC TWO",
+   "url": "https://nl.bmc-switzerland.com/products/timemachine-01-disc-two-bikes-bmc-23-10613-007",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-01-four": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS 01 FOUR",
+   "url": "https://nl.bmc-switzerland.com/products/urs-01-four-bikes-bmc-24-10619-008",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-01-lt-one": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS 01 LT ONE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-01-lt-one-bikes-bmc-27a-000058",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-01-lt-two": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS 01 LT TWO",
+   "url": "https://nl.bmc-switzerland.com/products/urs-01-lt-two-bikes-bmc-27a-000059",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-01-one": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS 01 ONE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-01-one-bikes-bmc-26a-000039",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-01-three": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS 01 THREE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-01-three-bikes-bmc-24-10619-004",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-01-two": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS 01 TWO",
+   "url": "https://nl.bmc-switzerland.com/products/urs-01-two-bikes-bmc-26a-000040",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-al-one": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 525.0,
+     "reach": 390.0,
+     "low": 159,
+     "high": 165
+    },
+    "S": {
+     "stack": 550.0,
+     "reach": 400.0,
+     "low": 162,
+     "high": 172
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 170,
+     "high": 182
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 180,
+     "high": 192
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "URS AL ONE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-al-one-bordeaux-red-gravel-exploration-bikes-bmc-25e-000012",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-al-three": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 525.0,
+     "reach": 390.0,
+     "low": 159,
+     "high": 165
+    },
+    "S": {
+     "stack": 550.0,
+     "reach": 400.0,
+     "low": 162,
+     "high": 172
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 170,
+     "high": 182
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 180,
+     "high": 192
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "URS AL THREE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-al-three-bikes-bmc-23-10623-005",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-al-two": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 525.0,
+     "reach": 390.0,
+     "low": 159,
+     "high": 165
+    },
+    "S": {
+     "stack": 550.0,
+     "reach": 400.0,
+     "low": 162,
+     "high": 172
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 170,
+     "high": 182
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 180,
+     "high": 192
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 190,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "URS AL TWO",
+   "url": "https://nl.bmc-switzerland.com/products/urs-al-two-bikes-bmc-23-10623-002",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-lt-one": {
+   "source": "brand",
+   "sizes": {
+    "S": {
+     "stack": 538.0,
+     "reach": 403.0,
+     "low": 164,
+     "high": 170
+    },
+    "M": {
+     "stack": 569.0,
+     "reach": 415.0,
+     "low": 172,
+     "high": 180
+    },
+    "L": {
+     "stack": 603.0,
+     "reach": 419.0,
+     "low": 178,
+     "high": 188
+    },
+    "XL": {
+     "stack": 641.0,
+     "reach": 429.0,
+     "low": 186,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "URS LT ONE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-lt-one-bikes-bmc-23-10619-011",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-lt-two": {
+   "source": "brand",
+   "sizes": {
+    "S": {
+     "stack": 538.0,
+     "reach": 403.0,
+     "low": 164,
+     "high": 170
+    },
+    "M": {
+     "stack": 569.0,
+     "reach": 415.0,
+     "low": 172,
+     "high": 180
+    },
+    "L": {
+     "stack": 603.0,
+     "reach": 419.0,
+     "low": 178,
+     "high": 188
+    },
+    "XL": {
+     "stack": 641.0,
+     "reach": 429.0,
+     "low": 186,
+     "high": 196
+    }
+   },
+   "brand": "BMC",
+   "name": "URS LT TWO",
+   "url": "https://nl.bmc-switzerland.com/products/urs-lt-two-bikes-bmc-23-10619-012",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-one": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS ONE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-one-bikes-bmc-27a-000056",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-three": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS THREE",
+   "url": "https://nl.bmc-switzerland.com/products/urs-three-bikes-bmc-24-10619-001",
+   "checked": "2026-11-01"
+  },
+  "bmc-urs-two": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "stack": 560.0,
+     "reach": 390.0,
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "stack": 560.0,
+     "reach": 400.0,
+     "low": 165,
+     "high": 170
+    },
+    "M": {
+     "stack": 580.0,
+     "reach": 410.0,
+     "low": 168,
+     "high": 178
+    },
+    "L": {
+     "stack": 610.0,
+     "reach": 420.0,
+     "low": 176,
+     "high": 188
+    },
+    "XL": {
+     "stack": 640.0,
+     "reach": 430.0,
+     "low": 188,
+     "high": 194
+    }
+   },
+   "brand": "BMC",
+   "name": "URS TWO",
+   "url": "https://nl.bmc-switzerland.com/products/urs-two-bikes-bmc-27a-000057",
+   "checked": "2026-11-01"
+  },
   "cannondale-caad14-1": {
    "source": "brand",
    "sizes": {
@@ -8498,6 +13236,493 @@
    "name": "Trinity Advanced SL Triathlon Frameset",
    "url": "https://www.giant-bicycles.com/nl/trinity-advanced-sl-triathlon-frameset-2025",
    "checked": "2026-10-22"
+  },
+  "lapierre-aerostorm-drs": {
+   "source": "geometry",
+   "sizes": {
+    "S": {
+     "stack": 470.0,
+     "reach": 380.0
+    },
+    "M": {
+     "stack": 500.0,
+     "reach": 395.0
+    },
+    "L": {
+     "stack": 530.0,
+     "reach": 410.0
+    },
+    "XL": {
+     "stack": 560.0,
+     "reach": 425.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Aerostorm DRS",
+   "url": "https://lapierrebikes.com/en-be/products/aerostorm-drs-lfata",
+   "checked": "2026-11-01"
+  },
+  "lapierre-crosshill-cf-7-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 546.0,
+     "reach": 367.0
+    },
+    "S": {
+     "stack": 567.0,
+     "reach": 373.0
+    },
+    "M": {
+     "stack": 581.0,
+     "reach": 380.0
+    },
+    "L": {
+     "stack": 601.0,
+     "reach": 386.0
+    },
+    "XL": {
+     "stack": 620.0,
+     "reach": 390.0
+    },
+    "2XL": {
+     "stack": 644.0,
+     "reach": 398.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Crosshill CF 7.0",
+   "url": "https://lapierrebikes.com/en-be/products/crosshill-cf-70-lcgta",
+   "checked": "2026-11-01"
+  },
+  "lapierre-pulsium-5-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 527.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 541.0,
+     "reach": 379.0
+    },
+    "M": {
+     "stack": 562.0,
+     "reach": 384.0
+    },
+    "L": {
+     "stack": 579.0,
+     "reach": 389.0
+    },
+    "XL": {
+     "stack": 599.0,
+     "reach": 394.0
+    },
+    "2XL": {
+     "stack": 618.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Pulsium 5.0",
+   "url": "https://lapierrebikes.com/en-be/products/pulsium-50-lpnta",
+   "checked": "2026-11-01"
+  },
+  "lapierre-pulsium-6-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 527.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 541.0,
+     "reach": 379.0
+    },
+    "M": {
+     "stack": 562.0,
+     "reach": 384.0
+    },
+    "L": {
+     "stack": 579.0,
+     "reach": 389.0
+    },
+    "XL": {
+     "stack": 599.0,
+     "reach": 394.0
+    },
+    "2XL": {
+     "stack": 618.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Pulsium 6.0",
+   "url": "https://lapierrebikes.com/en-be/products/pulsium-60-lpptb",
+   "checked": "2026-11-01"
+  },
+  "lapierre-pulsium-7-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 527.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 541.0,
+     "reach": 379.0
+    },
+    "M": {
+     "stack": 562.0,
+     "reach": 384.0
+    },
+    "L": {
+     "stack": 579.0,
+     "reach": 389.0
+    },
+    "XL": {
+     "stack": 599.0,
+     "reach": 394.0
+    },
+    "2XL": {
+     "stack": 618.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Pulsium 7.0",
+   "url": "https://lapierrebikes.com/en-be/products/pulsium-70-lpqtb",
+   "checked": "2026-11-01"
+  },
+  "lapierre-pulsium-8-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 527.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 541.0,
+     "reach": 379.0
+    },
+    "M": {
+     "stack": 562.0,
+     "reach": 384.0
+    },
+    "L": {
+     "stack": 579.0,
+     "reach": 389.0
+    },
+    "XL": {
+     "stack": 599.0,
+     "reach": 394.0
+    },
+    "2XL": {
+     "stack": 618.0,
+     "reach": 400.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Pulsium 8.0",
+   "url": "https://lapierrebikes.com/en-be/products/pulsium-80-lprta",
+   "checked": "2026-11-01"
+  },
+  "lapierre-sensium-1-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 521.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 542.0,
+     "reach": 381.0
+    },
+    "M": {
+     "stack": 530.0,
+     "reach": 385.0
+    },
+    "L": {
+     "stack": 547.0,
+     "reach": 392.0
+    },
+    "XL": {
+     "stack": 567.0,
+     "reach": 400.0
+    },
+    "2XL": {
+     "stack": 585.0,
+     "reach": 411.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Sensium 1.0",
+   "url": "https://lapierrebikes.com/en-be/products/sensium-10-lsfpa",
+   "checked": "2026-11-01"
+  },
+  "lapierre-sensium-2-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 521.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 542.0,
+     "reach": 381.0
+    },
+    "M": {
+     "stack": 530.0,
+     "reach": 385.0
+    },
+    "L": {
+     "stack": 547.0,
+     "reach": 392.0
+    },
+    "XL": {
+     "stack": 567.0,
+     "reach": 400.0
+    },
+    "2XL": {
+     "stack": 585.0,
+     "reach": 411.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Sensium 2.0",
+   "url": "https://lapierrebikes.com/en-be/products/sensium-20-lsgpa",
+   "checked": "2026-11-01"
+  },
+  "lapierre-sensium-3-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 521.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 542.0,
+     "reach": 381.0
+    },
+    "M": {
+     "stack": 530.0,
+     "reach": 385.0
+    },
+    "L": {
+     "stack": 547.0,
+     "reach": 392.0
+    },
+    "XL": {
+     "stack": 567.0,
+     "reach": 400.0
+    },
+    "2XL": {
+     "stack": 585.0,
+     "reach": 411.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Sensium 3.0",
+   "url": "https://lapierrebikes.com/en-be/products/sensium-30-lshpa",
+   "checked": "2026-11-01"
+  },
+  "lapierre-sensium-3-0-disc": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 521.0,
+     "reach": 375.0
+    },
+    "S": {
+     "stack": 542.0,
+     "reach": 381.0
+    },
+    "M": {
+     "stack": 530.0,
+     "reach": 385.0
+    },
+    "L": {
+     "stack": 547.0,
+     "reach": 392.0
+    },
+    "XL": {
+     "stack": 567.0,
+     "reach": 400.0
+    },
+    "2XL": {
+     "stack": 585.0,
+     "reach": 411.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Sensium 3.0 Disc",
+   "url": "https://lapierrebikes.com/en-be/products/sensium-30-disc-lshpb",
+   "checked": "2026-11-01"
+  },
+  "lapierre-xelius-drs-5-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 501.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 516.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 538.0,
+     "reach": 393.0
+    },
+    "L": {
+     "stack": 557.0,
+     "reach": 403.0
+    },
+    "XL": {
+     "stack": 580.0,
+     "reach": 415.0
+    },
+    "2XL": {
+     "stack": 599.0,
+     "reach": 428.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Xelius DRS 5.0",
+   "url": "https://lapierrebikes.com/en-be/products/xelius-drs-50-lxata",
+   "checked": "2026-11-01"
+  },
+  "lapierre-xelius-drs-6-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 501.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 516.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 538.0,
+     "reach": 393.0
+    },
+    "L": {
+     "stack": 557.0,
+     "reach": 403.0
+    },
+    "XL": {
+     "stack": 580.0,
+     "reach": 415.0
+    },
+    "2XL": {
+     "stack": 599.0,
+     "reach": 428.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Xelius DRS 6.0",
+   "url": "https://lapierrebikes.com/en-be/products/xelius-drs-60-lxbta",
+   "checked": "2026-11-01"
+  },
+  "lapierre-xelius-drs-7-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 501.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 516.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 538.0,
+     "reach": 393.0
+    },
+    "L": {
+     "stack": 557.0,
+     "reach": 403.0
+    },
+    "XL": {
+     "stack": 580.0,
+     "reach": 415.0
+    },
+    "2XL": {
+     "stack": 599.0,
+     "reach": 428.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Xelius DRS 7.0",
+   "url": "https://lapierrebikes.com/en-be/products/xelius-drs-70-lxcta",
+   "checked": "2026-11-01"
+  },
+  "lapierre-xelius-drs-8-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 501.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 516.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 538.0,
+     "reach": 393.0
+    },
+    "L": {
+     "stack": 557.0,
+     "reach": 403.0
+    },
+    "XL": {
+     "stack": 580.0,
+     "reach": 415.0
+    },
+    "2XL": {
+     "stack": 599.0,
+     "reach": 428.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Xelius DRS 8.0",
+   "url": "https://lapierrebikes.com/en-be/products/xelius-drs-80-lxdtb",
+   "checked": "2026-11-01"
+  },
+  "lapierre-xelius-drs-9-0": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 501.0,
+     "reach": 376.0
+    },
+    "S": {
+     "stack": 516.0,
+     "reach": 383.0
+    },
+    "M": {
+     "stack": 538.0,
+     "reach": 393.0
+    },
+    "L": {
+     "stack": 557.0,
+     "reach": 403.0
+    },
+    "XL": {
+     "stack": 580.0,
+     "reach": 415.0
+    },
+    "2XL": {
+     "stack": 599.0,
+     "reach": 428.0
+    }
+   },
+   "brand": "Lapierre",
+   "name": "Xelius DRS 9.0",
+   "url": "https://lapierrebikes.com/en-be/products/xelius-drs-90-lxeub",
+   "checked": "2026-11-01"
   },
   "specialized-aethos-2-expert-shimano-ultegra-di2": {
    "source": "geometry",

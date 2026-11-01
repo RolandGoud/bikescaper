@@ -1,0 +1,1163 @@
+[
+  {
+    "name": "Pulsium 4.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-40-lpsua",
+    "sku": "LPSUA",
+    "price": 1999.0,
+    "category": "Endurance",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Circular grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_PULSIUM-4.0_700c_90_LPSUA.png?v=1777973141&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_PULSIUM-4.0_700c_90_LPSUA.png?v=1777973141&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_4_0.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_4_0_colour_Circular_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Pulsium 5.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-50-lpnta",
+    "sku": "LPNTA",
+    "price": 2599.0,
+    "category": "Endurance",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette CS-R7100-12, MICRO SPLINE",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "105 R7100",
+      "Achterderailleur": "Shimano 105 R7100, 12s",
+      "Shifter": "Shimano Shift-brake lever 105 ST-R7120",
+      "Voorvork": "Lapierre Carbon UD SL",
+      "Rem": "Shimano Hydraulic Disc brake 105 R7120, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake 105 R7120, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Drop: 120 mm, Reach: 70 mm, Flare: 10°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Selle Italia Race Model X Superflow 145mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm, OFF: 0 mm",
+      "Wiel voor": "Lapierre Road Alloy Disc, Centerlock, Tubeless compatible",
+      "Buitenband": "Continental Ultra Sport III SL 32-622"
+    },
+    "color_names": [
+      "Crepuscule blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNS4wXzI4SW5jaF85MF9MUE5UQS5wbmc.png?v=1777973141&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNS4wXzI4SW5jaF85MF9MUE5UQS5wbmc.png?v=1777973141&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_5_0.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_5_0_colour_Crepuscule_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Pulsium 6.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-60-lpptb",
+    "sku": "LPPTA",
+    "price": 3399.0,
+    "category": "Endurance",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette CS-R7100-12, MICRO SPLINE",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "105 R7100",
+      "Achterderailleur": "Shimano 105 Di2 R7150, 12s",
+      "Shifter": "Shimano Shift-brake lever 105 ST-R7120",
+      "Voorvork": "Lapierre Carbon UD SL",
+      "Rem": "Shimano Hydraulic Disc brake 105 Di2 BR-R7170, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake 105 Di2 BR-R7170, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Drop: 120 mm, Reach: 70 mm, Flare: 10°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Fizik Race Aliante R5 150mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm, OFF: 0 mm",
+      "Wiel voor": "DT Swiss E1800 Spline 30 mm, Tubeless compatible",
+      "Buitenband": "Schwalbe One Perf, RaceGuard, MicroSkin, TLE 32-622"
+    },
+    "color_names": [
+      "Septembre beige - glossy",
+      "Sensation red - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNi4wX0MxXzI4SW5jaF85MF9MUFBUQS5wbmc.png?v=1777973151&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNi4wX0MxXzI4SW5jaF85MF9MUFBUQS5wbmc.png?v=1777973151&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNi4wX0MyXzI4SW5jaF85MF9MUFBUQi5wbmc.png?v=1777973152&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_6_0.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_6_0_colour_Septembre_beige_glossy.jpg",
+      "Lapierre/Pulsium_6_0_colour_Sensation_red_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Pulsium 6.0 AXS",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-60-axs-lppuc",
+    "sku": "LPPUC",
+    "price": 3499.0,
+    "category": "Endurance",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Gravity grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_PULSIUM-6.0-AXS_28Inch_90_LPPUC.png?v=1777973173&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_PULSIUM-6.0-AXS_28Inch_90_LPPUC.png?v=1777973173&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_6_0_AXS.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_6_0_AXS_colour_Gravity_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Pulsium 7.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-70-lpqtb",
+    "sku": "LPQTA",
+    "price": 4399.0,
+    "category": "Endurance",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette CS-R8101-12, MICRO SPLINE",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "Ultegra R8100",
+      "Achterderailleur": "Shimano Ultegra Di2 R8150, 12s",
+      "Shifter": "Shimano Shift-brake lever Ultegra ST-R8170",
+      "Voorvork": "Lapierre Carbon UD SL",
+      "Rem": "Shimano Hydraulic Disc brake Ultegra Di2 R8100, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Ultegra Di2 R8100, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Drop: 120 mm, Reach: 70 mm, Flare: 10°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Fizik Race Aliante R5 150mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm, OFF: 0 mm",
+      "Wiel voor": "DT Swiss ER1600 Spline 30 mm, Centerlock, Tubeless compatible",
+      "Buitenband": "Schwalbe One Perf, RaceGuard, MicroSkin, TLE 32-622"
+    },
+    "color_names": [
+      "Undergrowth green - glossy",
+      "Cloud blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNy4wX0MxXzI4SW5jaF85MF9MUFFUQS5wbmc.png?v=1777973173&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNy4wX0MxXzI4SW5jaF85MF9MUFFUQS5wbmc.png?v=1777973173&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gNy4wX0MyXzI4SW5jaF85MF9MUFFUQi5wbmc.png?v=1777973172&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_7_0.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_7_0_colour_Undergrowth_green_glossy.jpg",
+      "Lapierre/Pulsium_7_0_colour_Cloud_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Pulsium 8.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-80-lprta",
+    "sku": "LPRTA",
+    "price": 5699.0,
+    "category": "Endurance",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette CS-R8101-12, MICRO SPLINE",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "Ultegra R8100",
+      "Achterderailleur": "Shimano Ultegra Di2 R8150, 12s",
+      "Shifter": "Shimano Shift-brake lever Ultegra ST-R8170",
+      "Voorvork": "Lapierre Carbon UD SL",
+      "Rem": "Shimano Hydraulic Disc brake Ultegra Di2 R8100, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Ultegra Di2 R8100, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Carbon Aero, Drop: 130 mm, Reach: 70 mm, Flare: 5°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Fizik Race Alliante R3 KIUM Rails",
+      "Zadelpen": "Lapierre Non Suspension Carbon, Ø: 27.2 mm, L: 350 mm, OFF: 0 mm",
+      "Wiel voor": "DT Swiss ERC1600 Spline 45 mm, Centerlock, Tubeless compatible",
+      "Buitenband": "Continental GP5000S TR Tubeless ready 32-622"
+    },
+    "color_names": [
+      "Cumulonimbus grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gOC4wXzI4SW5jaF85MF9MUFJUQS5wbmc.png?v=1777973184&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1BVTFNJVU0gOC4wXzI4SW5jaF85MF9MUFJUQS5wbmc.png?v=1777973184&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_8_0.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_8_0_colour_Cumulonimbus_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Pulsium 8.0 AXS",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/pulsium-80-axs-lptua",
+    "sku": "LPTUA",
+    "price": 5999.0,
+    "category": "Endurance",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Fresh mint blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_PULSIUM-8.0-AXS_28Inch_90_LPTUA.png?v=1777973212&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_PULSIUM-8.0-AXS_28Inch_90_LPTUA.png?v=1777973212&width=1200"
+    ],
+    "image": "Lapierre/Pulsium_8_0_AXS.jpg",
+    "color_images": [
+      "Lapierre/Pulsium_8_0_AXS_colour_Fresh_mint_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Sensium 1.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/sensium-10-lsfpa",
+    "sku": "LSFPA",
+    "price": 999.0,
+    "category": "Endurance",
+    "model_year": 2023,
+    "specifications": {
+      "Frame": "HIGH Aluminium Gents",
+      "Cassette": "Shimano Cassette CS-HG50-8, HG",
+      "Ketting": "KMC Chain Z8 8s",
+      "Crankstel": "Claris FC-R2000",
+      "Achterderailleur": "Shimano Claris Claris RD-R2000-GS 8s",
+      "Shifter": "Shimano Shift-brake lever Claris ST-R2000 2x8s",
+      "Voorvork": "Lapierre Sensium Carbon / Alloy steerer",
+      "Rem": "Promax Mechanical V-brake RC-482",
+      "Achterrem": "Promax Mechanical V-brake RC-482",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Ø: 31.8 mm",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Selle Italia Race Model X Superflow 145 mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm",
+      "Velg": "Ryde ZAC2000 622x19c double wall 32H",
+      "Buitenband": "Continental Ultra Sport 3 SL 28-622"
+    },
+    "color_names": [
+      "Blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-1.0_700C_90_LSFPA.png?v=1777973220&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-1.0_700C_90_LSFPA.png?v=1777973220&width=1200"
+    ],
+    "image": "Lapierre/Sensium_1_0.jpg",
+    "color_images": [
+      "Lapierre/Sensium_1_0_colour_Blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Sensium 2.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/sensium-20-lsgpa",
+    "sku": "LSGPA",
+    "price": 1099.0,
+    "category": "Endurance",
+    "model_year": 2023,
+    "specifications": {
+      "Frame": "HIGH Aluminium Gents",
+      "Cassette": "Shimano Cassette CS-HG200-9, HG",
+      "Ketting": "KMC Chain X9 9s",
+      "Crankstel": "Sora FC-R3000",
+      "Achterderailleur": "Shimano Sora Sora RD-R3000-GS 9s",
+      "Shifter": "Shimano Shift-brake lever Sora ST-R3000 2x9s",
+      "Voorvork": "Lapierre Sensium Carbon / Alloy steerer",
+      "Rem": "Promax Mechanical V-brake RC-482",
+      "Achterrem": "Promax Mechanical V-brake RC-482",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Ø: 31.8 mm",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Selle Italia Race Model X Superflow 145 mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm",
+      "Velg": "Ryde ZAC2000 622x19c double wall 32H",
+      "Buitenband": "Continental Ultra Sport 3 SL 28-622"
+    },
+    "color_names": [
+      "Espresso - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-2.0_700C_90_LSGPA.png?v=1777973720&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-2.0_700C_90_LSGPA.png?v=1777973720&width=1200"
+    ],
+    "image": "Lapierre/Sensium_2_0.jpg",
+    "color_images": [
+      "Lapierre/Sensium_2_0_colour_Espresso_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Sensium 3.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/sensium-30-lshpa",
+    "sku": "LSHPA",
+    "price": 1199.0,
+    "category": "Endurance",
+    "model_year": 2023,
+    "specifications": {
+      "Frame": "HIGH Aluminium Gents",
+      "Cassette": "Shimano Cassette CS-HG500-10, HG",
+      "Ketting": "Shimano Chain HG54 10s",
+      "Crankstel": "Tiagra FC-R4700",
+      "Achterderailleur": "Shimano Tiagra Tiagra RD-R4700-GS 10s",
+      "Shifter": "Shimano Shift-brake lever Tiagra ST-R4700 2x10s",
+      "Voorvork": "Lapierre Sensium Carbon / Alloy steerer",
+      "Rem": "Shimano Mechanical V-brake BR-R451",
+      "Achterrem": "Shimano Mechanical V-brake BR-R451",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Ø: 31.8 mm",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Selle Italia Race Model X Superflow 145 mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm",
+      "Velg": "Ryde ZAC2000 622x19c double wall 32H",
+      "Buitenband": "Continental Ultra Sport 3 SL 28-622"
+    },
+    "color_names": [
+      "Davy grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-3.0_700C_90_LSHPA.png?v=1777973229&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-3.0_700C_90_LSHPA.png?v=1777973229&width=1200"
+    ],
+    "image": "Lapierre/Sensium_3_0.jpg",
+    "color_images": [
+      "Lapierre/Sensium_3_0_colour_Davy_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Sensium 3.0 Disc",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/sensium-30-disc-lshpb",
+    "sku": "LSHPB",
+    "price": 1499.0,
+    "category": "Endurance",
+    "model_year": 2023,
+    "specifications": {
+      "Frame": "HIGH Aluminium Gents",
+      "Cassette": "Shimano Cassette CS-HG500-10, HG",
+      "Ketting": "Shimano Chain HG54 10s",
+      "Crankstel": "Tiagra FC-R4700",
+      "Achterderailleur": "Shimano Tiagra Tiagra RD-R4700-GS 10s",
+      "Shifter": "Shimano Shift-brake lever Tiagra BR4720 2x10s flat mount without Fin",
+      "Voorvork": "Lapierre Sensium Carbon / Alloy steerer",
+      "Rem": "Shimano Hydraulic Disc brake Tiagra BR-4770, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Tiagra BR-4770, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Alloy, Ø: 31.8 mm",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Selle Italia Race Model X Superflow 145 mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm",
+      "Velg": "Ryde DP19 622x19 32H",
+      "Buitenband": "Continental Ultra Sport 3 SL 32-622"
+    },
+    "color_names": [
+      "Davy grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-3.0-DISC_700C_90_LSHPB.png?v=1777973239&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY23_SENSIUM-3.0-DISC_700C_90_LSHPB.png?v=1777973239&width=1200"
+    ],
+    "image": "Lapierre/Sensium_3_0_Disc.jpg",
+    "color_images": [
+      "Lapierre/Sensium_3_0_Disc_colour_Davy_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill 2.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-20-lcaua",
+    "sku": "LCAUA",
+    "price": 1299.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {},
+    "color_names": [
+      "Pumice beige - matt&glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/master_2.0.png?v=1785744572&width=1200",
+    "color_image_urls": [
+      null
+    ],
+    "image": "Lapierre/Crosshill_2_0.jpg",
+    "color_images": [
+      null
+    ]
+  },
+  {
+    "name": "Crosshill AL 3.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-30-lcbua",
+    "sku": "LCBUA",
+    "price": 1499.0,
+    "category": "Gravel",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Cool matcha green - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-AL-3.0_700c_90_LCBUA.png?v=1777973074&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-AL-3.0_700c_90_LCBUA.png?v=1777973074&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_AL_3_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_AL_3_0_colour_Cool_matcha_green_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill AL 4.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-40-lccua",
+    "sku": "LCCUA",
+    "price": 2199.0,
+    "category": "Gravel",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Sage leaf green - matt&glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-AL-4.0_700c_90_LCCUA.png?v=1777973082&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-AL-4.0_700c_90_LCCUA.png?v=1777973082&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_AL_4_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_AL_4_0_colour_Sage_leaf_green_matt_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill CF 5.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-cf-50-lceua",
+    "sku": "LCEUA",
+    "price": 2499.0,
+    "category": "Gravel",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Crepuscule blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-CF-5.0_700c_90_LCEUA.png?v=1777973091&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-CF-5.0_700c_90_LCEUA.png?v=1777973091&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_CF_5_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_CF_5_0_colour_Crepuscule_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill CF 6.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-cf-60-lcfua",
+    "sku": "LCFUA",
+    "price": 2799.0,
+    "category": "Gravel",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Strong ruby red - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-CF-6.0_700c_90_LCFUA.png?v=1777973101&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-CF-6.0_700c_90_LCFUA.png?v=1777973101&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_CF_6_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_CF_6_0_colour_Strong_ruby_red_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill CF 7.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-cf-70-lcgta",
+    "sku": "LCGTA",
+    "price": 4299.0,
+    "category": "Gravel",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette CS-HG710-12, HG",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "GRX FC-RX820",
+      "Achterderailleur": "Shimano GRX Di2 RX825, 12s",
+      "Shifter": "Shimano Shift-brake lever GRX ST-825",
+      "Voorvork": "Lapierre Carbon UD SL",
+      "Rem": "Shimano Hydraulic Disc brake GRX Di2 RX825, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake GRX Di2 RX825, 160 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Carbon gravel bar, Drop: 122 mm, Reach: 68 mm, Flare: 12°",
+      "Pedaal": "VP 359 Clips&Strap",
+      "Zadel": "Fizik Gravel Terra Argo X7 150mm",
+      "Zadelpen": "Lapierre Non Suspension Alloy, Ø: 27.2 mm, L: 350 mm",
+      "Wiel voor": "DT Swiss GR1600 Spline, 25 mm, 12x100 mm, CL, TR,",
+      "Buitenband": "WTB Raddler TCS LIGHT 60TPI 44-622"
+    },
+    "color_names": [
+      "Cold rain grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9Dcm9zc2hpbGwgQ0YgNy4wIC0gTGFwaWVycmUgTVkyNSAtIExCSFRBIC0gQ292ZXIucG5n.png?v=1777973102&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9Dcm9zc2hpbGwgQ0YgNy4wIC0gTGFwaWVycmUgTVkyNSAtIExCSFRBIC0gQ292ZXIucG5n.png?v=1777973102&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_CF_7_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_CF_7_0_colour_Cold_rain_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill CF 8.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-cf-80-lchua",
+    "sku": "LCHUA",
+    "price": 5999.0,
+    "category": "Gravel",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Mignight plum - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRSBNWTI2X0NST1NTSElMTC1DRi04LjBfTENIVUEucG5n.png?v=1777973112&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRSBNWTI2X0NST1NTSElMTC1DRi04LjBfTENIVUEucG5n.png?v=1777973112&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_CF_8_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_CF_8_0_colour_Mignight_plum_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Crosshill CF 9.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/crosshill-cf-90-lcjua",
+    "sku": "LCJUA",
+    "price": 6999.0,
+    "category": "Gravel",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Translucent hex blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-CF-9.0_700c_90_LCJUA.png?v=1777973133&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_CROSSHILL-CF-9.0_700c_90_LCJUA.png?v=1777973133&width=1200"
+    ],
+    "image": "Lapierre/Crosshill_CF_9_0.jpg",
+    "color_images": [
+      "Lapierre/Crosshill_CF_9_0_colour_Translucent_hex_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 10.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-10-lxfua",
+    "sku": "LXFUA",
+    "price": 8499.0,
+    "category": "Race",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Paris stone beige - glossy",
+      "Cyber lime green - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-10.0_700c_90_LXFUA.jpg?v=1777973324&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-10.0_700c_90_LXFUA.jpg?v=1777973324&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-10.0_700c_90_LXFUB.jpg?v=1777973355&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_10_0.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_10_0_colour_Paris_stone_beige_glossy.jpg",
+      "Lapierre/Xelius_DRS_10_0_colour_Cyber_lime_green_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 10.0 AXS",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-se-lxgua",
+    "sku": "LXGUA",
+    "price": 10499.0,
+    "category": "Race",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Translucent hex blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-10.0-AXS_700c_90_LXGUA.png?v=1777973333&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-10.0-AXS_700c_90_LXGUA.png?v=1777973333&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_10_0_AXS.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_10_0_AXS_colour_Translucent_hex_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 5.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-50-lxata",
+    "sku": "LXATA",
+    "price": 2899.0,
+    "category": "Race",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette 105 CS-R7101-12, HG",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "105 R7100",
+      "Achterderailleur": "Shimano 105 R7100, 12s",
+      "Shifter": "Shimano Shift-brake lever 105 ST-R7120",
+      "Voorvork": "Lapierre Carbon UD SLI",
+      "Rem": "Shimano Hydraulic Disc brake 105 R7170, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake 105 R7170, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Carbon Aero, Drop: 130 mm, Reach: 70 mm, Flare: 5°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Selle Italia Race Model X Superflow 145 mm",
+      "Zadelpen": "Lapierre Non Suspension Carbon, Xelius DRS, 0 mm Offset, L: 350 mm",
+      "Wiel voor": "Lapierre Road Alloy Disc, Centerlock, Tubeless compatible, HG Driver",
+      "Buitenband": "Continental Ultra Sport III 25-622"
+    },
+    "color_names": [
+      "Crepuscule blue - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgNS4wXzI4SW5jaF85MF9MWEFUQS5wbmc.png?v=1777973238&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgNS4wXzI4SW5jaF85MF9MWEFUQS5wbmc.png?v=1777973238&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_5_0.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_5_0_colour_Crepuscule_blue_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 6.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-60-lxbta",
+    "sku": "LXBTA",
+    "price": 3699.0,
+    "category": "Race",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette 105 CS-R7101-12, HG",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "105 R7100",
+      "Achterderailleur": "Shimano 105 Di2 R7150, 12s",
+      "Shifter": "Shimano Shift-brake lever 105 ST-R7170",
+      "Voorvork": "Lapierre Carbon UD SLI",
+      "Rem": "Shimano Hydraulic Disc brake 105 R7170, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake 105 R7170, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Carbon Aero, Drop: 130 mm, Reach: 70 mm, Flare: 5°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Prologo Race Dimension STN rails",
+      "Zadelpen": "Lapierre Non Suspension Carbon, Xelius DRS, 0 mm Offset, L: 350 mm",
+      "Wiel voor": "DT Swiss E1800 Spline 30 mm, Centerlock, Tubeless compatible",
+      "Buitenband": "Schwalbe One Performance, RaceGuard, MicroSkin 25-622"
+    },
+    "color_names": [
+      "Septembre beige - glossy",
+      "Sensation red - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgNi4wX0MxXzI4SW5jaF85MF9MWEJUQS5wbmc.png?v=1777973256&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgNi4wX0MxXzI4SW5jaF85MF9MWEJUQS5wbmc.png?v=1777973256&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgNi4wX0MyXzI4SW5jaF85MF9MWEJUQi5wbmc.png?v=1777973255&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_6_0.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_6_0_colour_Septembre_beige_glossy.jpg",
+      "Lapierre/Xelius_DRS_6_0_colour_Sensation_red_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 6.0 AXS",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-60-axs-lxbuc",
+    "sku": "LXBUC",
+    "price": 3899.0,
+    "category": "Race",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Gravity grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-6.0-AXS_28Inch_90_LXBUC.png?v=1777973257&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-6.0-AXS_28Inch_90_LXBUC.png?v=1777973257&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_6_0_AXS.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_6_0_AXS_colour_Gravity_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 7.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-70-lxcta",
+    "sku": "LXCTA",
+    "price": 4799.0,
+    "category": "Race",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette Ultegra CS-R8100-12, HG+",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "Ultegra FC-R8150",
+      "Achterderailleur": "Shimano Ultegra Di2 R8150, 12s",
+      "Shifter": "Shimano Shift-brake lever Ultegra ST-R8170",
+      "Voorvork": "Lapierre Carbon UD SLI",
+      "Rem": "Shimano Hydraulic Disc brake Ultegra R8170, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Ultegra R8170, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Carbon Aero, Drop: 130 mm, Reach: 70 mm, Flare: 5°",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Prologo Race Dimension T4.0 rails",
+      "Zadelpen": "Lapierre Non Suspension Carbon, Xelius DRS, 0 mm Offset, L: 350 mm",
+      "Wiel voor": "DT Swiss ER1600 Spline 30 mm, Centerlock, Tubeless compatible",
+      "Buitenband": "Schwalbe One Performance, RaceGuard, MicroSkin 25-622"
+    },
+    "color_names": [
+      "Undergrowth green - glossy",
+      "Cumulonimbus grey - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9YZWxpdXMgRFJTIDcuMCBDMSAtIExhcGllcnJlIE1ZMjUgLSBMWENUQSAtIFZpZXcgKDApLnBuZw.png?v=1777973267&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9YZWxpdXMgRFJTIDcuMCBDMSAtIExhcGllcnJlIE1ZMjUgLSBMWENUQSAtIFZpZXcgKDApLnBuZw.png?v=1777973267&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9YZWxpdXMgRFJTIDcuMCBDMiAtIExhcGllcnJlIE1ZMjUgLSBMWENUQiAtIFZpZXcgKDApLnBuZw.png?v=1777973268&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_7_0.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_7_0_colour_Undergrowth_green_glossy.jpg",
+      "Lapierre/Xelius_DRS_7_0_colour_Cumulonimbus_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 8.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-80-lxdtb",
+    "sku": "LXDTA",
+    "price": 5999.0,
+    "category": "Race",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette Ultegra CS-R8100-12, HG+",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "Ultegra FC-R8150",
+      "Achterderailleur": "Shimano Ultegra Di2 R8150, 12s",
+      "Shifter": "Shimano Shift-brake lever Ultegra ST-R8170",
+      "Voorvork": "Lapierre Carbon UD SLI",
+      "Rem": "Shimano Hydraulic Disc brake Ultegra R8170, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Ultegra R8170, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Semi-int. Combo UD carbon, -10°, Drop: 125 mm, Reach: 72 mm",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Prologo Race Dimension T4.0 rails",
+      "Zadelpen": "Lapierre Non Suspension Carbon, Xelius DRS, 0 mm Offset, L: 350 mm",
+      "Wiel voor": "DT Swiss ERC1600 Spline 45 mm, Centerlock, Tubeless compatible",
+      "Buitenband": "Continental GP5000S TR Tubeless ready 25-622"
+    },
+    "color_names": [
+      "Paris stone beige - matt",
+      "Black - matt"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgOC4wX0MxXzI4SW5jaF85MF9MWERUQS5wbmc.png?v=1777973289&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI1X1hFTElVUyBEUlMgOC4wX0MxXzI4SW5jaF85MF9MWERUQS5wbmc.png?v=1777973289&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9YZWxpdXMgRFJTIDguMCBDMiAtIExhcGllcnJlIE1ZMjUgLSBMWERUQiAtIFZpZXcgKDApLnBuZw.png?v=1777973288&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_8_0.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_8_0_colour_Paris_stone_beige_matt.jpg",
+      "Lapierre/Xelius_DRS_8_0_colour_Black_matt.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 8.0 AXS",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-80-axs-lxduc",
+    "sku": "LXDUC",
+    "price": 5999.0,
+    "category": "Race",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Chrome - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-8.0-AXS_700c_90_LXDUC.png?v=1777973290&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-8.0-AXS_700c_90_LXDUC.png?v=1777973290&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_8_0_AXS.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_8_0_AXS_colour_Chrome_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS 9.0",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-90-lxeub",
+    "sku": "LXETA",
+    "price": 8499.0,
+    "category": "Race",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette Dura-Ace CS-R9200-12, MICRO SPLINE",
+      "Ketting": "Shimano Chain XTR CN-M9100 12s, SIL-TECH",
+      "Crankstel": "Dura-Ace R9200",
+      "Achterderailleur": "Shimano Dura-Ace Di2 RD-R9250 12s, Shadow, wireless",
+      "Shifter": "Shimano Shift-brake lever Dura-Ace ST-R9270-R, Di2 Dual Control Lever 12s",
+      "Voorvork": "Lapierre Carbon UD SLI",
+      "Rem": "Shimano Hydraulic Disc brake Dura-Ace R9270, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Dura-Ace R9270, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Drop bar Semi-int. Combo UD carbon, -10°, Drop: 125 mm, Reach: 72 mm",
+      "Pedaal": "VP 335 Clips&Strap",
+      "Zadel": "Prologo Race Dimension T4.0 rails",
+      "Zadelpen": "Lapierre Non Suspension Carbon, Xelius DRS, 0 mm Offset, L: 350 mm",
+      "Wiel voor": "DT Swiss ERC1400 Spline 35 mm, Centerlock, Tubeless compatible",
+      "Buitenband": "Continental GP5000S TR Tubeless ready 25-622"
+    },
+    "color_names": [
+      "Cold rain grey - glossy",
+      "Midnight plum purple - glossy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9YZWxpdXMgRFJTIDkuMCAtIExhcGllcnJlIE1ZMjUgLSBMWEVUQSAtIFZpZXcgKDApLnBuZw.png?v=1777973303&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9YZWxpdXMgRFJTIDkuMCAtIExhcGllcnJlIE1ZMjUgLSBMWEVUQSAtIFZpZXcgKDApLnBuZw.png?v=1777973303&width=1200",
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY26_XELIUS-DRS-9.0_700c_90_LXEUB.jpg?v=1777973316&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_9_0.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_9_0_colour_Cold_rain_grey_glossy.jpg",
+      "Lapierre/Xelius_DRS_9_0_colour_Midnight_plum_purple_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS Frameset",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-frameset-cold-rain-grey-glossy",
+    "sku": "",
+    "price": 3999.0,
+    "category": "Race",
+    "model_year": 2025,
+    "specifications": {},
+    "color_names": [
+      "Cold rain grey - glossy"
+    ],
+    "sizes": [],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/XeliusDRSFrameset-ColdRainGrey-LapierreMY25-LXKTA490-View_0.jpg?v=1787129034&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/XeliusDRSFrameset-ColdRainGrey-LapierreMY25-LXKTA490-View_0.jpg?v=1787129034&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_Frameset.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_Frameset_colour_Cold_rain_grey_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Xelius DRS Team Replica",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-team-replica-lxhua",
+    "sku": "LXHUA",
+    "price": 9999.0,
+    "category": "Race",
+    "model_year": 2026,
+    "specifications": {},
+    "color_names": [
+      "Replica picnic - Gray - glossy"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI2X1hFTElVUyBEUlMgVEVBTV85MF9MWEhVQS5wbmc.png?v=1777973719&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/czM6Ly9jczIwLWJ1Y2tldC1wcm9kL0FjY2VsbC9MYXBpZXJyZS9MQVBJRVJSRV9NWTI2X1hFTElVUyBEUlMgVEVBTV85MF9MWEhVQS5wbmc.png?v=1777973719&width=1200"
+    ],
+    "image": "Lapierre/Xelius_DRS_Team_Replica.jpg",
+    "color_images": [
+      "Lapierre/Xelius_DRS_Team_Replica_colour_Replica_picnic_Gray_glossy.jpg"
+    ]
+  },
+  {
+    "name": "Aerostorm DRS",
+    "brand": "Lapierre",
+    "url": "https://lapierrebikes.com/en-be/products/aerostorm-drs-lfata",
+    "sku": "LFATA",
+    "price": 8500.0,
+    "category": "Triathlon / TT",
+    "model_year": 2025,
+    "specifications": {
+      "Frame": "HIGH Carbon Gents",
+      "Cassette": "Shimano Cassette Ultegra CS-R8100-12, HG+",
+      "Ketting": "Shimano Chain CN-M7100 12s",
+      "Crankstel": "Dura-Ace FC-R9200, Octalink",
+      "Achterderailleur": "Shimano Ultegra Di2 RD-R8150, 12s",
+      "Shifter": "Shimano Shift-brake lever DuraAce Di2 ST-R9180 + ShiftSwitch SW-R9160 for extensions",
+      "Voorvork": "Lapierre Aerostorm DRS Disc thru axle UD Superlight carbon",
+      "Rem": "Shimano Hydraulic Disc brake Dura-Ace Di2 BR-R9270, 160 mm",
+      "Achterrem": "Shimano Hydraulic Disc brake Dura-Ace Di2 BR-R9270, 140 mm",
+      "Stuurlint": "Lapierre",
+      "Stuur": "Lapierre Time Trail integrated TT cockpit UD carbon with carbon extensions",
+      "Pedaal": "VP 336 Clips&Strap",
+      "Zadel": "Prologo Race Dimension Tri Tirox rails",
+      "Zadelpen": "Lapierre Non Suspension Aero TT carbon",
+      "Wiel voor": "DT Swiss ARC1400 Dicut, 62mm, Centerlock, Tubeless ready",
+      "Buitenband": "Continental GP5000S TR Tubeless ready 25-622"
+    },
+    "color_names": [
+      "Midnight plum purple - glossy"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY25_Aerostorm_DRS_90_LFATA.png?v=1777973055&width=1200",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0747/5861/9183/files/LAPIERRE_MY25_Aerostorm_DRS_90_LFATA.png?v=1777973055&width=1200"
+    ],
+    "image": "Lapierre/Aerostorm_DRS.jpg",
+    "color_images": [
+      "Lapierre/Aerostorm_DRS_colour_Midnight_plum_purple_glossy.jpg"
+    ]
+  }
+]

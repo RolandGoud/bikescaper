@@ -92,6 +92,13 @@ SIZE_CHARTS = {
         "45": (152, 160), "49": (158, 166), "52": (163, 171), "54": (168, 176), "56": (173, 181),
         "58": (178, 186), "61": (183, 193),
     },
+    # Bianchi's size guide (bianchi.com, July 2026): the road sizes of the Infinito, Sprint and Oltre Race, the
+    # letter sizes of the Impulso and Arcadex (Bianchi writes SM, MD, LG).
+    "Bianchi": {
+        "47": (150, 160), "50": (161, 168), "53": (169, 174), "55": (175, 178), "57": (179, 184),
+        "59": (185, 190), "61": (191, 197),
+        "XS": (150, 160), "S": (161, 171), "M": (172, 180), "L": (181, 189), "XL": (190, 197),
+    },
 }
 SIZE_NOTE = "Generic chart for this brand, not this model's own size chart yet."
 
@@ -189,9 +196,10 @@ GROUPSET_YEARS = [
 RIM_BRAKE_LAST_YEAR = 2022
 
 # Brands the site covers. `site` is the brand's own site the catalogue is read
-# from. Trek and Canyon have their own scrapers; the next five are collected by
+# from. Trek and Canyon have their own scrapers; the others are collected by
 # brand_scrapers/. Scott and Orbea block requests from servers, so they wait for a
-# run from a home connection. `aliases` are other words in an ad that name the brand.
+# run from a home connection. Lapierre and Bianchi have no Dutch site: their prices come from
+# the Belgian store and Bianchi's euro list prices. `aliases` are other words in an ad that name the brand.
 BRANDS = [
     {"name": "Trek", "site": "https://www.trekbikes.com/nl/nl_NL/", "scraper": True, "logo": "logos/trek.svg"},
     {"name": "Canyon", "site": "https://www.canyon.com/nl-nl/", "scraper": True, "logo": "logos/canyon.svg"},
@@ -202,6 +210,9 @@ BRANDS = [
     {"name": "Factor", "site": "https://eu.factorbikes.com/", "scraper": True, "logo": "logos/factor.svg"},
     {"name": "Scott", "site": "https://www.scott-sports.com/nl/en/", "scraper": True, "logo": "logos/scott.svg"},
     {"name": "Orbea", "site": "https://www.orbea.com/nl-nl/", "scraper": True, "logo": "logos/orbea.svg"},
+    {"name": "Lapierre", "site": "https://lapierrebikes.com/en-be", "scraper": True, "logo": "logos/lapierre.svg"},
+    {"name": "Bianchi", "site": "https://www.bianchi.com/en/", "scraper": True, "logo": "logos/bianchi.svg"},
+    {"name": "BMC", "site": "https://nl.bmc-switzerland.com/", "scraper": True, "logo": "logos/bmc.svg"},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
 BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}
@@ -235,6 +246,9 @@ FAMILY_DISCIPLINES = {
         "Orbea": ["orca", "avant"],
         "Cube": ["litening", "agree", "attain"],
         "Factor": ["ostro", "o", "monza", "one", "bugatti"],
+        "Lapierre": ["xelius", "pulsium", "sensium", "aircode", "audacio"],
+        "Bianchi": ["oltre", "specialissima", "infinito", "sprint", "intenso", "aria"],
+        "BMC": ["teammachine", "roadmachine", "granfondo"],
     },
     "gravel": {
         "Trek": ["checkpoint", "checkmate", "boone"],
@@ -245,6 +259,9 @@ FAMILY_DISCIPLINES = {
         "Orbea": ["terra"],
         "Cube": ["nuroad", "cross"],
         "Factor": ["explorer", "aluto", "sarana", "elara"],
+        "Lapierre": ["crosshill"],
+        "Bianchi": ["impulso", "arcadex", "via", "zolder"],
+        "BMC": ["kaius", "urs", "crossmachine"],
     },
     "tt": {
         "Trek": ["speed"],
@@ -256,6 +273,9 @@ FAMILY_DISCIPLINES = {
         "Cube": ["aerium"],
         "Factor": ["hanzo", "slick"],
         "Cannondale": ["superslice"],
+        "Lapierre": ["aerostorm"],
+        "Bianchi": ["aquila"],
+        "BMC": ["speedmachine"],  # Timemachine is TT or aero road (Timemachine Road): its category decides
     },
     "fitness": {
         "Trek": ["fx"],
@@ -280,7 +300,7 @@ FAMILY_DISCIPLINES = {
 # Words in a model name that put it in a discipline whatever its family, checked in this order:
 # "Aeroad CFR Disc Frame and Brake Kit", "Addict Gravel", "Domane+", "Turbo Creo", "Synapse Neo".
 NAME_WORDS = {
-    "frames": ["frame", "frameset", "framekit"],
+    "frames": ["frame", "frameset", "framekit", "module", "mod", "frs"],  # BMC sells framesets as "MOD" and "FRS"
     "ebike": ["plus", "turbo", "neo", "hybrid", "gain"],
     "gravel": ["gravel", "cx", "cyclocross"],
 }
@@ -425,6 +445,7 @@ SPEC_LABELS = {
     "Spacer": ("cockpit", "Spacers", "Spacers"),
     "Cover": ("cockpit", "Cover", "Afdekkap"),
     "Binder": ("saddle", "Seat clamp", "Zadelpenklem"),
+    "Vermogensmeter": ("drivetrain", "Power meter", "Vermogensmeter"),  # BMC
     "Vulring": ("cockpit", "Spacers", "Spacers"),
     "Naafhuis": ("wheels", "Hub shell", "Naafhuis"),
     "Valve": ("wheels", "Valves", "Ventielen"),

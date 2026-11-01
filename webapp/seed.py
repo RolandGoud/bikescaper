@@ -22,7 +22,8 @@ FIXED_SOURCES = [
     ("Canyon", "data/Canyon/canyon_bikes_20250803_081317.json"),
 ]
 # Brands collected by brand_scrapers/: the newest snapshot of each.
-COLLECTED = ["Trek", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea"]
+COLLECTED = ["Trek", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea", "Lapierre", "Bianchi",
+             "BMC"]
 
 
 def latest_snapshot(brand):
