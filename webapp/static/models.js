@@ -16,8 +16,6 @@
   const focusKey = () => {
     const el = document.activeElement;
     if (!main.contains(el)) return null;
-    const pill = [...main.querySelectorAll(".logo-pills a")].indexOf(el);
-    if (pill >= 0) return () => main.querySelectorAll(".logo-pills a")[pill];
     const menu = el.closest(".pill-select");
     if (menu) return () => main.querySelector(`.pill-select[data-name="${menu.dataset.name}"] button`);
     return el.name ? () => main.querySelector(`[name="${el.name}"]`) : null;
@@ -30,7 +28,7 @@
     // the NL/EN links carry the filters in their address, so take the new page's
     const langs = document.querySelector(".lang-switch"), newLangs = next.querySelector(".lang-switch");
     if (langs && newLangs) langs.replaceWith(newLangs);
-    window.pillSelects?.(main);  // the new form's tier menu
+    window.pillSelects?.(main);  // the new form's brand, type and tier menus
     scrollTo(0, y);  // keep the reader where they were; scroll anchoring would jump otherwise
     refocus?.()?.focus({ preventScroll: true });
   };
@@ -86,13 +84,7 @@
     (still.matches ? swap : animateSwap)(next);
   };
 
-  // Listen on <main>, which stays put, so the swapped-in pills and form need no rebinding.
-  main.addEventListener("click", (e) => {
-    const pill = e.target.closest(".logo-pills a");
-    if (!pill || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    e.preventDefault();
-    show(pill.href, true);
-  });
+  // Listen on <main>, which stays put, so the swapped-in form needs no rebinding.
   main.addEventListener("submit", (e) => {
     const form = e.target.closest("form.filter-row");
     if (!form) return;

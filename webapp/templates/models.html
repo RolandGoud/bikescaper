@@ -14,23 +14,18 @@
       <a href="{{ url_for('catalog', brand=picked or None, type=kind, q=q or None, current=None if current else 0, tier=tier) }}">{{ _('All groupsets') }}</a>
       {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a>{% endif %}</p>{% endif %}
   </div>
-  {# One filter box: "All brands" and the brand logos (each click turns that brand on or off), then type, tier,
-     still sold and search.
-     Brands and types without bikes stay hidden. #}
+  {# One filter box: brand, type, tier, still sold and search, all in one form. The brand menu shows the logos
+     (pill-select.js reads data-logo); brands without a scraper stay out, as do types without bikes. #}
   <div class="filter-box">
-    <nav class="logo-pills" aria-label="{{ _('Brand') }}">
-      {# "All brands" is on until a brand is picked; each brand pill then turns its own brand on or off, so several
-         can be on. "All brands", turning the last brand off, or turning every brand on drops the brand filter. #}
-      {% set shown = brands|selectattr('scraper')|map(attribute='name')|list %}
-      <a class="pill brand all {{ 'on' if not picked }}" href="{{ url_for('catalog', type=kind, q=q or None, current=None if current else 0, tier=tier, groupset=groupset) }}"{% if not picked %} aria-current="true"{% endif %}>{{ _('All brands') }}</a>
-      {% for b in brands if b.scraper %}
-      {% set on = b.name in picked %}
-      {% set toggled = shown|select('in', picked|reject('equalto', b.name)|list if on else picked + [b.name])|list %}
-      <a class="pill brand {{ 'on' if on }}" href="{{ url_for('catalog', type=kind, brand=toggled if toggled|length < shown|length else None, q=q or None, current=None if current else 0, tier=tier, groupset=groupset) }}"{% if on %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>
-      {% endfor %}
-    </nav>
     <form class="filter-row" method="get">
-      {% for b in picked %}<input type="hidden" name="brand" value="{{ b }}">{% endfor %}
+      <label class="field-label">{{ _('Brand') }}
+        <select name="brand" onchange="this.form.requestSubmit()">
+          <option value="" data-label="{{ _('All brands') }}" data-count="{{ brand_counts.values()|sum }}">{{ _('All brands') }}</option>
+          {% if picked|length > 1 %}{# an older address with several brands: show them, picking any other option replaces them #}
+          <option value="" selected disabled data-label="{{ picked|join(' + ') }}">{{ picked|join(' + ') }}</option>{% endif %}
+          {% for b in brands if b.scraper %}<option value="{{ b.name }}" data-label="{{ b.name }}" data-count="{{ brand_counts.get(b.name, 0) }}"{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %} {{ 'selected' if picked == [b.name] }}>{{ b.name }} ({{ brand_counts.get(b.name, 0) }})</option>{% endfor %}
+        </select>
+      </label>
       {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
       <label class="field-label">{{ _('Type') }}
         <select name="type" onchange="this.form.requestSubmit()">
