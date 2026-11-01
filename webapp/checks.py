@@ -2,6 +2,7 @@
 
 Everything works on text the user pasted: we never fetch the listing page.
 """
+import functools
 import html
 import json
 import os
@@ -20,16 +21,25 @@ from .reference import (BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
 
 
+# _plain and _tokens are pure and called for every catalogue model on every match (1,300 models times every
+# ad a page lists), mostly on the same model names and spec lines: they are kept per text, so each is worked
+# out once per process.
+@functools.lru_cache(maxsize=65536)
 def _plain(text):
     text = unicodedata.normalize("NFKD", text or "")
     return "".join(c for c in text if not unicodedata.combining(c)).lower()
 
 
-def _tokens(text):
-    """Lowercase word tokens, splitting 'sl6' into 'sl 6' and 'domane+' into 'domane plus'."""
+@functools.lru_cache(maxsize=65536)
+def _token_tuple(text):
     text = _plain(text).replace("+", " plus ")
     text = re.sub(r"(?<=[a-z])(?=\d)|(?<=\d)(?=[a-z])", " ", text)
-    return re.findall(r"[a-z]+|\d+", text)
+    return tuple(re.findall(r"[a-z]+|\d+", text))
+
+
+def _tokens(text):
+    """Lowercase word tokens, splitting 'sl6' into 'sl 6' and 'domane+' into 'domane plus'."""
+    return list(_token_tuple(text))
 
 
 # ---------------------------------------------------------------- claims
@@ -57,6 +67,12 @@ def says_electronic(text):
 
 
 def detect_groupset(text):
+    found = _detect_groupset(text if isinstance(text, str) or text is None else str(text))
+    return dict(found) if found else None  # a copy, so a caller changing it can't change the kept one
+
+
+@functools.lru_cache(maxsize=16384)
+def _detect_groupset(text):
     low = _plain(text)
     found = None
     for key, name, pattern, tier in GROUPSETS:
@@ -790,6 +806,27 @@ def match_models(models, title, description="", claims=None):
         ranked.append((round(score, 2), model))
     ranked.sort(key=lambda pair: (-pair[0], pair[1]["price_eur"] or 0))
     return ranked
+
+
+_guesses = {}  # id(models) -> (models, {(title, description): (model, confidence)}), for the last few lists
+
+
+def best_guess(models, title, description=""):
+    """(best model or None, confidence) of match_models for an ad nobody picked a model for, kept per ad text
+    for this list of models. The listings, models and report pages each need this guess for every ad the site
+    knows; working it out again on every page view made them slower with every ad and every catalogue model.
+    The app keeps one list of models while the catalogue stays the same (app.py), so a guess is made once."""
+    entry = _guesses.get(id(models))
+    if entry is None or entry[0] is not models:
+        while len(_guesses) >= 3:  # an older catalogue, or a background job's own list
+            _guesses.pop(next(iter(_guesses)))
+        entry = _guesses[id(models)] = (models, {})
+    key = (title or "", description or "")
+    found = entry[1].get(key)
+    if found is None:
+        ranked = match_models(models, title or "", description or "")
+        found = entry[1][key] = (ranked[0][1] if ranked else None, confidence(ranked))
+    return found
 
 
 def name_check(model, models, title, description=""):

@@ -30,11 +30,10 @@ def known_ads(conn, models):
             continue
         model = by_id.get(row["model_id"])
         if model is None:
-            ranked = checks.match_models(models, row["title"], row["description"] or "")
-            if not ranked or checks.confidence(ranked) not in ("high", "medium"):
+            model, sure = checks.best_guess(models, row["title"], row["description"] or "")
+            if model is None or sure not in ("high", "medium"):
                 seen_ads[key] = None  # unmatched: its older checks don't count either
                 continue
-            model = ranked[0][1]
         ad = {"model_id": model["id"], "price": row["asking_price"],
               "seen": date.fromisoformat(row["created_at"][:10]), "check_id": row["id"],
               "check_ids": all_checks[key]}  # the same set, so older checks still get added

@@ -129,8 +129,7 @@ def matched_ads(rows, models):
     for newest, count in group_checks(rows):
         model = by_id.get(newest["model_id"])
         if model is None:
-            ranked = checks.match_models(models, newest["title"], newest["description"] or "")
-            model = ranked[0][1] if ranked else None
+            model = checks.best_guess(models, newest["title"], newest["description"] or "")[0]
         if model:
             ads.setdefault(model["id"], []).append((newest, count))
     return ads
@@ -217,9 +216,18 @@ def create_app(db_path=None):
         if c is not None:
             c.close()
 
+    catalogue = {"version": None, "models": None}
+    catalogue_lock = threading.Lock()
+
     def models():
+        """The catalogue, read from the database once and kept while it stays the same (db.catalogue_version),
+        so the guesses checks.best_guess keeps for this list carry over from one page view to the next."""
         if "models" not in g:
-            g.models = db.all_models(conn())
+            version = db.catalogue_version(conn())
+            with catalogue_lock:
+                if catalogue["version"] != version:
+                    catalogue["models"], catalogue["version"] = db.all_models(conn()), version
+                g.models = catalogue["models"]
         return g.models
 
     def number(value, cast=float):
