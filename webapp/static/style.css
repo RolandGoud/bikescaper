@@ -1499,12 +1499,18 @@ select { max-width: 100%; }
    match as a strip under it. Cells in a card are split by lines; a check's line takes its verdict's colour. */
 .block-head { display: flex; align-items: center; gap: 10px; margin: 0 0 -16px; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .block-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-.ad-stage { position: relative; aspect-ratio: 2 / 1; border-radius: 18px; overflow: hidden; background: var(--photo-bg); }
-/* The slider keeps its own 16:9 (the ad photo is lined up on the catalogue photo in that box), a little cut top and bottom. */
-.ad-stage .head-duo { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); }
-.ad-stage .head-duo .photo.duo { border: 0; border-radius: 0; }
+.ad-stage { position: relative; aspect-ratio: 5 / 2; border-radius: 18px; overflow: hidden; background: var(--photo-bg); }
+/* On the stage the two photos don't slide: a fixed cut at 60%, the ad photo filling the left (not lined up on
+   the catalogue bike, so it needs no blurred filler) and the catalogue bike in the right part. */
+.ad-stage .head-duo { position: absolute; inset: 0; }
+.ad-stage .head-duo .photo.duo { --cut: 60% !important; height: 100%; aspect-ratio: auto; border: 0; border-radius: 0; cursor: zoom-in; }
+.ad-stage .head-duo .duo-range { display: none; }
 .ad-stage .head-duo .brand-mark { display: none; }
-.ad-stage .head-duo .duo-label { bottom: calc(5.6% + 12px); }
+.ad-stage .head-duo .duo-label { bottom: 12px; }
+.ad-stage .duo .ad-side { background: #111 !important; }
+.ad-stage .duo .ad-side.fill::before { content: none; }
+.ad-stage .duo .ad-side img { position: absolute; left: 0 !important; top: 0 !important; width: 70% !important; height: 100% !important; object-fit: cover; }
+.ad-stage .duo .factory img { position: absolute; left: 50%; top: 0; width: 50%; height: 100%; object-fit: contain; }
 .ad-stage > .photo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--muted); }
 .ad-stage > .photo img { width: 100%; height: 100%; object-fit: contain; }
 .ad-stage::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(90deg, rgba(12,13,16,.9) 0%, rgba(12,13,16,.5) 36%, transparent 60%); }
@@ -1513,7 +1519,7 @@ select { max-width: 100%; }
 .ad-stage.no-photo { aspect-ratio: auto; min-height: 220px; background: var(--card); border: 1px solid var(--line); }
 .ad-stage.no-photo::after { content: none; }
 .ad-stage.no-photo .stage-text { position: relative; inset: auto; max-width: 70%; min-height: 220px; padding: 26px 32px; gap: 40px; }
-.stage-text { position: absolute; z-index: 3; left: 32px; top: 26px; bottom: calc(5.6% + 52px); max-width: 46%; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; color: #fff; }
+.stage-text { position: absolute; z-index: 3; left: 32px; top: 26px; bottom: 52px; max-width: 46%; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; color: #fff; }
 .stage-text a, .stage-text .removed-tag { pointer-events: auto; }
 .stage-meta { font-size: 13px; color: #C9CAD0; }
 .stage-logo { display: block; width: 260px; max-width: 100%; height: 44px; background: #fff; -webkit-mask: var(--logo) left center / contain no-repeat; mask: var(--logo) left center / contain no-repeat; filter: drop-shadow(0 4px 14px rgba(0,0,0,.6)); }
@@ -1527,11 +1533,18 @@ select { max-width: 100%; }
 .price-sticker b { font: 900 italic 40px/1 var(--display); }
 .price-sticker span { margin-top: 6px; font: 700 11px/1 var(--mono); letter-spacing: .06em; }
 
-.ad-card { display: grid; grid-template-columns: 340px minmax(0, 1fr); border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+.ad-card { display: grid; grid-template-columns: 420px minmax(0, 1fr); border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
 .ad-card.no-photos { grid-template-columns: minmax(0, 1fr); }
 .ad-gallery { display: flex; flex-direction: column; gap: 8px; padding: 14px; border-right: 1px solid var(--line); min-width: 0; }
 .ag-head { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .08em; color: var(--muted); }
 .ag-main { position: relative; }
+/* The arrows sit beside the big photo, small, not on it. */
+.ag-main.has-arrows { display: grid; grid-template-columns: 22px minmax(0, 1fr) 22px; align-items: center; gap: 6px; }
+.ag-main.has-arrows .ag-photo { grid-row: 1; grid-column: 2; }
+.ag-main .gallery-arrow { position: static; grid-row: 1; transform: none; width: 22px; height: 22px; font-size: 14px; line-height: 1; padding: 0; background: var(--raised); border: 1px solid var(--line); }
+.ag-main .gallery-arrow.prev { grid-column: 1; }
+.ag-main .gallery-arrow.next { grid-column: 3; }
+.ag-main .gallery-arrow:hover { border-color: var(--accent); color: var(--accent); }
 .ag-photo { display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; border: 0; border-radius: 8px; overflow: hidden; background: #111; cursor: zoom-in; }
 .ag-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .ad-gallery .ad-photos img { height: 46px; opacity: .55; }
@@ -1546,7 +1559,8 @@ select { max-width: 100%; }
 .ad-card .k, .match-strip .k { font: 500 11px/1.2 var(--mono); letter-spacing: .08em; color: var(--muted); }
 .ad-text { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; }
 .ad-text-body { margin: 0; white-space: pre-line; font-size: 15px; line-height: 1.5; color: #D6D7DC; overflow-wrap: anywhere; }
-.ad-text-body.folded { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+/* Folded, the text fills the height the card has next to the gallery (at least three lines), fading out at the bottom. */
+.ad-text-body.folded { flex: 1 1 0; min-height: 4.5em; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2em), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2em), transparent); }
 .ad-text-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
 .ad-text-more { padding: 0; border: 0; background: none; color: var(--accent); font: 700 14px var(--body); cursor: pointer; }
 .ad-text-more:hover { color: var(--accent-soft); }
@@ -1581,12 +1595,13 @@ select { max-width: 100%; }
   .ad-stage .head-duo, .ad-stage > .photo { position: relative; inset: auto; transform: none; }
   .ad-stage > .photo { aspect-ratio: 16 / 9; background: var(--photo-bg); }
   .ad-stage .head-duo .duo-label { bottom: 10px; }
+  .ad-stage .head-duo .photo.duo { height: auto; aspect-ratio: 16 / 9; }
   .ad-stage::after { content: none; }
-  .ad-stage .photo-cap { top: 10px; bottom: auto; right: auto; left: 10px; }
+  .ad-stage .photo-cap { top: 10px; bottom: auto; right: 10px; left: auto; }
   .stage-text { position: static; max-width: none; padding: 16px; gap: 12px; }
   .stage-logo { width: 180px; height: 28px; }
   .stage-text h1 { font-size: 34px; }
-  .price-sticker { right: 10px; top: 10px; padding: 8px 12px; } .price-sticker b { font-size: 26px; }
+  .price-sticker { right: auto; left: 10px; top: 10px; padding: 8px 12px; transform: rotate(-3deg); } .price-sticker b { font-size: 26px; }
   .ad-card { grid-template-columns: minmax(0, 1fr); }
   .ad-gallery { border-right: 0; border-bottom: 1px solid var(--line); }
   .ad-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1595,6 +1610,7 @@ select { max-width: 100%; }
   .ad-tiles > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .ad-tiles > div:nth-last-child(-n+2):nth-child(odd), .ad-tiles > div:last-child { border-bottom: 0; }
   .ad-text-foot { flex-wrap: wrap; }
+  .ad-text-body.folded { flex: none; height: 9em; }  /* stacked under the gallery: six lines */
   .match-strip { grid-template-columns: minmax(0, 1fr) auto; }
   .ms-check { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
   .ms-check::before { left: 0; }

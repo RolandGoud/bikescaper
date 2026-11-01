@@ -1896,3 +1896,12 @@ def test_family_name_leaves_out_the_generation():
     assert checks.family_name("Madone SL 6 Gen 8") == "Madone SL 6"
     assert checks.family_name("Tarmac SL9 Comp - Shimano 105 Di2") == "Tarmac SL9 Comp - 105 Di2"
     assert checks.ad_condition("x\nConditie: Zo goed als nieuw\nFramemaat: L") == "Zo goed als nieuw"
+
+
+def test_the_ad_card_always_has_a_year_tile(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    client.post("/check", data={"title": "Trek Domane SL 6 maat 56", "asking_price": "2450"})
+    page = client.get("/check/1?lang=nl").data.decode()
+    assert '<span class="k">BOUWJAAR</span><b class="muted">Niet vermeld</b>' in page

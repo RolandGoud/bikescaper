@@ -40,7 +40,8 @@
   {% set colour_said = r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour %}
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
-  {% if c.year %}{% if facts.append((_('Year'), c.year, None)) %}{% endif %}{% endif %}
+  {# The year always has a tile, also when the ad doesn't give one. #}
+  {% if facts.append((_('Year'), c.year or _('Not stated'), None if c.year else 'none')) %}{% endif %}
   {% if c.size %}{% if facts.append((_('Size'), c.size, None)) %}{% endif %}{% endif %}
   {% if colour_said %}{% if facts.append((_('Colour'), colour_said, None)) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
@@ -51,7 +52,7 @@
     <div class="ad-gallery">
       <div class="ag-head mono"><span>{{ _('Photos from the ad')|upper }}</span><span class="ag-count" aria-live="polite">1 / {{ listing.photos|length }}</span></div>
       {# The picked photo, big; a click opens it in the lightbox. The arrows and the strip pick another (photo-strip.js). #}
-      <div class="ag-main"><button class="ag-photo" type="button" data-at="0" aria-label="{{ _('Open the photos') }}"><img src="{{ listing.photos[0] }}" alt="{{ _('Photo {n} from the ad', n=1) }}" referrerpolicy="no-referrer"></button>
+      <div class="ag-main{{ ' has-arrows' if listing.photos|length > 1 }}"><button class="ag-photo" type="button" data-at="0" aria-label="{{ _('Open the photos') }}"><img src="{{ listing.photos[0] }}" alt="{{ _('Photo {n} from the ad', n=1) }}" referrerpolicy="no-referrer"></button>
         {% if listing.photos|length > 1 %}<button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}">‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}">›</button>{% endif %}</div>
       <div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"{% if loop.first %} aria-current="true"{% endif %}><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>
@@ -59,7 +60,7 @@
     {% endif %}
     <div class="ad-info">
       {% if facts %}<div class="ad-tiles" style="--n: {{ facts|length }}">{% for label, value, kind in facts %}
-        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b>{{ value }}</b>{% endif %}</div>{% endfor %}
+        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}</span>

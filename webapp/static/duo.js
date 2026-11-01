@@ -3,6 +3,7 @@
 // Each tile starts at a random cut between 25% and 75%, so the cards don't all look the same
 // and both photos always show.
 document.querySelectorAll(".duo").forEach((tile) => {
+  if (tile.closest(".ad-stage")) return;  // the report's heading: a fixed cut, no slider
   const range = tile.querySelector(".duo-range");
   let startX = null, dragged = false;
   const set = (pct) => {
