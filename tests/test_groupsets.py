@@ -270,3 +270,11 @@ def test_shifting_chip_follows_the_negation():
         return
     got = checks.shifting(model, "Trek Emonda SL6 Pro", "Shimano Ultegra (niet elektronisch)")
     assert got["ad"] == "mechanical" and got["same"]
+
+
+def test_a_negation_on_another_line_doesnt_count():
+    """Bugbot on #281: "Di2" at a line's end and "No scratches" on the next isn't "Di2: no"."""
+    from webapp import checks
+    assert checks.says_electronic("Shimano Ultegra Di2\nNo scratches") is True
+    assert checks.says_electronic("Geen krassen\nUltegra Di2") is True
+    assert checks.says_electronic("Ultegra Di2 nee") is True  # no colon: not the "Di2: nee" spec style

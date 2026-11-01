@@ -39,8 +39,9 @@ SIZE_LABELS = r"3xs|2xs|xxs|xs|s|m|l|xl|xxl|2xl"
 
 ELECTRONIC_WORDS = ELECTRONIC + r"|\belektro?ni\w*|\belectroni\w*|\bwireless\b|\bdraadloos\b"
 # "geen Di2", "niet elektronisch", "non-Di2", "zonder Di2", "Di2: nee": the ad says it is not electronic.
-_NEGATION = r"\b(?:geen|niet|not|no|non|zonder|without)\b[\s-]*(?:\w+[\s-]+){0,1}?"
-NOT_ELECTRONIC = re.compile(rf"{_NEGATION}(?:{ELECTRONIC_WORDS})|(?:{ELECTRONIC_WORDS})\s*[:=-]?\s*(?:nee|no)\b")
+# Within one line only, so "Di2\nNo scratches" or "geen krassen\nDi2" isn't read as a negation.
+_NEGATION = r"\b(?:geen|niet|not|no|non|zonder|without)\b[ \t-]*(?:\w+[ \t-]+){0,1}?"
+NOT_ELECTRONIC = re.compile(rf"{_NEGATION}(?:{ELECTRONIC_WORDS})|(?:{ELECTRONIC_WORDS})[ \t]*[:=][ \t]*(?:nee|no)\b")
 
 
 def says_electronic(text):
@@ -2039,7 +2040,9 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         ref_val, ad = spec(model, *keys), claims.get(key)
         # The ad's words first; when they don't name the part, what its photos show. Wheels the ad only calls
         # "carbonwielen" (check 71) give way to the wheelset its photos name.
-        vague = key == "wheels" and ad and not re.search(WHEEL_NAMES, _plain(str(ad["label"])))
+        # Vague: rated only for the word "carbon", naming no wheelset ("Wielen: Fulcrum Racing 5" isn't vague).
+        vague = key == "wheels" and ad and not part_tier(("wheels",), re.sub(r"carbon\w*|\boclv\b", " ",
+                                                                               _plain(str(ad["label"]))))
         part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres", "wheels") and (not ad or vague) else None
         if part_seen and ad and not part_seen["tier"]:
             part_seen = None  # a wheelset we can't rate says less than "carbon"

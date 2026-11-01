@@ -425,3 +425,11 @@ def test_photo_wheels_name_what_the_ad_only_calls_carbon_wheels(models):
     r = row(run(models, "Trek Emonda SL6", text, dict(RIVAL, wheels=dict(wheels, brand="Noname", model="X1",
                                                                         rim_material="unknown"))), "wheels")
     assert "carbonwielen" in en(r["listing"])
+
+
+def test_a_named_wheelset_outside_the_wheel_names_list_still_wins(models):
+    """Bugbot on #281: "Wielen: Fulcrum Racing 5" names its wheels, so the photos don't replace it."""
+    wheels = {"brand": "Bontrager", "model": "Aeolus Elite 35", "rim_depth_mm": 35, "rim_material": "carbon",
+              "confidence": "high", "photos": [2], "evidence_en": "", "evidence_nl": ""}
+    r = row(run(models, "Trek Emonda SL6", "Wielen: Fulcrum Racing 5", dict(RIVAL, wheels=wheels)), "wheels")
+    assert "Fulcrum" in en(r["listing"]) and "photo_why" not in r
