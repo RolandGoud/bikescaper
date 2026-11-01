@@ -195,10 +195,10 @@ def test_every_message_has_a_dutch_translation(models):
     r = run(models, "Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
     msgs = [r["confidence"]]
     for key in ("age", "specs", "size", "value"):
-        msgs += [r[key]["headline"], r[key]["detail"], *r[key].get("notes", [])]
+        msgs += [r[key]["headline"], r[key]["detail"], r[key].get("title"), *r[key].get("notes", [])]
     msgs += [row[f] for row in r["specs"]["rows"] for f in ("part", "result")] + r["questions"]
     for m in msgs:
-        if isinstance(m, i18n.Msg) and "{p0}" not in m.text:
+        if isinstance(m, i18n.Msg) and m.text and "{p0}" not in m.text:
             assert m.text in i18n.NL, m.text
 
 
@@ -1232,7 +1232,7 @@ def test_spec_comparison_uses_a_year_the_estimate_allows(models):
     assert checks.comparison_year(m, no_year, {"first": 2021, "last": None}) is None  # our own scrape fits
     older = checks.year_model(m, 2021)
     assert older["specs"] == sheets["2021"]["specs"] and older["spec_year"] == 2021
-    assert "2021" in en(checks.check_specs(older, claims)["detail"])
+    assert "2021" in en(checks.check_specs(older, claims)["title"])
 
 
 def test_colour_clue_reads_dutch_colour_words(models):
