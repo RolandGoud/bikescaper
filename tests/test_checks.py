@@ -17,8 +17,9 @@ def models(tmp_path_factory):
 
 
 def first(models):
-    """A current bike to build test models on (Bianchi and BMC sort before it, with archived bikes)."""
-    return next(m for m in models if m["brand"] == "Cannondale")
+    """A current bike to build test models on (Bianchi and BMC sort before it, with archived bikes; Cannondale's
+    own lines from Mantel's old pages are skipped too)."""
+    return next(m for m in models if m["brand"] == "Cannondale" and m["source_file"].startswith("data/Cannondale/"))
 
 
 def en(msg):
@@ -84,7 +85,8 @@ def test_dutch_al_is_not_aluminium():
 
 
 def test_purchase_year_before_launch_is_a_warning(models):
-    r = run(models, "Trek Domane SL6 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
+    # The ad names Gen 4 (launched 2023); a bare "Domane SL6 2022" is the Gen 3 we have from Mantel's old pages.
+    r = run(models, "Trek Domane SL6 gen 4 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
     assert r["model"]["name"].lower() == "domane sl 6 gen 4"
     assert r["age"]["status"] == checks.WARN
     groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
@@ -176,7 +178,7 @@ def test_language_switch(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": "2450"})
+    client.post("/check", data={"title": "Trek Domane SL6 gen 4 2022 maat 56 Ultegra", "asking_price": "2450"})
 
     # Dutch by default, English when the browser asks for it
     assert "Onze catalogus".encode() in client.get("/").data
@@ -978,7 +980,7 @@ def test_seller_named_version_wins(models):
     assert "SL5" in r["name_check"]["extra"]
     assert r["confidence"] is not None and str(r["confidence"]) in ("low", "laag")
     # The generation counts too, and an exact name has nothing to say.
-    assert run(models, "Trek Domane SL6 gen 3", "", 1500)["name_check"]["conflicts"] == [("Gen 4", "Gen 3")]
+    assert run(models, "Trek Domane SLR 6 gen 3", "", 1500)["name_check"]["conflicts"] == [("Gen 4", "Gen 3")]
     assert run(models, "Trek Domane SL 6 Gen 4 2023 maat 56", "", 2500)["name_check"] is None
 
 
@@ -986,7 +988,7 @@ def test_report_says_when_we_dispute_the_model(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    resp = client.post("/check", data={"title": "Trek Domane SL6 gen 3", "asking_price": "1500"})
+    resp = client.post("/check", data={"title": "Trek Domane SLR 6 gen 3", "asking_price": "1500"})
     page = client.get(resp.headers["Location"] + "?lang=nl").data.decode()
     assert 'class="mb-chip bad"' in page and "De advertentie zegt Gen 3, dit is een Gen 4" in page
 
@@ -1049,7 +1051,7 @@ def test_year_is_always_estimated(models):
     # No clue in the ad: the matched model's years, which can't rule out a stated year (it may be an older
     # generation we don't have).
     e = run(models, "Trek Domane SL 6 2019")["year_estimate"]
-    assert e["first"] == 2023 and en(e["headline"]) == "Can't check 2019"
+    assert e["first"] == 2020 and en(e["headline"]) == "Can't check 2019"  # Gen 3, from Mantel's old pages
     assert run(models, "Trek Domane SL 6 2024")["year_estimate"]["status"] == checks.OK
     # The Émonda's launch year is entered by hand (reference.LINEAGES), so 2021 can be checked.
     e = run(models, "Trek Emonda SL 6 2021")["year_estimate"]

@@ -1,0 +1,39 @@
+[
+ {
+  "name": "UnReStricted One (URS) V1",
+  "brand": "BMC",
+  "url": "https://web.archive.org/web/20220523203601/https://www.mantel.com/bmc-unrestricted-one-urs-v1",
+  "sku": "",
+  "category": "Gravel",
+  "specifications": {
+   "Gewichtslimiet": "120 kg",
+   "Material": "Carbon URS Premium Carbon",
+   "Shifter_speed": "11 versnellingen",
+   "Buitenband": "WTB Raddler, 40mm",
+   "Crankstel": "SRAM Apex Single",
+   "Cassette": "SRAM PG 1130 APEX 11-42T",
+   "Shifter": "SRAM Apex HRD 1x11 speed",
+   "Achterderailleur": "Sram Apex1",
+   "Stuur": "Easton EA50 AX",
+   "Stuurpen": "BMC MSM02",
+   "Voorvork": "Carbon",
+   "Zadelpen": "BMC URS Premium Carbon D-Shaped Seatpost • 0mm Offset",
+   "Zadel": "WTB SL8 Steel Medium",
+   "Gewicht": "9,2 kg",
+   "Velg": "C1850 SPLINE, 23mm",
+   "Spaken": "DT Swiss",
+   "Naaf voor": "370 Spline Disc 12x100mm Thru-Axle",
+   "Naaf achter": "370 Spline Disc 12x142mm Thru-Axle",
+   "Bottom bracket": "PF86",
+   "Ketting": "APEX 11 Speed",
+   "Rem": "Hydraulische schijfrem, APEX HRD-A1"
+  },
+  "years": [
+   2022
+  ],
+  "model_year": 2022,
+  "price": null,
+  "image": "BMC/years/unrestrictedoneursv1_2022_mantel.jpg",
+  "source": "mantel"
+ }
+]

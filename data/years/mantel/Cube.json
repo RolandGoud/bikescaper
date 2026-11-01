@@ -1,0 +1,1063 @@
+{
+ "checked_on": "2026-11-01",
+ "models": {
+  "Agree C:62 Pro": {
+   "2022": {
+    "captured": "2022-01-28",
+    "image": "Cube/years/agreec62pro_2022_mantel.jpg",
+    "price": 3099.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Rival eTap AXS™",
+     "Balhoofdstel": "Acros Top Integrated 1 1/2",
+     "Buitenband": "Continental Grand Sport Race SL, 28-622",
+     "Cassette": "SRAM XG-1250 10-36T",
+     "Gewicht": "9,2 kg",
+     "Ketting": "Rival D1",
+     "Material": "Carbon C:62, Carbon Technology",
+     "Rem": "Hydraulische schijfrem, HRD Hydr. Disc Brake (160/160)",
+     "Remgreep": "RIval eTap AXS™",
+     "Shifter": "Sram Rival eTap AXS™",
+     "Shifter_speed": "24 versnellingen",
+     "Voorderailleur": "Sram Rival eTap AXS™",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Racing 77 DB",
+     "Zadel": "Cube Natural Fit Nuance",
+     "Zadelpen": "Cube"
+    },
+    "ts": "20220128200215",
+    "url": "https://www.mantel.com/cube-agree-c62-pro-2022"
+   }
+  },
+  "Agree C:62 Race": {
+   "2022": {
+    "captured": "2022-01-16",
+    "image": "Cube/years/agreec62race_2022_mantel.jpg",
+    "price": 3599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 RD-8150-DGS, 12-Speed",
+     "Balhoofdstel": "Top Integrated 1 1/2\" w/ Integrated Cable Routing, Bottom Integrated 1 1/4\"",
+     "Buitenband": "Continental Grand Sport Race SL, 28-622",
+     "Cassette": "Shimano Ultegra CS-R8100, 11-34T",
+     "Crankstel": "Shimano Ultegra FC-R8100, Hollowtech II",
+     "Gewicht": "8,2 kg",
+     "Gewichtslimiet": "115 kg",
+     "Ketting": "CN-M8100",
+     "Material": "Carbon C:62 Advanced Twin Mold Technology",
+     "Rem": "Hydraulische schijfrem BR-R8170, Flat Mount (160/160), Shimano Ultegra",
+     "Shifter": "Shimano Ultegra Di2 ST-R8170 2x12 speed",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "Newmen Advanced Wing Bar, Carbon",
+     "Stuurlint": "Bartape RD",
+     "Stuurpen": "Cube",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150-F",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Racing 44 DB",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Cube Agree C:62 Aero, Comfort Flex"
+    },
+    "ts": "20220116213816",
+    "url": "https://www.mantel.com/cube-agree-c62-race"
+   }
+  },
+  "Agree C:62 Race Disc": {
+   "2019": {
+    "captured": "2020-08-10",
+    "image": "Cube/years/agreec62racedisc_2019_mantel.jpg",
+    "price": 2249.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra RD-R8000-DGS, 11-Speed",
+     "Buitenband": "Continental Grand Sport Race SL, 28-622",
+     "Cassette": "Shimano Ultegra 11-32",
+     "Crankstel": "Shimano Ultegra 50-34",
+     "Gewicht": "8,2 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfremmen",
+     "Shifter": "Shimano Ultegra R8020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Newmen Advanced Wing Bar, Carbon",
+     "Stuurpen": "Newmen",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Newmen Evolution SL R.32",
+     "Zadel": "Selle Royal",
+     "Zadelpen": "Newmen Advanced, Carbon, 27.2mm"
+    },
+    "ts": "20200810192240",
+    "url": "https://www.mantel.com/cube-agree-c62-race-disc"
+   }
+  },
+  "Agree C:62 SL": {
+   "2021": {
+    "captured": "2021-06-23",
+    "image": "Cube/years/agreec62sl_2021_mantel.jpg",
+    "price": 3449.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 RD8050",
+     "Balhoofdstel": "VP Top Integrated 1 1/8",
+     "Buitenband": "Continental Grand Sport Race SL, 28",
+     "Cassette": "Shimano Ultegra CS-R8000, 11-32T",
+     "Crankstel": "Shimano Ultegra FC-R8000",
+     "Gewicht": "8,4 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Carbon C:62, Carbon Technology",
+     "Rem": "Hydraulische Schijfrem, BR-R8070",
+     "Shifter": "Shimano Ultegra Di2 R8050",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Newmen Advanced Wing Bar, Carbon",
+     "Stuurlint": "Grip Control",
+     "Stuurpen": "Newmen Evolution 31.8mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Racing 77 DB",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Newmen Advanced, Carbon"
+    },
+    "ts": "20210623232618",
+    "url": "https://www.mantel.com/cube-agree-c62-sl-2021"
+   }
+  },
+  "Agree C:62 SLT": {
+   "2020": {
+    "captured": "2019-09-18",
+    "image": "Cube/years/agreec62slt_2020_mantel.jpg",
+    "price": 3699.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Force eTap AXS",
+     "Buitenband": "Continental",
+     "Cassette": "Sram Force XG1270, 10-33",
+     "Crankstel": "Sram Force eTap AXS",
+     "Gewicht": "7,4 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Sram Force eTap",
+     "Shifter": "Sram Force eTap AXS",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "Newmen",
+     "Stuurpen": "Newmen",
+     "Voorderailleur": "Sram Force eTap AXS",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Newmen",
+     "Zadel": "Cube",
+     "Zadelpen": "Newmen"
+    },
+    "ts": "20190918030043",
+    "url": "https://www.mantel.com/be/cube-agree-c62-slt-2020"
+   },
+   "2022": {
+    "captured": "2022-08-16",
+    "image": "Cube/years/agreec62slt_2022_mantel.jpg",
+    "price": 5899.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Dura Ace Di2 RD-R9250-D, 12-Speed",
+     "Balhoofdstel": "Top Integrated 1 1/2",
+     "Buitenband": "Continental Grand Prix 5000 Kevlar, 28-622",
+     "Cassette": "Shimano R8100-12, 11-30T",
+     "Crankstel": "Shimano Dura Ace R9200",
+     "Gewicht": "7,3 kg",
+     "Gewichtslimiet": "115 kg",
+     "Ketting": "M8100",
+     "Material": "Carbon C:62 Advanced Twin Mold Technology,",
+     "Rem": "Hydraulische schijfrem, R9270, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Shifter": "Shimano Dura Ace R9200 DI2",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "Cube ICR Cockpit System, Integrated Cable Routing, Aero Spacer System, Garmin Mount Interface",
+     "Stuurlint": "Bartape RD",
+     "Stuurpen": "Cube ICR Cockpit System",
+     "Voorderailleur": "Shimano Dura Ace Di2 FD-R9250-F, Braze-On",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mavic Cosmic SL 45 Carbon",
+     "Zadel": "Cube Natural Fit Nuance SLT Road Carbon",
+     "Zadelpen": "Cube Agree C:62 Aero, Comfort Flex"
+    },
+    "ts": "20220816215531",
+    "url": "https://www.mantel.com/cube-agree-c62-slt"
+   }
+  },
+  "Attain": {
+   "2018": {
+    "captured": "2019-11-22",
+    "image": "Cube/years/attain_2018_mantel.jpg",
+    "price": null,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Claris RD-R2000-GS, 8-Speed",
+     "Balhoofdstel": "FSA Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Continental Ultra Sport 2, 25-622",
+     "Cassette": "Shimano HG31 11-34T",
+     "Crankstel": "Shimano Claris FC-R2000, 50x34T",
+     "Material": "Aluminium 6061 T6 Superlight, Road Comfort Geometry",
+     "Rem": "Velgremmen",
+     "Shifter": "Shimano Claris BR-2400",
+     "Shifter_speed": "16 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurpen": "Cube Performance Stem Pro, 31.8mm",
+     "Voorderailleur": "Shimano Claris FD-R2000-BM, 31.8mm",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 0.8 Aero",
+     "Zadel": "Cube RP 1.0",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20191122204844",
+    "url": "https://www.mantel.com/be-fr/cube-attain-2018"
+   }
+  },
+  "Attain GTC Pro": {
+   "2019": {
+    "captured": "2019-09-17",
+    "image": "Cube/years/attaingtcpro_2019_mantel.jpg",
+    "price": 1399.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Continental",
+     "Cassette": "Shimano 105 CS-R7000, 11-32T",
+     "Crankstel": "Shimano FC-RS510, 50x34T",
+     "Gewicht": "8,4 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurpen": "Cube",
+     "Voorderailleur": "Shimano 105",
+     "Wiel voor": "Mavic Aksium",
+     "Zadel": "Cube Natural Fit Nuance Race",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20190917045638",
+    "url": "https://www.mantel.com/be/cube-attain-gtc-pro"
+   }
+  },
+  "Attain GTC Race": {
+   "2020": {
+    "captured": "2019-09-21",
+    "image": "Cube/years/attaingtcrace_2020_mantel.jpg",
+    "price": 1699.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Continental",
+     "Cassette": "Shimano 105",
+     "Crankstel": "Shimano RS510",
+     "Gewicht": "9,2 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Shimano 105",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube",
+     "Stuurpen": "Cube",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube",
+     "Zadel": "Cube",
+     "Zadelpen": "Cube"
+    },
+    "ts": "20190921133313",
+    "url": "https://www.mantel.com/be/cube-attain-gtc-race-2020"
+   },
+   "2021": {
+    "captured": "2021-09-24",
+    "image": "Cube/years/attaingtcrace_2021_mantel.jpg",
+    "price": 1849.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 RD-R7000-DGS, 11-Speed",
+     "Balhoofdstel": "VP Top Integrated 1 1/8",
+     "Buitenband": "Continental Grand Sport Race SL, 28-622",
+     "Cassette": "Shimano 105 CS-R7000, 11-32T",
+     "Crankstel": "Shimano 105 FC-R7000",
+     "Gewicht": "9,3 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Carbon / HPC, High Performance Composite",
+     "Rem": "Hydraulische Schijfrem, BR-R7070, Hydr. Disc Brake,",
+     "Shifter": "Shimano 105 R7000 11speed",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurlint": "Grip Control",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano 105 FD-R7000, 31.8mm Clamp",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 1.9 Aero Disc",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20210924033641",
+    "url": "https://www.mantel.com/cube-attain-gtc-race"
+   }
+  },
+  "Attain GTC SL": {
+   "2021": {
+    "captured": "2021-05-14",
+    "image": "Cube/years/attaingtcsl_2021_mantel.jpg",
+    "price": 2049.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra RD-R8000-DGS, 11-speed",
+     "Bottom bracket": "Shimano Hollowtech II",
+     "Buitenband": "Continental Grand Sport Race SL, 28-622",
+     "Cassette": "Shimano CS-R7000 11-32T",
+     "Crankstel": "Shimano Ultegra FC-R8000, Hollowtech II, 50x34T",
+     "Gewicht": "8,8 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Carbon HPC, High Performance Composite",
+     "Rem": "Hydraulische Schijfrem, BR-R7070",
+     "Shifter": "Shimano 105 ST-R7020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Newmen Evolution Wing Bar",
+     "Stuurlint": "Grip Control",
+     "Stuurpen": "Newmen Evolution",
+     "Voorderailleur": "Shimano Ultegra FD-R8000-BM",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Racing 77 DB",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Newmen Evolution"
+    },
+    "ts": "20210514030706",
+    "url": "https://www.mantel.com/cube-attain-gtc-sl"
+   }
+  },
+  "Attain Pro Disc": {
+   "2019": {
+    "captured": "2020-08-06",
+    "image": "Cube/years/attainprodisc_2019_mantel.jpg",
+    "price": 749.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Sora",
+     "Buitenband": "Continental Ultra sport 2, 28-622",
+     "Cassette": "Shimano 11-34",
+     "Crankstel": "Shimano Sora",
+     "Gewicht": "9.7 kg",
+     "Material": "Aluminium",
+     "Shifter": "Shimano Sora",
+     "Shifter_speed": "18 versnellingen",
+     "Voorderailleur": "Shimano Sora",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube"
+    },
+    "ts": "20200806012541",
+    "url": "https://www.mantel.com/be-fr/cube-attain-pro-disc"
+   }
+  },
+  "Attain Race": {
+   "2021": {
+    "captured": "2021-04-12",
+    "image": "Cube/years/attainrace_2021_mantel.jpg",
+    "price": 1049.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra RD-4700GS, 10-Speed",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Continental Ultra Sport 3, 28-622",
+     "Cassette": "Shimano CS-HG500 11-34T",
+     "Crankstel": "Shimano Tiagra FC-4700, 50x34T",
+     "Gewicht": "10,1 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Mechanische schijfrem, TRP Spyre MD-C610C",
+     "Shifter": "Shimano Tiagra ST-4700",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurlint": "Grip Control",
+     "Stuurpen": "Cube Performance Stem SL",
+     "Voorderailleur": "Shimano Tiagra FD-4700",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 1.9 Aero Disc",
+     "Zadel": "Cube Natural Fit Venec Lite",
+     "Zadelpen": "Cube Performance Post"
+    },
+    "ts": "20210412161331",
+    "url": "https://www.mantel.com/be/cube-attain-race&spec[]=7009"
+   },
+   "2022": {
+    "captured": "2022-10-01",
+    "image": "Cube/years/attainrace_2022_mantel.jpg",
+    "price": 1099.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra Tiagra ST-4700",
+     "Balhoofdstel": "Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Continental Ultra Sport 3 SL, Kevlar, 28-622",
+     "Cassette": "Shimano CS-HG500, 11-34T",
+     "Crankstel": "Shimano Tiagra Tiagra FC-4700",
+     "Gewicht": "10 kg",
+     "Gewichtslimiet": "115 kg",
+     "Ketting": "X10",
+     "Material": "Aluminium / 6061 T6 Superlite, Double Butted, Smooth Welded",
+     "Rem": "Mechanische schijfrem, Spyre MD-C610C, Flat Mount (160/160)",
+     "Shifter": "Shimano Tiagra 700GS, 2x10-Speed",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurlint": "Bartape RD",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano Tiagra FD-4700, 31.8mm Clamp",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 1.9 Aero Disc, 12x100mm / 12x142mm",
+     "Zadel": "Natural Fit Venec",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20221001172406",
+    "url": "https://www.mantel.com/cube-attain-race?spec%5B%5D=285&spec%5B%5D=2776&utm_source=google&utm_medium=shopping&gclid=Cj0KCQiA95aRBhCsARIsAC2xvfwB9KtAvMwKzpyn4bXsVueac-YGNvZ5TbMX9Iz8WzxpKpTB9Fa5jbsaAn2REALw_wcB"
+   }
+  },
+  "Attain SL": {
+   "2020": {
+    "captured": "2019-09-20",
+    "image": null,
+    "price": 1299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Continental",
+     "Cassette": "Shimano 105",
+     "Crankstel": "Shimano RS510",
+     "Gewicht": "9,6 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische Schijfrem, Shimano 105",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube",
+     "Stuurpen": "Cube",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube",
+     "Zadel": "Cube",
+     "Zadelpen": "Cube"
+    },
+    "ts": "20190920210725",
+    "url": "https://www.mantel.com/be/cube-attain-sl-2020"
+   },
+   "2021": {
+    "captured": "2021-09-27",
+    "image": "Cube/years/attainsl_2021_mantel.jpg",
+    "price": 1449.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 RD-R7000-DGS, 11-Speed",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Continental Ultra Sport 3, 28-622",
+     "Cassette": "Shimano 105 CS-HG700, 11-34T",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewicht": "9,9 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Hydraulische Schijfrem, BR-R7070",
+     "Shifter": "Shimano 105 R7000 11 speed",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurlint": "Grip Control",
+     "Stuurpen": "Cube Performance Stem SL",
+     "Voorderailleur": "Shimano 105 FD-R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 1.9 Aero Disc",
+     "Zadel": "Cube Natural Fit Venec Lite",
+     "Zadelpen": "Cube Performance Post"
+    },
+    "ts": "20210927074817",
+    "url": "https://www.mantel.com/cube-attain-sl"
+   }
+  },
+  "Axial WS": {
+   "2021": {
+    "captured": "2021-06-24",
+    "image": "Cube/years/axialws_2021_mantel.jpg",
+    "price": 799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Claris RD-R2000-GS, 8-Speed",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8",
+     "Bottom bracket": "BB-RS500",
+     "Buitenband": "Continental Ultra Sport 3, 25-622",
+     "Cassette": "Shimano CS-HG31, 11-34T",
+     "Crankstel": "Shimano Claris FC-R2000",
+     "Gewicht": "9,4 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Velgremmen Claris BR-R2000, Shimano Claris BR-R2000",
+     "Shifter": "Shimano Claris R2000",
+     "Shifter_speed": "16 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano Claris FD-R2000-BM, 31.8mm",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 0.8 Aero, QR/QR",
+     "Zadel": "Natural Fit Venec Lite WS",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20210624143709",
+    "url": "https://www.mantel.com/cube-axial-ws-dames-racefiets"
+   }
+  },
+  "Axial WS C:62 SL": {
+   "2022": {
+    "captured": "2022-11-30",
+    "image": "Cube/years/axialwsc62sl_2022_mantel.jpg",
+    "price": 3299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "SRAM Rival eTap AXS™, 12-Speed",
+     "Balhoofdstel": "1 1/2",
+     "Buitenband": "Continental Grand Prix 5000 Kevlar, 28-622",
+     "Cassette": "SRAM XG-1250, 10-36T",
+     "Crankstel": "SRAM Rival DUB",
+     "Gewicht": "8,5 kg",
+     "Gewichtslimiet": "115 kg",
+     "Ketting": "Red D1",
+     "Material": "Carbon C:62 Advanced Twin Mold Technology",
+     "Rem": "Hydraulische schijfrem, HRD, Hydr. Disc Brake (160/160)",
+     "Shifter": "SRAM eTap AXS™ 2x12 speed",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "Newmen Evolution Wing Bar",
+     "Stuurlint": "Bartape RD",
+     "Stuurpen": "Cube Aero Stem w/ Cable Routing",
+     "Voorderailleur": "Sram Rival eTap AXS™",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Racing 44 DB",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Cube"
+    },
+    "ts": "20221130071837",
+    "url": "https://www.mantel.com/cube-axial-ws-gtc-sl-2022-racefiets-dames"
+   }
+  },
+  "Axial WS C:62 SL Disc": {
+   "2019": {
+    "captured": "2020-08-13",
+    "image": "Cube/years/axialwsc62sldisc_2019_mantel.jpg",
+    "price": 2299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Continental Grand Prix 4000S II Kevlar, 25x622",
+     "Cassette": "Shimano Ultegra 11-32",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "7,9 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Newmen Advanced Wing Bar, Carbon",
+     "Stuurpen": "Newmen Evolution 318.4, 31.8mm",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Newmen Evolution SL R.32",
+     "Zadel": "Selle Royal",
+     "Zadelpen": "Newmen Advanced, Carbon, 27.2mm"
+    },
+    "ts": "20200813032029",
+    "url": "https://www.mantel.com/be/cube-axial-ws-c62-sl-disc-dames-racefiets"
+   }
+  },
+  "Axial WS Pro": {
+   "2021": {
+    "captured": "2021-05-08",
+    "image": "Cube/years/axialwspro_2021_mantel.jpg",
+    "price": 949.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Sora RD-R3000, 9-Speed",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Continental Ultra Sport 3, 28-622",
+     "Cassette": "Shimano CS-HG200, 11-34T",
+     "Crankstel": "Shimano Sora FC-R3000",
+     "Gewicht": "10,3 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Mechanische schijfrem, TRP Spyre MD-C610C",
+     "Shifter": "Shimano Sora R3000",
+     "Shifter_speed": "18 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano Sora FD-R3000-BM",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 1.9 Aero Disc",
+     "Zadel": "Natural Fit Venec Lite WS",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20210508100108",
+    "url": "https://www.mantel.com/cube-axial-ws-pro-dames-racefiets"
+   }
+  },
+  "Axial WS Race": {
+   "2021": {
+    "captured": "2021-06-20",
+    "image": "Cube/years/axialwsrace_2021_mantel.jpg",
+    "price": 1449.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 RD-R7000-DGS, 11-Speed",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Continental Ultra Sport 3, 28-622",
+     "Cassette": "Shimano CS-HG700, 11-34T",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewicht": "9,9 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Hydraulische Schijfrem, BR-R7070, Hydr. Disc Brake",
+     "Shifter": "Shimano 105 BR-R7070",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano 105 FD-R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 1.9 Aero Disc",
+     "Zadel": "Natural Fit Venec Lite WS",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20210620130759",
+    "url": "https://www.mantel.com/cube-axial-ws-race-dames-racefiets"
+   }
+  },
+  "Cross Race": {
+   "2022": {
+    "captured": "2022-05-22",
+    "image": "Cube/years/crossrace_2022_mantel.jpg",
+    "price": 1249.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "X-One Allround, Performance Kevlar, 33-622",
+     "Achterderailleur": "Shimano Tiagra RD-4700GS, 10-Speed",
+     "Balhoofdstel": "VP -t, Top Zero-Stack 1 1/8",
+     "Buitenband": "X-One Allround, Performance Kevlar, 33-622",
+     "Cassette": "Shimano CS-HG500 CS-HG500, 11-34T",
+     "Crankstel": "Shimano Tiagra FC-4700, 50x34T",
+     "Gewicht": "10,4 kg",
+     "Ketting": "X10",
+     "Material": "Aluminium",
+     "Rem": "Mechanische schijfrem",
+     "Remschijf": "160 mm",
+     "Shifter": "Shimano Tiagra mix",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Voorderailleur": "Shimano Tiagra FD-4700, 31.8mm Clamp",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube CX 2.1, 12x100mm / 12x142mm",
+     "Zadel": "Cube Natural Fit Venec Lite",
+     "Zadelpen": "Cube Performance Post"
+    },
+    "ts": "20220522041109",
+    "url": "https://www.mantel.com/cube-cross-race"
+   }
+  },
+  "Cross Race C:62 Pro": {
+   "2021": {
+    "captured": "2020-10-23",
+    "image": "Cube/years/crossracec62pro_2021_mantel.jpg",
+    "price": 2099.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Shimano Ultegra RD-RX800-DGS, 11-Speed",
+     "Buitenband": "Schwalbe Schwalbe X-One Allround, Performance Kevlar, 33-622",
+     "Cassette": "Shimano CS-R7000 Shimano CS-R7000, 11-32T",
+     "Crankstel": "Shimano Ultegra Shimano Ultegra FC-R8000, 46x36T",
+     "Gewicht": "8,7 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Shimano 105 BR-R7070",
+     "Remschijf": "160 mm",
+     "Shifter": "Shimano 105 Shimano 105 ST-R7020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Newmen Newmen Evolution Wing Bar",
+     "Stuurpen": "Newmen Newmen Evolution 318.4",
+     "Voorderailleur": "Shimano Ultegra Shimano Ultegra FD-R8000-F",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Fulcrum Racing 77 DB",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Newmen Newmen Evolution"
+    },
+    "ts": "20201023091423",
+    "url": "https://www.mantel.com/cube-cross-race-c62-pro"
+   }
+  },
+  "Cross Race C:62 SL": {
+   "2021": {
+    "captured": "2021-03-03",
+    "image": "Cube/years/crossracec62sl_2021_mantel.jpg",
+    "price": 2649.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX812 11 speed",
+     "Buitenband": "Schwalbe Schwalbe X-One Allround, Kevlar, 33-622",
+     "Cassette": "Shimano XT Shimano XT CS-M8000, 11-40T",
+     "Crankstel": "Easton Easton EC90SL Carbon 1x40T",
+     "Gewicht": "8,3 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem, BR-RX810",
+     "Remschijf": "160 mm",
+     "Shifter": "Shimano GRX ST-RX810",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Newmen Newmen Advanced Wing Bar, Carbon",
+     "Stuurpen": "Newmen Newmen Evolution 318.4",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Newmen Newmen Evolution SL R.32",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Newmen Newmen Advanced, Carbon"
+    },
+    "ts": "20210303153310",
+    "url": "https://www.mantel.com/be-fr/cube-cross-race-c62-sl"
+   }
+  },
+  "Cross Race C:62 SLT": {
+   "2019": {
+    "captured": "2019-09-16",
+    "image": "Cube/years/crossracec62slt_2019_mantel.jpg",
+    "price": 3199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Buitenband": "Schwalbe X-One Allround, Kevlar, 33-622",
+     "Cassette": "Shimano Ultegra 11-32",
+     "Crankstel": "Shimano Ultegra 36 - 46",
+     "Gewicht": "8,1 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem Ultegra BR-R8070 (160/160), Shimano Ultegra",
+     "Remschijf": "160 mm",
+     "Shifter": "Shimano Dura Ace Di2, Hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Newmen Advanced Wing Bar, Carbon",
+     "Stuurpen": "Newmen",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Newmen Advanced SL R.38, Carbon",
+     "Zadel": "Cube Natural Fit",
+     "Zadelpen": "Newmen Advanced SL, Carbon, 27.2mm"
+    },
+    "ts": "20190916065608",
+    "url": "https://www.mantel.com/be/cube-cross-race-c62-slt"
+   }
+  },
+  "Cross Race Pro": {
+   "2022": {
+    "captured": "2022-05-22",
+    "image": "Cube/years/crossracepro_2022_mantel.jpg",
+    "price": 1649.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "X-One Allround, Performance Kevlar, 33-622",
+     "Buitenband": "X-One Allround, Performance Kevlar, 33-622",
+     "Cassette": "Shimano 105 CS-HG700, 11-34T",
+     "Crankstel": "Shimano FCRS510 46x36T",
+     "Gewicht": "10,1 kg",
+     "Ketting": "CN-HG600-11",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische schijfrem",
+     "Remschijf": "160 mm",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube Compact Race Bar",
+     "Stuurpen": "Cube Performance Stem Pro, 31.8mm",
+     "Voorderailleur": "Shimano 105 105 FD-R7000, 31.8mm Clamp",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube CUBE CX 2.1",
+     "Zadel": "Cube Natural Fit Venec Lite",
+     "Zadelpen": "Cube CUBE Performance Post"
+    },
+    "ts": "20220522050214",
+    "url": "https://www.mantel.com/cube-cross-race-pro"
+   }
+  },
+  "Cross Race SL": {
+   "2021": {
+    "captured": "2021-05-05",
+    "image": "Cube/years/crossracesl_2021_mantel.jpg",
+    "price": 1549.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX812",
+     "Balhoofdstel": "VP Z-t, Top Zero-Stack 1 1/8",
+     "Buitenband": "Schwalbe X-One Allround 33mm",
+     "Cassette": "Shimano SLX 11-42",
+     "Crankstel": "Shimano GRX FC-RX600",
+     "Gewicht": "9,5 kg",
+     "Gewichtslimiet": "115 kg",
+     "Ketting": "CN-HG601-11",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Hydraulische Schijfrem, Shimano GRX BR-RX400",
+     "Remschijf": "160 mm",
+     "Shifter": "Shimano GRX 400",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Newmen Evolution Wing Bar",
+     "Stuurlint": "Grip Control",
+     "Stuurpen": "Newmen Evolution 318.4,",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Racing 77 DB",
+     "Zadel": "Natural Fit Nuance Lite",
+     "Zadelpen": "Newmen Evolution, 27.2mm"
+    },
+    "ts": "20210505140529",
+    "url": "https://www.mantel.com/cube-cross-race-sl"
+   }
+  },
+  "Nuroad C:62 Pro": {
+   "2021": {
+    "captured": "2020-10-26",
+    "image": null,
+    "price": 1999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX812",
+     "Buitenband": "Schwalbe G-One Allround 40 mm",
+     "Crankstel": "Shimano GRX FC-RX600",
+     "Gewicht": "9,1 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, BR-RX400",
+     "Shifter": "Shimano GRX ST-RX600",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Cube Gravel Race Bar",
+     "Stuurpen": "Newmen Evolution",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Fulcrum Rapid Red 900 Disc",
+     "Zadel": "Cube",
+     "Zadelpen": "Newmen Advanced Carbon"
+    },
+    "ts": "20201026005106",
+    "url": "https://www.mantel.com/cube-nuroad-c62-pro"
+   }
+  },
+  "Nuroad C:62 Race": {
+   "2021": {
+    "captured": "2021-01-18",
+    "image": "Cube/years/nuroadc62race_2021_mantel.jpg",
+    "price": 2599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX810 11 speed",
+     "Balhoofdstel": "VP Top Integrated 1 1/8\", Bottom Integrated 1 1/4\"",
+     "Buitenband": "Schwalbe G-One Allround, Perf. Kevlar, 40-622",
+     "Cassette": "Shimano Ultegra CS-R8000, 11-32T",
+     "Crankstel": "Shimano GRX FC-RX810-2",
+     "Gewicht": "8,5 kg",
+     "Material": "Carbon C:62 Advanced Twin Mold",
+     "Rem": "Hydraulische Schijfrem Shimano BR-RX810, Hydr. Disc Brake, Shimano BR-RX810",
+     "Shifter": "Shimano GRX ST-RX810 2x11 speed",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Easton EC70 AX Gravel, Carbon",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano GRX FD-R810",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Newmen Evolution SL X.R.25",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Newmen Advanced, Carbon, 27.2mm"
+    },
+    "ts": "20210118165632",
+    "url": "https://www.mantel.com/cube-nuroad-c62-race"
+   }
+  },
+  "Nuroad Pro": {
+   "2021": {
+    "captured": "2021-03-09",
+    "image": "Cube/years/nuroadpro_2021_mantel.jpg",
+    "price": 999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra RD-4700GS, 10-Speed",
+     "Balhoofdstel": "VP Top Zero-Stack 1 1/8",
+     "Buitenband": "Schwalbe G-One Allround, 40-622",
+     "Cassette": "Shimano CS-HG500 11-34",
+     "Crankstel": "Shimano Tiagra 50x34T",
+     "Gewicht": "10,6 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Mechanische schijfrem, TRP Spyre MD-C610C, Flat Mount (160/160)",
+     "Shifter": "Shimano Tiagra ST-4700",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Cube Gravel Race Bar",
+     "Stuurpen": "Cube",
+     "Voorderailleur": "Shimano Tiagra FD-4700",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 0.8 CX",
+     "Zadel": "Cube Natural Fit",
+     "Zadelpen": "Cube"
+    },
+    "ts": "20210309183940",
+    "url": "https://www.mantel.com/cube-nuroad-pro-gravel-bike"
+   }
+  },
+  "Nuroad Race": {
+   "2020": {
+    "captured": "2022-08-19",
+    "image": "Cube/years/nuroadrace_2020_mantel.jpg",
+    "price": 1399.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX810 11-Speed",
+     "Buitenband": "Schwalbe G-One Allround, Perf. Kevlar, 40-622",
+     "Cassette": "Shimano 105 CS-HG700, 11-34T",
+     "Crankstel": "Shimano GRX FC-RX600 46x30T",
+     "Gewicht": "10,2 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische Schijfremmen",
+     "Shifter": "Shimano GRX",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurpen": "Cube Performance Stem Pro, 31.8mm",
+     "Voorderailleur": "Shimano GRX FD-R810",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 0.8 CX",
+     "Zadel": "Cube Natural Fit Venec Lite",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20220819143746",
+    "url": "https://www.mantel.com/cube-nuroad-race-2020-gravel-bike"
+   },
+   "2022": {
+    "captured": "2022-12-04",
+    "image": "Cube/years/nuroadrace_2022_mantel.jpg",
+    "price": 1649.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "G-One Allround, Kevlar, 40-622",
+     "Achterderailleur": "Shimano GRX RD-RX810, Direct Mount, 11-Speed",
+     "Buitenband": "G-One Allround, Kevlar, 40-622",
+     "Cassette": "Shimano 105 CS-HG700, 11-34T",
+     "Crankstel": "Shimano GRX RX600",
+     "Gewicht": "10,2 kg",
+     "Ketting": "CN-HG601-11",
+     "Material": "Aluminium 6061 T6 Superlite",
+     "Rem": "Hydraulische schijfrem, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Shifter": "Shimano GRX ST-RX600",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurlint": "Bartape CX",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano GRX FD-R810",
+     "Wiel voor": "Cube GR 2.3, 622x23C",
+     "Zadel": "Natural Fit Venec",
+     "Zadelpen": "Cube Performance Post 27.2mm"
+    },
+    "ts": "20221204115642",
+    "url": "https://www.mantel.com/cube-nuroad-race"
+   }
+  },
+  "Nuroad Race FE": {
+   "2021": {
+    "captured": "2021-01-24",
+    "image": "Cube/years/nuroadracefe_2021_mantel.jpg",
+    "price": 1749.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX810 11 speed",
+     "Balhoofdstel": "VP Top Zero-Stack 1 1/8",
+     "Buitenband": "Schwalbe G-One Allround, Perf. Kevlar, 40-622",
+     "Cassette": "Shimano 105 CS-HG700, 11-34T",
+     "Crankstel": "Shimano GRX FC-RX600 46x30T",
+     "Gewicht": "11,7 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium 6061 T6 Superlite",
+     "Rem": "Hydraulische Schijfrem, Shimano GRX BR-RX400, Hydr. Disc Brake, Flat Mount",
+     "Shifter": "Shimano GRX ST-RX600 1x11 speed",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "CUBE Gravel Race Bar",
+     "Stuurpen": "Cube Performance Stem Pro, Internal Light Cable Routing, 31.8mm",
+     "Voorderailleur": "Shimano GRX FD-R810",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 0.8 CX w/ hub dynamo",
+     "Zadel": "Cube Natural Fit Venec Lite",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20210124050715",
+    "url": "https://www.mantel.com/cube-nuroad-race-fe-2021-gravel-bike"
+   },
+   "2022": {
+    "captured": "2022-05-23",
+    "image": "Cube/years/nuroadracefe_2022_mantel.jpg",
+    "price": 1849.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "G-One Allround, Kevlar, 40-622",
+     "Achterderailleur": "Shimano GRX RD-RX810 Direct Mount, 11-Speed",
+     "Buitenband": "G-One Allround, Kevlar, 40-622",
+     "Cassette": "Shimano 105 CS-HG700, 11-34T",
+     "Crankstel": "Shimano GRX FC-RX600",
+     "Gewicht": "11,6 kg",
+     "Ketting": "CN-HG601-11",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische schijfrem, Shimano BR-RX400",
+     "Shifter": "Shimano GRX mix",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Cube Gravel Race Bar",
+     "Stuurpen": "Cube Cube Performance Stem Pro",
+     "Voorderailleur": "Shimano GRX FD-R810",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube GR 2.3, 622x23C",
+     "Zadel": "Cube Natural Fit Venec",
+     "Zadelpen": "Cube Performance Post"
+    },
+    "ts": "20220523202533",
+    "url": "https://www.mantel.com/cube-nuroad-race-fe"
+   }
+  },
+  "Nuroad WS": {
+   "2021": {
+    "captured": "2021-05-10",
+    "image": "Cube/years/nuroadws_2021_mantel.jpg",
+    "price": 1049.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra RD-4700GS, 10-Speed",
+     "Balhoofdstel": "VP Top Zero-Stack 1 1/8",
+     "Buitenband": "Schwalbe G-One Allround, Kevlar, 40 mm",
+     "Crankstel": "Shimano Tiagra FC-4700, 50x34T",
+     "Gewicht": "10,5 kg",
+     "Gewichtslimiet": "115 kg",
+     "Material": "Aluminium HPA, High Performance Aluminium",
+     "Rem": "Mechanische schijfrem, TRP Spyre MD-C610C",
+     "Shifter": "Shimano Tiagra ST-4700",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Cube Gravel Race Bar",
+     "Stuurpen": "Cube Performance Stem SL, 31.8mm",
+     "Voorderailleur": "Shimano Tiagra FD-4700",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube RA 0.8 CX Disc",
+     "Zadel": "Cube Natural Fit Venec Lite WS",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20210510013522",
+    "url": "https://www.mantel.com/cube-nuroad-ws-gravel-bike"
+   }
+  },
+  "Nuroad WS C:62 Pro": {
+   "2022": {
+    "captured": "2022-11-30",
+    "image": "Cube/years/nuroadwsc62pro_2022_mantel.jpg",
+    "price": 1949.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX812 Direct Mount, 11-Speed",
+     "Balhoofdstel": "Top Integrated 1 1/8",
+     "Buitenband": "Schwalbe G-One Allround, Kevlar, 40-622",
+     "Cassette": "Shimano SLX CS-M7000, 11-42T",
+     "Crankstel": "Shimano GRX FC-RX600",
+     "Gewicht": "9,5 kg",
+     "Gewichtslimiet": "115 kg",
+     "Ketting": "CN-HG601-11",
+     "Material": "Carbon C:62 Advanced Twin Mold",
+     "Rem": "Hydraulische schijfrem, RX400, Hydr. Disc Brake, Flat Mount (160/160)",
+     "Shifter": "Shimano GRX ST-RX600",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Cube Gravel Race Bar",
+     "Stuurlint": "CX Grip Control",
+     "Stuurpen": "Newmen Evolution 318.4, 31.8mm",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Cube GR 2.3, 622x23C, 12x100mm / 12x142mm",
+     "Zadel": "Cube Natural Fit Nuance Lite",
+     "Zadelpen": "Cube Performance Post, 27.2mm"
+    },
+    "ts": "20221130074515",
+    "url": "https://www.mantel.com/cube-nuroad-ws-c62-pro"
+   }
+  }
+ },
+ "source": "Mantel.com (Dutch bike shop), copies in the Wayback Machine",
+ "years": [
+  2018,
+  2019,
+  2020,
+  2021,
+  2022
+ ]
+}

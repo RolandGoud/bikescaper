@@ -71,7 +71,8 @@ def test_answers_go_into_the_new_ad_and_the_buyers_check(models):
 
 
 def test_the_sellers_own_parts_win_and_are_flagged(models):
-    draft = dict(DRAFT, description="Shimano Ultegra Di2 groep, aluminium frame.")
+    # Gen 4 named: "Domane SL 6" with Ultegra alone reads as the Gen 3 (Ultegra 11-speed) from Mantel's old pages.
+    draft = dict(DRAFT, title="Trek Domane SL 6 gen 4 racefiets", description="Shimano Ultegra Di2 groep, aluminium frame.")
     r = improve(models, draft)
     assert "Ultegra Di2" in r["title"]
     text = en(r["copy_text"])

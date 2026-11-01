@@ -1,0 +1,431 @@
+{
+ "checked_on": "2026-11-01",
+ "models": {
+  "Aircode DRS 5.0": {
+   "2022": {
+    "captured": "2022-05-23",
+    "image": "Lapierre/years/aircodedrs50_2022_mantel.jpg",
+    "price": 3599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000 11 speed",
+     "Balhoofdstel": "Acros Integrated",
+     "Buitenband": "Schwalbe One Perf. 25mm",
+     "Cassette": "Shimano CS-R7000 11–30T 11s",
+     "Crankstel": "Shimano 105 R7000",
+     "Ketting": "HG601 11s",
+     "Material": "Carbon UD Superlight",
+     "Rem": "Hydraulische schijfrem, Centerlock FT:160mm / RR:140mm",
+     "Shifter": "Shimano 105 BR7020 2x11s Flat Mount with Fin",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Lapierre UD Carbon",
+     "Stuurlint": "Vexgel Tape",
+     "Stuurpen": "Lapierre -5,7°, Ø: 31.8mm",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss P1850 Spline 23 622x18 Center Lock",
+     "Zadelpen": "Lapierre One Raceguard Tubeless Easy 700X25"
+    },
+    "ts": "20220523203908",
+    "url": "https://www.mantel.com/lapierre-aircode-drs-50"
+   }
+  },
+  "Aircode DRS 7.0": {
+   "2022": {
+    "captured": "2022-05-22",
+    "image": "Lapierre/years/aircodedrs70_2022_mantel.jpg",
+    "price": 5999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 RD-R8150A, 12s",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Continental GP5000S Tubeless ready 700x25",
+     "Cassette": "Shimano Ultegra 12 speed, 11-30T",
+     "Crankstel": "Shimano Ultegra R8100",
+     "Ketting": "M7100 12s",
+     "Material": "Carbon UD Superlight",
+     "Rem": "Hydraulische schijfrem, 160mm front /140mm rear Center Lock",
+     "Shifter": "Shimano Ultegra Di2 R8150 2x12 speed",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "Lapierre Aero UD carbon 44cm",
+     "Stuurlint": "Vexgel",
+     "Stuurpen": "Lapierre -7°, Ø: 31.8mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150F",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Lapierre AERO Road Disc carbon 50",
+     "Zadelpen": "Lapierre Aero carbon 0mm offset"
+    },
+    "ts": "20220522044227",
+    "url": "https://www.mantel.com/lapierre-aircode-drs-70"
+   }
+  },
+  "Pulsium 3.0 Disc": {
+   "2022": {
+    "captured": "2022-05-25",
+    "image": "Lapierre/years/pulsium30disc_2022_mantel.jpg",
+    "price": 2199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra RD4700 10 speed",
+     "Balhoofdstel": "Acros integrated",
+     "Bottom bracket": "PRESSFIT SMBB7141B",
+     "Buitenband": "Continental Ultra Sport 2 SL 700 X 28",
+     "Cassette": "Shimano HG500 11-34",
+     "Crankstel": "Shimano Tiagra FC4700",
+     "Ketting": "HG54 10 speed",
+     "Material": "Carbon",
+     "Naaf achter": "RS470 Centerlock 32H",
+     "Naaf voor": "RS470 Centerlock 32H",
+     "Rem": "Hydraulische schijfrem, Shimano Tiagra",
+     "Shifter": "Shimano Tiagra 4700 2x10 speed",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre ALLOY 40cm(XS,S) 42cm(M,L,XL)",
+     "Stuurlint": "Lapierre",
+     "Stuurpen": "Lapierre ALLOY -7° 31,8mm",
+     "Velg": "DP19",
+     "Voorderailleur": "Shimano Tiagra FD4700",
+     "Voorvork": "Carbon",
+     "Zadel": "Selle Italia X3 BOOST",
+     "Zadelpen": "Lapierre ALLOY 3D FORGED 27,2x350mm"
+    },
+    "ts": "20220525033325",
+    "url": "https://www.mantel.com/lapierre-pulsium-30"
+   }
+  },
+  "Pulsium 5.0 Disc": {
+   "2021": {
+    "captured": "2021-04-19",
+    "image": "Lapierre/years/pulsium50disc_2021_mantel.jpg",
+    "price": 2199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000GS, 11s",
+     "Balhoofdstel": "Acros Integrated",
+     "Bottom bracket": "Pressfit SMBB7141B",
+     "Buitenband": "Continental Ultra Sport 2 SL 700 X 28",
+     "Cassette": "Shimano 105 HG700 11s 11-34T",
+     "Crankstel": "Shimano 105 FC-R7000",
+     "Ketting": "HG601",
+     "Material": "Carbon Pulsium Disc Thru Axle Ud",
+     "Rem": "Hydraulische Schijfrem, RT70 160/140mm centerlock",
+     "Remgreep": "BR7070",
+     "Shifter": "Shimano 105 BR7070 2x11s",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Lapierre Alloy 40cm(XS,S) 42cm(M,L) 44cm(XL,XXL) Headset",
+     "Stuurlint": "Lapierre",
+     "Stuurpen": "Lapierre Alloy -7° 31,8mm",
+     "Voorderailleur": "Shimano 105 R7000FL",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Shimano RX010 Centerlock",
+     "Zadel": "Selle Italia X3 Boost",
+     "Zadelpen": "Lapierre Alloy 3D Forged 27,2x350mm"
+    },
+    "ts": "20210419090114",
+    "url": "https://www.mantel.com/lapierre-pulsium-50-disc"
+   }
+  },
+  "Pulsium 6.0": {
+   "2022": {
+    "captured": "2022-12-03",
+    "image": "Lapierre/years/pulsium60_2022_mantel.jpg",
+    "price": 2999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra RD-R8000-GS, 11s",
+     "Balhoofdstel": "Acros AIX-532 IS52/28,6 - IS52/40",
+     "Bottom bracket": "Press Fit SMBB7141B",
+     "Buitenband": "Continental Ultra Sport 3 SL 700x28",
+     "Cassette": "Shimano HG700 11-34T 11s",
+     "Crankstel": "Shimano Ultegra FC-R8000",
+     "Ketting": "HG601 11s",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem, RTMT800 160mm front /140mm",
+     "Remgreep": "Shimano",
+     "Shifter": "Shimano Ultegra BR8020 2x11s fl at mount",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Lapierre",
+     "Voorderailleur": "Shimano Ultegra FD-R8000F",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss Swiss E1800 Spline23 622x20 Center Lock Tubeless Ready",
+     "Zadel": "Fizik Aliante R5 Manganese",
+     "Zadelpen": "Lapierre"
+    },
+    "ts": "20221203134036",
+    "url": "https://www.mantel.com/lapierre-pulsium-60"
+   }
+  },
+  "Sensium 1.0": {
+   "2021": {
+    "captured": "2022-05-28",
+    "image": "Lapierre/years/sensium10_2021_mantel.jpg",
+    "price": 799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Claris RD-R2000-GS",
+     "Balhoofdstel": "FSA",
+     "Buitenband": "Continental Ultra Sport 3 SL 700x25",
+     "Cassette": "Shimano HG50 11-34T, 8 speed",
+     "Crankstel": "Shimano Claris FC-R2000",
+     "Gewicht": "10,2 kg",
+     "Material": "Aluminium AL Supreme",
+     "Rem": "Velgremmen, RC-481",
+     "Shifter": "Shimano Claris ST-R2000",
+     "Shifter_speed": "16 versnellingen",
+     "Stuur": "Lapierre",
+     "Stuurpen": "Lapierre",
+     "Voorderailleur": "Shimano Claris FD-R2000-BM",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Ryde Chrina, Shimano RS300 32H",
+     "Zadel": "Selle Italia",
+     "Zadelpen": "Lapierre"
+    },
+    "ts": "20220528080738",
+    "url": "https://www.mantel.com/lapierre-sensium-10"
+   }
+  },
+  "Sensium 1.0 W": {
+   "2021": {
+    "captured": "2021-01-22",
+    "image": "Lapierre/years/sensium10w_2021_mantel.jpg",
+    "price": 749.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Claris RD-R2000-GS",
+     "Balhoofdstel": "FSA",
+     "Buitenband": "Continental Ultra Sport 3 SL 700x25",
+     "Cassette": "Shimano HG50 11-34T 8s",
+     "Crankstel": "Shimano Claris FC-R2000, 50-34T",
+     "Gewicht": "10,1 kg",
+     "Material": "Aluminium",
+     "Rem": "Velgremmen, Promax",
+     "Shifter": "Shimano Claris ST-R2000 + extra remhendels",
+     "Shifter_speed": "16 versnellingen",
+     "Stuur": "Lapierre",
+     "Stuurpen": "Lapierre",
+     "Voorderailleur": "Shimano Claris FD-R2000-BM",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Ryde Chrina, Shimano RS300 32H",
+     "Zadel": "Selle Italia X3 XP boost Lady",
+     "Zadelpen": "Lapierre"
+    },
+    "ts": "20210122122505",
+    "url": "https://www.mantel.com/lapierre-sensium-10-w"
+   }
+  },
+  "Sensium 3.0": {
+   "2021": {
+    "captured": "2021-01-19",
+    "image": "Lapierre/years/sensium30_2021_mantel.jpg",
+    "price": 999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "Ultra Sport 3 SL 700x25",
+     "Achterderailleur": "Shimano Tiagra RD-R4700-GS, 10s",
+     "Balhoofdstel": "NO.9M/TH 1-1/8",
+     "Bottom bracket": "BB-RS500",
+     "Buitenband": "Ultra Sport 3 SL 700x25",
+     "Cassette": "Shimano HG500 11-34T 10speed",
+     "Crankstel": "Shimano Tiagra FC-R4700",
+     "Gewicht": "10 kg",
+     "Material": "Aluminium",
+     "Naaf achter": "RS300, 32H",
+     "Naaf voor": "RS300, 32H",
+     "Rem": "Velgremmen, 4700",
+     "Remgreep": "Tiagra",
+     "Shifter": "Shimano Tiagra ST-R4700 2x10s",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre alloy",
+     "Stuurlint": "Lapierre",
+     "Stuurpen": "Lapierre alloy, -7°, Ø: 31.8mm",
+     "Velg": "Chrina, 32H",
+     "Voorderailleur": "Shimano Tiagra FD-R4700-BM",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Ryde Shimano naven",
+     "Zadel": "Selle Italia X3 boost",
+     "Zadelpen": "Lapierre alloy, Ø: 27.2mm, L: 350mm"
+    },
+    "ts": "20210119153547",
+    "url": "https://www.mantel.com/lapierre-sensium-30"
+   }
+  },
+  "Sensium 3.0 Disc": {
+   "2021": {
+    "captured": "2022-05-29",
+    "image": "Lapierre/years/sensium30disc_2021_mantel.jpg",
+    "price": 1349.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra RD-R4700-GS, 10s",
+     "Balhoofdstel": "FSA",
+     "Bottom bracket": "BB-RS500",
+     "Buitenband": "Continental Ultra Sport 3 SL 700x25",
+     "Cassette": "Shimano HG500 11-34T, 10 speed",
+     "Crankstel": "Shimano Tiagra FC-R4700",
+     "Gewicht": "10,5 kg",
+     "Material": "Aluminium AL Supreme",
+     "Rem": "Hydraulische schijfrem, BR4770 Disc flat mount",
+     "Remgreep": "Shimano",
+     "Shifter": "Shimano Tiagra ST4720 2x10",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre alloy, Width: 400mm (XS/S), 420mm (M/L), 440mm (XL/XXL)",
+     "Stuurpen": "Lapierre -7°, Ø: 31.8mm",
+     "Voorderailleur": "Shimano Tiagra FD-R4700-BM",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Ryde DP19 Shimano MT200 Center Lock 32H",
+     "Zadel": "Selle Italia X3 boost",
+     "Zadelpen": "Lapierre alloy, Ø: 27.2mm, L: 350mm"
+    },
+    "ts": "20220529090729",
+    "url": "https://www.mantel.com/lapierre-sensium-30-disc"
+   }
+  },
+  "Sensium 3.0 Disc W": {
+   "2021": {
+    "captured": "2021-01-19",
+    "image": "Lapierre/years/sensium30discw_2021_mantel.jpg",
+    "price": 1299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra RD-R4700, 10s",
+     "Balhoofdstel": "FSA NO.9M/TH 1-1/8",
+     "Buitenband": "Continental Ultra Sport 3 SL 700x25",
+     "Cassette": "Shimano HG500 11-34T 10s",
+     "Crankstel": "Shimano Tiagra FC-R4700",
+     "Gewicht": "10,2 kg",
+     "Material": "Aluminium Sensium AL Supreme 5 alloy Disc Women smooth weldings",
+     "Rem": "Hydraulische Schijfrem, BR4770 Disc flat mount",
+     "Shifter": "Shimano Tiagra ST4720 2x10 speed",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre Women alloy, Width: 380mm (S), 400mm (M/L)",
+     "Stuurpen": "Lapierre alloy, -7°, Ø: 31.8mm",
+     "Voorderailleur": "Shimano Tiagra FD-R4700",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Ryde DP19 Shimano MT200 Center Lock 32H",
+     "Zadel": "Selle Italia X3 XP boost Lady",
+     "Zadelpen": "Lapierre alloy, Ø: 27.2mm, L: 350mm"
+    },
+    "ts": "20210119143808",
+    "url": "https://www.mantel.com/lapierre-sensium-30-disc-w"
+   }
+  },
+  "Sensium 300 W": {
+   "2019": {
+    "captured": "2020-10-26",
+    "image": "Lapierre/years/sensium300w_2019_mantel.jpg",
+    "price": 1299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra",
+     "Buitenband": "Continental Ultra Sport 25mm",
+     "Cassette": "Shimano HG500 11-34",
+     "Crankstel": "Shimano",
+     "Gewicht": "9 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, Shimano Tiagra",
+     "Shifter": "Shimano Tiagra",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre",
+     "Stuurpen": "Lapierre",
+     "Voorderailleur": "Shimano Tiagra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mach 1 shimano RS400 naaf",
+     "Zadel": "Selle Italia X1 Flow Lady",
+     "Zadelpen": "Lapierre carbon 27.2"
+    },
+    "ts": "20201026161417",
+    "url": "https://www.mantel.com/lapierre-sensium-300-w"
+   }
+  },
+  "Sensium AL 300": {
+   "2020": {
+    "captured": "2020-10-23",
+    "image": "Lapierre/years/sensiumal300_2020_mantel.jpg",
+    "price": 999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra",
+     "Buitenband": "Continental",
+     "Cassette": "Shimano HG500 11-34",
+     "Crankstel": "Shimano Tiagra",
+     "Material": "Aluminium",
+     "Rem": "Velgremmen, Shimano Tiagra",
+     "Shifter": "Shimano Tiagra",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre",
+     "Stuurpen": "Lapierre",
+     "Voorderailleur": "Shimano Tiagra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mach 1",
+     "Zadel": "Selle Italia",
+     "Zadelpen": "Lapierre"
+    },
+    "ts": "20201023021323",
+    "url": "https://www.mantel.com/lapierre-sensium-al-300"
+   }
+  },
+  "Sensium AL 300 Disc": {
+   "2020": {
+    "captured": "2020-10-24",
+    "image": "Lapierre/years/sensiumal300disc_2020_mantel.jpg",
+    "price": 1199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra",
+     "Buitenband": "Continental Ultra Sport 2 25mm",
+     "Cassette": "Shimano HG500 11-34",
+     "Crankstel": "Shimano Tiagra",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische Schijfrem, Shimano Tiagra",
+     "Shifter": "Shimano Tiagra",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Lapierre",
+     "Voorderailleur": "Shimano Tiagra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mach 1",
+     "Zadel": "Selle Italia",
+     "Zadelpen": "Lapierre"
+    },
+    "ts": "20201024235351",
+    "url": "https://www.mantel.com/lapierre-sensium-al-300-disc"
+   }
+  },
+  "Xelius SL 6.0": {
+   "2022": {
+    "captured": "2022-11-30",
+    "image": "Lapierre/years/xeliussl60_2022_mantel.jpg",
+    "price": 3599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra RD-R8000-GS, 11s",
+     "Balhoofdstel": "Acros integrated + Xelius Acros Spacer",
+     "Bottom bracket": "Press Fit SMBB7141B",
+     "Buitenband": "Schwalbe One Raceguard Tubeless Easy",
+     "Cassette": "Shimano 105 CS-R7000 CS-R7000 11-30T 11s",
+     "Crankstel": "Shimano Ultegra FC-R8000,",
+     "Ketting": "HG601 11s",
+     "Material": "Carbon UD Superlight",
+     "Maximale bandenmaat": "32mm",
+     "Rem": "Hydraulische schijfrem, RTMT800 160mm front /140mm rear",
+     "Remgreep": "Shimano",
+     "Shifter": "Shimano Ultegra BR8020 2x11s fl at mount with Fin",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Lapierre",
+     "Voorderailleur": "Shimano Ultegra FD-R8000F",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss E1800 Spline32 622x20 Center Lock Tubeless Ready",
+     "Zadel": "Prologo Dimension",
+     "Zadelpen": "Lapierre"
+    },
+    "ts": "20221130071611",
+    "url": "https://www.mantel.com/lapierre-xelius-sl-60"
+   }
+  }
+ },
+ "source": "Mantel.com (Dutch bike shop), copies in the Wayback Machine",
+ "years": [
+  2019,
+  2020,
+  2021,
+  2022
+ ]
+}
