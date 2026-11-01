@@ -499,10 +499,12 @@ PART_TIERS = {
         (5, r"aeolus\s+rsl|\brsl\b|[ae]rc\s*1[14]00|\bclx\b|\bnsw\b|cosmic\s+ultimate|\benve\b|reynolds|princeton"
             r"|black\s+inc|cadex"),
         (4, r"aeolus\s+pro|[ae]rc\s*1[68]00|grc\s*1[14]00|rapide\s+c|\bc38\b|terra\s+cl|alpinist\s+cl|zipp\s*(?:303|353|404|454)"
-            r"|firecrest|cosmic\s+slr|racing\s+zero|\bslr\s*[01]\b|reserve|newmen\s+advanced"),
-        (3, r"aeolus\s+elite|zipp|[pe]r?\s*1600|ksyrium|racing\s+[34]\b|\bslr\s*2\b|grc\s*1[68]00|carbon|\boclv\b"),
-        (2, r"paradigm\s+(?:sl|elite|pro)\b|racing\s+[56]\b|aksium|r\s*470|[pe]\s*1800|x\s*1900|g\s*540|newmen"),
-        (1, r"paradigm|racing\s+7|formula|bontrager\s+tubeless\s+ready"),
+            r"|firecrest|cosmic\s+slr|racing\s+zero|\bslr\s*[01]\b|reserve|newmen\s+advanced|vision\s+metron"),
+        (3, r"aeolus\s+elite|zipp|[pe]r?\s*1600|ksyrium|racing\s+[34]\b|\bslr\s*2\b|grc\s*1[68]00|carbon|\boclv\b"
+            r"|vision\s+sc\b"),
+        (2, r"paradigm\s+(?:sl|elite|pro)\b|racing\s+[56]\b|aksium|r\s*470|[pe]\s*1800|x\s*1900|g\s*540|newmen"
+            r"|vision\s+(?:team|trimax)|\brs\s*(?:171|300|500)\b"),
+        (1, r"paradigm|racing\s+7|formula|bontrager\s+tubeless\s+ready|\brs\s*0?10\b|\brs\s*100\b"),
         # A DT Swiss wheelset named by its hubs ("DT swiss wielen met naaf 240"), after the named wheels above.
         (4, r"dt\s*swiss\b.*\b(?:180|240)\b"),
         (3, r"dt\s*swiss\b.*\b350\b"),
