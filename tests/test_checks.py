@@ -50,6 +50,14 @@ def test_reads_claims_from_dutch_ad():
     ("Tarmac 2023, ongeveer 2000 km gereden", 2023, False),
     ("Tarmac 2023, vraagprijs ca. 2100 euro", 2023, False),
     ("Tarmac 2023, frame ca. €2100", 2023, False),
+    # A year called the model year wins over a purchase year or a part's year earlier in the ad.
+    ("Gekocht in 2018. Het is een 2017 model", 2017, False),
+    ("Nieuwe banden van 2023, 2017 model", 2017, False),
+    ("Trek Domane uit 2019\nModeljaar: 2017", 2017, False),
+    ("Gekocht in 2018, bouwjaar 2017", 2017, False),
+    ("Emonda 2017-model, nieuwe ketting 2024", 2017, False),
+    ("Domane SL 6 MY17", 2017, False),
+    ("Selling my 2019 Domane", 2019, False),
 ])
 def test_year(text, year, purchase):
     assert checks.detect_year(text) == (year, purchase)
