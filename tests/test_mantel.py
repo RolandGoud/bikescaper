@@ -86,3 +86,11 @@ def test_mantel_lines_count_as_discontinued():
             "year_specs": {"years": {"2022": {"specs": {"Frame": "x"}}}}}
     assert checks.catalogue_status(line)[0] == "discontinued"
     assert checks.sheet_year(line) == 2022
+
+
+def test_a_line_older_than_its_listed_generations_goes_by_its_sheets():
+    from webapp import checks
+    line = {"brand": "Trek", "name": "Domane AL 3 Gen 2", "source_file": "data/years/mantel/lines/Trek.json",
+            "year_specs": {"years": {"2018": {"specs": {"Frame": "x"}}, "2020": {"specs": {"Frame": "x"}}}}}
+    assert checks.generation(line) is None  # not the carbon Domane's Gen 2, which ended in 2019
+    assert "2020" in str(checks.catalogue_status(line)[1])

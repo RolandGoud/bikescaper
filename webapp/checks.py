@@ -392,8 +392,11 @@ def generation(model):
             if scrape_year(model):
                 own.append(scrape_year(model))
             newest = max(own) if own else None
-            if newest and newest < gens[0][0]:  # older than every generation entered: one we don't list
-                continue
+            if newest and newest < gens[0][0]:
+                # Older than every generation entered for this line (the 2020 Domane AL 3): one we don't list. The
+                # family's table is no guide either (the carbon Domane's Gen 2 ended a year before the AL's), so
+                # its sheets alone tell its years.
+                return None
             mine = next((g for g in reversed(gens) if newest and g[0] <= newest), gens[-1])
         at = gens.index(mine)
         return {"first": mine[0], "last": mine[1], "name": mine[3], "note": Msg(LINEAGES_NOTE), "source": "lineage",
