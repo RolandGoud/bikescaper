@@ -416,6 +416,7 @@ SPEC_LABELS = {
     "Standaard": ("extras", "Kickstand", "Standaard"),
     "Bel": ("extras", "Bell", "Bel"),
     # Specialized's and Trek's labels on their own product pages (the current Trek API, older pages)
+    "REAR SHOCK": ("frame", "Suspension", "Vering"),
     "CHAINRINGS": ("drivetrain", "Chainring", "Kettingblad"),
     "Chainrings": ("drivetrain", "Chainring", "Kettingblad"),
     "TANDWIELEN": ("drivetrain", "Cassette", "Cassette"),

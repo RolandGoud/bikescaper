@@ -106,6 +106,24 @@ def product_urls(fetcher):
     return list(seen.values())
 
 
+SITEMAP = BASE + "/nl/nl/sitemap.xml"
+
+
+def sitemap_urls(fetcher):
+    """Every product page in Specialized's NL sitemap, as /nl/nl/<name>/p/<id> URLs.
+
+    The shop listings show only the bikes on sale; the sitemap also lists the ones Specialized stopped selling
+    and still serves a page for (the Tarmac SL8 Expert - SRAM Rival AXS, every Venge). The sitemap writes
+    them as /nl/<name>/p/<id>, which 404s: the page lives under /nl/nl/."""
+    index = fetcher.get(SITEMAP) or ""
+    urls = {}
+    for sitemap in re.findall(r"<loc>\s*([^<\s]+Product[^<\s]*\.xml)\s*</loc>", index):
+        for name, pid in re.findall(r"<loc>\s*https://www\.specialized\.com/nl/(?:nl/)?([^/<]+)/p/(\d+)\s*</loc>",
+                                    fetcher.get(sitemap) or ""):
+            urls.setdefault(pid, f"{BASE}/nl/nl/{name}/p/{pid}")
+    return list(urls.values())
+
+
 def parse(page, url):
     text = rsc_payload(page)
     product = None
