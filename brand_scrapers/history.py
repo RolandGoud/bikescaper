@@ -27,6 +27,7 @@ import os
 import re
 import sqlite3
 from datetime import date
+from urllib.parse import urlparse
 
 from . import giant
 from .archive import FIRST_YEAR, MIN_SPECS, compact, read_cdx, recognised
@@ -491,7 +492,7 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     listings keeps the ones only those found. A page of a model we already have under another product number
     (the 2024 S-Works Tarmac SL8 next to the 2026 one) adds its model year to that model."""
     import importlib
-    from .archive import url_name
+    from .archive import URL_ID, url_name
     from .common import is_ebike
     module = importlib.import_module(f".{brand.lower()}", __package__)
     family, skip = (re.compile(r) for r in OLD_PAGES[brand])
@@ -505,7 +506,14 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     archived = {compact(b["name"]): b for b in bikes}
     conn = sqlite3.connect(db_path)
     seen = {compact(n) for (n,) in conn.execute("SELECT name FROM models WHERE brand = ?", (brand,))} - set(archived)
-    known = {str(b.get("sku")) for b in bikes} | set().union(*(b.get("skus") or [] for b in bikes))
+    # A product number in the URL that is also the bike's sku (Specialized) says which pages we already read;
+    # other brands' URLs end in a model name or a year, so each URL stands for itself.
+    by_id = brand == "Specialized"
+    known = {str(b.get("sku")) for b in bikes} | set().union(*(b.get("skus") or [] for b in bikes)) if by_id else set()
+
+    def key(url):
+        m = by_id and re.search(URL_ID[brand], urlparse(url).path.rstrip("/"))
+        return m.group(1) if m else url
 
     def wanted(url):
         name = url_name(brand, url)
@@ -514,12 +522,12 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     urls = {}
     for url in getattr(module, "sitemap_urls", lambda _f: [])(fetcher):  # every product number
         if wanted(url):
-            urls.setdefault(url.rsplit("/", 1)[-1], url)
+            urls.setdefault(key(url), url)
     named = {url_name(brand, u) for u in urls.values()}
     for _ts, url in sorted(read_cdx(cdx_folder, brand) if cdx_folder else [], reverse=True):
         if wanted(url) and url_name(brand, url) not in named:  # the newest copy of each URL name the sitemap lacks
             named.add(url_name(brand, url))
-            urls.setdefault(url.rsplit("/", 1)[-1], url)
+            urls.setdefault(key(url), url)
     sheets, today, added = {}, date.today().isoformat(), 0
     for pid, url in sorted(urls.items()):
         if pid in known:
@@ -539,7 +547,8 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
         year = str(bike.get("model_year") or "")
         ours = archived.get(slug)
         if ours:  # another model year of a bike we have
-            ours.setdefault("skus", []).append(str(bike.get("sku")))
+            if by_id:
+                ours.setdefault("skus", []).append(str(bike.get("sku")))
             if year.isdigit() and int(year) not in ours.setdefault("years", []):
                 ours["years"] = sorted(ours["years"] + [int(year)])
             else:

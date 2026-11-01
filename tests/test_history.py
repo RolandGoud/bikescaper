@@ -274,3 +274,36 @@ def test_specialized_archived_keeps_what_it_had_and_adds_other_years(tmp_path, m
                                                          ("Tarmac SL8 Expert - SRAM Rival AXS", [2024])]
     sheets = json.loads((tmp_path / "data" / "years" / "site" / "Specialized.json").read_text())["models"]
     assert sorted(sheets["S-Works Venge"]) == ["2019"] and sorted(sheets["Tarmac SL8 Expert - SRAM Rival AXS"]) == ["2024"]
+
+
+def test_cannondale_archived_pages_are_not_keyed_by_product_number(tmp_path, monkeypatch):
+    import sqlite3
+    from brand_scrapers import cannondale
+    import json
+    (tmp_path / "data" / "years" / "site").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "archived").mkdir()
+    (tmp_path / "data" / "years" / "archived" / "Cannondale.json").write_text(json.dumps(
+        [{"name": "Synapse 2", "sku": "C1", "model_year": 2022, "years": [2022], "specifications": {}}]))
+    db = tmp_path / "t.db"
+    sqlite3.connect(db).execute("CREATE TABLE models (brand, name)")
+    cdx = tmp_path / "cdx"
+    cdx.mkdir()
+    (cdx / "Cannondale.txt").write_text(
+        "20220401000000 https://www.cannondale.com/nl-nl/bikes/road/race/supersix-evo/supersix-evo-3\n"
+        "20220401000000 https://www.cannondale.com/nl-nl/bikes/road/endurance/synapse/synapse-2\n")
+    names = {"supersix-evo-3": "SuperSix EVO 3", "synapse-2": "Synapse 2"}
+
+    def parse(page, url):
+        return {"name": names[url.split("/")[-1]], "model_year": 2022, "sku": "C1", "category": "Race",
+                "specifications": {}, "image_url": None, "color_names": []}
+
+    class Fake:
+        def get(self, url):
+            return "page"
+
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(cannondale, "parse", parse)
+    monkeypatch.setattr(history, "recognised", lambda _s: 99)
+    found = history.pages_archived("Cannondale", str(cdx), str(db), fetcher=Fake())
+    assert sorted(b["name"] for b in found) == ["SuperSix EVO 3", "Synapse 2"]
+    assert not any("skus" in b for b in found)
