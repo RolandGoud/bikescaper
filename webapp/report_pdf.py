@@ -118,7 +118,8 @@ def build(listing, r, height=None, report_url=None):
     story.append(_p(f"{r['age']['headline']}: {r['age']['detail']}", s["body"]))
 
     story.append(_p(r["specs"].get("title") or _("Spec comparison"), s["h2"]))
-    original = _("ORIGINAL ({year})", year=r["spec_year"]) if r.get("spec_year") else _("ORIGINAL")
+    original = (_("ORIGINAL ({year}, closest to {wanted})", year=r["spec_year"], wanted=r["spec_stand_in"])
+                if r.get("spec_stand_in") else _("ORIGINAL ({year})", year=r["spec_year"])) if r.get("spec_year") else _("ORIGINAL")
     rows = [[_p(h, s["cell"], MUTED) for h in (_("PART"), original, _("IN THE AD"), _("RESULT"))]]
     for x in r["specs"]["rows"]:
         rows.append([_p(x["part"], s["cell"]), _p(x["original"], s["cell"]), _p(x["listing"] or "", s["cell"]),

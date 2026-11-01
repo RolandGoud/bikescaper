@@ -307,3 +307,56 @@ def test_cannondale_archived_pages_are_not_keyed_by_product_number(tmp_path, mon
     found = history.pages_archived("Cannondale", str(cdx), str(db), fetcher=Fake())
     assert sorted(b["name"] for b in found) == ["SuperSix EVO 3", "Synapse 2"]
     assert not any("skus" in b for b in found)
+
+
+def test_a_trek_product_without_a_model_year_takes_its_photos_year():
+    import json
+    from brand_scrapers import history
+    full = {"name": "Domane AL 2 Gen 4", "modelYearIntroAndCurrent": None,
+            "variantAttributesDirectory": [{"options": [
+                {"displayName": "Crimson to Dark Carmine Fade", "colorSwatchName": "red_reddark",
+                 "value": "bike_colorswatch_red_reddark"}]}],
+            "assetImageList": [{"imageOption": "C", "images": [{"assetId": "DomaneAL2-24-41587-C-Primary"}]}],
+            "variants": [{"imageOption": "C", "variantAttributes": [
+                {"key": "bike_colorSwatch", "value": "bike_colorswatch_red_reddark"}]}]}
+
+    class Fake:
+        def get(self, url, binary=False):
+            return json.dumps(full if "/full" in url else {"specs": []})
+
+    p = history.trek_product(Fake(), "41587")
+    assert p["years"] == [2024] and p["years_from_photos"]
+    assert list(p["colour_image_urls"]) == ["Crimson to Dark Carmine Fade"]
+
+
+def test_trek_product_numbers_in_old_and_new_page_urls():
+    from brand_scrapers import history
+    base = "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/domane/domane-al"
+    assert history.trek_code(base + "/domane-al-2/a/23522/") == "23522"
+    assert history.trek_code(base + "/f/F221-5/domane-al-2-gen-4/41587/") == "41587"
+    assert history.trek_code(base + "/f/F221-5/domane-al-2-gen-4/41587/5301359") == "41587"
+    assert history.trek_code("https://www.trekbikes.com/nl/nl_NL/fietsen/") is None
+
+
+def test_a_rerun_keeps_the_years_it_did_not_read_again(tmp_path, monkeypatch):
+    """Trek no longer lists a product's older years: they were right, so a new run keeps them."""
+    import json
+    import sqlite3
+    from brand_scrapers import history
+    (tmp_path / "data" / "years" / "site").mkdir(parents=True)
+    sheet = tmp_path / "data" / "years" / "site" / "Trek.json"
+    sheet.write_text(json.dumps({"years": [2022], "models": {"Domane AL 2 Gen 4": {
+        "2022": {"colours": ["Viper Red/Trek Black"], "colour_angles": {"Viper Red/Trek Black": ["a.jpg"]}}}}}))
+    db = tmp_path / "t.sqlite3"
+    conn = sqlite3.connect(db)
+    conn.execute("CREATE TABLE models (brand, name, url)")
+    conn.execute("INSERT INTO models VALUES ('Trek', 'Domane AL 2 Gen 4', 'x')")
+    conn.commit()
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(history, "trek_codes", lambda folder: [])
+    monkeypatch.setattr(history, "trek_collect", lambda models, fetcher, years, codes: {
+        "Domane AL 2 Gen 4": {"2025": {"colours": ["Crimson to Dark Carmine Fade"]}}})
+    history.run(["Trek"], str(db), range(2020, 2027), names=["Domane AL 2 Gen 4"])
+    years = json.loads(sheet.read_text())["models"]["Domane AL 2 Gen 4"]
+    assert sorted(years) == ["2022", "2025"]
+    assert years["2022"]["colour_angles"]  # as it was
