@@ -184,7 +184,7 @@
       <span class="ms-name">{{ _('Asking price') }}</span></span>
       <span class="mb-open">{{ _('See the prices') }} ↓</span></a>
     <div class="ms-check{{ ' ok' if asking.enough }}"><span class="k">{{ _('MEDIAN') }}</span>
-      <b>{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</b>
+      <b{% if not asking.enough %} title="{{ _('Not enough ads yet for a reliable median price.') }}"{% endif %}>{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</b>
       <small>{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% else %}{{ _('Not enough ads yet for a reliable median price.') }}{% endif %}</small></div>
     <div class="ms-check{{ ' ok' if ads }}"><span class="k">{{ _('MATCHED') }}</span>
       <b>{% if ads|length == 1 %}{{ _('{n} ad', n=1) }}{% elif ads %}{{ _('{n} ads', n=ads|length) }}{% else %}{{ _('No ads yet') }}{% endif %}</b>
