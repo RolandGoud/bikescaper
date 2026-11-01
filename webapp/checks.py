@@ -37,6 +37,25 @@ def _tokens(text):
 SIZE_LABELS = r"3xs|2xs|xxs|xs|s|m|l|xl|xxl|2xl"
 
 
+ELECTRONIC_WORDS = ELECTRONIC + r"|\belektro?ni\w*|\belectroni\w*|\bwireless\b|\bdraadloos\b"
+# "geen Di2", "niet elektronisch", "non-Di2", "zonder Di2", "Di2: nee": the ad says it is not electronic.
+# Within one line only, so "Di2\nNo scratches" or "geen krassen\nDi2" isn't read as a negation.
+_NEGATION = r"\b(?:geen|niet|not|no|non|zonder|without)\b[ \t-]*(?:\w+[ \t-]+){0,1}?"
+NOT_ELECTRONIC = re.compile(rf"{_NEGATION}(?:{ELECTRONIC_WORDS})|(?:{ELECTRONIC_WORDS})[ \t]*[:=][ \t]*(?:nee|no)\b")
+
+
+def says_electronic(text):
+    """True when the ad says it shifts electronically, False when it says it doesn't ("geen Di2", "mechanisch"),
+    None when it says neither. A negated mention doesn't count as electronic."""
+    low = _plain(text)
+    rest = NOT_ELECTRONIC.sub(" ", low)
+    if re.search(ELECTRONIC_WORDS, rest):
+        return True
+    if rest != low or re.search(r"mechanis|mechanical", low):
+        return False
+    return None
+
+
 def detect_groupset(text):
     low = _plain(text)
     found = None
@@ -46,7 +65,7 @@ def detect_groupset(text):
             if found is None or tier > found["tier"]:
                 found = {"key": key, "name": name, "tier": tier}
     if found:
-        found["electronic"] = bool(re.search(ELECTRONIC, low))
+        found["electronic"] = bool(says_electronic(low)) and bool(re.search(ELECTRONIC, NOT_ELECTRONIC.sub(" ", low)))
         found["label"] = found["name"] + (" (electronic)" if found["electronic"] else "")
     return found
 
@@ -843,13 +862,10 @@ def _share(part, ad_toks, clash_toks=()):
 def shifting(model, title, description=""):
     """How the ad's shifting compares with the model's: {"ad", "model"} as "electronic" or "mechanical", and
     "same"; None when the ad doesn't say or we don't know the model's groupset."""
-    text = f"{title} {description or ''}".lower()
-    if re.search(ELECTRONIC + r"|elektronis|electronic", text):
-        ad = "electronic"
-    elif re.search(r"mechanis|mechanical", text):
-        ad = "mechanical"
-    else:
+    said = says_electronic(f"{title} {description or ''}")
+    if said is None:
         return None
+    ad = "electronic" if said else "mechanical"
     group = detect_groupset(groupset_text(model))
     if not group:
         return None
@@ -2022,8 +2038,17 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
     for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
                               ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",))):
         ref_val, ad = spec(model, *keys), claims.get(key)
-        part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres", "wheels") and not ad else None
-        ad = ad or part_seen
+        # The ad's words first; when they don't name the part, what its photos show. Wheels the ad only calls
+        # "carbonwielen" (check 71) give way to the wheelset its photos name.
+        # Vague: names no wheelset (WHEEL_NAMES) and rates only for the word "carbon" ("Wielen: Fulcrum Racing 5"
+        # and "Princeton CarbonWorks 4550" aren't vague; "carbonwielen" is).
+        label = _plain(str(ad["label"])) if ad else ""
+        vague = key == "wheels" and ad and not re.search(WHEEL_NAMES, label) \
+            and not part_tier(("wheels",), re.sub(r"carbon\w*|\boclv\b", " ", label))
+        part_seen = photo_part(photo_read, key) if key in ("crankset", "tyres", "wheels") and (not ad or vague) else None
+        if part_seen and ad and not part_seen["tier"]:
+            part_seen = None  # a wheelset we can't rate says less than "carbon"
+        ad = part_seen or ad
         ref_tier = part_tier(PART_TABLES.get(key, (key,)), ref_val) if ref_val else None
         if ad and ref_tier and ad["tier"]:
             if ad["tier"] == ref_tier:  # often the same wheels or tyres, named differently
