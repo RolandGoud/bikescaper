@@ -20633,6 +20633,28 @@
    "2023": {
     "captured": "2026-11-01",
     "colour_angles": {
+     "Dnister Black/Trek Black": [
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_1_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_2_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_3_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_4_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_5_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_6_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_7_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_8_site.jpg",
+      "Trek/years/emondasl6_2023_dnisterblacktrekblack_9_site.jpg"
+     ],
+     "Quicksilver/Radioactive Red": [
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_1_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_2_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_3_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_4_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_5_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_6_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_7_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_8_site.jpg",
+      "Trek/years/emondasl6_2023_quicksilverradioactivered_9_site.jpg"
+     ],
      "Trek Black/Radioactive Red": [
       "Trek/years/emondasl6_2023_trekblackradioactivered_1_site.jpg",
       "Trek/years/emondasl6_2023_trekblackradioactivered_2_site.jpg",
@@ -20646,13 +20668,17 @@
      ]
     },
     "colour_images": {
+     "Dnister Black/Trek Black": "Trek/years/emondasl6_2023_dnisterblacktrekblack_site.jpg",
+     "Quicksilver/Radioactive Red": "Trek/years/emondasl6_2023_quicksilverradioactivered_site.jpg",
      "Trek Black/Radioactive Red": "Trek/years/emondasl6_2023_trekblackradioactivered_site.jpg"
     },
     "colours": [
-     "Trek Black/Radioactive Red"
+     "Trek Black/Radioactive Red",
+     "Quicksilver/Radioactive Red",
+     "Dnister Black/Trek Black"
     ],
     "image": "Trek/years/emondasl6_2023_trekblackradioactivered_site.jpg",
-    "manual": "colours from the 2022 sheet, specs from the 2023 Émonda SL 6 Di2 sheet (Roland, 2026-11-01)",
+    "manual": "specs from the 2023 Émonda SL 6 Di2 sheet, checked against 99spokes; its colours plus Trek Black/Radioactive Red from the 2022 sheet (Roland, 2026-11-01)",
     "price": null,
     "sheet_name": "Émonda SL 6 Di2",
     "sheet_years": "2023",
