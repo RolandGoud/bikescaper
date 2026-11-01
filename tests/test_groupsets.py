@@ -248,3 +248,25 @@ def test_hidden_unless_switched_on(tmp_path, monkeypatch):
     assert client.get("/groupsets/r8000/shop").status_code == 404
     for page in ("/?lang=en", "/models?groupset=105&lang=en"):
         assert 'href="/groupsets' not in client.get(page).data.decode()
+
+
+def test_a_negated_electronic_mention_reads_as_mechanical():
+    """Check 71: "Shimano Ultegra (niet elektronisch)" was reported as the ad saying electronic."""
+    from webapp import checks
+    for text in ("De fiets is afgemonteerd met Shimano Ultegra (niet elektronisch).", "Shimano Ultegra, geen Di2",
+                 "Ultegra non-Di2", "Ultegra, Di2: nee", "Ultegra zonder elektronische schakeling", "Ultegra mechanisch"):
+        assert checks.says_electronic(text) is False, text
+        assert checks.detect_groupset(text)["electronic"] is False, text
+    for text in ("Ultegra Di2", "Ultegra Di2 R8050, niet mechanisch", "geen schijfremmen maar Ultegra Di2"):
+        assert checks.says_electronic(text) is True, text
+        assert checks.detect_groupset(text)["electronic"] is True, text
+    assert checks.says_electronic("Shimano Ultegra") is None
+
+
+def test_shifting_chip_follows_the_negation():
+    from webapp import checks
+    model = {"name": "Émonda SL 6", "specs": {"Shifter": "Shimano Ultegra R8000, 11-speed"}}
+    if checks.detect_groupset(checks.groupset_text(model)) is None:
+        return
+    got = checks.shifting(model, "Trek Emonda SL6 Pro", "Shimano Ultegra (niet elektronisch)")
+    assert got["ad"] == "mechanical" and got["same"]

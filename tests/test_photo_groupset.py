@@ -409,3 +409,19 @@ def test_photos_fill_in_the_wheels_the_ad_leaves_out(models):
     # A brand alone isn't enough.
     only_brand = dict(wheels, model="", rim_depth_mm=0, rim_material="unknown")
     assert row(run(models, "Trek Emonda SL6", "", dict(RIVAL, wheels=only_brand)), "wheels")["listing"] is None
+
+
+def test_photo_wheels_name_what_the_ad_only_calls_carbon_wheels(models):
+    """Check 71: "De carbonwielen zijn inbegrepen", the photos show Bontrager Aeolus Elite 35."""
+    wheels = {"brand": "Bontrager", "model": "Aeolus Elite 35", "rim_depth_mm": 35, "rim_material": "carbon",
+              "confidence": "high", "photos": [2], "evidence_en": "Photo 2: AEOLUS ELITE 35 on the rims.",
+              "evidence_nl": "Foto 2: AEOLUS ELITE 35 op de velgen."}
+    text = "De carbonwielen zijn inbegrepen."
+    r = row(run(models, "Trek Emonda SL6", text, dict(RIVAL, wheels=wheels)), "wheels")
+    assert "Aeolus Elite 35" in en(r["listing"]) and r["photo_why"]
+    # A named wheelset in the ad still wins, and an unratable photo read doesn't replace "carbon".
+    r = row(run(models, "Trek Emonda SL6", "Wielen: Zipp 303", dict(RIVAL, wheels=wheels)), "wheels")
+    assert "Zipp" in en(r["listing"]) and "photo_why" not in r
+    r = row(run(models, "Trek Emonda SL6", text, dict(RIVAL, wheels=dict(wheels, brand="Noname", model="X1",
+                                                                        rim_material="unknown"))), "wheels")
+    assert "carbonwielen" in en(r["listing"])
