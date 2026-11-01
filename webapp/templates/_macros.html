@@ -37,8 +37,8 @@
 {% macro site_name(url) -%}
 {{ 'Marktplaats' if url and 'marktplaats' in url else ('2dehands' if url and '2dehands' in url else ('2ememain' if url and '2ememain' in url else '')) }}
 {%- endmacro %}
-{% macro site_logo(name) -%}
-{{ url_for('static', filename='logos/marktplaats.svg' if name == 'Marktplaats' else 'logos/2dehands.svg') }}
+{% macro site_logo(name, light=False) -%}
+{{ url_for('static', filename=('logos/marktplaats' if name == 'Marktplaats' else 'logos/2dehands') ~ ('-light' if light else '') ~ '.svg') }}
 {%- endmacro %}
 {% macro site_mark(url) -%}
 {% set site = site_name(url) %}

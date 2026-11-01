@@ -1112,6 +1112,19 @@ def model_title(name):
     return shown or name
 
 
+def family_name(name):
+    """"Madone SL 6 Gen 8" -> "Madone SL 6": the model as the report's heading names it, without "Shimano" (model_title)
+    and without the generation, which the matched model below the heading gives in full."""
+    shown = re.sub(r"\s*\b(?:Gen(?:eration)?\.?\s*\d+)\b", "", model_title(name), flags=re.I)
+    return re.sub(r"\s{2,}", " ", shown).strip(" -\u2013") or model_title(name)
+
+
+def ad_condition(description):
+    """The condition the seller picked on the site ("Conditie: Zo goed als nieuw" in the ad's facts), as written, or None."""
+    field = re.search(r"^\s*(?:conditie|staat|condition)\s*:\s*(.+?)\s*$", description or "", re.I | re.M)
+    return field.group(1)[:40] if field else None
+
+
 def _sheet_span(text):
     """"2021 - 2023" (the model years a brand's own archive sheet covers) -> (2021, 2023), else None."""
     found = [int(y) for y in re.findall(r"\b(?:19|20)\d\d\b", text or "")]

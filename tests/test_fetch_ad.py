@@ -475,8 +475,9 @@ def test_report_titles_the_matched_bike_and_lists_the_other_ads_for_it(tmp_path)
         conn.execute("INSERT INTO checks (listing_url, title, asking_price) VALUES (?,?,?)", (url, title, price))
     conn.commit()
     page = app.test_client().get("/check/1?lang=nl").data.decode()
-    assert "<h1>Giant TCR Advanced" in page and "“TCR Advanced 2 2021 maat M”" in page
-    assert 'class="source-chip" href="https://www.marktplaats.nl/v/a1"' in page and 'alt="Marktplaats"' in page
+    assert '<h1><span class="sr-only">Giant </span>TCR <span class="acc">Advanced 2</span></h1>' in page
+    assert "“Giant TCR Advanced 2 2021 maat M”" in page
+    assert 'href="https://www.marktplaats.nl/v/a1"' in page and 'aria-label="Open de advertentie op Marktplaats"' in page
     assert "Andere advertenties voor dit model" in page and 'href="/check/2"' in page
 
 
@@ -489,7 +490,8 @@ def test_report_and_tiles_show_the_site_the_ad_was_found_on(tmp_path):
     conn.commit()
     client = app.test_client()
     page = client.get("/check/3?lang=nl").data.decode()
-    assert 'class="source-chip" href="https://www.2ememain.be/v/a3"' in page and 'alt="2ememain"' in page and "logos/2dehands.svg" in page
+    assert 'href="https://www.2ememain.be/v/a3"' in page and 'aria-label="Open de advertentie op 2ememain"' in page
+    assert "logos/2dehands-light.svg" in page
     assert "GEPLAKTE ADVERTENTIE" in client.get("/check/4?lang=nl").data.decode()
     tiles = client.get("/listings?lang=nl").data.decode()
     for site in ("Marktplaats", "2dehands", "2ememain"):

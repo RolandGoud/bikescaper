@@ -820,15 +820,15 @@ def test_certainty_comes_back_when_our_match_is_picked_again(tmp_path):
     page = client.get("/check/1?lang=nl").data.decode()
     ours = re.search(r'<option value="(\d+)" selected', page).group(1)
     other = re.search(r'<option value="(\d+)" >', page).group(1)
-    level = re.search(r"ZEKERHEID: (\w+)", page).group(1)  # whatever ours is, it must come back
+    level = re.search(r'title="zekerheid: (\w+)"', page).group(1)  # whatever ours is, it must come back
 
     client.post("/check/1/match", data={"model_id": other})
     page = client.get("/check/1?lang=nl").data.decode()
-    assert "Gekozen door jou" in page and "ZEKERHEID" not in page
+    assert "Gekozen door jou" in page and "zekerheid:" not in page
 
     client.post("/check/1/match", data={"model_id": ours})
     page = client.get("/check/1?lang=nl").data.decode()
-    assert f"ZEKERHEID: {level}" in page and "Gekozen door jou" not in page
+    assert f'title="zekerheid: {level}"' in page and "Gekozen door jou" not in page
 
 
 def test_size_systems_split_frame_and_letter_sizes(tmp_path):
@@ -991,7 +991,7 @@ def test_report_says_when_we_dispute_the_model(tmp_path):
     client = app.test_client()
     resp = client.post("/check", data={"title": "Trek Domane SLR 6 gen 3", "asking_price": "1500"})
     page = client.get(resp.headers["Location"] + "?lang=nl").data.decode()
-    assert 'class="mb-chip bad"' in page and "De advertentie zegt Gen 3, dit is een Gen 4" in page
+    assert 'class="ms-check bad"' in page and "De advertentie zegt Gen 3, dit is een Gen 4" in page
 
 
 def test_value_uses_the_middle_estimated_year(models):
@@ -1868,3 +1868,30 @@ def test_a_year_sheets_frame_plus_fork_line_gives_its_material():
     model = {"name": "Madone SLR 7", "brand": "Trek", "specs": {}, "seen_on": None,
              "year_specs": {"years": {"2021": {"specs": {"Frame plus vork": "800 Series OCLV Carbon, IsoFlow"}}}}}
     assert checks.model_materials(model) == {"Carbon": [2021]}
+
+
+def test_report_heading_shows_the_ad_and_our_match_apart(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    conn.execute("INSERT INTO checks (title, description, asking_price, location, listing_url) VALUES (?, ?, ?, ?, ?)",
+                 ("Trek Domane SL 6 Gen 4 2023 maat 56", "Mooie fiets, weinig gereden.\nConditie: Zo goed als nieuw",
+                  3250, "Utrecht", "https://www.2dehands.be/v/fietsen/m1-domane"))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
+    ad, match = page.index('class="ad-card'), page.index('class="match-strip"')
+    # The heading names the model without its generation; the full name is in our match, under the ad.
+    assert re.search(r"<h1>.*Domane <span class=\"acc\">SL 6</span></h1>", page)
+    assert page.lower().index("domane sl 6 gen 4</span>") > match
+    # The ad's own text and facts, as the seller wrote them, and its site's logo as the link to it.
+    assert ad < page.index("Mooie fiets, weinig gereden.") < match
+    assert ad < page.index("Zo goed als nieuw") < match
+    assert 'logos/2dehands-light.svg' in page and 'aria-label="Open the ad on 2dehands"' in page
+    # A year in the model's years reads as fitting, in green.
+    assert re.search(r'class="ms-check ok"><span class="k">YEAR</span>\s*<b>.*2023 fits this model', page)
+
+
+def test_family_name_leaves_out_the_generation():
+    assert checks.family_name("Madone SL 6 Gen 8") == "Madone SL 6"
+    assert checks.family_name("Tarmac SL9 Comp - Shimano 105 Di2") == "Tarmac SL9 Comp - 105 Di2"
+    assert checks.ad_condition("x\nConditie: Zo goed als nieuw\nFramemaat: L") == "Zo goed als nieuw"

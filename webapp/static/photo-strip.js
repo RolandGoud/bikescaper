@@ -34,3 +34,32 @@ document.querySelectorAll(".ad-strip").forEach((wrap) => {
   strip.querySelectorAll("img").forEach((img) => img.addEventListener("load", update));  // widths settle as photos load
   update();
 });
+
+// The report's gallery: the strip and the arrows pick the photo shown big (a click on it opens the lightbox,
+// lightbox.js), with a "3 / 8" counter. Without JS the strip's links open the photos themselves.
+document.querySelectorAll(".ad-gallery").forEach((gallery) => {
+  const box = document.querySelector("dialog.lightbox");
+  const links = [...gallery.querySelectorAll(".ad-photos [data-photo]")];
+  const photos = box ? JSON.parse(box.dataset.photos) : links.map((a) => a.href);
+  const big = gallery.querySelector(".ag-photo"), img = big.querySelector("img");
+  const count = gallery.querySelector(".ag-count");
+  const show = (i) => {
+    const at = (i + photos.length) % photos.length;
+    big.dataset.at = at;
+    img.src = photos[at];
+    img.alt = img.alt.replace(/\d+/, at + 1);
+    count.textContent = `${at + 1} / ${photos.length}`;
+    links.forEach((a, j) => {
+      if (j === at) {
+        a.setAttribute("aria-current", "true");
+        const strip = a.parentElement, x = a.offsetLeft - strip.offsetLeft;  // bring it into view, not the page
+        if (x < strip.scrollLeft || x + a.offsetWidth > strip.scrollLeft + strip.clientWidth)
+          strip.scrollTo({ left: x - 8, behavior: "smooth" });
+      } else a.removeAttribute("aria-current");
+    });
+    [at + 1, at - 1].forEach((j) => { new Image().src = photos[(j + photos.length) % photos.length]; });
+  };
+  links.forEach((a, j) => a.addEventListener("click", (e) => { e.preventDefault(); show(j); }));
+  gallery.querySelector(".gallery-arrow.prev")?.addEventListener("click", () => show(Number(big.dataset.at) - 1));
+  gallery.querySelector(".gallery-arrow.next")?.addEventListener("click", () => show(Number(big.dataset.at) + 1));
+});
