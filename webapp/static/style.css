@@ -349,7 +349,7 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .mb-k { font-size: 11px; letter-spacing: .08em; }
 .mb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; width: 100%; }
 .mb-name { font-size: 19px; font-weight: 700; color: var(--text); text-decoration: none; }
-.mb-meter { display: flex; align-items: center; gap: 10px; margin-left: auto; --c: var(--accent); }
+.mb-meter { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-left: auto; --c: var(--accent); }  /* wraps when the photo leaves too little room */
 .mb-meter.mid { --c: var(--warn); } .mb-meter.lo { --c: var(--bad); }
 .mb-meter .mono { font-size: 12px; font-weight: 600; color: var(--c); white-space: nowrap; }
 .mb-meter b { font: 800 22px/1 var(--mono); color: var(--c); }
@@ -407,7 +407,6 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
   .mb-meter { margin-left: 0; }
   .match-box { align-items: flex-start; gap: 12px; }
   .mb-photo { width: 88px; height: 60px; margin-top: 22px; }
-  .mb-meter { flex-wrap: wrap; row-gap: 6px; }
 }
 /* The report's check tabs, as folder tabs: the picked tab has its section's colour and flows into it on curved feet; the others sit lower and dimmer. */
 .report-tabs { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 10px; }
