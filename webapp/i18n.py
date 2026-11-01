@@ -443,6 +443,9 @@ NL = {
     "No spec sheet": "Geen specificaties",
     "As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.":
         "Zoals vermeld op de Nederlandse site van {brand} op {date}, uit een kopie in de Wayback Machine.",
+    "As listed by the Dutch bike shop Mantel on {date}, from a copy in the Wayback Machine.":
+        "Zoals de fietsenwinkel Mantel hem op {date} vermeldde, uit een kopie in de Wayback Machine.",
+    "Mantel price {price}": "Prijs bij Mantel {price}",
     "Open the copy": "Open de kopie",
     "Open the page": "Open de pagina",
     "Sold as {name} in {year}.": "In {year} verkocht als {name}.",

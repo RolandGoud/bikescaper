@@ -5,6 +5,8 @@ import pytest
 from webapp import daily_checks, db, seed
 
 AD = "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2455946444-trek-domane-al-2"
+# The ads name the generation: a bare "Domane AL 2" is ambiguous since Mantel's old pages added the Gen 3, so the
+# match comes out with low confidence and the daily check passes the ad over.
 
 
 @pytest.fixture
@@ -24,12 +26,12 @@ def ads(family, site=daily_checks.MARKTPLAATS):
          "title": "Trek Domane SL 6", "price": 1, "photos": 3},  # "bieden"
         {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/m2400000003-trek-madone",
          "title": "Trek Madone SL 6", "price": 2500, "photos": 3},  # another family
-        {"url": AD, "title": "Trek Domane AL 2", "price": 344, "photos": 3},
+        {"url": AD, "title": "Trek Domane AL 2 Gen 4", "price": 344, "photos": 3},
     ]
 
 
 def fetch(url):
-    return {"listing_url": url, "title": "Trek Domane AL 2", "description": "Maat 56, 2022",
+    return {"listing_url": url, "title": "Trek Domane AL 2 Gen 4", "description": "Maat 56, 2022",
             "asking_price": 344.0, "location": "Utrecht", "photos": ["https://images.marktplaats.com/1.jpg"]}
 
 
@@ -44,7 +46,7 @@ def test_checks_the_first_suitable_ad_once(conn):
 
 def test_skips_ads_a_visitor_already_checked(conn):
     conn.execute("INSERT INTO checks (listing_url, title) VALUES (?, ?)",
-                 ("https://www.marktplaats.nl/m2455946444", "Trek Domane AL 2"))
+                 ("https://www.marktplaats.nl/m2455946444", "Trek Domane AL 2 Gen 4"))
     assert daily_checks.run(conn, search=ads, fetch=fetch, pause=0) == []
 
 
@@ -53,7 +55,7 @@ def test_skips_ads_without_photos(conn):
         listed = ads(family, site)
         if listed:  # an ad without photos comes first
             listed.insert(0, {"url": "https://www.marktplaats.nl/v/fietsen-en-brommers/fietsen-racefietsen/"
-                                     "m2400000005-trek-domane", "title": "Trek Domane AL 2", "price": 1200, "photos": 0})
+                                     "m2400000005-trek-domane", "title": "Trek Domane AL 2 Gen 4", "price": 1200, "photos": 0})
         return listed
     saved = daily_checks.run(conn, search=bare, fetch=fetch, pause=0)
     assert [conn.execute("SELECT listing_url FROM checks WHERE id = ?", (i,)).fetchone()[0] for i in saved] == [AD]
@@ -65,8 +67,8 @@ def test_tries_the_next_ad_when_the_ad_has_no_photos(conn):
     def two(family, site):
         if family != "Trek Domane" or site != daily_checks.MARKTPLAATS:
             return []
-        return [{"url": other, "title": "Trek Domane AL 2", "price": 1200, "photos": 2},
-                {"url": AD, "title": "Trek Domane AL 2", "price": 344, "photos": 3}]
+        return [{"url": other, "title": "Trek Domane AL 2 Gen 4", "price": 1200, "photos": 2},
+                {"url": AD, "title": "Trek Domane AL 2 Gen 4", "price": 344, "photos": 3}]
 
     fetched = []
 

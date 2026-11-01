@@ -1,0 +1,608 @@
+{
+ "checked_on": "2026-11-01",
+ "models": {
+  "Kaius 01 THREE": {
+   "2023": {
+    "captured": "2022-11-29",
+    "image": "BMC/years/kaius01three_2023_mantel.jpg",
+    "price": 5499.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "SRAM Rival eTap AXS WIDE",
+     "Bottom bracket": "PF86",
+     "Buitenband": "Pirelli Cinturato Gravel H",
+     "Cassette": "SRAM RIVAL XG-1250 10-36T",
+     "Crankstel": "SRAM Rival",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "RIVAL 12 Speed",
+     "Material": "Carbon 01 Premium",
+     "Maximale bandenmaat": "45mm",
+     "Naaf achter": "400",
+     "Naaf voor": "400",
+     "Rem": "Hydraulische schijfrem",
+     "Shifter": "SRAM RIVAL eTap AXS HRD",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "BMC RAB 02 Ergo Top Shape Compact",
+     "Stuurpen": "BMC ICS2",
+     "Velg": "400",
+     "Voorvork": "01 Premium",
+     "Zadel": "Fizik Vento Argo R5",
+     "Zadelpen": "BMC Kaius 01 Premium Carbon D-Shaped, 15mm offset"
+    },
+    "ts": "20221129114602",
+    "url": "https://www.mantel.com/bmc-kaius-01-three-gravelbike"
+   }
+  },
+  "Roadmachine 01 FIVE": {
+   "2022": {
+    "captured": "2022-05-22",
+    "image": "BMC/years/roadmachine01five_2022_mantel.jpg",
+    "price": 6799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 RD 8150 12 speed",
+     "Bottom bracket": "PF86",
+     "Buitenband": "Vittoria Corsa Control, 28mm",
+     "Cassette": "Shimano Ultegra 12spd 11-34T",
+     "Crankstel": "Shimano Ultegra R8100",
+     "Gewichtslimiet": "110 Kg",
+     "Ketting": "Ultegra 12spd",
+     "Material": "Carbon Premium Carbon",
+     "Naaf achter": "CRD-321",
+     "Naaf voor": "CRD-321",
+     "Rem": "Hydraulische schijfrem, R8150",
+     "Shifter": "Shimano Ultegra Di2 R8170 2x12 speed",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "BMC RAB 02, Ergo Top Shape, Compact Bend",
+     "Stuurpen": "BMC ICS2 - Integrated Cockpit Design",
+     "Velg": "321 Carbon, Tubeless Ready, 35mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD 8150",
+     "Voorvork": "Carbon",
+     "Zadel": "Fizik Argo Tempo R5 (150mm)",
+     "Zadelpen": "BMC Roadmachine 01 Premium Carbon D-Shaped Seatpost • 15mm Offset"
+    },
+    "ts": "20220522035024",
+    "url": "https://www.mantel.com/bmc-roadmachine-01-five"
+   }
+  },
+  "Roadmachine 01 FOUR": {
+   "2021": {
+    "captured": "2021-08-03",
+    "image": "BMC/years/roadmachine01four_2021_mantel.jpg",
+    "price": 6499.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 lange kooi",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Vittoria Corsa Control, 28mm",
+     "Cassette": "Shimano Ultegra R800 11-32",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewicht": "7,9 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, BR-R8070 flat mount",
+     "Shifter": "Shimano Ultegra Di2 Hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC BMC RAB 02, ergo top shape, compact bend",
+     "Stuurlint": "BMC",
+     "Stuurpen": "BMC ICS 01 - Integrated Cockpit Design",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Carbon",
+     "Wiel voor": "CRD -321 Carbon, Tubeless Ready",
+     "Zadel": "Fizik Argo Tempo R5",
+     "Zadelpen": "BMC 01 Premium Carbon"
+    },
+    "ts": "20210803004216",
+    "url": "https://www.mantel.com/bmc-roadmachine-01-four-2021"
+   }
+  },
+  "Roadmachine 02 ONE": {
+   "2020": {
+    "captured": "2020-10-30",
+    "image": "BMC/years/roadmachine02one_2020_mantel.jpg",
+    "price": 4099.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Buitenband": "Vittoria Rubino, 28mm",
+     "Cassette": "Shimano Ultegra 11-32T",
+     "Crankstel": "Shimano Ultegra 50-34T",
+     "Gewicht": "8,1 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Di2, SM-RT800 Rotors (160 /140)",
+     "Shifter": "Shimano Ultegra Di2 Hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 02",
+     "Stuurpen": "BMC RSM01",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss E 1800 Spline db 32",
+     "Zadel": "Selle Royal 2075 HRN",
+     "Zadelpen": "BMC Roadmachine D-Shape Carbon, 15mm offset"
+    },
+    "ts": "20201030132217",
+    "url": "https://www.mantel.com/bmc-roadmachine-02-one"
+   }
+  },
+  "Roadmachine 02 TWO": {
+   "2019": {
+    "captured": "2020-08-07",
+    "image": "BMC/years/roadmachine02two_2019_mantel.jpg",
+    "price": 2999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000",
+     "Buitenband": "Vittoria Rubino Pro 28mm",
+     "Cassette": "Shimano Ultegra 11-32t",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "8,5 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra R8020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 02, ergo top shape, compact bend",
+     "Stuurpen": "BMC",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mavic Aksium Elite",
+     "Zadel": "Selle Royal 2075 HRN",
+     "Zadelpen": "BMC Roadmachine 01 'D' Premium Carbon, 15mm offset"
+    },
+    "ts": "20200807182934",
+    "url": "https://www.mantel.com/be-fr/bmc-roadmachine-02-two-2019"
+   },
+   "2020": {
+    "captured": "2021-12-08",
+    "image": "BMC/years/roadmachine02two_2020_mantel.jpg",
+    "price": 3299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Vittoria Rubino, 28mm",
+     "Cassette": "Shimano Ultegra 11-32T",
+     "Crankstel": "Shimano Ultegra 50-34T",
+     "Gewicht": "8,3 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem, SM-RT800 Rotors (160 /140)",
+     "Shifter": "Shimano Ultegra Hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 02",
+     "Stuurlint": "BMC",
+     "Stuurpen": "BMC RSM01",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss E 1850 Spline db 23",
+     "Zadel": "Selle Royal 2075 HRN",
+     "Zadelpen": "BMC D-Shape Carbon, 15mm offset"
+    },
+    "ts": "20211208135538",
+    "url": "https://www.mantel.com/bmc-roadmachine-02-two"
+   }
+  },
+  "Roadmachine FIVE": {
+   "2022": {
+    "captured": "2022-12-02",
+    "image": "BMC/years/roadmachinefive_2022_mantel.jpg",
+    "price": 3649.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000",
+     "Bottom bracket": "PF86",
+     "Buitenband": "Vittoria RUBINO, 28mm",
+     "Cassette": "Shimano Ultegra 11-32T",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewichtslimiet": "110 kg",
+     "Ketting": "Ultegra 11 speed",
+     "Material": "Carbon Premium Carbon",
+     "Naaf achter": "RXC-1425",
+     "Naaf voor": "CL-712",
+     "Rem": "Hydraulische schijfrem, Shimano Ultegra Hydraulic Disc",
+     "Shifter": "Shimano Ultegra R8000 2x11 speed",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 03, Ergo Top Shape, Compact Bend",
+     "Stuurpen": "BMC RSM01",
+     "Velg": "Open Disc",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Zadel": "Fizik Taiga",
+     "Zadelpen": "BMC Premium Carbon D-Shaped Seatpost • 15mm Offset"
+    },
+    "ts": "20221202231304",
+    "url": "https://www.mantel.com/bmc-roadmachine-five"
+   }
+  },
+  "Roadmachine FOUR": {
+   "2021": {
+    "captured": "2021-09-23",
+    "image": "BMC/years/roadmachinefour_2021_mantel.jpg",
+    "price": 2699.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000, lange kooi",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Vittoria Rubino, 28mm",
+     "Cassette": "Shimano 105 R7000 11-32",
+     "Crankstel": "Shimano 105 R7000",
+     "Gewicht": "8,5 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem R7000 hydraulic, Hydraulic Disc",
+     "Shifter": "Shimano 105 R7000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC BMC RAB 02, ergo top shape, compact bend",
+     "Stuurlint": "BMC",
+     "Stuurpen": "BMC BMC RSM01, w/ computer and camera mount",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mavic Open Disc",
+     "Zadel": "Fizik Taiga",
+     "Zadelpen": "BMC 01 Premium Carbon D-Shape"
+    },
+    "ts": "20210923175249",
+    "url": "https://www.mantel.com/bmc-roadmachine-four"
+   }
+  },
+  "Roadmachine ONE": {
+   "2021": {
+    "captured": "2022-08-07",
+    "image": "BMC/years/roadmachineone_2021_mantel.jpg",
+    "price": 4999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Force eTap AXS",
+     "Bottom bracket": "PF86",
+     "Buitenband": "Vittoria Rubino, 28mm",
+     "Cassette": "SRAM Force XG-1270, 10-36T",
+     "Crankstel": "SRAM Force eTap AXS",
+     "Gewicht": "8,3 kg",
+     "Ketting": "FORCE 12 speed",
+     "Material": "Carbon Premium Carbon",
+     "Naaf achter": "E 1800 SPLINE db 32",
+     "Naaf voor": "E 1800 SPLINE db 32",
+     "Rem": "Hydraulische schijfrem, AXS HRD, Centerline XR Rotors (160/160)",
+     "Shifter": "Sram Force eTap AXS HRD",
+     "Shifter_speed": "24 versnellingen",
+     "Spaken": "RVS Straightpull",
+     "Stuur": "BMC RAB 02, ergo top shape, compact bend",
+     "Stuurpen": "BMC ICS 01 - Integrated Cockpit Design, w/ computer and camera mount",
+     "Velg": "E 1800 SPLINE db 32",
+     "Voorderailleur": "Sram Force eTap AXS",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss E 1800",
+     "Zadel": "Fizik Taiga",
+     "Zadelpen": "BMC 01 Premium Carbon D-Shape • 15mm offset"
+    },
+    "ts": "20220807221025",
+    "url": "https://www.mantel.com/bmc-roadmachine-one"
+   }
+  },
+  "Roadmachine SEVEN": {
+   "2022": {
+    "captured": "2022-11-27",
+    "image": "BMC/years/roadmachineseven_2022_mantel.jpg",
+    "price": 2899.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 RD7000 11speed",
+     "Bottom bracket": "PF86",
+     "Buitenband": "Vittoria RUBINO, 28mm",
+     "Cassette": "Shimano 105 11-32T 11 speed",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewichtslimiet": "110 kg",
+     "Ketting": "105 11 speed",
+     "Material": "Carbon Premium Compliance Concept Endurance",
+     "Naaf achter": "RXC-1425, Thru Axle",
+     "Naaf voor": "CL-712",
+     "Rem": "Hydraulische schijfrem, RT54 Rotors (160/160)",
+     "Shifter": "Shimano 105 R7000 2x11 speed",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 03, Ergo Top Shape, Compact Bend",
+     "Stuurpen": "BMC RSM01",
+     "Velg": "23mm",
+     "Voorderailleur": "Shimano 105 FD7000",
+     "Voorvork": "Carbon",
+     "Zadel": "Selle Royal",
+     "Zadelpen": "BMC Roadmachine Premium Carbon D-Shaped Seatpost • 15mm Offset"
+    },
+    "ts": "20221127013258",
+    "url": "https://www.mantel.com/bmc-roadmachine-seven"
+   }
+  },
+  "Roadmachine THREE": {
+   "2021": {
+    "captured": "2021-05-08",
+    "image": "BMC/years/roadmachinethree_2021_mantel.jpg",
+    "price": 3499.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000, lange kooi",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Vittoria Rubino, 28mm",
+     "Cassette": "Shimano Ultegra R8000 11-32",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewicht": "8,3 kg",
+     "Material": "Carbon",
+     "Rem": "hydraulic",
+     "Shifter": "Shimano Ultegra R8000 hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC BMC RAB 02, ergo top shape, compact bend",
+     "Stuurlint": "BMC",
+     "Stuurpen": "BMC MC RSM01, w/ computer and camera mount",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Shimano RS-370",
+     "Zadel": "Fizik Taiga",
+     "Zadelpen": "BMC 01 Premium Carbon D-Shape"
+    },
+    "ts": "20210508041209",
+    "url": "https://www.mantel.com/bmc-roadmachine-three"
+   }
+  },
+  "Teammachine ALR Disc ONE": {
+   "2019": {
+    "captured": "2019-11-22",
+    "image": "BMC/years/teammachinealrdiscone_2019_mantel.jpg",
+    "price": 1799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Vittoria Zaffiro Pro 25mm",
+     "Cassette": "Shimano 105 11-32",
+     "Material": "Aluminium",
+     "Rem": "Freins à disque hydrauliques",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC",
+     "Stuurpen": "BMC",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Shimano RS - 170",
+     "Zadelpen": "BMC Teammachine SLR02 \"D\" Carbon, 15mm offset"
+    },
+    "ts": "20191122211954",
+    "url": "https://www.mantel.com/be-fr/bmc-teammachine-alr-disc-one"
+   }
+  },
+  "Teammachine ALR Disc TWO": {
+   "2021": {
+    "captured": "2021-09-24",
+    "image": "BMC/years/teammachinealrdisctwo_2021_mantel.jpg",
+    "price": 1999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 r7000 lange kooi",
+     "Bottom bracket": "Shimano PF86",
+     "Buitenband": "Vittoria Zaffiro Pro V 25mm",
+     "Cassette": "Shimano 105 11-32",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewicht": "9,0 kg",
+     "Material": "Aluminium / ALR Premium Alloy",
+     "Rem": "Hydraulische Schijfrem, R7020 Hydraulic Disc",
+     "Shifter": "Shimano 105 R7020 Hydraulic Disc",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 03",
+     "Stuurlint": "BMC",
+     "Stuurpen": "BMC RSM01",
+     "Voorderailleur": "Shimano 105 r7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mavic Open Disc",
+     "Zadel": "VL-1489",
+     "Zadelpen": "BMC Carbon D-Shape"
+    },
+    "ts": "20210924030755",
+    "url": "https://www.mantel.com/bmc-teammachine-alr-disc-two"
+   }
+  },
+  "Teammachine ALR TWO": {
+   "2023": {
+    "captured": "2022-12-04",
+    "image": "BMC/years/teammachinealrtwo_2023_mantel.jpg",
+    "price": 2799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Vittoria Zaffiro Pro",
+     "Cassette": "Shimano 105 11-32T",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewicht": "9 kg",
+     "Gewichtslimiet": "110 kg",
+     "Ketting": "Shimano",
+     "Material": "Aluminium ALR Disc Premium",
+     "Maximale bandenmaat": "28mm",
+     "Naaf achter": "RXC-1425",
+     "Naaf voor": "712",
+     "Rem": "Hydraulische schijfrem, Shimano 105",
+     "Remgreep": "Shimano",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 03 - Ergo Top Shape - Compact",
+     "Stuurpen": "BMC RSM01",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Zadel": "Fizik Antares R7",
+     "Zadelpen": "BMC Carbon D-Shaped, 15mm Offset"
+    },
+    "ts": "20221204051042",
+    "url": "https://www.mantel.com/bmc-teammachine-alr-two"
+   }
+  },
+  "Teammachine SLR 02 DISC TWO": {
+   "2019": {
+    "captured": "2020-10-27",
+    "image": "BMC/years/teammachineslr02disctwo_2019_mantel.jpg",
+    "price": 2899.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Vittoria Rubino Pro 25mm",
+     "Cassette": "Shimano Ultegra 11-30",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "8,1 kg",
+     "Material": "Carbon SLR02",
+     "Rem": "Hydraulische Schijfrem Ultegra 160/140 schijven",
+     "Shifter": "Shimano Ultegra R8020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC",
+     "Stuurpen": "BMC",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Shimano RS-370",
+     "Zadel": "Fizik",
+     "Zadelpen": "BMC"
+    },
+    "ts": "20201027042220",
+    "url": "https://www.mantel.com/bmc-teammachine-slr02-disc-two-2019"
+   },
+   "2020": {
+    "captured": "2020-10-24",
+    "image": "BMC/years/teammachineslr02disctwo_2020_mantel.jpg",
+    "price": 4199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Buitenband": "Vittoria Rubino, 25mm",
+     "Cassette": "Shimano Ultegra 11-30T",
+     "Crankstel": "Shimano Ultegra 52-36T",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Di2, SM-RT800 Rotors (160 /140)",
+     "Shifter": "Shimano Ultegra Di2",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 02, ergo top shape, compact bend",
+     "Stuurpen": "BMC RSM01",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Mavic Aksium Elite UST Disc",
+     "Zadel": "Fizik Antares R7, manganese",
+     "Zadelpen": "BMC Teammachine SLR02 D-Shape Carbon, 15mm offset"
+    },
+    "ts": "20201024032752",
+    "url": "https://www.mantel.com/bmc-teammachine-slr02-disc-two"
+   }
+  },
+  "Teammachine SLR THREE": {
+   "2021": {
+    "captured": "2021-06-19",
+    "image": "BMC/years/teammachineslrthree_2021_mantel.jpg",
+    "price": 3599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000, short cage",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "Vittoria Rubino, 25mm",
+     "Cassette": "Shimano Ultegra R8000, 11-30T",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewicht": "8 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra Hydraulic Disc",
+     "Shifter": "Shimano Ultegra R8000 hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "BMC RAB 02, ergo top shape, compact bend",
+     "Stuurlint": "BMC",
+     "Stuurpen": "BMC RSM01, w/ computer and camera mount",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss P 1850 Spline db 23",
+     "Zadel": "Fizik Antares R7",
+     "Zadelpen": "BMC Teammachine Carbon D-Shape Seatpost • 15mm offset"
+    },
+    "ts": "20210619031007",
+    "url": "https://www.mantel.com/bmc-teammachine-slr-three"
+   }
+  },
+  "URS ONE": {
+   "2021": {
+    "captured": "2021-05-06",
+    "image": "BMC/years/ursone_2021_mantel.jpg",
+    "price": 2799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "SRAM Apex APEX 1 Long Cage",
+     "Bottom bracket": "Shimano",
+     "Buitenband": "WTB Raddler, 40 mm",
+     "Cassette": "SRAM 1130 APEX, 11-42T",
+     "Crankstel": "SRAM Apex",
+     "Gewicht": "9,1 kg",
+     "Gewichtslimiet": "120 kg",
+     "Material": "Carbon URS Premium Carbon",
+     "Rem": "Hydraulische Schijfrem, Sram Apex1 HRD",
+     "Shifter": "SRAM Apex 1 HRD",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Easton EA50 AX",
+     "Stuurpen": "BMC MSM02",
+     "Voorvork": "Carbon",
+     "Wiel voor": "DT Swiss C1850 Spline",
+     "Zadel": "WTB SL8 Cromoly Medium",
+     "Zadelpen": "BMC URS Premium Carbon D-Shape"
+    },
+    "ts": "20210506225631",
+    "url": "https://www.mantel.com/bmc-urs-one"
+   },
+   "2023": {
+    "captured": "2022-11-30",
+    "image": "BMC/years/ursone_2023_mantel.jpg",
+    "price": 3799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "Raddler",
+     "Achterderailleur": "SRAM Rival 1 grote kooi",
+     "Buitenband": "Raddler",
+     "Cassette": "SRAM PG-1130 11-42T",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "RIVAL 11 Speed",
+     "Material": "Carbon",
+     "Maximale bandenmaat": "42mm",
+     "Naaf achter": "370 Spline Disc",
+     "Naaf voor": "370 Spline Disc",
+     "Rem": "Hydraulische schijfrem",
+     "Shifter": "SRAM",
+     "Shifter_speed": "11 versnellingen",
+     "Voorvork": "Carbon",
+     "Zadel": "WTB",
+     "Zadelpen": "BMC"
+    },
+    "ts": "20221130074621",
+    "url": "https://www.mantel.com/bmc-urs-one-2023-gravel-bike"
+   }
+  },
+  "UnReStricted One (URS) V1": {
+   "2022": {
+    "captured": "2022-05-23",
+    "image": "BMC/years/unrestrictedoneursv1_2022_mantel.jpg",
+    "price": 2999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Apex1",
+     "Bottom bracket": "PF86",
+     "Buitenband": "WTB Raddler, 40mm",
+     "Cassette": "SRAM PG 1130 APEX 11-42T",
+     "Crankstel": "SRAM Apex Single",
+     "Gewicht": "9,2 kg",
+     "Gewichtslimiet": "120 kg",
+     "Ketting": "APEX 11 Speed",
+     "Material": "Carbon URS Premium Carbon",
+     "Naaf achter": "370 Spline Disc 12x142mm Thru-Axle",
+     "Naaf voor": "370 Spline Disc 12x100mm Thru-Axle",
+     "Rem": "Hydraulische schijfrem, APEX HRD-A1",
+     "Shifter": "SRAM Apex HRD 1x11 speed",
+     "Shifter_speed": "11 versnellingen",
+     "Spaken": "DT Swiss",
+     "Stuur": "Easton EA50 AX",
+     "Stuurpen": "BMC MSM02",
+     "Velg": "C1850 SPLINE, 23mm",
+     "Voorvork": "Carbon",
+     "Zadel": "WTB SL8 Steel Medium",
+     "Zadelpen": "BMC URS Premium Carbon D-Shaped Seatpost • 0mm Offset"
+    },
+    "ts": "20220523203601",
+    "url": "https://www.mantel.com/bmc-unrestricted-one-urs-v1"
+   }
+  }
+ },
+ "source": "Mantel.com (Dutch bike shop), copies in the Wayback Machine",
+ "years": [
+  2019,
+  2020,
+  2021,
+  2022,
+  2023
+ ]
+}

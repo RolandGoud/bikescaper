@@ -140,6 +140,8 @@ def canyon_colour_image(sku, colour_id):
 
 def photo_years(bike):
     """Model years in the brand's own photo file names for this model (Trek "-26-", Canyon "2026_FULL_")."""
+    if bike.get("source") == "mantel":  # a line from Mantel's old pages: the brand's photos are of today's bikes
+        return []
     if bike["brand"] == "Canyon":
         return sorted({int(year) for _key, year, _path in canyon_matches(bike["name"])})
     if bike["brand"] == "Trek":
@@ -415,7 +417,8 @@ def _years_file(*parts):
 def year_specs(brand, name, _cache={}):
     """The model's spec sheets from earlier years: the brand's own pages for old models
     (data/years/site/<Brand>.json, see brand_scrapers/history.py) and, for years those lack,
-    Wayback Machine copies of the brand's NL site (data/years/<Brand>.json).
+    Wayback Machine copies of the brand's NL site (data/years/<Brand>.json), and for years neither has, copies of
+    the Dutch shop Mantel's pages (data/years/mantel/<Brand>.json, see brand_scrapers/mantel.py).
 
     {"checked": [years looked up], "checked_on": date, "years": {year: {captured, url, price, specs,
     source?, sheet_years?, sheet_name?, colours?, price_url?, price_captured?} or {captured, url, unreadable: true}},
@@ -424,15 +427,15 @@ def year_specs(brand, name, _cache={}):
     """
     if brand not in _cache:
         _cache[brand] = (_years_file(f"{brand}.json"), _years_file("site", f"{brand}.json"),
-                         _years_file("tourbike", f"{brand}.json"))
-    archive, site, tourbike = _cache[brand]
+                         _years_file("tourbike", f"{brand}.json"), _years_file("mantel", f"{brand}.json"))
+    archive, site, tourbike, mantel = _cache[brand]
     ours = {}
-    for f in (archive, site):
+    for f in (archive, site, mantel):
         for other, sheets in (f or {}).get("models", {}).items():
             ours.setdefault(other, set()).update(sheets)
     list_prices = {y: e for y, e in tour_bike_prices((tourbike or {}).get("models", {}), name, ours).items()
                    if int(y) >= FIRST_YEAR}
-    if not archive and not site:
+    if not archive and not site and not mantel:
         return {"list_prices": list_prices} if list_prices else {}
     years = dict((archive or {}).get("models", {}).get(name.strip(), {}))
     for year, entry in (site or {}).get("models", {}).get(name.strip(), {}).items():
@@ -442,10 +445,15 @@ def year_specs(brand, name, _cache={}):
             if not entry.get("price") and copy.get("price"):
                 entry = dict(entry, price=copy["price"], price_url=copy.get("url"), price_captured=copy.get("captured"))
             years[year] = entry
+    # A Dutch shop's copy (brand_scrapers/mantel.py) only fills the years the brand's own sheets lack. Its years
+    # don't count as checked: a year Mantel didn't sell the bike says nothing about whether the brand did.
+    for year, entry in (mantel or {}).get("models", {}).get(name.strip(), {}).items():
+        if entry.get("specs") and not (years.get(year) or {}).get("specs"):
+            years[year] = entry
     found = [f for f in (archive, site) if f]
     # Nothing from before FIRST_YEAR: we keep no data for those years.
     out = {"checked": sorted({y for f in found for y in f["years"] if int(y) >= FIRST_YEAR}),
-           "checked_on": max(f["checked_on"] for f in found),
+           "checked_on": max([f["checked_on"] for f in found + [mantel] if f and f.get("checked_on")] or [None]),
            "years": {y: e for y, e in years.items() if int(y) >= FIRST_YEAR}}
     if list_prices:
         out["list_prices"] = list_prices
@@ -551,10 +559,12 @@ def add_other_scrapes(conn):
 
 def add_archived(conn):
     """Add the lines the brands no longer sell (data/years/archived/<Brand>.json, brand_scrapers/history.py
-    --archived): Émonda SLR, Defy Advanced SL. Existing rows are left alone, so saved checks keep their matches."""
+    --archived): Émonda SLR, Defy Advanced SL; then those only Mantel's old pages list (data/years/mantel/lines/,
+    brand_scrapers/mantel.py). Existing rows are left alone, so saved checks keep their matches."""
     count = 0
     have = {r[0] for r in conn.execute("SELECT slug FROM models")}
-    for path in sorted(glob.glob(os.path.join(ROOT, "data", "years", "archived", "*.json"))):
+    for path in sorted(glob.glob(os.path.join(ROOT, "data", "years", "archived", "*.json"))
+                       + glob.glob(os.path.join(ROOT, "data", "years", "mantel", "lines", "*.json"))):
         brand = os.path.splitext(os.path.basename(path))[0]
         try:
             with open(path, encoding="utf-8") as fh:

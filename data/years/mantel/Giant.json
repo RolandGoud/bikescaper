@@ -1,0 +1,1350 @@
+{
+ "checked_on": "2026-11-01",
+ "models": {
+  "AnyRoad 2": {
+   "2019": {
+    "captured": "2021-01-18",
+    "image": "Giant/years/anyroad2_2019_mantel.jpg",
+    "price": 849.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Sora",
+     "Buitenband": "Giant P-SLX 2, puncture protect, 700x32",
+     "Cassette": "Shimano",
+     "Crankstel": "FSA",
+     "Gewicht": "10,5 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Aluminium",
+     "Rem": "Mechanische schijfrem, TRP",
+     "Shifter": "Shimano Sora",
+     "Shifter_speed": "18 versnellingen",
+     "Stuur": "Giant",
+     "Stuurpen": "Giant",
+     "Voorderailleur": "Shimano Sora",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant GX28 disc wheelset",
+     "Zadel": "Giant Contact",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20210118180016",
+    "url": "https://www.mantel.com/giant-anyroad-2-gravel-bike"
+   }
+  },
+  "Contend 3": {
+   "2020": {
+    "captured": "2020-11-27",
+    "image": "Giant/years/contend3_2020_mantel.jpg",
+    "price": 649.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Claris",
+     "Buitenband": "Giant P-R3 AC, 700x28, folding",
+     "Cassette": "Shimano CS-HG50 8 11-34",
+     "Crankstel": "FSA Tempo",
+     "Material": "Aluminium ALUXX-Grade",
+     "Rem": "Velgremmen, TK-B177",
+     "Shifter": "Shimano Claris",
+     "Shifter_speed": "16 versnellingen",
+     "Stuur": "Giant Connect",
+     "Stuurpen": "Giant Sport",
+     "Voorderailleur": "Shimano Claris",
+     "Voorvork": "Aluminium",
+     "Wiel voor": "Giant S-R3",
+     "Zadel": "Giant Contact Forward",
+     "Zadelpen": "Giant D-Fuse"
+    },
+    "ts": "20201127015943",
+    "url": "https://www.mantel.com/giant-contend-3-2020"
+   }
+  },
+  "Contend AR 1": {
+   "2021": {
+    "captured": "2021-05-16",
+    "image": "Giant/years/contendar1_2021_mantel.jpg",
+    "price": 1549.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000",
+     "Buitenband": "Giant Gavia Fondo 2, 700X32c, tubeless",
+     "Cassette": "Shimano 105 R7000, 11-34",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewicht": "9,4 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische Schijfrem, R7020, hydraulic disc",
+     "Shifter": "Shimano 105 R7020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant D-Fuse SL",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant P-R2 Disc wheelset",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant D-Fuse composite"
+    },
+    "ts": "20210516212415",
+    "url": "https://www.mantel.com/giant-contend-ar-1"
+   }
+  },
+  "Contend AR 2": {
+   "2021": {
+    "captured": "2022-01-23",
+    "image": "Giant/years/contendar2_2021_mantel.jpg",
+    "price": 1199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra 4700",
+     "Buitenband": "Giant Gavia Fondo 2, 700x32c, tubeless",
+     "Cassette": "Shimano Tiagra 4700, 11-34",
+     "Crankstel": "Shimano Tiagra 4700",
+     "Gewicht": "9,9 kg",
+     "Material": "Aluminium / ALUXX-Grade",
+     "Rem": "Mechanische schijfrem, MD-C550",
+     "Shifter": "Shimano Tiagra 4720",
+     "Shifter_speed": "20 versnellingen",
+     "Stuur": "Giant Connect",
+     "Stuurpen": "Giant Sport",
+     "Voorderailleur": "Shimano Tiagra 4700",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant S-R2 Disc wheelset",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant D-Fuse Composite"
+    },
+    "ts": "20220123222747",
+    "url": "https://www.mantel.com/giant-contend-ar-2"
+   }
+  },
+  "Contend AR 3": {
+   "2022": {
+    "captured": "2022-12-03",
+    "image": "Giant/years/contendar3_2022_mantel.jpg",
+    "price": 1199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "S-R3 AC, 700x32c",
+     "Achterderailleur": "Shimano Sora",
+     "Bottom bracket": "Cartridge",
+     "Buitenband": "S-R3 AC, 700x32c",
+     "Cassette": "Shimano CS-HG50, 11x34",
+     "Crankstel": "Shimano Sora 34/50",
+     "Gewicht": "9,7 kg",
+     "Ketting": "X9",
+     "Material": "Aluminium",
+     "Naaf achter": "Giant",
+     "Naaf voor": "Giant",
+     "Rem": "Mechanische schijfrem, MD-C550",
+     "Remgreep": "Shimano",
+     "Shifter": "Shimano Sora",
+     "Shifter_speed": "18 versnellingen",
+     "Stuur": "Giant Connect",
+     "Stuurpen": "Giant Sport",
+     "Voorderailleur": "Shimano Sora",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant S-R2 Disc",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant D-Fuse, alloy"
+    },
+    "ts": "20221203155253",
+    "url": "https://www.mantel.com/giant-contend-ar-3"
+   }
+  },
+  "Contend SL 1": {
+   "2018": {
+    "captured": "2020-08-08",
+    "image": "Giant/years/contendsl1_2018_mantel.jpg",
+    "price": 899.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 5800",
+     "Buitenband": "Giant Gavia AC 2",
+     "Cassette": "Shimano 105 5800, 11x32",
+     "Crankstel": "Shimano 5800",
+     "Material": "Aluminium",
+     "Rem": "Velgremmen, TK-R540",
+     "Shifter": "Shimano 105 5800",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Connect",
+     "Stuurpen": "Giant Sport",
+     "Voorderailleur": "Shimano 105 5800",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2",
+     "Zadel": "Giant Contact (Forward)",
+     "Zadelpen": "Giant D-Fuse Composite"
+    },
+    "ts": "20200808181044",
+    "url": "https://www.mantel.com/be-fr/giant-contend-sl-1"
+   }
+  },
+  "Contend SL 1 Disc": {
+   "2018": {
+    "captured": "2019-10-15",
+    "image": "Giant/years/contendsl1disc_2018_mantel.jpg",
+    "price": 1119.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 5800",
+     "Balhoofdstel": "Giant",
+     "Buitenband": "Giant Gavia AC 2 28mm",
+     "Cassette": "Shimano 105 11x32t",
+     "Crankstel": "Shimano RS510 50 / 34t",
+     "Gewicht": "9,5 kg",
+     "Material": "Aluminium Aluxx sl",
+     "Rem": "Hydraulische schijfrem",
+     "Shifter": "Shimano 105 5800",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Connect",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano 105 5800",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2 Disc",
+     "Zadel": "Giant Contact (Forward)",
+     "Zadelpen": "Giant D-Fuse Composite"
+    },
+    "ts": "20191015084443",
+    "url": "https://www.mantel.com/be-fr/giant-contend-sl-1-disc-2018"
+   },
+   "2019": {
+    "captured": "2022-01-23",
+    "image": "Giant/years/contendsl1disc_2019_mantel.jpg",
+    "price": 1349.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Giant Gavia AC 2 Tubeless, 700x28",
+     "Cassette": "Shimano 105 11x34",
+     "Crankstel": "Shimano",
+     "Gewicht": "9,8 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische schijfrem, Giant",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant",
+     "Stuurpen": "Giant",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant P-R2 Disc",
+     "Zadel": "Giant Contact (forward)",
+     "Zadelpen": "Giant Carbon D-Fuse"
+    },
+    "ts": "20220123004018",
+    "url": "https://www.mantel.com/giant-contend-sl-1-disc"
+   }
+  },
+  "Contend SL 2 Disc": {
+   "2019": {
+    "captured": "2019-09-22",
+    "image": "Giant/years/contendsl2disc_2019_mantel.jpg",
+    "price": 1099.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra",
+     "Buitenband": "Giant",
+     "Cassette": "Shimano Tiagra",
+     "Crankstel": "Shimano Tiagra",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische Schijfrem, Giant / Shimano Tiagra",
+     "Shifter": "Shimano Tiagra",
+     "Stuur": "Giant",
+     "Stuurpen": "Giant",
+     "Voorderailleur": "Shimano Tiagra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20190922015144",
+    "url": "https://www.mantel.com/be/giant-contend-sl-2-disc-2019"
+   }
+  },
+  "Defy Advanced 1": {
+   "2021": {
+    "captured": "2021-05-13",
+    "image": "Giant/years/defyadvanced1_2021_mantel.jpg",
+    "price": 2599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra RX800-GS",
+     "Buitenband": "Giant Gavia Fondo 1, tubeless, 700x32c, folding",
+     "Cassette": "Shimano Ultegra R8000, 11-34",
+     "Crankstel": "Shimano FC-RS510",
+     "Gewicht": "8,8 kg",
+     "Material": "Carbon Advanced-Grade",
+     "Rem": "Hydraulische Schijfrem, R8020",
+     "Shifter": "Shimano Ultegra R8020 2x11",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL D-Fuse",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano Ultegra R8020",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant P-R2 Disc wheelset",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant D-Fuse, composite"
+    },
+    "ts": "20210513190619",
+    "url": "https://www.mantel.com/giant-defy-advanced-1"
+   }
+  },
+  "Defy Advanced 1-HRD": {
+   "2018": {
+    "captured": "2019-10-15",
+    "image": "Giant/years/defyadvanced1hrd_2018_mantel.jpg",
+    "price": 1799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000",
+     "Buitenband": "Giant Gavia AC 1 Tubeless",
+     "Cassette": "Shimano 105 11-32",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewicht": "8,7 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem",
+     "Shifter": "Shimano RS505 Hydraulic",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2 Disc",
+     "Zadel": "Giant Contact (Neutral)",
+     "Zadelpen": "Giant D-Fuse Composite"
+    },
+    "ts": "20191015061439",
+    "url": "https://www.mantel.com/be-fr/giant-defy-advanced-1-hrd"
+   }
+  },
+  "Defy Advanced 2": {
+   "2022": {
+    "captured": "2022-12-02",
+    "image": "Giant/years/defyadvanced2_2022_mantel.jpg",
+    "price": 2399.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "Gavia Fondo 1, tubeless, 700x32c, folding",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Gavia Fondo 1, tubeless, 700x32c, folding",
+     "Cassette": "Shimano 105 Shimano 105, 11x34",
+     "Crankstel": "Shimano 105 FC-R510",
+     "Ketting": "KMC X11EL-1",
+     "Material": "Carbon Advanced-Grade Composite, disc",
+     "Maximale bandenmaat": "35 mm",
+     "Rem": "Hydraulische schijfrem, R7020 hydraulic",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Giant Contact SL D-Fuse",
+     "Stuurlint": "Stratus Lite 3.0",
+     "Stuurpen": "Giant Giant Contact",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+     "Wiel voor": "Giant Giant P-R2 Disc wheelset",
+     "Zadel": "Giant Giant Approach",
+     "Zadelpen": "Giant Giant D-Fuse, composite, 14mm offset"
+    },
+    "ts": "20221202230822",
+    "url": "https://www.mantel.com/giant-defy-advanced-2"
+   }
+  },
+  "Defy Advanced Pro 1 Disc": {
+   "2019": {
+    "captured": "2020-08-04",
+    "image": "Giant/years/defyadvancedpro1disc_2019_mantel.jpg",
+    "price": 2799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x28, folding",
+     "Cassette": "Shimano Ultegra 11-34",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "7,8 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SLR D-Fuse",
+     "Stuurpen": "Giant Contact SL Stealth",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1 Disc WheelSystem, 12mm thru-axle, Center Lock",
+     "Zadel": "Giant Contact SL (neutral)",
+     "Zadelpen": "Giant D-Fuse SL composite"
+    },
+    "ts": "20200804084723",
+    "url": "https://www.mantel.com/be-fr/giant-defy-advanced-pro-1-disc"
+   }
+  },
+  "Defy Advanced Pro 2": {
+   "2018": {
+    "captured": "2019-07-24",
+    "image": "Giant/years/defyadvancedpro2_2018_mantel.jpg",
+    "price": null,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Giant Gavia AC 1 Tubeless",
+     "Cassette": "Shimano 105 11-32T",
+     "Crankstel": "Shimano RS510",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact SL",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1 Disc WheelSystem",
+     "Zadel": "Giant Contact SL",
+     "Zadelpen": "Giant D-Fuse Composite"
+    },
+    "ts": "20190724065900",
+    "url": "https://www.mantel.com/be/giant-defy-advanced-pro"
+   },
+   "2019": {
+    "captured": "2019-10-15",
+    "image": "Giant/years/defyadvancedpro2_2019_mantel.jpg",
+    "price": 2399.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000",
+     "Buitenband": "Giant AC 1 Tubeless",
+     "Cassette": "Shimano 105 11-34",
+     "Crankstel": "Shimano 105 R7000 compact",
+     "Gewicht": "8,1 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem, R7020",
+     "Shifter": "Shimano 105 R7020",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL D-Fuse",
+     "Stuurpen": "Giant SL Stealth",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1 disc",
+     "Zadel": "Giant Contact SL",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20191015184202",
+    "url": "https://www.mantel.com/be-fr/giant-defy-advanced-pro-2-2019"
+   }
+  },
+  "Liv Langma Advanced 0": {
+   "2019": {
+    "captured": "2022-01-23",
+    "image": "Giant/years/livlangmaadvanced0_2019_mantel.jpg",
+    "price": 2499.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2",
+     "Balhoofdstel": "Giant",
+     "Buitenband": "Giant Gavia AC 1",
+     "Cassette": "Shimano Ultegra 11x30",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "7,6 kg",
+     "Material": "Carbon / Advanced-Grade",
+     "Rem": "Velgremmen, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra Di2",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano Ultegra Di2",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant P-R2",
+     "Zadel": "Liv Contact SL Forward",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20220123033118",
+    "url": "https://www.mantel.com/giant-langma-advanced-0-2019-dames-racefiets"
+   }
+  },
+  "Propel Advanced 0 Di2": {
+   "2018": {
+    "captured": "2019-12-11",
+    "image": "Giant/years/propeladvanced0di2_2018_mantel.jpg",
+    "price": null,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 R8050",
+     "Buitenband": "Giant Gavia Race 1 Tubeless",
+     "Cassette": "Shimano Ultegra 11x28",
+     "Crankstel": "Shimano Ultegra R8000 52/36T",
+     "Gewicht": "8,2 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, Giant Speedcontrol",
+     "Shifter": "Shimano Ultegra Di2 R8050",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano Ultegra Di2 R8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SL 1 Aero WheelSystem",
+     "Zadel": "Giant Contact (Forward)",
+     "Zadelpen": "Giant Vector Composite"
+    },
+    "ts": "20191211000818",
+    "url": "https://www.mantel.com/giant-propel-advanced-0?r=L2FhbmJpZWRpbmdlbiNzdGFydDIx"
+   }
+  },
+  "Propel Advanced 1 Disc": {
+   "2020": {
+    "captured": "2022-01-19",
+    "image": "Giant/years/propeladvanced1disc_2020_mantel.jpg",
+    "price": 3299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Giant Gavia Course AC 1",
+     "Cassette": "Shimano Ultegra 11x30",
+     "Crankstel": "Shimano Ultegra 36/52",
+     "Material": "Carbon / Advanced-Grade Composite",
+     "Rem": "Hydraulische schijfrem, Shimano Ultegra Hydraulic",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL Aero",
+     "Stuurpen": "Giant Contact SL Aero",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR 1 Aero Disc WheelSystem",
+     "Zadel": "Giant Contact (Forward)",
+     "Zadelpen": "Giant Vector"
+    },
+    "ts": "20220119112339",
+    "url": "https://www.mantel.com/giant-propel-advanced-1-disc-2020"
+   },
+   "2021": {
+    "captured": "2021-06-20",
+    "image": "Giant/years/propeladvanced1disc_2021_mantel.jpg",
+    "price": 3699.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8020",
+     "Buitenband": "Giant Gavia AC 1, tubeless, 700x25c, folding",
+     "Cassette": "Shimano Ultegra R8000, 11-30",
+     "Crankstel": "Shimano Ultegra R8020",
+     "Gewicht": "8,2 kg",
+     "Material": "Carbon Advanced-Grade",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra Hydraulic Disc",
+     "Shifter": "Shimano Ultegra R8020 2x11",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL Aero",
+     "Stuurpen": "Giant Contact SL Aero",
+     "Voorderailleur": "Shimano Ultegra R8020",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR 2 Carbon Disc WheelSystem ( F:42mm, R:65mm)",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Vector, composite"
+    },
+    "ts": "20210620135149",
+    "url": "https://www.mantel.com/giant-propel-advanced-1-disc"
+   }
+  },
+  "Propel Advanced 2": {
+   "2019": {
+    "captured": "2020-08-04",
+    "image": "Giant/years/propeladvanced2_2019_mantel.jpg",
+    "price": 1599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000",
+     "Balhoofdstel": "Giant OverDrive",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 25mm",
+     "Cassette": "Shimano 105 11 - 30",
+     "Crankstel": "Shimano 105 R7000",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon Advanced-Grade Composite",
+     "Rem": "Velgremmen, Giant Speedcontrol",
+     "Shifter": "Shimano 105 R7000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant P-A2",
+     "Zadel": "Giant Contact forward",
+     "Zadelpen": "Giant Vector composite"
+    },
+    "ts": "20200804132046",
+    "url": "https://www.mantel.com/be-fr/giant-propel-advanced-2"
+   }
+  },
+  "Propel Advanced 2 Disc": {
+   "2021": {
+    "captured": "2022-08-16",
+    "image": "Giant/years/propeladvanced2disc_2021_mantel.jpg",
+    "price": 2599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7020",
+     "Buitenband": "Giant Gavia Course AC 1, tubeless, 700x25c, folding",
+     "Cassette": "Shimano 105 R7020, 11-30",
+     "Crankstel": "Shimano 105 R7020",
+     "Gewicht": "8,9 kg",
+     "Material": "Carbon Advanced-Grade",
+     "Rem": "Hydraulische schijfrem, R7020, hydraulic",
+     "Shifter": "Shimano 105 R7020 2x11",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL Aero",
+     "Stuurpen": "Giant Contact SL Aero",
+     "Voorderailleur": "Shimano 105 R7020",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant P-A2 Disc wheelset",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Vector, composite"
+    },
+    "ts": "20220816223446",
+    "url": "https://www.mantel.com/giant-propel-advanced-2-disc"
+   }
+  },
+  "Propel Advanced Pro 0": {
+   "2019": {
+    "captured": "2019-10-15",
+    "image": "Giant/years/propeladvancedpro0_2019_mantel.jpg",
+    "price": 3999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 RD-R8050",
+     "Balhoofdstel": "Giant OverDrive 2",
+     "Buitenband": "Giant Gavia AC 0 tubeless, 25mm",
+     "Cassette": "Shimano Ultegra CS-R8000, 11-30",
+     "Crankstel": "Shimano Ultegra FC-R8050",
+     "Gewicht": "7,6 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, Giant Speedcontrol",
+     "Shifter": "Shimano Ultegra Di2 ST-R8050",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SLR Aero",
+     "Stuurpen": "Giant Contact SL Aero",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1 Aero",
+     "Zadel": "Giant Contact SL forward",
+     "Zadelpen": "Giant Vector composite"
+    },
+    "ts": "20191015234627",
+    "url": "https://www.mantel.com/be-fr/giant-propel-advanced-pro-0"
+   }
+  },
+  "Propel Advanced Pro 1": {
+   "2019": {
+    "captured": "2019-09-20",
+    "image": "Giant/years/propeladvancedpro1_2019_mantel.jpg",
+    "price": 2999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+     "Cassette": "Shimano Ultegra 11-30",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "7.8 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL Aero",
+     "Stuurpen": "Giant Contact SL Aero",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1 Aero WheelSystem (F:42mm, R:65mm)",
+     "Zadel": "Giant",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20190920202518",
+    "url": "https://www.mantel.com/be/giant-propel-advanced-pro-1"
+   }
+  },
+  "Revolt 0": {
+   "2020": {
+    "captured": "2022-08-16",
+    "image": "Giant/years/revolt0_2020_mantel.jpg",
+    "price": 1599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Giant Crosscut AT 1",
+     "Cassette": "Shimano 105 11x34",
+     "Crankstel": "Praxis Albe 2D",
+     "Gewicht": "10,1 kg",
+     "Material": "Aluminium / ALUXX-Grade",
+     "Rem": "Hydraulische schijfrem, Shimano 105",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact XR D-Fuse",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant S-X2 Disc",
+     "Zadel": "Giant Contact Neutral",
+     "Zadelpen": "Giant D-Fuse"
+    },
+    "ts": "20220816222011",
+    "url": "https://www.mantel.com/giant-revolt-0-2020-gravel-bike"
+   },
+   "2021": {
+    "captured": "2021-05-07",
+    "image": "Giant/years/revolt0_2021_mantel.jpg",
+    "price": 1649.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano GRX RD-RX810",
+     "Buitenband": "Giant CrossCut AT 2 Tubeless, 700x38C",
+     "Cassette": "Shimano 105 R7000, 11-34",
+     "Crankstel": "Praxis Alba 2D",
+     "Gewicht": "9,9 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische Schijfrem, 400/600",
+     "Shifter": "Shimano GRX ST-RX600",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact XR D-Fuse",
+     "Stuurpen": "Giant Contact, 8-degree",
+     "Voorderailleur": "Shimano GRX FD-RX810-F",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant S-X2 Disc wheelset",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant D-Fuse, alloy"
+    },
+    "ts": "20210507011107",
+    "url": "https://www.mantel.com/giant-revolt-0-gravel-bike"
+   }
+  },
+  "Revolt Advanced 1": {
+   "2019": {
+    "captured": "2019-09-17",
+    "image": "Giant/years/revoltadvanced1_2019_mantel.jpg",
+    "price": 2199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Apex1",
+     "Buitenband": "Giant",
+     "Cassette": "SRAM XG-1150",
+     "Crankstel": "Sram Rival 1x",
+     "Gewicht": "9 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Sram Apex1 HRD",
+     "Shifter": "Sram Apex1",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Giant",
+     "Stuurpen": "Giant",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20190917205101",
+    "url": "https://www.mantel.com/be/giant-revolt-advanced-1"
+   }
+  },
+  "TCR Advanced 0": {
+   "2018": {
+    "captured": "2019-09-15",
+    "image": "Giant/years/tcradvanced0_2018_mantel.jpg",
+    "price": 2149.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 R8050",
+     "Buitenband": "Giant Gavia 1 Tubeless",
+     "Cassette": "Shimano 105 5800",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, R8000",
+     "Shifter": "Shimano Ultegra Di2 R8050",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano Ultegra R8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2",
+     "Zadel": "Giant Contact SL (Forward)",
+     "Zadelpen": "Giant Variant"
+    },
+    "ts": "20190915081605",
+    "url": "https://www.mantel.com/be/giant-tcr-advanced-0"
+   },
+   "2019": {
+    "captured": "2020-08-04",
+    "image": "Giant/years/tcradvanced0_2019_mantel.jpg",
+    "price": 2699.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 R8050",
+     "Balhoofdstel": "Giant OverDrive",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700 x 25",
+     "Cassette": "Shimano 105 11 - 30",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewicht": "7,7 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Freins sur jante R8000, R8000",
+     "Shifter": "Shimano Ultegra Di2 R8050",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano Ultegra Di2 R8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2",
+     "Zadel": "Giant Contact (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20200804051207",
+    "url": "https://www.mantel.com/be-fr/giant-tcr-advanced-0-2019"
+   }
+  },
+  "TCR Advanced 1": {
+   "2019": {
+    "captured": "2019-09-21",
+    "image": null,
+    "price": null,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000",
+     "Buitenband": "Giant",
+     "Cassette": "Shimano 105 11-30",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "7,7 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra R8000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant",
+     "Stuurpen": "Giant",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20190921091910",
+    "url": "https://www.mantel.com/giant-tcr-advanced-1?r=L2dpYW50I3N0YXJ0NA=="
+   }
+  },
+  "TCR Advanced 1 Disc": {
+   "2022": {
+    "captured": "2022-11-27",
+    "image": "Giant/years/tcradvanced1disc_2022_mantel.jpg",
+    "price": 2949.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "Gavia Course 1, tubeless, 700x25mm, folding",
+     "Achterderailleur": "Shimano Ultegra",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Gavia Course 1, tubeless, 700x25mm, folding",
+     "Cassette": "Shimano Ultegra Shimano Ultegra, 11-speed, 11x30",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "8,2 kg",
+     "Gewichtslimiet": "125 kg",
+     "Ketting": "KMC X11EL-1",
+     "Material": "Carbon Advanced-Grade Composite, disc",
+     "Maximale bandenmaat": "32mm",
+     "Naaf achter": "Giant",
+     "Naaf voor": "Giant",
+     "Rem": "Hydraulische schijfrem, Shimano Ultegra Hydraulic",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurlint": "Stratus Lite 2.0",
+     "Stuurpen": "Giant Contact",
+     "Velg": "Giant",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+     "Wiel voor": "Giant Giant P-R2 Disc wheelset",
+     "Zadel": "Giant Giant Approach",
+     "Zadelpen": "Giant Giant Variant, composite, -5/+15mm offset"
+    },
+    "ts": "20221127011144",
+    "url": "https://www.mantel.com/giant-tcr-advanced-1-disc"
+   }
+  },
+  "TCR Advanced 1 Disc KOM": {
+   "2020": {
+    "captured": "2020-10-29",
+    "image": "Giant/years/tcradvanced1disckom_2020_mantel.jpg",
+    "price": 2199.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R-8000",
+     "Buitenband": "Giant Gavia Course AC 1",
+     "Cassette": "Shimano Ultegra 11x34",
+     "Crankstel": "Shimano Ultegra R-8000",
+     "Material": "Carbon Advanced-Grade Composite",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra Hydraulic",
+     "Shifter": "Shimano Ultegra R-8000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano Ultegra R-8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2 Disc wheelset",
+     "Zadel": "Giant Contact (Forward)",
+     "Zadelpen": "Giant Variant"
+    },
+    "ts": "20201029163954",
+    "url": "https://www.mantel.com/giant-tcr-advanced-1-disc-2020"
+   }
+  },
+  "TCR Advanced 2": {
+   "2019": {
+    "captured": "2020-08-11",
+    "image": "Giant/years/tcradvanced2_2019_mantel.jpg",
+    "price": 1299.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000",
+     "Buitenband": "Giant Gavia AC 1 tubeless, 700x25, folding",
+     "Cassette": "Shimano 105 11-30",
+     "Crankstel": "Shimano 105 R7000",
+     "Gewicht": "7,9 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, Shimano 105",
+     "Shifter": "Shimano 105 R7000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Connect",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2",
+     "Zadel": "Giant Contact (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20200811121214",
+    "url": "https://www.mantel.com/be-fr/giant-tcr-advanced-2"
+   }
+  },
+  "TCR Advanced 2 Disc": {
+   "2020": {
+    "captured": "2020-10-24",
+    "image": "Giant/years/tcradvanced2disc_2020_mantel.jpg",
+    "price": 1999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Giant Gavia Course AC 1",
+     "Cassette": "Shimano 105 11x30",
+     "Crankstel": "Shimano RS510 36/52",
+     "Material": "Carbon Advanced-Grade Composite",
+     "Rem": "Hydraulische Schijfrem, Shimano 105",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2 Disc",
+     "Zadel": "Giant Contact (forward)",
+     "Zadelpen": "Giant Variant"
+    },
+    "ts": "20201024085554",
+    "url": "https://www.mantel.com/giant-tcr-advanced-2-disc-2020"
+   },
+   "2021": {
+    "captured": "2020-11-01",
+    "image": "Giant/years/tcradvanced2disc_2021_mantel.jpg",
+    "price": 2099.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Buitenband": "Giant Gavia Course 1, tubeless, 700x25mm (25c), folding",
+     "Cassette": "Shimano 105 11-30",
+     "Crankstel": "Shimano RS510",
+     "Gewicht": "8,4 kg",
+     "Material": "Carbon Advanced-Grade Composite",
+     "Rem": "Hydraulische Schijfrem, Shimano 105",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant PR-2 Disc wheelset, 12mm thru-axle",
+     "Zadel": "Giant Approach",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20201101015853",
+    "url": "https://www.mantel.com/giant-tcr-advanced-2-disc-2021"
+   },
+   "2022": {
+    "captured": "2022-09-30",
+    "image": "Giant/years/tcradvanced2disc_2022_mantel.jpg",
+    "price": 2549.0,
+    "source": "mantel",
+    "specs": {
+     "Achterband": "Gavia Course 1, tubeless, 700x25mm (25c), folding",
+     "Achterderailleur": "Shimano 105",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "Gavia Course 1, tubeless, 700x25mm (25c), folding",
+     "Cassette": "Shimano 105 Shimano 105, 11-speed, 11x30",
+     "Crankstel": "Shimano 105",
+     "Gewichtslimiet": "125 kg",
+     "Ketting": "KMC X11EL-1",
+     "Material": "Carbon Advanced-Grade Composite, disc",
+     "Maximale bandenmaat": "32mm",
+     "Rem": "Hydraulische schijfrem, Shimano 105",
+     "Shifter": "Shimano 105",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Giant Contact",
+     "Stuurlint": "Stratus Lite 2.0",
+     "Stuurpen": "Giant Giant Contact",
+     "Voorderailleur": "Shimano 105",
+     "Voorvork": "Advanced-Grade Composite, full-composite OverDrive steerer, disc",
+     "Wiel voor": "Giant Giant P-R2 Disc wheelset",
+     "Zadel": "Giant Giant Approach",
+     "Zadelpen": "Giant Giant Variant, composite, -5/+15mm offset"
+    },
+    "ts": "20220930204641",
+    "url": "https://www.mantel.com/giant-tcr-advanced-2-disc"
+   }
+  },
+  "TCR Advanced Pro 0": {
+   "2019": {
+    "captured": "2019-09-17",
+    "image": "Giant/years/tcradvancedpro0_2019_mantel.jpg",
+    "price": 3899.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 R8050",
+     "Balhoofdstel": "Giant OverDrive 2",
+     "Buitenband": "Giant Giant Gavia AC 0 tubeless, 700 x 25",
+     "Cassette": "Shimano Ultegra 11 - 28",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewicht": "7 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon Advanced-Grade Composite",
+     "Rem": "Velgremmen R8000, R8000",
+     "Shifter": "Shimano Ultegra Di2 R8050",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact SL",
+     "Voorderailleur": "Shimano Ultegra Di2 R8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant Giant SLR-1",
+     "Zadel": "Giant Contact SL",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20190917110641",
+    "url": "https://www.mantel.com/be/giant-tcr-advanced-pro-0-2019"
+   }
+  },
+  "TCR Advanced Pro 1 Disc": {
+   "2020": {
+    "captured": "2019-09-21",
+    "image": null,
+    "price": 4799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Balhoofdstel": "Giant",
+     "Buitenband": "Giant",
+     "Cassette": "Shimano Ultegra",
+     "Crankstel": "Shimano Ultegra",
+     "Gewicht": "7,7 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant",
+     "Stuurpen": "Giant",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant",
+     "Zadelpen": "Giant"
+    },
+    "ts": "20190921134239",
+    "url": "https://www.mantel.com/be/giant-tcr-advanced-pro-1-disc-2020"
+   },
+   "2021": {
+    "captured": "2021-06-24",
+    "image": "Giant/years/tcradvancedpro1disc_2021_mantel.jpg",
+    "price": 3999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Giant Gavia Course 1, tubeless, 700x25mm",
+     "Cassette": "Shimano Ultegra 11-30",
+     "Crankstel": "Shimano Ultegra Giant PowerPro power meter",
+     "Gewicht": "7,50 kg",
+     "Gewichtslimiet": "125 kg",
+     "Material": "Carbon Advanced-Grade",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra Hydraulic Disc",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact SL",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant Giant SLR-1 42 Carbon Disc WheelSystem",
+     "Zadel": "Giant Fleet SL",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20210624212309",
+    "url": "https://www.mantel.com/giant-tcr-advanced-pro-1-disc-2021"
+   }
+  },
+  "TCR Advanced Pro 2": {
+   "2019": {
+    "captured": "2019-09-16",
+    "image": "Giant/years/tcradvancedpro2_2019_mantel.jpg",
+    "price": 1999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano 105 R7000",
+     "Balhoofdstel": "Giant OverDrive 2",
+     "Buitenband": "Giant Giant Gavia AC 0 tubeless, 700 x 25",
+     "Cassette": "Shimano 105 11 - 30",
+     "Crankstel": "Shimano 105 R7000",
+     "Gewicht": "7,4 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon Advanced SL-Grade Composite",
+     "Rem": "Velgremmen, R7000",
+     "Shifter": "Shimano 105 R7000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SLR",
+     "Stuurpen": "Giant Contact SLR",
+     "Voorderailleur": "Shimano 105 R7000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant Giant SLR-0",
+     "Zadel": "Giant Contact SLR",
+     "Zadelpen": "Giant Advanced SL-Grade Composite"
+    },
+    "ts": "20190916021807",
+    "url": "https://www.mantel.com/be/giant-tcr-advanced-pro-2"
+   }
+  },
+  "TCR Advanced Pro Team Disc": {
+   "2020": {
+    "captured": "2020-10-28",
+    "image": "Giant/years/tcradvancedproteamdisc_2020_mantel.jpg",
+    "price": 3149.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra",
+     "Buitenband": "Giant Gavia Course AC1",
+     "Cassette": "Shimano Ultegra 11x30",
+     "Crankstel": "Shimano Ultegra",
+     "Material": "Carbon Advanced-Grade composite",
+     "Rem": "Hydraulische Schijfrem, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact SL",
+     "Voorderailleur": "Shimano Ultegra",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1",
+     "Zadel": "Giant Contact SL (forward)",
+     "Zadelpen": "Giant Variant, composite"
+    },
+    "ts": "20201028140107",
+    "url": "https://www.mantel.com/giant-tcr-advanced-pro-team-disc"
+   }
+  },
+  "TCR Advanced SL 0 Disc": {
+   "2019": {
+    "captured": "2020-08-09",
+    "image": "Giant/years/tcradvancedsl0disc_2019_mantel.jpg",
+    "price": 7499.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Dura Ace Di2 R9150",
+     "Balhoofdstel": "Giant OverDrive 2",
+     "Buitenband": "Giant Giant Gavia AC 0 tubeless, 700 x 25",
+     "Cassette": "Shimano Dura Ace 11 - 28",
+     "Crankstel": "Shimano Dura Ace R9100",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon Advanced SL-Grade Composite",
+     "Rem": "Hydraulische schijfrem, R9120",
+     "Shifter": "Shimano Dura Ace Di2 R9170",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SLR",
+     "Stuurpen": "Giant Contact SLR",
+     "Voorderailleur": "Shimano Dura Ace Di2 R9150",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant Giant SLR 0 Disc",
+     "Zadel": "Giant Contact SLR",
+     "Zadelpen": "Giant Advanced SL-Grade Composite"
+    },
+    "ts": "20200809200640",
+    "url": "https://www.mantel.com/be-fr/giant-tcr-advanced-sl-0-disc-2019"
+   }
+  },
+  "TCR Advanced SL 0 Disc Red": {
+   "2019": {
+    "captured": "2021-01-22",
+    "image": "Giant/years/tcradvancedsl0discred_2019_mantel.jpg",
+    "price": 5999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Red eTap AXS",
+     "Buitenband": "Giant",
+     "Cassette": "SRAM Red",
+     "Crankstel": "SRAM Red",
+     "Material": "Carbon",
+     "Rem": "Hydraulische Schijfrem, Sram Red eTap AXS",
+     "Shifter": "Sram Red eTap AXS",
+     "Shifter_speed": "24 versnellingen",
+     "Stuur": "Giant Contact",
+     "Stuurpen": "Giant Contact",
+     "Voorderailleur": "Sram Red eTap AXS",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant Contact",
+     "Zadelpen": "Advanced SL"
+    },
+    "ts": "20210122193738",
+    "url": "https://www.mantel.com/giant-tcr-advanced-sl-0-disc-red"
+   }
+  },
+  "TCR Advanced SL 0 Red Etap": {
+   "2019": {
+    "captured": "2019-09-16",
+    "image": "Giant/years/tcradvancedsl0redetap_2019_mantel.jpg",
+    "price": 5999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "SRAM Red eTap",
+     "Balhoofdstel": "Giant OverDrive 2",
+     "Buitenband": "Giant Giant Gavia AC 0 tubeless, 700 x 25",
+     "Cassette": "SRAM Red 11 - 28",
+     "Crankstel": "SRAM Red",
+     "Gewicht": "6,5 kg",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, SRAM Red",
+     "Shifter": "SRAM Red eTap",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SLR",
+     "Stuurpen": "Giant Contact SLR",
+     "Voorderailleur": "SRAM Red eTap",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-0",
+     "Zadel": "Giant Giant Contact SLR",
+     "Zadelpen": "Giant Advanced SL-Grade Composite"
+    },
+    "ts": "20190916021548",
+    "url": "https://www.mantel.com/be/giant-tcr-advanced-sl-0-red"
+   }
+  },
+  "TCR Advanced SL 1 Disc": {
+   "2019": {
+    "captured": "2020-08-04",
+    "image": "Giant/years/tcradvancedsl1disc_2019_mantel.jpg",
+    "price": 4999.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra Di2 R8050",
+     "Balhoofdstel": "Giant OverDrive 2",
+     "Buitenband": "Giant Giant Gavia AC 0 tubeless",
+     "Cassette": "Shimano Ultegra 11 - 28",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Gewichtslimiet": "129 kg",
+     "Material": "Carbon Advanced SL-Grade Composite",
+     "Rem": "Hydraulische schijfrem, R8070",
+     "Shifter": "Shimano Ultegra Di2 R8070",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SLR",
+     "Stuurpen": "Giant Contact SLR",
+     "Voorderailleur": "Shimano Ultegra Di2 R8050",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant Giant SLR-1 Disc",
+     "Zadel": "Giant Giant Contact SLR",
+     "Zadelpen": "Giant Advanced SL-Grade Composite"
+    },
+    "ts": "20200804045304",
+    "url": "https://www.mantel.com/be-fr/giant-tcr-advanced-sl-1-disc"
+   }
+  },
+  "TCR Advanced SL 2": {
+   "2018": {
+    "captured": "2019-08-25",
+    "image": "Giant/years/tcradvancedsl2_2018_mantel.jpg",
+    "price": 2599.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Shimano Ultegra R8000",
+     "Buitenband": "Giant Gavia 0 Tubeless",
+     "Cassette": "Shimano Ultegra R8000, 11x34",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Material": "Carbon",
+     "Rem": "Velgremmen, Shimano Ultegra",
+     "Shifter": "Shimano Ultegra R8000",
+     "Shifter_speed": "22 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact SL",
+     "Voorderailleur": "Shimano Ultegra R8000",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant SLR-1 WheelSystem",
+     "Zadel": "Giant Contact SL (Forward)",
+     "Zadelpen": "Giant Variant"
+    },
+    "ts": "20190825201803",
+    "url": "https://www.mantel.com/giant-tcr-advanced-sl-2"
+   }
+  },
+  "TCX Advanced Pro 1": {
+   "2019": {
+    "captured": "2020-08-11",
+    "image": "Giant/years/tcxadvancedpro1_2019_mantel.jpg",
+    "price": 2799.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "SRAM Force CX1",
+     "Buitenband": "Maxxis",
+     "Cassette": "SRAM Force CX1",
+     "Crankstel": "SRAM Force CX1",
+     "Gewicht": "8 kg",
+     "Material": "Carbon",
+     "Rem": "Hydraulische schijfrem",
+     "Shifter": "SRAM Force CX1",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Giant Contact SL",
+     "Stuurpen": "Giant Contact SL",
+     "Voorderailleur": "Dérailleur avant ? Je suis assez fort pour un seul plateau",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant Contact SL",
+     "Zadelpen": "Giant D Fuse"
+    },
+    "ts": "20200811003223",
+    "url": "https://www.mantel.com/be-fr/giant-tcx-advanced-pro-1"
+   }
+  },
+  "TCX SLR 2": {
+   "2019": {
+    "captured": "2020-08-15",
+    "image": "Giant/years/tcxslr2_2019_mantel.jpg",
+    "price": 1149.0,
+    "source": "mantel",
+    "specs": {
+     "Achterderailleur": "Sram Apex1",
+     "Buitenband": "Maxxis",
+     "Cassette": "Sram Apex1",
+     "Crankstel": "FSA",
+     "Gewicht": "9,5 kg",
+     "Gewichtslimiet": "150 kg",
+     "Material": "Aluminium",
+     "Rem": "Hydraulische schijfrem, Conduct",
+     "Shifter": "Sram Apex1",
+     "Shifter_speed": "11 versnellingen",
+     "Stuur": "Giant Connect",
+     "Stuurpen": "Giant Connect",
+     "Voorvork": "Carbon",
+     "Wiel voor": "Giant",
+     "Zadel": "Giant Contact",
+     "Zadelpen": "Giant D Fuse"
+    },
+    "ts": "20200815042445",
+    "url": "https://www.mantel.com/be-fr/giant-tcx-slr-2"
+   }
+  }
+ },
+ "source": "Mantel.com (Dutch bike shop), copies in the Wayback Machine",
+ "years": [
+  2018,
+  2019,
+  2020,
+  2021,
+  2022
+ ]
+}
