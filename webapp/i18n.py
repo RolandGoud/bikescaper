@@ -335,6 +335,7 @@ NL = {
     "PART": "ONDERDEEL",
     "ORIGINAL": "ORIGINEEL",
     "ORIGINAL ({year})": "ORIGINEEL ({year})",
+    "ORIGINAL ({year}, closest to {wanted})": "ORIGINEEL ({year}, dichtst bij {wanted})",
     "IN THE AD": "IN DE ADVERTENTIE",
     "RESULT": "RESULTAAT",
     "Size fit": "Maat",
@@ -1207,6 +1208,7 @@ NL = {
     "Original ad title: {title}": "Oorspronkelijke titel: {title}",
     "Open the ad ↗": "Advertentie openen ↗",
     "Catalogue: the {year} model": "Catalogus: model {year}",
+    "Catalogue: the {year} model (closest to {wanted})": "Catalogus: model {year} (dichtst bij {wanted})",
     "Other model →": "Ander model →",
     "fair: {low} – {high}": "eerlijk: {low} – {high}",
     "View in the catalogue": "Bekijk in de catalogus",
@@ -1271,4 +1273,15 @@ NL = {
         "De oudste {name} die we kennen is een latere generatie en we hebben de specificaties van de fiets uit {year} niet, dus we kunnen de onderdelen niet met het origineel vergelijken.",
     "The ad says like new, but a bike {age} years old isn't, so we count it as normal use.":
         "De advertentie zegt als nieuw, maar een fiets van {age} jaar oud is dat niet, dus we rekenen met normaal gebruik.",
+    "No data for bikes from before {year}": "Geen gegevens van fietsen van vóór {year}",
+    "We have no data for bikes from before {year}": "We hebben geen gegevens van fietsen van vóór {year}",
+    "Not checked": "Niet gecheckt",
+    "This bike is from {year}.": "Deze fiets is uit {year}.",
+    "The ad says it was bought in {year}.": "Volgens de advertentie is hij in {year} gekocht.",
+    "That is the year the ad gives.": "Dat is het jaar dat de advertentie noemt.",
+    "Its colour is one only the {year} model came in.": "Alleen het model van {year} kwam in deze kleur.",
+    "The ad's details only fit bikes from before {year}.": "De details in de advertentie passen alleen bij fietsen van vóór {year}.",
+    "Our catalogue starts at the {year} model year, so we can't compare this bike's specs, age or price with the original. We don't put checks like this on the site.":
+        "Onze catalogus begint bij modeljaar {year}, dus we kunnen de onderdelen, leeftijd en prijs van deze fiets niet met het origineel vergelijken. Zulke checks zetten we niet op de site.",
+    "Check another ad": "Check een andere advertentie",
 }

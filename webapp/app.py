@@ -312,6 +312,13 @@ def create_app(db_path=None):
         g.lang = lang
         current_language.set(lang)
 
+    @app.before_request
+    def settle_ages():
+        """Before a page lists checks: work out which checks are of bikes from before checks.FIRST_YEAR, so they stay
+        off it (webapp/stored_checks.py). Only checks made or rechecked since the last page view need it."""
+        if request.method == "GET" and request.endpoint not in ("static", "images", "ad_photo", "duo_side"):
+            stored_checks.settle_ages(conn(), lambda row: stored_check(listing_dict(row)))
+
     @app.after_request
     def external_links_in_new_tab(response):
         """Every link off the site opens in a new tab, whichever template or feature made it."""
@@ -366,7 +373,7 @@ def create_app(db_path=None):
 
     @app.route("/")
     def home():
-        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         ads = group_checks(rows)
         cards = [(listing_dict(r, count=n), stored_check(listing_dict(r))) for r, n in ads[:12]]
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
@@ -420,6 +427,9 @@ def create_app(db_path=None):
         height = request.args.get("height", type=int)
         # Another rider height than the check's own changes the size check: shown, but not kept.
         result = stored_check(listing_dict(row, height), store=height in (None, row["rider_height"]))
+        if checks.pre_2018_year(result):  # not published: we have no data for bikes that old
+            return render_template("too_old.html", listing=listing_dict(row), r=result,
+                                   year=checks.pre_2018_year(result), first_year=checks.FIRST_YEAR, nav="check")
         value = result.get("value") or {}
         if value.get("low") and value.get("original"):  # also for reports stored with an older slider
             value["slider"] = checks.price_slider(value["low"], value["high"], value["original"], value.get("asking"))
@@ -429,12 +439,12 @@ def create_app(db_path=None):
                                          prices.period_of(request.args.get("period", type=int)), leave_out=check_id)
         key = fetch_ad.ad_key(row)
         times = sum(fetch_ad.ad_key(r) == key for r in conn().execute(
-            "SELECT listing_url, title, asking_price FROM checks").fetchall())
+            f"SELECT listing_url, title, asking_price FROM checks WHERE {db.PUBLISHED}").fetchall())
         other_ads = []
         if result["model"]:  # the other ads matched to the same model, as on its model page
             known = prices.known_ads(conn(), models())
             priced = {i for a in known if a["model_id"] == result["model"]["id"] for i in a["check_ids"]}
-            rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+            rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
             other_ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), {"model": result["model"]})
                          for r, n in sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
                                             key=lambda a: a[0]["created_at"], reverse=True)
@@ -450,6 +460,8 @@ def create_app(db_path=None):
             abort(404)
         listing = listing_dict(row, height)
         result = stored_check(listing, store=height in (None, row["rider_height"]))
+        if checks.pre_2018_year(result):  # not published, so no PDF or email of it either
+            abort(404)
         url = url_for("report", check_id=check_id, height=height, _external=True)
         return listing, report_pdf.build(listing, result, height or row["rider_height"], url)
 
@@ -514,7 +526,7 @@ def create_app(db_path=None):
 
     @app.route("/listings")
     def listings():
-        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         cards = [(listing_dict(r, count=n), stored_check(listing_dict(r)))
                  for r, n in group_checks(rows)]
         return render_template("listings.html", cards=cards, nav="listings", sponsored=offers(("side",), tiles=True))
@@ -522,7 +534,7 @@ def create_app(db_path=None):
     @app.route("/checks")
     def all_checks():
         """Every check one by one, newest first: what was put in and what came out."""
-        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         times = {}
         for r in rows:
             times[fetch_ad.ad_key(r)] = times.get(fetch_ad.ad_key(r), 0) + 1
@@ -540,7 +552,7 @@ def create_app(db_path=None):
     def listings_map():
         """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
         ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
-        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         pins = {}
         for row, count in group_checks(rows):
             spot = places.locate(row["location"], row["listing_url"])
@@ -613,7 +625,7 @@ def create_app(db_path=None):
         items = [m for m in items if not tier or m["tier"] == tier]
         counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
         items = [m for m in items if not kind or m["discipline"] == kind]
-        matched = matched_ads(conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall(), models())
+        matched = matched_ads(conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall(), models())
         for m in items:
             m["matched"] = len(matched.get(m["id"], []))
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
@@ -676,7 +688,7 @@ def create_app(db_path=None):
         size_chart = checks.model_size_chart(model)
         known = prices.known_ads(conn(), models())
         priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}
-        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), stored_check(listing_dict(r)))
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
@@ -767,7 +779,7 @@ def create_app(db_path=None):
     def improved_examples(limit=5):
         """Recently checked ads next to the ad we would write for them, for the Selling page. Only ads
         read from a public link: drafts typed on the Selling page are never saved."""
-        rows = conn().execute("SELECT * FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL "
+        rows = conn().execute(f"SELECT * FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL AND {db.PUBLISHED} "
                               "ORDER BY id DESC LIMIT 60").fetchall()
         found, ads = [], None
         for row, _n in group_checks(rows):
@@ -893,7 +905,7 @@ def create_app(db_path=None):
     @app.route("/admin")
     def admin():
         """Statistics for us: what ads leave out, where matching goes wrong, and photo and ad scores."""
-        rows = conn().execute("SELECT * FROM checks ORDER BY id DESC").fetchall()
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         first = {}
         for r in rows:  # newest first, so the last one seen is the ad's first check
             first[fetch_ad.ad_key(r)] = r["created_at"][:10]

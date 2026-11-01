@@ -101,6 +101,13 @@ See `docs/scraper-plan.md`.
 
 ## Known limits
 
+- Nothing from before 2018 (`FIRST_YEAR` in `webapp/reference.py`): the seed leaves out older bikes, spec sheets and
+  list prices (and `python -m webapp.seed --if-empty` takes them out of a database loaded earlier), and a check of a
+  bike from before 2018 isn't published. Its page says we have no data for that year, and it stays off the home page,
+  listings, map, model pages, prices and statistics (`checks.too_old`, kept by `webapp/stored_checks.py`). The year is
+  the one the report goes by; a guess counts only when every year it allows is that old. The daily pass takes the
+  next ad instead.
+
 - Model years exist only for a few Trek generations, entered by hand.
 - The spec sheet has a tab per year from 2020. Earlier years come from `data/years/<Brand>.json`
   (spec sheets read from Wayback Machine copies of the brand's NL site); a brand without that file

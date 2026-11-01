@@ -7,6 +7,10 @@ A change to the matching itself, or to the catalogue, does not: that's what a re
 report page (one check) or the Statistics page (all of them), or by hand. A recheck keeps the check's
 own date: the ad's age and value stay as of the day it was checked.
 
+Every time a check's report is worked out or read back, checks.too_old is set: the bike's model year when it's
+from before checks.FIRST_YEAR (we have no data for those years, so the check isn't published), else 0. NULL means
+not worked out yet; settle_ages works those out before a page lists checks.
+
     python -m webapp.stored_checks           # forget every stored report; each runs again when next shown
 
 Catalogue models are kept by their slug, not copied into the stored report, so a report shows the
@@ -85,7 +89,9 @@ def report(conn, models, listing, store=True, today=None):
     row = conn.execute("SELECT inputs, result FROM check_results WHERE check_id = ?", (listing["id"],)).fetchone()
     if row is not None and row["inputs"] == key:
         try:
-            return load(row["result"], models)
+            result = load(row["result"], models)
+            mark_age(conn, listing, result)
+            return result
         except Exception as e:  # the model left the catalogue, or the code changed under the pickle
             print(f"stored report of check {listing['id']} unusable ({e!r}); running it again", file=sys.stderr)
     result = checks.run_check(models, listing, today)
@@ -93,7 +99,32 @@ def report(conn, models, listing, store=True, today=None):
         conn.execute("INSERT OR REPLACE INTO check_results (check_id, inputs, result, computed_at)"
                      " VALUES (?, ?, ?, datetime('now'))", (listing["id"], key, dump(result, models)))
         conn.commit()
+    mark_age(conn, listing, result)  # the rider height doesn't change the year, so also for a report not kept
     return result
+
+
+def mark_age(conn, listing, result):
+    """Keep in checks.too_old whether this check's bike is from before checks.FIRST_YEAR (its year) or not (0)."""
+    old = checks.pre_2018_year(result) or 0
+    if listing.get("too_old") != old:
+        conn.execute("UPDATE checks SET too_old = ? WHERE id = ?", (old, listing["id"]))
+        conn.commit()
+        listing["too_old"] = old
+
+
+def settle_ages(conn, report_of):
+    """Work out checks.too_old for every check that doesn't have it yet (made before it existed, or rechecked since),
+    so pages can leave out the checks of bikes from before checks.FIRST_YEAR. report_of(row) gives a check's report
+    the way the site shows it (with its photos), which stores the year through report(). Returns how many."""
+    rows = conn.execute("SELECT * FROM checks WHERE too_old IS NULL ORDER BY id").fetchall()
+    for row in rows:
+        try:
+            report_of(row)
+        except Exception as e:  # a check that can't run stays published rather than breaking every page
+            print(f"working out the age of check {row['id']} failed ({e!r}); keeping it published", file=sys.stderr)
+            conn.execute("UPDATE checks SET too_old = 0 WHERE id = ?", (row["id"],))
+            conn.commit()
+    return len(rows)
 
 
 def computed_at(conn, check_id):
@@ -111,10 +142,14 @@ def summary(conn):
 
 def forget(conn, check_id=None):
     """Drop the stored report of one check, or of every check: it runs again the next time it's shown."""
+    # Its age is worked out again too: the matching or the catalogue may have changed it. Of every check, only the
+    # hidden ones right away (few); a published one gets it again when it's next shown, as its report does.
     if check_id is None:
         n = conn.execute("DELETE FROM check_results").rowcount
+        conn.execute("UPDATE checks SET too_old = NULL WHERE too_old > 0")
     else:
         n = conn.execute("DELETE FROM check_results WHERE check_id = ?", (check_id,)).rowcount
+        conn.execute("UPDATE checks SET too_old = NULL WHERE id = ?", (check_id,))
     conn.commit()
     return n
 

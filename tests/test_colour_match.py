@@ -281,3 +281,39 @@ def test_photos_pick_the_year_of_the_black_colourway_the_ad_shows(models, tmp_pa
     no_photos = checks.run_check(models, {"title": "Trek Emonda SL6 Pro maat 54 matzwart", "description": "",
                                           "asking_price": None, "rider_height": None, "model_id": m["id"]}, today=TODAY)
     assert no_photos["photo_year"]["year"] == 2021
+
+
+def test_the_stated_model_year_wins_over_an_older_year_in_both_colours(models):  # noqa: F811
+    # "rood/zwart, modeljaar 2025": Viper Red/Trek Black was the Gen 3's (2021-2023); the 2025 Gen 4 came in
+    # Crimson to Dark Carmine Fade, a red that darkens to near black. The ad's year and that colour's photo.
+    m = next(m for m in models if m["brand"] == "Trek" and m["name"] == "Domane AL 2 Gen 4")
+    r = checks.run_check(models, {"title": "Trek Domane AL2 Gen4 Racefiets Rood/Zwart 49cm",
+                                  "description": "Deze fiets is van het modeljaar 2025 en heeft een framehoogte van 49 cm.",
+                                  "asking_price": None, "rider_height": None, "model_id": m["id"]}, today=TODAY)
+    assert r["photo_year"] == {"year": 2025, "colour": "Crimson to Dark Carmine Fade"}
+    assert r["model"]["image"] == "Trek/years/domaneal2gen4_2025_crimsontodarkcarminefade_site.jpg"
+    # Without a year, the colourway with both colours still decides.
+    r = checks.run_check(models, {"title": "Trek Domane AL2 Racefiets Rood/Zwart 49cm", "description": "",
+                                  "asking_price": None, "rider_height": None, "model_id": m["id"]}, today=TODAY)
+    assert r["photo_year"]["colour"] == "Viper Red/Trek Black"
+
+
+def test_photo_and_specs_follow_the_reports_year(models):  # noqa: F811
+    # The stated year has a sheet and a photo: the photo, the specs and the value all go by it.
+    m = next(m for m in models if m["brand"] == "Trek" and m["name"] == "Émonda ALR 5")
+    r = checks.run_check(models, {"title": "Trek Emonda ALR 5", "description": "Bouwjaar 2022", "asking_price": 900,
+                                  "rider_height": None, "model_id": m["id"]}, today=TODAY)
+    assert r["year"]["year"] == r["photo_year"]["year"] == r["spec_year"] == r["value"]["model_year"] == 2022
+    assert "stand_in" not in r["photo_year"] and not r["spec_stand_in"]
+
+
+def test_a_year_we_have_no_sheet_of_says_which_year_stands_in(models):  # noqa: F811
+    # Check 40: an Émonda SL 6 Di2 from 2022; we only have the 2023 sheet and photo. The report's year stays the
+    # ad's, and the photo and the spec table say they're the closest year we have.
+    m = next(m for m in models if m["brand"] == "Trek" and m["name"] == "Émonda SL 6 Di2")
+    assert sorted(checks.year_sheets(m)) == [2023]
+    r = checks.run_check(models, {"title": "Trek Emonda SL6 Di2", "description": "Bouwjaar 2022", "asking_price": 1800,
+                                  "rider_height": None, "model_id": m["id"]}, today=TODAY)
+    assert r["year"]["year"] == 2022
+    assert r["photo_year"]["year"] == 2023 and r["photo_year"]["stand_in"] == 2022
+    assert r["spec_year"] == 2023 and r["spec_stand_in"] == 2022

@@ -5,6 +5,10 @@ size charts and geometry per model. Each table says how sure we are, and the
 check report shows that to the user.
 """
 
+# The oldest model year we have data for. The catalogue leaves out earlier bikes and spec sheets (webapp/seed.py),
+# and a check of a bike from before it isn't published (checks.pre_2018_year, webapp/stored_checks.py).
+FIRST_YEAR = 2018
+
 # Model years each Trek generation was sold as new (first, last; None = still sold).
 # Entered by hand from launch dates, not scraped: verify against Trek's archive
 # before relying on them.

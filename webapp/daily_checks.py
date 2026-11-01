@@ -5,7 +5,8 @@ POPULAR are the five catalogue families with the most bike ads on Marktplaats (c
 For each, one search on that site for the newest ads, then the first one that is a whole
 bike (not a part), has a real price and photos, isn't checked yet and that we confidently match
 to the family is read like a pasted link and saved as a check. If the ad turns out to have no
-photos after all, the next suitable one is read instead (at most TRIES ads per family). So about
+photos after all, or turns out to be a bike from before checks.FIRST_YEAR (which the site doesn't publish: we
+have no data for those years), the next suitable one is read instead (at most TRIES ads per family). So about
 sixteen requests a day, PAUSE seconds apart. No rider height is filled in, as with a visitor who leaves it empty.
 
 The checks get source = "daily", so they can be told apart or removed:
@@ -83,6 +84,12 @@ def pick(models, family, ads, seen):
     return None
 
 
+def too_old(models, listing):
+    """Whether the ad's bike is from before checks.FIRST_YEAR, as its report would say (from the ad's text: its
+    photos aren't read yet). The site wouldn't publish that check, so a daily pass takes another ad instead."""
+    return bool(checks.pre_2018_year(checks.run_check(models, listing)))
+
+
 def run(conn, search=search, fetch=fetch_ad.fetch_listing, pause=PAUSE):
     """One pass. Returns the ids of the checks it saved."""
     models = db.all_models(conn)
@@ -103,9 +110,9 @@ def run(conn, search=search, fetch=fetch_ad.fetch_listing, pause=PAUSE):
                 if pause:
                     time.sleep(pause)
                 listing = fetch(ad["url"])
-                if listing["photos"]:
+                if listing["photos"] and not too_old(models, listing):
                     break
-                skipped.add(key(ad["url"]))  # no photos after all: try the next ad
+                skipped.add(key(ad["url"]))  # no photos after all, or too old to publish: try the next ad
                 listing = None
             if listing is None:
                 continue

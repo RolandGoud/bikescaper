@@ -12,7 +12,7 @@ from datetime import date
 
 from . import colour_match
 from .i18n import Msg, join, join_list
-from .reference import (BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
+from .reference import (FIRST_YEAR, BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
                         RIM_BRAKE_LAST_YEAR, SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
@@ -1725,6 +1725,11 @@ def year_photo(model, claims, estimate, text, seen_colour=None, photo_paths=None
     if by_photo:
         return by_photo
     fit = colour_family_years(year_sheets(model), text)
+    if fit and claimed in photos and claimed not in fit[0] and estimate.get("status") != BAD \
+            and stated_year_in_colour(model, claimed, title, description):
+        # The seller states the model year, and that year came in the colour they name first ("rood/zwart",
+        # 2025's Crimson to Dark Carmine Fade): their year, not an older one whose colourway has both words.
+        fit = None
     if fit:
         # The newest year in the seller's colours with a photo, unless the stated year is one of them; of those,
         # the years we have a photo of that colourway of first, rather than one of the year's other colours.
@@ -1757,6 +1762,29 @@ def year_photo(model, claims, estimate, text, seen_colour=None, photo_paths=None
     return year, photos[year], None
 
 
+def photo_of_year(model, found, year, listing):
+    """year_photo's (year, image, colour), moved to the report's own year when that year has a catalogue photo:
+    the photo goes by the same year as the age, the specs and the value. In that year, the colourway the ad
+    names, else the one its photos show, else the year's own photo. Unchanged when the year has no photo, or
+    when there's no year photo at all."""
+    photos = {int(y): e["image"] for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
+              if e.get("image")}
+    if not found or not year or year not in photos or found[0] == year:
+        return found  # no year photo (today's catalogue photo, which doesn't name a year), or already that year's
+    title, description = listing["title"], listing.get("description") or ""
+    images = colour_images(model, year)
+    fit = year_colour_fits(images, title, description)
+    if len(fit) == 1:
+        return year, images[fit[0]], fit[0]
+    name = colour_match.by_photos([(n, images[n]) for n in fit or images], listing.get("photo_paths")) if images else None
+    if name and (fit or colour_match.ad_colours(title, description) == []):
+        return year, images[name], name
+    if fit:
+        return year, images[fit[0]], None
+    colours = year_sheets(model).get(year, {}).get("colours") or []
+    return year, photos[year], colours[0] if len(colours) == 1 else None
+
+
 def colour_year_by_photos(model, photos, allowed, title, description, photo_paths):
     """(year, image, colour) of the colourway in the colour the ad names that its photos show, when the years the
     estimate allows came in several of those ("matzwart": Trek Black/Trek White in 2020, Trek Black/Radioactive Red
@@ -1781,6 +1809,13 @@ def colour_year_by_photos(model, photos, allowed, title, description, photo_path
 def colour_images(model, year):
     """{colour name: photo} of the model in that model year; {} when we have none."""
     return ((model.get("year_specs") or {}).get("years") or {}).get(str(year), {}).get("colour_images") or {}
+
+
+def stated_year_in_colour(model, year, title, description):
+    """Whether a model year came in a colourway with the first colour the ad names (red for "rood/zwart")."""
+    wanted = colour_match.ad_colours(title, description)
+    colours = year_sheets(model).get(year, {}).get("colours") or []
+    return bool(wanted) and any(wanted[0] in colour_match.families_in(n, brand_words=True) for n in colours)
 
 
 def year_colour_fits(images, title, description=""):
@@ -2701,6 +2736,7 @@ def run_check(models, listing, today=None):
     # One model year for the price and the spec comparison, so they can't disagree.
     report["year"] = resolve_year(chosen, claims, report["age"], report["year_estimate"], today, found)
     report["year"]["note"] = year_note(report["year"], claims)
+    found = photo_of_year(chosen, found, report["year"]["year"], listing)
     if found and found[2] is None:
         # The ad doesn't name its colour and that year came in several: the colourway its photos show.
         own = ((chosen.get("year_specs") or {}).get("years") or {}).get(str(found[0]), {}).get("colour_images") or {}
@@ -2711,7 +2747,10 @@ def run_check(models, listing, today=None):
         if name:
             found = (found[0], own[name], name)
     if found:
+        # "stand_in": the report's year has no catalogue photo, this is the closest year's.
         report["photo_year"] = {"year": found[0], "colour": found[2]}
+        if found[0] != report["year"]["year"]:
+            report["photo_year"]["stand_in"] = report["year"]["year"]
         report["colourway"] = None
         report["model"] = dict(chosen, image=found[1], year_photo=True)
     report["age_tab"] = age_summary(report["age"], report["year_estimate"], report["year"])
@@ -2723,12 +2762,18 @@ def run_check(models, listing, today=None):
     # The spec comparison uses the resolved year's sheet, else the sheet year the estimate allows closest to it.
     # A bike older than any generation we know has no sheet to compare with: not the oldest one we have.
     no_sheet = report["year"]["how"] == "older"
+    # The report's year has a sheet: that one, whatever the estimate says, so the specs go by the same year as
+    # the photo, the age and the value.
+    own_sheet = report["year"]["how"] != "catalogue" and report["year"]["year"] in year_sheets(chosen)
     year = None if no_sheet else comparison_year(
         chosen, dict(claims, year=report["year"]["year"]) if report["year"]["how"] != "catalogue" else claims,
         # The year of the colourway the ad shows, when that's what the report goes by: its sheet, not the estimate's.
-        {"first": report["year"]["year"], "last": report["year"]["year"]} if report["year"]["how"] == "photo"
+        {"first": report["year"]["year"], "last": report["year"]["year"]} if report["year"]["how"] == "photo" or own_sheet
         else report["year_estimate"])
     report["spec_year"] = None if no_sheet else year or scrape_year(chosen)
+    # The report's year has no spec sheet: the closest one stands in, and the report says so.
+    report["spec_stand_in"] = (report["year"]["year"] if report["spec_year"] and report["spec_year"] != report["year"]["year"]
+                               and report["year"]["how"] != "catalogue" else None)
     report["specs"] = check_specs(year_model(chosen, year), claims, report["material_alert"],
                                   listing.get("photo_groupset"), report["year"]["year"], no_sheet, today)
     report["size"] = check_size(chosen, claims, listing.get("rider_height"))
@@ -2738,6 +2783,23 @@ def run_check(models, listing, today=None):
                                            report["material_alert"])
     report["facts"] = head_facts(chosen, claims, report["value"])
     return report
+
+
+def pre_2018_year(report):
+    """The bike's model year when the report says it's from before FIRST_YEAR, else None. Such a check isn't
+    published: we have no data for those years. It goes by the year the report goes by (resolve_year, where a year
+    the ad states wins), or by the ad's own year when no model matched. A year the report only guesses (the middle
+    of the years the ad's details or the generation allow) counts only when all of those years are that old."""
+    claims = report.get("claims") or {}
+    year = report.get("year") if report.get("model") else None
+    if not year:
+        claimed = claims.get("year")
+        return claimed if claimed and claimed < FIRST_YEAR else None
+    if not year.get("year") or year["year"] >= FIRST_YEAR:
+        return None
+    if year.get("how") in ("ad", "older", "purchase", "photo") or (year.get("last") or year["year"]) < FIRST_YEAR:
+        return year["year"]
+    return None
 
 
 ELECTRONIC_NAME = {"Shimano": "Di2", "SRAM": "AXS", "Campagnolo": "EPS"}

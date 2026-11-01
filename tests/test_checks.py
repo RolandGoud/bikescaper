@@ -89,10 +89,10 @@ def test_purchase_year_before_launch_is_a_warning(models):
     r = run(models, "Trek Domane SL6 gen 4 2022 maat 56 Ultegra, nieuwstaat", "carbon, schijfremmen", 2450, 178)
     assert r["model"]["name"].lower() == "domane sl 6 gen 4"
     assert r["age"]["status"] == checks.WARN
+    # The report goes by the ad's 2022 throughout: its spec sheet (Ultegra, as the ad says), not the 2023 one's 105.
+    assert r["year"]["year"] == r["spec_year"] == 2022
     groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
-    assert groupset["status"] == checks.OK  # the original has 105, so Ultegra is an upgrade
-    assert groupset["step"] == 1
-    assert en(r["specs"]["headline"]) == "1 part upgraded"
+    assert groupset["status"] == checks.OK and groupset["step"] == 0
     assert r["size"]["fit"]["status"] == checks.OK
 
 
@@ -975,9 +975,10 @@ def test_seller_named_version_wins(models):
     # An S-Works Tarmac SL7 is not an SL9: the version number the seller names outweighs "S-Works".
     r = run(models, "Specialized S-Works Tarmac SL7", "", 3400)
     assert r["model"]["name"].startswith("S-Works Tarmac SL7")  # a discontinued line we keep
-    # With no SL5 at all we still compare with a Tarmac, but say it isn't the version the seller named.
+    # With no SL5 at all (nothing from before 2018) we still compare with a Tarmac, but say it isn't the version the
+    # seller named.
     r = run(models, "Specialized S-Works Tarmac SL5 2017", "", 2500)
-    assert "SL5" in r["name_check"]["extra"]
+    assert ("SL7", "SL5") in r["name_check"]["conflicts"]
     assert r["confidence"] is not None and str(r["confidence"]) in ("low", "laag")
     # The generation counts too, and an exact name has nothing to say.
     assert run(models, "Trek Domane SLR 6 gen 3", "", 1500)["name_check"]["conflicts"] == [("Gen 4", "Gen 3")]
@@ -1144,8 +1145,11 @@ def test_model_page_has_year_tabs(tmp_path):
     seed.load(db.connect(path))
     page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=en").get_data(as_text=True)
     assert 'id="tab-2020"' in page and 'id="tab-2025" aria-controls="year-2025"' in page
+    # 2024 is on Trek's own site again (the Gen 4's second product page), so its sheet wins over the Wayback copy
+    assert "Trek/years/domaneal2gen4_2024_site.jpg" in page and "Trek/years/domaneal2gen4_2024.jpg" not in page
     # data/years/Trek.json has the 2024 Wayback Machine copy, with its photo
-    assert 'class="year-tab archive" id="tab-2024"' in page and "Trek/years/domaneal2gen4_2024.jpg" in page
+    page = create_app(path).test_client().get("/models/trek-domane-slr-7-axs-gen-4?lang=en").get_data(as_text=True)
+    assert 'class="year-tab archive" id="tab-2024"' in page and "Trek/years/domaneslr7axsgen4_2024.jpg" in page
 
 
 def test_model_page_year_selector_runs_current_to_oldest(tmp_path):

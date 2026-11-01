@@ -15,7 +15,7 @@
         {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model, listing.id, picked=True) }}</div>
         {% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
         {% if r.model and (r.photo_year or colour) %}
-        <span class="photo-cap" title="{{ (_("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names')) if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ _('Catalogue: the {year} model', year=r.photo_year.year) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
+        <span class="photo-cap" title="{{ (_("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names')) if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ (_('Catalogue: the {year} model (closest to {wanted})', year=r.photo_year.year, wanted=r.photo_year.stand_in) if r.photo_year.stand_in else _('Catalogue: the {year} model', year=r.photo_year.year)) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
         {% endif %}
       </div>
       {% if listing.photos %}<div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>{% endif %}
@@ -319,12 +319,12 @@
     </div>
     <div class="spec-table">
       <table>
-        <thead><tr><th>{{ _('PART') }}</th><th>{{ _('ORIGINAL ({year})', year=r.spec_year) if r.spec_year else _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th></tr></thead>
+        <thead><tr><th>{{ _('PART') }}</th><th>{{ (_('ORIGINAL ({year}, closest to {wanted})', year=r.spec_year, wanted=r.spec_stand_in) if r.spec_stand_in else _('ORIGINAL ({year})', year=r.spec_year)) if r.spec_year else _('ORIGINAL') }}</th><th>{{ _('IN THE AD') }}</th></tr></thead>
         <tbody>
         {% for s in r.specs.rows %}
           <tr>
             <td><span class="part-name">{{ part_icon(s.key) }}{{ s.part }}</span></td>
-            <td data-label="{{ _('ORIGINAL ({year})', year=r.spec_year) if r.spec_year else _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}{{ aged_chip(s.ref_aged) }}</div>{% endif %}</td>
+            <td data-label="{{ (_('ORIGINAL ({year}, closest to {wanted})', year=r.spec_year, wanted=r.spec_stand_in) if r.spec_stand_in else _('ORIGINAL ({year})', year=r.spec_year)) if r.spec_year else _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}{{ aged_chip(s.ref_aged) }}</div>{% endif %}</td>
             <td data-label="{{ _('IN THE AD') }}">{% if s.photo_why and s.listing -%}
               {%- set why = s.photo_why['nl' if lang == 'nl' else 'en'] -%}
               <span class="photo-read" tabindex="0" data-tip="{{ why }}">{{ s.listing }}<span class="sr-only"> {{ why }}</span></span>

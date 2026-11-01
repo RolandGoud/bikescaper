@@ -124,12 +124,12 @@ def add_colour_photos(brand, fetcher=None):
             if entry.get("source") != "site" or len(entry.get("colours") or []) < 1 or entry.get("colour_images"):
                 continue
             if brand == "Trek":
-                code = re.search(r"/[pa]/(\d+)", entry["url"])
+                code = trek_code(entry["url"])
                 if not code:
                     continue
-                if code.group(1) not in products:
-                    products[code.group(1)] = trek_product(fetcher, code.group(1)) or {}
-                urls = products[code.group(1)].get("colour_image_urls")
+                if code not in products:
+                    products[code] = trek_product(fetcher, code) or {}
+                urls = products[code].get("colour_image_urls")
             else:
                 page = fetcher.get(entry["url"])
                 bike = SITES[brand][0].parse(page, entry["url"]) if page else None
@@ -155,12 +155,12 @@ def add_angles(brand, fetcher=None, names=None):
             if names and name not in names or entry.get("source") != "site" or not entry.get("colour_images") or entry.get("colour_angles"):
                 continue
             if brand == "Trek":
-                code = re.search(r"/[pa]/(\d+)", entry["url"])
+                code = trek_code(entry["url"])
                 if not code:
                     continue
-                if code.group(1) not in products:
-                    products[code.group(1)] = trek_product(fetcher, code.group(1))
-                urls = (products[code.group(1)] or {}).get("colour_angle_urls") or {}
+                if code not in products:
+                    products[code] = trek_product(fetcher, code)
+                urls = (products[code] or {}).get("colour_angle_urls") or {}
             else:
                 page = fetcher.get(entry["url"])
                 bike = SITES[brand][0].parse(page, entry["url"]) if page else None
@@ -341,12 +341,24 @@ def trek_product(fetcher, code):
         if by_swatch.get(swatch) and others:
             colour_angles.setdefault(by_swatch[swatch], [
                 f"https://media.trekbikes.com/image/upload/f_png,w_1200/{i['assetId']}" for i in others])
-    return {"code": code, "name": full.get("name") or "", "years": trek_years(full.get("modelYearIntroAndCurrent")),
+    # Trek's newer products leave modelYearIntroAndCurrent empty; their photos still carry the model year they
+    # were shot for ("DomaneAL2-24-41587-A-Primary" is the 2024 Domane AL 2 Gen 4 in Crimson to Dark Carmine Fade).
+    shot = next((int(m.group(1)) for i in images if (m := re.search(r"-([1-3]\d)-%s-" % re.escape(str(code)), i))), None)
+    return {"code": code, "name": full.get("name") or "",
+            "years": trek_years(full.get("modelYearIntroAndCurrent")) or ([2000 + shot] if shot else []),
+            "years_from_photos": not trek_years(full.get("modelYearIntroAndCurrent")) and bool(shot),
             "colours": colours, "colour_image_urls": colour_images, "colour_angle_urls": colour_angles,
             "url": "https://www.trekbikes.com/nl/nl_NL" + (full.get("url") or f"/p/{code}/"),
             "category": full.get("defaultCategory") or "",
             "sheet_years": full.get("modelYearIntroAndCurrent"), "specs": normalize_specs(pairs),
             "image_url": f"https://media.trekbikes.com/image/upload/f_png,w_1200/{primary}" if primary else None}
+
+
+def trek_code(url):
+    """The product number in a Trek page url: /p/23522/, /a/33083/, or the newer
+    /f/F221-5/domane-al-2-gen-4/41587/ (with or without the colour's variant number after it)."""
+    m = re.search(r"/[pa]/(\d+)", url or "") or re.search(r"/f/[^/]+/[^/]+/(\d+)(?:/\d+)?/?$", url or "")
+    return m.group(1) if m else None
 
 
 def line_of(name):
@@ -359,10 +371,32 @@ def generation(name):
     return int(m.group(1)) if m else 0
 
 
+def archive_trek_codes():
+    """{product number: {model years}} of the Trek pages the Wayback copies (data/years/Trek.json) were read from:
+    a page is a product, and the years it was the model's page are the years that product was sold."""
+    try:
+        with open(os.path.join(ROOT, "data", "years", "Trek.json"), encoding="utf-8") as fh:
+            archive = json.load(fh)
+    except (OSError, ValueError):
+        return {}
+    found = {}
+    for entries in archive.get("models", {}).values():
+        for year, entry in entries.items():
+            m = re.search(r"/p/(\d+)", entry.get("url") or "")
+            if m and year.isdigit():
+                found.setdefault(m.group(1), set()).add(int(year))
+    return found
+
+
 def trek_collect(models, fetcher, years, codes):
-    products = [p for p in (trek_product(fetcher, c) for c in codes) if p and p["years"]
+    seen = archive_trek_codes()
+    products = [p for p in (trek_product(fetcher, c) for c in sorted(set(codes) | set(seen))) if p and p["years"]
                 and recognised(p["specs"]) >= MIN_SPECS and not TREK_SKIP.search(p["name"])
                 and not TREK_STOCK.search(p["name"])]
+    for p in products:
+        if p.get("years_from_photos"):
+            # Its photos' year, and the years the Wayback copies found it as the model's page.
+            p["years"] = sorted(set(p["years"]) | seen.get(p["code"], set()))
     log.info("Trek: %d archived bikes with a spec sheet", len(products))
     found, today = {}, date.today().isoformat()
     for name, _url in models:
@@ -668,7 +702,8 @@ def run(brands, db_path, years, cdx_folder=None, names=None):
         else:
             found = collect(brand, models, Fetcher(delays=SITES[brand][3]), years)
         path = os.path.join(out_dir, f"{brand}.json")
-        # Years read in an earlier run stay unless this run read them again.
+        # Years read in an earlier run stay unless this run read them again: a page that is
+        # gone now (Trek drops a product's older years) doesn't make the year wrong.
         try:
             with open(path, encoding="utf-8") as fh:
                 before = json.load(fh)
@@ -676,8 +711,7 @@ def run(brands, db_path, years, cdx_folder=None, names=None):
             before = {"years": [], "models": {}}
         for name, entries in before["models"].items():
             for year, entry in entries.items():
-                if int(year) not in years or names and name not in names:
-                    found.setdefault(name, {}).setdefault(year, entry)
+                found.setdefault(name, {}).setdefault(year, entry)
         all_years = sorted(set(before["years"]) | set(years))
         with open(path, "w", encoding="utf-8") as fh:
             json.dump({"checked_on": date.today().isoformat(), "years": all_years,
