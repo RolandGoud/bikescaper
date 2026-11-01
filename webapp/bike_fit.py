@@ -338,6 +338,14 @@ def whole_bike(ad_path, catalogue_path, ratio=1.2):
     return whole
 
 
+def settled(ad_path, catalogue_path, zoom=None):
+    """Whether style() gives its final answer for this pair: the placement was worked out (or can't be)."""
+    try:
+        return not os.path.exists(ad_path) or _key(catalogue_path, zoom) in _read(ad_path)
+    except OSError:
+        return True
+
+
 def style(ad_path, catalogue_path, zoom=None):
     """The placement for this pair of photo files if it's been worked out. Until then it's worked out in
     the background for the next view, and the photo is only mirrored if the bike faces left."""

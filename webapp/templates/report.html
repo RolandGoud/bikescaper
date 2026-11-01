@@ -12,7 +12,7 @@
     <div class="head-media">
       {% set colour = r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None %}
       <div class="head-photo">
-        {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model) }}</div>
+        {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model, listing.id, picked=True) }}</div>
         {% else %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
         {% if r.model and (r.photo_year or colour) %}
         <span class="photo-cap" title="{{ (_("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names')) if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ _('Catalogue: the {year} model', year=r.photo_year.year) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
@@ -404,7 +404,7 @@
 <dialog class="lightbox" aria-label="{{ _('Photos from the ad') }}" data-photos='{{ listing.photos|tojson }}'
         data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}" data-duo-label="{{ _('Ad and catalogue') }}">
   {# The merged slider, big and still draggable; it comes first, before the ad's own photos. #}
-  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(duo_pick(listing.photos, r.model), r.model) }}</div>{% endif %}
+  {% if r.model and r.model.image %}<div class="lb-duo" hidden>{{ duo_photo(duo_pick(listing.photos, r.model), r.model, listing.id, picked=True) }}</div>{% endif %}
   <img alt="" referrerpolicy="no-referrer">
   <div class="lb-count" aria-live="polite"></div>
   <button class="lb-close" type="button" aria-label="{{ _('Close') }}" autofocus>×</button>
