@@ -28,10 +28,31 @@
 </div>{% endset %}
 <main class="wrap page">
   <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name|model_title }}</div>
-  <section class="card listing-head">
+  {# The heading like the check report's: the bike on a stage with its brand logo, the model's name (without
+     generation or colour) and its new price on a sticker. The facts follow the year picked in the gallery below. #}
+  {% set gallery = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('image')|list %}
+  {% set stage_img = m.image or (gallery[-1].image if gallery) %}
+  {% set parts = key_parts(specs, tiers.rows) %}
+  <section class="ad-stage model-stage{{ ' no-photo' if not stage_img }}">
+    {% if stage_img %}<div class="photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=stage_img) }}" alt="{{ m.brand }} {{ m.name|model_title }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}</div>{% endif %}
+    <div class="stage-text">
+      <div class="stage-meta mono">{{ _(discipline) }}{% if years %} · {{ _('Model years') }} {{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% endif %}</div>
+      <div>
+        {% if logos.get(m.brand) %}<span class="stage-logo" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% endif %}
+        {% set name = m.name|family_name %}{% set lead, _sp, rest = name.partition(' ') %}
+        <h1 data-fact="title">{% if not logos.get(m.brand) %}{{ m.brand }} {% else %}<span class="sr-only">{{ m.brand }} </span>{% endif %}{{ lead }} <span class="acc">{{ rest }}</span></h1>
+        {% set groupset = (parts|selectattr('0', 'equalto', 'Groupset')|first or [None, None])[1] %}
+        {% set sub = [m.colorways[0].name if m.colorways else None, groupset]|select|list %}
+        {% if sub %}<div class="stage-sub">{{ sub|join(' · ') }}</div>{% endif %}
+      </div>
+    </div>
+    <div class="price-sticker"><b data-fact="sticker">{{ m.price_eur|eur if m.price_eur else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
+  </section>
+  <div class="block-head"><span>{{ _('The model') }}</span></div>
+  <section class="ad-card model-card">
+    <div class="ad-gallery">
     {# The current photo, and when we have them the photo of each earlier model year: thumbnails from
        the oldest to the current bike, which is shown first. #}
-    {% set gallery = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('image')|list %}
     {# A model with no photo of its own (one that's no longer sold) opens on its newest year photo. #}
     {% if gallery %}
     {% set own = (year_tabs|selectattr('state', 'equalto', 'scrape')|first) %}
@@ -41,7 +62,8 @@
     {% set placeholder %}<span class="gallery-empty-logo">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }}</span>{% endset %}
     {# What the facts beside the photo say for that year; swapped in when the year is picked. #}
     {% macro year_facts(t) -%}
-    <template class="year-facts"><span data-fact="price">{% if t.price and t.price_german %}{{ _('New {price}', price=t.price|eur) }}*{% elif t.price %}{{ _('New {price}', price=t.price|eur) }}{% else %}{{ _('New price in {year} unknown', year=t.year) }}{% endif %}</span>
+    <template class="year-facts"><span data-fact="sticker">{% if t.price %}{{ t.price|eur }}{{ '*' if t.price_german }}{% else %}–{% endif %}</span>
+      <span data-fact="price">{% if t.price and t.price_german %}{{ _('New {price}', price=t.price|eur) }}*{% elif t.price %}{{ _('New {price}', price=t.price|eur) }}{% else %}{{ _('New price in {year} unknown', year=t.year) }}{% endif %}</span>
       <span data-fact="price-note">{% if t.price and t.price_german %}{{ _('* For the new price of this model, year and colour we used an alternative source (the German list price in the TOUR/BIKE database), so we can\'t guarantee it is fully reliable.') }}{% endif %}</span>
       <span data-fact="parts">{% if t.specs %}{{ parts_list(key_parts(t.specs, t.tiers.rows if t.tiers else {})) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }} ({{ t.year }})</p>{% endif %}</span>
       <span data-fact="tier">{% if t.tiers and t.tiers.overall %}{{ tier_badge(t.tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</span>
@@ -78,10 +100,11 @@
                 title="{{ _('Still looking for a good photo of this year.') }}">{{ year_facts(t) }}{{ placeholder }}<span class="gallery-year{{ ' earlier' if t.earlier }}"{% if t.earlier %} title="{{ _('Earlier generation') }}"{% endif %}>{{ t.year }}</span><span class="gallery-n"></span></button>
         {% endif %}
     {%- endmacro %}
-    {# The model years on the left, newest first, pick which bike the photo shows; the arrows on the photo go
+    {# The model years under the photo, oldest first and the current bike last, pick which bike the photo shows; the arrows on the photo go
        through that year's photos (the side view, then close-ups, front and rear). #}
     <div class="model-gallery has-years" id="model-gallery"{% if not m.image %} data-start="{{ gallery[-1].year }}"{% endif %}>
       <div class="year-rail gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
+        {% for t in slots %}{{ year_thumb(t) }}{% endfor %}
         {% if m.image %}
         <button type="button" class="gallery-thumb current" aria-pressed="true" data-year="{{ own_year }}" data-src="{{ url_for('images', path=m.image) }}"{% if angles_now %} data-angles='{{ angles_now|tojson }}'{% endif %}
                 data-colours="{{ (m.colors or [])|join(', ') }}">
@@ -90,7 +113,6 @@
         <button type="button" class="gallery-thumb current empty" aria-pressed="false" data-year="{{ own_year }}" data-src=""
                 title="{{ _('Still looking for a good photo of this year.') }}">{{ placeholder }}<span class="gallery-year">{{ own_year }}</span><span class="gallery-n"></span></button>
         {% endif %}
-        {% for t in slots|reverse %}{{ year_thumb(t) }}{% endfor %}
       </div>
       <div class="gallery-main">
       <div class="photo" id="model-photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=gallery[-1].image) }}" alt="{{ m.brand }} {{ m.name|model_title }} {{ gallery[-1].year }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}
@@ -127,14 +149,11 @@
       <button class="lb-next" type="button" aria-label="{{ _('Next photo') }}">›</button>
     </dialog>
     {% endif %}
-    <div class="info">
-      <div class="mono muted model-kicker">{{ brand_label({'name': m.brand|upper, 'logo': logos.get(m.brand)}) }} · {{ _(discipline) }}</div>
-      <h1 style="font-family: var(--display); text-transform: uppercase; font-size: 48px" data-fact="title">{{ m.name|model_title }}</h1>
-      <div class="price" data-fact="price">{{ _('New {price}', price=m.price_eur|eur) }}</div>
-      {% set parts = key_parts(specs, tiers.rows) %}
-      {% if parts or year_tabs|selectattr('specs')|list %}<div class="key-parts" data-fact="parts">{% if parts %}{{ parts_list(parts) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }}</p>{% endif %}</div>{% endif %}
+    </div>
+    <div class="ad-info info">
+      {% set weight = (specs|map(attribute=1)|sum(start=[])|selectattr('0', 'equalto', 'Weight')|first or [None, None, None])[2] %}
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
-      <div class="mini-facts">
+      <div class="ad-tiles model-tiles" style="--n: {{ 4 if weight else 3 }}">
         <div data-fact="years"><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
           <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
           {% set earlier = years[4]|dictsort|selectattr('1.1')|map(attribute='0')|list if years else [] %}
@@ -143,22 +162,40 @@
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div data-fact="status"><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
           <div class="v"><span class="status {{ status[0] }}">{{ _(status_labels[status[0]]) }}</span></div></div>
-        {# What it sells for second-hand: the median asking price of the ads matched to it (the box below has the detail). #}
-        {% set too_few = _('Not enough ads yet for a reliable median price.') %}
-        <div class="used-tile"><div class="k">{{ _('Second-hand') }}{% if not asking.enough %}{{ note(too_few) }}{% endif %}</div>
-          <div class="v"{% if not asking.enough %} title="{{ too_few }}"{% endif %}>{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</div>
-          <a class="small muted" href="#asking">{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% elif asking.count == 1 %}{{ _('{n} ad', n=1) }}{% elif asking.count %}{{ _('{n} ads', n=asking.count) }}{% else %}{{ _('No ads yet') }}{% endif %}</a></div>
+        {% if weight %}<div><div class="k">{{ _('Weight') }}</div><div class="v">{{ weight }}</div></div>{% endif %}
       </div>
-      <div class="row head-actions"><a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }}</a>
-        <a class="btn" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a></div>
-      <p class="small muted price-note" data-fact="price-note"></p>
+      {% if parts or year_tabs|selectattr('specs')|list %}
+      <div class="model-parts"><span class="k">{{ _('Main parts') }}</span>
+        <div class="key-parts" data-fact="parts">{% if parts %}{{ parts_list(parts) }}{% else %}<p class="small muted kp-none">{{ _('No spec sheet') }}</p>{% endif %}</div>
+        <a class="small" href="#spec-sheet">{{ _('All specs') }} ↓</a></div>
+      {% endif %}
+      <div class="model-foot">
+        <p class="small muted price-note" data-fact="price-note"></p>
+        <a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }} <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
+  </section>
+  {# What it sells for second-hand, in a strip like the report's "Our match": the median asking price, the ads
+     matched to it, and a bar to estimate a price; the box below has the detail. #}
+  <div class="block-head"><span>{{ _('Second-hand') }}</span></div>
+  <section class="match-strip used-strip">
+    <a class="ms-model" href="#asking"><span class="ms-row">
+      <svg class="ms-bike" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>
+      <span class="ms-name">{{ _('Asking price') }}</span></span>
+      <span class="mb-open">{{ _('See the prices') }} ↓</span></a>
+    <div class="ms-check{{ ' ok' if asking.enough }}"><span class="k">{{ _('MEDIAN') }}</span>
+      <b>{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</b>
+      <small>{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% else %}{{ _('Not enough ads yet for a reliable median price.') }}{% endif %}</small></div>
+    <div class="ms-check{{ ' ok' if ads }}"><span class="k">{{ _('MATCHED') }}</span>
+      <b>{% if ads|length == 1 %}{{ _('{n} ad', n=1) }}{% elif ads %}{{ _('{n} ads', n=ads|length) }}{% else %}{{ _('No ads yet') }}{% endif %}</b>
+      <small>{{ _('Ads we matched to this model, also the ones gone from the site.') }}</small></div>
+    <a class="ms-swap" href="{{ url_for('value', model=m.slug) }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h2M14 14h2M8 18h2M14 18h2"/></svg><span>{{ _('Estimate a used price') }}</span></a>
   </section>
   <section class="card">{{ asking_box(asking) }}
     {# Every ad matched to this model, also the ones gone from the site, newest first. #}
     {{ matched_ads(ads, _('Matched ads'), _('No ads matched to this model yet.')) }}
   </section>
-  <section class="card">
+  <section class="card" id="spec-sheet">
     <h2>{{ _('Spec sheet') }}</h2>
     {% set shown = (year_tabs|selectattr('state', 'equalto', 'scrape')|list or year_tabs|selectattr('specs')|list or year_tabs)|last %}
     <div class="year-tabs" role="tablist" aria-label="{{ _('Model year') }}">
@@ -296,7 +333,7 @@
     if (on) row.scrollLeft = on.offsetLeft - row.offsetLeft - (row.clientWidth - on.offsetWidth) / 2;  // offsetLeft counts from the gallery, not the row
   }
   // The facts beside the photo follow the year: its new price, spec tier and colours (with their photos); the current bike's own again.
-  var facts = Array.prototype.slice.call(document.querySelectorAll(".info [data-fact], .gallery-colours[data-fact]"));
+  var facts = Array.prototype.slice.call(document.querySelectorAll(".model-stage [data-fact], .info [data-fact], .gallery-colours[data-fact]"));
   facts.forEach(function (f) { f.dataset.own = f.innerHTML; });
   var factsYear = null;  // the year the facts show; null for the current bike
   function showFacts(thumb) {

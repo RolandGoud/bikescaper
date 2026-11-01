@@ -1299,4 +1299,11 @@ NL = {
     "No model words in the ad": "Geen modelwoorden in de advertentie",
     "All model words are in the ad": "Alle modelwoorden staan in de advertentie",
     "Match with another model": "Match met ander model",
+    "The model": "Het model",
+    "Main parts": "Belangrijkste onderdelen",
+    "All specs": "Alle specificaties",
+    "See the prices": "Bekijk de prijzen",
+    "MEDIAN": "MEDIAAN",
+    "MATCHED": "GEKOPPELD",
+    "Ads we matched to this model, also the ones gone from the site.": "Advertenties die we aan dit model koppelden, ook die al van de site zijn.",
 }
