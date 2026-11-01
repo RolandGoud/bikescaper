@@ -777,46 +777,84 @@ def match_models(models, title, description="", claims=None):
     for model in models:
         if claims["brand"] and model["brand"] != claims["brand"]:
             continue
-        name_toks = _tokens(model["name"])
-        family = [t for t in name_toks if t not in ("s", "works")][:1]
-        if not family or family[0] not in all_toks:
-            continue  # the model family (Domane, Ultimate, Tarmac in "S-Works Tarmac") must be named
-        # The seller names another version: an SL7 is not an SL9 (Gen has its own rule below).
-        # A tier one letter off (SL for SLR) weighs half: the ad's own model may simply not be in the catalogue.
-        clashes = sum(1 if any(c.isdigit() for c in ours) else 0.5
-                      for ours, _ in conflicts(model, title) if not ours.startswith("Gen"))
-        score = 0.0
-        skip_next = False
-        for i, tok in enumerate(name_toks):
-            if skip_next:
-                skip_next = False
-                continue
-            if tok == "gen" and i + 1 < len(name_toks):
-                skip_next = True
-                if ad_gens:
-                    score += 1.0 if name_toks[i + 1] in ad_gens else -1.0
-                continue
-            if tok in title_toks:
-                score += 1.5
-            elif tok in all_toks:
-                score += 1.0
-            else:
-                score -= 0.75
-        gen = generation(model)
-        if gen and claims["year"] and not says_gen:
-            if gen["first"] - 1 <= claims["year"] <= (gen["last"] or 2100) + 1:
-                score += 0.5
-        ref_group = detect_groupset(groupset_text(model))
-        if ref_group and claims["groupset"] and ref_group["key"] == claims["groupset"]["key"]:
-            score += 0.25
-        score -= 3 * clashes  # still a candidate when we have nothing closer, but a weak one
-        # A model word in the title this model hasn't (Defy Advanced SL 1 for a Defy Advanced 1): another model.
-        score -= 0.75 * len((title_words & brand_toks.get(model["brand"], set())) - set(name_toks))
+        # The model's own name, or a name it was sold under in one of its years ("Émonda SL 6 Di2" for the
+        # 2023 Émonda SL 6): the name the ad fits best.
+        scores = [score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, brand_toks, title_words,
+                             claims) for name in [model["name"]] + sorted(sold_as(model))]
+        scores = [sc for sc in scores if sc is not None]
+        if not scores:
+            continue
+        score = max(scores)
         if _colour_named(model, f"{title} {description}"):
             score += 1.0  # the seller copied the brand's colour name: that colourway's model
         ranked.append((round(score, 2), model))
+    # A model whose every year another model has as a year it was sold under that name (the catalogue has the
+    # 2023 Émonda SL 6 Di2 both on its own and as the Émonda SL 6's 2023): that other model, with all its years.
+    covered = {}
+    for _score, m in ranked:
+        for y, e in ((m.get("year_specs") or {}).get("years") or {}).items():
+            if e.get("sheet_name") in sold_as(m):
+                covered.setdefault((m["brand"], e["sheet_name"]), set()).add(y)
+    ranked = [(sc, m) for sc, m in ranked
+              if not (own_years(m) and own_years(m) <= covered.get((m["brand"], m["name"]), set()))]
     ranked.sort(key=lambda pair: (-pair[0], pair[1]["price_eur"] or 0))
     return ranked
+
+
+def sold_as(model):
+    """The other names a model was sold under in some of its years (the sheet_name of its year sheets), when
+    they're the same version with more words ("Émonda SL 6 Di2" for an Émonda SL 6), not a predecessor
+    ("Tarmac SL7", "S-Works Tarmac Disc" for an SL9)."""
+    return {e["sheet_name"] for e in ((model.get("year_specs") or {}).get("years") or {}).values()
+            if e.get("sheet_name") and e["sheet_name"] != model["name"] and not conflicts(model, e["sheet_name"])
+            and set(_tokens(model["name"].split(" - ")[0])) <= set(_tokens(e["sheet_name"]))}
+
+
+def own_years(model):
+    """The model years a model has a sheet of under its own name."""
+    return {y for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
+            if e.get("specs") and not e.get("sheet_name")}
+
+
+def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, brand_toks, title_words, claims):
+    """match_models' score of a model under this name, or None when the ad doesn't name its family."""
+    named = dict(model, name=name)
+    name_toks = _tokens(name)
+    family = [t for t in name_toks if t not in ("s", "works")][:1]
+    if not family or family[0] not in all_toks:
+        return None  # the model family (Domane, Ultimate, Tarmac in "S-Works Tarmac") must be named
+    # The seller names another version: an SL7 is not an SL9 (Gen has its own rule below).
+    # A tier one letter off (SL for SLR) weighs half: the ad's own model may simply not be in the catalogue.
+    clashes = sum(1 if any(c.isdigit() for c in ours) else 0.5
+                  for ours, _ in conflicts(named, title) if not ours.startswith("Gen"))
+    score = 0.0
+    skip_next = False
+    for i, tok in enumerate(name_toks):
+        if skip_next:
+            skip_next = False
+            continue
+        if tok == "gen" and i + 1 < len(name_toks):
+            skip_next = True
+            if ad_gens:
+                score += 1.0 if name_toks[i + 1] in ad_gens else -1.0
+            continue
+        if tok in title_toks:
+            score += 1.5
+        elif tok in all_toks:
+            score += 1.0
+        else:
+            score -= 0.75
+    gen = generation(model)
+    if gen and claims["year"] and not says_gen:
+        if gen["first"] - 1 <= claims["year"] <= (gen["last"] or 2100) + 1:
+            score += 0.5
+    ref_group = detect_groupset(groupset_text(model))
+    if ref_group and claims["groupset"] and ref_group["key"] == claims["groupset"]["key"]:
+        score += 0.25
+    score -= 3 * clashes  # still a candidate when we have nothing closer, but a weak one
+    # A model word in the title this model hasn't (Defy Advanced SL 1 for a Defy Advanced 1): another model.
+    score -= 0.75 * len((title_words & brand_toks.get(model["brand"], set())) - set(name_toks))
+    return score
 
 
 _guesses = {}  # id(models) -> (models, {(title, description): (model, confidence)}), for the last few lists

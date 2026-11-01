@@ -317,3 +317,15 @@ def test_a_year_we_have_no_sheet_of_says_which_year_stands_in(models):  # noqa: 
     assert r["year"]["year"] == 2022
     assert r["photo_year"]["year"] == 2023 and r["photo_year"]["stand_in"] == 2022
     assert r["spec_year"] == 2023 and r["spec_stand_in"] == 2022
+
+
+def test_a_model_sold_under_another_name_in_a_year_matches_that_name(models):  # noqa: F811
+    # Check 40: "Emonda SL6 Di2 Disc". Trek sold the 2023 Émonda SL 6 as the Émonda SL 6 Di2; the catalogue has
+    # that bike on its own too, with only that year. Our match is the Émonda SL 6, whose 2023 it is.
+    ranked = checks.match_models(models, "Trek Emonda SL6 Di2 Disc Carbon Racefiets")
+    assert ranked[0][1]["name"] == "Émonda SL 6"
+    assert "Émonda SL 6 Di2" not in [m["name"] for _s, m in ranked]
+    r = checks.run_check(models, {"title": "Trek Emonda SL6 Di2 Disc Carbon Racefiets", "description": "",
+                                  "asking_price": 2695, "rider_height": None}, today=TODAY)
+    assert r["model"]["name"] == "Émonda SL 6" and not r["chosen_by_you"] and r["confidence"]
+    assert r["year"]["year"] == r["spec_year"] == 2023
