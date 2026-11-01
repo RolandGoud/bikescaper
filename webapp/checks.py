@@ -2090,7 +2090,7 @@ def photo_group(read):
     found = detect_groupset(photo_groupset.text_of(read))
     if found:
         extra = ELECTRONIC_NAME.get(found["name"].split()[0]) if found["electronic"] else None
-        found["label"] = Msg("{label} (inferred from photo analysis)", label=f"{found['name']} {extra}" if extra else found["name"])
+        found["label"] = Msg("{label} **", label=f"{found['name']} {extra}" if extra else found["name"])
     return found
 
 
@@ -2102,7 +2102,7 @@ def photo_part(read, key):
     if not part:
         return None
     text = photo_groupset.part_text(key, part)
-    return {"label": Msg("{label} (inferred from photo analysis)", label=text), "text": text,
+    return {"label": Msg("{label} **", label=text), "text": text,
             "tier": part_tier(PART_TABLES.get(key, (key,)), text)}
 
 
@@ -2175,7 +2175,7 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
         shown, ref_grade, ref_grade_tier = ref_frame(model) if key == "frame" else (spec(model, "Rem"), None, None)
         frame_seen = photo_frame(photo_read) if key == "frame" and not ad_val else None
         ad_val = ad_val or frame_seen
-        ad_shown = Msg("{label} (inferred from photo analysis)", label=Msg(ad_val)) if frame_seen \
+        ad_shown = Msg("{label} **", label=Msg(ad_val)) if frame_seen \
             else Msg(ad_val) if ad_val else not_stated
         if not ref_val:
             rows.append(_row(key, part, shown or Msg("Not in our data"), ad_shown, UNKNOWN, "Can't compare"))

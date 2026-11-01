@@ -348,7 +348,7 @@
             <td data-label="{{ (_('ORIGINAL ({year}, closest to {wanted})', year=r.spec_year, wanted=r.spec_stand_in) if r.spec_stand_in else _('ORIGINAL ({year})', year=r.spec_year)) if r.spec_year else _('ORIGINAL') }}">{{ s.original }}{% if s.ref_tier %}<div class="part-tier">{{ tier_badge(s.ref_tier, small=true) }}{{ aged_chip(s.ref_aged) }}</div>{% endif %}</td>
             <td data-label="{{ _('IN THE AD') }}">{% if s.photo_why and s.listing -%}
               {%- set why = s.photo_why['nl' if lang == 'nl' else 'en'] -%}
-              <span class="photo-read" tabindex="0" data-tip="{{ why }}">{{ s.listing }}<span class="sr-only"> {{ why }}</span></span>
+              <span class="photo-read" tabindex="0" data-head="{{ _('From photo analysis') }}" data-tip="{{ why }}">{{ s.listing }}<span class="sr-only"> {{ _('From photo analysis') }}: {{ why }}</span></span>
               {%- else %}{{ s.listing if s.listing }}{% endif %}
               <div class="part-tier part-verdict {{ s.status }}{{ ' alone' if not s.listing }}">{% set matched = s.status == 'ok' and not s.step and (s.ad_tier or s.ref_tier) %}
               {%- if matched %}{{ tier_move(s.ad_tier or s.ref_tier, match=true) }}{% else %}{{ tier_move(s.ad_tier, s.step) }}{% endif %}{{ aged_chip(s.ad_aged) }}

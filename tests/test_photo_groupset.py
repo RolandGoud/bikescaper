@@ -82,7 +82,7 @@ def test_photos_fill_in_a_groupset_the_ad_leaves_out(models):
     report = run(models, "Trek Emonda SL6", "Mooie fiets, carbon, maat 56", RIVAL)
     row = groupset_row(report)
     assert row["from_photos"]
-    assert en(row["listing"]).endswith("(inferred from photo analysis)")
+    assert en(row["listing"]).endswith(" **")
     assert "Rival" in en(row["listing"])
     assert report["specs"]["photo_groupset"] == RIVAL
     assert "read it from the photos" in en(report["specs"]["detail"])
@@ -202,10 +202,10 @@ def test_report_page_shows_the_photo_read(tmp_path):
     photo(os.path.join(os.path.dirname(app.config["DB_PATH"]), "ad-photos", "1", "01.jpg"))
     client = app.test_client()
     page = client.get("/check/1?lang=en").data.decode()
-    assert "SRAM Rival AXS (inferred from photo analysis)" in page
+    assert "SRAM Rival AXS **" in page and 'data-head="From photo analysis"' in page
     assert "RIVAL" in page  # the evidence line from webapp/photo_groupsets.json
     page = client.get("/check/1?lang=nl").data.decode()
-    assert "(afgeleid uit foto-analyse)" in page
+    assert 'data-head="Uit foto-analyse"' in page
     assert "achterderailleur" in page
 
 
@@ -214,7 +214,7 @@ def test_photos_fill_in_the_crankset_the_ad_leaves_out(models):
     assert crank_row(run(models, "Trek Emonda SL6", "", None))["listing"] is None
     report = run(models, "Trek Emonda SL6", "", RIVAL)
     row = crank_row(report)
-    assert en(row["listing"]) == "SRAM Rival (inferred from photo analysis)"
+    assert en(row["listing"]) == "SRAM Rival **"
     assert row["ad_tier"] and row["result"] != "Compare photos"
     assert row["photo_why"]["nl"] == "Foto 9: Rival op de crankarm."
     assert "crankset" in report["specs"]["photo_parts"]
@@ -330,7 +330,7 @@ def test_photos_fill_in_the_tyres_the_ad_leaves_out(models):
              "evidence_nl": "Foto 6: GRAND PRIX 5000 28-622 op de zijwand."}
     report = run(models, "Trek Emonda SL6", "", dict(RIVAL, tyres=tyres))
     r = row(report, "tyres")
-    assert en(r["listing"]) == "Continental Grand Prix 5000 28 mm (inferred from photo analysis)"
+    assert en(r["listing"]) == "Continental Grand Prix 5000 28 mm **"
     assert r["ad_tier"] and r["photo_why"]["en"].startswith("Photo 6")
     # A tyre we can't rate is still shown, but not compared.
     r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, tyres=dict(tyres, brand="Noname", model="Road X"))), "tyres")
@@ -347,7 +347,7 @@ def test_photos_fill_in_the_frame_material(models):
     without = row(run(models, "Trek Emonda SL6", "", RIVAL), "frame")
     assert en(without["listing"]) == "Not stated"
     r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, frame=frame)), "frame")
-    assert en(r["listing"]) == "Carbon (inferred from photo analysis)" and r["status"] == checks.OK
+    assert en(r["listing"]) == "Carbon **" and r["status"] == checks.OK
     r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, frame=dict(frame, material="Aluminium"))), "frame")
     assert r["status"] == checks.BAD
     assert en(row(run(models, "Trek Emonda SL6", "", dict(RIVAL, frame=dict(frame, confidence="low"))), "frame")["listing"]) == "Not stated"
@@ -404,7 +404,7 @@ def test_photos_fill_in_the_wheels_the_ad_leaves_out(models):
               "confidence": "high", "photos": [3], "evidence_en": "Photo 3: VISION TEAM 30 on the rims.",
               "evidence_nl": "Foto 3: VISION TEAM 30 op de velgen."}
     r = row(run(models, "Trek Emonda SL6", "", dict(RIVAL, wheels=wheels)), "wheels")
-    assert en(r["listing"]) == "Vision Team 30 aluminium 30 mm (inferred from photo analysis)"
+    assert en(r["listing"]) == "Vision Team 30 aluminium 30 mm **"
     assert r["ad_tier"] == 2 and r["photo_why"]["nl"].startswith("Foto 3")
     # A brand alone isn't enough.
     only_brand = dict(wheels, model="", rim_depth_mm=0, rim_material="unknown")
