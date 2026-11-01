@@ -310,8 +310,8 @@
 
   <section id="specs" class="card report-panel" role="tabpanel" aria-labelledby="tab-specs">
     <div class="row" style="justify-content: space-between; align-items: baseline">
-      <h2>{{ _('Spec comparison') }}</h2>
-      <span class="small muted">{{ r.specs.detail }}</span>
+      <h2>{{ r.specs.title or _('Spec comparison') }}</h2>
+      {% if r.specs.detail %}<span class="small muted">{{ r.specs.detail }}</span>{% endif %}
     </div>
     <div class="spec-table">
       <table>

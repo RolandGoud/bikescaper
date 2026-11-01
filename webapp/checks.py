@@ -2074,11 +2074,13 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
     else:
         status, headline = OK, Msg("Matches the original")
     detail = join(claims["mentions_upgrades"] and Msg("The seller mentions changed parts."),
-                  seen and Msg("The ad doesn't name the groupset; we read it from the photos.") or None,
-                  Msg("Compared with the {brand} spec sheet of the {year} model.", brand=model["brand"],
-                      year=model["spec_year"]) if model.get("spec_year") else
-                  Msg("Compared with the {brand} spec sheet from {date}.", brand=model["brand"],
-                      date=model.get("seen_on") or Msg("our catalogue")))
+                  seen and Msg("The ad doesn't name the groupset; we read it from the photos.") or None)
+    # One heading names what was compared: the brand, the model as the "Matched to" card shows it, and the year.
+    sheet = model.get("spec_year") or scrape_year(model)
+    shown = model_title(model["name"])
+    title = (Msg("Parts compared with the specs of {brand} {name} {year}", brand=model["brand"], name=shown,
+                 year=sheet) if sheet else
+             Msg("Parts compared with the specs of {brand} {name}", brand=model["brand"], name=shown))
     # The report tab's pill says whether it matches; the tab's headline says what was compared.
     # The tab keeps to one line: with more than one count, the counts without "part(s)".
     short = [Msg("{n} differs" if differ == 1 else "{n} differ", n=differ) if differ else None,
@@ -2087,11 +2089,12 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
            join_list(short) if sum(map(bool, short)) > 1 else headline)
     if no_sheet:
         status, headline, tab = UNKNOWN, Msg("No spec sheet for {year}", year=bike_year), Msg("No spec sheet")
+        title = Msg("Spec comparison")
         detail = join(Msg("The oldest {name} we know is a later generation, and we don't have the spec sheet of the "
                           "{year} bike, so we can't compare its parts with the original.", name=model["name"],
                           year=bike_year),
                       claims["mentions_upgrades"] and Msg("The seller mentions changed parts."))
-    return {"status": status, "headline": headline, "tab_headline": tab, "detail": detail, "rows": rows,
+    return {"status": status, "headline": headline, "tab_headline": tab, "title": title, "detail": detail, "rows": rows,
             "photo_groupset": photo_read if seen else None,
             "photo_parts": [r["key"] for r in rows if r.get("photo_why")]}
 
