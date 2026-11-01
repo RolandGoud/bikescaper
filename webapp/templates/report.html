@@ -347,9 +347,8 @@
     <h2>{{ _('Size fit') }}</h2>
     {% if r.size.rows %}
     <div class="sizes">
-      {% for s in r.size.rows %}<div class="{{ 'on' if s.selected }}">{{ s.size }}<br>{{ '≈ ' if s.estimated }}{{ s.low }}–{{ s.high }}</div>{% endfor %}
+      {% for s in r.size.rows %}<div class="{{ 'on' if s.selected }}">{{ s.size }}<br>{{ '≈ ' if s.estimated }}{{ s.low }}–{{ s.high }} cm</div>{% endfor %}
     </div>
-    <div class="small muted">{{ _('Rider height in cm.') }}</div>
     {% endif %}
     <p>{{ r.size.detail }}</p>
     <form class="inline-form" method="get" action="{{ url_for('report', check_id=listing.id) }}#size">
