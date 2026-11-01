@@ -80,10 +80,26 @@ def detect_brakes(text):
     return None
 
 
+YEAR = r"(?:19[89]|20[0-3])\d"
+
+
 def detect_year(text):
     """The model year the seller claims, and whether it reads as a purchase year instead. A year the ad ties to a
-    word ("bouwjaar 2019", "frame ca. 2010") wins over a bare one ("2023 groep")."""
+    word ("bouwjaar 2019", "frame ca. 2010") wins over a bare one ("2023 groep"), and one it calls the model year
+    ("2017 model") over both."""
     low = _plain(text)
+    # A year the seller calls the model year ("2017 model", "modeljaar 2017", "bouwjaar 2017", "MY17") wins over
+    # every other year, also a purchase year or a part's year earlier in the ad ("gekocht in 2018, een 2017 model").
+    stated = re.search(
+        rf"\b(?:modeljaar|model\s*jaar|bouwjaar|model\s*year)[ \t]*:?[ \t]*({YEAR})\b(?![.,]\d)"
+        rf"|(?<![€\d.,])\b({YEAR})[ \t]*[-']?[ \t]*(?:model|modeljaar|model\s*year|editie|edition)\b",
+        low,
+    )
+    if stated:
+        return int(stated.group(1) or stated.group(2)), False
+    stated = re.search(r"\bmy'?(1\d|2\d)\b", low)  # "MY17", not "my 2019 bike"
+    if stated:
+        return 2000 + int(stated.group(1)), False
     keyed = re.search(
         r"(bouwjaar|modeljaar|model\s*jaar|model|jaar|year|uit|van|gekocht\s+in|aangeschaft\s+in|aankoop|frame"
         r"|\bca\b|circa|omstreeks|ongeveer)[^\d€]{0,12}"
