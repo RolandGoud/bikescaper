@@ -1770,3 +1770,12 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .camera-shutter:active { transform: scale(.94); }
 @media (orientation: portrait) { .camera-turn { display: block; } }
 @media (max-width: 700px) { dialog.camera { width: 100vw; height: 100dvh; border-radius: 0; border: 0; margin: 0; } }
+/* A phone held sideways has little height: the camera fills the screen and the controls float over it,
+   with the shutter on the right where the thumb is. */
+@media (orientation: landscape) and (max-height: 600px) {
+  dialog.camera { width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; padding: 0; border: 0; border-radius: 0; overflow: hidden; }
+  .camera-frame { width: min(100vw - 112px, 100dvh * 4 / 3); height: auto; margin: 0; position: absolute; top: 50%; left: calc(50% - 48px); transform: translate(-50%, -50%); border-radius: 0; }
+  .camera-head { position: absolute; z-index: 2; top: 8px; left: 12px; right: 112px; margin: 0; text-shadow: 0 1px 3px #000; }
+  .camera-hint, .camera-turn { display: none; }
+  .camera-shutter { position: absolute; z-index: 2; right: 20px; top: 50%; margin: -34px 0 0; }
+}
