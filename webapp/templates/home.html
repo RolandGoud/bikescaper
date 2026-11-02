@@ -8,7 +8,7 @@
       <p class="lede">{{ _('Paste the ad. We match it to the original model and tell you if the age, specs, size and asking price add up.') }}</p>
       <img class="hero-bike" src="{{ url_for('static', filename='hero/bikes.svg') }}" alt="" aria-hidden="true">
     </div>
-    {{ check_form({}, None) }}
+    <div id="check-ad">{{ check_form({}, None) }}</div>
   </div>
   {% if hero_credit %}
   <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
@@ -20,11 +20,17 @@
 {% if sponsored.side %}{{ sponsored_side(sponsored.side) }}{% endif %}
 <section class="wrap stack" style="padding-top: 64px; padding-bottom: 24px; gap: 28px">
   <h2>{{ _('What a check tells you') }}</h2>
-  <div class="grid">
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('value') }}</span><span class="mono">{{ _('01 · VALUE') }}</span></div><h3>{{ _('Is the price fair?') }}</h3><p class="muted">{{ _('A fair price range from the new price, age and condition.') }}</p></div>
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('age') }}</span><span class="mono">{{ _('02 · AGE') }}</span></div><h3>{{ _('Is it as old as stated?') }}</h3><p class="muted">{{ _('We compare the claimed year with the years the model was sold.') }}</p></div>
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('groupset') }}</span><span class="mono">{{ _('03 · SPECS') }}</span></div><h3>{{ _('Are the parts original?') }}</h3><p class="muted">{{ _('Groupset, frame and brakes are checked against the factory spec sheet.') }}</p></div>
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('size') }}</span><span class="mono">{{ _('04 · SIZE') }}</span></div><h3>{{ _('Will it fit you?') }}</h3><p class="muted">{{ _('The frame size is turned into a rider height range.') }}</p></div>
+  {# The four questions a check answers, as cells in one strip like the report's "Our match"; the bar on the
+     right (under the cells on a phone) goes up to the form. #}
+  <div class="what-strip">
+    {% for n, key, q, text in [
+      (1, 'VALUE', 'Is the price fair?', 'A fair price range from the new price, age and condition.'),
+      (2, 'AGE', 'Is it as old as stated?', 'We compare the claimed year with the years the model was sold.'),
+      (3, 'SPECS', 'Are the parts original?', 'Groupset, frame and brakes are checked against the factory spec sheet.'),
+      (4, 'SIZE', 'Will it fit you?', 'The frame size is turned into a rider height range.')] %}
+    <div class="ws-cell"><span class="k">{{ _(key) }}</span><h3><i aria-hidden="true">{{ n }}</i>{{ _(q) }}</h3><p>{{ _(text) }}</p></div>
+    {% endfor %}
+    <a class="ms-swap ws-go" href="#check-ad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>{{ _('Check an ad') }}</span></a>
   </div>
 </section>
 

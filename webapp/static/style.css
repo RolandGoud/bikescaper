@@ -1619,3 +1619,65 @@ select { max-width: 100%; }
   .ms-check::before { left: 0; }
   .ms-swap { grid-row: 1; grid-column: 2; }
 }
+
+/* The home page's "What a check tells you": four cells in one strip like the report's "Our match", each
+   with a green divider and a round number, and a bar on the right (under the cells on a phone) up to the form. */
+.what-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+.ws-cell { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border-left: 1px solid var(--line); min-width: 0; }
+.ws-cell:first-child { border-left: 0; }
+.ws-cell + .ws-cell::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; background: var(--accent); }
+.ws-cell .k { font: 500 11px/1.2 var(--mono); letter-spacing: .08em; color: var(--link); }
+.ws-cell h3 { display: flex; align-items: flex-start; gap: 8px; margin: 0; font-size: 17px; line-height: 1.25; }
+.ws-cell h3 i { flex: none; display: inline-grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; font: 800 12px/1 var(--body); font-style: normal; color: var(--ink); background: var(--ok); }
+.ws-cell p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.what-strip .ws-go { width: 112px; }
+@media (max-width: 760px) {
+  .what-strip { grid-template-columns: 1fr 1fr; }
+  .ws-cell { padding: 16px; }
+  .ws-cell:nth-child(3) { border-left: 0; }
+  .ws-cell:nth-child(3)::before { display: none; }
+  .ws-cell:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .what-strip .ws-go { grid-row: auto; grid-column: 1 / -1; width: auto; flex-direction: row; border-left: 0; border-top: 1px solid var(--line); padding: 14px; }
+}
+
+/* The model page's heading, in the check report's style: the stage, one card for the model (gallery, tiles,
+   main parts, product page) and a second-hand strip. */
+.model-stage .stage-meta { text-transform: uppercase; }
+.model-card { grid-template-columns: 400px minmax(0, 1fr); }
+.model-card .model-gallery, .model-card .model-gallery.has-years { display: flex; flex-direction: column; gap: 8px; flex: none; width: 100%; }
+.model-card .model-gallery .photo { border: 0; border-radius: 8px; }
+.model-card .gallery-colours { margin-top: 0; }
+.model-card .year-rail.gallery-thumbs { order: 9; flex: none; flex-direction: row; flex-wrap: wrap; width: 100%; max-height: none; overflow: visible; gap: 6px; }
+.model-card .year-rail .gallery-thumb { width: auto; padding: 4px 10px; border-radius: 999px; gap: 6px; background: transparent; }
+.model-card .year-rail .gallery-year { font: 600 12px var(--mono); }
+.model-card .year-rail .gallery-n { display: none; }
+.model-card .ad-tiles .k { display: flex; align-items: center; gap: 6px; }
+.model-card .ad-tiles .v { margin-top: 6px; font-weight: 700; font-size: 16px; min-height: 24px; display: flex; align-items: center; }
+.model-card .ad-tiles .v.small { font-size: 13px; }
+.model-card .ad-tiles .earlier-gen { margin-top: 4px; }
+.model-card .ad-tiles > div:last-child .note-tip p { left: auto; right: -12px; }
+.model-parts { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 14px 18px; }
+.model-parts > a { align-self: flex-start; margin-top: 4px; }
+.model-foot { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--line); }
+.model-foot .price-note { flex: 1; margin: 0; }
+.model-foot .price-note:empty { display: block; }
+.model-foot .product-link { margin-left: auto; }
+.used-strip .ms-check b { font-size: 17px; }
+@media (max-width: 760px) {
+  .model-card { grid-template-columns: minmax(0, 1fr); }
+  .model-foot { flex-wrap: wrap; }
+  .model-foot .product-link { flex: 1; justify-content: center; }
+}
+.model-card .k { text-transform: uppercase; }
+.model-stage .stage-sub { font-style: normal; }
+.model-stage > .photo img { object-position: 85% 50%; }  /* the bike to the right, clear of the name */
+/* The stage is 5:2, not the slider's 16:9: the cut runs 20% of the width over the height, so the line and the
+   labels slant at atan(0.2 × 5 / 2) = 26.57° to stay on it. */
+@media (min-width: 761px) {
+  .ad-stage .head-duo .duo-handle::before { transform: skewX(-26.57deg); }
+  .ad-stage .head-duo .duo-label { transform: skewX(-26.57deg); }
+  .ad-stage .head-duo .duo-label > span { transform: skewX(26.57deg); }
+}
+/* The Frame and Year cells line up at the top, and their note stays at two lines (the whole note on hover). */
+.match-strip .ms-check { justify-content: flex-start; }
+.ms-check small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
