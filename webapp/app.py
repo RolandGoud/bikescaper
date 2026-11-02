@@ -494,7 +494,7 @@ def create_app(db_path=None):
 
     def pdf_name(listing):
         slug = re.sub(r"[^a-z0-9]+", "-", listing["title"].lower()).strip("-")[:50] or "check"
-        return f"bike-compare-{listing['id']}-{slug}.pdf"
+        return f"bikecheck-{listing['id']}-{slug}.pdf"
 
     @app.route("/check/<int:check_id>/report.pdf")
     def report_pdf_download(check_id):

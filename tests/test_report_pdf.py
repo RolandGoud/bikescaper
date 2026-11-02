@@ -17,7 +17,7 @@ def test_pdf_download(tmp_path):
     resp = client.get("/check/1/report.pdf?height=180&lang=nl")
     assert resp.status_code == 200 and resp.mimetype == "application/pdf"
     assert resp.data.startswith(b"%PDF") and len(resp.data) > 2000
-    assert "bike-compare-1-trek-domane-sl6" in resp.headers["Content-Disposition"]
+    assert "bikecheck-1-trek-domane-sl6" in resp.headers["Content-Disposition"]
     assert client.get("/check/99/report.pdf").status_code == 404
 
 

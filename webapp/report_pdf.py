@@ -59,7 +59,7 @@ def build(listing, r, height=None, report_url=None):
     doc = SimpleDocTemplate(out, pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm, topMargin=16 * mm,
                             bottomMargin=16 * mm, title=f"{_('Check report')}: {listing['title']}", author="Bikecheck")
     width = A4[0] - 36 * mm
-    story = [_p("BIKE COMPARE · " + _("Check report").upper(), s["brand"]), Spacer(1, 6)]
+    story = [_p("BIKECHECK · " + _("Check report").upper(), s["brand"]), Spacer(1, 6)]
 
     story.append(_p(f"“{listing['title']}”", s["h1"]))
     facts = [_("checked {date}", date=listing["created_at"][:10])]
