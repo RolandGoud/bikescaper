@@ -1670,3 +1670,4 @@ select { max-width: 100%; }
 }
 .model-card .k { text-transform: uppercase; }
 .model-stage .stage-sub { font-style: normal; }
+.model-stage > .photo img { object-position: 85% 50%; }  /* the bike to the right, clear of the name */
