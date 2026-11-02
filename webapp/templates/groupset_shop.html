@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import ad_marker, tier_badge %}
-{% block title %}{{ _('Buy {name}', name=g.brand ~ ' ' ~ g.name) }} · Bike Compare{% endblock %}
+{% block title %}{{ _('Buy {name}', name=g.brand ~ ' ' ~ g.name) }} · Bikecheck{% endblock %}
 {% block body %}
 <main class="wrap page" style="max-width: 860px">
   <a class="small" href="{{ url_for('groupset_paths', have=g.key) }}">← {{ _('Groupset upgrade paths') }}</a>

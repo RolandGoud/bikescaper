@@ -1,4 +1,4 @@
-"""Keep the NAS copy of Bike Compare on the latest commit of a GitHub branch.
+"""Keep the NAS copy of Bikecheck on the latest commit of a GitHub branch.
 
 Used by nas/docker-compose.yml, which runs it in two ways:
 

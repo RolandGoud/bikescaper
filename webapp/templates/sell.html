@@ -2,7 +2,7 @@
 {% from "_macros.html" import part_icon %}
 {% from "_macros.html" import photo with context %}
 {% from "_macros.html" import site_mark, brand_mark with context %}
-{% block title %}{{ _('Sell your bike') }} · Bike Compare{% endblock %}
+{% block title %}{{ _('Sell your bike') }} · Bikecheck{% endblock %}
 {% block body %}
 {# A wizard in five steps (SELL_STEPS in app.py). One form carries the draft and the answers from step to step:
    every field on the page joins it with form="sell-form", and static/sell.js sends it again when an answer
@@ -114,7 +114,7 @@
 <main class="wrap page" id="result">
   <section class="card">
     <h2>{{ _('No matching model') }}</h2>
-    <p>{{ _("We couldn't find the brand and model in your title or text. Bike Compare covers {brands} for now; name the model in the title, for example “Trek Domane SL 6”.", brands=covered[:-1]|join(', ') ~ ' ' ~ _('and') ~ ' ' ~ covered[-1]) }}</p>
+    <p>{{ _("We couldn't find the brand and model in your title or text. Bikecheck covers {brands} for now; name the model in the title, for example “Trek Domane SL 6”.", brands=covered[:-1]|join(', ') ~ ' ' ~ _('and') ~ ' ' ~ covered[-1]) }}</p>
     <p><a href="{{ url_for('catalog') }}">{{ _('Browse the models we have') }}</a></p>
     <div><button class="btn ghost" type="submit" form="sell-form" name="go" value="ad">{{ _('Change my draft') }}</button></div>
   </section>
@@ -242,7 +242,7 @@
 
       <section class="card">
         <h2>{{ _("What a buyer's check will show") }}</h2>
-        <p class="muted small">{{ _('Buyers paste ads into Bike Compare. This is what they see for your draft, and for the new ad.') }}</p>
+        <p class="muted small">{{ _('Buyers paste ads into Bikecheck. This is what they see for your draft, and for the new ad.') }}</p>
         <div class="ba">
           {% for label, rep in [(_('YOUR DRAFT'), r.before), (_('NEW AD'), r.after)] %}
           <div class="col"><span class="mono">{{ label }}</span>

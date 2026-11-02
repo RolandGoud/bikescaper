@@ -156,7 +156,7 @@ NL = {
     "Which frame size fits you": "Welke framemaat bij je past",
     "A rough fair price for a used bike": "Een ruwe, eerlijke prijs voor je fiets",
     "Language": "Taal",
-    "Bike Compare · prototype": "Bike Compare · prototype",
+    "Bikecheck · prototype": "Bikecheck · prototype",
     "How it works": "Zo werkt het",
     "Data sources": "Bronnen",
     "Not affiliated with Marktplaats or any bike brand.": "Niet verbonden aan Marktplaats of een fietsmerk.",
@@ -235,14 +235,14 @@ NL = {
     "Too many emails for now. Try again in an hour, or download the PDF.":
         "Even te veel e-mails. Probeer het over een uur nog eens, of download de pdf.",
     "The email couldn't be sent. Download the PDF instead.": "De e-mail kon niet worden verstuurd. Download de pdf.",
-    "Your Bike Compare check: {title}": "Je Bike Compare-check: {title}",
+    "Your Bikecheck report: {title}": "Je Bikecheck-rapport: {title}",
     "Here is your check report for “{title}”, checked on {date}. The PDF is attached; the report online: {url}":
         "Hier is je checkrapport voor “{title}”, gecheckt op {date}. De pdf zit in de bijlage; het rapport online: {url}",
     "Summary": "Samenvatting",
     "We couldn't match this ad to a model in our catalogue.": "We konden deze advertentie niet aan een model uit onze catalogus koppelen.",
     "Online report: {url}": "Rapport online: {url}",
-    "Bike Compare · not affiliated with Marktplaats or any bike brand.":
-        "Bike Compare · niet verbonden aan Marktplaats of een fietsmerk.",
+    "Bikecheck · not affiliated with Marktplaats or any bike brand.":
+        "Bikecheck · niet verbonden aan Marktplaats of een fietsmerk.",
     "Removed": "Verwijderd",
     "Checked {n}× · last on {date}": "{n}× gecheckt · laatst op {date}",
     "Checked on {date}": "Gecheckt op {date}",
@@ -317,8 +317,8 @@ NL = {
     "No matching model": "Geen passend model",
     "We don't have {brand} models in the catalogue yet. It's on the list of brands to collect next.":
         "We hebben nog geen modellen van {brand} in de catalogus. Dit merk staat op de lijst om toe te voegen.",
-    "We couldn't find the brand and model in the title or text. Bike Compare covers {brands} for now; make sure the ad names the model, for example “Trek Domane SL 6”.":
-        "We konden merk en model niet vinden in de titel of tekst. Bike Compare kent voorlopig {brands}; "
+    "We couldn't find the brand and model in the title or text. Bikecheck covers {brands} for now; make sure the ad names the model, for example “Trek Domane SL 6”.":
+        "We konden merk en model niet vinden in de titel of tekst. Bikecheck kent voorlopig {brands}; "
         "zorg dat het model in de advertentie staat, bijvoorbeeld “Trek Domane SL 6”.",
     "and": "en",
     "Browse the models we have": "Bekijk de modellen die we hebben",
@@ -928,7 +928,7 @@ NL = {
     "An empty wall or outside in the shade. No flash.": "Een lege muur, of buiten in de schaduw. Geen flits.",
     "Back to your ad": "Terug naar je advertentie",
     "Better now than at the viewing. Don't edit them out.": "Liever nu dan bij de bezichtiging. Poets ze niet weg.",
-    "Buyers paste ads into Bike Compare. This is what they see for your draft, and for the new ad.": "Kopers plakken advertenties in Bike Compare. Dit zien ze bij je concept, en bij de nieuwe advertentie.",
+    "Buyers paste ads into Bikecheck. This is what they see for your draft, and for the new ad.": "Kopers plakken advertenties in Bikecheck. Dit zien ze bij je concept, en bij de nieuwe advertentie.",
     "Chainring towards the camera, bike facing right, like the catalogue photo.": "Kettingblad naar de camera, fiets naar rechts, zoals op de catalogusfoto.",
     "Check the model name": "Controleer de modelnaam",
     "Clicks": "Klikken",
@@ -1007,7 +1007,7 @@ NL = {
     "Used, with normal signs of wear.": "Gebruikt, met normale gebruikssporen.",
     "Want an email when it launches?": "Een e-mail als hij er is?",
     "We added “{extra}”": "We hebben “{extra}” toegevoegd",
-    "We couldn't find the brand and model in your title or text. Bike Compare covers {brands} for now; name the model in the title, for example “Trek Domane SL 6”.": "We vonden geen merk en model in je titel of tekst. Bike Compare kent voorlopig {brands}; noem het model in de titel, bijvoorbeeld “Trek Domane SL 6”.",
+    "We couldn't find the brand and model in your title or text. Bikecheck covers {brands} for now; name the model in the title, for example “Trek Domane SL 6”.": "We vonden geen merk en model in je titel of tekst. Bikecheck kent voorlopig {brands}; noem het model in de titel, bijvoorbeeld “Trek Domane SL 6”.",
     "We flag a year, part or name that buyers will question when they check your ad.": "We markeren een jaar, onderdeel of naam waar kopers vragen over krijgen als ze je advertentie checken.",
     "We only use it for this one email.": "We gebruiken het alleen voor die ene e-mail.",
     "What a buyer's check will show": "Wat de check van een koper laat zien",
@@ -1067,8 +1067,8 @@ NL = {
     "Brand and model": "Merk en model",
     "Frame size": "Framemaat",
     "Service and mileage": "Onderhoud, km",
-    "Confirm your email for Bike Compare": "Bevestig je e-mailadres voor Bike Compare",
-    "Someone, hopefully you, asked to hear when the Bike Compare photo review launches. Open this link to confirm:\n\n{link}\n\nDidn't ask for this? Ignore this email and you won't hear from us.": "Iemand, hopelijk jij, wil horen wanneer de fotocheck van Bike Compare er is. Open deze link om dat te bevestigen:\n\n{link}\n\nNiet aangevraagd? Negeer deze e-mail, dan hoor je niets meer van ons.",
+    "Confirm your email for Bikecheck": "Bevestig je e-mailadres voor Bikecheck",
+    "Someone, hopefully you, asked to hear when the Bikecheck photo review launches. Open this link to confirm:\n\n{link}\n\nDidn't ask for this? Ignore this email and you won't hear from us.": "Iemand, hopelijk jij, wil horen wanneer de fotocheck van Bikecheck er is. Open deze link om dat te bevestigen:\n\n{link}\n\nNiet aangevraagd? Negeer deze e-mail, dan hoor je niets meer van ons.",
     "Email confirmed": "E-mailadres bevestigd",
     "Thanks. We'll email you once when the photo review launches.": "Bedankt. We mailen je één keer, als de fotocheck er is.",
     "This link doesn't work": "Deze link werkt niet",

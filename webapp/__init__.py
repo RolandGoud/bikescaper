@@ -1,1 +1,1 @@
-"""Bike Compare prototype: check a second-hand bike listing against the original model."""
+"""Bikecheck prototype: check a second-hand bike listing against the original model."""

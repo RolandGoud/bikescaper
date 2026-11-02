@@ -3,7 +3,7 @@
 The seller pastes a draft (title, text, asking price) and answers a few questions. We match the
 draft to a catalogue model with the same code that checks buyers' ads, fill in the specs the draft
 leaves out, and write a new title and description. Then we run the buyer's check on the new ad, so
-what the seller sees is exactly what a buyer pasting it into Bike Compare would see.
+what the seller sees is exactly what a buyer pasting it into Bikecheck would see.
 
 What the seller says wins over the catalogue: the catalogue only fills gaps, and where the seller's
 words differ from it we say so instead of overwriting them. Drafts are never saved.

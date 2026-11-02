@@ -1,4 +1,4 @@
-# Bike Compare test environment for a NAS, in one file.
+# Bikecheck test environment for a NAS, in one file.
 # Nothing else is needed next to this file: on every start the container downloads
 # the latest code from GitHub, installs it and loads the bike catalogue.
 #
@@ -40,7 +40,7 @@ services:
         set -e
         # Get the updater (nas/autoupdate.py) and with it the latest code from GitHub, so a
         # restart is an update. If GitHub can't be reached, keep running the code from last time.
-        echo "Downloading Bike Compare ($$BRANCH) from GitHub..."
+        echo "Downloading Bikecheck ($$BRANCH) from GitHub..."
         python -c "
         import os, urllib.request
         url = ('https://raw.githubusercontent.com/RolandGoud/bikescaper/'

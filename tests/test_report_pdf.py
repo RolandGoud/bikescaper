@@ -17,7 +17,7 @@ def test_pdf_download(tmp_path):
     resp = client.get("/check/1/report.pdf?height=180&lang=nl")
     assert resp.status_code == 200 and resp.mimetype == "application/pdf"
     assert resp.data.startswith(b"%PDF") and len(resp.data) > 2000
-    assert "bike-compare-1-trek-domane-sl6" in resp.headers["Content-Disposition"]
+    assert "bikecheck-1-trek-domane-sl6" in resp.headers["Content-Disposition"]
     assert client.get("/check/99/report.pdf").status_code == 404
 
 
@@ -43,7 +43,7 @@ def test_email_report(tmp_path, monkeypatch):
     resp = client.post("/check/1/email?lang=nl", data={"email": "jan@example.nl", "height": "180"})
     assert resp.status_code == 302 and "mailed=sent" in resp.headers["Location"]
     to, subject, text, head, name = sent[0]
-    assert to == "jan@example.nl" and subject.startswith("Je Bike Compare-check") and head == b"%PDF"
+    assert to == "jan@example.nl" and subject.startswith("Je Bikecheck-rapport") and head == b"%PDF"
     assert "gecheckt op" in text and "/check/1?height=180" in text
     assert "Verstuurd" in client.get(resp.headers["Location"]).data.decode()
 
