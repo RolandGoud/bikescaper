@@ -64,11 +64,16 @@
 {% elif step == 'ad' %}
 <section class="wrap stack" style="padding-top: 56px; padding-bottom: 72px; gap: 28px">
   <h2>{{ _('What you get') }}</h2>
-  <div class="grid">
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('value') }}</span><span class="mono">{{ _('01 · PRICE') }}</span></div><h3>{{ _('A fair asking price') }}</h3><p class="muted">{{ _('The same estimate buyers see, from the new price, age and condition.') }}</p></div>
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('check') }}</span><span class="mono">{{ _('02 · CHECK') }}</span></div><h3>{{ _('Does it match the catalogue?') }}</h3><p class="muted">{{ _('We flag a year, part or name that buyers will question when they check your ad.') }}</p></div>
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('details') }}</span><span class="mono">{{ _('03 · DETAILS') }}</span></div><h3>{{ _('What buyers look for') }}</h3><p class="muted">{{ _('Year, size, groupset, condition, invoice: we show what your ad is missing and fill in the specs from the catalogue.') }}</p></div>
-    <div class="tile"><div class="tile-head"><span class="tile-icon">{{ part_icon('ad') }}</span><span class="mono">{{ _('04 · AD') }}</span></div><h3>{{ _('A ready-to-copy ad') }}</h3><p class="muted">{{ _('A clear title and description, to paste into Marktplaats or 2dehands.') }}</p></div>
+  {# What the seller gets, as one strip like the home page's: four cells and a bar up to the form. #}
+  <div class="what-strip">
+    {% for n, key, q, text in [
+      (1, 'PRICE', 'A fair asking price', 'The same estimate buyers see, from the new price, age and condition.'),
+      (2, 'CHECK', 'Does it match the catalogue?', 'We flag a year, part or name that buyers will question when they check your ad.'),
+      (3, 'DETAILS', 'What buyers look for', 'Year, size, groupset, condition, invoice: we show what your ad is missing and fill in the specs from the catalogue.'),
+      (4, 'AD', 'A ready-to-copy ad', 'A clear title and description, to paste into Marktplaats or 2dehands.')] %}
+    <div class="ws-cell"><span class="k">{{ _(key) }}</span><h3><i aria-hidden="true">{{ n }}</i>{{ _(q) }}</h3><p>{{ _(text) }}</p></div>
+    {% endfor %}
+    <a class="ms-swap ws-go" href="#sell-form"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>{{ _('Improve my ad') }}</span></a>
   </div>
 </section>
 {% if examples %}
