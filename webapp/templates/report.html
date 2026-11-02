@@ -99,14 +99,16 @@
     {% set fs = 'bad' if issues|selectattr('0', 'equalto', 'bad')|list else 'warn' if issues else 'ok' %}
     <div class="ms-check {{ fs }}"><span class="k">{{ _('Frame')|upper }}</span>
       <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[fs] }}</i>{{ mt.found|join(' · ') if mt.found else _('No model words in the ad') }}</b>
-      <small>{% if issues %}{{ issues|map(attribute='1')|join(' · ') }}{% else %}{{ _('All model words are in the ad') }}{% if mt.shifting %} · {{ _('Shifting: {kind}', kind=sh[mt.shifting.model]) }}{% endif %}{% endif %}</small></div>
+      {% set note %}{% if issues %}{{ issues|map(attribute='1')|join(' · ') }}{% else %}{{ _('All model words are in the ad') }}{% if mt.shifting %} · {{ _('Shifting: {kind}', kind=sh[mt.shifting.model]) }}{% endif %}{% endif %}{% endset %}
+      <small title="{{ note|trim }}">{{ note }}</small></div>
     {# The year: green when the ad's year falls in the years the model was sold; amber or red only for a real clash
        (before its launch, after it was replaced, an earlier generation). Doubts from the parts stay in the age tab. #}
     {% set yr = c.year %}{% set ag = r.age %}
     {% set ys = 'warn' if not yr else ag.status if ag.status in ('ok', 'warn', 'bad') else 'unknown' %}
     <div class="ms-check {{ ys }}"><span class="k">{{ _('Year')|upper }}</span>
       <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{% if not yr %}{{ _('No year in the ad') }}{% elif ys == 'ok' %}{{ _('{year} fits this model', year=yr) }}{% else %}{{ yr }}: {{ ag.headline }}{% endif %}</b>
-      <small>{% if not yr %}{{ _('Ask for the invoice or the serial number.') }}{% else %}{{ ag.detail }}{% endif %}</small></div>
+      {% set note = _('Ask for the invoice or the serial number.') if not yr else ag.detail %}
+      <small title="{{ note }}">{{ note }}</small></div>
     {% endif %}
     <a class="ms-swap" href="#pick-model"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="m17 20 4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg><span>{{ _('Match with another model') }}</span></a>
   </section>

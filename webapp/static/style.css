@@ -1678,3 +1678,6 @@ select { max-width: 100%; }
   .ad-stage .head-duo .duo-label { transform: skewX(-26.57deg); }
   .ad-stage .head-duo .duo-label > span { transform: skewX(26.57deg); }
 }
+/* The Frame and Year cells line up at the top, and their note stays at two lines (the whole note on hover). */
+.match-strip .ms-check { justify-content: flex-start; }
+.ms-check small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
