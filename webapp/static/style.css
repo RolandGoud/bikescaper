@@ -1681,3 +1681,8 @@ select { max-width: 100%; }
 /* The Frame and Year cells line up at the top, and their note stays at two lines (the whole note on hover). */
 .match-strip .ms-check { justify-content: flex-start; }
 .ms-check small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* The gallery fills its cell (the row layout's align-items: flex-start shrank it to its content), and a year
+   without colours shows no empty colour box. */
+.model-card .model-gallery, .model-card .model-gallery.has-years { align-items: stretch; }
+.model-card .model-gallery .gallery-main { width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.model-card .gallery-colours:has(> .v.small) { display: none; }

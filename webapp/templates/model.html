@@ -151,7 +151,7 @@
     {% endif %}
     </div>
     <div class="ad-info info">
-      {% set weight = (specs|map(attribute=1)|sum(start=[])|selectattr('0', 'equalto', 'Weight')|first or [None, None, None])[2] %}
+      {% set weight = (specs|map(attribute=1)|sum(start=[])|selectattr('0', 'equalto', 'Weight')|first or [None, None, None])[2] %}{% if weight and weight|trim in ('-', '–', '?') %}{% set weight = None %}{% endif %}
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
       <div class="ad-tiles model-tiles" style="--n: {{ 4 if weight else 3 }}">
         <div data-fact="years"><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
