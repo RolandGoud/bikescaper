@@ -45,7 +45,7 @@ they survive restarts and rebuilds. To reload the catalogue after new scrapes:
 |---|---|---|
 | Home / check a listing | `/` | Paste the ad's title and text, asking price, place and your height. The ad itself is never fetched. |
 | Check report | `/check/<id>` | Model match (with "change match"), age, spec comparison, size fit, value estimate, questions for the seller. |
-| Selling | `/sell` | For sellers: paste a draft ad (or its link), answer what's missing, and get a new title, description and asking price, plus the verdicts a buyer's check will show. Drafts are never saved. |
+| Selling | `/sell` | For sellers, a wizard in five steps: the photos to take (outlines in `webapp/static/photo-guide/`; the seller's own photos stay in their browser), the draft ad (or its link), what's missing, the asking price, and a new title and description to copy with the photos in upload order, plus the verdicts a buyer's check will show. Drafts are never saved. |
 | Photo review (not built) | `/sell/photo-review/interest` | The Selling page offers a paid photo review (€5 for 10 photos) that doesn't exist yet, to measure interest. Clicks and emails go in `photo_review_interest`; this unlinked page shows the counts. |
 | Listings | `/listings` | Every saved check, filterable by result. |
 | Listings map | `/listings/map` | Every checked ad on a dot map of the Netherlands and Belgium (shapes in `webapp/static/benelux.json` from Natural Earth, rebuilt with `tools/build_benelux.py`), one pin per town, with the ads listed per town beside it. Towns are looked up offline in `webapp/places.json` (GeoNames, rebuilt with `tools/build_places.py`). A town's name on cards, checks and reports links here with that town selected. |

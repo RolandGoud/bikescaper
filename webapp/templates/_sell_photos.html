@@ -1,0 +1,64 @@
+{# Step 1 of the Selling page: the photos buyers want, one slot per shot with an outline of the angle.
+   static/photo-slots.js shows the seller's own photo in a slot and keeps it in this browser only
+   (IndexedDB), so the last step can list them in upload order. Nothing is uploaded. #}
+<main class="wrap page sell-photos" id="photos">
+  <div class="photos-head">
+    <div>
+      <div class="kicker mono">{{ _('Step {n} of {total}', n=1, total=steps|length) }} · {{ _('For sellers') }}</div>
+      <h1>{{ _('Start with the photos') }}</h1>
+      <p class="muted">{{ _('Buyers decide on the photos first. Take these shots; the outline shows the angle and the numbers match the tips. Tap a shot to take or pick the photo.') }}</p>
+    </div>
+    <div class="photos-count" hidden data-count><span class="mono">{{ _('Photos ready') }}</span><b><span data-count-n>0</span><span class="of">/{{ shots|length }}</span></b><div class="bar"><i data-count-bar></i></div></div>
+  </div>
+  {% for group, heading in [('overall', _('Overall shots')), ('detail', _('Details buyers zoom in on'))] %}
+  <section class="stack" style="gap: 14px">
+    <h2 class="photos-group">{{ heading }}</h2>
+    <div class="shots">
+      {% for key, g, title, tips in shots if g == group %}
+      <article class="shot" data-shot="{{ key }}">
+        <div class="shot-media">
+          <img class="outline" src="{{ url_for('static', filename='photo-guide/' ~ key ~ '.svg') }}" alt="" loading="lazy">
+          <img class="mine" alt="{{ _('Your photo: {shot}', shot=_(title)) }}" hidden>
+          <span class="shot-ok" aria-hidden="true" hidden>✓</span>
+        </div>
+        <div class="shot-cap">
+          <b>{{ _(title) }}</b>
+          <ol class="shot-tips">{% for t in tips %}<li><i>{{ loop.index }}</i>{{ _(t) }}</li>{% endfor %}</ol>
+          <div class="shot-actions" hidden>
+            <button class="btn sm shot-camera" type="button" hidden>{{ _('Take photo') }}</button>
+            <label class="btn sm shot-add"><input type="file" accept="image/*"><span data-add>{{ _('Choose photo') }}</span><span data-replace hidden>{{ _('Replace') }}</span></label>
+            <button class="btn ghost sm shot-remove" type="button" hidden>{{ _('Remove') }}</button>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+  <p class="photos-note small muted" data-local hidden>{{ _('Your photos stay on your phone or computer. We only show them here so you can check them; nothing is uploaded.') }}</p>
+
+  {# The camera in the page (static/photo-slots.js): the outline over the live view, the photo straight into the shot's slot. #}
+  <dialog class="camera" id="camera" aria-label="{{ _('Take photo') }}">
+    <div class="camera-head"><b data-camera-title></b><button class="btn ghost sm" type="button" data-camera-close>{{ _('Close') }}</button></div>
+    <div class="camera-frame"><video playsinline muted autoplay></video><img alt="" data-camera-outline></div>
+    <p class="camera-turn small">{{ _('Turn your phone sideways for this shot.') }}</p>
+    <p class="camera-hint small muted">{{ _('Line the bike up with the outline.') }}</p>
+    <button class="camera-shutter" type="button" aria-label="{{ _('Take photo') }}"></button>
+  </dialog>
+
+  {# Not built yet: this offer is here to see whether sellers want it (see the /sell/photo-review route). #}
+  <form class="paid-offer" method="post" action="{{ url_for('photo_review') }}" data-fake-door>
+    <input type="hidden" name="model_id" value="{{ r.model.id if r and r.model else form.model_id or '' }}">
+    <div>
+      <div class="mono">{{ _('NEW · PHOTO REVIEW') }}</div>
+      <h3>{{ _('Let us review your photos') }}</h3>
+      <p class="small">{{ _('Upload up to 10 photos. We check each one for light, background, angle and whether the details buyers want are in view, and tell you which to retake.') }}</p>
+    </div>
+    <div class="offer-buy"><div class="offer-price">€5</div><div class="small">{{ _('for 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
+  </form>
+
+  <div class="step-nav">
+    <span class="small muted">{{ _('No photos yet? You can add them later.') }}</span>
+    <button class="btn" type="submit" form="sell-form" name="go" value="ad">{{ _('Next') }}: {{ _('Your ad')|lower }} →</button>
+  </div>
+</main>

@@ -51,20 +51,30 @@ GALLERIES = load_galleries()
 with open(os.path.join(HERO_DIR, "credits.json"), encoding="utf-8") as f:
     HERO_CREDITS = json.load(f)
 # Photo tips on the Selling page: (icon paths for a 40x40 SVG, heading, text).
-PHOTO_TIPS = [
-    ('<circle cx="10" cy="26" r="7"/><circle cx="30" cy="26" r="7"/><path d="M10 26l6-11h8l6 11M16 15l5 11"/>',
-     "Whole bike, drive side", "Chainring towards the camera, bike facing right, like the catalogue photo."),
-    ('<rect x="5" y="9" width="30" height="22" rx="3"/><path d="M5 25l9-8 7 6 5-4 9 7"/>',
-     "Plain background, daylight", "An empty wall or outside in the shade. No flash."),
-    ('<circle cx="20" cy="20" r="7"/><circle cx="20" cy="20" r="2"/><path d="M20 6v4M20 30v4M6 20h4M30 20h4"/>',
-     "Groupset and wheels up close", "Shifters, derailleur and cassette, so buyers can see the parts."),
-    ('<rect x="6" y="14" width="28" height="12" rx="2"/><path d="M11 20h2M16 20h2M21 20h2M26 20h3"/>',
-     "Serial number", "Under the bottom bracket. Buyers ask for it, and it builds trust."),
-    ('<path d="M8 30l9-9 5 5 10-12"/><path d="M27 14h5v5"/>',
-     "Scratches, honestly", "Better now than at the viewing. Don't edit them out."),
-    ('<rect x="10" y="6" width="20" height="28" rx="2"/><path d="M14 12h12M14 17h12M14 22h6"/><path d="M14 28h12" stroke-width="4"/>',
-     "Invoice", "With your name and address covered."),
+# The Selling page's first step: the photos a buyer wants, each with an outline of the angle
+# (webapp/static/photo-guide/<key>.svg). The numbers on an outline match its tips, in order.
+PHOTO_SHOTS = [
+    ("drive-side", "overall", "Whole bike, drive side",
+     ["Crank forward, chain on the big ring", "Chainring towards the camera", "Bars on the right",
+      "Camera at hub height, room around both wheels"]),
+    ("non-drive-side", "overall", "Whole bike, other side", ["Bars on the left", "Same height and distance as the drive side"]),
+    ("front-three-quarter", "overall", "Front three-quarter",
+     ["Stand in front and to the right of the bike", "Whole bike in frame, front wheel slightly bigger"]),
+    ("front-on", "overall", "From the front", ["Straight on, bars level", "Wheel and fork lined up in the middle"]),
+    ("derailleur", "detail", "Rear derailleur",
+     ["Cassette, so the teeth are visible", "Model name on the derailleur body", "Pulley wheels and cage"]),
+    ("chainrings", "detail", "Front chainrings", ["Tooth counts printed on the rings", "Crank arm (length is printed on the back)"]),
+    ("shifter", "detail", "Shifters", ["Hood with the model name readable", "Brake and shift levers, side on"]),
+    ("disc-brake", "detail", "Disc brakes or calipers", ["Caliper with the brand readable", "Rotor face, so wear is visible"]),
+    ("frame-sticker", "detail", "Frame information",
+     ["Sticker on the top tube by the seatpost: model, size and serial, sharp enough to read"]),
+    ("rim", "detail", "Rim decal", ["Rim brand, depth and size readable, in focus"]),
+    ("tyre", "detail", "Tyre sidewall", ["Size text (700×28C, 28-622) readable, tread in view"]),
 ]
+
+# The Selling page is a wizard: these steps, in order. Photos and the draft come before anything is worked out.
+SELL_STEPS = [("photos", "Photos"), ("ad", "Your ad"), ("gaps", "Fill the gaps"), ("price", "Price"), ("copy", "Copy your ad")]
+SELL_STEP_KEYS = [k for k, _ in SELL_STEPS]
 
 
 def parse_number(value):
@@ -815,15 +825,23 @@ def create_app(db_path=None):
 
     @app.route("/sell", methods=["GET", "POST"])
     def sell():
-        """Help a seller improve a draft ad. Everything comes from the form; nothing is saved."""
+        """Help a seller improve a draft ad, one step at a time. Everything comes from the form; nothing is saved.
+
+        A GET starts at the photos (or ?step=ad). Every later page is a POST of the same form, so the answers
+        travel along: `go` is the step a button asks for, `step` the one on screen (for a resubmit after an answer)."""
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
-        hero = {"hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg)}
+        page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
+                "shots": PHOTO_SHOTS, "can_mail": mail.configured()}
         if request.method == "GET":
-            return render_template("sell.html", nav="sell", form={}, r=None, error=None, examples=improved_examples(), **hero)
+            step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "photos"
+            return render_template("sell.html", form={}, r=None, error=None, step=step,
+                                   examples=improved_examples() if step == "ad" else [], **page)
         form = request.form.to_dict()
+        step = next((s for s in (form.get("go"), form.get("step")) if s in SELL_STEP_KEYS), "gaps")
         error = None
         link = (form.get("ad_link") or "").strip()
-        if link and not (form.get("title") or "").strip():
+        browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
+        if link and not browsing and not (form.get("title") or "").strip():
             try:
                 ad = fetch_ad.fetch_listing(link)
                 form.update(title=ad["title"], description=ad["description"],
@@ -831,15 +849,18 @@ def create_app(db_path=None):
             except fetch_ad.FetchError as e:
                 error = gettext("{reason} Paste your title and text instead.", reason=gettext(str(e)))
         if not (form.get("title") or "").strip():
+            if browsing:
+                return render_template("sell.html", form=form, r=None, error=None, step=step,
+                                       examples=improved_examples() if step == "ad" else [], **page)
             error = error or gettext("Paste at least your ad's title.")
-            return render_template("sell.html", nav="sell", form=form, r=None, error=error, **hero), 400
+            return render_template("sell.html", form=form, r=None, error=error, step="ad", examples=[], **page), 400
         draft = {"title": form["title"].strip()[:200], "description": (form.get("description") or "")[:5000],
                  "asking_price": number(form.get("asking_price")), "model_id": number(form.get("model_id"), int)}
         answers = {"year": number(form.get("use_year") or form.get("year"), int), "size": form.get("size"), "condition": form.get("condition"),
                    "invoice": form.get("invoice"), "service": form.get("service"), "wheels": form.get("wheels")}
         r = seller.improve(models(), draft, answers, ads=prices.known_ads(conn(), models()))
-        return render_template("sell.html", nav="sell", form=form, r=r, error=error, all_models=models(), **hero,
-                               photo_tips=PHOTO_TIPS, condition_labels=checks.CONDITION_LABEL, can_mail=mail.configured())
+        return render_template("sell.html", form=form, r=r, error=error, step=step, all_models=models(), examples=[], **page,
+                               condition_labels=checks.CONDITION_LABEL)
 
     # The paid photo review isn't built: the offer on the Selling page counts who would want it.
     @app.route("/sell/photo-review", methods=["POST"])

@@ -88,6 +88,28 @@ def test_a_year_before_the_generation_is_flagged(models):
     assert any(f["status"] == "bad" and en(f["title"]).startswith("Year:") for f in r["flags"])
 
 
+def test_the_wizard_starts_with_the_photos_and_keeps_the_answers(client):
+    c, app = client
+    page = c.get("/sell?lang=en").data.decode()
+    assert "Start with the photos" in page and page.count('class="shot"') == 11
+    assert '<dialog class="camera" id="camera"' in page  # the camera in the page, with the outline over the view
+    assert '<span><i>3</i>' in page  # nothing to fill in before there's a draft: the later steps aren't buttons yet
+    assert 'value="ad">Next: your ad' in page
+    # Each step is the same form sent again, so an answer given in one step is there in the next.
+    page = c.post("/sell?lang=en", data={**DRAFT, "year": "2024", "size": "56", "go": "price"}).data.decode()
+    assert 'aria-current="step"><i>4</i>' in page and "2024 · size 56" in page
+    assert page.count('class="stack step-panel"') == 3 and page.count('class="stack step-panel" style="gap: 24px" hidden') == 2
+    page = c.post("/sell?lang=en", data={**DRAFT, "year": "2024", "go": "photos"}).data.decode()
+    assert "Start with the photos" in page and 'name="title" value="' + DRAFT["title"] in page
+    assert '<option selected>2024</option>' in page  # the answer goes along, in the hidden step
+    # An answer changed on screen sends the form without a button: it stays on the step it was sent from.
+    page = c.post("/sell?lang=en", data={**DRAFT, "step": "copy"}).data.decode()
+    assert 'aria-current="step"><i>5</i>' in page and "Your photos, in this order" in page
+    # Going back to the draft or the photos never asks for a title.
+    assert c.post("/sell?lang=en", data={"go": "ad"}).status_code == 200
+    assert c.post("/sell?lang=en", data={"go": "price"}).status_code == 400
+
+
 def test_no_model_found(models):
     r = improve(models, {"title": "Mooie fiets", "description": "", "asking_price": 300})
     assert r["model"] is None and "facts" not in r
@@ -226,7 +248,15 @@ def test_the_page_opens_on_the_link_and_shows_ads_we_improved(client):
     conn.execute("INSERT INTO checks (title, description, asking_price) VALUES (?, ?, ?)",
                  ("Typed Domane SL 6", "not from a link", 2400))
     conn.commit()
-    page = c.get("/sell?lang=en").data.decode()
+    page = c.get("/sell?step=ad&lang=en").data.decode()  # the examples sit with the draft, step 2
     assert "How we improved an ad" in page and "trek domane racefiets" in page
     assert '<span class="site-mark"><img src="/static/logos/marktplaats.svg"' in page  # the site it was placed on
     assert "Typed Domane SL 6" not in page  # only ads read from a public link
+
+
+def test_every_photo_shot_and_step_has_dutch():
+    from webapp.app import PHOTO_SHOTS, SELL_STEPS
+    texts = [t for _, _, title, tips in PHOTO_SHOTS for t in [title, *tips]] + [label for _, label in SELL_STEPS]
+    assert [t for t in texts if t not in i18n.NL] == []
+    import os
+    assert all(os.path.exists(f"webapp/static/photo-guide/{key}.svg") for key, *_ in PHOTO_SHOTS)

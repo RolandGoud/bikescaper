@@ -4,49 +4,64 @@
 {% from "_macros.html" import site_mark, brand_mark with context %}
 {% block title %}{{ _('Sell your bike') }} · Bike Compare{% endblock %}
 {% block body %}
-{# One form for the draft and the answers: the answer fields further down the page join it with form="sell-form",
-   and static/sell.js sends it again when an answer changes. Nothing is saved. #}
-<section class="sell-hero{% if hero_bg %} has-bg{% endif %}"{% if hero_bg %} style="--hero-bg: url('{{ url_for('static', filename='hero/' ~ hero_bg) }}'){% if hero_credit and hero_credit.position %}; --hero-pos: {{ hero_credit.position }}{% endif %}"{% endif %}>
+{# A wizard in five steps (SELL_STEPS in app.py). One form carries the draft and the answers from step to step:
+   every field on the page joins it with form="sell-form", and static/sell.js sends it again when an answer
+   changes. The steps that aren't on screen stay in the page, hidden, so their answers go along. Nothing is saved. #}
+{% set keys = steps|map(attribute=0)|list %}{% set step_at = keys.index(step) %}
+{% set can_check = r is not none or form.title %}
+<form id="sell-form" method="post" action="{{ url_for('sell') }}#steps">
+  {# First in the page, so Enter in any field stays on this step (or moves on from the draft) rather than pressing a step button. #}
+  <button class="sr-only" type="submit" name="go" value="{{ 'gaps' if step in ('photos', 'ad') else step }}" tabindex="-1" aria-hidden="true"></button>
+  <input type="hidden" name="step" value="{{ step }}">
+  {% if not (r and r.model) %}{% for k in ('model_id', 'year', 'size', 'condition', 'invoice', 'service', 'wheels') %}{% if form[k] %}<input type="hidden" name="{{ k }}" value="{{ form[k] }}">{% endif %}{% endfor %}{% endif %}
+</form>
+<nav class="wizard" id="steps" aria-label="{{ _('Improve your ad, step by step') }}"><ol class="wrap">
+  {% for key, label in steps %}
+  <li class="{{ 'on' if key == step else 'done' if loop.index0 < step_at }}">{% if loop.index0 < 2 or can_check %}<button type="submit" form="sell-form" name="go" value="{{ key }}"{% if key == step %} aria-current="step"{% endif %}>{% else %}<span>{% endif %}<i>{{ loop.index }}</i><span class="lbl">{{ _(label) }}</span>{% if loop.index0 < 2 or can_check %}</button>{% else %}</span>{% endif %}</li>
+  {% endfor %}
+</ol></nav>
+<section class="sell-hero{% if hero_bg %} has-bg{% endif %}"{% if hero_bg %} style="--hero-bg: url('{{ url_for('static', filename='hero/' ~ hero_bg) }}'){% if hero_credit and hero_credit.position %}; --hero-pos: {{ hero_credit.position }}{% endif %}"{% endif %}{% if step != 'ad' %} hidden{% endif %}>
   <div class="wrap">
     <div>
-      <div class="kicker">{{ _('For sellers') }}</div>
+      <div class="kicker">{{ _('Step {n} of {total}', n=2, total=steps|length) }} · {{ _('For sellers') }}</div>
       <h1>{{ _('Sell your bike <span>faster</span>, at a fair price')|safe }}</h1>
       <p class="lede">{{ _("Paste your draft ad. We recognise the model, fill in the specs from the catalogue, show what buyers will miss and suggest an asking price that holds up.") }}</p>
-      <div class="steps"><span><i>1</i>{{ _('Paste') }}</span><span><i>2</i>{{ _('Fill the gaps') }}</span><span><i>3</i>{{ _('Copy to Marktplaats') }}</span></div>
     </div>
-    <form class="draft-form" id="sell-form" method="post" action="{{ url_for('sell') }}#result">
+    <div class="draft-form">
       {# Like the check form: the ad's link first; typing the draft is the other tab. #}
       {% set mode = form.mode or ('manual' if form.title and not form.ad_link else 'link') %}
       <div class="mode-switch field wide" role="radiogroup" aria-label="{{ _('How do you want to add the ad?') }}">
-        <input type="radio" name="mode" value="link" id="sell-mode-link" {{ 'checked' if mode == 'link' }}><label for="sell-mode-link">{{ _('Paste a link') }}</label>
-        <input type="radio" name="mode" value="manual" id="sell-mode-manual" {{ 'checked' if mode == 'manual' }}><label for="sell-mode-manual">{{ _('Enter manually') }}</label>
+        <input form="sell-form" type="radio" name="mode" value="link" id="sell-mode-link" {{ 'checked' if mode == 'link' }}><label for="sell-mode-link">{{ _('Paste a link') }}</label>
+        <input form="sell-form" type="radio" name="mode" value="manual" id="sell-mode-manual" {{ 'checked' if mode == 'manual' }}><label for="sell-mode-manual">{{ _('Enter manually') }}</label>
       </div>
       {% if error %}<div class="error field wide" role="alert">{{ error }}</div>{% endif %}
       <div class="mode-fields link-fields">
         <label class="field wide">{{ _('The link to your ad') }} <span class="hint">{{ _('Marktplaats or 2dehands. We read the title, text and price for you.') }}</span>
-          <input name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
+          <input form="sell-form" name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
         </label>
       </div>
       <div class="mode-fields manual-fields">
         <label class="field title-field">{{ _('Your ad title') }}
-          <input name="title" value="{{ form.title or '' }}" placeholder="Trek Domane SL 6 racefiets">
+          <input form="sell-form" name="title" value="{{ form.title or '' }}" placeholder="Trek Domane SL 6 racefiets">
         </label>
         <label class="field">{{ _('Asking price (€)') }}
-          <input name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2600">
+          <input form="sell-form" name="asking_price" inputmode="decimal" value="{{ form.asking_price or '' }}" placeholder="2600">
         </label>
         <label class="field wide">{{ _('Your text') }} <span class="hint">{{ _('Short or messy is fine') }}</span>
-          <textarea name="description" placeholder="Mooie racefiets, weinig gebruikt. Shimano 105. Ophalen in Utrecht.">{{ form.description or '' }}</textarea>
+          <textarea form="sell-form" name="description" placeholder="Mooie racefiets, weinig gebruikt. Shimano 105. Ophalen in Utrecht.">{{ form.description or '' }}</textarea>
         </label>
       </div>
-      <div class="actions field wide"><button class="btn" type="submit">{{ _('Improve my ad') }}</button><span class="hint">{{ _("Your draft isn't saved or published, and doesn't count in our price figures.") }}</span></div>
-    </form>
+      <div class="actions field wide"><button class="btn" type="submit" form="sell-form" name="go" value="gaps">{{ _('Improve my ad') }}</button><span class="hint">{{ _("Your draft isn't saved or published, and doesn't count in our price figures.") }}</span></div>
+    </div>
   </div>
   {% if hero_credit %}
   <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
   {% endif %}
 </section>
 
-{% if not r %}
+{% if step == 'photos' %}
+{% include "_sell_photos.html" %}
+{% elif step == 'ad' %}
 <section class="wrap stack" style="padding-top: 56px; padding-bottom: 72px; gap: 28px">
   <h2>{{ _('What you get') }}</h2>
   <div class="grid">
@@ -89,17 +104,20 @@
   {% endfor %}
 </section>
 {% endif %}
-{% elif not r.model %}
+{% endif %}
+{% if r and not r.model %}{% if step not in ('photos', 'ad') %}
 <main class="wrap page" id="result">
   <section class="card">
     <h2>{{ _('No matching model') }}</h2>
     <p>{{ _("We couldn't find the brand and model in your title or text. Bike Compare covers {brands} for now; name the model in the title, for example “Trek Domane SL 6”.", brands=covered[:-1]|join(', ') ~ ' ' ~ _('and') ~ ' ' ~ covered[-1]) }}</p>
     <p><a href="{{ url_for('catalog') }}">{{ _('Browse the models we have') }}</a></p>
+    <div><button class="btn ghost" type="submit" form="sell-form" name="go" value="ad">{{ _('Change my draft') }}</button></div>
   </section>
 </main>
-{% else %}
+{% endif %}
+{% elif r %}
 {% set icons = {'draft': '✓', 'cat': '+', 'you': '✎', 'open': '?'} %}
-<main class="wrap page" id="result">
+<main class="wrap page" id="result"{% if step in ('photos', 'ad') %} hidden{% endif %}>
   <div class="match-box sell-match">
     <div class="match-photo">{{ photo(r.model) }}</div>
     <span>{{ _('Recognised as') }}</span>
@@ -120,8 +138,9 @@
   <div class="sell-grid">
     <div class="stack" style="gap: 24px">
 
+      <div class="stack step-panel" style="gap: 24px"{% if step != 'gaps' %} hidden{% endif %}>
       <section class="card" id="facts">
-        <div class="row" style="justify-content: space-between"><h2>{{ _('What buyers want to know') }}</h2><span class="mono muted">{{ _('STEP 2') }}</span></div>
+        <h2>{{ _('What buyers want to know') }}</h2>
         {% set c = r.counts %}{% set total = r.facts|length %}
         <div class="score">
           <span class="num">{{ total - c.open }}<span>/{{ total }}</span></span>
@@ -175,8 +194,10 @@
         {% endfor %}
       </section>
       {% endif %}
+      </div>
 
       {% set v = r.value %}
+      <div class="stack step-panel" style="gap: 24px"{% if step != 'price' %} hidden{% endif %}>
       <section class="card" id="price">
         <h2>{{ _('Asking price') }}</h2>
         {% if v.low %}
@@ -202,6 +223,17 @@
         <p>{{ v.detail }}</p>
         {% endif %}
       </section>
+      </div>
+
+      <div class="stack step-panel" style="gap: 24px"{% if step != 'copy' %} hidden{% endif %}>
+      <section class="card" id="photo-order">
+        <h2>{{ _('Your photos, in this order') }}</h2>
+        <p class="muted small">{{ _('Upload them to your ad in this order. The first one is what buyers see in the search results, so make it the whole bike from the drive side.') }}</p>
+        <ol class="photo-order" data-shots>
+          {% for key, group, title, tips in shots %}<li data-shot="{{ key }}"><img src="{{ url_for('static', filename='photo-guide/' ~ key ~ '.svg') }}" alt=""><span>{{ _(title) }}</span></li>{% endfor %}
+        </ol>
+        <p class="small muted photo-order-none">{{ _('Photos you add in step 1 show up here. They stay on your phone or computer.') }} <button class="linkish" type="submit" form="sell-form" name="go" value="photos">{{ _('Add photos') }}</button></p>
+      </section>
 
       <section class="card">
         <h2>{{ _("What a buyer's check will show") }}</h2>
@@ -217,29 +249,18 @@
         </div>
       </section>
 
-      <section class="card" id="photos">
-        <h2>{{ _('Photos that sell') }}</h2>
-        <div class="tips">
-          {% for icon, head, text in photo_tips %}
-          <div class="tip"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">{{ icon|safe }}</svg><div><b>{{ _(head) }}</b><span class="muted">{{ _(text) }}</span></div></div>
-          {% endfor %}
-        </div>
-        {# Not built yet: this offer is here to see whether sellers want it (see the /sell/photo-review route). #}
-        <form class="paid-offer" method="post" action="{{ url_for('photo_review') }}" data-fake-door>
-          <input type="hidden" name="model_id" value="{{ r.model.id }}">
-          <div>
-            <div class="mono">{{ _('NEW · PHOTO REVIEW') }}</div>
-            <h3>{{ _('Let us review your photos') }}</h3>
-            <p class="small">{{ _('Upload up to 10 photos. We check each one for light, background, angle and whether the details buyers want are in view, and tell you which to retake.') }}</p>
-          </div>
-          <div class="offer-buy"><div class="offer-price">€5</div><div class="small">{{ _('for 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
-        </form>
-      </section>
+      </div>
+
+      {% set prev = keys[step_at - 1] if step_at > 0 else None %}{% set next = keys[step_at + 1] if step_at + 1 < keys|length else None %}
+      <div class="step-nav">
+        {% if prev %}<button class="btn ghost" type="submit" form="sell-form" name="go" value="{{ prev }}">← {{ _(steps[step_at - 1][1]) }}</button>{% endif %}
+        {% if next %}<button class="btn" type="submit" form="sell-form" name="go" value="{{ next }}">{{ _('Next') }}: {{ _(steps[step_at + 1][1])|lower }} →</button>{% endif %}
+      </div>
     </div>
 
     <aside class="sell-side">
       <section class="card preview">
-        <div class="row" style="justify-content: space-between"><h2>{{ _('Your new ad') }}</h2><span class="mono">{{ _('STEP 3') }}</span></div>
+        <h2>{{ _('Your new ad') }}</h2>
         <div class="ad-box">
           <div class="lbl">{{ _('Title') }} <button class="copy" type="button" data-copy="new-title">{{ _('Copy') }}</button></div>
           <div class="ttl" id="new-title">{{ r.title }}</div>
@@ -262,7 +283,7 @@
     </aside>
   </div>
 </main>
-<div class="phone-bar"><button class="btn ghost" type="button" data-copy="new-title">{{ _('Copy title') }}</button><button class="btn" type="button" data-copy="new-text">{{ _('Copy text') }}</button></div>
+{% if step == 'copy' %}<div class="phone-bar"><button class="btn ghost" type="button" data-copy="new-title">{{ _('Copy title') }}</button><button class="btn" type="button" data-copy="new-text">{{ _('Copy text') }}</button></div>{% endif %}
 {% endif %}
 
 <dialog class="fake-door" id="fake-door" aria-labelledby="fake-door-title">
@@ -281,4 +302,5 @@
   <p class="thanks" hidden>{{ _('Check your inbox. We sent you a link. Open it to confirm your email; until then we won’t use it.') }}</p>
 </dialog>
 <script src="{{ url_for('static', filename='sell.js') }}" defer></script>
+<script src="{{ url_for('static', filename='photo-slots.js') }}" defer></script>
 {% endblock %}
