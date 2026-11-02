@@ -1906,6 +1906,7 @@ def test_the_ad_card_always_has_a_year_tile(tmp_path):
     page = client.get("/check/1?lang=nl").data.decode()
     assert '<span class="k">BOUWJAAR</span><b class="muted">Niet vermeld</b>' in page
 
+
 def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_strip(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
