@@ -14,7 +14,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit, urlunsplit
 
 HOSTS = ("marktplaats.nl", "2dehands.be", "2ememain.be")
-USER_AGENT = "Mozilla/5.0 (compatible; BikeCompare/1.0; link preview)"
+USER_AGENT = "Mozilla/5.0 (compatible; Bikecheck/1.0; link preview)"
 TIMEOUT = 10
 MAX_BYTES = 3_000_000
 

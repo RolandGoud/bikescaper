@@ -1,6 +1,6 @@
-# Bike Compare prototype
+# Bikecheck prototype
 
-A first working version of the Bike Compare site: paste a second-hand bike ad and get a
+A first working version of the Bikecheck site: paste a second-hand bike ad and get a
 check report on age, specs, size and value, matched against the road and gravel catalogue
 that bikescaper collected from the brands' own sites: Trek and Canyon in July and August 2025,
 Specialized, Giant, Cannondale, Cube, Factor, Scott and Orbea in October 2026, Lapierre, Bianchi and BMC

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_dot, aged_chip, brand_label %}
 {% from "_macros.html" import asking_box, model_card, matched_ads with context %}
-{% block title %}{{ m.brand }} {{ m.name|model_title }} · Bike Compare{% endblock %}
+{% block title %}{{ m.brand }} {{ m.name|model_title }} · Bikecheck{% endblock %}
 {% macro note(text) -%}
 <details class="note-tip"><summary aria-label="{{ _('More info') }}">i</summary><p>{{ text }}</p></details>
 {%- endmacro %}

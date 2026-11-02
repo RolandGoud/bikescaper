@@ -1,4 +1,4 @@
-# Local test environment for the Bike Compare prototype.
+# Local test environment for the Bikecheck prototype.
 # On a UGREEN NAS: put this repo in a shared folder, then in the Docker app
 # create a Project from this file (or run `docker compose up -d --build` over SSH).
 # The site is then at http://<nas-ip>:8280

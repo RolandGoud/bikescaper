@@ -57,7 +57,7 @@ def build(listing, r, height=None, report_url=None):
     s = _styles()
     out = io.BytesIO()
     doc = SimpleDocTemplate(out, pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm, topMargin=16 * mm,
-                            bottomMargin=16 * mm, title=f"{_('Check report')}: {listing['title']}", author="Bike Compare")
+                            bottomMargin=16 * mm, title=f"{_('Check report')}: {listing['title']}", author="Bikecheck")
     width = A4[0] - 36 * mm
     story = [_p("BIKE COMPARE · " + _("Check report").upper(), s["brand"]), Spacer(1, 6)]
 
@@ -140,7 +140,7 @@ def build(listing, r, height=None, report_url=None):
 
 def _finish(doc, story, s, report_url, out):
     story.append(Spacer(1, 8))
-    footer = [_("Bike Compare · not affiliated with Marktplaats or any bike brand.")]
+    footer = [_("Bikecheck · not affiliated with Marktplaats or any bike brand.")]
     if report_url:
         footer.insert(0, _("Online report: {url}", url=report_url))
     story.append(_p("  ·  ".join(footer), s["muted"]))

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import brand_label, tier_badge %}
-{% block title %}{{ _('Groupset upgrade paths') }} · Bike Compare{% endblock %}
+{% block title %}{{ _('Groupset upgrade paths') }} · Bikecheck{% endblock %}
 {% macro brakes(g) -%}
 {{ _('Rim or disc') if g.brakes|length > 1 else (_('Disc') if g.brakes[0] == 'disc' else _('Rim')) }}
 {%- endmacro %}

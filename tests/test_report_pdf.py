@@ -43,7 +43,7 @@ def test_email_report(tmp_path, monkeypatch):
     resp = client.post("/check/1/email?lang=nl", data={"email": "jan@example.nl", "height": "180"})
     assert resp.status_code == 302 and "mailed=sent" in resp.headers["Location"]
     to, subject, text, head, name = sent[0]
-    assert to == "jan@example.nl" and subject.startswith("Je Bike Compare-check") and head == b"%PDF"
+    assert to == "jan@example.nl" and subject.startswith("Je Bikecheck-rapport") and head == b"%PDF"
     assert "gecheckt op" in text and "/check/1?height=180" in text
     assert "Verstuurd" in client.get(resp.headers["Location"]).data.decode()
 

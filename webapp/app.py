@@ -1,4 +1,4 @@
-"""Flask app for the Bike Compare prototype.
+"""Flask app for the Bikecheck prototype.
 
 Run from the repo root:
     python -m webapp.seed
@@ -516,7 +516,7 @@ def create_app(db_path=None):
             return back("limit")
         listing, pdf = pdf_of(check_id, height)
         try:
-            mail.send(to, gettext("Your Bike Compare check: {title}", title=listing["title"]),
+            mail.send(to, gettext("Your Bikecheck report: {title}", title=listing["title"]),
                       gettext("Here is your check report for “{title}”, checked on {date}. The PDF is attached; "
                               "the report online: {url}", title=listing["title"], date=listing["created_at"][:10],
                               url=url_for("report", check_id=check_id, height=height, _external=True)),
@@ -890,8 +890,8 @@ def create_app(db_path=None):
             if mail.configured() and mail.allowed(ip):
                 link = url_for("photo_review_confirm", token=token, _external=True)
                 try:
-                    mail.send(email, gettext("Confirm your email for Bike Compare"),
-                              gettext("Someone, hopefully you, asked to hear when the Bike Compare photo review "
+                    mail.send(email, gettext("Confirm your email for Bikecheck"),
+                              gettext("Someone, hopefully you, asked to hear when the Bikecheck photo review "
                                       "launches. Open this link to confirm:\n\n{link}\n\nDidn't ask for this? "
                                       "Ignore this email and you won't hear from us.", link=link), ip=ip)
                 except Exception as e:  # the visitor still sees the same answer; the address stays unconfirmed
