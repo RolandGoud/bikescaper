@@ -1671,3 +1671,10 @@ select { max-width: 100%; }
 .model-card .k { text-transform: uppercase; }
 .model-stage .stage-sub { font-style: normal; }
 .model-stage > .photo img { object-position: 85% 50%; }  /* the bike to the right, clear of the name */
+/* The stage is 5:2, not the slider's 16:9: the cut runs 20% of the width over the height, so the line and the
+   labels slant at atan(0.2 × 5 / 2) = 26.57° to stay on it. */
+@media (min-width: 761px) {
+  .ad-stage .head-duo .duo-handle::before { transform: skewX(-26.57deg); }
+  .ad-stage .head-duo .duo-label { transform: skewX(-26.57deg); }
+  .ad-stage .head-duo .duo-label > span { transform: skewX(26.57deg); }
+}
