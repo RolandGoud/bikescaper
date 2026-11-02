@@ -25,7 +25,7 @@
         {% set name = r.model.name|family_name %}{% set lead, _sp, rest = name.partition(' ') %}
         {% if logos.get(r.model.brand) %}<span class="stage-logo" role="img" aria-label="{{ r.model.brand }}" style="--logo: url('{{ url_for('static', filename=logos[r.model.brand]) }}')"></span>{% endif %}
         <h1>{% if not logos.get(r.model.brand) %}{{ r.model.brand }} {% else %}<span class="sr-only">{{ r.model.brand }} </span>{% endif %}{{ lead }}{% if rest %} <span class="acc">{{ rest }}</span>{% endif %}</h1>
-        <div class="stage-sub">“{{ listing.title }}” · {{ _("the seller's title") }}</div>
+        <div class="stage-sub">“{{ listing.title }}”</div>
         {% else %}
         {% set lead, rest = ad_title(listing.title, r.model) %}
         <h1 title="{{ _('Original ad title: {title}', title=listing.title) }}">{{ lead }}{% if rest %} <span class="acc">{{ rest }}</span>{% endif %}</h1>
