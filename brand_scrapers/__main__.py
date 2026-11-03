@@ -11,11 +11,11 @@ import argparse
 import logging
 from datetime import datetime
 
-from . import bianchi, bmc, cannondale, cervelo, cube, factor, giant, lapierre, orbea, scott, specialized, trek
+from . import bianchi, bmc, cannondale, cervelo, cube, factor, giant, lapierre, orbea, ridley, scott, specialized, trek
 from .common import Fetcher, dedupe, log, save_colour_images, save_image, write_snapshot
 
 ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea, trek,
-                                         lapierre, bianchi, bmc, cervelo)}
+                                         lapierre, bianchi, bmc, cervelo, ridley)}
 # Brands whose store lists earlier model years too (and BMC its Bike Archive): those go to data/years/ in the same run.
 OWN_YEARS = (bianchi, bmc)
 

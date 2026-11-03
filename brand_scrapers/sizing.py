@@ -6,7 +6,7 @@
 
 Writes webapp/size_charts.json, keyed by model slug. Where a brand publishes rider heights per
 model (Trek, Canyon, Cannondale, BMC, Cervélo) they are copied as they are. Specialized, Giant, Cube, Factor,
-Lapierre and Bianchi only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
+Lapierre, Bianchi and Ridley only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
 the rider heights from the brand's general size guide. (Stack and reach don't predict a brand's
 rider heights well: a fit through the Trek and Canyon charts misses the other brand by 5-8 cm,
 while each brand gives the same size the same heights on nearly every model.)
@@ -178,6 +178,14 @@ def cervelo(fetcher, model):
     return sizes and {"source": "brand", "sizes": sizes}
 
 
+def ridley(fetcher, model):
+    from .nuxt import nuxt_state
+    from .ridley import geometry
+    state = model["url"] and nuxt_state(fetcher.get(model["url"]))
+    sizes = state and geometry(((state.get("data") or [{}])[0]).get("bike") or {})
+    return sizes and {"source": "geometry", "sizes": sizes}
+
+
 def bianchi(fetcher, model):
     from .bianchi import geometry
     page = model["url"] and fetcher.get(model["url"])
@@ -193,7 +201,7 @@ def geometry_page(fetcher, model):
 
 ADAPTERS = {"Trek": trek, "Canyon": canyon, "Cannondale": cannondale, "Factor": factor, "BMC": bmc,
             "Specialized": geometry_page, "Giant": geometry_page, "Cube": geometry_page, "Lapierre": geometry_page,
-            "Bianchi": bianchi, "Cervelo": cervelo}
+            "Bianchi": bianchi, "Cervelo": cervelo, "Ridley": ridley}
 
 
 def load_models():
