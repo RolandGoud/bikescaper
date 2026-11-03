@@ -443,9 +443,9 @@ def sheet_years(model, today=None):
 
 
 def archived_line(model):
-    """A line the brand no longer sells, from its own old pages or Mantel's (seed.add_archived): never in a scrape."""
+    """A line the brand no longer sells, from its own old pages or a shop's (seed.add_archived): never in a scrape."""
     source = model.get("source_file") or ""
-    return "years/archived/" in source or "years/mantel/lines/" in source
+    return any(part in source for part in ("years/archived/", "years/mantel/lines/", "years/uk/lines/"))
 
 
 def catalogue_status(model, today=None):
