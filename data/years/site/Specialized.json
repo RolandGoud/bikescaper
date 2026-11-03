@@ -2648,7 +2648,7 @@
     "url": "https://www.specialized.com/nl/nl/crux-comp/p/205813"
    }
   },
-  "Crux Expert - SRAM Rival XPLR eTAP AXS": {
+  "Crux Expert - SRAM Rival XPLR AXS": {
    "2022": {
     "captured": "2026-11-01",
     "colours": [
@@ -2656,6 +2656,7 @@
     ],
     "image": "Specialized/years/cruxexpertsramrivalxplretapaxs_2022_site.jpg",
     "price": 6000,
+    "sheet_name": "Crux Expert - SRAM Rival XPLR eTAP AXS",
     "source": "site",
     "specs": {
      "Achterband": "Pathfinder Pro 2BR, 700x38",
@@ -2691,6 +2692,7 @@
     ],
     "image": "Specialized/years/cruxexpertsramrivalxplretapaxs_2023_site.jpg",
     "price": 6000,
+    "sheet_name": "Crux Expert - SRAM Rival XPLR eTAP AXS",
     "source": "site",
     "specs": {
      "Achterband": "Pathfinder Pro 2BR, Tan Sidewall, 700x38",
@@ -2747,6 +2749,7 @@
     ],
     "image": "Specialized/archived/cruxexpertsramrivalxplretapaxs.jpg",
     "price": 5999,
+    "sheet_name": "Crux Expert - SRAM Rival XPLR eTAP AXS",
     "source": "site",
     "specs": {
      "Achterband": "Pathfinder Pro 2BR, Tan Sidewall, 700x38",
@@ -2777,55 +2780,6 @@
    }
   },
   "Crux Pro - SRAM Force XPLR AXS": {
-   "2026": {
-    "captured": "2026-10-27",
-    "colour_angles": {
-     "Nebula Metallic": [
-      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_1_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_2_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_3_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_4_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_5_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Nebula Metallic": "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_site.jpg"
-    },
-    "colours": [
-     "Nebula Metallic"
-    ],
-    "image": "Specialized/archived/cruxprosramforcexplraxs.jpg",
-    "price": 7999,
-    "source": "site",
-    "specs": {
-     "Achterband": "Pathfinder 700x40, Tubeless Ready",
-     "Achterderailleur": "NEW SRAM Force XPLR AXS E1",
-     "Achterrem": "NEW SRAM Force AXS E1, hydraulic disc 160mm rotor",
-     "Binnenband": "700x32-50mm, 40mm Presta valve",
-     "Bottom bracket": "SRAM DUB BSA",
-     "Buitenband": "Pathfinder 700x40, Tubeless Ready",
-     "Cassette": "NEW SRAM Force XPLR XG-1371, 13sp, 10-46t",
-     "Crankstel": "NEW SRAM Force XPLR E1 Power Meter",
-     "Frame": "Crux FACT 10r Carbon, Rider First Engineered™, Threaded BB, 12x142mm thru-axle, flat-mount disc, UDH dropout",
-     "Gewicht": "7.64 kg (16 lb, 13.5 oz)",
-     "Ketting": "NEW SRAM Force E1",
-     "Rem": "NEW SRAM Force AXS E1, hydraulic disc 160mm rotor",
-     "Shifter": "NEW SRAM Force AXS E1 HRD",
-     "Stuur": "Roval Terra, carbon, 103mm drop x 70mm reach x 12º flare",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
-     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Terra CL Rim, 25mm internal width, 32mm depth, 24h, Tubeless ready, DT for Roval 350 hub, Centerlock disc, DT Swiss Competition Race spokes",
-     "Wiel voor": "Roval Terra CL Rim, 25mm internal width, 32mm depth, 24h, Tubeless ready, DT for Roval 350 hub, Centerlock disc, DT Swiss Competition Race spokes",
-     "Zadel": "Power Pro Mirror, Hollow Ti rails",
-     "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
-     "Zadelpenklem": "Specialized Alloy, 30mm"
-    },
-    "url": "https://www.specialized.com/nl/nl/crux-pro-sram-force-xplr-axs-/p/4223488"
-   }
-  },
-  "Crux Pro - SRAM Force XPLR eTAP AXS": {
    "2022": {
     "captured": "2026-11-01",
     "colours": [
@@ -2833,6 +2787,7 @@
     ],
     "image": "Specialized/years/cruxprosramforcexplretapaxs_2022_site.jpg",
     "price": 8000,
+    "sheet_name": "Crux Pro - SRAM Force XPLR eTAP AXS",
     "source": "site",
     "specs": {
      "Achterband": "Pathfinder Pro 2BR, 700x38",
@@ -2867,6 +2822,7 @@
     ],
     "image": "Specialized/years/cruxprosramforcexplretapaxs_2023_site.jpg",
     "price": 8000,
+    "sheet_name": "Crux Pro - SRAM Force XPLR eTAP AXS",
     "source": "site",
     "specs": {
      "Achterband": "Pathfinder Pro 2BR, Tan Sidewall, 700x38",
@@ -2914,6 +2870,7 @@
     ],
     "image": "Specialized/archived/cruxprosramforcexplretapaxs.jpg",
     "price": 7999,
+    "sheet_name": "Crux Pro - SRAM Force XPLR eTAP AXS",
     "source": "site",
     "specs": {
      "Achterband": "Pathfinder Pro 2BR, Tan Sidewall, 700x38",
@@ -2941,6 +2898,53 @@
      "Zadelpenklem": "Specialized Alloy, 30mm"
     },
     "url": "https://www.specialized.com/nl/nl/crux-pro/p/4223481"
+   },
+   "2026": {
+    "captured": "2026-10-27",
+    "colour_angles": {
+     "Nebula Metallic": [
+      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_1_site.jpg",
+      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_2_site.jpg",
+      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_3_site.jpg",
+      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_4_site.jpg",
+      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_5_site.jpg",
+      "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_6_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Nebula Metallic": "Specialized/years/cruxprosramforcexplraxs_2026_nebulametallic_site.jpg"
+    },
+    "colours": [
+     "Nebula Metallic"
+    ],
+    "image": "Specialized/archived/cruxprosramforcexplraxs.jpg",
+    "price": 7999,
+    "source": "site",
+    "specs": {
+     "Achterband": "Pathfinder 700x40, Tubeless Ready",
+     "Achterderailleur": "NEW SRAM Force XPLR AXS E1",
+     "Achterrem": "NEW SRAM Force AXS E1, hydraulic disc 160mm rotor",
+     "Binnenband": "700x32-50mm, 40mm Presta valve",
+     "Bottom bracket": "SRAM DUB BSA",
+     "Buitenband": "Pathfinder 700x40, Tubeless Ready",
+     "Cassette": "NEW SRAM Force XPLR XG-1371, 13sp, 10-46t",
+     "Crankstel": "NEW SRAM Force XPLR E1 Power Meter",
+     "Frame": "Crux FACT 10r Carbon, Rider First Engineered™, Threaded BB, 12x142mm thru-axle, flat-mount disc, UDH dropout",
+     "Gewicht": "7.64 kg (16 lb, 13.5 oz)",
+     "Ketting": "NEW SRAM Force E1",
+     "Rem": "NEW SRAM Force AXS E1, hydraulic disc 160mm rotor",
+     "Shifter": "NEW SRAM Force AXS E1 HRD",
+     "Stuur": "Roval Terra, carbon, 103mm drop x 70mm reach x 12º flare",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Terra CL Rim, 25mm internal width, 32mm depth, 24h, Tubeless ready, DT for Roval 350 hub, Centerlock disc, DT Swiss Competition Race spokes",
+     "Wiel voor": "Roval Terra CL Rim, 25mm internal width, 32mm depth, 24h, Tubeless ready, DT for Roval 350 hub, Centerlock disc, DT Swiss Competition Race spokes",
+     "Zadel": "Power Pro Mirror, Hollow Ti rails",
+     "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+     "Zadelpenklem": "Specialized Alloy, 30mm"
+    },
+    "url": "https://www.specialized.com/nl/nl/crux-pro-sram-force-xplr-axs-/p/4223488"
    }
   },
   "Diverge 4 Pro LTD - SRAM RED XPLR": {
@@ -6756,6 +6760,46 @@
    }
   },
   "Roubaix Expert - Shimano Ultegra Di2": {
+   "2018": {
+    "captured": "2026-10-27",
+    "colour_angles": {},
+    "colour_images": {
+     "Gloss Metallic White Silver/Black Reflective Clean": "Specialized/years/roubaixexpertultegradi2_2018_glossmetallicwhitesilverblackreflectiveclean_site.jpg"
+    },
+    "colours": [
+     "Gloss Metallic White Silver/Black Reflective Clean"
+    ],
+    "image": "Specialized/archived/roubaixexpertultegradi2.jpg",
+    "price": null,
+    "sheet_name": "Roubaix Expert Ultegra Di2",
+    "source": "site",
+    "specs": {
+     "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x28mm",
+     "Achterderailleur": "Shimano Ultegra Di2 8050, 11-speed",
+     "Achterrem": "Shimano Ultegra Di2 8070 hydraulic disc",
+     "Binnenband": "Standard, Presta valve",
+     "Bottom bracket": "Shimano Ultegra",
+     "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x28mm",
+     "CHAINRINGS": "50/34T",
+     "Cassette": "Shimano 11-speed Ultegra 8000, 11-28t",
+     "Crankstel": "Shimano Ultegra R8000",
+     "Frame": "Specialized FACT 10r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+     "Ketting": "KMC X11EL, 11-speed w/ Missing Link™",
+     "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors",
+     "Rem": "Shimano Ultegra Di2 8070 hydraulic disc",
+     "Shifter": "Shimano Ultegra Di2 8070, hydraulic disc",
+     "Stuur": "Specialized Comp Hover Bar, 6061 alloy, 70x125mm w/ Di2 hole",
+     "Stuurlint": "S-Wrap w/ Sticky gel",
+     "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+     "Voorderailleur": "Shimano Ultegra Di2 8050, braze-on",
+     "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+     "Wiel achter": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+     "Wiel voor": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+     "Zadel": "Body Geometry Phenom Comp, Adaptive Edge design, Hollow Cr-Mo rails, 143mm",
+     "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm"
+    },
+    "url": "https://www.specialized.com/nl/nl/roubaix-expert-ultegra-di2/p/128894"
+   },
    "2022": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -6844,47 +6888,6 @@
      "Zadelpenklem": "Alloy, 32.6mm clamp"
     },
     "url": "https://www.specialized.com/nl/nl/roubaix-expert-compact/p/22912"
-   }
-  },
-  "Roubaix Expert Ultegra Di2": {
-   "2018": {
-    "captured": "2026-10-27",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic White Silver/Black Reflective Clean": "Specialized/years/roubaixexpertultegradi2_2018_glossmetallicwhitesilverblackreflectiveclean_site.jpg"
-    },
-    "colours": [
-     "Gloss Metallic White Silver/Black Reflective Clean"
-    ],
-    "image": "Specialized/archived/roubaixexpertultegradi2.jpg",
-    "price": null,
-    "source": "site",
-    "specs": {
-     "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x28mm",
-     "Achterderailleur": "Shimano Ultegra Di2 8050, 11-speed",
-     "Achterrem": "Shimano Ultegra Di2 8070 hydraulic disc",
-     "Binnenband": "Standard, Presta valve",
-     "Bottom bracket": "Shimano Ultegra",
-     "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x28mm",
-     "CHAINRINGS": "50/34T",
-     "Cassette": "Shimano 11-speed Ultegra 8000, 11-28t",
-     "Crankstel": "Shimano Ultegra R8000",
-     "Frame": "Specialized FACT 10r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
-     "Ketting": "KMC X11EL, 11-speed w/ Missing Link™",
-     "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors",
-     "Rem": "Shimano Ultegra Di2 8070 hydraulic disc",
-     "Shifter": "Shimano Ultegra Di2 8070, hydraulic disc",
-     "Stuur": "Specialized Comp Hover Bar, 6061 alloy, 70x125mm w/ Di2 hole",
-     "Stuurlint": "S-Wrap w/ Sticky gel",
-     "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
-     "Voorderailleur": "Shimano Ultegra Di2 8050, braze-on",
-     "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
-     "Wiel achter": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
-     "Wiel voor": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
-     "Zadel": "Body Geometry Phenom Comp, Adaptive Edge design, Hollow Cr-Mo rails, 143mm",
-     "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm"
-    },
-    "url": "https://www.specialized.com/nl/nl/roubaix-expert-ultegra-di2/p/128894"
    }
   },
   "Roubaix Pro - SRAM Force eTAP AXS": {
@@ -8766,54 +8769,6 @@
     "url": "https://www.specialized.com/nl/nl/ruby-sport/p/154490"
    }
   },
-  "S-Works Aethos - Dura Ace Di2": {
-   "2021": {
-    "captured": "2026-10-27",
-    "colour_angles": {
-     "Satin Carbon/Red Gold Chameleon/Bronze Foil": [
-      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_1_site.jpg",
-      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_2_site.jpg",
-      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_3_site.jpg",
-      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_4_site.jpg",
-      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon/Red Gold Chameleon/Bronze Foil": "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_site.jpg"
-    },
-    "colours": [
-     "Satin Carbon/Red Gold Chameleon/Bronze Foil"
-    ],
-    "image": "Specialized/archived/sworksaethosduraacedi2.jpg",
-    "price": 13000,
-    "source": "site",
-    "specs": {
-     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
-     "Achterrem": "Shimano 105, Hydraulic disc",
-     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
-     "Bottom bracket": "Shimano Dura-Ace, BB-R9100",
-     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Cassette": "SRAM RED eTAP AXS, 12-speed",
-     "Crankstel": "SRAM RED AXS Power Meter",
-     "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
-     "Ketting": "SRAM RED 12-speed",
-     "Rem": "Shimano 105, Hydraulic disc",
-     "Shifter": "SRAM Red eTap AXS Hydraulic",
-     "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
-     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
-     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
-     "Wiel voor": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
-     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
-     "Zadelpen": "Roval Alpinist Carbon Seatpost",
-     "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
-    },
-    "url": "https://www.specialized.com/nl/nl/s-works-aethos-dura-ace-di2/p/187062"
-   }
-  },
   "S-Works Aethos - Founder's Edition": {
    "2021": {
     "captured": "2026-10-27",
@@ -8863,6 +8818,126 @@
    }
   },
   "S-Works Aethos - SRAM RED AXS": {
+   "2021": {
+    "captured": "2026-11-01",
+    "colours": [
+     "Satin Flake Silver/Red Gold Chameleon Tint/Brushed Chrome"
+    ],
+    "image": "Specialized/years/sworksaethossramredetapaxs_2021_site.jpg",
+    "price": 13000,
+    "sheet_name": "S-Works Aethos - SRAM RED eTAP AXS",
+    "source": "site",
+    "specs": {
+     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
+     "Achterrem": "SRAM RED eTAP AXS, hydraulic disc",
+     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+     "Bottom bracket": "SRAM DUB BSA 68",
+     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
+     "Crankstel": "SRAM RED AXS Power Meter",
+     "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
+     "Ketting": "SRAM CN Red 12-speed",
+     "Rem": "SRAM RED eTAP AXS, hydraulic disc",
+     "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
+     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
+     "Wiel voor": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
+     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
+     "Zadelpen": "Roval Alpinist Carbon Seatpost",
+     "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
+    },
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/187063"
+   },
+   "2022": {
+    "captured": "2026-11-01",
+    "colours": [
+     "Carbon / Chameleon Eyris Color Run / Chrome Foil"
+    ],
+    "image": "Specialized/years/sworksaethossramredetapaxs_2022_site.jpg",
+    "price": 14000,
+    "sheet_name": "S-Works Aethos - SRAM RED eTAP AXS",
+    "source": "site",
+    "specs": {
+     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
+     "Achterrem": "SRAM RED E1, hydraulic disc",
+     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+     "Bottom bracket": "SRAM DUB BSA 68",
+     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
+     "Crankstel": "SRAM RED AXS Power Meter",
+     "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
+     "Ketting": "SRAM RED 12-speed",
+     "Rem": "SRAM RED AXS, hydraulic disc",
+     "Shifter": "SRAM Red eTap AXS",
+     "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+     "TANDWIELEN": "48/35T",
+     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
+     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
+     "Wiel voor": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
+     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
+     "Zadelpen": "Roval Alpinist Carbon Seatpost",
+     "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
+    },
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/199443"
+   },
+   "2023": {
+    "captured": "2026-10-27",
+    "colour_angles": {
+     "GLOSS OBSIDIAN/LAPIS + ABALONE ORGANIC COLOR RUN/OBSIDIAN": [
+      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_1_site.jpg",
+      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_2_site.jpg",
+      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_3_site.jpg",
+      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_4_site.jpg",
+      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_5_site.jpg",
+      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_6_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "GLOSS OBSIDIAN/LAPIS + ABALONE ORGANIC COLOR RUN/OBSIDIAN": "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_site.jpg"
+    },
+    "colours": [
+     "GLOSS OBSIDIAN/LAPIS + ABALONE ORGANIC COLOR RUN/OBSIDIAN"
+    ],
+    "image": "Specialized/archived/sworksaethossramredetapaxs.jpg",
+    "price": 14000,
+    "sheet_name": "S-Works Aethos - SRAM RED eTAP AXS",
+    "source": "site",
+    "specs": {
+     "Achterband": "S-works Turbo 2BR, 700x28mm",
+     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
+     "Achterrem": "SRAM Red eTAP AXS, hydraulic disc",
+     "Binnenband": "700x20-28, 48mm Presta Valve",
+     "Bottom bracket": "SRAM DUB BSA 68",
+     "Buitenband": "S-works Turbo 2BR, 700x28mm",
+     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
+     "Crankstel": "SRAM RED AXS Power Meter",
+     "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
+     "Gewicht": "6.36kg (14 lb, .3 oz)",
+     "Ketting": "SRAM RED 12-speed",
+     "Kettingblad": "48/35T",
+     "Rem": "SRAM Red eTAP AXS, hydraulic disc",
+     "Shifter": "SRAM Red eTap AXS",
+     "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
+     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Alpinist CLX, Tubeless, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
+     "Wiel voor": "Roval Alpinist CLX, Tubeless, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
+     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
+     "Zadelpen": "Roval Alpinist Carbon Seatpost",
+     "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
+    },
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/216931"
+   },
    "2025": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -8913,126 +8988,54 @@
     "url": "https://www.specialized.com/nl/nl/s-works-aethos--sram-red-axs/p/4221535"
    }
   },
-  "S-Works Aethos - SRAM RED eTAP AXS": {
+  "S-Works Aethos - Shimano Dura-Ace Di2": {
    "2021": {
-    "captured": "2026-11-01",
-    "colours": [
-     "Satin Flake Silver/Red Gold Chameleon Tint/Brushed Chrome"
-    ],
-    "image": "Specialized/years/sworksaethossramredetapaxs_2021_site.jpg",
-    "price": 13000,
-    "source": "site",
-    "specs": {
-     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
-     "Achterrem": "SRAM RED eTAP AXS, hydraulic disc",
-     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
-     "Bottom bracket": "SRAM DUB BSA 68",
-     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
-     "Crankstel": "SRAM RED AXS Power Meter",
-     "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
-     "Ketting": "SRAM CN Red 12-speed",
-     "Rem": "SRAM RED eTAP AXS, hydraulic disc",
-     "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
-     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
-     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
-     "Wiel voor": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
-     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
-     "Zadelpen": "Roval Alpinist Carbon Seatpost",
-     "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
-    },
-    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/187063"
-   },
-   "2022": {
-    "captured": "2026-11-01",
-    "colours": [
-     "Carbon / Chameleon Eyris Color Run / Chrome Foil"
-    ],
-    "image": "Specialized/years/sworksaethossramredetapaxs_2022_site.jpg",
-    "price": 14000,
-    "source": "site",
-    "specs": {
-     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
-     "Achterrem": "SRAM RED E1, hydraulic disc",
-     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
-     "Bottom bracket": "SRAM DUB BSA 68",
-     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
-     "Crankstel": "SRAM RED AXS Power Meter",
-     "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
-     "Ketting": "SRAM RED 12-speed",
-     "Rem": "SRAM RED AXS, hydraulic disc",
-     "Shifter": "SRAM Red eTap AXS",
-     "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
-     "TANDWIELEN": "48/35T",
-     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
-     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
-     "Wiel voor": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
-     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
-     "Zadelpen": "Roval Alpinist Carbon Seatpost",
-     "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
-    },
-    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/199443"
-   },
-   "2023": {
     "captured": "2026-10-27",
     "colour_angles": {
-     "GLOSS OBSIDIAN/LAPIS + ABALONE ORGANIC COLOR RUN/OBSIDIAN": [
-      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_1_site.jpg",
-      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_2_site.jpg",
-      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_3_site.jpg",
-      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_4_site.jpg",
-      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_5_site.jpg",
-      "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_6_site.jpg"
+     "Satin Carbon/Red Gold Chameleon/Bronze Foil": [
+      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_1_site.jpg",
+      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_2_site.jpg",
+      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_3_site.jpg",
+      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_4_site.jpg",
+      "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_5_site.jpg"
      ]
     },
     "colour_images": {
-     "GLOSS OBSIDIAN/LAPIS + ABALONE ORGANIC COLOR RUN/OBSIDIAN": "Specialized/years/sworksaethossramredetapaxs_2023_glossobsidianlapisplusabaloneorganiccolorrunobsidian_site.jpg"
+     "Satin Carbon/Red Gold Chameleon/Bronze Foil": "Specialized/years/sworksaethosduraacedi2_2021_satincarbonredgoldchameleonbronzefoil_site.jpg"
     },
     "colours": [
-     "GLOSS OBSIDIAN/LAPIS + ABALONE ORGANIC COLOR RUN/OBSIDIAN"
+     "Satin Carbon/Red Gold Chameleon/Bronze Foil"
     ],
-    "image": "Specialized/archived/sworksaethossramredetapaxs.jpg",
-    "price": 14000,
+    "image": "Specialized/archived/sworksaethosduraacedi2.jpg",
+    "price": 13000,
+    "sheet_name": "S-Works Aethos - Dura Ace Di2",
     "source": "site",
     "specs": {
-     "Achterband": "S-works Turbo 2BR, 700x28mm",
+     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
      "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
-     "Achterrem": "SRAM Red eTAP AXS, hydraulic disc",
-     "Binnenband": "700x20-28, 48mm Presta Valve",
-     "Bottom bracket": "SRAM DUB BSA 68",
-     "Buitenband": "S-works Turbo 2BR, 700x28mm",
-     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
+     "Achterrem": "Shimano 105, Hydraulic disc",
+     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+     "Bottom bracket": "Shimano Dura-Ace, BB-R9100",
+     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Cassette": "SRAM RED eTAP AXS, 12-speed",
      "Crankstel": "SRAM RED AXS Power Meter",
      "Frame": "S-Works Aethos FACT 12r Carbon, Rider First Engineered™, Threaded BB, Electronic cable routing only, 12x142mm thru-axle, flat-mount disc",
-     "Gewicht": "6.36kg (14 lb, .3 oz)",
      "Ketting": "SRAM RED 12-speed",
-     "Kettingblad": "48/35T",
-     "Rem": "SRAM Red eTAP AXS, hydraulic disc",
-     "Shifter": "SRAM Red eTap AXS",
+     "Rem": "Shimano 105, Hydraulic disc",
+     "Shifter": "SRAM Red eTap AXS Hydraulic",
      "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
      "Stuurlint": "Supacaz Super Sticky Kush",
      "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
      "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
      "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Alpinist CLX, Tubeless, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
-     "Wiel voor": "Roval Alpinist CLX, Tubeless, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
+     "Wiel achter": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
+     "Wiel voor": "Roval Alpinist CLX, 21mm internal width carbon rim, 33mm depth, Win Tunnel Engineered, Roval AFD hub, 21h, DT Swiss Aerolite spokes",
      "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
      "Zadelpen": "Roval Alpinist Carbon Seatpost",
      "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt"
     },
-    "url": "https://www.specialized.com/nl/nl/s-works-aethos-sram-red-etap-axs/p/216931"
-   }
-  },
-  "S-Works Aethos - Shimano Dura-Ace Di2": {
+    "url": "https://www.specialized.com/nl/nl/s-works-aethos-dura-ace-di2/p/187062"
+   },
    "2022": {
     "captured": "2026-11-01",
     "colours": [
@@ -9638,6 +9641,46 @@
    }
   },
   "S-Works Roubaix - Shimano Dura-Ace Di2": {
+   "2018": {
+    "captured": "2026-10-27",
+    "colour_angles": {},
+    "colour_images": {
+     "Carbon/Metallic White Silver": "Specialized/years/sworksroubaixduraacedi2_2018_carbonmetallicwhitesilver_site.jpg"
+    },
+    "colours": [
+     "Carbon/Metallic White Silver"
+    ],
+    "image": "Specialized/archived/sworksroubaixduraacedi2.jpg",
+    "price": null,
+    "sheet_name": "S-Works Roubaix Dura-Ace Di2",
+    "source": "site",
+    "specs": {
+     "Achterband": "Turbo Cotton, 700x28mm",
+     "Achterderailleur": "Shimano Dura-Ace Di2 9150, 11-speed",
+     "Achterrem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
+     "Binnenband": "Standard, Presta valve",
+     "Bottom bracket": "OSBB, CeramicSpeed bearings",
+     "Buitenband": "Turbo Cotton, 700x28mm",
+     "CHAINRINGS": "Carbon fiber spider, 50/34T",
+     "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-30t",
+     "Crankstel": "S-Works FACT Carbon",
+     "Frame": "S-Works FACT 11r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+     "Ketting": "Shimano Dura-Ace,11-speed",
+     "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors",
+     "Rem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
+     "Shifter": "Shimano Dura-Ace Di2 Disc 9170",
+     "Stuur": "S-Works Carbon Hover Drop, 125x75mm",
+     "Stuurlint": "S-Wrap w/ Sticky gel",
+     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+     "Voorderailleur": "Shimano Dura-Ace Di2 9150, braze-on",
+     "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+     "Wiel achter": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 24h",
+     "Wiel voor": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 21h",
+     "Zadel": "S-Works Phenom GT, 143mm, carbon rails, EVA foam, carbon base",
+     "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm"
+    },
+    "url": "https://www.specialized.com/nl/nl/s-works-roubaix-dura-ace-di2/p/128885"
+   },
    "2020": {
     "captured": "2026-11-01",
     "colours": [
@@ -9717,47 +9760,6 @@
      "Zadelpenklem": "Hidden drop clamp"
     },
     "url": "https://www.specialized.com/nl/nl/s-works-roubaix-shimano-dura-ace-di2/p/200536"
-   }
-  },
-  "S-Works Roubaix Dura-Ace Di2": {
-   "2018": {
-    "captured": "2026-10-27",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/Metallic White Silver": "Specialized/years/sworksroubaixduraacedi2_2018_carbonmetallicwhitesilver_site.jpg"
-    },
-    "colours": [
-     "Carbon/Metallic White Silver"
-    ],
-    "image": "Specialized/archived/sworksroubaixduraacedi2.jpg",
-    "price": null,
-    "source": "site",
-    "specs": {
-     "Achterband": "Turbo Cotton, 700x28mm",
-     "Achterderailleur": "Shimano Dura-Ace Di2 9150, 11-speed",
-     "Achterrem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
-     "Binnenband": "Standard, Presta valve",
-     "Bottom bracket": "OSBB, CeramicSpeed bearings",
-     "Buitenband": "Turbo Cotton, 700x28mm",
-     "CHAINRINGS": "Carbon fiber spider, 50/34T",
-     "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-30t",
-     "Crankstel": "S-Works FACT Carbon",
-     "Frame": "S-Works FACT 11r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
-     "Ketting": "Shimano Dura-Ace,11-speed",
-     "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors",
-     "Rem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
-     "Shifter": "Shimano Dura-Ace Di2 Disc 9170",
-     "Stuur": "S-Works Carbon Hover Drop, 125x75mm",
-     "Stuurlint": "S-Wrap w/ Sticky gel",
-     "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
-     "Voorderailleur": "Shimano Dura-Ace Di2 9150, braze-on",
-     "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
-     "Wiel achter": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 24h",
-     "Wiel voor": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 21h",
-     "Zadel": "S-Works Phenom GT, 143mm, carbon rails, EVA foam, carbon base",
-     "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm"
-    },
-    "url": "https://www.specialized.com/nl/nl/s-works-roubaix-dura-ace-di2/p/128885"
    }
   },
   "S-Works Roubaix SL SRAM": {
@@ -10709,52 +10711,6 @@
     "url": "https://www.specialized.com/NL/nl/s-works-tarmac-disc---dura-ace-di2/p/171347"
    }
   },
-  "S-Works Tarmac SL7 - Dura Ace Di2": {
-   "2021": {
-    "captured": "2026-10-27",
-    "colour_angles": {
-     "Flo Red/Red Tint/Tarmac Black/White": [
-      "Specialized/years/sworkstarmacsl7duraacedi2_2021_floredredtinttarmacblackwhite_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7duraacedi2_2021_floredredtinttarmacblackwhite_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Flo Red/Red Tint/Tarmac Black/White": "Specialized/years/sworkstarmacsl7duraacedi2_2021_floredredtinttarmacblackwhite_site.jpg"
-    },
-    "colours": [
-     "Flo Red/Red Tint/Tarmac Black/White"
-    ],
-    "image": "Specialized/archived/sworkstarmacsl7duraacedi2.jpg",
-    "price": 12800,
-    "source": "site",
-    "specs": {
-     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Achterderailleur": "Shimano Dura-Ace Di2 R9150, 11-speed",
-     "Achterrem": "Shimano Dura-Ace R9170, hydraulic disc",
-     "Binnenband": "Turbo Ultralight, 60mm Presta valve",
-     "Bottom bracket": "Shimano Dura-Ace, BB-R9100",
-     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
-     "Cassette": "Shimano Dura-Ace R9100, 11-speed, 11-30t",
-     "Chainrings": "52/36T",
-     "Crankstel": "Shimano Dura-Ace R9100, HollowTech 2, 11-speed, Dual-sided Power meter",
-     "Frame": "S-Works Tarmac SL7 FACT 12r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
-     "Ketting": "Shimano Dura-Ace, 11-speed",
-     "Rem": "Shimano Dura-Ace R9170, hydraulic disc",
-     "Shifter": "Shimano Dura-Ace Di2 Disc R9170",
-     "Stuur": "S-Works Aerofly II",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "Tarmac integrated stem, 6-degree",
-     "Voorderailleur": "Shimano Dura-Ace Di2 R9150, braze-on",
-     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Rapide CLX, 21mm internal width carbon rim, 60mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
-     "Wiel voor": "Roval Rapide CLX, 21mm internal width carbon rim, 51mm depth, Win Tunnel Engineered, Roval AFD hub, 18h, DT Swiss Aerolite spokes",
-     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
-     "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, Di2 Compatible, 20mm offset",
-     "Zadelpenklem": "Tarmac integrated wedge"
-    },
-    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-dura-ace-di2/p/175292"
-   }
-  },
   "S-Works Tarmac SL7 - SRAM RED eTAP AXS": {
    "2021": {
     "captured": "2026-11-01",
@@ -10912,6 +10868,51 @@
    }
   },
   "S-Works Tarmac SL7 - Shimano Dura-Ace Di2": {
+   "2021": {
+    "captured": "2026-10-27",
+    "colour_angles": {
+     "Flo Red/Red Tint/Tarmac Black/White": [
+      "Specialized/years/sworkstarmacsl7duraacedi2_2021_floredredtinttarmacblackwhite_1_site.jpg",
+      "Specialized/years/sworkstarmacsl7duraacedi2_2021_floredredtinttarmacblackwhite_2_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Flo Red/Red Tint/Tarmac Black/White": "Specialized/years/sworkstarmacsl7duraacedi2_2021_floredredtinttarmacblackwhite_site.jpg"
+    },
+    "colours": [
+     "Flo Red/Red Tint/Tarmac Black/White"
+    ],
+    "image": "Specialized/archived/sworkstarmacsl7duraacedi2.jpg",
+    "price": 12800,
+    "sheet_name": "S-Works Tarmac SL7 - Dura Ace Di2",
+    "source": "site",
+    "specs": {
+     "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Achterderailleur": "Shimano Dura-Ace Di2 R9150, 11-speed",
+     "Achterrem": "Shimano Dura-Ace R9170, hydraulic disc",
+     "Binnenband": "Turbo Ultralight, 60mm Presta valve",
+     "Bottom bracket": "Shimano Dura-Ace, BB-R9100",
+     "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
+     "Cassette": "Shimano Dura-Ace R9100, 11-speed, 11-30t",
+     "Chainrings": "52/36T",
+     "Crankstel": "Shimano Dura-Ace R9100, HollowTech 2, 11-speed, Dual-sided Power meter",
+     "Frame": "S-Works Tarmac SL7 FACT 12r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+     "Ketting": "Shimano Dura-Ace, 11-speed",
+     "Rem": "Shimano Dura-Ace R9170, hydraulic disc",
+     "Shifter": "Shimano Dura-Ace Di2 Disc R9170",
+     "Stuur": "S-Works Aerofly II",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "Tarmac integrated stem, 6-degree",
+     "Voorderailleur": "Shimano Dura-Ace Di2 R9150, braze-on",
+     "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Rapide CLX, 21mm internal width carbon rim, 60mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
+     "Wiel voor": "Roval Rapide CLX, 21mm internal width carbon rim, 51mm depth, Win Tunnel Engineered, Roval AFD hub, 18h, DT Swiss Aerolite spokes",
+     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
+     "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, Di2 Compatible, 20mm offset",
+     "Zadelpenklem": "Tarmac integrated wedge"
+    },
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl7-dura-ace-di2/p/175292"
+   },
    "2022": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -11042,6 +11043,64 @@
    }
   },
   "S-Works Tarmac SL8 - SRAM RED AXS": {
+   "2024": {
+    "captured": "2026-10-27",
+    "colour_angles": {
+     "GLOSS RED SKY / FIERY RED STRATA / SATIN WHITE": [
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_1_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_2_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_3_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_4_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_5_site.jpg"
+     ],
+     "SATIN FOG TINT / GREEN GHOST PEARL / RED GHOST PEARL FADE": [
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_1_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_2_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_3_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_4_site.jpg",
+      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_5_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "GLOSS RED SKY / FIERY RED STRATA / SATIN WHITE": "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_site.jpg",
+     "SATIN FOG TINT / GREEN GHOST PEARL / RED GHOST PEARL FADE": "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_site.jpg"
+    },
+    "colours": [
+     "SATIN FOG TINT / GREEN GHOST PEARL / RED GHOST PEARL FADE",
+     "GLOSS RED SKY / FIERY RED STRATA / SATIN WHITE"
+    ],
+    "image": "Specialized/archived/sworkstarmacsl8sramredetapaxs.jpg",
+    "price": 14000,
+    "sheet_name": "S-Works Tarmac SL8 - SRAM RED eTAP AXS",
+    "source": "site",
+    "specs": {
+     "Achterband": "S-Works Turbo Rapidair 2BR, 700x26mm",
+     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
+     "Achterrem": "SRAM Red eTAP AXS, hydraulic disc 160mm rotor",
+     "Binnenband": "Turbo Ultralight, 60mm Front, 80mm Rear, Presta valve",
+     "Bottom bracket": "SRAM DUB BSA 68",
+     "Buitenband": "S-Works Turbo Rapidair 2BR, 700x26mm",
+     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
+     "Crankstel": "SRAM RED AXS Power Meter",
+     "Frame": "S-Works Tarmac SL8 FACT 12r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+     "Gewicht": "6.85 kg (15 lb, 1.6 oz)",
+     "Ketting": "SRAM RED 12-speed",
+     "Kettingblad": "48/35T",
+     "Rem": "SRAM Red eTAP AXS, hydraulic disc 160mm rotor",
+     "Shifter": "SRAM Red eTap AXS",
+     "Stuur": "Roval Rapide Cockpit, Integrated Bar/Stem",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "Roval Rapide Cockpit, Integrated Bar/Stem",
+     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
+     "Voorvork": "S-Works FACT 12r Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Rapide CLX II, Tubeless, 21mm internal width carbon rim, 60mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
+     "Wiel voor": "Roval Rapide CLX II, Tubeless, 21mm internal width carbon rim, 51mm depth, Win Tunnel Engineered, Roval AFD hub, 18h, DT Swiss Aerolite spokes",
+     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
+     "Zadelpen": "S-Works Tarmac SL8 Carbon seat post, FACT Carbon, 15mm offset",
+     "Zadelpenklem": "Tarmac integrated wedge"
+    },
+    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8---sram-red-etap-axs/p/216959"
+   },
    "2026": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -11098,65 +11157,6 @@
      "Zadelpenklem": "Tarmac integrated wedge"
     },
     "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-sram-red-axs/p/4221554"
-   }
-  },
-  "S-Works Tarmac SL8 - SRAM RED eTAP AXS": {
-   "2024": {
-    "captured": "2026-10-27",
-    "colour_angles": {
-     "GLOSS RED SKY / FIERY RED STRATA / SATIN WHITE": [
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_3_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_4_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_5_site.jpg"
-     ],
-     "SATIN FOG TINT / GREEN GHOST PEARL / RED GHOST PEARL FADE": [
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_3_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_4_site.jpg",
-      "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "GLOSS RED SKY / FIERY RED STRATA / SATIN WHITE": "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_glossredskyfieryredstratasatinwhite_site.jpg",
-     "SATIN FOG TINT / GREEN GHOST PEARL / RED GHOST PEARL FADE": "Specialized/years/sworkstarmacsl8sramredetapaxs_2024_satinfogtintgreenghostpearlredghostpearlfade_site.jpg"
-    },
-    "colours": [
-     "SATIN FOG TINT / GREEN GHOST PEARL / RED GHOST PEARL FADE",
-     "GLOSS RED SKY / FIERY RED STRATA / SATIN WHITE"
-    ],
-    "image": "Specialized/archived/sworkstarmacsl8sramredetapaxs.jpg",
-    "price": 14000,
-    "source": "site",
-    "specs": {
-     "Achterband": "S-Works Turbo Rapidair 2BR, 700x26mm",
-     "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
-     "Achterrem": "SRAM Red eTAP AXS, hydraulic disc 160mm rotor",
-     "Binnenband": "Turbo Ultralight, 60mm Front, 80mm Rear, Presta valve",
-     "Bottom bracket": "SRAM DUB BSA 68",
-     "Buitenband": "S-Works Turbo Rapidair 2BR, 700x26mm",
-     "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
-     "Crankstel": "SRAM RED AXS Power Meter",
-     "Frame": "S-Works Tarmac SL8 FACT 12r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
-     "Gewicht": "6.85 kg (15 lb, 1.6 oz)",
-     "Ketting": "SRAM RED 12-speed",
-     "Kettingblad": "48/35T",
-     "Rem": "SRAM Red eTAP AXS, hydraulic disc 160mm rotor",
-     "Shifter": "SRAM Red eTap AXS",
-     "Stuur": "Roval Rapide Cockpit, Integrated Bar/Stem",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "Roval Rapide Cockpit, Integrated Bar/Stem",
-     "Voorderailleur": "SRAM RED eTAP AXS, braze-on",
-     "Voorvork": "S-Works FACT 12r Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Rapide CLX II, Tubeless, 21mm internal width carbon rim, 60mm depth, Win Tunnel Engineered, Roval AFD hub, 24h, DT Swiss Aerolite spokes",
-     "Wiel voor": "Roval Rapide CLX II, Tubeless, 21mm internal width carbon rim, 51mm depth, Win Tunnel Engineered, Roval AFD hub, 18h, DT Swiss Aerolite spokes",
-     "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
-     "Zadelpen": "S-Works Tarmac SL8 Carbon seat post, FACT Carbon, 15mm offset",
-     "Zadelpenklem": "Tarmac integrated wedge"
-    },
-    "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8---sram-red-etap-axs/p/216959"
    }
   },
   "S-Works Tarmac SL8 - Shimano Dura-Ace Di2": {
@@ -14358,6 +14358,52 @@
    }
   },
   "Tarmac SL7 Expert - Shimano Ultegra Di2": {
+   "2021": {
+    "captured": "2026-10-27",
+    "colour_angles": {
+     "Light Silver/Smoke Fade/Black": [
+      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_1_site.jpg",
+      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_2_site.jpg",
+      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_3_site.jpg",
+      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_4_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Light Silver/Smoke Fade/Black": "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_site.jpg"
+    },
+    "colours": [
+     "Light Silver/Smoke Fade/Black"
+    ],
+    "image": "Specialized/archived/tarmacsl7expertultegradi2.jpg",
+    "price": 6000,
+    "sheet_name": "Tarmac SL7 Expert - Ultegra Di2",
+    "source": "site",
+    "specs": {
+     "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+     "Achterderailleur": "Shimano Ultegra Di2 R8050, GS medium cage",
+     "Achterrem": "Shimano Ultegra, Hydraulic disc",
+     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+     "Bottom bracket": "Shimano Threaded BSA BB",
+     "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+     "Cassette": "Shimano Ultegra R8000, 11-speed, 11-30t",
+     "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed",
+     "Frame": "Tarmac SL7 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+     "Ketting": "Shimano Ultegra, 11-speed",
+     "Rem": "Shimano Ultegra, Hydraulic disc",
+     "Shifter": "Shimano Ultegra Di2 Disc R8070",
+     "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "Tarmac integrated stem, 6-degree",
+     "Voorderailleur": "Shimano Ultegra Di2 R8050, braze-on",
+     "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+     "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+     "Zadel": "Body Geometry Power Expert",
+     "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, Di2 Compatible, 20mm offset",
+     "Zadelpenklem": "Tarmac integrated wedge"
+    },
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl7-expert---ultegra-di2/p/175295"
+   },
    "2022": {
     "captured": "2026-11-01",
     "colours": [
@@ -14393,53 +14439,6 @@
      "Zadelpenklem": "Tarmac integrated wedge"
     },
     "url": "https://www.specialized.com/nl/nl/tarmac-sl7-expert-shimano-ultegra-di2/p/199467"
-   }
-  },
-  "Tarmac SL7 Expert - Ultegra Di2": {
-   "2021": {
-    "captured": "2026-10-27",
-    "colour_angles": {
-     "Light Silver/Smoke Fade/Black": [
-      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_1_site.jpg",
-      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_2_site.jpg",
-      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_3_site.jpg",
-      "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Light Silver/Smoke Fade/Black": "Specialized/years/tarmacsl7expertultegradi2_2021_lightsilversmokefadeblack_site.jpg"
-    },
-    "colours": [
-     "Light Silver/Smoke Fade/Black"
-    ],
-    "image": "Specialized/archived/tarmacsl7expertultegradi2.jpg",
-    "price": 6000,
-    "source": "site",
-    "specs": {
-     "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
-     "Achterderailleur": "Shimano Ultegra Di2 R8050, GS medium cage",
-     "Achterrem": "Shimano Ultegra, Hydraulic disc",
-     "Binnenband": "Turbo Ultralight, 48mm Presta valve",
-     "Bottom bracket": "Shimano Threaded BSA BB",
-     "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
-     "Cassette": "Shimano Ultegra R8000, 11-speed, 11-30t",
-     "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed",
-     "Frame": "Tarmac SL7 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
-     "Ketting": "Shimano Ultegra, 11-speed",
-     "Rem": "Shimano Ultegra, Hydraulic disc",
-     "Shifter": "Shimano Ultegra Di2 Disc R8070",
-     "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "Tarmac integrated stem, 6-degree",
-     "Voorderailleur": "Shimano Ultegra Di2 R8050, braze-on",
-     "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
-     "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
-     "Zadel": "Body Geometry Power Expert",
-     "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, Di2 Compatible, 20mm offset",
-     "Zadelpenklem": "Tarmac integrated wedge"
-    },
-    "url": "https://www.specialized.com/nl/nl/tarmac-sl7-expert---ultegra-di2/p/175295"
    }
   },
   "Tarmac SL7 Pro - SRAM Force eTap AXS 1x": {
@@ -14652,7 +14651,7 @@
     "url": "https://www.specialized.com/nl/nl/tarmac-sl8-comp-shimano-105-di2/p/4221578"
    }
   },
-  "Tarmac SL8 Expert - SRAM Rival AXS": {
+  "Tarmac SL8 Expert - SRAM Rival eTAP AXS": {
    "2024": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -14693,6 +14692,7 @@
     ],
     "image": "Specialized/archived/tarmacsl8expertsramrivalaxs.jpg",
     "price": 6500,
+    "sheet_name": "Tarmac SL8 Expert - SRAM Rival AXS",
     "source": "site",
     "specs": {
      "Achterband": "S-Works Turbo, folding bead, 700x26mm",
@@ -14721,9 +14721,7 @@
      "Zadelpenklem": "Tarmac integrated wedge"
     },
     "url": "https://www.specialized.com/nl/nl/tarmac-sl8-expert-sram-rival-axs/p/216955"
-   }
-  },
-  "Tarmac SL8 Expert - SRAM Rival eTAP AXS": {
+   },
    "2025": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -14892,6 +14890,66 @@
    }
   },
   "Tarmac SL8 Pro - SRAM Force AXS": {
+   "2025": {
+    "captured": "2026-10-27",
+    "colour_angles": {
+     "Gloss Carbon / Metallic White Silver": [
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_1_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_2_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_3_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_4_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_5_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_6_site.jpg"
+     ],
+     "Satin Pink Tint Over Silver Dust / Silver Dust": [
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_1_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_2_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_3_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_4_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_5_site.jpg",
+      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_6_site.jpg"
+     ]
+    },
+    "colour_images": {
+     "Gloss Carbon / Metallic White Silver": "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_site.jpg",
+     "Satin Pink Tint Over Silver Dust / Silver Dust": "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_site.jpg"
+    },
+    "colours": [
+     "Gloss Carbon / Metallic White Silver",
+     "Satin Pink Tint Over Silver Dust / Silver Dust"
+    ],
+    "image": "Specialized/archived/tarmacsl8prosramforceetapaxs.jpg",
+    "price": 7999,
+    "sheet_name": "Tarmac SL8 Pro - SRAM Force eTAP AXS",
+    "source": "site",
+    "specs": {
+     "Achterband": "S-Works Turbo, 2BR, 700x26mm",
+     "Achterderailleur": "SRAM Force eTAP AXS, 12-speed",
+     "Achterrem": "SRAM Force eTAP AXS, hydraulic disc, 160mm rotor",
+     "Binnenband": "Turbo Ultralight, 60mm Front, 80mm Rear, Presta valve",
+     "Bottom bracket": "SRAM DUB BSA 68",
+     "Buitenband": "S-Works Turbo, 2BR, 700x26mm",
+     "Cassette": "SRAM Force, 12-speed, 10-33t",
+     "Crankstel": "SRAM Force DUB, Power Meter",
+     "Frame": "Tarmac SL8 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+     "Gewicht": "7.44 kg (16 lb, 6.4 oz)",
+     "Ketting": "SRAM Force 12-speed",
+     "Kettingblad": "48-35t",
+     "Rem": "SRAM Force eTAP AXS, hydraulic disc, 160mm rotor",
+     "Shifter": "SRAM Force eTap AXS",
+     "Stuur": "Roval Rapide Cockpit, Integrated Bar/Stem",
+     "Stuurlint": "Supacaz Super Sticky Kush",
+     "Stuurpen": "Tarmac integrated stem, 6-degree",
+     "Voorderailleur": "SRAM Force eTAP AXS, braze-on",
+     "Voorvork": "Tarmac SL8 FACT 10r Carbon, 12x100mm thru-axle, flat-mount disc",
+     "Wiel achter": "Roval Rapide CL II, 21mm internal width carbon rim tubeless ready, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes, 60mm depth",
+     "Wiel voor": "Roval Rapide CL II, 21mm internal width carbon rim tubeless ready, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes, 51mm depth",
+     "Zadel": "Power Pro with Mirror",
+     "Zadelpen": "S-Works Tarmac SL8 Carbon seat post, FACT Carbon, 15mm offset",
+     "Zadelpenklem": "Tarmac integrated wedge"
+    },
+    "url": "https://www.specialized.com/nl/nl/tarmac-sl8-pro-sram-force-etap-axs/p/4221537"
+   },
    "2026": {
     "captured": "2026-10-27",
     "colour_angles": {
@@ -14950,67 +15008,6 @@
      "Zadelpenklem": "Tarmac integrated wedge"
     },
     "url": "https://www.specialized.com/nl/nl/tarmac-sl8-pro-sram-force-axs-/p/4279927"
-   }
-  },
-  "Tarmac SL8 Pro - SRAM Force eTAP AXS": {
-   "2025": {
-    "captured": "2026-10-27",
-    "colour_angles": {
-     "Gloss Carbon / Metallic White Silver": [
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_1_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_2_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_3_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_4_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_5_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_6_site.jpg"
-     ],
-     "Satin Pink Tint Over Silver Dust / Silver Dust": [
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_1_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_2_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_3_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_4_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_5_site.jpg",
-      "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Carbon / Metallic White Silver": "Specialized/years/tarmacsl8prosramforceetapaxs_2025_glosscarbonmetallicwhitesilver_site.jpg",
-     "Satin Pink Tint Over Silver Dust / Silver Dust": "Specialized/years/tarmacsl8prosramforceetapaxs_2025_satinpinktintoversilverdustsilverdust_site.jpg"
-    },
-    "colours": [
-     "Gloss Carbon / Metallic White Silver",
-     "Satin Pink Tint Over Silver Dust / Silver Dust"
-    ],
-    "image": "Specialized/archived/tarmacsl8prosramforceetapaxs.jpg",
-    "price": 7999,
-    "source": "site",
-    "specs": {
-     "Achterband": "S-Works Turbo, 2BR, 700x26mm",
-     "Achterderailleur": "SRAM Force eTAP AXS, 12-speed",
-     "Achterrem": "SRAM Force eTAP AXS, hydraulic disc, 160mm rotor",
-     "Binnenband": "Turbo Ultralight, 60mm Front, 80mm Rear, Presta valve",
-     "Bottom bracket": "SRAM DUB BSA 68",
-     "Buitenband": "S-Works Turbo, 2BR, 700x26mm",
-     "Cassette": "SRAM Force, 12-speed, 10-33t",
-     "Crankstel": "SRAM Force DUB, Power Meter",
-     "Frame": "Tarmac SL8 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
-     "Gewicht": "7.44 kg (16 lb, 6.4 oz)",
-     "Ketting": "SRAM Force 12-speed",
-     "Kettingblad": "48-35t",
-     "Rem": "SRAM Force eTAP AXS, hydraulic disc, 160mm rotor",
-     "Shifter": "SRAM Force eTap AXS",
-     "Stuur": "Roval Rapide Cockpit, Integrated Bar/Stem",
-     "Stuurlint": "Supacaz Super Sticky Kush",
-     "Stuurpen": "Tarmac integrated stem, 6-degree",
-     "Voorderailleur": "SRAM Force eTAP AXS, braze-on",
-     "Voorvork": "Tarmac SL8 FACT 10r Carbon, 12x100mm thru-axle, flat-mount disc",
-     "Wiel achter": "Roval Rapide CL II, 21mm internal width carbon rim tubeless ready, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes, 60mm depth",
-     "Wiel voor": "Roval Rapide CL II, 21mm internal width carbon rim tubeless ready, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes, 51mm depth",
-     "Zadel": "Power Pro with Mirror",
-     "Zadelpen": "S-Works Tarmac SL8 Carbon seat post, FACT Carbon, 15mm offset",
-     "Zadelpenklem": "Tarmac integrated wedge"
-    },
-    "url": "https://www.specialized.com/nl/nl/tarmac-sl8-pro-sram-force-etap-axs/p/4221537"
    }
   },
   "Tarmac SL8 Pro - Shimano Ultegra Di2": {

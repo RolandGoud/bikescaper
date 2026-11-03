@@ -580,6 +580,42 @@ def add_archived(conn):
     return count
 
 
+def _build_key(name):
+    """brand_scrapers.history.build_key: a name without the words that come and go between model years."""
+    return compact(re.sub(r"\b(?:etap|shimano|sram)\b", " ", name, flags=re.I))
+
+
+def merge_renamed_models(conn):
+    """Fold the discontinued models that brand_scrapers/history.py merge_renamed made one bike (the 2024 "Tarmac
+    SL8 Expert - SRAM Rival AXS" into the "Tarmac SL8 Expert - SRAM Rival eTAP AXS") into the model they are now:
+    checks and estimates of the old row move to it, and the old row goes. Returns how many models went."""
+    count = 0
+    for path in sorted(glob.glob(os.path.join(ROOT, "data", "years", "archived", "*.json"))):
+        rel = os.path.relpath(path, ROOT)
+        try:
+            with open(path, encoding="utf-8") as fh:
+                names = {b.get("name") for b in json.load(fh)}
+        except (OSError, ValueError):
+            continue
+        rows = conn.execute("SELECT id, brand, name FROM models WHERE source_file = ?", (rel,)).fetchall()
+        for old_id, brand, name in rows:
+            if name in names:
+                continue
+            key = _build_key(name)
+            target = next((i for i, n in conn.execute("SELECT id, name FROM models WHERE brand = ? AND id != ?",
+                                                       (brand, old_id)) if _build_key(n) == key), None)
+            if target is None:
+                continue  # dropped for another reason: leave it
+            conn.execute("DELETE FROM check_results WHERE check_id IN (SELECT id FROM checks WHERE model_id = ?)", (old_id,))
+            conn.execute("UPDATE checks SET model_id = ? WHERE model_id = ?", (target, old_id))
+            conn.execute("UPDATE estimates SET model_id = ? WHERE model_id = ?", (target, old_id))
+            conn.execute("UPDATE photo_review_interest SET model_id = ? WHERE model_id = ?", (target, old_id))
+            conn.execute("DELETE FROM models WHERE id = ?", (old_id,))
+            count += 1
+    conn.commit()
+    return count
+
+
 def remove_old_models(conn):
     """Take the bikes from before FIRST_YEAR out of a catalogue loaded before it left them out (BMC's and
     Specialized's discontinued lines go back to 2006). A saved check matched to one by hand goes back to the
@@ -625,6 +661,7 @@ if __name__ == "__main__":
               f" added {add_other_scrapes(conn)} from other scrapes and {add_archived(conn)} discontinued lines,"
               f" updated status of {refresh_status(conn)},"
               f" read earlier years for {refresh_year_specs(conn)},"
-              f" removed {remove_old_models(conn)} from before {FIRST_YEAR}")
+              f" removed {remove_old_models(conn)} from before {FIRST_YEAR},"
+              f" folded {merge_renamed_models(conn)} renamed builds into the bike they are now")
     else:
         print(f"Loaded {load(conn)} models into {db.DB_PATH}")

@@ -562,6 +562,61 @@ OLD_PAGES = {
 }
 
 
+# Words a brand adds to or drops from a build's name between model years: Specialized's 2024 "Tarmac SL8
+# Expert - SRAM Rival AXS" is its 2025 "Tarmac SL8 Expert - SRAM Rival eTAP AXS", the 2021 "S-Works Aethos -
+# Dura Ace Di2" its 2023 "S-Works Aethos - Shimano Dura-Ace Di2".
+BUILD_WORDS = re.compile(r"\b(?:etap|shimano|sram)\b", re.I)
+
+
+def build_key(name):
+    """A bike's name without the words that come and go between its model years, compacted."""
+    return compact(BUILD_WORDS.sub(" ", name))
+
+
+def merge_renamed(bikes, current=()):
+    """One entry per bike for the discontinued bikes whose name changed between model years: the newest year's
+    entry with all their years and product numbers, or none when a catalogue model (`current`) is that bike.
+    Returns (bikes, {old name: name now})."""
+    current = {build_key(n): n for n in current}
+    groups = {}
+    for bike in bikes:
+        groups.setdefault(build_key(bike["name"]), []).append(bike)
+    kept, renamed = [], {}
+    for key, group in groups.items():
+        group.sort(key=lambda b: -(b.get("model_year") or 0))
+        if key in current:
+            renamed.update({b["name"]: current[key] for b in group if b["name"] != current[key]})
+            continue
+        bike = group[0]
+        for other in group[1:]:
+            bike["years"] = sorted(set(bike.get("years") or []) | set(other.get("years") or []))
+            skus = [str(other.get("sku"))] + list(other.get("skus") or [])
+            bike["skus"] = list(dict.fromkeys((bike.get("skus") or []) + [s for s in skus if s != str(bike.get("sku"))]))
+            renamed[other["name"]] = bike["name"]
+        kept.append(bike)
+    order = {id(b): i for i, b in enumerate(bikes)}
+    return sorted(kept, key=lambda b: order[id(b)]), renamed
+
+
+def rename_sheets(brand, renamed):
+    """Move the year sheets of renamed bikes (merge_renamed) to the name they go by now, in data/years/<Brand>.json
+    and data/years/site/<Brand>.json; a sheet keeps the name it was read under as sheet_name."""
+    for path in (os.path.join(ROOT, "data", "years", f"{brand}.json"), os.path.join(ROOT, "data", "years", "site", f"{brand}.json")):
+        try:
+            with open(path, encoding="utf-8") as fh:
+                data = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        moved = False
+        for old, new in renamed.items():
+            for year, entry in (data["models"].pop(old, None) or {}).items():
+                data["models"].setdefault(new, {}).setdefault(year, dict(entry, sheet_name=entry.get("sheet_name") or old))
+                moved = True
+        if moved:
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(data, fh, ensure_ascii=False, indent=1, sort_keys=True)
+
+
 def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     """The discontinued bikes of a brand that still serves its old product pages (Specialized: the Tarmac SL8
     builds, the Venge): every road and gravel page that no catalogue model has, read from the brand's own site,
@@ -571,7 +626,8 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     sitemap_urls (Specialized), from the brand's own sitemap, which also lists the pages the Wayback Machine
     never saved. The bikes already in data/years/archived/<Brand>.json stay, so a run without the Wayback
     listings keeps the ones only those found. A page of a model we already have under another product number
-    (the 2024 S-Works Tarmac SL8 next to the 2026 one) adds its model year to that model."""
+    (the 2024 S-Works Tarmac SL8 next to the 2026 one), or under a name that only dropped "eTAP" or "Shimano"
+    (merge_renamed), adds its model year to that model."""
     import importlib
     from .archive import URL_ID, url_name
     from .common import is_ebike
@@ -584,9 +640,14 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
             bikes = json.load(fh)
     except (OSError, ValueError):
         bikes = []
-    archived = {compact(b["name"]): b for b in bikes}
     conn = sqlite3.connect(db_path)
-    seen = {compact(n) for (n,) in conn.execute("SELECT name FROM models WHERE brand = ?", (brand,))} - set(archived)
+    names = {n for (n,) in conn.execute("SELECT name FROM models WHERE brand = ?", (brand,))}
+    current = names - {b["name"] for b in bikes}
+    bikes, renamed = merge_renamed(bikes, current)
+    rename_sheets(brand, renamed)
+    archived = {build_key(b["name"]): b for b in bikes}
+    seen = {compact(n) for n in current}  # URL names of the bikes on sale
+    on_sale = {build_key(n) for n in current}
     # A product number in the URL that is also the bike's sku (Specialized) says which pages we already read;
     # other brands' URLs end in a model name or a year, so each URL stands for itself.
     by_id = brand == "Specialized"
@@ -622,11 +683,11 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
         if not bike or recognised(bike.get("specifications") or {}) < MIN_SPECS or is_ebike(bike["name"], bike["category"], url):
             continue
         bike["name"] = re.sub(r"\s+[–—]\s+", " - ", bike["name"])  # the catalogue writes "SL8 - SRAM RED AXS"
-        slug = compact(bike["name"])
-        if slug in seen:  # an old URL that now shows a current bike
+        slug, build = compact(bike["name"]), build_key(bike["name"])
+        if build in on_sale:  # an old URL that now shows a current bike, or an earlier year of one
             continue
         year = str(bike.get("model_year") or "")
-        ours = archived.get(slug)
+        ours = archived.get(build)
         if ours:  # another model year of a bike we have
             if by_id:
                 ours.setdefault("skus", []).append(str(bike.get("sku")))
@@ -638,10 +699,10 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
             bike = dict(bike, image=save_photo(fetcher, brand, slug, None, bike.get("image_url"), rel=f"{brand}/archived/{slug}.jpg"),
                         years=[int(year)] if year.isdigit() else [])
             bikes.append(bike)
-            archived[slug] = bike
+            archived[build] = bike
             added += 1
         if year.isdigit():
-            sheets.setdefault(archived[slug]["name"], {})[year] = {
+            sheets.setdefault(archived[build]["name"], {})[year] = {
                 "captured": today, "url": url, "source": "site", "specs": bike["specifications"],
                 "price": bike.get("price"), "colours": bike.get("color_names") or [],
                 "image": bike.get("image") or save_photo(fetcher, brand, slug, year, bike.get("image_url"))}
