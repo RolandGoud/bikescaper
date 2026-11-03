@@ -63,8 +63,10 @@
         <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
-        <span class="k">{{ _('Ad text')|upper }}</span>
-        {% if listing.description %}<p class="ad-text-body">{{ listing.description }}</p>{% else %}<p class="muted">{{ _('The ad has no text of its own.') }}</p>{% endif %}
+        <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
+        {% if translated %}<p class="ad-text-body" lang="{{ lang }}">{{ translated.text }}</p>
+        <details class="ad-text-original"><summary>{{ _('Show the original (French)') }}</summary><p lang="fr">{{ translated.original }}</p></details>
+        {% elif listing.description %}<p class="ad-text-body">{{ listing.description }}</p>{% else %}<p class="muted">{{ _('The ad has no text of its own.') }}</p>{% endif %}
         <div class="ad-text-foot">
           {% if listing.description %}<button class="ad-text-more" type="button" aria-expanded="false" hidden data-less="{{ _('Fold up') }} ▴">{{ _('Read the whole text') }} ▾</button>{% else %}<span></span>{% endif %}
           {% if site %}<a class="btn ghost site-link" href="{{ listing.listing_url }}" rel="noopener nofollow" aria-label="{{ _('Open the ad on {site}', site=site) }}"><img class="site-logo" src="{{ site_logo(site, light=True) }}" alt="" height="20"><span aria-hidden="true">↗</span></a>

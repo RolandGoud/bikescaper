@@ -1299,6 +1299,8 @@ NL = {
     "Open the photos": "Open de foto's",
     "The ad has no text of its own.": "De advertentie heeft geen eigen tekst.",
     "Read the whole text": "Lees de hele tekst",
+    "Translated from French": "Vertaald uit het Frans",
+    "Show the original (French)": "Toon het origineel (Frans)",
     "Fold up": "Inklappen",
     "Open the ad on {site}": "Open de advertentie op {site}",
     "No model words in the ad": "Geen modelwoorden in de advertentie",

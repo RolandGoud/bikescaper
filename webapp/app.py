@@ -18,7 +18,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, ad_photos, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -476,7 +476,10 @@ def create_app(db_path=None):
                          for r, n in sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
                                             key=lambda a: a[0]["created_at"], reverse=True)
                          if fetch_ad.ad_key(r) != key]
+        # A French ad (2dehands, Wallonia) is shown in the visitor's language, the original a click away.
+        translated = ad_translate.for_page(ad_photos.folder(app.config["DB_PATH"]), check_id, row["description"], g.lang)
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
+                               translated=translated,
                                checked_at=stored_checks.computed_at(conn(), check_id),
                                all_models=models(), asking=asking, nav="check", other_ads=other_ads,
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
