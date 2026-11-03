@@ -15,7 +15,7 @@ from .i18n import Msg, join, join_list
 from .reference import (FIRST_YEAR, BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
-                        RIM_BRAKE_LAST_YEAR, SIZE_NOTE, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
+                        RIM_BRAKE_LAST_YEAR, SIZE_NOTE, TREK_DOTTED_LAST_YEAR, TREK_DOTTED_NAME, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
                         WEIGHT_TIERS)
 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
@@ -742,6 +742,11 @@ def conflicts(model, text):
                        and (t.startswith(tok) or tok.startswith(t))})
         if said:
             found.append((tok.upper(), "/".join(t.upper() for t in said)))
+    # Trek's names before 2017 ("Madone 5.0") belong to none of our models: the ad's digit isn't our tier.
+    dotted = model.get("brand") == "Trek" and re.search(TREK_DOTTED_NAME, _plain(text))
+    if dotted and not re.search(TREK_DOTTED_NAME, _plain(model["name"])):
+        ours = re.search(r"\b(?:slr?|alr?)\s*\d\b|\bgen\s*\d\b", _plain(model["name"]))
+        found.append(((ours.group(0) if ours else model["name"]).upper(), dotted.group(1)))
     return found
 
 
@@ -1661,12 +1666,12 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
 
     def window(lo, hi):
         """(first, last, inside): the years from lo to hi (None = open) within the generation's years. When they miss
-        it: the details' own years if they have both ends (the bike is probably another generation, so inside is
-        False), else the generation's."""
+        it: the details' own years if they have both ends, or end before FIRST_YEAR (the bike is probably another
+        generation, so inside is False), else the generation's."""
         first = max([y for y in (lo, gen_first) if y] or [None], key=lambda y: y or 0)
         last = min([y for y in (hi, gen_last) if y] or [None], key=lambda y: y or 9999)
         if first and last and first > last:
-            return (lo, hi, False) if lo and hi else (gen_first, gen_last, True)
+            return (lo, hi, False) if lo and hi or hi and hi < FIRST_YEAR else (gen_first, gen_last, True)
         return first, last, True
 
     def middle(first, last):
@@ -1929,6 +1934,10 @@ def estimate_year(model, models, claims, text, seen_colour=None):
     if claims["brakes"] == "Rim" and (claims["material"] == "Carbon" or ref_material(model) == "Carbon"):
         clues.append((None, RIM_BRAKE_LAST_YEAR, Msg("Rim brakes on a carbon road bike: {year} or older.",
                                                      year=RIM_BRAKE_LAST_YEAR)))
+    dotted = model["brand"] == "Trek" and re.search(TREK_DOTTED_NAME, low)
+    if dotted:
+        clues.append((None, TREK_DOTTED_LAST_YEAR, Msg("Trek's '{name}' naming: {year} or older.",
+                                                       name=dotted.group(1), year=TREK_DOTTED_LAST_YEAR)))
     sheet = sheet_clues(model, text, seen_colour)
     clues += sheet
     for name, year in [] if any(c[2].text.startswith(("Colour", "The photos")) for c in sheet) else _named_colourways(model, models):
