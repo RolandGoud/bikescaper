@@ -641,8 +641,10 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     except (OSError, ValueError):
         bikes = []
     conn = sqlite3.connect(db_path)
-    names = {n for (n,) in conn.execute("SELECT name FROM models WHERE brand = ?", (brand,))}
-    current = names - {b["name"] for b in bikes}
+    # The catalogue's other models: not a row this file made, whose name a merge may since have changed.
+    rel = os.path.relpath(out, ROOT).replace(os.sep, "/")
+    current = {n for (n,) in conn.execute("SELECT name FROM models WHERE brand = ? AND COALESCE(source_file, '') != ?",
+                                          (brand, rel))} - {b["name"] for b in bikes}
     bikes, renamed = merge_renamed(bikes, current)
     rename_sheets(brand, renamed)
     archived = {build_key(b["name"]): b for b in bikes}

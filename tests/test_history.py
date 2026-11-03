@@ -243,8 +243,11 @@ def test_specialized_archived_keeps_what_it_had_and_adds_other_years(tmp_path, m
     (tmp_path / "data" / "years" / "archived" / "Specialized.json").write_text(json.dumps([old]))
     db = tmp_path / "t.db"
     conn = sqlite3.connect(db)
-    conn.execute("CREATE TABLE models (brand, name)")
-    conn.executemany("INSERT INTO models VALUES ('Specialized', ?)", [("S-Works Venge",), ("Tarmac SL9 Comp",)])
+    conn.execute("CREATE TABLE models (brand, name, source_file)")
+    conn.executemany("INSERT INTO models VALUES ('Specialized', ?, ?)", [
+        ("S-Works Venge", "data/years/archived/Specialized.json"), ("Tarmac SL9 Comp", "data/Specialized/s.json"),
+        # a row from before a merge renamed the bike: not a bike on sale
+        ("S-Works Venge - SRAM", "data/years/archived/Specialized.json")])
     conn.commit()
     urls = ["https://www.specialized.com/nl/nl/s-works-venge/p/171336",          # already there
             "https://www.specialized.com/nl/nl/s-works-venge/p/154592",          # another year of it
@@ -285,7 +288,7 @@ def test_cannondale_archived_pages_are_not_keyed_by_product_number(tmp_path, mon
     (tmp_path / "data" / "years" / "archived" / "Cannondale.json").write_text(json.dumps(
         [{"name": "Synapse 2", "sku": "C1", "model_year": 2022, "years": [2022], "specifications": {}}]))
     db = tmp_path / "t.db"
-    sqlite3.connect(db).execute("CREATE TABLE models (brand, name)")
+    sqlite3.connect(db).execute("CREATE TABLE models (brand, name, source_file)")
     cdx = tmp_path / "cdx"
     cdx.mkdir()
     (cdx / "Cannondale.txt").write_text(
