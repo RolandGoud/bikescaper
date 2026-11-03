@@ -102,7 +102,7 @@ def test_report_page_shows_the_translation_with_the_original(tmp_path, monkeypat
     with open(os.path.join(folder, "1", "translation.json"), "w", encoding="utf-8") as fh:
         json.dump({"text": ad_translate._digest(FRENCH), "translation": ANSWER}, fh)
     page = client.get("/check/1?lang=nl").data.decode()
-    assert "Ik verkoop mijn racefiets" in page and "VERTAALD UIT HET FRANS" in page
+    assert '<p class="ad-text-body" lang="nl">Ik verkoop mijn racefiets' in page and "VERTAALD UIT HET FRANS" in page
     assert "Toon het origineel (Frans)" in page and "Vends mon vélo" in page
     page = client.get("/check/1?lang=en").data.decode()
-    assert "Selling my Canyon Endurace CF SL 7 road bike" in page and "TRANSLATED FROM FRENCH" in page
+    assert '<p class="ad-text-body" lang="en">Selling my Canyon Endurace CF SL 7 road bike' in page and "TRANSLATED FROM FRENCH" in page

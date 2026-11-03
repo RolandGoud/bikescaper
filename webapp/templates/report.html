@@ -64,7 +64,7 @@
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
-        {% if translated %}<p class="ad-text-body" lang="{{ g.lang }}">{{ translated.text }}</p>
+        {% if translated %}<p class="ad-text-body" lang="{{ lang }}">{{ translated.text }}</p>
         <details class="ad-text-original"><summary>{{ _('Show the original (French)') }}</summary><p lang="fr">{{ translated.original }}</p></details>
         {% elif listing.description %}<p class="ad-text-body">{{ listing.description }}</p>{% else %}<p class="muted">{{ _('The ad has no text of its own.') }}</p>{% endif %}
         <div class="ad-text-foot">
