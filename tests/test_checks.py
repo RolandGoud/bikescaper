@@ -426,6 +426,9 @@ def test_s_works_names_specialized():
     ("Lapierre Xelius DRS 7.0 maat M", "carbon, Shimano 105 Di2", "Lapierre", "xelius"),
     ("Bianchi Oltre Comp Ultegra Di2 maat 55", "2027", "Bianchi", "oltre"),
     ("BMC Teammachine SLR 01 TWO maat 54", "Dura-Ace Di2", "BMC", "teammachine"),
+    ("Cervélo S5 Ultegra Di2 maat 54", "", "Cervelo", "s"),
+    ("Cervelo Caledonia 105 Di2 maat 56", "", "Cervelo", "caledonia"),
+    ("Cervélo Áspero GRX RX610 maat 54", "gravel", "Cervelo", "aspero"),
 ])
 def test_matching_new_brands(models, title, description, brand, family):
     r = run(models, title, description, height=178)

@@ -1,8 +1,10 @@
-"""Lapierre, Bianchi and BMC: the bits of their stores the adapters read."""
+"""Lapierre, Bianchi, BMC and Cervélo: the bits of their stores the adapters read."""
 import pytest
 
-from brand_scrapers import bianchi, bmc, lapierre
-from brand_scrapers.sizing import geometry_table
+from urllib.parse import quote
+
+from brand_scrapers import bianchi, bmc, cervelo, lapierre
+from brand_scrapers.sizing import cervelo_chart, geometry_table
 
 
 @pytest.mark.parametrize("src,year", [
@@ -119,3 +121,52 @@ def test_bmc_spec_rows():
     page = ("<p><b>Frame:</b><br> Teammachine SLR Gen 5</p><p><b>Rims: </b><br>PRD23 | 23mm</p>"
             "<p><b>General Product Safety Regulation (GPSR):</b><br><u>Safety Instructions</u></p>")
     assert bmc.spec_pairs(page) == [("Frame", " Teammachine SLR Gen 5"), ("Velg", "PRD23 | 23mm")]
+
+
+@pytest.mark.parametrize("title,name", [
+    ("S5 ULTEGRA DI2", "S5 Ultegra Di2"),
+    ("ÁSPERO-5 GRX RX827 DI2", "Aspero-5 GRX RX827 Di2"),
+    ("CALEDONIA-5 DURA-ACE DI2", "Caledonia-5 Dura-Ace Di2"),
+    ("P-SERIES 105", "P-Series 105"),
+    ("ROUVIDA FORCE XPLR 1 E1", "Rouvida Force XPLR 1 E1"),
+])
+def test_cervelo_names(title, name):
+    assert cervelo.tidy_name(title) == name
+
+
+@pytest.mark.parametrize("handle,year,category", [
+    ("s5-ultegra-di2-2027", 2027, "Race"),
+    ("caledonia-5-rival-axs-2027", 2027, "Endurance"),
+    ("aspero-apex-1-2027", 2027, "Gravel"),
+    ("r5-cx-r5-cx-rival-axs-1-2027", 2027, "Gravel"),
+    ("p-series-105-2027", 2027, "Triathlon / TT"),
+])
+def test_cervelo_year_and_category_from_handle(handle, year, category):
+    assert cervelo.model_year(handle) == year
+    assert cervelo.category_of(handle) == category
+
+
+def test_cervelo_only_bikes_from_the_sitemap():
+    assert cervelo.family_of("seatpost-clamp-assembly-0h0-r5") is None
+    assert cervelo.model_year("aspero-fork-insert-dual-offset-threaded") is None
+
+
+def test_cervelo_spec_sheet_of_this_build():
+    other = quote('{"url":"/en-nl/products/s5-red-axs-2027","rear_derailleur":{"value":"SRAM Red AXS"}}')
+    this = quote('{"url":"/en-nl/products/s5-ultegra-di2-2027","rear_derailleur":{"value":"Shimano Ultegra, R8150"},'
+                 '"crankset":{"value":"Shimano Ultegra, R8100, 52/36T"},"brakes":{"value":""},"title":"S5"}')
+    page = (f"products: [JSON.parse(decodeURIComponent('{other}'))] "
+            f"products: [JSON.parse(decodeURIComponent('{this}'))]")
+    assert cervelo.spec_sheet(page, "s5-ultegra-di2-2027") == [("Achterderailleur", "Shimano Ultegra, R8150"),
+                                                              ("Crankstel", "Shimano Ultegra, R8100, 52/36T")]
+
+
+def test_cervelo_rider_heights_per_size():
+    def row(size, low, high, reach):
+        return (f'<span class="type-text-medium-4 w-full" style="grid-column: 1;">\n  Size {size}\n</span>'
+                f'<span x-cloak x-show="unit == \'cm\'">\n {low}cm</span><span x-show="unit == \'in\'">5\'3"</span>'
+                f'<span x-cloak x-show="unit == \'cm\'">{high}cm</span>'
+                f'<span class="type-text-regular-7">Reach: {reach}mm\n</span>')
+    page = '<a>Size Guide</span>' + row(48, 149.9, 160, 367) + row(54, 167.6, 175, 384)
+    assert cervelo_chart(page) == {"48": {"low": 150, "high": 160, "reach": 367},
+                                   "54": {"low": 168, "high": 175, "reach": 384}}
