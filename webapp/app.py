@@ -71,6 +71,15 @@ PHOTO_SHOTS = [
     ("tyre", "detail", "Tyre sidewall", ["Size text (700×28C, 28-622) readable, tread in view"]),
 ]
 
+# A brand photo that does each shot well (webapp/static/photo-guide/examples/<key>.jpg), shown in the shot's slot
+# instead of the outline; the camera still lays the outline over the live view. No brand shoots the non-drive side.
+PHOTO_EXAMPLES = {
+    "drive-side": "BMC Roadmachine 01 ONE", "front-three-quarter": "Giant Defy Advanced 3",
+    "derailleur": "Cannondale SuperSix EVO 2", "chainrings": "Giant Propel Advanced Pro 0 Di2",
+    "shifter": "Cannondale SuperSix EVO 2", "disc-brake": "Trek Émonda SL 7", "frame-sticker": "Cube Attain C:62 SLT",
+    "rim": "Trek Madone SLR 9", "tyre": "Trek FX Sport 6",
+}
+
 # The Selling page is a wizard: these steps, in order. Photos and the draft come before anything is worked out.
 SELL_STEPS = [("photos", "Photos"), ("ad", "Your ad"), ("gaps", "Fill the gaps"), ("price", "Price"), ("copy", "Copy your ad")]
 SELL_STEP_KEYS = [k for k, _ in SELL_STEPS]
@@ -834,7 +843,7 @@ def create_app(db_path=None):
         travel along: `go` is the step a button asks for, `step` the one on screen (for a resubmit after an answer)."""
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
         page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
-                "shots": PHOTO_SHOTS, "can_mail": mail.configured()}
+                "shots": PHOTO_SHOTS, "shot_examples": PHOTO_EXAMPLES, "can_mail": mail.configured()}
         if request.method == "GET":
             step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "start"
             return render_template("sell.html", form={}, r=None, error=None, step=step,

@@ -1728,6 +1728,10 @@ select { max-width: 100%; }
 .shot-media { position: relative; aspect-ratio: 4 / 3; background: #111317; border-bottom: 1px solid var(--line); cursor: pointer; }
 .shot-media img { display: block; width: 100%; height: 100%; }
 .shot-media .mine { object-fit: cover; }
+.shot-media .outline.shot-sample { object-fit: cover; }
+.shot-media .outline.shot-sample.whole { object-fit: contain; background: #fff; }  /* a whole bike is never cut off */
+.shot-example { position: absolute; left: 8px; bottom: 8px; padding: 3px 8px; border-radius: 4px; background: rgba(17,19,23,.78); color: #ECECEF; font-size: 12px; pointer-events: none; }
+.shot.done .shot-example { display: none; }
 .shot-ok { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--ink); font-weight: 700; }
 .shot-cap { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 12px 14px 14px; }
 .shot-cap b { font-size: 16px; }
