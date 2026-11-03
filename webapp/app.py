@@ -60,7 +60,6 @@ PHOTO_SHOTS = [
     ("non-drive-side", "overall", "Whole bike, other side", ["Bars on the left", "Same height and distance as the drive side"]),
     ("front-three-quarter", "overall", "Front three-quarter",
      ["Stand in front and to the right of the bike", "Whole bike in frame, front wheel slightly bigger"]),
-    ("front-on", "overall", "From the front", ["Straight on, bars level", "Wheel and fork lined up in the middle"]),
     ("derailleur", "detail", "Rear derailleur",
      ["Cassette, so the teeth are visible", "Model name on the derailleur body", "Pulley wheels and cage"]),
     ("chainrings", "detail", "Front chainrings", ["Tooth counts printed on the rings", "Crank arm (length is printed on the back)"]),

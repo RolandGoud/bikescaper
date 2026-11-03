@@ -91,7 +91,7 @@ def test_a_year_before_the_generation_is_flagged(models):
 def test_the_wizard_starts_with_the_photos_and_keeps_the_answers(client):
     c, app = client
     page = c.get("/sell?lang=en").data.decode()
-    assert "Start with the photos" in page and page.count('class="shot"') == 11
+    assert "Start with the photos" in page and page.count('class="shot"') == 10
     assert '<dialog class="camera" id="camera"' in page  # the camera in the page, with the outline over the view
     assert '<span><i>3</i>' in page  # nothing to fill in before there's a draft: the later steps aren't buttons yet
     assert 'value="ad">Next: your ad' in page
