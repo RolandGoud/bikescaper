@@ -156,7 +156,7 @@ def with_generation(brand, name, year):
     return name
 
 
-def match(brand, name, year, ours):
+def match(brand, name, year, ours, key=key):
     """Our name for Mantel's bike of this year, or None. The same name matches; so does ours with a generation
     ("Domane SL 6 Gen 4") when Mantel's year falls in that generation's years."""
     k = key(name)
@@ -172,7 +172,7 @@ def match(brand, name, year, ours):
     return None
 
 
-def catalogue_names(brand):
+def catalogue_names(brand, key=key):
     """{key: our name} of every model of the brand we know: scrapes, discontinued lines and earlier-year sheets."""
     names = set()
     for path in glob.glob(os.path.join(ROOT, "data", brand, "*.json")) + [
@@ -220,27 +220,41 @@ def catalogue_categories(brand):
     return {family: c.most_common(1)[0][0] for family, c in counts.items()}
 
 
-def convert(raw, photos=None):
+class Shop:
+    """How one shop's raw.json reads: its labels, its way of naming bikes, where the result goes. A shop names a
+    bike its own way, so `key` is what two spellings of one name share."""
+    tag, folder, source = "mantel", "mantel", SOURCE
+
+    clean_name = staticmethod(clean_name)
+    specs_of = staticmethod(specs_of)
+    sheet = staticmethod(sheet)
+    key = staticmethod(key)
+
+
+MANTEL = Shop()
+
+
+def convert(raw, photos=None, shop=MANTEL):
     """{brand: (sheets, lines)} from raw.json's content; photos(brand, slug, year, url) saves one and gives its path."""
     out = {}
     for brand, models in raw.get("models", {}).items():
-        ours, categories = catalogue_names(brand), catalogue_categories(brand)
+        ours, categories = catalogue_names(brand, shop.key), catalogue_categories(brand)
         sheets, new = {}, {}
-        for mantel_name, years in models.items():
+        for shop_name, years in models.items():
             for year, entry in years.items():
                 year = int(entry.get("model_year") or year)
-                specs = specs_of(entry.get("specs") or [])
-                if year < FIRST_YEAR or recognised(specs) < MIN_SPECS:
+                specs = shop.specs_of(entry.get("specs") or [])
+                plain = shop.clean_name(shop_name)
+                if year < FIRST_YEAR or recognised(specs) < MIN_SPECS or not plain:
                     continue
-                plain = clean_name(mantel_name)
                 name = with_generation(brand, plain, year)
-                found = ours.get(key(plain)) or match(brand, name, year, ours)
+                found = ours.get(shop.key(plain)) or match(brand, name, year, ours, shop.key)
                 if not found:  # two spellings of one new name ("Revolt 0 Gravel Bike", "Revolt 0 Gravelbike") share it
-                    found = new.setdefault(key(name), name)
+                    found = new.setdefault(shop.key(name), name)
                 kept = sheets.setdefault(found, {}).get(str(year))
                 if kept and len(kept["specs"]) >= len(specs):
                     continue
-                sheets[found][str(year)] = sheet(entry, specs)
+                sheets[found][str(year)] = shop.sheet(entry, specs)
         for name, years in sheets.items():
             for year, s in years.items():
                 url = s.pop("photo")
@@ -253,18 +267,18 @@ def convert(raw, photos=None):
                           "sku": "", "category": category_of(brand, name, categories), "specifications": newest["specs"],
                           "years": sorted(int(y) for y in years), "model_year": int(max(years)), "price": None,
                           "image": next((years[y]["image"] for y in sorted(years, reverse=True) if years[y].get("image")), None),
-                          "source": "mantel"})
+                          "source": shop.tag})
         out[brand] = (sheets, lines)
     return out
 
 
-def save(raw, converted):
-    folder = os.path.join(ROOT, "data", "years", "mantel")
+def save(raw, converted, shop=MANTEL):
+    folder = os.path.join(ROOT, "data", "years", shop.folder)
     os.makedirs(os.path.join(folder, "lines"), exist_ok=True)
     for brand, (sheets, lines) in converted.items():
         years = sorted({int(y) for entries in sheets.values() for y in entries})
         with open(os.path.join(folder, f"{brand}.json"), "w", encoding="utf-8") as fh:
-            json.dump({"checked_on": raw.get("checked_on"), "years": years, "source": SOURCE, "models": sheets},
+            json.dump({"checked_on": raw.get("checked_on"), "years": years, "source": shop.source, "models": sheets},
                       fh, ensure_ascii=False, indent=1, sort_keys=True)
         with open(os.path.join(folder, "lines", f"{brand}.json"), "w", encoding="utf-8") as fh:
             json.dump(lines, fh, ensure_ascii=False, indent=1)
@@ -272,9 +286,9 @@ def save(raw, converted):
                  sum(len(e) for e in sheets.values()), len(sheets), len(lines))
 
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("--raw", default=RAW)
+def main(argv=None, shop=MANTEL, raw_path=RAW, doc=None):
+    parser = argparse.ArgumentParser(description=(doc or __doc__).split("\n")[0])
+    parser.add_argument("--raw", default=raw_path)
     parser.add_argument("--no-photos", action="store_true", help="leave the photos out")
     args = parser.parse_args(argv)
     with open(args.raw, encoding="utf-8") as fh:
@@ -284,8 +298,8 @@ def main(argv=None):
         from .history import save_photo
         fetcher = Fetcher(delay=2.0)
         photos = lambda brand, slug, year, url: save_photo(fetcher, brand, slug, year, url,
-                                                           rel=f"{brand}/years/{slug}_{year}_mantel.jpg")
-    save(raw, convert(raw, photos))
+                                                           rel=f"{brand}/years/{slug}_{year}_{shop.tag}.jpg")
+    save(raw, convert(raw, photos, shop), shop)
 
 
 if __name__ == "__main__":
