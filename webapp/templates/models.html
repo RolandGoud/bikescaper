@@ -23,7 +23,7 @@
           <option value="" data-label="{{ _('All brands') }}" data-count="{{ brand_counts.values()|sum }}">{{ _('All brands') }}</option>
           {% if picked|length > 1 %}{# an older address with several brands: show them, picking any other option replaces them #}
           <option value="" selected disabled data-label="{{ picked|join(' + ') }}">{{ picked|join(' + ') }}</option>{% endif %}
-          {% for b in brands if b.scraper %}<option value="{{ b.name }}" data-label="{{ b.name }}" data-count="{{ brand_counts.get(b.name, 0) }}"{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %} {{ 'selected' if picked == [b.name] }}>{{ b.name }} ({{ brand_counts.get(b.name, 0) }})</option>{% endfor %}
+          {% for b in brand_menu %}<option value="{{ b.name }}" data-label="{{ b.name }}" data-count="{{ brand_counts.get(b.name, 0) }}"{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %} {{ 'selected' if picked == [b.name] }}>{{ b.name }} ({{ brand_counts.get(b.name, 0) }})</option>{% endfor %}
         </select>
       </label>
       {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
