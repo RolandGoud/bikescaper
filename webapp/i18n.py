@@ -1369,4 +1369,10 @@ NL = {
     "Take photo": "Foto maken",
     "Turn your phone sideways for this shot.": "Houd je telefoon dwars voor deze foto.",
     "Line the bike up with the outline.": "Zet de fiets in de omtrek.",
+    "What do you want to do?": "Wat wil je doen?",
+    "Make a new ad": "Nieuwe advertentie maken",
+    "Start with the photos buyers want, then write the ad with us: the specs from the catalogue and a fair asking price.": "Begin met de foto’s die kopers willen zien en schrijf daarna samen met ons de advertentie: de specificaties uit de catalogus en een eerlijke vraagprijs.",
+    "Check my ad": "Mijn advertentie checken",
+    "Already online? Paste the link and we'll show what buyers will miss and whether the price holds up.": "Staat hij al online? Plak de link en we laten zien wat kopers missen en of de prijs klopt.",
+    "Paste the link to your ad.": "Plak de link naar je advertentie.",
 }

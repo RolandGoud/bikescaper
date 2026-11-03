@@ -88,9 +88,26 @@ def test_a_year_before_the_generation_is_flagged(models):
     assert any(f["status"] == "bad" and en(f["title"]).startswith("Year:") for f in r["flags"])
 
 
-def test_the_wizard_starts_with_the_photos_and_keeps_the_answers(client):
+def test_the_page_starts_with_a_choice_new_ad_or_check_one(client, monkeypatch):
     c, app = client
     page = c.get("/sell?lang=en").data.decode()
+    assert "What do you want to do?" in page and 'class="wizard"' not in page
+    assert 'name="go" value="photos">Make a new ad' in page and 'name="ad_link"' in page
+    page = c.post("/sell?lang=en", data={"step": "start", "go": "photos"}).data.decode()
+    assert "Start with the photos" in page
+    # Check my ad: the link is read and the seller lands on the gaps.
+    from webapp import fetch_ad
+    monkeypatch.setattr(fetch_ad, "fetch_listing", lambda url: {"title": DRAFT["title"], "description": DRAFT.get("description", ""),
+                                                                 "asking_price": 2600})
+    page = c.post("/sell?lang=en", data={"step": "start", "go": "gaps", "ad_link": "https://www.marktplaats.nl/v/x"}).data.decode()
+    assert 'aria-current="step"><i>3</i>' in page
+    resp = c.post("/sell?lang=en", data={"step": "start", "go": "gaps", "ad_link": ""})
+    assert resp.status_code == 400 and "Paste the link to your ad." in resp.data.decode()
+
+
+def test_the_wizard_starts_with_the_photos_and_keeps_the_answers(client):
+    c, app = client
+    page = c.get("/sell?lang=en&step=photos").data.decode()
     assert "Start with the photos" in page and page.count('class="shot"') == 10
     assert '<dialog class="camera" id="camera"' in page  # the camera in the page, with the outline over the view
     assert '<span><i>3</i>' in page  # nothing to fill in before there's a draft: the later steps aren't buttons yet
@@ -239,7 +256,7 @@ def test_without_clues_the_page_says_where_to_find_the_year(client):
 
 def test_the_page_opens_on_the_link_and_shows_ads_we_improved(client):
     c, app = client
-    page = c.get("/sell?lang=en").data.decode()
+    page = c.get("/sell?step=ad&lang=en").data.decode()
     assert 'id="sell-mode-link" checked' in page  # like the check form: the ad's link first
     assert "How we improved an ad" not in page  # nothing checked yet
     conn = db.connect(app.config["DB_PATH"])

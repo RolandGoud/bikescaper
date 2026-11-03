@@ -829,13 +829,14 @@ def create_app(db_path=None):
     def sell():
         """Help a seller improve a draft ad, one step at a time. Everything comes from the form; nothing is saved.
 
-        A GET starts at the photos (or ?step=ad). Every later page is a POST of the same form, so the answers
+        A GET starts with a choice: make a new ad (on to the photos) or check an existing one by its link
+        (straight to the gaps). ?step=photos or ?step=ad opens that step instead. Every later page is a POST of the same form, so the answers
         travel along: `go` is the step a button asks for, `step` the one on screen (for a resubmit after an answer)."""
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
         page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
                 "shots": PHOTO_SHOTS, "can_mail": mail.configured()}
         if request.method == "GET":
-            step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "photos"
+            step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "start"
             return render_template("sell.html", form={}, r=None, error=None, step=step,
                                    examples=improved_examples() if step == "ad" else [], **page)
         form = request.form.to_dict()
@@ -843,6 +844,10 @@ def create_app(db_path=None):
         error = None
         link = (form.get("ad_link") or "").strip()
         browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
+        if form.get("step") == "start" and not link and step == "gaps":
+            # "Check my ad" with nothing pasted: back to the choice, with the reason.
+            return render_template("sell.html", form=form, r=None, error=gettext("Paste the link to your ad."),
+                                   step="start", examples=[], **page), 400
         if link and not browsing and not (form.get("title") or "").strip():
             try:
                 ad = fetch_ad.fetch_listing(link)

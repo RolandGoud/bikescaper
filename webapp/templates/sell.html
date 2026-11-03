@@ -7,14 +7,37 @@
 {# A wizard in five steps (SELL_STEPS in app.py). One form carries the draft and the answers from step to step:
    every field on the page joins it with form="sell-form", and static/sell.js sends it again when an answer
    changes. The steps that aren't on screen stay in the page, hidden, so their answers go along. Nothing is saved. #}
-{% set keys = steps|map(attribute=0)|list %}{% set step_at = keys.index(step) %}
+{% set keys = steps|map(attribute=0)|list %}{% set step_at = keys.index(step) if step in keys else -1 %}
 {% set can_check = r is not none or form.title %}
 <form id="sell-form" method="post" action="{{ url_for('sell') }}#steps">
   {# First in the page, so Enter in any field stays on this step (or moves on from the draft) rather than pressing a step button. #}
-  <button class="sr-only" type="submit" name="go" value="{{ 'gaps' if step in ('photos', 'ad') else step }}" tabindex="-1" aria-hidden="true"></button>
+  <button class="sr-only" type="submit" name="go" value="{{ 'gaps' if step in ('start', 'photos', 'ad') else step }}" tabindex="-1" aria-hidden="true"></button>
   <input type="hidden" name="step" value="{{ step }}">
   {% if not (r and r.model) %}{% for k in ('model_id', 'year', 'size', 'condition', 'invoice', 'service', 'wheels') %}{% if form[k] %}<input type="hidden" name="{{ k }}" value="{{ form[k] }}">{% endif %}{% endfor %}{% endif %}
 </form>
+{% if step == 'start' %}
+{# Before the steps: a new ad starts at the photos; an ad that's already online is read from its link. #}
+<main class="wrap page sell-start" id="steps">
+  <div class="kicker mono">{{ _('For sellers') }}</div>
+  <h1>{{ _('What do you want to do?') }}</h1>
+  <div class="start-choices">
+    <section class="card start-choice">
+      <h2>{{ _('Make a new ad') }}</h2>
+      <p class="muted">{{ _('Start with the photos buyers want, then write the ad with us: the specs from the catalogue and a fair asking price.') }}</p>
+      <button class="btn" type="submit" form="sell-form" name="go" value="photos">{{ _('Make a new ad') }} →</button>
+    </section>
+    <section class="card start-choice">
+      <h2>{{ _('Check my ad') }}</h2>
+      <p class="muted">{{ _("Already online? Paste the link and we'll show what buyers will miss and whether the price holds up.") }}</p>
+      {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+      <label class="field">{{ _('The link to your ad') }} <span class="hint">{{ _('Marktplaats or 2dehands. We read the title, text and price for you.') }}</span>
+        <input form="sell-form" name="ad_link" type="text" inputmode="url" autocomplete="off" value="{{ form.ad_link or '' }}" placeholder="https://www.marktplaats.nl/v/fietsen-en-brommers/...">
+      </label>
+      <button class="btn" type="submit" form="sell-form" name="go" value="gaps">{{ _('Check my ad') }} →</button>
+    </section>
+  </div>
+</main>
+{% else %}
 <nav class="wizard" id="steps" aria-label="{{ _('Improve your ad, step by step') }}"><ol class="wrap">
   {% for key, label in steps %}
   <li class="{{ 'on' if key == step else 'done' if loop.index0 < step_at }}">{% if loop.index0 < 2 or can_check %}<button type="submit" form="sell-form" name="go" value="{{ key }}"{% if key == step %} aria-current="step"{% endif %}>{% else %}<span>{% endif %}<i>{{ loop.index }}</i><span class="lbl">{{ _(label) }}</span>{% if loop.index0 < 2 or can_check %}</button>{% else %}</span>{% endif %}</li>
@@ -58,6 +81,7 @@
   <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
   {% endif %}
 </section>
+{% endif %}
 
 {% if step == 'photos' %}
 {% include "_sell_photos.html" %}
