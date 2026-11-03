@@ -243,8 +243,11 @@ def test_specialized_archived_keeps_what_it_had_and_adds_other_years(tmp_path, m
     (tmp_path / "data" / "years" / "archived" / "Specialized.json").write_text(json.dumps([old]))
     db = tmp_path / "t.db"
     conn = sqlite3.connect(db)
-    conn.execute("CREATE TABLE models (brand, name)")
-    conn.executemany("INSERT INTO models VALUES ('Specialized', ?)", [("S-Works Venge",), ("Tarmac SL9 Comp",)])
+    conn.execute("CREATE TABLE models (brand, name, source_file)")
+    conn.executemany("INSERT INTO models VALUES ('Specialized', ?, ?)", [
+        ("S-Works Venge", "data/years/archived/Specialized.json"), ("Tarmac SL9 Comp", "data/Specialized/s.json"),
+        # a row from before a merge renamed the bike: not a bike on sale
+        ("S-Works Venge - SRAM", "data/years/archived/Specialized.json")])
     conn.commit()
     urls = ["https://www.specialized.com/nl/nl/s-works-venge/p/171336",          # already there
             "https://www.specialized.com/nl/nl/s-works-venge/p/154592",          # another year of it
@@ -285,7 +288,7 @@ def test_cannondale_archived_pages_are_not_keyed_by_product_number(tmp_path, mon
     (tmp_path / "data" / "years" / "archived" / "Cannondale.json").write_text(json.dumps(
         [{"name": "Synapse 2", "sku": "C1", "model_year": 2022, "years": [2022], "specifications": {}}]))
     db = tmp_path / "t.db"
-    sqlite3.connect(db).execute("CREATE TABLE models (brand, name)")
+    sqlite3.connect(db).execute("CREATE TABLE models (brand, name, source_file)")
     cdx = tmp_path / "cdx"
     cdx.mkdir()
     (cdx / "Cannondale.txt").write_text(
@@ -381,3 +384,46 @@ def test_a_rerun_keeps_a_year_set_by_hand(tmp_path, monkeypatch):
         "Émonda SL 6": {"2023": {"colours": ["Crimson"]}}})
     history.run(["Trek"], str(db), range(2020, 2027), names=["Émonda SL 6"])
     assert json.loads(sheet.read_text())["models"]["Émonda SL 6"]["2023"]["colours"] == ["Trek Black/Radioactive Red"]
+
+
+def test_a_build_renamed_between_years_is_one_bike(tmp_path, monkeypatch):
+    import json
+    bikes = [{"name": "Tarmac SL8 Expert - SRAM Rival AXS", "sku": "216955", "model_year": 2024, "years": [2024]},
+             {"name": "Tarmac SL8 Expert - SRAM Rival eTAP AXS", "sku": "4221538", "model_year": 2025, "years": [2025]},
+             {"name": "Crux Expert - SRAM Rival XPLR eTAP AXS", "sku": "1", "model_year": 2025, "years": [2025]},
+             {"name": "Tarmac SL8 Pro - SRAM Force AXS", "sku": "2", "model_year": 2026, "years": [2026]}]
+    kept, renamed = history.merge_renamed(bikes, current=["Crux Expert - SRAM Rival XPLR AXS"])
+    assert [(b["name"], b["years"], b.get("skus")) for b in kept] == [
+        ("Tarmac SL8 Expert - SRAM Rival eTAP AXS", [2024, 2025], ["216955"]), ("Tarmac SL8 Pro - SRAM Force AXS", [2026], None)]
+    assert renamed == {"Tarmac SL8 Expert - SRAM Rival AXS": "Tarmac SL8 Expert - SRAM Rival eTAP AXS",
+                       "Crux Expert - SRAM Rival XPLR eTAP AXS": "Crux Expert - SRAM Rival XPLR AXS"}
+    (tmp_path / "data" / "years" / "site").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "site" / "Specialized.json").write_text(json.dumps({"years": [2024], "models": {
+        "Tarmac SL8 Expert - SRAM Rival AXS": {"2024": {"price": 6500}}}}))
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    history.rename_sheets("Specialized", renamed)
+    models = json.loads((tmp_path / "data" / "years" / "site" / "Specialized.json").read_text())["models"]
+    assert models == {"Tarmac SL8 Expert - SRAM Rival eTAP AXS": {"2024": {
+        "price": 6500, "sheet_name": "Tarmac SL8 Expert - SRAM Rival AXS"}}}
+
+
+def test_seed_folds_a_renamed_build_into_the_bike_it_is_now(tmp_path, monkeypatch):
+    import json
+    from webapp import db, seed
+    (tmp_path / "data" / "years" / "archived").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "archived" / "Specialized.json").write_text(json.dumps(
+        [{"name": "Tarmac SL8 Expert - SRAM Rival eTAP AXS"}]))
+    monkeypatch.setattr(seed, "ROOT", str(tmp_path))
+    conn = db.connect(str(tmp_path / "t.db"))
+    rel = "data/years/archived/Specialized.json"
+    for name in ("Tarmac SL8 Expert - SRAM Rival AXS", "Tarmac SL8 Expert - SRAM Rival eTAP AXS"):
+        conn.execute("INSERT INTO models (brand, name, slug, source_file, specs, colors) VALUES ('Specialized', ?, ?, ?, '{}', '[]')",
+                     (name, seed.slugify(name), rel))
+    old, new = (conn.execute("SELECT id FROM models WHERE name = ?", (n,)).fetchone()[0]
+                for n in ("Tarmac SL8 Expert - SRAM Rival AXS", "Tarmac SL8 Expert - SRAM Rival eTAP AXS"))
+    conn.execute("INSERT INTO checks (listing_url, title, model_id) VALUES ('u', 't', ?)", (old,))
+    conn.commit()
+    assert seed.merge_renamed_models(conn) == 1
+    assert [r[0] for r in conn.execute("SELECT name FROM models")] == ["Tarmac SL8 Expert - SRAM Rival eTAP AXS"]
+    assert conn.execute("SELECT model_id FROM checks").fetchone()[0] == new
+    assert seed.merge_renamed_models(conn) == 0

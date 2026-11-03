@@ -2554,7 +2554,10 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     # (the archived sheets' prices are less sure: a sheet can list another version's price).
     prices = year_prices(model)
     german = False
-    if model.get("price_eur"):
+    sheet = ((model.get("year_specs") or {}).get("years") or {}).get(str(model_year)) or {}
+    if sheet.get("price"):  # that year's own new price, as the report's heading shows it (new_price)
+        original, price_year = sheet["price"], model_year
+    elif model.get("price_eur"):
         original = model["price_eur"]
         price_year = scrape_year(model)
     else:

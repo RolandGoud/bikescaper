@@ -1924,3 +1924,12 @@ def test_home_shows_what_a_check_tells_you_as_one_strip(tmp_path):
     page = app.test_client().get("/?lang=nl").data.decode()
     assert page.count('class="ws-cell"') == 4 and 'href="#check-ad"' in page and 'id="check-ad"' in page
     assert "Check een advertentie" in page and "Is de prijs eerlijk?" in page
+
+
+def test_value_starts_from_the_new_price_of_the_ads_year():
+    # The 2024 Tarmac SL8 Expert cost €6,500 new; the catalogue's price is the 2025 one.
+    m = {"brand": "Specialized", "name": "Tarmac SL8 Expert - SRAM Rival eTAP AXS", "price_eur": 5499, "model_year": 2025,
+         "seen_on": "2026-10-27", "year_specs": {"years": {"2024": {"price": 6500}, "2025": {"price": 5499}}}}
+    claims = checks.read_claims("Specialized Tarmac SL8 Expert 2024", "")
+    value = checks.check_value(m, claims, None, {"rows": []}, {"status": checks.OK}, TODAY)
+    assert value["original"] == 6500 and value["model_year"] == 2024
