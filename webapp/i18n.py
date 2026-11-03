@@ -1357,7 +1357,7 @@ NL = {
     "Stand in front and to the right of the bike": "Sta rechts voor de fiets",
     "Start with the photos": "Begin met de foto’s",
     "Step {n} of {total}": "Stap {n} van {total}",
-    "Sticker on the top tube by the seatpost: model, size and serial, sharp enough to read": "Sticker op de bovenbuis bij de zadelpen: model, maat en framenummer, scherp genoeg om te lezen",
+    "Sticker on the seat tube, under the seatpost: model, size and serial, sharp enough to read": "Sticker op de zitbuis, onder de zadelpen: model, maat en framenummer, scherp genoeg om te lezen",
     "Straight on, bars level": "Recht van voren, stuur recht",
     "Tooth counts printed on the rings": "Aantal tanden op de bladen",
     "Tyre sidewall": "Bandwang",

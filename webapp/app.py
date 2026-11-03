@@ -67,7 +67,7 @@ PHOTO_SHOTS = [
     ("shifter", "detail", "Shifters", ["Hood with the model name readable", "Brake and shift levers, side on"]),
     ("disc-brake", "detail", "Disc brakes or calipers", ["Caliper with the brand readable", "Rotor face, so wear is visible"]),
     ("frame-sticker", "detail", "Frame information",
-     ["Sticker on the top tube by the seatpost: model, size and serial, sharp enough to read"]),
+     ["Sticker on the seat tube, under the seatpost: model, size and serial, sharp enough to read"]),
     ("rim", "detail", "Rim decal", ["Rim brand, depth and size readable, in focus"]),
     ("tyre", "detail", "Tyre sidewall", ["Size text (700×28C, 28-622) readable, tread in view"]),
 ]
