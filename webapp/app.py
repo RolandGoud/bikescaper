@@ -660,7 +660,10 @@ def create_app(db_path=None):
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
                                       key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
-        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
+        # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
+        brand_menu = sorted((b for b in BRANDS if b["scraper"]),
+                            key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
+        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES, brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
                                nav="models", sponsored=offers(("side",), tiles=True))
