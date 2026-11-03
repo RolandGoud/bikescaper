@@ -1783,3 +1783,11 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
   .camera-hint, .camera-turn { display: none; }
   .camera-shutter { position: absolute; z-index: 2; right: 20px; top: 50%; margin: -34px 0 0; }
 }
+
+/* The Selling page's start: a new ad, or check one that's online. */
+.sell-start { display: flex; flex-direction: column; gap: 12px; padding-top: 48px; padding-bottom: 72px; }
+.sell-start .kicker { color: var(--accent-soft); }
+.sell-start h1 { font-size: clamp(30px, 3.6vw, 44px); margin-bottom: 12px; }
+.start-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.start-choice .btn:last-child { margin-top: auto; }
+.start-choice .btn { align-self: flex-start; }
