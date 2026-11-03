@@ -5,7 +5,7 @@
     python -m brand_scrapers.sizing trek --limit 3
 
 Writes webapp/size_charts.json, keyed by model slug. Where a brand publishes rider heights per
-model (Trek, Canyon, Cannondale, BMC) they are copied as they are. Specialized, Giant, Cube, Factor,
+model (Trek, Canyon, Cannondale, BMC, Cervélo) they are copied as they are. Specialized, Giant, Cube, Factor,
 Lapierre and Bianchi only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
 the rider heights from the brand's general size guide. (Stack and reach don't predict a brand's
 rider heights well: a fit through the Trek and Canyon charts misses the other brand by 5-8 cm,
@@ -163,6 +163,21 @@ def bmc(fetcher, model):
     return {"source": source, "sizes": sizes}
 
 
+def cervelo_chart(page):
+    """Cervélo's size slider: a "Size 54" row per size with the rider heights in cm and the reach."""
+    sizes = {}
+    for size, body, reach in re.findall(r'>\s*Size (\d\d|[23]?X*[SML]|X+L)\s*</span>(.*?)Reach: (\d+)\s*mm', page or "", re.S):
+        cm = re.findall(r"x-show=\"unit == 'cm'\"\s*>\s*([\d.]+)\s*cm", body)
+        if len(cm) >= 2 and size_label(size) not in sizes:
+            sizes[size_label(size)] = {"low": round(float(cm[0])), "high": round(float(cm[1])), "reach": int(reach)}
+    return sizes
+
+
+def cervelo(fetcher, model):
+    sizes = model["url"] and cervelo_chart(fetcher.get(model["url"]))
+    return sizes and {"source": "brand", "sizes": sizes}
+
+
 def bianchi(fetcher, model):
     from .bianchi import geometry
     page = model["url"] and fetcher.get(model["url"])
@@ -178,7 +193,7 @@ def geometry_page(fetcher, model):
 
 ADAPTERS = {"Trek": trek, "Canyon": canyon, "Cannondale": cannondale, "Factor": factor, "BMC": bmc,
             "Specialized": geometry_page, "Giant": geometry_page, "Cube": geometry_page, "Lapierre": geometry_page,
-            "Bianchi": bianchi}
+            "Bianchi": bianchi, "Cervelo": cervelo}
 
 
 def load_models():

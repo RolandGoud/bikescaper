@@ -217,6 +217,8 @@ BRANDS = [
     {"name": "Lapierre", "site": "https://lapierrebikes.com/en-be", "scraper": True, "logo": "logos/lapierre.svg"},
     {"name": "Bianchi", "site": "https://www.bianchi.com/en/", "scraper": True, "logo": "logos/bianchi.svg"},
     {"name": "BMC", "site": "https://nl.bmc-switzerland.com/", "scraper": True, "logo": "logos/bmc.svg"},
+    # Written without the accent: the name is also the data/ and images/ folder. Ads match "Cervélo" too (accents are ignored).
+    {"name": "Cervelo", "site": "https://www.cervelo.com/en-nl", "scraper": True},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
 BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}
@@ -253,6 +255,7 @@ FAMILY_DISCIPLINES = {
         "Lapierre": ["xelius", "pulsium", "sensium", "aircode", "audacio"],
         "Bianchi": ["oltre", "specialissima", "infinito", "sprint", "intenso", "aria"],
         "BMC": ["teammachine", "roadmachine", "granfondo"],
+        "Cervelo": ["s", "r", "c", "soloist", "caledonia", "rs", "rca"],  # S5, R5, R3 and C5 read as "s 5", "r 5", "c 5"
     },
     "gravel": {
         "Trek": ["checkpoint", "checkmate", "boone"],
@@ -266,6 +269,7 @@ FAMILY_DISCIPLINES = {
         "Lapierre": ["crosshill"],
         "Bianchi": ["impulso", "arcadex", "via", "zolder"],
         "BMC": ["kaius", "urs", "crossmachine"],
+        "Cervelo": ["aspero", "rouvida"],  # the R5-CX is gravel by the "cx" in its name
     },
     "tt": {
         "Trek": ["speed"],
@@ -280,6 +284,7 @@ FAMILY_DISCIPLINES = {
         "Lapierre": ["aerostorm"],
         "Bianchi": ["aquila"],
         "BMC": ["speedmachine"],  # Timemachine is TT or aero road (Timemachine Road): its category decides
+        "Cervelo": ["p"],  # P5, P3 and the P-Series
     },
     "fitness": {
         "Trek": ["fx"],
