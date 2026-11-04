@@ -1069,7 +1069,6 @@ def test_wheels_named_without_the_word_wheels():
     assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
 
 
-
 def test_wheels_of_the_same_family_without_a_version_match():
     # Check 63: the ad says "Bontrager Aeolus Carbon wielen", the original is the Aeolus Pro 37.
     original = "Bontrager Aeolus Pro 37, OCLV Carbon, Tubeless Ready, 37 mm velghoogte"
@@ -1970,6 +1969,16 @@ def test_value_starts_from_the_new_price_of_the_ads_year():
     claims = checks.read_claims("Specialized Tarmac SL8 Expert 2024", "")
     value = checks.check_value(m, claims, None, {"rows": []}, {"status": checks.OK}, TODAY)
     assert value["original"] == 6500 and value["model_year"] == 2024
+
+
+def test_a_complete_bike_is_not_matched_to_the_frameset(models):
+    # The size after "SL" is no SL 56, the named gen8 beats a Gen 6, and a frameset has no Shimano 105 Di2.
+    desc = "- Shimano 105 di2\n- Nieuwe casette (11-34) en ketting\n- Pirelli P zero SL 30mm banden\nMateriaal: Carbon"
+    ranked = checks.match_models(models, "Trek Madone gen8 SL (56)", desc)
+    assert ranked[0][1]["name"] == "Madone SL 6 Gen 8"
+    # An ad for the frame alone still gets the frameset.
+    ranked = checks.match_models(models, "Trek Madone gen8 SL frameset (56)", "Alleen frame, vork en zadelpen")
+    assert ranked[0][1]["name"] == "Madone SL Gen 8 frameset"
 
 
 def test_downgrade_cuts_are_added_up_before_they_are_taken_off(models):
