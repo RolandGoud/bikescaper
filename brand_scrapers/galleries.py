@@ -1,11 +1,13 @@
 """The other photos of each current model (close-ups, front, rear), from its page on the brand's site.
 
-    python -m brand_scrapers.galleries trek giant cannondale canyon cube specialized
+    python -m brand_scrapers.galleries trek giant cannondale canyon cube specialized bmc lapierre scott orbea
 
 Saves the photos to images/<Brand>/gallery/ and lists them in data/galleries/<Brand>.json as
 {model page URL: {colour: [photo]}}; the colour is "" when the page shows one colour only. The side
-view the catalogue already has is left out. Scott and Orbea only answer a visible Chrome
-(browser.py) and Factor shows one photo per build, so they have no reader here yet.
+view the catalogue already has is left out. Scott is read from data/Scott/scott_gallery.json (its
+site only answers a visible Chrome); Orbea's pages are opened in that Chrome (browser.py), its photos
+are fetched plainly. Bianchi, Cervélo and Factor show one photo per colour, the one the catalogue
+already has, so they have no reader.
 """
 import argparse
 import json
@@ -13,9 +15,9 @@ import os
 import re
 import sqlite3
 
-from . import giant
+from . import bmc, giant, lapierre, orbea, scott
 from .archive import compact
-from .common import ROOT, Fetcher, log
+from .common import ROOT, Fetcher, clean, log, shopify_products
 from .history import save_photo, trek_product
 
 
@@ -84,14 +86,100 @@ def specialized(fetcher, model):
     return {"": list(dict.fromkeys(found))}
 
 
+_LISTINGS = {}
+
+
+def _shopify_product(fetcher, model, base):
+    """The store's JSON of a Shopify product (/products/<handle>.json), or {}. A product the store lists but
+    doesn't sell in this country answers 404 there; its entry in /products.json has the same photos."""
+    url = model["url"].split("?")[0]
+    if not url.startswith(base):  # an archived line's page on web.archive.org
+        return {}
+    try:
+        product = json.loads(fetcher.get(url + ".json") or "{}").get("product")
+    except ValueError:
+        product = None
+    if product:
+        return product
+    if base not in _LISTINGS:
+        _LISTINGS[base] = {p.get("handle"): p for p in shopify_products(fetcher, base)}
+    return _LISTINGS[base].get(url.rsplit("/", 1)[-1]) or {}
+
+
+def bmc_page(fetcher, model):
+    # One colour per product, its photos numbered: bmc-2027-kaius-01-three-gravel-bike-black-1.jpg is the side view.
+    fetcher.delays.update(bmc.HOST_DELAY)
+    number = lambda src: int((re.search(r"-(\d+)(?:_[\w-]+)?\.\w+(?:\?|$)", src) or [0, 0])[1])
+    images = sorted((i["src"] for i in _shopify_product(fetcher, model, bmc.BASE).get("images") or []), key=number)
+    return {"": [bmc.sized(src) for src in images if number(src) != 1]} if images else {}
+
+
+def lapierre_page(fetcher, model):
+    # The photos come in one run per colour: the colour's side view (the image its variants point to) first,
+    # then that colour's other angles. The geometry drawing sits between the runs.
+    product = _shopify_product(fetcher, model, lapierre.BASE)
+    options = {o["name"].lower(): i + 1 for i, o in enumerate(product.get("options") or [])}
+    variants = {v["id"]: v for v in product.get("variants") or []}
+    runs, colour = {}, ""
+    for img in sorted(product.get("images") or [], key=lambda i: i.get("position") or 0):
+        if re.search(r"(?i)geometr", (img.get("alt") or "") + img.get("src", "")):
+            continue
+        if img.get("variant_ids"):  # a side view: a new colour starts
+            v = variants.get(img["variant_ids"][0]) or {}
+            name = clean(v.get(f"option{options['color']}")) if "color" in options else ""
+            colour = name[:1].upper() + name[1:]
+            runs.setdefault(colour, [])
+            continue
+        runs.setdefault(colour, []).append(lapierre.sized(img["src"]))
+    runs = {c: u for c, u in runs.items() if u}
+    return {"": next(iter(runs.values()))} if len(runs) == 1 else runs
+
+
+def scott_page(fetcher, model):
+    # data/Scott/scott_gallery.json has every photo of every colour, the side view among them.
+    path = os.path.join(ROOT, "data", "Scott", "scott_gallery.json")
+    entry = next((e for e in (json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}).values()
+                  if e.get("url") == model["url"]), None)
+    by_colour = {}
+    for img in (entry or {}).get("images") or []:
+        by_colour.setdefault(img.get("color") or "", []).append(img["src"])
+    return {c: [scott.cloudinary_width(s) for s in srcs if s != scott.side_photo(srcs)]
+            for c, srcs in by_colour.items() if len(srcs) > 1}
+
+
+def orbea_page(fetcher, model):
+    # The page's product JSON lists each photo with its colour code and view ("side", ...).
+    product = orbea.js_json(fetcher.get(model["url"]) or "", "product") or {}
+    names = {c.get("code"): clean(c.get("name")) for c in product.get("colors") or [] if c.get("name")}
+    found = {}
+    for img in product.get("images") or []:
+        if img.get("view") != "side" and img.get("src") and img.get("color") in names:
+            found.setdefault(names[img["color"]], []).append(img["src"])
+    return {"": next(iter(found.values()))} if len(names) == 1 and found else found
+
+
 READERS = {"Trek": trek, "Giant": giant_page, "Cannondale": cannondale, "Canyon": canyon, "Cube": cube,
-           "Specialized": specialized}
+           "Specialized": specialized, "BMC": bmc_page, "Lapierre": lapierre_page, "Scott": scott_page,
+           "Orbea": orbea_page}
+CHROME = ("Orbea",)  # brands whose pages only open in a visible Chrome; their photos still answer plain requests
 
 
 def collect(brand, db_path, fetcher=None):
     path = os.path.join(ROOT, "data", "galleries", f"{brand}.json")
     found = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
     fetcher = fetcher or Fetcher(delay=1.0)
+    pages = fetcher
+    if brand in CHROME and isinstance(fetcher, Fetcher):
+        from .browser import BrowserFetcher
+        pages = BrowserFetcher(delay=2.0)
+    try:
+        _collect(brand, db_path, path, found, fetcher, pages)
+    finally:
+        if pages is not fetcher:
+            pages.close()
+
+
+def _collect(brand, db_path, path, found, fetcher, pages):
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     models = conn.execute("SELECT name, url FROM models WHERE brand = ? AND url IS NOT NULL", (brand,)).fetchall()
@@ -99,7 +187,7 @@ def collect(brand, db_path, fetcher=None):
         if found.get(model["url"]):  # a page that gave nothing is tried again
             continue
         try:
-            urls = READERS[brand](fetcher, dict(model))
+            urls = READERS[brand](pages, dict(model))
         except Exception as exc:  # one page shouldn't stop the run
             log.warning("%s %s: %s", brand, model["name"], exc)
             continue

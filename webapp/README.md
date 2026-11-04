@@ -85,7 +85,10 @@ brand; refresh them with `python -m brand_scrapers` (or name brands: `python -m 
 giant cube`). It writes a new snapshot to `data/<Brand>/` and one photo per model and one per
 colour to `images/<Brand>/`, and the seed picks the newest snapshot. `python -m
 brand_scrapers.colour_photos` adds the colour photos to the newest snapshots without collecting
-the rest again (Scott from `data/Scott/scott_gallery.json`; Orbea only from a home PC). On the NAS the catalogue reloads by
+the rest again (Scott from `data/Scott/scott_gallery.json`; Orbea only from a home PC). `python -m
+brand_scrapers.galleries <brands>` saves each current model's other angles (close-ups, front, rear) to
+`images/<Brand>/gallery/` for Trek, Giant, Cannondale, Canyon, Cube, Specialized, BMC, Lapierre, Scott and Orbea
+(again Orbea only from a home PC); Bianchi, Cervélo and Factor show one photo per colour. On the NAS the catalogue reloads by
 itself on the next start when a new snapshot is in `main`.
 
 Only road, gravel, cyclocross and time trial bikes are collected, like the Trek and Canyon data.
