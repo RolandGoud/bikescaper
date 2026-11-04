@@ -287,7 +287,7 @@
 {%- endmacro %}
 
 {# The other ads for a check's model next to the check itself: year, groupset, wheels and asking price in columns,
-   each value that differs from this ad's marked. ads: [(ad row, {"model", "facts", "diff"})], own: this ad's facts. #}
+   each value that differs from this ad's marked. ads: [(ad row, {"model", "facts", "diff"})]. #}
 {% macro fact_cell(f, key, diff) -%}
   {%- set d = diff.get(key) -%}
   {%- if key == 'year' -%}
@@ -303,21 +303,14 @@
   {%- endif -%}
 {%- endmacro %}
 
-{% macro compare_ads(ads, own, listing, heading) -%}
+{% macro compare_ads(ads, heading) -%}
     {% set cols = [('year', _('Year')), ('groupset', _('Groupset')), ('wheels', _('Wheels')), ('price', _('Asking price'))] %}
     <div class="matched-ads ad-compare" id="ads">
       <h3>{{ heading }} <span class="muted count">{{ ads|length }}</span></h3>
-      <p class="small muted">{{ _('Next to this ad: what differs is marked. ≈ is a year we estimated.') }}</p>
+      <p class="small muted">{{ _('Compared with this ad: what differs is marked. ≈ is a year we estimated.') }}</p>
       <table class="compare-table">
         <thead><tr><th scope="col">{{ _('Ad') }}</th>{% for key, label in cols %}<th scope="col">{{ label }}</th>{% endfor %}</tr></thead>
         <tbody>
-          <tr class="own">
-            <th scope="row"><span class="ad-cell">
-              <span class="thumb">{% if listing.photos %}<img src="{{ listing.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo((ads|first)[1].model) }}{% endif %}</span>
-              <span class="what"><span class="ad-name">{{ _('This ad') }}</span></span>
-            </span></th>
-            {% for key, label in cols %}<td data-label="{{ label }}">{{ fact_cell(own, key, {}) }}</td>{% endfor %}
-          </tr>
           {% for row, r in ads %}
           <tr>
             <th scope="row"><a class="ad-cell" href="{{ url_for('report', check_id=row.id) }}">

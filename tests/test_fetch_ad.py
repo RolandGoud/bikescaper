@@ -536,8 +536,8 @@ def test_report_compares_the_other_ads_on_year_parts_and_price(tmp_path):
     conn.commit()
     page = app.test_client().get("/check/1?lang=nl").data.decode()
     table = page[page.index('class="compare-table"'):page.index("</table>", page.index('class="compare-table"'))]
-    assert "Deze advertentie" in table and 'href="/check/2"' in table and 'href="/check/3"' in table
-    rows = table.split("<tr")  # newest first: this ad, then 3, then 2
+    assert "Deze advertentie" not in table and 'href="/check/2"' in table and 'href="/check/3"' in table
+    rows = table.split("<tr")  # newest first: 3, then 2
     other = next(r for r in rows if 'href="/check/2"' in r)
     assert "2 jaar nieuwer" in other and "€200 duurder" in other
     assert other.count('class="differs"') == 3  # year, groupset and price; the wheels are the same
