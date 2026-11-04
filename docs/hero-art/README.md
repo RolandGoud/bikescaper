@@ -21,11 +21,14 @@ so the tower is not cut off).
 | [bw-rider-cobbles.jpg](https://commons.wikimedia.org/wiki/File:Acht_van_Chaam,_wielrennen,_Bestanddeelnr_924-7505.jpg) | Rob Mieremet / Anefo | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | cropped |
 | [lone-climb-ventoux.jpg](https://commons.wikimedia.org/wiki/File:Mt_Ventoux_cyclists.jpg) | FrogsLegs71 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | cropped |
 
-The bunch-of-bikes icon (`webapp/static/hero/bikes.svg`) is drawn from code in this folder. The
+The home hero's bunch of bikes (`webapp/static/hero/hero-bunch.svg`) is made by `bunch_outline.py` from the
+selling wizard's drive-side photo guide. The older bunch-of-bikes icon (`webapp/static/hero/bikes.svg`, still
+used on sponsored cards without their own image) is drawn from code in this folder. The
 scripts also still draw the earlier illustrated backgrounds, which are no longer used.
 
 | Script | Draws |
 |---|---|
+| `bunch_outline.py` | The home hero's bunch, from `webapp/static/photo-guide/drive-side.svg` (run from the repo root) |
 | `bike.py` | Line-art racing bike with optional rider, used by everything else |
 | `icons.py` | Icon variants, including `icon-g-bunch-bikes.svg` (the one in use) |
 | `scenes.py` | First-round scenes and shared helpers (polder base, route map uses `topo.py`) |
