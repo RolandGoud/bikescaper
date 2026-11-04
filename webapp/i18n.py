@@ -75,6 +75,12 @@ NL = {
         "{n} rapporten bewaard, uitgerekend tussen {oldest} en {newest} (UTC).",
     "Done: every check runs again with the current matching.": "Klaar: elke check draait opnieuw met de huidige matching.",
     "Run every check again": "Alle checks opnieuw draaien",
+    "Drop a check as too old": "Een check laten vallen als te oud",
+    "For a bike you know is from before {year} that the ad doesn't date: the check is deleted with its photos, as for any bike that old.":
+        "Voor een fiets waarvan je weet dat hij van voor {year} is, terwijl de advertentie dat niet zegt: de check wordt met zijn foto's verwijderd, zoals bij elke fiets die zo oud is.",
+    "Done: check {id} is deleted.": "Klaar: check {id} is verwijderd.",
+    "Check number": "Checknummer",
+    "Drop this check": "Deze check laten vallen",
     # report page: stored report
     "Checked on {when}.": "Gecheckt op {when}.",
     "Report worked out on {when} with the matching of that day, still as of the check date.":

@@ -151,3 +151,15 @@ def test_the_daily_pass_takes_another_ad_for_an_old_bike(seeded, tmp_path):
 
     saved = daily_checks.run(conn, search=two, fetch=old_first, pause=0)
     assert [conn.execute("SELECT listing_url FROM checks WHERE id = ?", (i,)).fetchone()[0] for i in saved] == [AD]
+
+
+def test_admin_drops_a_check_the_ad_does_not_date(app):
+    # Check 69: a 2016 Émonda the ad's details only place in 2018-2020; the admin drops it as too old.
+    client = app.test_client()
+    check_id = int(check(client, "Trek Emonda SL6 Ultegra maat 56", "Rem: Velgrem\nMateriaal: Carbon").rsplit("/", 1)[-1])
+    assert client.post("/admin/drop", data={"check_id": check_id, "year": FIRST_YEAR}).status_code == 400
+    response = client.post("/admin/drop", data={"check_id": check_id, "year": 2016})
+    assert response.status_code == 302 and f"dropped={check_id}" in response.headers["Location"]
+    assert db.connect(app.config["DB_PATH"]).execute("SELECT 1 FROM checks WHERE id = ?", (check_id,)).fetchone() is None
+    assert client.post("/admin/drop", data={"check_id": check_id, "year": 2016}).status_code == 404
+    assert f"check {check_id} is verwijderd" in client.get(response.headers["Location"]).get_data(as_text=True)
