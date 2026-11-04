@@ -270,7 +270,7 @@
     </details>
     {% endif %}
     {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
-    {% if other_ads %}{{ compare_ads(other_ads, own_facts, listing, _('Other ads for this model')) }}{% endif %}
+    {% if other_ads %}{{ compare_ads(other_ads, _('Other ads for this model')) }}{% endif %}
   </section>
 
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">

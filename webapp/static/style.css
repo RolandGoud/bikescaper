@@ -846,9 +846,6 @@ select { max-width: 100%; }
 .compare-table tbody th { text-align: left; font-weight: inherit; padding: 10px 10px 10px 0; width: 38%; }
 .compare-table td { padding: 10px; vertical-align: middle; min-width: 0; overflow-wrap: anywhere; }
 .compare-table td:last-child { text-align: right; padding-right: 0; }
-.compare-table tr.own { background: var(--faint); }
-.compare-table tr.own th { padding-left: 10px; }
-.compare-table tr.own td:last-child { padding-right: 10px; }
 .compare-table .ad-cell { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); min-width: 0; }
 .compare-table a.ad-cell:hover .ad-name { text-decoration: underline; }
 .compare-table .v { display: block; font-weight: 600; }
@@ -861,9 +858,8 @@ select { max-width: 100%; }
   .compare-table thead { display: none; }
   .compare-table, .compare-table tbody { display: block; }
   .compare-table tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding: 12px 0; }
-  .compare-table tr.own { padding: 12px 10px; border-radius: 8px; }
-  .compare-table tbody th, .compare-table tr.own th { grid-column: 1 / -1; width: auto; padding: 0; }
-  .compare-table td, .compare-table td:last-child, .compare-table tr.own td:last-child { padding: 0; text-align: left; }
+  .compare-table tbody th { grid-column: 1 / -1; width: auto; padding: 0; }
+  .compare-table td, .compare-table td:last-child { padding: 0; text-align: left; }
   .compare-table td::before { content: attr(data-label); display: block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 }
 

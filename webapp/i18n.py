@@ -899,14 +899,13 @@ NL = {
     "No other ads yet": "Nog geen andere advertenties",
     "Year": "Bouwjaar",
     # The other ads for the model next to the check (_macros.html compare_ads)
-    "This ad": "Deze advertentie",
     "Estimated": "Geschat",
     "{n} yr newer": "{n} jaar nieuwer",
     "{n} yr older": "{n} jaar ouder",
     "{amount} more": "{amount} duurder",
     "{amount} less": "{amount} goedkoper",
-    "Next to this ad: what differs is marked. ≈ is a year we estimated.":
-        "Naast deze advertentie: wat afwijkt is gemarkeerd. ≈ is een bouwjaar dat we schatten.",
+    "Compared with this ad: what differs is marked. ≈ is a year we estimated.":
+        "Vergeleken met deze advertentie: wat afwijkt is gemarkeerd. ≈ is een bouwjaar dat we schatten.",
     "Specs": "Specs",
     "Size": "Maat",
     "Ad status": "Status advertentie",
