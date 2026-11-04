@@ -1,0 +1,2674 @@
+[
+  {
+    "name": "Filante SL ID2 SRAM Force AXS E1 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+    "sku": "E770F3C",
+    "price": 6600.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Voorvork": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Voorderailleur": "SRAM FORCE FD-FRC-E-E1",
+      "Achterderailleur": "SRAM FORCE AXS RD-FRC-E-E1",
+      "Crankstel": "SRAM FORCE FC-FRC-E1 48-35",
+      "Bottom bracket": "SRAM DUB PRESS FIT 86.5 ROAD",
+      "Cassette": "SRAM FORCE CS-XG-1270-E1 10-33T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE SWR EVO 50 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO V TUBE TYPE GRAPHENE 700x30c",
+      "Stuur": "R BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SAN MARCO SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "34 mm"
+    },
+    "color_names": [
+      "F34 Drive White",
+      "F35 Pivot Grey",
+      "F36 Pulse Red",
+      "F37 Flow Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/80b7fd1f-b068-4eb6-91a3-bb3d7e080792/lcccdc/std/5040x3078/_f35_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/9460b411-4968-41e7-8ea7-75065c44b65d/ucerxp/std/5040x3078/_f36_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6e5cfbf8-bdcd-497c-8a8c-6172eedba37c/mozc0h/std/5040x3078/_f37_1?format=webp&scalemode=product"
+    ],
+    "image": "Wilier/Filante_SL_ID2_SRAM_Force_AXS_E1_2x12.jpg",
+    "color_images": [
+      "Wilier/Filante_SL_ID2_SRAM_Force_AXS_E1_2x12_colour_F34_Drive_White.jpg",
+      "Wilier/Filante_SL_ID2_SRAM_Force_AXS_E1_2x12_colour_F35_Pivot_Grey.jpg",
+      "Wilier/Filante_SL_ID2_SRAM_Force_AXS_E1_2x12_colour_F36_Pulse_Red.jpg",
+      "Wilier/Filante_SL_ID2_SRAM_Force_AXS_E1_2x12_colour_F37_Flow_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SL ID2 SRAM Force XPLR 1x13",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+    "sku": "E770F6C1",
+    "price": 6200.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Voorvork": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Achterderailleur": "SRAM FORCE XPLR AXS RD-FRC-1E-E1",
+      "Crankstel": "SRAM FORCE XPLR DUB FC-FRC-1W-E1 AERO CHAINRING 46T",
+      "Bottom bracket": "SRAM DUB PRESS FIT 86.5 ROAD",
+      "Cassette": "FORCE XPLR XG-1371 CS-XG-1371-E1 10-46T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE SWR EVO 50 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO V TUBE TYPE GRAPHENE 700x30c",
+      "Stuur": "R BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SAN MARCO SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Gewicht": "7,85 +/- 5%"
+    },
+    "color_names": [
+      "F34 Drive White",
+      "F35 Pivot Grey",
+      "F36 Pulse Red",
+      "F37 Flow Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/80b7fd1f-b068-4eb6-91a3-bb3d7e080792/lcccdc/std/5040x3078/_f35_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/9460b411-4968-41e7-8ea7-75065c44b65d/ucerxp/std/5040x3078/_f36_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6e5cfbf8-bdcd-497c-8a8c-6172eedba37c/mozc0h/std/5040x3078/_f37_1?format=webp&scalemode=product"
+    ],
+    "image": "Wilier/Filante_SL_ID2_SRAM_Force_XPLR_1x13.jpg",
+    "color_images": [
+      "Wilier/Filante_SL_ID2_SRAM_Force_XPLR_1x13_colour_F34_Drive_White.jpg",
+      "Wilier/Filante_SL_ID2_SRAM_Force_XPLR_1x13_colour_F35_Pivot_Grey.jpg",
+      "Wilier/Filante_SL_ID2_SRAM_Force_XPLR_1x13_colour_F36_Pulse_Red.jpg",
+      "Wilier/Filante_SL_ID2_SRAM_Force_XPLR_1x13_colour_F37_Flow_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SL ID2 Shimano 105 Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+    "sku": "E7705IVS",
+    "price": 4800.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Voorvork": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Shifter": "SHIMANO 105 Di2 ST-R7170",
+      "Rem": "SHIMANO 105 BR-R7170",
+      "Remschijf": "SHIMANO SM-RT70 160 / 140",
+      "Voorderailleur": "SHIMANO 105 Di2 FD-R7150",
+      "Achterderailleur": "SHIMANO 105 Di2 RD-R7150",
+      "Crankstel": "SHIMANO 105 FC-R7100 50-34T",
+      "Bottom bracket": "MICHE INTEGRALE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO 105 CS-R7100-12 11-34T",
+      "Ketting": "SHIMANO 105 CN-M7100",
+      "Wiel voor": "VISION SC 45 I23 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO V TUBE TYPE GRAPHENE 700x30c",
+      "Stuur": "R BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SAN MARCO SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "34 mm"
+    },
+    "color_names": [
+      "F34 Drive White",
+      "F35 Pivot Grey",
+      "F36 Pulse Red",
+      "F37 Flow Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/80b7fd1f-b068-4eb6-91a3-bb3d7e080792/lcccdc/std/5040x3078/_f35_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/9460b411-4968-41e7-8ea7-75065c44b65d/ucerxp/std/5040x3078/_f36_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6e5cfbf8-bdcd-497c-8a8c-6172eedba37c/mozc0h/std/5040x3078/_f37_1?format=webp&scalemode=product"
+    ],
+    "image": "Wilier/Filante_SL_ID2_Shimano_105_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Filante_SL_ID2_Shimano_105_Di2_2x12_colour_F34_Drive_White.jpg",
+      "Wilier/Filante_SL_ID2_Shimano_105_Di2_2x12_colour_F35_Pivot_Grey.jpg",
+      "Wilier/Filante_SL_ID2_Shimano_105_Di2_2x12_colour_F36_Pulse_Red.jpg",
+      "Wilier/Filante_SL_ID2_Shimano_105_Di2_2x12_colour_F37_Flow_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SL ID2 Shimano Ultegra Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+    "sku": "E770LDVS",
+    "price": 5599.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Voorvork": "FILANTE SL ID2 - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Shifter": "SHIMANO ULTEGRA Di2 ST-R8170",
+      "Rem": "SHIMANO ULTEGRA Di2 R8170",
+      "Remschijf": "SHIMANO RT-CL800 160 / 140",
+      "Voorderailleur": "SHIMANO ULTEGRA Di2 FD-R8150",
+      "Achterderailleur": "SHIMANO ULTEGRA Di2 RD-R8150",
+      "Crankstel": "SHIMANO ULTEGRA FC-R8100 50-34T",
+      "Bottom bracket": "SHIMANO BB9241 - PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO ULTEGRA CS-R8101-12 11-30T",
+      "Ketting": "SHIMANO ULTEGRA CN-M8100",
+      "Wiel voor": "VISION SC 45 I23 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO V TUBE TYPE GRAPHENE 700x30c",
+      "Stuur": "R BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SAN MARCO SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Gewicht": "7,85 +/- 5%"
+    },
+    "color_names": [
+      "F34 Drive White",
+      "F35 Pivot Grey",
+      "F36 Pulse Red",
+      "F37 Flow Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e1fcb70d-3b7b-45fa-87a3-ec3e55e03fab/diwlu7/std/5040x3078/_f34_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/80b7fd1f-b068-4eb6-91a3-bb3d7e080792/lcccdc/std/5040x3078/_f35_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/9460b411-4968-41e7-8ea7-75065c44b65d/ucerxp/std/5040x3078/_f36_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6e5cfbf8-bdcd-497c-8a8c-6172eedba37c/mozc0h/std/5040x3078/_f37_1?format=webp&scalemode=product"
+    ],
+    "image": "Wilier/Filante_SL_ID2_Shimano_Ultegra_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Filante_SL_ID2_Shimano_Ultegra_Di2_2x12_colour_F34_Drive_White.jpg",
+      "Wilier/Filante_SL_ID2_Shimano_Ultegra_Di2_2x12_colour_F35_Pivot_Grey.jpg",
+      "Wilier/Filante_SL_ID2_Shimano_Ultegra_Di2_2x12_colour_F36_Pulse_Red.jpg",
+      "Wilier/Filante_SL_ID2_Shimano_Ultegra_Di2_2x12_colour_F37_Flow_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Granturismo SL Shimano 105 Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/granturismo-sl",
+    "sku": "E6405IAS",
+    "price": 4999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "GRANTURISMO SL - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Voorvork": "GRANTURISMO SL - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Shifter": "SHIMANO 105 Di2 ST-R7170",
+      "Rem": "SHIMANO 105 BR-R7170",
+      "Remschijf": "SHIMANO SM-RT70 160 / 140",
+      "Voorderailleur": "SHIMANO 105 Di2 FD-R7150",
+      "Achterderailleur": "SHIMANO 105 Di2 RD-R7150",
+      "Crankstel": "SHIMANO 105 FC-R7100 50-34T",
+      "Bottom bracket": "MICHE INTEGRALE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO 105 CS-R7100-12 11-34T",
+      "Ketting": "SHIMANO 105 CN-M7100",
+      "Wiel voor": "MICHE ASFALTO 45 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO IV GRAPHENE 2.0 700x28c",
+      "Stuur": "WILIER BARRA S ALU",
+      "Stuurpen": "RITCHEY STEMMA S2 ALU",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SAN MARCO SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "RITCHEY | WILIER CARBON CUSTOM MADE -27 mm",
+      "Maximale bandenmaat": "38 mm",
+      "Framegewicht": "1210 g +/- 5%"
+    },
+    "color_names": [
+      "R12 White, Blue",
+      "R11 Black, Silver"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/30eba4f1-3932-4604-941f-d25dc2f45fb9/kfpm3a/std/1680x1026/_r12_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/30eba4f1-3932-4604-941f-d25dc2f45fb9/kfpm3a/std/1680x1026/_r12_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5f40637a-3956-4333-a210-72e29593253d/xhgdhm/std/1680x1026/_r11_11?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Granturismo_SL_Shimano_105_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Granturismo_SL_Shimano_105_Di2_2x12_colour_R12_White_Blue.jpg",
+      "Wilier/Granturismo_SL_Shimano_105_Di2_2x12_colour_R11_Black_Silver.jpg"
+    ]
+  },
+  {
+    "name": "Granturismo SL Shimano Ultegra Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/granturismo-sl",
+    "sku": "E540LD8",
+    "price": 5999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "GRANTURISMO SL - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Voorvork": "GRANTURISMO SL - CARBON MONOCOQUE NHU MOD + HIGH IMPACT STRENGHT",
+      "Shifter": "SHIMANO ULTEGRA Di2 ST-R8170",
+      "Rem": "SHIMANO ULTEGRA Di2 R8170",
+      "Remschijf": "SHIMANO RT-CL800 160 / 140",
+      "Voorderailleur": "SHIMANO ULTEGRA Di2 FD-R8150",
+      "Achterderailleur": "SHIMANO ULTEGRA Di2 RD-R8150",
+      "Crankstel": "SHIMANO ULTEGRA FC-R8100 50-34T",
+      "Bottom bracket": "SHIMANO PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO ULTEGRA CS-R8101-12 11-30T",
+      "Ketting": "SHIMANO ULTEGRA CN-M8100",
+      "Wiel voor": "MICHE ASFALTO 45 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO IV GRAPHENE 2.0 700x28c",
+      "Stuur": "WILIER BARRA S ALU",
+      "Stuurpen": "RITCHEY STEMMA S2 ALU",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SAN MARCO SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "RITCHEY | WILIER CARBON CUSTOM MADE -27 mm",
+      "Maximale bandenmaat": "38 mm",
+      "Framegewicht": "1210 g +/- 5%"
+    },
+    "color_names": [
+      "R12 White, Blue",
+      "R11 Black, Silver"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/30eba4f1-3932-4604-941f-d25dc2f45fb9/kfpm3a/std/1680x1026/_r12_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/30eba4f1-3932-4604-941f-d25dc2f45fb9/kfpm3a/std/1680x1026/_r12_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5f40637a-3956-4333-a210-72e29593253d/xhgdhm/std/1680x1026/_r11_11?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Granturismo_SL_Shimano_Ultegra_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Granturismo_SL_Shimano_Ultegra_Di2_2x12_colour_R12_White_Blue.jpg",
+      "Wilier/Granturismo_SL_Shimano_Ultegra_Di2_2x12_colour_R11_Black_Silver.jpg"
+    ]
+  },
+  {
+    "name": "Rapida Shimano 105 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/rapida",
+    "sku": "E76952X",
+    "price": 2899.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAPIDA - CARBON MONOCOQUE NH-MOD",
+      "Voorvork": "RAPIDA - CARBON MONOCOQUE NH-MOD",
+      "Shifter": "SHIMANO 105 ST-7121",
+      "Rem": "SHIMANO 105 BR-7170",
+      "Remschijf": "SHIMANO SM-RT70 160 / 140",
+      "Voorderailleur": "SHIMANO 105 FD-R7100",
+      "Achterderailleur": "SHIMANO 105 RD-R7100",
+      "Crankstel": "SHIMANO 105 FC-R7100 50-34T",
+      "Bottom bracket": "MICHE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO 105 CS-R7100-12 11-34T",
+      "Ketting": "SHIMANO 105 CN-M7100",
+      "Wiel voor": "MICHE REFLEX DX",
+      "Buitenband": "VITTORIA ZAFFIRO PRO V 700X32c",
+      "Stuur": "R-BAR INTEGRATED CARBON (SIZE XS WITH Z-BAR)",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO DIMENSION RS STEEL 145 BK",
+      "Zadelpen": "WILIER FILANTE SL CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "36 mm",
+      "Gewicht": "8,4 kg +/- 5%"
+    },
+    "color_names": [
+      "G47 Dusk Grey",
+      "G48 Midday Orange",
+      "G46 Weekend White",
+      "G49 Lastlight Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/aeca35d6-7e55-40f5-94c9-79246b9abf7c/33dcck/std/5040x3078/_g47-di2_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/aeca35d6-7e55-40f5-94c9-79246b9abf7c/33dcck/std/5040x3078/_g47-di2_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/80ad022b-f328-427d-8a90-2c79bc6c60b6/thujil/std/5040x3078/_g48-di2_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/fb112e88-36df-4e39-88a8-1e4118991e71/8gihjo/std/5040x3078/_g46-di2_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6c562b60-c690-456c-8c1c-e075a65dc5ae/6rfefw/std/5040x3078/_g49-di2_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rapida_Shimano_105_2x12.jpg",
+    "color_images": [
+      "Wilier/Rapida_Shimano_105_2x12_colour_G47_Dusk_Grey.jpg",
+      "Wilier/Rapida_Shimano_105_2x12_colour_G48_Midday_Orange.jpg",
+      "Wilier/Rapida_Shimano_105_2x12_colour_G46_Weekend_White.jpg",
+      "Wilier/Rapida_Shimano_105_2x12_colour_G49_Lastlight_Black.jpg"
+    ]
+  },
+  {
+    "name": "Rapida Shimano 105 Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/rapida",
+    "sku": "E7695IA",
+    "price": 3999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAPIDA - CARBON MONOCOQUE NH-MOD",
+      "Voorvork": "RAPIDA - CARBON MONOCOQUE NH-MOD",
+      "Shifter": "SHIMANO 105 Di2 ST-R7170",
+      "Rem": "SHIMANO 105 BR-R7170",
+      "Remschijf": "SHIMANO SM-RT70 160 / 140",
+      "Voorderailleur": "SHIMANO 105 Di2 FD-R7150",
+      "Achterderailleur": "SHIMANO 105 Di2 RD-R7150",
+      "Crankstel": "SHIMANO 105 FC-R7100 50-34T",
+      "Bottom bracket": "MICHE INTEGRALE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO 105 CS-R7100-12 11-34T",
+      "Ketting": "SHIMANO 105 CN-M7100",
+      "Wiel voor": "MICHE ASFALTO 45 CARBON",
+      "Buitenband": "VITTORIA ZAFFIRO PRO V 700X32c",
+      "Stuur": "R-BAR INTEGRATED CARBON (SIZE XS WITH Z-BAR)",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO DIMENSION RS STEEL 145 BK",
+      "Zadelpen": "WILIER FILANTE SL CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "36 mm",
+      "Gewicht": "8,2 kg +/- 5%"
+    },
+    "color_names": [
+      "G47 Dusk Grey",
+      "G48 Midday Orange",
+      "G46 Weekend White",
+      "G49 Lastlight Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/aeca35d6-7e55-40f5-94c9-79246b9abf7c/33dcck/std/5040x3078/_g47-di2_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/aeca35d6-7e55-40f5-94c9-79246b9abf7c/33dcck/std/5040x3078/_g47-di2_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/80ad022b-f328-427d-8a90-2c79bc6c60b6/thujil/std/5040x3078/_g48-di2_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/fb112e88-36df-4e39-88a8-1e4118991e71/8gihjo/std/5040x3078/_g46-di2_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6c562b60-c690-456c-8c1c-e075a65dc5ae/6rfefw/std/5040x3078/_g49-di2_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rapida_Shimano_105_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Rapida_Shimano_105_Di2_2x12_colour_G47_Dusk_Grey.jpg",
+      "Wilier/Rapida_Shimano_105_Di2_2x12_colour_G48_Midday_Orange.jpg",
+      "Wilier/Rapida_Shimano_105_Di2_2x12_colour_G46_Weekend_White.jpg",
+      "Wilier/Rapida_Shimano_105_Di2_2x12_colour_G49_Lastlight_Black.jpg"
+    ]
+  },
+  {
+    "name": "Superleggera Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/superleggera",
+    "sku": "E871",
+    "price": 3000.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "COLUMBUS SL STEEL TUBES",
+      "Voorvork": "COLUMBUS SL STEEL TUBES",
+      "Shifter": "SOLO TELAIO / FRAMEKIT ONLY",
+      "Maximale bandenmaat": "25 mm",
+      "Framegewicht": "1690 g ± 5%"
+    },
+    "color_names": [
+      "Ramato"
+    ],
+    "sizes": [
+      "48",
+      "50",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/045d22d4-4de4-4251-8e57-08d325d9a07d/lk4hlb/std/0x0/_ram_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/045d22d4-4de4-4251-8e57-08d325d9a07d/lk4hlb/std/0x0/_ram_1?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Superleggera_Frameset.jpg",
+    "color_images": [
+      "Wilier/Superleggera_Frameset_colour_Ramato.jpg"
+    ]
+  },
+  {
+    "name": "Adlar Shimano GRX 1x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/adlar",
+    "sku": "E437GMW",
+    "price": 2600.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "ADLAR - CARBON MONOCOQUE NHU-MOD",
+      "Voorvork": "ADLAR - CARBON MONOCOQUE NHU-MOD",
+      "Shifter": "SHIMANO GRX ST-RX610",
+      "Rem": "SHIMANO GRX BR-RX400",
+      "Remschijf": "WILIER ROTOR 160 / 160",
+      "Achterderailleur": "SHIMANO GRX RD-RX822-GS",
+      "Crankstel": "SHIMANO GRX FC-RX610 40T",
+      "Bottom bracket": "MICHE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO CS-M7100-12 10-45T",
+      "Ketting": "SHIMANO CN-M6100",
+      "Wiel voor": "MICHE CONTACT",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "RITCHEY COMP CORRALITOS FLARE DROP BAR ALLOY",
+      "Stuurpen": "RITCHEY | WILIER STEMMA S2 ALLOY",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SELLE ROYAL SRX OPEN ATHELTIC UNITECH",
+      "Zadelpen": "RITCHEY | WILIER SEATPOST ALLOY 27.2 mm",
+      "Maximale bandenmaat": "2.0\" (52 mm)",
+      "Framegewicht": "1190 g +/- 5%"
+    },
+    "color_names": [
+      "C9 Bottle Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/12a4e770-e208-49d2-a675-7b07d4bab8ac/gvltaa/std/5040x3078/_c9_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/12a4e770-e208-49d2-a675-7b07d4bab8ac/gvltaa/std/5040x3078/_c9_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Adlar_Shimano_GRX_1x12.jpg",
+    "color_images": [
+      "Wilier/Adlar_Shimano_GRX_1x12_colour_C9_Bottle_Green.jpg"
+    ]
+  },
+  {
+    "name": "Jaroon Shimano GRX 1x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/jaroon",
+    "sku": "E413GRE",
+    "price": 1899.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "JAROON - ALLOY INTERNAL CABLE ROUTING",
+      "Voorvork": "JAROON - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO GRX ST-RX6100",
+      "Rem": "SHIMANO GRX BR-RX610",
+      "Remschijf": "SHIMANO SM-RT64 6 BOLTS 160 / 160 CL",
+      "Achterderailleur": "SHIMANO GRX RD-RX812",
+      "Crankstel": "SHIMANO FC-RX600 40T",
+      "Cassette": "SHIMANO CS-M7100-12 10-45T",
+      "Wiel voor": "WTB",
+      "Buitenband": "WTB Riddler 700x45",
+      "Stuur": "PROMAX DROP BAR HB-3053DB ALLOY",
+      "Stuurpen": "PROMAX DA-296",
+      "Balhoofdstel": "FSA INTEGRATED",
+      "Zadel": "ERGONOMIC DESIGN",
+      "Zadelpen": "ALLOY 27.2 mm",
+      "Maximale bandenmaat": "45 mm"
+    },
+    "color_names": [
+      "J24 Sand, Green",
+      "J25 Blue, Grey",
+      "J26 Green, Grey",
+      "J27 Brown, Light Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/45d78f32-b88a-48a4-ae14-00413320fca9/sql43e/std/0x0/_J24_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/45d78f32-b88a-48a4-ae14-00413320fca9/sql43e/std/0x0/_J24_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f483cb74-6333-4b34-a1d8-9b5d0d6030a3/muuvq5/std/0x0/_J25_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/d47c2878-6f87-4d2e-8c48-06da5c00dc63/j7tf9w/std/0x0/_J26_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/2237c8f2-e0f9-4668-a1a6-7d4b18c0a5b2/pac3ue/std/0x0/_J27_1?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Jaroon_Shimano_GRX_1x12.jpg",
+    "color_images": [
+      "Wilier/Jaroon_Shimano_GRX_1x12_colour_J24_Sand_Green.jpg",
+      "Wilier/Jaroon_Shimano_GRX_1x12_colour_J25_Blue_Grey.jpg",
+      "Wilier/Jaroon_Shimano_GRX_1x12_colour_J26_Green_Grey.jpg",
+      "Wilier/Jaroon_Shimano_GRX_1x12_colour_J27_Brown_Light_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Jaroon Shimano GRX 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/jaroon",
+    "sku": "E613GKWL",
+    "price": 1999.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "JAROON - ALLOY INTERNAL CABLE ROUTING",
+      "Voorvork": "JAROON - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO GRX ST-RX400",
+      "Rem": "SHIMANO GRX BR-RX400",
+      "Remschijf": "SHIMANO SM-RT64 6 BOLTS 160 / 160 CL",
+      "Voorderailleur": "SHIMANO GRX FD-RX400",
+      "Achterderailleur": "SHIMANO GRX RD-RX400",
+      "Crankstel": "FSA OMEGA ADVENTURE 46-30T",
+      "Cassette": "SHIMANO CS-HG500 11-34T",
+      "Wiel voor": "WTB",
+      "Buitenband": "WTB Riddler 700x45",
+      "Stuur": "PROMAX DROP BAR HB-3053DB ALLOY",
+      "Stuurpen": "PROMAX DA-296",
+      "Balhoofdstel": "FSA INTEGRATED",
+      "Zadel": "ERGONOMIC DESIGN",
+      "Zadelpen": "ALLOY 27.2 mm",
+      "Maximale bandenmaat": "45 mm"
+    },
+    "color_names": [
+      "J24 Sand, Green",
+      "J25 Blue, Grey",
+      "J26 Green, Grey",
+      "J27 Brown, Light Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/45d78f32-b88a-48a4-ae14-00413320fca9/sql43e/std/0x0/_J24_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/45d78f32-b88a-48a4-ae14-00413320fca9/sql43e/std/0x0/_J24_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f483cb74-6333-4b34-a1d8-9b5d0d6030a3/muuvq5/std/0x0/_J25_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/d47c2878-6f87-4d2e-8c48-06da5c00dc63/j7tf9w/std/0x0/_J26_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/2237c8f2-e0f9-4668-a1a6-7d4b18c0a5b2/pac3ue/std/0x0/_J27_1?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Jaroon_Shimano_GRX_2x12.jpg",
+    "color_images": [
+      "Wilier/Jaroon_Shimano_GRX_2x12_colour_J24_Sand_Green.jpg",
+      "Wilier/Jaroon_Shimano_GRX_2x12_colour_J25_Blue_Grey.jpg",
+      "Wilier/Jaroon_Shimano_GRX_2x12_colour_J26_Green_Grey.jpg",
+      "Wilier/Jaroon_Shimano_GRX_2x12_colour_J27_Brown_Light_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 Campagnolo Super Record X 1x13 WRL + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628CXG",
+    "price": 10700.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "CAMPAGNOLO ERGOPOWER SUPER RECORD X WRL",
+      "Rem": "CAMPAGNOLO SUPER RECORD BRAKE CALIPER",
+      "Remschijf": "CAMPAGNOLO 03 AFS 160/160 mm",
+      "Achterderailleur": "CAMPAGNOLO SUPER RECORD X 1x13S WRL",
+      "Crankstel": "CAMPAGNOLO SUPER RECORD X 1X13S WRL 40T",
+      "Bottom bracket": "CAMPAGNOLO QCK-TECH™ BB86 PRESS FIT 86,5X41",
+      "Cassette": "CAMPANOLO SUPER RECORD X WRL 13S 10-48T",
+      "Ketting": "CAMPAGNOLO SUPER RECORD 13S",
+      "Wiel voor": "MICHE GRAFF AERO 48 CARBON",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_Campagnolo_Super_Record_X_1x13_WRL_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_Campagnolo_Super_Record_X_1x13_WRL_Powermeter_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_Campagnolo_Super_Record_X_1x13_WRL_Powermeter_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_Campagnolo_Super_Record_X_1x13_WRL_Powermeter_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_Campagnolo_Super_Record_X_1x13_WRL_Powermeter_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_Campagnolo_Super_Record_X_1x13_WRL_Powermeter_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628",
+    "price": 4200.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_Frameset.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_Frameset_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_Frameset_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_Frameset_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_Frameset_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_Frameset_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 SRAM Force XPLR AXS E1 1x13",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628F4G",
+    "price": 7800.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Achterderailleur": "SRAM FORCE XPLR AXS RD-FRC-1E-E1",
+      "Crankstel": "SRAM FORCE XPLR DUB WIDE FC-FRC-1W-E1 40T",
+      "Bottom bracket": "SRAM DUB WIDE PRESS FIT 86.5",
+      "Cassette": "FORCE XPLR XG-1371 CS-XG-1371-E1 10-46T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE GRAFF AERO 48 CARBON",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Gewicht": "8,45 Kg. +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 SRAM Force XPLR AXS E1 1x13 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "NEW",
+    "price": 9000.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Achterderailleur": "SRAM FORCE XPLR AXS RD-FRC-1E-E1",
+      "Crankstel": "SRAM FORCE XPLR DUB FC-FRC-1W-E1 POWERMETER AERO CHAINRING 46T",
+      "Bottom bracket": "SRAM DUB WIDE PRESS FIT 86.5",
+      "Cassette": "FORCE XPLR XG-1371 CS-XG-1371-E1 10-46T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE KLEOS RD 62 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO CONTROL 700x42c TLR G2.0",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_Powermeter_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_Powermeter_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_Powermeter_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_Powermeter_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Force_XPLR_AXS_E1_1x13_Powermeter_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 SRAM Red XPLR AXS E1 1x13",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628T3G",
+    "price": 9900.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM RED AXS ED-RED-E1",
+      "Rem": "SRAM RED AXS ED-RED-E1",
+      "Remschijf": "SRAM PACELINE X RT-PLN-X-A1 160 / 160",
+      "Achterderailleur": "SRAM RED XPLR AXS RD-RED-1E-E1",
+      "Crankstel": "SRAM RED XPLR DUB WIDE FC-RED-1W-E1 40T",
+      "Bottom bracket": "SRAM DUB WIDE PRESS FIT 86.5",
+      "Cassette": "SRAM RED XPLR XG-1391 CS-XG-1391-E1 10-46T",
+      "Ketting": "SRAM RED CN-RED-E1",
+      "Wiel voor": "MICHE GRAFF AERO 48 CARBON",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Gewicht": "7,9 Kg. +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 SRAM Red XPLR AXS E1 1x13 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628T4G",
+    "price": 10600.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM RED AXS ED-RED-E1",
+      "Rem": "SRAM RED AXS ED-RED-E1",
+      "Remschijf": "SRAM PACELINE X RT-PLN-X-A1 160 / 160",
+      "Achterderailleur": "SRAM RED XPLR AXS RD-RED-1E-E1",
+      "Crankstel": "SRAM RED XPLR DUB WIDE FC-RED-1W-E1 40T",
+      "Bottom bracket": "SRAM DUB WIDE PRESS FIT 86.5",
+      "Cassette": "SRAM RED XPLR XG-1391 CS-XG-1391-E1 10-46T",
+      "Ketting": "SRAM RED CN-RED-E1",
+      "Wiel voor": "MICHE GRAFF AERO 48 CARBON",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Gewicht": "7,9 Kg. +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_Powermeter_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_Powermeter_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_Powermeter_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_Powermeter_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Red_XPLR_AXS_E1_1x13_Powermeter_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 SRAM Rival XPLR AXS E1 1x13",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628VYST",
+    "price": 6100.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM RIVAL AXS ED-RIV-E1",
+      "Rem": "SRAM RIVAL AXS ED-RIV-E1",
+      "Remschijf": "SRAM PACELINE RT-CLN-A2 160 / 160",
+      "Achterderailleur": "SRAM RIVAL XPLR AXS RD-RIV-1E-E1",
+      "Crankstel": "SRAM RIVAL XPLR DUB WIDE FC-RIV-1W-D1 40T",
+      "Bottom bracket": "SRAM DUB WIDE PRESS FIT 86.5",
+      "Cassette": "RIVAL XPLR XG-1351 CS-XG-1351-E1 10-46T",
+      "Ketting": "SRAM RIVAL CN-RIV-E1",
+      "Wiel voor": "MICHE STERRATO 45 CARBON",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Gewicht": "8,85 Kg. +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_SRAM_Rival_XPLR_AXS_E1_1x13.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_SRAM_Rival_XPLR_AXS_E1_1x13_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Rival_XPLR_AXS_E1_1x13_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Rival_XPLR_AXS_E1_1x13_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Rival_XPLR_AXS_E1_1x13_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_SRAM_Rival_XPLR_AXS_E1_1x13_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Rave SLR ID2 Shimano GRX Di2 1x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+    "sku": "E628G4G",
+    "price": 6600.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "RAVE ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SHIMANO GRX Di2",
+      "Rem": "SHIMANO GRX BR-RX410",
+      "Remschijf": "SHIMANO SM-RT64 160 / 160",
+      "Achterderailleur": "SHIMANO GRX RD-RX827-SGS",
+      "Crankstel": "SHIMANO GRX FC-RX610-1 40T",
+      "Bottom bracket": "SHIMANO PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO CS-M6100-12 10-51T",
+      "Ketting": "SHIMANO CN-M6100",
+      "Wiel voor": "MICHE GRAFF AERO 48 CARBON",
+      "Buitenband": "VITTORIA TERRENO T50 700X50c TLR",
+      "Stuur": "F-BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE DIMENSION-AGX T4.0 143 BK",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "2.1\" (53 mm)",
+      "Gewicht": "8,65 Kg. +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "V14 The Grip Élite Gravel Team",
+      "V10 Pixel Green",
+      "V11 Glitch Black",
+      "V12 Neon Purple",
+      "V13 Byte Cream"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/89d5c7ad-6c86-4e42-a529-177d497d811d/ckuhyj/std/5040x3078/_v14_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7bb68b88-9970-422c-ad2a-da244f5acd0b/cushev/std/0x0/_v10_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f9aebf58-88d8-4509-88c4-8d627b76545e/y9grbu/std/0x0/_v11_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/7c34ca3f-1d42-4ba7-af79-f1f598c3d194/nn21uz/std/0x0/_v12_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/20882d06-c053-46ab-9fd8-894a62e35238/hwmjoh/std/0x0/_v13_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Rave_SLR_ID2_Shimano_GRX_Di2_1x12.jpg",
+    "color_images": [
+      "Wilier/Rave_SLR_ID2_Shimano_GRX_Di2_1x12_colour_V14_The_Grip_lite_Gravel_Team.jpg",
+      "Wilier/Rave_SLR_ID2_Shimano_GRX_Di2_1x12_colour_V10_Pixel_Green.jpg",
+      "Wilier/Rave_SLR_ID2_Shimano_GRX_Di2_1x12_colour_V11_Glitch_Black.jpg",
+      "Wilier/Rave_SLR_ID2_Shimano_GRX_Di2_1x12_colour_V12_Neon_Purple.jpg",
+      "Wilier/Rave_SLR_ID2_Shimano_GRX_Di2_1x12_colour_V13_Byte_Cream.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr",
+    "sku": "E603",
+    "price": 4500.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "FILANTE SLR - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Stuur": "F BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "30 mm",
+      "Framegewicht": "870 g +/- 5%"
+    },
+    "color_names": [
+      "F27 Carbon Iridium"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://api.wilier.com/media/3216/new-f27-carbon-iridium.jpg",
+    "color_image_urls": [
+      "https://api.wilier.com/media/3216/new-f27-carbon-iridium.jpg"
+    ],
+    "image": "Wilier/Filante_SLR_Frameset.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_Frameset_colour_F27_Carbon_Iridium.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 Campagnolo Super Record WRL 2x13",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E666WLE",
+    "price": 13700.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "CAMPAGNOLO SUPER RECORD 13 LEVER",
+      "Rem": "CAMPAGNOLO SUPER RECORD BRAKE CALIPER",
+      "Remschijf": "CAMPAGNOLO 03 DISC 160 / 160",
+      "Voorderailleur": "CAMPAGNOLO SUPER RECORD 13 FRONT DERAILLEUR",
+      "Achterderailleur": "CAMPAGNOLO SUPER RECORD 13 REAR DERAILLEUR",
+      "Crankstel": "CAMPAGNOLO SUPER RECORD 13 CRANKSET 34-50T",
+      "Bottom bracket": "CAMPAGNOLO BOTTOM BRACKET QCK-TECH™ PRESSFIT",
+      "Cassette": "CAMPAGNOLO SUPER RECORD 13 CASSETTE 10-33T",
+      "Ketting": "CAMPAGNOLO CHAIN SUPER RECORD 13",
+      "Wiel voor": "MICHE KLEOS RD 50 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_Campagnolo_Super_Record_WRL_2x13_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E666",
+    "price": 5800.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_Frameset.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_Frameset_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 SRAM Force AXS E1 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E666F3O",
+    "price": 9500.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Voorderailleur": "SRAM FORCE FD-FRC-E-E1",
+      "Achterderailleur": "SRAM FORCE AXS RD-FRC-E-E1",
+      "Crankstel": "SRAM FORCE FC-FRC-E1 48-35",
+      "Bottom bracket": "SRAM DUB PRESS FIT 86.5 ROAD",
+      "Cassette": "SRAM FORCE CS-XG-1270-E1 10-33T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE KLEOS 50 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 SRAM Force AXS E1 2x12 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E666FNO",
+    "price": 9900.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Voorderailleur": "SRAM FORCE FD-FRC-E-E1",
+      "Achterderailleur": "SRAM FORCE AXS RD-FRC-E-E1",
+      "Crankstel": "SRAM FORCE FC-FRC-P-E1 48-35",
+      "Bottom bracket": "SRAM DUB PRESS FIT 86.5 ROAD",
+      "Cassette": "SRAM FORCE CS-XG-1270-E1 10-33T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE KLEOS 50 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Force_AXS_E1_2x12_Powermeter_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 SRAM Red AXS E1 2x12 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E766TBD5",
+    "price": 13900.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM RED AXS ED-RED-E1",
+      "Rem": "SRAM RED AXS ED-RED-E1",
+      "Remschijf": "SRAM PACELINE X RT-PLN-X-A1 160 / 160",
+      "Voorderailleur": "SRAM RED AXS FD-RED-E-E1",
+      "Achterderailleur": "SRAM RED AXS E1",
+      "Crankstel": "SRAM RED E1 DUB FC-RED-P-E1 WITH POWERMETER 48-35T",
+      "Bottom bracket": "SRAM DUB 86.5 PRESS FIT ROAD",
+      "Cassette": "SRAM RED CS-XG-1290-E1 10-36T",
+      "Ketting": "SRAM RED CN-RED-E1",
+      "Wiel voor": "MICHE DEVA RD 52 CARBON SPOKES | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Gewicht": "7,3 Kg +/- 5%",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_AXS_E1_2x12_Powermeter_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 SRAM Red XPLR 1x13 AXS + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E766T7K7",
+    "price": 12200.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SRAM RED AXS ED-RED-E1",
+      "Rem": "SRAM RED AXS ED-RED-E1",
+      "Remschijf": "SRAM PACELINE X RT-PLN-X-A1 160 / 160",
+      "Achterderailleur": "SRAM RED XPLR AXS RD-RED-1E-E1",
+      "Crankstel": "SRAM RED XPLR DUB POWERMETER FC-RED-1W-E1 AERO CHAINRING 46T",
+      "Bottom bracket": "SRAM DUB 86.5 PRESS FIT ROAD",
+      "Cassette": "SRAM RED XPLR XG-1391 CS-XG-1391-E1 10-46T",
+      "Ketting": "SRAM RED CN-RED-E1",
+      "Wiel voor": "MICHE KLEOS RD 50 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_SRAM_Red_XPLR_1x13_AXS_Powermeter_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 Shimano Dura-Ace Di2",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E666IDE",
+    "price": 11500.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SHIMANO DURA-ACE Di2 ST-R9270",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-CL900 160 / 140",
+      "Voorderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Achterderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200 50-34T",
+      "Bottom bracket": "SHIMANO BB9241 - PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS RD 50 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Gewicht": "7,4 Kg +/- 5%",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 Shimano Dura-Ace Di2 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E766IPD5",
+    "price": 13700.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SHIMANO DURA-ACE Di2 ST-R9270",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-CL900 160 / 140",
+      "Voorderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Achterderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200-P 52-36T",
+      "Bottom bracket": "SHIMANO BB9241 - PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE DEVA RD 52 CARBON SPOKES | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Dura_Ace_Di2_Powermeter_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR ID2 Shimano Ultegra Di2",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+    "sku": "E666LDO",
+    "price": 8500.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER + AERO KIT (bottles)",
+      "Voorvork": "FILANTE SLR ID2 - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SHIMANO ULTEGRA Di2 ST-R8170",
+      "Rem": "SHIMANO ULTEGRA Di2 R8170",
+      "Remschijf": "SHIMANO RT-CL800 160 / 140",
+      "Voorderailleur": "SHIMANO ULTEGRA Di2 FD-R8150",
+      "Achterderailleur": "SHIMANO ULTEGRA Di2 RD-R8150",
+      "Crankstel": "SHIMANO ULTEGRA FC-R8100 50-34T",
+      "Bottom bracket": "SHIMANO BB9241 - PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO ULTEGRA CS-R8101-12 11-30T",
+      "Ketting": "SHIMANO ULTEGRA CN-M8100",
+      "Wiel voor": "MICHE KLEOS 50 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR ID2 INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO SADDLE NAGO R4 PAS TIROX 137mm",
+      "Zadelpen": "WILIER FILANTE ID2 CARBON CUSTOM MADE -0 mm",
+      "Maximale bandenmaat": "34 mm",
+      "Framegewicht": "860 g +/- 2%"
+    },
+    "color_names": [
+      "F39 Dewlight Green",
+      "F32 Firelight Red",
+      "F30 Pure White",
+      "F29 Eclipse Black",
+      "F28 Lunar Grey",
+      "F33 Solar Bronze",
+      "F31 Aurora Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/f8fc908e-319e-4288-a2a9-5626f98ac76e/xul08f/std/5040x3078/_f39_1?format=webp&scalemode=product",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/6817370a-e3e0-4da9-a644-2b84cde56177/ntlo3h/std/5040x3078/_f32-my2027_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/408893cb-2d0c-4d83-a1cd-b5355b6bd63f/lfpvnj/std/5040x3078/filanteid2_f30_whiteiridescente_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5706cbf3-4080-4c34-9e6f-db848c14ef1f/9y70vy/std/5040x3078/filanteid2_f29_carbongalaxy_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/5d619f64-abd7-4708-96b3-f17e9812e01a/nmxmdb/std/5040x3078/filanteid2_f28_iridiumgrey_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b046665b-044f-4c22-a4c1-326398308d6d/fbkmns/std/5040x3078/filanteid2_f33_holobronze_lato_white?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/4dc709bc-f30b-4676-bf7f-d774a89f8b8f/4xkahm/std/5040x3078/filanteid2_f31_royalblue_lato_white?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F39_Dewlight_Green.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F32_Firelight_Red.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F30_Pure_White.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F29_Eclipse_Black.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F28_Lunar_Grey.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F33_Solar_Bronze.jpg",
+      "Wilier/Filante_SLR_ID2_Shimano_Ultegra_Di2_colour_F31_Aurora_Blue.jpg"
+    ]
+  },
+  {
+    "name": "Filante SLR Shimano Dura-Ace Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/filante-slr",
+    "sku": "E603IDAS",
+    "price": 6999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "FILANTE SLR - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Voorvork": "FILANTE SLR - CARBON MONOCOQUE HUS MOD + LIQUID CRYSTAL POLYMER",
+      "Shifter": "SHIMANO DURA-ACE Di2 ST-R9270",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-CL900 160 / 140",
+      "Voorderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Achterderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200 50-34T",
+      "Bottom bracket": "MICHE INTEGRALE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-34T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE ASFALTO 45 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "F BAR INTEGRATED CARBON CUSTOM MADE",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "SELLE ITALIA SLR BOOST TM SUPERFLOW - L3",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "30 mm",
+      "Framegewicht": "870 g +/- 5%"
+    },
+    "color_names": [
+      "F27 Carbon Iridium"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://api.wilier.com/media/3216/new-f27-carbon-iridium.jpg",
+    "color_image_urls": [
+      "https://api.wilier.com/media/3216/new-f27-carbon-iridium.jpg"
+    ],
+    "image": "Wilier/Filante_SLR_Shimano_Dura_Ace_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Filante_SLR_Shimano_Dura_Ace_Di2_2x12_colour_F27_Carbon_Iridium.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR Campagnolo Super Record WRL 2x13",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E608WLK",
+    "price": 12600.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "CAMPAGNOLO SUPER RECORD 13 LEVER",
+      "Rem": "CAMPAGNOLO SUPER RECORD BRAKE CALIPER",
+      "Remschijf": "CAMPAGNOLO 03 DISC 160 / 160",
+      "Voorderailleur": "CAMPAGNOLO SUPER RECORD 13 FRONT DERAILLEUR",
+      "Achterderailleur": "CAMPAGNOLO SUPER RECORD 13 REAR DERAILLEUR",
+      "Crankstel": "CAMPAGNOLO SUPER RECORD 13 CRANKSET 34-50T",
+      "Bottom bracket": "CAMPAGNOLO BOTTOM BRACKET QCK-TECH™ PRESSFIT",
+      "Cassette": "CAMPAGNOLO SUPER RECORD 13 CASSETTE 10-33T",
+      "Ketting": "CAMPAGNOLO CHAIN SUPER RECORD 13",
+      "Wiel voor": "MICHE KLEOS RD 36 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS",
+      "Zadelpen": "WILIER VERTICALE CARBON CUSTOM MADE -15 mm + REAR LIGHT",
+      "Maximale bandenmaat": "32 mm",
+      "Gewicht": "6,57 Kg +/- 5%",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_Campagnolo_Super_Record_WRL_2x13.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_Campagnolo_Super_Record_WRL_2x13_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_Campagnolo_Super_Record_WRL_2x13_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_Campagnolo_Super_Record_WRL_2x13_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E508",
+    "price": 5800.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadelpen": "WILIER VERTICALE CARBON CUSTOM MADE -15 mm + REAR LIGHT",
+      "Maximale bandenmaat": "32 mm",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_Frameset.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_Frameset_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_Frameset_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_Frameset_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR SRAM Force AXS E1 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E608F3L",
+    "price": 8900.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Voorderailleur": "SRAM FORCE FD-FRC-E-E1",
+      "Achterderailleur": "SRAM FORCE AXS RD-FRC-E-E1",
+      "Crankstel": "SRAM FORCE FC-FRC-E1 48-35",
+      "Bottom bracket": "SRAM DUB PRESS FIT 86.5 ROAD",
+      "Cassette": "SRAM FORCE CS-XG-1270-E1 10-33T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE KLEOS 42 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS TIROX RAILS 137mm",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "32 mm",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR SRAM Force AXS E1 2x12 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E608FNL",
+    "price": 9300.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "SRAM FORCE AXS ED-FRC-E1",
+      "Rem": "SRAM FORCE AXS ED-FRC-E1",
+      "Remschijf": "SRAM PACELINE RT-PLN-A1 160 / 160",
+      "Voorderailleur": "SRAM FORCE FD-FRC-E-E1",
+      "Achterderailleur": "SRAM FORCE AXS RD-FRC-E-E1",
+      "Crankstel": "SRAM FORCE FC-FRC-P-E1 48-35",
+      "Bottom bracket": "SRAM DUB PRESS FIT 86.5 ROAD",
+      "Cassette": "SRAM FORCE CS-XG-1270-E1 10-33T",
+      "Ketting": "SRAM FORCE CN-FRC-E1",
+      "Wiel voor": "MICHE KLEOS 42 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS TIROX RAILS 137mm",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "32 mm",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_Powermeter_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_Powermeter_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_SRAM_Force_AXS_E1_2x12_Powermeter_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR SRAM Red AXS E1 2x12 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E508TBK",
+    "price": 11900.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "SRAM RED AXS ED-RED-E1",
+      "Rem": "SRAM RED AXS ED-RED-E1",
+      "Remschijf": "SRAM PACELINE X RT-PLN-X-A1 160 / 160",
+      "Voorderailleur": "SRAM RED AXS FD-RED-E-E1",
+      "Achterderailleur": "SRAM RED AXS E1",
+      "Crankstel": "SRAM RED E1 DUB FC-RED-P-E1 WITH POWERMETER 48-35T",
+      "Bottom bracket": "SRAM DUB 86.5 PRESS FIT ROAD",
+      "Cassette": "SRAM RED CS-XG-1290-E1 10-36T",
+      "Ketting": "SRAM RED CN-RED-E1",
+      "Wiel voor": "MICHE KLEOS RD 36 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS",
+      "Zadelpen": "WILIER VERTICALE CARBON CUSTOM MADE -15 mm + REAR LIGHT",
+      "Maximale bandenmaat": "32 mm",
+      "Gewicht": "6,69 Kg +/- 5%",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_SRAM_Red_AXS_E1_2x12_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_SRAM_Red_AXS_E1_2x12_Powermeter_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_SRAM_Red_AXS_E1_2x12_Powermeter_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_SRAM_Red_AXS_E1_2x12_Powermeter_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR Shimano Dura-Ace Di2",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E508IDK",
+    "price": 10900.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE Di2 ST-R9270",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-CL900 160 / 140",
+      "Voorderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Achterderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200 50-34T",
+      "Bottom bracket": "MICHE INTEGRALE RD | CERAMICSPEED PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS RD 36 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS",
+      "Zadelpen": "WILIER VERTICALE CARBON CUSTOM MADE -15 mm + REAR LIGHT",
+      "Maximale bandenmaat": "32 mm",
+      "Gewicht": "6,65 Kg +/- 5%",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR Shimano Dura-Ace Di2 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E508IPK",
+    "price": 11700.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE Di2 ST-R9270",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-CL900 160 / 140",
+      "Voorderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Achterderailleur": "SHIMANO DURA-ACE Di2 FD-R9250",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200-P 52-36T",
+      "Bottom bracket": "MICHE INTEGRALE RD | CERAMICSPEED PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS RD 36 CARBON | CERAMICSPEED BEARINGS",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS",
+      "Zadelpen": "WILIER VERTICALE CARBON CUSTOM MADE -15 mm + REAR LIGHT",
+      "Maximale bandenmaat": "32 mm",
+      "Gewicht": "6,75 Kg +/- 5%",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_Powermeter_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_Powermeter_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_Shimano_Dura_Ace_Di2_Powermeter_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Verticale SLR Shimano Ultegra Di2",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+    "sku": "E508LDL",
+    "price": 7900.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "VERTICALE SLR - TORAY T800+T1100 M46JB CARBON MONOCOQUE",
+      "Voorvork": "VERTICALE SLR - TORAY T800+T1100 M46 JB CARBON MONOCOQUE",
+      "Shifter": "SHIMANO ULTEGRA Di2 ST-R8170",
+      "Rem": "SHIMANO ULTEGRA Di2 R8170",
+      "Remschijf": "SHIMANO RT-CL800 160 / 140",
+      "Voorderailleur": "SHIMANO ULTEGRA Di2 FD-R8150",
+      "Achterderailleur": "SHIMANO ULTEGRA Di2 RD-R8150",
+      "Crankstel": "SHIMANO ULTEGRA FC-R8100 50-34T",
+      "Bottom bracket": "MICHE INTEGRALE PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO ULTEGRA CS-R8101-12 11-30T",
+      "Ketting": "SHIMANO ULTEGRA CN-M8100",
+      "Wiel voor": "MICHE KLEOS 42 CARBON",
+      "Buitenband": "VITTORIA CORSA PRO 700X28c",
+      "Stuur": "V BAR INTEGRATED CARBON CUSTOM MADE + GARMIN/WAHOO MOUNT",
+      "Balhoofdstel": "CUSTOM SUPERSLIM 1-1/4\" UPPER BR | FSA MR137 1-1/4\" LOWER BR",
+      "Zadel": "PROLOGO NAGO R4 PAS TIROX RAILS 137mm",
+      "Zadelpen": "WILIER VERTICALE CARBON CUSTOM MADE -15 mm + REAR LIGHT",
+      "Maximale bandenmaat": "32 mm",
+      "Framegewicht": "720 g +/- 5%"
+    },
+    "color_names": [
+      "Q6 Sea Black",
+      "Q7 Coral Bloom",
+      "Q1 Core Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/af7f578f-8f3f-4b9f-b47b-de815f96290f/lg1hc1/std/5040x3078/_q6_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/e69ad351-e9e1-4356-9a91-75409b6e361d/idsmms/std/5040x3078/_q7_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/62fefa27-5f76-4372-b814-20078b1ddee9/wdwgmr/std/5040x3078/_q1_1?scalemode=product&format=webp"
+    ],
+    "image": "Wilier/Verticale_SLR_Shimano_Ultegra_Di2.jpg",
+    "color_images": [
+      "Wilier/Verticale_SLR_Shimano_Ultegra_Di2_colour_Q6_Sea_Black.jpg",
+      "Wilier/Verticale_SLR_Shimano_Ultegra_Di2_colour_Q7_Coral_Bloom.jpg",
+      "Wilier/Verticale_SLR_Shimano_Ultegra_Di2_colour_Q1_Core_Black.jpg"
+    ]
+  },
+  {
+    "name": "Supersonica SLR Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+    "sku": "E555",
+    "price": 10000.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Voorvork": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Shifter": "KIT TELAIO SUPERSONICA SLR / SUPERSONICA SLR FRAMESET KIT + PROFILE DESIGN 43 ASC PRO EXTENSIONS",
+      "Stuur": "SUPERSONICA BAR 38 mm + PROFILE DESIGN ASC PRO AEROBAR EXTENSIONS",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadelpen": "INTEGRATED - TO BE CUT",
+      "Maximale bandenmaat": "28 mm",
+      "Framegewicht": "1450 g +/- 5%"
+    },
+    "color_names": [
+      "T17 Black, Gold",
+      "T16 Silver, Velvet Red",
+      "T15 Groupama - FDJ",
+      "T15 Groupama - FDJ"
+    ],
+    "sizes": [
+      "XSS",
+      "M",
+      "LXL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/da934fb7-d431-4327-9b03-a83967b01868/n6p8zg/std/5040x3078/_t16_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/975c42f3-5582-4981-9c6f-975cf23d0268/bjxmgc/std/5040x3078/_t15_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/266cc2dd-e9f8-44a1-9636-08e26b4bd627/kkdd3w/std/5040x3078/_supersonica_oe_protesi?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Supersonica_SLR_Frameset.jpg",
+    "color_images": [
+      "Wilier/Supersonica_SLR_Frameset_colour_T17_Black_Gold.jpg",
+      "Wilier/Supersonica_SLR_Frameset_colour_T16_Silver_Velvet_Red.jpg",
+      "Wilier/Supersonica_SLR_Frameset_colour_T15_Groupama_FDJ.jpg",
+      "Wilier/Supersonica_SLR_Frameset_colour_T15_Groupama_FDJ.jpg"
+    ]
+  },
+  {
+    "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+    "sku": "E555ITI",
+    "price": 22000.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Voorvork": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-RT900 SS 140 mm / 140 mm",
+      "Voorderailleur": "SHIMANO DURA-ACE FD-R9250 Di2",
+      "Achterderailleur": "SHIMANO DURA-ACE RD-R9250 Di2",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200 54-40T",
+      "Bottom bracket": "MICHE INTEGRALE RD | CERAMICSPEED PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS RD SPX3 (Front) / KLEOS RD CRONO LENTICULAR (Rear)",
+      "Buitenband": "VITTORIA CORSA GRAPHENE 2.0 NERO 700X25 TLR",
+      "Stuur": "SUPERSONICA BAR 38 mm + PROFILE DESIGN ASC PRO AEROBAR EXTENSIONS",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS 137mm",
+      "Zadelpen": "INTEGRATED - TO BE CUT",
+      "Maximale bandenmaat": "28 mm",
+      "Gewicht": "9,4 kg +/- 5%",
+      "Framegewicht": "1450 g +/- 5%"
+    },
+    "color_names": [
+      "T17 Black, Gold",
+      "T16 Silver, Velvet Red",
+      "T15 Groupama - FDJ",
+      "T15 Groupama - FDJ"
+    ],
+    "sizes": [
+      "XSS",
+      "M",
+      "LXL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/da934fb7-d431-4327-9b03-a83967b01868/n6p8zg/std/5040x3078/_t16_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/975c42f3-5582-4981-9c6f-975cf23d0268/bjxmgc/std/5040x3078/_t15_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/266cc2dd-e9f8-44a1-9636-08e26b4bd627/kkdd3w/std/5040x3078/_supersonica_oe_protesi?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_colour_T17_Black_Gold.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_colour_T16_Silver_Velvet_Red.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_colour_T15_Groupama_FDJ.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_colour_T15_Groupama_FDJ.jpg"
+    ]
+  },
+  {
+    "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12 + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+    "sku": "E555IMI",
+    "price": 22800.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Voorvork": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-RT900 SS 140 mm / 140 mm",
+      "Voorderailleur": "SHIMANO DURA-ACE FD-R9250 Di2",
+      "Achterderailleur": "SHIMANO DURA-ACE RD-R9250 Di2",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200-P 54-40T",
+      "Bottom bracket": "MICHE INTEGRALE RD | CERAMICSPEED PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS RD SPX3 (Front) / KLEOS RD CRONO LENTICULAR (Rear)",
+      "Buitenband": "VITTORIA CORSA GRAPHENE 2.0 NERO 700X25 TLR",
+      "Stuur": "SUPERSONICA BAR 38 mm + PROFILE DESIGN ASC PRO AEROBAR EXTENSIONS",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS 137mm",
+      "Zadelpen": "INTEGRATED - TO BE CUT",
+      "Maximale bandenmaat": "28 mm",
+      "Gewicht": "9,45 kg +/- 5%",
+      "Framegewicht": "1450 g +/- 5%"
+    },
+    "color_names": [
+      "T17 Black, Gold",
+      "T16 Silver, Velvet Red",
+      "T15 Groupama - FDJ",
+      "T15 Groupama - FDJ"
+    ],
+    "sizes": [
+      "XSS",
+      "M",
+      "LXL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/da934fb7-d431-4327-9b03-a83967b01868/n6p8zg/std/5040x3078/_t16_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/975c42f3-5582-4981-9c6f-975cf23d0268/bjxmgc/std/5040x3078/_t15_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/266cc2dd-e9f8-44a1-9636-08e26b4bd627/kkdd3w/std/5040x3078/_supersonica_oe_protesi?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Powermeter_colour_T17_Black_Gold.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Powermeter_colour_T16_Silver_Velvet_Red.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Powermeter_colour_T15_Groupama_FDJ.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Powermeter_colour_T15_Groupama_FDJ.jpg"
+    ]
+  },
+  {
+    "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12 Triathlon",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+    "sku": "E655IT2",
+    "price": 18000.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Voorvork": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-RT900 SS 140 mm / 140 mm",
+      "Voorderailleur": "SHIMANO DURA-ACE FD-R9250 Di2",
+      "Achterderailleur": "SHIMANO DURA-ACE RD-R9250 Di2",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200 54-40T",
+      "Bottom bracket": "MICHE INTEGRALE RD | CERAMICSPEED PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS 67 (Front) / 85 (Rear)",
+      "Buitenband": "VITTORIA CORSA GRAPHENE 2.0 NERO 700X25 TLR",
+      "Stuur": "SUPERSONICA BAR 38 mm + PROFILE DESIGN 52 ASC AEROBAR EXTENSIONS",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS 137mm",
+      "Zadelpen": "INTEGRATED - TO BE CUT",
+      "Maximale bandenmaat": "28 mm",
+      "Framegewicht": "1450 g +/- 5%"
+    },
+    "color_names": [
+      "T17 Black, Gold",
+      "T16 Silver, Velvet Red",
+      "T15 Groupama - FDJ",
+      "T15 Groupama - FDJ"
+    ],
+    "sizes": [
+      "XSS",
+      "M",
+      "LXL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/da934fb7-d431-4327-9b03-a83967b01868/n6p8zg/std/5040x3078/_t16_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/975c42f3-5582-4981-9c6f-975cf23d0268/bjxmgc/std/5040x3078/_t15_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/266cc2dd-e9f8-44a1-9636-08e26b4bd627/kkdd3w/std/5040x3078/_supersonica_oe_protesi?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon.jpg",
+    "color_images": [
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_colour_T17_Black_Gold.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_colour_T16_Silver_Velvet_Red.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_colour_T15_Groupama_FDJ.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_colour_T15_Groupama_FDJ.jpg"
+    ]
+  },
+  {
+    "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12 Triathlon + Powermeter",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+    "sku": "E655IM2",
+    "price": 18800.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Voorvork": "SUPERSONICA SLR - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-RT900 SS 140 mm / 140 mm",
+      "Voorderailleur": "SHIMANO DURA-ACE FD-R9250 Di2",
+      "Achterderailleur": "SHIMANO DURA-ACE RD-R9250 Di2",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200-P 54-40T",
+      "Bottom bracket": "MICHE INTEGRALE RD | CERAMICSPEED PRESSFIT 86.5X41",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS 67 (Front) / 85 (Rear)",
+      "Buitenband": "VITTORIA CORSA GRAPHENE 2.0 NERO 700X25 TLR",
+      "Stuur": "SUPERSONICA BAR 38 mm + PROFILE DESIGN 52 ASC AEROBAR EXTENSIONS",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "PROLOGO NAGO R4 PAS CARBON RAILS 137mm",
+      "Zadelpen": "INTEGRATED - TO BE CUT",
+      "Maximale bandenmaat": "28 mm",
+      "Framegewicht": "1450 g +/- 5%"
+    },
+    "color_names": [
+      "T17 Black, Gold",
+      "T16 Silver, Velvet Red",
+      "T15 Groupama - FDJ",
+      "T15 Groupama - FDJ"
+    ],
+    "sizes": [
+      "XSS",
+      "M",
+      "LXL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/ee879f0d-c971-4435-ad06-4fb5b52a9e89/2uww6s/std/5040x3078/_t17_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/da934fb7-d431-4327-9b03-a83967b01868/n6p8zg/std/5040x3078/_t16_1?scalemode=product&format=webp",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/975c42f3-5582-4981-9c6f-975cf23d0268/bjxmgc/std/5040x3078/_t15_1?scalemode=product&format=webp&quality=low",
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/266cc2dd-e9f8-44a1-9636-08e26b4bd627/kkdd3w/std/5040x3078/_supersonica_oe_protesi?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_Powermeter.jpg",
+    "color_images": [
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_Powermeter_colour_T17_Black_Gold.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_Powermeter_colour_T16_Silver_Velvet_Red.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_Powermeter_colour_T15_Groupama_FDJ.jpg",
+      "Wilier/Supersonica_SLR_Shimano_Dura_Ace_Di2_2x12_Triathlon_Powermeter_colour_T15_Groupama_FDJ.jpg"
+    ]
+  },
+  {
+    "name": "Turbine SL Shimano 105 Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-sl",
+    "sku": "E6546I3",
+    "price": 5999.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "TURBINE SL - CARBON MONOCOQUE",
+      "Voorvork": "TURBINE SL - CARBON MONOCOQUE",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO SM-RT70 160 / 140",
+      "Voorderailleur": "SHIMANO 105 Di2 FD-R7150",
+      "Achterderailleur": "SHIMANO 105 Di2 RD-R7150",
+      "Crankstel": "SHIMANO 105 FC-R7100 52-36T",
+      "Bottom bracket": "SHIMANO PRESS FIT SM-BB72-41B",
+      "Cassette": "SHIMANO 105 CS-R7100-12 11-34T",
+      "Ketting": "SHIMANO 105 CN-M7100",
+      "Wiel voor": "MICHE ASFALTO 45 CARBON",
+      "Buitenband": "VITTORIA RUBINO PRO IV GRAPHENE 2.0 700x28c",
+      "Stuur": "DEDA CRONONERO EVO",
+      "Stuurpen": "RITCHEY | WILIER STEMMA S2 - ALLOY",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "SELLE SHORTFIT 2.0 OPEN-FIT NARR",
+      "Zadelpen": "RITCHEY | WILIER CARBON CUSTOM MADE -0 mm OFFSET",
+      "Maximale bandenmaat": "32 mm",
+      "Framegewicht": "1270 g +/- 5%"
+    },
+    "color_names": [
+      "T18 Black Grey"
+    ],
+    "sizes": [
+      "XSS",
+      "M",
+      "LXL"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/9ee255d7-c06a-4b4c-a7db-8abce7602b70/tc0cym/std/5040x3078/_t18_1?format=webp&scalemode=product",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/9ee255d7-c06a-4b4c-a7db-8abce7602b70/tc0cym/std/5040x3078/_t18_1?format=webp&scalemode=product"
+    ],
+    "image": "Wilier/Turbine_SL_Shimano_105_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Turbine_SL_Shimano_105_Di2_2x12_colour_T18_Black_Grey.jpg"
+    ]
+  },
+  {
+    "name": "Turbine SLR Frameset",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-slr",
+    "sku": "E410",
+    "price": 5000.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "TURBINE SLR - CARBON MONOCOQUE HUS MOD + HIGH IMPACT CARBON",
+      "Voorvork": "TURBINE SLR - CARBON MONOCOQUE HUS MOD",
+      "Shifter": "KIT TELAIO TURBINE SLR / TURBINE SLR FRAMESET KIT + HANDLEBAR KIT",
+      "Stuur": "WILIER CUSTOMIZED TURBINE BAR 38 mm",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "25 mm",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "T13 Black, Grey"
+    ],
+    "sizes": [
+      "XSS",
+      "LXL",
+      "M"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/b7dc3dfc-f0ce-458c-a7fa-a6b1116dc08e/aapfbz/std/5040x3070/_t13_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b7dc3dfc-f0ce-458c-a7fa-a6b1116dc08e/aapfbz/std/5040x3070/_t13_1?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Turbine_SLR_Frameset.jpg",
+    "color_images": [
+      "Wilier/Turbine_SLR_Frameset_colour_T13_Black_Grey.jpg"
+    ]
+  },
+  {
+    "name": "Turbine SLR Shimano Dura-Ace Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-slr",
+    "sku": "E510IT2",
+    "price": 11300.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "TURBINE SLR - CARBON MONOCOQUE HUS MOD + HIGH IMPACT CARBON",
+      "Voorvork": "TURBINE SLR - CARBON MONOCOQUE HUS MOD",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO DURA-ACE RT-CL900 CL 140 mm / 140 mm",
+      "Voorderailleur": "SHIMANO DURA-ACE FD-R9250 Di2",
+      "Achterderailleur": "SHIMANO DURA-ACE RD-R9250 Di2",
+      "Crankstel": "SHIMANO DURA-ACE FC-R9200 52-36T",
+      "Bottom bracket": "SHIMANO PRESS FIT SM-BB92-41B",
+      "Cassette": "SHIMANO DURA-ACE CS-R9200-12 11-30T",
+      "Ketting": "SHIMANO DURA-ACE CN-M9100",
+      "Wiel voor": "MICHE KLEOS 67 (Front) / 85 (Rear)",
+      "Buitenband": "VITTORIA CORSA GRAPHENE 2.0 NERO 700X25 TLR",
+      "Stuur": "WILIER CUSTOMIZED TURBINE BAR 38 mm",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "PROLOGO NAGO R4 PAS TIROX RAILS 137mm",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "25 mm",
+      "Gewicht": "8,0 Kg +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "T13 Black, Grey"
+    ],
+    "sizes": [
+      "XSS",
+      "LXL",
+      "M"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/b7dc3dfc-f0ce-458c-a7fa-a6b1116dc08e/aapfbz/std/5040x3070/_t13_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b7dc3dfc-f0ce-458c-a7fa-a6b1116dc08e/aapfbz/std/5040x3070/_t13_1?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Turbine_SLR_Shimano_Dura_Ace_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Turbine_SLR_Shimano_Dura_Ace_Di2_2x12_colour_T13_Black_Grey.jpg"
+    ]
+  },
+  {
+    "name": "Turbine SLR Shimano Ultegra Di2 2x12",
+    "brand": "Wilier",
+    "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-slr",
+    "sku": "E510LT2",
+    "price": 9900.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Frame": "TURBINE SLR - CARBON MONOCOQUE HUS MOD + HIGH IMPACT CARBON",
+      "Voorvork": "TURBINE SLR - CARBON MONOCOQUE HUS MOD",
+      "Shifter": "SHIMANO DURA-ACE ST-R9180 Di2",
+      "Rem": "SHIMANO DURA-ACE BR-R9270",
+      "Remschijf": "SHIMANO ULTEGRA RT-CL800 CL 140 mm / 140 mm",
+      "Voorderailleur": "SHIMANO ULTEGRA FD-R8150 Di2",
+      "Achterderailleur": "SHIMANO ULTEGRA RD-R8150 Di2",
+      "Crankstel": "SHIMANO ULTEGRA FC-R8100 52-36T",
+      "Bottom bracket": "SHIMANO PRESS FIT SM-BB72-41B",
+      "Cassette": "SHIMANO ULTEGRA CS-R8101-12 11-30T",
+      "Ketting": "SHIMANO ULTEGRA CN-M8100",
+      "Wiel voor": "MICHE KLEOS 67 (Front) / 85 (Rear)",
+      "Buitenband": "VITTORIA CORSA GRAPHENE 2.0 NERO 700X25 TLR",
+      "Stuur": "WILIER CUSTOMIZED TURBINE BAR 38 mm",
+      "Balhoofdstel": "FSA MR155 BEARINGS",
+      "Zadel": "PROLOGO NAGO R4 PAS TIROX RAILS 137mm",
+      "Zadelpen": "WILIER FILANTE CARBON CUSTOM MADE -15 mm",
+      "Maximale bandenmaat": "25 mm",
+      "Gewicht": "8,2 Kg +/- 5%",
+      "Framegewicht": "990 g +/- 5%"
+    },
+    "color_names": [
+      "T13 Black, Grey"
+    ],
+    "sizes": [
+      "XSS",
+      "LXL",
+      "M"
+    ],
+    "image_url": "https://wilier-cdn.thron.com/delivery/public/image/wilier/b7dc3dfc-f0ce-458c-a7fa-a6b1116dc08e/aapfbz/std/5040x3070/_t13_1?scalemode=product&format=webp&quality=low",
+    "color_image_urls": [
+      "https://wilier-cdn.thron.com/delivery/public/image/wilier/b7dc3dfc-f0ce-458c-a7fa-a6b1116dc08e/aapfbz/std/5040x3070/_t13_1?scalemode=product&format=webp&quality=low"
+    ],
+    "image": "Wilier/Turbine_SLR_Shimano_Ultegra_Di2_2x12.jpg",
+    "color_images": [
+      "Wilier/Turbine_SLR_Shimano_Ultegra_Di2_2x12_colour_T13_Black_Grey.jpg"
+    ]
+  }
+]

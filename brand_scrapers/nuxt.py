@@ -1,4 +1,4 @@
-"""Read the state a Nuxt 2 page embeds as `window.__NUXT__=(function(a,b,...){...;return {...}}(x,y,...))`.
+"""Read the state a Nuxt page embeds. Nuxt 2 as `window.__NUXT__=(function(a,b,...){...;return {...}}(x,y,...))`.
 
 The state is minified JavaScript, not JSON: strings used more than once are passed in as the
 function's arguments, and shared objects are filled by statements (`cY.code=eQ;`) before the
@@ -133,4 +133,62 @@ def nuxt_state(page):
     try:
         return _Parser(page[start + len("window.__NUXT__="):end]).state()
     except (ValueError, KeyError, IndexError, TypeError):
+        return None
+
+
+# Nuxt 3 writes its state as JSON instead (`<script id="__NUXT_DATA__">`), flattened by devalue: one
+# array whose numbers point at other entries, with ["Reactive", i] and the like wrapping values.
+_WRAPPERS = {"Reactive", "ShallowReactive", "Ref", "ShallowRef", "EmptyRef", "EmptyShallowRef", "NuxtError", "Island"}
+
+
+def _undevalue(table):
+    seen = {}
+
+    def value(i):
+        if not isinstance(i, int) or isinstance(i, bool):
+            return i
+        if i < 0:  # devalue's undefined, NaN and infinities
+            return None
+        if i in seen:
+            return seen[i]
+        raw = table[i]
+        if isinstance(raw, list):
+            if raw and isinstance(raw[0], str) and raw[0] in _WRAPPERS:
+                seen[i] = value(raw[1]) if len(raw) > 1 else None
+                return seen[i]
+            if raw and raw[0] == "Date":
+                seen[i] = raw[1]
+                return seen[i]
+            if raw and raw[0] == "Set":
+                seen[i] = out = []
+                out.extend(value(x) for x in raw[1:])
+                return out
+            if raw and raw[0] == "Map":
+                seen[i] = out = {}
+                for k in range(1, len(raw) - 1, 2):
+                    out[str(value(raw[k]))] = value(raw[k + 1])
+                return out
+            seen[i] = out = []
+            out.extend(value(x) for x in raw)
+            return out
+        if isinstance(raw, dict):
+            seen[i] = out = {}
+            for k, x in raw.items():
+                out[k] = value(x)
+            return out
+        seen[i] = raw
+        return raw
+
+    return value(0)
+
+
+def nuxt_data(page):
+    """A Nuxt 3 page's __NUXT_DATA__ as Python data, or None."""
+    m = re.search(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', page or "", re.S)
+    if not m:
+        return None
+    try:
+        table = json.loads(m.group(1))
+        return _undevalue(table) if isinstance(table, list) and table else None
+    except (ValueError, IndexError, TypeError, RecursionError):
         return None

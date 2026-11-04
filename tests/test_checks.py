@@ -431,6 +431,10 @@ def test_s_works_names_specialized():
     ("Cervélo Áspero GRX RX610 maat 54", "gravel", "Cervelo", "aspero"),
     ("Ridley Noah Fast 3.0 Ultegra Di2 maat M", "", "Ridley", "noah"),
     ("Ridley Kanzo Fast 2.0 Force XPLR maat L", "gravel", "Ridley", "kanzo"),
+    ("Rose Backroad GRX 820 maat M", "gravel", "Rose", "backroad"),
+    ("Rose Shave Ultegra Di2 maat L", "", "Rose", "shave"),
+    ("Wilier Filante SLR Dura-Ace Di2 maat M", "", "Wilier", "filante"),
+    ("Wilier Triestina Rave SLR GRX maat L", "gravel", "Wilier", "rave"),
 ])
 def test_matching_new_brands(models, title, description, brand, family):
     r = run(models, title, description, height=178)
