@@ -732,7 +732,8 @@ def conflicts(model, text):
     name_toks = _tokens(model["name"].split(" - ")[0])
     found = []
     for part, number in sorted(_numbered(name_toks)):
-        said = sorted({n for w, n in ad_pairs if w == part})
+        # A frame size after the name ("Madone gen8 SL (56)") is no version: no model is an SL 56.
+        said = sorted({n for w, n in ad_pairs if w == part and not 44 <= int(n) <= 64})
         if said and number not in said:
             label = "Gen " if part == "gen" else part.upper() if len(part) <= 3 else part.title()
             found.append((f"{label}{number}", "/".join(f"{label}{n}" for n in said)))
@@ -763,6 +764,11 @@ def _colour_named(model, text):
     return False
 
 
+FRAME_ONLY = re.compile(r"\b(?:frame\s*set|framekit|frame[\s-]*only|alleen\s+(?:het\s+)?frame|enkel\s+(?:het\s+)?frame"
+                        r"|los\s+frame|frame\s*(?:\+|en|and|&)\s*(?:vork|fork))\b", re.I)
+COMPLETE_BIKE = re.compile(r"\b(?:compleet|complete|groe?pset|groupset|wielen|wielset|wheels?|wheelset)\b", re.I)
+
+
 def match_models(models, title, description="", claims=None):
     """Rank catalogue models for a listing. Returns [(score, model)] best first."""
     claims = claims or read_claims(title, description)
@@ -778,6 +784,10 @@ def match_models(models, title, description="", claims=None):
         brand_toks.setdefault(m["brand"], set()).update(_tokens(m["name"].split(" - ")[0]))
     title_words = {t for w in title.split() if not re.fullmatch(ELECTRONIC, w.lower()) for t in _tokens(w)
                    if not t.isdigit()}
+    # A complete bike (a groupset, wheels, "compleet") is no frameset, unless the ad says it sells only the frame.
+    text = f"{title} {description}"
+    complete = not FRAME_ONLY.search(text) and bool(claims["groupset"] or COMPLETE_BIKE.search(text))
+    electronic = says_electronic(text)
     ranked = []
     for model in models:
         if claims["brand"] and model["brand"] != claims["brand"]:
@@ -790,6 +800,11 @@ def match_models(models, title, description="", claims=None):
         if not scores:
             continue
         score = max(scores)
+        if complete and discipline_of(model) == "frames":
+            score -= 2.0
+        group = detect_groupset(groupset_text(model)) if electronic is not None else None
+        if group and bool(group.get("electronic")) != electronic:
+            score -= 0.5  # the ad says Di2 and this build shifts by cable, or the other way round
         if _colour_named(model, f"{title} {description}"):
             score += 1.0  # the seller copied the brand's colour name: that colourway's model
         ranked.append((round(score, 2), model))
@@ -841,7 +856,7 @@ def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, bran
         if tok == "gen" and i + 1 < len(name_toks):
             skip_next = True
             if ad_gens:
-                score += 1.0 if name_toks[i + 1] in ad_gens else -1.0
+                score += 1.5 if name_toks[i + 1] in ad_gens else -1.0  # the generation the ad names, as a title word
             continue
         if tok in title_toks:
             score += 1.5
