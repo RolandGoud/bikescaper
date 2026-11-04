@@ -569,6 +569,19 @@ def create_app(db_path=None):
         stored_checks.forget(conn())
         return redirect(url_for("admin", rechecked=1))
 
+    @app.route("/admin/drop", methods=["POST"])
+    def drop_too_old():
+        """Drop a check whose bike we know is from before FIRST_YEAR though the ad doesn't date it (check 69, a 2016
+        Émonda that only reads as 2018-2020): marked too old with that year and deleted like any other that old."""
+        check_id, year = request.form.get("check_id", type=int), request.form.get("year", type=int)
+        if not check_id or not year or not 1980 <= year < checks.FIRST_YEAR:
+            abort(400)
+        if conn().execute("UPDATE checks SET too_old = ? WHERE id = ?", (year, check_id)).rowcount == 0:
+            abort(404)
+        conn().commit()
+        stored_checks.delete_old(conn(), ad_photos.folder(app.config["DB_PATH"]))
+        return redirect(url_for("admin", dropped=check_id))
+
     @app.route("/listings")
     def listings():
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
@@ -993,6 +1006,7 @@ def create_app(db_path=None):
         return render_template("admin.html", stats=stats, worst=worst, nav=None,
                                photos=photo_counts.overview(models(), GALLERIES),
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
+                               dropped=request.args.get("dropped", type=int), first_year=checks.FIRST_YEAR,
                                missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
 
     @app.route("/check/<int:check_id>/duo-side")
