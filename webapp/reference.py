@@ -236,9 +236,9 @@ BRANDS = [
     # Written without the accent: the name is also the data/ and images/ folder. Ads match "Cervélo" too (accents are ignored).
     {"name": "Cervelo", "site": "https://www.cervelo.com/en-nl", "scraper": True, "logo": "logos/cervelo.svg"},
     {"name": "Ridley", "site": "https://www.ridley-bikes.com/nl_NL", "scraper": True, "logo": "logos/ridley.svg"},
-    {"name": "Rose", "site": "https://www.rosebikes.nl/", "scraper": True},
+    {"name": "Rose", "site": "https://www.rosebikes.nl/", "scraper": True, "logo": "logos/rose.svg"},
     # No Dutch site: euro list prices from the international site.
-    {"name": "Wilier", "site": "https://www.wilier.com/en", "scraper": True, "aliases": ["wilier triestina"]},
+    {"name": "Wilier", "site": "https://www.wilier.com/en", "scraper": True, "aliases": ["wilier triestina"], "logo": "logos/wilier.svg"},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
 BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}
