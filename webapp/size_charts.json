@@ -8644,6 +8644,1644 @@
    "url": "https://www.canyon.com/nl-nl/racefietsen/wielrenfietsen/ultimate/cfr/ultimate-cfr-ltd/3863.html?dwvar_3863_pv_rahmenfarbe=R102_P08",
    "checked": "2026-10-22"
   },
+  "cervelo-aspero-5-force-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero-5 Force AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-5-force-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-5-grx-rx827-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero-5 GRX RX827 Di2",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-5-grx-rx827-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-5-red-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero-5 Red AXS",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-5-red-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-apex-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 370
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 379
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 388
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 397
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 406
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 415
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero Apex 1",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-apex-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-apex-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 370
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 379
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 388
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 397
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 406
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 415
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero Apex AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-apex-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-force-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 370
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 379
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 388
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 397
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 406
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 415
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero Force AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-force-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-grx-rx610-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 370
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 379
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 388
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 397
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 406
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 415
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero GRX RX610 1",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-grx-rx610-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-grx-rx827-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 370
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 379
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 388
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 397
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 406
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 415
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero GRX RX827 Di2",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-grx-rx827-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-aspero-rival-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 370
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 379
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 388
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 397
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 406
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 415
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Aspero Rival AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/aspero-rival-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-105": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia 105",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-105-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-105-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia 105 Di2",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-105-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-5-dura-ace-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia-5 Dura-Ace Di2",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-5-dura-ace-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-5-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia-5 Force AXS",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-5-force-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-5-red-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia-5 Red AXS",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-5-red-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-5-rival-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia-5 Rival AXS",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-5-rival-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-5-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia-5 Ultegra Di2",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-5-ultegra-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia Force AXS",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-force-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-caledonia-rival-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 360
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 369
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 378
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 387
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 396
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 405
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Caledonia Rival AXS",
+   "url": "https://www.cervelo.com/en-nl/products/caledonia-rival-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p-series-105": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 378
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 395
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 409
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 422
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 434
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 443
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P-Series 105",
+   "url": "https://www.cervelo.com/en-nl/products/p-series-105-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p-series-105-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 378
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 395
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 409
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 422
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 434
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 443
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P-Series 105 Di2",
+   "url": "https://www.cervelo.com/en-nl/products/p-series-105-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p-series-force-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 378
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 395
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 409
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 422
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 434
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 443
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P-Series Force AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/p-series-force-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p-series-rival-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 378
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 395
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 409
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 422
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 434
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 443
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P-Series Rival AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/p-series-rival-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p-series-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 378
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 395
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 409
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 422
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 434
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 443
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P-Series Ultegra Di2",
+   "url": "https://www.cervelo.com/en-nl/products/p-series-ultegra-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p5-dura-ace-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 389
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 406
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 420
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 433
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 446
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 455
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P5 Dura-Ace Di2",
+   "url": "https://www.cervelo.com/en-nl/products/p5-dura-ace-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p5-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 389
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 406
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 420
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 433
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 446
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 455
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P5 Force AXS",
+   "url": "https://www.cervelo.com/en-nl/products/p5-force-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p5-red-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 389
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 406
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 420
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 433
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 446
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 455
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P5 Red AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/p5-red-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-p5-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 389
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 406
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 420
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 433
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 446
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 455
+    }
+   },
+   "brand": "Cervelo",
+   "name": "P5 Ultegra Di2",
+   "url": "https://www.cervelo.com/en-nl/products/p5-ultegra-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-r5-dura-ace-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "R5 Dura-Ace Di2",
+   "url": "https://www.cervelo.com/en-nl/products/r5-dura-ace-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-r5-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "R5 Force AXS",
+   "url": "https://www.cervelo.com/en-nl/products/r5-force-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-r5-red-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "R5 Red AXS",
+   "url": "https://www.cervelo.com/en-nl/products/r5-red-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-r5-red-xplr-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "R5 Red XPLR AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/r5-red-xplr-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-r5-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 386
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 395
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 404
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 413
+    }
+   },
+   "brand": "Cervelo",
+   "name": "R5 Ultegra Di2",
+   "url": "https://www.cervelo.com/en-nl/products/r5-ultegra-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-s5-dura-ace-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 367
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 376
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 384
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 392
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 401
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 409
+    }
+   },
+   "brand": "Cervelo",
+   "name": "S5 Dura-Ace Di2",
+   "url": "https://www.cervelo.com/en-nl/products/s5-dura-ace-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-s5-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 367
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 376
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 384
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 392
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 401
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 409
+    }
+   },
+   "brand": "Cervelo",
+   "name": "S5 Force AXS",
+   "url": "https://www.cervelo.com/en-nl/products/s5-force-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-s5-red-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 367
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 376
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 384
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 392
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 401
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 409
+    }
+   },
+   "brand": "Cervelo",
+   "name": "S5 Red AXS",
+   "url": "https://www.cervelo.com/en-nl/products/s5-red-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-s5-red-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 367
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 376
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 384
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 392
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 401
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 409
+    }
+   },
+   "brand": "Cervelo",
+   "name": "S5 Red AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/s5-red-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-s5-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 367
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 376
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 384
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 392
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 401
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 409
+    }
+   },
+   "brand": "Cervelo",
+   "name": "S5 Ultegra Di2",
+   "url": "https://www.cervelo.com/en-nl/products/s5-ultegra-di2-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-soloist-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 383
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 391
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 400
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 408
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Soloist Force AXS",
+   "url": "https://www.cervelo.com/en-nl/products/soloist-force-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-soloist-force-xplr-axs-1": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 383
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 391
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 400
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 408
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Soloist Force XPLR AXS 1",
+   "url": "https://www.cervelo.com/en-nl/products/soloist-force-xplr-axs-1-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-soloist-red-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 383
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 391
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 400
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 408
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Soloist Red AXS",
+   "url": "https://www.cervelo.com/en-nl/products/soloist-red-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-soloist-rival-axs": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 383
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 391
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 400
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 408
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Soloist Rival AXS",
+   "url": "https://www.cervelo.com/en-nl/products/soloist-rival-axs-2027",
+   "checked": "2026-11-03"
+  },
+  "cervelo-soloist-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "48": {
+     "low": 150,
+     "high": 160,
+     "reach": 369
+    },
+    "51": {
+     "low": 160,
+     "high": 167,
+     "reach": 377
+    },
+    "54": {
+     "low": 168,
+     "high": 175,
+     "reach": 383
+    },
+    "56": {
+     "low": 175,
+     "high": 182,
+     "reach": 391
+    },
+    "58": {
+     "low": 183,
+     "high": 193,
+     "reach": 400
+    },
+    "61": {
+     "low": 193,
+     "high": 200,
+     "reach": 408
+    }
+   },
+   "brand": "Cervelo",
+   "name": "Soloist Ultegra Di2",
+   "url": "https://www.cervelo.com/en-nl/products/soloist-ultegra-di2-2027",
+   "checked": "2026-11-03"
+  },
   "cube-aerium-c-68x-frameset": {
    "source": "geometry",
    "sizes": {
@@ -13723,6 +15361,2539 @@
    "name": "Xelius DRS 9.0",
    "url": "https://lapierrebikes.com/en-be/products/xelius-drs-90-lxeub",
    "checked": "2026-11-01"
+  },
+  "ridley-astr-rs-campagnolo-super-record-x-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr RS Campagnolo Super Record X 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIARSRID153",
+   "checked": "2026-11-03"
+  },
+  "ridley-astr-rs-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr RS Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSARSRID024",
+   "checked": "2026-11-03"
+  },
+  "ridley-astr-rs-sram-force-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr RS SRAM Force XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIARSRID127",
+   "checked": "2026-11-03"
+  },
+  "ridley-astr-rs-sram-red-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr RS SRAM Red XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIARSRID132",
+   "checked": "2026-11-03"
+  },
+  "ridley-astr-shimano-grx-600-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr Shimano GRX 600 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID183",
+   "checked": "2026-11-03"
+  },
+  "ridley-astr-shimano-grx-600-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr Shimano GRX 600 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID203",
+   "checked": "2026-11-03"
+  },
+  "ridley-astr-sram-rival-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 536,
+     "reach": 376
+    },
+    "S": {
+     "stack": 550,
+     "reach": 392
+    },
+    "M": {
+     "stack": 571,
+     "reach": 406
+    },
+    "L": {
+     "stack": 595,
+     "reach": 419
+    },
+    "XL": {
+     "stack": 619,
+     "reach": 432
+    }
+   },
+   "brand": "Ridley",
+   "name": "Astr SRAM Rival XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID218",
+   "checked": "2026-11-03"
+  },
+  "ridley-dean-fast-disc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "S": {
+     "stack": 495,
+     "reach": 373
+    },
+    "M": {
+     "stack": 499,
+     "reach": 394
+    },
+    "L": {
+     "stack": 518,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Dean Fast Disc Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSDFDRID021",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-rs-2-0-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 500,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 514,
+     "reach": 392
+    },
+    "S": {
+     "stack": 538,
+     "reach": 411
+    },
+    "M": {
+     "stack": 562,
+     "reach": 425
+    },
+    "L": {
+     "stack": 576,
+     "reach": 446
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn RS 2.0 Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFR2RID009",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-rs-2-0-sram-force-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 500,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 514,
+     "reach": 392
+    },
+    "S": {
+     "stack": 538,
+     "reach": 411
+    },
+    "M": {
+     "stack": 562,
+     "reach": 425
+    },
+    "L": {
+     "stack": 576,
+     "reach": 446
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn RS 2.0 SRAM Force AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFR2RID040",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-rs-2-0-sram-red-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 500,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 514,
+     "reach": 392
+    },
+    "S": {
+     "stack": 538,
+     "reach": 411
+    },
+    "M": {
+     "stack": 562,
+     "reach": 425
+    },
+    "L": {
+     "stack": 576,
+     "reach": 446
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn RS 2.0 SRAM Red AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFR2RID024",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn Shimano 105 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID313",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn Shimano 105 Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID308",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-shimano-105-r7150-12sp-di2-carbon-wheels": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn Shimano 105 R7150 12sp Di2 Carbon wheels",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID303",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID233",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID293",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-sram-force-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn SRAM Force AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID288",
+   "checked": "2026-11-03"
+  },
+  "ridley-falcn-sram-rival-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 513,
+     "reach": 378
+    },
+    "S": {
+     "stack": 530,
+     "reach": 388
+    },
+    "M": {
+     "stack": 551,
+     "reach": 397
+    },
+    "L": {
+     "stack": 573,
+     "reach": 404
+    },
+    "XL": {
+     "stack": 599,
+     "reach": 411
+    }
+   },
+   "brand": "Ridley",
+   "name": "Falcn SRAM Rival AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFALRID298",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-disc-classified-rival-axs-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix Disc Classified Rival AXS 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFENRID111",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-disc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix Disc Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSFENRID011",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-disc-shimano-105-2x11": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix Disc Shimano 105 2x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFENRID021",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-disc-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix Disc Shimano 105 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFENRID051",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-disc-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix Disc Shimano 105 Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFENRID076",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-disc-shimano-ultegra-2x11": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix Disc Shimano Ultegra 2x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFENRID016",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-slic-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix SLiC Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSFSDRID183",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-slic-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix SLiC Shimano 105 Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFSDRID844",
+   "checked": "2026-11-03"
+  },
+  "ridley-fenix-slic-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 517,
+     "reach": 377
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 392
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 615,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Fenix SLiC Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFSDRID849",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-a-road-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 515,
+     "reach": 372
+    },
+    "XS": {
+     "stack": 530,
+     "reach": 379
+    },
+    "S": {
+     "stack": 553,
+     "reach": 386
+    },
+    "M": {
+     "stack": 577,
+     "reach": 394
+    },
+    "L": {
+     "stack": 603,
+     "reach": 406
+    },
+    "XL": {
+     "stack": 622,
+     "reach": 414
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn A Road Shimano 105 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKALRID064",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-road-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn Road Shimano 105 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID723",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-road-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn Road Shimano 105 Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID753",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-road-shimano-105-r7150-12sp-di2-carbon-wheels": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn Road Shimano 105 R7150 12sp Di2 Carbon wheels",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID729",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-road-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn Road Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID741",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-road-sram-force-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn Road SRAM Force AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID747",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-road-sram-rival-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn Road SRAM Rival AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID735",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-rs-road-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn RS Road Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSGRSRID034",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-rs-road-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn RS Road Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID278",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-rs-road-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn RS Road Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID290",
+   "checked": "2026-11-03"
+  },
+  "ridley-grifn-rs-road-sram-force-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 524,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 540,
+     "reach": 375
+    },
+    "S": {
+     "stack": 563,
+     "reach": 383
+    },
+    "M": {
+     "stack": 587,
+     "reach": 391
+    },
+    "L": {
+     "stack": 614,
+     "reach": 403
+    },
+    "XL": {
+     "stack": 633,
+     "reach": 412
+    }
+   },
+   "brand": "Ridley",
+   "name": "Grifn RS Road SRAM Force AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID302",
+   "checked": "2026-11-03"
+  },
+  "ridley-helium-disc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 507,
+     "reach": 379
+    },
+    "XS": {
+     "stack": 527,
+     "reach": 374
+    },
+    "S": {
+     "stack": 542,
+     "reach": 384
+    },
+    "M": {
+     "stack": 573,
+     "reach": 390
+    },
+    "L": {
+     "stack": 599,
+     "reach": 396
+    },
+    "XL": {
+     "stack": 624,
+     "reach": 403
+    }
+   },
+   "brand": "Ridley",
+   "name": "Helium Disc Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSHEDRID034",
+   "checked": "2026-11-03"
+  },
+  "ridley-helium-disc-shimano-105-2x11": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 507,
+     "reach": 379
+    },
+    "XS": {
+     "stack": 527,
+     "reach": 374
+    },
+    "S": {
+     "stack": 542,
+     "reach": 384
+    },
+    "M": {
+     "stack": 573,
+     "reach": 390
+    },
+    "L": {
+     "stack": 599,
+     "reach": 396
+    },
+    "XL": {
+     "stack": 624,
+     "reach": 403
+    }
+   },
+   "brand": "Ridley",
+   "name": "Helium Disc Shimano 105 2x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIHEDRID172",
+   "checked": "2026-11-03"
+  },
+  "ridley-helium-disc-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 507,
+     "reach": 379
+    },
+    "XS": {
+     "stack": 527,
+     "reach": 374
+    },
+    "S": {
+     "stack": 542,
+     "reach": 384
+    },
+    "M": {
+     "stack": 573,
+     "reach": 390
+    },
+    "L": {
+     "stack": 599,
+     "reach": 396
+    },
+    "XL": {
+     "stack": 624,
+     "reach": 403
+    }
+   },
+   "brand": "Ridley",
+   "name": "Helium Disc Shimano 105 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIHEDRID064",
+   "checked": "2026-11-03"
+  },
+  "ridley-helium-disc-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 507,
+     "reach": 379
+    },
+    "XS": {
+     "stack": 527,
+     "reach": 374
+    },
+    "S": {
+     "stack": 542,
+     "reach": 384
+    },
+    "M": {
+     "stack": 573,
+     "reach": 390
+    },
+    "L": {
+     "stack": 599,
+     "reach": 396
+    },
+    "XL": {
+     "stack": 624,
+     "reach": 403
+    }
+   },
+   "brand": "Ridley",
+   "name": "Helium Disc Shimano 105 Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIHEDRID100",
+   "checked": "2026-11-03"
+  },
+  "ridley-helium-disc-shimano-ultegra-2x11": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 507,
+     "reach": 379
+    },
+    "XS": {
+     "stack": 527,
+     "reach": 374
+    },
+    "S": {
+     "stack": 542,
+     "reach": 384
+    },
+    "M": {
+     "stack": 573,
+     "reach": 390
+    },
+    "L": {
+     "stack": 599,
+     "reach": 396
+    },
+    "XL": {
+     "stack": 624,
+     "reach": 403
+    }
+   },
+   "brand": "Ridley",
+   "name": "Helium Disc Shimano Ultegra 2x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIHEDRID166",
+   "checked": "2026-11-03"
+  },
+  "ridley-helium-disc-sram-rival-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 507,
+     "reach": 379
+    },
+    "XS": {
+     "stack": 527,
+     "reach": 374
+    },
+    "S": {
+     "stack": 542,
+     "reach": 384
+    },
+    "M": {
+     "stack": 573,
+     "reach": 390
+    },
+    "L": {
+     "stack": 599,
+     "reach": 396
+    },
+    "XL": {
+     "stack": 624,
+     "reach": 403
+    }
+   },
+   "brand": "Ridley",
+   "name": "Helium Disc SRAM Rival AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIHEDRID106",
+   "checked": "2026-11-03"
+  },
+  "ridley-invenio-gravel-alu-shimano-grx-400-2x10": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "INVENIO Gravel Alu Shimano GRX 400 2x10",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRAINV003",
+   "checked": "2026-11-03"
+  },
+  "ridley-invenio-gravel-carbon-shimano-grx-800-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 537,
+     "reach": 373
+    },
+    "S": {
+     "stack": 563,
+     "reach": 380
+    },
+    "M": {
+     "stack": 587,
+     "reach": 385
+    },
+    "L": {
+     "stack": 613,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 638,
+     "reach": 400
+    }
+   },
+   "brand": "Ridley",
+   "name": "Invenio Gravel Carbon Shimano GRX 800 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAFRID340",
+   "checked": "2026-11-03"
+  },
+  "ridley-invenio-gravel-carbon-sram-force-xplr": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 537,
+     "reach": 373
+    },
+    "S": {
+     "stack": 563,
+     "reach": 380
+    },
+    "M": {
+     "stack": 587,
+     "reach": 385
+    },
+    "L": {
+     "stack": 613,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 638,
+     "reach": 400
+    }
+   },
+   "brand": "Ridley",
+   "name": "Invenio Gravel Carbon SRAM Force XPLR",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAFRID350",
+   "checked": "2026-11-03"
+  },
+  "ridley-invenio-grifn-a-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 515,
+     "reach": 372
+    },
+    "XS": {
+     "stack": 530,
+     "reach": 379
+    },
+    "S": {
+     "stack": 553,
+     "reach": 386
+    },
+    "M": {
+     "stack": 577,
+     "reach": 394
+    },
+    "L": {
+     "stack": 603,
+     "reach": 406
+    },
+    "XL": {
+     "stack": 622,
+     "reach": 414
+    }
+   },
+   "brand": "Ridley",
+   "name": "Invenio Grifn A Shimano 105 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKALRID106",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSXTARID160",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-shimano-grx-400-2x10": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A Shimano GRX 400 2x10",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID929",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-shimano-grx-600-2x11": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A Shimano GRX 600 2x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID948",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-shimano-grx-600-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A Shimano GRX 600 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID966",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-shimano-grx-800-2x11": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A Shimano GRX 800 2x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID984",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-shimano-grx-800-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A Shimano GRX 800 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARIDA02",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-a-sram-rival-1x11": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 528,
+     "reach": 374
+    },
+    "XS": {
+     "stack": 542,
+     "reach": 377
+    },
+    "S": {
+     "stack": 559,
+     "reach": 380
+    },
+    "M": {
+     "stack": 584,
+     "reach": 386
+    },
+    "L": {
+     "stack": 611,
+     "reach": 392
+    },
+    "XL": {
+     "stack": 636,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo A SRAM Rival 1x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARIDA20",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-alu-equipped-shimano-cues-1x11": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 522,
+     "reach": 365
+    },
+    "XS": {
+     "stack": 536,
+     "reach": 381
+    },
+    "S": {
+     "stack": 560,
+     "reach": 390
+    },
+    "M": {
+     "stack": 582,
+     "reach": 403
+    },
+    "L": {
+     "stack": 608,
+     "reach": 418
+    },
+    "XL": {
+     "stack": 630,
+     "reach": 429
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure Alu Equipped Shimano CUES 1x11",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID190",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-alu-shimano-grx-600-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 522,
+     "reach": 365
+    },
+    "XS": {
+     "stack": 536,
+     "reach": 381
+    },
+    "S": {
+     "stack": 560,
+     "reach": 390
+    },
+    "M": {
+     "stack": 582,
+     "reach": 403
+    },
+    "L": {
+     "stack": 608,
+     "reach": 418
+    },
+    "XL": {
+     "stack": 630,
+     "reach": 429
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure Alu Shimano GRX 600 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID136",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-alu-shimano-grx-800-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 522,
+     "reach": 365
+    },
+    "XS": {
+     "stack": 536,
+     "reach": 381
+    },
+    "S": {
+     "stack": 560,
+     "reach": 390
+    },
+    "M": {
+     "stack": 582,
+     "reach": 403
+    },
+    "L": {
+     "stack": 608,
+     "reach": 418
+    },
+    "XL": {
+     "stack": 630,
+     "reach": 429
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure Alu Shimano GRX 800 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID064",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-alu-sram-apex-xplr-axs-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 522,
+     "reach": 365
+    },
+    "XS": {
+     "stack": 536,
+     "reach": 381
+    },
+    "S": {
+     "stack": 560,
+     "reach": 390
+    },
+    "M": {
+     "stack": 582,
+     "reach": 403
+    },
+    "L": {
+     "stack": 608,
+     "reach": 418
+    },
+    "XL": {
+     "stack": 630,
+     "reach": 429
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure Alu SRAM Apex XPLR AXS 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID100",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 546,
+     "reach": 379
+    },
+    "S": {
+     "stack": 569,
+     "reach": 387
+    },
+    "M": {
+     "stack": 591,
+     "reach": 401
+    },
+    "L": {
+     "stack": 617,
+     "reach": 415
+    },
+    "XL": {
+     "stack": 639,
+     "reach": 426
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSKADRID088",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-shimano-grx-600-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 546,
+     "reach": 379
+    },
+    "S": {
+     "stack": 569,
+     "reach": 387
+    },
+    "M": {
+     "stack": 591,
+     "reach": 401
+    },
+    "L": {
+     "stack": 617,
+     "reach": 415
+    },
+    "XL": {
+     "stack": 639,
+     "reach": 426
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure Shimano GRX 600 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID393",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-sram-force-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 546,
+     "reach": 379
+    },
+    "S": {
+     "stack": 569,
+     "reach": 387
+    },
+    "M": {
+     "stack": 591,
+     "reach": 401
+    },
+    "L": {
+     "stack": 617,
+     "reach": 415
+    },
+    "XL": {
+     "stack": 639,
+     "reach": 426
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure SRAM Force XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID403",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-adventure-sram-rival-axs-transmission-gx-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 546,
+     "reach": 379
+    },
+    "S": {
+     "stack": 569,
+     "reach": 387
+    },
+    "M": {
+     "stack": 591,
+     "reach": 401
+    },
+    "L": {
+     "stack": 617,
+     "reach": 415
+    },
+    "XL": {
+     "stack": 639,
+     "reach": 426
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Adventure SRAM Rival AXS Transmission GX 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID398",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-fast-2-0-sram-force-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 541,
+     "reach": 375
+    },
+    "S": {
+     "stack": 561,
+     "reach": 394
+    },
+    "M": {
+     "stack": 585,
+     "reach": 408
+    },
+    "L": {
+     "stack": 609,
+     "reach": 427
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Fast 2.0 SRAM Force XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKF2RID023",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-fast-2-0-sram-red-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 541,
+     "reach": 375
+    },
+    "S": {
+     "stack": 561,
+     "reach": 394
+    },
+    "M": {
+     "stack": 585,
+     "reach": 408
+    },
+    "L": {
+     "stack": 609,
+     "reach": 427
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Fast 2.0 SRAM Red XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKF2RID031",
+   "checked": "2026-11-03"
+  },
+  "ridley-kanzo-fast-2-0-sram-rival-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 541,
+     "reach": 375
+    },
+    "S": {
+     "stack": 561,
+     "reach": 394
+    },
+    "M": {
+     "stack": 585,
+     "reach": 408
+    },
+    "L": {
+     "stack": 609,
+     "reach": 427
+    }
+   },
+   "brand": "Ridley",
+   "name": "Kanzo Fast 2.0 SRAM Rival XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKF2RID015",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-3-0-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 392
+    },
+    "S": {
+     "stack": 549,
+     "reach": 403
+    },
+    "M": {
+     "stack": 570,
+     "reach": 412
+    },
+    "L": {
+     "stack": 594,
+     "reach": 420
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah 3.0 Shimano 105 Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID275",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-3-0-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 392
+    },
+    "S": {
+     "stack": 549,
+     "reach": 403
+    },
+    "M": {
+     "stack": 570,
+     "reach": 412
+    },
+    "L": {
+     "stack": 594,
+     "reach": 420
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah 3.0 Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID208",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-3-0-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 392
+    },
+    "S": {
+     "stack": 549,
+     "reach": 403
+    },
+    "M": {
+     "stack": 570,
+     "reach": 412
+    },
+    "L": {
+     "stack": 594,
+     "reach": 420
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah 3.0 Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID279",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-3-0-sram-force-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 392
+    },
+    "S": {
+     "stack": 549,
+     "reach": 403
+    },
+    "M": {
+     "stack": 570,
+     "reach": 412
+    },
+    "L": {
+     "stack": 594,
+     "reach": 420
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah 3.0 SRAM Force AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID291",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-3-0-sram-rival-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 392
+    },
+    "S": {
+     "stack": 549,
+     "reach": 403
+    },
+    "M": {
+     "stack": 570,
+     "reach": 412
+    },
+    "L": {
+     "stack": 594,
+     "reach": 420
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah 3.0 SRAM Rival AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID287",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-disc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 493,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 516,
+     "reach": 378
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 393
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 616,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Disc Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSNHDRID048",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-fast-3-0-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 497,
+     "reach": 386
+    },
+    "XS": {
+     "stack": 504,
+     "reach": 399
+    },
+    "S": {
+     "stack": 521,
+     "reach": 410
+    },
+    "M": {
+     "stack": 541,
+     "reach": 420
+    },
+    "L": {
+     "stack": 565,
+     "reach": 428
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Fast 3.0 Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSNF3RID051",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-fast-3-0-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 497,
+     "reach": 386
+    },
+    "XS": {
+     "stack": 504,
+     "reach": 399
+    },
+    "S": {
+     "stack": 521,
+     "reach": 410
+    },
+    "M": {
+     "stack": 541,
+     "reach": 420
+    },
+    "L": {
+     "stack": 565,
+     "reach": 428
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Fast 3.0 Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINF3RID170",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-fast-3-0-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 497,
+     "reach": 386
+    },
+    "XS": {
+     "stack": 504,
+     "reach": 399
+    },
+    "S": {
+     "stack": 521,
+     "reach": 410
+    },
+    "M": {
+     "stack": 541,
+     "reach": 420
+    },
+    "L": {
+     "stack": 565,
+     "reach": 428
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Fast 3.0 Shimano Ultegra Di2 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINF3RID168",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-fast-3-0-sram-force-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 497,
+     "reach": 386
+    },
+    "XS": {
+     "stack": 504,
+     "reach": 399
+    },
+    "S": {
+     "stack": 521,
+     "reach": 410
+    },
+    "M": {
+     "stack": 541,
+     "reach": 420
+    },
+    "L": {
+     "stack": 565,
+     "reach": 428
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Fast 3.0 SRAM Force AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINF3RID238",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-fast-3-0-sram-red-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 497,
+     "reach": 386
+    },
+    "XS": {
+     "stack": 504,
+     "reach": 399
+    },
+    "S": {
+     "stack": 521,
+     "reach": 410
+    },
+    "M": {
+     "stack": 541,
+     "reach": 420
+    },
+    "L": {
+     "stack": 565,
+     "reach": 428
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Fast 3.0 SRAM Red AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINF3RID183",
+   "checked": "2026-11-03"
+  },
+  "ridley-noah-fast-disc-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 493,
+     "reach": 375
+    },
+    "XS": {
+     "stack": 516,
+     "reach": 378
+    },
+    "S": {
+     "stack": 541,
+     "reach": 385
+    },
+    "M": {
+     "stack": 565,
+     "reach": 393
+    },
+    "L": {
+     "stack": 591,
+     "reach": 401
+    },
+    "XL": {
+     "stack": 616,
+     "reach": 409
+    }
+   },
+   "brand": "Ridley",
+   "name": "Noah Fast Disc Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSNFDRID088",
+   "checked": "2026-11-03"
+  },
+  "ridley-triton-fast-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 476,
+     "reach": 406
+    },
+    "S": {
+     "stack": 508,
+     "reach": 420
+    },
+    "M": {
+     "stack": 538,
+     "reach": 450
+    },
+    "L": {
+     "stack": 568,
+     "reach": 480
+    }
+   },
+   "brand": "Ridley",
+   "name": "Triton Fast Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSTRIRID015",
+   "checked": "2026-11-03"
+  },
+  "ridley-triton-fast-sram-force-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 476,
+     "reach": 406
+    },
+    "S": {
+     "stack": 508,
+     "reach": 420
+    },
+    "M": {
+     "stack": 538,
+     "reach": 450
+    },
+    "L": {
+     "stack": 568,
+     "reach": 480
+    }
+   },
+   "brand": "Ridley",
+   "name": "Triton Fast SRAM Force XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBITRIRID045",
+   "checked": "2026-11-03"
+  },
+  "ridley-triton-fast-sram-red-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 476,
+     "reach": 406
+    },
+    "S": {
+     "stack": 508,
+     "reach": 420
+    },
+    "M": {
+     "stack": 538,
+     "reach": 450
+    },
+    "L": {
+     "stack": 568,
+     "reach": 480
+    }
+   },
+   "brand": "Ridley",
+   "name": "Triton Fast SRAM Red XPLR 1x13",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBITRIRID049",
+   "checked": "2026-11-03"
+  },
+  "ridley-triton-fast-sram-rival-axs-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 476,
+     "reach": 406
+    },
+    "S": {
+     "stack": 508,
+     "reach": 420
+    },
+    "M": {
+     "stack": 538,
+     "reach": 450
+    },
+    "L": {
+     "stack": 568,
+     "reach": 480
+    }
+   },
+   "brand": "Ridley",
+   "name": "Triton Fast SRAM Rival AXS 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBITRIRID041",
+   "checked": "2026-11-03"
+  },
+  "ridley-x-night-rs-classified-rival-axs-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 497,
+     "reach": 382
+    },
+    "S": {
+     "stack": 526,
+     "reach": 384
+    },
+    "M": {
+     "stack": 552,
+     "reach": 391
+    },
+    "L": {
+     "stack": 573,
+     "reach": 405
+    }
+   },
+   "brand": "Ridley",
+   "name": "X-Night RS Classified Rival AXS 1x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRSRID006",
+   "checked": "2026-11-03"
+  },
+  "ridley-x-night-rs-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 497,
+     "reach": 382
+    },
+    "S": {
+     "stack": 526,
+     "reach": 384
+    },
+    "M": {
+     "stack": 552,
+     "reach": 391
+    },
+    "L": {
+     "stack": 573,
+     "reach": 405
+    }
+   },
+   "brand": "Ridley",
+   "name": "X-Night RS Frameset",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/FFSXRSRID003",
+   "checked": "2026-11-03"
+  },
+  "ridley-x-ride-disc-shimano-grx-600-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "2XS": {
+     "stack": 496,
+     "reach": 382
+    },
+    "XS": {
+     "stack": 512,
+     "reach": 383
+    },
+    "S": {
+     "stack": 529,
+     "reach": 383
+    },
+    "M": {
+     "stack": 550,
+     "reach": 382
+    },
+    "L": {
+     "stack": 571,
+     "reach": 391
+    },
+    "XL": {
+     "stack": 595,
+     "reach": 399
+    }
+   },
+   "brand": "Ridley",
+   "name": "X-Ride Disc Shimano GRX 600 2x12",
+   "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID970",
+   "checked": "2026-11-03"
   },
   "specialized-aethos-2-expert-shimano-ultegra-di2": {
    "source": "geometry",

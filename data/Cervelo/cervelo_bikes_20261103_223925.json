@@ -1,0 +1,2324 @@
+[
+  {
+    "name": "Caledonia 105",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-105-2027",
+    "sku": "0L0CAB112A",
+    "price": 2999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.63 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo Alloy 27.2",
+      "Zadel": "Cervélo Saddle",
+      "Bottom bracket": "FSA, T47 BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision Team i23 Disc, 23mm IW, J-Bend, 12x100mm, 6 bolt, tubeless compatible",
+      "Wiel achter": "Vision Team i23 Disc, 23mm IW, J-Bend, 12x142mm, HG freehub, 6 bolt, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "Shimano 105, R7120",
+      "Crankstel": "Shimano 105, R7100, 52/36T",
+      "Ketting": "Shimano M7100",
+      "Cassette": "Shimano 105, R7101, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano 105, R7100",
+      "Achterderailleur": "Shimano 105, R7100",
+      "Remschijf": "Shimano RT66 6-Bolt"
+    },
+    "color_names": [
+      "Nightshift",
+      "Mocha"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CAB112A_PROFILE-WEB-RESIZED_4bf8b748-2a2b-4cc5-92f4-ff6c08cb2d02.png?v=1792024371",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CAB112A_PROFILE-WEB-RESIZED_4bf8b748-2a2b-4cc5-92f4-ff6c08cb2d02.png?v=1792024371",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CAB111A_PROFILE-WEB-RESIZED_732c84b2-af1e-42fd-a8ff-e9d6ebb0996b.png?v=1792024371"
+    ],
+    "image": "Cervelo/Caledonia_105.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_105_colour_Nightshift.jpg",
+      "Cervelo/Caledonia_105_colour_Mocha.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia 105 Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-105-di2-2027",
+    "sku": "0L0CAB1I1A",
+    "price": 3999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.21 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Cervélo Saddle",
+      "Bottom bracket": "FSA, T47 BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision Team i23 Disc, 23mm IW, direct pull, 12x100mm, centerlock, tubeless compatible",
+      "Wiel achter": "Vision Team i23 Disc, 23mm IW, direct pull, 12x142mm, HG freehub, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "Shimano 105, R7170",
+      "Crankstel": "Shimano 105, R7100, 52/36T",
+      "Ketting": "Shimano M7100",
+      "Cassette": "Shimano 105, R7101, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano 105, R7150",
+      "Achterderailleur": "Shimano 105, R7150",
+      "Remschijf": "Shimano CL700 Centerlock"
+    },
+    "color_names": [
+      "Mocha",
+      "Nightshift"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CAB1I1A_PROFILE-WEB-RESIZED_012472bc-3b49-45ae-8c99-8993e3e616cb.png?v=1792024372",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CAB1I1A_PROFILE-WEB-RESIZED_012472bc-3b49-45ae-8c99-8993e3e616cb.png?v=1792024372",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CAB1I2A_PROFILE-WEB-RESIZED_0f8a16da-4ef8-41ad-9caf-9c9347bbb290.png?v=1792024368"
+    ],
+    "image": "Cervelo/Caledonia_105_Di2.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_105_Di2_colour_Mocha.jpg",
+      "Cervelo/Caledonia_105_Di2_colour_Nightshift.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia Force AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-force-axs-2027",
+    "sku": "0L0CABFX1C",
+    "price": 5999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.69 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Prologo Nago R4 PAS Steel",
+      "Bottom bracket": "SRAM DUB, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 40, Reserve hub, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 44, Reserve hub, 4 Pawl, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x30c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force AXS E1, 48/35T, DUB",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-36T, 12-Speed",
+      "Voorderailleur": "SRAM Force AXS E1",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Mocha",
+      "Nightshift"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CABFX1C_PROFILE-WEB-RESIZED_15cc9033-fef0-4612-8af4-593d3cb5033f.png?v=1792024359",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CABFX1C_PROFILE-WEB-RESIZED_15cc9033-fef0-4612-8af4-593d3cb5033f.png?v=1792024359",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CABFX2C_PROFILE-WEB-RESIZED_aef84710-7516-4bce-a3c3-739c658b9053.png?v=1792024356"
+    ],
+    "image": "Cervelo/Caledonia_Force_AXS.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_Force_AXS_colour_Mocha.jpg",
+      "Cervelo/Caledonia_Force_AXS_colour_Nightshift.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia Rival AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-rival-axs-2027",
+    "sku": "0L0CABVX2A",
+    "price": 3999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.31 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Cervélo Saddle",
+      "Bottom bracket": "SRAM DUB, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision Team i23 Disc, 23mm IW, direct pull, 12x100mm, centerlock, tubeless compatible",
+      "Wiel achter": "Vision Team i23 Disc, 23mm IW, direct pull, 12x142mm, XDR freehub, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "SRAM Rival AXS E1",
+      "Crankstel": "SRAM Rival AXS E1, 48/35T, DUB",
+      "Ketting": "SRAM Rival E1",
+      "Cassette": "SRAM Rival D1, 10-36T, 12-Speed",
+      "Voorderailleur": "SRAM Rival AXS E1",
+      "Achterderailleur": "SRAM Rival AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Nightshift",
+      "Mocha"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CABVX2A_PROFILE-WEB-RESIZED_33981362-5078-41fb-bd4a-3dd6b342827e.png?v=1792024375",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CABVX2A_PROFILE-WEB-RESIZED_33981362-5078-41fb-bd4a-3dd6b342827e.png?v=1792024375",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0CABVX1A_PROFILE-WEB-RESIZED_b2eee3fe-eb42-4cbe-8eeb-bdf61f4748c8.png?v=1792024370"
+    ],
+    "image": "Cervelo/Caledonia_Rival_AXS.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_Rival_AXS_colour_Nightshift.jpg",
+      "Cervelo/Caledonia_Rival_AXS_colour_Mocha.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia-5 Dura-Ace Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-5-dura-ace-di2-2027",
+    "sku": "0M0CFBDI2C",
+    "price": 9999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.02 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia-5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Nack Lightweight",
+      "Bottom bracket": "Ceramic Speed SL, BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 240 Dicut, 12x142mm, HG freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Control TLR G2.0 700x32c",
+      "Shifter": "Shimano Dura-Ace, R9270",
+      "Crankstel": "Shimano Dura-Ace, R9200, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M9100",
+      "Cassette": "Shimano Dura-Ace, R9200, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Dura-Ace, R9250",
+      "Achterderailleur": "Shimano Dura-Ace, R9250",
+      "Remschijf": "Shimano CL900 Centerlock"
+    },
+    "color_names": [
+      "Sandstone",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBDI2C_PROFILE-WEB-RESIZED_6d596753-f131-44d4-a96c-04f9812823d3.png?v=1792024406",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBDI2C_PROFILE-WEB-RESIZED_6d596753-f131-44d4-a96c-04f9812823d3.png?v=1792024406",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBDI1C_PROFILE-WEB-RESIZED_b3b844c6-bcf1-4fbd-8dbb-01d656b8710f.png?v=1792024405"
+    ],
+    "image": "Cervelo/Caledonia_5_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_5_Dura_Ace_Di2_colour_Sandstone.jpg",
+      "Cervelo/Caledonia_5_Dura_Ace_Di2_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia-5 Force AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-5-force-axs-2027",
+    "sku": "0M0CFBFX1C",
+    "price": 6999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.38 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia-5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Tirox Lightweight",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 350, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-36T, 12-Speed",
+      "Voorderailleur": "SRAM Force AXS E1",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Five Black",
+      "Sandstone"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBFX1C_PROFILE-WEB-RESIZED_d2ef5a13-e4a1-4b28-984e-a230a126177f.png?v=1792024403",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBFX1C_PROFILE-WEB-RESIZED_d2ef5a13-e4a1-4b28-984e-a230a126177f.png?v=1792024403",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBFX2C_PROFILE-WEB-RESIZED_0ccaf085-0cc9-49b0-a745-f634e82c2f72.png?v=1792024404"
+    ],
+    "image": "Cervelo/Caledonia_5_Force_AXS.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_5_Force_AXS_colour_Five_Black.jpg",
+      "Cervelo/Caledonia_5_Force_AXS_colour_Sandstone.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia-5 Red AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-5-red-axs-2027",
+    "sku": "0M0CFBRX1C",
+    "price": 9999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.06 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia-5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Nack Lightweight",
+      "Bottom bracket": "SRAM DUB Ceramic, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 240 Dicut, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Control TLR G2.0 700x32c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red E1, 10-36T, 12-Speed",
+      "Voorderailleur": "SRAM Red AXS E1",
+      "Achterderailleur": "SRAM Red AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Five Black",
+      "Sandstone"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBRX1C_PROFILE-WEB-RESIZED_294d7f44-8dd8-42fa-8e30-3c96cea4a195.png?v=1792024400",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBRX1C_PROFILE-WEB-RESIZED_294d7f44-8dd8-42fa-8e30-3c96cea4a195.png?v=1792024400",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBRX2C_PROFILE-WEB-RESIZED_61707322-5ac6-4846-b53c-d476183f2034.png?v=1792024400"
+    ],
+    "image": "Cervelo/Caledonia_5_Red_AXS.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_5_Red_AXS_colour_Five_Black.jpg",
+      "Cervelo/Caledonia_5_Red_AXS_colour_Sandstone.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia-5 Rival AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-5-rival-axs-2027",
+    "sku": "0M0CFBVX1C",
+    "price": 5999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.77 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia-5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Tirox Lightweight",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 370, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 370, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "SRAM Rival AXS E1",
+      "Crankstel": "SRAM Rival AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Rival E1",
+      "Cassette": "SRAM Rival D1, 10-36T, 12-Speed",
+      "Voorderailleur": "SRAM Rival AXS E1",
+      "Achterderailleur": "SRAM Rival AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Five Black",
+      "Sandstone"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBVX1C_PROFILE-WEB-RESIZED_9c2f5aad-3391-4d28-9b11-bdf6c4ac919b.png?v=1792024410",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBVX1C_PROFILE-WEB-RESIZED_9c2f5aad-3391-4d28-9b11-bdf6c4ac919b.png?v=1792024410",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBVX2C_PROFILE-WEB-RESIZED_ac3a837f-687f-4fe8-8a7f-91c24a037c11.png?v=1792024410"
+    ],
+    "image": "Cervelo/Caledonia_5_Rival_AXS.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_5_Rival_AXS_colour_Five_Black.jpg",
+      "Cervelo/Caledonia_5_Rival_AXS_colour_Sandstone.jpg"
+    ]
+  },
+  {
+    "name": "Caledonia-5 Ultegra Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/caledonia-5-ultegra-di2-2027",
+    "sku": "0M0CFBUI2C",
+    "price": 6999.0,
+    "category": "Endurance",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.42 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Caledonia-5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Tirox Lightweight",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 350, 12x142mm, HG freehub 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "Shimano Ultegra, R8170",
+      "Crankstel": "Shimano Ultegra, R8100, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano Ultegra, R8100, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Ultegra, R8150",
+      "Achterderailleur": "Shimano Ultegra, R8150",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Sandstone",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBUI2C_PROFILE-WEB-RESIZED_e9975bd6-af8b-4a40-9261-5e748918c372.png?v=1792024414",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBUI2C_PROFILE-WEB-RESIZED_e9975bd6-af8b-4a40-9261-5e748918c372.png?v=1792024414",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0CFBUI1C_PROFILE-WEB-RESIZED_eedd8970-3141-41d9-92cb-2a302f581efc.png?v=1792024417"
+    ],
+    "image": "Cervelo/Caledonia_5_Ultegra_Di2.jpg",
+    "color_images": [
+      "Cervelo/Caledonia_5_Ultegra_Di2_colour_Sandstone.jpg",
+      "Cervelo/Caledonia_5_Ultegra_Di2_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "Aspero Apex 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-apex-1-2027",
+    "sku": "0M0ASBA11A",
+    "price": 3199.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.43 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo Alloy 27.2",
+      "Zadel": "Fizik Vento Argo X5",
+      "Bottom bracket": "SRAM DUB Wide, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Vision Team 30 Disc, 27mm IW, J-Bend, 12x100mm, centerlock, tubeless compatible",
+      "Wiel achter": "Vision Team 30 Disc, 27mm IW, J-Bend, 12x142mm, HG freehub, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA 60tpi 700x45c",
+      "Shifter": "SRAM Apex D1",
+      "Crankstel": "SRAM Apex 1, 46T, DUB Wide",
+      "Ketting": "SRAM S200 Eagle",
+      "Cassette": "SRAM PG 1210 Eagle, 12-Speed",
+      "Achterderailleur": "SRAM Apex EAGLE D1",
+      "Remschijf": "SRAM Centerline Centerlock"
+    },
+    "color_names": [
+      "Quarry",
+      "Dusty Unicorn"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBA11A_PROFILE-WEB-RESIZED_bcbaabcf-e27a-4f3f-b0dd-957ab868c388.png?v=1792024427",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBA11A_PROFILE-WEB-RESIZED_bcbaabcf-e27a-4f3f-b0dd-957ab868c388.png?v=1792024427",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBA12A_PROFILE-WEB-RESIZED_5767495e-7c46-4ea1-a7a8-24c76ff4a77f.png?v=1792024424"
+    ],
+    "image": "Cervelo/Aspero_Apex_1.jpg",
+    "color_images": [
+      "Cervelo/Aspero_Apex_1_colour_Quarry.jpg",
+      "Cervelo/Aspero_Apex_1_colour_Dusty_Unicorn.jpg"
+    ]
+  },
+  {
+    "name": "Aspero Apex AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-apex-axs-1-2027",
+    "sku": "0M0ASBAE2A",
+    "price": 4499.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.33 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo AB09 Carbon, 31.8mm clamp, 16 degree flare",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Fizik Vento Argo X3",
+      "Bottom bracket": "SRAM DUB Wide, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 30 GR AL, Reserve 4LD, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 30 GR AL, Reserve 4LD, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA SG 120tpi 700x45c",
+      "Shifter": "SRAM Apex AXS D1",
+      "Crankstel": "SRAM Apex 1, 46T, DUB Wide",
+      "Ketting": "SRAM Eagle 70, T-Type",
+      "Cassette": "SRAM XS 1270 Eagle Transmission, 12-Speed",
+      "Achterderailleur": "SRAM S1000 Eagle AXS",
+      "Remschijf": "SRAM Centerline Centerlock"
+    },
+    "color_names": [
+      "Dusty Unicorn",
+      "Quarry"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBAE2A_PROFILE-WEB-RESIZED_4ce9d978-bba4-4222-a947-1654e5b3958c.png?v=1792024420",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBAE2A_PROFILE-WEB-RESIZED_4ce9d978-bba4-4222-a947-1654e5b3958c.png?v=1792024420",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBAE1A_PROFILE-WEB-RESIZED_4f7d4e5b-14bc-40e8-842d-647d9e58d2be.png?v=1792024424"
+    ],
+    "image": "Cervelo/Aspero_Apex_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/Aspero_Apex_AXS_1_colour_Dusty_Unicorn.jpg",
+      "Cervelo/Aspero_Apex_AXS_1_colour_Quarry.jpg"
+    ]
+  },
+  {
+    "name": "Aspero Force AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-force-axs-1-2027",
+    "sku": "0M0ASBFE1C",
+    "price": 6499.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.61 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo AB09 Carbon, 31.8mm clamp, 16 degree flare",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Fizik Vento Argo X3",
+      "Bottom bracket": "SRAM DUB Wide, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 48 GR, DT Swiss 370, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 53 GR, DT Swiss 370, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA SG 120tpi 700x45c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force XPLR AXS E1, 46T, DUB, with power meter",
+      "Ketting": "SRAM X0 Eagle, T-Type",
+      "Cassette": "SRAM X0 Eagle, T-Type, 10-52T, 12-Speed",
+      "Achterderailleur": "SRAM X0 Eagle AXS, T-Type",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Quarry",
+      "Dusty Unicorn"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBFE1C_PROFILE-WEB-RESIZED_1a4e503d-2e18-44cb-a125-6cd331ba2bba.png?v=1792024409",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBFE1C_PROFILE-WEB-RESIZED_1a4e503d-2e18-44cb-a125-6cd331ba2bba.png?v=1792024409",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBFE2C_PROFILE-WEB-RESIZED_0914bb10-0a0c-4af2-8806-de1f99e39f82.png?v=1792024413"
+    ],
+    "image": "Cervelo/Aspero_Force_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/Aspero_Force_AXS_1_colour_Quarry.jpg",
+      "Cervelo/Aspero_Force_AXS_1_colour_Dusty_Unicorn.jpg"
+    ]
+  },
+  {
+    "name": "Aspero GRX RX610 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-grx-rx610-1-2027",
+    "sku": "0M0ASB612A",
+    "price": 3399.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.23 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo Alloy 27.2",
+      "Zadel": "Fizik Vento Argo X5",
+      "Bottom bracket": "FSA, T47 BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Vision Team 30 Disc, 27mm IW, J-Bend, 12x100mm, centerlock, tubeless compatible",
+      "Wiel achter": "Vision Team 30 Disc, 27mm IW, J-Bend, 12x142mm, MS freehub, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA 60tpi 700x45c",
+      "Crankstel": "Shimano GRX 610, 40T",
+      "Kettingblad": "Wolf Tooth Components 46T Chainring for GRX",
+      "Ketting": "Shimano M7100",
+      "Cassette": "Shimano M6200, 10-51",
+      "Achterderailleur": "Shimano GRX, RX822 SGS",
+      "Remschijf": "Shimano CL700 Centerlock"
+    },
+    "color_names": [
+      "Dusty Unicorn",
+      "Quarry"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASB612A_PROFILE-WEB-RESIZED_965d195b-32d4-4d9b-acbf-660e2e9d2756.png?v=1792024416",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASB612A_PROFILE-WEB-RESIZED_965d195b-32d4-4d9b-acbf-660e2e9d2756.png?v=1792024416",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASB611A_PROFILE-WEB-RESIZED_8fa06b3f-2b2e-42a6-95c6-ac0d04594b61.png?v=1792024420"
+    ],
+    "image": "Cervelo/Aspero_GRX_RX610_1.jpg",
+    "color_images": [
+      "Cervelo/Aspero_GRX_RX610_1_colour_Dusty_Unicorn.jpg",
+      "Cervelo/Aspero_GRX_RX610_1_colour_Quarry.jpg"
+    ]
+  },
+  {
+    "name": "Aspero GRX RX827 Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-grx-rx827-di2-2027",
+    "sku": "0M0ASBG12C",
+    "price": 6499.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.08 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo AB09 Carbon, 31.8mm clamp, 16 degree flare",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Fizik Vento Argo X3",
+      "Bottom bracket": "FSA, T47 BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 48 GR, DT Swiss 370, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 53 GR, DT Swiss 370, 12x142mm, MS freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA SG 120tpi 700x45c",
+      "Shifter": "Shimano GRX, RX825",
+      "Crankstel": "Shimano GRX, RX820",
+      "Kettingblad": "Wolf Tooth Components 46T Chainring for GRX",
+      "Vermogensmeter": "4iiii Precision, GEN3+ Single Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano XT, M8200, 10-51T, 12-Speed",
+      "Achterderailleur": "Shimano GRX, RX827 SGS",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Dusty Unicorn",
+      "Quarry"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBG12C_PROFILE-WEB-RESIZED_849d1a32-60d6-4bf6-b72d-619604bb3d4e.png?v=1792024435",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBG12C_PROFILE-WEB-RESIZED_849d1a32-60d6-4bf6-b72d-619604bb3d4e.png?v=1792024435",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBG11C_PROFILE-WEB-RESIZED_f2d0e581-a776-40b2-8639-e0f441a02d82.png?v=1792024439"
+    ],
+    "image": "Cervelo/Aspero_GRX_RX827_Di2.jpg",
+    "color_images": [
+      "Cervelo/Aspero_GRX_RX827_Di2_colour_Dusty_Unicorn.jpg",
+      "Cervelo/Aspero_GRX_RX827_Di2_colour_Quarry.jpg"
+    ]
+  },
+  {
+    "name": "Aspero Rival AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-rival-axs-1-2027",
+    "sku": "0M0ASBXE1C",
+    "price": 5499.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.85 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo AB09 Carbon, 31.8mm clamp, 16 degree flare",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Fizik Vento Argo X3",
+      "Bottom bracket": "SRAM DUB Wide, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 40TA GR, Reserve hub, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 44TA GR, Reserve hub, 4 Pawl, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA SG 120tpi 700x45c",
+      "Shifter": "SRAM Rival AXS E1",
+      "Crankstel": "SRAM Rival 1 AXS E1, 46T, DUB Wide",
+      "Ketting": "SRAM Eagle 70, T-Type",
+      "Cassette": "SRAM GX Eagle, 10-52",
+      "Achterderailleur": "SRAM GX Eagle AXS",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Quarry",
+      "Dusty Unicorn"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBXE1C_PROFILE-WEB-RESIZED_41830aa9-8678-4080-bea1-3988bbf2212a.png?v=1792024426",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBXE1C_PROFILE-WEB-RESIZED_41830aa9-8678-4080-bea1-3988bbf2212a.png?v=1792024426",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ASBXE2C_PROFILE-WEB-RESIZED_9dd22d71-c0b9-43b7-bf46-8e764869a695.png?v=1792024426"
+    ],
+    "image": "Cervelo/Aspero_Rival_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/Aspero_Rival_AXS_1_colour_Quarry.jpg",
+      "Cervelo/Aspero_Rival_AXS_1_colour_Dusty_Unicorn.jpg"
+    ]
+  },
+  {
+    "name": "Aspero-5 Force AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-5-force-axs-1-2027",
+    "sku": "0M0ALBFE1C",
+    "price": 8299.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.18 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero-5 Fork",
+      "Stuur": "Cervélo HB16 Carbon, 31.8mm clamp",
+      "Stuurpen": "Cervélo ST31 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Vento Argo X3",
+      "Bottom bracket": "SRAM DUB Wide Ceramic, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 48 GR, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 53 GR, DT Swiss 350, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Control TLR G2.0 700x42c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force 1 AXS E1, 48T Aero, DUB Wide, with power meter",
+      "Ketting": "SRAM X0 Eagle, T-Type",
+      "Cassette": "SRAM X0 Eagle, T-Type, 10-52T, 12-Speed",
+      "Achterderailleur": "SRAM X0 Eagle AXS, T-Type",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Five Black",
+      "Digital Moss"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBFE1C_PROFILE-WEB-RESIZED_a3dc112e-dc4b-41b5-82d0-ed9e583e51f1.png?v=1792024356",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBFE1C_PROFILE-WEB-RESIZED_a3dc112e-dc4b-41b5-82d0-ed9e583e51f1.png?v=1792024356",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBFE2C_PROFILE-WEB-RESIZED_f7978bda-e5a4-4fe7-9ded-e6aa1957fbf7.png?v=1792024360"
+    ],
+    "image": "Cervelo/Aspero_5_Force_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/Aspero_5_Force_AXS_1_colour_Five_Black.jpg",
+      "Cervelo/Aspero_5_Force_AXS_1_colour_Digital_Moss.jpg"
+    ]
+  },
+  {
+    "name": "Aspero-5 GRX RX827 Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-5-grx-rx827-di2-2027",
+    "sku": "0M0ALBG12C",
+    "price": 8299.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.24 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo HB16 Carbon, 31.8mm clamp",
+      "Stuurpen": "Cervélo ST31 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Vento Argo X3",
+      "Bottom bracket": "Ceramic Speed SL, T47 BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 48 GR, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 53 GR, DT Swiss 350, 12x142mm, MS freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Control TLR G2.0 700x42c",
+      "Shifter": "Shimano GRX, RX825",
+      "Crankstel": "Shimano GRX, RX820",
+      "Kettingblad": "Wolf Tooth Components Aero 48T Chainring for GRX",
+      "Vermogensmeter": "4iiii Precision, GEN3+ Single Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano XTR, M9200, 10-51T, 12-Speed",
+      "Achterderailleur": "Shimano GRX, RX827 SGS",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Digital Moss",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBG12C_PROFILE-WEB-RESIZED_894f9a02-4f31-4bed-9f49-9f6f0eb40979.png?v=1792024360",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBG12C_PROFILE-WEB-RESIZED_894f9a02-4f31-4bed-9f49-9f6f0eb40979.png?v=1792024360",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBG11C_PROFILE-WEB-RESIZED_1e13a51f-928b-464c-b2dd-79d92dae01ac.png?v=1792024356"
+    ],
+    "image": "Cervelo/Aspero_5_GRX_RX827_Di2.jpg",
+    "color_images": [
+      "Cervelo/Aspero_5_GRX_RX827_Di2_colour_Digital_Moss.jpg",
+      "Cervelo/Aspero_5_GRX_RX827_Di2_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "Aspero-5 Red AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/aspero-5-red-axs-2027",
+    "sku": "0M0ALBRE2C",
+    "price": 11499.0,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.86 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Aspero Fork",
+      "Stuur": "Cervélo HB16 Carbon, 31.8mm clamp",
+      "Stuurpen": "Cervélo ST31 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Vento Argo X1",
+      "Bottom bracket": "SRAM DUB Wide Ceramic, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 48 GR, DT Swiss 240, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 53 GR, DT Swiss 240, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Control TLR G2.0 700x42c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red 1 AXS E1, 48T Aero, DUB Wide, with power meter",
+      "Ketting": "SRAM XX SL Eagle, T-Type",
+      "Cassette": "SRAM XX SL Eagle, T-Type, 10-52T, 12-Speed",
+      "Achterderailleur": "SRAM XX SL Eagle AXS, T-Type",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Digital Moss",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBRE2C_PROFILE-WEB-RESIZED_cff6ad18-fc04-43b9-85cd-812d8ac08676.png?v=1792024356",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBRE2C_PROFILE-WEB-RESIZED_cff6ad18-fc04-43b9-85cd-812d8ac08676.png?v=1792024356",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ALBRE1C_PROFILE-WEB-RESIZED_6f0a759d-c4f4-42de-89eb-4fa1c987552d.png?v=1792024360"
+    ],
+    "image": "Cervelo/Aspero_5_Red_AXS.jpg",
+    "color_images": [
+      "Cervelo/Aspero_5_Red_AXS_colour_Digital_Moss.jpg",
+      "Cervelo/Aspero_5_Red_AXS_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "Rouvida Force XPLR 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/rouvida-force-xplr-1-e1-2027",
+    "sku": "0M0ERAXF2C",
+    "price": 8660.95,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "12.72 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Rouvida Fork",
+      "Stuur": "Cervélo AB09 Carbon, 31.8mm clamp, 16 degree flare",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Fizik Vento Argo X3",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 48 GR, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 53 GR, DT Swiss 350, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "WTB Vulpine TCS Light Fast Rolling Dual DNA 60tpi 700x40c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "FSA CK-703 Carbon for Fazua Ride 60",
+      "Kettingblad": "SRAM X-SYNC 44T",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force XPLR E1, 10-46T, 13-Speed",
+      "Achterderailleur": "SRAM Force XPLR AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Sulfur"
+    ],
+    "sizes": [
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ERAXF2C_PROFILE-WEB-RESIZED_d6a4c90d-9120-4760-bed0-3ef12074973c.png?v=1792024474",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ERAXF2C_PROFILE-WEB-RESIZED_d6a4c90d-9120-4760-bed0-3ef12074973c.png?v=1792024474"
+    ],
+    "image": "Cervelo/Rouvida_Force_XPLR_1.jpg",
+    "color_images": [
+      "Cervelo/Rouvida_Force_XPLR_1_colour_Sulfur.jpg"
+    ]
+  },
+  {
+    "name": "Rouvida Red XPLR",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/rouvida-red-xplr-e1-2027",
+    "sku": "0M0ERARR1C",
+    "price": 11017.95,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "11.9 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Rouvida Fork",
+      "Stuur": "Cervélo HB13 Carbon, 31.8mm clamp",
+      "Stuurpen": "Cervélo ST31 Carbon",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Prologo Nago R4 PAS Nack Lightweight",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 240 Dicut, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "FSA CK-703 Carbon for Fazua Ride 60",
+      "Kettingblad": "SRAM X-SYNC 46T",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red XPLR E1, 10-46T, 13-Speed",
+      "Achterderailleur": "SRAM Red XPLR AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Peacock"
+    ],
+    "sizes": [
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ERARR1C_PROFILE-WEB-RESIZED_173f4a51-70c8-4f20-b8a0-dcdc7473e2a3.png?v=1792024472",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ERARR1C_PROFILE-WEB-RESIZED_173f4a51-70c8-4f20-b8a0-dcdc7473e2a3.png?v=1792024472"
+    ],
+    "image": "Cervelo/Rouvida_Red_XPLR.jpg",
+    "color_images": [
+      "Cervelo/Rouvida_Red_XPLR_colour_Peacock.jpg"
+    ]
+  },
+  {
+    "name": "Rouvida Rival AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/rouvida-rival-axs-1-2027",
+    "sku": "0M0ERAXI1A",
+    "price": 6665.95,
+    "category": "Gravel",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "12.62 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Rouvida Fork",
+      "Stuur": "Cervélo HB23 alloy 400mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP19 Carbon 27.2",
+      "Zadel": "Prologo Nago R4 PAS Steel",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Vision Team 30 Disc, 25mm IW, 12x100mm, centerlock tubeless compatible",
+      "Wiel achter": "Vision Team 30 Disc, 25mm IW, 12x142mm, XDR freehub, centerlock tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x32c",
+      "Shifter": "SRAM Rival AXS E1",
+      "Crankstel": "FSA CK-703 Alloy for Fazua Ride 60",
+      "Kettingblad": "SRAM X-SYNC 46T",
+      "Ketting": "SRAM Rival E1",
+      "Cassette": "SRAM Rival XPLR E1, 10-46T, 13-Speed",
+      "Achterderailleur": "SRAM Rival XPLR AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Peacock"
+    ],
+    "sizes": [
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ERAXI1A_PROFILE-WEB-RESIZED_746c29c5-5f46-4501-a412-a1fec62b10ad.png?v=1792024471",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0ERAXI1A_PROFILE-WEB-RESIZED_746c29c5-5f46-4501-a412-a1fec62b10ad.png?v=1792024471"
+    ],
+    "image": "Cervelo/Rouvida_Rival_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/Rouvida_Rival_AXS_1_colour_Peacock.jpg"
+    ]
+  },
+  {
+    "name": "R5 Dura-Ace Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/r5-dura-ace-di2-2027",
+    "sku": "0L0R5HDI1C",
+    "price": 11999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "5.99 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered R5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Nack Lightweight",
+      "Bottom bracket": "Ceramic Speed SL, BBright for 24mm spindle",
+      "Balhoofdstel": "FSA SL IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 34TA SL, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 37TA SL, DT Swiss 180, 12x142mm, HG freehub 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Speed TLR G2.0 700x26c",
+      "Shifter": "Shimano Dura-Ace, R9270",
+      "Crankstel": "Shimano Dura-Ace, R9200, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M9100",
+      "Cassette": "Shimano Dura-Ace, R9200, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Dura-Ace, R9250",
+      "Achterderailleur": "Shimano Dura-Ace, R9250",
+      "Remschijf": "Shimano CL900 Centerlock"
+    },
+    "color_names": [
+      "Five Black Bronze"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HDI1C_PROFILE-WEB_cfd9bfc9-11ac-4f93-8441-9c4acb7a528d.png?v=1788368332",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HDI1C_PROFILE-WEB_cfd9bfc9-11ac-4f93-8441-9c4acb7a528d.png?v=1788368332"
+    ],
+    "image": "Cervelo/R5_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Cervelo/R5_Dura_Ace_Di2_colour_Five_Black_Bronze.jpg"
+    ]
+  },
+  {
+    "name": "R5 Force AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/r5-force-axs-2027",
+    "sku": "0L0R5HFX1C",
+    "price": 7999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "6.28 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered R5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Tirox Lightweight",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 34TA, DT Swiss 240, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 37TA, DT Swiss 240, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Speed TLR G2.0 700x26c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Force AXS E1",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Five Black Bronze",
+      "Five Black Silver"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HFX2C_PROFILE-WEB_674b48d3-07a3-43b7-9a49-6f56a34363fd.png?v=1788368336",
+    "color_image_urls": [
+      null,
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HFX2C_PROFILE-WEB_674b48d3-07a3-43b7-9a49-6f56a34363fd.png?v=1788368336"
+    ],
+    "image": "Cervelo/R5_Force_AXS.jpg",
+    "color_images": [
+      null,
+      "Cervelo/R5_Force_AXS_colour_Five_Black_Silver.jpg"
+    ]
+  },
+  {
+    "name": "R5 Red AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/r5-red-axs-2027",
+    "sku": "0L0R5HRX1C",
+    "price": 11999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "5.78 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered R5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Nack Lightweight",
+      "Bottom bracket": "SRAM DUB Ceramic, BBright",
+      "Balhoofdstel": "FSA SL IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 34TA SL, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 37TA SL, DT Swiss 180, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Speed TLR G2.0 700x26c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Red AXS E1",
+      "Achterderailleur": "SRAM Red AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Five Black Bronze"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HRX1C_PROFILE-WEB-RESIZED_2.png?v=1793217401",
+    "color_image_urls": [
+      null
+    ],
+    "image": "Cervelo/R5_Red_AXS.jpg",
+    "color_images": [
+      null
+    ]
+  },
+  {
+    "name": "R5 Red XPLR AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/r5-red-xplr-axs-1-2027",
+    "sku": "0L0R5HXR1C",
+    "price": 11999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "5.86 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered R5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Nack Lightweight",
+      "Bottom bracket": "SRAM DUB Ceramic, BBright",
+      "Balhoofdstel": "FSA SL IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 34TA SL, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 37TA SL, DT Swiss 180, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Speed TLR G2.0 700x26c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red 1 AXS E1, 48T Aero, DUB, with power meter",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red XPLR E1, 10-46T, 13-Speed",
+      "Achterderailleur": "SRAM Red XPLR AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Five Black Bronze"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HXR1C_PROFILE-WEB-RESIZED_2.png?v=1793217374",
+    "color_image_urls": [
+      null
+    ],
+    "image": "Cervelo/R5_Red_XPLR_AXS_1.jpg",
+    "color_images": [
+      null
+    ]
+  },
+  {
+    "name": "R5 Ultegra Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/r5-ultegra-di2-2027",
+    "sku": "0L0R5HUI1C",
+    "price": 7999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "6.45 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered R5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP33 Carbon",
+      "Zadel": "Prologo Nago R4 PAS Tirox Lightweight",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 34TA, DT Swiss 240, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 37TA, DT Swiss 240, 12x142mm, HG freehub 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro Speed TLR G2.0 700x26c",
+      "Shifter": "Shimano Ultegra, R8170",
+      "Crankstel": "Shimano Ultegra, R8100, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano Ultegra, R8100, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Ultegra, R8150",
+      "Achterderailleur": "Shimano Ultegra, R8150",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Five Black Bronze",
+      "Five Black Silver"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HUI1C_PROFILE-WEB_a9a2b832-410d-49f4-899b-77e1ed428904.png?v=1788368336",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HUI1C_PROFILE-WEB_a9a2b832-410d-49f4-899b-77e1ed428904.png?v=1788368336",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0L0R5HUI2C_PROFILE-WEB_c85846bf-f271-4d52-b790-dda2c52d6653.png?v=1788368336"
+    ],
+    "image": "Cervelo/R5_Ultegra_Di2.jpg",
+    "color_images": [
+      "Cervelo/R5_Ultegra_Di2_colour_Five_Black_Bronze.jpg",
+      "Cervelo/R5_Ultegra_Di2_colour_Five_Black_Silver.jpg"
+    ]
+  },
+  {
+    "name": "S5 Dura-Ace Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/s5-dura-ace-di2-2027",
+    "sku": "0M0S5GDI2C",
+    "price": 13999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.4 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet S5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB19 Carbon",
+      "Zadelpen": "Cervélo SP34 Carbon",
+      "Zadel": "Fizik Arione R1 Light",
+      "Bottom bracket": "Ceramic Speed SL, BBright for 24mm spindle",
+      "Balhoofdstel": "FSA SL IS2 1-1/8, 36° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 57TA, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 64TA, DT Swiss 180, 12x142mm, HG freehub 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "Shimano Dura-Ace, R9270",
+      "Crankstel": "Shimano Dura-Ace, R9200, 54/40T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M9100",
+      "Cassette": "Shimano Dura-Ace, R9200, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Dura-Ace, R9250",
+      "Achterderailleur": "Shimano Dura-Ace, R9250",
+      "Remschijf": "Shimano CL900 Centerlock"
+    },
+    "color_names": [
+      "Reef Blue",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GDI2C_PROFILE-WEB-RESIZED_c154861f-da0f-477a-b8b5-3498772609a5.png?v=1792024439",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GDI2C_PROFILE-WEB-RESIZED_c154861f-da0f-477a-b8b5-3498772609a5.png?v=1792024439",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GDI1C_PROFILE-WEB-RESIZED_3e1a1f26-7fc4-4971-8820-fad817ce34b3.png?v=1792024439"
+    ],
+    "image": "Cervelo/S5_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Cervelo/S5_Dura_Ace_Di2_colour_Reef_Blue.jpg",
+      "Cervelo/S5_Dura_Ace_Di2_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "S5 Force AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/s5-force-axs-2027",
+    "sku": "0M0S5GFX1C",
+    "price": 9999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.7 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet S5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB19 Carbon",
+      "Zadelpen": "Cervélo SP34 Carbon",
+      "Zadel": "Fizik Arione R1",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/8, 36° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 57TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 64TA, DT Swiss 240 Dicut, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force AXS E1, 50/37T, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Force AXS E1",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Five Black",
+      "Reef Blue"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GFX1C_PROFILE-WEB-RESIZED_18589860-f5ba-48cf-90c0-5786bdbb9871.png?v=1792024431",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GFX1C_PROFILE-WEB-RESIZED_18589860-f5ba-48cf-90c0-5786bdbb9871.png?v=1792024431",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GFX2C_PROFILE-WEB-RESIZED_7fb10c6e-cfc8-4c26-937a-78d880ca4cf6.png?v=1792024428"
+    ],
+    "image": "Cervelo/S5_Force_AXS.jpg",
+    "color_images": [
+      "Cervelo/S5_Force_AXS_colour_Five_Black.jpg",
+      "Cervelo/S5_Force_AXS_colour_Reef_Blue.jpg"
+    ]
+  },
+  {
+    "name": "S5 Red AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/s5-red-axs-2027",
+    "sku": "0M0S5GRX4C",
+    "price": 13999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.32 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet S5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB19 Carbon",
+      "Zadelpen": "Cervélo SP34 Carbon",
+      "Zadel": "Fizik Arione R1 Light",
+      "Bottom bracket": "SRAM DUB Ceramic, BBright",
+      "Balhoofdstel": "FSA SL IS2 1-1/8, 36° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 57TA, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 64TA, DT Swiss 180, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red AXS E1, 50/37T, DUB, with power meter",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Red AXS E1",
+      "Achterderailleur": "SRAM Red AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Maps Ltd",
+      "Reef Blue",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GRX4C_PROFILE-WEB-RESIZED.png?v=1793133181",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GRX4C_PROFILE-WEB-RESIZED.png?v=1793133181",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GRX2C_PROFILE-WEB-RESIZED_019b8f2a-ef9d-46e4-b33b-4dce88516fda.png?v=1792024440",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GRX1C_PROFILE-WEB-RESIZED_1cc95ba9-4e73-4a40-a24f-d993c52c5fbf.png?v=1792024436"
+    ],
+    "image": "Cervelo/S5_Red_AXS.jpg",
+    "color_images": [
+      "Cervelo/S5_Red_AXS_colour_Maps_Ltd.jpg",
+      "Cervelo/S5_Red_AXS_colour_Reef_Blue.jpg",
+      "Cervelo/S5_Red_AXS_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "S5 Red AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/s5-red-axs-1-2027",
+    "sku": "0M0S5GR11C",
+    "price": 13999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "6.74 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet S5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB19 Carbon",
+      "Zadelpen": "Cervélo SP34 Carbon",
+      "Zadel": "Fizik Arione R1 Light",
+      "Bottom bracket": "SRAM DUB Ceramic, BBright",
+      "Balhoofdstel": "FSA SL IS2 1-1/8, 36° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 180 Carbon Spoke, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 180 Carbon Spoke, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red 1 AXS E1, 50T Aero, DUB, with power meter",
+      "Ketting": "SRAM Red",
+      "Cassette": "SRAM Red E1, 10-36T, 12-Speed",
+      "Achterderailleur": "SRAM Red AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GR11C_PROFILE-WEB-RESIZED_1fa5e44c-02ae-4918-8404-9049cf89e992.png?v=1792024440",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GR11C_PROFILE-WEB-RESIZED_1fa5e44c-02ae-4918-8404-9049cf89e992.png?v=1792024440"
+    ],
+    "image": "Cervelo/S5_Red_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/S5_Red_AXS_1_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "S5 Ultegra Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/s5-ultegra-di2-2027",
+    "sku": "0M0S5GUI2C",
+    "price": 9999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.74 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet S5 Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB19 Carbon",
+      "Zadelpen": "Cervélo SP34 Carbon",
+      "Zadel": "Fizik Arione R1",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/8, 36° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 57TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 64TA, DT Swiss 240 Dicut, 12x142mm, HG freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "Shimano Ultegra, R8170",
+      "Crankstel": "Shimano Ultegra, R8100, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano Ultegra, R8100, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Ultegra, R8150",
+      "Achterderailleur": "Shimano Ultegra, R8150",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Reef Blue",
+      "Five Black",
+      "Infrared"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GUI2C_PROFILE-WEB-RESIZED_02a31369-8e9d-47f4-9cad-171da7dab335.png?v=1792024454",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GUI2C_PROFILE-WEB-RESIZED_02a31369-8e9d-47f4-9cad-171da7dab335.png?v=1792024454",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GUI1C_PROFILE-WEB-RESIZED_21f84e04-0214-4c83-a030-255d6cf0b646.png?v=1792024450",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0S5GUI3C_PROFILE-WEB_a1c7c370-6cd7-47f9-9773-bc40f58c6936.png?v=1792783794"
+    ],
+    "image": "Cervelo/S5_Ultegra_Di2.jpg",
+    "color_images": [
+      "Cervelo/S5_Ultegra_Di2_colour_Reef_Blue.jpg",
+      "Cervelo/S5_Ultegra_Di2_colour_Five_Black.jpg",
+      "Cervelo/S5_Ultegra_Di2_colour_Infrared.jpg"
+    ]
+  },
+  {
+    "name": "Soloist Force AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/soloist-force-axs-2027",
+    "sku": "0M0STBFX1C",
+    "price": 7499.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.05 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Soloist Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Arione R3",
+      "Bottom bracket": "SRAM DUB, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 350, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Force AXS E1",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Black Magic",
+      "Cloud Break"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBFX1C_PROFILE-WEB-RESIZED_ca3d7603-7031-44b6-a1bb-1179d2a2df34.png?v=1792024388",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBFX1C_PROFILE-WEB-RESIZED_ca3d7603-7031-44b6-a1bb-1179d2a2df34.png?v=1792024388",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBFX2C_PROFILE-WEB-RESIZED_acfeb034-db4a-4a7c-b755-fc90e300998c.png?v=1792024387"
+    ],
+    "image": "Cervelo/Soloist_Force_AXS.jpg",
+    "color_images": [
+      "Cervelo/Soloist_Force_AXS_colour_Black_Magic.jpg",
+      "Cervelo/Soloist_Force_AXS_colour_Cloud_Break.jpg"
+    ]
+  },
+  {
+    "name": "Soloist Force XPLR AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/soloist-force-xplr-axs-1-2027",
+    "sku": "0M0STBXF2C",
+    "price": 7499.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.09 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Soloist Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Arione R3",
+      "Bottom bracket": "SRAM DUB, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 350, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "SRAM Force AXS E1",
+      "Crankstel": "SRAM Force 1 AXS E1, 48T Aero, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force XPLR E1, 10-46T, 13-Speed",
+      "Achterderailleur": "SRAM Force XPLR AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Cloud Break"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBXF2C_PROFILE-WEB-RESIZED_fde96330-83e7-4cce-8e9d-20b68cdf07e8.png?v=1792024398",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBXF2C_PROFILE-WEB-RESIZED_fde96330-83e7-4cce-8e9d-20b68cdf07e8.png?v=1792024398"
+    ],
+    "image": "Cervelo/Soloist_Force_XPLR_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/Soloist_Force_XPLR_AXS_1_colour_Cloud_Break.jpg"
+    ]
+  },
+  {
+    "name": "Soloist Red AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/soloist-red-axs-2027",
+    "sku": "0M0STBRX1C",
+    "price": 10999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "6.86 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Soloist Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Arione R1 Light",
+      "Bottom bracket": "SRAM DUB Ceramic, T47 BBright",
+      "Balhoofdstel": "FSA SL IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 240 Dicut, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "SRAM Red AXS E1",
+      "Crankstel": "SRAM Red AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Red AXS E1",
+      "Achterderailleur": "SRAM Red AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Black Magic"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBRX1C_PROFILE-WEB-RESIZED_39d26d7e-25f9-4c1d-a489-23bd653941e7.png?v=1792024390",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBRX1C_PROFILE-WEB-RESIZED_39d26d7e-25f9-4c1d-a489-23bd653941e7.png?v=1792024390"
+    ],
+    "image": "Cervelo/Soloist_Red_AXS.jpg",
+    "color_images": [
+      "Cervelo/Soloist_Red_AXS_colour_Black_Magic.jpg"
+    ]
+  },
+  {
+    "name": "Soloist Rival AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/soloist-rival-axs-2027",
+    "sku": "0M0STBVX1C",
+    "price": 5999.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.41 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Soloist Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Arione R5",
+      "Bottom bracket": "SRAM DUB, T47 BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 40, Reserve hub, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 44, Reserve hub, 4 Pawl, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "SRAM Rival AXS E1",
+      "Crankstel": "SRAM Rival AXS E1, 48/35T, DUB, with power meter",
+      "Ketting": "SRAM Rival E1",
+      "Cassette": "SRAM Rival D1, 10-36T, 12-Speed",
+      "Voorderailleur": "SRAM Rival AXS E1",
+      "Achterderailleur": "SRAM Rival AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Black Magic",
+      "Cloud Break"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBVX1C_PROFILE-WEB-RESIZED_a10abe31-7986-4e38-890a-4831fe56bcea.png?v=1792024396",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBVX1C_PROFILE-WEB-RESIZED_a10abe31-7986-4e38-890a-4831fe56bcea.png?v=1792024396",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBVX2C_PROFILE-WEB-RESIZED_99bc00db-3d87-4d95-b977-c961cfc1c360.png?v=1792024396"
+    ],
+    "image": "Cervelo/Soloist_Rival_AXS.jpg",
+    "color_images": [
+      "Cervelo/Soloist_Rival_AXS_colour_Black_Magic.jpg",
+      "Cervelo/Soloist_Rival_AXS_colour_Cloud_Break.jpg"
+    ]
+  },
+  {
+    "name": "Soloist Ultegra Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/soloist-ultegra-di2-2027",
+    "sku": "0M0STBUI2C",
+    "price": 7499.0,
+    "category": "Race",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "7.13 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered Soloist Fork",
+      "Stuur/stuurpen (geïntegreerd)": "Cervélo HB18 Carbon",
+      "Zadelpen": "Cervélo SP27 Carbon",
+      "Zadel": "Fizik Arione R3",
+      "Bottom bracket": "FSA, T47 BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-1/2, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 122mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.0mm, 169mm length",
+      "Wiel voor": "Reserve 42TA, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 49TA, DT Swiss 350, 12x142mm, HG freehub 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "Shimano Ultegra, R8170",
+      "Crankstel": "Shimano Ultegra, R8100, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano Ultegra, R8100, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Ultegra, R8150",
+      "Achterderailleur": "Shimano Ultegra, R8150",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Cloud Break",
+      "Black Magic"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBUI2C_PROFILE-WEB-RESIZED_dfaf8232-b9d3-4c74-9fb9-fd20e24f8b8e.png?v=1792024390",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBUI2C_PROFILE-WEB-RESIZED_dfaf8232-b9d3-4c74-9fb9-fd20e24f8b8e.png?v=1792024390",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0STBUI1C_PROFILE-WEB-RESIZED_91cd0b90-cade-4163-84ff-6dc6f3fb74ae.png?v=1792024389"
+    ],
+    "image": "Cervelo/Soloist_Ultegra_Di2.jpg",
+    "color_images": [
+      "Cervelo/Soloist_Ultegra_Di2_colour_Cloud_Break.jpg",
+      "Cervelo/Soloist_Ultegra_Di2_colour_Black_Magic.jpg"
+    ]
+  },
+  {
+    "name": "P-Series 105",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p-series-105-2027",
+    "sku": "0M0PSF111C",
+    "price": 5299.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.78 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered P Fork",
+      "Stuur": "Profile Design Bracket Riser Kit 30mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Cervélo Tri Saddle",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision TC60 i23",
+      "Wiel achter": "Vision TC60 i23",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Rem": "Riderever Triva Carbon",
+      "Crankstel": "Shimano 105 R7100, 52/36T",
+      "Vermogensmeter": "4iiii Precision, GEN3+ Single Sided",
+      "Ketting": "Shimano M7100",
+      "Cassette": "Shimano 105, R7101, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano 105, R7100",
+      "Achterderailleur": "Shimano 105, R7100",
+      "Remschijf": "Shimano CL700 Centerlock"
+    },
+    "color_names": [
+      "Haleakala",
+      "Abyss"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSF111C_PROFILE-WEB-RESIZED_023a3579-76fe-4866-ab26-a0dbb1761d17.png?v=1792024371",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSF111C_PROFILE-WEB-RESIZED_023a3579-76fe-4866-ab26-a0dbb1761d17.png?v=1792024371",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSF112C_PROFILE-WEB-RESIZED_533a38c4-07f0-4474-9a26-351a71f3b602.png?v=1792024368"
+    ],
+    "image": "Cervelo/P_Series_105.jpg",
+    "color_images": [
+      "Cervelo/P_Series_105_colour_Haleakala.jpg",
+      "Cervelo/P_Series_105_colour_Abyss.jpg"
+    ]
+  },
+  {
+    "name": "P-Series 105 Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p-series-105-di2-2027",
+    "sku": "0M0PSF1I2C",
+    "price": 6499.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.54 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered P Fork",
+      "Stuur": "Profile Design Bracket Riser Kit 30mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R5",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision TC60 i23",
+      "Wiel achter": "Vision TC60 i23",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "Riderever Triva Carbon Di2 for Shimano SW-R9150 Shift Switch",
+      "Crankstel": "Shimano 105 R7100, 52/36T",
+      "Vermogensmeter": "4iiii Precision, GEN3+ Single Sided",
+      "Ketting": "Shimano M7100",
+      "Cassette": "Shimano 105, R7101, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano 105, R7150",
+      "Achterderailleur": "Shimano 105, R7150",
+      "Remschijf": "Shimano CL700 Centerlock"
+    },
+    "color_names": [
+      "Abyss",
+      "Haleakala"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSF1I2C_PROFILE-WEB-RESIZED_91b91367-afa3-4890-ba37-27b9394a335f.png?v=1792024381",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSF1I2C_PROFILE-WEB-RESIZED_91b91367-afa3-4890-ba37-27b9394a335f.png?v=1792024381",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSF1I1C_PROFILE-WEB-RESIZED_3aab9bd1-bb6c-4861-b2db-193cd6f5358d.png?v=1792024381"
+    ],
+    "image": "Cervelo/P_Series_105_Di2.jpg",
+    "color_images": [
+      "Cervelo/P_Series_105_Di2_colour_Abyss.jpg",
+      "Cervelo/P_Series_105_Di2_colour_Haleakala.jpg"
+    ]
+  },
+  {
+    "name": "P-Series Force AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p-series-force-axs-1-2027",
+    "sku": "0M0PSFF11C",
+    "price": 7999.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "8.75 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered P Fork",
+      "Stuur": "Profile Design A3A Low Riser Kit (5/10/20mm)",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R3",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "Profile Design WING bearing cap for P-Series",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 57TA, DT Swiss 350, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 64TA, DT Swiss 350, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Rem": "SRAM Force Aero",
+      "Crankstel": "SRAM Force 1 AXS E1, 48T Aero, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-36T, 12-Speed",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Haleakala"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFF11C_PROFILE-WEB-RESIZED_bd3ee406-755e-447f-92b6-b659fd39a45b.png?v=1792024380",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFF11C_PROFILE-WEB-RESIZED_bd3ee406-755e-447f-92b6-b659fd39a45b.png?v=1792024380"
+    ],
+    "image": "Cervelo/P_Series_Force_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/P_Series_Force_AXS_1_colour_Haleakala.jpg"
+    ]
+  },
+  {
+    "name": "P-Series Rival AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p-series-rival-axs-1-2027",
+    "sku": "0M0PSFV11C",
+    "price": 6499.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.28 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered P Fork",
+      "Stuur": "Profile Design Bracket Riser Kit 30mm",
+      "Stuurpen": "Cervélo ST36 Alloy",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R5",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/4, 45° x 45° / 1-3/8, 36° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision TC60 i23",
+      "Wiel achter": "Vision TC60 i23",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "Riderever Triva Carbon AXS for SRAM AXS Blip controller",
+      "Crankstel": "SRAM Rival AXS E1, 48T Aero, DUB, with power meter",
+      "Ketting": "SRAM Rival E1",
+      "Cassette": "SRAM Rival D1, 10-36T, 12-Speed",
+      "Achterderailleur": "SRAM Rival AXS E1",
+      "Remschijf": "Shimano CL700 Centerlock"
+    },
+    "color_names": [
+      "Haleakala"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFV11C_PROFILE-WEB-RESIZED_f0a18722-50b7-4cfd-a6e6-1d9d1ccef9ec.png?v=1792024389",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFV11C_PROFILE-WEB-RESIZED_f0a18722-50b7-4cfd-a6e6-1d9d1ccef9ec.png?v=1792024389"
+    ],
+    "image": "Cervelo/P_Series_Rival_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/P_Series_Rival_AXS_1_colour_Haleakala.jpg"
+    ]
+  },
+  {
+    "name": "P-Series Ultegra Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p-series-ultegra-di2-2027",
+    "sku": "0M0PSFUI2C",
+    "price": 7999.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.47 kgs",
+      "Voorvork": "Cervélo All-Carbon, Tapered P Fork",
+      "Stuur": "Profile Design A3A Low Riser Kit (5/10/20mm)",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R3",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "Profile Design WING bearing cap for P-Series",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Vision TC60 i23",
+      "Wiel achter": "Vision TC60 i23",
+      "Buitenband": "Vittoria Corsa N.EXT TLR G2.0 700x29c",
+      "Shifter": "Shimano Dura-Ace, R9180",
+      "Crankstel": "Shimano Ultegra R8100, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano Ultegra, R8100, 11-30T, 12-Speed",
+      "Voorderailleur": "Shimano Ultegra, R8150",
+      "Achterderailleur": "Shimano Ultegra, R8150",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Abyss",
+      "Haleakala"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFUI2C_PROFILE-WEB-RESIZED_f0f185c4-ca5b-40b2-bf4c-6e5bbc6bf01a.png?v=1792024381",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFUI2C_PROFILE-WEB-RESIZED_f0f185c4-ca5b-40b2-bf4c-6e5bbc6bf01a.png?v=1792024381",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0PSFUI1C_PROFILE-WEB-RESIZED_958f855e-3cb8-4907-b00d-d9209a4bba3e.png?v=1792024381"
+    ],
+    "image": "Cervelo/P_Series_Ultegra_Di2.jpg",
+    "color_images": [
+      "Cervelo/P_Series_Ultegra_Di2_colour_Abyss.jpg",
+      "Cervelo/P_Series_Ultegra_Di2_colour_Haleakala.jpg"
+    ]
+  },
+  {
+    "name": "P5 Dura-Ace Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p5-dura-ace-di2-2027",
+    "sku": "0M0P5FDI1C",
+    "price": 13499.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.34 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet P5 Fork",
+      "Stuur": "Cervélo HB15 Carbon",
+      "Opzetstuur": "EX16 Extension Assembly",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R1 Light",
+      "Bottom bracket": "Ceramic Speed SL, BBright for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/8, 36° x 45° / 1-1/4, 45° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 77TA, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 88TA, DT Swiss 180, 12x142mm, HG freehub 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "Shimano Dura-Ace, R9180",
+      "Crankstel": "Shimano Dura-Ace, R9200, 54/40T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M9100",
+      "Cassette": "Shimano Dura-Ace, R9200, 11-34T, 12-Speed",
+      "Voorderailleur": "Shimano Dura-Ace, R9250",
+      "Achterderailleur": "Shimano Dura-Ace, R9250",
+      "Remschijf": "Shimano CL900 Centerlock"
+    },
+    "color_names": [
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FDI1C_PROFILE-WEB-RESIZED_32089474-1ff6-415f-94a4-70fd053eaa6b.png?v=1792024461",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FDI1C_PROFILE-WEB-RESIZED_32089474-1ff6-415f-94a4-70fd053eaa6b.png?v=1792024461"
+    ],
+    "image": "Cervelo/P5_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Cervelo/P5_Dura_Ace_Di2_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "P5 Force AXS",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p5-force-axs-2027",
+    "sku": "0M0P5FFX2C",
+    "price": 9999.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.47 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet P5 Fork",
+      "Stuur": "Cervélo HB15 Carbon",
+      "Opzetstuur": "EX16 Extension Assembly",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R3",
+      "Bottom bracket": "SRAM DUB, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/8, 36° x 45° / 1-1/4, 45° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 77TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 88TA, DT Swiss 240 Dicut, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Rem": "SRAM Force Aero",
+      "Crankstel": "SRAM Force AXS E1, 50/37T, DUB, with power meter",
+      "Ketting": "SRAM Force E1",
+      "Cassette": "SRAM Force E1, 10-33T, 12-Speed",
+      "Voorderailleur": "SRAM Force AXS E1",
+      "Achterderailleur": "SRAM Force AXS E1",
+      "Remschijf": "SRAM Paceline Centerlock"
+    },
+    "color_names": [
+      "Platinum",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FFX2C_PROFILE-WEB-RESIZED_26fb3e10-ab9c-4d6b-97c0-e9cb408ec1ba.png?v=1792024450",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FFX2C_PROFILE-WEB-RESIZED_26fb3e10-ab9c-4d6b-97c0-e9cb408ec1ba.png?v=1792024450",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FFX1C_PROFILE-WEB-RESIZED_b275b383-2fb3-4a84-a2b9-94849ca70425.png?v=1792024455"
+    ],
+    "image": "Cervelo/P5_Force_AXS.jpg",
+    "color_images": [
+      "Cervelo/P5_Force_AXS_colour_Platinum.jpg",
+      "Cervelo/P5_Force_AXS_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "P5 Red AXS 1",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p5-red-axs-1-2027",
+    "sku": "0M0P5FR11C",
+    "price": 13499.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.08 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet P5 Fork",
+      "Stuur": "Cervélo HB15 Carbon",
+      "Opzetstuur": "EX16 Extension Assembly",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R1 Light",
+      "Bottom bracket": "SRAM DUB Ceramic, BBright",
+      "Balhoofdstel": "FSA IS2 1-1/8, 36° x 45° / 1-1/4, 45° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 77TA, DT Swiss 180, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 88TA, DT Swiss 180, 12x142mm, XDR freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Rem": "SRAM Red Aero",
+      "Crankstel": "SRAM Red 1 AXS E1, 50T, DUB, with power meter",
+      "Ketting": "SRAM Red E1",
+      "Cassette": "SRAM Red E1, 10-33T, 12-Speed",
+      "Achterderailleur": "SRAM Red AXS E1",
+      "Remschijf": "SRAM Paceline X Centerlock"
+    },
+    "color_names": [
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FR11C_PROFILE-WEB-RESIZED_f46b0234-88c2-4609-91c0-386b308fb29e.png?v=1792024451",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FR11C_PROFILE-WEB-RESIZED_f46b0234-88c2-4609-91c0-386b308fb29e.png?v=1792024451"
+    ],
+    "image": "Cervelo/P5_Red_AXS_1.jpg",
+    "color_images": [
+      "Cervelo/P5_Red_AXS_1_colour_Five_Black.jpg"
+    ]
+  },
+  {
+    "name": "P5 Ultegra Di2",
+    "brand": "Cervelo",
+    "url": "https://www.cervelo.com/en-nl/products/p5-ultegra-di2-2027",
+    "sku": "0M0P5FUI2C",
+    "price": 9999.0,
+    "category": "Triathlon / TT",
+    "model_year": 2027,
+    "specifications": {
+      "Gewicht": "9.6 kgs",
+      "Voorvork": "Cervélo All-Carbon, Bayonet P5 Fork",
+      "Stuur": "Cervélo HB15 Carbon",
+      "Opzetstuur": "EX16 Extension Assembly",
+      "Zadelpen": "Cervélo SP23 Carbon",
+      "Zadel": "Fizik Transiro Aeris LD R3",
+      "Bottom bracket": "FSA, BBright thread together for 24mm spindle",
+      "Balhoofdstel": "FSA IS2 1-1/8, 36° x 45° / 1-1/4, 45° x 45°",
+      "As voorwiel": "Cervélo Aero Thru Axle Front, M12x1.5mm, 127mm length",
+      "As achterwiel": "Cervélo Aero Thru Axle Rear, M12x1.75mm, 170.5mm length",
+      "Wiel voor": "Reserve 77TA, DT Swiss 240 Dicut, 12x100mm, 24H, centerlock, tubeless compatible",
+      "Wiel achter": "Reserve 88TA, DT Swiss 240 Dicut, 12x142mm, HG freehub, 24H, centerlock, tubeless compatible",
+      "Buitenband": "Vittoria Corsa Pro TLR G2.0 700x29c",
+      "Shifter": "Shimano Dura-Ace, R9180",
+      "Crankstel": "Shimano Ultegra R8100, 52/36T",
+      "Vermogensmeter": "4iiii Precision Pro, GEN3+ Dual Sided",
+      "Ketting": "Shimano M8100",
+      "Cassette": "Shimano Ultegra, R8100, 11-30T, 12-Speed",
+      "Voorderailleur": "Shimano Ultegra, R8150",
+      "Achterderailleur": "Shimano Ultegra, R8150",
+      "Remschijf": "Shimano CL800 Centerlock"
+    },
+    "color_names": [
+      "Platinum",
+      "Five Black"
+    ],
+    "sizes": [
+      "48",
+      "51",
+      "54",
+      "56",
+      "58",
+      "61"
+    ],
+    "image_url": "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FUI2C_PROFILE-WEB-RESIZED_ad4e6b77-44f0-4fd4-8540-02c603e44c4b.png?v=1792024451",
+    "color_image_urls": [
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FUI2C_PROFILE-WEB-RESIZED_ad4e6b77-44f0-4fd4-8540-02c603e44c4b.png?v=1792024451",
+      "https://cdn.shopify.com/s/files/1/0797/8342/8295/files/0M0P5FUI1C_PROFILE-WEB-RESIZED_3f46dcd6-178c-40ca-9862-c98a52275529.png?v=1792024456"
+    ],
+    "image": "Cervelo/P5_Ultegra_Di2.jpg",
+    "color_images": [
+      "Cervelo/P5_Ultegra_Di2_colour_Platinum.jpg",
+      "Cervelo/P5_Ultegra_Di2_colour_Five_Black.jpg"
+    ]
+  }
+]

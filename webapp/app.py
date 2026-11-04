@@ -60,7 +60,6 @@ PHOTO_SHOTS = [
     ("non-drive-side", "overall", "Whole bike, other side", ["Bars on the left", "Same height and distance as the drive side"]),
     ("front-three-quarter", "overall", "Front three-quarter",
      ["Stand in front and to the right of the bike", "Whole bike in frame, front wheel slightly bigger"]),
-    ("front-on", "overall", "From the front", ["Straight on, bars level", "Wheel and fork lined up in the middle"]),
     ("derailleur", "detail", "Rear derailleur",
      ["Cassette, so the teeth are visible", "Model name on the derailleur body", "Pulley wheels and cage"]),
     ("chainrings", "detail", "Front chainrings", ["Tooth counts printed on the rings", "Crank arm (length is printed on the back)"]),
@@ -71,6 +70,15 @@ PHOTO_SHOTS = [
     ("rim", "detail", "Rim decal", ["Rim brand, depth and size readable, in focus"]),
     ("tyre", "detail", "Tyre sidewall", ["Size text (700×28C, 28-622) readable, tread in view"]),
 ]
+
+# A brand photo that does each shot well (webapp/static/photo-guide/examples/<key>.jpg), shown in the shot's slot
+# instead of the outline; the camera still lays the outline over the live view. No brand shoots the non-drive side.
+PHOTO_EXAMPLES = {
+    "drive-side": "BMC Roadmachine 01 ONE", "front-three-quarter": "Giant Defy Advanced 3",
+    "derailleur": "Cannondale SuperSix EVO 2", "chainrings": "Giant Propel Advanced Pro 0 Di2",
+    "shifter": "Cannondale SuperSix EVO 2", "disc-brake": "Trek Émonda SL 7", "frame-sticker": "Cube Attain C:62 SLT",
+    "rim": "Trek Madone SLR 9", "tyre": "Trek FX Sport 6",
+}
 
 # The Selling page is a wizard: these steps, in order. Photos and the draft come before anything is worked out.
 SELL_STEPS = [("photos", "Photos"), ("ad", "Your ad"), ("gaps", "Fill the gaps"), ("price", "Price"), ("copy", "Copy your ad")]
@@ -661,7 +669,10 @@ def create_app(db_path=None):
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
                                       key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
-        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES,
+        # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
+        brand_menu = sorted((b for b in BRANDS if b["scraper"]),
+                            key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
+        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES, brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
                                nav="models", sponsored=offers(("side",), tiles=True))
@@ -830,13 +841,14 @@ def create_app(db_path=None):
     def sell():
         """Help a seller improve a draft ad, one step at a time. Everything comes from the form; nothing is saved.
 
-        A GET starts at the photos (or ?step=ad). Every later page is a POST of the same form, so the answers
+        A GET starts with a choice: make a new ad (on to the photos) or check an existing one by its link
+        (straight to the gaps). ?step=photos or ?step=ad opens that step instead. Every later page is a POST of the same form, so the answers
         travel along: `go` is the step a button asks for, `step` the one on screen (for a resubmit after an answer)."""
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
         page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
-                "shots": PHOTO_SHOTS, "can_mail": mail.configured()}
+                "shots": PHOTO_SHOTS, "shot_examples": PHOTO_EXAMPLES, "can_mail": mail.configured()}
         if request.method == "GET":
-            step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "photos"
+            step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "start"
             return render_template("sell.html", form={}, r=None, error=None, step=step,
                                    examples=improved_examples() if step == "ad" else [], **page)
         form = request.form.to_dict()
@@ -844,6 +856,10 @@ def create_app(db_path=None):
         error = None
         link = (form.get("ad_link") or "").strip()
         browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
+        if form.get("step") == "start" and not link and step == "gaps":
+            # "Check my ad" with nothing pasted: back to the choice, with the reason.
+            return render_template("sell.html", form=form, r=None, error=gettext("Paste the link to your ad."),
+                                   step="start", examples=[], **page), 400
         if link and not browsing and not (form.get("title") or "").strip():
             try:
                 ad = fetch_ad.fetch_listing(link)

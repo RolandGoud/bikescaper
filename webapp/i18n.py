@@ -531,8 +531,8 @@ NL = {
     "Limits of this prototype": "Beperkingen van dit prototype",
     "Model years are entered by hand for a few Trek generations only.":
         "Modeljaren zijn alleen voor een paar Trek-generaties met de hand ingevoerd.",
-    "Trek, Canyon, Cannondale and BMC publish each model's own size chart. Specialized, Giant, Cube, Factor and Bianchi publish the sizes and geometry per model, but rider heights only in a general size guide. Lapierre publishes no rider heights, so its bikes use a generic chart.":
-        "Trek, Canyon, Cannondale en BMC publiceren per model een eigen maattabel. Specialized, Giant, Cube, Factor en Bianchi geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel. Lapierre geeft geen lichaamslengtes, dus voor hun fietsen gebruiken we een algemene tabel.",
+    "Trek, Canyon, Cannondale, BMC and Cervélo publish each model's own size chart. Specialized, Giant, Cube, Factor and Bianchi publish the sizes and geometry per model, but rider heights only in a general size guide. Lapierre and Ridley publish no rider heights, so their bikes use a generic chart.":
+        "Trek, Canyon, Cannondale, BMC en Cervélo publiceren per model een eigen maattabel. Specialized, Giant, Cube, Factor en Bianchi geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel. Lapierre en Ridley geven geen lichaamslengtes, dus voor hun fietsen gebruiken we een algemene tabel.",
     "The value is a simple age and condition curve. Comparable ads aren't used yet.":
         "De waarde is een eenvoudige berekening op leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "Only current-catalogue models are covered; older generations come with the reworked scraper.":
@@ -1323,7 +1323,7 @@ NL = {
     "Bars on the left": "Stuur links",
     "Bars on the right": "Stuur rechts",
     "Brake and shift levers, side on": "Rem- en schakelhendels, van opzij",
-    "Buyers decide on the photos first. Take these shots; the outline shows the angle and the numbers match the tips. Tap a shot to take or pick the photo.": "Kopers beslissen eerst op de foto’s. Maak deze foto’s; de omtrek laat de hoek zien en de cijfers horen bij de tips. Tik op een foto om hem te maken of te kiezen.",
+    "Buyers decide on the photos first. Take these shots; each example shows a good angle, and the camera lays an outline over your view. Tap a shot to take or pick the photo.": "Kopers beslissen eerst op de foto’s. Maak deze foto’s; elk voorbeeld laat een goede hoek zien en de camera legt een omtrek over je beeld. Tik op een foto om hem te maken of te kiezen.",
     "Caliper with the brand readable": "Remklauw met het merk leesbaar",
     "Camera at hub height, room around both wheels": "Camera op naafhoogte, ruimte rond beide wielen",
     "Cassette, so the teeth are visible": "Cassette, zodat de tandjes te zien zijn",
@@ -1335,7 +1335,6 @@ NL = {
     "Details buyers zoom in on": "Details waar kopers op inzoomen",
     "Disc brakes or calipers": "Schijfremmen of remklauwen",
     "Frame information": "Framegegevens",
-    "From the front": "Van voren",
     "Front chainrings": "Kettingbladen",
     "Front three-quarter": "Schuin van voren",
     "Hood with the model name readable": "Greep met de modelnaam leesbaar",
@@ -1359,11 +1358,9 @@ NL = {
     "Start with the photos": "Begin met de foto’s",
     "Step {n} of {total}": "Stap {n} van {total}",
     "Sticker on the seat tube, under the seatpost: model, size and serial, sharp enough to read": "Sticker op de zitbuis, onder de zadelpen: model, maat en framenummer, scherp genoeg om te lezen",
-    "Straight on, bars level": "Recht van voren, stuur recht",
     "Tooth counts printed on the rings": "Aantal tanden op de bladen",
     "Tyre sidewall": "Bandwang",
     "Upload them to your ad in this order. The first one is what buyers see in the search results, so make it the whole bike from the drive side.": "Zet ze in deze volgorde in je advertentie. De eerste zien kopers in de zoekresultaten, dus maak dat de hele fiets van de aandrijfzijde.",
-    "Wheel and fork lined up in the middle": "Wiel en vork in het midden op één lijn",
     "Whole bike in frame, front wheel slightly bigger": "Hele fiets in beeld, voorwiel iets groter",
     "Whole bike, other side": "Hele fiets, andere kant",
     "Your ad": "Je advertentie",
@@ -1373,4 +1370,12 @@ NL = {
     "Take photo": "Foto maken",
     "Turn your phone sideways for this shot.": "Houd je telefoon dwars voor deze foto.",
     "Line the bike up with the outline.": "Zet de fiets in de omtrek.",
+    "What do you want to do?": "Wat wil je doen?",
+    "Example": "Voorbeeld",
+    "Example: {bike}": "Voorbeeld: {bike}",
+    "Make a new ad": "Nieuwe advertentie maken",
+    "Start with the photos buyers want, then write the ad with us: the specs from the catalogue and a fair asking price.": "Begin met de foto’s die kopers willen zien en schrijf daarna samen met ons de advertentie: de specificaties uit de catalogus en een eerlijke vraagprijs.",
+    "Check my ad": "Mijn advertentie checken",
+    "Already online? Paste the link and we'll show what buyers will miss and whether the price holds up.": "Staat hij al online? Plak de link en we laten zien wat kopers missen en of de prijs klopt.",
+    "Paste the link to your ad.": "Plak de link naar je advertentie.",
 }
