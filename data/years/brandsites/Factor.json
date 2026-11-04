@@ -4,8 +4,18 @@
   "O2": {
    "2020": {
     "captured": "2020-04-08",
+    "colour_angles": {
+     "": [
+      "Factor/years/o2_2020_brandsite_2.jpg",
+      "Factor/years/o2_2020_brandsite_3.jpg",
+      "Factor/years/o2_2020_brandsite_4.jpg",
+      "Factor/years/o2_2020_brandsite_5.jpg",
+      "Factor/years/o2_2020_brandsite_6.jpg",
+      "Factor/years/o2_2020_brandsite_7.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/o2_2020_brandsite_1.jpg",
     "price": null,
     "price_foreign": 7236.88,
     "source": "brandsite",
@@ -26,8 +36,18 @@
    },
    "2022": {
     "captured": "2022-01-27",
+    "colour_angles": {
+     "": [
+      "Factor/years/o2_2022_brandsite_1.jpg",
+      "Factor/years/o2_2022_brandsite_2.jpg",
+      "Factor/years/o2_2022_brandsite_3.jpg",
+      "Factor/years/o2_2022_brandsite_4.jpg",
+      "Factor/years/o2_2022_brandsite_5.jpg",
+      "Factor/years/o2_2022_brandsite_6.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/o2_2022_brandsite.jpg",
     "price": null,
     "price_foreign": 7236.88,
     "source": "brandsite",
@@ -344,7 +364,7 @@
    "2020": {
     "captured": "2020-08-07",
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/one_2020_brandsite_1.jpg",
     "price": null,
     "price_foreign": 56417941.0,
     "source": "brandsite",
@@ -366,8 +386,14 @@
   "ONE SRAM Red eTap AXS": {
    "2020": {
     "captured": "2020-09-26",
+    "colour_angles": {
+     "": [
+      "Factor/years/onesramredetapaxs_2020_brandsite_2.jpg",
+      "Factor/years/onesramredetapaxs_2020_brandsite_3.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/onesramredetapaxs_2020_brandsite_1.jpg",
     "price": null,
     "price_foreign": 9409.7,
     "source": "brandsite",
@@ -387,8 +413,13 @@
    },
    "2022": {
     "captured": "2022-01-27",
+    "colour_angles": {
+     "": [
+      "Factor/years/onesramredetapaxs_2022_brandsite_1.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/onesramredetapaxs_2022_brandsite.jpg",
     "price": null,
     "price_foreign": 9409.7,
     "source": "brandsite",
@@ -410,8 +441,16 @@
   "OSTRO VAM SRAM Force AXS": {
    "2020": {
     "captured": "2020-09-26",
+    "colour_angles": {
+     "": [
+      "Factor/years/ostrovamsramforceaxs_2020_brandsite_2.jpg",
+      "Factor/years/ostrovamsramforceaxs_2020_brandsite_3.jpg",
+      "Factor/years/ostrovamsramforceaxs_2020_brandsite_4.jpg",
+      "Factor/years/ostrovamsramforceaxs_2020_brandsite_5.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/ostrovamsramforceaxs_2020_brandsite_1.jpg",
     "price": null,
     "price_foreign": 8199.0,
     "source": "brandsite",
@@ -434,8 +473,19 @@
    },
    "2022": {
     "captured": "2022-01-27",
+    "colour_angles": {
+     "": [
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_2.jpg",
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_3.jpg",
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_4.jpg",
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_5.jpg",
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_6.jpg",
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_7.jpg",
+      "Factor/years/ostrovamsramforceaxs_2022_brandsite_8.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/ostrovamsramforceaxs_2022_brandsite_1.jpg",
     "price": null,
     "price_foreign": 8199.0,
     "source": "brandsite",
@@ -460,8 +510,13 @@
   "OSTRO VAM SRAM Red AXS": {
    "2020": {
     "captured": "2020-09-26",
+    "colour_angles": {
+     "": [
+      "Factor/years/ostrovamsramredaxs_2020_brandsite_2.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/ostrovamsramredaxs_2020_brandsite_1.jpg",
     "price": null,
     "price_foreign": 10099.0,
     "source": "brandsite",
@@ -484,8 +539,13 @@
    },
    "2022": {
     "captured": "2022-01-27",
+    "colour_angles": {
+     "": [
+      "Factor/years/ostrovamsramredaxs_2022_brandsite_2.jpg"
+     ]
+    },
     "currency": "USD",
-    "image": null,
+    "image": "Factor/years/ostrovamsramredaxs_2022_brandsite_1.jpg",
     "price": null,
     "price_foreign": 10099.0,
     "source": "brandsite",
