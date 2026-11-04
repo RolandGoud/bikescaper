@@ -1581,10 +1581,16 @@ select { max-width: 100%; }
 .site-link:hover { border-color: var(--accent); }
 
 .match-strip { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) auto; align-items: stretch; border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
-.ms-model { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 14px 22px 14px 18px; color: var(--text); text-decoration: none; }
+.ms-model { display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 0; padding: 14px 22px 14px 18px; color: var(--text); text-decoration: none; }
 .ms-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .ms-bike { flex: none; color: var(--accent); }
+/* The Frame and Year cells keep their room; a long model name yields instead, at two lines with an ellipsis
+   (the whole name on hover), and the match meter stays compact. */
 .ms-name { font-weight: 700; font-size: 20px; }
+.match-strip:not(.used-strip) .ms-name { max-width: calc(100% - 52px); min-width: 0; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ms-model .mb-meter { flex-wrap: nowrap; gap: 8px; }
+.ms-model .mb-meter .match-bar { width: 64px; }
+.ms-model .mb-meter b { font-size: 20px; }
 .ms-model .mb-meter { margin-left: 0; }
 .ms-model .mb-open { margin-left: 0; }
 .ms-model:hover .mb-open { color: var(--accent-soft); }
@@ -1600,6 +1606,19 @@ select { max-width: 100%; }
 .match-strip ~ .match-panel { margin: 0; }
 /* Picked by the visitor (or no match words): no check cells, so the model takes the room up to the side bar. */
 .match-strip.no-checks { grid-template-columns: minmax(0, 1fr) auto; }
+/* The report's Frame and Year cells always get room for their text: the model takes what's left (its name at two
+   lines at most), and where that gets too narrow the checks move to a second row under the model. */
+@media (min-width: 981px) {
+  .match-strip:not(.used-strip):not(.no-checks) { grid-template-columns: minmax(0, 1fr) repeat(2, minmax(250px, 280px)) auto; }
+}
+@media (min-width: 761px) and (max-width: 980px) {
+  .match-strip:not(.used-strip):not(.no-checks) { grid-template-columns: repeat(2, minmax(0, 1fr)) auto; }
+  .match-strip:not(.used-strip):not(.no-checks) .ms-model { grid-column: 1 / 3; }
+  .match-strip:not(.used-strip):not(.no-checks) .ms-swap { grid-column: 3; grid-row: 1 / 3; }
+  .match-strip:not(.used-strip) .ms-check { border-top: 1px solid var(--line); }
+  .match-strip:not(.used-strip) .ms-check:nth-of-type(1) { border-left: 0; }
+  .match-strip:not(.used-strip) .ms-check:nth-of-type(1)::before { left: 0; }
+}
 
 @media (max-width: 760px) {
   .ad-stage { aspect-ratio: auto; display: flex; flex-direction: column; background: var(--card); }
@@ -1626,6 +1645,7 @@ select { max-width: 100%; }
   .ms-check { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
   .ms-check::before { left: 0; }
   .ms-swap { grid-row: 1; grid-column: 2; }
+  .match-strip:not(.used-strip) .ms-name { max-width: none; -webkit-line-clamp: 4; }  /* the checks have their own rows here, so the name can take more lines */
 }
 
 /* The home page's "What a check tells you": four cells in one strip like the report's "Our match", each

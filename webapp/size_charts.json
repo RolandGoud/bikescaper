@@ -17895,6 +17895,883 @@
    "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID970",
    "checked": "2026-11-03"
   },
+  "rose-backroad-al-apex": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 151,
+     "high": 161
+    },
+    "XS": {
+     "low": 162,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad AL Apex",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-al-apex-2725771",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-al-eq": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 151,
+     "high": 161
+    },
+    "XS": {
+     "low": 162,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad AL EQ",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-al-eq-2725772",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-al-grx-400": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 151,
+     "high": 161
+    },
+    "XS": {
+     "low": 162,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad AL GRX 400",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-al-grx-400-2725768",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-al-grx-610": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 151,
+     "high": 161
+    },
+    "XS": {
+     "low": 162,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad AL GRX 610",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-al-grx-610-2725769",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-apex-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML:": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 199
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad Apex AXS",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-apex-axs-2725746",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-ff-force-xplr-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 157,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad FF Force XPLR AXS",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-ff-force-xplr-axs-2723816",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-ff-grx-rx825-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 157,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad FF GRX RX825 Di2",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-ff-grx-rx825-di2-2709984",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-ff-red-xplr-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 157,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML:": {
+     "low": 179,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad FF Red XPLR AXS",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-ff-red-xplr-axs-2709983",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-ff-rival-xplr-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 157,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad FF Rival XPLR AXS",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-ff-rival-xplr-axs-2723817",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-ff-xt-grx-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 157,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML:": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad FF XT/GRX Di2",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-ff-xtgrx-di2-160308",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML:": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 199
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad Force AXS",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-force-axs-2725747",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-grx-820": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML:": {
+     "low": 180,
+     "high": 179
+    },
+    "ML": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 199
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad GRX 820",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-grx-820-2725742",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-grx-825-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 199
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad GRX 825 Di2",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-grx-825-di2-2725743",
+   "checked": "2026-11-04"
+  },
+  "rose-backroad-unsupported": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 161,
+     "high": 167
+    },
+    "S": {
+     "low": 168,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 179
+    },
+    "ML:": {
+     "low": 180,
+     "high": 184
+    },
+    "L": {
+     "low": 185,
+     "high": 191
+    },
+    "XL": {
+     "low": 192,
+     "high": 199
+    }
+   },
+   "brand": "Rose",
+   "name": "Backroad Unsupported",
+   "url": "https://www.rosebikes.nl/p/rose-backroad-unsupported-2725748",
+   "checked": "2026-11-04"
+  },
+  "rose-blend-105-di2": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 155,
+     "high": 165
+    },
+    "XS": {
+     "low": 166,
+     "high": 171
+    },
+    "S": {
+     "low": 172,
+     "high": 177
+    },
+    "M": {
+     "low": 178,
+     "high": 183
+    },
+    "L": {
+     "low": 184,
+     "high": 189
+    },
+    "XL": {
+     "low": 190,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Blend 105 Di2",
+   "url": "https://www.rosebikes.nl/p/rose-blend-105-di2-160525",
+   "checked": "2026-11-04"
+  },
+  "rose-blend-gravel": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 155,
+     "high": 165
+    },
+    "XS": {
+     "low": 166,
+     "high": 171
+    },
+    "S": {
+     "low": 172,
+     "high": 177
+    },
+    "M": {
+     "low": 178,
+     "high": 183
+    },
+    "L": {
+     "low": 184,
+     "high": 189
+    },
+    "XL": {
+     "low": 190,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Blend Gravel",
+   "url": "https://www.rosebikes.nl/p/rose-blend-gravel-2715089",
+   "checked": "2026-11-04"
+  },
+  "rose-blend-road": {
+   "source": "brand",
+   "sizes": {
+    "2XS": {
+     "low": 155,
+     "high": 165
+    },
+    "XS": {
+     "low": 166,
+     "high": 171
+    },
+    "S": {
+     "low": 172,
+     "high": 177
+    },
+    "M": {
+     "low": 178,
+     "high": 183
+    },
+    "L": {
+     "low": 184,
+     "high": 189
+    },
+    "XL": {
+     "low": 190,
+     "high": 194
+    },
+    "2XL": {
+     "low": 195,
+     "high": 202
+    }
+   },
+   "brand": "Rose",
+   "name": "Blend Road",
+   "url": "https://www.rosebikes.nl/p/rose-blend-road-2723845",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-105-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 162
+    },
+    "S": {
+     "low": 163,
+     "high": 170
+    },
+    "M": {
+     "low": 171,
+     "high": 176
+    },
+    "ML": {
+     "low": 177,
+     "high": 180
+    },
+    "L": {
+     "low": 181,
+     "high": 188
+    },
+    "XL": {
+     "low": 189,
+     "high": 196
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave 105 Di2",
+   "url": "https://www.rosebikes.nl/p/rose-shave-105-di2-2726127",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-ff-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 164
+    },
+    "S": {
+     "low": 165,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave FF Force AXS",
+   "url": "https://www.rosebikes.nl/p/rose-shave-ff-force-axs-2726123",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-ff-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 164
+    },
+    "S": {
+     "low": 165,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave FF Ultegra Di2",
+   "url": "https://www.rosebikes.nl/p/rose-shave-ff-ultegra-di2-2726121",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-ffx-dura-ace-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 164
+    },
+    "S": {
+     "low": 165,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave FFX Dura-Ace Di2",
+   "url": "https://www.rosebikes.nl/p/rose-shave-ffx-dura-ace-di2-2726122",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-ffx-red-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 164
+    },
+    "S": {
+     "low": 165,
+     "high": 173
+    },
+    "M": {
+     "low": 174,
+     "high": 178
+    },
+    "ML": {
+     "low": 179,
+     "high": 182
+    },
+    "L": {
+     "low": 183,
+     "high": 190
+    },
+    "XL": {
+     "low": 191,
+     "high": 198
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave FFX Red AXS",
+   "url": "https://www.rosebikes.nl/p/rose-shave-ffx-red-axs-2726124",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-force-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 162
+    },
+    "S": {
+     "low": 163,
+     "high": 170
+    },
+    "M": {
+     "low": 171,
+     "high": 176
+    },
+    "ML": {
+     "low": 177,
+     "high": 180
+    },
+    "L": {
+     "low": 181,
+     "high": 188
+    },
+    "XL": {
+     "low": 189,
+     "high": 196
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave Force AXS",
+   "url": "https://www.rosebikes.nl/p/rose-shave-force-axs-2726131",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-rival-axs": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 162
+    },
+    "S": {
+     "low": 163,
+     "high": 170
+    },
+    "M": {
+     "low": 171,
+     "high": 176
+    },
+    "ML": {
+     "low": 177,
+     "high": 180
+    },
+    "L": {
+     "low": 181,
+     "high": 188
+    },
+    "XL": {
+     "low": 189,
+     "high": 196
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave Rival AXS",
+   "url": "https://www.rosebikes.nl/p/rose-shave-rival-axs-2726130",
+   "checked": "2026-11-04"
+  },
+  "rose-shave-ultegra-di2": {
+   "source": "brand",
+   "sizes": {
+    "XS": {
+     "low": 155,
+     "high": 162
+    },
+    "S": {
+     "low": 163,
+     "high": 170
+    },
+    "M": {
+     "low": 171,
+     "high": 176
+    },
+    "ML": {
+     "low": 177,
+     "high": 180
+    },
+    "L": {
+     "low": 181,
+     "high": 188
+    },
+    "XL": {
+     "low": 189,
+     "high": 196
+    }
+   },
+   "brand": "Rose",
+   "name": "Shave Ultegra Di2",
+   "url": "https://www.rosebikes.nl/p/rose-shave-ultegra-di2-2726129",
+   "checked": "2026-11-04"
+  },
   "specialized-aethos-2-expert-shimano-ultegra-di2": {
    "source": "geometry",
    "sizes": {
@@ -22576,6 +23453,1437 @@
    "name": "Speed Concept SLR 9 AXS",
    "url": "https://www.trekbikes.com/nl/nl_NL/p/48020/",
    "checked": "2026-10-22"
+  },
+  "wilier-adlar-shimano-grx-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 538,
+     "reach": 395
+    },
+    "S": {
+     "stack": 562,
+     "reach": 404
+    },
+    "M": {
+     "stack": 586,
+     "reach": 413
+    },
+    "L": {
+     "stack": 610,
+     "reach": 422
+    },
+    "XL": {
+     "stack": 634,
+     "reach": 431
+    }
+   },
+   "brand": "Wilier",
+   "name": "Adlar Shimano GRX 1x12",
+   "url": "https://www.wilier.com/en/bikes/gravel/adlar",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-sl-id2-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SL ID2 Shimano 105 Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-sl-id2-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SL ID2 Shimano Ultegra Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-sl-id2-sram-force-axs-e1-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SL ID2 SRAM Force AXS E1 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-sl-id2-sram-force-xplr-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SL ID2 SRAM Force XPLR 1x13",
+   "url": "https://www.wilier.com/en/bikes/road/filante-sl-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 380
+    },
+    "S": {
+     "stack": 521,
+     "reach": 384
+    },
+    "M": {
+     "stack": 538,
+     "reach": 388
+    },
+    "L": {
+     "stack": 555,
+     "reach": 391
+    },
+    "XL": {
+     "stack": 571,
+     "reach": 395
+    },
+    "2XL": {
+     "stack": 587,
+     "reach": 399
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR Frameset",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-campagnolo-super-record-wrl-2x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 Campagnolo Super Record WRL 2x13",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 Frameset",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-shimano-dura-ace-di2": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 Shimano Dura-Ace Di2",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-shimano-dura-ace-di2-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 Shimano Dura-Ace Di2 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-shimano-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 Shimano Ultegra Di2",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-sram-force-axs-e1-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 SRAM Force AXS E1 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-sram-force-axs-e1-2x12-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 SRAM Force AXS E1 2x12 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-sram-red-axs-e1-2x12-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 SRAM Red AXS E1 2x12 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-id2-sram-red-xplr-1x13-axs-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 373.5
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 386.5
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR ID2 SRAM Red XPLR 1x13 AXS + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-filante-slr-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 380
+    },
+    "S": {
+     "stack": 521,
+     "reach": 384
+    },
+    "M": {
+     "stack": 538,
+     "reach": 388
+    },
+    "L": {
+     "stack": 555,
+     "reach": 391
+    },
+    "XL": {
+     "stack": 571,
+     "reach": 395
+    },
+    "2XL": {
+     "stack": 587,
+     "reach": 399
+    }
+   },
+   "brand": "Wilier",
+   "name": "Filante SLR Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/filante-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-granturismo-sl-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 527,
+     "reach": 369
+    },
+    "S": {
+     "stack": 546,
+     "reach": 374
+    },
+    "M": {
+     "stack": 566,
+     "reach": 379
+    },
+    "L": {
+     "stack": 586,
+     "reach": 384
+    },
+    "XL": {
+     "stack": 604,
+     "reach": 389
+    },
+    "2XL": {
+     "stack": 625,
+     "reach": 395
+    }
+   },
+   "brand": "Wilier",
+   "name": "Granturismo SL Shimano 105 Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/granturismo-sl",
+   "checked": "2026-11-04"
+  },
+  "wilier-granturismo-sl-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 527,
+     "reach": 369
+    },
+    "S": {
+     "stack": 546,
+     "reach": 374
+    },
+    "M": {
+     "stack": 566,
+     "reach": 379
+    },
+    "L": {
+     "stack": 586,
+     "reach": 384
+    },
+    "XL": {
+     "stack": 604,
+     "reach": 389
+    },
+    "2XL": {
+     "stack": 625,
+     "reach": 395
+    }
+   },
+   "brand": "Wilier",
+   "name": "Granturismo SL Shimano Ultegra Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/granturismo-sl",
+   "checked": "2026-11-04"
+  },
+  "wilier-jaroon-shimano-grx-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 548,
+     "reach": 384
+    },
+    "S": {
+     "stack": 567,
+     "reach": 392
+    },
+    "M": {
+     "stack": 587,
+     "reach": 401
+    },
+    "L": {
+     "stack": 606,
+     "reach": 409
+    },
+    "XL": {
+     "stack": 626,
+     "reach": 417
+    }
+   },
+   "brand": "Wilier",
+   "name": "Jaroon Shimano GRX 1x12",
+   "url": "https://www.wilier.com/en/bikes/gravel/jaroon",
+   "checked": "2026-11-04"
+  },
+  "wilier-jaroon-shimano-grx-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 548,
+     "reach": 384
+    },
+    "S": {
+     "stack": 567,
+     "reach": 392
+    },
+    "M": {
+     "stack": 587,
+     "reach": 401
+    },
+    "L": {
+     "stack": 606,
+     "reach": 409
+    },
+    "XL": {
+     "stack": 626,
+     "reach": 417
+    }
+   },
+   "brand": "Wilier",
+   "name": "Jaroon Shimano GRX 2x12",
+   "url": "https://www.wilier.com/en/bikes/gravel/jaroon",
+   "checked": "2026-11-04"
+  },
+  "wilier-rapida-shimano-105-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 520,
+     "reach": 372
+    },
+    "S": {
+     "stack": 538,
+     "reach": 378
+    },
+    "M": {
+     "stack": 556,
+     "reach": 384.5
+    },
+    "L": {
+     "stack": 574,
+     "reach": 390
+    },
+    "XL": {
+     "stack": 592,
+     "reach": 396
+    },
+    "2XL": {
+     "stack": 610,
+     "reach": 402
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rapida Shimano 105 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/rapida",
+   "checked": "2026-11-04"
+  },
+  "wilier-rapida-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 520,
+     "reach": 372
+    },
+    "S": {
+     "stack": 538,
+     "reach": 378
+    },
+    "M": {
+     "stack": 556,
+     "reach": 384.5
+    },
+    "L": {
+     "stack": 574,
+     "reach": 390
+    },
+    "XL": {
+     "stack": 592,
+     "reach": 396
+    },
+    "2XL": {
+     "stack": 610,
+     "reach": 402
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rapida Shimano 105 Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/rapida",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-campagnolo-super-record-x-1x13-wrl-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 Campagnolo Super Record X 1x13 WRL + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 Frameset",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-shimano-grx-di2-1x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 Shimano GRX Di2 1x12",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-sram-force-xplr-axs-e1-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 SRAM Force XPLR AXS E1 1x13",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-sram-force-xplr-axs-e1-1x13-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 SRAM Force XPLR AXS E1 1x13 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-sram-red-xplr-axs-e1-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 SRAM Red XPLR AXS E1 1x13",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-sram-red-xplr-axs-e1-1x13-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 SRAM Red XPLR AXS E1 1x13 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-rave-slr-id2-sram-rival-xplr-axs-e1-1x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 532,
+     "reach": 375
+    },
+    "S": {
+     "stack": 546,
+     "reach": 381
+    },
+    "M": {
+     "stack": 561,
+     "reach": 387
+    },
+    "L": {
+     "stack": 579,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 597,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 617,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Rave SLR ID2 SRAM Rival XPLR AXS E1 1x13",
+   "url": "https://www.wilier.com/en/bikes/gravel/rave-slr-id2",
+   "checked": "2026-11-04"
+  },
+  "wilier-supersonica-slr-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 470,
+     "reach": 397
+    },
+    "M": {
+     "stack": 495,
+     "reach": 418
+    },
+    "LXL": {
+     "stack": 520,
+     "reach": 439
+    }
+   },
+   "brand": "Wilier",
+   "name": "Supersonica SLR Frameset",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-supersonica-slr-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 470,
+     "reach": 397
+    },
+    "M": {
+     "stack": 495,
+     "reach": 418
+    },
+    "LXL": {
+     "stack": 520,
+     "reach": 439
+    }
+   },
+   "brand": "Wilier",
+   "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-supersonica-slr-shimano-dura-ace-di2-2x12-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 470,
+     "reach": 397
+    },
+    "M": {
+     "stack": 495,
+     "reach": 418
+    },
+    "LXL": {
+     "stack": 520,
+     "reach": 439
+    }
+   },
+   "brand": "Wilier",
+   "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-supersonica-slr-shimano-dura-ace-di2-2x12-triathlon": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 470,
+     "reach": 397
+    },
+    "M": {
+     "stack": 495,
+     "reach": 418
+    },
+    "LXL": {
+     "stack": 520,
+     "reach": 439
+    }
+   },
+   "brand": "Wilier",
+   "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12 Triathlon",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-supersonica-slr-shimano-dura-ace-di2-2x12-triathlon-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 470,
+     "reach": 397
+    },
+    "M": {
+     "stack": 495,
+     "reach": 418
+    },
+    "LXL": {
+     "stack": 520,
+     "reach": 439
+    }
+   },
+   "brand": "Wilier",
+   "name": "Supersonica SLR Shimano Dura-Ace Di2 2x12 Triathlon + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/supersonica-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-turbine-sl-shimano-105-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 490,
+     "reach": 385
+    },
+    "M": {
+     "stack": 522,
+     "reach": 405
+    },
+    "LXL": {
+     "stack": 554,
+     "reach": 425
+    }
+   },
+   "brand": "Wilier",
+   "name": "Turbine SL Shimano 105 Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-sl",
+   "checked": "2026-11-04"
+  },
+  "wilier-turbine-slr-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 487,
+     "reach": 397
+    },
+    "LXL": {
+     "stack": 555,
+     "reach": 439
+    },
+    "M": {
+     "stack": 521,
+     "reach": 418
+    }
+   },
+   "brand": "Wilier",
+   "name": "Turbine SLR Frameset",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-turbine-slr-shimano-dura-ace-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 487,
+     "reach": 397
+    },
+    "LXL": {
+     "stack": 555,
+     "reach": 439
+    },
+    "M": {
+     "stack": 521,
+     "reach": 418
+    }
+   },
+   "brand": "Wilier",
+   "name": "Turbine SLR Shimano Dura-Ace Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-turbine-slr-shimano-ultegra-di2-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XSS": {
+     "stack": 487,
+     "reach": 397
+    },
+    "LXL": {
+     "stack": 555,
+     "reach": 439
+    },
+    "M": {
+     "stack": 521,
+     "reach": 418
+    }
+   },
+   "brand": "Wilier",
+   "name": "Turbine SLR Shimano Ultegra Di2 2x12",
+   "url": "https://www.wilier.com/en/bikes/time-trial-triathlon/turbine-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-campagnolo-super-record-wrl-2x13": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR Campagnolo Super Record WRL 2x13",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-frameset": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR Frameset",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-shimano-dura-ace-di2": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR Shimano Dura-Ace Di2",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-shimano-dura-ace-di2-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR Shimano Dura-Ace Di2 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-shimano-ultegra-di2": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR Shimano Ultegra Di2",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-sram-force-axs-e1-2x12": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR SRAM Force AXS E1 2x12",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-sram-force-axs-e1-2x12-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR SRAM Force AXS E1 2x12 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
+  },
+  "wilier-verticale-slr-sram-red-axs-e1-2x12-plus-powermeter": {
+   "source": "geometry",
+   "sizes": {
+    "XS": {
+     "stack": 505,
+     "reach": 374
+    },
+    "S": {
+     "stack": 523,
+     "reach": 380
+    },
+    "M": {
+     "stack": 541,
+     "reach": 387
+    },
+    "L": {
+     "stack": 559,
+     "reach": 393
+    },
+    "XL": {
+     "stack": 577,
+     "reach": 400
+    },
+    "2XL": {
+     "stack": 595,
+     "reach": 408
+    }
+   },
+   "brand": "Wilier",
+   "name": "Verticale SLR SRAM Red AXS E1 2x12 + Powermeter",
+   "url": "https://www.wilier.com/en/bikes/road/verticale-slr",
+   "checked": "2026-11-04"
   }
  }
 }

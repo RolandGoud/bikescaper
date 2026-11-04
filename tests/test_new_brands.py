@@ -1,10 +1,10 @@
-"""Lapierre, Bianchi, BMC, Cervélo and Ridley: the bits of their stores the adapters read."""
+"""Lapierre, Bianchi, BMC, Cervélo, Ridley, Rose and Wilier: the bits of their stores the adapters read."""
 import pytest
 
 from urllib.parse import quote
 
-from brand_scrapers import bianchi, bmc, cervelo, lapierre, ridley
-from brand_scrapers.nuxt import nuxt_state
+from brand_scrapers import bianchi, bmc, cervelo, lapierre, ridley, rose, wilier
+from brand_scrapers.nuxt import nuxt_data, nuxt_state
 from brand_scrapers.sizing import cervelo_chart, geometry_table
 
 
@@ -216,3 +216,66 @@ def test_ridley_builds_leave_out_mtb_track_and_ebikes():
         {"code": "Track", "frameplatformdetails": [frame("Arena Fast")]},
     ]}}}
     assert [(p, f["model"]) for p, f, _ in ridley.builds(state)] == [("AerotoWeight", "Falcn RS 2.0")]
+
+
+def test_nuxt_data_reads_devalue_state():
+    table = '[{"data":1},{"product":2},["Reactive",3],{"name":4,"sizes":5,"self":-1},"Shave",[6,6],"M"]'
+    page = f'<script type="application/json" id="__NUXT_DATA__" data-ssr="true">{table}</script>'
+    assert nuxt_data(page) == {"data": {"product": {"name": "Shave", "sizes": ["M", "M"], "self": None}}}
+    assert nuxt_data("<html></html>") is None
+
+
+def test_rose_families_builds_and_categories():
+    page = ('<a href="/fietsen/race/race/shave"></a><a href="/fietsen/race/elektrische-racefietsen/reveal-plus"></a>'
+            '<a href="/fietsen/gravel/e-gravel/backroad-al-plus"></a><a href="/fietsen/gravel/everyday/hobo"></a>'
+            '<a href="/p/rose-shave-105-di2-2726127"></a><a href="/p/rose-shave-105-di2-2726127"></a>')
+    assert rose.families(page) == ["/fietsen/race/race/shave", "/fietsen/gravel/everyday/hobo"]
+    assert rose.builds(page) == ["/p/rose-shave-105-di2-2726127"]
+    assert rose.category_of("/fietsen/race/endurance/blend") == "Endurance"
+    assert rose.category_of("/fietsen/gravel/race/backroad-ff") == "Gravel"
+
+
+def test_rose_parts_list_and_rider_heights():
+    def item(title, subtitle):
+        return {"title": title, "subtitle": subtitle}
+    variant = {"partsList": {"groups": [{"items": [
+        item("Wielen", "<p>Newmen Advanced A.50</p> 28\""), item("Wielen", "<p>HR:&#160;Newmen Advanced A.50</p>"),
+        item("Remmen", "<p>Shimano Ultegra ST-R8170, BR-R8170,</p>"), item("Pedalen", "<p>Pedalen zijn niet bij de levering inbegrepen</p>"),
+        item("Kettinggeleiding", "K-Edge"), item("Powermeter", "4iiii"),
+    ]}]}}
+    assert rose.parts(variant) == [("Wiel voor", 'Newmen Advanced A.50 28"'), ("Wiel achter", "Newmen Advanced A.50"),
+                                   ("Rem", "Shimano Ultegra ST-R8170, BR-R8170"), ("Vermogensmeter", "4iiii")]
+    variants = [{"superAttributes": [{"type": "size", "value": s}], "bodyHeightMin": h}
+                for s, h in (("S", 163), ("XS", 155), ("M/L", 177), ("M", 171), ("S", 163))]
+    assert rose.size_chart(variants) == {"XS": {"low": 155, "high": 162}, "S": {"low": 163, "high": 170},
+                                         "M": {"low": 171, "high": 176}, "ML": {"low": 177, "high": 184}}
+
+
+@pytest.mark.parametrize("text,tidy", [
+    ("SHIMANO DURA ACE Di2 2x12 R9270 ", "Shimano Dura-Ace Di2 2x12"),
+    ("SRAM RIVAL XPLR AXS 1X13", "SRAM Rival XPLR AXS 1x13"),
+    ("Shimano GRX 1x12s", "Shimano GRX 1x12"),
+    ("-", ""),
+    ("Solo telaio / Framekit only", ""),
+    ("SHIMANO DURA-ACE Di2 R9270 2x12 + POWERMETER", "Shimano Dura-Ace Di2 2x12 + Powermeter"),
+    ("CAMPAGNOLO SUPER RECORD WRL 2x13", "Campagnolo Super Record WRL 2x13"),
+])
+def test_wilier_groupset_names(text, tidy):
+    assert wilier.tidy_groupset(text) == tidy
+
+
+def test_wilier_build_from_family_page():
+    product = {"name": "Filante SLR", "slug": "filante-slr", "year": {"name": "2027"},
+               "category": {"slug": "road"}, "usages": [{"slug": "racing"}],
+               "colors": [{"name": "F27 Carbon Iridium", "image": [{"original_url": "https://api.wilier.com/media/1/a.jpg"}]}],
+               "geometries_table": {"label": ["XS", "XXL"], "stack": [505, 587], "reach": [380, 399]}}
+    build = wilier.parse(product, {"code": "E603IDAS", "groupset": "SHIMANO DURA ACE Di2 2x12 R9270", "msrp": 699900,
+                                   "shifters": "SHIMANO DURA-ACE Di2 ST-R9270", "stem": None, "tyres": "N/A"}, "u")
+    assert (build["name"], build["price"], build["model_year"], build["category"]) == (
+        "Filante SLR Shimano Dura-Ace Di2 2x12", 6999.0, 2027, "Race")
+    assert build["specifications"]["Shifter"] == "SHIMANO DURA-ACE Di2 ST-R9270"
+    assert "Buitenband" not in build["specifications"]
+    assert build["sizes"] == ["XS", "2XL"] and build["color_names"] == ["F27 Carbon Iridium"]
+    assert wilier.parse(product, {"code": "E603 (FRAMESET)", "groupset": "-", "msrp": 450000}, "u")["name"] == "Filante SLR Frameset"
+    assert wilier.category_of({"category": {"slug": "road"}, "usages": [{"slug": "endurance"}]}) == "Endurance"
+    assert wilier.geometry(product) == {"XS": {"stack": 505, "reach": 380}, "2XL": {"stack": 587, "reach": 399}}

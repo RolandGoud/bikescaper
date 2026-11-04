@@ -433,6 +433,10 @@ def test_s_works_names_specialized():
     ("Cervélo Áspero GRX RX610 maat 54", "gravel", "Cervelo", "aspero"),
     ("Ridley Noah Fast 3.0 Ultegra Di2 maat M", "", "Ridley", "noah"),
     ("Ridley Kanzo Fast 2.0 Force XPLR maat L", "gravel", "Ridley", "kanzo"),
+    ("Rose Backroad GRX 820 maat M", "gravel", "Rose", "backroad"),
+    ("Rose Shave Ultegra Di2 maat L", "", "Rose", "shave"),
+    ("Wilier Filante SLR Dura-Ace Di2 maat M", "", "Wilier", "filante"),
+    ("Wilier Triestina Rave SLR GRX maat L", "gravel", "Wilier", "rave"),
 ])
 def test_matching_new_brands(models, title, description, brand, family):
     r = run(models, title, description, height=178)
@@ -1070,7 +1074,6 @@ def test_wheels_named_without_the_word_wheels():
     text = "Mooi carbon frame met carbon wielen, tubeless.\nWielen: Bontrager Aeolus Pro 37 (Carbon 37mm)"
     assert checks.detect_part(text, "wheels") == {"label": "Bontrager Aeolus Pro 37 (Carbon 37mm)", "tier": 4}
     assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
-
 
 
 def test_wheels_of_the_same_family_without_a_version_match():
@@ -1973,3 +1976,41 @@ def test_value_starts_from_the_new_price_of_the_ads_year():
     claims = checks.read_claims("Specialized Tarmac SL8 Expert 2024", "")
     value = checks.check_value(m, claims, None, {"rows": []}, {"status": checks.OK}, TODAY)
     assert value["original"] == 6500 and value["model_year"] == 2024
+
+
+def test_a_complete_bike_is_not_matched_to_the_frameset(models):
+    # The size after "SL" is no SL 56, the named gen8 beats a Gen 6, and a frameset has no Shimano 105 Di2.
+    desc = "- Shimano 105 di2\n- Nieuwe casette (11-34) en ketting\n- Pirelli P zero SL 30mm banden\nMateriaal: Carbon"
+    ranked = checks.match_models(models, "Trek Madone gen8 SL (56)", desc)
+    assert ranked[0][1]["name"] == "Madone SL 6 Gen 8"
+    # An ad for the frame alone still gets the frameset.
+    ranked = checks.match_models(models, "Trek Madone gen8 SL frameset (56)", "Alleen frame, vork en zadelpen")
+    assert ranked[0][1]["name"] == "Madone SL Gen 8 frameset"
+
+
+def test_downgrade_cuts_are_added_up_before_they_are_taken_off(models):
+    same = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano Ultegra Di2, carbon, schijfremmen", 5000)
+    down = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano 105 groep, carbon, schijfremmen", 5000)
+    cuts = [r for r in down["specs"]["rows"] if r.get("step", 0) < 0]
+    total = sum(checks.downgrade_cut(r) for r in cuts)
+    step = next(s for s in down["value"]["steps"] if en(s["label"]) == "Downgraded parts")
+    assert step["change"] == -total  # one cut of the sum, not one cut per part
+    assert abs(step["value"] - same["value"]["steps"][-1]["value"] * (1 - total)) <= 10
+
+
+def test_downgrade_cuts_are_capped():
+    model = {"name": "Test", "price_eur": 5000}
+    rows = [{"key": k, "step": -1} for k in ("groupset", "wheels", "tyres", "crankset", "frame", "brakes",
+                                              "saddle", "a", "b", "c")]
+    claims = {"condition": None, "year": "2025"}
+    resolved = {"year": 2025, "reliable": True, "how": "ad", "first": 2025, "last": 2025}
+    v = checks.check_value(model, claims, None, {"rows": rows}, None, today=date(2026, 6, 1), resolved=resolved)
+    assert v["steps"][-1]["change"] == -checks.DOWNGRADE_CAP
+
+
+def test_downgrade_cut_is_per_tier():
+    assert checks.downgrade_cut({"key": "groupset", "step": -1}) == pytest.approx(0.10)
+    assert checks.downgrade_cut({"key": "groupset", "step": -2}) == pytest.approx(0.15)
+    assert checks.downgrade_cut({"key": "groupset", "step": -4}) == pytest.approx(0.25)
+    assert checks.downgrade_cut({"key": "wheels", "step": -1}) == pytest.approx(0.05)
+    assert checks.downgrade_cut({"key": "wheels", "step": -3}) == pytest.approx(0.10)

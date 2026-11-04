@@ -25,6 +25,8 @@ overwritten, so the catalogue builds history over time.
 | Bianchi | https://www.bianchi.com/en/ | Built (`brand_scrapers/bianchi.py`): WooCommerce Store API, euro list prices (no Dutch site); model year from the product code; older builds into `data/years/site/` |
 | Cervélo | https://www.cervelo.com/en-nl | Built (`brand_scrapers/cervelo.py`): Shopify store with NL prices; bikes from the product sitemap (their handles end in the model year), the spec sheet from the JSON each product page embeds. Stored as "Cervelo" |
 | Ridley | https://www.ridley-bikes.com/nl_NL | Built (`brand_scrapers/ridley.py`): Nuxt app; any bike page's embedded state (read by `brand_scrapers/nuxt.py`) lists the whole range with prices, and one item page per build gives specs, model year, colours, sizes and geometry |
+| Rose | https://www.rosebikes.nl/ | Built (`brand_scrapers/rose.py`): Nuxt 3 app; category pages link the model families, their /modellen pages the builds, and each build's `__NUXT_DATA__` (read by `brand_scrapers/nuxt.py`) gives variants with prices, photos, rider heights and the parts list. No model year |
+| Wilier | https://www.wilier.com/en | Built (`brand_scrapers/wilier.py`): Nuxt 2 app, no Dutch site; each family page has the model year, colours, geometry and every build with its EU list price and spec sheet. Earlier years are under /en/bikes-archive/<year> (not collected yet) |
 | BMC | https://nl.bmc-switzerland.com/ | Built (`brand_scrapers/bmc.py`): Shopify store with NL prices and rider heights per model; the Bike Archive (2016 on) gives earlier years and discontinued lines |
 
 Before building each adapter: check the site's terms and robots.txt, and whether the brand

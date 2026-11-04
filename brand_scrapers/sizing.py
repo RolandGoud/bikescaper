@@ -5,8 +5,8 @@
     python -m brand_scrapers.sizing trek --limit 3
 
 Writes webapp/size_charts.json, keyed by model slug. Where a brand publishes rider heights per
-model (Trek, Canyon, Cannondale, BMC, Cervélo) they are copied as they are. Specialized, Giant, Cube, Factor,
-Lapierre, Bianchi and Ridley only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
+model (Trek, Canyon, Cannondale, BMC, Cervélo, Rose) they are copied as they are. Specialized, Giant, Cube, Factor,
+Lapierre, Bianchi, Ridley and Wilier only publish geometry: those charts get the model's own sizes, stack and reach, and the site takes
 the rider heights from the brand's general size guide. (Stack and reach don't predict a brand's
 rider heights well: a fit through the Trek and Canyon charts misses the other brand by 5-8 cm,
 while each brand gives the same size the same heights on nearly every model.)
@@ -186,6 +186,24 @@ def ridley(fetcher, model):
     return sizes and {"source": "geometry", "sizes": sizes}
 
 
+def rose(fetcher, model):
+    """Rose gives the rider height each size starts at, per colour and size variant."""
+    from .nuxt import nuxt_data
+    from .rose import product_of, size_chart
+    product = model["url"] and product_of(nuxt_data(fetcher.get(model["url"])))
+    sizes = product and size_chart(product.get("variants") or [])
+    return sizes and {"source": "brand", "sizes": sizes}
+
+
+def wilier(fetcher, model):
+    from .nuxt import nuxt_state
+    from .wilier import geometry
+    state = model["url"] and nuxt_state(fetcher.get(model["url"]))
+    product = state and ((state.get("data") or [{}])[0]).get("product")
+    sizes = product and geometry(product)
+    return sizes and {"source": "geometry", "sizes": sizes}
+
+
 def bianchi(fetcher, model):
     from .bianchi import geometry
     page = model["url"] and fetcher.get(model["url"])
@@ -201,7 +219,8 @@ def geometry_page(fetcher, model):
 
 ADAPTERS = {"Trek": trek, "Canyon": canyon, "Cannondale": cannondale, "Factor": factor, "BMC": bmc,
             "Specialized": geometry_page, "Giant": geometry_page, "Cube": geometry_page, "Lapierre": geometry_page,
-            "Bianchi": bianchi, "Cervelo": cervelo, "Ridley": ridley}
+            "Bianchi": bianchi, "Cervelo": cervelo, "Ridley": ridley,
+            "Rose": rose, "Wilier": wilier}
 
 
 def load_models():
