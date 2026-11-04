@@ -97,3 +97,58 @@ def test_orbea_takes_the_views_other_than_the_side_per_colour():
     page = "<div x-init=\"product = JSON.parse('%s')\">" % json.dumps(product).replace('"', "&quot;")
     found = galleries.orbea_page(Page(page), {"url": "u"})
     assert found == {"Black": ["a-34.jpg"], "Blue": ["b-top.jpg"]}
+
+
+def test_factor_takes_each_colours_studio_sides_and_close_ups_from_the_family_page():
+    galleries._FACTOR_FAMILIES.clear()
+    shot = "https://images.ctfassets.net/x/%s"
+    family = " ".join('"%s"' % (shot % n) for n in (
+        "Studio-MONZA-SteelGreen-Force-45-ds45.png", "Studio-MONZA-SteelGreen-Ultegra-45-ds45.png",
+        "Studio-MONZA-SteelGreen-Force-45-nds180.png", "Feature-MONZA-SteelGreen-01.jpg",
+        "Studio-MONZA-PearlWhite-Force-45-ds45.png", "Action_MONZA_SteelGreen_01.jpg"))
+    pages = Pages({"https://eu.factorbikes.com/bikes": '<a href="/bikes/monza"></a><a href="/bikes/monza-rapha"></a>',
+                   "https://eu.factorbikes.com/bikes/monza": family})
+    found = galleries.factor_page(pages, {"url": "https://eu.factorbikes.com/bike-builder/monza-shimano-ultegra",
+                                          "colors": '["Steel Green", "Anodized Black"]'})
+    galleries._FACTOR_FAMILIES.clear()
+    assert {c: [u.split("/x/")[1].split("?")[0] for u in us] for c, us in found.items()} == {"Steel Green": [
+        "Studio-MONZA-SteelGreen-Ultegra-45-ds45.png", "Studio-MONZA-SteelGreen-Force-45-nds180.png",
+        "Feature-MONZA-SteelGreen-01.jpg"]}
+
+
+def test_ridley_takes_the_frames_photo_shoot_without_the_copies(monkeypatch):
+    import json
+    state = {"data": [{"bike": {"inspirations": {"pictures": [{"name": n} for n in (
+        "X-nightRS-10.jpg", "X-nightRS-2.jpg", "X-nightRS-2 kopiëren.jpg", "specs.pdf")]}}}]}
+    page = "<script>window.__NUXT__=%s</script>" % json.dumps(state)
+    monkeypatch.setattr(galleries, "nuxt_state", lambda p: json.loads(p.split("=", 1)[1].split("</script>")[0]))
+    found = galleries.ridley_page(Page(page), {"url": "u"})
+    assert found == {"": ["https://images.cyclingfactory.be/inspirations/X-nightRS-2.jpg",
+                          "https://images.cyclingfactory.be/inspirations/X-nightRS-10.jpg"]}
+
+
+def test_cervelo_keeps_only_the_close_ups_of_this_frame_and_groupset():
+    page = " ".join('"//www.cervelo.com/cdn/shop/files/%s?v=1"' % n for n in (
+        "0L0R5HDI1C_CRANKSET-WEB-RESIZED.png", "0L0R5HDI2C_WEIGHT-WEB-RESIZED.png", "0L0R5HXR1C_WHEEL-WEB-RESIZED.png",
+        "0L0R5HDI1C_PROFILE-WEB-RESIZED.png"))
+    found = galleries.cervelo_page(Page(page), {"url": "u", "sku": "0L0R5HDI1C"})[""]
+    assert [f.split("/files/")[1].split("?")[0] for f in found] == [
+        "0L0R5HDI1C_CRANKSET-WEB-RESIZED.png", "0L0R5HDI2C_WEIGHT-WEB-RESIZED.png"]
+
+
+def test_canyon_looks_up_the_newer_page_of_a_build_whose_page_lost_its_photos():
+    base = "https://www.canyon.com/nl-nl/road/aeroad/aeroad-cfr-di2"
+    img = '"https://www.canyon.com/dw/image/v2/X/images/top/2026_TOP-1/2026/2026_TOP-1_aeroad_4480_R1_P1_x.jpg"'
+    pages = Pages({base + "/4039.html": "no photos", base + "/4480.html": img,
+                   "https://www.canyon.com/nl-nl/search?q=Aeroad+CFR+Di2": f'"{base}/4039.html" "{base}/4480.html"'})
+    found = galleries.canyon(pages, {"name": "Aeroad CFR Di2", "url": base + "/4039.html?dwvar=1"})[""]
+    assert [f.rsplit("/", 1)[1] for f in found] == ["2026_TOP-1_aeroad_4480_R1_P1_x.jpg?sw=1200"]
+
+
+def test_rose_takes_each_colours_photos_after_its_side_view(monkeypatch):
+    product = {"variants": [
+        {"superAttributes": [{"type": "color", "value": "moss green"}], "images": ["side-g.png", "a-g.png", "b-g.png"]},
+        {"superAttributes": [{"type": "color", "value": "moss green"}], "images": ["side-g.png", "a-g.png", "b-g.png"]},
+        {"superAttributes": [{"type": "color", "value": "papyrus"}], "images": ["side-p.png", "a-p.png"]}]}
+    monkeypatch.setattr(galleries, "nuxt_data", lambda page: {"data": {"evon:product:1": {"productDetail": {"product": product}}}})
+    assert galleries.rose_page(Page("x"), {"url": "u"}) == {"Moss green": ["a-g.png", "b-g.png"], "Papyrus": ["a-p.png"]}

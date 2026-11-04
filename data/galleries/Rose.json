@@ -1,0 +1,661 @@
+{
+ "https://www.rosebikes.nl/p/rose-backroad-al-apex-2725771": {
+  "Dune": [
+   "Rose/gallery/backroadalapex_dune_1.jpg",
+   "Rose/gallery/backroadalapex_dune_2.jpg",
+   "Rose/gallery/backroadalapex_dune_3.jpg",
+   "Rose/gallery/backroadalapex_dune_4.jpg",
+   "Rose/gallery/backroadalapex_dune_5.jpg",
+   "Rose/gallery/backroadalapex_dune_6.jpg",
+   "Rose/gallery/backroadalapex_dune_7.jpg"
+  ],
+  "Soil": [
+   "Rose/gallery/backroadalapex_soil_1.jpg",
+   "Rose/gallery/backroadalapex_soil_2.jpg",
+   "Rose/gallery/backroadalapex_soil_3.jpg",
+   "Rose/gallery/backroadalapex_soil_4.jpg",
+   "Rose/gallery/backroadalapex_soil_5.jpg",
+   "Rose/gallery/backroadalapex_soil_6.jpg",
+   "Rose/gallery/backroadalapex_soil_7.jpg"
+  ],
+  "Soleil": [
+   "Rose/gallery/backroadalapex_soleil_1.jpg",
+   "Rose/gallery/backroadalapex_soleil_2.jpg",
+   "Rose/gallery/backroadalapex_soleil_3.jpg",
+   "Rose/gallery/backroadalapex_soleil_4.jpg",
+   "Rose/gallery/backroadalapex_soleil_5.jpg",
+   "Rose/gallery/backroadalapex_soleil_6.jpg",
+   "Rose/gallery/backroadalapex_soleil_7.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-al-eq-2725772": {
+  "Dune": [
+   "Rose/gallery/backroadaleq_dune_1.jpg",
+   "Rose/gallery/backroadaleq_dune_2.jpg",
+   "Rose/gallery/backroadaleq_dune_3.jpg",
+   "Rose/gallery/backroadaleq_dune_4.jpg",
+   "Rose/gallery/backroadaleq_dune_5.jpg",
+   "Rose/gallery/backroadaleq_dune_6.jpg",
+   "Rose/gallery/backroadaleq_dune_7.jpg"
+  ],
+  "Soil": [
+   "Rose/gallery/backroadaleq_soil_1.jpg",
+   "Rose/gallery/backroadaleq_soil_2.jpg",
+   "Rose/gallery/backroadaleq_soil_3.jpg",
+   "Rose/gallery/backroadaleq_soil_4.jpg",
+   "Rose/gallery/backroadaleq_soil_5.jpg",
+   "Rose/gallery/backroadaleq_soil_6.jpg",
+   "Rose/gallery/backroadaleq_soil_7.jpg"
+  ],
+  "Soleil": [
+   "Rose/gallery/backroadaleq_soleil_1.jpg",
+   "Rose/gallery/backroadaleq_soleil_2.jpg",
+   "Rose/gallery/backroadaleq_soleil_3.jpg",
+   "Rose/gallery/backroadaleq_soleil_4.jpg",
+   "Rose/gallery/backroadaleq_soleil_5.jpg",
+   "Rose/gallery/backroadaleq_soleil_6.jpg",
+   "Rose/gallery/backroadaleq_soleil_7.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-al-grx-400-2725768": {
+  "Dune": [
+   "Rose/gallery/backroadalgrx400_dune_1.jpg",
+   "Rose/gallery/backroadalgrx400_dune_2.jpg",
+   "Rose/gallery/backroadalgrx400_dune_3.jpg",
+   "Rose/gallery/backroadalgrx400_dune_4.jpg",
+   "Rose/gallery/backroadalgrx400_dune_5.jpg",
+   "Rose/gallery/backroadalgrx400_dune_6.jpg",
+   "Rose/gallery/backroadalgrx400_dune_7.jpg"
+  ],
+  "Soil": [
+   "Rose/gallery/backroadalgrx400_soil_1.jpg",
+   "Rose/gallery/backroadalgrx400_soil_2.jpg",
+   "Rose/gallery/backroadalgrx400_soil_3.jpg",
+   "Rose/gallery/backroadalgrx400_soil_4.jpg",
+   "Rose/gallery/backroadalgrx400_soil_5.jpg",
+   "Rose/gallery/backroadalgrx400_soil_6.jpg",
+   "Rose/gallery/backroadalgrx400_soil_7.jpg"
+  ],
+  "Soleil": [
+   "Rose/gallery/backroadalgrx400_soleil_1.jpg",
+   "Rose/gallery/backroadalgrx400_soleil_2.jpg",
+   "Rose/gallery/backroadalgrx400_soleil_3.jpg",
+   "Rose/gallery/backroadalgrx400_soleil_4.jpg",
+   "Rose/gallery/backroadalgrx400_soleil_5.jpg",
+   "Rose/gallery/backroadalgrx400_soleil_6.jpg",
+   "Rose/gallery/backroadalgrx400_soleil_7.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-al-grx-610-2725769": {
+  "Dune": [
+   "Rose/gallery/backroadalgrx610_dune_1.jpg",
+   "Rose/gallery/backroadalgrx610_dune_2.jpg",
+   "Rose/gallery/backroadalgrx610_dune_3.jpg",
+   "Rose/gallery/backroadalgrx610_dune_4.jpg",
+   "Rose/gallery/backroadalgrx610_dune_5.jpg",
+   "Rose/gallery/backroadalgrx610_dune_6.jpg",
+   "Rose/gallery/backroadalgrx610_dune_7.jpg",
+   "Rose/gallery/backroadalgrx610_dune_8.jpg",
+   "Rose/gallery/backroadalgrx610_dune_9.jpg"
+  ],
+  "Soil": [
+   "Rose/gallery/backroadalgrx610_soil_1.jpg",
+   "Rose/gallery/backroadalgrx610_soil_2.jpg",
+   "Rose/gallery/backroadalgrx610_soil_3.jpg",
+   "Rose/gallery/backroadalgrx610_soil_4.jpg",
+   "Rose/gallery/backroadalgrx610_soil_5.jpg",
+   "Rose/gallery/backroadalgrx610_soil_6.jpg",
+   "Rose/gallery/backroadalgrx610_soil_7.jpg",
+   "Rose/gallery/backroadalgrx610_soil_8.jpg",
+   "Rose/gallery/backroadalgrx610_soil_9.jpg"
+  ],
+  "Soleil": [
+   "Rose/gallery/backroadalgrx610_soleil_1.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_2.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_3.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_4.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_5.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_6.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_7.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_8.jpg",
+   "Rose/gallery/backroadalgrx610_soleil_9.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-apex-axs-2725746": {
+  "Lions mane": [
+   "Rose/gallery/backroadapexaxs_lionsmane_1.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_2.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_3.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_4.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_5.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_6.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_7.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_8.jpg",
+   "Rose/gallery/backroadapexaxs_lionsmane_9.jpg"
+  ],
+  "Terra": [
+   "Rose/gallery/backroadapexaxs_terra_1.jpg",
+   "Rose/gallery/backroadapexaxs_terra_2.jpg",
+   "Rose/gallery/backroadapexaxs_terra_3.jpg",
+   "Rose/gallery/backroadapexaxs_terra_4.jpg",
+   "Rose/gallery/backroadapexaxs_terra_5.jpg",
+   "Rose/gallery/backroadapexaxs_terra_6.jpg",
+   "Rose/gallery/backroadapexaxs_terra_7.jpg",
+   "Rose/gallery/backroadapexaxs_terra_8.jpg",
+   "Rose/gallery/backroadapexaxs_terra_9.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-ff-force-xplr-axs-2723816": {
+  "Dirty lemon": [
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_1.jpg",
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_2.jpg",
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_3.jpg",
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_4.jpg",
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_5.jpg",
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_6.jpg",
+   "Rose/gallery/backroadffforcexplraxs_dirtylemon_7.jpg"
+  ],
+  "Pistachio": [
+   "Rose/gallery/backroadffforcexplraxs_pistachio_1.jpg",
+   "Rose/gallery/backroadffforcexplraxs_pistachio_2.jpg",
+   "Rose/gallery/backroadffforcexplraxs_pistachio_3.jpg",
+   "Rose/gallery/backroadffforcexplraxs_pistachio_4.jpg",
+   "Rose/gallery/backroadffforcexplraxs_pistachio_5.jpg",
+   "Rose/gallery/backroadffforcexplraxs_pistachio_6.jpg"
+  ],
+  "Supersonic Grey": [
+   "Rose/gallery/backroadffforcexplraxs_supersonicgrey_1.jpg",
+   "Rose/gallery/backroadffforcexplraxs_supersonicgrey_2.jpg",
+   "Rose/gallery/backroadffforcexplraxs_supersonicgrey_3.jpg",
+   "Rose/gallery/backroadffforcexplraxs_supersonicgrey_4.jpg",
+   "Rose/gallery/backroadffforcexplraxs_supersonicgrey_5.jpg",
+   "Rose/gallery/backroadffforcexplraxs_supersonicgrey_6.jpg"
+  ],
+  "Sweet plum": [
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_1.jpg",
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_2.jpg",
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_3.jpg",
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_4.jpg",
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_5.jpg",
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_6.jpg",
+   "Rose/gallery/backroadffforcexplraxs_sweetplum_7.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-ff-grx-rx825-di2-2709984": {
+  "Dirty lemon": [
+   "Rose/gallery/backroadffgrxrx825di2_dirtylemon_1.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_dirtylemon_2.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_dirtylemon_3.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_dirtylemon_4.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_dirtylemon_5.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_dirtylemon_6.jpg"
+  ],
+  "Pistachio": [
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_1.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_2.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_3.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_4.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_5.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_6.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_pistachio_7.jpg"
+  ],
+  "Rotten Candy": [
+   "Rose/gallery/backroadffgrxrx825di2_rottencandy_1.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_rottencandy_2.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_rottencandy_3.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_rottencandy_4.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_rottencandy_5.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_rottencandy_6.jpg"
+  ],
+  "Supersonic Grey": [
+   "Rose/gallery/backroadffgrxrx825di2_supersonicgrey_1.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_supersonicgrey_2.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_supersonicgrey_3.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_supersonicgrey_4.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_supersonicgrey_5.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_supersonicgrey_6.jpg"
+  ],
+  "Sweet plum": [
+   "Rose/gallery/backroadffgrxrx825di2_sweetplum_1.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_sweetplum_2.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_sweetplum_3.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_sweetplum_4.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_sweetplum_5.jpg",
+   "Rose/gallery/backroadffgrxrx825di2_sweetplum_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-ff-red-xplr-axs-2709983": {
+  "Dirty lemon": [
+   "Rose/gallery/backroadffredxplraxs_dirtylemon_1.jpg",
+   "Rose/gallery/backroadffredxplraxs_dirtylemon_2.jpg",
+   "Rose/gallery/backroadffredxplraxs_dirtylemon_3.jpg",
+   "Rose/gallery/backroadffredxplraxs_dirtylemon_4.jpg",
+   "Rose/gallery/backroadffredxplraxs_dirtylemon_5.jpg",
+   "Rose/gallery/backroadffredxplraxs_dirtylemon_6.jpg"
+  ],
+  "Supersonic Grey": [
+   "Rose/gallery/backroadffredxplraxs_supersonicgrey_1.jpg",
+   "Rose/gallery/backroadffredxplraxs_supersonicgrey_2.jpg",
+   "Rose/gallery/backroadffredxplraxs_supersonicgrey_3.jpg",
+   "Rose/gallery/backroadffredxplraxs_supersonicgrey_4.jpg",
+   "Rose/gallery/backroadffredxplraxs_supersonicgrey_5.jpg",
+   "Rose/gallery/backroadffredxplraxs_supersonicgrey_6.jpg"
+  ],
+  "Sweet plum": [
+   "Rose/gallery/backroadffredxplraxs_sweetplum_1.jpg",
+   "Rose/gallery/backroadffredxplraxs_sweetplum_2.jpg",
+   "Rose/gallery/backroadffredxplraxs_sweetplum_3.jpg",
+   "Rose/gallery/backroadffredxplraxs_sweetplum_4.jpg",
+   "Rose/gallery/backroadffredxplraxs_sweetplum_5.jpg",
+   "Rose/gallery/backroadffredxplraxs_sweetplum_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-ff-rival-xplr-axs-2723817": {
+  "Dirty lemon": [
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_1.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_2.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_3.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_4.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_5.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_6.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_dirtylemon_7.jpg"
+  ],
+  "Pistachio": [
+   "Rose/gallery/backroadffrivalxplraxs_pistachio_1.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_pistachio_2.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_pistachio_3.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_pistachio_4.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_pistachio_5.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_pistachio_6.jpg"
+  ],
+  "Supersonic Grey": [
+   "Rose/gallery/backroadffrivalxplraxs_supersonicgrey_1.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_supersonicgrey_2.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_supersonicgrey_3.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_supersonicgrey_4.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_supersonicgrey_5.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_supersonicgrey_6.jpg"
+  ],
+  "Sweet plum": [
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_1.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_2.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_3.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_4.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_5.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_6.jpg",
+   "Rose/gallery/backroadffrivalxplraxs_sweetplum_7.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-ff-xtgrx-di2-160308": {
+  "Dirty lemon": [
+   "Rose/gallery/backroadffxtgrxdi2_dirtylemon_1.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_dirtylemon_2.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_dirtylemon_3.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_dirtylemon_4.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_dirtylemon_5.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_dirtylemon_6.jpg"
+  ],
+  "Slate grey": [
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_1.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_2.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_3.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_4.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_5.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_6.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_slategrey_7.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/backroadffxtgrxdi2_supersonicgrey_1.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_supersonicgrey_2.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_supersonicgrey_3.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_supersonicgrey_4.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_supersonicgrey_5.jpg",
+   "Rose/gallery/backroadffxtgrxdi2_supersonicgrey_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-force-axs-2725747": {
+  "Lions mane": [
+   "Rose/gallery/backroadforceaxs_lionsmane_1.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_2.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_3.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_4.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_5.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_6.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_7.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_8.jpg",
+   "Rose/gallery/backroadforceaxs_lionsmane_9.jpg"
+  ],
+  "Terra": [
+   "Rose/gallery/backroadforceaxs_terra_1.jpg",
+   "Rose/gallery/backroadforceaxs_terra_2.jpg",
+   "Rose/gallery/backroadforceaxs_terra_3.jpg",
+   "Rose/gallery/backroadforceaxs_terra_4.jpg",
+   "Rose/gallery/backroadforceaxs_terra_5.jpg",
+   "Rose/gallery/backroadforceaxs_terra_6.jpg",
+   "Rose/gallery/backroadforceaxs_terra_7.jpg",
+   "Rose/gallery/backroadforceaxs_terra_8.jpg",
+   "Rose/gallery/backroadforceaxs_terra_9.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-grx-820-2725742": {
+  "Lions mane": [
+   "Rose/gallery/backroadgrx820_lionsmane_1.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_2.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_3.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_4.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_5.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_6.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_7.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_8.jpg",
+   "Rose/gallery/backroadgrx820_lionsmane_9.jpg"
+  ],
+  "Terra": [
+   "Rose/gallery/backroadgrx820_terra_1.jpg",
+   "Rose/gallery/backroadgrx820_terra_2.jpg",
+   "Rose/gallery/backroadgrx820_terra_3.jpg",
+   "Rose/gallery/backroadgrx820_terra_4.jpg",
+   "Rose/gallery/backroadgrx820_terra_5.jpg",
+   "Rose/gallery/backroadgrx820_terra_6.jpg",
+   "Rose/gallery/backroadgrx820_terra_7.jpg",
+   "Rose/gallery/backroadgrx820_terra_8.jpg",
+   "Rose/gallery/backroadgrx820_terra_9.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-grx-825-di2-2725743": {
+  "Lions mane": [
+   "Rose/gallery/backroadgrx825di2_lionsmane_1.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_2.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_3.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_4.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_5.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_6.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_7.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_8.jpg",
+   "Rose/gallery/backroadgrx825di2_lionsmane_9.jpg"
+  ],
+  "Terra": [
+   "Rose/gallery/backroadgrx825di2_terra_1.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_2.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_3.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_4.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_5.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_6.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_7.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_8.jpg",
+   "Rose/gallery/backroadgrx825di2_terra_9.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-backroad-unsupported-2725748": {
+  "Lions mane": [
+   "Rose/gallery/backroadunsupported_lionsmane_1.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_2.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_3.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_4.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_5.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_6.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_7.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_8.jpg",
+   "Rose/gallery/backroadunsupported_lionsmane_9.jpg"
+  ],
+  "Terra": [
+   "Rose/gallery/backroadunsupported_terra_1.jpg",
+   "Rose/gallery/backroadunsupported_terra_2.jpg",
+   "Rose/gallery/backroadunsupported_terra_3.jpg",
+   "Rose/gallery/backroadunsupported_terra_4.jpg",
+   "Rose/gallery/backroadunsupported_terra_5.jpg",
+   "Rose/gallery/backroadunsupported_terra_6.jpg",
+   "Rose/gallery/backroadunsupported_terra_7.jpg",
+   "Rose/gallery/backroadunsupported_terra_8.jpg",
+   "Rose/gallery/backroadunsupported_terra_9.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-blend-105-di2-160525": {
+  "Moss green": [
+   "Rose/gallery/blend105di2_mossgreen_1.jpg",
+   "Rose/gallery/blend105di2_mossgreen_2.jpg",
+   "Rose/gallery/blend105di2_mossgreen_3.jpg",
+   "Rose/gallery/blend105di2_mossgreen_4.jpg",
+   "Rose/gallery/blend105di2_mossgreen_5.jpg"
+  ],
+  "Papyrus": [
+   "Rose/gallery/blend105di2_papyrus_1.jpg",
+   "Rose/gallery/blend105di2_papyrus_2.jpg",
+   "Rose/gallery/blend105di2_papyrus_3.jpg",
+   "Rose/gallery/blend105di2_papyrus_4.jpg",
+   "Rose/gallery/blend105di2_papyrus_5.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-blend-gravel-2715089": {
+  "Matt black": [
+   "Rose/gallery/blendgravel_mattblack_1.jpg",
+   "Rose/gallery/blendgravel_mattblack_2.jpg",
+   "Rose/gallery/blendgravel_mattblack_3.jpg",
+   "Rose/gallery/blendgravel_mattblack_4.jpg"
+  ],
+  "Matt salmon": [
+   "Rose/gallery/blendgravel_mattsalmon_1.jpg",
+   "Rose/gallery/blendgravel_mattsalmon_2.jpg",
+   "Rose/gallery/blendgravel_mattsalmon_3.jpg",
+   "Rose/gallery/blendgravel_mattsalmon_4.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-blend-road-2723845": {
+  "Matt black": [
+   "Rose/gallery/blendroad_mattblack_1.jpg",
+   "Rose/gallery/blendroad_mattblack_2.jpg",
+   "Rose/gallery/blendroad_mattblack_3.jpg",
+   "Rose/gallery/blendroad_mattblack_4.jpg"
+  ],
+  "Matt salmon": [
+   "Rose/gallery/blendroad_mattsalmon_1.jpg",
+   "Rose/gallery/blendroad_mattsalmon_2.jpg",
+   "Rose/gallery/blendroad_mattsalmon_3.jpg",
+   "Rose/gallery/blendroad_mattsalmon_4.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-hobo-cues-161842": {
+  "Cosmic cassis": [
+   "Rose/gallery/hobocues_cosmiccassis_1.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_2.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_3.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_4.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_5.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_6.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_7.jpg",
+   "Rose/gallery/hobocues_cosmiccassis_8.jpg"
+  ],
+  "Cotton Candy": [
+   "Rose/gallery/hobocues_cottoncandy_1.jpg",
+   "Rose/gallery/hobocues_cottoncandy_2.jpg",
+   "Rose/gallery/hobocues_cottoncandy_3.jpg",
+   "Rose/gallery/hobocues_cottoncandy_4.jpg",
+   "Rose/gallery/hobocues_cottoncandy_5.jpg",
+   "Rose/gallery/hobocues_cottoncandy_6.jpg",
+   "Rose/gallery/hobocues_cottoncandy_7.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-105-di2-2726127": {
+  "Sage": [
+   "Rose/gallery/shave105di2_sage_1.jpg",
+   "Rose/gallery/shave105di2_sage_2.jpg",
+   "Rose/gallery/shave105di2_sage_3.jpg",
+   "Rose/gallery/shave105di2_sage_4.jpg",
+   "Rose/gallery/shave105di2_sage_5.jpg",
+   "Rose/gallery/shave105di2_sage_6.jpg"
+  ],
+  "Slate": [
+   "Rose/gallery/shave105di2_slate_1.jpg",
+   "Rose/gallery/shave105di2_slate_2.jpg",
+   "Rose/gallery/shave105di2_slate_3.jpg",
+   "Rose/gallery/shave105di2_slate_4.jpg",
+   "Rose/gallery/shave105di2_slate_5.jpg",
+   "Rose/gallery/shave105di2_slate_6.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/shave105di2_supersonicgrey_1.jpg",
+   "Rose/gallery/shave105di2_supersonicgrey_2.jpg",
+   "Rose/gallery/shave105di2_supersonicgrey_3.jpg",
+   "Rose/gallery/shave105di2_supersonicgrey_4.jpg",
+   "Rose/gallery/shave105di2_supersonicgrey_5.jpg",
+   "Rose/gallery/shave105di2_supersonicgrey_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-ff-force-axs-2726123": {
+  "Bubblegum": [
+   "Rose/gallery/shaveffforceaxs_bubblegum_1.jpg",
+   "Rose/gallery/shaveffforceaxs_bubblegum_2.jpg",
+   "Rose/gallery/shaveffforceaxs_bubblegum_3.jpg",
+   "Rose/gallery/shaveffforceaxs_bubblegum_4.jpg",
+   "Rose/gallery/shaveffforceaxs_bubblegum_5.jpg",
+   "Rose/gallery/shaveffforceaxs_bubblegum_6.jpg"
+  ],
+  "Silver": [
+   "Rose/gallery/shaveffforceaxs_silver_1.jpg",
+   "Rose/gallery/shaveffforceaxs_silver_2.jpg",
+   "Rose/gallery/shaveffforceaxs_silver_3.jpg",
+   "Rose/gallery/shaveffforceaxs_silver_4.jpg",
+   "Rose/gallery/shaveffforceaxs_silver_5.jpg",
+   "Rose/gallery/shaveffforceaxs_silver_6.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/shaveffforceaxs_supersonicgrey_1.jpg",
+   "Rose/gallery/shaveffforceaxs_supersonicgrey_2.jpg",
+   "Rose/gallery/shaveffforceaxs_supersonicgrey_3.jpg",
+   "Rose/gallery/shaveffforceaxs_supersonicgrey_4.jpg",
+   "Rose/gallery/shaveffforceaxs_supersonicgrey_5.jpg",
+   "Rose/gallery/shaveffforceaxs_supersonicgrey_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-ff-ultegra-di2-2726121": {
+  "Bubblegum": [
+   "Rose/gallery/shaveffultegradi2_bubblegum_1.jpg",
+   "Rose/gallery/shaveffultegradi2_bubblegum_2.jpg",
+   "Rose/gallery/shaveffultegradi2_bubblegum_3.jpg",
+   "Rose/gallery/shaveffultegradi2_bubblegum_4.jpg",
+   "Rose/gallery/shaveffultegradi2_bubblegum_5.jpg",
+   "Rose/gallery/shaveffultegradi2_bubblegum_6.jpg"
+  ],
+  "Silver": [
+   "Rose/gallery/shaveffultegradi2_silver_1.jpg",
+   "Rose/gallery/shaveffultegradi2_silver_2.jpg",
+   "Rose/gallery/shaveffultegradi2_silver_3.jpg",
+   "Rose/gallery/shaveffultegradi2_silver_4.jpg",
+   "Rose/gallery/shaveffultegradi2_silver_5.jpg",
+   "Rose/gallery/shaveffultegradi2_silver_6.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/shaveffultegradi2_supersonicgrey_1.jpg",
+   "Rose/gallery/shaveffultegradi2_supersonicgrey_2.jpg",
+   "Rose/gallery/shaveffultegradi2_supersonicgrey_3.jpg",
+   "Rose/gallery/shaveffultegradi2_supersonicgrey_4.jpg",
+   "Rose/gallery/shaveffultegradi2_supersonicgrey_5.jpg",
+   "Rose/gallery/shaveffultegradi2_supersonicgrey_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-ffx-dura-ace-di2-2726122": {
+  "Ghost pearl": [
+   "Rose/gallery/shaveffxduraacedi2_ghostpearl_1.jpg",
+   "Rose/gallery/shaveffxduraacedi2_ghostpearl_2.jpg",
+   "Rose/gallery/shaveffxduraacedi2_ghostpearl_3.jpg",
+   "Rose/gallery/shaveffxduraacedi2_ghostpearl_4.jpg",
+   "Rose/gallery/shaveffxduraacedi2_ghostpearl_5.jpg",
+   "Rose/gallery/shaveffxduraacedi2_ghostpearl_6.jpg"
+  ],
+  "Liquid racing green": [
+   "Rose/gallery/shaveffxduraacedi2_liquidracinggreen_1.jpg",
+   "Rose/gallery/shaveffxduraacedi2_liquidracinggreen_2.jpg",
+   "Rose/gallery/shaveffxduraacedi2_liquidracinggreen_3.jpg",
+   "Rose/gallery/shaveffxduraacedi2_liquidracinggreen_4.jpg",
+   "Rose/gallery/shaveffxduraacedi2_liquidracinggreen_5.jpg",
+   "Rose/gallery/shaveffxduraacedi2_liquidracinggreen_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-ffx-red-axs-2726124": {
+  "Ghost pearl": [
+   "Rose/gallery/shaveffxredaxs_ghostpearl_1.jpg",
+   "Rose/gallery/shaveffxredaxs_ghostpearl_2.jpg",
+   "Rose/gallery/shaveffxredaxs_ghostpearl_3.jpg",
+   "Rose/gallery/shaveffxredaxs_ghostpearl_4.jpg",
+   "Rose/gallery/shaveffxredaxs_ghostpearl_5.jpg",
+   "Rose/gallery/shaveffxredaxs_ghostpearl_6.jpg"
+  ],
+  "Liquid racing green": [
+   "Rose/gallery/shaveffxredaxs_liquidracinggreen_1.jpg",
+   "Rose/gallery/shaveffxredaxs_liquidracinggreen_2.jpg",
+   "Rose/gallery/shaveffxredaxs_liquidracinggreen_3.jpg",
+   "Rose/gallery/shaveffxredaxs_liquidracinggreen_4.jpg",
+   "Rose/gallery/shaveffxredaxs_liquidracinggreen_5.jpg",
+   "Rose/gallery/shaveffxredaxs_liquidracinggreen_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-force-axs-2726131": {
+  "Sage": [
+   "Rose/gallery/shaveforceaxs_sage_1.jpg",
+   "Rose/gallery/shaveforceaxs_sage_2.jpg",
+   "Rose/gallery/shaveforceaxs_sage_3.jpg",
+   "Rose/gallery/shaveforceaxs_sage_4.jpg",
+   "Rose/gallery/shaveforceaxs_sage_5.jpg",
+   "Rose/gallery/shaveforceaxs_sage_6.jpg"
+  ],
+  "Slate": [
+   "Rose/gallery/shaveforceaxs_slate_1.jpg",
+   "Rose/gallery/shaveforceaxs_slate_2.jpg",
+   "Rose/gallery/shaveforceaxs_slate_3.jpg",
+   "Rose/gallery/shaveforceaxs_slate_4.jpg",
+   "Rose/gallery/shaveforceaxs_slate_5.jpg",
+   "Rose/gallery/shaveforceaxs_slate_6.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/shaveforceaxs_supersonicgrey_1.jpg",
+   "Rose/gallery/shaveforceaxs_supersonicgrey_2.jpg",
+   "Rose/gallery/shaveforceaxs_supersonicgrey_3.jpg",
+   "Rose/gallery/shaveforceaxs_supersonicgrey_4.jpg",
+   "Rose/gallery/shaveforceaxs_supersonicgrey_5.jpg",
+   "Rose/gallery/shaveforceaxs_supersonicgrey_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-rival-axs-2726130": {
+  "Slate": [
+   "Rose/gallery/shaverivalaxs_slate_1.jpg",
+   "Rose/gallery/shaverivalaxs_slate_2.jpg",
+   "Rose/gallery/shaverivalaxs_slate_3.jpg",
+   "Rose/gallery/shaverivalaxs_slate_4.jpg",
+   "Rose/gallery/shaverivalaxs_slate_5.jpg",
+   "Rose/gallery/shaverivalaxs_slate_6.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/shaverivalaxs_supersonicgrey_1.jpg",
+   "Rose/gallery/shaverivalaxs_supersonicgrey_2.jpg",
+   "Rose/gallery/shaverivalaxs_supersonicgrey_3.jpg",
+   "Rose/gallery/shaverivalaxs_supersonicgrey_4.jpg",
+   "Rose/gallery/shaverivalaxs_supersonicgrey_5.jpg",
+   "Rose/gallery/shaverivalaxs_supersonicgrey_6.jpg"
+  ]
+ },
+ "https://www.rosebikes.nl/p/rose-shave-ultegra-di2-2726129": {
+  "Sage": [
+   "Rose/gallery/shaveultegradi2_sage_1.jpg",
+   "Rose/gallery/shaveultegradi2_sage_2.jpg",
+   "Rose/gallery/shaveultegradi2_sage_3.jpg",
+   "Rose/gallery/shaveultegradi2_sage_4.jpg",
+   "Rose/gallery/shaveultegradi2_sage_5.jpg",
+   "Rose/gallery/shaveultegradi2_sage_6.jpg"
+  ],
+  "Slate": [
+   "Rose/gallery/shaveultegradi2_slate_1.jpg",
+   "Rose/gallery/shaveultegradi2_slate_2.jpg",
+   "Rose/gallery/shaveultegradi2_slate_3.jpg",
+   "Rose/gallery/shaveultegradi2_slate_4.jpg",
+   "Rose/gallery/shaveultegradi2_slate_5.jpg",
+   "Rose/gallery/shaveultegradi2_slate_6.jpg"
+  ],
+  "Supersonic grey": [
+   "Rose/gallery/shaveultegradi2_supersonicgrey_1.jpg",
+   "Rose/gallery/shaveultegradi2_supersonicgrey_2.jpg",
+   "Rose/gallery/shaveultegradi2_supersonicgrey_3.jpg",
+   "Rose/gallery/shaveultegradi2_supersonicgrey_4.jpg",
+   "Rose/gallery/shaveultegradi2_supersonicgrey_5.jpg",
+   "Rose/gallery/shaveultegradi2_supersonicgrey_6.jpg"
+  ]
+ }
+}

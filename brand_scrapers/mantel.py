@@ -172,11 +172,14 @@ def match(brand, name, year, ours, key=key):
     return None
 
 
-def catalogue_names(brand, key=key):
-    """{key: our name} of every model of the brand we know: scrapes, discontinued lines and earlier-year sheets."""
+def catalogue_names(brand, key=key, own=None):
+    """{key: our name} of every model of the brand we know: scrapes, discontinued lines (the brand's and the other
+    shops' but `own`'s, which is being remade) and earlier-year sheets."""
     names = set()
+    lines = [p for p in glob.glob(os.path.join(ROOT, "data", "years", "*", "lines", f"{brand}.json"))
+             if not own or os.path.basename(os.path.dirname(os.path.dirname(p))) != own]
     for path in glob.glob(os.path.join(ROOT, "data", brand, "*.json")) + [
-            os.path.join(ROOT, "data", "years", "archived", f"{brand}.json")]:
+            os.path.join(ROOT, "data", "years", "archived", f"{brand}.json")] + lines:
         try:
             with open(path, encoding="utf-8") as fh:
                 data = json.load(fh)
@@ -230,6 +233,11 @@ class Shop:
     sheet = staticmethod(sheet)
     key = staticmethod(key)
 
+    @staticmethod
+    def keep(brand, entry):
+        """False leaves the page out, whatever its sheet says."""
+        return True
+
 
 MANTEL = Shop()
 
@@ -238,10 +246,12 @@ def convert(raw, photos=None, shop=MANTEL):
     """{brand: (sheets, lines)} from raw.json's content; photos(brand, slug, year, url) saves one and gives its path."""
     out = {}
     for brand, models in raw.get("models", {}).items():
-        ours, categories = catalogue_names(brand, shop.key), catalogue_categories(brand)
+        ours, categories = catalogue_names(brand, shop.key, shop.folder), catalogue_categories(brand)
         sheets, new = {}, {}
         for shop_name, years in models.items():
             for year, entry in years.items():
+                if not shop.keep(brand, entry):
+                    continue
                 year = int(entry.get("model_year") or year)
                 specs = shop.specs_of(entry.get("specs") or [])
                 plain = shop.clean_name(shop_name)
@@ -257,8 +267,12 @@ def convert(raw, photos=None, shop=MANTEL):
                 sheets[found][str(year)] = shop.sheet(entry, specs)
         for name, years in sheets.items():
             for year, s in years.items():
-                url = s.pop("photo")
+                url, more = s.pop("photo"), s.pop("gallery", None)
                 s["image"] = photos(brand, compact(name), year, url) if photos and url else None
+                if more and photos and s["image"]:  # the page's other photos of the bike: its angles that year,
+                    saved = [photos(brand, compact(name), year, u, n) for n, u in enumerate(more, 1)]
+                    if any(saved):  # for every colour ("": the page showed one), as the model page reads them
+                        s["colour_angles"] = {"": [p for p in saved if p]}
         lines = []
         for name in sorted(set(new.values())):
             years = sheets[name]
@@ -297,8 +311,8 @@ def main(argv=None, shop=MANTEL, raw_path=RAW, doc=None):
     if not args.no_photos:
         from .history import save_photo
         fetcher = Fetcher(delay=2.0)
-        photos = lambda brand, slug, year, url: save_photo(fetcher, brand, slug, year, url,
-                                                           rel=f"{brand}/years/{slug}_{year}_{shop.tag}.jpg")
+        photos = lambda brand, slug, year, url, n=None: save_photo(
+            fetcher, brand, slug, year, url, rel=f"{brand}/years/{slug}_{year}_{shop.tag}{f'_{n}' if n else ''}.jpg")
     save(raw, convert(raw, photos, shop), shop)
 
 

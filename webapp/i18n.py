@@ -347,9 +347,9 @@ NL = {
     "{diff} below fair": "{diff} onder eerlijk",
     "Within the fair range": "Binnen de eerlijke prijs",
     "Middle {mid}": "Midden {mid}",
-    "−{pct}% after 1 year": "−{pct}% na 1 jaar",
-    "−{pct}% after {n} years": "−{pct}% na {n} jaar",
-    "−{pct}% in its first year": "−{pct}% in het eerste jaar",
+    "Fair is {pct}% less": "Eerlijk is {pct}% minder",
+    "Lower than new because of its age and downgraded parts.": "Lager dan nieuw door de leeftijd en door gedowngrade onderdelen.",
+    "Lower than new because of its age.": "Lager dan nieuw door de leeftijd.",
     "{n} years old": "{n} jaar oud",
     "1 year old": "1 jaar oud",
     "Condition: {condition}": "Staat: {condition}",
@@ -449,6 +449,10 @@ NL = {
     "As listed by the UK bike shop {shop} on {date}, from a copy in the Wayback Machine.":
         "Zoals de Britse fietsenwinkel {shop} hem op {date} vermeldde, uit een kopie in de Wayback Machine.",
     "{shop} price £{price}": "Prijs bij {shop} £{price}",
+    "As listed on the {brand} site on {date}, from a copy in the Wayback Machine.":
+        "Zoals de site van {brand} hem op {date} vermeldde, uit een kopie in de Wayback Machine.",
+    "The page gives no model year: this is the year of the copy.":
+        "De pagina noemt geen modeljaar: dit is het jaar van de kopie.",
     "Open the copy": "Open de kopie",
     "Open the page": "Open de pagina",
     "Sold as {name} in {year}.": "In {year} verkocht als {name}.",
@@ -531,8 +535,8 @@ NL = {
     "Limits of this prototype": "Beperkingen van dit prototype",
     "Model years are entered by hand for a few Trek generations only.":
         "Modeljaren zijn alleen voor een paar Trek-generaties met de hand ingevoerd.",
-    "Trek, Canyon, Cannondale, BMC and Cervélo publish each model's own size chart. Specialized, Giant, Cube, Factor and Bianchi publish the sizes and geometry per model, but rider heights only in a general size guide. Lapierre and Ridley publish no rider heights, so their bikes use a generic chart.":
-        "Trek, Canyon, Cannondale, BMC en Cervélo publiceren per model een eigen maattabel. Specialized, Giant, Cube, Factor en Bianchi geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel. Lapierre en Ridley geven geen lichaamslengtes, dus voor hun fietsen gebruiken we een algemene tabel.",
+    "Trek, Canyon, Cannondale, BMC, Cervélo and Rose publish each model's own size chart. Specialized, Giant, Cube, Factor and Bianchi publish the sizes and geometry per model, but rider heights only in a general size guide. Lapierre, Ridley and Wilier publish no rider heights, so their bikes use a generic chart.":
+        "Trek, Canyon, Cannondale, BMC, Cervélo en Rose publiceren per model een eigen maattabel. Specialized, Giant, Cube, Factor en Bianchi geven per model de maten en geometrie, maar de lichaamslengte alleen in een algemene maattabel. Lapierre, Ridley en Wilier geven geen lichaamslengtes, dus voor hun fietsen gebruiken we een algemene tabel.",
     "The value is a simple age and condition curve. Comparable ads aren't used yet.":
         "De waarde is een eenvoudige berekening op leeftijd en staat. Vergelijkbare advertenties tellen nog niet mee.",
     "Only current-catalogue models are covered; older generations come with the reworked scraper.":

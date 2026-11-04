@@ -1,0 +1,1335 @@
+[
+  {
+    "name": "Blend 105 Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-blend-105-di2-160525",
+    "sku": "160525",
+    "price": 2040.0,
+    "category": "Endurance",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Blend",
+      "Voorvork": "ROSE BLEND, Carbon, 12x100TA, vorkgewicht 480 g",
+      "Wiel voor": "Rose VR R25, 29\"",
+      "Wiel achter": "Rose HR R25, 29\"",
+      "Buitenband": "Continental Ultra Sport III Performance, zwart 700x28C",
+      "Crankstel": "Shimano FC-R7100, 105, 50-34t, 12-speed, 170mm",
+      "Cassette": "Shimano 105, CS-R7101, 11-34 11-34",
+      "Voorderailleur": "Shimano FD-R7150, 105, 12-speed",
+      "Achterderailleur": "SHIMANO 105 RD-R7150, 12-speed",
+      "Ketting": "Shimano CN-M7100, SLX, 12-speed 118 L",
+      "Stuur": "Ritchey Road Comp Streem II, zwart/mat 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "ROSE ALR, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Superfly Fec Alloy",
+      "Zadelpen": "ROSE, Ø27,2/350mm"
+    },
+    "color_names": [
+      "Moss green",
+      "Papyrus"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/22DACF03EA883DE9785E61DB4AF3CD86.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/22DACF03EA883DE9785E61DB4AF3CD86.png",
+      "https://cdn.rosebikes.de/images/0F1F395E49F4CEA6975F5B83A33B46F4.png"
+    ],
+    "image": "Rose/Blend_105_Di2.jpg",
+    "color_images": [
+      "Rose/Blend_105_Di2_colour_Moss_green.jpg",
+      "Rose/Blend_105_Di2_colour_Papyrus.jpg"
+    ]
+  },
+  {
+    "name": "Blend Gravel",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-blend-gravel-2715089",
+    "sku": "2715089",
+    "price": 1120.0,
+    "category": "Endurance",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE BLEND, matt black XXS",
+      "Voorvork": "ROSE BLEND, Carbon, 12x100TA, vorkgewicht 480 g matt black 28\"/700C",
+      "Wiel voor": "Rose FW G20 622 Fade R J-Bend CL 28\"",
+      "Wiel achter": "Rose HR G20 622 Fade R J-Bend CL, 28\"",
+      "Buitenband": "Continental Terra Trail, zwart/bruin 700x40C",
+      "Crankstel": "Shimano, FC-RX600, GRX 10-fach, 46-30T, 165mm",
+      "Cassette": "Shimano HG500-10, 11-34",
+      "Voorderailleur": "Shimano GRX, RD-RX400, 10-speed",
+      "Achterderailleur": "Shimano GRX, RD-RX400, 10-speed",
+      "Ketting": "Shimano CN-HG54 10-speed 118 L",
+      "Rem": "Shimano GRX ST-RX400(L) BR-RX410(F)",
+      "Remgreep": "Shimano GRX ST-RX400(R), BR-RX410(R)",
+      "Stuur": "Ritchey Road COMP Butano II, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "ROSE ALR, zwart zand 70mm",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Superfly Fec Alloy",
+      "Zadelpen": "ROSE, Ø27,2/350mm"
+    },
+    "color_names": [
+      "Matt black",
+      "Matt salmon"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/311AE20A978F73C0E2778CC31740188A.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/311AE20A978F73C0E2778CC31740188A.png",
+      "https://cdn.rosebikes.de/images/DE4659578FF3CF582025CCC10C9115DE.png"
+    ],
+    "image": "Rose/Blend_Gravel.jpg",
+    "color_images": [
+      "Rose/Blend_Gravel_colour_Matt_black.jpg",
+      "Rose/Blend_Gravel_colour_Matt_salmon.jpg"
+    ]
+  },
+  {
+    "name": "Blend Road",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-blend-road-2723845",
+    "sku": "2723845",
+    "price": 1020.0,
+    "category": "Endurance",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE BLEND, matt black XXS",
+      "Voorvork": "ROSE BLEND, Carbon, 12x100TA, vorkgewicht 480 g matt black 28\"/700C",
+      "Wiel voor": "Rose FW G20 622 Fade R J-Bend CL 28\"",
+      "Wiel achter": "Rose HR G20 622 Fade R J-Bend CL, 28\"",
+      "Buitenband": "Continental Ultra Sport III Performance, zwart 700x32C",
+      "Crankstel": "Shimano CUES FC--U6030. 46/32, 170mm",
+      "Cassette": "Shimano CUES CS-LG300, 11-39",
+      "Voorderailleur": "Shimano Cues FD-U6030",
+      "Achterderailleur": "Shimano CUES, RD-U6020-10 CUES SGS, 10-/11-speed",
+      "Ketting": "Shimano CN-HG601-11 11-speed 122gl.",
+      "Rem": "Shimano CUES, ST-U6030",
+      "Shifter": "Shimano ST-U6030(L), BR-U6030(R)",
+      "Remgreep": "aw: Shimano remschijf SM-RT10, 160mm Ø160mm",
+      "Stuur": "Ritchey Road Comp Streem II, zwart/mat 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "ROSE ALR, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Superfly Fec Alloy",
+      "Zadelpen": "ROSE, Ø27,2/350mm"
+    },
+    "color_names": [
+      "Matt black",
+      "Matt salmon"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://storage.rosebikes.com/images/p/245667_1769079478.png",
+    "color_image_urls": [
+      "https://storage.rosebikes.com/images/p/245667_1769079478.png",
+      "https://storage.rosebikes.com/images/p/245662_1769079484.png"
+    ],
+    "image": "Rose/Blend_Road.jpg",
+    "color_images": [
+      "Rose/Blend_Road_colour_Matt_black.jpg",
+      "Rose/Blend_Road_colour_Matt_salmon.jpg"
+    ]
+  },
+  {
+    "name": "Backroad AL Apex",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-al-apex-2725771",
+    "sku": "2725771",
+    "price": 1530.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Backroad, PMS 7562 80% MATTE+ s/t PMS 163 80% MATTE w/splatter YS-701 XXS",
+      "Voorvork": "Rose Backroad ADV AL V2",
+      "Wiel voor": "front: Rose G25, 28\"",
+      "Wiel achter": "Rose G25, 28\"",
+      "Buitenband": "Continental Terra Adventure Trail Grip, zwart/transparant 700x45C",
+      "Crankstel": "SRAM Apex 1 Wide DUB 40Zt. STEEL, zwart 170mm",
+      "Cassette": "SRAM XPLR PG-1231, zilver 11-44",
+      "Achterderailleur": "SRAM Apex XPLR zwart",
+      "Ketting": "SRAM Apex 12-speed grijs 116 schakels",
+      "Shifter": "Voor: SRAM Apex zwart",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Evo Superflow, zwart",
+      "Zadelpen": "Rose Viper AL6061 T6, zwart zand Ø30,9/350mm"
+    },
+    "color_names": [
+      "Dune",
+      "Soil",
+      "Soleil"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/DF599D19FAEBF662BEDAA7F2B4FA455D.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/DF599D19FAEBF662BEDAA7F2B4FA455D.png",
+      "https://cdn.rosebikes.de/images/E1F6AE341BAA7F333AC3EDA7745C845E.png",
+      "https://cdn.rosebikes.de/images/26231F9518FE2B36852C91F037624B70.png"
+    ],
+    "image": "Rose/Backroad_AL_Apex.jpg",
+    "color_images": [
+      "Rose/Backroad_AL_Apex_colour_Dune.jpg",
+      "Rose/Backroad_AL_Apex_colour_Soil.jpg",
+      "Rose/Backroad_AL_Apex_colour_Soleil.jpg"
+    ]
+  },
+  {
+    "name": "Backroad AL EQ",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-al-eq-2725772",
+    "sku": "2725772",
+    "price": 2040.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Backroad, PMS 7562 80% MATTE+ s/t PMS 163 80% MATTE w/splatter YS-701 XXS",
+      "Voorvork": "Rose Backroad ADV AL V2",
+      "Wiel voor": "front: DT Swiss G1800 Spline DYN mit Nabendynamo SP PL-7 for DT Swiss, 29\" (Zoll)",
+      "Wiel achter": "rear: DT Swiss G1800 Spline, 29\" (Zoll)",
+      "Buitenband": "Continental Grand Prix Urban, black/coffee 700x35C",
+      "Crankstel": "Shimano RX610-2,, 46/30, 12-fach 170mm",
+      "Cassette": "Shimano 105, CS-R7101, 11-34 11-34",
+      "Voorderailleur": "Shimano, FD-RX820, 12-speed 2-fach; 12speed",
+      "Achterderailleur": "Shimano RD-RX820, 12-speed, 12-36",
+      "Ketting": "Shimano CN-M6100, 12-speed 116 schakels",
+      "Shifter": "Shimano GRX, ST-RX610(R),BR-RX410(R)",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "WTB Silverado Medium, zwart",
+      "Zadelpen": "Rose Viper AL6061 T6, zwart zand Ø30,9/350mm",
+      "Spatbord": "Hebie ALUMEE, zwart 28\"",
+      "Verlichting": "B + M Lumotec IQ-X, 100 lux, geanodiseerd zwart",
+      "Achterlicht": "Trelock COB Line LS 453"
+    },
+    "color_names": [
+      "Dune",
+      "Soil",
+      "Soleil"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/F5088DC66079259AF15BE41C08B3C53E.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/F5088DC66079259AF15BE41C08B3C53E.png",
+      "https://cdn.rosebikes.de/images/593D6EA36B4D9102D709BD198EB17753.png",
+      "https://cdn.rosebikes.de/images/ACF37A08D7930D8E37A8156C49DE3D20.png"
+    ],
+    "image": "Rose/Backroad_AL_EQ.jpg",
+    "color_images": [
+      "Rose/Backroad_AL_EQ_colour_Dune.jpg",
+      "Rose/Backroad_AL_EQ_colour_Soil.jpg",
+      "Rose/Backroad_AL_EQ_colour_Soleil.jpg"
+    ]
+  },
+  {
+    "name": "Backroad AL GRX 400",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-al-grx-400-2725768",
+    "sku": "2725768",
+    "price": 1430.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Backroad, PMS 7562 80% MATTE+ s/t PMS 163 80% MATTE w/splatter YS-701 XXS",
+      "Voorvork": "Rose Backroad ADV AL V2",
+      "Wiel voor": "front: Rose G25, 28\"",
+      "Wiel achter": "Rose G25, 28\"",
+      "Buitenband": "Continental Terra Adventure Trail Grip, zwart/transparant 700x45C",
+      "Crankstel": "Shimano GRX, FC-RX600, 10-speed, dubbel, 46/30t, 170mm",
+      "Cassette": "Shimano HG500-10, 11-34",
+      "Voorderailleur": "Shimano GRX, RD-RX400, 10-speed",
+      "Achterderailleur": "Shimano GRX, RD-RX400, 10-speed",
+      "Ketting": "Shimano CN-HG54 10-speed 118 L",
+      "Rem": "Shimano GRX ST-RX400(L) BR-RX410(F)",
+      "Remgreep": "Shimano GRX ST-RX400(R), BR-RX410(R)",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Evo Superflow, zwart",
+      "Zadelpen": "Rose Viper AL6061 T6, zwart zand Ø30,9/350mm"
+    },
+    "color_names": [
+      "Dune",
+      "Soil",
+      "Soleil"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/C2FD3AD90CB15DFDED312881F8A04CF2.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/C2FD3AD90CB15DFDED312881F8A04CF2.png",
+      "https://cdn.rosebikes.de/images/4DABBBA88228AD157028C8448F253134.png",
+      "https://cdn.rosebikes.de/images/20D0A436962BDF98FEBA24FE8900B78C.png"
+    ],
+    "image": "Rose/Backroad_AL_GRX_400.jpg",
+    "color_images": [
+      "Rose/Backroad_AL_GRX_400_colour_Dune.jpg",
+      "Rose/Backroad_AL_GRX_400_colour_Soil.jpg",
+      "Rose/Backroad_AL_GRX_400_colour_Soleil.jpg"
+    ]
+  },
+  {
+    "name": "Backroad AL GRX 610",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-al-grx-610-2725769",
+    "sku": "2725769",
+    "price": 2040.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Backroad, PMS 7562 80% MATTE+ s/t PMS 163 80% MATTE w/splatter YS-701 XXS",
+      "Voorvork": "Rose Backroad ADV AL V2",
+      "Wiel voor": "front: Rose G25, 28\"",
+      "Wiel achter": "front: Rose G25, 28\"",
+      "Buitenband": "Continental Terra Adventure Trail Grip, zwart/transparant 700x45C",
+      "Crankstel": "Shimano FC-RX610-1, 40t., 170mm",
+      "Cassette": "Shimano SLX, CS-M7100-12, 12-speed, 10-51",
+      "Achterderailleur": "Shimano GRX RD-RX822, 12-speed 12-speed",
+      "Ketting": "Shimano Deore CN-M6100, Quick Link, 12-speed 122gl.",
+      "Shifter": "Shimano GRX, ST-RX610(R),BR-RX410(R)",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Evo Superflow, zwart",
+      "Zadelpen": "Rose Viper AL6061 T6, zwart zand Ø30,9/350mm"
+    },
+    "color_names": [
+      "Dune",
+      "Soil",
+      "Soleil"
+    ],
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/155B6B35F883A8D15F60910BC27DB6BC.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/155B6B35F883A8D15F60910BC27DB6BC.png",
+      "https://cdn.rosebikes.de/images/2FE9A983BF74F038FC02B3A5B61E105E.png",
+      "https://cdn.rosebikes.de/images/0BF90013831CA97E36C86E13F9AFEEDA.png"
+    ],
+    "image": "Rose/Backroad_AL_GRX_610.jpg",
+    "color_images": [
+      "Rose/Backroad_AL_GRX_610_colour_Dune.jpg",
+      "Rose/Backroad_AL_GRX_610_colour_Soil.jpg",
+      "Rose/Backroad_AL_GRX_610_colour_Soleil.jpg"
+    ]
+  },
+  {
+    "name": "Backroad Apex AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-apex-axs-2725746",
+    "sku": "2725746",
+    "price": 2650.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Backroad",
+      "Voorvork": "Rose Backroad ADV",
+      "Buitenband": "Continental Terra Adventure, zwart/zwart 700x45C",
+      "Crankstel": "SRAM Apex 1 Wide DUB 40t. zwart 170mm",
+      "Cassette": "SRAM XPLR PG-1231, zilver 11-44",
+      "Achterderailleur": "SRAM Apex XPLR AXS, zwart",
+      "Ketting": "SRAM Apex 12-speed grijs 116 schakels",
+      "Shifter": "AW: SRAM Apex AXS zwart",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "fi´zi:k Terra Argo X7 zwart",
+      "Zadelpen": "Rose Backroad ADV"
+    },
+    "color_names": [
+      "Terra",
+      "Lions mane"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML:",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/A57A0C3B390F8E8A66E3B17AF3EFE8A5.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/A57A0C3B390F8E8A66E3B17AF3EFE8A5.png",
+      "https://cdn.rosebikes.de/images/D989763891C0A6752B0EB958DE3FEAE0.png"
+    ],
+    "image": "Rose/Backroad_Apex_AXS.jpg",
+    "color_images": [
+      "Rose/Backroad_Apex_AXS_colour_Terra.jpg",
+      "Rose/Backroad_Apex_AXS_colour_Lions_mane.jpg"
+    ]
+  },
+  {
+    "name": "Backroad FF Force XPLR AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-ff-force-xplr-axs-2723816",
+    "sku": "2723816",
+    "price": 4380.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE Backroad FF, high modulus carbon, 12x142, Pressfit BB86, framegewicht bij maat M vanaf ca. 1070 g",
+      "Stuur/stuurpen (geïntegreerd)": "Rose one piece cockpit Gravel, 90mm/38cm",
+      "Voorvork": "ROSE BACKROAD FF, carbon, 12x100TA, vorkgewicht 420 g",
+      "Buitenband": "Schwalbe G-One RS Pro Evo, Super Race, zwart 40-622",
+      "Crankstel": "Sram Force Powermeter XPLR Wide, 44T, 170mm",
+      "Cassette": "Sram Force XPLR XG-1371, 10-46",
+      "Achterderailleur": "Sram Force XPLR AXS, 1x13-Fach",
+      "Ketting": "Sram Force E1, 118 schakels",
+      "Shifter": "front: Sram Force AXS E1, 1x13-Fach",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia Flite Boost S1 Carbon, zwart",
+      "Zadelpen": "ROSE"
+    },
+    "color_names": [
+      "Sweet plum",
+      "Dirty lemon",
+      "Pistachio",
+      "Supersonic Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://storage.rosebikes.com/images/p/245613_1769076148.png",
+    "color_image_urls": [
+      "https://storage.rosebikes.com/images/p/245613_1769076148.png",
+      "https://storage.rosebikes.com/images/p/245621_1769076146.png",
+      "https://storage.rosebikes.com/images/p/245606_1769076151.png",
+      "https://storage.rosebikes.com/images/p/245599_1769076154.png"
+    ],
+    "image": "Rose/Backroad_FF_Force_XPLR_AXS.jpg",
+    "color_images": [
+      "Rose/Backroad_FF_Force_XPLR_AXS_colour_Sweet_plum.jpg",
+      "Rose/Backroad_FF_Force_XPLR_AXS_colour_Dirty_lemon.jpg",
+      "Rose/Backroad_FF_Force_XPLR_AXS_colour_Pistachio.jpg",
+      "Rose/Backroad_FF_Force_XPLR_AXS_colour_Supersonic_Grey.jpg"
+    ]
+  },
+  {
+    "name": "Backroad FF GRX RX825 Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-ff-grx-rx825-di2-2709984",
+    "sku": "2709984",
+    "price": 3870.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE Backroad FF, high modulus carbon, 12x142, Pressfit BB86, framegewicht bij maat M vanaf ca. 1070 g",
+      "Stuur/stuurpen (geïntegreerd)": "Rose one piece cockpit Gravel, 90mm/38cm",
+      "Voorvork": "ROSE BACKROAD FF, carbon, 12x100TA, vorkgewicht 420 g",
+      "Buitenband": "Schwalbe G-One RS Pro Evo, Super Race, zwart 40-622",
+      "Crankstel": "Shimano FC-RX820-2 GRX 170mm, 31-48",
+      "Vermogensmeter": "Shimano 4iiii FC-RX820-2 170mm, 31-48",
+      "Cassette": "Shimano Ultegra CS-8101 11-34T, 12-speed 11-34",
+      "Voorderailleur": "Shimano FD-RX825 GRX 12-speed",
+      "Achterderailleur": "Shimano RD-RX825,GRX, Di2, 12-speed 12-36",
+      "Ketting": "Shimano CN-M6100, 12-speed 116 schakels",
+      "Shifter": "Shimano GRX ST-RX825(R) BR-RX820(R) zwart 1000mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia Flite Boost S1, Manganese, zwart",
+      "Zadelpen": "ROSE"
+    },
+    "color_names": [
+      "Sweet plum",
+      "Dirty lemon",
+      "Pistachio",
+      "Supersonic Grey",
+      "Rotten Candy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/167B88912BD4E05A73CDC09A23E693EA.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/167B88912BD4E05A73CDC09A23E693EA.png",
+      "https://cdn.rosebikes.de/images/222659550C41495B3CD98A4110C41FF4.png",
+      "https://cdn.rosebikes.de/images/6E83756ED230461D25AAD6BD5C654BC2.png",
+      "https://cdn.rosebikes.de/images/B84B5ADA42853D67C7AECDCD5843477B.png",
+      "https://storage.rosebikes.com/images/p/138493_1769075860.png"
+    ],
+    "image": "Rose/Backroad_FF_GRX_RX825_Di2.jpg",
+    "color_images": [
+      "Rose/Backroad_FF_GRX_RX825_Di2_colour_Sweet_plum.jpg",
+      "Rose/Backroad_FF_GRX_RX825_Di2_colour_Dirty_lemon.jpg",
+      "Rose/Backroad_FF_GRX_RX825_Di2_colour_Pistachio.jpg",
+      "Rose/Backroad_FF_GRX_RX825_Di2_colour_Supersonic_Grey.jpg",
+      "Rose/Backroad_FF_GRX_RX825_Di2_colour_Rotten_Candy.jpg"
+    ]
+  },
+  {
+    "name": "Backroad FF Red XPLR AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-ff-red-xplr-axs-2709983",
+    "sku": "2709983",
+    "price": 5600.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE Backroad FF, high modulus carbon, 12x142, Pressfit BB86, framegewicht bij maat M vanaf ca. 1070 g",
+      "Stuur/stuurpen (geïntegreerd)": "Rose one piece cockpit Gravel, 90mm/38cm",
+      "Voorvork": "ROSE BACKROAD FF, carbon, 12x100TA, vorkgewicht 420 g",
+      "Buitenband": "Schwalbe G-One RS Pro Evo, Super Race, zwart 40-622",
+      "Crankstel": "SRAM Powermeter Red 1 XPLR AXS, 44Z, zwart/zilver 170mm",
+      "Cassette": "SRAM XG 1391 XPLR E1, zilver 10-46",
+      "Achterderailleur": "SRAM RED XPLR AXS E1, zwart/zilver",
+      "Ketting": "SRAM Red E1, 118 schakels",
+      "Rem": "Front Wheel: SRAM Red AXS",
+      "Remgreep": "Rear Wheel: SRAM Red AXS",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia Flite Boost S1 Carbon, zwart",
+      "Zadelpen": "ROSE"
+    },
+    "color_names": [
+      "Sweet plum",
+      "Dirty lemon",
+      "Supersonic Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML:",
+      "L",
+      "XL",
+      "ML"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/8D9B71BD24C7638BC82ED8B16E73D927.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/8D9B71BD24C7638BC82ED8B16E73D927.png",
+      "https://cdn.rosebikes.de/images/88C2D6DEB35C71BC381E4F2024BF9FD2.png",
+      "https://cdn.rosebikes.de/images/97A35BB4755A31234F848664D8F13175.png"
+    ],
+    "image": "Rose/Backroad_FF_Red_XPLR_AXS.jpg",
+    "color_images": [
+      "Rose/Backroad_FF_Red_XPLR_AXS_colour_Sweet_plum.jpg",
+      "Rose/Backroad_FF_Red_XPLR_AXS_colour_Dirty_lemon.jpg",
+      "Rose/Backroad_FF_Red_XPLR_AXS_colour_Supersonic_Grey.jpg"
+    ]
+  },
+  {
+    "name": "Backroad FF Rival XPLR AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-ff-rival-xplr-axs-2723817",
+    "sku": "2723817",
+    "price": 3050.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE Backroad FF, high modulus carbon, 12x142, Pressfit BB86, framegewicht bij maat M vanaf ca. 1070 g",
+      "Stuur/stuurpen (geïntegreerd)": "Rose one piece cockpit Gravel, 90mm/38cm",
+      "Voorvork": "ROSE BACKROAD FF, carbon, 12x100TA, vorkgewicht 420 g",
+      "Buitenband": "Schwalbe G-ONE R Performance, 700x40c, 40-622",
+      "Crankstel": "Sram Rival XPLR E1 Powermeter, 44ZT, 170mm",
+      "Cassette": "Sram Rival XPLR XG-1351 E1, 10-46",
+      "Achterderailleur": "Sram Rival XPLR AXS E1, 1x13-Fach",
+      "Ketting": "Sram Rival E1, 118 schakels",
+      "Shifter": "Sram Rival AXS E1, 1x13-Fach",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Spacer": "Rose",
+      "Zadel": "Selle Italia X Evo Superflow, zwart",
+      "Zadelpen": "ROSE"
+    },
+    "color_names": [
+      "Sweet plum",
+      "Dirty lemon",
+      "Pistachio",
+      "Supersonic Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://storage.rosebikes.com/images/p/245644_1769076162.png",
+    "color_image_urls": [
+      "https://storage.rosebikes.com/images/p/245644_1769076162.png",
+      "https://storage.rosebikes.com/images/p/245652_1769076161.png",
+      "https://storage.rosebikes.com/images/p/245637_1769076164.png",
+      "https://storage.rosebikes.com/images/p/245630_1769076166.png"
+    ],
+    "image": "Rose/Backroad_FF_Rival_XPLR_AXS.jpg",
+    "color_images": [
+      "Rose/Backroad_FF_Rival_XPLR_AXS_colour_Sweet_plum.jpg",
+      "Rose/Backroad_FF_Rival_XPLR_AXS_colour_Dirty_lemon.jpg",
+      "Rose/Backroad_FF_Rival_XPLR_AXS_colour_Pistachio.jpg",
+      "Rose/Backroad_FF_Rival_XPLR_AXS_colour_Supersonic_Grey.jpg"
+    ]
+  },
+  {
+    "name": "Backroad FF XT/GRX Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-ff-xtgrx-di2-160308",
+    "sku": "160308",
+    "price": 4380.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE Backroad FF, high modulus carbon, 12x142, Pressfit BB86, framegewicht bij maat M vanaf ca. 1070 g Supersonic Grey XS",
+      "Stuur/stuurpen (geïntegreerd)": "Rose one piece cockpit Gravel, 90mm/38cm",
+      "Voorvork": "ROSE BACKROAD FF, carbon, 12x100TA, vorkgewicht 420 g Supersonic Grey",
+      "Buitenband": "Maxxis Reaver Exo TR Hypr-X",
+      "Crankstel": "Shimano right crank arm, FC-RX820-1, 42T, GRX 12-speed",
+      "Vermogensmeter": "Shimano 4iiii FC-RX820-2 170mm, 31-48",
+      "Cassette": "Shimano CS-M8200-12 Deore XT",
+      "Achterderailleur": "Shimano RD-M8250, Deore XT, GS 12-speed",
+      "Ketting": "Shimano CN-M6100, 12-speed 116 schakels",
+      "Shifter": "Shimano GRX, ST-RX825(R), BR-RX820(R) zwart 1700mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Spacer": "Rose",
+      "Zadel": "Fizik Vento Argo R5 140mm",
+      "Zadelpen": "ROSE"
+    },
+    "color_names": [
+      "Supersonic grey",
+      "Dirty lemon",
+      "Slate grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML:",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/6E431C2D0FB5907AF525B9E461AADFEA.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/6E431C2D0FB5907AF525B9E461AADFEA.png",
+      "https://cdn.rosebikes.de/images/72671E7E6FBDC1E588CD7C7650967450.png",
+      "https://cdn.rosebikes.de/images/36852450098E2EDA653342E0926E4182.png"
+    ],
+    "image": "Rose/Backroad_FF_XT_GRX_Di2.jpg",
+    "color_images": [
+      "Rose/Backroad_FF_XT_GRX_Di2_colour_Supersonic_grey.jpg",
+      "Rose/Backroad_FF_XT_GRX_Di2_colour_Dirty_lemon.jpg",
+      "Rose/Backroad_FF_XT_GRX_Di2_colour_Slate_grey.jpg"
+    ]
+  },
+  {
+    "name": "Backroad Force AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-force-axs-2725747",
+    "sku": "2725747",
+    "price": 3360.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Backroad",
+      "Voorvork": "Rose Backroad ADV",
+      "Buitenband": "Continental Terra Adventure Trail Grip, zwart/transparant 700x45C",
+      "Crankstel": "Sram Force 1 XPLR Wide DUB 40Z. E1, grijs 170mm",
+      "Cassette": "Sram Force XPLR XG-1371, 10-46",
+      "Achterderailleur": "Sram Force XPLR AXS, 1x13-Fach",
+      "Ketting": "Sram Force E1, 118 schakels",
+      "Shifter": "front: Sram Force AXS E1, 1x13-Fach",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "fi´zi:k Terra Argo X7 zwart",
+      "Zadelpen": "Rose Backroad ADV"
+    },
+    "color_names": [
+      "Terra",
+      "Lions mane"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML:",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/4FA0CBD22A9162411FB03D2740E00F45.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/4FA0CBD22A9162411FB03D2740E00F45.png",
+      "https://cdn.rosebikes.de/images/CDEDBA16EF6A907782004F2B30753B73.png"
+    ],
+    "image": "Rose/Backroad_Force_AXS.jpg",
+    "color_images": [
+      "Rose/Backroad_Force_AXS_colour_Terra.jpg",
+      "Rose/Backroad_Force_AXS_colour_Lions_mane.jpg"
+    ]
+  },
+  {
+    "name": "Backroad GRX 820",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-grx-820-2725742",
+    "sku": "2725742",
+    "price": 2340.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Backroad",
+      "Voorvork": "Rose Backroad ADV",
+      "Buitenband": "Continental Terra Adventure, zwart/zwart 700x45C",
+      "Crankstel": "Shimano FC-RX820-1, GRX, 40t, 12-speed, 170mm",
+      "Cassette": "Shimano SLX, CS-M7100-12, 12-speed, 10-51",
+      "Achterderailleur": "Shimano GRX RD-RX822, 12-speed 12-speed",
+      "Ketting": "Shimano Deore CN-M6100, Quick Link, 12-speed 122gl.",
+      "Shifter": "Shimano GRX BL-RX820, BR-RX820, 160 mm, zwart 160mm",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "fi´zi:k Terra Argo X7 zwart",
+      "Zadelpen": "Rose Backroad ADV"
+    },
+    "color_names": [
+      "Terra",
+      "Lions mane"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML:",
+      "L",
+      "XL",
+      "ML"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/6AA8B2FC384A0D06A626C1E4955E5ECD.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/6AA8B2FC384A0D06A626C1E4955E5ECD.png",
+      "https://cdn.rosebikes.de/images/B02E75E4AC7CEE52E6A0C0523CA6443A.png"
+    ],
+    "image": "Rose/Backroad_GRX_820.jpg",
+    "color_images": [
+      "Rose/Backroad_GRX_820_colour_Terra.jpg",
+      "Rose/Backroad_GRX_820_colour_Lions_mane.jpg"
+    ]
+  },
+  {
+    "name": "Backroad GRX 825 Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-grx-825-di2-2725743",
+    "sku": "2725743",
+    "price": 2850.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Backroad",
+      "Voorvork": "Rose Backroad ADV",
+      "Buitenband": "Continental Terra Adventure Trail Grip, zwart/transparant 700x45C",
+      "Crankstel": "Shimano FC-RX820-1, GRX, 40t, 12-speed, 170mm",
+      "Cassette": "Shimano SLX, CS-M7100-12, 12-speed, 10-51",
+      "Achterderailleur": "Shimano RG-RX827, 12-speed, 12-speed",
+      "Ketting": "Shimano Deore CN-M6100, Quick Link, 12-speed 122gl.",
+      "Shifter": "Shimano GRX ST-RX825(R) BR-RX820(R) zwart 1000mm",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "fi´zi:k Terra Argo X7 zwart",
+      "Zadelpen": "Rose Backroad ADV"
+    },
+    "color_names": [
+      "Terra",
+      "Lions mane"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/811898DA0C8DC7B32530E37369F4716D.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/811898DA0C8DC7B32530E37369F4716D.png",
+      "https://cdn.rosebikes.de/images/159765C0E8A801B6C6D2CE5CD54823C2.png"
+    ],
+    "image": "Rose/Backroad_GRX_825_Di2.jpg",
+    "color_images": [
+      "Rose/Backroad_GRX_825_Di2_colour_Terra.jpg",
+      "Rose/Backroad_GRX_825_Di2_colour_Lions_mane.jpg"
+    ]
+  },
+  {
+    "name": "Backroad Unsupported",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-backroad-unsupported-2725748",
+    "sku": "2725748",
+    "price": 3560.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Backroad",
+      "Voorvork": "Rose Backroad ADV",
+      "Accu": "B + M K-Werk 5.000 mAh",
+      "Buitenband": "Schwalbe G-ONE Overland Pro Evo",
+      "Crankstel": "Shimano FC-RX820-1, GRX, 40t, 12-speed, 170mm",
+      "Cassette": "Shimano SLX, CS-M7100-12, 12-speed, 10-51",
+      "Achterderailleur": "Shimano GRX RD-RX822, 12-speed 12-speed",
+      "Ketting": "Shimano Deore CN-M6100, Quick Link, 12-speed 122gl.",
+      "Shifter": "Shimano GRX BL-RX820, BR-RX820, 160 mm, zwart 160mm",
+      "Stuur": "Rose Gravel, 40cm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Stuurpen": "Rose ALR 2.0, zwart zand 80mm",
+      "Spacer": "Rose",
+      "Zadel": "fi´zi:k Terra Argo X7 zwart",
+      "Zadelpen": "Rose Backroad ADV",
+      "Verlichting": "Supernova M99 DY",
+      "Achterlicht": "Supernova TL3 Mini"
+    },
+    "color_names": [
+      "Terra",
+      "Lions mane"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML:",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/E4BE69C06EF8A32B21D22424F69698AA.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/E4BE69C06EF8A32B21D22424F69698AA.png",
+      "https://cdn.rosebikes.de/images/970EB5A87BFB4F9CCBD07FDAE45216AE.png"
+    ],
+    "image": "Rose/Backroad_Unsupported.jpg",
+    "color_images": [
+      "Rose/Backroad_Unsupported_colour_Terra.jpg",
+      "Rose/Backroad_Unsupported_colour_Lions_mane.jpg"
+    ]
+  },
+  {
+    "name": "Hobo Cues",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-hobo-cues-161842",
+    "sku": "161842",
+    "price": 1220.0,
+    "category": "Gravel",
+    "model_year": null,
+    "specifications": {
+      "Frame": "ROSE HOBO, stalen frame, framegewicht bij maat M ca. 2900 g, 12x142, BSA/ITA-68 Cotton Candy",
+      "Voorvork": "ROSE HOBO, Carbon, vorkgewicht 530 g, 12x100TA Pink",
+      "Buitenband": "WTB Venture, Road Plus TCS, zwart/tan 650x47C",
+      "Crankstel": "Shimano Cues FC-6000-1, 42Z",
+      "Cassette": "Shimano Cues, CS-LG300-10, 11-48",
+      "Achterderailleur": "Shimano CUES, RD-U6000 GS",
+      "Ketting": "Shimano CN-LG500",
+      "Shifter": "Shimano SL-U6000-10R, 10-speed",
+      "Rem": "Shimano BL-MT200 / BR-UR300, zwart 1000mm",
+      "Remgreep": "AW: Shimano BL-MT200 / BR-UR300, zwart 1700mm",
+      "Stuur": "ergotec Low Riser Bar, zwart zand Ø31,8mm",
+      "Handvatten": "Reverse STAMP zwart/zwart",
+      "Bel": "Knog Oi, zwart 22,2mm",
+      "Stuurpen": "ergotec Piranha, zwart 50mm",
+      "Zadel": "WTB Silverado Medium, zwart",
+      "Zadelpen": "Ergotec Hook3, zwart zand Ø27,2/350mm"
+    },
+    "color_names": [
+      "Cotton Candy",
+      "Cosmic cassis"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://storage.rosebikes.com/images/p/786858_1785331249.png",
+    "color_image_urls": [
+      "https://storage.rosebikes.com/images/p/786858_1785331249.png",
+      "https://storage.rosebikes.com/images/p/791302_1788244014.png"
+    ],
+    "image": "Rose/Hobo_Cues.jpg",
+    "color_images": [
+      "Rose/Hobo_Cues_colour_Cotton_Candy.jpg",
+      "Rose/Hobo_Cues_colour_Cosmic_cassis.jpg"
+    ]
+  },
+  {
+    "name": "Shave 105 Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-105-di2-2726127",
+    "sku": "2726127",
+    "price": 3460.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave, 12x142 TA, Pressfit BB86, Design 3 XS",
+      "Voorvork": "Rose Shave, 12x100 TA, Design 3",
+      "Wiel voor": "Rose R30",
+      "Wiel achter": "Rose R30",
+      "Buitenband": "Continental Grand Prix TR schwarz/schwarz 700x32C",
+      "Crankstel": "Shimano FC-R7100 105, 165mm",
+      "Vermogensmeter": "Shimano 4iiii FC-R7100 105, 165mm",
+      "Cassette": "Shimano 105, CS-R7101, 11-34 11-34",
+      "Voorderailleur": "Shimano FD-R7150, 105, 12-speed",
+      "Achterderailleur": "Shimano RD-R7150 105",
+      "Ketting": "Shimano CN-M6100, 12-speed 116 schakels",
+      "Stuur": "Rose Shave Cockpit, 37cm/90mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia X Evo Superflow, zwart",
+      "Zadelpen": "Rose, Design 1 320mm / 14mm Offset"
+    },
+    "color_names": [
+      "Sage",
+      "Supersonic grey",
+      "Slate"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://storage.rosebikes.com/images/p/780702_1782282113.png",
+    "color_image_urls": [
+      "https://storage.rosebikes.com/images/p/780702_1782282113.png",
+      "https://cdn.rosebikes.de/images/F5A1310CABF1DA2606E4F96F4E37AD20.png",
+      "https://cdn.rosebikes.de/images/6990D8EC9B607AEA32348E1BDCA60884.png"
+    ],
+    "image": "Rose/Shave_105_Di2.jpg",
+    "color_images": [
+      "Rose/Shave_105_Di2_colour_Sage.jpg",
+      "Rose/Shave_105_Di2_colour_Supersonic_grey.jpg",
+      "Rose/Shave_105_Di2_colour_Slate.jpg"
+    ]
+  },
+  {
+    "name": "Shave FF Force AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-ff-force-axs-2726123",
+    "sku": "2726123",
+    "price": 5800.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave FF, supersonicgrey XS",
+      "Voorvork": "Rose Shave FF, Design 1",
+      "Wiel voor": "front: Rose RC55 CX-Ray",
+      "Wiel achter": "rear: Rose RC55 CX-Ray 622",
+      "Buitenband": "front: Schwalbe Pro One Aero Front Evo, Super Race, RaceGuard black 700x28C",
+      "Achterband": "rear: Schwalbe Pro One Rear Evo, Super Race, RaceGuard, black 700x28C",
+      "Vermogensmeter": "SRAM Powermeter Force AXS DUB E1, 50/37 zwart 165mm",
+      "Cassette": "Sram Force XG-1270 E1 zilver 10-33",
+      "Voorderailleur": "Sram Force AXS Braze-on Wedge A E1 zwart",
+      "Achterderailleur": "Sram Force AXS max 36Z. E1 zwart",
+      "Ketting": "Sram Force E1, 118 schakels",
+      "Shifter": "front: Sram Force AXS E1, 1x13-Fach",
+      "Stuur": "Rose Shave Cockpit, 35cm/100mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia SLR Superflow S3 zwart",
+      "Zadelpen": "Rose"
+    },
+    "color_names": [
+      "Supersonic grey",
+      "Silver",
+      "Bubblegum"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/0E529B3EB06B4DC0BF5BC69F0285E5F3.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/0E529B3EB06B4DC0BF5BC69F0285E5F3.png",
+      "https://cdn.rosebikes.de/images/CA258E85B1DAB75DB196BBFBC8BBCF48.png",
+      "https://cdn.rosebikes.de/images/AF67C17D04B33AF543500F287547E600.png"
+    ],
+    "image": "Rose/Shave_FF_Force_AXS.jpg",
+    "color_images": [
+      "Rose/Shave_FF_Force_AXS_colour_Supersonic_grey.jpg",
+      "Rose/Shave_FF_Force_AXS_colour_Silver.jpg",
+      "Rose/Shave_FF_Force_AXS_colour_Bubblegum.jpg"
+    ]
+  },
+  {
+    "name": "Shave FF Ultegra Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-ff-ultegra-di2-2726121",
+    "sku": "2726121",
+    "price": 5490.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave FF, supersonicgrey XS",
+      "Voorvork": "Rose Shave FF, Design 1",
+      "Wiel voor": "front: Rose RC55 CX-Ray",
+      "Wiel achter": "rear: Rose RC55 CX-Ray",
+      "Buitenband": "front: Schwalbe Pro One Aero Front Evo, Super Race, RaceGuard black 700x28C",
+      "Achterband": "rear: Schwalbe Pro One Rear Evo, Super Race, RaceGuard, black 700x28C",
+      "Crankstel": "Shimano 4iiii FC-R8100, ULTEGRA, 165mm, 34-50",
+      "Vermogensmeter": "Shimano FC-810 Ultegra, 165mm, 36-52",
+      "Cassette": "Shimano Ultegra CS-8101 11-34T, 12-speed 11-34",
+      "Voorderailleur": "Shimano Ultegra Di2, FD-R8150, 12-speed",
+      "Achterderailleur": "Shimano RD-8150 12-speed",
+      "Ketting": "Shimano Deore XT, CN-M8100 118 schakels",
+      "Rem": "Shimano Ultegra ST-R8170, BR-R8170",
+      "Remgreep": "Shimano Ultegra ST-R8170(R), R-R8170(R), 1700mm",
+      "Stuur": "Rose Shave Cockpit, 35cm/100mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia SLR Superflow S3 zwart",
+      "Zadelpen": "Rose"
+    },
+    "color_names": [
+      "Supersonic grey",
+      "Silver",
+      "Bubblegum"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/32D61A00D695F5D842A674A3AD61CB42.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/32D61A00D695F5D842A674A3AD61CB42.png",
+      "https://cdn.rosebikes.de/images/8B99A5E1F220648A211E43F8AEB22B74.png",
+      "https://cdn.rosebikes.de/images/9D7D26638E4E61AFD5752F6764365425.png"
+    ],
+    "image": "Rose/Shave_FF_Ultegra_Di2.jpg",
+    "color_images": [
+      "Rose/Shave_FF_Ultegra_Di2_colour_Supersonic_grey.jpg",
+      "Rose/Shave_FF_Ultegra_Di2_colour_Silver.jpg",
+      "Rose/Shave_FF_Ultegra_Di2_colour_Bubblegum.jpg"
+    ]
+  },
+  {
+    "name": "Shave FFX Dura-Ace Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-ffx-dura-ace-di2-2726122",
+    "sku": "2726122",
+    "price": 8140.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave FFX, 12x142 TA, Pressfit BB86, Design 1 XS",
+      "Voorvork": "Rose Shave FFX, Design 1",
+      "Wiel voor": "front: Rose RC55cs Vonoa",
+      "Wiel achter": "Rose RC55cs Vonoa",
+      "Buitenband": "front: Schwalbe Pro One Aero Front Evo, Super Race, RaceGuard black 700x28C",
+      "Achterband": "rear: Schwalbe Pro One Rear Evo, Super Race, RaceGuard, black 700x28C",
+      "Crankstel": "Shimano FC-R9200 Dur-Ace, 165mm, 36-52",
+      "Cassette": "Shimano CS-R9200 Dura-Ace 12-fach, 11-34",
+      "Voorderailleur": "Shimano Dura Ace, FD-R9250, 12-speed",
+      "Achterderailleur": "Shimano Dura Ace RD.R9250, 12-speed",
+      "Ketting": "Shimano Dura Aca CN-M9100, 118 schakels",
+      "Rem": "Shimano Dura-Ace ST-R9270(R), BR-R9270(R)",
+      "Stuur": "Rose Shave Cockpit, 35cm/100mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia SLR Superflow S3 zwart",
+      "Zadelpen": "Rose"
+    },
+    "color_names": [
+      "Ghost pearl",
+      "Liquid racing green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/1A2B0B397F1582A67E6BE3B5875748BC.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/1A2B0B397F1582A67E6BE3B5875748BC.png",
+      "https://cdn.rosebikes.de/images/887C83B0F6A4DAA49EBD7B4AB434499E.png"
+    ],
+    "image": "Rose/Shave_FFX_Dura_Ace_Di2.jpg",
+    "color_images": [
+      "Rose/Shave_FFX_Dura_Ace_Di2_colour_Ghost_pearl.jpg",
+      "Rose/Shave_FFX_Dura_Ace_Di2_colour_Liquid_racing_green.jpg"
+    ]
+  },
+  {
+    "name": "Shave FFX Red AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-ffx-red-axs-2726124",
+    "sku": "2726124",
+    "price": 8650.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave FFX, 12x142 TA, Pressfit BB86, Design 1 XS",
+      "Voorvork": "Rose Shave FFX, Design 1",
+      "Wiel voor": "front: Rose RC55cs Vonoa",
+      "Wiel achter": "Rose RC55cs Vonoa",
+      "Buitenband": "front: Schwalbe Pro One Aero Front Evo, Super Race, RaceGuard black 700x28C",
+      "Achterband": "rear: Schwalbe Pro One Rear Evo, Super Race, RaceGuard, black 700x28C",
+      "Vermogensmeter": "Sram Powermeter Red AXS DUB E1, 50/37, zwart 165mm",
+      "Cassette": "SRAM Zahnkranz XG-1290 E1 10-33",
+      "Voorderailleur": "SRAM Red AXS",
+      "Achterderailleur": "SRAM Red AXS",
+      "Ketting": "SRAM Red E1, 118 schakels",
+      "Rem": "Front Wheel: SRAM Red AXS",
+      "Remgreep": "Rear Wheel: SRAM Red AXS",
+      "Stuur": "Rose Shave Cockpit, 35cm/100mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia SLR Superflow S3 zwart",
+      "Zadelpen": "Rose"
+    },
+    "color_names": [
+      "Ghost pearl",
+      "Liquid racing green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/267F29C9F18AD7EC45321AFC3A9B641C.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/267F29C9F18AD7EC45321AFC3A9B641C.png",
+      "https://cdn.rosebikes.de/images/61375B47A4971C3FEAB98473F9A4D815.png"
+    ],
+    "image": "Rose/Shave_FFX_Red_AXS.jpg",
+    "color_images": [
+      "Rose/Shave_FFX_Red_AXS_colour_Ghost_pearl.jpg",
+      "Rose/Shave_FFX_Red_AXS_colour_Liquid_racing_green.jpg"
+    ]
+  },
+  {
+    "name": "Shave Force AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-force-axs-2726131",
+    "sku": "2726131",
+    "price": 4680.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave, 12x142 TA, Pressfit BB86, Design 1 XS",
+      "Voorvork": "Rose Shave, 12x100 TA, Design 1",
+      "Wiel voor": "Newmen Advanced A.50 28\"",
+      "Wiel achter": "rear: Newmen Advanced A.50, 28\"",
+      "Buitenband": "Continental Grand Prix, zwart/transp. 700x32C",
+      "Crankstel": "SRAM Powermeter Spindle Force AXS DUB E1, 46/33, grijs 165mm",
+      "Cassette": "Sram Force XG-1270 E1 zilver 10-33",
+      "Voorderailleur": "Sram Force AXS Braze-on Wedge A E1 zwart",
+      "Achterderailleur": "Sram Force AXS max 36Z. E1 zwart",
+      "Ketting": "Sram Rival E1, 118 schakels",
+      "Shifter": "front: Sram Force AXS E1, 1x13-Fach",
+      "Stuur": "Rose Shave Cockpit, 37cm/90mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia NOVUS BOOST EVO Superflow Manganese zwart",
+      "Zadelpen": "Rose, Design 1 320mm / 14mm Offset"
+    },
+    "color_names": [
+      "Supersonic grey",
+      "Slate",
+      "Sage"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/F54ACC6284AC7621C589304ED355CB30.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/F54ACC6284AC7621C589304ED355CB30.png",
+      "https://cdn.rosebikes.de/images/0EF750B7284B808C86542CD55E2523BD.png",
+      "https://cdn.rosebikes.de/images/586A48686B753BF30D9DD55881853A37.png"
+    ],
+    "image": "Rose/Shave_Force_AXS.jpg",
+    "color_images": [
+      "Rose/Shave_Force_AXS_colour_Supersonic_grey.jpg",
+      "Rose/Shave_Force_AXS_colour_Slate.jpg",
+      "Rose/Shave_Force_AXS_colour_Sage.jpg"
+    ]
+  },
+  {
+    "name": "Shave Rival AXS",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-rival-axs-2726130",
+    "sku": "2726130",
+    "price": 3660.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave, 12x142 TA, Pressfit BB86, Design 3 XS",
+      "Voorvork": "Rose Shave, 12x100 TA, Design 3",
+      "Wiel voor": "Rose R30",
+      "Wiel achter": "rear: Rose R30",
+      "Buitenband": "Continental Grand Prix TR schwarz/schwarz 700x32C",
+      "Crankstel": "SRAM Powermeter Spindle Rival AXS DUB E1, 46/33, grijs 165mm",
+      "Cassette": "SRAM Rival XG-1250, zilver 10-36",
+      "Voorderailleur": "Sram Rival AXS Braze-on Wedge A E1 zwart",
+      "Achterderailleur": "Sram Rival AXS max 36Z. E1 zwart",
+      "Ketting": "Sram Rival E1, 118 schakels",
+      "Shifter": "Sram Rival AXS E1, 1x13-Fach",
+      "Stuur": "Rose Shave Cockpit, 37cm/90mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia X Evo Superflow, zwart",
+      "Zadelpen": "Rose, Design 1 320mm / 14mm Offset"
+    },
+    "color_names": [
+      "Slate",
+      "Supersonic grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://storage.rosebikes.com/images/p/780724_1782282309.png",
+    "color_image_urls": [
+      "https://storage.rosebikes.com/images/p/780724_1782282309.png",
+      "https://storage.rosebikes.com/images/p/792894_1789742031.png"
+    ],
+    "image": "Rose/Shave_Rival_AXS.jpg",
+    "color_images": [
+      "Rose/Shave_Rival_AXS_colour_Slate.jpg",
+      "Rose/Shave_Rival_AXS_colour_Supersonic_grey.jpg"
+    ]
+  },
+  {
+    "name": "Shave Ultegra Di2",
+    "brand": "Rose",
+    "url": "https://www.rosebikes.nl/p/rose-shave-ultegra-di2-2726129",
+    "sku": "2726129",
+    "price": 4480.0,
+    "category": "Race",
+    "model_year": null,
+    "specifications": {
+      "Frame": "Rose Shave, 12x142 TA, Pressfit BB86, Design 1 XS",
+      "Voorvork": "Rose Shave, 12x100 TA, Design 1",
+      "Wiel voor": "Newmen Advanced A.50 28\"",
+      "Wiel achter": "Newmen Advanced A.50 28\"",
+      "Buitenband": "Continental Grand Prix, zwart/transp. 700x32C",
+      "Crankstel": "Shimano FC-R8100 Ultegra, 165mm",
+      "Vermogensmeter": "Shimano 4iiii FC-R8100, ULTEGRA, 165mm, 34-50",
+      "Cassette": "Shimano Ultegra CS-8101 11-34T, 12-speed 11-34",
+      "Voorderailleur": "Shimano Ultegra Di2, FD-R8150, 12-speed",
+      "Achterderailleur": "Shimano RD-8150 12-speed",
+      "Ketting": "Shimano CN-M7100, SLX, 12-speed 118 L",
+      "Rem": "Shimano Ultegra ST-R8170, BR-R8170",
+      "Remgreep": "Shimano Ultegra ST-R8170(R), R-R8170(R), 1700mm",
+      "Stuur": "Rose Shave Cockpit, 37cm/90mm",
+      "Stuurlint": "ROSE Gel-Comfort, zwart",
+      "Zadel": "Selle Italia NOVUS BOOST EVO Superflow Manganese zwart",
+      "Zadelpen": "Rose, Design 1 320mm / 14mm Offset"
+    },
+    "color_names": [
+      "Supersonic grey",
+      "Slate",
+      "Sage"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "ML",
+      "L",
+      "XL"
+    ],
+    "image_url": "https://cdn.rosebikes.de/images/246E3AA3C1BD0C75495A17A8B25499E1.png",
+    "color_image_urls": [
+      "https://cdn.rosebikes.de/images/246E3AA3C1BD0C75495A17A8B25499E1.png",
+      "https://cdn.rosebikes.de/images/2CD320B6CA1671A1AB5C72788762C542.png",
+      "https://cdn.rosebikes.de/images/68B1A598E89963617233701CEC0C5A19.png"
+    ],
+    "image": "Rose/Shave_Ultegra_Di2.jpg",
+    "color_images": [
+      "Rose/Shave_Ultegra_Di2_colour_Supersonic_grey.jpg",
+      "Rose/Shave_Ultegra_Di2_colour_Slate.jpg",
+      "Rose/Shave_Ultegra_Di2_colour_Sage.jpg"
+    ]
+  }
+]

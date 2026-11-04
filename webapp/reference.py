@@ -236,6 +236,9 @@ BRANDS = [
     # Written without the accent: the name is also the data/ and images/ folder. Ads match "Cervélo" too (accents are ignored).
     {"name": "Cervelo", "site": "https://www.cervelo.com/en-nl", "scraper": True, "logo": "logos/cervelo.svg"},
     {"name": "Ridley", "site": "https://www.ridley-bikes.com/nl_NL", "scraper": True, "logo": "logos/ridley.svg"},
+    {"name": "Rose", "site": "https://www.rosebikes.nl/", "scraper": True, "logo": "logos/rose.svg"},
+    # No Dutch site: euro list prices from the international site.
+    {"name": "Wilier", "site": "https://www.wilier.com/en", "scraper": True, "aliases": ["wilier triestina"], "logo": "logos/wilier.svg"},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
 BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}
@@ -274,6 +277,8 @@ FAMILY_DISCIPLINES = {
         "BMC": ["teammachine", "roadmachine", "granfondo"],
         "Cervelo": ["s", "r", "c", "soloist", "caledonia", "rs", "rca"],  # S5, R5, R3 and C5 read as "s 5", "r 5", "c 5"
         "Ridley": ["noah", "falcn", "helium", "fenix", "grifn", "liz", "orion", "damocles", "excalibur"],
+        "Rose": ["shave", "blend", "xlite", "reveal", "xeon", "pro", "team", "aeroflyer"],  # Blend Gravel: by its name
+        "Wilier": ["filante", "verticale", "granturismo", "rapida", "superleggera", "cento", "zero", "triestina", "garda"],
     },
     "gravel": {
         "Trek": ["checkpoint", "checkmate", "boone"],
@@ -291,6 +296,8 @@ FAMILY_DISCIPLINES = {
         # Grifn Gravel and Invenio Gravel are gravel by their name (Invenio Grifn A is road, by its category);
         # X-Night, X-Ride and X-Bow read as "x night", "x ride", "x bow"
         "Ridley": ["kanzo", "astr", "x"],
+        "Rose": ["backroad", "hobo", "cdx"],
+        "Wilier": ["rave", "jena", "adlar", "jaroon"],
     },
     "tt": {
         "Trek": ["speed"],
@@ -307,6 +314,7 @@ FAMILY_DISCIPLINES = {
         "BMC": ["speedmachine"],  # Timemachine is TT or aero road (Timemachine Road): its category decides
         "Cervelo": ["p"],  # P5, P3 and the P-Series
         "Ridley": ["dean", "triton", "chronus"],
+        "Wilier": ["turbine", "supersonica", "blade"],
     },
     "fitness": {
         "Trek": ["fx"],

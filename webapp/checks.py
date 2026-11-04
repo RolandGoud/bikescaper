@@ -445,7 +445,7 @@ def sheet_years(model, today=None):
 def archived_line(model):
     """A line the brand no longer sells, from its own old pages or a shop's (seed.add_archived): never in a scrape."""
     source = model.get("source_file") or ""
-    return any(part in source for part in ("years/archived/", "years/mantel/lines/", "years/uk/lines/"))
+    return any(part in source for part in ("years/archived/", "years/brandsites/lines/", "years/mantel/lines/", "years/uk/lines/"))
 
 
 def catalogue_status(model, today=None):
@@ -732,7 +732,8 @@ def conflicts(model, text):
     name_toks = _tokens(model["name"].split(" - ")[0])
     found = []
     for part, number in sorted(_numbered(name_toks)):
-        said = sorted({n for w, n in ad_pairs if w == part})
+        # A frame size after the name ("Madone gen8 SL (56)") is no version: no model is an SL 56.
+        said = sorted({n for w, n in ad_pairs if w == part and not 44 <= int(n) <= 64})
         if said and number not in said:
             label = "Gen " if part == "gen" else part.upper() if len(part) <= 3 else part.title()
             found.append((f"{label}{number}", "/".join(f"{label}{n}" for n in said)))
@@ -763,6 +764,11 @@ def _colour_named(model, text):
     return False
 
 
+FRAME_ONLY = re.compile(r"\b(?:frame\s*set|framekit|frame[\s-]*only|alleen\s+(?:het\s+)?frame|enkel\s+(?:het\s+)?frame"
+                        r"|los\s+frame|frame\s*(?:\+|en|and|&)\s*(?:vork|fork))\b", re.I)
+COMPLETE_BIKE = re.compile(r"\b(?:compleet|complete|groe?pset|groupset|wielen|wielset|wheels?|wheelset)\b", re.I)
+
+
 def match_models(models, title, description="", claims=None):
     """Rank catalogue models for a listing. Returns [(score, model)] best first."""
     claims = claims or read_claims(title, description)
@@ -778,6 +784,10 @@ def match_models(models, title, description="", claims=None):
         brand_toks.setdefault(m["brand"], set()).update(_tokens(m["name"].split(" - ")[0]))
     title_words = {t for w in title.split() if not re.fullmatch(ELECTRONIC, w.lower()) for t in _tokens(w)
                    if not t.isdigit()}
+    # A complete bike (a groupset, wheels, "compleet") is no frameset, unless the ad says it sells only the frame.
+    text = f"{title} {description}"
+    complete = not FRAME_ONLY.search(text) and bool(claims["groupset"] or COMPLETE_BIKE.search(text))
+    electronic = says_electronic(text)
     ranked = []
     for model in models:
         if claims["brand"] and model["brand"] != claims["brand"]:
@@ -790,6 +800,11 @@ def match_models(models, title, description="", claims=None):
         if not scores:
             continue
         score = max(scores)
+        if complete and discipline_of(model) == "frames":
+            score -= 2.0
+        group = detect_groupset(groupset_text(model)) if electronic is not None else None
+        if group and bool(group.get("electronic")) != electronic:
+            score -= 0.5  # the ad says Di2 and this build shifts by cable, or the other way round
         if _colour_named(model, f"{title} {description}"):
             score += 1.0  # the seller copied the brand's colour name: that colourway's model
         ranked.append((round(score, 2), model))
@@ -841,7 +856,7 @@ def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, bran
         if tok == "gen" and i + 1 < len(name_toks):
             skip_next = True
             if ad_gens:
-                score += 1.0 if name_toks[i + 1] in ad_gens else -1.0
+                score += 1.5 if name_toks[i + 1] in ad_gens else -1.0  # the generation the ad names, as a title word
             continue
         if tok in title_toks:
             score += 1.5
@@ -2526,6 +2541,15 @@ CONDITION_FACTOR = {"like-new": 1.05, None: 1.0, "used": 0.92, "damaged": 0.6}
 CONDITION_LABEL = {"like-new": "like new", "used": "used", "damaged": "damaged"}
 # A bike this many years old isn't like new, whatever the ad says: rubber, bearings and the frame have aged.
 LIKE_NEW_MAX_AGE = 10
+# The most the downgraded parts together take off the value (see check_value).
+DOWNGRADE_CAP = 0.40
+
+
+def downgrade_cut(row):
+    """What a downgraded comparison row takes off the value: the first tier dropped counts in full (10% for the
+    groupset, 5% for another part), each further tier half that (groupset 10, 5, 5, ...; others 5, 2.5, 2.5, ...)."""
+    first = 0.10 if row["key"] == "groupset" else 0.05
+    return first + first / 2 * (-row["step"] - 1)
 
 
 def year_note(resolved, claims):
@@ -2590,21 +2614,21 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     if CONDITION_FACTOR.get(condition_key, 1.0) != 1.0:
         steps.append({"label": Msg("Condition: {condition}", condition=Msg(CONDITION_LABEL[condition_key])),
                       "value": round(original * factor, -1), "change": CONDITION_FACTOR[condition_key] - 1})
-    # Downgraded parts lower the value: 10% for the groupset, 5% for wheels or tyres. Upgrades rarely
-    # raise a used bike's price, so they don't count.
+    # Downgraded parts lower the value by the tiers they drop (downgrade_cut: groupset 10% for the first tier and
+    # 5% for each next, other parts half that). The cuts are added up first and taken off once (groupset 1 tier +
+    # wheels 3 tiers = 10 + 5 + 2.5 + 2.5 = 20%), so each extra mismatch weighs as much as the first; capped at
+    # DOWNGRADE_CAP. Upgrades rarely raise a used bike's price, so they don't count.
     downgraded = [r for r in spec_result["rows"] if r.get("step", 0) < 0]
-    for r in downgraded:
-        factor *= 0.9 if r["key"] == "groupset" else 0.95
     if downgraded:
-        down = 1.0
-        for r in downgraded:
-            down *= 0.9 if r["key"] == "groupset" else 0.95
-        steps.append({"label": Msg("Downgraded parts"), "value": round(original * factor, -1), "change": down - 1})
+        down = min(DOWNGRADE_CAP, sum(downgrade_cut(r) for r in downgraded))
+        factor *= 1 - down
+        steps.append({"label": Msg("Downgraded parts"), "value": round(original * factor, -1), "change": -down})
     mid = original * factor
     low, high = round(mid * 0.9, -1), round(mid * 1.1, -1)
     condition = (Msg("Normal use") if aged_out else
                  Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None)
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
+              "downgraded": bool(downgraded),
               "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, original, asking),
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} German list price (TOUR/BIKE database), which can differ "

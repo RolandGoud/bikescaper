@@ -27,7 +27,7 @@ REPO = "RolandGoud/bikescaper"
 APP = "/app"
 VERSION_FILE = os.path.join(APP, ".version")
 BRANDS = ("Trek", "Canyon", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea", "Lapierre",
-          "Bianchi", "BMC", "Cervelo", "Ridley")
+          "Bianchi", "BMC", "Cervelo", "Ridley", "Rose", "Wilier")
 KEEP = ("webapp/", "images/", "nas/", "data/years/", "data/galleries/") + tuple(f"data/{b}/" for b in BRANDS)
 DIRS = ("webapp", "data", "images", "nas")
 

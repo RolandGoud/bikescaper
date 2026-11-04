@@ -1,21 +1,25 @@
 """The other photos of each current model (close-ups, front, rear), from its page on the brand's site.
 
-    python -m brand_scrapers.galleries trek giant cannondale canyon cube specialized bmc lapierre scott orbea
+    python -m brand_scrapers.galleries trek giant cannondale canyon cube specialized bmc lapierre scott orbea \
+        factor ridley cervelo rose
 
 Saves the photos to images/<Brand>/gallery/ and lists them in data/galleries/<Brand>.json as
 {model page URL: {colour: [photo]}}; the colour is "" when the page shows one colour only. The side
 view the catalogue already has is left out. Scott is read from data/Scott/scott_gallery.json (its
 site only answers a visible Chrome); Orbea's pages are opened in that Chrome (browser.py), its photos
-are fetched plainly. Bianchi, Cervélo and Factor show one photo per colour, the one the catalogue
-already has, so they have no reader.
+are fetched plainly. Factor's come from the family page, Ridley's are the frame's photo shoot. Bianchi
+and Wilier show one studio photo per colour, the one the catalogue already has (Wilier's other photos are
+banners of the whole family), so they have no reader.
 """
 import argparse
 import json
 import os
 import re
 import sqlite3
+from urllib.parse import quote, quote_plus, unquote
 
-from . import bmc, giant, lapierre, orbea, scott
+from . import bmc, factor, giant, lapierre, orbea, rose, scott
+from .nuxt import nuxt_data, nuxt_state
 from .archive import compact
 from .common import ROOT, Fetcher, clean, log, shopify_products
 from .history import save_photo, trek_product
@@ -54,15 +58,30 @@ def cannondale(fetcher, model):
     return {"": [i for i in _jsonld_images(page) if not re.search(r"_PD\.\w+$", i)]}
 
 
+def _canyon_views(page, pid):
+    found = re.findall(r"https://www\.canyon\.com/dw/image/v2/[^\"'\s?]+/images/(?:top|detail)/[^\"'\s?]*[_/]%s_[^\"'\s?]+\.(?:png|jpe?g)"
+                       % pid, page)
+    return [u + "?sw=1200" for u in dict.fromkeys(found)]
+
+
 def canyon(fetcher, model):
     # Canyon files each view under images/top/<year>_TOP-<n>/ and images/detail/, named by product number.
-    page = fetcher.get(model["url"]) or ""
+    # A build Canyon carried into a new model year gets a new number, and the old page loses its photos:
+    # then the site's search finds the build's page under the same path with the newer number.
     pid = re.search(r"/(\d+)\.html", model["url"])
     if not pid:
         return {}
-    found = re.findall(r"https://www\.canyon\.com/dw/image/v2/[^\"'\s?]+/images/(?:top|detail)/[^\"'\s?]*[_/]%s_[^\"'\s?]+\.(?:png|jpe?g)"
-                       % pid.group(1), page)
-    return {"": [u + "?sw=1200" for u in dict.fromkeys(found)]}
+    found = _canyon_views(fetcher.get(model["url"]) or "", pid.group(1))
+    if not found and model.get("name"):
+        path = model["url"].split("?")[0][:pid.start()]
+        results = fetcher.get("https://www.canyon.com/nl-nl/search?q=" + quote_plus(model["name"])) or ""
+        newer = sorted({int(n) for n in re.findall(re.escape(path) + r"/(\d+)\.html", results)} - {int(pid.group(1))},
+                       reverse=True)
+        for number in newer:
+            found = _canyon_views(fetcher.get(f"{path}/{number}.html") or "", number)
+            if found:
+                break
+    return {"": found}
 
 
 def cube(fetcher, model):
@@ -73,6 +92,91 @@ def cube(fetcher, model):
         return {}
     found = re.findall(r"https://file\.cube\.eu/[^\"'\s?]+/media/[^\"'\s?]+/synqup_%s_(?:D_\d\d|P_00)\.jpg" % sku.group(1), page)
     return {"": list(dict.fromkeys(found))}
+
+
+_FACTOR_FAMILIES = {}
+
+
+def _letters(text):
+    return re.sub(r"[^a-z]", "", (text or "").lower())
+
+
+def factor_page(fetcher, model):
+    # A build's own page shows one photo per colour; its family page (/bikes/monza) has the studio shots of each
+    # colour from four sides (Studio-MONZA-SteelGreen-Force-45-ds45.png: drive side and non-drive side, at 45
+    # and 180 degrees) and the colour's close-ups (design-aluto-quattro_grey-01.jpg, Feature-MONZA-SteelGreen-01).
+    handle = model["url"].rstrip("/").rsplit("/", 1)[-1]
+    if not _FACTOR_FAMILIES:
+        _FACTOR_FAMILIES.update({f: None for f in re.findall(r'href="/bikes/([a-z0-9-]+)"', fetcher.get(factor.BASE + "/bikes") or "")})
+    family = max((f for f in _FACTOR_FAMILIES if handle.startswith(f + "-")), key=len, default=None)
+    if not family:
+        return {}
+    if _FACTOR_FAMILIES[family] is None:
+        page = fetcher.get(f"{factor.BASE}/bikes/{family}") or ""
+        _FACTOR_FAMILIES[family] = list(dict.fromkeys(
+            re.findall(r"https://images\.ctfassets\.net/[^\"'\s?\\]+\.(?:png|jpe?g|webp)", page)))
+    photos = _FACTOR_FAMILIES[family]
+    colours = json.loads(model.get("colors") or "[]") if isinstance(model.get("colors"), str) else model.get("colors") or []
+    found = {}
+    for colour in colours:
+        whole, first = _letters(colour), _letters(colour.split()[0])
+        mine = [u for u in photos if whole in _letters(u.rsplit("/", 1)[-1])] or (
+            [u for u in photos if len(first) > 3 and first in _letters(u.rsplit("/", 1)[-1])])
+        groupset = [w for w in handle[len(family) + 1:].split("-") if w in ("force", "red", "rival", "ultegra", "dura", "record")]
+        views = {}
+        for u in mine:  # one shot per side; the one of this build's groupset when there are several
+            view = re.search(r"(?i)[-_](n?ds)(45|180)\.\w+$", u)
+            if view and re.search(r"(?i)/(?:studio|pdp-hero)-", u):
+                key = view.group(1).lower() + view.group(2)
+                if key not in views or any(re.search(r"(?i)-%s-" % w, u) for w in groupset):
+                    views[key] = u
+        close = [u for u in mine if re.search(r"(?i)/(?:design|feature)-", u)]
+        links = [views[k] + "?w=1600&fm=jpg" for k in ("ds45", "nds45", "ds180", "nds180") if k in views]
+        links += [u + "?w=1600&fm=jpg" for u in close]
+        if links:
+            found[colour] = links
+    return found
+
+
+RIDLEY_MOST = 12
+
+
+def ridley_page(fetcher, model):
+    # Each frame has a photo shoot (the "inspirations" on its build pages: X-nightRS-1.jpg ...), shown on every
+    # build of it; it doesn't follow the colour picked. Some shoots run to 150 photos: the first dozen will do,
+    # and Windows' "... kopiëren" duplicates are left out.
+    state = nuxt_state(fetcher.get(model["url"]) or "") or {}
+    bike = ((state.get("data") or [{}])[0] or {}).get("bike") or {}
+    pictures = (bike.get("inspirations") or {}).get("pictures") or []
+    names = [p.get("name") for p in pictures if isinstance(p, dict) and re.search(r"(?i)\.(jpe?g|png)$", p.get("name") or "")
+             and not re.search(r"(?i)\bkopi|\bcopy\b", p.get("name"))]
+    names.sort(key=lambda n: [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", n)])
+    return {"": ["https://images.cyclingfactory.be/inspirations/" + quote(n) for n in names[:RIDLEY_MOST]]} if names else {}
+
+
+def cervelo_page(fetcher, model):
+    # Besides the side view per colour, a build page shows two or three close-ups of its family
+    # (0L0R5HDI1C_CRANKSET-WEB-RESIZED.png), named by the article number of the build they show: only the
+    # ones of this frame and groupset (the number without its colour digits) are of this bike.
+    build = (model.get("sku") or "")[:8]
+    if len(build) < 8:
+        return {}
+    page = fetcher.get(model["url"]) or ""
+    found = re.findall(r"(?://www\.cervelo\.com/cdn/shop/files/|https://cdn\.shopify\.com/s/files/[\d/]+/files/)"
+                       r"((?:\d+_\d+_)?%s\w{2}_(?!PROFILE)[A-Z]+-WEB[\w-]*\.(?:png|jpe?g|webp))" % re.escape(build), page)
+    return {"": [f"https://www.cervelo.com/cdn/shop/files/{n}?width=1600" for n in dict.fromkeys(found)]} if found else {}
+
+
+def rose_page(fetcher, model):
+    # Each colour's variants carry its photos: the side view the catalogue has, then five or so other angles.
+    product = rose.product_of(nuxt_data(fetcher.get(model["url"]) or "")) or {}
+    found = {}
+    for v in product.get("variants") or []:
+        colour = rose.attribute(v, "color")
+        images = [i for i in v.get("images") or [] if isinstance(i, str)]
+        if colour and len(images) > 1:
+            found.setdefault(colour[:1].upper() + colour[1:], images[1:])
+    return {"": next(iter(found.values()))} if len(found) == 1 else found
 
 
 def specialized(fetcher, model):
@@ -160,8 +264,10 @@ def orbea_page(fetcher, model):
 
 READERS = {"Trek": trek, "Giant": giant_page, "Cannondale": cannondale, "Canyon": canyon, "Cube": cube,
            "Specialized": specialized, "BMC": bmc_page, "Lapierre": lapierre_page, "Scott": scott_page,
-           "Orbea": orbea_page}
-CHROME = ("Orbea",)  # brands whose pages only open in a visible Chrome; their photos still answer plain requests
+           "Orbea": orbea_page, "Factor": factor_page, "Ridley": ridley_page, "Cervelo": cervelo_page,
+           "Rose": rose_page}
+CHROME = ("Orbea",)
+SHARED = ("Ridley",)  # brands whose gallery is the frame's, the same photos for every build: saved once, by name  # brands whose pages only open in a visible Chrome; their photos still answer plain requests
 
 
 def collect(brand, db_path, fetcher=None):
@@ -182,7 +288,7 @@ def collect(brand, db_path, fetcher=None):
 def _collect(brand, db_path, path, found, fetcher, pages):
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
-    models = conn.execute("SELECT name, url FROM models WHERE brand = ? AND url IS NOT NULL", (brand,)).fetchall()
+    models = conn.execute("SELECT name, url, sku, colors FROM models WHERE brand = ? AND url IS NOT NULL", (brand,)).fetchall()
     for model in models:
         if found.get(model["url"]):  # a page that gave nothing is tried again
             continue
@@ -194,8 +300,9 @@ def _collect(brand, db_path, path, found, fetcher, pages):
         slug = compact(model["name"])
         gallery = {}
         for colour, links in urls.items():
-            saved = [save_photo(fetcher, brand, slug, None, u, angle=n + 1, colour=colour or None,
-                                rel=f"{brand}/gallery/{slug}{'_' + compact(colour) if colour else ''}_{n + 1}.jpg")
+            saved = [save_photo(fetcher, brand, slug, None, u, angle=n + 1, colour=colour or None, rel=(
+                         f"{brand}/gallery/shared/{compact(unquote(u.split('?')[0].rsplit('/', 1)[-1].rsplit('.', 1)[0]))}.jpg"
+                         if brand in SHARED else f"{brand}/gallery/{slug}{'_' + compact(colour) if colour else ''}_{n + 1}.jpg"))
                      for n, u in enumerate(links)]
             if any(saved):
                 gallery[colour] = [rel for rel in saved if rel]
