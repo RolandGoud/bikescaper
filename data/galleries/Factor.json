@@ -1,0 +1,512 @@
+{
+ "https://eu.factorbikes.com/bike-builder/aluto-campagnolo-record-13x": {
+  "Quattro Grey": [
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_1.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_2.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_3.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_4.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_5.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_6.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_7.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_quattrogrey_8.jpg"
+  ],
+  "Raptor Blue": [
+   "Factor/gallery/alutocampagnolorecord13x_raptorblue_1.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_raptorblue_2.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_raptorblue_3.jpg",
+   "Factor/gallery/alutocampagnolorecord13x_raptorblue_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/aluto-sram-force-xplr-w-pm": {
+  "Quattro Grey": [
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_1.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_2.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_3.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_4.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_5.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_6.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_7.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_quattrogrey_8.jpg"
+  ],
+  "Raptor Blue": [
+   "Factor/gallery/alutosramforcexplrwpowermeter_raptorblue_1.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_raptorblue_2.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_raptorblue_3.jpg",
+   "Factor/gallery/alutosramforcexplrwpowermeter_raptorblue_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/aluto-sram-red-xplr-w-pm": {
+  "Quattro Grey": [
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_1.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_2.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_3.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_4.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_5.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_6.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_7.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_quattrogrey_8.jpg"
+  ],
+  "Raptor Blue": [
+   "Factor/gallery/alutosramredxplrwpowermeter_raptorblue_1.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_raptorblue_2.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_raptorblue_3.jpg",
+   "Factor/gallery/alutosramredxplrwpowermeter_raptorblue_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/aluto-standard-package": {
+  "Quattro Grey": [
+   "Factor/gallery/alutostandardpackage_quattrogrey_1.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_2.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_3.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_4.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_5.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_6.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_7.jpg",
+   "Factor/gallery/alutostandardpackage_quattrogrey_8.jpg"
+  ],
+  "Raptor Blue": [
+   "Factor/gallery/alutostandardpackage_raptorblue_1.jpg",
+   "Factor/gallery/alutostandardpackage_raptorblue_2.jpg",
+   "Factor/gallery/alutostandardpackage_raptorblue_3.jpg",
+   "Factor/gallery/alutostandardpackage_raptorblue_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/bugatti-factor-one": {},
+ "https://eu.factorbikes.com/bike-builder/elara-campagnolo-record-13x-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/elara-premium-package": {},
+ "https://eu.factorbikes.com/bike-builder/elara-sram-force-xplr-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/elara-sram-red-xplr-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/hanzo-premium-package": {},
+ "https://eu.factorbikes.com/bike-builder/hanzo-premium-package-w-wheels": {},
+ "https://eu.factorbikes.com/bike-builder/hanzo-sram-force-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/hanzo-sram-red-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/monza-rapha-edition-2026-shimano-ultegra": {},
+ "https://eu.factorbikes.com/bike-builder/monza-rapha-edition-2026-sram-force-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/monza-rapha-edition-2026-standard-package": {},
+ "https://eu.factorbikes.com/bike-builder/monza-shimano-ultegra": {
+  "Anodized Black": [
+   "Factor/gallery/monzashimanoultegra_anodizedblack_1.jpg",
+   "Factor/gallery/monzashimanoultegra_anodizedblack_2.jpg",
+   "Factor/gallery/monzashimanoultegra_anodizedblack_3.jpg",
+   "Factor/gallery/monzashimanoultegra_anodizedblack_4.jpg"
+  ],
+  "Pearl White": [
+   "Factor/gallery/monzashimanoultegra_pearlwhite_1.jpg",
+   "Factor/gallery/monzashimanoultegra_pearlwhite_2.jpg",
+   "Factor/gallery/monzashimanoultegra_pearlwhite_3.jpg",
+   "Factor/gallery/monzashimanoultegra_pearlwhite_4.jpg"
+  ],
+  "Steel Green": [
+   "Factor/gallery/monzashimanoultegra_steelgreen_1.jpg",
+   "Factor/gallery/monzashimanoultegra_steelgreen_2.jpg",
+   "Factor/gallery/monzashimanoultegra_steelgreen_3.jpg",
+   "Factor/gallery/monzashimanoultegra_steelgreen_4.jpg",
+   "Factor/gallery/monzashimanoultegra_steelgreen_5.jpg",
+   "Factor/gallery/monzashimanoultegra_steelgreen_6.jpg",
+   "Factor/gallery/monzashimanoultegra_steelgreen_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/monza-sram-force-w-power-meter": {
+  "Anodized Black": [
+   "Factor/gallery/monzasramforcewpowermeter_anodizedblack_1.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_anodizedblack_2.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_anodizedblack_3.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_anodizedblack_4.jpg"
+  ],
+  "Pearl White": [
+   "Factor/gallery/monzasramforcewpowermeter_pearlwhite_1.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_pearlwhite_2.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_pearlwhite_3.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_pearlwhite_4.jpg"
+  ],
+  "Steel Green": [
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_1.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_2.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_3.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_4.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_5.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_6.jpg",
+   "Factor/gallery/monzasramforcewpowermeter_steelgreen_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/monza-standard-package": {
+  "Anodized Black": [
+   "Factor/gallery/monzastandardpackage_anodizedblack_1.jpg",
+   "Factor/gallery/monzastandardpackage_anodizedblack_2.jpg",
+   "Factor/gallery/monzastandardpackage_anodizedblack_3.jpg",
+   "Factor/gallery/monzastandardpackage_anodizedblack_4.jpg"
+  ],
+  "Pearl White": [
+   "Factor/gallery/monzastandardpackage_pearlwhite_1.jpg",
+   "Factor/gallery/monzastandardpackage_pearlwhite_2.jpg",
+   "Factor/gallery/monzastandardpackage_pearlwhite_3.jpg",
+   "Factor/gallery/monzastandardpackage_pearlwhite_4.jpg"
+  ],
+  "Steel Green": [
+   "Factor/gallery/monzastandardpackage_steelgreen_1.jpg",
+   "Factor/gallery/monzastandardpackage_steelgreen_2.jpg",
+   "Factor/gallery/monzastandardpackage_steelgreen_3.jpg",
+   "Factor/gallery/monzastandardpackage_steelgreen_4.jpg",
+   "Factor/gallery/monzastandardpackage_steelgreen_5.jpg",
+   "Factor/gallery/monzastandardpackage_steelgreen_6.jpg",
+   "Factor/gallery/monzastandardpackage_steelgreen_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/o2-vam-premium-package": {
+  "Orca Blue": [
+   "Factor/gallery/o2vampremiumpackage_orcablue_1.jpg",
+   "Factor/gallery/o2vampremiumpackage_orcablue_2.jpg",
+   "Factor/gallery/o2vampremiumpackage_orcablue_3.jpg",
+   "Factor/gallery/o2vampremiumpackage_orcablue_4.jpg",
+   "Factor/gallery/o2vampremiumpackage_orcablue_5.jpg",
+   "Factor/gallery/o2vampremiumpackage_orcablue_6.jpg",
+   "Factor/gallery/o2vampremiumpackage_orcablue_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/o2-vam-premium-package-w-wheels": {
+  "Orca Blue": [
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_1.jpg",
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_2.jpg",
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_3.jpg",
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_4.jpg",
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_5.jpg",
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_6.jpg",
+   "Factor/gallery/o2vampremiumpackagewwheels_orcablue_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/o2-vam-shimano-dura-ace": {
+  "Orca Blue": [
+   "Factor/gallery/o2vamshimanoduraace_orcablue_1.jpg",
+   "Factor/gallery/o2vamshimanoduraace_orcablue_2.jpg",
+   "Factor/gallery/o2vamshimanoduraace_orcablue_3.jpg",
+   "Factor/gallery/o2vamshimanoduraace_orcablue_4.jpg",
+   "Factor/gallery/o2vamshimanoduraace_orcablue_5.jpg",
+   "Factor/gallery/o2vamshimanoduraace_orcablue_6.jpg",
+   "Factor/gallery/o2vamshimanoduraace_orcablue_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/o2-vam-shimano-ultegra": {
+  "Orca Blue": [
+   "Factor/gallery/o2vamshimanoultegra_orcablue_1.jpg",
+   "Factor/gallery/o2vamshimanoultegra_orcablue_2.jpg",
+   "Factor/gallery/o2vamshimanoultegra_orcablue_3.jpg",
+   "Factor/gallery/o2vamshimanoultegra_orcablue_4.jpg",
+   "Factor/gallery/o2vamshimanoultegra_orcablue_5.jpg",
+   "Factor/gallery/o2vamshimanoultegra_orcablue_6.jpg",
+   "Factor/gallery/o2vamshimanoultegra_orcablue_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/o2-vam-sram-force-w-power-meter": {
+  "Orca Blue": [
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_1.jpg",
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_2.jpg",
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_3.jpg",
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_4.jpg",
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_5.jpg",
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_6.jpg",
+   "Factor/gallery/o2vamsramforcewpowermeter_orcablue_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/o2-vam-sram-red-w-power-meter": {
+  "Orca Blue": [
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_1.jpg",
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_2.jpg",
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_3.jpg",
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_4.jpg",
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_5.jpg",
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_6.jpg",
+   "Factor/gallery/o2vamsramredwpowermeter_orcablue_7.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/one-campy-super-record": {},
+ "https://eu.factorbikes.com/bike-builder/one-premium-package": {},
+ "https://eu.factorbikes.com/bike-builder/one-premium-package-w-wheels": {},
+ "https://eu.factorbikes.com/bike-builder/one-shimano-dura-ace": {},
+ "https://eu.factorbikes.com/bike-builder/one-shimano-ultegra": {},
+ "https://eu.factorbikes.com/bike-builder/one-sp-premium-package": {},
+ "https://eu.factorbikes.com/bike-builder/one-sp-premium-package-w-wheels": {},
+ "https://eu.factorbikes.com/bike-builder/one-sp-sram-force-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/one-sp-sram-red-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/one-sram-force-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/one-sram-red-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/ostro-vam-premium-package": {
+  "Arctic Chrome": [
+   "Factor/gallery/ostrovampremiumpackage_arcticchrome_1.jpg",
+   "Factor/gallery/ostrovampremiumpackage_arcticchrome_2.jpg",
+   "Factor/gallery/ostrovampremiumpackage_arcticchrome_3.jpg",
+   "Factor/gallery/ostrovampremiumpackage_arcticchrome_4.jpg"
+  ],
+  "Black": [
+   "Factor/gallery/ostrovampremiumpackage_black_1.jpg",
+   "Factor/gallery/ostrovampremiumpackage_black_2.jpg",
+   "Factor/gallery/ostrovampremiumpackage_black_3.jpg",
+   "Factor/gallery/ostrovampremiumpackage_black_4.jpg"
+  ],
+  "Gloss Chrome": [
+   "Factor/gallery/ostrovampremiumpackage_glosschrome_1.jpg",
+   "Factor/gallery/ostrovampremiumpackage_glosschrome_2.jpg",
+   "Factor/gallery/ostrovampremiumpackage_glosschrome_3.jpg",
+   "Factor/gallery/ostrovampremiumpackage_glosschrome_4.jpg"
+  ],
+  "Icon Blue": [
+   "Factor/gallery/ostrovampremiumpackage_iconblue_1.jpg",
+   "Factor/gallery/ostrovampremiumpackage_iconblue_2.jpg"
+  ],
+  "Terracotta Orange": [
+   "Factor/gallery/ostrovampremiumpackage_terracottaorange_1.jpg",
+   "Factor/gallery/ostrovampremiumpackage_terracottaorange_2.jpg",
+   "Factor/gallery/ostrovampremiumpackage_terracottaorange_3.jpg",
+   "Factor/gallery/ostrovampremiumpackage_terracottaorange_4.jpg"
+  ],
+  "White Chrome": [
+   "Factor/gallery/ostrovampremiumpackage_whitechrome_1.jpg",
+   "Factor/gallery/ostrovampremiumpackage_whitechrome_2.jpg",
+   "Factor/gallery/ostrovampremiumpackage_whitechrome_3.jpg",
+   "Factor/gallery/ostrovampremiumpackage_whitechrome_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/ostro-vam-premium-package-w-wheels": {
+  "Arctic Chrome": [
+   "Factor/gallery/ostrovampremiumpackagewwheels_arcticchrome_1.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_arcticchrome_2.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_arcticchrome_3.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_arcticchrome_4.jpg"
+  ],
+  "Black": [
+   "Factor/gallery/ostrovampremiumpackagewwheels_black_1.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_black_2.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_black_3.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_black_4.jpg"
+  ],
+  "Gloss Chrome": [
+   "Factor/gallery/ostrovampremiumpackagewwheels_glosschrome_1.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_glosschrome_2.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_glosschrome_3.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_glosschrome_4.jpg"
+  ],
+  "Icon Blue": [
+   "Factor/gallery/ostrovampremiumpackagewwheels_iconblue_1.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_iconblue_2.jpg"
+  ],
+  "Terracotta Orange": [
+   "Factor/gallery/ostrovampremiumpackagewwheels_terracottaorange_1.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_terracottaorange_2.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_terracottaorange_3.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_terracottaorange_4.jpg"
+  ],
+  "White Chrome": [
+   "Factor/gallery/ostrovampremiumpackagewwheels_whitechrome_1.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_whitechrome_2.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_whitechrome_3.jpg",
+   "Factor/gallery/ostrovampremiumpackagewwheels_whitechrome_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/ostro-vam-shimano-dura-ace": {
+  "Arctic Chrome": [
+   "Factor/gallery/ostrovamshimanoduraace_arcticchrome_1.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_arcticchrome_2.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_arcticchrome_3.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_arcticchrome_4.jpg"
+  ],
+  "Black": [
+   "Factor/gallery/ostrovamshimanoduraace_black_1.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_black_2.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_black_3.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_black_4.jpg"
+  ],
+  "Gloss Chrome": [
+   "Factor/gallery/ostrovamshimanoduraace_glosschrome_1.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_glosschrome_2.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_glosschrome_3.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_glosschrome_4.jpg"
+  ],
+  "Icon Blue": [
+   "Factor/gallery/ostrovamshimanoduraace_iconblue_1.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_iconblue_2.jpg"
+  ],
+  "Terracotta Orange": [
+   "Factor/gallery/ostrovamshimanoduraace_terracottaorange_1.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_terracottaorange_2.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_terracottaorange_3.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_terracottaorange_4.jpg"
+  ],
+  "White Chrome": [
+   "Factor/gallery/ostrovamshimanoduraace_whitechrome_1.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_whitechrome_2.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_whitechrome_3.jpg",
+   "Factor/gallery/ostrovamshimanoduraace_whitechrome_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/ostro-vam-shimano-ultegra": {
+  "Arctic Chrome": [
+   "Factor/gallery/ostrovamshimanoultegra_arcticchrome_1.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_arcticchrome_2.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_arcticchrome_3.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_arcticchrome_4.jpg"
+  ],
+  "Black": [
+   "Factor/gallery/ostrovamshimanoultegra_black_1.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_black_2.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_black_3.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_black_4.jpg"
+  ],
+  "Gloss Chrome": [
+   "Factor/gallery/ostrovamshimanoultegra_glosschrome_1.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_glosschrome_2.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_glosschrome_3.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_glosschrome_4.jpg"
+  ],
+  "Icon Blue": [
+   "Factor/gallery/ostrovamshimanoultegra_iconblue_1.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_iconblue_2.jpg"
+  ],
+  "Terracotta Orange": [
+   "Factor/gallery/ostrovamshimanoultegra_terracottaorange_1.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_terracottaorange_2.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_terracottaorange_3.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_terracottaorange_4.jpg"
+  ],
+  "White Chrome": [
+   "Factor/gallery/ostrovamshimanoultegra_whitechrome_1.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_whitechrome_2.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_whitechrome_3.jpg",
+   "Factor/gallery/ostrovamshimanoultegra_whitechrome_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/ostro-vam-sram-force-w-power-meter": {
+  "Arctic Chrome": [
+   "Factor/gallery/ostrovamsramforcewpowermeter_arcticchrome_1.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_arcticchrome_2.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_arcticchrome_3.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_arcticchrome_4.jpg"
+  ],
+  "Black": [
+   "Factor/gallery/ostrovamsramforcewpowermeter_black_1.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_black_2.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_black_3.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_black_4.jpg"
+  ],
+  "Gloss Chrome": [
+   "Factor/gallery/ostrovamsramforcewpowermeter_glosschrome_1.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_glosschrome_2.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_glosschrome_3.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_glosschrome_4.jpg"
+  ],
+  "Icon Blue": [
+   "Factor/gallery/ostrovamsramforcewpowermeter_iconblue_1.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_iconblue_2.jpg"
+  ],
+  "Terracotta Orange": [
+   "Factor/gallery/ostrovamsramforcewpowermeter_terracottaorange_1.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_terracottaorange_2.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_terracottaorange_3.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_terracottaorange_4.jpg"
+  ],
+  "White Chrome": [
+   "Factor/gallery/ostrovamsramforcewpowermeter_whitechrome_1.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_whitechrome_2.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_whitechrome_3.jpg",
+   "Factor/gallery/ostrovamsramforcewpowermeter_whitechrome_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/ostro-vam-sram-red-w-power-meter-new": {
+  "Arctic Chrome": [
+   "Factor/gallery/ostrovamsramredwpowermeter_arcticchrome_1.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_arcticchrome_2.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_arcticchrome_3.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_arcticchrome_4.jpg"
+  ],
+  "Black": [
+   "Factor/gallery/ostrovamsramredwpowermeter_black_1.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_black_2.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_black_3.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_black_4.jpg"
+  ],
+  "Gloss Chrome": [
+   "Factor/gallery/ostrovamsramredwpowermeter_glosschrome_1.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_glosschrome_2.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_glosschrome_3.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_glosschrome_4.jpg"
+  ],
+  "Icon Blue": [
+   "Factor/gallery/ostrovamsramredwpowermeter_iconblue_1.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_iconblue_2.jpg"
+  ],
+  "Terracotta Orange": [
+   "Factor/gallery/ostrovamsramredwpowermeter_terracottaorange_1.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_terracottaorange_2.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_terracottaorange_3.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_terracottaorange_4.jpg"
+  ],
+  "White Chrome": [
+   "Factor/gallery/ostrovamsramredwpowermeter_whitechrome_1.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_whitechrome_2.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_whitechrome_3.jpg",
+   "Factor/gallery/ostrovamsramredwpowermeter_whitechrome_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/sarana-premium-package": {},
+ "https://eu.factorbikes.com/bike-builder/sarana-sram-force-xplr-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/sarana-sram-red-xplr-w-power-meter": {},
+ "https://eu.factorbikes.com/bike-builder/slick-premium-package": {
+  "Nebula Blue": [
+   "Factor/gallery/slickpremiumpackage_nebulablue_1.jpg",
+   "Factor/gallery/slickpremiumpackage_nebulablue_2.jpg"
+  ],
+  "Shadow White": [
+   "Factor/gallery/slickpremiumpackage_shadowwhite_1.jpg",
+   "Factor/gallery/slickpremiumpackage_shadowwhite_2.jpg",
+   "Factor/gallery/slickpremiumpackage_shadowwhite_3.jpg",
+   "Factor/gallery/slickpremiumpackage_shadowwhite_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/slick-premium-package-w-wheels": {
+  "Nebula Blue": [
+   "Factor/gallery/slickpremiumpackagewwheels_nebulablue_1.jpg",
+   "Factor/gallery/slickpremiumpackagewwheels_nebulablue_2.jpg"
+  ],
+  "Shadow White": [
+   "Factor/gallery/slickpremiumpackagewwheels_shadowwhite_1.jpg",
+   "Factor/gallery/slickpremiumpackagewwheels_shadowwhite_2.jpg",
+   "Factor/gallery/slickpremiumpackagewwheels_shadowwhite_3.jpg",
+   "Factor/gallery/slickpremiumpackagewwheels_shadowwhite_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/slick-premium-sram-force-w-power-meter": {
+  "Nebula Blue": [
+   "Factor/gallery/slickpremiumsramforcewpowermeter_nebulablue_1.jpg",
+   "Factor/gallery/slickpremiumsramforcewpowermeter_nebulablue_2.jpg"
+  ],
+  "Shadow White": [
+   "Factor/gallery/slickpremiumsramforcewpowermeter_shadowwhite_1.jpg",
+   "Factor/gallery/slickpremiumsramforcewpowermeter_shadowwhite_2.jpg",
+   "Factor/gallery/slickpremiumsramforcewpowermeter_shadowwhite_3.jpg",
+   "Factor/gallery/slickpremiumsramforcewpowermeter_shadowwhite_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/slick-premium-sram-red-w-power-meter": {
+  "Nebula Blue": [
+   "Factor/gallery/slickpremiumsramredwpowermeter_nebulablue_1.jpg",
+   "Factor/gallery/slickpremiumsramredwpowermeter_nebulablue_2.jpg"
+  ],
+  "Shadow White": [
+   "Factor/gallery/slickpremiumsramredwpowermeter_shadowwhite_1.jpg",
+   "Factor/gallery/slickpremiumsramredwpowermeter_shadowwhite_2.jpg",
+   "Factor/gallery/slickpremiumsramredwpowermeter_shadowwhite_3.jpg",
+   "Factor/gallery/slickpremiumsramredwpowermeter_shadowwhite_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/slick-sram-force-w-power-meter": {
+  "Nebula Blue": [
+   "Factor/gallery/slicksramforcewpowermeter_nebulablue_1.jpg",
+   "Factor/gallery/slicksramforcewpowermeter_nebulablue_2.jpg"
+  ],
+  "Shadow White": [
+   "Factor/gallery/slicksramforcewpowermeter_shadowwhite_1.jpg",
+   "Factor/gallery/slicksramforcewpowermeter_shadowwhite_2.jpg",
+   "Factor/gallery/slicksramforcewpowermeter_shadowwhite_3.jpg",
+   "Factor/gallery/slicksramforcewpowermeter_shadowwhite_4.jpg"
+  ]
+ },
+ "https://eu.factorbikes.com/bike-builder/spongebob-edition-one-shimano-ultegra": {}
+}
