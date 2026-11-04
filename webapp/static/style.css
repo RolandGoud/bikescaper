@@ -455,6 +455,12 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .value-prices .fair .n { color: var(--accent); }
 .value-prices .new .n { color: var(--muted); }
 .value-prices .sub { margin-top: 8px; font-size: 14px; color: var(--muted); }
+/* An info icon whose explanation shows on hover, keyboard focus or tap. */
+.i-tip { position: relative; display: inline-grid; vertical-align: -3px; place-items: center; width: 17px; height: 17px; margin-left: 6px; border: 1.5px solid var(--muted); border-radius: 50%; font: 700 11px/1 var(--body); font-style: normal; color: var(--muted); cursor: help; }
+.i-tip:hover, .i-tip:focus { color: var(--text); border-color: var(--text); outline: none; }
+.i-tip .bubble { display: none; position: absolute; right: -8px; bottom: calc(100% + 10px); width: 240px; max-width: 70vw; padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line-strong); color: var(--text); font: 400 14px/1.4 var(--body); text-align: left; z-index: 5; box-shadow: 0 8px 24px rgba(0, 0, 0, .4); }
+.i-tip .bubble::after { content: ""; position: absolute; right: 12px; top: 100%; border: 7px solid transparent; border-top-color: var(--raised); }
+.i-tip:hover .bubble, .i-tip:focus .bubble { display: block; }
 .price-slider { position: relative; }
 .price-slider.with-pin { padding-top: 46px; }
 .price-slider .track { position: relative; height: 14px; border-radius: 999px; background-color: var(--ground);
