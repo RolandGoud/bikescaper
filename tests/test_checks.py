@@ -1069,7 +1069,6 @@ def test_wheels_named_without_the_word_wheels():
     assert checks.detect_condition("het printplaatje van de vorige was kapot\n\nConditie: Zo goed als nieuw") == "like-new"
 
 
-
 def test_wheels_of_the_same_family_without_a_version_match():
     # Check 63: the ad says "Bontrager Aeolus Carbon wielen", the original is the Aeolus Pro 37.
     original = "Bontrager Aeolus Pro 37, OCLV Carbon, Tubeless Ready, 37 mm velghoogte"
@@ -1980,3 +1979,31 @@ def test_a_complete_bike_is_not_matched_to_the_frameset(models):
     # An ad for the frame alone still gets the frameset.
     ranked = checks.match_models(models, "Trek Madone gen8 SL frameset (56)", "Alleen frame, vork en zadelpen")
     assert ranked[0][1]["name"] == "Madone SL Gen 8 frameset"
+
+
+def test_downgrade_cuts_are_added_up_before_they_are_taken_off(models):
+    same = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano Ultegra Di2, carbon, schijfremmen", 5000)
+    down = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano 105 groep, carbon, schijfremmen", 5000)
+    cuts = [r for r in down["specs"]["rows"] if r.get("step", 0) < 0]
+    total = sum(checks.downgrade_cut(r) for r in cuts)
+    step = next(s for s in down["value"]["steps"] if en(s["label"]) == "Downgraded parts")
+    assert step["change"] == -total  # one cut of the sum, not one cut per part
+    assert abs(step["value"] - same["value"]["steps"][-1]["value"] * (1 - total)) <= 10
+
+
+def test_downgrade_cuts_are_capped():
+    model = {"name": "Test", "price_eur": 5000}
+    rows = [{"key": k, "step": -1} for k in ("groupset", "wheels", "tyres", "crankset", "frame", "brakes",
+                                              "saddle", "a", "b", "c")]
+    claims = {"condition": None, "year": "2025"}
+    resolved = {"year": 2025, "reliable": True, "how": "ad", "first": 2025, "last": 2025}
+    v = checks.check_value(model, claims, None, {"rows": rows}, None, today=date(2026, 6, 1), resolved=resolved)
+    assert v["steps"][-1]["change"] == -checks.DOWNGRADE_CAP
+
+
+def test_downgrade_cut_is_per_tier():
+    assert checks.downgrade_cut({"key": "groupset", "step": -1}) == pytest.approx(0.10)
+    assert checks.downgrade_cut({"key": "groupset", "step": -2}) == pytest.approx(0.15)
+    assert checks.downgrade_cut({"key": "groupset", "step": -4}) == pytest.approx(0.25)
+    assert checks.downgrade_cut({"key": "wheels", "step": -1}) == pytest.approx(0.05)
+    assert checks.downgrade_cut({"key": "wheels", "step": -3}) == pytest.approx(0.10)

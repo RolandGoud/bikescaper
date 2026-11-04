@@ -2541,6 +2541,15 @@ CONDITION_FACTOR = {"like-new": 1.05, None: 1.0, "used": 0.92, "damaged": 0.6}
 CONDITION_LABEL = {"like-new": "like new", "used": "used", "damaged": "damaged"}
 # A bike this many years old isn't like new, whatever the ad says: rubber, bearings and the frame have aged.
 LIKE_NEW_MAX_AGE = 10
+# The most the downgraded parts together take off the value (see check_value).
+DOWNGRADE_CAP = 0.40
+
+
+def downgrade_cut(row):
+    """What a downgraded comparison row takes off the value: the first tier dropped counts in full (10% for the
+    groupset, 5% for another part), each further tier half that (groupset 10, 5, 5, ...; others 5, 2.5, 2.5, ...)."""
+    first = 0.10 if row["key"] == "groupset" else 0.05
+    return first + first / 2 * (-row["step"] - 1)
 
 
 def year_note(resolved, claims):
@@ -2605,16 +2614,15 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     if CONDITION_FACTOR.get(condition_key, 1.0) != 1.0:
         steps.append({"label": Msg("Condition: {condition}", condition=Msg(CONDITION_LABEL[condition_key])),
                       "value": round(original * factor, -1), "change": CONDITION_FACTOR[condition_key] - 1})
-    # Downgraded parts lower the value: 10% for the groupset, 5% for wheels or tyres. Upgrades rarely
-    # raise a used bike's price, so they don't count.
+    # Downgraded parts lower the value by the tiers they drop (downgrade_cut: groupset 10% for the first tier and
+    # 5% for each next, other parts half that). The cuts are added up first and taken off once (groupset 1 tier +
+    # wheels 3 tiers = 10 + 5 + 2.5 + 2.5 = 20%), so each extra mismatch weighs as much as the first; capped at
+    # DOWNGRADE_CAP. Upgrades rarely raise a used bike's price, so they don't count.
     downgraded = [r for r in spec_result["rows"] if r.get("step", 0) < 0]
-    for r in downgraded:
-        factor *= 0.9 if r["key"] == "groupset" else 0.95
     if downgraded:
-        down = 1.0
-        for r in downgraded:
-            down *= 0.9 if r["key"] == "groupset" else 0.95
-        steps.append({"label": Msg("Downgraded parts"), "value": round(original * factor, -1), "change": down - 1})
+        down = min(DOWNGRADE_CAP, sum(downgrade_cut(r) for r in downgraded))
+        factor *= 1 - down
+        steps.append({"label": Msg("Downgraded parts"), "value": round(original * factor, -1), "change": -down})
     mid = original * factor
     low, high = round(mid * 0.9, -1), round(mid * 1.1, -1)
     condition = (Msg("Normal use") if aged_out else
