@@ -709,7 +709,7 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .tier.t4 { background: var(--accent); color: var(--ink); }
 .tier.t5 { background: var(--text); color: var(--ink); }
 .spec-group h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.kv div.rated { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-right: 12px; }
+.kv div.rated { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-right: 12px; }
 .rated-end { display: inline-flex; align-items: center; gap: 8px; flex: none; }
 .tier-dot { flex: none; height: 22px; padding: 0 8px; border-radius: var(--pill-radius); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: var(--pill-weight); white-space: nowrap; background: var(--faint); color: var(--muted); }
 .tier-dot.t3 { background: var(--tier3-bg); color: var(--tier3); }
@@ -946,9 +946,13 @@ select { max-width: 100%; }
 .year-tab.none[aria-selected="true"], .year-tab.unchecked[aria-selected="true"], .year-tab.unreadable[aria-selected="true"] { color: var(--muted); border-bottom-color: var(--line-strong); }
 .year-panel > p.small { margin-bottom: 14px; }
 .year-empty { padding: 18px; background: var(--ground); border-radius: 8px; color: var(--muted); }
-.kv div.changed, .changed-key { background: var(--warn-bg); }
-.kv div.changed:nth-child(odd) { box-shadow: inset 3px 0 0 var(--accent); padding-left: 8px; }
-.changed-key { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; box-shadow: inset 3px 0 0 var(--accent); }
+/* A part's tier sits beside its name; a part that changed on the year before gets ▲, ▼ or – centred under it. */
+.kv div.part { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.spec-tier { flex: none; min-width: 56px; display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.move-mark { font-size: 12px; line-height: 1; font-weight: 700; cursor: help; color: var(--muted); }
+.move-mark.up { color: var(--accent); }
+.move-mark.down { color: var(--bad); }
+.spec-tier > .move-mark:only-child { margin-top: 5px; }
 @media (max-width: 640px) {
   .year-tabs { flex-wrap: nowrap; overflow-x: auto; gap: 0; }
   .year-tab { padding: 8px 10px; font-size: 14px; }
@@ -1238,8 +1242,6 @@ select { max-width: 100%; }
 .stolen-check { margin: 0; padding: 12px 14px; border-radius: 10px; background: rgba(255, 255, 255, .06); font-size: 14px; }
 .stolen-check a { font-weight: 700; }
 .move { display: inline-block; padding: 1px 7px; border-radius: var(--pill-radius); font-size: 11px; font-weight: 600; white-space: nowrap; vertical-align: 1px; }
-.move.up { background: var(--ok-bg); color: var(--accent); }
-.move.down { background: var(--bad-bg); color: var(--bad); }
 .move.aged { background: var(--line, #e6e6e6); color: var(--muted, #666); cursor: help; }
 /* Selling page: one checked ad next to the ad we would write for it, paged with the arrows. */
 .example { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }

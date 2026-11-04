@@ -465,7 +465,6 @@ NL = {
     "Photos per model year": "Foto's per modeljaar",
     "Photos of this bike": "Foto's van deze fiets",
     "Still looking for a good photo of this year.": "We zoeken nog een goede foto van dit jaar.",
-    "Changed since the year before.": "Anders dan het jaar ervoor.",
     "The Wayback Machine has a copy of this model's page from {date}, but without a spec list.":
         "De Wayback Machine heeft een kopie van de pagina van dit model van {date}, maar zonder specificaties.",
     "No data for {year}: the Wayback Machine has no copy of this model's page from that year, or the model wasn't sold under this name then.":
@@ -1242,11 +1241,11 @@ NL = {
     "Improved": "Verbeterd",
     "Missing": "Mist",
     "Our advice": "Ons advies",
-    "upgrade": "upgrade",
-    "downgrade": "downgrade",
     "Upgrade on {year}": "Beter dan in {year}",
     "Downgrade on {year}": "Minder dan in {year}",
-    "▲ and ▼ mark a better or a lesser part.": "▲ en ▼ markeren een beter of minder onderdeel.",
+    "▲ and ▼ mark a better or a lesser part than the year before, – a different part of the same tier.":
+        "▲ en ▼ markeren een beter of minder onderdeel dan het jaar ervoor, – een ander onderdeel van hetzelfde niveau.",
+    "Changed on {year}, same tier": "Anders dan in {year}, zelfde niveau",
     "Marktplaats or 2dehands. We read the title, text and price for you.": "Marktplaats of 2dehands. We lezen de titel, tekst en prijs voor je.",
     "electronic": "elektronisch",
     "{year} fits this model": "{year} past bij dit model",

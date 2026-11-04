@@ -1528,6 +1528,19 @@ def test_year_tabs_keep_one_row_order_and_mark_upgrades():
     assert tabs[2026]["moves"]["Shifters"] == "down"
 
 
+def test_model_page_marks_every_changed_part_beside_its_tier(tmp_path):
+    """A part that changed on the year before gets ▲ or ▼ under its tier pill in the part column, or – when it
+    kept its tier: the Domane AL 4's 2027 drivetrain changed but stayed Entry, and only its rims dropped a tier."""
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/trek-domane-al-4-gen-4?lang=nl").data.decode()
+    panel = page[page.index('id="year-2027"'):]
+    panel = panel[:panel.index('class="year-panel"')] if 'class="year-panel"' in panel else panel
+    assert re.search(r'<div class="part"><span>Ketting</span><span class="spec-tier">.*?</span><span class="move-mark same"', panel)
+    assert 'class="move-mark down"' in panel
+    assert 'class="changed"' not in page and "changed-key" not in page
+
+
 def test_model_page_years_match_the_age_check(tmp_path):
     """The model page's model years come from the same catalogue years as the age check, earlier
     generations included and marked in the facts, the year tabs and the photo thumbs."""
