@@ -1925,7 +1925,7 @@ def year_colour_fits(images, title, description=""):
 
 
 # The year clues that come from parts a bike can be given later (estimate_year), by the start of their message.
-PART_CLUES = ("{part}: bikes from", "Parts {parts}", "{n}-speed")
+PART_CLUES = ("{part}: bikes from", "The photos show {part}", "Parts {parts}", "{n}-speed")
 
 
 def ringed_years(years, estimate, claimed=None):
@@ -1948,7 +1948,7 @@ def ringed_years(years, estimate, claimed=None):
     return {y for y in inside if abs(y - closest) <= 1}
 
 
-def estimate_year(model, models, claims, text, seen_colour=None):
+def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None):
     """The model years the ad's own details allow, and whether the claimed year fits them.
 
     Each clue gives a window (first, last; None = open): the groupset generation, a frame generation the
@@ -1961,6 +1961,14 @@ def estimate_year(model, models, claims, text, seen_colour=None):
         if re.search(pattern, low):
             clues.append((first, last, Msg("{part}: bikes from {years}.", part=name, years=_span(first, last))))
             break
+    else:
+        # The ad's words don't date the groupset: the generation its photos show (check 8: an FC-5700 crank on
+        # a "Defy Composite" read as today's Defy Advanced). The groupset generation is the surest way to tell an
+        # old bike from a new one.
+        seen = photo_group_years(photo_read)
+        if seen:
+            clues.append((seen[0], seen[1], Msg("The photos show {part}: bikes from {years}.", part=seen[2],
+                                                years=_span(seen[0], seen[1]))))
     gen = re.search(r"\bgen(?:eratie|eration)?\s*(\d)\b", low)
     line = next((gens for brand, pattern, gens in LINEAGES
                  if brand == model["brand"] and re.search(pattern, _plain(model["name"]))), None)
@@ -2173,6 +2181,21 @@ def photo_group(read):
         extra = ELECTRONIC_NAME.get(found["name"].split()[0]) if found["electronic"] else None
         found["label"] = Msg("{label} **", label=f"{found['name']} {extra}" if extra else found["name"])
     return found
+
+
+def photo_group_years(read):
+    """(first, last, name) of the groupset generation a read of the ad's photos dates (GROUPSET_YEARS), from the
+    groupset's model code or the crankset's, or None when the read isn't sure enough or names no dated code."""
+    from . import photo_groupset
+    texts = [photo_groupset.text_of(read)] if photo_groupset.usable(read) else []
+    if (crank := photo_groupset.part_of(read, "crankset")):
+        texts.append(photo_groupset.part_text("crankset", crank))
+    for text in texts:
+        low = _plain(text)
+        for pattern, first, last, name in GROUPSET_YEARS:
+            if re.search(pattern, low):
+                return first, last, name
+    return None
 
 
 def photo_part(read, key):
@@ -2873,7 +2896,8 @@ def run_check(models, listing, today=None):
     report["age"] = check_age(chosen, claims, today)
     seen = photo_colour(chosen, listing)
     report["year_estimate"] = estimate_year(chosen, models, claims,
-                                            f"{listing['title']}\n{listing.get('description') or ''}", seen)
+                                            f"{listing['title']}\n{listing.get('description') or ''}", seen,
+                                            listing.get("photo_groupset"))
     # The photo of the model year the ad's bike is, rather than of today's model, when we have one.
     found = year_photo(chosen, claims, report["year_estimate"], f"{listing['title']}\n{listing.get('description') or ''}", seen,
                        listing.get("photo_paths"))
