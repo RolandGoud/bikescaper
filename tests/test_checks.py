@@ -1970,3 +1970,31 @@ def test_value_starts_from_the_new_price_of_the_ads_year():
     claims = checks.read_claims("Specialized Tarmac SL8 Expert 2024", "")
     value = checks.check_value(m, claims, None, {"rows": []}, {"status": checks.OK}, TODAY)
     assert value["original"] == 6500 and value["model_year"] == 2024
+
+
+def test_downgrade_cuts_are_added_up_before_they_are_taken_off(models):
+    same = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano Ultegra Di2, carbon, schijfremmen", 5000)
+    down = run(models, "Trek Madone SLR 7 Gen 8 2025", "Shimano 105 groep, carbon, schijfremmen", 5000)
+    cuts = [r for r in down["specs"]["rows"] if r.get("step", 0) < 0]
+    total = sum(checks.downgrade_cut(r) for r in cuts)
+    step = next(s for s in down["value"]["steps"] if en(s["label"]) == "Downgraded parts")
+    assert step["change"] == -total  # one cut of the sum, not one cut per part
+    assert abs(step["value"] - same["value"]["steps"][-1]["value"] * (1 - total)) <= 10
+
+
+def test_downgrade_cuts_are_capped():
+    model = {"name": "Test", "price_eur": 5000}
+    rows = [{"key": k, "step": -1} for k in ("groupset", "wheels", "tyres", "crankset", "frame", "brakes",
+                                              "saddle", "a", "b", "c")]
+    claims = {"condition": None, "year": "2025"}
+    resolved = {"year": 2025, "reliable": True, "how": "ad", "first": 2025, "last": 2025}
+    v = checks.check_value(model, claims, None, {"rows": rows}, None, today=date(2026, 6, 1), resolved=resolved)
+    assert v["steps"][-1]["change"] == -checks.DOWNGRADE_CAP
+
+
+def test_downgrade_cut_is_per_tier():
+    assert checks.downgrade_cut({"key": "groupset", "step": -1}) == pytest.approx(0.10)
+    assert checks.downgrade_cut({"key": "groupset", "step": -2}) == pytest.approx(0.15)
+    assert checks.downgrade_cut({"key": "groupset", "step": -4}) == pytest.approx(0.25)
+    assert checks.downgrade_cut({"key": "wheels", "step": -1}) == pytest.approx(0.05)
+    assert checks.downgrade_cut({"key": "wheels", "step": -3}) == pytest.approx(0.10)
