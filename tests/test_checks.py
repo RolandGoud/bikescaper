@@ -126,8 +126,10 @@ def test_old_bike_is_not_like_new_and_shifting_isnt_held_against_it(models):
     assert r["claims"]["condition"] == "like-new"
     assert en(r["value"]["condition"]) == "Normal use"
     assert any("isn't, so we count it as normal use" in en(n) for n in r["value"]["notes"])
-    assert r["model"]["name"] == "Ultimate CF SLX 8 AXS" and r["year"]["how"] == "older"
-    assert r["match"]["shifting"] is None  # an older generation may shift otherwise than today's AXS
+    # an older Ultimate CF SLX from the brand's archived pages, or today's AXS one
+    assert r["model"]["name"].startswith("Ultimate CF SLX") and r["year"]["how"] == "older"
+    shifting = r["match"]["shifting"]  # today's AXS: an older generation may shift otherwise, so no verdict
+    assert shifting is None if "AXS" in r["model"]["name"] else shifting["same"]
     recent = run(models, "Canyon Ultimate CF SLX 8 AXS 2022", "Conditie: Zo goed als nieuw", 4000)
     assert en(recent["value"]["condition"]) == "like new"
 
@@ -921,7 +923,8 @@ def test_colourway_year():
 
 def test_105_rules_yield_to_a_higher_group(models):
     r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2, 105 cassette")
-    assert r["year_estimate"] is None or "105" not in en(r["year_estimate"]["evidence"][0])
+    evidence = (r["year_estimate"] or {}).get("evidence") or [""]
+    assert "105" not in en(evidence[0])
     r = run(models, "Canyon Ultimate CF SL 8 Di2 2019", "Ultegra Di2 11-speed, 105 cassette")
     assert "Ultegra" in en(r["year_estimate"]["evidence"][0])
 

@@ -449,6 +449,10 @@ NL = {
     "As listed by the UK bike shop {shop} on {date}, from a copy in the Wayback Machine.":
         "Zoals de Britse fietsenwinkel {shop} hem op {date} vermeldde, uit een kopie in de Wayback Machine.",
     "{shop} price £{price}": "Prijs bij {shop} £{price}",
+    "As listed on the {brand} site on {date}, from a copy in the Wayback Machine.":
+        "Zoals de site van {brand} hem op {date} vermeldde, uit een kopie in de Wayback Machine.",
+    "The page gives no model year: this is the year of the copy.":
+        "De pagina noemt geen modeljaar: dit is het jaar van de kopie.",
     "Open the copy": "Open de kopie",
     "Open the page": "Open de pagina",
     "Sold as {name} in {year}.": "In {year} verkocht als {name}.",
