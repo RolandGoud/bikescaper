@@ -94,3 +94,14 @@ def test_brand_site_lines_count_as_discontinued():
     line = {"brand": "Canyon", "name": "Aeroad CF SL 8", "source_file": "data/years/brandsites/lines/Canyon.json",
             "year_specs": {"years": {"2019": {"specs": {"Frame": "x"}}}}}
     assert checks.catalogue_status(line)[0] == "discontinued"
+
+
+def test_a_gone_main_photo_gives_way_to_the_first_other_one(tmp_path, monkeypatch):
+    monkeypatch.setattr(mantel, "ROOT", str(tmp_path))
+    raw = {"models": {"Factor": {"O2": {"2020": entry(
+        model_year=2020, photo_live=False, gallery=["https://x/main.png", "https://x/side.jpg", "https://x/bb.jpg"],
+        gallery_live=[False, False, False])}}},
+        "archived_photos": {"https://x/side.jpg": "_wayback/Factor/a.jpg", "https://x/bb.jpg": "_wayback/Factor/b.jpg"}}
+    saved = lambda brand, slug, year, url, n=None: f"{slug}_{n}.jpg"
+    [sheet] = brandsites.convert(raw, saved)["Factor"][0]["O2"].values()
+    assert sheet["image"] == "o2_1.jpg" and sheet["colour_angles"] == {"": ["o2_2.jpg"]}

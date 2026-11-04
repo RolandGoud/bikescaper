@@ -4,7 +4,7 @@
   "Aeroad CF SL 7": {
    "2019": {
     "captured": "2019-07-30",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsl7_2019_brandsite.jpg",
     "price": 2699.0,
     "source": "brandsite",
     "specs": {
@@ -35,7 +35,7 @@
   "Aeroad CF SL 7 Disc": {
    "2019": {
     "captured": "2019-08-03",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsl7disc_2019_brandsite.jpg",
     "price": 3199.0,
     "source": "brandsite",
     "specs": {
@@ -168,7 +168,7 @@
    "2019": {
     "captured": "2019-07-17",
     "currency": "JPY",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsl8_2019_brandsite.jpg",
     "price": null,
     "price_foreign": 369000.0,
     "source": "brandsite",
@@ -199,7 +199,7 @@
   "Aeroad CF SL 8 Di2": {
    "2019": {
     "captured": "2019-07-13",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsl8di2_2019_brandsite.jpg",
     "price": 3799.0,
     "source": "brandsite",
     "specs": {
@@ -228,7 +228,7 @@
    "2021": {
     "captured": "2020-10-22",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsl8di2_2021_brandsite.jpg",
     "price": null,
     "price_foreign": 3889.0,
     "source": "brandsite",
@@ -258,7 +258,7 @@
   "Aeroad CF SL 8 Disc": {
    "2019": {
     "captured": "2019-07-30",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsl8disc_2019_brandsite.jpg",
     "price": 3699.0,
     "source": "brandsite",
     "specs": {
@@ -432,7 +432,7 @@
   "Aeroad CF SL Disc 8 Di2": {
    "2019": {
     "captured": "2019-07-08",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsldisc8di2_2019_brandsite.jpg",
     "price": 4299.0,
     "source": "brandsite",
     "specs": {
@@ -489,7 +489,7 @@
   "Aeroad CF SL Disc 8 eTap": {
    "2020": {
     "captured": "2020-09-19",
-    "image": null,
+    "image": "Canyon/years/aeroadcfsldisc8etap_2020_brandsite.jpg",
     "price": 5199.0,
     "source": "brandsite",
     "specs": {
@@ -639,7 +639,7 @@
   "Aeroad CF SLX 9 Di2": {
    "2019": {
     "captured": "2019-06-29",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslx9di2_2019_brandsite.jpg",
     "price": 6499.0,
     "source": "brandsite",
     "specs": {
@@ -735,7 +735,7 @@
   "Aeroad CF SLX 9 SL": {
    "2019": {
     "captured": "2019-07-14",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslx9sl_2019_brandsite.jpg",
     "price": 6999.0,
     "source": "brandsite",
     "specs": {
@@ -765,7 +765,7 @@
   "Aeroad CF SLX Disc 9 Di2": {
    "2019": {
     "captured": "2019-07-02",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslxdisc9di2_2019_brandsite.jpg",
     "price": 6999.0,
     "source": "brandsite",
     "specs": {
@@ -793,7 +793,7 @@
    },
    "2020": {
     "captured": "2020-08-19",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslxdisc9di2_2020_brandsite.jpg",
     "price": 7299.0,
     "source": "brandsite",
     "specs": {
@@ -821,7 +821,7 @@
    "2021": {
     "captured": "2020-10-28",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslxdisc9di2_2021_brandsite.jpg",
     "price": null,
     "price_foreign": 6779.0,
     "source": "brandsite",
@@ -883,7 +883,7 @@
   "Aeroad CF SLX Disc 9 SL": {
    "2019": {
     "captured": "2019-07-08",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslxdisc9sl_2019_brandsite.jpg",
     "price": 7499.0,
     "source": "brandsite",
     "specs": {
@@ -940,7 +940,7 @@
   "Aeroad CF SLX Disc 9 eTap": {
    "2020": {
     "captured": "2020-11-07",
-    "image": null,
+    "image": "Canyon/years/aeroadcfslxdisc9etap_2020_brandsite.jpg",
     "price": 6669.0,
     "source": "brandsite",
     "specs": {
@@ -1190,7 +1190,7 @@
   "Aeroad WMN CF SL 7": {
    "2019": {
     "captured": "2019-08-27",
-    "image": null,
+    "image": "Canyon/years/aeroadwmncfsl7_2019_brandsite.jpg",
     "price": 2699.0,
     "source": "brandsite",
     "specs": {
@@ -1221,7 +1221,7 @@
   "Aeroad WMN CF SL 8": {
    "2019": {
     "captured": "2019-08-10",
-    "image": null,
+    "image": "Canyon/years/aeroadwmncfsl8_2019_brandsite.jpg",
     "price": 3299.0,
     "source": "brandsite",
     "specs": {
@@ -1285,7 +1285,7 @@
    },
    "2020": {
     "captured": "2020-09-05",
-    "image": null,
+    "image": "Canyon/years/aeroadwmncfsldisc8di2_2020_brandsite.jpg",
     "price": 4399.0,
     "source": "brandsite",
     "specs": {
@@ -1349,7 +1349,7 @@
   "Brand Sender CFR": {
    "2020": {
     "captured": "2020-08-12",
-    "image": null,
+    "image": "Canyon/years/brandsendercfr_2020_brandsite.jpg",
     "price": null,
     "source": "brandsite",
     "specs": {
@@ -1545,7 +1545,7 @@
    "2020": {
     "captured": "2020-10-24",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/enduraceal6_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 999.0,
     "source": "brandsite",
@@ -1606,7 +1606,7 @@
    },
    "2020": {
     "captured": "2020-07-14",
-    "image": null,
+    "image": "Canyon/years/enduraceal7_2020_brandsite.jpg",
     "price": 1199.0,
     "source": "brandsite",
     "specs": {
@@ -1671,7 +1671,7 @@
    "2020": {
     "captured": "2020-10-22",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/enduracealdisc6_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 1299.0,
     "source": "brandsite",
@@ -1831,7 +1831,7 @@
    "2020": {
     "captured": "2020-11-10",
     "currency": "KRW",
-    "image": null,
+    "image": "Canyon/years/enduracecf7_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 1599000.0,
     "source": "brandsite",
@@ -1977,7 +1977,7 @@
    },
    "2020": {
     "captured": "2020-07-18",
-    "image": null,
+    "image": "Canyon/years/enduracecf8_2020_brandsite.jpg",
     "price": 1999.0,
     "source": "brandsite",
     "specs": {
@@ -2109,7 +2109,7 @@
    "2020": {
     "captured": "2020-11-16",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/enduracecfsl7disc_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2149.0,
     "source": "brandsite",
@@ -2349,7 +2349,7 @@
   "Endurace CF SL 8 Disc Di2": {
    "2019": {
     "captured": "2020-11-12",
-    "image": null,
+    "image": "Canyon/years/enduracecfsl8discdi2_2019_brandsite.jpg",
     "price": 3399.0,
     "source": "brandsite",
     "specs": {
@@ -2378,7 +2378,7 @@
    },
    "2020": {
     "captured": "2020-06-27",
-    "image": null,
+    "image": "Canyon/years/enduracecfsl8discdi2_2020_brandsite.jpg",
     "price": 3299.0,
     "source": "brandsite",
     "specs": {
@@ -2489,7 +2489,7 @@
   "Endurace CF SL 8 WMN Disc Di2": {
    "2018": {
     "captured": "2020-11-20",
-    "image": null,
+    "image": "Canyon/years/enduracecfsl8wmndiscdi2_2018_brandsite.jpg",
     "price": 2899.0,
     "source": "brandsite",
     "specs": {
@@ -2518,7 +2518,7 @@
    },
    "2019": {
     "captured": "2020-02-25",
-    "image": null,
+    "image": "Canyon/years/enduracecfsl8wmndiscdi2_2019_brandsite.jpg",
     "price": 2599.0,
     "source": "brandsite",
     "specs": {
@@ -2546,7 +2546,7 @@
    },
    "2020": {
     "captured": "2020-03-17",
-    "image": null,
+    "image": "Canyon/years/enduracecfsl8wmndiscdi2_2020_brandsite.jpg",
     "price": 3199.0,
     "source": "brandsite",
     "specs": {
@@ -2617,7 +2617,7 @@
   "Endurace CF SL Disc 8": {
    "2020": {
     "captured": "2020-06-14",
-    "image": null,
+    "image": "Canyon/years/enduracecfsldisc8_2020_brandsite.jpg",
     "price": 2499.0,
     "source": "brandsite",
     "specs": {
@@ -2907,7 +2907,7 @@
    "2020": {
     "captured": "2020-10-22",
     "currency": "AUD",
-    "image": null,
+    "image": "Canyon/years/enduracecfslx9discetap_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 11749.0,
     "source": "brandsite",
@@ -3011,7 +3011,7 @@
    "2020": {
     "captured": "2020-02-11",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/enduracecfslxdisc9di2_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 5259.0,
     "source": "brandsite",
@@ -3077,7 +3077,7 @@
    "2019": {
     "captured": "2019-10-22",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/enduracecfslxdisc9ltd_2019_brandsite.jpg",
     "price": null,
     "price_foreign": 4529.0,
     "source": "brandsite",
@@ -3142,7 +3142,7 @@
    },
    "2020": {
     "captured": "2020-03-13",
-    "image": null,
+    "image": "Canyon/years/enduracecfslxdisc9sl_2020_brandsite.jpg",
     "price": 5299.0,
     "source": "brandsite",
     "specs": {
@@ -3201,7 +3201,7 @@
   "Endurace WMN AL 6": {
    "2020": {
     "captured": "2020-08-31",
-    "image": null,
+    "image": "Canyon/years/enduracewmnal6_2020_brandsite.jpg",
     "price": 999.0,
     "source": "brandsite",
     "specs": {
@@ -3269,7 +3269,7 @@
    "2020": {
     "captured": "2019-12-27",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/enduracewmnal7_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 999.0,
     "source": "brandsite",
@@ -3301,7 +3301,7 @@
   "Endurace WMN AL Disc 6": {
    "2020": {
     "captured": "2020-03-13",
-    "image": null,
+    "image": "Canyon/years/enduracewmnaldisc6_2020_brandsite.jpg",
     "price": 1299.0,
     "source": "brandsite",
     "specs": {
@@ -3366,7 +3366,7 @@
    },
    "2020": {
     "captured": "2020-07-22",
-    "image": null,
+    "image": "Canyon/years/enduracewmnaldisc7_2020_brandsite.jpg",
     "price": 1599.0,
     "source": "brandsite",
     "specs": {
@@ -3426,7 +3426,7 @@
    },
    "2020": {
     "captured": "2020-01-10",
-    "image": null,
+    "image": "Canyon/years/enduracewmnaldisc8_2020_brandsite.jpg",
     "price": 1599.0,
     "source": "brandsite",
     "specs": {
@@ -3483,7 +3483,7 @@
    "2020": {
     "captured": "2020-10-20",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/enduracewmncfsldisc7_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2149.0,
     "source": "brandsite",
@@ -3516,7 +3516,7 @@
    "2019": {
     "captured": "2019-11-12",
     "currency": "AUD",
-    "image": null,
+    "image": "Canyon/years/enduracewmncfsldisc8_2019_brandsite.jpg",
     "price": null,
     "price_foreign": 3209.0,
     "source": "brandsite",
@@ -3546,7 +3546,7 @@
    "2020": {
     "captured": "2020-03-27",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/enduracewmncfsldisc8_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2209.0,
     "source": "brandsite",
@@ -3710,7 +3710,7 @@
    "2020": {
     "captured": "2020-09-09",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/grail6_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 1499.0,
     "source": "brandsite",
@@ -4011,7 +4011,7 @@
   "Grail AL 6": {
    "2020": {
     "captured": "2019-11-04",
-    "image": null,
+    "image": "Canyon/years/grailal6_2020_brandsite.jpg",
     "price": 1199.0,
     "source": "brandsite",
     "specs": {
@@ -4149,7 +4149,7 @@
    },
    "2020": {
     "captured": "2020-05-10",
-    "image": null,
+    "image": "Canyon/years/grailal7sl_2020_brandsite.jpg",
     "price": 1799.0,
     "source": "brandsite",
     "specs": {
@@ -4368,7 +4368,7 @@
   "Grail CF SL 7 WMN": {
    "2019": {
     "captured": "2020-01-03",
-    "image": null,
+    "image": "Canyon/years/grailcfsl7wmn_2019_brandsite.jpg",
     "price": 1999.0,
     "source": "brandsite",
     "specs": {
@@ -4544,7 +4544,7 @@
    "2020": {
     "captured": "2020-09-13",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/grailcfsl8_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2409.0,
     "source": "brandsite",
@@ -4684,7 +4684,7 @@
    },
    "2020": {
     "captured": "2020-03-18",
-    "image": null,
+    "image": "Canyon/years/grailcfsl8di2_2020_brandsite.jpg",
     "price": 3399.0,
     "source": "brandsite",
     "specs": {
@@ -4935,7 +4935,7 @@
    "2020": {
     "captured": "2020-07-18",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/grailcfslx8di2_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 3049.0,
     "source": "brandsite",
@@ -5072,7 +5072,7 @@
    "2020": {
     "captured": "2020-10-27",
     "currency": "AUD",
-    "image": null,
+    "image": "Canyon/years/grailcfslx8etap_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 7459.0,
     "source": "brandsite",
@@ -5176,7 +5176,7 @@
   "Grail WMN AL 6": {
    "2019": {
     "captured": "2019-11-30",
-    "image": null,
+    "image": "Canyon/years/grailwmnal6_2019_brandsite.jpg",
     "price": 1199.0,
     "source": "brandsite",
     "specs": {
@@ -5207,7 +5207,7 @@
    "2020": {
     "captured": "2020-07-14",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/grailwmnal7_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 1849.0,
     "source": "brandsite",
@@ -5272,7 +5272,7 @@
    },
    "2020": {
     "captured": "2020-09-14",
-    "image": null,
+    "image": "Canyon/years/grailwmncfsl8_2020_brandsite.jpg",
     "price": 2499.0,
     "source": "brandsite",
     "specs": {
@@ -5302,7 +5302,7 @@
    "2020": {
     "captured": "2020-11-07",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/grailwmncfsl8etap_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 3439.0,
     "source": "brandsite",
@@ -5331,7 +5331,12 @@
   "Grail:ON": {
    "2019": {
     "captured": "2020-08-08",
-    "image": null,
+    "colour_angles": {
+     "": [
+      "Canyon/years/grailon_2019_brandsite_1.jpg"
+     ]
+    },
+    "image": "Canyon/years/grailon_2019_brandsite.jpg",
     "price": 2909.0,
     "source": "brandsite",
     "specs": {
@@ -5359,7 +5364,7 @@
    },
    "2020": {
     "captured": "2020-07-22",
-    "image": null,
+    "image": "Canyon/years/grailon_2020_brandsite.jpg",
     "price": 2599.0,
     "source": "brandsite",
     "specs": {
@@ -5493,7 +5498,7 @@
   "Grail:ON CF 8 eTap": {
    "2021": {
     "captured": "2020-10-20",
-    "image": null,
+    "image": "Canyon/years/grailoncf8etap_2021_brandsite.jpg",
     "price": 5999.0,
     "source": "brandsite",
     "specs": {
@@ -6184,7 +6189,7 @@
   "Inflite AL SLX 6 Race": {
    "2019": {
     "captured": "2020-06-27",
-    "image": null,
+    "image": "Canyon/years/inflitealslx6race_2019_brandsite.jpg",
     "price": 1299.0,
     "source": "brandsite",
     "specs": {
@@ -6214,7 +6219,7 @@
    "2020": {
     "captured": "2020-10-09",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/inflitecfsl6_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2099.0,
     "source": "brandsite",
@@ -6286,7 +6291,7 @@
    "2019": {
     "captured": "2019-12-30",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/inflitecfsl7_2019_brandsite.jpg",
     "price": null,
     "price_foreign": 2259.0,
     "source": "brandsite",
@@ -6712,7 +6717,7 @@
   "Ultimate CF EVO 10 LTD": {
    "2019": {
     "captured": "2020-06-18",
-    "image": null,
+    "image": "Canyon/years/ultimatecfevo10ltd_2019_brandsite.jpg",
     "price": 6949.0,
     "source": "brandsite",
     "specs": {
@@ -6740,7 +6745,7 @@
    },
    "2020": {
     "captured": "2020-01-21",
-    "image": null,
+    "image": "Canyon/years/ultimatecfevo10ltd_2020_brandsite.jpg",
     "price": 7499.0,
     "source": "brandsite",
     "specs": {
@@ -6768,7 +6773,7 @@
    },
    "2021": {
     "captured": "2020-10-02",
-    "image": null,
+    "image": "Canyon/years/ultimatecfevo10ltd_2021_brandsite.jpg",
     "price": null,
     "source": "brandsite",
     "specs": {
@@ -6829,7 +6834,7 @@
    },
    "2020": {
     "captured": "2020-06-03",
-    "image": null,
+    "image": "Canyon/years/ultimatecfevo10sl_2020_brandsite.jpg",
     "price": 7799.0,
     "source": "brandsite",
     "specs": {
@@ -6891,7 +6896,7 @@
    },
    "2020": {
     "captured": "2020-09-08",
-    "image": null,
+    "image": "Canyon/years/ultimatecfevodisc10ltd_2020_brandsite.jpg",
     "price": 7349.0,
     "source": "brandsite",
     "specs": {
@@ -7246,7 +7251,7 @@
    "2020": {
     "captured": "2020-10-06",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl7wmndisc_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2099.0,
     "source": "brandsite",
@@ -7354,7 +7359,7 @@
    "2019": {
     "captured": "2020-08-21",
     "currency": "JPY",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8_2019_brandsite.jpg",
     "price": null,
     "price_foreign": 229000.0,
     "source": "brandsite",
@@ -7382,7 +7387,7 @@
    },
    "2020": {
     "captured": "2020-06-28",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8_2020_brandsite.jpg",
     "price": 2299.0,
     "source": "brandsite",
     "specs": {
@@ -7478,7 +7483,7 @@
    },
    "2020": {
     "captured": "2019-12-18",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8aero_2020_brandsite.jpg",
     "price": 2599.0,
     "source": "brandsite",
     "specs": {
@@ -7572,7 +7577,7 @@
    },
    "2020": {
     "captured": "2020-03-30",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8di2_2020_brandsite_1.jpg",
     "price": 2899.0,
     "source": "brandsite",
     "specs": {
@@ -7599,7 +7604,7 @@
    },
    "2021": {
     "captured": "2020-11-01",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8di2_2021_brandsite.jpg",
     "price": 2999.0,
     "source": "brandsite",
     "specs": {
@@ -7696,7 +7701,7 @@
    },
    "2020": {
     "captured": "2020-06-30",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8disc_2020_brandsite.jpg",
     "price": 2599.0,
     "source": "brandsite",
     "specs": {
@@ -7762,7 +7767,7 @@
   "Ultimate CF SL 8 Disc Aero": {
    "2020": {
     "captured": "2020-08-31",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8discaero_2020_brandsite.jpg",
     "price": null,
     "source": "brandsite",
     "specs": {
@@ -7862,7 +7867,7 @@
    },
    "2020": {
     "captured": "2020-09-01",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8discdi2_2020_brandsite.jpg",
     "price": 3299.0,
     "source": "brandsite",
     "specs": {
@@ -8217,7 +8222,7 @@
    "2020": {
     "captured": "2020-11-08",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsl8wmndiscdi2_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 2869.0,
     "source": "brandsite",
@@ -8359,7 +8364,7 @@
    "2019": {
     "captured": "2019-08-22",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/ultimatecfsldisc8di2aero_2019_brandsite.jpg",
     "price": null,
     "price_foreign": 4649.0,
     "source": "brandsite",
@@ -8447,7 +8452,7 @@
    },
    "2020": {
     "captured": "2020-07-05",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx8di2_2020_brandsite.jpg",
     "price": 4199.0,
     "source": "brandsite",
     "specs": {
@@ -8814,7 +8819,7 @@
    },
    "2020": {
     "captured": "2020-07-24",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9_2020_brandsite.jpg",
     "price": 2849.0,
     "source": "brandsite",
     "specs": {
@@ -8872,7 +8877,7 @@
    "2020": {
     "captured": "2020-02-08",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9di2_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 6049.0,
     "source": "brandsite",
@@ -8899,7 +8904,7 @@
    },
    "2021": {
     "captured": "2020-11-03",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9di2_2021_brandsite.jpg",
     "price": 5199.0,
     "source": "brandsite",
     "specs": {
@@ -8967,7 +8972,7 @@
   "Ultimate CF SLX 9 Disc Di2": {
    "2019": {
     "captured": "2019-11-22",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9discdi2_2019_brandsite.jpg",
     "price": 5899.0,
     "source": "brandsite",
     "specs": {
@@ -8994,7 +8999,7 @@
    "2020": {
     "captured": "2020-07-04",
     "currency": "USD",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9discdi2_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 7199.0,
     "source": "brandsite",
@@ -9103,7 +9108,12 @@
   "Ultimate CF SLX 9 Disc eTap": {
    "2019": {
     "captured": "2020-04-03",
-    "image": null,
+    "colour_angles": {
+     "": [
+      "Canyon/years/ultimatecfslx9discetap_2019_brandsite_1.jpg"
+     ]
+    },
+    "image": "Canyon/years/ultimatecfslx9discetap_2019_brandsite.jpg",
     "price": 6949.0,
     "source": "brandsite",
     "specs": {
@@ -9130,7 +9140,7 @@
    },
    "2020": {
     "captured": "2020-11-07",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9discetap_2020_brandsite.jpg",
     "price": 6499.0,
     "source": "brandsite",
     "specs": {
@@ -9377,7 +9387,7 @@
    },
    "2020": {
     "captured": "2020-08-24",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9sl_2020_brandsite.jpg",
     "price": 3999.0,
     "source": "brandsite",
     "specs": {
@@ -9407,7 +9417,7 @@
   "Ultimate CF SLX 9 WMN Disc eTap": {
    "2020": {
     "captured": "2020-06-30",
-    "image": null,
+    "image": "Canyon/years/ultimatecfslx9wmndiscetap_2020_brandsite.jpg",
     "price": 7199.0,
     "source": "brandsite",
     "specs": {
@@ -9933,7 +9943,7 @@
    "2020": {
     "captured": "2020-11-18",
     "currency": "GBP",
-    "image": null,
+    "image": "Canyon/years/ultimatewmncfsldisc8etap_2020_brandsite.jpg",
     "price": null,
     "price_foreign": 3609.0,
     "source": "brandsite",
@@ -10028,7 +10038,7 @@
   "Ultimate WMN CF SLX Disc 8 eTap": {
    "2020": {
     "captured": "2020-03-01",
-    "image": null,
+    "image": "Canyon/years/ultimatewmncfslxdisc8etap_2020_brandsite.jpg",
     "price": 6949.0,
     "source": "brandsite",
     "specs": {

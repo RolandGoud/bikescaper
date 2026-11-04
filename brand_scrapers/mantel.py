@@ -269,10 +269,12 @@ def convert(raw, photos=None, shop=MANTEL):
             for year, s in years.items():
                 url, more = s.pop("photo"), s.pop("gallery", None)
                 s["image"] = photos(brand, compact(name), year, url) if photos and url else None
-                if more and photos and s["image"]:  # the page's other photos of the bike: its angles that year,
-                    saved = [photos(brand, compact(name), year, u, n) for n, u in enumerate(more, 1)]
-                    if any(saved):  # for every colour ("": the page showed one), as the model page reads them
-                        s["colour_angles"] = {"": [p for p in saved if p]}
+                if more and photos:  # the page's other photos of the bike: its angles that year,
+                    saved = [p for p in (photos(brand, compact(name), year, u, n) for n, u in enumerate(more, 1)) if p]
+                    if saved and not s["image"]:  # the main photo is gone: the first other one stands in
+                        s["image"] = saved.pop(0)
+                    if saved:  # for every colour ("": the page showed one), as the model page reads them
+                        s["colour_angles"] = {"": saved}
         lines = []
         for name in sorted(set(new.values())):
             years = sheets[name]
