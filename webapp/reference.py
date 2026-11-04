@@ -164,6 +164,7 @@ ELECTRONIC = r"\bdi2\b|\baxs\b|\betap\b|\beps\b"
 # follows a groupset's launch by a season, and leftover stock runs a year past its replacement.
 SPEED_12 = r"(?:\b12\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*12\b)"
 SPEED_11 = r"(?:\b11\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*11\b)"
+SPEED_10 = r"(?:\b10\s*-?\s*(?:speed|sp|v|s|versnellingen|speeds?)\b|\b2\s*x\s*10\b)"
 # The 105 rules read the name, so they only apply when no higher Shimano group is named: "Ultegra Di2 with
 # a 105 cassette" is an Ultegra bike.
 ONLY_105 = r"(?s:^(?!.*\b(?:ultegra|dura[\s-]?ace)\b))"
@@ -181,6 +182,13 @@ GROUPSET_YEARS = [
     (r"\b105\s*58[0-7]0\b", 2015, 2019, "Shimano 105 5800 (11-speed)"),
     (r"\bultegra\s*67[0-7]0\b", 2010, 2014, "Shimano Ultegra 6700 (10-speed)"),
     (r"\b105\s*57[0-7]0\b", 2010, 2015, "Shimano 105 5700 (10-speed)"),
+    (r"\bdura[\s-]?ace\s*79[0-7]0\b", 2010, 2013, "Shimano Dura-Ace 7900 (10-speed)"),
+    (r"\bdura[\s-]?ace\s*78[0-7]0\b", 2004, 2009, "Shimano Dura-Ace 7800 (10-speed)"),
+    (r"\bultegra\s*66[0-7]0\b", 2005, 2010, "Shimano Ultegra 6600 (10-speed)"),
+    (r"\b105\s*56[0-7]0\b", 2006, 2010, "Shimano 105 5600 (10-speed)"),
+    (r"\bdura[\s-]?ace\s*77[0-7]0\b", None, 2004, "Shimano Dura-Ace 7700 (9-speed)"),
+    (r"\bultegra\s*65[0-7]0\b", None, 2005, "Shimano Ultegra 6500 (9-speed)"),
+    (r"\b105\s*55[0-7]0\b", None, 2006, "Shimano 105 5500 (9-speed)"),
     (r"\b(?:grx\s*)?(?:[a-z]{2}-)?rx(?:82\d|83\d|61\d|62\d)\b|\bgrx\b.{0,40}" + SPEED_12, 2024, None,
      "Shimano GRX (12-speed)"),
     (r"\b(?:grx\s*)?(?:[a-z]{2}-)?rx[468][018]\d\b|\bgrx\b", 2020, None, "Shimano GRX"),
@@ -191,6 +199,10 @@ GROUPSET_YEARS = [
     (ONLY_105 + r"(?s:.*?)(?-s:\b105\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b105\b)", None, 2024, "Shimano 105 (11-speed)"),
     (r"\b(?:ultegra|dura[\s-]?ace)\b.{0,40}" + SPEED_11 + r"|" + SPEED_11 + r".{0,40}\b(?:ultegra|dura[\s-]?ace)\b",
      None, 2023, "Shimano Ultegra/Dura-Ace (11-speed)"),
+    # Tiagra is still 10-speed, so only the higher groups date a bike by their ten sprockets.
+    (ONLY_105 + r"(?s:.*?)(?-s:\b105\b.{0,40}" + SPEED_10 + r"|" + SPEED_10 + r".{0,40}\b105\b)", None, 2015, "Shimano 105 (10-speed)"),
+    (r"\b(?:ultegra|dura[\s-]?ace)\b.{0,40}" + SPEED_10 + r"|" + SPEED_10 + r".{0,40}\b(?:ultegra|dura[\s-]?ace)\b",
+     None, 2014, "Shimano Ultegra/Dura-Ace (10-speed)"),
     (r"\bapex\b.{0,25}\baxs\b|\baxs\b.{0,25}\bapex\b", 2023, None, "SRAM Apex AXS"),
     (r"\brival\b.{0,25}\baxs\b|\baxs\b.{0,25}\brival\b", 2022, None, "SRAM Rival AXS"),
     (r"\bforce\b.{0,25}\baxs\b|\baxs\b.{0,25}\bforce\b", 2020, None, "SRAM Force AXS"),
@@ -198,6 +210,10 @@ GROUPSET_YEARS = [
 ]
 # Carbon road bikes from the big brands went disc-only around 2021-2022.
 RIM_BRAKE_LAST_YEAR = 2022
+# Trek named its road bikes with a series and a digit ("Madone 5.2", "Domane 4.5", "Trek 1.2") until the 2017
+# model year brought "SL 5", "ALR 4" and the like.
+TREK_DOTTED_NAME = r"\b(?:trek|madone|domane|emonda)\s+([1-9]\.[0-9])\b(?![.,]?\d)"
+TREK_DOTTED_LAST_YEAR = 2016
 
 # Brands the site covers. `site` is the brand's own site the catalogue is read
 # from. Trek and Canyon have their own scrapers; the others are collected by

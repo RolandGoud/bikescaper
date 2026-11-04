@@ -866,6 +866,37 @@ def test_year_estimate_combines_clues(models):
     assert any("R7000" in en(x) for x in e["evidence"])
 
 
+@pytest.mark.parametrize("build, years", [
+    ("Shimano Ultegra 2x10-groep", (None, 2014)),
+    ("Dura-Ace 10 speed", (None, 2014)),
+    ("Shimano 105, 10-speed", (None, 2015)),
+    ("Ultegra 6600 groep", (2005, 2010)),
+    ("Shimano 105 5600", (2006, 2010)),
+    ("Dura-Ace 7800", (2004, 2009)),
+    ("Ultegra 6500, 9 speed", (None, 2005)),
+])
+def test_year_estimate_from_older_shimano(models, build, years):
+    e = run(models, "Trek Domane SL 6", build)["year_estimate"]
+    assert any(f"bikes from {en(checks._span(*years))}" in en(x) for x in e["evidence"])
+
+
+def test_tiagra_10_speed_dates_nothing(models):
+    e = run(models, "Trek Domane AL 2 gen 4", "Shimano Tiagra 2x10")["year_estimate"]
+    assert not any("10-speed" in en(x) for x in e["evidence"])
+
+
+def test_trek_dotted_name_is_from_before_2017(models):
+    # Check 88: a 2006-2008 Madone 5.0 that matched the Madone SL 5 Gen 8 and passed as a current bike.
+    r = run(models, "Trek Madone 5.0 Ultegra met carbon kader en alu wielen",
+            "OCLV 120 carbon frame\nShimano Ultegra 2x10-groep\nAluminium wielen\nRem: Velgrem\nMateriaal: Carbon")
+    assert r["year_estimate"]["last"] <= 2014
+    assert any("5.0" in en(x) for x in r["year_estimate"]["evidence"])
+    assert checks.pre_2018_year(r)
+    gen8 = next(m for m in models if m["name"] == "Madone SL 5 Gen 8")
+    assert checks.conflicts(gen8, "Trek Madone 5.0") == [("SL 5", "5.0")]
+    assert checks.conflicts(gen8, "Trek Madone SL 5 Gen 8, 5.000 km") == []
+
+
 def test_year_estimate_from_named_colourway(models):
     r = run(models, "Canyon Endurace CF 7 Lillet Grey 2020")
     e = r["year_estimate"]
