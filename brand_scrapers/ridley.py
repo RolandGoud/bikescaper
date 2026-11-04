@@ -90,13 +90,19 @@ def image_of(entry):
 
 
 def colour_name(attributes):
-    """"FR226L2As - Silver/Black/Candy Red Metallic" -> "Silver/Black/Candy Red Metallic"; a bare paint code
-    ("KAD27D6S") falls back on the base colours ("Silver/Red")."""
-    paint = (attributes or {}).get("paint_des")
-    if paint and " - " in paint:
-        return clean(paint.split(" - ", 1)[1])
-    base = [clean(attributes.get(k)) for k in ("primary_basecolour", "secondary_basecolour") if (attributes or {}).get(k)]
-    return "/".join(base) or None
+    """The colour name from the paint: "FR226L2As - Silver/Black/Candy Red Metallic" -> "Silver/Black/Candy Red
+    Metallic", "FEN01As (Arctic Grey Metallic - White)" -> "Arctic Grey Metallic/White". A bare paint code
+    ("KAD27D6S") falls back on the base colours ("Silver/Red"), then on the main paint ("Zilver // 0" -> "Zilver")."""
+    attributes = attributes or {}
+    paint = clean(attributes.get("paint_des"))
+    m = re.match(r"^\S+\s*(?:\((.+)\)|-\s+(.+))$", paint)
+    if m:
+        return clean(re.sub(r"\s+-\s+", "/", m.group(1) or m.group(2)))
+    base = [clean(attributes.get(k)) for k in ("primary_basecolour", "secondary_basecolour") if attributes.get(k)]
+    if base:
+        return "/".join(base)
+    main = clean(str(attributes.get("paint_bac") or "").split("//")[0])
+    return main or None
 
 
 def geometry_rows(attributes):
@@ -144,7 +150,8 @@ def parse(platform, frame, build, state, url):
     prices = [parse_price(d.get("msrp")) for d in build.get("designs") or [] if parse_price(d.get("msrp"))]
     price = parse_price((data.get("price") or {}).get("msrp")) or (min(prices) if prices else None)
     pairs = [(FIELDS[k], v) for k, v in attributes.items()
-             if k in FIELDS and isinstance(v, str) and clean(v) and "niet inbegrepen" not in v.lower()]
+             if k in FIELDS and isinstance(v, str) and clean(v) and "niet inbegrepen" not in v.lower()
+             and clean(v).lower() != "frameset"]  # a frameset names "Frameset" as its shifter and groupset
     return {
         "name": name,
         "brand": BRAND,

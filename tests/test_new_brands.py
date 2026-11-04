@@ -200,6 +200,8 @@ def test_ridley_year_colour_and_geometry():
     assert ridley.model_year({"collections": "CY_RID2024"}) == 2024
     assert ridley.colour_name({"paint_des": "FR226L2As - Silver/Black/Candy Red Metallic"}) == "Silver/Black/Candy Red Metallic"
     assert ridley.colour_name({"paint_des": "KAD27D6S", "primary_basecolour": "Silver", "secondary_basecolour": "Red"}) == "Silver/Red"
+    assert ridley.colour_name({"paint_des": "FEN01As (Arctic Grey Metallic - White)"}) == "Arctic Grey Metallic/White"
+    assert ridley.colour_name({"paint_des": "KAD27D6S", "paint_bac": "Zilver // 0"}) == "Zilver"
     table = '[["","XS","S"],["A",760,785],["S",546,569],["R",379,387]]'  # sometimes a JSON string
     assert ridley.geometry({"attributes": {"excel_frame_geometry": table}}) == {
         "XS": {"stack": 546, "reach": 379}, "S": {"stack": 569, "reach": 387}}

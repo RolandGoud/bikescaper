@@ -272,8 +272,9 @@ FAMILY_DISCIPLINES = {
         "Bianchi": ["impulso", "arcadex", "via", "zolder"],
         "BMC": ["kaius", "urs", "crossmachine"],
         "Cervelo": ["aspero", "rouvida"],  # the R5-CX is gravel by the "cx" in its name
-        # Grifn Gravel is gravel by its name; X-Night, X-Ride and X-Bow read as "x night", "x ride", "x bow"
-        "Ridley": ["kanzo", "astr", "x", "invenio"],
+        # Grifn Gravel and Invenio Gravel are gravel by their name (Invenio Grifn A is road, by its category);
+        # X-Night, X-Ride and X-Bow read as "x night", "x ride", "x bow"
+        "Ridley": ["kanzo", "astr", "x"],
     },
     "tt": {
         "Trek": ["speed"],

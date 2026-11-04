@@ -52,7 +52,6 @@
     "specifications": {
       "Voorvork": "4ZA Oryx Disc D-shape 7E8/XRS01As",
       "Frame": "X-Night RS 7E8/size M/XRS01As",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Forza Aero // 6mm Offset // 400mm",
       "Stuur": "Forza Nimbus Pro // 110mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
@@ -151,7 +150,7 @@
     },
     "color_names": [
       "Blue/Black",
-      "White)"
+      "Arctic Grey Metallic/White"
     ],
     "sizes": [
       "XS",
@@ -168,7 +167,7 @@
     "image": "Ridley/Fenix_Disc_Classified_Rival_AXS_1x12.jpg",
     "color_images": [
       "Ridley/Fenix_Disc_Classified_Rival_AXS_1x12_colour_Blue_Black.jpg",
-      "Ridley/Fenix_Disc_Classified_Rival_AXS_1x12_colour_White.jpg"
+      "Ridley/Fenix_Disc_Classified_Rival_AXS_1x12_colour_Arctic_Grey_Metallic_White.jpg"
     ]
   },
   {
@@ -182,13 +181,12 @@
     "specifications": {
       "Voorvork": "Fenix, 30T-24T HM UD Carbon, TA 12x100 mm",
       "Frame": "Fenix, 24T UD Carbon, Diamond Shape tubing, TA 12x142mm",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Maximale bandenmaat": "28 mm"
     },
     "color_names": [
       "Blue/Black",
-      "White)"
+      "Arctic Grey Metallic/White"
     ],
     "sizes": [
       "XS",
@@ -205,7 +203,7 @@
     "image": "Ridley/Fenix_Disc_Frameset.jpg",
     "color_images": [
       "Ridley/Fenix_Disc_Frameset_colour_Blue_Black.jpg",
-      "Ridley/Fenix_Disc_Frameset_colour_White.jpg"
+      "Ridley/Fenix_Disc_Frameset_colour_Arctic_Grey_Metallic_White.jpg"
     ]
   },
   {
@@ -236,7 +234,7 @@
     },
     "color_names": [
       "Blue/Black",
-      "White)"
+      "Arctic Grey Metallic/White"
     ],
     "sizes": [
       "XS",
@@ -253,7 +251,7 @@
     "image": "Ridley/Fenix_Disc_Shimano_105_2x11.jpg",
     "color_images": [
       "Ridley/Fenix_Disc_Shimano_105_2x11_colour_Blue_Black.jpg",
-      "Ridley/Fenix_Disc_Shimano_105_2x11_colour_White.jpg"
+      "Ridley/Fenix_Disc_Shimano_105_2x11_colour_Arctic_Grey_Metallic_White.jpg"
     ]
   },
   {
@@ -285,7 +283,7 @@
       "Maximale bandenmaat": "28 mm"
     },
     "color_names": [
-      "White)"
+      "Arctic Grey Metallic/White"
     ],
     "sizes": [
       "XS",
@@ -298,7 +296,7 @@
     ],
     "image": "Ridley/Fenix_Disc_Shimano_105_2x12.jpg",
     "color_images": [
-      "Ridley/Fenix_Disc_Shimano_105_2x12_colour_White.jpg"
+      "Ridley/Fenix_Disc_Shimano_105_2x12_colour_Arctic_Grey_Metallic_White.jpg"
     ]
   },
   {
@@ -376,7 +374,7 @@
     },
     "color_names": [
       "Red/White",
-      "White)"
+      "Arctic Grey Metallic/White"
     ],
     "sizes": [
       "XS",
@@ -393,7 +391,7 @@
     "image": "Ridley/Fenix_Disc_Shimano_Ultegra_2x11.jpg",
     "color_images": [
       "Ridley/Fenix_Disc_Shimano_Ultegra_2x11_colour_Red_White.jpg",
-      "Ridley/Fenix_Disc_Shimano_Ultegra_2x11_colour_White.jpg"
+      "Ridley/Fenix_Disc_Shimano_Ultegra_2x11_colour_Arctic_Grey_Metallic_White.jpg"
     ]
   },
   {
@@ -407,7 +405,6 @@
     "specifications": {
       "Voorvork": "Fenix, 30T-24T HM UD Carbon, TA 12x100 mm",
       "Frame": "Fenix, 30T-24T HM UD Carbon, Diamond Shape, F-Steerer Head Tube, TA 12x142mm",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Stuur": "Forza Cirrus Pro Integrated // 90mm - 380mm (cc shifters) - 400mm (cc drops) // Stealth Black",
       "Maximale bandenmaat": "28 mm"
@@ -571,7 +568,6 @@
     "specifications": {
       "Voorvork": "4ZA AllRoad RS 7E8/GRS27D4s",
       "Frame": "Grifn RS 7E8/size M/GRS27D4s",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Forza Aero // Zero Offset // 350mm",
       "Stuur": "Forza Nimbus Pro // 110mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
@@ -1186,7 +1182,6 @@
     "specifications": {
       "Voorvork": "Astr RS 7E8/ARS26D2s",
       "Frame": "Astr RS 7E8/size M/ARS26D2s",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Forza Aero // 6mm Offset // 400mm",
       "Stuur": "Forza Nimbus Pro // 100mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
@@ -1620,7 +1615,6 @@
     "specifications": {
       "Voorvork": "Forza Oryx Disc, TA 12x100mm",
       "Frame": "Kanzo Aluminium, Triple Butted Hydroformed 6061-T6 Aluminium, TA 12x142mm",
-      "Shifter": "Frameset",
       "Material": "Aluminium",
       "Maximale bandenmaat": "42 mm"
     },
@@ -2112,11 +2106,11 @@
     "specifications": {
       "Voorvork": "4ZA Gravel 54 Disc 7E8/KAD27D6s",
       "Frame": "Kanzo Adventure 7E7.1/size M/KAD27D6s",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Maximale bandenmaat": "29\" x 2.1\""
     },
     "color_names": [
+      "Fade",
       "Army Green Metallic/Black",
       "Desert Dune Metallic/Black Metallic"
     ],
@@ -2129,11 +2123,13 @@
     ],
     "image_url": "https://images.cyclingfactory.be/FFSKADRID088_image_2048x.jpg",
     "color_image_urls": [
+      "https://images.cyclingfactory.be/FFSKADRID088_image_2048x.jpg",
       "https://images.cyclingfactory.be/FFSKADRID078_image_2048x.jpg",
       "https://images.cyclingfactory.be/FFSKADRID073_image_2048x.jpg"
     ],
     "image": "Ridley/Kanzo_Adventure_Frameset.jpg",
     "color_images": [
+      "Ridley/Kanzo_Adventure_Frameset_colour_Fade.jpg",
       "Ridley/Kanzo_Adventure_Frameset_colour_Army_Green_Metallic_Black.jpg",
       "Ridley/Kanzo_Adventure_Frameset_colour_Desert_Dune_Metallic_Black_Metallic.jpg"
     ]
@@ -2166,6 +2162,7 @@
       "Maximale bandenmaat": "29\" x 2.1\""
     },
     "color_names": [
+      "Fade",
       "Army Green Metallic/Black",
       "Desert Dune Metallic/Black Metallic"
     ],
@@ -2178,11 +2175,13 @@
     ],
     "image_url": "https://images.cyclingfactory.be/SBIKADRID403_image_2048x.jpg",
     "color_image_urls": [
+      "https://images.cyclingfactory.be/SBIKADRID403_image_2048x.jpg",
       "https://images.cyclingfactory.be/SBIKADRID373_image_2048x.jpg",
       "https://images.cyclingfactory.be/SBIKADRID368_image_2048x.jpg"
     ],
     "image": "Ridley/Kanzo_Adventure_SRAM_Force_XPLR_1x13.jpg",
     "color_images": [
+      "Ridley/Kanzo_Adventure_SRAM_Force_XPLR_1x13_colour_Fade.jpg",
       "Ridley/Kanzo_Adventure_SRAM_Force_XPLR_1x13_colour_Army_Green_Metallic_Black.jpg",
       "Ridley/Kanzo_Adventure_SRAM_Force_XPLR_1x13_colour_Desert_Dune_Metallic_Black_Metallic.jpg"
     ]
@@ -2215,6 +2214,7 @@
       "Maximale bandenmaat": "29\" x 2.1\""
     },
     "color_names": [
+      "Fade",
       "Army Green Metallic/Black",
       "Desert Dune Metallic/Black Metallic"
     ],
@@ -2227,11 +2227,13 @@
     ],
     "image_url": "https://images.cyclingfactory.be/SBIKADRID398_image_2048x.jpg",
     "color_image_urls": [
+      "https://images.cyclingfactory.be/SBIKADRID398_image_2048x.jpg",
       "https://images.cyclingfactory.be/SBIKADRID388_image_2048x.jpg",
       "https://images.cyclingfactory.be/SBIKADRID383_image_2048x.jpg"
     ],
     "image": "Ridley/Kanzo_Adventure_SRAM_Rival_AXS_Transmission_GX_1x12.jpg",
     "color_images": [
+      "Ridley/Kanzo_Adventure_SRAM_Rival_AXS_Transmission_GX_1x12_colour_Fade.jpg",
       "Ridley/Kanzo_Adventure_SRAM_Rival_AXS_Transmission_GX_1x12_colour_Army_Green_Metallic_Black.jpg",
       "Ridley/Kanzo_Adventure_SRAM_Rival_AXS_Transmission_GX_1x12_colour_Desert_Dune_Metallic_Black_Metallic.jpg"
     ]
@@ -2262,6 +2264,7 @@
       "Maximale bandenmaat": "29\" x 2.1\""
     },
     "color_names": [
+      "Fade",
       "Army Green Metallic/Black",
       "Desert Dune Metallic/Black Metallic"
     ],
@@ -2274,11 +2277,13 @@
     ],
     "image_url": "https://images.cyclingfactory.be/SBIKADRID393_image_2048x.jpg",
     "color_image_urls": [
+      "https://images.cyclingfactory.be/SBIKADRID393_image_2048x.jpg",
       "https://images.cyclingfactory.be/SBIKADRID343_image_2048x.jpg",
       "https://images.cyclingfactory.be/SBIKADRID338_image_2048x.jpg"
     ],
     "image": "Ridley/Kanzo_Adventure_Shimano_GRX_600_1x12.jpg",
     "color_images": [
+      "Ridley/Kanzo_Adventure_Shimano_GRX_600_1x12_colour_Fade.jpg",
       "Ridley/Kanzo_Adventure_Shimano_GRX_600_1x12_colour_Army_Green_Metallic_Black.jpg",
       "Ridley/Kanzo_Adventure_Shimano_GRX_600_1x12_colour_Desert_Dune_Metallic_Black_Metallic.jpg"
     ]
@@ -2955,7 +2960,6 @@
     "specifications": {
       "Voorvork": "Helium Disc, 24-30T HM UD Carbon, F-Steerer, TA 12x100mm",
       "Frame": "Helium Disc, 24-30T HM UD Carbon, Stiffness-to-Weight optimised Lay-Up, F-Steerer Head Tube, TA 12x142mm",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Maximale bandenmaat": "28 mm"
     },
@@ -3480,7 +3484,6 @@
     "specifications": {
       "Voorvork": "Noah Disc, 24T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 45mm",
       "Frame": "Noah Disc, 24-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
       "Maximale bandenmaat": "28 mm"
@@ -3516,7 +3519,6 @@
     "specifications": {
       "Voorvork": "Noah Fast 7E8 45mm/NF327D3s",
       "Frame": "Noah Fast 7E8/size M/NF327D3s",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Deda aero seatpost for Ridley // 6mm Offset // 350mm",
       "Stuur": "Nimbus Aero cockpit //Stem stack 75mm // Stem reach 115mm // Width 360mm (cc shifters) - 400mm (cc drops) // Drop 125mm // Reach 75mm",
@@ -3757,7 +3759,6 @@
     "specifications": {
       "Voorvork": "Noah Fast Disc_50mm 7E6/NFD96.2Hs",
       "Frame": "Noah Fast Disc 7E3/size XS/NFD96.2Hs",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
       "Stuur": "Forza Aero Integrated // 90mm - 380mm (cc) // NFH03Am"
@@ -3793,7 +3794,6 @@
     "specifications": {
       "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm",
       "Frame": "Dean FAST Disc, F-Surface Plus, F-Tubing, TA 12x142, Electronic only",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Forza Aero for Arena Fast // 350mm",
       "Stuur": "Forza TTT Integrated basebar // Stem 110mm // Basebar 400mm c-c",
@@ -3827,7 +3827,6 @@
     "specifications": {
       "Voorvork": "Triton FAST 7E9/TRI27D2s",
       "Frame": "Triton FAST 7E9/size M/TRI27D2s",
-      "Shifter": "Frameset",
       "Material": "Carbon",
       "Zadelpen": "Triton Fast Aero seatpost // 400mm // Ritchey saddle clamp",
       "Stuur": "4ZA Integrated basebar // 50-90mm (Wing position) // Width 380mm c-c"
