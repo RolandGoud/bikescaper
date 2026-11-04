@@ -2044,3 +2044,62 @@ def test_model_tile_shows_the_ad_count_as_a_number(tmp_path):
     # the number beside the price, with the sentence as its tooltip, not as a line of its own
     assert re.search(r'<span class="ad-count small" title="Gekoppeld aan 3 advertenties"[^>]*>.*</svg>3</span>', tile)
     assert ">Gekoppeld aan" not in tile
+
+
+CHECK_69 = ("Mooie Trek Emonda SL6 racefiets in de opvallende kleur Golden Yellow Metallic Lak. De fiets is afgemonteerd "
+            "met Shimano Ultegra. Voor extra comfort is er een SQlab zadel gemonteerd. De fiets staat op FFWD F4R wielen "
+            "met nieuwe Continental GP5000 banden. De vertanding is 50-34 voor en 11-34 achter.\nRem: Velgrem\n"
+            "Materiaal: Carbon")
+
+
+def test_rim_brakes_date_a_disc_only_generation_before_a_swapped_cassette(models):
+    # Check 69: an Émonda SL 6 with rim brakes is no 2021+ disc-only bike, even with the 11-34 cassette of the
+    # 2023+ sheets; it goes by the rim-brake generation before it.
+    r = run(models, "Trek Emonda SL6 Ultegra maat 56 - Golden Yellow Metallic Lak", CHECK_69, 1200)
+    assert r["model"]["name"] == "Émonda SL 6"
+    assert checks.rim_brake_last_year(r["model"]) == 2020
+    assert r["year_estimate"]["last"] == 2020
+    assert r["year"]["how"] == "estimate" and 2018 <= r["year"]["year"] <= 2020
+    assert checks.ref_brakes(checks.year_model(r["model"], r["spec_year"])) == "Rim"
+
+
+def test_reads_a_saddle_we_cannot_rate():
+    assert checks.detect_part(CHECK_69, "saddle") == {"label": "SQlab", "tier": None}
+    assert checks.detect_part("Zadel: Fizik Antares R3", "saddle")["tier"]
+    assert checks.detect_part("nieuwe zadelpen en nieuw zadel", "saddle") is None
+
+
+def test_saddle_in_the_ad_shows_in_the_specs(models):
+    r = run(models, "Trek Emonda SL6 Ultegra maat 56 - Golden Yellow Metallic Lak", CHECK_69, 1200)
+    row = next(row for row in r["specs"]["rows"] if row["key"] == "saddle")
+    assert row["listing"] == "SQlab"
+
+
+CHECK_8 = ("Te koop aangeboden: een nette Giant Defy Composite 2 endurance carbon racefiets ( Shimano 105 Triple).\n"
+           "Materiaal: Carbon")
+
+
+def test_a_triple_dates_an_old_bike(models):
+    # Check 8: a "Defy Composite" with a 105 triple, matched to today's Defy Advanced 2: from 2015 or before.
+    r = run(models, "Giant Defy Composite 2 - maat M", CHECK_8, 450)
+    assert r["year_estimate"]["last"] == 2015
+    assert checks.pre_2018_year(r)
+
+
+def test_the_groupset_generation_in_the_photos_dates_the_bike(models):
+    read = {"brand": "Shimano", "series": "105", "model_code": None, "speeds": None, "electronic": False,
+            "confidence": "high", "photos": [5], "evidence_en": "", "evidence_nl": "",
+            "crankset": {"brand": "Shimano", "series": "105", "model_code": "FC-5700", "confidence": "high",
+                         "photos": [5], "evidence_en": "", "evidence_nl": ""}}
+    assert checks.photo_group_years(read) == (2010, 2015, "Shimano 105 5700 (10-speed)")
+    r = checks.run_check(models, {"title": "Giant Defy Composite 2 - maat M", "asking_price": 450,
+                                  "description": CHECK_8.replace(" Triple", ""), "photo_groupset": read}, today=TODAY)
+    assert (r["year_estimate"]["first"], r["year_estimate"]["last"]) == (2010, 2015)
+    assert checks.pre_2018_year(r)
+
+
+def test_numbered_groupset_parts_date_the_bike():
+    for text, years in (("Shimano 105 FC-5700 crank", (2010, 2015)), ("RD-6800 achterderailleur", (2015, 2018)),
+                        ("Ultegra 6870 Di2", (2015, 2018)), ("Dura-Ace 7900", (2010, 2013))):
+        found = next((f, l) for p, f, l, _n in checks.GROUPSET_YEARS if re.search(p, checks._plain(text)))
+        assert found == years, text

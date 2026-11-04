@@ -75,6 +75,12 @@ NL = {
         "{n} rapporten bewaard, uitgerekend tussen {oldest} en {newest} (UTC).",
     "Done: every check runs again with the current matching.": "Klaar: elke check draait opnieuw met de huidige matching.",
     "Run every check again": "Alle checks opnieuw draaien",
+    "Drop a check as too old": "Een check laten vallen als te oud",
+    "For a bike you know is from before {year} that the ad doesn't date: the check is deleted with its photos, as for any bike that old.":
+        "Voor een fiets waarvan je weet dat hij van voor {year} is, terwijl de advertentie dat niet zegt: de check wordt met zijn foto's verwijderd, zoals bij elke fiets die zo oud is.",
+    "Done: check {id} is deleted.": "Klaar: check {id} is verwijderd.",
+    "Check number": "Checknummer",
+    "Drop this check": "Deze check laten vallen",
     # report page: stored report
     "Checked on {when}.": "Gecheckt op {when}.",
     "Report worked out on {when} with the matching of that day, still as of the check date.":
@@ -263,6 +269,9 @@ NL = {
     "Colour '{colour}' was sold in {years}.": "Kleur '{colour}' werd verkocht in {years}.",
     "The photos show colour '{colour}', sold in {years}.": "Op de foto's staat kleur '{colour}', verkocht in {years}.",
     "That part may have been swapped: the frame's colour goes first.": "Dat onderdeel is misschien vervangen: de kleur van het frame gaat voor.",
+    "The photos show {part}: bikes from {years}.": "De foto's tonen {part}: fietsen uit {years}.",
+    "That part may have been swapped: the frame goes first.": "Dat onderdeel is misschien vervangen: het frame gaat voor.",
+    "Rim brakes: {name} came with disc brakes only from {year} on.": "Velgremmen: de {name} had vanaf {year} alleen nog schijfremmen.",
     "{claimed} is when it was bought; the ad's details point to model year {years}.": "{claimed} is het jaar van aankoop; de details wijzen op modeljaar {years}.",
     "In the ad's colours it was sold in {years}: {colourways}.": "In de kleuren uit de advertentie werd hij verkocht in {years}: {colourways}.",
     "Previous photo": "Vorige foto",
