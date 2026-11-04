@@ -673,6 +673,8 @@ def create_app(db_path=None):
         matched = matched_ads(conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall(), models())
         for m in items:
             m["matched"] = len(matched.get(m["id"], []))
+            m["matched_sites"] = Counter("2dehands" if "2dehands" in (r["listing_url"] or "") or "2ememain" in (r["listing_url"] or "")
+                                         else "Marktplaats" for r, _n in matched.get(m["id"], []))
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
                                       key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
