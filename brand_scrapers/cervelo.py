@@ -29,7 +29,7 @@ FAMILIES = {  # first word of the handle -> category
 # Cervélo's spec fields -> the labels normalize_specs knows; fields not listed are dropped.
 FIELDS = {
     "fork": "Voorvork", "one_piece_handlebar_stem": "Stuur/stuurpen (geïntegreerd)", "handlebars": "Stuur",
-    "aero_basebar": "Stuur", "aero_extension": "Aero extensions", "stem": "Stuurpen", "seatpost": "Zadelpen",
+    "aero_basebar": "Stuur", "aero_extension": "Opzetstuur", "stem": "Stuurpen", "seatpost": "Zadelpen",
     "saddle": "Zadel", "bb": "Bottom bracket", "headset": "Balhoofdstel", "front_thru_axle": "As voorwiel",
     "rear_thru_axle": "As achterwiel", "front_wheel": "Wiel voor", "rear_wheel": "Wiel achter",
     "tires": "Buitenband", "shifters": "Shifter", "left_shifter": "Shifter links", "right_shifter": "Shifter",

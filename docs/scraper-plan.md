@@ -24,6 +24,7 @@ overwritten, so the catalogue builds history over time.
 | Lapierre | https://lapierrebikes.com/en-be | Built (`brand_scrapers/lapierre.py`): Shopify store, Belgian prices (no Dutch site); model year from the photo names |
 | Bianchi | https://www.bianchi.com/en/ | Built (`brand_scrapers/bianchi.py`): WooCommerce Store API, euro list prices (no Dutch site); model year from the product code; older builds into `data/years/site/` |
 | Cervélo | https://www.cervelo.com/en-nl | Built (`brand_scrapers/cervelo.py`): Shopify store with NL prices; bikes from the product sitemap (their handles end in the model year), the spec sheet from the JSON each product page embeds. Stored as "Cervelo" |
+| Ridley | https://www.ridley-bikes.com/nl_NL | Built (`brand_scrapers/ridley.py`): Nuxt app; any bike page's embedded state (read by `brand_scrapers/nuxt.py`) lists the whole range with prices, and one item page per build gives specs, model year, colours, sizes and geometry |
 | BMC | https://nl.bmc-switzerland.com/ | Built (`brand_scrapers/bmc.py`): Shopify store with NL prices and rider heights per model; the Bike Archive (2016 on) gives earlier years and discontinued lines |
 
 Before building each adapter: check the site's terms and robots.txt, and whether the brand

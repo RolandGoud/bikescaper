@@ -155,7 +155,7 @@ def test_very_cheap_is_suspicious(models):
 
 
 def test_unknown_brand_gives_no_match(models):
-    r = run(models, "Ridley Noah Fast maat 54", "2022, 105")
+    r = run(models, "Pinarello Dogma F maat 54", "2022, 105")
     assert r["claims"]["brand"] is None
     assert r["model"] is None
 
@@ -429,6 +429,8 @@ def test_s_works_names_specialized():
     ("Cervélo S5 Ultegra Di2 maat 54", "", "Cervelo", "s"),
     ("Cervelo Caledonia 105 Di2 maat 56", "", "Cervelo", "caledonia"),
     ("Cervélo Áspero GRX RX610 maat 54", "gravel", "Cervelo", "aspero"),
+    ("Ridley Noah Fast 3.0 Ultegra Di2 maat M", "", "Ridley", "noah"),
+    ("Ridley Kanzo Fast 2.0 Force XPLR maat L", "gravel", "Ridley", "kanzo"),
 ])
 def test_matching_new_brands(models, title, description, brand, family):
     r = run(models, title, description, height=178)

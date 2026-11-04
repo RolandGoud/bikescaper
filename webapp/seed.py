@@ -23,7 +23,7 @@ FIXED_SOURCES = [
 ]
 # Brands collected by brand_scrapers/: the newest snapshot of each.
 COLLECTED = ["Trek", "Specialized", "Giant", "Cannondale", "Cube", "Factor", "Scott", "Orbea", "Lapierre", "Bianchi",
-             "BMC", "Cervelo"]
+             "BMC", "Cervelo", "Ridley"]
 
 
 def latest_snapshot(brand):
