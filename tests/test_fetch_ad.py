@@ -1,6 +1,6 @@
 import pytest
 
-from webapp import db, fetch_ad, seed
+from webapp import checks, db, fetch_ad, i18n, seed
 from webapp.app import create_app
 
 # Trimmed from a real Marktplaats ad page: the listing JSON, the description and the "Kenmerken" list.
@@ -519,3 +519,40 @@ def test_the_recheck_button_asks_the_site_again(tmp_path):
     app.config["AD_STATUS"] = lambda url: (None, None)
     client.post("/check/1/recheck")
     assert conn.execute("SELECT removed_at FROM checks WHERE id = 1").fetchone()[0] == "2026-10-21 08:00:00"
+
+
+def test_report_compares_the_other_ads_on_year_parts_and_price(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    for url, title, description, price in [
+        ("https://www.marktplaats.nl/v/a1", "Giant TCR Advanced 2 2021 maat M", "Shimano 105 groep, Giant SLR 1 wielset", 1500),
+        ("https://www.marktplaats.nl/v/a2", "Giant TCR Advanced 2 2023 maat L", "Ultegra groep, Giant SLR 1 wielen", 1700),
+        ("https://www.marktplaats.nl/v/a3", "Giant TCR Advanced 2 maat L", "", 1500),
+    ]:
+        conn.execute("INSERT INTO checks (listing_url, title, description, asking_price) VALUES (?,?,?,?)",
+                     (url, title, description, price))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=nl").data.decode()
+    table = page[page.index('class="compare-table"'):page.index("</table>", page.index('class="compare-table"'))]
+    assert "Deze advertentie" in table and 'href="/check/2"' in table and 'href="/check/3"' in table
+    rows = table.split("<tr")  # newest first: this ad, then 3, then 2
+    other = next(r for r in rows if 'href="/check/2"' in r)
+    assert "2 jaar nieuwer" in other and "€200 duurder" in other
+    assert other.count('class="differs"') == 3  # year, groupset and price; the wheels are the same
+    # An ad without a year gets an estimated one; the same price isn't marked.
+    third = next(r for r in rows if 'href="/check/3"' in r)
+    assert "≈" in third and "duurder" not in third and "goedkoper" not in third
+
+
+def test_ad_facts_leave_out_parts_the_ad_does_not_state():
+    facts = checks.ad_facts({"year": {"year": 2022, "how": "estimate"},
+                             "specs": {"rows": [{"key": "groupset", "listing": i18n.Msg("Not stated")},
+                                                {"key": "wheels", "listing": "Giant P-R2"}]}}, 1200)
+    assert facts == {"year": 2022, "year_stated": False, "groupset": None, "wheels": "Giant P-R2", "price": 1200}
+    own = dict(facts, groupset="Shimano 105", wheels="giant  p-r2 wielen")
+    assert checks.fact_differences(own, facts) == {}
+    assert checks.fact_differences(dict(own, wheels="Bontrager Aeolus Pro 51 wielen"), dict(facts, wheels="Aeolus Pro 51")) == {}
+    assert checks.fact_differences(dict(own, wheels="Aeolus Pro 51"), dict(facts, wheels="Aeolus Elite 50")) == {"wheels": True}
+    assert checks.fact_differences(own, dict(facts, year=2020, price=1000)) == {"year": -2, "price": -200}

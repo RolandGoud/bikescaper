@@ -2920,3 +2920,46 @@ def head_facts(model, claims, value):
     if price:
         facts.append((Msg("New in {year}", year=year), eur(price)))
     return facts
+
+
+# The facts of an ad set side by side with the other ads for its model on the check page.
+AD_FACTS = ("year", "groupset", "wheels", "price")
+
+
+def ad_facts(report, asking_price):
+    """{"year", "year_stated", "groupset", "wheels", "price"} of a check report: the model year the report goes
+    by (stated when the ad itself says it), the groupset and wheels the ad names or its photos show (None when it
+    says nothing), and the asking price."""
+    rows = {row["key"]: row for row in (report.get("specs") or {}).get("rows") or []}
+
+    def part(key):
+        shown = (rows.get(key) or {}).get("listing")
+        return None if shown is None or getattr(shown, "text", None) == "Not stated" else shown
+
+    year = report.get("year") or {}
+    return {"year": year.get("year"), "year_stated": year.get("how") in ("ad", "older"),
+            "groupset": part("groupset"), "wheels": part("wheels"), "price": asking_price}
+
+
+def _same_part(a, b):
+    def plain(v):
+        # "Giant SLR 1 wielset" and "Giant SLR 1 wielen" are the same wheels.
+        v = re.sub(r"\b(wiel(en|set)?|wheel(s|set)?|groep(set)?|groupset)\b", " ", str(v).casefold())
+        return re.sub(r"[\s*]+", " ", v).strip()
+    a, b = plain(a), plain(b)
+    # "Aeolus Pro 51" is the "Bontrager Aeolus Pro 51" another ad names in full.
+    return a == b or bool(a and b) and (re.search(rf"(^| ){re.escape(a)}$", b) or re.search(rf"(^| ){re.escape(b)}$", a))
+
+
+def fact_differences(own, other):
+    """The facts in which another ad differs from this one, by key: only where both are known. For the price,
+    how much more (+) or less (−) the other ad asks."""
+    diff = {}
+    if own["year"] and other["year"] and own["year"] != other["year"]:
+        diff["year"] = other["year"] - own["year"]
+    for key in ("groupset", "wheels"):
+        if own[key] and other[key] and not _same_part(own[key], other[key]):
+            diff[key] = True
+    if own["price"] and other["price"] and own["price"] != other["price"]:
+        diff["price"] = other["price"] - own["price"]
+    return diff
