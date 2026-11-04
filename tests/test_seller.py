@@ -110,6 +110,10 @@ def test_the_wizard_starts_with_the_photos_and_keeps_the_answers(client):
     page = c.get("/sell?lang=en&step=photos").data.decode()
     assert "Start with the photos" in page and page.count('class="shot"') == 10
     assert '<dialog class="camera" id="camera"' in page  # the camera in the page, with the outline over the view
+    # Each shot shows a brand photo that does it well, except the other side, which no brand shoots: its outline.
+    assert page.count('class="outline shot-sample') == 9 and "photo-guide/examples/drive-side.jpg" in page
+    assert "Example · BMC Roadmachine 01 ONE" in page and 'src="/static/photo-guide/non-drive-side.svg"' in page
+    assert 'data-outline="/static/photo-guide/drive-side.svg"' in page  # the camera still lays the outline over the view
     assert '<span><i>3</i>' in page  # nothing to fill in before there's a draft: the later steps aren't buttons yet
     assert 'value="ad">Next: your ad' in page
     # Each step is the same form sent again, so an answer given in one step is there in the next.

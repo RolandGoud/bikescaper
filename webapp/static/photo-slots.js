@@ -86,7 +86,7 @@
   function openCam(slot) {
     camSlot = slot;
     cam.querySelector("[data-camera-title]").textContent = slot.querySelector(".shot-cap b").textContent;
-    cam.querySelector("[data-camera-outline]").src = slot.querySelector(".outline").src;
+    cam.querySelector("[data-camera-outline]").src = slot.querySelector(".outline").dataset.outline;
     navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: {ideal: "environment"}, width: {ideal: 1920}, height: {ideal: 1440}}})
       .then(function (s) {
         stream = s;
@@ -120,7 +120,7 @@
       shoot.hidden = false;
       shoot.addEventListener("click", function () { openCam(slot); });
     }
-    // Tapping the outline does the same as the first button.
+    // Tapping the example or outline does the same as the first button.
     slot.querySelector(".shot-media").addEventListener("click", function () { if (canCam) openCam(slot); else input.click(); });
     input.addEventListener("change", function () {
       var file = input.files && input.files[0];

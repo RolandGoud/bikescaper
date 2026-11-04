@@ -6,7 +6,7 @@
     <div>
       <div class="kicker mono">{{ _('Step {n} of {total}', n=1, total=steps|length) }} · {{ _('For sellers') }}</div>
       <h1>{{ _('Start with the photos') }}</h1>
-      <p class="muted">{{ _('Buyers decide on the photos first. Take these shots; the outline shows the angle and the numbers match the tips. Tap a shot to take or pick the photo.') }}</p>
+      <p class="muted">{{ _('Buyers decide on the photos first. Take these shots; each example shows a good angle, and the camera lays an outline over your view. Tap a shot to take or pick the photo.') }}</p>
     </div>
     <div class="photos-count" hidden data-count><span class="mono">{{ _('Photos ready') }}</span><b><span data-count-n>0</span><span class="of">/{{ shots|length }}</span></b><div class="bar"><i data-count-bar></i></div></div>
   </div>
@@ -17,7 +17,13 @@
       {% for key, g, title, tips in shots if g == group %}
       <article class="shot" data-shot="{{ key }}">
         <div class="shot-media">
-          <img class="outline" src="{{ url_for('static', filename='photo-guide/' ~ key ~ '.svg') }}" alt="" loading="lazy">
+          {% set outline = url_for('static', filename='photo-guide/' ~ key ~ '.svg') %}
+          {% if shot_examples[key] %}
+          <img class="outline shot-sample{{ ' whole' if g == 'overall' }}" src="{{ url_for('static', filename='photo-guide/examples/' ~ key ~ '.jpg') }}" data-outline="{{ outline }}" alt="{{ _('Example: {bike}', bike=shot_examples[key]) }}" loading="lazy">
+          <span class="shot-example">{{ _('Example') }} · {{ shot_examples[key] }}</span>
+          {% else %}
+          <img class="outline" src="{{ outline }}" data-outline="{{ outline }}" alt="" loading="lazy">
+          {% endif %}
           <img class="mine" alt="{{ _('Your photo: {shot}', shot=_(title)) }}" hidden>
           <span class="shot-ok" aria-hidden="true" hidden>✓</span>
         </div>
