@@ -475,21 +475,28 @@ def create_app(db_path=None):
         key = fetch_ad.ad_key(row)
         times = sum(fetch_ad.ad_key(r) == key for r in conn().execute(
             f"SELECT listing_url, title, asking_price FROM checks WHERE {db.PUBLISHED}").fetchall())
-        other_ads = []
+        other_ads, own = [], None
         if result["model"]:  # the other ads matched to the same model, as on its model page
             known = prices.known_ads(conn(), models())
             priced = {i for a in known if a["model_id"] == result["model"]["id"] for i in a["check_ids"]}
             rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
-            other_ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), {"model": result["model"]})
-                         for r, n in sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
-                                            key=lambda a: a[0]["created_at"], reverse=True)
-                         if fetch_ad.ad_key(r) != key]
+            own = checks.ad_facts(result, row["asking_price"])
+            for r, n in sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
+                               key=lambda a: a[0]["created_at"], reverse=True):
+                if fetch_ad.ad_key(r) == key:
+                    continue
+                other = listing_dict(r, count=n)
+                # Its year and parts next to this ad's, so the differences show at a glance.
+                facts = checks.ad_facts(stored_check(other), r["asking_price"])
+                other_ads.append((dict(other, in_price=r["id"] in priced),
+                                  {"model": result["model"], "facts": facts,
+                                   "diff": checks.fact_differences(own, facts)}))
         # A French ad (2dehands, Wallonia) is shown in the visitor's language, the original a click away.
         translated = ad_translate.for_page(ad_photos.folder(app.config["DB_PATH"]), check_id, row["description"], g.lang)
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
                                translated=translated,
                                checked_at=stored_checks.computed_at(conn(), check_id),
-                               all_models=models(), asking=asking, nav="check", other_ads=other_ads,
+                               all_models=models(), asking=asking, nav="check", other_ads=other_ads, own_facts=own,
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
     def pdf_of(check_id, height):
