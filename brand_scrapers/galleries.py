@@ -1,14 +1,15 @@
 """The other photos of each current model (close-ups, front, rear), from its page on the brand's site.
 
     python -m brand_scrapers.galleries trek giant cannondale canyon cube specialized bmc lapierre scott orbea \
-        factor ridley cervelo
+        factor ridley cervelo rose
 
 Saves the photos to images/<Brand>/gallery/ and lists them in data/galleries/<Brand>.json as
 {model page URL: {colour: [photo]}}; the colour is "" when the page shows one colour only. The side
 view the catalogue already has is left out. Scott is read from data/Scott/scott_gallery.json (its
 site only answers a visible Chrome); Orbea's pages are opened in that Chrome (browser.py), its photos
 are fetched plainly. Factor's come from the family page, Ridley's are the frame's photo shoot. Bianchi
-shows one photo per colour, the one the catalogue already has, so it has no reader.
+and Wilier show one studio photo per colour, the one the catalogue already has (Wilier's other photos are
+banners of the whole family), so they have no reader.
 """
 import argparse
 import json
@@ -17,8 +18,8 @@ import re
 import sqlite3
 from urllib.parse import quote, quote_plus, unquote
 
-from . import bmc, factor, giant, lapierre, orbea, scott
-from .nuxt import nuxt_state
+from . import bmc, factor, giant, lapierre, orbea, rose, scott
+from .nuxt import nuxt_data, nuxt_state
 from .archive import compact
 from .common import ROOT, Fetcher, clean, log, shopify_products
 from .history import save_photo, trek_product
@@ -166,6 +167,18 @@ def cervelo_page(fetcher, model):
     return {"": [f"https://www.cervelo.com/cdn/shop/files/{n}?width=1600" for n in dict.fromkeys(found)]} if found else {}
 
 
+def rose_page(fetcher, model):
+    # Each colour's variants carry its photos: the side view the catalogue has, then five or so other angles.
+    product = rose.product_of(nuxt_data(fetcher.get(model["url"]) or "")) or {}
+    found = {}
+    for v in product.get("variants") or []:
+        colour = rose.attribute(v, "color")
+        images = [i for i in v.get("images") or [] if isinstance(i, str)]
+        if colour and len(images) > 1:
+            found.setdefault(colour[:1].upper() + colour[1:], images[1:])
+    return {"": next(iter(found.values()))} if len(found) == 1 else found
+
+
 def specialized(fetcher, model):
     # The hero shot names the bike and colour (97227-30_AETHOS-EXPERT-AXS-..._HERO-PDP); the other views share that name.
     page = fetcher.get(model["url"]) or ""
@@ -251,7 +264,8 @@ def orbea_page(fetcher, model):
 
 READERS = {"Trek": trek, "Giant": giant_page, "Cannondale": cannondale, "Canyon": canyon, "Cube": cube,
            "Specialized": specialized, "BMC": bmc_page, "Lapierre": lapierre_page, "Scott": scott_page,
-           "Orbea": orbea_page, "Factor": factor_page, "Ridley": ridley_page, "Cervelo": cervelo_page}
+           "Orbea": orbea_page, "Factor": factor_page, "Ridley": ridley_page, "Cervelo": cervelo_page,
+           "Rose": rose_page}
 CHROME = ("Orbea",)
 SHARED = ("Ridley",)  # brands whose gallery is the frame's, the same photos for every build: saved once, by name  # brands whose pages only open in a visible Chrome; their photos still answer plain requests
 
