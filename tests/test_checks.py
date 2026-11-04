@@ -2056,3 +2056,33 @@ def test_saddle_in_the_ad_shows_in_the_specs(models):
     r = run(models, "Trek Emonda SL6 Ultegra maat 56 - Golden Yellow Metallic Lak", CHECK_69, 1200)
     row = next(row for row in r["specs"]["rows"] if row["key"] == "saddle")
     assert row["listing"] == "SQlab"
+
+
+CHECK_8 = ("Te koop aangeboden: een nette Giant Defy Composite 2 endurance carbon racefiets ( Shimano 105 Triple).\n"
+           "Materiaal: Carbon")
+
+
+def test_a_triple_dates_an_old_bike(models):
+    # Check 8: a "Defy Composite" with a 105 triple, matched to today's Defy Advanced 2: from 2015 or before.
+    r = run(models, "Giant Defy Composite 2 - maat M", CHECK_8, 450)
+    assert r["year_estimate"]["last"] == 2015
+    assert checks.pre_2018_year(r)
+
+
+def test_the_groupset_generation_in_the_photos_dates_the_bike(models):
+    read = {"brand": "Shimano", "series": "105", "model_code": None, "speeds": None, "electronic": False,
+            "confidence": "high", "photos": [5], "evidence_en": "", "evidence_nl": "",
+            "crankset": {"brand": "Shimano", "series": "105", "model_code": "FC-5700", "confidence": "high",
+                         "photos": [5], "evidence_en": "", "evidence_nl": ""}}
+    assert checks.photo_group_years(read) == (2010, 2015, "Shimano 105 5700 (10-speed)")
+    r = checks.run_check(models, {"title": "Giant Defy Composite 2 - maat M", "asking_price": 450,
+                                  "description": CHECK_8.replace(" Triple", ""), "photo_groupset": read}, today=TODAY)
+    assert (r["year_estimate"]["first"], r["year_estimate"]["last"]) == (2010, 2015)
+    assert checks.pre_2018_year(r)
+
+
+def test_numbered_groupset_parts_date_the_bike():
+    for text, years in (("Shimano 105 FC-5700 crank", (2010, 2015)), ("RD-6800 achterderailleur", (2015, 2018)),
+                        ("Ultegra 6870 Di2", (2015, 2018)), ("Dura-Ace 7900", (2010, 2013))):
+        found = next((f, l) for p, f, l, _n in checks.GROUPSET_YEARS if re.search(p, checks._plain(text)))
+        assert found == years, text
