@@ -143,3 +143,12 @@ def test_canyon_looks_up_the_newer_page_of_a_build_whose_page_lost_its_photos():
                    "https://www.canyon.com/nl-nl/search?q=Aeroad+CFR+Di2": f'"{base}/4039.html" "{base}/4480.html"'})
     found = galleries.canyon(pages, {"name": "Aeroad CFR Di2", "url": base + "/4039.html?dwvar=1"})[""]
     assert [f.rsplit("/", 1)[1] for f in found] == ["2026_TOP-1_aeroad_4480_R1_P1_x.jpg?sw=1200"]
+
+
+def test_rose_takes_each_colours_photos_after_its_side_view(monkeypatch):
+    product = {"variants": [
+        {"superAttributes": [{"type": "color", "value": "moss green"}], "images": ["side-g.png", "a-g.png", "b-g.png"]},
+        {"superAttributes": [{"type": "color", "value": "moss green"}], "images": ["side-g.png", "a-g.png", "b-g.png"]},
+        {"superAttributes": [{"type": "color", "value": "papyrus"}], "images": ["side-p.png", "a-p.png"]}]}
+    monkeypatch.setattr(galleries, "nuxt_data", lambda page: {"data": {"evon:product:1": {"productDetail": {"product": product}}}})
+    assert galleries.rose_page(Page("x"), {"url": "u"}) == {"Moss green": ["a-g.png", "b-g.png"], "Papyrus": ["a-p.png"]}
