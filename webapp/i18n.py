@@ -1244,11 +1244,11 @@ NL = {
     "Upgrade on {year}": "Beter dan in {year}",
     "Downgrade on {year}": "Minder dan in {year}",
     "▲ upgrade and ▼ downgrade mark a better or a lesser part than the year before, – similar a different part of the same tier.":
-        "▲ upgrade en ▼ downgrade markeren een beter of minder onderdeel dan het jaar ervoor, – vergelijkbaar een ander onderdeel van hetzelfde niveau.",
+        "▲ upgrade en ▼ downgrade markeren een beter of minder onderdeel dan het jaar ervoor, – gelijk een ander onderdeel van hetzelfde niveau.",
     "Changed on {year}, same tier": "Anders dan in {year}, zelfde niveau",
     "upgrade": "upgrade",
     "downgrade": "downgrade",
-    "similar": "vergelijkbaar",
+    "similar": "gelijk",
     "Marktplaats or 2dehands. We read the title, text and price for you.": "Marktplaats of 2dehands. We lezen de titel, tekst en prijs voor je.",
     "electronic": "elektronisch",
     "{year} fits this model": "{year} past bij dit model",
