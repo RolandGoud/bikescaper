@@ -155,7 +155,8 @@ def detect_brakes(text):
     low = _plain(text)
     if re.search(r"schijf|\bdisc\b|hydraulisch|hydraulic", low):
         return "Disc"
-    if re.search(r"velgrem|\brim\b|rim brake", low):
+    # Direct-mount calipers and Bontrager's Speed Stop are rim brakes; disc calipers are flat- or post-mount.
+    if re.search(r"velgrem|\brim\b|rim brake|direct[\s-]?mount|speed\s*stop", low):
         return "Rim"
     return None
 
@@ -245,7 +246,14 @@ def detect_brand(text):
     return None
 
 
-PART_WORDS = {"wheels": r"wiel|wheel|velg(?!rem)|laufrad", "tyres": r"band|tyre|tire", "crankset": r"crank"}
+PART_WORDS = {"wheels": r"wiel|wheel|velg(?!rem)|laufrad", "tyres": r"band|tyre|tire", "crankset": r"crank",
+              "saddle": r"\bzadel(?!pen|pi[jg]p|klem|tas|hoogte|steun|buis)|\bsaddle(?!\s*(?:bag|height|rail|post))"}
+# Saddle makers, for a saddle the ad names but we can't rate ("een SQlab zadel"): the maker and the model words
+# after it ("Fizik Antares R3", "Selle Italia Novus Boost").
+SADDLE_BRANDS = (r"sq\s?lab|fi[sz]i:?k|selle\s+(?:italia|san\s+marco|smp|royal)|\bsmp\b|prologo|specialized|bontrager"
+                 r"|ergon|brooks|fabric|repente|cadex|syncros|\bism\b|tioga|\bwtb\b|\bterry\b|\bpro\b|giant|canyon"
+                 r"|rose|\bvelo\b|astute|berk|infinito\s*cx|gub|cube|natural\s*fit")
+SADDLE_NAME = rf"((?i:{SADDLE_BRANDS})(?:\s+(?:[A-Z][\w-]*|\d[\w-]*)){{0,3}})"
 # The part tables a claim is rated with: a crankset by its groupset ("crankstel Ultegra") or its own name.
 PART_TABLES = {"crankset": ("groupset", "drivetrain")}
 # Wheelset names that say "wheels" on their own, so "Bontrager Aeolus Pro 37" counts without the word "wielen".
@@ -292,6 +300,9 @@ def detect_part(text, part):
                     tier, label = part_tier(tables, sentence), sentence
                 if tier:
                     found.append({"label": label.split(":")[-1].strip(" \t-•*"), "tier": tier})
+                elif part == "saddle" and (name := re.search(SADDLE_NAME, clause)):
+                    # Check 69's "SQlab zadel": unrated, but the ad's saddle all the same.
+                    found.append({"label": name.group(1).strip(), "tier": None})
     # A named wheelset ("Wielen: Bontrager Aeolus Pro 37") says more than an earlier "carbon wielen".
     named = [f for f in found if part == "wheels" and re.search(WHEEL_NAMES, _plain(f["label"]))]
     return (named or found or [None])[0]
@@ -312,6 +323,7 @@ def read_claims(title, description=""):
         "wheels": detect_part(text, "wheels"),
         "tyres": detect_part(text, "tyres"),
         "crankset": detect_part(text, "crankset"),
+        "saddle": detect_part(text, "saddle"),
         "condition": detect_condition(text),
         "mentions_upgrades": bool(re.search(r"upgrade|geupgrade|vervangen|nieuwe wielen|ander[e]? wielen|omgebouwd",
                                             _plain(text))),
@@ -1686,8 +1698,19 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
         first = max([y for y in (lo, gen_first) if y] or [None], key=lambda y: y or 0)
         last = min([y for y in (hi, gen_last) if y] or [None], key=lambda y: y or 9999)
         if first and last and first > last:
+            if hi and gen_first and hi < gen_first and hi >= FIRST_YEAR and (earlier := _earlier_window(lo, hi)):
+                return earlier
             return (lo, hi, False) if lo and hi or hi and hi < FIRST_YEAR else (gen_first, gen_last, True)
         return first, last, True
+
+    def _earlier_window(lo, hi):
+        """The details end before the generation (check 69: rim brakes on a disc-only Émonda): the newest earlier
+        generation they fit, reliable when we have a spec sheet of those years; None when we know of none."""
+        for g in reversed([g for g in age.get("generations") or [] if g.get("kind") == "earlier"]):
+            first, last = max(lo or 0, g["first"]), min(hi, g["last"])
+            if first <= last:
+                return first, last, any(first <= y <= last for y in year_sheets(model))
+        return None
 
     def middle(first, last):
         if first and last:
@@ -1949,6 +1972,11 @@ def estimate_year(model, models, claims, text, seen_colour=None):
     if claims["brakes"] == "Rim" and (claims["material"] == "Carbon" or ref_material(model) == "Carbon"):
         clues.append((None, RIM_BRAKE_LAST_YEAR, Msg("Rim brakes on a carbon road bike: {year} or older.",
                                                      year=RIM_BRAKE_LAST_YEAR)))
+    if claims["brakes"] == "Rim" and (rim_last := rim_brake_last_year(model)):
+        # The model's own sheets date the switch to disc brakes more closely (check 69: an Émonda SL 6 with
+        # rim brakes is no 2021+ disc-only bike, whatever its cassette).
+        clues.append((None, rim_last, Msg("Rim brakes: {name} came with disc brakes only from {year} on.",
+                                          name=model["name"], year=rim_last + 1)))
     dotted = model["brand"] == "Trek" and re.search(TREK_DOTTED_NAME, low)
     if dotted:
         clues.append((None, TREK_DOTTED_LAST_YEAR, Msg("Trek's '{name}' naming: {year} or older.",
@@ -1992,8 +2020,18 @@ def estimate_year(model, models, claims, text, seen_colour=None):
         for c in [c for c in swappable if not fits(c)]:
             clues.remove(c)
             notes.append(join(c[2], Msg("We go by the year in the ad: that part was probably upgraded.")))
-    first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
-    last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
+    first, last = _clue_span(clues)
+    if first and last and first > last:
+        # Parts can be swapped, the frame can't: when only parts (a cassette, a groupset) clash with the frame's
+        # clues (its brakes, colour, generation), go by the frame and take those parts as swapped.
+        frame = [c for c in clues if not c[2].text.startswith(PART_CLUES)]
+        f_first, f_last = _clue_span(frame)
+        if frame and not (f_first and f_last and f_first > f_last):
+            for c in [c for c in clues if c not in frame and ((c[0] or 0) > (f_last or 9999) or
+                                                             (c[1] or 9999) < (f_first or 0))]:
+                clues.remove(c)
+                notes.append(join(c[2], Msg("That part may have been swapped: the frame goes first.")))
+            first, last = _clue_span(clues)
     evidence = [c[2] for c in clues] + notes
     if first and last and first > last:
         return {"status": WARN, "first": None, "last": None, "evidence": evidence,
@@ -2032,6 +2070,25 @@ def estimate_year(model, models, claims, text, seen_colour=None):
         evidence.append(Msg("The ad mentions upgrades, so a part may be newer than the bike."))
     return {"status": status, "first": first, "last": last, "headline": headline, "detail": detail,
             "evidence": evidence, "fallback": fallback}
+
+
+def _clue_span(clues):
+    """(first, last): where the clues' windows overlap, None for an open end."""
+    first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
+    last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
+    return first, last
+
+
+def rim_brake_last_year(model):
+    """The last model year a bike of this model can have rim brakes by its spec sheets: the year before the first
+    sheet with disc brakes after its newest sheet with rim brakes. None without both."""
+    brakes = {y: ref_brakes(dict(model, name="", specs=sheet["specs"])) for y, sheet in year_sheets(model).items()}
+    rim = [y for y, b in brakes.items() if b == "Rim"]
+    disc = [y for y, b in brakes.items() if b == "Disc"]
+    # Without a sheet with rim brakes the switch isn't dated: an "Émonda SL 6 Disc" was never sold with rim brakes,
+    # so a rim-brake ad is another model rather than an older one.
+    later = [y for y in disc if y > max(rim)] if rim else []
+    return min(later) - 1 if later else None
 
 
 STATUS_RANK = {BAD: 3, WARN: 2, OK: 1, UNKNOWN: 0}
@@ -2224,7 +2281,8 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows[-1]["photo_why"] = _photo_why(photo_read["frame"])
 
     for key, part, keys in (("wheels", "Wheels", ("Wiel voor", "Velg", "Wheelset")),
-                              ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",))):
+                              ("tyres", "Tyres", ("Buitenband", "Voorband")), ("crankset", "Crankset", ("Crankstel",)),
+                              ("saddle", "Saddle", ("Zadel",))):
         ref_val, ad = spec(model, *keys), claims.get(key)
         # The ad's words first; when they don't name the part, what its photos show. Wheels the ad only calls
         # "carbonwielen" (check 71) give way to the wheelset its photos name.
@@ -2251,10 +2309,6 @@ def check_specs(model, claims, impossible=None, photo_read=None, bike_year=None,
             rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
         if part_seen:
             rows[-1]["photo_why"] = _photo_why(photo_read[key])
-    for key, part, keys in (("saddle", "Saddle", ("Zadel",)),):
-        ref_val = spec(model, *keys)
-        if ref_val:
-            rows.append(_row(key, part, ref_val, None, UNKNOWN, "Compare photos"))
 
     for row in rows:
         row["ref_tier"] = ref_group["tier"] if row["key"] == "groupset" and ref_group else _ref_tier(model, row["key"])

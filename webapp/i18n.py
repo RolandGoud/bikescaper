@@ -263,6 +263,8 @@ NL = {
     "Colour '{colour}' was sold in {years}.": "Kleur '{colour}' werd verkocht in {years}.",
     "The photos show colour '{colour}', sold in {years}.": "Op de foto's staat kleur '{colour}', verkocht in {years}.",
     "That part may have been swapped: the frame's colour goes first.": "Dat onderdeel is misschien vervangen: de kleur van het frame gaat voor.",
+    "That part may have been swapped: the frame goes first.": "Dat onderdeel is misschien vervangen: het frame gaat voor.",
+    "Rim brakes: {name} came with disc brakes only from {year} on.": "Velgremmen: de {name} had vanaf {year} alleen nog schijfremmen.",
     "{claimed} is when it was bought; the ad's details point to model year {years}.": "{claimed} is het jaar van aankoop; de details wijzen op modeljaar {years}.",
     "In the ad's colours it was sold in {years}: {colourways}.": "In de kleuren uit de advertentie werd hij verkocht in {years}: {colourways}.",
     "Previous photo": "Vorige foto",

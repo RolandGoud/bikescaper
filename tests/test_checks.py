@@ -2027,3 +2027,32 @@ def test_downgrade_cut_is_per_tier():
     assert checks.downgrade_cut({"key": "groupset", "step": -4}) == pytest.approx(0.25)
     assert checks.downgrade_cut({"key": "wheels", "step": -1}) == pytest.approx(0.05)
     assert checks.downgrade_cut({"key": "wheels", "step": -3}) == pytest.approx(0.10)
+
+
+CHECK_69 = ("Mooie Trek Emonda SL6 racefiets in de opvallende kleur Golden Yellow Metallic Lak. De fiets is afgemonteerd "
+            "met Shimano Ultegra. Voor extra comfort is er een SQlab zadel gemonteerd. De fiets staat op FFWD F4R wielen "
+            "met nieuwe Continental GP5000 banden. De vertanding is 50-34 voor en 11-34 achter.\nRem: Velgrem\n"
+            "Materiaal: Carbon")
+
+
+def test_rim_brakes_date_a_disc_only_generation_before_a_swapped_cassette(models):
+    # Check 69: an Émonda SL 6 with rim brakes is no 2021+ disc-only bike, even with the 11-34 cassette of the
+    # 2023+ sheets; it goes by the rim-brake generation before it.
+    r = run(models, "Trek Emonda SL6 Ultegra maat 56 - Golden Yellow Metallic Lak", CHECK_69, 1200)
+    assert r["model"]["name"] == "Émonda SL 6"
+    assert checks.rim_brake_last_year(r["model"]) == 2020
+    assert r["year_estimate"]["last"] == 2020
+    assert r["year"]["how"] == "estimate" and 2018 <= r["year"]["year"] <= 2020
+    assert checks.ref_brakes(checks.year_model(r["model"], r["spec_year"])) == "Rim"
+
+
+def test_reads_a_saddle_we_cannot_rate():
+    assert checks.detect_part(CHECK_69, "saddle") == {"label": "SQlab", "tier": None}
+    assert checks.detect_part("Zadel: Fizik Antares R3", "saddle")["tier"]
+    assert checks.detect_part("nieuwe zadelpen en nieuw zadel", "saddle") is None
+
+
+def test_saddle_in_the_ad_shows_in_the_specs(models):
+    r = run(models, "Trek Emonda SL6 Ultegra maat 56 - Golden Yellow Metallic Lak", CHECK_69, 1200)
+    row = next(row for row in r["specs"]["rows"] if row["key"] == "saddle")
+    assert row["listing"] == "SQlab"
