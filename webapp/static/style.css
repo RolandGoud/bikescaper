@@ -948,11 +948,9 @@ select { max-width: 100%; }
 .year-empty { padding: 18px; background: var(--ground); border-radius: 8px; color: var(--muted); }
 /* A part's tier sits beside its name; a part that changed on the year before gets ▲, ▼ or – centred under it. */
 .kv div.part { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-.spec-tier { flex: none; min-width: 56px; display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
-.move-mark { font-size: 12px; line-height: 1; font-weight: 700; cursor: help; color: var(--muted); }
-.move-mark.up { color: var(--accent); }
-.move-mark.down { color: var(--bad); }
-.spec-tier > .move-mark:only-child { margin-top: 5px; }
+.spec-tier { flex: none; min-width: 56px; display: inline-flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.spec-tier > .move { cursor: help; font-size: 10px; padding: 0 6px; line-height: 16px; }
+.spec-tier > .move:only-child { margin-top: 2px; }
 @media (max-width: 640px) {
   .year-tabs { flex-wrap: nowrap; overflow-x: auto; gap: 0; }
   .year-tab { padding: 8px 10px; font-size: 14px; }
@@ -1242,6 +1240,9 @@ select { max-width: 100%; }
 .stolen-check { margin: 0; padding: 12px 14px; border-radius: 10px; background: rgba(255, 255, 255, .06); font-size: 14px; }
 .stolen-check a { font-weight: 700; }
 .move { display: inline-block; padding: 1px 7px; border-radius: var(--pill-radius); font-size: 11px; font-weight: 600; white-space: nowrap; vertical-align: 1px; }
+.move.up { background: var(--ok-bg); color: var(--accent); }
+.move.down { background: var(--bad-bg); color: var(--bad); }
+.move.same { background: var(--faint); color: var(--muted); }
 .move.aged { background: var(--line, #e6e6e6); color: var(--muted, #666); cursor: help; }
 /* Selling page: one checked ad next to the ad we would write for it, paged with the arrows. */
 .example { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
