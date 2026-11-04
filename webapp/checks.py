@@ -2628,6 +2628,7 @@ def check_value(model, claims, asking, spec_result, age_result, today=None, year
     condition = (Msg("Normal use") if aged_out else
                  Msg(CONDITION_LABEL[claims["condition"]]) if claims["condition"] else None)
     result = {"original": original, "model_year": model_year, "age": age, "low": low, "high": high,
+              "downgraded": bool(downgraded),
               "condition": condition, "asking": asking, "steps": steps, "slider": price_slider(low, high, original, asking),
               "notes": [Msg("Rough estimate: new price, age and condition only. Comparable ads aren't used yet."),
                         Msg("New price is the {year} German list price (TOUR/BIKE database), which can differ "
