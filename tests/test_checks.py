@@ -2027,3 +2027,20 @@ def test_downgrade_cut_is_per_tier():
     assert checks.downgrade_cut({"key": "groupset", "step": -4}) == pytest.approx(0.25)
     assert checks.downgrade_cut({"key": "wheels", "step": -1}) == pytest.approx(0.05)
     assert checks.downgrade_cut({"key": "wheels", "step": -3}) == pytest.approx(0.10)
+
+
+def test_model_tile_shows_the_ad_count_as_a_number(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    model_id = conn.execute("SELECT id FROM models WHERE slug = 'trek-domane-sl-6-gen-4'").fetchone()[0]
+    for n in range(3):
+        conn.execute("INSERT INTO checks (title, asking_price, listing_url, model_id, too_old) VALUES (?, ?, ?, ?, 0)",
+                     ("Trek Domane SL 6", 2500, f"https://www.marktplaats.nl/v/fietsen/a{4000000 + n}", model_id))
+    conn.commit()
+    page = app.test_client().get("/models?lang=nl&brand=Trek").data.decode()
+    tile = page[page.index('href="/models/trek-domane-sl-6-gen-4"'):]
+    tile = tile[:tile.index("</a>")]
+    # the number beside the price, with the sentence as its tooltip, not as a line of its own
+    assert re.search(r'<span class="ad-count small" title="Gekoppeld aan 3 advertenties"[^>]*>.*</svg>3</span>', tile)
+    assert ">Gekoppeld aan" not in tile
