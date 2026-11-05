@@ -4,6 +4,8 @@ The search lists each product with its price and model year; the product API (hi
 gives the spec sheet, the colours and each colour's photo. Like the earlier Trek data this keeps the
 Domane+ and FX bikes Trek files under road.
 """
+import re
+
 from .common import log
 
 BRAND = "Trek"
@@ -12,8 +14,19 @@ SEARCH = ("https://api.trekbikes.com/occ/v2/nl/products/search?query=%3Arelevanc
 PRODUCT = "https://www.trekbikes.com/nl/nl_NL/p/{code}/"
 
 
+def model_years(text):
+    """The model years Trek lists a product for: "2027" -> [2027]; a bike it carries over "2026-2027" -> [2026, 2027]."""
+    years = [int(y) for y in re.findall(r"\b20\d\d\b", str(text or ""))]
+    return list(range(min(years), max(years) + 1)) if years else []
+
+
+def model_year(text):
+    """The model year Trek gives a product now, the last one it lists: "2026-2027" -> 2027."""
+    return (model_years(text) or [None])[-1]
+
+
 def listed(fetcher):
-    """[{code, name, price, model_year}] for every product Trek lists under road bikes."""
+    """[{code, name, price, model_year, model_years}] for every product Trek lists under road bikes."""
     found, page = [], 0
     while True:
         try:  # the search answers in XML unless asked for JSON
@@ -24,7 +37,8 @@ def listed(fetcher):
         for p in data.get("products") or []:
             price = (p.get("price") or {}).get("value")
             found.append({"code": p.get("code"), "name": (p.get("name") or "").strip(), "price": price,
-                          "model_year": int(p["marketingModelYear"]) if str(p.get("marketingModelYear") or "").isdigit() else None})
+                          "model_year": model_year(p.get("marketingModelYear")),
+                          "model_years": model_years(p.get("marketingModelYear"))})
         pages = (data.get("pagination") or {}).get("totalPages") or 0
         page += 1
         if page >= pages:
@@ -34,7 +48,14 @@ def listed(fetcher):
 def scrape(fetcher, limit=None):
     from .history import trek_product
     bikes = []
-    for item in listed(fetcher)[:limit]:
+    # Trek lists a bike's next model year next to the one it still sells (Domane AL 2 Gen 4: 80164 for 2027, 41587
+    # for 2026), under the same name: the catalogue takes the newest, the year sheets (history.trek_collect) the other.
+    items = listed(fetcher)[:limit]
+    newest = {}
+    for i in items:
+        if (i["model_year"] or 0) > (newest.get(i["name"], {}).get("model_year") or 0) or i["name"] not in newest:
+            newest[i["name"]] = i
+    for item in (i for i in items if newest[i["name"]] is i):
         product = trek_product(fetcher, item["code"])
         if not product or not product["specs"]:
             log.warning("Trek: no spec sheet for %s %s", item["code"], item["name"])

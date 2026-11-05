@@ -388,15 +388,28 @@ def archive_trek_codes():
     return found
 
 
-def trek_collect(models, fetcher, years, codes):
+def trek_collect(models, fetcher, years, codes, listed=None):
+    """{name: {year: entry}} from Trek's product API for the catalogue models: their own products, those the
+    Wayback copies list, and those Trek still lists (`listed`, as trek.listed gives them; read when None)."""
+    from . import trek
     seen = archive_trek_codes()
-    products = [p for p in (trek_product(fetcher, c) for c in sorted(set(codes) | set(seen))) if p and p["years"]
+    # The model years Trek's search gives each product it still lists. Trek carries a bike over under the same
+    # product number, its photos still named for the year it came out: the Checkpoint SL 6 AXS Gen 3 (55098,
+    # "CheckpointSL6AXS-26-55098") is listed as a 2027 bike, and the 2026 Domane AL 2 Gen 4 (41587, photos "-24-")
+    # is listed next to its 2027 successor (80164). Without these the year a product was carried into has no sheet.
+    if listed is None:
+        listed = trek.listed(fetcher)
+    listed_years = {str(i["code"]): set(i.get("model_years") or []) for i in listed}
+    own = {c for c in (trek_code(url) for _name, url in models) if c}
+    products = [p for p in (trek_product(fetcher, c) for c in sorted(set(codes) | set(seen) | own | set(listed_years)))
+                if p and (p["years"] or listed_years.get(p["code"]))
                 and recognised(p["specs"]) >= MIN_SPECS and not TREK_SKIP.search(p["name"])
                 and not TREK_STOCK.search(p["name"])]
     for p in products:
-        if p.get("years_from_photos"):
+        if p.get("years_from_photos") or not p["years"]:
             # Its photos' year, and the years the Wayback copies found it as the model's page.
             p["years"] = sorted(set(p["years"]) | seen.get(p["code"], set()))
+        p["years"] = sorted(set(p["years"]) | listed_years.get(p["code"], set()))
     log.info("Trek: %d archived bikes with a spec sheet", len(products))
     found, today = {}, date.today().isoformat()
     for name, _url in models:

@@ -427,3 +427,46 @@ def test_seed_folds_a_renamed_build_into_the_bike_it_is_now(tmp_path, monkeypatc
     assert [r[0] for r in conn.execute("SELECT name FROM models")] == ["Tarmac SL8 Expert - SRAM Rival eTAP AXS"]
     assert conn.execute("SELECT model_id FROM checks").fetchone()[0] == new
     assert seed.merge_renamed_models(conn) == 0
+
+
+def test_trek_reads_a_carried_over_model_year_range():
+    from brand_scrapers import trek
+    assert trek.model_years("2027") == [2027] and trek.model_year("2027") == 2027
+    assert trek.model_years("2026-2027") == [2026, 2027] and trek.model_year("2026-2027") == 2027
+    assert trek.model_years(None) == [] and trek.model_year("") is None
+
+
+def test_trek_files_a_product_under_every_year_trek_lists_it(tmp_path, monkeypatch):
+    """The 2026 Domane AL 2 Gen 4 (41587, photos "-24-") is listed for 2026 next to its 2027 successor (80164), and
+    the Checkpoint SL 6 AXS Gen 3 (55098, photos "-26-") is a 2026 bike Trek now lists as 2027: each year gets a sheet."""
+    from brand_scrapers import history
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))  # no Wayback year file
+    monkeypatch.setattr(history, "recognised", lambda specs: 99)
+    monkeypatch.setattr(history, "save_photo", lambda *a, **k: "p.jpg")
+    monkeypatch.setattr(history, "colour_photos", lambda *a, **k: {})
+    shots = {"41587": ("Domane AL 2 Gen 4", 24), "80164": ("Domane AL 2 Gen 4", 27),
+             "55098": ("Checkpoint SL 6 AXS Gen 3", 26)}
+    monkeypatch.setattr(history, "trek_product", lambda fetcher, code: {
+        "code": code, "name": shots[code][0], "years": [2000 + shots[code][1]], "years_from_photos": True,
+        "url": f"https://www.trekbikes.com/nl/nl_NL/p/{code}/", "sheet_years": None, "specs": {"Frame": "x"},
+        "colours": [], "colour_image_urls": {}, "image_url": None, "category": ""})
+    listed = [{"code": "41587", "model_years": [2026]}, {"code": "80164", "model_years": [2027]},
+              {"code": "55098", "model_years": [2027]}]
+    models = [("Domane AL 2 Gen 4", "https://www.trekbikes.com/nl/nl_NL/p/80164/"),
+              ("Checkpoint SL 6 AXS Gen 3", "https://www.trekbikes.com/nl/nl_NL/p/55098/")]
+    found = history.trek_collect(models, None, range(2020, 2028), [], listed=listed)
+    domane = found["Domane AL 2 Gen 4"]
+    assert sorted(domane) == ["2024", "2026", "2027"]
+    assert domane["2026"]["url"].endswith("/41587/") and domane["2027"]["url"].endswith("/80164/")
+    assert sorted(found["Checkpoint SL 6 AXS Gen 3"]) == ["2026", "2027"]
+
+
+def test_trek_catalogue_takes_the_newest_of_two_products_with_one_name(monkeypatch):
+    from brand_scrapers import history, trek
+    monkeypatch.setattr(trek, "listed", lambda fetcher: [
+        {"code": "80164", "name": "Domane AL 2 Gen 4", "price": 999.0, "model_year": 2027},
+        {"code": "41587", "name": "Domane AL 2 Gen 4", "price": 999.0, "model_year": 2026},
+        {"code": "55098", "name": "Checkpoint SL 6 AXS Gen 3", "price": 4999.0, "model_year": 2027}])
+    monkeypatch.setattr(history, "trek_product", lambda fetcher, code: {
+        "specs": {"Frame": "x"}, "colours": [], "category": "", "image_url": None, "colour_image_urls": {}})
+    assert [b["sku"] for b in trek.scrape(None)] == ["80164", "55098"]
