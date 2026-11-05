@@ -692,6 +692,10 @@ h2 .count { font-size: 18px; font-weight: 600; }
 /* The tier pill sits on the title's line, at its right; a long name wraps beside it. */
 .model-card .title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
 .model-card .title-row .tier { flex: none; margin-top: 1px; }
+/* The number of ads matched to the model, at the right of the new price: a tag icon and the count. */
+.model-card .price-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.model-card .ad-count { flex: none; display: inline-flex; align-items: center; gap: 5px; font-weight: 700; color: var(--text); padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); }
+.model-card .ad-count svg { width: 13px; height: 13px; }
 /* Filter animation (models.js): a card that drops out fades where it was, underneath the cards gliding into place. */
 .model-grid .model-card { position: relative; z-index: 1; }
 .model-card.leaving { position: fixed; z-index: 0; margin: 0; pointer-events: none; }
