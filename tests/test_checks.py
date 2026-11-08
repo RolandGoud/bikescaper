@@ -1585,7 +1585,7 @@ def test_model_page_years_match_the_age_check(tmp_path):
     page = app.test_client().get("/models/trek-domane-al-4-gen-4?lang=nl").get_data(as_text=True)
     first = checks.sold_years(model)[0]
     assert f'<div class="v">{first}–nu</div>' in page
-    assert f"eerdere gen. {checks._years_list(earlier)}" in page
+    assert "eerdere gen. 20" not in page  # the model years say nothing about generations; the year shows them
     assert f'class="year-tab archive earlier" id="tab-{earlier[0]}"' in page
 
 

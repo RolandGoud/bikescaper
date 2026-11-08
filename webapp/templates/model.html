@@ -48,12 +48,11 @@
     </div>
     <div class="price-sticker"><b data-fact="sticker">{{ m.price_eur|eur if m.price_eur else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
   </section>
-  {% if builds %}{# a model with builds (Ridley): each build is its own page, with its own photo, parts and price #}
+  {% if builds|length > 1 %}{# a model with more than one build (Ridley): each build is its own page, with its own photo, parts and price #}
   <div class="block-head"><span>{{ _('Build') }}</span></div>
   <nav class="builds build-card" aria-label="{{ _('Builds') }}">
     <div class="k">{{ _('{n} builds of the {model} on the {brand} site', n=builds|length, model=(m|model_base)|model_title, brand=m.brand) }}</div>
     <div class="build-row">{% for b in builds %}<a class="build-pill{{ ' on' if b.id == m.id }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if b.id == m.id %} aria-current="page"{% endif %}><span>{{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></a>{% endfor %}</div>
-    <p class="small muted">{{ _('The photo, parts and new price below are of the build you pick; the colours are the same for each.') }}</p>
   </nav>
   {% endif %}
   <div class="block-head"><span>{{ _('The model') }}</span></div>
@@ -130,10 +129,10 @@
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}" hidden>‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}" hidden>›</button>
       </div>
-      {{ colours_fact }}
       {# The other angles of the year and colour on show (close-ups, front, rear), filled in by the script below. #}
       <div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}" hidden></div>
       </div>
+      {{ colours_fact }}{# under the years: a colour belongs to the year picked #}
     </div>
     {% else %}
     <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}
@@ -164,8 +163,7 @@
       <div class="ad-tiles model-tiles" style="--n: {{ 4 if weight else 3 }}">
         <div data-fact="years"><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
           <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
-          {% set earlier = years[4]|dictsort|selectattr('1.1')|map(attribute='0')|list if years else [] %}
-          {% if earlier %}<div class="small earlier-gen" title="{{ years[4][earlier[0]][0] or '' }}">{{ _('earlier gen') }} {{ earlier|years_list }}</div>{% endif %}</div>
+          </div>
         <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging or tiers.aged %}{% set lagging %}{% if tiers.lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}.{% endif %}{% if tiers.aged %} {{ _('The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.', years=tiers.age, step=age_step) }}{% endif %}{% endset %}{{ note(lagging) }}{% endif %}</div>
           <div class="v" data-fact="tier">{% if tiers.overall %}{{ tier_badge(tiers.overall) }}{% else %}{{ _('Not rated') }}{% endif %}</div></div>
         <div data-fact="status"><div class="k">{{ _('Status') }}{{ note(status[1]) }}</div>
@@ -266,10 +264,19 @@
   // The model years beside the photo: one per year, the current bike first and shown first.
   // Picking a year there opens its spec sheet, and the other way round.
   var thumbs = Array.prototype.slice.call(document.querySelectorAll(".gallery-thumb"));
+  // The years slide in one row: keep the picked one in view, without moving the page.
+  function keepInView(thumb) {
+    var rail = thumb.parentElement;
+    if (!rail || rail.scrollWidth <= rail.clientWidth) return;
+    var r = rail.getBoundingClientRect(), t = thumb.getBoundingClientRect();
+    rail.scrollLeft += (t.left + t.width / 2) - (r.left + r.width / 2);
+  }
+  thumbs.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).forEach(keepInView);
   function showPhoto(thumb, fromTab) {
     var img = document.querySelector("#model-photo > img");
     if (img.dataset.class === undefined) img.dataset.class = img.className;
     thumbs.forEach(function (b) { b.setAttribute("aria-pressed", b === thumb); });
+    keepInView(thumb);
     // The current photo keeps its own fit (Trek's is zoomed in on its white margin); a year photo is framed already.
     var small = thumb.querySelector("img");
     img.className = thumb.classList.contains("current") ? img.dataset.class : (small ? small.className : "");

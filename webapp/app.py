@@ -944,6 +944,10 @@ def create_app(db_path=None):
                for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
                                   reverse=True)]
         year_tabs = checks.year_tabs(model)
+        # Years before the first one with a photo or a spec sheet say nothing: the row starts there. A gap between
+        # two shown years stays, and the last year always shows.
+        first = next((i for i, t in enumerate(year_tabs) if t.get("image") or t.get("specs")), len(year_tabs) - 1)
+        year_tabs = year_tabs[first:]
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)

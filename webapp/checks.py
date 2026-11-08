@@ -455,19 +455,29 @@ BUILD_BRANDS = {"Ridley"}
 _BUILD_START = re.compile(r"\s+(?=(?:SRAM|Shimano|Campagnolo|Classified|Frameset)\b)", re.I)
 
 
-def split_build(model):
+def split_build(model, frames=False):
     """(model name, build) of a catalogue entry of a BUILD_BRANDS brand: ("Noah Fast 3.0", "Shimano Ultegra Di2
-    2x12"), ("Kanzo A", "Frameset"). Other brands, and a name without a build, give (name, None)."""
+    2x12"). Other brands and a name without a build give (name, None), and so does a frameset ("Kanzo A Frameset"):
+    on the site it is a model of its own. The matching passes frames=True, so the frame word counts as the build
+    there ("Kanzo A", "Frameset"): a complete-bike ad still finds the model on its own words, and the frameset and
+    the builds are one candidate for how sure we are."""
     name = model["name"]
     if model.get("brand") not in BUILD_BRANDS:
         return name, None
     parts = _BUILD_START.split(name, maxsplit=1)
-    return (parts[0], parts[1]) if len(parts) == 2 and parts[0] else (name, None)
+    if len(parts) < 2 or not parts[0] or (is_frameset({"name": parts[1]}) and not frames):
+        return name, None  # a frameset is a model of its own, never a build of the bike
+    return parts[0], parts[1]
+
+
+def same_model(a, b):
+    """Two entries of one model for the matching: its builds and its frameset ("Noah Fast 3.0 Frameset")."""
+    return a["brand"] == b["brand"] and split_build(a, frames=True)[0] == split_build(b, frames=True)[0]
 
 
 def without_build(model):
     """The entry under its model's name ("Noah Fast 3.0"), for the checks of the model's words; others as they are."""
-    base, build = split_build(model)
+    base, build = split_build(model, frames=True)
     return dict(model, name=base) if build else model
 
 
@@ -485,7 +495,7 @@ def is_frameset(model):
 
 
 def builds_of(model, models):
-    """Every build of this entry's model, cheapest first (the frameset among them), or [] for a model without builds."""
+    """Every build of this entry's model, cheapest first, or [] for a model without builds (and for a frameset)."""
     base, build = split_build(model)
     if not build:
         return []
@@ -862,7 +872,7 @@ def conflicts(model, text):
     ad_toks = _tokens(text)
     ad_pairs = _numbered(ad_toks)
     # (for a brand that names its builds, the model part: "GRX 600" in the build is no version of the model)
-    name_toks = _tokens(split_build(model)[0].split(" - ")[0])
+    name_toks = _tokens(split_build(model, frames=True)[0].split(" - ")[0])
     found = []
     for part, number in sorted(_numbered(name_toks)):
         # A frame size after the name ("Madone gen8 SL (56)") is no version: no model is an SL 56;
@@ -919,7 +929,7 @@ def match_models(models, title, description="", claims=None):
     brand_toks = {}
     for m in models:
         # (for a brand that names its builds, from the model part: "GRX" is a build word, not a model word)
-        brand_toks.setdefault(m["brand"], set()).update(_tokens(split_build(m)[0].split(" - ")[0]))
+        brand_toks.setdefault(m["brand"], set()).update(_tokens(split_build(m, frames=True)[0].split(" - ")[0]))
     title_words = {t for w in title.split() if not re.fullmatch(ELECTRONIC, w.lower()) for t in _tokens(w)
                    if not t.isdigit()}
     # A complete bike (a groupset, wheels, "compleet") is no frameset, unless the ad says it sells only the frame.
@@ -991,7 +1001,7 @@ def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, bran
     skip_next = False
     # A brand that names its builds: the build's words ("Shimano Ultegra Di2 2x12") only count when the ad has
     # them, so an ad with another groupset still lands on the right model; the groupset bonus below picks the build.
-    base, build = split_build(named)
+    base, build = split_build(named, frames=True)
     build_from = len(_tokens(base)) if build else len(name_toks)
     for i, tok in enumerate(name_toks):
         if i >= build_from:
@@ -1062,7 +1072,7 @@ def name_check(model, models, title, description=""):
     found = [w for w in words if all(t in ad_toks for t in _tokens(w)) and not set(_tokens(w)) <= clash_toks]
     missing = [w for w in words if w not in found and not set(_tokens(w)) <= clash_toks]
     model_toks = set(_tokens(model["name"]))
-    brand_toks = {t for m in models if m["brand"] == model["brand"] for t in _tokens(split_build(m)[0].split(" - ")[0])}
+    brand_toks = {t for m in models if m["brand"] == model["brand"] for t in _tokens(split_build(m, frames=True)[0].split(" - ")[0])}
     # "Di2", "AXS", "eTap", "EPS" say how it shifts, not which model it is: match_rate weighs that on its own.
     extra = []
     for w in title.split():
@@ -3113,7 +3123,7 @@ def run_check(models, listing, today=None):
     chosen_by_you = bool(chosen and ranked and (listing.get("model_id") or overrides.get("model"))
                          and chosen["id"] != ranked[0][1]["id"])
     # The builds of one model are one candidate for how sure we are: their scores differ only by the groupset.
-    one_each = list({(m["brand"], split_build(m)[0]): (sc, m) for sc, m in reversed(ranked)}.values())[::-1]
+    one_each = list({(m["brand"], split_build(m, frames=True)[0]): (sc, m) for sc, m in reversed(ranked)}.values())[::-1]
     level = confidence(one_each) if not chosen_by_you else None
     report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen,
@@ -3135,7 +3145,7 @@ def run_check(models, listing, today=None):
     if report["confidence"] and report["match"]:
         report["confidence"] = Msg(match_confidence(report["match"]["pct"],
                                                     [r["pct"] for r in report["matches"] if r is not report["match"]
-                                                     and not (builds and r["model"] in builds["all"])],
+                                                     and not same_model(r["model"], chosen)],
                                                     report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
     fitting = colour_match.fits(chosen, listing["title"], listing.get("description") or "")
