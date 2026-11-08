@@ -319,7 +319,6 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .year-rail .gallery-thumb { flex: 0 0 auto; width: 100%; flex-direction: row; align-items: baseline; justify-content: space-between; gap: 6px; padding: 7px 10px; border-radius: 9px; }
 .year-rail .gallery-thumb > :not(.gallery-year):not(.gallery-n) { display: none; }
 .year-rail .gallery-year { font-size: 13px; color: var(--text); background: none; }
-.year-rail .gallery-year.earlier { color: var(--warn); }
 .year-rail .gallery-n { font: 11px var(--mono); color: var(--muted); }
 .year-rail .gallery-thumb.empty .gallery-year { color: var(--muted); }
 .year-rail .gallery-thumb[aria-pressed="true"] { border: 1px solid var(--accent); box-shadow: none; background: rgba(52, 211, 153, .12); }
@@ -1270,9 +1269,7 @@ select { max-width: 100%; }
   .example-photo { min-height: 0; aspect-ratio: 4 / 3; }
 }
 /* Years of an earlier generation, as the age check marks them: amber in the facts, the year tabs and the thumbs. */
-.earlier-gen { margin-top: 2px; color: var(--warn); }
-.year-tab.earlier:not([aria-selected="true"]) { color: var(--warn); }
-.gallery-year.earlier { color: var(--warn); }
+.earlier-gen { margin-top: 2px; color: var(--muted); }
 /* The other angles of the year on show, under the photo. */
 .angle-strip { display: flex; gap: 6px; margin-top: 8px; padding: 3px; overflow-x: auto; scrollbar-width: none; }
 .angle-strip[hidden] { display: none; }
