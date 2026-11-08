@@ -373,6 +373,34 @@ def family_of(model_name):
     return toks[0] if toks else ""
 
 
+# Words before the model line that aren't the line: "S-Works Tarmac SL8", "Men's Diverge", "Liv Langma",
+# "700 Synapse" (Cannondale's wheel size), "Sagan Collection Roubaix", "Bugatti Factor ONE" (the ONE).
+_LINE_PREFIX = re.compile(r"^(?:(?:s-works|men's|women's|liv|700|bugatti factor|sagan collection)\s+)+", re.I)
+# Lines whose name is two words.
+_TWO_WORD_LINES = ("speed concept", "fx sport", "cross race")
+# Other spellings of a line: BMC's "UnReStricted One (URS)" is the URS.
+_LINE_ALIASES = {"unrestricted": "URS"}
+
+
+def model_line(name):
+    """The model line a catalogue name belongs to, for the models page's Model menu: "Madone SL 6 Gen 8" -> "Madone",
+    "S-Works Tarmac SL8" -> "Tarmac", "Speed Concept SLR 7" -> "Speed Concept", "Domane+ SLR 9" -> "Domane+".
+    Lines differing only in letter case ("CruX", "Crux") are one line once compared with line_key."""
+    rest = _LINE_PREFIX.sub("", (name or "").strip())
+    words = rest.split()
+    if not words:
+        return ""
+    two = " ".join(words[:2])
+    if two.lower() in _TWO_WORD_LINES:
+        return two
+    return _LINE_ALIASES.get(words[0].lower(), words[0])
+
+
+def line_key(line):
+    """The key the Model menu and its address use for a line: plain lowercase, "Émonda" -> "emonda"."""
+    return _plain(line)
+
+
 def scrape_year(model):
     """The model year of our own catalogue scrape: the year the brand gives the bike (Giant, Trek and others list
     next year's bikes from the autumn on), else the year of the scrape date. None without a scrape (an archived line)."""
