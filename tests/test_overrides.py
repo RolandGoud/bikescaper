@@ -113,3 +113,14 @@ def test_the_header_has_a_login_icon_and_once_logged_in_an_account_menu(tmp_path
     page = client.get("/?lang=en").get_data(as_text=True)
     assert 'id="account-menu"' in page and "Admin</button>" in page
     assert 'href="/admin"' in page and "Log out" in page and 'class="account-login"' not in page
+
+
+def test_logging_in_from_the_header_goes_to_the_admin_page(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    assert 'href="/admin/login"' in client.get(url).get_data(as_text=True)
+    response = client.post("/admin/login", data={"password": "geheim"})
+    assert response.status_code == 302 and response.headers["Location"].endswith("/admin")
+    # Sent to the login from a page that needs it: back to that page.
+    client.post("/admin/logout")
+    response = client.post("/admin/login", data={"password": "geheim", "next": "/admin?rechecked=1"})
+    assert response.headers["Location"].endswith("/admin?rechecked=1")
