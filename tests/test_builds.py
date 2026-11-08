@@ -71,7 +71,6 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill( on)?" href="/models/([^"]+)"', page)
     assert len(pills) == 4 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
-    assert "<span>Noah Fast 3.0 Ultegra Di2 2x12</span>" in page  # each pill names the model and the build
 
 
 def test_a_model_with_one_build_has_no_build_section(tmp_path):

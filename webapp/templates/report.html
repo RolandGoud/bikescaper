@@ -198,7 +198,7 @@
       <small>{% if bc.state == 'named' %}{{ _('Chosen by you') if r.chosen_by_you else _('The groupset in the ad') }}{% elif bc.state == 'other' %}{{ _('The ad names {groupset}, which {model} isn’t sold with today.', groupset=r.claims.groupset.name, model=r.model|model_base) }} {{ _('We work with {build}, the middle of its {n} builds, until you pick one.', build=label, n=bc.all|reject('is_frameset')|list|length) }}{% else %}{{ _('The ad names no groupset.') }} {{ _('We work with {build}, the middle of its {n} builds, until you pick one.', build=label, n=bc.all|reject('is_frameset')|list|length) }}{% endif %}</small></div>
     <div class="build-row">{% for b in bc.all %}{% set off = b|is_frameset and not bc.frame_only and b.id != r.model.id %}
       <form method="post" action="{{ url_for('change_match', check_id=listing.id) }}"><input type="hidden" name="model_id" value="{{ b.id }}">
-        <button class="build-pill{{ ' on' if b.id == r.model.id and bc.state == 'named' }}{{ ' used' if b.id == r.model.id and bc.state != 'named' }}{{ ' off' if off }}" type="submit"{% if off %} title="{{ _('The ad sells a complete bike') }}"{% endif %}><span>{{ (b|model_base)|model_title }} {{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></button></form>{% endfor %}
+        <button class="build-pill{{ ' on' if b.id == r.model.id and bc.state == 'named' }}{{ ' used' if b.id == r.model.id and bc.state != 'named' }}{{ ' off' if off }}" type="submit"{% if off %} title="{{ _('The ad sells a complete bike') }}"{% endif %}><span>{{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></button></form>{% endfor %}
     </div>
   </section>
   {% endif %}
