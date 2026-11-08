@@ -842,7 +842,8 @@ def create_app(db_path=None):
                                                 for k, g in e["models"].items()), key=lambda g: g["name"].lower())}
                              for key, e in lines.items()), key=lambda e: (-e["count"], e["name"].lower()))
         # ?model= is a model or a whole line; ?line= is what the menu used to send
-        model = (request.args.get("model") or request.args.get("line") or None) if len(picked) == 1 else None  # one brand's menu
+        # (keyed again, so the older keys "domane+" and "speed concept" still find their line)
+        model = (checks.line_key(request.args.get("model") or request.args.get("line") or "") or None) if len(picked) == 1 else None
         picked_line = next((e for e in model_menu if e["key"] == model), None)
         picked_model = None if picked_line else next((g for e in model_menu for g in e["models"] if g["key"] == model), None)
         model = model if picked_line or picked_model else None

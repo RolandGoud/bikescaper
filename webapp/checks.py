@@ -441,7 +441,7 @@ def line_key(name):
 def model_group(name):
     """The model a catalogue name belongs to whatever its generation or edition, for the Model menu:
     "Madone SL 7 Gen 8 - The First 50 Replica" -> "Madone SL 7", "Madone SLR frameset Gen 7" -> "Madone SLR frameset"."""
-    return family_name((name or "").split(" - ")[0])
+    return family_name(re.split(r"\s+[-\u2013]\s+", name or "")[0])
 
 
 def scrape_year(model):
