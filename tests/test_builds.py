@@ -92,3 +92,11 @@ def test_the_frameset_is_one_candidate_with_the_builds(models):
     report = checks.run_check(models, {"title": "Ridley Noah Fast 3.0 Ultegra Di2", "description": "", "asking_price": 6000})
     others = [r["pct"] for r in report["matches"] if not checks.same_model(r["model"], report["model"])]
     assert str(report["confidence"]) != "medium" or not others or max(others) >= report["match"]["pct"] - 15
+
+
+def test_a_frameset_check_doesnt_count_the_builds_as_rivals(models):
+    report = checks.run_check(models, {"title": "Ridley Noah Fast 3.0 frameset maat M", "description": "", "asking_price": 2500})
+    assert report["model"]["name"] == "Noah Fast 3.0 Frameset" and report["builds"] is None
+    rivals = [r["pct"] for r in report["matches"] if r is not report["match"]
+              and not checks.same_model(r["model"], report["model"])]
+    assert report["confidence"].text == checks.match_confidence(report["match"]["pct"], rivals, report.get("not_exact"))

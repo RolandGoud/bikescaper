@@ -3145,7 +3145,7 @@ def run_check(models, listing, today=None):
     if report["confidence"] and report["match"]:
         report["confidence"] = Msg(match_confidence(report["match"]["pct"],
                                                     [r["pct"] for r in report["matches"] if r is not report["match"]
-                                                     and not (builds and same_model(r["model"], chosen))],
+                                                     and not same_model(r["model"], chosen)],
                                                     report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
     fitting = colour_match.fits(chosen, listing["title"], listing.get("description") or "")
