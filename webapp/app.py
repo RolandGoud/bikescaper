@@ -4,6 +4,8 @@ Run from the repo root:
     python -m webapp.seed
     flask --app webapp.app run --debug
 """
+import hashlib
+import hmac
 import json
 from collections import Counter
 import os
@@ -15,7 +17,7 @@ import threading
 from datetime import date
 
 from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, redirect, render_template, request,
-                   send_from_directory, url_for)
+                   send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
@@ -163,6 +165,12 @@ def create_app(db_path=None):
     app.config["GROUPSET_SHOPS_PATH"] = groupset_shops.PATH
     # The groupsets page is hidden for now: off the menu and a 404, unless SHOW_GROUPSETS is set.
     app.config["SHOW_GROUPSETS"] = bool(os.environ.get("SHOW_GROUPSETS"))
+    # The report's edit mode (correcting a check's model, year, groupset, size and main photo) needs an admin login,
+    # with the password in ADMIN_PASSWORD; without one set, nobody can log in. The session cookie is signed with
+    # SECRET_KEY, else with a key made from the password, so it stays the same across restarts and workers.
+    app.config["ADMIN_PASSWORD"] = os.environ.get("ADMIN_PASSWORD") or None
+    app.secret_key = os.environ.get("SECRET_KEY") or hashlib.sha256(
+        b"bikecheck-admin:" + (app.config["ADMIN_PASSWORD"] or secrets.token_hex(16)).encode()).hexdigest()
 
     @app.url_defaults
     def static_version(endpoint, values):
@@ -221,8 +229,8 @@ def create_app(db_path=None):
             return found if p.startswith(prefix) and os.path.exists(found) else None
         def left(p):
             return bike_fit.faces_left(path(p)) if path(p) else None
-        if not photos:
-            return None
+        if not photos or photos[0] in g.get("pinned", ()):
+            return photos[0] if photos else None  # an admin's pick of the main photo stays first, facing either way
         catalogue = os.path.join(ROOT, "images", model["image"]) if model and model.get("image") else None
         if not catalogue or not os.path.exists(catalogue) or not path(photos[0]):
             return photos[0]
@@ -313,7 +321,16 @@ def create_app(db_path=None):
     def listing_dict(row, height=None, count=1):
         listing = dict(row)
         listing["times_checked"] = count
+        try:
+            listing["overrides"] = json.loads(listing.get("overrides") or "{}") or {}
+        except ValueError:
+            listing["overrides"] = {}
         photos = json.loads(listing["photos"]) if listing.get("photos") else []
+        shown = lambda p: url_for("ad_photo", name=p) if ad_photos.is_stored(p) else p
+        # The photos in the ad's own order, for the edit mode's main-photo picker.
+        listing["ad_order"] = [(i, shown(p)) for i, p in enumerate(photos)]
+        main = listing["overrides"].get("main_photo")
+        pinned = isinstance(main, int) and 0 <= main < len(photos)
         if any(not ad_photos.is_stored(p) for p in photos) and app.config.get("STORE_AD_PHOTOS", True):
             store_photos_later(listing["id"])  # also picks up checks made before photos were stored
         # The stored photos on disk, for reading the bike's colour from them.
@@ -333,7 +350,12 @@ def create_app(db_path=None):
         by_eye = (listing["photo_groupset"] or {}).get("source") == "eye"
         if names and listing.get("id") is not None and not (by_eye and not photo_groupset.outdated(listing["photo_groupset"])):
             photo_groupset.read_later(photo_folder, listing["id"], names)  # only when these photos weren't read yet
-        listing["photos"] = [p if not ad_photos.is_stored(p) else url_for("ad_photo", name=p) for p in photos]
+        listing["photos"] = [shown(p) for p in photos]
+        if pinned:
+            # The photo an admin picked goes first, in what's shown only (the big one, the slider's, the cards'):
+            # the photo reads above go by the ad's own order, so they aren't done again.
+            listing["photos"].insert(0, listing["photos"].pop(main))
+            g.setdefault("pinned", set()).add(listing["photos"][0])
         if height:
             listing["rider_height"] = height
         return listing
@@ -509,7 +531,20 @@ def create_app(db_path=None):
                                    "diff": checks.fact_differences(own, facts)}))
         # A French ad (2dehands, Wallonia) is shown in the visitor's language, the original a click away.
         translated = ad_translate.for_page(ad_photos.folder(app.config["DB_PATH"]), check_id, row["description"], g.lang)
+        edit = None
+        if request.args.get("edit") and is_admin():
+            # The edit mode: what the matching finds by itself next to what's set by hand, and the choices.
+            own = listing_dict(row)
+            auto = checks.run_check(models(), dict(own, overrides={})) if own["overrides"] else result
+            model = result.get("model")
+            edit = {"auto": auto, "overrides": own["overrides"], "ad_order": own["ad_order"],
+                    "years": list(range(date.today().year + 1, checks.FIRST_YEAR - 1, -1)),
+                    # The model's own sizes first, then the brand's other ones (letters for a chart in cm).
+                    "sizes": list(dict.fromkeys([*checks.model_size_chart(model)["sizes"], *checks.size_options(model["brand"])]))
+                    if model else [],
+                    "groupsets": checks.groupset_choices()}
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
+                               edit=edit,
                                translated=translated,
                                checked_at=stored_checks.computed_at(conn(), check_id),
                                all_models=models(), asking=asking, nav="check", other_ads=other_ads,
@@ -566,6 +601,73 @@ def create_app(db_path=None):
         conn().execute("UPDATE checks SET model_id = ? WHERE id = ?", (model_id, check_id))
         conn().commit()
         return redirect(url_for("report", check_id=check_id))
+
+    def is_admin():
+        return bool(app.config["ADMIN_PASSWORD"] and session.get("admin"))
+
+    app.jinja_env.globals["is_admin"] = is_admin
+
+    @app.route("/admin/login", methods=["GET", "POST"])
+    def admin_login():
+        """Log in for the report's edit mode. `next` is where to go after: only a path on this site."""
+        back = request.values.get("next") or ""
+        back = back if back.startswith("/") and not back.startswith("//") else url_for("admin")
+        error = None
+        if request.method == "POST":
+            password = app.config["ADMIN_PASSWORD"]
+            if password and hmac.compare_digest(request.form.get("password", "").encode(), password.encode()):
+                session.clear()
+                session["admin"] = True
+                session.permanent = True
+                return redirect(back)
+            error = gettext("That's not the password.")
+        return render_template("admin_login.html", nav=None, next=back, error=error,
+                               configured=bool(app.config["ADMIN_PASSWORD"])), 400 if error else 200
+
+    @app.route("/admin/logout", methods=["POST"])
+    def admin_logout():
+        session.clear()
+        return redirect(request.form.get("next") if (request.form.get("next") or "").startswith("/") else url_for("home"))
+
+    @app.route("/check/<int:check_id>/override", methods=["POST"])
+    def set_override(check_id):
+        """Set one of a check's values by hand (checks.OVERRIDE_KEYS), or with `clear` hand it back to the matching.
+        The report runs again by itself (its inputs changed) and every recheck keeps it."""
+        if not is_admin():
+            abort(403)
+        row = conn().execute("SELECT overrides, photos FROM checks WHERE id = ?", (check_id,)).fetchone()
+        if row is None:
+            abort(404)
+        field = request.form.get("field")
+        if field not in checks.OVERRIDE_KEYS and field != "all":
+            abort(400)
+        overrides = json.loads(row["overrides"] or "{}") or {}
+        if field == "all":
+            overrides = {}
+        elif request.form.get("clear"):
+            overrides.pop(field, None)
+        else:
+            value = (request.form.get("value") or "").strip()
+            if field == "model":
+                value = value if any(m["slug"] == value for m in models()) else None
+            elif field == "year":
+                value = int(value) if value.isdigit() and 1980 <= int(value) <= date.today().year + 1 else None
+            elif field == "size":
+                value = value[:12] or None
+            elif field == "groupset":
+                key, _sep, tier = value.partition(":")
+                value = {"key": key, "tier": int(tier) if tier.isdigit() else None,
+                         "electronic": bool(request.form.get("electronic"))}
+                value = value if checks.groupset_claim(value) else None
+            elif field == "main_photo":
+                count = len(json.loads(row["photos"])) if row["photos"] else 0
+                value = int(value) if value.isdigit() and int(value) < count else None
+            if value is None:
+                abort(400)
+            overrides[field] = value
+        conn().execute("UPDATE checks SET overrides = ? WHERE id = ?", (json.dumps(overrides) if overrides else None, check_id))
+        conn().commit()
+        return redirect(url_for("report", check_id=check_id, edit=1) + "#" + {"main_photo": "ad-photos"}.get(field, "edit-" + field))
 
     @app.route("/check/<int:check_id>/recheck", methods=["POST"])
     def recheck_report(check_id):

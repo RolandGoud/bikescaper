@@ -1761,6 +1761,9 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
         return first or last
 
     claimed = claims["year"]
+    if claimed and claims.get("year_from") == "admin":
+        # Set by hand: that year, whatever the details or the colour say.
+        return {"year": claimed, "how": "ad", "reliable": True, "first": claimed, "last": claimed}
     other = bool(age.get("earlier") or age.get("older"))
     # A generation we know of comes with another new price; one older than any we know we can't disprove, so we
     # go by the year in the ad (check_age's "probably older").
@@ -2906,8 +2909,55 @@ def seller_questions(model, claims, age, specs, size, material_alert=None):
     return qs[:6]
 
 
+# What an admin can set by hand on a check (the report's edit mode, webapp/app.py set_override), kept in
+# checks.overrides as JSON: the model (its slug, which survives a catalogue reload), the model year, the groupset
+# ({"key", "tier", "electronic"}), the frame size, and the ad photo shown first (its name as checks.photos has it).
+# A recheck runs the matching again but keeps these: they win over what the ad's words and photos say.
+OVERRIDE_KEYS = ("model", "year", "groupset", "size", "main_photo")
+
+
+def groupset_choices():
+    """The groupsets an admin can pick: [{"key", "tier", "name"}], one per key and tier (GRX comes in three)."""
+    seen, out = set(), []
+    for key, name, _pattern, tier in GROUPSETS:
+        if (key, tier) not in seen:
+            seen.add((key, tier))
+            out.append({"key": key, "tier": tier, "name": name})
+    grx = [g for g in out if g["key"] == "grx"]
+    for g, series in zip(grx, ("400", "600", "800")):
+        g["name"] = f"Shimano GRX {series}"
+    return out
+
+
+def groupset_claim(chosen):
+    """A groupset set by hand ({"key", "tier", "electronic"}) as read_claims gives one, or None when unknown."""
+    found = next((g for g in groupset_choices() if g["key"] == chosen.get("key")
+                  and (chosen.get("tier") is None or g["tier"] == chosen["tier"])), None)
+    if not found:
+        return None
+    electronic = bool(chosen.get("electronic"))
+    return {"key": found["key"], "name": found["name"], "tier": found["tier"], "electronic": electronic,
+            "label": found["name"] + (" (electronic)" if electronic else ""), "by_hand": True}
+
+
+def apply_overrides(claims, overrides):
+    """The ad's claims with the year, groupset and size an admin set by hand in their place."""
+    if not overrides:
+        return claims
+    claims = dict(claims)
+    if overrides.get("year"):
+        claims.update(year=int(overrides["year"]), year_is_purchase=False, year_from="admin")
+    if overrides.get("size"):
+        claims["size"] = str(overrides["size"])
+    if overrides.get("groupset") and (group := groupset_claim(overrides["groupset"])):
+        claims["groupset"] = group
+    return claims
+
+
 def run_check(models, listing, today=None):
-    """listing: dict with title, description, asking_price, rider_height, model_id (optional override)."""
+    """listing: dict with title, description, asking_price, rider_height, model_id (optional override), and
+    overrides (what an admin set by hand, see OVERRIDE_KEYS; optional)."""
+    overrides = listing.get("overrides") or {}
     claims = read_claims(listing["title"], listing.get("description"))
     if claims["year"] is None and claims.get("age_years"):
         # Check 133's "2j oud": the year the ad was placed (else the day of the check) minus the age it gives.
@@ -2919,17 +2969,23 @@ def run_check(models, listing, today=None):
         # The ad gives no year, the receipt in its photos does: its model year, else the year it was bought.
         claims = dict(claims, year=receipt["model_year"] or receipt["year"], year_is_purchase=not receipt["model_year"],
                       year_from="receipt")
+    claims = apply_overrides(claims, overrides)
     ranked = match_models(models, listing["title"], listing.get("description") or "", claims)
     chosen = None
-    if listing.get("model_id"):
+    if overrides.get("model"):  # set by an admin: wins over a visitor's pick and over the matching
+        chosen = next((m for m in models if m["slug"] == overrides["model"]), None)
+    if chosen is None and listing.get("model_id"):
         chosen = next((m for m in models if m["id"] == listing["model_id"]), None)
     if chosen is None and ranked:
         chosen = ranked[0][1]
     # Picking our own suggestion again brings back our confidence; another model is the visitor's call.
-    chosen_by_you = bool(chosen and ranked and listing.get("model_id") and chosen["id"] != ranked[0][1]["id"])
+    chosen_by_you = bool(chosen and ranked and (listing.get("model_id") or overrides.get("model"))
+                         and chosen["id"] != ranked[0][1]["id"])
     level = confidence(ranked) if not chosen_by_you else None
     report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
-              "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen}
+              "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen,
+              # Which of OVERRIDE_KEYS an admin set by hand, for the edit mode's locks.
+              "locked": sorted(k for k in OVERRIDE_KEYS if overrides.get(k))}
     if chosen is None:
         return report
     if not chosen_by_you:
@@ -2991,6 +3047,10 @@ def run_check(models, listing, today=None):
         report["colourway"] = None
         report["model"] = dict(chosen, image=found[1], year_photo=True)
     report["age_tab"] = age_summary(report["age"], report["year_estimate"], report["year"])
+    if claims.get("year_from") == "admin":
+        # We looked up the year ourselves: that leads the tab, whatever the ad's clues said.
+        report["age_tab"] = {"status": OK, "headline": Msg("Model year {year}", year=claims["year"]),
+                             "detail": Msg("We checked this year by hand.")}
     if report["year"]["how"] == "older" and report["match"] and (report["match"].get("shifting") or {}).get("same") is False:
         # A generation older than any we know may well shift otherwise than today's: that's no mismatch.
         report["match"] = dict(report["match"], shifting=None)
