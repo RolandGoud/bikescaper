@@ -69,7 +69,7 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     assert "Noah Fast 3.0 Frameset" in titles  # a frameset is a tile of its own, never a build
     assert "4 builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
-    pills = re.findall(r'class="build-pill( on)?" href="/models/([^"]+)"', page)
+    pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"]+)"', page)
     assert len(pills) == 4 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
 
 
@@ -110,3 +110,26 @@ def test_the_model_page_starts_at_the_first_year_it_knows(tmp_path):
     page = app.test_client().get("/models/trek-madone-sl-6-gen-8?lang=nl").get_data(as_text=True)
     assert f'id="tab-{first}"' in page and f'id="tab-{first - 1}"' not in page
     assert f'id="tab-{tabs[-1]["year"]}"' in page  # the last year always shows
+
+
+def test_trek_names_split_into_model_build_generation_and_edition():
+    assert checks.trek_parts("Madone SLR 9 AXS Gen 8 - No. 76 ICON") == ("Madone SLR", "9 AXS", 8, "No. 76 ICON")
+    assert checks.trek_parts("Madone SL Disc Gen 6 frameset") == ("Madone SL Disc frameset", None, 6, None)
+    assert checks.trek_parts("Checkpoint AL 3 Gen 1")[:2] == ("Checkpoint ALR", "3")  # Trek's old name for the line
+    assert checks.trek_parts("Domane SLR 9 AXS No. 76 Gen 5")[:2] == ("Domane SLR", "9 AXS")
+    assert checks.model_group("Madone SL 7 Gen 8 - The First 50 Replica", "Trek") == "Madone SL"
+
+
+def test_trek_model_page_lists_each_build_once(models):
+    gen6 = next(m for m in models if m["slug"] == "trek-madone-sl-6-gen-6")
+    builds = checks.builds_of(gen6, models)
+    labels = [checks.build_label(b) for b in builds]
+    assert len(labels) == len(set(labels)) and "7" in labels and "6" in labels
+    assert not any("First 50" in b["name"] or "frameset" in b["name"] for b in builds)  # a colour; a model of its own
+    # by number, then tier low to high
+    numbers = [int(l.split()[0]) for l in labels]
+    assert numbers == sorted(numbers)
+    sevens = [checks.model_tier(b) or 0 for b in builds if checks.build_label(b).startswith("7")]
+    assert sevens == sorted(sevens)
+    # the 6 of every generation is one build: the newest one
+    assert next(b for b in builds if checks.build_label(b) == "6")["name"] == "Madone SL 6 Gen 8"

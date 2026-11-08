@@ -37,12 +37,15 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     client = app.test_client()
     menu = _menu(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True))
     labels = dict((k, label) for k, label, _n in menu)
-    assert labels["madone"] == "All Madone" and labels["madone-sl-7"] == "Madone SL 7"
+    assert labels["madone"] == "All Madone" and labels["madone-sl"] == "Madone SL" and "madone-sl-7" not in labels
+    assert labels["madone-sl-frameset"] == "Madone SL frameset"  # a frameset is a model of its own
     assert "domane-plus" in labels and not any("gen" in k for k in labels)
-    # one Madone SL 7 holds every generation
-    sl7 = _cards(client.get("/models?brand=Trek&model=madone-sl-7&current=0").get_data(as_text=True))
-    assert any("gen-7" in s for s in sl7) and any("gen-8" in s for s in sl7)
-    assert all("madone-sl-7" in s for s in sl7)
+    # one Madone SL holds every build and generation: one tile
+    sl = _cards(client.get("/models?brand=Trek&model=madone-sl&current=0").get_data(as_text=True))
+    assert len(sl) == 1 and "madone-sl-" in sl[0] and "frameset" not in sl[0]
+    # the address of a build from before still finds its model
+    assert _cards(client.get("/models?brand=Trek&model=madone-sl-7&current=0").get_data(as_text=True)) == sl
+    sl7 = sl
     # the whole line
     madone = _cards(client.get("/models?brand=Trek&model=madone&current=0").get_data(as_text=True))
     assert len(madone) > len(sl7) and all("madone" in s for s in madone)
@@ -54,8 +57,8 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     speed = _cards(client.get("/models?brand=Trek&line=speed+concept&current=0").get_data(as_text=True))
     assert speed and all("speed-concept" in s for s in speed)
     # a model of another brand is ignored once the brand changes
-    assert "No models match." not in client.get("/models?brand=Canyon&model=madone-sl-7&current=0").get_data(as_text=True)
+    assert "No models match." not in client.get("/models?brand=Canyon&model=madone-sl&current=0").get_data(as_text=True)
     # no brand picked: the menu is greyed out and a model in the address is ignored
-    html = client.get("/models?model=madone-sl-7&current=0").get_data(as_text=True)
+    html = client.get("/models?model=madone-sl&current=0").get_data(as_text=True)
     assert re.search(r'<select name="model" disabled>', html)
     assert len(_cards(html)) > len(sl7)

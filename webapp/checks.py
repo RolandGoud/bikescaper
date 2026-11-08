@@ -442,9 +442,9 @@ def model_group(name, brand=None):
     """The model a catalogue name belongs to whatever its generation or edition, for the Model menu:
     "Madone SL 7 Gen 8 - The First 50 Replica" -> "Madone SL 7", "Madone SLR frameset Gen 7" -> "Madone SLR frameset";
     for a brand that names its builds, without the build: "Noah Fast 3.0 Shimano Ultegra Di2 2x12" -> "Noah Fast 3.0"."""
+    if brand in SITE_BUILD_BRANDS:
+        return site_split({"name": name or "", "brand": brand})[0]
     name = re.split(r"\s+[-\u2013]\s+", name or "")[0]
-    if brand in BUILD_BRANDS:
-        name = split_build({"name": name, "brand": brand})[0]
     return family_name(name)
 
 
@@ -470,6 +470,49 @@ def split_build(model, frames=False):
     return parts[0], parts[1]
 
 
+# Brands whose builds the site shows under one model: Ridley names them by groupset (split_build), Trek by the
+# number after the model ("Madone SL 6 AXS Gen 8": the Madone SL, build 6 AXS). Trek's generations are model years
+# of the same build, and its special editions ("- The First 50 Replica", "No. 76") a colour of their build.
+SITE_BUILD_BRANDS = {"Ridley", "Trek"}
+# Trek's older names for a line it still sells under another one.
+TREK_RENAMED = {"Checkpoint AL": "Checkpoint ALR", "Domane+ AL": "Domane+ ALR"}
+_TREK_GEN = re.compile(r"\s*\b[Gg]en\s*(\d+)\b")
+_TREK_EDITION = re.compile(r"(?:\s+[-\u2013]\s+.*|\s+No\.\s*\d+.*|\s+Driftless\b.*)$")
+
+
+def trek_parts(name):
+    """(model, build, generation, edition) of a Trek catalogue name: "Madone SLR 9 AXS Gen 8 - No. 76 ICON" gives
+    ("Madone SLR", "9 AXS", 8, "No. 76 ICON"), "Madone SLR frameset Gen 7" gives ("Madone SLR frameset", None, 7,
+    None). The build is the number and what follows it; a name without a number has none."""
+    gen = _TREK_GEN.search(name)
+    rest = _TREK_GEN.sub("", name).strip()
+    edition = _TREK_EDITION.search(rest)
+    if edition:
+        rest = rest[:edition.start()].strip()
+    edition = edition.group(0).strip(" -\u2013") if edition else None
+    rest = re.sub(r"\s+", " ", rest)
+    if re.search(r"\bframe\s*set\b", rest, re.I):  # a frameset is a model of its own, whatever its generation
+        model = re.sub(r"\s*\bframe\s*set\b", "", rest, flags=re.I).strip() + " frameset"
+        return model, None, int(gen.group(1)) if gen else None, edition
+    words = rest.split(" ")
+    at = next((i for i, w in enumerate(words) if i and re.fullmatch(r"\d+", w)), None)
+    model, build = (" ".join(words[:at]), " ".join(words[at:])) if at else (rest, None)
+    for old, new in TREK_RENAMED.items():
+        if model == old:
+            model = new
+    return model, build, int(gen.group(1)) if gen else None, edition
+
+
+def site_split(model):
+    """(model name, build) as the site groups a catalogue entry: one tile and one model page per model, with its
+    builds as pills. ("Noah Fast 3.0", "Shimano Ultegra Di2 2x12"), ("Madone SL", "6 AXS"), ("Madone SL frameset",
+    None); other brands (name, None)."""
+    if model.get("brand") == "Trek":
+        name, build, _gen, _edition = trek_parts(model["name"])
+        return name, build
+    return split_build(model)
+
+
 def same_model(a, b):
     """Two entries of one model for the matching: its builds and its frameset ("Noah Fast 3.0 Frameset")."""
     return a["brand"] == b["brand"] and split_build(a, frames=True)[0] == split_build(b, frames=True)[0]
@@ -482,9 +525,8 @@ def without_build(model):
 
 
 def build_label(model):
-    """The build as the switcher names it: "Ultegra Di2", "Frameset", "GRX 600 2x12" (without the brand of
-    the groupset, and without the gearing when that's all the builds share)."""
-    build = split_build(model)[1]
+    """The build as the switcher names it: "Ultegra Di2 2x12" (without the brand of the groupset), "6 AXS"."""
+    build = site_split(model)[1]
     if not build:
         return None
     return re.sub(r"^(?:Shimano|SRAM|Campagnolo)\s+", "", build, flags=re.I)
@@ -494,13 +536,35 @@ def is_frameset(model):
     return bool(re.search(r"\bframe\s*set\b|\bframeset\b", model["name"], re.I))
 
 
+def _build_order(m):
+    """Builds as the switcher lists them: by their number ("5", "6 AXS", "7"), then spec tier low to high, then price."""
+    number = re.match(r"\d+", build_label(m) or "")
+    return (int(number.group()) if number else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
+
+
+def _representative(entries):
+    """The entry that stands for a build sold over several generations or in an edition: the one on sale,
+    the plain one rather than an edition, the newest generation, the cheapest."""
+    def rank(m):
+        _model, _build, gen, edition = trek_parts(m["name"]) if m["brand"] == "Trek" else (None, None, None, None)
+        return (catalogue_status(m)[0] != "current", bool(edition), -(gen or 0),
+                -(scrape_year(m) or 0), m.get("price_eur") or 1e9, m["name"])
+    return min(entries, key=rank)
+
+
 def builds_of(model, models):
-    """Every build of this entry's model, cheapest first, or [] for a model without builds (and for a frameset)."""
-    base, build = split_build(model)
-    if not build:
+    """Every build of this entry's model, one entry each (a build of several generations or editions is one), in
+    the switcher's order; [] for a model without builds and for a frameset."""
+    base, build = site_split(model)
+    if model.get("brand") not in SITE_BUILD_BRANDS or (not build and not base):
         return []
-    return sorted((m for m in models if m["brand"] == model["brand"] and split_build(m)[0] == base),
-                  key=lambda m: (m.get("price_eur") or 0, m["name"]))
+    same = [m for m in models if m["brand"] == model["brand"] and site_split(m)[0] == base]
+    by_label = {}
+    for m in same:
+        by_label.setdefault(build_label(m) or "", []).append(m)
+    if len(by_label) < 2 and not build:
+        return []
+    return sorted((_representative(entries) for entries in by_label.values()), key=_build_order)
 
 
 def scrape_year(model):

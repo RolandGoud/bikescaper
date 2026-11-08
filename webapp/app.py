@@ -259,7 +259,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.filters["without_generation"] = checks.without_generation
     app.jinja_env.filters["split_title"] = checks.split_title  # the name, year, size and colour in an ad title
-    app.jinja_env.filters["model_base"] = lambda m: checks.split_build(m)[0]  # "Noah Fast 3.0", without the build
+    app.jinja_env.filters["model_base"] = lambda m: checks.site_split(m)[0]  # "Noah Fast 3.0", "Madone SL": no build
     app.jinja_env.filters["build_label"] = checks.build_label  # "Ultegra Di2 2x12"
     app.jinja_env.filters["is_frameset"] = app.jinja_env.tests["is_frameset"] = checks.is_frameset
     app.jinja_env.filters["model_group"] = checks.model_group  # "Madone SL 6 Gen 8" -> "Madone SL 6", in the Model menu
@@ -823,18 +823,7 @@ def create_app(db_path=None):
                  for m in models() if (not q or q in m["name"].lower())
                  and (not groupset or groupset_key(m) == groupset)]
         items = [m for m in items if not current or m["status"] == "current"]
-        # A brand that lists every build as its own entry: one tile per model, its cheapest build, with the count.
-        tiles = {}
-        for m in items:
-            base, build = checks.split_build(m)
-            key = (m["brand"], base) if build else ("", m["id"])
-            if key in tiles:
-                tiles[key]["build_count"] += 1
-                if (m["price_eur"] or 0) < (tiles[key]["price_eur"] or 0):
-                    tiles[key] = dict(m, build_count=tiles[key]["build_count"])
-            else:
-                tiles[key] = dict(m, build_count=1) if build else m
-        items = list(tiles.values())
+        items = model_tiles(items)
         # each brand's count in the brand menu: what picking it would show with the other filters kept
         brand_counts = Counter(m["brand"] for m in items
                                if (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind))
@@ -860,6 +849,11 @@ def create_app(db_path=None):
         # (keyed again, so the older keys "domane+" and "speed concept" still find their line)
         model = (checks.line_key(request.args.get("model") or request.args.get("line") or "") or None) if len(picked) == 1 else None
         picked_line = next((e for e in model_menu if e["key"] == model), None)
+        keys = {g["key"] for e in model_menu for g in e["models"]}
+        # an older address with the build in the model ("madone-sl-7", from before Trek's builds): its model
+        while model and not picked_line and model not in keys and "-" in model:
+            model = model.rsplit("-", 1)[0]
+            picked_line = next((e for e in model_menu if e["key"] == model), None)
         picked_model = None if picked_line else next((g for e in model_menu for g in e["models"] if g["key"] == model), None)
         model = model if picked_line or picked_model else None
         if picked_line:
@@ -926,15 +920,34 @@ def create_app(db_path=None):
                                shops=groupset_shops.links(groupset_shops.load(app.config["GROUPSET_SHOPS_PATH"]), gen),
                                nav="groupsets")
 
+    def model_tiles(items):
+        """One tile per model for a brand that lists every build (and Trek every generation) as its own entry: its
+        cheapest build, with the number of builds. Other entries stay as they are."""
+        tiles, labels = {}, {}
+        for m in items:
+            if m["brand"] not in checks.SITE_BUILD_BRANDS:
+                tiles[("", m["id"])] = m
+                continue
+            key = (m["brand"], checks.site_split(m)[0])
+            labels.setdefault(key, set()).add(checks.build_label(m) or "")
+            if key not in tiles or (m["price_eur"] or 1e9) < (tiles[key]["price_eur"] or 1e9):
+                tiles[key] = m
+        return [dict(m, build_count=len(labels[key])) if key in labels else m for key, m in tiles.items()]
+
     @app.route("/models/<slug>")
     def model_page(slug):
         model = db.get_model(conn(), slug=slug)
         if model is None:
             abort(404)
-        builds = checks.builds_of(model, models())  # a model with builds: the switcher under its name
-        siblings = sorted((dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m)) for m in models()
-                           if checks.family_of(m["name"]) == checks.family_of(model["name"])
-                           and m["brand"] == model["brand"] and m["id"] != model["id"] and m not in builds),
+        # a model with builds: the switcher under its name, each build with its spec tier as its colour
+        builds = [dict(b, tier=checks.model_tier(b)) for b in checks.builds_of(model, models())]
+        own = checks.site_split(model)[0]
+        siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))
+                                       for m in models()
+                                       if checks.family_of(m["name"]) == checks.family_of(model["name"])
+                                       and m["brand"] == model["brand"] and m["id"] != model["id"]
+                                       and not (model["brand"] in checks.SITE_BUILD_BRANDS
+                                                and checks.site_split(m)[0] == own)]),
                           key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
         size_chart = checks.model_size_chart(model)
         known = prices.known_ads(conn(), models())
