@@ -37,12 +37,12 @@
       {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
       <label class="field-label">{{ _('Type') }}
         <select name="type" onchange="this.form.requestSubmit()">
-          <option value="" data-label="{{ _('All types') }}" data-count="{{ count }}">{{ _('All types') }} ({{ count }})</option>
-          {% for key, label in disciplines %}{% if counts[key] or kind == key %}<option data-label="{{ _(label) }}" data-count="{{ counts[key] }}" value="{{ key }}" {{ 'selected' if kind == key }}>{{ _(label) }} ({{ counts[key] }})</option>{% endif %}{% endfor %}
+          <option value="" data-label="{{ _('All types') }}" data-icon="{{ url_for('static', filename='types/all.svg') }}">{{ _('All types') }}</option>
+          {% for key, label in disciplines %}{% if counts[key] or kind == key %}<option data-label="{{ _(label) }}" data-icon="{{ url_for('static', filename='types/' ~ key ~ '.svg') }}" value="{{ key }}" {{ 'selected' if kind == key }}>{{ _(label) }}</option>{% endif %}{% endfor %}
         </select>
       </label>
       {# pill-select.js turns the selects into menus of pills: data-tier gives an option its tier's colour,
-         data-label and data-count its text and the count on the right. #}
+         data-label and data-count its text and the count on the right, data-icon a type's line drawing before the name. #}
       <label class="field-label">{{ _('Spec tier') }}
         <select name="tier" onchange="this.form.requestSubmit()">
           <option value="" data-label="{{ _('All tiers') }}" data-count="{{ tier_counts.values()|sum }}">{{ _('All tiers') }}</option>

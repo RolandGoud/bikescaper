@@ -9,6 +9,7 @@
 // shows every matching option under its family instead. Options there show their data-short label.
 // An option with data-logo (an image URL) shows that logo instead of its name, in the pill and in the closed button,
 // tinted in the text colour so it reads on the dark pills. The name stays for screen readers and the search box.
+// An option with data-icon (an image URL: the bike types' line drawings) shows that icon before its name, tinted the same way.
 // A list too long for the menu has no scrollbar: a round arrow button shows centred above and/or below the visible
 // pills while there's more that way, over a fade. Clicking one scrolls a few rows; the wheel, swipes and keys work as before.
 (() => {
@@ -37,9 +38,19 @@
     wrap.append(mark, el("span", "sr-only", labelOf(o)));
     return wrap;
   };
+  // an icon before the name
+  const withIcon = (o, text) => {
+    const wrap = el("span", "pill-iconed");
+    const mark = el("span", "pill-icon");
+    mark.setAttribute("aria-hidden", "true");
+    mark.style.setProperty("--icon", `url("${o.dataset.icon}")`);
+    wrap.append(mark, el("span", null, text));
+    return wrap;
+  };
   const pill = (o, text = labelOf(o)) => {
-    const p = el("span", o.dataset.tier ? `tier t${o.dataset.tier}` : "tier plain-pill", o.dataset.logo ? null : text);
+    const p = el("span", o.dataset.tier ? `tier t${o.dataset.tier}` : "tier plain-pill", o.dataset.logo || o.dataset.icon ? null : text);
     if (o.dataset.logo) p.append(logo(o));
+    else if (o.dataset.icon) p.append(withIcon(o, text));
     return p;
   };
 
@@ -232,7 +243,7 @@
       box.classList.toggle("disabled", select.disabled);
       const o = select.options[select.selectedIndex];
       const shows = !o ? el("span", "plain", "") : o.dataset.tier ? pill(o)
-        : o.dataset.logo ? logo(o) : el("span", "plain", labelOf(o));
+        : o.dataset.logo ? logo(o) : o.dataset.icon ? withIcon(o, labelOf(o)) : el("span", "plain", labelOf(o));
       button.replaceChildren(shows);
       button.insertAdjacentHTML("beforeend", chevron);
       items.forEach((li) => {
