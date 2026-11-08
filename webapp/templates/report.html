@@ -3,6 +3,36 @@
 {% from "_macros.html" import asking_box, duo_photo, matched_ads, compare_ads, place_link, site_name, site_logo with context %}
 {% block title %}{{ _('Check report') }}: {{ listing.title }} · Bikecheck{% endblock %}
 {% block body %}
+{% if is_admin() %}
+{# The edit mode, for a logged-in admin only: correct what the check matched and read from the ad. A value set here is
+   locked: it wins over the ad's words and photos, and every recheck keeps it (checks.OVERRIDE_KEYS). #}
+<div class="edit-bar"><div class="wrap">
+  {% if edit %}
+  <span>✎ <b>{{ _('Edit mode') }}</b> · {{ _('only you see this. What you set stays when the check runs again.') }}</span>
+  <span class="edit-bar-actions">{% if r.locked %}<b>{{ _('{n} locked', n=r.locked|length) }}</b>
+    <form method="post" action="{{ url_for('set_override', check_id=listing.id) }}"><input type="hidden" name="field" value="all"><button class="linkish" type="submit">{{ _('all back to automatic') }}</button></form>{% endif %}
+    <a href="{{ url_for('report', check_id=listing.id) }}">{{ _('Done') }}</a></span>
+  {% else %}
+  <span>{% if r.locked %}🔒 {{ _('{n} locked', n=r.locked|length) }}{% endif %}</span>
+  <span class="edit-bar-actions"><a href="{{ url_for('report', check_id=listing.id, edit=1) }}">✎ {{ _('Correct this check') }}</a>
+    <form method="post" action="{{ url_for('admin_logout') }}"><input type="hidden" name="next" value="{{ request.full_path }}"><button class="linkish" type="submit">{{ _('Log out') }}</button></form></span>
+  {% endif %}
+</div></div>
+{% endif %}
+{% macro editor(field, auto) -%}
+{# A pencil that opens a small form to set `field` by hand, or hand it back to the matching. #}
+<details class="ed-pop" id="edit-{{ field }}"{% if request.args.get('open') == field %} open{% endif %}>
+  <summary class="ed-pen" aria-label="{{ _('Change') }}">✎</summary>
+  <form class="ed-form" method="post" action="{{ url_for('set_override', check_id=listing.id) }}">
+    <input type="hidden" name="field" value="{{ field }}">
+    <span class="ed-auto">{{ _('Automatic') }}: {{ auto }}</span>
+    {{ caller() }}
+    <span class="ed-buttons"><button class="ed-save" type="submit">{{ _('Lock') }}</button>
+      {% if field in r.locked %}<button class="ed-clear" type="submit" name="clear" value="1" formnovalidate>{{ _('Back to automatic') }}</button>{% endif %}</span>
+  </form>
+</details>
+{%- endmacro %}
+{% macro lock(field) %}{% if field in r.locked %}<span class="ed-lock" title="{{ _('Set by hand: kept when the check runs again') }}">🔒</span>{% endif %}{% endmacro %}
 <main class="wrap page">
   <div class="crumbs"><a href="{{ url_for('listings') }}">{{ _('Listings') }}</a> / {{ _('Check report') }}</div>
 
@@ -41,11 +71,35 @@
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
   {# The year always has a tile, also when the ad doesn't give one. #}
-  {% if facts.append((_('Year'), c.year or _('Not stated'), None if c.year else 'none')) %}{% endif %}
-  {% if c.size %}{% if facts.append((_('Size'), c.size, None)) %}{% endif %}{% endif %}
+  {% if facts.append((_('Year'), c.year or _('Not stated'), 'year' if c.year else 'none')) %}{% endif %}
+  {% if c.size or edit %}{% if facts.append((_('Size'), c.size or _('Not stated'), 'size' if c.size else 'none')) %}{% endif %}{% endif %}
+  {% if edit %}{% if facts.append((_('Groupset'), c.groupset.label if c.groupset else _('Not stated'), 'groupset' if c.groupset else 'none')) %}{% endif %}{% endif %}
   {% if colour_said %}{% if facts.append((_('Colour'), colour_said, None)) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
   {% if condition %}{% if facts.append((_('Condition'), condition, None)) %}{% endif %}{% endif %}
+  {% macro tile_editor(label) -%}
+  {# In the edit mode, the year, size and groupset tiles get a lock when set by hand and a pencil to change them. #}
+  {% set field = {(_('Year')|string): 'year', (_('Size')|string): 'size', (_('Groupset')|string): 'groupset'}.get(label|string) %}
+  {% if field %}{{ lock(field) }}{% endif %}
+  {% if edit and field == 'year' %}{% set a = edit.auto.year %}
+    {% call editor('year', (a.year ~ ' (' ~ ({'ad': _('from the ad'), 'photo': _('from the colour'), 'purchase': _('from the purchase year'), 'details': _('from the details'), 'estimate': _('estimated'), 'generation': _('middle of the generation'), 'catalogue': _('our catalogue'), 'older': _('from the ad')}.get(a.how, a.how)) ~ ')') if a else _('no model')) %}
+    <select name="value" required>{% for y in edit.years %}<option value="{{ y }}"{{ ' selected' if y == (edit.overrides.year or r.year and r.year.year) }}>{{ y }}</option>{% endfor %}</select>
+    {% endcall %}
+  {% elif edit and field == 'size' %}
+    {% call editor('size', edit.auto.claims.size or _('not stated')) %}
+    {% set current = edit.overrides.size or r.claims.size %}
+    <select name="value" required>{% for z in edit.sizes %}<option{{ ' selected' if z == current }}>{{ z }}</option>{% endfor %}
+      {% if current and current not in edit.sizes %}<option selected>{{ current }}</option>{% endif %}</select>
+    {% endcall %}
+  {% elif edit and field == 'groupset' %}
+    {% set auto_row = (edit.auto.specs.rows if edit.auto.specs else [])|selectattr('key', 'equalto', 'groupset')|first %}
+    {% call editor('groupset', auto_row.listing if auto_row and auto_row.listing else (edit.auto.claims.groupset.label if edit.auto.claims.groupset else _('not stated'))) %}
+    {% set cur = r.claims.groupset %}
+    <select name="value" required>{% for gs in edit.groupsets %}<option value="{{ gs.key }}:{{ gs.tier }}"{{ ' selected' if cur and cur.key == gs.key and cur.tier == gs.tier }}>{{ gs.name }}</option>{% endfor %}</select>
+    <label class="ed-check"><input type="checkbox" name="electronic" value="1"{{ ' checked' if cur and cur.electronic }}> {{ _('Electronic (Di2, AXS, eTap, EPS)') }}</label>
+    {% endcall %}
+  {% endif %}
+  {%- endmacro %}
   <div class="block-head"><span>{{ _('The ad') }}</span></div>
   <section class="ad-card{{ ' no-photos' if not listing.photos }}">
     {% if listing.photos %}
@@ -56,11 +110,19 @@
         {% if listing.photos|length > 1 %}<button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}">‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}">›</button>{% endif %}</div>
       <div class="ad-strip" id="ad-photos"><button class="strip-prev" type="button" aria-label="{{ _('Previous photos') }}" hidden>‹</button><div class="ad-photos" aria-label="{{ _('Photos from the ad') }}">{% for p in listing.photos[:8] %}<a href="{{ p }}" rel="noopener nofollow" data-photo="{{ loop.index0 }}"{% if loop.first %} aria-current="true"{% endif %}><img src="{{ p }}" alt="{{ _('Photo {n} from the ad', n=loop.index) }}" loading="lazy" referrerpolicy="no-referrer">{% if loop.last and listing.photos|length > 8 %}<span class="more">+{{ listing.photos|length - 8 }}</span>{% endif %}</a>{% endfor %}</div><button class="strip-next" type="button" aria-label="{{ _('Next photos') }}" hidden>›</button><div class="strip-dots" aria-hidden="true" hidden></div></div>
+      {% if edit %}
+      <div class="ed-photos" id="edit-main_photo"><span class="k">{{ _('Main photo')|upper }} {{ lock('main_photo') }}</span>
+        <div class="ed-photo-grid">{% set main = edit.overrides.main_photo if edit.overrides.main_photo is not none else 0 %}
+        {% for i, p in edit.ad_order %}<form method="post" action="{{ url_for('set_override', check_id=listing.id) }}"><input type="hidden" name="field" value="main_photo"><input type="hidden" name="value" value="{{ i }}">
+          <button type="submit" class="ed-photo{{ ' on' if i == main }}" aria-label="{{ _('Make photo {n} the main photo', n=i + 1) }}"{% if i == main %} aria-pressed="true"{% endif %}><img src="{{ p }}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="ed-star">★</span></button></form>{% endfor %}</div>
+        {% if 'main_photo' in r.locked %}<form method="post" action="{{ url_for('set_override', check_id=listing.id) }}"><input type="hidden" name="field" value="main_photo"><button class="linkish" type="submit" name="clear" value="1">{{ _('Back to automatic') }}</button></form>{% endif %}
+      </div>
+      {% endif %}
     </div>
     {% endif %}
     <div class="ad-info">
       {% if facts %}<div class="ad-tiles" style="--n: {{ facts|length }}">{% for label, value, kind in facts %}
-        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}</div>{% endfor %}
+        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}{{ tile_editor(label) }}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
@@ -80,7 +142,18 @@
   {% set mt = r.match %}
   {# Our match: the model (to its catalogue page), how sure we are, whether the ad's model words and year fit it, and
      a bar to link the ad to another model. #}
-  <div class="block-head"><span>{{ _('Our match') }}</span></div>
+  <div class="block-head"><span>{{ _('Our match') }}</span>
+  {% if edit %}
+    <div class="ms-edit">{{ lock('model') }}
+      {% call editor('model', (edit.auto.model.brand ~ ' ' ~ edit.auto.model.name|model_title) if edit.auto.model else _('no model')) %}
+      <select name="value" required>
+        {% for m in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
+        <optgroup label="{{ _('All models') }}">{% for m in all_models if m not in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}</optgroup>
+      </select>
+      {% endcall %}
+    </div>
+    {% endif %}
+  </div>
   <section class="match-strip{{ ' no-checks' if not (mt and not r.chosen_by_you) }}">
     <a class="ms-model" href="{{ url_for('model_page', slug=r.model.slug) }}">
       <span class="ms-row"><svg class="ms-bike" width="38" height="23" viewBox="0 0 600 360" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="134.0" cy="226.0" r="112"/><circle cx="134.0" cy="226.0" r="90"/><circle cx="465.3" cy="226.0" r="112"/><circle cx="465.3" cy="226.0" r="90"/><circle cx="134.0" cy="226.0" r="7"/><circle cx="465.3" cy="226.0" r="7"/><path d="M134.0 226.0 L269.3 249.4 L219.8 82.3 L398.3 61.8 L413.1 109.8 L269.3 249.4"/><path d="M134.0 226.0 L219.8 82.3"/><path d="M413.1 109.8 Q437.2 185.8 465.3 226.0"/><path d="M398.3 61.8 L396.3 53.5 L433.8 46.8 h20.1 c15.1 0 19.4 16.1 14.1 30.2 c-3.4 8.7 -11.4 12.7 -20.8 12.1"/><path d="M219.8 82.3 L210 44"/><path d="M186 38 L236 40"/><circle cx="269.3" cy="249.4" r="30"/><path d="M269.3 249.4 L310 284"/></svg>
@@ -167,6 +240,9 @@
   {% if not r.model %}
   <section class="card">
     <h2>{{ _('No matching model') }}</h2>
+    {% if edit %}<div class="ms-edit">{% call editor('model', _('no model')) %}
+      <select name="value" required>{% for m in all_models %}<option value="{{ m.slug }}">{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}</select>
+      {% endcall %}</div>{% endif %}
     {% if r.claims.brand and r.claims.brand not in covered %}
       <p>{{ _("We don't have {brand} models in the catalogue yet. It's on the list of brands to collect next.", brand=r.claims.brand) }}</p>
     {% else %}

@@ -30,6 +30,9 @@ services:
       # MAIL_FROM: you@gmail.com
       # Mail also confirms the addresses left for the photo review; to hear about each confirmed one:
       # NOTIFY_EMAIL: you@gmail.com
+      # To correct a check by hand (model, year, groupset, size, main photo): log in at /admin/login with this
+      # password, then choose "Deze check corrigeren" on a report. Fill it in and remove the #:
+      # ADMIN_PASSWORD: pick-a-long-password
       # Only when the site is reached through a reverse proxy (e.g. the NAS's own), so the mail
       # limit sees each visitor's address instead of the proxy's:
       # BEHIND_PROXY: "1"
