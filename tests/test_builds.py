@@ -99,3 +99,14 @@ def test_a_frameset_check_doesnt_count_the_builds_as_rivals(models):
     rivals = [r["pct"] for r in report["matches"] if r is not report["match"]
               and not checks.same_model(r["model"], report["model"])]
     assert report["confidence"].text == checks.match_confidence(report["match"]["pct"], rivals, report.get("not_exact"))
+
+
+def test_the_model_page_starts_at_the_first_year_it_knows(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    model = next(m for m in db.all_models(db.connect(app.config["DB_PATH"])) if m["slug"] == "trek-madone-sl-6-gen-8")
+    tabs = checks.year_tabs(model)
+    first = next(t["year"] for t in tabs if t.get("image") or t.get("specs"))
+    page = app.test_client().get("/models/trek-madone-sl-6-gen-8?lang=nl").get_data(as_text=True)
+    assert f'id="tab-{first}"' in page and f'id="tab-{first - 1}"' not in page
+    assert f'id="tab-{tabs[-1]["year"]}"' in page  # the last year always shows
