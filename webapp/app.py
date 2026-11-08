@@ -231,8 +231,14 @@ def create_app(db_path=None):
         if left(photos[0]) is None and not whole(photos[0]):
             # A close-up: no way it faces, and no bike outline in it. The side views after it are the photos whose
             # direction is clear (a whole bike on a busy fence can hide its outline from whole_bike, check 133).
-            bikes = [p for p in photos[1:look] if left(p) is not None or whole(p)]
-            return next((p for p in bikes if left(p) is False), bikes[0] if bikes else photos[0])
+            # One with the bike's outline found goes first, so a later close-up can't win only by facing right.
+            later = photos[1:look]
+            outlined = [p for p in later if whole(p)]
+            sided = [p for p in later if left(p) is not None]
+            for bikes in (outlined, sided):
+                if bikes:
+                    return next((p for p in bikes if left(p) is False), bikes[0])
+            return photos[0]
         if not left(photos[0]):
             return photos[0]
         return next((p for p in photos[1:look] if left(p) is False and whole(p)), photos[0])

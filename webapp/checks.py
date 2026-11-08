@@ -2063,8 +2063,12 @@ def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None
     # from photos is a guess, and our sheets miss colourways (check 133: a black disc-brake Émonda SL 6 dated by
     # "zwart" to 2019–2020, rim-brake years). When they clash, the brakes win.
     brakes = [c for c in clues if c[2].text.startswith(BRAKE_CLUES)]
+    seen_years = seen_colour_years(year_sheets(model), seen_colour)[1] if seen_colour else []
     for c in [c for c in clues if c[2].text.startswith(COLOUR_CLUES)]:
-        if any((c[0] or 0) > (b[1] or 9999) or (c[1] or 9999) < (b[0] or 0) for b in brakes):
+        # The photos' colour is weighed by its own years below, not its widened window: so here too.
+        own = seen_years if c[2].text.startswith("The photos show colour") and seen_years else None
+        if any(not any((b[0] or 0) <= y <= (b[1] or 9999) for y in own) if own else
+               (c[0] or 0) > (b[1] or 9999) or (c[1] or 9999) < (b[0] or 0) for b in brakes):
             clues.remove(c)
             notes.append(join(c[2], Msg("That doesn't fit the brakes, which go first: the colour may look alike.")))
     # Paint can't be swapped like a cassette: a clue that leaves out every year of the colour in the photos
@@ -2909,7 +2913,7 @@ def run_check(models, listing, today=None):
         # Check 133's "2j oud": the year the ad was placed (else the day of the check) minus the age it gives.
         placed = str(listing.get("posted_at") or "")[:4]
         base = int(placed) if placed.isdigit() else (today or date.today()).year
-        claims = dict(claims, year=base - int(round(claims["age_years"])), year_from="age")
+        claims = dict(claims, year=base - int(claims["age_years"] + 0.5), year_from="age")  # 2.5 years: 3
     receipt = photo_receipt(listing.get("photo_groupset"))
     if receipt and claims["year"] is None and (receipt["model_year"] or receipt["year"]):
         # The ad gives no year, the receipt in its photos does: its model year, else the year it was bought.
