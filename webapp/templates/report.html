@@ -157,7 +157,8 @@
   <section class="match-strip{{ ' no-checks' if not (mt and not r.chosen_by_you) }}">
     <a class="ms-model" href="{{ url_for('model_page', slug=r.model.slug) }}">
       <span class="ms-row"><svg class="ms-bike" width="38" height="23" viewBox="0 0 600 360" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="134.0" cy="226.0" r="112"/><circle cx="134.0" cy="226.0" r="90"/><circle cx="465.3" cy="226.0" r="112"/><circle cx="465.3" cy="226.0" r="90"/><circle cx="134.0" cy="226.0" r="7"/><circle cx="465.3" cy="226.0" r="7"/><path d="M134.0 226.0 L269.3 249.4 L219.8 82.3 L398.3 61.8 L413.1 109.8 L269.3 249.4"/><path d="M134.0 226.0 L219.8 82.3"/><path d="M413.1 109.8 Q437.2 185.8 465.3 226.0"/><path d="M398.3 61.8 L396.3 53.5 L433.8 46.8 h20.1 c15.1 0 19.4 16.1 14.1 30.2 c-3.4 8.7 -11.4 12.7 -20.8 12.1"/><path d="M219.8 82.3 L210 44"/><path d="M186 38 L236 40"/><circle cx="269.3" cy="249.4" r="30"/><path d="M269.3 249.4 L310 284"/></svg>
-        {% set ms_name = r.model.brand ~ ' ' ~ r.model.name|model_title %}<span class="ms-name" title="{{ ms_name }}">{{ ms_name }}</span>
+        {% set bc = r.get('builds') %}
+        {% set ms_name = r.model.brand ~ ' ' ~ ((r.model|model_base) if bc else r.model.name)|model_title %}<span class="ms-name" title="{{ ms_name }}">{{ ms_name }}</span>
         {% if r.chosen_by_you %}<span class="mono muted">{{ _('Chosen by you') }}</span>
         {% elif mt %}<span class="mb-meter{{ ' ' ~ ('hi' if mt.pct >= 80 else 'mid' if mt.pct >= 50 else 'lo') }}" title="{{ _('{level} confidence', level=r.confidence) if r.confidence }}"><span class="match-bar" style="--p: {{ mt.pct }}" role="img" aria-label="{{ _('{pct}% match', pct=mt.pct) }}"><i></i></span><b>{{ mt.pct }}%</b></span>{% endif %}</span>
       <span class="mb-open">{{ _('View in the catalogue') }} →</span>
@@ -187,6 +188,20 @@
     {% endif %}
     <a class="ms-swap" href="#pick-model"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="m17 20 4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg><span>{{ _('Match with another model') }}</span></a>
   </section>
+  {% if bc %}
+  {# A model with builds (Ridley): the build the ad names, else the middle one by price until someone picks it.
+     The frameset is crossed out unless the ad sells only the frame. #}
+  <section class="build-strip">
+    {% set label = r.model|build_label %}
+    <div class="ms-check {{ 'ok' if bc.state == 'named' else 'warn' if bc.state == 'other' else 'unknown' }}"><span class="k">{{ _('Build')|upper }}</span>
+      <b><i aria-hidden="true">{{ {'named': '✓', 'other': '!', 'unknown': '?'}[bc.state] }}</i>{% if bc.state == 'named' %}{{ label }}{% else %}{{ _('Not known') }}{% endif %}</b>
+      <small>{% if bc.state == 'named' %}{{ _('Chosen by you') if r.chosen_by_you else _('The groupset in the ad') }}{% elif bc.state == 'other' %}{{ _('The ad names {groupset}, which {model} isn’t sold with today.', groupset=r.claims.groupset.name, model=r.model|model_base) }} {{ _('We work with {build}, the middle of its {n} builds, until you pick one.', build=label, n=bc.all|reject('is_frameset')|list|length) }}{% else %}{{ _('The ad names no groupset.') }} {{ _('We work with {build}, the middle of its {n} builds, until you pick one.', build=label, n=bc.all|reject('is_frameset')|list|length) }}{% endif %}</small></div>
+    <div class="build-row">{% for b in bc.all %}{% set off = b|is_frameset and not bc.frame_only and b.id != r.model.id %}
+      <form method="post" action="{{ url_for('change_match', check_id=listing.id) }}"><input type="hidden" name="model_id" value="{{ b.id }}">
+        <button class="build-pill{{ ' on' if b.id == r.model.id and bc.state == 'named' }}{{ ' used' if b.id == r.model.id and bc.state != 'named' }}{{ ' off' if off }}" type="submit"{% if off %} title="{{ _('The ad sells a complete bike') }}"{% endif %}><span>{{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></button></form>{% endfor %}
+    </div>
+  </section>
+  {% endif %}
     {# The other candidates, best fit first, in a panel that slides in; it opens and closes by its address (#_ is no element, so
        closing doesn't scroll), so without JS too. #}
     <aside id="pick-model" class="match-panel" aria-label="{{ _('Pick the right model') }}">

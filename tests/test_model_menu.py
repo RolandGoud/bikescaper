@@ -18,6 +18,7 @@ def test_model_line_and_group():
     # every generation and edition of a model is one model
     assert checks.model_group("Madone SL 7 Gen 7") == checks.model_group("Madone SL 7 Gen 8") == "Madone SL 7"
     assert checks.model_group("Madone SL 7 Gen 8 - The First 50 Replica") == "Madone SL 7"
+    assert checks.model_group("S-Works Tarmac SL8 \u2013 Shimano Dura-Ace Di2") == checks.model_group("S-Works Tarmac SL8")
     assert checks.line_key(checks.model_group("Domane SLR 7 gen 4")) == checks.line_key(checks.model_group("Domane SLR 7 Gen 5"))
 
 
@@ -47,6 +48,11 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     assert len(madone) > len(sl7) and all("madone" in s for s in madone)
     # the address the menu used to send still works
     assert _cards(client.get("/models?brand=Trek&line=madone&current=0").get_data(as_text=True)) == madone
+    # the keys #348 sent for lines with "+" or a space
+    assert _cards(client.get("/models?brand=Trek&line=domane%2B&current=0").get_data(as_text=True)) == \
+        _cards(client.get("/models?brand=Trek&model=domane-plus&current=0").get_data(as_text=True))
+    speed = _cards(client.get("/models?brand=Trek&line=speed+concept&current=0").get_data(as_text=True))
+    assert speed and all("speed-concept" in s for s in speed)
     # a model of another brand is ignored once the brand changes
     assert "No models match." not in client.get("/models?brand=Canyon&model=madone-sl-7&current=0").get_data(as_text=True)
     # no brand picked: the menu is greyed out and a model in the address is ignored
