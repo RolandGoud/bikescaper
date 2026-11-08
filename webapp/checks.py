@@ -457,12 +457,14 @@ _BUILD_START = re.compile(r"\s+(?=(?:SRAM|Shimano|Campagnolo|Classified|Frameset
 
 def split_build(model):
     """(model name, build) of a catalogue entry of a BUILD_BRANDS brand: ("Noah Fast 3.0", "Shimano Ultegra Di2
-    2x12"), ("Kanzo A", "Frameset"). Other brands, and a name without a build, give (name, None)."""
+    2x12"). Other brands, a name without a build and a frameset ("Kanzo A Frameset") give (name, None)."""
     name = model["name"]
     if model.get("brand") not in BUILD_BRANDS:
         return name, None
     parts = _BUILD_START.split(name, maxsplit=1)
-    return (parts[0], parts[1]) if len(parts) == 2 and parts[0] else (name, None)
+    if len(parts) < 2 or not parts[0] or is_frameset({"name": parts[1]}):
+        return name, None  # a frameset is a model of its own, never a build of the bike
+    return parts[0], parts[1]
 
 
 def without_build(model):
@@ -485,7 +487,7 @@ def is_frameset(model):
 
 
 def builds_of(model, models):
-    """Every build of this entry's model, cheapest first (the frameset among them), or [] for a model without builds."""
+    """Every build of this entry's model, cheapest first, or [] for a model without builds (and for a frameset)."""
     base, build = split_build(model)
     if not build:
         return []

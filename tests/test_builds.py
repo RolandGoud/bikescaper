@@ -20,7 +20,7 @@ def _by_name(models, name):
 def test_split_build():
     assert checks.split_build({"brand": "Ridley", "name": "Noah Fast 3.0 Shimano Ultegra Di2 2x12"}) == \
         ("Noah Fast 3.0", "Shimano Ultegra Di2 2x12")
-    assert checks.split_build({"brand": "Ridley", "name": "Kanzo A Frameset"}) == ("Kanzo A", "Frameset")
+    assert checks.split_build({"brand": "Ridley", "name": "Kanzo A Frameset"}) == ("Kanzo A Frameset", None)  # its own model
     assert checks.split_build({"brand": "Ridley", "name": "Fenix Disc Classified Rival AXS 1x12"})[0] == "Fenix Disc"
     assert checks.split_build({"brand": "Trek", "name": "Madone SL 6 Gen 8"}) == ("Madone SL 6 Gen 8", None)
     assert checks.build_label({"brand": "Ridley", "name": "Noah Fast 3.0 Shimano Ultegra Di2 2x12"}) == "Ultegra Di2 2x12"
@@ -66,10 +66,11 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     html = client.get("/models?brand=Ridley&lang=en").get_data(as_text=True)
     titles = re.findall(r'<span style="font-weight: 700">([^<]+)</span>', html)
     assert titles.count("Noah Fast 3.0") == 1 and not any("Ultegra" in t for t in titles)
-    assert "5 builds" in html and "New from €" not in html and "New €" not in html
+    assert "Noah Fast 3.0 Frameset" in titles  # a frameset is a tile of its own, never a build
+    assert "4 builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill( on)?" href="/models/([^"]+)"', page)
-    assert len(pills) == 5 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
+    assert len(pills) == 4 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
 
 
 def test_a_model_with_one_build_has_no_build_section(tmp_path):
