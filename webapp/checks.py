@@ -3099,9 +3099,18 @@ def seller_questions(model, claims, age, specs, size, material_alert=None):
 
 # What an admin can set by hand on a check (the report's edit mode, webapp/app.py set_override), kept in
 # checks.overrides as JSON: the model (its slug, which survives a catalogue reload), the model year, the groupset
-# ({"key", "tier", "electronic"}), the frame size, and the ad photo shown first (its name as checks.photos has it).
-# A recheck runs the matching again but keeps these: they win over what the ad's words and photos say.
-OVERRIDE_KEYS = ("model", "year", "groupset", "size", "main_photo")
+# ({"key", "tier", "electronic"}), the frame size, the ad photo shown first (its name as checks.photos has it) and the
+# colourway (its name, one of colour_choices of the model). A recheck runs the matching again but keeps these: they win
+# over what the ad's words and photos say.
+OVERRIDE_KEYS = ("model", "year", "groupset", "size", "main_photo", "colour")
+
+
+def colour_choices(model):
+    """The colourway names an admin can pick for a model: every model year's, the newest first, then today's."""
+    if not model:
+        return []
+    names = [c for _y, s in sorted(year_sheets(model).items(), reverse=True) for c in s["colours"]]
+    return list(dict.fromkeys([*names, *(w["name"] for w in model.get("colorways") or [])]))
 
 
 def groupset_choices():
@@ -3223,10 +3232,16 @@ def run_check(models, listing, today=None):
                                                      and not same_model(r["model"], chosen)],
                                                     report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
-    fitting = colour_match.fits(chosen, listing["title"], listing.get("description") or "")
+    # A colourway an admin set by hand wins over what the ad names and its photos show (a name the model
+    # doesn't have, after the model was changed, counts as not set).
+    set_colour = overrides.get("colour") if overrides.get("colour") in colour_choices(chosen) else None
+    report["colour_set"] = set_colour
+    fitting = [] if set_colour else colour_match.fits(chosen, listing["title"], listing.get("description") or "")
     report["colourway"] = fitting[0] if len(fitting) == 1 else None
     report["colour_from_photos"] = False
-    if not report["colourway"] and (name := colour_match.by_photos(
+    if set_colour:
+        report["colourway"] = next((w for w in chosen.get("colorways") or [] if w["name"] == set_colour), None)
+    elif not report["colourway"] and (name := colour_match.by_photos(
             [(w["name"], w.get("image")) for w in fitting or chosen.get("colorways") or []], listing.get("photo_paths"))):
         # The ad doesn't name its colour, or names one several colourways have: the colourway its photos show.
         report["colourway"] = next(w for w in chosen["colorways"] if w["name"] == name)
@@ -3238,7 +3253,8 @@ def run_check(models, listing, today=None):
         # colour rather than the catalogue's first one, without naming which of them it is.
         report["model"] = dict(chosen, image=image)
     report["age"] = check_age(chosen, claims, today)
-    seen = photo_colour(chosen, listing)
+    # The colour dates the bike: the one set by hand, else the one read from the ad's photos.
+    seen = set_colour or photo_colour(chosen, listing)
     report["year_estimate"] = estimate_year(chosen, models, claims,
                                             f"{listing['title']}\n{listing.get('description') or ''}", seen,
                                             listing.get("photo_groupset"))
@@ -3249,7 +3265,12 @@ def run_check(models, listing, today=None):
     report["year"] = resolve_year(chosen, claims, report["age"], report["year_estimate"], today, found)
     report["year"]["note"] = year_note(report["year"], claims)
     found = photo_of_year(chosen, found, report["year"]["year"], listing)
-    if found and found[2] is None:
+    if found and set_colour and found[2] != set_colour:
+        # The year's photo in the colourway set by hand; a year without it: today's photo of that colourway.
+        own = colour_images(chosen, found[0])
+        found = ((found[0], own[set_colour], set_colour) if set_colour in own
+                 else None if report["colourway"] and report["colourway"].get("image") else (found[0], found[1], None))
+    if found and found[2] is None and not set_colour:
         # The ad doesn't name its colour and that year came in several: the colourway its photos show.
         own = ((chosen.get("year_specs") or {}).get("years") or {}).get(str(found[0]), {}).get("colour_images") or {}
         # Among the colourways in the colour the ad names, when it names one several have.

@@ -46,7 +46,7 @@
     {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model, listing.id, picked=True) }}</div>
     {% elif r.model and r.model.image %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
     {% if r.model and (r.photo_year or colour) %}
-    <span class="photo-cap" title="{{ (_("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names')) if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ (_('Catalogue: the {year} model (closest to {wanted})', year=r.photo_year.year, wanted=r.photo_year.stand_in) if r.photo_year.stand_in else _('Catalogue: the {year} model', year=r.photo_year.year)) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
+    <span class="photo-cap" title="{{ (_('the colour set by hand') if r.colour_set else _("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names')) if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ (_('Catalogue: the {year} model (closest to {wanted})', year=r.photo_year.year, wanted=r.photo_year.stand_in) if r.photo_year.stand_in else _('Catalogue: the {year} model', year=r.photo_year.year)) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
     {% endif %}
     <div class="stage-text">
       <div class="stage-meta mono">{{ _('Placed on {date}', date=listing.posted_at[:10]) if listing.posted_at else _('Checked on {date}', date=listing.created_at[:10]) }}{% if g %} <span class="removed-tag {{ g.kind }}" title="{{ g.tip }}">{{ g.text }}</span>{% endif %}</div>
@@ -67,19 +67,19 @@
 
   {# The ad's photos (a big one and the strip to pick it from), the facts the ad gives and its text, as cells of one card. #}
   {% set c = r.claims %}
-  {% set colour_said = r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour %}
+  {% set colour_said = r.colour_set or (r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour) %}
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
   {# The year always has a tile, also when the ad doesn't give one. #}
   {% if facts.append((_('Year'), c.year or _('Not stated'), 'year' if c.year else 'none')) %}{% endif %}
   {% if c.size or edit %}{% if facts.append((_('Size'), c.size or _('Not stated'), 'size' if c.size else 'none')) %}{% endif %}{% endif %}
   {% if edit %}{% if facts.append((_('Groupset'), c.groupset.label if c.groupset else _('Not stated'), 'groupset' if c.groupset else 'none')) %}{% endif %}{% endif %}
-  {% if colour_said %}{% if facts.append((_('Colour'), colour_said, None)) %}{% endif %}{% endif %}
+  {% if colour_said or (edit and edit.colours) %}{% if facts.append((_('Colour'), colour_said or _('Not stated'), None if colour_said else 'none')) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
   {% if condition %}{% if facts.append((_('Condition'), condition, None)) %}{% endif %}{% endif %}
   {% macro tile_editor(label) -%}
-  {# In the edit mode, the year, size and groupset tiles get a lock when set by hand and a pencil to change them. #}
-  {% set field = {(_('Year')|string): 'year', (_('Size')|string): 'size', (_('Groupset')|string): 'groupset'}.get(label|string) %}
+  {# In the edit mode, the year, size, groupset and colour tiles get a lock when set by hand and a pencil to change them. #}
+  {% set field = {(_('Year')|string): 'year', (_('Size')|string): 'size', (_('Groupset')|string): 'groupset', (_('Colour')|string): 'colour'}.get(label|string) %}
   {% if field %}{{ lock(field) }}{% endif %}
   {% if edit and field == 'year' %}{% set a = edit.auto.year %}
     {% call editor('year', (a.year ~ ' (' ~ ({'ad': _('from the ad'), 'photo': _('from the colour'), 'purchase': _('from the purchase year'), 'details': _('from the details'), 'estimate': _('estimated'), 'generation': _('middle of the generation'), 'catalogue': _('our catalogue'), 'older': _('from the ad')}.get(a.how, a.how)) ~ ')') if a else _('no model')) %}
@@ -97,6 +97,13 @@
     {% set cur = r.claims.groupset %}
     <select name="value" required>{% for gs in edit.groupsets %}<option value="{{ gs.key }}:{{ gs.tier }}"{{ ' selected' if cur and cur.key == gs.key and cur.tier == gs.tier }}>{{ gs.name }}</option>{% endfor %}</select>
     <label class="ed-check"><input type="checkbox" name="electronic" value="1"{{ ' checked' if cur and cur.electronic }}> {{ _('Electronic (Di2, AXS, eTap, EPS)') }}</label>
+    {% endcall %}
+  {% elif edit and field == 'colour' and edit.colours %}
+    {# The model's colourways, every year's: picking one also dates the bike, unless the year is set by hand too. #}
+    {% set a = edit.auto.photo_year.colour if edit.auto.photo_year and edit.auto.photo_year.colour else edit.auto.colourway.name if edit.auto.colourway else None %}
+    {% call editor('colour', a or _('not stated')) %}
+    {% set current = r.colour_set or (r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None) %}
+    <select name="value" required>{% for c in edit.colours %}<option{{ ' selected' if c == current }}>{{ c }}</option>{% endfor %}</select>
     {% endcall %}
   {% endif %}
   {%- endmacro %}

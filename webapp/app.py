@@ -166,7 +166,7 @@ def create_app(db_path=None):
     app.config["GROUPSET_SHOPS_PATH"] = groupset_shops.PATH
     # The groupsets page is hidden for now: off the menu and a 404, unless SHOW_GROUPSETS is set.
     app.config["SHOW_GROUPSETS"] = bool(os.environ.get("SHOW_GROUPSETS"))
-    # The report's edit mode (correcting a check's model, year, groupset, size and main photo) needs an admin login,
+    # The report's edit mode (correcting a check's model, year, groupset, size, colour and main photo) needs an admin login,
     # with the password in ADMIN_PASSWORD; without one set, nobody can log in. The session cookie is signed with
     # SECRET_KEY, else with a key made from the password, so it stays the same across restarts and workers.
     app.config["ADMIN_PASSWORD"] = os.environ.get("ADMIN_PASSWORD") or None
@@ -265,7 +265,9 @@ def create_app(db_path=None):
     app.jinja_env.filters["model_group"] = checks.model_group  # "Madone SL 6 Gen 8" -> "Madone SL 6", in the Model menu
     app.jinja_env.filters["line_key"] = checks.line_key
     app.jinja_env.filters["family_name"] = checks.family_name  # the heading's model: without the generation
-    app.jinja_env.filters["ad_condition"] = checks.ad_condition  # the condition the seller picked on the site
+    # The condition the seller picked on the site, with Marktplaats' "Zo goed als nieuw" shown short as Z.G.A.N.
+    app.jinja_env.filters["ad_condition"] = lambda d: (
+        "Z.G.A.N." if (c := checks.ad_condition(d)) and c.strip(" .").lower() == "zo goed als nieuw" else c)
     app.jinja_env.filters["model_title"] = checks.model_title  # the model's name as shown: without "Shimano"
     app.jinja_env.globals["ad_title"] = ad_title.parts
     app.jinja_env.filters["no_brand"] = ad_title.without_brand
@@ -548,7 +550,8 @@ def create_app(db_path=None):
                     # The model's own sizes first, then the brand's other ones (letters for a chart in cm).
                     "sizes": list(dict.fromkeys([*checks.model_size_chart(model)["sizes"], *checks.size_options(model["brand"])]))
                     if model else [],
-                    "groupsets": checks.groupset_choices()}
+                    "groupsets": checks.groupset_choices(),
+                    "colours": checks.colour_choices(model)}
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
                                edit=edit,
                                translated=translated,
@@ -664,7 +667,7 @@ def create_app(db_path=None):
         The report runs again by itself (its inputs changed) and every recheck keeps it."""
         if not is_admin():
             abort(403)
-        row = conn().execute("SELECT overrides, photos FROM checks WHERE id = ?", (check_id,)).fetchone()
+        row = conn().execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
         if row is None:
             abort(404)
         field = request.form.get("field")
@@ -683,6 +686,8 @@ def create_app(db_path=None):
                 value = int(value) if value.isdigit() and 1980 <= int(value) <= date.today().year + 1 else None
             elif field == "size":
                 value = value[:12] or None
+            elif field == "colour":  # one of the colourways of the model the check is matched to now
+                value = value if value in checks.colour_choices(checks.run_check(models(), listing_dict(row))["model"]) else None
             elif field == "groupset":
                 key, _sep, tier = value.partition(":")
                 value = {"key": key, "tier": int(tier) if tier.isdigit() else None,

@@ -1996,7 +1996,7 @@ def test_the_ad_card_always_has_a_year_tile(tmp_path):
     client = app.test_client()
     client.post("/check", data={"title": "Trek Domane SL 6 maat 56", "asking_price": "2450"})
     page = client.get("/check/1?lang=nl").data.decode()
-    assert '<span class="k">BOUWJAAR</span><b class="muted">Niet vermeld</b>' in page
+    assert '<span class="k">MODELJAAR</span><b class="muted">Niet vermeld</b>' in page
 
 
 def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_strip(tmp_path):
