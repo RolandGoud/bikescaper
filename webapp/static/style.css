@@ -1651,6 +1651,19 @@ select { max-width: 100%; }
 .build-card p { margin: 10px 0 0; }
 .builds .k { margin-bottom: 6px; font: 500 12px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .build-row { display: flex; flex-wrap: wrap; gap: 8px; }
+/* the model page's builds: five to a row (two on a phone, without the model's name), coloured by spec tier */
+.builds .build-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.builds .build-pill { min-width: 0; border-color: transparent; }
+.builds .build-pill > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.builds .build-pill small { color: inherit; opacity: .75; }
+.builds .build-pill.t1 { background: var(--faint); color: var(--muted); }
+.builds .build-pill.t2 { background: var(--tier2-bg); color: var(--tier2); }
+.builds .build-pill.t3 { background: var(--tier3-bg); color: var(--tier3); }
+.builds .build-pill.t4 { background: var(--accent); color: var(--ink); }
+.builds .build-pill.t5 { background: var(--text); color: var(--ink); }
+.builds .build-pill:hover { border-color: var(--text); }
+.builds .build-pill.on { box-shadow: none; outline: 2px solid var(--text); outline-offset: 2px; }
+@media (max-width: 700px) { .builds .build-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bp-model { display: none; } }
 .build-row form { margin: 0; }
 .build-pill { display: inline-flex; flex-direction: column; gap: 2px; min-width: 96px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--raised); color: var(--text); font: 600 14px var(--body); text-align: left; text-decoration: none; cursor: pointer; }
 .build-pill small { font-weight: 400; font-size: 12px; color: var(--muted); }
