@@ -52,7 +52,7 @@
   <div class="block-head"><span>{{ _('Build') }}</span></div>
   <nav class="builds build-card" aria-label="{{ _('Builds') }}">
     <div class="k">{{ _('{n} builds of the {model} on the {brand} site', n=builds|length, model=(m|model_base)|model_title, brand=m.brand) }}</div>
-    <div class="build-row">{% for b in builds %}<a class="build-pill{{ ' on' if b.id == m.id }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if b.id == m.id %} aria-current="page"{% endif %}><span>{{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></a>{% endfor %}</div>
+    <div class="build-row">{% for b in builds %}<a class="build-pill{{ ' on' if b.id == m.id }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if b.id == m.id %} aria-current="page"{% endif %}><span>{{ (b|model_base)|model_title }} {{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></a>{% endfor %}</div>
     <p class="small muted">{{ _('The photo, parts and new price below are of the build you pick; the colours are the same for each.') }}</p>
   </nav>
   {% endif %}
