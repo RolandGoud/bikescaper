@@ -78,3 +78,16 @@ def test_a_model_with_one_build_has_no_build_section(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/ridley-x-ride-disc-shimano-grx-600-2x12?lang=en").get_data(as_text=True)
     assert "X-Ride Disc" in page and 'class="builds build-card"' not in page and "build-pill" not in page
+
+
+
+def test_the_frameset_is_one_candidate_with_the_builds(models):
+    # the frameset is a model of its own on the site, but for the matching its word is the build's, so it neither
+    # wins a complete-bike ad nor counts as another model close behind
+    assert _top(models, "Ridley Noah Fast 3.0 Ultegra Di2 maat M") == "Noah Fast 3.0 Shimano Ultegra Di2 2x12"
+    frame = _by_name(models, "Noah Fast 3.0 Frameset")
+    built = _by_name(models, "Noah Fast 3.0 Shimano Ultegra Di2 2x12")
+    assert checks.same_model(frame, built) and not checks.builds_of(frame, models)
+    report = checks.run_check(models, {"title": "Ridley Noah Fast 3.0 Ultegra Di2", "description": "", "asking_price": 6000})
+    others = [r["pct"] for r in report["matches"] if not checks.same_model(r["model"], report["model"])]
+    assert str(report["confidence"]) != "medium" or not others or max(others) >= report["match"]["pct"] - 15
