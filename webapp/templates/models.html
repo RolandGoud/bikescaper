@@ -54,7 +54,7 @@
          data-label and data-count its text and the count on the right, data-icon a type's line drawing before the name. #}
       <label class="field-label">{{ _('Spec tier') }}
         <select name="tier" onchange="this.form.requestSubmit()">
-          <option value="" data-label="{{ _('All tiers') }}" data-count="{{ tier_counts.values()|sum }}">{{ _('All tiers') }}</option>
+          <option value="" data-label="{{ _('All tiers') }}" data-count="{{ tier_total }}">{{ _('All tiers') }}</option>
           {% for t, name in tier_names.items() %}<option data-tier="{{ t }}" data-label="{{ _(name) }}" data-count="{{ tier_counts[t] }}" value="{{ t }}" {{ 'selected' if tier == t }}>{{ t }} · {{ _(name) }} ({{ tier_counts[t] }})</option>{% endfor %}
         </select>
       </label>

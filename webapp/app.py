@@ -868,6 +868,8 @@ def create_app(db_path=None):
             items = [m for m in items if group_key(m) == model]
         tier_counts = {t: sum(1 for m in items if has_tier(m, t) and (not kind or m["discipline"] == kind))
                        for t in TIERS}
+        # "All tiers": every tile with a tier once, though a model with builds of several tiers is in each of them
+        tier_total = sum(1 for m in items if any(has_tier(m, t) for t in TIERS) and (not kind or m["discipline"] == kind))
         items = [m for m in items if not tier or has_tier(m, tier)]
         counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
         items = [m for m in items if not kind or m["discipline"] == kind]
@@ -883,7 +885,7 @@ def create_app(db_path=None):
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES, brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                model=model, model_menu=model_menu,
-                               tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
+                               tier=tier, tier_counts=tier_counts, tier_total=tier_total, groupset=groupset, groupset_name=groupset_name,
                                nav="models", sponsored=offers(("side",), tiles=True))
 
     def groupset_key(model):
