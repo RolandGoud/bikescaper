@@ -27,7 +27,7 @@
           {% else %}<div class="v small">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
 </div>{% endset %}
 <main class="wrap page">
-  <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / <a href="{{ url_for('catalog', brand=m.brand, model=m.name|model_group|line_key, current=0) }}">{{ m.name|model_group|model_title }}</a> / {{ m.name|model_title }}</div>
+  <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / <a href="{{ url_for('catalog', brand=m.brand, model=m.name|model_group(m.brand)|line_key, current=0) }}">{{ m.name|model_group(m.brand)|model_title }}</a> / {{ (m|build_label if builds else m.name)|model_title }}</div>
   {# The heading like the check report's: the bike on a stage with its brand logo, the model's name (without
      generation or colour) and its new price on a sticker. The facts follow the year picked in the gallery below. #}
   {% set gallery = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('image')|list %}
@@ -39,7 +39,7 @@
       <div class="stage-meta mono">{{ _(discipline) }}{% if years %} · {{ _('Model years') }} {{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% endif %}</div>
       <div>
         {% if logos.get(m.brand) %}<span class="stage-logo" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% endif %}
-        {% set name = m.name|family_name %}{% set lead, _sp, rest = name.partition(' ') %}
+        {% set name = (m|model_base if builds else m.name)|family_name %}{% set lead, _sp, rest = name.partition(' ') %}
         <h1 data-fact="title">{% if not logos.get(m.brand) %}{{ m.brand }} {% else %}<span class="sr-only">{{ m.brand }} </span>{% endif %}{{ lead }} <span class="acc">{{ rest }}</span></h1>
         {% set groupset = (parts|selectattr('0', 'equalto', 'Groupset')|first or [None, None])[1] %}
         {% set sub = [m.colorways[0].name if m.colorways else None, groupset]|select|list %}
@@ -48,6 +48,14 @@
     </div>
     <div class="price-sticker"><b data-fact="sticker">{{ m.price_eur|eur if m.price_eur else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
   </section>
+  {% if builds %}{# a model with builds (Ridley): each build is its own page, with its own photo, parts and price #}
+  <div class="block-head"><span>{{ _('Build') }}</span></div>
+  <nav class="builds build-card" aria-label="{{ _('Builds') }}">
+    <div class="k">{{ _('{n} builds of the {model} on the {brand} site', n=builds|length, model=(m|model_base)|model_title, brand=m.brand) }}</div>
+    <div class="build-row">{% for b in builds %}<a class="build-pill{{ ' on' if b.id == m.id }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if b.id == m.id %} aria-current="page"{% endif %}><span>{{ b|build_label }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></a>{% endfor %}</div>
+    <p class="small muted">{{ _('The photo, parts and new price below are of the build you pick; the colours are the same for each.') }}</p>
+  </nav>
+  {% endif %}
   <div class="block-head"><span>{{ _('The model') }}</span></div>
   <section class="ad-card model-card">
     <div class="ad-gallery">

@@ -438,10 +438,59 @@ def line_key(name):
     return re.sub(r"[^a-z0-9]+", "-", _plain(name).replace("+", " plus ")).strip("-")
 
 
-def model_group(name):
+def model_group(name, brand=None):
     """The model a catalogue name belongs to whatever its generation or edition, for the Model menu:
-    "Madone SL 7 Gen 8 - The First 50 Replica" -> "Madone SL 7", "Madone SLR frameset Gen 7" -> "Madone SLR frameset"."""
-    return family_name(re.split(r"\s+[-\u2013]\s+", name or "")[0])
+    "Madone SL 7 Gen 8 - The First 50 Replica" -> "Madone SL 7", "Madone SLR frameset Gen 7" -> "Madone SLR frameset";
+    for a brand that names its builds, without the build: "Noah Fast 3.0 Shimano Ultegra Di2 2x12" -> "Noah Fast 3.0"."""
+    name = re.split(r"\s+[-\u2013]\s+", name or "")[0]
+    if brand in BUILD_BRANDS:
+        name = split_build({"name": name, "brand": brand})[0]
+    return family_name(name)
+
+
+# Brands whose catalogue lists every build of a model as its own entry, named model + build:
+# "Noah Fast 3.0 Shimano Ultegra Di2 2x12", "Kanzo A Frameset". The site shows the model once with its builds,
+# and the matching finds the model on its own words before it picks the build.
+BUILD_BRANDS = {"Ridley"}
+_BUILD_START = re.compile(r"\s+(?=(?:SRAM|Shimano|Campagnolo|Classified|Frameset)\b)", re.I)
+
+
+def split_build(model):
+    """(model name, build) of a catalogue entry of a BUILD_BRANDS brand: ("Noah Fast 3.0", "Shimano Ultegra Di2
+    2x12"), ("Kanzo A", "Frameset"). Other brands, and a name without a build, give (name, None)."""
+    name = model["name"]
+    if model.get("brand") not in BUILD_BRANDS:
+        return name, None
+    parts = _BUILD_START.split(name, maxsplit=1)
+    return (parts[0], parts[1]) if len(parts) == 2 and parts[0] else (name, None)
+
+
+def without_build(model):
+    """The entry under its model's name ("Noah Fast 3.0"), for the checks of the model's words; others as they are."""
+    base, build = split_build(model)
+    return dict(model, name=base) if build else model
+
+
+def build_label(model):
+    """The build as the switcher names it: "Ultegra Di2", "Frameset", "GRX 600 2x12" (without the brand of
+    the groupset, and without the gearing when that's all the builds share)."""
+    build = split_build(model)[1]
+    if not build:
+        return None
+    return re.sub(r"^(?:Shimano|SRAM|Campagnolo)\s+", "", build, flags=re.I)
+
+
+def is_frameset(model):
+    return bool(re.search(r"\bframe\s*set\b|\bframeset\b", model["name"], re.I))
+
+
+def builds_of(model, models):
+    """Every build of this entry's model, cheapest first (the frameset among them), or [] for a model without builds."""
+    base, build = split_build(model)
+    if not build:
+        return []
+    return sorted((m for m in models if m["brand"] == model["brand"] and split_build(m)[0] == base),
+                  key=lambda m: (m.get("price_eur") or 0, m["name"]))
 
 
 def scrape_year(model):
@@ -812,11 +861,16 @@ def conflicts(model, text):
     can't clash with "Shimano 11 speed"."""
     ad_toks = _tokens(text)
     ad_pairs = _numbered(ad_toks)
-    name_toks = _tokens(model["name"].split(" - ")[0])
+    # (for a brand that names its builds, the model part: "GRX 600" in the build is no version of the model)
+    name_toks = _tokens(split_build(model)[0].split(" - ")[0])
     found = []
     for part, number in sorted(_numbered(name_toks)):
-        # A frame size after the name ("Madone gen8 SL (56)") is no version: no model is an SL 56.
-        said = sorted({n for w, n in ad_pairs if w == part and not 44 <= int(n) <= 64})
+        # A frame size after the name ("Madone gen8 SL (56)") is no version: no model is an SL 56;
+        # neither is a year ("Noah Fast 2020" is no Noah Fast 2020).
+        # A brand that names its builds: "Noah 105" is a Noah with 105, not a Noah version 105.
+        said = sorted({n for w, n in ad_pairs if w == part and not 44 <= int(n) <= 64
+                       and not re.fullmatch(r"(?:19|20)\d\d", n)
+                       and not (model.get("brand") in BUILD_BRANDS and int(n) >= 100 > int(number))})
         if said and number not in said:
             label = "Gen " if part == "gen" else part.upper() if len(part) <= 3 else part.title()
             found.append((f"{label}{number}", "/".join(f"{label}{n}" for n in said)))
@@ -864,7 +918,8 @@ def match_models(models, title, description="", claims=None):
     # The words this brand uses in its model names (SLR, Expert, Pro), for the title words a model lacks.
     brand_toks = {}
     for m in models:
-        brand_toks.setdefault(m["brand"], set()).update(_tokens(m["name"].split(" - ")[0]))
+        # (for a brand that names its builds, from the model part: "GRX" is a build word, not a model word)
+        brand_toks.setdefault(m["brand"], set()).update(_tokens(split_build(m)[0].split(" - ")[0]))
     title_words = {t for w in title.split() if not re.fullmatch(ELECTRONIC, w.lower()) for t in _tokens(w)
                    if not t.isdigit()}
     # A complete bike (a groupset, wheels, "compleet") is no frameset, unless the ad says it sells only the frame.
@@ -885,6 +940,8 @@ def match_models(models, title, description="", claims=None):
         score = max(scores)
         if complete and discipline_of(model) == "frames":
             score -= 2.0
+        elif model["brand"] in BUILD_BRANDS and is_frameset(model) and not FRAME_ONLY.search(text):
+            score -= 1.0  # a model with builds: the frameset only when the ad says it sells the frame
         group = detect_groupset(groupset_text(model)) if electronic is not None else None
         if group and bool(group.get("electronic")) != electronic:
             score -= 0.5  # the ad says Di2 and this build shifts by cable, or the other way round
@@ -932,7 +989,14 @@ def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, bran
                   for ours, _ in conflicts(named, title) if not ours.startswith("Gen"))
     score = 0.0
     skip_next = False
+    # A brand that names its builds: the build's words ("Shimano Ultegra Di2 2x12") only count when the ad has
+    # them, so an ad with another groupset still lands on the right model; the groupset bonus below picks the build.
+    base, build = split_build(named)
+    build_from = len(_tokens(base)) if build else len(name_toks)
     for i, tok in enumerate(name_toks):
+        if i >= build_from:
+            score += 0.5 if tok in title_toks else 0.25 if tok in all_toks else 0.0
+            continue
         if skip_next:
             skip_next = False
             continue
@@ -945,6 +1009,8 @@ def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, bran
             score += 1.5
         elif tok in all_toks:
             score += 1.0
+        elif build and tok.isdigit():
+            score -= 0.25  # a version number ("Noah Fast 3.0"): sellers often leave it out
         else:
             score -= 0.75
     gen = generation(model)
@@ -953,7 +1019,7 @@ def score_name(model, name, title, title_toks, all_toks, says_gen, ad_gens, bran
             score += 0.5
     ref_group = detect_groupset(groupset_text(model))
     if ref_group and claims["groupset"] and ref_group["key"] == claims["groupset"]["key"]:
-        score += 0.25
+        score += 1.0 if build else 0.25
     score -= 3 * clashes  # still a candidate when we have nothing closer, but a weak one
     # A model word in the title this model hasn't (Defy Advanced SL 1 for a Defy Advanced 1): another model.
     score -= 0.75 * len((title_words & brand_toks.get(model["brand"], set())) - set(name_toks))
@@ -989,13 +1055,14 @@ def name_check(model, models, title, description=""):
     this brand (S-Works, Expert, ...) but aren't in our model}.
     """
     ad_toks = set(_tokens(f"{title} {description or ''}"))
+    model = without_build(model)
     clashes = conflicts(model, title)
     words = model["name"].split(" - ")[0].split()
     clash_toks = {t for pair in clashes for side in pair for t in _tokens(side)}
     found = [w for w in words if all(t in ad_toks for t in _tokens(w)) and not set(_tokens(w)) <= clash_toks]
     missing = [w for w in words if w not in found and not set(_tokens(w)) <= clash_toks]
     model_toks = set(_tokens(model["name"]))
-    brand_toks = {t for m in models if m["brand"] == model["brand"] for t in _tokens(m["name"].split(" - ")[0])}
+    brand_toks = {t for m in models if m["brand"] == model["brand"] for t in _tokens(split_build(m)[0].split(" - ")[0])}
     # "Di2", "AXS", "eTap", "EPS" say how it shifts, not which model it is: match_rate weighs that on its own.
     extra = []
     for w in title.split():
@@ -1069,6 +1136,7 @@ def match_rate(model, models, title, description=""):
     this model hasn't (Pro, Expert) takes 15 off, a tier one letter off (SL for SLR) 25, shifting the ad says otherwise (Di2 for a mechanical groupset) 10,
     and a version the ad names otherwise (an SL7 for an SL9) scores 0."""
     ad_toks = set(_tokens(f"{title} {description or ''}"))
+    model = without_build(model)  # a model with builds: its own words, the build is picked on its own
     family, version = name_parts(model)
     clash_toks = {t for ours, _ in conflicts(model, title) for t in _tokens(ours)}
     brand_pct = 100 if set(_tokens(model["brand"])) <= ad_toks else 50
@@ -2989,6 +3057,31 @@ def apply_overrides(claims, overrides):
     return claims
 
 
+def build_choice(chosen, models, claims, listing, by_hand=False):
+    """Which build of a model with builds (BUILD_BRANDS) the check works with, or None for other models:
+    {"all": every build, cheapest first; "state": "named" (the ad's groupset is one of them, or the visitor picked
+    one), "unknown" (the ad names no groupset) or "other" (it names one the model isn't sold with today);
+    "used": the build the price works from: the named one, else the middle-priced complete build;
+    "frame_only": the ad sells only the frame}."""
+    if not chosen or chosen.get("brand") not in BUILD_BRANDS:
+        return None
+    builds = builds_of(chosen, models)
+    if len(builds) < 2:
+        return None
+    text = f"{listing.get('title') or ''} {listing.get('description') or ''}"
+    frame_only = bool(FRAME_ONLY.search(text))
+    complete = [b for b in builds if not is_frameset(b)]
+    choice = {"all": builds, "state": "named", "used": chosen, "frame_only": frame_only}
+    if by_hand or frame_only or len(complete) < 2:
+        return choice
+    said = claims.get("groupset")
+    if said and any((detect_groupset(groupset_text(b)) or {}).get("key") == said["key"] for b in complete):
+        return choice
+    choice["state"] = "other" if said else "unknown"
+    choice["used"] = complete[(len(complete) - 1) // 2]  # the middle of the complete builds by price
+    return choice
+
+
 def run_check(models, listing, today=None):
     """listing: dict with title, description, asking_price, rider_height, model_id (optional override), and
     overrides (what an admin set by hand, see OVERRIDE_KEYS; optional)."""
@@ -3013,14 +3106,19 @@ def run_check(models, listing, today=None):
         chosen = next((m for m in models if m["id"] == listing["model_id"]), None)
     if chosen is None and ranked:
         chosen = ranked[0][1]
+    builds = build_choice(chosen, models, claims, listing, by_hand=bool(listing.get("model_id") or overrides.get("model")))
+    if builds and builds["state"] != "named":
+        chosen = builds["used"]
     # Picking our own suggestion again brings back our confidence; another model is the visitor's call.
     chosen_by_you = bool(chosen and ranked and (listing.get("model_id") or overrides.get("model"))
                          and chosen["id"] != ranked[0][1]["id"])
-    level = confidence(ranked) if not chosen_by_you else None
+    # The builds of one model are one candidate for how sure we are: their scores differ only by the groupset.
+    one_each = list({(m["brand"], split_build(m)[0]): (sc, m) for sc, m in reversed(ranked)}.values())[::-1]
+    level = confidence(one_each) if not chosen_by_you else None
     report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen,
               # Which of OVERRIDE_KEYS an admin set by hand, for the edit mode's locks.
-              "locked": sorted(k for k in OVERRIDE_KEYS if overrides.get(k))}
+              "locked": sorted(k for k in OVERRIDE_KEYS if overrides.get(k)), "builds": builds}
     if chosen is None:
         return report
     if not chosen_by_you:
@@ -3036,7 +3134,8 @@ def run_check(models, listing, today=None):
     report["match"] = next((r for r in report["matches"] if r["model"]["id"] == chosen["id"]), None)
     if report["confidence"] and report["match"]:
         report["confidence"] = Msg(match_confidence(report["match"]["pct"],
-                                                    [r["pct"] for r in report["matches"] if r is not report["match"]],
+                                                    [r["pct"] for r in report["matches"] if r is not report["match"]
+                                                     and not (builds and r["model"] in builds["all"])],
                                                     report.get("not_exact")))
     # Show the catalogue bike in the colour of the ad's bike, in every photo of the report.
     fitting = colour_match.fits(chosen, listing["title"], listing.get("description") or "")

@@ -259,6 +259,9 @@ def create_app(db_path=None):
     app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.filters["without_generation"] = checks.without_generation
     app.jinja_env.filters["split_title"] = checks.split_title  # the name, year, size and colour in an ad title
+    app.jinja_env.filters["model_base"] = lambda m: checks.split_build(m)[0]  # "Noah Fast 3.0", without the build
+    app.jinja_env.filters["build_label"] = checks.build_label  # "Ultegra Di2 2x12"
+    app.jinja_env.filters["is_frameset"] = app.jinja_env.tests["is_frameset"] = checks.is_frameset
     app.jinja_env.filters["model_group"] = checks.model_group  # "Madone SL 6 Gen 8" -> "Madone SL 6", in the Model menu
     app.jinja_env.filters["line_key"] = checks.line_key
     app.jinja_env.filters["family_name"] = checks.family_name  # the heading's model: without the generation
@@ -820,6 +823,18 @@ def create_app(db_path=None):
                  for m in models() if (not q or q in m["name"].lower())
                  and (not groupset or groupset_key(m) == groupset)]
         items = [m for m in items if not current or m["status"] == "current"]
+        # A brand that lists every build as its own entry: one tile per model, its cheapest build, with the count.
+        tiles = {}
+        for m in items:
+            base, build = checks.split_build(m)
+            key = (m["brand"], base) if build else ("", m["id"])
+            if key in tiles:
+                tiles[key]["build_count"] += 1
+                if (m["price_eur"] or 0) < (tiles[key]["price_eur"] or 0):
+                    tiles[key] = dict(m, build_count=tiles[key]["build_count"])
+            else:
+                tiles[key] = dict(m, build_count=1) if build else m
+        items = list(tiles.values())
         # each brand's count in the brand menu: what picking it would show with the other filters kept
         brand_counts = Counter(m["brand"] for m in items
                                if (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind))
@@ -829,7 +844,7 @@ def create_app(db_path=None):
         # Each is counted like the brand menu; one the picked brand doesn't have (left from another brand) is dropped.
         lines = {}
         for m in items:
-            m["line"], m["group"] = checks.model_line(m["name"]), checks.model_group(m["name"])
+            m["line"], m["group"] = checks.model_line(m["name"]), checks.model_group(m["name"], m["brand"])
             fits = (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind)
             entry = lines.setdefault(checks.line_key(m["line"]), {"names": Counter(), "count": 0, "models": {}})
             entry["names"][m["line"]] += 1
@@ -916,9 +931,10 @@ def create_app(db_path=None):
         model = db.get_model(conn(), slug=slug)
         if model is None:
             abort(404)
+        builds = checks.builds_of(model, models())  # a model with builds: the switcher under its name
         siblings = sorted((dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m)) for m in models()
                            if checks.family_of(m["name"]) == checks.family_of(model["name"])
-                           and m["brand"] == model["brand"] and m["id"] != model["id"]),
+                           and m["brand"] == model["brand"] and m["id"] != model["id"] and m not in builds),
                           key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
         size_chart = checks.model_size_chart(model)
         known = prices.known_ads(conn(), models())
@@ -931,7 +947,7 @@ def create_app(db_path=None):
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)
-        return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings,
+        return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings, builds=builds,
                                year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),

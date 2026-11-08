@@ -202,8 +202,9 @@
 <a class="model-card" href="{{ url_for('model_page', slug=m.slug) }}">
   <div class="photo">{{ photo(m) }}{% if logos.get(m.brand) %}<span class="brand-mark" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% else %}<span class="brand-mark text">{{ m.brand }}</span>{% endif %}{% if m.status == 'discontinued' %}<span class="status discontinued overlay">{{ _(status_labels[m.status]) }}</span>{% endif %}</div>
   <div class="body">
-    <div class="title-row"><span style="font-weight: 700">{{ (m.name|without_generation if short else m.name)|model_title }}</span>{{ tier_badge(m.tier, small=true) }}</div>
-    <span class="price-row"><span class="small muted">{{ _('New {price}', price=m.price_eur|eur) }}</span>
+    {% set shown = m|model_base if m.build_count else m.name %}
+    <div class="title-row"><span style="font-weight: 700">{{ (shown|without_generation if short else shown)|model_title }}</span>{{ tier_badge(m.tier, small=true) }}</div>
+    <span class="price-row"><span class="small muted">{% if m.build_count and m.build_count > 1 %}{{ _('New from {price}', price=m.price_eur|eur) }} · {{ _('{n} builds', n=m.build_count) }}{% else %}{{ _('New {price}', price=m.price_eur|eur) }}{% endif %}</span>
     {%- if m.matched %}{% set label = _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) %}<span class="ad-count small" title="{{ label }}" aria-label="{{ label }}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h4.6a1.5 1.5 0 0 1 1.06.44l4.4 4.4a1.5 1.5 0 0 1 0 2.12l-4.6 4.6a1.5 1.5 0 0 1-2.12 0l-4.4-4.4A1.5 1.5 0 0 1 2 8.1z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="5.5" r="1.2" fill="currentColor"/></svg>{{ m.matched }}</span>{% endif %}</span>
   </div>
 </a>
