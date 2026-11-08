@@ -22,6 +22,15 @@ def test_photos_count_once_per_model_year():
 def test_admin_page_shows_the_photo_counts(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    page = app.test_client().get("/admin?lang=en").get_data(as_text=True)
+    page = admin_client(app).get("/admin?lang=en").get_data(as_text=True)
     assert "Catalogue photos" in page and 'id="photos-giant-models"' in page and "/models/giant-" in page
-    assert "Catalogusfoto" in app.test_client().get("/admin?lang=nl").get_data(as_text=True)
+    assert "Catalogusfoto" in admin_client(app).get("/admin?lang=nl").get_data(as_text=True)
+
+
+def admin_client(app):
+    """A client logged in as the admin, who alone sees /admin."""
+    app.config["ADMIN_PASSWORD"] = "test"
+    client = app.test_client()
+    with client.session_transaction() as s:
+        s["admin"] = True
+    return client

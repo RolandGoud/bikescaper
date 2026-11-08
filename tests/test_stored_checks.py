@@ -2,6 +2,12 @@ from webapp import checks, db, seed, stored_checks
 from webapp.app import create_app
 
 
+def login_admin(app, client):
+    app.config["ADMIN_PASSWORD"] = "test"
+    with client.session_transaction() as s:
+        s["admin"] = True
+
+
 def app_with_a_check(tmp_path, title="Trek Domane SL6 2022 maat 56 Ultegra"):
     app = create_app(str(tmp_path / "app.sqlite3"))
     app.config["STORE_AD_PHOTOS"] = False
@@ -16,6 +22,7 @@ def test_a_report_is_worked_out_once(tmp_path, monkeypatch):
     runs = []
     real = checks.run_check
     monkeypatch.setattr(checks, "run_check", lambda *a, **k: runs.append(1) or real(*a, **k))
+    login_admin(app, client)
     first = client.get(url + "?lang=en").data
     second = client.get(url + "?lang=en").data
     assert len(runs) == 1 and b"Age check" in second and b"Run this check again" in second
@@ -35,6 +42,7 @@ def test_a_recheck_runs_it_again(tmp_path, monkeypatch):
     assert client.post(f"/check/{check_id}/recheck").status_code == 302
     client.get(url), client.get(url)
     assert len(runs) == 1
+    login_admin(app, client)
     assert client.post("/admin/recheck").status_code == 302
     page = client.get("/admin?rechecked=1&lang=en").data
     assert len(runs) == 2 and b"1 reports kept" in page

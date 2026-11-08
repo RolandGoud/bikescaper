@@ -157,6 +157,10 @@ def test_admin_drops_a_check_the_ad_does_not_date(app):
     # Check 69: a 2016 Émonda the ad's details only place in 2018-2020; the admin drops it as too old.
     client = app.test_client()
     check_id = int(check(client, "Trek Emonda SL6 Ultegra maat 56", "Rem: Velgrem\nMateriaal: Carbon").rsplit("/", 1)[-1])
+    assert client.post("/admin/drop", data={"check_id": check_id, "year": 2016}).status_code == 403  # not logged in
+    app.config["ADMIN_PASSWORD"] = "test"
+    with client.session_transaction() as s:
+        s["admin"] = True
     assert client.post("/admin/drop", data={"check_id": check_id, "year": FIRST_YEAR}).status_code == 400
     response = client.post("/admin/drop", data={"check_id": check_id, "year": 2016})
     assert response.status_code == 302 and f"dropped={check_id}" in response.headers["Location"]

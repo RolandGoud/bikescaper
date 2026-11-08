@@ -4,6 +4,7 @@ Run from the repo root:
     python -m webapp.seed
     flask --app webapp.app run --debug
 """
+import functools
 import hashlib
 import hmac
 import json
@@ -579,6 +580,33 @@ def create_app(db_path=None):
             return back("failed")
         return back("sent")
 
+    def is_admin():
+        return bool(app.config["ADMIN_PASSWORD"] and session.get("admin"))
+
+    app.jinja_env.globals["is_admin"] = is_admin
+
+    def account():
+        """Who is logged in, for the account menu in the header (base.html): None for a visitor, else its label and
+        links as [(text, hint, url)]. Only the admin can log in for now; other kinds of accounts get their own
+        label and links here."""
+        if is_admin():
+            return {"label": gettext("Admin"),
+                    "links": [(gettext("Statistics"), gettext("Matches and scores"), url_for("admin"))]}
+        return None
+
+    app.jinja_env.globals["account"] = account
+
+    def admin_only(view):
+        """The admin pages and their buttons: without a login, to the login page (a form post: refused)."""
+        @functools.wraps(view)
+        def wrapped(*args, **kwargs):
+            if is_admin():
+                return view(*args, **kwargs)
+            if request.method != "GET":
+                abort(403)
+            return redirect(url_for("admin_login", next=request.full_path.rstrip("?")))
+        return wrapped
+
     @app.route("/check/<int:check_id>/match", methods=["POST"])
     def change_match(check_id):
         model_id = request.form.get("model_id", type=int)
@@ -586,10 +614,6 @@ def create_app(db_path=None):
         conn().commit()
         return redirect(url_for("report", check_id=check_id))
 
-    def is_admin():
-        return bool(app.config["ADMIN_PASSWORD"] and session.get("admin"))
-
-    app.jinja_env.globals["is_admin"] = is_admin
 
     @app.route("/admin/login", methods=["GET", "POST"])
     def admin_login():
@@ -666,12 +690,14 @@ def create_app(db_path=None):
         return redirect(url_for("report", check_id=check_id))
 
     @app.route("/admin/recheck", methods=["POST"])
+    @admin_only
     def recheck_all():
         """Forget every stored report: each check runs again, once, the next time it's shown."""
         stored_checks.forget(conn())
         return redirect(url_for("admin", rechecked=1))
 
     @app.route("/admin/drop", methods=["POST"])
+    @admin_only
     def drop_too_old():
         """Drop a check whose bike we know is from before FIRST_YEAR though the ad doesn't date it (check 69, a 2016
         Émonda that only reads as 2018-2020): marked too old with that year and deleted like any other that old."""
@@ -1082,6 +1108,7 @@ def create_app(db_path=None):
                                tier_examples=TIER_EXAMPLES)
 
     @app.route("/admin")
+    @admin_only
     def admin():
         """Statistics for us: what ads leave out, where matching goes wrong, and photo and ad scores."""
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()

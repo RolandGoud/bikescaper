@@ -1890,3 +1890,16 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .ed-photo.on .ed-star { background: var(--accent); color: var(--ink); }
 .admin-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
 .admin-login-form { display: grid; gap: 14px; max-width: 360px; }
+
+/* The account menu in the header (base.html): a person icon to log in; once logged in, a menu like Tools. */
+.site-header nav a.account-login { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; padding: 8px 10px; border: 1px solid var(--line-strong); border-radius: 6px; color: #DCDCE4; }
+.site-header nav a.account-login:hover { color: #fff; background: #23242B; }
+.account-login-text { display: none; }
+.account .tools-button { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; }
+.account-logout { width: 100%; padding: 10px 12px; border: 0; border-radius: 8px; background: none; color: #fff; font: inherit; text-align: left; cursor: pointer; }
+.account-logout:hover { background: var(--faint); }
+@media (max-width: 760px) {
+  .site-header nav a.account-login { align-self: flex-start; margin: 8px 0 0; border: 0; padding: 10px 12px; }
+  .account-login-text { display: inline; }
+  .account .tools-button { margin-left: 0; }
+}
