@@ -1536,6 +1536,10 @@ select { max-width: 100%; }
 .pill-select .pill-brand { display: flex; align-items: center; min-width: 0; }
 .pill-select .pill-brand .pill-logo { width: 96px; height: 20px; color: var(--text); -webkit-mask-position: left center; mask-position: left center; }
 .pill-select > button .pill-brand { padding-left: 6px; }
+.pill-select .pill-iconed { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.pill-select .pill-icon { flex: none; width: 32px; height: 20px; background: currentColor; -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+.pill-select > button .pill-iconed { padding-left: 6px; }
+.pill-select > button .pill-iconed > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pill-select .check { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; }
 @media (max-width: 640px) {
   .field-label .pill-select, .sell-match .match-pick .pill-select { width: 100%; min-width: 0; }
