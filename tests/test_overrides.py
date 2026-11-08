@@ -124,3 +124,41 @@ def test_logging_in_from_the_header_goes_to_the_admin_page(tmp_path, monkeypatch
     client.post("/admin/logout")
     response = client.post("/admin/login", data={"password": "geheim", "next": "/admin?rechecked=1"})
     assert response.headers["Location"].endswith("/admin?rechecked=1")
+
+
+def test_a_colour_set_by_hand_wins_and_dates_the_bike(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    conn = db.connect(app.config["DB_PATH"])
+    row = dict(conn.execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone(), title="Trek Domane AL 2 Gen 4", description="")
+    models = db.all_models(conn)
+    model = checks.run_check(models, dict(row, overrides={}))["model"]
+    sheets = checks.year_sheets(model)
+    # A colourway only some years came in.
+    colour, years = next((c, {y for y, s in sheets.items() if c in s["colours"]}) for c in checks.colour_choices(model)
+                         if 0 < len({y for y, s in sheets.items() if c in s["colours"]}) < len(sheets))
+    report = checks.run_check(models, dict(row, overrides={"colour": colour}))
+    assert report["colour_set"] == colour and "colour" in report["locked"]
+    assert report["year"]["year"] in years
+    # The year set by hand still wins over the colour's years.
+    other = next(y for y in sheets if y not in years)
+    report = checks.run_check(models, dict(row, overrides={"colour": colour, "year": other}))
+    assert report["year"]["year"] == other and report["spec_year"] == other and report["colour_set"] == colour
+    # A colour another model has counts as not set.
+    assert checks.run_check(models, dict(row, overrides={"colour": "No Such Colour"}))["colour_set"] is None
+
+
+def test_the_colour_editor_takes_only_the_models_colourways(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("UPDATE checks SET title = 'Trek Domane AL 2 Gen 4' WHERE id = ?", (check_id,))
+    conn.commit()
+    row = conn.execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
+    model = checks.run_check(db.all_models(conn), dict(row, overrides={}))["model"]
+    colour = checks.colour_choices(model)[-1]
+    assert b"edit-colour" in client.get(url + "?edit=1&lang=en").data
+    assert client.post(f"/check/{check_id}/override", data={"field": "colour", "value": colour}).status_code == 302
+    assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"colour": colour}
+    page = client.get(url + "?lang=en").get_data(as_text=True)
+    assert colour in page

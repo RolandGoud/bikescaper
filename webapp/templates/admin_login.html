@@ -9,7 +9,7 @@
   {% elif not configured %}
   <p class="muted">{{ _('No admin password is set. Set ADMIN_PASSWORD on the server and restart the site to log in.') }}</p>
   {% else %}
-  <p class="muted">{{ _('To correct what a check matched: the model, year, groupset, size and main photo.') }}</p>
+  <p class="muted">{{ _('To correct what a check matched: the model, year, groupset, size, colour and main photo.') }}</p>
   <form method="post" class="admin-login-form">
     <input type="hidden" name="next" value="{{ next }}">
     <label class="field">{{ _('Password') }}<input type="password" name="password" autocomplete="current-password" required autofocus></label>
