@@ -70,3 +70,10 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill( on)?" href="/models/([^"]+)"', page)
     assert len(pills) == 5 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
+
+
+def test_a_model_with_one_build_has_no_build_section(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/ridley-x-ride-disc-shimano-grx-600-2x12?lang=en").get_data(as_text=True)
+    assert "X-Ride Disc" in page and 'class="builds build-card"' not in page and "build-pill" not in page

@@ -48,7 +48,7 @@
     </div>
     <div class="price-sticker"><b data-fact="sticker">{{ m.price_eur|eur if m.price_eur else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
   </section>
-  {% if builds %}{# a model with builds (Ridley): each build is its own page, with its own photo, parts and price #}
+  {% if builds|length > 1 %}{# a model with more than one build (Ridley): each build is its own page, with its own photo, parts and price #}
   <div class="block-head"><span>{{ _('Build') }}</span></div>
   <nav class="builds build-card" aria-label="{{ _('Builds') }}">
     <div class="k">{{ _('{n} builds of the {model} on the {brand} site', n=builds|length, model=(m|model_base)|model_title, brand=m.brand) }}</div>
