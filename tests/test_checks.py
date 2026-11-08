@@ -98,7 +98,10 @@ def test_an_age_in_the_ad_dates_the_bike(models):
     r = checks.run_check(models, listing, today=date(2026, 11, 8))
     assert r["model"]["name"] == "Émonda SL 6"
     assert r["claims"]["year"] == 2024 and r["claims"]["year_from"] == "age"
-    assert r["year"]["year"] == 2024
+    # Its black (Dnister Black/Trek Black, without the silver of the logo) was sold in 2023 only: one year off the
+    # rough "2j oud", so the report goes by 2023 and shows that colourway.
+    assert r["year"]["year"] == 2023 and r["year"]["how"] == "age"
+    assert "dnisterblack" in r["model"]["image"]
     assert r["claims"]["size"] == "M"
     assert r["claims"]["saddle"]["label"] == "Bontrager"
     groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
@@ -2142,3 +2145,10 @@ def test_a_photo_colour_missing_from_the_sheets_does_not_crash(models):
     model = next(m for m in models if m["name"] == "Émonda SL 6" and m["brand"] == "Trek")
     claims = checks.read_claims("Trek Emonda SL 6", "Schijfremmen")
     assert checks.estimate_year(model, models, claims, "Trek Emonda SL 6\nSchijfremmen", seen_colour="no such colour")
+
+
+def test_the_logo_colour_is_not_the_bikes():
+    from webapp import colour_match
+    assert colour_match.ad_colours("Trek Emonda", "kleur zwart met silver logo Trek") == ["black"]
+    assert colour_match.ad_colours("Trek Emonda", "kleur: wit met rode letters") == ["white"]
+    assert colour_match.ad_colours("Trek Emonda zwart/rood", "") == ["black", "red"]

@@ -98,6 +98,9 @@ def ad_colours(title, description=""):
     said += re.findall(r"\bframe\s*(?:is|:)?\s*(?:in\s+)?(?:het\s+)?(%s)" % _AD_COLOUR, text)
     found = []
     for s in said:
+        # The colour of the logo isn't the bike's (check 133: "zwart met silver logo Trek" is a black bike).
+        s = re.sub(r"\b(?:met\s+(?:een\s+|a\s+)?|with\s+(?:a\s+)?)?[\w-]+(?:\s*[/&-]\s*[\w-]+)?\s+(?:logo\w*|letters"
+                   r"|lettering|belettering|opdruk|decals?|stickers?)\b", " ", s, flags=re.I)
         for f in families_in(s):
             if f not in found:
                 found.append(f)
