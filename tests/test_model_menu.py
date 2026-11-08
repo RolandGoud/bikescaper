@@ -62,3 +62,31 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     html = client.get("/models?model=madone-sl&current=0").get_data(as_text=True)
     assert re.search(r'<select name="model" disabled>', html)
     assert len(_cards(html)) > len(sl7)
+
+
+def test_model_named_like_its_line_keeps_its_own_option(tmp_path):
+    # Trek's "Boone 5" is the model "Boone" in the line "Boone": "All Boone" holds the frameset, "Boone" does not
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    labels = dict((k, label) for k, label, _n in _menu(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True)))
+    assert labels["boone"] == "All Boone" and labels["boone-model"] == "Boone"
+    line = _cards(client.get("/models?brand=Trek&model=boone&current=0").get_data(as_text=True))
+    model = _cards(client.get("/models?brand=Trek&model=boone-model&current=0").get_data(as_text=True))
+    assert len(model) == 1 and "frameset" not in model[0] and any("frameset" in s for s in line)
+    # the address of a build from before finds the model, not the whole line
+    assert _cards(client.get("/models?brand=Trek&model=boone-5&current=0").get_data(as_text=True)) == model
+
+
+def test_model_tile_is_a_build_on_sale(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    trek = [m for m in db.all_models(conn) if m["brand"] == "Trek"]
+    html = app.test_client().get("/models?brand=Trek&current=0").get_data(as_text=True)
+    by_slug = {m["slug"]: m for m in trek}
+    for slug in _cards(html):
+        tile = by_slug[slug]
+        siblings = [m for m in trek if checks.site_split(m)[0] == checks.site_split(tile)[0]]
+        if any(checks.catalogue_status(m)[0] == "current" for m in siblings):
+            assert checks.catalogue_status(tile)[0] == "current", slug
