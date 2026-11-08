@@ -4,7 +4,7 @@ from webapp import checks, db, seed
 from webapp.app import create_app
 
 
-def test_model_line():
+def test_model_line_and_group():
     assert checks.model_line("Madone SL 6 Gen 8") == "Madone"
     assert checks.model_line("S-Works Tarmac SL8") == "Tarmac"
     assert checks.model_line("Men's S-Works Diverge STR") == "Diverge"
@@ -14,29 +14,42 @@ def test_model_line():
     assert checks.model_line("Bugatti Factor ONE") == "ONE"
     assert checks.line_key("Émonda") == checks.line_key("Emonda") == "emonda"
     assert checks.line_key("CruX") == checks.line_key("Crux")
+    assert checks.line_key("Domane+ SLR 6") == "domane-plus-slr-6"
+    # every generation and edition of a model is one model
+    assert checks.model_group("Madone SL 7 Gen 7") == checks.model_group("Madone SL 7 Gen 8") == "Madone SL 7"
+    assert checks.model_group("Madone SL 7 Gen 8 - The First 50 Replica") == "Madone SL 7"
+    assert checks.line_key(checks.model_group("Domane SLR 7 gen 4")) == checks.line_key(checks.model_group("Domane SLR 7 Gen 5"))
 
 
 def _menu(html):
-    menu = re.search(r'<select name="line".*?</select>', html, re.S).group(0)
+    menu = re.search(r'<select name="model".*?</select>', html, re.S).group(0)
     return re.findall(r'<option value="([^"]+)" data-label="([^"]+)" data-count="(\d+)"', menu)
 
 
-def test_model_menu_filters_the_picked_brand(tmp_path):
+def _cards(html):
+    return re.findall(r'class="model-card[^"]*" href="/models/([^"]+)"', html)
+
+
+def test_model_menu_lists_models_without_generations(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    menu = _menu(client.get("/models?brand=Trek&current=0").get_data(as_text=True))
-    keys = [k for k, _label, _n in menu]
-    assert "madone" in keys and "domane" in keys and "domane+" in keys  # Domane+ is its own line
-    assert dict((k, label) for k, label, _n in menu)["madone"] == "Madone"  # one brand: no brand in the label
-    counts = [int(n) for _k, _l, n in menu]
-    assert counts == sorted(counts, reverse=True)
-    html = client.get("/models?brand=Trek&line=madone&current=0").get_data(as_text=True)
-    names = re.findall(r'class="model-card[^"]*" href="/models/([^"]+)"', html)
-    assert names and all("madone" in n for n in names)
-    # a line of another brand is ignored once the brand changes
-    html = client.get("/models?brand=Canyon&line=madone&current=0").get_data(as_text=True)
-    assert "No models match." not in html
-    # every brand on: each line says its brand
-    labels = [label for _k, label, _n in _menu(client.get("/models").get_data(as_text=True))]
-    assert any(label.startswith("Trek ") for label in labels)
+    menu = _menu(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True))
+    labels = dict((k, label) for k, label, _n in menu)
+    assert labels["madone"] == "All Madone" and labels["madone-sl-7"] == "Madone SL 7"
+    assert "domane-plus" in labels and not any("gen" in k for k in labels)
+    # one Madone SL 7 holds every generation
+    sl7 = _cards(client.get("/models?brand=Trek&model=madone-sl-7&current=0").get_data(as_text=True))
+    assert any("gen-7" in s for s in sl7) and any("gen-8" in s for s in sl7)
+    assert all("madone-sl-7" in s for s in sl7)
+    # the whole line
+    madone = _cards(client.get("/models?brand=Trek&model=madone&current=0").get_data(as_text=True))
+    assert len(madone) > len(sl7) and all("madone" in s for s in madone)
+    # the address the menu used to send still works
+    assert _cards(client.get("/models?brand=Trek&line=madone&current=0").get_data(as_text=True)) == madone
+    # a model of another brand is ignored once the brand changes
+    assert "No models match." not in client.get("/models?brand=Canyon&model=madone-sl-7&current=0").get_data(as_text=True)
+    # no brand picked: the menu is greyed out and a model in the address is ignored
+    html = client.get("/models?model=madone-sl-7&current=0").get_data(as_text=True)
+    assert re.search(r'<select name="model" disabled>', html)
+    assert len(_cards(html)) > len(sl7)

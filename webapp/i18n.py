@@ -195,6 +195,7 @@ NL = {
     "Show all {count} checked ads": "Bekijk alle {count} gecheckte advertenties",
     "Show all {count}": "Bekijk alle {count}",
     "All {count}": "Alle {count}",
+    "All {line}": "Alle {line}",
     "Ad": "Advertentie",
     "Sponsored": "Gesponsord",
     "Catalogue": "Catalogus",

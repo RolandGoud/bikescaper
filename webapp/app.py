@@ -259,7 +259,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["years_list"] = checks._years_list
     app.jinja_env.filters["without_generation"] = checks.without_generation
     app.jinja_env.filters["split_title"] = checks.split_title  # the name, year, size and colour in an ad title
-    app.jinja_env.filters["model_line"] = checks.model_line  # "Madone SL 6 Gen 8" -> "Madone", the Model menu's line
+    app.jinja_env.filters["model_group"] = checks.model_group  # "Madone SL 6 Gen 8" -> "Madone SL 6", in the Model menu
     app.jinja_env.filters["line_key"] = checks.line_key
     app.jinja_env.filters["family_name"] = checks.family_name  # the heading's model: without the generation
     app.jinja_env.filters["ad_condition"] = checks.ad_condition  # the condition the seller picked on the site
@@ -824,23 +824,32 @@ def create_app(db_path=None):
         brand_counts = Counter(m["brand"] for m in items
                                if (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind))
         items = [m for m in items if not picked or m["brand"] in picked]
-        # the Model menu: the lines of the picked brand (of every brand when none is picked), each counted like
-        # the brand menu; a line the picked brand doesn't have (left over from another brand) is dropped
+        # the Model menu: the models of the picked brand with all their
+        # generations together ("Madone SL 7"), under their line ("Madone"), which can be picked as a whole too.
+        # Each is counted like the brand menu; one the picked brand doesn't have (left from another brand) is dropped.
+        lines = {}
         for m in items:
-            m["line"] = checks.model_line(m["name"])
-        line_menu = {}
-        for m in items:
-            entry = line_menu.setdefault(checks.line_key(m["line"]), {"names": Counter(), "brands": Counter(), "count": 0})
+            m["line"], m["group"] = checks.model_line(m["name"]), checks.model_group(m["name"])
+            fits = (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind)
+            entry = lines.setdefault(checks.line_key(m["line"]), {"names": Counter(), "count": 0, "models": {}})
             entry["names"][m["line"]] += 1
-            entry["brands"][m["brand"]] += 1
-            entry["count"] += (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind)
-        line_menu = sorted(({"key": key, "name": e["names"].most_common(1)[0][0], "count": e["count"],
-                             "brand": e["brands"].most_common(1)[0][0]} for key, e in line_menu.items()),
-                           key=lambda e: (-e["count"], e["name"].lower()))
-        line = request.args.get("line") or None
-        line = line if line in {e["key"] for e in line_menu} else None
-        line_name = next((e["name"] for e in line_menu if e["key"] == line), None)
-        items = [m for m in items if not line or checks.line_key(m["line"]) == line]
+            entry["count"] += fits
+            model = entry["models"].setdefault(checks.line_key(m["group"]), {"names": Counter(), "count": 0})
+            model["names"][m["group"]] += 1
+            model["count"] += fits
+        model_menu = sorted(({"key": key, "name": e["names"].most_common(1)[0][0], "count": e["count"],
+                              "models": sorted(({"key": k, "name": g["names"].most_common(1)[0][0], "count": g["count"]}
+                                                for k, g in e["models"].items()), key=lambda g: g["name"].lower())}
+                             for key, e in lines.items()), key=lambda e: (-e["count"], e["name"].lower()))
+        # ?model= is a model or a whole line; ?line= is what the menu used to send
+        model = (request.args.get("model") or request.args.get("line") or None) if len(picked) == 1 else None  # one brand's menu
+        picked_line = next((e for e in model_menu if e["key"] == model), None)
+        picked_model = None if picked_line else next((g for e in model_menu for g in e["models"] if g["key"] == model), None)
+        model = model if picked_line or picked_model else None
+        if picked_line:
+            items = [m for m in items if checks.line_key(m["line"]) == model]
+        elif picked_model:
+            items = [m for m in items if checks.line_key(m["group"]) == model]
         tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
                        for t in TIERS}
         items = [m for m in items if not tier or m["tier"] == tier]
@@ -857,7 +866,7 @@ def create_app(db_path=None):
                             key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES, brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
-                               line=line, line_name=line_name, line_menu=line_menu,
+                               model=model, model_menu=model_menu,
                                tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
                                nav="models", sponsored=offers(("side",), tiles=True))
 

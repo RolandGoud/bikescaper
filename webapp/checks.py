@@ -432,9 +432,16 @@ def model_line(name):
     return _LINE_ALIASES.get(words[0].lower(), words[0])
 
 
-def line_key(line):
-    """The key the Model menu and its address use for a line: plain lowercase, "Émonda" -> "emonda"."""
-    return _plain(line)
+def line_key(name):
+    """The key the Model menu and its address use for a line or a model: "Émonda" -> "emonda",
+    "Domane+ SLR 6" -> "domane-plus-slr-6". Letter case and accents don't count, so "CruX" and "Crux" are one."""
+    return re.sub(r"[^a-z0-9]+", "-", _plain(name).replace("+", " plus ")).strip("-")
+
+
+def model_group(name):
+    """The model a catalogue name belongs to whatever its generation or edition, for the Model menu:
+    "Madone SL 7 Gen 8 - The First 50 Replica" -> "Madone SL 7", "Madone SLR frameset Gen 7" -> "Madone SLR frameset"."""
+    return family_name((name or "").split(" - ")[0])
 
 
 def scrape_year(model):
