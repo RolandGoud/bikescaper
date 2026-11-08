@@ -27,7 +27,7 @@
           {% else %}<div class="v small">{{ m.colors|join(', ') or '–' }}</div>{% endif %}
 </div>{% endset %}
 <main class="wrap page">
-  <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / {{ m.name|model_title }}</div>
+  <div class="crumbs"><a href="{{ url_for('catalog') }}">{{ _('Models') }}</a> / <a href="{{ url_for('catalog', brand=m.brand) }}">{{ m.brand }}</a> / <a href="{{ url_for('catalog', brand=m.brand, line=m.name|model_line|line_key) }}">{{ m.name|model_line }}</a> / {{ m.name|model_title }}</div>
   {# The heading like the check report's: the bike on a stage with its brand logo, the model's name (without
      generation or colour) and its new price on a sticker. The facts follow the year picked in the gallery below. #}
   {% set gallery = year_tabs|rejectattr('state', 'equalto', 'scrape')|selectattr('image')|list %}

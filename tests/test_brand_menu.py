@@ -9,6 +9,7 @@ def test_brand_menu_most_bikes_first_ties_alphabetical(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     html = app.test_client().get("/models").get_data(as_text=True)
     menu = [(name, int(n)) for name, n in
-            re.findall(r'<option value="([^"]+)" data-label="[^"]+" data-count="(\d+)"', html)]
+            re.findall(r'<option value="([^"]+)" data-label="[^"]+" data-count="(\d+)"',
+                       re.search(r'<select name="brand".*?</select>', html, re.S).group(0))]
     assert len(menu) > 1
     assert menu == sorted(menu, key=lambda b: (-b[1], b[0].lower()))

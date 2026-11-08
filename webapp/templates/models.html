@@ -11,7 +11,7 @@
     <h1 style="font-size: 44px">{{ _('Models') }}</h1>
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
     {% if groupset %}<p class="row small"><span class="chip ok-bg">{{ _('With {groupset}', groupset=groupset_name or groupset) }}</span>
-      <a href="{{ url_for('catalog', brand=picked or None, type=kind, q=q or None, current=None if current else 0, tier=tier) }}">{{ _('All groupsets') }}</a>
+      <a href="{{ url_for('catalog', brand=picked or None, line=line, type=kind, q=q or None, current=None if current else 0, tier=tier) }}">{{ _('All groupsets') }}</a>
       {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a>{% endif %}</p>{% endif %}
   </div>
   {# One filter box: brand, type, tier, still sold and search, all in one form. The brand menu shows the logos
@@ -24,6 +24,14 @@
           {% if picked|length > 1 %}{# an older address with several brands: show them, picking any other option replaces them #}
           <option value="" selected disabled data-label="{{ picked|join(' + ') }}">{{ picked|join(' + ') }}</option>{% endif %}
           {% for b in brand_menu %}<option value="{{ b.name }}" data-label="{{ b.name }}" data-count="{{ brand_counts.get(b.name, 0) }}"{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %} {{ 'selected' if picked == [b.name] }}>{{ b.name }} ({{ brand_counts.get(b.name, 0) }})</option>{% endfor %}
+        </select>
+      </label>
+      {# The model lines (Madone, Domane…) of the picked brand; with every brand on, each line says its brand.
+         Lines without bikes under the other filters stay out, like the types. #}
+      <label class="field-label">{{ _('Model') }}
+        <select name="line" onchange="this.form.requestSubmit()">
+          <option value="" data-label="{{ _('All models') }}" data-count="{{ line_menu|sum(attribute='count') }}">{{ _('All models') }}</option>
+          {% for e in line_menu if e.count or line == e.key %}{% set label = e.name if picked|length == 1 else e.brand ~ ' ' ~ e.name %}<option value="{{ e.key }}" data-label="{{ label }}" data-count="{{ e.count }}" {{ 'selected' if line == e.key }}>{{ label }} ({{ e.count }})</option>{% endfor %}
         </select>
       </label>
       {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
