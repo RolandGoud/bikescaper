@@ -1853,3 +1853,40 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .start-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .start-choice .btn:last-child { margin-top: auto; }
 .start-choice .btn { align-self: flex-start; }
+
+/* The report's edit mode for an admin (report.html, app.py set_override): a bar over the page, a pencil on the
+   year, size, groupset and model that opens a small form, a lock on what's set by hand, and a main-photo picker. */
+.edit-bar { background: var(--warn-bg); color: var(--warn); border-bottom: 1px solid #5A4724; font-size: 14px; }
+.edit-bar .wrap { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between; padding-top: 9px; padding-bottom: 9px; }
+.edit-bar a, .edit-bar .linkish { color: var(--warn); }
+.edit-bar-actions { display: inline-flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.edit-bar form, .ed-photos form { display: inline; margin: 0; }
+.linkish { background: none; border: 0; padding: 0; font: inherit; color: var(--link); text-decoration: underline; cursor: pointer; }
+.ad-tiles > div { position: relative; }
+.ed-lock { font-size: 12px; margin-left: 4px; }
+.ed-pop { position: relative; display: inline-block; vertical-align: middle; margin-left: 6px; }
+.ed-pop > summary { list-style: none; }
+.ed-pop > summary::-webkit-details-marker { display: none; }
+.ed-pen { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--warn); background: var(--warn-bg); color: var(--warn); font-size: 14px; cursor: pointer; }
+.ed-pop[open] > .ed-pen { background: var(--warn); color: var(--ink); }
+.ed-form { position: absolute; z-index: 30; top: 34px; left: 0; width: min(300px, calc(100vw - 48px)); display: grid; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--warn); background: var(--card); box-shadow: 0 12px 30px rgba(0, 0, 0, .5); font: 400 14px var(--body); color: var(--text); text-transform: none; letter-spacing: 0; }
+.ed-form select { height: 42px; width: 100%; font-size: 15px; }
+.ed-auto { font-size: 12px; color: var(--muted); }
+.ed-check { display: flex; gap: 8px; align-items: center; font-size: 14px; }
+.ed-check input { height: auto; }
+.ed-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.ed-save, .ed-clear { height: 36px; padding: 0 12px; border-radius: 6px; font: 700 14px var(--body); cursor: pointer; }
+.ed-save { border: 0; background: var(--accent); color: var(--ink); }
+.ed-clear { border: 1px solid var(--line-strong); background: transparent; color: var(--text); }
+.ms-edit { display: inline-flex; align-items: center; gap: 4px; text-transform: none; letter-spacing: 0; }
+.block-head .ms-edit { margin-left: 6px; }
+.ed-photos { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--warn); display: grid; gap: 8px; }
+.ed-photos .k { font: 500 11px var(--mono); color: var(--warn); letter-spacing: .06em; }
+.ed-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; }
+.ed-photo { position: relative; display: block; width: 100%; padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; background: none; cursor: pointer; }
+.ed-photo img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.ed-star { position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; background: rgba(12, 13, 16, .8); color: var(--muted); }
+.ed-photo.on { border-color: var(--accent); }
+.ed-photo.on .ed-star { background: var(--accent); color: var(--ink); }
+.admin-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.admin-login-form { display: grid; gap: 14px; max-width: 360px; }

@@ -1,0 +1,96 @@
+"""An admin corrects a check by hand (the report's edit mode): the model, year, groupset, size and main photo stay
+set when the check runs again, and only a logged-in admin can set them."""
+import json
+
+from webapp import checks, db, seed
+from webapp.app import create_app
+
+TITLE = "Trek Domane SL6 2022 maat 56 Ultegra"
+
+
+def setup(tmp_path, monkeypatch, password="geheim"):
+    monkeypatch.setenv("ADMIN_PASSWORD", password)
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    url = client.post("/check", data={"title": TITLE, "asking_price": "2450", "rider_height": "180"}).headers["Location"]
+    return app, client, url, int(url.rsplit("/", 1)[1])
+
+
+def login(client, password="geheim"):
+    return client.post("/admin/login", data={"password": password, "next": "/admin"})
+
+
+def test_only_a_logged_in_admin_can_correct_a_check(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    assert client.post(f"/check/{check_id}/override", data={"field": "year", "value": "2020"}).status_code == 403
+    assert b"edit-year" not in client.get(url + "?edit=1").data
+    assert login(client, "wrong").status_code == 400
+    assert login(client).status_code == 302
+    page = client.get(url + "?edit=1&lang=en").data
+    assert b"Edit mode" in page and b"edit-year" in page and b"edit-model" in page and b"edit-groupset" in page
+    client.post("/admin/logout")
+    assert client.post(f"/check/{check_id}/override", data={"field": "year", "value": "2020"}).status_code == 403
+
+
+def test_no_password_set_means_no_login(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch, password="")
+    assert login(client, "").status_code == 400
+    assert b"ADMIN_PASSWORD" in client.get("/admin/login?lang=en").data
+
+
+def test_values_set_by_hand_win_and_survive_a_recheck(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    conn = db.connect(app.config["DB_PATH"])
+    madone = next(m for m in db.all_models(conn) if "Madone" in m["name"])
+    for data in ({"field": "year", "value": "2020"}, {"field": "size", "value": "54"},
+                 {"field": "groupset", "value": "105:3", "electronic": "1"}, {"field": "model", "value": madone["slug"]}):
+        assert client.post(f"/check/{check_id}/override", data=data).status_code == 302
+    # A visitor's pick of another model doesn't undo the admin's.
+    other = next(m for m in db.all_models(conn) if "Domane" in m["name"])
+    client.post(f"/check/{check_id}/match", data={"model_id": other["id"]})
+    client.post(f"/check/{check_id}/recheck"), client.post("/admin/recheck")
+    page = client.get(url + "?lang=en").data.decode()
+    assert "Madone" in page
+    row = conn.execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
+    overrides = json.loads(row["overrides"])
+    assert overrides == {"year": 2020, "size": "54", "groupset": {"key": "105", "tier": 3, "electronic": True},
+                         "model": madone["slug"]}
+    report = checks.run_check(db.all_models(conn), dict(row, overrides=overrides))
+    assert report["model"]["slug"] == madone["slug"]
+    assert report["claims"]["year"] == 2020 and report["year"]["year"] == 2020 and report["year"]["how"] == "ad"
+    assert report["claims"]["size"] == "54" and report["size"]["rows"]
+    assert report["claims"]["groupset"]["key"] == "105" and report["claims"]["groupset"]["electronic"]
+    assert report["locked"] == ["groupset", "model", "size", "year"]
+    # Back to automatic: one field, then all.
+    client.post(f"/check/{check_id}/override", data={"field": "year", "clear": "1"})
+    assert "year" not in json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0])
+    client.post(f"/check/{check_id}/override", data={"field": "all"})
+    assert conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0] is None
+    assert checks.run_check(db.all_models(conn), dict(row, overrides={}))["claims"]["year"] == 2022
+
+
+def test_the_main_photo_goes_first(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    conn = db.connect(app.config["DB_PATH"])
+    photos = [f"https://example.com/{i}.jpg" for i in range(4)]
+    conn.execute("UPDATE checks SET photos = ? WHERE id = ?", (json.dumps(photos), check_id))
+    conn.commit()
+    login(client)
+    assert client.post(f"/check/{check_id}/override", data={"field": "main_photo", "value": "9"}).status_code == 400
+    assert client.post(f"/check/{check_id}/override", data={"field": "main_photo", "value": "2"}).status_code == 302
+    page = client.get(url).data.decode()
+    big = page.index('class="ag-main"')
+    assert page.index("example.com/2.jpg", big) < page.index("example.com/0.jpg", big)
+    # The stored order is the ad's own: only what's shown changes.
+    assert json.loads(conn.execute("SELECT photos FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == photos
+
+
+def test_bad_values_are_refused(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    for data in ({"field": "year", "value": "1890"}, {"field": "model", "value": "no-such-bike"},
+                 {"field": "groupset", "value": "nope:9"}, {"field": "colour", "value": "red"}):
+        assert client.post(f"/check/{check_id}/override", data=data).status_code == 400

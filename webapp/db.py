@@ -46,8 +46,9 @@ CREATE TABLE IF NOT EXISTS checks (
     posted_at TEXT,       -- when the ad was placed on the site (UTC), read from the ad; NULL = unknown
     gone_reason TEXT,     -- with removed_at: "expired", "removed" (by the seller) or NULL = can't tell
     source TEXT,          -- NULL = a visitor's check, "daily" = made by webapp.daily_checks
-    too_old INTEGER       -- the bike's model year when it's from before checks.FIRST_YEAR: the check isn't published;
+    too_old INTEGER,      -- the bike's model year when it's from before checks.FIRST_YEAR: the check isn't published;
                           -- 0 = published, NULL = not worked out yet (webapp/stored_checks.py)
+    overrides TEXT        -- JSON of what an admin set by hand (checks.OVERRIDE_KEYS): kept on every recheck
 );
 CREATE TABLE IF NOT EXISTS check_results (
     check_id INTEGER PRIMARY KEY REFERENCES checks(id),
@@ -76,7 +77,7 @@ CREATE TABLE IF NOT EXISTS photo_review_interest (
 """
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
                        ("source", "TEXT"), ("posted_at", "TEXT"), ("gone_reason", "TEXT"),
-                       ("too_old", "INTEGER")]
+                       ("too_old", "INTEGER"), ("overrides", "TEXT")]
 ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT"),
