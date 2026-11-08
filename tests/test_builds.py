@@ -66,7 +66,7 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     html = client.get("/models?brand=Ridley&lang=en").get_data(as_text=True)
     titles = re.findall(r'<span style="font-weight: 700">([^<]+)</span>', html)
     assert titles.count("Noah Fast 3.0") == 1 and not any("Ultegra" in t for t in titles)
-    assert "New from €" in html and "5 builds" in html
+    assert "5 builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill( on)?" href="/models/([^"]+)"', page)
     assert len(pills) == 5 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]

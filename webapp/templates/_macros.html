@@ -193,8 +193,8 @@
 {%- endmacro %}
 
 
-{# A model tile as on the models page: photo with brand logo and status, name, new price and spec tier,
-   and beside the price the number of ads matched to the model (a tag with the count; the sentence is its tooltip).
+{# A model tile as on the models page: photo with brand logo and status, name and spec tier,
+   then the number of builds and of ads matched to the model (a tag with the count; the sentence is its tooltip).
    Import it "with context" so the logos and status labels reach it. #}
 {# short leaves the generation out of the name ("Domane AL 2" for the Gen 4): the Models page doesn't tell
    generations apart, the model page does. #}
@@ -204,8 +204,8 @@
   <div class="body">
     {% set shown = m|model_base if m.build_count else m.name %}
     <div class="title-row"><span style="font-weight: 700">{{ (shown|without_generation if short else shown)|model_title }}</span>{{ tier_badge(m.tier, small=true) }}</div>
-    <span class="price-row"><span class="small muted">{% if m.build_count and m.build_count > 1 %}{{ _('New from {price}', price=m.price_eur|eur) }} · {{ _('{n} builds', n=m.build_count) }}{% else %}{{ _('New {price}', price=m.price_eur|eur) }}{% endif %}</span>
-    {%- if m.matched %}{% set label = _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) %}<span class="ad-count small" title="{{ label }}" aria-label="{{ label }}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h4.6a1.5 1.5 0 0 1 1.06.44l4.4 4.4a1.5 1.5 0 0 1 0 2.12l-4.6 4.6a1.5 1.5 0 0 1-2.12 0l-4.4-4.4A1.5 1.5 0 0 1 2 8.1z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="5.5" r="1.2" fill="currentColor"/></svg>{{ m.matched }}</span>{% endif %}</span>
+    {% if (m.build_count and m.build_count > 1) or m.matched %}<span class="price-row"><span class="small muted">{% if m.build_count and m.build_count > 1 %}{{ _('{n} builds', n=m.build_count) }}{% endif %}</span>
+    {%- if m.matched %}{% set label = _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) %}<span class="ad-count small" title="{{ label }}" aria-label="{{ label }}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h4.6a1.5 1.5 0 0 1 1.06.44l4.4 4.4a1.5 1.5 0 0 1 0 2.12l-4.6 4.6a1.5 1.5 0 0 1-2.12 0l-4.4-4.4A1.5 1.5 0 0 1 2 8.1z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="5.5" r="1.2" fill="currentColor"/></svg>{{ m.matched }}</span>{% endif %}</span>{% endif %}
   </div>
 </a>
 {%- endmacro %}
