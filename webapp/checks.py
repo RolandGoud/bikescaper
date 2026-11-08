@@ -2063,7 +2063,7 @@ def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None
     # from photos is a guess, and our sheets miss colourways (check 133: a black disc-brake Émonda SL 6 dated by
     # "zwart" to 2019–2020, rim-brake years). When they clash, the brakes win.
     brakes = [c for c in clues if c[2].text.startswith(BRAKE_CLUES)]
-    seen_years = seen_colour_years(year_sheets(model), seen_colour)[1] if seen_colour else []
+    seen_years = ((seen_colour and seen_colour_years(year_sheets(model), seen_colour)) or (None, []))[1]
     for c in [c for c in clues if c[2].text.startswith(COLOUR_CLUES)]:
         # The photos' colour is weighed by its own years below, not its widened window: so here too.
         own = seen_years if c[2].text.startswith("The photos show colour") and seen_years else None

@@ -2136,3 +2136,9 @@ def test_numbered_groupset_parts_date_the_bike():
                         ("Ultegra 6870 Di2", (2015, 2018)), ("Dura-Ace 7900", (2010, 2013))):
         found = next((f, l) for p, f, l, _n in checks.GROUPSET_YEARS if re.search(p, checks._plain(text)))
         assert found == years, text
+
+
+def test_a_photo_colour_missing_from_the_sheets_does_not_crash(models):
+    model = next(m for m in models if m["name"] == "Émonda SL 6" and m["brand"] == "Trek")
+    claims = checks.read_claims("Trek Emonda SL 6", "Schijfremmen")
+    assert checks.estimate_year(model, models, claims, "Trek Emonda SL 6\nSchijfremmen", seen_colour="no such colour")
