@@ -209,9 +209,11 @@ def create_app(db_path=None):
     app.jinja_env.globals["ad_photo_settled"] = ad_photo_settled
 
     def duo_pick(photos, model=None, look=6):
-        """The ad photo for the merged slider: the first one, unless its bike faces left and a later one
-        (of the first few) shows the whole bike facing right like the catalogue bike, so it needn't be
-        mirrored. A close-up facing right (a derailleur, a rim) doesn't count: then the first is mirrored."""
+        """The ad photo for the merged slider: the first one, unless it's a close-up or its bike faces left.
+        A first photo that's a close-up (check 133 opens with the front derailleur) gives way to the first of the
+        next few that shows the bike from the side, facing right if one does. A whole bike facing left gives way to a later
+        one facing right like the catalogue bike, so it needn't be mirrored. A close-up facing right (a derailleur,
+        a rim) doesn't count: then the first is mirrored."""
         prefix = url_for("ad_photo", name="")
         folder = ad_photos.folder(app.config["DB_PATH"])
         def path(p):
@@ -219,13 +221,21 @@ def create_app(db_path=None):
             return found if p.startswith(prefix) and os.path.exists(found) else None
         def left(p):
             return bike_fit.faces_left(path(p)) if path(p) else None
-        if not photos or not left(photos[0]):
-            return photos[0] if photos else None
+        if not photos:
+            return None
         catalogue = os.path.join(ROOT, "images", model["image"]) if model and model.get("image") else None
-        if not catalogue or not os.path.exists(catalogue):
+        if not catalogue or not os.path.exists(catalogue) or not path(photos[0]):
             return photos[0]
-        return next((p for p in photos[1:look] if left(p) is False and bike_fit.whole_bike(path(p), catalogue)),
-                    photos[0])
+        def whole(p):
+            return bool(path(p)) and bike_fit.whole_bike(path(p), catalogue)
+        if left(photos[0]) is None and not whole(photos[0]):
+            # A close-up: no way it faces, and no bike outline in it. The side views after it are the photos whose
+            # direction is clear (a whole bike on a busy fence can hide its outline from whole_bike, check 133).
+            bikes = [p for p in photos[1:look] if left(p) is not None or whole(p)]
+            return next((p for p in bikes if left(p) is False), bikes[0] if bikes else photos[0])
+        if not left(photos[0]):
+            return photos[0]
+        return next((p for p in photos[1:look] if left(p) is False and whole(p)), photos[0])
 
     app.jinja_env.globals["duo_pick"] = duo_pick
     app.jinja_env.filters["swatch"] = colour_match.swatch

@@ -196,14 +196,26 @@ def detect_year(text):
     return None, False
 
 
+# Sizes sellers spell out: "Maat: Medium", "size Large", "extra small".
+SIZE_WORDS = (("2xs", r"xx[\s-]?small|extra[\s-]?extra[\s-]?small"), ("xs", r"x[\s-]?small|extra[\s-]?small"),
+              ("2xl", r"xx[\s-]?large|extra[\s-]?extra[\s-]?large"), ("xl", r"x[\s-]?large|extra[\s-]?large"),
+              ("s", r"small"), ("m", r"medium"), ("l", r"large"))
+
+
 def detect_size(text):
     low = _plain(text)
+    # Check 133's "Maat: Medium": a size written out is the label, not a word the patterns below skip.
+    for label, words in SIZE_WORDS:
+        if re.search(rf"(?:maat|size|framemaat|frame\s*maat|frame)\s*:?\s*(?:{words})\b", low):
+            return label.upper()
     m = re.search(r"(?:maat|size|framemaat|frame\s*maat|frame)\s*:?\s*(\d{2})(?:\s*cm)?\b", low)
     if m and 44 <= int(m.group(1)) <= 64:
         return m.group(1)
     m = re.search(rf"(?:maat|size|framemaat|frame)\s*:?\s*({SIZE_LABELS})\b", low)
     if m:
         return m.group(1).upper().replace("XXS", "2XS").replace("XXL", "2XL")
+    # Not 2dehands' "Framehoogte: 53 tot 57 cm", a range of sizes the seller ticked.
+    low = re.sub(r"\b\d{2}\s*(?:tot|-|à|a)\s*\d{2}\s*cm\b", " ", low)
     m = re.search(r"\b(4[4-9]|5\d|6[0-4])\s*cm\b", low)
     if m:
         return m.group(1)
@@ -214,6 +226,23 @@ def detect_size(text):
 SITE_CONDITION = (("damaged", r"defect|kapot|niet werkend|beschadigd|damaged"),
                   ("like-new", r"nieuw|new"),
                   ("used", r"gebruikt|used"))
+
+
+NUMBER_WORDS = {"een": 1, "één": 1, "anderhalf": 1.5, "twee": 2, "drie": 3, "vier": 4, "vijf": 5, "zes": 6,
+                "zeven": 7, "acht": 8, "negen": 9, "tien": 10, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5}
+
+
+def detect_age(text):
+    """The bike's age in years when the ad gives one instead of a year: "2j oud", "2 jaar oud", "nog maar 1,5 jaar
+    jong", "twee jaar oud", "3 years old". None when it doesn't. Only with oud/jong/old after it, so "2 jaar garantie"
+    or "2 jaar gereden" don't count."""
+    low = _plain(text)
+    number = r"(\d{1,2}(?:[.,]5)?|" + "|".join(sorted(NUMBER_WORDS, key=len, reverse=True)) + r")"
+    m = re.search(rf"(?<![\d.,€])\b{number}\s*(?:j|jr|jaar|jaren|y|yr|yrs|year|years)\.?\s*(?:oud|jong|old)\b", low)
+    if not m:
+        return None
+    n = NUMBER_WORDS.get(m.group(1)) or float(m.group(1).replace(",", "."))
+    return n if 0 < n <= 15 else None
 
 
 def detect_condition(text):
@@ -308,13 +337,20 @@ def detect_part(text, part):
     return (named or found or [None])[0]
 
 
+# Brand names sellers misspell, so the parts they name still count: check 133's "Bontdrager Elite 35".
+BRAND_TYPOS = ((r"\bbont[dt]rager\b|\bbontrager?r\b", "Bontrager"),)
+
+
 def read_claims(title, description=""):
     text = f"{title}\n{description or ''}"
+    for typo, name in BRAND_TYPOS:
+        text = re.sub(typo, name, text, flags=re.I)
     year, purchase = detect_year(text)
     return {
         "brand": detect_brand(text),
         "year": year,
         "year_is_purchase": purchase,
+        "age_years": detect_age(text),
         "size": detect_size(text),
         "groupset": detect_groupset(text),
         "material": detect_material(title) or detect_material(description),
@@ -1379,12 +1415,19 @@ def check_age(model, claims, today=None):
     if claims.get("year_from") == "receipt":
         detail = join(detail, Msg("The year is from the receipt in the ad's photos.") if not claims["year_is_purchase"]
                       else Msg("The receipt in the ad's photos gives this as the purchase year."))
+    elif claims.get("year_from") == "age":
+        detail = join(detail, Msg("The ad says the bike is {age} years old, which makes it a {claimed}.",
+                                  age=_age_text(claims["age_years"]), claimed=claimed))
     elif claims["year_is_purchase"]:
         detail = join(detail, Msg("The seller gives this as the purchase year."))
     return {"status": status, "headline": headline, "detail": detail, "timeline": timeline,
             "generations": timeline_groups(model, timeline), "notes": notes, "year": claimed,
             "earlier": bool(other), "earlier_sheet": bool(other) and claimed in year_sheets(model), "older": older,
             "purchase": purchase}
+
+
+def _age_text(age):
+    return str(int(age)) if float(age).is_integer() else str(age)
 
 
 def timeline_groups(model, timeline):
@@ -1925,6 +1968,8 @@ def year_colour_fits(images, title, description=""):
 
 
 # The year clues that come from parts a bike can be given later (estimate_year), by the start of their message.
+BRAKE_CLUES = ("Rim brakes", "Disc brakes")
+COLOUR_CLUES = ("The photos show colour", "Colour '", "In the ad's colours")
 PART_CLUES = ("{part}: bikes from", "The photos show {part}", "Parts {parts}", "{n}-speed")
 
 
@@ -1985,6 +2030,11 @@ def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None
         # rim brakes is no 2021+ disc-only bike, whatever its cassette).
         clues.append((None, rim_last, Msg("Rim brakes: {name} came with disc brakes only from {year} on.",
                                           name=model["name"], year=rim_last + 1)))
+    if claims["brakes"] == "Disc" and (rim_last := rim_brake_last_year(model)):
+        # And the other way round (check 133: a disc-brake Émonda SL 6 is no 2018–2020 rim-brake bike, whatever
+        # colour its photos seem to show).
+        clues.append((rim_last + 1, None, Msg("Disc brakes: {name} came with rim brakes up to {year}.",
+                                              name=model["name"], year=rim_last)))
     dotted = model["brand"] == "Trek" and re.search(TREK_DOTTED_NAME, low)
     if dotted:
         clues.append((None, TREK_DOTTED_LAST_YEAR, Msg("Trek's '{name}' naming: {year} or older.",
@@ -2008,8 +2058,18 @@ def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None
                                            years=_span(known[0], known[1]))), (None, None, known[2])]
     # Paint can't be swapped like a cassette: a clue that leaves out every year of the colour in the photos
     # is kept as a note, not used.
-    seen = next((c for c in sheet if c[2].text.startswith("The photos")), None)
     notes = []
+    # The brakes are part of the frame too, and surer than a colour: sellers' colour words are loose, a colour read
+    # from photos is a guess, and our sheets miss colourways (check 133: a black disc-brake Émonda SL 6 dated by
+    # "zwart" to 2019–2020, rim-brake years). When they clash, the brakes win.
+    brakes = [c for c in clues if c[2].text.startswith(BRAKE_CLUES)]
+    for c in [c for c in clues if c[2].text.startswith(COLOUR_CLUES)]:
+        if any((c[0] or 0) > (b[1] or 9999) or (c[1] or 9999) < (b[0] or 0) for b in brakes):
+            clues.remove(c)
+            notes.append(join(c[2], Msg("That doesn't fit the brakes, which go first: the colour may look alike.")))
+    # Paint can't be swapped like a cassette: a clue that leaves out every year of the colour in the photos
+    # is kept as a note, not used.
+    seen = next((c for c in clues if c[2].text.startswith("The photos show colour")), None)
     if seen:
         years = seen_colour_years(year_sheets(model), seen_colour)[1]
         for c in [c for c in clues if c is not seen]:
@@ -2845,6 +2905,11 @@ def seller_questions(model, claims, age, specs, size, material_alert=None):
 def run_check(models, listing, today=None):
     """listing: dict with title, description, asking_price, rider_height, model_id (optional override)."""
     claims = read_claims(listing["title"], listing.get("description"))
+    if claims["year"] is None and claims.get("age_years"):
+        # Check 133's "2j oud": the year the ad was placed (else the day of the check) minus the age it gives.
+        placed = str(listing.get("posted_at") or "")[:4]
+        base = int(placed) if placed.isdigit() else (today or date.today()).year
+        claims = dict(claims, year=base - int(round(claims["age_years"])), year_from="age")
     receipt = photo_receipt(listing.get("photo_groupset"))
     if receipt and claims["year"] is None and (receipt["model_year"] or receipt["year"]):
         # The ad gives no year, the receipt in its photos does: its model year, else the year it was bought.

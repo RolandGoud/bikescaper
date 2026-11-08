@@ -70,9 +70,42 @@ def test_year(text, year, purchase):
 
 
 @pytest.mark.parametrize("text,size", [("maat 56", "56"), ("Maat: M", "M"), ("frame 54cm", "54"),
-                                        ("size XXL", "2XL"), ("voor iemand van 180 cm", None)])
+                                        ("size XXL", "2XL"), ("voor iemand van 180 cm", None),
+                                        # Check 133: a size written out, and 2dehands' size range not read as 57.
+                                        ("Maat medium voor personen van 165cm tot 180cm\nFramehoogte: 53 tot 57 cm", "M"),
+                                        ("Framehoogte: 53 tot 57 cm", None), ("size Extra Large", "XL"),
+                                        ("maat small", "S")])
 def test_size(text, size):
     assert checks.detect_size(text) == size
+
+
+@pytest.mark.parametrize("text,age", [("2j oud nu te koop", 2), ("fiets is 3 jaar oud", 3), ("1,5 jaar jong", 1.5),
+                                      ("twee jaar oud", 2), ("4 years old", 4), ("2 jaar garantie", None),
+                                      ("3 jaar gereden", None), ("Bouwjaar 2021", None)])
+def test_age(text, age):
+    assert checks.detect_age(text) == age
+
+
+def test_an_age_in_the_ad_dates_the_bike(models):
+    # Check 133: "2j oud" and no year, on a disc-brake, 12-speed 105 Di2 Émonda SL 6 in black. The black once put it
+    # on the 2019 rim-brake sheet with Ultegra; the brakes outrank a colour, and the age gives the year.
+    listing = {"title": "Racefiets Trek Emonda Di2 sl6 12sp medium in perfecte st",
+               "description": "Trek Emonda sl6\nMaat medium\n500 series.\nkleur zwart met silver logo Trek\n"
+                              "Di2 elektronisch schakelen.\nVooraan Shimano 105 12sp 50/34.\n"
+                              "Schijfremmen voor en achter shimano 105.\nZadel Bontdrager .\n"
+                              "2j oud nu te koop\nRem: Schijfrem\nMateriaal: Carbon\nFramehoogte: 53 tot 57 cm",
+               "asking_price": 2250, "posted_at": "2026-11-08 09:06:55"}
+    r = checks.run_check(models, listing, today=date(2026, 11, 8))
+    assert r["model"]["name"] == "Émonda SL 6"
+    assert r["claims"]["year"] == 2024 and r["claims"]["year_from"] == "age"
+    assert r["year"]["year"] == 2024
+    assert r["claims"]["size"] == "M"
+    assert r["claims"]["saddle"]["label"] == "Bontrager"
+    groupset = next(row for row in r["specs"]["rows"] if row["key"] == "groupset")
+    assert "105" in groupset["original"]
+    # Without the age the details still date it: disc brakes and 12-speed, not the 2019–2020 black.
+    listing["description"] = listing["description"].replace("2j oud", "")
+    assert checks.run_check(models, listing, today=date(2026, 11, 8))["year"]["year"] >= 2023
 
 
 def test_105_is_not_a_measurement():

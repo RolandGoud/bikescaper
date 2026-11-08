@@ -143,6 +143,15 @@ def test_slider_takes_a_right_facing_ad_photo_over_mirroring_the_first(tmp_path,
             tmp_path / "ad-photos" / "1" / "04.jpg")
         facing["04.jpg"] = False
         assert pick(["/ad-photos/1/01.jpg", "/ad-photos/1/04.jpg"], model) == "/ad-photos/1/01.jpg"
+        # Check 133 opens with a close-up (the front derailleur): the first whole bike after it goes in the slider,
+        # one facing right before one facing left.
+        facing["04.jpg"], facing["05.jpg"] = None, False
+        fake_ad(CATALOGUE, tmp_path / "ad-photos" / "1" / "05.jpg", False)
+        facing["02.jpg"] = True
+        assert pick(["/ad-photos/1/04.jpg", "/ad-photos/1/02.jpg", "/ad-photos/1/05.jpg"], model) == "/ad-photos/1/05.jpg"
+        facing["05.jpg"] = True
+        assert pick(["/ad-photos/1/04.jpg", "/ad-photos/1/02.jpg", "/ad-photos/1/05.jpg"], model) == "/ad-photos/1/02.jpg"
+        assert pick(["/ad-photos/1/04.jpg"], model) == "/ad-photos/1/04.jpg"  # no whole bike at all: the first
 
 
 def test_a_shop_photo_filling_its_frame_keeps_the_whole_bike_in_view():

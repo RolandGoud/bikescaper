@@ -272,6 +272,9 @@ NL = {
     "The photos show {part}: bikes from {years}.": "De foto's tonen {part}: fietsen uit {years}.",
     "That part may have been swapped: the frame goes first.": "Dat onderdeel is misschien vervangen: het frame gaat voor.",
     "Rim brakes: {name} came with disc brakes only from {year} on.": "Velgremmen: de {name} had vanaf {year} alleen nog schijfremmen.",
+    "Disc brakes: {name} came with rim brakes up to {year}.": "Schijfremmen: de {name} had tot en met {year} velgremmen.",
+    "That doesn't fit the brakes, which go first: the colour may look alike.":
+        "Dat past niet bij de remmen, en die gaan voor: de kleur lijkt misschien alleen hetzelfde.",
     "{claimed} is when it was bought; the ad's details point to model year {years}.": "{claimed} is het jaar van aankoop; de details wijzen op modeljaar {years}.",
     "In the ad's colours it was sold in {years}: {colourways}.": "In de kleuren uit de advertentie werd hij verkocht in {years}: {colourways}.",
     "Previous photo": "Vorige foto",
@@ -606,6 +609,8 @@ NL = {
     "Adds up": "Klopt",
     "{name} was sold as new in {claimed}.": "De {name} werd in {claimed} nieuw verkocht.",
     "The seller gives this as the purchase year.": "De verkoper noemt dit het aankoopjaar.",
+    "The ad says the bike is {age} years old, which makes it a {claimed}.":
+        "Volgens de advertentie is de fiets {age} jaar oud, dus van {claimed}.",
     "Model years entered by hand from launch dates; not yet checked against the brand's archive.":
         "Modeljaren met de hand ingevoerd op basis van introductiedata; nog niet gecontroleerd in het archief van het merk.",
 
