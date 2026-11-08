@@ -838,7 +838,7 @@ def create_app(db_path=None):
             entry = lines.setdefault(checks.line_key(m["line"]), {"names": Counter(), "count": 0, "models": {}})
             entry["names"][m["line"]] += 1
             entry["count"] += fits
-            model = entry["models"].setdefault(checks.line_key(m["group"]), {"names": Counter(), "count": 0})
+            model = entry["models"].setdefault(group_key(m), {"names": Counter(), "count": 0})
             model["names"][m["group"]] += 1
             model["count"] += fits
         model_menu = sorted(({"key": key, "name": e["names"].most_common(1)[0][0], "count": e["count"],
@@ -853,13 +853,14 @@ def create_app(db_path=None):
         # an older address with the build in the model ("madone-sl-7", from before Trek's builds): its model
         while model and not picked_line and model not in keys and "-" in model:
             model = model.rsplit("-", 1)[0]
+            model = model + "-model" if model + "-model" in keys else model  # "boone-5": the Boone model, not its line
             picked_line = next((e for e in model_menu if e["key"] == model), None)
         picked_model = None if picked_line else next((g for e in model_menu for g in e["models"] if g["key"] == model), None)
         model = model if picked_line or picked_model else None
         if picked_line:
             items = [m for m in items if checks.line_key(m["line"]) == model]
         elif picked_model:
-            items = [m for m in items if checks.line_key(m["group"]) == model]
+            items = [m for m in items if group_key(m) == model]
         tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
                        for t in TIERS}
         items = [m for m in items if not tier or m["tier"] == tier]
@@ -920,17 +921,26 @@ def create_app(db_path=None):
                                shops=groupset_shops.links(groupset_shops.load(app.config["GROUPSET_SHOPS_PATH"]), gen),
                                nav="groupsets")
 
+    def group_key(m):
+        """The Model menu's key for an entry's model. A model named like its line (Trek's "Boone", from "Boone 5")
+        gets its own key, so that "All Boone" (with the Boone frameset) and "Boone" stay two options."""
+        key = checks.line_key(m["group"])
+        return key + "-model" if key == checks.line_key(m["line"]) else key
+
     def model_tiles(items):
         """One tile per model for a brand that lists every build (and Trek every generation) as its own entry: its
         cheapest build, with the number of builds. Other entries stay as they are."""
         tiles, labels = {}, {}
+        # the build on sale before an older generation or a sold-out one, then the cheapest
+        def tile_rank(m):
+            return (checks.catalogue_status(m)[0] != "current", m["price_eur"] or 1e9)
         for m in items:
             if m["brand"] not in checks.SITE_BUILD_BRANDS:
                 tiles[("", m["id"])] = m
                 continue
             key = (m["brand"], checks.site_split(m)[0])
             labels.setdefault(key, set()).add(checks.build_label(m) or "")
-            if key not in tiles or (m["price_eur"] or 1e9) < (tiles[key]["price_eur"] or 1e9):
+            if key not in tiles or tile_rank(m) < tile_rank(tiles[key]):
                 tiles[key] = m
         return [dict(m, build_count=len(labels[key])) if key in labels else m for key, m in tiles.items()]
 

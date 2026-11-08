@@ -483,14 +483,16 @@ _TREK_EDITION = re.compile(r"(?:\s+[-\u2013]\s+.*|\s+No\.\s*\d+.*|\s+Driftless\b
 def trek_parts(name):
     """(model, build, generation, edition) of a Trek catalogue name: "Madone SLR 9 AXS Gen 8 - No. 76 ICON" gives
     ("Madone SLR", "9 AXS", 8, "No. 76 ICON"), "Madone SLR frameset Gen 7" gives ("Madone SLR frameset", None, 7,
-    None). The build is the number and what follows it; a name without a number has none."""
+    None). The build is the number and what follows it; a name without a number has none. "Disc" is left out:
+    "Madone SL 6 Disc Gen 6" is the build "6"."""
     gen = _TREK_GEN.search(name)
     rest = _TREK_GEN.sub("", name).strip()
     edition = _TREK_EDITION.search(rest)
     if edition:
         rest = rest[:edition.start()].strip()
     edition = edition.group(0).strip(" -\u2013") if edition else None
-    rest = re.sub(r"\s+", " ", rest)
+    # "Disc" is the same bike as the one without it (Trek's rim-brake years): "Madone SL 6 Disc" is the Madone SL 6
+    rest = re.sub(r"\s+", " ", re.sub(r"(?<=\S)\s+Disc\b", "", rest, flags=re.I))
     if re.search(r"\bframe\s*set\b", rest, re.I):  # a frameset is a model of its own, whatever its generation
         model = re.sub(r"\s*\bframe\s*set\b", "", rest, flags=re.I).strip() + " frameset"
         return model, None, int(gen.group(1)) if gen else None, edition

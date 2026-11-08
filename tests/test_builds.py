@@ -114,7 +114,10 @@ def test_the_model_page_starts_at_the_first_year_it_knows(tmp_path):
 
 def test_trek_names_split_into_model_build_generation_and_edition():
     assert checks.trek_parts("Madone SLR 9 AXS Gen 8 - No. 76 ICON") == ("Madone SLR", "9 AXS", 8, "No. 76 ICON")
-    assert checks.trek_parts("Madone SL Disc Gen 6 frameset") == ("Madone SL Disc frameset", None, 6, None)
+    # a Disc version is the same bike as the one without: one build, one frameset
+    assert checks.trek_parts("Madone SL Disc Gen 6 frameset") == ("Madone SL frameset", None, 6, None)
+    assert checks.trek_parts("Madone SL 6 Disc Gen 6") == ("Madone SL", "6", 6, None)
+    assert checks.trek_parts("Émonda SL 7 Disc eTap")[:2] == ("Émonda SL", "7 eTap")
     assert checks.trek_parts("Checkpoint AL 3 Gen 1")[:2] == ("Checkpoint ALR", "3")  # Trek's old name for the line
     assert checks.trek_parts("Domane SLR 9 AXS No. 76 Gen 5")[:2] == ("Domane SLR", "9 AXS")
     assert checks.model_group("Madone SL 7 Gen 8 - The First 50 Replica", "Trek") == "Madone SL"
@@ -125,6 +128,7 @@ def test_trek_model_page_lists_each_build_once(models):
     builds = checks.builds_of(gen6, models)
     labels = [checks.build_label(b) for b in builds]
     assert len(labels) == len(set(labels)) and "7" in labels and "6" in labels
+    assert not any("Disc" in label for label in labels)
     assert not any("First 50" in b["name"] or "frameset" in b["name"] for b in builds)  # a colour; a model of its own
     # by number, then tier low to high
     numbers = [int(l.split()[0]) for l in labels]
