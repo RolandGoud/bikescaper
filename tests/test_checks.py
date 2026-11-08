@@ -368,7 +368,8 @@ def test_status_on_pages(tmp_path):
     assert "Uit productie" in page and "Endurace 7 RAW" in page
     for url in ["/models?lang=en", "/models?lang=en&current=1", "/models?lang=en&current=1&current=0"]:
         page = client.get(url).data.decode()
-        assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and "Domane SL 6 gen 4" in page
+        # (a Trek tile is the model with its builds: "Domane SL")
+        assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and ">Domane SL</span>" in page
 
 
 def test_old_database_gets_status_columns(tmp_path):
