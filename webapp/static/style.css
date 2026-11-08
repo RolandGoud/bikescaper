@@ -1605,7 +1605,7 @@ select { max-width: 100%; }
 .ad-tiles b { display: block; margin-top: 6px; font-size: 16px; overflow-wrap: anywhere; }
 .ad-tiles .place { display: flex; align-items: center; gap: 6px; color: var(--link); }
 .ad-tiles .place svg { flex: none; }
-.ad-card .k, .match-strip .k { font: 500 11px/1.2 var(--mono); letter-spacing: .08em; color: var(--muted); }
+.ad-card .k, .match-strip .k, .build-strip .k { font: 500 11px/1.2 var(--mono); letter-spacing: .08em; color: var(--muted); }
 .ad-text { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; }
 .ad-text-body { margin: 0; white-space: pre-line; font-size: 15px; line-height: 1.5; color: #D6D7DC; overflow-wrap: anywhere; }
 /* Folded, the text fills the height the card has next to the gallery (at least three lines), fading out at the bottom. */
@@ -1646,6 +1646,24 @@ select { max-width: 100%; }
 .ms-swap { width: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; background: var(--raised); border-left: 1px solid var(--line); color: var(--accent); text-decoration: none; font: 600 11px/1.2 var(--body); text-align: center; text-transform: uppercase; letter-spacing: .04em; }
 .ms-swap:hover { background: var(--ok-bg); color: var(--accent-soft); }
 .match-strip ~ .match-panel { margin: 0; }
+/* Builds of a model (Ridley lists each groupset as its own bike): a row of pills, on the model page under its name
+   and on the report under the match. The one shown has the accent border; on the report a build only "used"
+   (the middle one while the ad names none) has a dashed one; the frameset is crossed out for a complete bike. */
+.builds { margin-top: 14px; }
+.build-card { margin: 0; padding: 16px 18px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.build-card p { margin: 10px 0 0; }
+.builds .k { margin-bottom: 6px; font: 500 12px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.build-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.build-row form { margin: 0; }
+.build-pill { display: inline-flex; flex-direction: column; gap: 2px; min-width: 96px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--raised); color: var(--text); font: 600 14px var(--body); text-align: left; text-decoration: none; cursor: pointer; }
+.build-pill small { font-weight: 400; font-size: 12px; color: var(--muted); }
+.build-pill:hover { border-color: var(--accent); }
+.build-pill.on { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.build-pill.used { border-style: dashed; border-color: var(--accent); }
+.build-pill.off { opacity: .45; text-decoration: line-through; }
+.build-strip { display: grid; grid-template-columns: minmax(240px, 360px) minmax(0, 1fr); gap: 16px; align-items: center; margin-top: -12px; padding: 0 16px 14px 0; border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+.build-strip .ms-check { border-left: 0; } .build-strip .ms-check::before { left: 0; }
+@media (max-width: 760px) { .build-strip { grid-template-columns: 1fr; padding: 0 0 14px; } .build-strip .build-row { padding: 0 16px; } }
 /* Picked by the visitor (or no match words): no check cells, so the model takes the room up to the side bar. */
 .match-strip.no-checks { grid-template-columns: minmax(0, 1fr) auto; }
 /* The report's Frame and Year cells always get room for their text: the model takes what's left (its name at two
@@ -1907,3 +1925,4 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
   .account-login-text { display: inline; }
   .account .tools-button { margin-left: 0; }
 }
+.build-strip .ms-check small { display: block; -webkit-line-clamp: unset; overflow: visible; }
