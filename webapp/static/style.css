@@ -1292,6 +1292,9 @@ select { max-width: 100%; }
 .admin .bar .t i { display: block; height: 100%; background: var(--warn); border-radius: 0 4px 4px 0; }
 .admin .bar .n { font: 12px var(--mono); color: var(--muted); text-align: right; }
 .admin .table-scroll { overflow-x: auto; }
+.admin .ranking-controls { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-bottom: 12px; }
+.admin .ranking-controls .filters { gap: 6px; }
+.admin .score-col { text-align: right; white-space: nowrap; }
 .admin table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .admin th { font: 500 11px var(--mono); color: var(--muted); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
 .admin td { padding: 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }

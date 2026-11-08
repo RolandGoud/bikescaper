@@ -162,3 +162,13 @@ def test_the_colour_editor_takes_only_the_models_colourways(tmp_path, monkeypatc
     assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"colour": colour}
     page = client.get(url + "?lang=en").get_data(as_text=True)
     assert colour in page
+
+
+def test_the_admin_ranking_has_a_tab_per_score_and_both_orders(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    page = client.get("/admin?lang=en").get_data(as_text=True)
+    for rank in ("photo-low", "photo-high", "ad-low", "ad-high"):
+        assert f'data-rank="{rank}"' in page
+    ad_low = page.split('data-rank="ad-low"')[1].split("</table>")[0]
+    assert f"/check/{check_id}" in ad_low and ad_low.rindex('class="sc') > ad_low.rindex('class="why"')
