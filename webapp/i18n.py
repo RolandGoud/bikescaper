@@ -1432,4 +1432,7 @@ NL = {
     "That's not the password.": "Dat is niet het wachtwoord.",
     "Log in to correct checks": "Inloggen om checks te corrigeren",
     "We checked this year by hand.": "Dit bouwjaar hebben we met de hand nagekeken.",
+    "Admin": "Beheer",
+    "Statistics": "Statistieken",
+    "Matches and scores": "Matches en scores",
 }

@@ -44,7 +44,7 @@ def test_admin_page_shows_the_stats_and_the_period_charts(tmp_path):
     conn.execute("INSERT INTO checks (title, asking_price, created_at) VALUES (?, ?, ?)",
                  ("racefiets carbon zgan", 900, "2026-10-20 10:00:00"))
     conn.commit()
-    page = app.test_client().get("/admin?lang=en").get_data(as_text=True)
+    page = admin_client(app).get("/admin?lang=en").get_data(as_text=True)
     assert "What ads leave out" in page and "Where matching goes wrong" in page
     assert 'data-view="week"' in page and 'data-view="month"' in page and 'id="admin-data"' in page
     assert "racefiets carbon zgan" in page  # among the lowest scores
@@ -71,3 +71,12 @@ def test_bikes_per_brand_keeps_the_top_five_and_folds_the_rest_into_other():
     assert list(stats["brands"]) == ["Trek", "Canyon", "Specialized", "?", "Cube", "other"]
     assert stats["brands"]["other"] == 2 and sum(stats["brands"].values()) == len(brands)
     assert sum(sum(p["brands"].values()) for p in stats["week"]) == len(brands)
+
+
+def admin_client(app):
+    """A client logged in as the admin, who alone sees /admin."""
+    app.config["ADMIN_PASSWORD"] = "test"
+    client = app.test_client()
+    with client.session_transaction() as s:
+        s["admin"] = True
+    return client

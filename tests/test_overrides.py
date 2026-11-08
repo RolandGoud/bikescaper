@@ -94,3 +94,22 @@ def test_bad_values_are_refused(tmp_path, monkeypatch):
     for data in ({"field": "year", "value": "1890"}, {"field": "model", "value": "no-such-bike"},
                  {"field": "groupset", "value": "nope:9"}, {"field": "colour", "value": "red"}):
         assert client.post(f"/check/{check_id}/override", data=data).status_code == 400
+
+
+def test_the_admin_page_needs_a_login(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    response = client.get("/admin")
+    assert response.status_code == 302 and "/admin/login" in response.headers["Location"]
+    assert client.post("/admin/recheck").status_code == 403
+    login(client)
+    assert client.get("/admin").status_code == 200
+
+
+def test_the_header_has_a_login_icon_and_once_logged_in_an_account_menu(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    page = client.get("/?lang=en").get_data(as_text=True)
+    assert 'class="account-login"' in page and "/admin/login" in page and 'id="account-menu"' not in page
+    login(client)
+    page = client.get("/?lang=en").get_data(as_text=True)
+    assert 'id="account-menu"' in page and "Admin</button>" in page
+    assert 'href="/admin"' in page and "Log out" in page and 'class="account-login"' not in page
