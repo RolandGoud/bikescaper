@@ -1731,8 +1731,9 @@ select { max-width: 100%; }
 .model-card { grid-template-columns: 400px minmax(0, 1fr); }
 .model-card .model-gallery, .model-card .model-gallery.has-years { display: flex; flex-direction: column; gap: 8px; flex: none; width: 100%; }
 .model-card .model-gallery .photo { border: 0; border-radius: 8px; }
-.model-card .gallery-colours { margin-top: 0; }
-.model-card .year-rail.gallery-thumbs { order: 9; flex: none; flex-direction: row; flex-wrap: wrap; width: 100%; max-height: none; overflow: visible; gap: 6px; }
+.model-card .gallery-colours { margin-top: 0; order: 10; }  /* under the years: a colour belongs to a year */
+.model-card .year-rail.gallery-thumbs { order: 9; flex: none; flex-direction: row; flex-wrap: nowrap; width: 100%; max-height: none; overflow-x: auto; overflow-y: hidden; gap: 6px; padding: 3px; }  /* one row that slides, like the photos */
+.model-card .year-rail .gallery-thumb { flex: 0 0 auto; }
 .model-card .year-rail .gallery-thumb { width: auto; padding: 4px 10px; border-radius: 999px; gap: 6px; background: transparent; }
 .model-card .year-rail .gallery-year { font: 600 12px var(--mono); }
 .model-card .year-rail .gallery-n { display: none; }
