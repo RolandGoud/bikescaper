@@ -1805,6 +1805,12 @@ def resolve_year(model, claims, age, estimate, today=None, photo=None):
     if claimed and est.get("status") == BAD and (e_first or e_last):
         first, last, inside = window(e_first, e_last)
         return {"year": middle(first, last), "how": "details", "reliable": inside, "first": first, "last": last}
+    near = est.get("first")
+    if claimed and claims.get("year_from") == "age" and near and near == est.get("last") \
+            and abs(claimed - near) == 1 and not est.get("fallback"):
+        # "2j oud" only gives the year roughly; a colourway sold in one year dates it to the year (check 133:
+        # Dnister Black, only in 2023, on an ad placed in 2026 saying two years old).
+        return {"year": near, "how": "age", "reliable": True, "first": near, "last": near}
     if claimed and not other and (claims.get("year_is_purchase") or age.get("purchase")):
         first, last, _inside = window(e_first, e_last)
         year = min(max(claimed, first or claimed), last or claimed)
@@ -2740,6 +2746,9 @@ def year_note(resolved, claims):
                    claimed=claims["year"], year=year)
     if how == "purchase":
         return Msg("The ad gives {claimed} as the purchase year; we go by model year {year}.", claimed=claims["year"], year=year)
+    if how == "age":
+        return Msg("The ad's age makes it about {claimed}; its details point to {year}, so we go by {year}.",
+                   claimed=claims["year"], year=year)
     if how == "details":
         return Msg("The stated {claimed} doesn't fit the ad's details ({years}), so we go by {year}.",
                    claimed=claims["year"], years=span, year=year)

@@ -610,6 +610,8 @@ NL = {
     "Adds up": "Klopt",
     "{name} was sold as new in {claimed}.": "De {name} werd in {claimed} nieuw verkocht.",
     "The seller gives this as the purchase year.": "De verkoper noemt dit het aankoopjaar.",
+    "The ad's age makes it about {claimed}; its details point to {year}, so we go by {year}.":
+        "Volgens de leeftijd in de advertentie is hij van ongeveer {claimed}; de details wijzen op {year}, dus we gaan uit van {year}.",
     "The ad says the bike is {age} years old, which makes it a {claimed}.":
         "Volgens de advertentie is de fiets {age} jaar oud, dus van {claimed}.",
     "Model years entered by hand from launch dates; not yet checked against the brand's archive.":
