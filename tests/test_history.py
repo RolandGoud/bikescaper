@@ -470,3 +470,40 @@ def test_trek_catalogue_takes_the_newest_of_two_products_with_one_name(monkeypat
     monkeypatch.setattr(history, "trek_product", lambda fetcher, code: {
         "specs": {"Frame": "x"}, "colours": [], "category": "", "image_url": None, "colour_image_urls": {}})
     assert [b["sku"] for b in trek.scrape(None)] == ["80164", "55098"]
+
+
+def test_a_2018_trek_product_reads_its_spec_sheet_and_photo_from_the_page():
+    import json
+    from brand_scrapers import history
+    # Trek's API has no spec sheet for its 2018 bikes and names their side view after the year (21553)
+    full = {"name": "Domane ALR 3", "modelYearIntroAndCurrent": "2018", "isArchived": True,
+            "variantAttributesDirectory": [{"options": [
+                {"displayName": "Viper Red", "colorSwatchName": "red", "value": "bike_colorswatch_red"}]}],
+            "assetImageList": [{"imageOption": "B", "images": [{"assetId": "DomaneALR3_21553_B_Portrait"},
+                                                              {"assetId": "1402000_2018_B_1_Domane_ALR_3"}]}],
+            "variants": [{"imageOption": "B", "variantAttributes": [
+                {"key": "bike_colorSwatch", "value": "bike_colorswatch_red"}]}]}
+    page = ('<dl><dt class="details-list__title text-xs">\n Frame</dt>\n<dd class="details-list__definition py-2">'
+            '200 Series Alpha Aluminium</dd></dl><dl><dt class="details-list__title text-xs">Remsysteem</dt>'
+            '<dd class="details-list__definition py-2">Tektro T731 &amp; co</dd></dl>')
+
+    class Fake:
+        def get(self, url, binary=False):
+            if "/p/21553/" in url and "api." not in url:
+                return page
+            return json.dumps(full if "/full" in url else {"specs": []})
+
+    p = history.trek_product(Fake(), "21553")
+    assert p["specs"]["Frame"] == "200 Series Alpha Aluminium"
+    assert "Tektro T731 & co" in p["specs"].values()
+    assert p["years"] == [2018]
+    assert p["image_url"].endswith("/1402000_2018_B_1_Domane_ALR_3")
+    assert p["colour_image_urls"] == {"Viper Red": p["image_url"]}
+
+
+def test_trek_reads_the_extra_product_numbers_without_wayback_listings(tmp_path, monkeypatch):
+    from brand_scrapers import history
+    codes = tmp_path / "trek_codes.txt"
+    codes.write_text("# comment\n21553  Domane ALR 3 (2018)\n\n", encoding="utf-8")
+    monkeypatch.setattr(history, "TREK_EXTRA_CODES", str(codes))
+    assert history.trek_codes(None) == ["21553"]

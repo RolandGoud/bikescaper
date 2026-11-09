@@ -2036,5 +2036,46 @@
   ],
   "price": null,
   "image": "Trek/archived/speedconceptslr6axs.jpg"
+ },
+ {
+  "name": "Domane ALR 3",
+  "brand": "Trek",
+  "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/domane/domane-alr/domane-alr-3/a/21553/",
+  "sku": "21553",
+  "category": "Performance road bikes",
+  "specifications": {
+   "Frame": "200 Series Alpha Aluminium, IsoSpeed, Invisible Weld Technology, E2 taps toelopende balhoofdbuis, BB86.5, Direct Mount-schijfremmen, verborgen spatbordbevestigingen, geschikt voor DuoTrap S",
+   "Voorvork": "Domane Carbon, E2 stuurbuis, Direct Mount-remmen",
+   "Naaf voor": "Lichtmetaal",
+   "Naaf achter": "Lichtmetaal",
+   "Velg": "Bontrager Tubeless Ready",
+   "Buitenband": "Bontrager R1, 700x28c",
+   "Maximale bandenmaat": "28c Bontrager banden (met minimaal 4 mm ruimte tot het frame)",
+   "Shifter": "Shimano Sora, 9-speed",
+   "Voorderailleur": "Shimano Sora",
+   "Achterderailleur": "Shimano Sora",
+   "Crankstel": "Shimano Sora, 50/34 (compact)",
+   "Bottom bracket": "Press Fit BB86.5",
+   "Cassette": "Shimano Sora, 11-32, 9-speed",
+   "Ketting": "Shimano Sora",
+   "Pedaal": "Niet inbegrepen",
+   "Zadel": "Bontrager Affinity Comp, chromoly rails",
+   "Zadelpen": "Bontrager lichtmetaal, tweeboutsbevestiging, 27,2 mm, 8 mm offset",
+   "Stuur": "Bontrager Race VR-C, 31,8 mm",
+   "Handvatten": "Bontrager stuurlint",
+   "Stuurpen": "Bontrager Elite, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+   "Balhoofdstel": "Geïntegreerd, afgedichte industrielagers, 1-1/8˝ bovenzijde, 1.5˝ onderzijde",
+   "Rem": "Tektro T731",
+   "Gewicht": "56 cm - 9.44 kg / 20.81 lbs",
+   "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en vracht) van 125 kg."
+  },
+  "color_names": [
+   "Viper Red"
+  ],
+  "years": [
+   2018
+  ],
+  "price": null,
+  "image": "Trek/archived/domanealr3.jpg"
  }
 ]

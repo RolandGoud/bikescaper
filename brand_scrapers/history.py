@@ -21,6 +21,7 @@ data/years/<Brand>.json, and the photo to images/<Brand>/years/<slug>_<year>_sit
 """
 import argparse
 import gzip
+import html
 import io
 import json
 import os
@@ -97,6 +98,13 @@ def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None, angle=N
 
 
 TREK_API = "https://api.trekbikes.com/occ/v2/nl/products/{code}/{kind}?lang=nl_NL&curr=EUR"
+TREK_PAGE = "https://www.trekbikes.com/nl/nl_NL/p/{code}/"
+# The spec rows on a Trek product page: <dt class="details-list__title ...">Frame</dt><dd ...>...</dd>
+TREK_PAGE_SPEC = re.compile(r'<dt class="details-list__title[^"]*">(.*?)</dt>\s*<dd class="details-list__definition[^"]*">(.*?)</dd>', re.S)
+# The side-on shot of the whole bike: "...-A-Primary" now, "1402000_2018_B_1_Domane_ALR_3" on Trek's 2018 pages.
+TREK_SIDE = re.compile(r"[-_]Primary$|^\d+_20\d\d_[A-Z]_1_")
+# Product numbers the Wayback listings lack (their pages are from before them, 2018 to 2020), one per line.
+TREK_EXTRA_CODES = os.path.join(ROOT, "data", "years", "archived", "trek_codes.txt")
 # Numbers with a model year attached (1404000-2017) are from before 2018 and unknown to the API.
 TREK_ROAD = re.compile(r"/fietsen/(?:racefietsen|gravel|cyclocross|triathlon)[^?]*/[pa]/(\d+)(?![\d-])")
 TREK_SKIP = re.compile(r"elektrisch|e-bike|kinder|frameset|\brim\b|velg|dames|women", re.I)
@@ -283,14 +291,32 @@ def specialized_photos(pages_folders=(), fetcher=None):
     return report
 
 
+def trek_extra_codes():
+    """The product numbers in data/years/archived/trek_codes.txt ("21553  Domane ALR 3": the number comes first)."""
+    try:
+        with open(TREK_EXTRA_CODES, encoding="utf-8") as fh:
+            return {m.group(1) for line in fh if (m := re.match(r"\s*(\d+)\b", line))}
+    except OSError:
+        return set()
+
+
 def trek_codes(cdx_folder):
-    """Every Trek road and gravel bike product number in the Wayback Machine listings."""
-    codes = set()
-    for _ts, url in read_cdx(cdx_folder, "Trek"):
+    """Every Trek road and gravel bike product number in the Wayback Machine listings, and those in
+    data/years/archived/trek_codes.txt."""
+    codes = trek_extra_codes()
+    for _ts, url in read_cdx(cdx_folder, "Trek") if cdx_folder else []:
         m = TREK_ROAD.search(url)
         if m and not TREK_SKIP.search(url):
             codes.add(m.group(1))
     return sorted(codes)
+
+
+def trek_page_specs(fetcher, code):
+    """[(label, value)] from the spec table on the product page. Trek's API has no spec sheet for its 2018 bikes
+    (the Domane ALR 3, 21553), but their pages still show one."""
+    text = fetcher.get(TREK_PAGE.format(code=code)) or ""
+    return [(html.unescape(re.sub(r"<[^>]+>", " ", k)).strip(), html.unescape(re.sub(r"<[^>]+>", " ", v)).strip())
+            for k, v in TREK_PAGE_SPEC.findall(text)]
 
 
 def trek_years(text):
@@ -316,9 +342,11 @@ def trek_product(fetcher, code):
     # put the translated one first, as normalize_specs keeps the first value per part.
     items.sort(key=lambda s: s["marketingDescWithFrameSizesMap"][0]["key"] == s.get("serviceDescription"))
     pairs = [(s.get("localizedSpecItemType"), s["marketingDescWithFrameSizesMap"][0]["key"]) for s in items]
+    if not pairs and full.get("isArchived"):
+        pairs = trek_page_specs(fetcher, code)
     images = [i["assetId"] for group in full.get("assetImageList") or [] for i in group.get("images") or []]
     # The side-on shot of the whole bike ("...-A-Primary"); the others are close-ups and portraits.
-    primary = next((i for i in images if re.search(r"[-_]Primary$", i)), None)
+    primary = next((i for i in images if TREK_SIDE.search(i)), None)
     # The colours it came in that year ("Crimson", "Plasma Pearl Grey/Purple Flip"), for dating an ad by its colour.
     options = [o for a in full.get("variantAttributesDirectory") or [] for o in a.get("options") or []
                if o.get("colorSwatchName") and o.get("displayName")]
@@ -332,7 +360,7 @@ def trek_product(fetcher, code):
     colour_images, colour_angles = {}, {}
     for v in full.get("variants") or []:
         swatch = next((a.get("value") for a in v.get("variantAttributes") or [] if a.get("key") == "bike_colorSwatch"), None)
-        side = next((i for i in sets.get(v.get("imageOption")) or [] if re.search(r"[-_]Primary$", i)), None)
+        side = next((i for i in sets.get(v.get("imageOption")) or [] if TREK_SIDE.search(i)), None)
         if by_swatch.get(swatch) and side:
             colour_images.setdefault(by_swatch[swatch], f"https://media.trekbikes.com/image/upload/f_png,w_1200/{side}")
         # The other angles of that colour, in Trek's own order; not the portrait crop or the bike with accessories.
@@ -435,10 +463,21 @@ def trek_archived(cdx_folder, db_path, fetcher=None, years=range(FIRST_YEAR, dat
     """Trek's discontinued lines: bikes in the Wayback listings whose line no catalogue model carries (Émonda
     SLR 7, gone since the Madone Gen 8). Second-hand ads are full of them, and without them an ad for one is
     matched to the nearest bike we have. Writes data/years/archived/Trek.json (one bike per line, as a
-    catalogue scrape lists it, with the years it was sold) and adds their year sheets to data/years/site/Trek.json."""
+    catalogue scrape lists it, with the years it was sold) and adds their year sheets to data/years/site/Trek.json.
+
+    Without cdx_folder it reads only the numbers in data/years/archived/trek_codes.txt and adds their lines to
+    the ones already in data/years/archived/Trek.json."""
     fetcher = fetcher or Fetcher(delay=1.0)
     conn = sqlite3.connect(db_path)
     have = {line_of(n) for (n,) in conn.execute("SELECT name FROM models WHERE brand = 'Trek'")}
+    kept = []
+    if not cdx_folder:
+        try:
+            with open(os.path.join(ROOT, "data", "years", "archived", "Trek.json"), encoding="utf-8") as fh:
+                kept = json.load(fh)
+        except (OSError, ValueError):
+            kept = []
+        have |= {line_of(b["name"]) for b in kept}
     products = [p for p in (trek_product(fetcher, c) for c in trek_codes(cdx_folder)) if p and p["years"]
                 and recognised(p["specs"]) >= MIN_SPECS and not TREK_SKIP.search(p["name"])
                 and not TREK_STOCK.search(p["name"])]
@@ -460,7 +499,7 @@ def trek_archived(cdx_folder, db_path, fetcher=None, years=range(FIRST_YEAR, dat
         log.info("Trek archived: %s %s", newest["name"], bikes[-1]["years"])
     sheets = trek_collect([(b["name"], b["url"]) for b in bikes], fetcher, years,
                           sorted({p["code"] for found in lines.values() for p in found}))
-    _save_archived("Trek", bikes, sheets)
+    _save_archived("Trek", kept + bikes, sheets)
     return bikes
 
 
@@ -810,7 +849,7 @@ if __name__ == "__main__":
     ap.add_argument("--cdx", help="folder with the Wayback Machine listings (for Trek's product numbers)")
     ap.add_argument("--colours", action="store_true", help="only add each colour's photo to the years already read")
     ap.add_argument("--angles", action="store_true", help="only add each colour's other angles to the years already read")
-    ap.add_argument("--archived", action="store_true", help="add the discontinued lines (Trek, Giant: needs --cdx; Specialized also reads its sitemap)")
+    ap.add_argument("--archived", action="store_true", help="add the discontinued lines (Giant: needs --cdx; Trek without --cdx only adds data/years/archived/trek_codes.txt; Specialized also reads its sitemap)")
     ap.add_argument("--models", nargs="*", default=[], help="only these catalogue models (their names)")
     ap.add_argument("--pages", nargs="*", default=[],
                     help="Specialized --colours: the folders with the Wayback copies (wayback.py fetch), whose photo IDs come first")
