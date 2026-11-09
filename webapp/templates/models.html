@@ -57,11 +57,8 @@
       <label class="switch"><input type="checkbox" name="current" value="1" {{ 'checked' if current }} onchange="this.form.requestSubmit()"><i></i>{{ _('Only bikes still sold') }}</label>
       {# On by default: an unticked box sends nothing, so this 0 after it says "off" (a ticked box's 1 comes first and wins). #}
       <input type="hidden" name="current" value="0">
-      <span class="search">
-        <label class="sr-only" for="q">{{ _('Search models') }}</label>
-        <input id="q" name="q" value="{{ q }}" placeholder="{{ _('Search, e.g. Domane') }}">
-        <button class="btn ghost" type="submit">{{ _('Search') }}</button>
-      </span>
+      {# no search field: the menus pick the bikes. A search in an old address is kept while filtering. #}
+      {% if q %}<input type="hidden" name="q" value="{{ q }}">{% endif %}
     </form>
   </div>
   {% set ads = namespace(n=0) %}

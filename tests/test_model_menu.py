@@ -131,3 +131,12 @@ def test_fitness_bikes_are_hidden(tmp_path):
     assert 'value="fitness"' not in page
     fitness = [m["slug"] for m in db.all_models(db.connect(path)) if checks.discipline_of(m) == "fitness"]
     assert fitness and not any(f'href="/models/{s}"' in page for s in fitness)
+
+
+def test_the_catalogue_has_no_search_field(tmp_path):
+    from webapp import db, seed
+    from webapp.app import create_app
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    page = create_app(path).test_client().get("/models?lang=nl").get_data(as_text=True)
+    assert 'id="q"' not in page and 'class="search"' not in page
