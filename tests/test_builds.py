@@ -158,3 +158,15 @@ def test_bianchi_model_page_lists_its_builds(models):
     labels = [checks.build_label(b) for b in checks.builds_of(oltre, models)]
     assert labels[0] == "Dura-Ace Di2" and "Founder Edition" in labels and len(labels) == len(set(labels))
     assert checks.model_group("Oltre RC Team Replica Dura-Ace Di2", "Bianchi") == "Oltre RC"
+
+
+def test_a_build_without_a_groupset_shows_its_model_name_once(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    slug = conn.execute("SELECT slug FROM models WHERE name = 'Impulso Allroad'").fetchone()[0]
+    page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
+    pills = [re.sub(r"<[^>]+>", "", p) for p in re.findall(r'<a class="build-pill.*?</a>', page, re.S)]
+    assert any(p.startswith("Impulso Allroad GRX 400") for p in pills)
+    assert any(re.match(r"Impulso Allroad\W", p) and "GRX" not in p for p in pills)  # the entry without a groupset
+    assert not any("Impulso Allroad Impulso Allroad" in p for p in pills)
