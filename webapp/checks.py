@@ -1011,6 +1011,16 @@ def discipline_of(model):
     return "other"
 
 
+# The order of the group tabs on the model page: the parts that tell builds apart first.
+SPEC_TAB_ORDER = ["Drivetrain", "Brakes", "Wheels & tyres", "Frame & fork", "Cockpit", "Saddle & seatpost"]
+
+
+def spec_tab_order(groups):
+    """[(group label, rows)] in SPEC_TAB_ORDER, any other group after them in its own order."""
+    rank = {label: i for i, label in enumerate(SPEC_TAB_ORDER)}
+    return sorted(groups, key=lambda g: rank.get(g[0], len(rank)))
+
+
 def spec_groups(model):
     """The model's spec sheet as [(group label, [(english label, dutch label, value)])], in SPEC_GROUPS order."""
     rows, seen = {}, set()
@@ -2982,6 +2992,7 @@ def model_charts():
 SIZE_SOURCE_NOTES = {
     "brand": "{brand}'s own size chart for this model.",
     "geometry": "This model's own sizes and geometry; {brand} publishes rider heights only in its general size guide.",
+    "listed": "The sizes {brand} sells this model in, with the rider heights of {brand}'s general size guide.",
     "generic": SIZE_NOTE,
 }
 
@@ -3016,11 +3027,45 @@ def model_size_chart(model):
     else:
         sizes = {k: (v["low"], v["high"]) for k, v in (own or {}).get("sizes", {}).items() if v.get("low")}
     sizes = dict(sorted(sizes.items(), key=lambda kv: _size_order(kv[0])))
+    if not sizes and model.get("sizes"):
+        # No chart of its own, but the brand's site lists the sizes it is sold in: the brand chart cut to those.
+        listed = listed_sizes(model["sizes"], brand_chart)
+        if listed:
+            return {"sizes": listed, "geometry": {}, "source": "listed", "url": None}
     if not sizes:
         return {"sizes": brand_chart, "geometry": {}, "source": "generic", "url": None}
     return {"sizes": sizes, "source": own["source"], "url": own.get("url"),
             "geometry": {k: (v["stack"], v["reach"]) for k, v in own["sizes"].items()
                          if v.get("stack") and v.get("reach")}}
+
+
+# How brand sites spell the sizes of our charts: Cannondale's MD, Giant's M/L.
+SIZE_SPELLINGS = {"XXS": "2XS", "XXL": "2XL", "SM": "S", "MD": "M", "LG": "L", "M/L": "ML", "S/M": "SM"}
+
+
+def listed_sizes(labels, brand_chart):
+    """The brand chart cut to the sizes a model is sold in: {label: (low, high)}, smallest first.
+
+    A frame size in cm that the brand chart lacks gets rider heights between its neighbours'. Labels that aren't
+    frame sizes (Factor lists its stem lengths with them) are left out.
+    """
+    numbers = sorted((int(k), v) for k, v in brand_chart.items() if k.isdigit())
+    out = {}
+    for raw in labels:
+        label = str(raw).strip().rstrip(":").upper()
+        if label not in brand_chart:
+            label = SIZE_SPELLINGS.get(label, label)
+        if label in brand_chart:
+            out[label] = tuple(brand_chart[label])
+        elif label.isdigit() and len(numbers) > 1:
+            n = int(label)
+            below = [x for x in numbers if x[0] < n]
+            above = [x for x in numbers if x[0] > n]
+            if below and above:
+                (a, (alo, ahi)), (b, (blo, bhi)) = below[-1], above[0]
+                f = (n - a) / (b - a)
+                out[label] = (round(alo + f * (blo - alo)), round(ahi + f * (bhi - ahi)))
+    return dict(sorted(out.items(), key=lambda kv: _size_order(kv[0])))
 
 
 def size_note(chart, brand):

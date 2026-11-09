@@ -387,7 +387,7 @@ def refresh_catalogue(conn):
 
 
 def refresh_images(conn):
-    """Re-pick the photo, colourways, photo years and model year of every model already in the database, keeping saved
+    """Re-pick the photo, colourways, photo years, sizes and model year of every model already in the database, keeping saved
     checks intact."""
     count = 0
     for brand, rel in SOURCES:
@@ -399,6 +399,9 @@ def refresh_images(conn):
                 cur = conn.execute("UPDATE models SET image = ?, colorways = ?, photo_years = ? WHERE slug = ?",
                                    (image, json.dumps(colorways(bike, image), ensure_ascii=False),
                                     json.dumps(photo_years(bike)), slug))
+                if bike.get("sizes"):  # the sizes it is sold in, for rows loaded before we kept them
+                    conn.execute("UPDATE models SET sizes = ? WHERE slug = ?",
+                                 (json.dumps(bike["sizes"], ensure_ascii=False), slug))
                 # The model year goes with the specs and price, so only onto a row loaded from this very snapshot.
                 conn.execute("UPDATE models SET model_year = ? WHERE slug = ? AND source_file = ?",
                              (model_year(bike), slug, rel))
@@ -513,8 +516,8 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     image = pick_image(bike)
     cur = conn.execute(
         f"{verb} INTO models (brand, name, slug, category, price_eur, sku, url, colors,"
-        " specs, image, seen_on, model_year, source_file, colorways, photo_years, year_specs)"
-        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        " specs, image, seen_on, model_year, source_file, colorways, photo_years, year_specs, sizes)"
+        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         (
             brand,
             bike["name"].strip(),
@@ -532,6 +535,7 @@ def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
             json.dumps(colorways(bike, image), ensure_ascii=False),
             json.dumps(photo_years(bike)),
             json.dumps(year_specs(brand, bike["name"]), ensure_ascii=False),
+            json.dumps(bike.get("sizes") or [], ensure_ascii=False),
         ),
     )
     return cur.rowcount

@@ -2158,3 +2158,15 @@ def test_the_logo_colour_is_not_the_bikes():
     assert colour_match.ad_colours("Trek Emonda", "kleur zwart met silver logo Trek") == ["black"]
     assert colour_match.ad_colours("Trek Emonda", "kleur: wit met rode letters") == ["white"]
     assert colour_match.ad_colours("Trek Emonda zwart/rood", "") == ["black", "red"]
+
+
+def test_listed_sizes_cut_the_brand_chart_to_the_models_sizes():
+    chart = {"47": (155, 163), "51": (163, 171), "54": (170, 178), "S": (160, 170), "M": (168, 178), "L": (175, 185)}
+    # Brand spellings map onto the chart, a frame size between two others gets heights between theirs,
+    # and labels that aren't sizes (Factor's stem lengths) are left out.
+    assert checks.listed_sizes(["LG", "MD", "49", "STD: 0 OFFSET (110MM)", "47"], chart) == {
+        "47": (155, 163), "49": (159, 167), "M": (168, 178), "L": (175, 185)}
+    model = {"slug": "nope", "brand": "BMC", "sizes": ["S", "M"]}
+    own = checks.model_size_chart(model)
+    assert own["source"] == "listed" and list(own["sizes"]) == ["S", "M"]
+    assert checks.model_size_chart({**model, "sizes": []})["source"] == "generic"

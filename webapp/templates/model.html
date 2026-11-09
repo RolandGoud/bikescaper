@@ -9,6 +9,23 @@
 {% macro parts_list(parts) -%}
 {% for label, value, tier in parts %}<div><span class="kp-k">{{ _(label) }}</span><span class="kp-v" title="{{ value }}">{{ value }}</span>{{ tier_dot(tier) }}</div>{% endfor %}
 {%- endmacro %}
+{# A part's tier next to its group's overall tier: a small dot when it is the same, the tier itself when it differs. #}
+{% macro part_tier(t, overall) -%}
+{% if t and overall and t == overall %}<span class="tier-same t{{ t }}" title="{{ _('Same tier as the group: {tier}', tier=_(tier_names[t])) }}"></span>
+{%- elif t %}<span class="tier-off">{% if overall %}<span class="tier-arrow {{ 'up' if t > overall else 'down' }}" aria-hidden="true">{{ '▲' if t > overall else '▼' }}</span>{% endif %}{{ tier_dot(t) }}</span>{% endif %}
+{%- endmacro %}
+{# A small line icon for each group of parts, in front of its tab. #}
+{% macro group_icon(group) -%}
+<svg class="group-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{%- if group == 'Drivetrain' %}<g transform="matrix(-1 0 0 1 24 0)"><circle cx="9" cy="12" r="6"/><circle cx="9" cy="12" r="1.3"/><circle cx="20" cy="12" r="2.5"/><path d="M9 6l11 3.5M9 18l11-3.5M9 12l-4 7M3 19h4"/></g>
+{%- elif group == 'Brakes' %}<circle cx="10" cy="14" r="8"/><circle cx="10" cy="14" r="6" stroke-width="1.6" stroke-dasharray="1.2 1.6" stroke-linecap="butt"/><circle cx="10" cy="14" r="1.8" stroke-width="1.2"/><path d="M10.00 12.20L11.27 9.89M11.71 13.44L14.30 13.94M11.06 15.46L11.39 18.07M8.94 15.46L6.56 16.58M8.29 13.44L6.49 11.52" stroke-width="1.2"/><rect x="13.5" y="2.5" width="6" height="9" rx="2" transform="rotate(45 16.5 7)" fill="currentColor" stroke="none"/>
+{%- elif group == 'Wheels & tyres' %}<circle cx="12" cy="12" r="9.6" stroke-width="1.5"/><circle cx="12" cy="12" r="8.2" stroke-width=".7"/><circle cx="12" cy="12" r="1.2" stroke-width="1"/><path d="M13.20 12.00L19.70 14.81M13.11 12.46L18.04 17.55M12.85 12.85L15.46 19.43M12.46 13.11L12.35 20.19M12.00 13.20L9.19 19.70M11.54 13.11L6.45 18.04M11.15 12.85L4.57 15.46M10.89 12.46L3.81 12.35M10.80 12.00L4.30 9.19M10.89 11.54L5.96 6.45M11.15 11.15L8.54 4.57M11.54 10.89L11.65 3.81M12.00 10.80L14.81 4.30M12.46 10.89L17.55 5.96M12.85 11.15L19.43 8.54M13.11 11.54L20.19 11.65" stroke-width=".45"/>
+{%- elif group == 'Frame & fork' %}<path d="M3 17L8 7.5 10.5 17zM8 7.5h10M10.5 17l8-7M18 7.5l.6 2.5 2.4 7M8 7.5l-.6-2.5M5.5 5h4"/>
+{%- elif group == 'Cockpit' %}<path d="M6 9h12M6 9c-1.9 0-2.6 1.2-2.6 3.2v2.6c0 1.6-.4 2.8-1.1 4M18 9c1.9 0 2.6 1.2 2.6 3.2v2.6c0 1.6.4 2.8 1.1 4"/><path d="M5.2 9.5V6.3M18.8 9.5V6.3" stroke-width="2.6"/><path d="M5.6 10.5v4.5M18.4 10.5v4.5" stroke-width="1.1"/>
+{%- elif group == 'Saddle & seatpost' %}<path d="M2 10.2c2.5-1 6.5-1.1 10-.5l7.2.9c1.9.3 2.8.7 2.8 1.2s-1.1.8-2.8.8H9.5c-3.8 0-6.6-.6-7.5-2.4zM8 12.6l1.5 1.6h5l1.5-1.6M12 14.2V21"/>
+{%- else %}<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/>
+{%- endif %}</svg>
+{%- endmacro %}
 {% block body %}
 {# The colours of the bike on show, under its photo: picking one shows that colour's photos. The year
    picked swaps them for that year's (year_facts). #}
@@ -214,18 +231,34 @@
     {% for t in year_tabs %}
     <div class="year-panel" role="tabpanel" id="year-{{ t.year }}" aria-labelledby="tab-{{ t.year }}"{% if t is not sameas shown %} hidden{% endif %}>
       {% if t.specs %}
-      <p class="small muted">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{% if t.sheet_name %}{{ _('Sold as {name} in {year}.', name=t.sheet_name, year=t.year) }} {% endif %}{% if t.source == 'site' %}{% if t.sheet_years %}{{ _('From the sheet {brand} still keeps online for model years {years}, read on {date}.', brand=m.brand, years=t.sheet_years, date=t.captured) }}{% else %}{{ _('From the {year} model page {brand} still keeps online, read on {date}.', brand=m.brand, year=t.year, date=t.captured) }}{% endif %} <a href="{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the page') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% elif t.source == 'mantel' %}{{ _('As listed by the Dutch bike shop Mantel on {date}, from a copy in the Wayback Machine.', date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('Mantel price {price}', price=t.price|eur) }}.{% endif %}{% elif t.source == 'brandsite' %}{{ _('As listed on the {brand} site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }}{% if t.year_guessed %} {{ _('The page gives no model year: this is the year of the copy.') }}{% endif %} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% elif t.price_foreign %} · {{ _('New {price}', price=t.currency ~ ' ' ~ '{:,.0f}'.format(t.price_foreign)) }}.{% endif %}{% elif t.source == 'uk' %}{{ _('As listed by the UK bike shop {shop} on {date}, from a copy in the Wayback Machine.', shop=t.shop, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_gbp %} · {{ _('{shop} price £{price}', shop=t.shop, price='{:,.0f}'.format(t.price_gbp)) }}.{% endif %}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}{% endif %}
-        {% if t.price_german %}<br>{{ _('* For the new price of this model, year and colour we used an alternative source (the German list price in the TOUR/BIKE database), so we can\'t guarantee it is fully reliable.') }}<br>{% endif %}
-        {{ _('Each part is rated from tier 1 (basic) to 5 (top).') }}{% if t.tiers and t.tiers.aged %} {{ _('The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.', years=t.tiers.age, step=age_step) }}{% endif %} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a>
-        {% if t.changed %}{{ _('▲ upgrade and ▼ downgrade mark a better or a lesser part than the year before, – similar a different part of the same tier.') }}{% endif %}</p>
-      <div class="spec-groups">
-        {% for group, rows in t.specs %}
-        <div class="spec-group">
-          <h3>{{ _(group) }}{{ tier_badge(t.tiers.groups[group], small=true) if t.tiers.groups[group] }}</h3>
-          <div class="kv">{% for en, nl, v in rows %}{% set move = t.moves[en] if t.moves and en in t.moves else ('same' if en in t.changed) %}<div class="part"><span>{{ nl if lang == 'nl' else en }}</span>{% if t.tiers.rows[en] or move %}<span class="spec-tier">{{ tier_dot(t.tiers.rows[en]) }}{% if move == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif move == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% elif move %}<span class="move same" title="{{ _('Changed on {year}, same tier', year=t.year - 1) }}">– {{ _('similar') }}</span>{% endif %}</span>{% endif %}</div><div class="rated"><span>{{ v }}</span>{{ aged_chip(t.tiers.aged[en]) }}</div>{% endfor %}</div>
-        </div>
+      <div class="small muted spec-source">{% if t.state == 'scrape' %}{{ _('As listed on the {brand} NL site on {date}.', brand=m.brand, date=t.captured) }}{% else %}{% if t.sheet_name %}{{ _('Sold as {name} in {year}.', name=t.sheet_name, year=t.year) }} {% endif %}{% if t.source == 'site' %}{% if t.sheet_years %}{{ _('From the sheet {brand} still keeps online for model years {years}, read on {date}.', brand=m.brand, years=t.sheet_years, date=t.captured) }}{% else %}{{ _('From the {year} model page {brand} still keeps online, read on {date}.', brand=m.brand, year=t.year, date=t.captured) }}{% endif %} <a href="{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the page') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% elif t.source == 'mantel' %}{{ _('As listed by the Dutch bike shop Mantel on {date}, from a copy in the Wayback Machine.', date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price %} · {{ _('Mantel price {price}', price=t.price|eur) }}.{% endif %}{% elif t.source == 'brandsite' %}{{ _('As listed on the {brand} site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }}{% if t.year_guessed %} {{ _('The page gives no model year: this is the year of the copy.') }}{% endif %} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% elif t.price_foreign %} · {{ _('New {price}', price=t.currency ~ ' ' ~ '{:,.0f}'.format(t.price_foreign)) }}.{% endif %}{% elif t.source == 'uk' %}{{ _('As listed by the UK bike shop {shop} on {date}, from a copy in the Wayback Machine.', shop=t.shop, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_gbp %} · {{ _('{shop} price £{price}', shop=t.shop, price='{:,.0f}'.format(t.price_gbp)) }}.{% endif %}{% else %}{{ _('As listed on the {brand} NL site on {date}, from a copy in the Wayback Machine.', brand=m.brand, date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a>{% if t.price_german %} · {{ _('New {price}', price=t.price|eur) }}* (<a href="{{ t.price_url }}" target="_blank" rel="noopener">TOUR/BIKE</a>).{% elif t.price %} · {{ _('New {price}', price=t.price|eur) }}.{% endif %}{% endif %}{% endif %}
+        {% set tip %}{% if t.price_german %}{{ _('* For the new price of this model, year and colour we used an alternative source (the German list price in the TOUR/BIKE database), so we can\'t guarantee it is fully reliable.') }} {% endif %}{{ _('Each part is rated from tier 1 (basic) to 5 (top).') }}{% if t.tiers and t.tiers.aged %} {{ _('The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.', years=t.tiers.age, step=age_step) }}{% endif %}{% if t.changed %} {{ _('▲ upgrade and ▼ downgrade mark a better or a lesser part than the year before, – similar a different part of the same tier.') }}{% endif %}{% endset %}
+        {{ note(tip) }} <a href="{{ url_for('how') }}#tiers">{{ _('How tiers work') }}</a></div>
+      {# One group of parts at a time, picked in a row of tabs across the card. #}
+      <div class="group-tabs" role="tablist" aria-label="{{ _('Parts') }}">
+        {% for group, rows in spec_tab_order(t.specs) %}
+        <button type="button" role="tab" class="group-tab" id="gtab-{{ t.year }}-{{ loop.index }}" aria-controls="group-{{ t.year }}-{{ loop.index }}" data-group="{{ group }}"
+                aria-selected="{{ 'true' if loop.first else 'false' }}"{% if not loop.first %} tabindex="-1"{% endif %}>
+          <span class="gt-label mono">{{ group_icon(group) }}{{ _(group)|upper }}</span></button>
         {% endfor %}
       </div>
+      {% for group, rows in spec_tab_order(t.specs) %}
+      <div class="spec-group" role="tabpanel" id="group-{{ t.year }}-{{ loop.index }}" aria-labelledby="gtab-{{ t.year }}-{{ loop.index }}"{% if not loop.first %} hidden{% endif %}>
+          <table class="spec-rows{{ ' with-change' if t.changed }}">
+            {% if t.changed %}<thead><tr><th>{{ _('Part') }}</th><th>{{ _('Tier') }}</th><th></th><th>{{ _('vs. previous model') }}</th></tr></thead>{% endif %}
+            <tbody>
+            {% if t.tiers.groups[group] %}<tr class="overall"><th scope="row">{{ _('Overall tier') }}</th><td class="tier-cell">{{ tier_badge(t.tiers.groups[group]) }}</td><td>{% if rows|selectattr('0', 'in', t.tiers.rows)|list %}<span class="tier-legend"><span class="tier-same t{{ t.tiers.groups[group] }}"></span>{{ _('same tier as the group') }}</span>{% endif %}</td>{% if t.changed %}<td></td>{% endif %}</tr>{% endif %}
+            {% for en, nl, v in rows %}{% set move = t.moves[en] if t.moves and en in t.moves else ('same' if en in t.changed) %}
+            <tr><th scope="row">{{ nl if lang == 'nl' else en }}</th>
+              <td class="tier-cell">{{ part_tier(t.tiers.rows[en], t.tiers.groups[group]) }}</td>
+              <td class="value">{{ v }}{{ aged_chip(t.tiers.aged[en]) }}</td>
+              {% if t.changed %}<td class="change">{% if move == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif move == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% elif move %}<span class="move same" title="{{ _('Changed on {year}, same tier', year=t.year - 1) }}">– {{ _('similar') }}</span>{% endif %}</td>{% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+      </div>
+      {% endfor %}
       {% elif t.state == 'unreadable' %}
       <p class="year-empty">{{ _('The Wayback Machine has a copy of this model\'s page from {date}, but without a spec list.', date=t.captured) }} <a href="https://web.archive.org/web/{{ t.ts }}/{{ t.url }}" target="_blank" rel="noopener">{{ _('Open the copy') }}</a></p>
       {% elif t.state == 'none' %}
@@ -263,7 +296,37 @@
     if (!tab) return;
     document.querySelectorAll(".year-tab").forEach(function (t) { t.setAttribute("aria-selected", t === tab); });
     document.querySelectorAll(".year-panel").forEach(function (p) { p.hidden = p.id !== tab.getAttribute("aria-controls"); });
+    // Keep the group that was open, when the new year has it.
+    var panel = document.getElementById(tab.getAttribute("aria-controls"));
+    var same = panel && panel.querySelector('.group-tab[data-group="' + groupOpen + '"]');
+    if (same) showGroup(same, true);
   }
+  // Group tabs inside each year: one group of parts at a time.
+  var groupOpen = null;
+  function showGroup(tab, keep) {
+    var bar = tab.parentElement;
+    bar.querySelectorAll(".group-tab").forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (!keep) groupOpen = tab.dataset.group;
+    var rail = bar, r = rail.getBoundingClientRect(), b = tab.getBoundingClientRect();
+    if (rail.scrollWidth > rail.clientWidth) rail.scrollLeft += (b.left + b.width / 2) - (r.left + r.width / 2);
+  }
+  document.querySelectorAll(".group-tab").forEach(function (tab) {
+    tab.addEventListener("click", function () { showGroup(tab); });
+    tab.addEventListener("keydown", function (e) {
+      var step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!step) return;
+      var tabs = Array.prototype.slice.call(tab.parentElement.querySelectorAll(".group-tab"));
+      var next = tabs[(tabs.indexOf(tab) + step + tabs.length) % tabs.length];
+      showGroup(next);
+      next.focus();
+      e.preventDefault();
+    });
+  });
   // The model years beside the photo: one per year, the current bike first and shown first.
   // Picking a year there opens its spec sheet, and the other way round.
   var thumbs = Array.prototype.slice.call(document.querySelectorAll(".gallery-thumb"));
