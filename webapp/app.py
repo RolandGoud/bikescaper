@@ -143,6 +143,18 @@ def group_checks(rows):
     return [(newest, count) for newest, count in groups.values()]
 
 
+def too_high_share(results):
+    """Of the checked ads whose asking price we could compare with a fair range, the share (0-100, rounded) asking
+    more than the top of that range; None while fewer than HERO_MIN_PRICED ads have one, too few to say."""
+    priced = [v for v in (r.get("value") or {} for r in results) if v.get("asking") and v.get("high")]
+    if len(priced) < HERO_MIN_PRICED:
+        return None
+    return round(100 * sum(v["asking"] > v["high"] for v in priced) / len(priced))
+
+
+HERO_MIN_PRICED = 10
+
+
 def matched_ads(rows, models):
     """Every ad the site knows, per catalogue model it's matched to: {model_id: [(newest row, times checked)]}.
     The match is the one the ad's report shows: the visitor's pick, otherwise our best guess. Daily checks
@@ -438,9 +450,29 @@ def create_app(db_path=None):
             picked["tiles"] = sponsored.rotation(every, lang)
         return picked
 
+    @app.template_filter("thousands")
+    def thousands(value):
+        return "{:,}".format(value).replace(",", ".")
+
     @app.template_filter("eur")
     def eur(value):
         return "€{:,.0f}".format(value).replace(",", ".") if value is not None else "–"
+
+    hero_cache = {"key": None, "share": None}
+
+    def hero_stats(rows, ads):
+        """The numbers in the band at the bottom of the home hero: ads checked, catalogue models, brands, and the
+        share of ads asking more than the fair range. That share needs every ad's report, so it's kept until a
+        check is added or worked out again, or the catalogue changes."""
+        catalogue_models = models()
+        def key():
+            kept = stored_checks.summary(conn())
+            return catalogue["version"], len(rows), rows[0]["id"] if rows else None, kept["stored"], kept["newest"]
+        if hero_cache["key"] != key():
+            hero_cache["share"] = too_high_share([stored_check(listing_dict(r)) for r, _ in ads])
+            hero_cache["key"] = key()  # after the reports it may have worked out and stored
+        return {"ads": len(ads), "models": len(catalogue_models),
+                "brands": len({m["brand"] for m in catalogue_models}), "too_high": hero_cache["share"]}
 
     @app.route("/")
     def home():
@@ -449,7 +481,8 @@ def create_app(db_path=None):
         cards = [(listing_dict(r, count=n), stored_check(listing_dict(r))) for r, n in ads[:12]]
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
-                               hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers())
+                               hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers(),
+                               stats=hero_stats(rows, ads))
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
