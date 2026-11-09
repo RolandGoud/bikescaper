@@ -137,3 +137,24 @@ def test_trek_model_page_lists_each_build_once(models):
     assert sevens == sorted(sevens)
     # the 6 of every generation is one build: the newest one
     assert next(b for b in builds if checks.build_label(b) == "6")["name"] == "Madone SL 6 Gen 8"
+
+
+def test_bianchi_names_split_into_model_and_build():
+    assert checks.bianchi_parts("Oltre Pro Team Replica Ultegra Di2") == ("Oltre Pro", "Ultegra Di2", "Team Replica")
+    # CV is a frame of its own; Disc is the same build, as for Trek
+    assert checks.bianchi_parts("Oltre XR4 CV Disc Ultegra Di2") == ("Oltre XR4 CV", "Ultegra Di2", None)
+    assert checks.bianchi_parts("Oltre XR4 Ultegra Di2 Disc")[:2] == ("Oltre XR4", "Ultegra Di2")
+    # the women's version is a build of its own, under its model
+    assert checks.bianchi_parts("Dama Bianca Intenso 105") == ("Intenso", "105 Dama Bianca", None)
+    assert checks.bianchi_parts("Oltre RC Frameset") == ("Oltre RC frameset", None, None)
+    # the same groupset spelled another way is one build
+    assert checks.bianchi_parts("Specialissima D/A Di2 40T")[1] == checks.bianchi_parts("Specialissima Dura-Ace Di2")[1]
+    assert checks.bianchi_parts("Impulso All Road GRX 400")[:2] == checks.bianchi_parts("Impulso Allroad GRX 400")[:2]
+    assert checks.bianchi_parts("Nirone 7")[0] == "Via Nirone 7"
+
+
+def test_bianchi_model_page_lists_its_builds(models):
+    oltre = next(m for m in models if m["name"] == "Oltre RC Dura-Ace Di2")
+    labels = [checks.build_label(b) for b in checks.builds_of(oltre, models)]
+    assert labels[0] == "Dura-Ace Di2" and "Founder Edition" in labels and len(labels) == len(set(labels))
+    assert checks.model_group("Oltre RC Team Replica Dura-Ace Di2", "Bianchi") == "Oltre RC"

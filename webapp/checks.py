@@ -473,7 +473,7 @@ def split_build(model, frames=False):
 # Brands whose builds the site shows under one model: Ridley names them by groupset (split_build), Trek by the
 # number after the model ("Madone SL 6 AXS Gen 8": the Madone SL, build 6 AXS). Trek's generations are model years
 # of the same build, and its special editions ("- The First 50 Replica", "No. 76") a colour of their build.
-SITE_BUILD_BRANDS = {"Ridley", "Trek"}
+SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi"}
 # Trek's older names for a line it still sells under another one.
 TREK_RENAMED = {"Checkpoint AL": "Checkpoint ALR", "Domane+ AL": "Domane+ ALR"}
 _TREK_GEN = re.compile(r"\s*\b[Gg]en\s*(\d+)\b")
@@ -505,6 +505,48 @@ def trek_parts(name):
     return model, build, int(gen.group(1)) if gen else None, edition
 
 
+# Bianchi names a model by its family and level, then the groupset: "Oltre Pro Ultegra Di2". The build starts at
+# the first groupset word (or "Frameset", or an edition that has no groupset of its own).
+_BIANCHI_BUILD_START = re.compile(
+    r"\s(?=(?:105|Ultegra|Dura-Ace|Di2|GRX|Apex|Rival|Force|Red|Cues|Ekar|Potenza|Centaur|Chorus|Super|EPS|Sora|Tiagra"
+    r"|eTap|Frameset|Custom|Founder)\b)", re.I)
+# Bianchi's special editions are a colour of the build with the same groupset.
+_BIANCHI_EDITIONS = ("Team Replica", "Launch Edition", "Paris-Roubaix", "Tour de France", "Pantani")
+_BIANCHI_SPELLING = [(r"\bAll Road\b", "Allroad"), (r"\bCv\b", "CV"), (r"\bD/A\b", "Dura-Ace"), (r"\bGRX(?=\d)", "GRX "),
+                     (r"\bRED\b", "Red"), (r"\bSRAM\s+", ""), (r"\s+(?:40T?|55T|B35|Compact|CP)\b", ""),
+                     (r"\s+Disc\b", ""),  # a Disc version is the same build, as for Trek
+                     (r"\bRival AXS\b", "Rival eTap AXS"), (r"\bRival E1 AXS\b", "Rival eTap AXS E1"),
+                     (r"\bRed E1 eTap AXS\b", "Red eTap AXS E1"), (r"\bForce AXS\b", "Force eTap AXS")]
+# Bianchi's older names of a model it still sells under another one.
+BIANCHI_RENAMED = {"Nirone 7": "Via Nirone 7", "Via Nirone": "Via Nirone 7"}
+
+
+def bianchi_parts(name):
+    """(model, build, edition) of a Bianchi catalogue name: "Oltre Pro Team Replica Ultegra Di2" gives ("Oltre Pro",
+    "Ultegra Di2", "Team Replica"); "Oltre XR4 CV Disc Ultegra Di2" gives ("Oltre XR4 CV", "Ultegra Di2", None): CV
+    is a frame of its own, Disc the same build; "Dama Bianca Intenso 105" gives ("Intenso", "105 Dama Bianca", None):
+    the women's version is a build of its own; a frameset is a model: ("Oltre RC frameset", None, None)."""
+    rest, women = name or "", False
+    if re.search(r"\bDama Bianca\b", rest):
+        rest, women = re.sub(r"\s*\bDama Bianca\b\s*", " ", rest).strip(), True
+    for pattern, spelled in _BIANCHI_SPELLING:
+        rest = re.sub(pattern, spelled, rest)
+    edition = next((e for e in _BIANCHI_EDITIONS if e in rest), None)
+    if edition:
+        rest = re.sub(r"\s*\b" + re.escape(edition) + r"\b", "", rest)
+    rest = re.sub(r"\s+", " ", rest).strip()
+    at = _BIANCHI_BUILD_START.search(rest)
+    model, build = (rest[:at.start()], rest[at.end():]) if at else (rest, None)
+    model = BIANCHI_RENAMED.get(model, model)
+    if build and build.lower() == "frameset":
+        return model + " frameset", None, edition
+    if not build and edition:  # an edition without a groupset of its own is that build ("Pantani")
+        build, edition = edition, None
+    if women:
+        build = (build + " " if build else "") + "Dama Bianca"
+    return model, build, edition
+
+
 def site_split(model):
     """(model name, build) as the site groups a catalogue entry: one tile and one model page per model, with its
     builds as pills. ("Noah Fast 3.0", "Shimano Ultegra Di2 2x12"), ("Madone SL", "6 AXS"), ("Madone SL frameset",
@@ -512,6 +554,8 @@ def site_split(model):
     if model.get("brand") == "Trek":
         name, build, _gen, _edition = trek_parts(model["name"])
         return name, build
+    if model.get("brand") == "Bianchi":
+        return bianchi_parts(model["name"])[:2]
     return split_build(model)
 
 
@@ -539,8 +583,9 @@ def is_frameset(model):
 
 
 def _build_order(m):
-    """Builds as the switcher lists them: by their number ("5", "6 AXS", "7"), then spec tier low to high, then price."""
-    number = re.match(r"\d+", build_label(m) or "")
+    """Builds as the switcher lists them: by their number ("5", "6 AXS", "7"; Trek), then spec tier low to high, then
+    price."""
+    number = re.match(r"\d+", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
     return (int(number.group()) if number else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
 
 
@@ -548,7 +593,9 @@ def _representative(entries):
     """The entry that stands for a build sold over several generations or in an edition: the one on sale,
     the plain one rather than an edition, the newest generation, the cheapest."""
     def rank(m):
-        _model, _build, gen, edition = trek_parts(m["name"]) if m["brand"] == "Trek" else (None, None, None, None)
+        _model, _build, gen, edition = (trek_parts(m["name"]) if m["brand"] == "Trek" else
+                                         (None, None, None, bianchi_parts(m["name"])[2]) if m["brand"] == "Bianchi"
+                                         else (None, None, None, None))
         return (catalogue_status(m)[0] != "current", bool(edition), -(gen or 0),
                 -(scrape_year(m) or 0), m.get("price_eur") or 1e9, m["name"])
     return min(entries, key=rank)
