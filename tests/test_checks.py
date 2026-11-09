@@ -2084,7 +2084,7 @@ def test_model_tile_shows_the_ad_count_as_a_number(tmp_path):
     tile = next(t for t in page.split('<a class="model-card"')[1:] if '>Domane</span>' in t)
     tile = tile[:tile.index("</a>")]
     # the number beside the price, with the sentence as its tooltip, not as a line of its own
-    assert re.search(r'<span class="ad-count small" title="Gekoppeld aan 3 advertenties"[^>]*>.*</svg>3</span>', tile)
+    assert re.search(r'<span class="ad-count small corner" title="Gekoppeld aan 3 advertenties"[^>]*>.*</svg>3</span>', tile)
     assert ">Gekoppeld aan" not in tile
 
 
