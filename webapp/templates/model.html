@@ -126,6 +126,9 @@
     {# The model years under the photo, oldest first and the current bike last, pick which bike the photo shows; the arrows on the photo go
        through that year's photos (the side view, then close-ups, front and rear). #}
     <div class="model-gallery has-years" id="model-gallery"{% if not m.image %} data-start="{{ gallery[-1].year }}"{% endif %}>
+      {# The years as tabs above the photo, in one row that slides; the arrows at its ends show when they don't all fit. #}
+      <div class="gallery-years">
+      <button type="button" class="gallery-years-nav prev" aria-label="{{ _('Earlier years') }}" hidden>‹</button>
       <div class="year-rail gallery-thumbs" role="group" aria-label="{{ _('Photos per model year') }}">
         {% for t in slots %}{{ year_thumb(t) }}{% endfor %}
         {% if m.image %}
@@ -137,27 +140,28 @@
                 title="{{ _('Still looking for a good photo of this year.') }}">{{ placeholder }}<span class="gallery-year">{{ own_year }}</span><span class="gallery-n"></span></button>
         {% endif %}
       </div>
+      <button type="button" class="gallery-years-nav next" aria-label="{{ _('Later years') }}" hidden>›</button>
+      </div>
       <div class="gallery-main">
       <div class="photo" id="model-photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=gallery[-1].image) }}" alt="{{ m.brand }} {{ m.name|model_title }} {{ gallery[-1].year }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}
         <div class="gallery-empty" id="gallery-empty" hidden>{{ placeholder }}<span>{{ _('Still looking for a good photo of this year.') }}</span></div>
-        <span class="gallery-chip" id="gallery-chip">{{ own_year }}</span>
-        <span class="gallery-count" id="gallery-count" hidden></span>
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}" hidden>‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}" hidden>›</button>
       </div>
       {# The other angles of the year and colour on show (close-ups, front, rear), filled in by the script below. #}
       <div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}" hidden></div>
       </div>
-      {{ colours_fact }}{# under the years: a colour belongs to the year picked #}
+      {# The colour and which photo is on show, on one line under the photos. #}
+      <div class="gallery-foot">{{ colours_fact }}<span class="gallery-count" id="gallery-count" data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}" hidden></span></div>
     </div>
     {% else %}
     <div class="model-gallery"><div class="photo" id="model-photo">{{ photo(m) }}
-        {% if angles_now and m.image %}<span class="gallery-count" id="gallery-count" hidden></span>
+        {% if angles_now and m.image %}
         <button type="button" class="gallery-arrow prev" aria-label="{{ _('Previous photo') }}" hidden>‹</button>
         <button type="button" class="gallery-arrow next" aria-label="{{ _('Next photo') }}" hidden>›</button>{% endif %}</div>
-      {{ colours_fact }}
       {% if angles_now and m.image %}<div class="angle-strip" id="angle-strip" role="group" aria-label="{{ _('Other angles') }}" data-base="{{ url_for('images', path='') }}"
-           data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' data-colours="{{ (m.colors or [])|join(', ') }}" hidden></div>{% endif %}</div>
+           data-src="{{ url_for('images', path=m.image) }}" data-angles='{{ angles_now|tojson }}' data-colours="{{ (m.colors or [])|join(', ') }}" hidden></div>{% endif %}
+      <div class="gallery-foot">{{ colours_fact }}{% if angles_now and m.image %}<span class="gallery-count" id="gallery-count" data-label="{{ _('Photo {n} of {total}', n='{n}', total='{total}') }}" hidden></span>{% endif %}</div></div>
     {% endif %}
     {% if m.image or gallery %}
     {# A click on the photo opens it full size; the arrows go through that year's photos like the ones on the photo. #}
@@ -270,7 +274,27 @@
     var r = rail.getBoundingClientRect(), t = thumb.getBoundingClientRect();
     rail.scrollLeft += (t.left + t.width / 2) - (r.left + r.width / 2);
   }
-  thumbs.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).forEach(keepInView);
+  function pickedInView() { thumbs.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).forEach(keepInView); }
+  pickedInView();
+  // again once the fonts are in: the year tabs are wider then, and the newest year would sit just out of view
+  if (document.fonts) document.fonts.ready.then(pickedInView);
+  window.addEventListener("load", pickedInView);
+  // The arrows at the ends of the year tabs: only when the years don't all fit, and off at either end.
+  document.querySelectorAll("#model-gallery .gallery-years").forEach(function (tabs) {
+    var rail = tabs.querySelector(".year-rail"), prev = tabs.querySelector(".gallery-years-nav.prev"), next = tabs.querySelector(".gallery-years-nav.next");
+    function update() {
+      var max = rail.scrollWidth - rail.clientWidth;
+      prev.hidden = next.hidden = max <= 2;
+      prev.disabled = rail.scrollLeft < 2;
+      next.disabled = rail.scrollLeft > max - 2;
+    }
+    function step(dir) { rail.scrollBy({ left: dir * rail.clientWidth * 0.7, behavior: "smooth" }); }
+    prev.addEventListener("click", function () { step(-1); });
+    next.addEventListener("click", function () { step(1); });
+    rail.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
   function showPhoto(thumb, fromTab) {
     var img = document.querySelector("#model-photo > img");
     if (img.dataset.class === undefined) img.dataset.class = img.className;
@@ -286,7 +310,6 @@
       img.src = thumb.dataset.src;
       img.alt = thumb.querySelector("img") ? thumb.querySelector("img").alt : img.alt;
     }
-    document.getElementById("gallery-chip").textContent = thumb.dataset.year;
     var rail = thumb.parentNode;  // keep the picked year in view
     if (thumb.offsetTop < rail.scrollTop || thumb.offsetTop + thumb.offsetHeight > rail.scrollTop + rail.clientHeight)
       rail.scrollTop = thumb.offsetTop - (rail.clientHeight - thumb.offsetHeight) / 2;
@@ -339,7 +362,7 @@
     img.src = photos[photoAt];
     img.parentNode.classList.toggle("detail", photoAt > 0);  // a close-up fills the frame
     var count = document.getElementById("gallery-count");
-    if (count) count.textContent = (photoAt + 1) + " / " + photos.length;
+    if (count) count.textContent = count.dataset.label.replace("{n}", photoAt + 1).replace("{total}", photos.length);
     var row = document.getElementById("angle-strip");
     if (!row) return;
     row.querySelectorAll(".angle-thumb").forEach(function (o, j) { o.setAttribute("aria-pressed", j === photoAt); });
