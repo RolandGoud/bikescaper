@@ -66,15 +66,16 @@ def without_brand(title, brand=None):
 
 
 def drop_brand(text, brand):
-    """The text without this one brand's name, for a tile whose photo already shows the brand: "Giant TCR
-    Advanced" with brand "Giant" gives "TCR Advanced". Case and spacing don't matter ("GIANT", "De Rosa",
-    "derosa", "de-rosa"); only whole words go, so "Giantess" stays. Other brands and sub-brands ("S-Works")
-    stay. Text that is nothing but the brand stays as it is."""
+    """The text without this one brand's name in front, for a tile whose photo already shows the brand:
+    "Giant TCR Advanced" with brand "Giant" gives "TCR Advanced". Case and spacing don't matter ("GIANT",
+    "De Rosa", "derosa", "de-rosa"); only a whole word goes, so "Giantess" stays. The brand inside a name
+    stays ("Bugatti Factor ONE"), as do other brands and sub-brands ("S-Works"). Text that is nothing but
+    the brand stays as it is."""
     text = text or ""
     words = re.findall(r"[^\W_]+", brand or "")
     if not words:
         return text
     name = r"[\s-]*".join(re.escape(w) for w in words)
-    shown = re.sub(rf"(?<![\w-]){name}(?![\w-])", " ", text, flags=re.I)
+    shown = re.sub(rf"^\s*{name}(?![\w-])", " ", text, flags=re.I)
     shown = re.sub(r"^[\s,;:|/·–—-]+|[\s,;:|/·–—-]+$", "", re.sub(r"\s{2,}", " ", shown))
     return shown or text.strip()

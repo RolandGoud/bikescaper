@@ -41,6 +41,7 @@ def test_drop_brand():
     assert ad_title.drop_brand("de-rosa Merak", "De Rosa") == "Merak"
     assert ad_title.drop_brand("Tarmac S-Works", "Specialized") == "Tarmac S-Works"  # sub-brand stays
     assert ad_title.drop_brand("Giantess 2", "Giant") == "Giantess 2"  # whole words only
+    assert ad_title.drop_brand("Bugatti Factor ONE", "Factor") == "Bugatti Factor ONE"  # part of the name
     assert ad_title.drop_brand("Domane SL 6", "Trek") == "Domane SL 6"
     assert ad_title.drop_brand("Trek", "Trek") == "Trek"  # nothing left: keep it
     assert ad_title.drop_brand("Defy", None) == "Defy"
