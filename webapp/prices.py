@@ -54,5 +54,5 @@ def asking_price(ads, model_id, days, today=None, leave_out=None):
     result = {"days": days, "count": len(prices), "enough": len(prices) >= MIN_ADS, "needed": MIN_ADS,
               "others": leave_out is not None}  # a report counts the other ads, not its own
     if prices:
-        result.update(median=median(prices), mean=mean(prices), low=prices[0], high=prices[-1])
+        result.update(median=median(prices), mean=mean(prices), low=prices[0], high=prices[-1], prices=prices)
     return result

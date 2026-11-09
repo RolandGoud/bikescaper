@@ -900,6 +900,12 @@ NL = {
         "{n} andere advertentie in de laatste {days} dagen ({low}–{high}). Een gangbare prijs tonen we vanaf {needed} advertenties.",
     "From the ads checked on this site, counted for the model they were matched to. Prices under €100 are left out.":
         "Uit de advertenties die op deze site zijn gecheckt, geteld bij het model waaraan ze zijn gekoppeld. Prijzen onder €100 tellen niet mee.",
+    "{n} d": "{n} d",
+    "1 year": "1 jaar",
+    "Ads": "Advertenties",
+    "median": "mediaan",
+    "We show a typical price from {needed} ads.": "Een gangbare prijs tonen we vanaf {needed} advertenties.",
+    "Last {days} days.": "Laatste {days} dagen.",
     # all checks page
     "All checks": "Alle checks",
     "Every value check one by one, newest first: what was put in, and what came out.": "Elke waardecheck apart, nieuwste eerst: wat er werd ingevoerd en wat eruit kwam.",
