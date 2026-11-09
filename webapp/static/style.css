@@ -1924,6 +1924,11 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .ed-save, .ed-clear { height: 36px; padding: 0 12px; border-radius: 6px; font: 700 14px var(--body); cursor: pointer; }
 .ed-save { border: 0; background: var(--accent); color: var(--ink); }
 .ed-clear { border: 1px solid var(--line-strong); background: transparent; color: var(--text); }
+.ed-danger { margin-top: 32px; padding: 14px 16px; border: 1px solid var(--bad); border-radius: 10px; background: var(--bad-bg); color: var(--text); }
+.ed-danger summary { cursor: pointer; font-weight: 700; color: var(--bad); }
+.ed-danger form { display: grid; gap: 10px; margin-top: 10px; justify-items: start; }
+.ed-danger p { margin: 0; }
+.ed-delete { height: 40px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--bad); color: var(--ink); font: 700 15px var(--body); cursor: pointer; }
 .ms-edit { display: inline-flex; align-items: center; gap: 4px; text-transform: none; letter-spacing: 0; }
 .block-head .ms-edit { margin-left: 6px; }
 .ed-photos { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--warn); display: grid; gap: 8px; }

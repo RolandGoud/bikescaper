@@ -177,3 +177,32 @@ def test_the_admin_ranking_shows_both_scores_and_orders_from_the_header(tmp_path
     assert row.count('<span class="sc') == 2
     assert 'data-sort="photo"' in ad_low and 'data-sort="ad"' in ad_low and 'data-sort="confidence"' in ad_low and 'aria-sort="ascending"' in ad_low
     assert "data-rank-order" not in page and "data-rank-kind" not in page
+
+
+def test_an_admin_can_delete_a_whole_check(tmp_path, monkeypatch):
+    import os
+    from webapp import ad_photos
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    folder = os.path.join(ad_photos.folder(app.config["DB_PATH"]), str(check_id))
+    os.makedirs(folder)
+    client.get(url)  # stores the report
+    # Not logged in: no button, and a post is refused.
+    assert b"delete-check" not in client.get(url + "?edit=1").data
+    assert client.post(f"/check/{check_id}/delete", data={"confirm": check_id}).status_code == 403
+    login(client)
+    assert b"delete-check" not in client.get(url).data  # only in the edit mode
+    page = client.get(url + "?edit=1&lang=nl").data.decode()
+    assert "Deze check verwijderen" in page and "Definitief verwijderen" in page
+    # Without the ticked box (or with another check's number) nothing goes.
+    assert client.post(f"/check/{check_id}/delete").status_code == 400
+    assert client.post(f"/check/{check_id}/delete", data={"confirm": check_id + 1}).status_code == 400
+    assert client.get(url).status_code == 200
+    response = client.post(f"/check/{check_id}/delete", data={"confirm": check_id})
+    assert response.status_code == 302 and f"/admin?deleted={check_id}" in response.headers["Location"]
+    conn = db.connect(app.config["DB_PATH"])
+    assert conn.execute("SELECT COUNT(*) FROM checks WHERE id = ?", (check_id,)).fetchone()[0] == 0
+    assert conn.execute("SELECT COUNT(*) FROM check_results WHERE check_id = ?", (check_id,)).fetchone()[0] == 0
+    assert not os.path.exists(folder)
+    assert client.get(url).status_code == 404
+    assert "Klaar: check" in client.get(response.headers["Location"] + "&lang=nl").data.decode()
+    assert client.post(f"/check/{check_id}/delete", data={"confirm": check_id}).status_code == 404
