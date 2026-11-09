@@ -1013,7 +1013,8 @@ def create_app(db_path=None):
         if model is None:
             abort(404)
         # a model with builds: the switcher under its name, each build with its spec tier as its colour
-        builds = [dict(b, tier=checks.model_tier(b)) for b in checks.builds_of(model, models())]
+        # each build's price as its own page's price tag shows it (also the archive's or German list price)
+        builds = [dict(b, tier=checks.model_tier(b), shown=checks.shown_price(b)) for b in checks.builds_of(model, models())]
         # Builds named level + groupset (Specialized's "Expert Ultegra Di2"): the levels first, and only the picked
         # level's groupsets, so a model with many builds doesn't show them all at once. The bike's own level is open.
         by_level = {}

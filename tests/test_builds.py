@@ -257,3 +257,14 @@ def test_the_other_brands_split_into_family_level_and_build():
     assert checks.level_parts("Cube", "Litening AIR C:68X SLX") == ("Litening", "AIR C:68X", "SLX")
     assert checks.level_parts("Factor", "OSTRO VAM - Shimano Ultegra") == ("OSTRO", "VAM", "Shimano Ultegra")
     assert checks.level_parts("Wilier", "Filante SLR Frameset")[:2] == ("Filante frameset", "SLR")
+
+
+def test_a_build_pill_shows_the_price_its_page_shows(tmp_path):
+    # the Émonda ALR 4 has no list price of its own; its page shows the newest year's (German) price, so does its pill
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/trek-emonda-alr-4?lang=nl").get_data(as_text=True)
+    row = page[page.index('data-level="ALR">'):]
+    pills = [re.sub(r"<[^>]+>", " ", p).split() for p in re.findall(r'<a class="build-pill.*?</a>', row[:row.index("</div>")], re.S)]
+    four = next(p for p in pills if "4" in p[:2])
+    assert four[-1] == "€1.949*" and "–" not in four
