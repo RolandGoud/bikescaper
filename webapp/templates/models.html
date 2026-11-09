@@ -33,14 +33,10 @@
         {# greyed out until one brand is picked: the menu lists that brand's models #}
         {% if picked|length != 1 %}<select name="model" disabled><option value="" data-label="{{ _('Pick a brand first') }}">{{ _('Pick a brand first') }}</option></select>
         {% else %}<select name="model" onchange="this.form.requestSubmit()">
-          <option value="" data-label="{{ _('All models') }}" data-count="{{ model_menu|sum(attribute='count') }}">{{ _('All models') }}</option>
-          {% for e in model_menu if e.count or model == e.key or e.models|selectattr('key', 'equalto', model)|list %}
-          {% set line_label = e.name %}
-          <optgroup label="{{ line_label }}">
-            <option value="{{ e.key }}" data-label="{{ _('All {line}', line=line_label) }}" data-count="{{ e.count }}" {{ 'selected' if model == e.key }}>{{ _('All {line}', line=line_label) }} ({{ e.count }})</option>
-            {% for g in e.models if g.count or model == g.key %}<option value="{{ g.key }}" data-label="{{ g.name }}" data-count="{{ g.count }}" {{ 'selected' if model == g.key }}>{{ g.name }} ({{ g.count }})</option>{% endfor %}
-          </optgroup>
-          {% endfor %}
+          <option value="" data-label="{{ _('All models') }}">{{ _('All models') }}</option>
+          {# one flat list of the models (the family is the model now): no headings, no "All <line>" items, no counts #}
+          {% for e in model_menu %}{% if model == e.key and not e.models|selectattr('key', 'equalto', model)|list %}<option value="{{ e.key }}" data-label="{{ e.name }}" selected>{{ e.name }}</option>{% endif %}
+          {% for g in e.models if g.count or model == g.key %}<option value="{{ g.key }}" data-label="{{ g.name }}" {{ 'selected' if model == g.key }}>{{ g.name }}</option>{% endfor %}{% endfor %}
         </select>{% endif %}
       </label>
       {% if groupset %}<input type="hidden" name="groupset" value="{{ groupset }}">{% endif %}
