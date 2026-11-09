@@ -168,12 +168,12 @@ def test_the_admin_ranking_shows_both_scores_and_orders_from_the_header(tmp_path
     app, client, url, check_id = setup(tmp_path, monkeypatch)
     login(client)
     page = client.get("/admin?lang=en").get_data(as_text=True)
-    for rank in ("photo-low", "photo-high", "ad-low", "ad-high"):
+    for rank in ("photo-low", "photo-high", "ad-low", "ad-high", "confidence-low", "confidence-high"):
         assert f'data-rank="{rank}"' in page
     ad_low = page.split('data-rank="ad-low"')[1].split("</table>")[0]
     assert f"/check/{check_id}" in ad_low and ad_low.rindex('class="sc') > ad_low.rindex('class="why"')
     # Both scores in either tab, the order switched from the score column's header.
     row = ad_low.split("<td>", 1)[1]
     assert row.count('<span class="sc') == 2
-    assert 'data-sort="photo"' in ad_low and 'data-sort="ad"' in ad_low and 'aria-sort="ascending"' in ad_low
-    assert "data-rank-order" not in page
+    assert 'data-sort="photo"' in ad_low and 'data-sort="ad"' in ad_low and 'data-sort="confidence"' in ad_low and 'aria-sort="ascending"' in ad_low
+    assert "data-rank-order" not in page and "data-rank-kind" not in page

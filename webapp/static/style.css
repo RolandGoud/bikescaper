@@ -1292,11 +1292,9 @@ select { max-width: 100%; }
 .admin .bar .t i { display: block; height: 100%; background: var(--warn); border-radius: 0 4px 4px 0; }
 .admin .bar .n { font: 12px var(--mono); color: var(--muted); text-align: right; }
 .admin .table-scroll { overflow-x: auto; }
-.admin .ranking-controls { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-bottom: 12px; }
-.admin .ranking-controls .filters { gap: 6px; }
 .admin .score-col { text-align: right; white-space: nowrap; }
-.admin th.score-col.sorted, .admin th.score-col.sorted .sort-head { color: var(--text); }
-.admin .sort-head { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; letter-spacing: inherit; }
+.admin th.sorted, .admin th.sorted .sort-head { color: var(--text); }
+.admin .sort-head { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; letter-spacing: inherit; text-align: inherit; white-space: nowrap; }
 .admin .sort-head:hover { color: var(--text); }
 .admin .ranking table { min-width: 760px; }  /* on a phone the table scrolls sideways instead of squeezing the reasons one word a line */
 .admin table { width: 100%; border-collapse: collapse; font-size: 13px; }

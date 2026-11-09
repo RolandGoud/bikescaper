@@ -80,20 +80,14 @@
   <section class="box ranking" data-ranking>
     <h3>{{ _('Ads ranked by score') }}</h3>
     {% if ranked.ad.low %}
-    <div class="ranking-controls">
-      <div class="filters" role="group" aria-label="{{ _('Score') }}">
-        <button class="pill small-pill on" type="button" data-rank-kind="photo" aria-pressed="true">{{ _('Photos') }}</button>
-        <button class="pill small-pill" type="button" data-rank-kind="ad" aria-pressed="false">{{ _('Ad') }}</button>
-      </div>
-    </div>
-    {% for kind in ['photo', 'ad'] %}{% for order in ['low', 'high'] %}
+    {% for kind in ['photo', 'ad', 'confidence'] %}{% for order in ['low', 'high'] %}
     <div class="table-scroll" data-rank="{{ kind }}-{{ order }}"{% if not (kind == 'photo' and order == 'low') %} hidden{% endif %}><table>
       {% set sort = 'ascending' if order == 'low' else 'descending' %}
       {% macro head(k, label) -%}
-      <th class="score-col{{ ' sorted' if k == kind }}"{% if k == kind %} aria-sort="{{ sort }}"{% endif %}><button type="button" class="sort-head" data-sort="{{ k }}"
+      <th class="{{ 'score-col' if k != 'confidence' }}{{ ' sorted' if k == kind }}"{% if k == kind %} aria-sort="{{ sort }}"{% endif %}><button type="button" class="sort-head" data-sort="{{ k }}"
         title="{{ _('Lowest first') if k == kind and order == 'high' else _('Highest first') if k == kind else _('Lowest first') }}">{{ label|upper }}<span aria-hidden="true">{{ (' ↑' if order == 'low' else ' ↓') if k == kind else ' ↕' }}</span></button></th>
       {%- endmacro %}
-      <tr><th>{{ _('Ad')|upper }}</th><th>{{ _('Model')|upper }}</th><th>{{ _('Confidence')|upper }}</th><th>{{ _('Why')|upper }}</th>
+      <tr><th>{{ _('Ad')|upper }}</th><th>{{ _('Model')|upper }}</th>{{ head('confidence', _('Confidence')) }}<th>{{ _('Why')|upper }}</th>
         {{ head('photo', _('Photos')) }}{{ head('ad', _('Ad')) }}</tr>
       {% for it in ranked[kind][order] %}
       {% set photo_why = reasons(it.photo_lost, _('photo') ~ ': ') %}{% set ad_why = reasons(it.ad_lost) %}
@@ -105,7 +99,7 @@
         <td class="score-col">{{ score(it.photo) }}</td>
         <td class="score-col">{{ score(it.ad) }}</td>
       </tr>
-      {% else %}<tr><td colspan="6" class="muted">{{ _('No ads with a photo score yet.') }}</td></tr>
+      {% else %}<tr><td colspan="6" class="muted">{{ _('No ads with a photo score yet.') if kind == 'photo' else '—' }}</td></tr>
       {% endfor %}
     </table></div>
     {% endfor %}{% endfor %}
@@ -113,19 +107,11 @@
       (function () {
         var box = document.querySelector("[data-ranking]"), state = {kind: "photo", order: "low"};
         var show = function () {
-          box.querySelectorAll("[data-rank-kind]").forEach(function (b) {
-            var on = b.dataset.rankKind === state.kind;
-            b.classList.toggle("on", on);
-            b.setAttribute("aria-pressed", String(on));
-          });
           box.querySelectorAll("[data-rank]").forEach(function (t) {
             t.hidden = t.dataset.rank !== state.kind + "-" + state.order;
           });
         };
-        // The tabs pick the score to rank by; a score's column header ranks by it too, and flips the order once it does.
-        box.querySelectorAll("[data-rank-kind]").forEach(function (button) {
-          button.addEventListener("click", function () { state.kind = button.dataset.rankKind; show(); });
-        });
+        // A score's column header ranks by that score, and flips the order once it does.
         box.querySelectorAll("[data-sort]").forEach(function (button) {
           button.addEventListener("click", function () {
             if (state.kind === button.dataset.sort) state.order = state.order === "low" ? "high" : "low";
