@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS models (
     missed_scrapes INTEGER, -- scrapes since last_seen that no longer listed it
     colorways TEXT,       -- JSON list of {name, swatch, image}; image is NULL without a photo of that colour
     photo_years TEXT,     -- JSON list of model years named in the brand's photo files
-    year_specs TEXT       -- JSON {year: archived spec sheet} from data/years/, see webapp/seed.py
+    year_specs TEXT,      -- JSON {year: archived spec sheet} from data/years/, see webapp/seed.py
+    sizes TEXT            -- JSON list of the frame sizes the brand's site sells it in, as scraped
 );
 CREATE TABLE IF NOT EXISTS checks (
     id INTEGER PRIMARY KEY,
@@ -81,7 +82,7 @@ ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("remove
 ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT"),
-                 ("model_year", "INTEGER")]
+                 ("model_year", "INTEGER"), ("sizes", "TEXT")]
 
 
 def connect(path=None):
@@ -117,6 +118,7 @@ def model_from_row(row):
     m["colorways"] = json.loads(m.get("colorways") or "[]")
     m["photo_years"] = json.loads(m.get("photo_years") or "[]")
     m["year_specs"] = json.loads(m.get("year_specs") or "{}")
+    m["sizes"] = json.loads(m.get("sizes") or "[]")
     m["specs"] = json.loads(m["specs"] or "{}")
     return m
 
@@ -125,7 +127,7 @@ def catalogue_version(conn):
     """A cheap fingerprint of the models table that changes when the seed reloads or refreshes it."""
     return tuple(conn.execute(
         "SELECT count(*), max(id), total(length(name) + length(slug) + length(coalesce(specs, ''))"
-        " + length(coalesce(year_specs, '')) + length(coalesce(colors, '')) + length(coalesce(colorways, ''))"
+        " + length(coalesce(year_specs, '')) + length(coalesce(colors, '')) + length(coalesce(colorways, '')) + length(coalesce(sizes, ''))"
         " + length(coalesce(image, '')) + length(coalesce(last_seen, '')) + length(coalesce(latest_scrape, ''))"
         " + coalesce(price_eur, 0) + coalesce(missed_scrapes, 0) + coalesce(model_year, 0)) FROM models").fetchone())
 

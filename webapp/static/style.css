@@ -843,7 +843,9 @@ select { max-width: 100%; }
 .nav-btn:hover:not(:disabled) { border-color: var(--line-strong); }
 .nav-btn:disabled { opacity: 0.35; cursor: default; }
 .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.recent-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+/* position: relative makes the row the containing block of its cards' absolutely placed .sr-only names, so the row
+   clips them; without it they escape the scroll box and widen the whole page past the last card. */
+.recent-row { position: relative; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
 .recent-row.paged { scrollbar-width: none; }
 .recent-row.paged::-webkit-scrollbar { display: none; }
 .recent-row > .listing-card, .recent-row > .sponsored-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
@@ -1020,9 +1022,67 @@ select { max-width: 100%; }
 .spec-tier { flex: none; min-width: 56px; display: inline-flex; flex-direction: column; align-items: flex-end; gap: 4px; }
 .spec-tier > .move { cursor: help; font-size: 10px; padding: 0 6px; line-height: 16px; }
 .spec-tier > .move:only-child { margin-top: 2px; }
+/* Group tabs under the year tabs, like the check report's tabs: a tile per group;
+   the open one joins the panel of parts below it. */
+.group-tabs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; margin: 16px 0 0; align-items: stretch; }
+.group-tab { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 6px; min-width: 0; padding: 16px 14px; margin: 12px 0 6px; border: 0; border-radius: 16px; background: var(--raised); color: var(--muted); cursor: pointer; text-align: left; opacity: .75; font: inherit; }
+.group-tab:hover { opacity: 1; }
+.gt-label { display: flex; align-items: center; gap: 8px; max-width: 100%; font-size: 12px; font-weight: 600; letter-spacing: .01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.group-icon { flex: none; }
+.gt-tier { font-size: 19px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.gt-tier.t2 { color: var(--tier2); } .gt-tier.t3 { color: var(--tier3); } .gt-tier.t4 { color: #26A574; } .gt-tier.t5 { color: var(--accent); }
+.group-tab[aria-selected="true"] { margin: 0 0 -1px; padding-top: 28px; padding-bottom: 22px;  /* 12px higher than the others, with 12px more padding: the label stays level with theirs */ border-radius: 16px 16px 0 0; background: var(--ground); opacity: 1; }
+.group-tab[aria-selected="true"] .gt-label { color: var(--accent); }
+.group-tab[aria-selected="true"]::before, .group-tab[aria-selected="true"]::after { content: ""; position: absolute; bottom: 0; width: 12px; height: 12px; pointer-events: none; }
+.group-tab[aria-selected="true"]::before { left: -12px; background: radial-gradient(circle at 0 0, transparent 11.5px, var(--ground) 12px); }
+.group-tab[aria-selected="true"]::after { right: -12px; background: radial-gradient(circle at 100% 0, transparent 11.5px, var(--ground) 12px); }
+.group-tab[aria-selected="true"]:first-child::before, .group-tab[aria-selected="true"]:last-child::after { display: none; }
+.spec-group { background: var(--ground); border-radius: 16px; padding: 6px 18px 12px; }
+.year-panel:has(.group-tab:first-child[aria-selected="true"]) .spec-group { border-top-left-radius: 0; }
+.year-panel:has(.group-tab:last-child[aria-selected="true"]) .spec-group { border-top-right-radius: 0; }
+.spec-source { margin: 0 0 4px; }
+.spec-source .note-tip { vertical-align: -2px; }
+/* A group's parts: its overall tier first, then each part with its tier, and how it compares with the year before. */
+.spec-rows { width: 100%; border-collapse: collapse; font-size: 15px; }
+.spec-rows th, .spec-rows td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--faint); text-align: left; vertical-align: middle; }
+.spec-rows th:first-child { padding-left: 12px; }
+.spec-rows thead th { font: 500 12px var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding-top: 14px; }
+.spec-rows tbody th { font-weight: 600; width: 200px; }
+.spec-rows .tier-cell, .spec-rows thead th:nth-child(2) { width: 170px; white-space: nowrap; text-align: center; padding-right: 14px; padding-left: 14px; }
+.spec-rows .value .move { margin-left: 10px; }
+.spec-rows .change, .spec-rows thead th:nth-child(4) { width: 190px; padding-right: 0; text-align: center; }
+.spec-rows tr.overall th, .spec-rows tr.overall td { background: var(--raised); }
+.spec-rows tr.overall th { border-radius: 8px 0 0 8px; }
+.spec-rows tr.overall td:last-child { border-radius: 0 8px 8px 0; }
+.tier-same { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); vertical-align: 1px; margin-left: 2px; }
+.tier-same.t3 { background: var(--tier3); }
+.tier-same.t4 { background: #26A574; }
+.tier-same.t5 { background: var(--accent); }
+.tier-same.t2 { background: var(--tier2); }
+.tier-off { position: relative; display: inline-flex; align-items: center; }
+.tier-arrow { position: absolute; right: 100%; margin-right: 6px; font-size: 11px; }  /* outside the chip, so the chip itself sits centred in the column */
+.tier-arrow.up { color: var(--accent); }
+.tier-arrow.down { color: var(--bad); }
+.tier-legend { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.tier-legend .tier-same { margin: 0; }
 @media (max-width: 640px) {
   .year-tabs { flex-wrap: nowrap; overflow-x: auto; gap: 0; }
   .year-tab { padding: 8px 10px; font-size: 14px; }
+  .group-tabs { grid-auto-columns: max-content; overflow-x: auto; scrollbar-width: none; }
+  .spec-group { padding: 4px 14px 10px; margin: 0; }
+  .year-panel .spec-group { border-top-left-radius: 16px; border-top-right-radius: 16px; }
+  .year-panel:has(.group-tab:first-child[aria-selected="true"]) .spec-group { border-top-left-radius: 0; }
+  .group-tabs::-webkit-scrollbar { display: none; }
+  .spec-rows thead { display: none; }
+  .spec-rows tr { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--faint); }
+  .spec-rows th, .spec-rows td, .spec-rows th:first-child { display: block; border: 0; padding: 0; width: auto !important; }
+  .spec-rows .tier-cell { padding: 0; text-align: right; }
+  .spec-rows td.value { grid-column: 1; margin-top: 4px; }
+  .spec-rows td.change { grid-column: 2; margin-top: 4px; text-align: right; }
+  .spec-rows td.change:empty, .spec-rows tr.overall td:empty{ display: none; }
+  .spec-rows tr.overall td:nth-child(3) { grid-column: 1 / -1; margin-top: 4px; }
+  .spec-rows tr.overall { padding: 10px 12px; border-radius: 8px; background: var(--raised); border: 0; }
+  .spec-rows tr.overall th, .spec-rows tr.overall td { background: none; padding: 0; }
 }
 
 /* Model page: compact facts under the price, one row (two on a phone). */

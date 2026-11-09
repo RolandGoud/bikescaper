@@ -828,6 +828,14 @@ NL = {
     "Generic chart for this brand, not this model's own size chart yet.":
         "Algemene tabel voor dit merk, nog niet de maattabel van dit model zelf.",
     "{brand}'s own size chart for this model.": "De eigen maattabel van {brand} voor dit model.",
+    "vs. previous model": "t.o.v. vorig model",
+    "Part": "Onderdeel",
+    "Tier": "Niveau",
+    "Overall tier": "Totaalniveau",
+    "same tier as the group": "zelfde niveau als het totaal",
+    "Same tier as the group: {tier}": "Zelfde niveau als het totaal: {tier}",
+    "The sizes {brand} sells this model in, with the rider heights of {brand}'s general size guide.":
+        "De maten waarin {brand} dit model verkoopt, met de lichaamslengtes uit de algemene maattabel van {brand}.",
     "This model's own sizes and geometry; {brand} publishes rider heights only in its general size guide.":
         "De eigen maten en geometrie van dit model; {brand} geeft de lichaamslengte alleen in de algemene maattabel.",
 
