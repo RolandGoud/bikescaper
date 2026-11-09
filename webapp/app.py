@@ -271,6 +271,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["model_title"] = checks.model_title  # the model's name as shown: without "Shimano"
     app.jinja_env.globals["ad_title"] = ad_title.parts
     app.jinja_env.filters["no_brand"] = ad_title.without_brand
+    app.jinja_env.filters["drop_brand"] = ad_title.drop_brand  # a model name on a tile whose photo shows the brand
 
     def conn():
         if "conn" not in g:

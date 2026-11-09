@@ -31,3 +31,16 @@ def test_the_quoted_title_loses_the_brand_only():
     assert ad_title.without_brand("Racefiets Giant Defy, maat M", "Giant") == "Racefiets Defy, maat M"
     assert ad_title.without_brand("Trek", "Trek") == "Trek"  # nothing left: keep the seller's title
     assert ad_title.without_brand("Defy Advanced 1", "Giant") == "Defy Advanced 1"
+
+
+def test_drop_brand():
+    assert ad_title.drop_brand("Giant TCR Advanced Pro 0-Di2", "Giant") == "TCR Advanced Pro 0-Di2"
+    assert ad_title.drop_brand("GIANT  TCR", "Giant") == "TCR"
+    assert ad_title.drop_brand("De Rosa Merak", "De Rosa") == "Merak"
+    assert ad_title.drop_brand("DeRosa Merak", "De Rosa") == "Merak"
+    assert ad_title.drop_brand("de-rosa Merak", "De Rosa") == "Merak"
+    assert ad_title.drop_brand("Tarmac S-Works", "Specialized") == "Tarmac S-Works"  # sub-brand stays
+    assert ad_title.drop_brand("Giantess 2", "Giant") == "Giantess 2"  # whole words only
+    assert ad_title.drop_brand("Domane SL 6", "Trek") == "Domane SL 6"
+    assert ad_title.drop_brand("Trek", "Trek") == "Trek"  # nothing left: keep it
+    assert ad_title.drop_brand("Defy", None) == "Defy"
