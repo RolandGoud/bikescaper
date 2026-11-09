@@ -992,7 +992,8 @@ def create_app(db_path=None):
         model's). Others stay as they are."""
         tiles, labels, tiers, ids = {}, {}, {}, {}
         def tile_rank(m):
-            return (bool(tier) and m["tier"] != tier, checks.catalogue_status(m)[0] != "current", m["price_eur"] or 1e9)
+            return (bool(tier) and m["tier"] != tier, checks.catalogue_status(m)[0] != "current",
+                    checks.is_frameset(m), m["price_eur"] or 1e9)  # a complete bike stands for the model
         for m in items:
             if m["brand"] not in checks.SITE_BUILD_BRANDS:
                 tiles[("", m["id"])] = m
@@ -1022,6 +1023,7 @@ def create_app(db_path=None):
         levels = list(by_level.items())
         if model["brand"] not in checks._LEVELS:
             levels.sort(key=lambda lv: statistics.median([b["price_eur"] or 1e9 for b in lv[1]]))  # the middle build
+        levels.sort(key=lambda lv: lv[0] == "Frameset")  # the framesets always last
         levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
         siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))

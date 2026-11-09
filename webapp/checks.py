@@ -647,6 +647,17 @@ def specialized_parts(name):
     return family, build, edition
 
 
+def bianchi_levels(name):
+    """(family, level, build) of a Bianchi name: "Oltre XR4 CV Ultegra Di2" gives ("Oltre", "XR4 CV", "Ultegra Di2");
+    the CV stays a level of its own. A frameset is the family's frameset with its level as the build."""
+    model, build, _edition = bianchi_parts(name)
+    frame = model.endswith(" frameset")
+    model = model[:-len(" frameset")] if frame else model
+    family = "Via Nirone" if model.startswith("Via Nirone") else model.split(" ")[0]
+    level = model[len(family):].strip() or None
+    return family + (" frameset" if frame else ""), level, build
+
+
 # Trek's model is the family (Domane, Madone, Émonda, Checkpoint); the frame (AL, ALR, SL, SLR, RSL) is its level.
 _TREK_FAMILIES = ("Speed Concept", "FX Sport")
 
@@ -753,6 +764,12 @@ def level_parts(brand, name):
 
 
 def build_level(model):
+    if model.get("brand") in SITE_BUILD_BRANDS and (site_split(model)[1] or "").split(" ")[0] == "Frameset":
+        return "Frameset"  # the framesets of a model: its last level
+    return _build_level(model)
+
+
+def _build_level(model):
     """The level a build starts with ("Expert" of Specialized's "Expert Ultegra Di2", "S-Works", Ridley's "RS"), which
     the model page puts first; None for other brands and a build without one."""
     if model.get("brand") in LEVEL_BRANDS:
@@ -761,6 +778,8 @@ def build_level(model):
         return ridley_parts(model["name"])[1]
     if model.get("brand") == "Trek":
         return trek_levels(model["name"])[1]
+    if model.get("brand") == "Bianchi":
+        return bianchi_levels(model["name"])[1]
     levels = _LEVELS.get(model.get("brand"))
     if not levels:
         return None
@@ -770,13 +789,21 @@ def build_level(model):
 
 def site_split(model):
     """(model name, build) as the site groups a catalogue entry: one tile and one model page per model, with its
-    builds as pills. ("Noah Fast 3.0", "Shimano Ultegra Di2 2x12"), ("Madone SL", "6 AXS"), ("Madone SL frameset",
-    None); other brands (name, None)."""
+    builds as pills. ("Noah", "Fast 3.0 Shimano Ultegra Di2 2x12"), ("Madone", "SL 6 AXS"); a frameset is a build of
+    its family, under the level "Frameset": ("Madone", "Frameset SL"); other brands (name, None)."""
+    name, build = _site_parts(model)
+    if name.endswith(" frameset") and model.get("brand") in SITE_BUILD_BRANDS:
+        return name[:-len(" frameset")], " ".join(["Frameset"] + ([build] if build else []))
+    return name, build
+
+
+def _site_parts(model):
     if model.get("brand") == "Trek":
         family, level, build = trek_levels(model["name"])
         return family, " ".join(p for p in (level, build) if p) or None
     if model.get("brand") == "Bianchi":
-        return bianchi_parts(model["name"])[:2]
+        family, level, build = bianchi_levels(model["name"])
+        return family, " ".join(p for p in (level, build) if p) or None
     if model.get("brand") == "Specialized":
         return specialized_parts(model["name"])[:2]
     if model.get("brand") in LEVEL_BRANDS:
@@ -816,10 +843,12 @@ def _build_order(m):
     Specialized), then spec tier low to high, then price."""
     number = re.search(r"\b\d+\b", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
     level = build_level(m)
-    first = _LEVELS[m["brand"]].index(level) + 1 if level and m["brand"] in _LEVELS else int(number.group()) if number else 0
+    framed = level == "Frameset"  # the framesets last
+    first = (0 if framed else _LEVELS[m["brand"]].index(level) + 1 if level and m["brand"] in _LEVELS
+             else int(number.group()) if number else 0)
     # Specialized's generations are in the build ("Expert SL8 Ultegra Di2"): the newest first within a level
     gen = re.search(r"\bSL(\d)\b", build_label(m) or "") if m["brand"] == "Specialized" else None
-    return (first, -int(gen.group(1)) if gen else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
+    return (framed, first, -int(gen.group(1)) if gen else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
 
 
 def _representative(entries):

@@ -39,7 +39,7 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     labels = dict((k, label) for k, label, _n in menu)
     # the model is the family (SL and SLR are its levels), the frameset a model of its own
     assert labels["madone"] == "All Madone" and labels["madone-model"] == "Madone" and "madone-sl" not in labels
-    assert labels["madone-frameset"] == "Madone frameset"
+    assert "madone-frameset" not in labels  # the frameset is the Madone's last level
     assert "domane-plus" in labels and not any("gen" in k for k in labels)
     # one Madone holds every level, build and generation: one tile
     sl = _cards(client.get("/models?brand=Trek&model=madone-model&current=0").get_data(as_text=True))
@@ -50,7 +50,7 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     sl7 = sl
     # the whole line
     madone = _cards(client.get("/models?brand=Trek&model=madone&current=0").get_data(as_text=True))
-    assert len(madone) > len(sl7) and all("madone" in s for s in madone)
+    assert madone == sl7  # the line holds the one Madone model now (its frameset is a level of it)
     # the address the menu used to send still works
     assert _cards(client.get("/models?brand=Trek&line=madone&current=0").get_data(as_text=True)) == madone
     # the keys #348 sent for lines with "+" or a space
@@ -75,7 +75,8 @@ def test_model_named_like_its_line_keeps_its_own_option(tmp_path):
     assert labels["boone"] == "All Boone" and labels["boone-model"] == "Boone"
     line = _cards(client.get("/models?brand=Trek&model=boone&current=0").get_data(as_text=True))
     model = _cards(client.get("/models?brand=Trek&model=boone-model&current=0").get_data(as_text=True))
-    assert len(model) == 1 and "frameset" not in model[0] and any("frameset" in s for s in line)
+    # the frameset is a build of the Boone now: one tile for the line and the model
+    assert len(model) == 1 and "frameset" not in model[0] and line == model
     # the address of a build from before finds the model, not the whole line
     assert _cards(client.get("/models?brand=Trek&model=boone-5&current=0").get_data(as_text=True)) == model
 
@@ -113,7 +114,8 @@ def test_the_catalogue_is_one_grid_with_the_type_on_each_tile(tmp_path):
     seed.load(db.connect(path))
     page = create_app(path).test_client().get("/models?brand=Cannondale&lang=nl").get_data(as_text=True)
     assert page.count('<div class="model-grid">') == 1  # no heading per type: the type is a filter
-    assert 'class="type-icon" role="img"' in page and "/static/types/gravel.svg" in page
+    # the second line names the type, after its line drawing
+    assert re.search(r'class="small muted kind-line"><span class="type-icon"[^>]*gravel.svg[^>]*></span>Gravel', page)
 
 
 def test_fitness_bikes_are_hidden(tmp_path):

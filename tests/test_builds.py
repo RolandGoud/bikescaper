@@ -67,11 +67,11 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     titles = re.findall(r'<span style="font-weight: 700">([^<]+)</span>', html)
     # the model is the family: the Noah 3.0 and Noah Fast 3.0 are levels of the Noah
     assert titles.count("Noah") == 1 and not any("Ultegra" in t or "Fast" in t for t in titles)
-    assert "Noah frameset" in titles  # a frameset is a tile of its own, never a build
-    assert "9 builds" in html and "New from €" not in html and "New €" not in html
+    assert not any("rameset" in t for t in titles)  # a frameset is the last level of its family, no tile
+    assert "12 builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"]+)"', page)
-    assert len(pills) == 9 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
+    assert len(pills) == 12 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
 
 
 def test_a_model_with_one_build_has_no_build_section(tmp_path):
@@ -135,7 +135,9 @@ def test_trek_model_page_lists_each_build_once(models):
     # the Madone holds the SL and SLR levels; each build once
     assert len(labels) == len(set(labels)) and "SL 7" in labels and "SL 6" in labels and "SLR 9" in labels
     assert not any("Disc" in label for label in labels)
-    assert not any("First 50" in b["name"] or "frameset" in b["name"] for b in builds)  # a colour; a model of its own
+    assert not any("First 50" in b["name"] for b in builds if checks.build_level(b) == "SL")  # a colour
+    assert all("frameset" in b["name"] for b in builds if checks.build_level(b) == "Frameset")
+    assert builds[-1]["name"].endswith("frameset") or "frameset" in builds[-1]["name"]  # the framesets last
     # by number, then tier low to high
     sl = [l for l in labels if l.startswith("SL ")]
     numbers = [int(l.split()[1]) for l in sl]
@@ -163,8 +165,11 @@ def test_bianchi_names_split_into_model_and_build():
 def test_bianchi_model_page_lists_its_builds(models):
     oltre = next(m for m in models if m["name"] == "Oltre RC Dura-Ace Di2")
     labels = [checks.build_label(b) for b in checks.builds_of(oltre, models)]
-    assert labels[0] == "Dura-Ace Di2" and "Founder Edition" in labels and len(labels) == len(set(labels))
-    assert checks.model_group("Oltre RC Team Replica Dura-Ace Di2", "Bianchi") == "Oltre RC"
+    # the Oltre is the model, its RC, XR4, CV… the levels; the frameset its last level
+    assert "RC Dura-Ace Di2" in labels and "RC Founder Edition" in labels and len(labels) == len(set(labels))
+    assert labels[-1].startswith("Frameset")
+    assert checks.model_group("Oltre RC Team Replica Dura-Ace Di2", "Bianchi") == "Oltre"
+    assert checks.bianchi_levels("Oltre XR4 CV Ultegra Di2")[:2] == ("Oltre", "XR4 CV")
 
 
 def test_a_build_without_a_groupset_shows_its_model_name_once(tmp_path):
@@ -174,9 +179,11 @@ def test_a_build_without_a_groupset_shows_its_model_name_once(tmp_path):
     slug = conn.execute("SELECT slug FROM models WHERE name = 'Impulso Allroad'").fetchone()[0]
     page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
     pills = [re.sub(r"<[^>]+>", "", p) for p in re.findall(r'<a class="build-pill.*?</a>', page, re.S)]
-    assert any(p.startswith("Impulso Allroad GRX 400") for p in pills)
-    assert any(re.match(r"Impulso Allroad\W", p) and "GRX" not in p for p in pills)  # the entry without a groupset
-    assert not any("Impulso Allroad Impulso Allroad" in p for p in pills)
+    allroad = page[page.index('data-level="Allroad">'):]
+    allroad = [re.sub(r"<[^>]+>", "", p) for p in re.findall(r'<a class="build-pill.*?</a>', allroad[:allroad.index("</div>")], re.S)]
+    assert any(p.startswith("GRX 400") for p in allroad)
+    assert any(re.match(r"Allroad\W", p) for p in allroad)  # the entry without a groupset: its level's name, once
+    assert not any("Impulso Allroad" in p for p in pills)
 
 
 def test_specialized_names_split_into_model_and_build():
@@ -207,7 +214,7 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     seed.load(conn)
     slug = conn.execute("SELECT slug FROM models WHERE name = 'Aethos 2 Expert - Shimano Ultegra Di2'").fetchone()[0]
     page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
-    assert re.findall(r'class="level-tab[^"]*" data-level="([\w-]+)"', page) == ["Sport", "Comp", "Expert", "Pro", "S-Works"]
+    assert re.findall(r'class="level-tab[^"]*" data-level="([\w-]+)"', page) == ["Sport", "Comp", "Expert", "Pro", "S-Works", "Frameset"]
     assert 'class="level-tab on" data-level="Expert"' in page  # the bike's own level is open
     # the other levels' groupsets are there, hidden; a pill names the groupset only
     assert '<div class="build-row" data-level="Comp" hidden>' in page and '<div class="build-row" data-level="Expert">' in page
@@ -224,7 +231,7 @@ def test_ridley_models_are_families_with_levels():
     plain = {"brand": "Ridley", "name": "Falcn Shimano 105 Di2 2x12"}
     assert checks.site_split(plain) == ("Falcn", "Shimano 105 Di2 2x12") and checks.build_level(plain) is None
     # a frameset stays a model of its own, and the matching still sees the RS on its own words
-    assert checks.site_split({"brand": "Ridley", "name": "Astr RS Frameset"}) == ("Astr frameset", "RS")
+    assert checks.site_split({"brand": "Ridley", "name": "Astr RS Frameset"}) == ("Astr", "Frameset RS")
     assert checks.split_build(rs) == ("Falcn RS 2.0", "Shimano Ultegra Di2 2x12")
     assert checks.site_split({"brand": "Ridley", "name": "Grifn RS Road Shimano Ultegra Di2 2x12"}) == ("Grifn", "RS Shimano Ultegra Di2 2x12")
     assert checks.site_split({"brand": "Ridley", "name": "Fenix Disc Shimano 105 2x12"}) == ("Fenix", "Shimano 105 2x12")
