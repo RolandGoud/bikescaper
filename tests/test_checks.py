@@ -335,7 +335,7 @@ def test_model_page_header_lists_main_parts_and_second_hand_price(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/trek-domane-sl-6-gen-4?lang=nl").data.decode()
     assert 'class="key-parts" data-fact="parts"' in page and '<span class="kp-k">Groep</span>' in page
-    assert "Tweedehands" in page and 'href="#asking"' in page
+    assert "Tweedehands" in page and 'id="asking"' in page
 
 
 def test_brand_links_open_in_a_new_tab(tmp_path):
@@ -2003,12 +2003,13 @@ def test_the_ad_card_always_has_a_year_tile(tmp_path):
     assert '<span class="k">MODELJAAR</span><b class="muted">Niet vermeld</b>' in page
 
 
-def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_strip(tmp_path):
+def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_last(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/giant-defy-advanced-2?lang=nl").data.decode()
-    stage, card, strip = (page.index(k) for k in ('class="ad-stage model-stage', 'class="ad-card model-card"', 'class="match-strip used-strip"'))
-    assert stage < card < strip < page.index('id="asking"')
+    stage, card, strip = (page.index(k) for k in ('class="ad-stage model-stage', 'class="ad-card model-card"', 'id="asking"'))
+    assert stage < card < page.index('id="spec-sheet"') < strip  # the second-hand card comes last
+    assert "match-strip used-strip" not in page
     assert 'class="price-sticker"><b data-fact="sticker">' in page and "NIEUWPRIJS" in page
     assert '<span class="acc">' in page[stage:card] and "Het model" in page and "Tweedehands" in page
     assert 'href="#spec-sheet"' in page and 'id="spec-sheet"' in page

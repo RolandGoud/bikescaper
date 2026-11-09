@@ -196,6 +196,49 @@
 {%- endmacro %}
 
 
+{# The model page's second-hand card. Left: the period switch, the price (the median, else the one or few asking
+   prices there are), how many ads and their range, and a line with a dot per ad price. Right: every ad matched
+   to the model as a photo card, also the ones gone from the site, newest first. #}
+{% macro asking_card(a, ads, m) -%}
+<section class="card asking-card" id="asking">
+  <div class="asking-side">
+    <h2>{{ _('Second-hand asking price') }}</h2>
+    <div class="period-switch" role="group" aria-label="{{ _('Period') }}">
+      {% for p in periods %}<a class="{{ 'on' if p == a.days }}"{% if p == a.days %} aria-current="true"{% endif %} href="{{ this_page(period=p) }}#asking" title="{{ _('{n} days', n=p) }}">{% if p == 365 %}{{ _('1 year') }}{% else %}{{ _('{n} d', n=p) }}{% endif %}</a>{% endfor %}
+    </div>
+    <dl class="asking-facts">
+      <div><dt>{{ _('Median') if a.enough else _('Price') }}</dt><dd>{% if a.enough %}{{ a.median|eur }}{% elif a.count and a.low == a.high %}{{ a.low|eur }}{% elif a.count %}{{ a.low|eur }}–{{ a.high|eur }}{% else %}–{% endif %}</dd></div>
+      <div><dt>{{ _('Ads') }}</dt><dd>{{ a.count }}</dd></div>
+      {% if a.enough %}<div><dt>{{ _('Range') }}</dt><dd>{{ a.low|eur }}–{{ a.high|eur }}</dd></div>{% endif %}
+    </dl>
+    {% if a.count and a.high > a.low %}
+    {% set span = a.high - a.low %}
+    <div class="price-line" aria-hidden="true">
+      <div class="track">{% for p in a.prices %}<i style="left: {{ 50 if not span else (p - a.low) / span * 100 }}%"></i>{% endfor %}
+        {%- if a.enough %}<em style="left: {{ 50 if not span else (a.median - a.low) / span * 100 }}%"><span>{{ _('median') }}</span></em>{% endif %}</div>
+      <div class="ends"><span>{{ a.low|eur }}</span><span>{{ a.high|eur }}</span></div>
+    </div>
+    {% endif %}
+    <p class="asking-hint">{% if not a.count %}{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}{% elif not a.enough %}{{ _('We show a typical price from {needed} ads.', needed=a.needed) }}{% else %}{{ _('Last {days} days.', days=a.days) }}{% endif %}</p>
+    <a class="btn ghost asking-estimate" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a>
+  </div>
+  <div class="asking-ads" id="ads">
+    {% for row, r in ads %}
+    {% if r.model %}{% set name = r.model.brand ~ ' ' ~ r.model.name|model_title %}{% else %}{% set name = ad_title(row.title, none)[0] %}{% endif %}
+    <a class="ad-tile" href="{{ url_for('report', check_id=row.id) }}" title="{{ name }}">
+      <span class="thumb">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{% set g = gone(row) %}{% if g %}<span class="removed-tag {{ g.kind }}" title="{{ g.tip }}">{{ g.short }}</span>{% endif %}</span>
+      <b>{{ row.asking_price|eur }}</b>
+      <small>{{ row.created_at[:10] }}{% if row.location %} · {{ row.location }}{% endif %}{% if row.times_checked > 1 %} · {{ row.times_checked }}×{% endif %}</small>
+      {% if not row.in_price %}<small>{{ _('not in the asking price') }}</small>{% endif %}
+    </a>
+    {% else %}
+    <p class="muted">{{ _('No ads matched to this model yet.') }}</p>
+    {% endfor %}
+  </div>
+</section>
+{%- endmacro %}
+
+
 {# A model tile as on the models page: photo with brand logo and status, name and spec tier,
    then the number of builds and of ads matched to the model (a tag with the count; the sentence is its tooltip).
    Import it "with context" so the logos and status labels reach it. #}

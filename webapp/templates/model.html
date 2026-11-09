@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_dot, aged_chip, brand_label %}
-{% from "_macros.html" import asking_box, model_card, matched_ads with context %}
+{% from "_macros.html" import asking_card, model_card with context %}
 {% block title %}{{ m.brand }} {{ m.name|model_title }} · Bikecheck{% endblock %}
 {% macro note(text) -%}
 <details class="note-tip"><summary aria-label="{{ _('More info') }}">i</summary><p>{{ text }}</p></details>
@@ -197,26 +197,6 @@
       </div>
     </div>
   </section>
-  {# What it sells for second-hand, in a strip like the report's "Our match": the median asking price, the ads
-     matched to it, and a bar to estimate a price; the box below has the detail. #}
-  <div class="block-head"><span>{{ _('Second-hand') }}</span></div>
-  <section class="match-strip used-strip">
-    <a class="ms-model" href="#asking"><span class="ms-row">
-      <svg class="ms-bike" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>
-      <span class="ms-name">{{ _('Asking price') }}</span></span>
-      <span class="mb-open">{{ _('See the prices') }} ↓</span></a>
-    <div class="ms-check{{ ' ok' if asking.enough }}"><span class="k">{{ _('MEDIAN') }}</span>
-      <b{% if not asking.enough %} title="{{ _('Not enough ads yet for a reliable median price.') }}"{% endif %}>{% if asking.enough %}{{ asking.median|eur }}{% else %}–{% endif %}</b>
-      <small>{% if asking.enough %}{{ _('median of {n} ads', n=asking.count) }}{% else %}{{ _('Not enough ads yet for a reliable median price.') }}{% endif %}</small></div>
-    <div class="ms-check{{ ' ok' if ads }}"><span class="k">{{ _('MATCHED') }}</span>
-      <b>{% if ads|length == 1 %}{{ _('{n} ad', n=1) }}{% elif ads %}{{ _('{n} ads', n=ads|length) }}{% else %}{{ _('No ads yet') }}{% endif %}</b>
-      <small>{{ _('Ads we matched to this model, also the ones gone from the site.') }}</small></div>
-    <a class="ms-swap" href="{{ url_for('value', model=m.slug) }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h2M14 14h2M8 18h2M14 18h2"/></svg><span>{{ _('Estimate a used price') }}</span></a>
-  </section>
-  <section class="card">{{ asking_box(asking) }}
-    {# Every ad matched to this model, also the ones gone from the site, newest first. #}
-    {{ matched_ads(ads, _('Matched ads'), _('No ads matched to this model yet.')) }}
-  </section>
   <section class="card" id="spec-sheet">
     <h2>{{ _('Spec sheet') }}</h2>
     {% set shown = (year_tabs|selectattr('state', 'equalto', 'scrape')|list or year_tabs|selectattr('specs')|list or year_tabs)|last %}
@@ -268,6 +248,9 @@
     <div class="model-grid">{% for s in siblings %}{{ model_card(s) }}{% endfor %}</div>
   </section>
   {% endif %}
+  {# Last on the page: what it sells for second-hand, and the ads matched to it. #}
+  <div class="block-head"><span>{{ _('Second-hand') }}</span></div>
+  {{ asking_card(asking, ads, m) }}
 </main>
 <script>
   // Year tabs above the spec sheet.

@@ -869,6 +869,40 @@ select { max-width: 100%; }
 .matched-ads .what { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .matched-ads .ad-name { font-weight: 700; overflow-wrap: anywhere; }
 .matched-ads .ask { flex: none; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* The model page's second-hand card (asking_card): figures on the left, the ads as photo cards on the right. */
+.asking-card { display: grid; grid-template-columns: minmax(240px, 300px) 1fr; gap: 32px; }
+.asking-side { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.period-switch { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line); }
+.period-switch a { padding: 5px 12px; border-radius: 7px; font: 600 13px/1.4 var(--mono); color: var(--muted); text-decoration: none; }
+.period-switch a:hover { color: var(--text); }
+.period-switch a.on { background: var(--accent); color: var(--ink); }
+.asking-facts { margin: 0; display: grid; gap: 8px; width: 100%; }
+.asking-facts div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--faint); }
+.asking-facts dt { font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.asking-facts dd { margin: 0; font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums; }
+.asking-facts div:first-child dd { font-family: var(--display); font-style: italic; font-weight: 900; font-size: 28px; color: var(--accent); }
+.price-line { width: 100%; padding-top: 20px; }
+.price-line .track { position: relative; height: 6px; margin: 0 7px; border-radius: 3px; background: var(--raised); }
+.price-line i { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--accent); border: 2px solid var(--card); }
+.price-line em { position: absolute; top: -7px; bottom: -7px; width: 2px; margin-left: -1px; background: var(--text); }
+.price-line em span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); padding-bottom: 3px; font: 500 11px/1 var(--mono); font-style: normal; color: var(--text); white-space: nowrap; }
+.price-line .ends { display: flex; justify-content: space-between; margin-top: 8px; font: 500 12px/1 var(--mono); color: var(--muted); }
+.asking-hint { margin: 0; font-size: 14px; color: var(--muted); }
+.asking-estimate { min-height: 40px; padding: 0 16px; font-size: 14px; }
+.asking-ads { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; align-content: start; padding-left: 24px; border-left: 1px solid var(--line); }
+.asking-ads > p { grid-column: 1 / -1; margin: 0; }
+.ad-tile { display: flex; flex-direction: column; gap: 2px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; color: var(--text); text-decoration: none; min-width: 0; }
+.ad-tile:hover { color: var(--text); border-color: var(--line-strong); }
+.ad-tile .thumb { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; margin-bottom: 6px; border-radius: 8px; overflow: hidden; background: var(--photo-bg); font-size: 10px; color: var(--muted); }
+.ad-tile .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.ad-tile .thumb img.on-white { object-fit: contain; }
+.ad-tile .removed-tag { position: absolute; top: 6px; left: 6px; margin: 0; }
+.ad-tile b { font-size: 17px; font-variant-numeric: tabular-nums; }
+.ad-tile small { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .asking-card { grid-template-columns: 1fr; gap: 20px; }
+  .asking-ads { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+}
 /* Check page: the other ads for the model in a table next to this ad, what differs marked */
 .ad-compare > p { margin: 4px 0 0; }
 .compare-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 15px; }
