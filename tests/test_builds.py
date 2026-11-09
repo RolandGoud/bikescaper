@@ -241,3 +241,12 @@ def test_bmc_cannondale_and_scott_models_are_families_with_levels():
     assert checks.level_parts("Scott", "Addict RC Pro") == ("Addict", "RC", "Pro")
     assert checks.level_parts("Scott", "Foil RC Pro HMX Frameset") == ("Foil frameset", "RC", "Pro HMX")
     assert checks.build_level({"brand": "Scott", "name": "Speedster Gravel 20"}) == "Gravel"
+
+
+def test_the_other_brands_split_into_family_level_and_build():
+    assert checks.level_parts("Canyon", "Aeroad CF SL 8 WMN Disc") == ("Aeroad", "CF SL", "8 Women's")
+    assert checks.level_parts("Giant", "TCR Advanced Pro 1 Disc") == ("TCR", "Advanced Pro", "1")
+    assert checks.level_parts("Cervelo", "Caledonia-5 Ultegra Di2") == ("Caledonia", "5", "Ultegra Di2")
+    assert checks.level_parts("Cube", "Litening AIR C:68X SLX") == ("Litening", "AIR C:68X", "SLX")
+    assert checks.level_parts("Factor", "OSTRO VAM - Shimano Ultegra") == ("OSTRO", "VAM", "Shimano Ultegra")
+    assert checks.level_parts("Wilier", "Filante SLR Frameset")[:2] == ("Filante frameset", "SLR")

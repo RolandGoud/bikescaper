@@ -12,6 +12,7 @@ from collections import Counter
 import os
 import random
 import re
+import statistics
 import secrets
 import sys
 import threading
@@ -971,10 +972,10 @@ def create_app(db_path=None):
         by_level = {}
         for b in builds:
             by_level.setdefault(checks.build_level(b) or "", []).append(b)
-        # a brand with a fixed ladder of levels keeps the builds' order (Sport, Comp, ...); others go cheapest first
+        # a brand with a fixed ladder of levels keeps the builds' order (Sport, Comp, ...); others by their middle price
         levels = list(by_level.items())
         if model["brand"] not in checks._LEVELS:
-            levels.sort(key=lambda lv: min((b["price_eur"] or 1e9) for b in lv[1]))
+            levels.sort(key=lambda lv: statistics.median([b["price_eur"] or 1e9 for b in lv[1]]))  # the middle build
         levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
         siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))

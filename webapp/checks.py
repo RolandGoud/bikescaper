@@ -473,7 +473,8 @@ def split_build(model, frames=False):
 # Brands whose builds the site shows under one model: Ridley names them by groupset (split_build), Trek by the
 # number after the model ("Madone SL 6 AXS Gen 8": the Madone SL, build 6 AXS). Trek's generations are model years
 # of the same build, and its special editions ("- The First 50 Replica", "No. 76") a colour of their build.
-SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi", "Specialized", "BMC", "Cannondale", "Scott"}
+SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi", "Specialized", "BMC", "Cannondale", "Scott", "Canyon", "Cervelo", "Cube",
+                     "Factor", "Giant", "Lapierre", "Orbea", "Rose", "Wilier"}
 # Trek's older names for a line it still sells under another one.
 TREK_RENAMED = {"Checkpoint AL": "Checkpoint ALR", "Domane+ AL": "Domane+ ALR"}
 _TREK_GEN = re.compile(r"\s*\b[Gg]en\s*(\d+)\b")
@@ -703,6 +704,17 @@ LEVEL_BRANDS = {
         "families": ["Speedster", "Addict", "Foil", "Plasma"],
         "levels": r"RC|Gravel",
     },
+    # Brands without a list of families: the family is the first word, unless the name starts with a "multi" one.
+    "Canyon": {"spelling": [(r"\bDisc\b", ""), (r"\bWMN\b", "Women's")], "multi": ["Grail:ON"],
+               "levels": r"CFR|CF|SLX|SL|AL"},
+    "Cervelo": {"spelling": [(r"^(\w+)-5\b", r"\1 5")], "levels": r"5"},
+    "Cube": {"spelling": [], "multi": ["Cross Race"], "levels": r"C:\d+X?|GTC|AERO|AIR|WS"},
+    "Factor": {"spelling": [(r"\s+-\s+", " ")], "levels": r"VAM|SP"},
+    "Giant": {"spelling": [(r"^Liv\s+", ""), (r"\bDisc\b", "")], "levels": r"Advanced(?:-Ui2)?|Pro|SLR|SL|AR|CoMax|X"},
+    "Lapierre": {"spelling": [], "levels": r"DRS|CF|AL|SL"},
+    "Orbea": {"spelling": [], "levels": r"Aero|Race"},
+    "Rose": {"spelling": [], "levels": r"FFX|FF|AL"},
+    "Wilier": {"spelling": [], "levels": r"SLR|SL|Pro"},
 }
 
 
@@ -712,14 +724,17 @@ def level_parts(brand, name):
     "Pro"); a name of another family (name, None, None). A frameset is a model of its own, as for the other brands."""
     rules = LEVEL_BRANDS[brand]
     n = re.sub(r"\s+", " ", name or "").strip()
-    women = bool(re.search(r"\bWomen'?s\b", n))
-    n = re.sub(r"\s*\bWomen'?s\b", "", n)
     frame = bool(re.search(r"\b(?:Frameset|Module)\b", n, re.I))
     n = re.sub(r"\s*\b(?:Frameset|Module)\b", "", n, flags=re.I)
     for pattern, spelled in rules["spelling"]:
         n = re.sub(r"\s+", " ", re.sub(pattern, spelled, n)).strip()
-    family = next((f for f in sorted(rules["families"], key=len, reverse=True)
+    women = bool(re.search(r"\bWomen'?s\b", n))
+    n = re.sub(r"\s*\bWomen'?s\b", "", n).strip()
+    known = rules.get("families") or rules.get("multi", [])
+    family = next((f for f in sorted(known, key=len, reverse=True)
                    if n.lower() == f.lower() or n.lower().startswith(f.lower() + " ")), None)
+    if not family and "families" not in rules and n:
+        family = n.split(" ")[0]
     if not family:
         return name, None, None
     words = n[len(family):].split()
