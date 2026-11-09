@@ -179,8 +179,6 @@ def create_app(db_path=None):
     app.config["DB_PATH"] = db_path or db.DB_PATH
     app.config["SPONSORED_PATH"] = sponsored.PATH
     app.config["GROUPSET_SHOPS_PATH"] = groupset_shops.PATH
-    # The groupsets page is hidden for now: off the menu and a 404, unless SHOW_GROUPSETS is set.
-    app.config["SHOW_GROUPSETS"] = bool(os.environ.get("SHOW_GROUPSETS"))
     # The report's edit mode (correcting a check's model, year, groupset, size, colour and main photo) needs an admin login,
     # with the password in ADMIN_PASSWORD; without one set, nobody can log in. The session cookie is signed with
     # SECRET_KEY, else with a key made from the password, so it stays the same across restarts and workers.
@@ -946,7 +944,6 @@ def create_app(db_path=None):
     @app.route("/groupsets")
     def groupset_paths():
         """Each brand's groupsets from basic to top, and what it takes to upgrade from the one you have."""
-        app.config["SHOW_GROUPSETS"] or abort(404)
         current = groupsets.GENERATIONS.get(request.args.get("have"))
         # One brand at a time, Shimano first; the groupset you pick sets the brand and type.
         brand = current["brand"] if current else request.args.get("brand")
@@ -970,7 +967,6 @@ def create_app(db_path=None):
     @app.route("/groupsets/<key>/shop")
     def groupset_shop(key):
         """Where to buy one groupset: affiliate links to web shops (webapp/groupset_shops.py)."""
-        app.config["SHOW_GROUPSETS"] or abort(404)
         gen = groupsets.GENERATIONS.get(key) or abort(404)
         return render_template("groupset_shop.html", g=gen, shift_label=groupsets.SHIFT_LABELS[gen["shift"]],
                                shops=groupset_shops.links(groupset_shops.load(app.config["GROUPSET_SHOPS_PATH"]), gen),
