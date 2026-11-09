@@ -29,6 +29,8 @@ from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
+# Types the catalogue leaves out for now (their models stay in the database and on their own pages): city and fitness
+HIDDEN_KINDS = {"fitness"}
 STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 # Our own links are relative (url_for), so any link to http(s):// leaves the site.
@@ -872,7 +874,7 @@ def create_app(db_path=None):
                       tier=checks.model_tier(m))
                  for m in models() if (not q or q in m["name"].lower())
                  and (not groupset or groupset_key(m) == groupset)]
-        items = [m for m in items if not current or m["status"] == "current"]
+        items = [m for m in items if (not current or m["status"] == "current") and m["discipline"] not in HIDDEN_KINDS]
         items = model_tiles(items, tier)
         # each brand's count in the brand menu: what picking it would show with the other filters kept
         brand_counts = Counter(m["brand"] for m in items
@@ -926,7 +928,7 @@ def create_app(db_path=None):
         # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
         brand_menu = sorted((b for b in BRANDS if b["scraper"]),
                             key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
-        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES, brand_menu=brand_menu,
+        return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=[d for d in DISCIPLINES if d[0] not in HIDDEN_KINDS], brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                model=model, model_menu=model_menu,
                                tier=tier, tier_counts=tier_counts, tier_total=tier_total, groupset=groupset, groupset_name=groupset_name,
