@@ -1,5 +1,5 @@
 {
- "checked_on": "2026-11-01",
+ "checked_on": "2026-11-09",
  "models": {
   "Boone 5": {
    "2020": {
@@ -6557,6 +6557,49 @@
      "Zadelpen": "Bontrager Comp 6061 lichtmetaal, 27,2 mm, 8 mm offset, 250 mm lengte"
     },
     "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/domane/domane-al/domane-al-5-gen-4/a/41395/"
+   }
+  },
+  "Domane ALR 3": {
+   "2018": {
+    "captured": "2026-11-09",
+    "colour_images": {
+     "Viper Red": "Trek/years/domanealr3_2018_viperred_site.jpg"
+    },
+    "colours": [
+     "Viper Red"
+    ],
+    "image": "Trek/years/domanealr3_2018_site.jpg",
+    "price": null,
+    "sheet_name": null,
+    "sheet_years": "2018",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano Sora",
+     "Balhoofdstel": "Geïntegreerd, afgedichte industrielagers, 1-1/8˝ bovenzijde, 1.5˝ onderzijde",
+     "Bottom bracket": "Press Fit BB86.5",
+     "Buitenband": "Bontrager R1, 700x28c",
+     "Cassette": "Shimano Sora, 11-32, 9-speed",
+     "Crankstel": "Shimano Sora, 50/34 (compact)",
+     "Frame": "200 Series Alpha Aluminium, IsoSpeed, Invisible Weld Technology, E2 taps toelopende balhoofdbuis, BB86.5, Direct Mount-schijfremmen, verborgen spatbordbevestigingen, geschikt voor DuoTrap S",
+     "Gewicht": "56 cm - 9.44 kg / 20.81 lbs",
+     "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en vracht) van 125 kg.",
+     "Handvatten": "Bontrager stuurlint",
+     "Ketting": "Shimano Sora",
+     "Maximale bandenmaat": "28c Bontrager banden (met minimaal 4 mm ruimte tot het frame)",
+     "Naaf achter": "Lichtmetaal",
+     "Naaf voor": "Lichtmetaal",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Tektro T731",
+     "Shifter": "Shimano Sora, 9-speed",
+     "Stuur": "Bontrager Race VR-C, 31,8 mm",
+     "Stuurpen": "Bontrager Elite, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+     "Velg": "Bontrager Tubeless Ready",
+     "Voorderailleur": "Shimano Sora",
+     "Voorvork": "Domane Carbon, E2 stuurbuis, Direct Mount-remmen",
+     "Zadel": "Bontrager Affinity Comp, chromoly rails",
+     "Zadelpen": "Bontrager lichtmetaal, tweeboutsbevestiging, 27,2 mm, 8 mm offset"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/domane/domane-alr/domane-alr-3/a/21553/"
    }
   },
   "Domane SL 4": {
@@ -15219,6 +15262,170 @@
      "Zadelpen": "KVF aero carbon zadelpen, 20 mm offset, 280 mm lengte"
     },
     "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/elektrische-fietsen/elektrische-racefietsen/domane-slr/domane-slr-9-axs/a/36743/"
+   }
+  },
+  "FX Sport 4": {
+   "2018": {
+    "captured": "2026-11-09",
+    "colour_images": {
+     "Matte Metallic Gunmetal": "Trek/years/fxsport4_2018_mattemetallicgunmetal_site.jpg"
+    },
+    "colours": [
+     "Matte Metallic Gunmetal"
+    ],
+    "image": "Trek/years/fxsport4_2018_site.jpg",
+    "price": null,
+    "sheet_name": null,
+    "sheet_years": "2018 - 2019",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano RD-4700 Tiagra",
+     "Balhoofdstel": "1-1/8\" Ahead, afgedichte industrielagers",
+     "Bottom bracket": "Industrielager, externe cup",
+     "Buitenband": "Bontrager AW1 Hard-Case Lite, 700x32c",
+     "Cassette": "Shimano Tiagra, 11-34, 10-speed",
+     "Crankstel": "Shimano R460, 48/34",
+     "Frame": "200 Series Alpha Aluminium, geschikt voor DuoTrap S, bevestigingspunten voor drager en spatborden",
+     "Gewicht": "M - 10.30 kg / 22.7 lbs",
+     "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en bagage) van 136 kg.",
+     "Handvatten": "Bontrager Satellite IsoZone Plus, lock-on, ergonomisch",
+     "Ketting": "KMC X10",
+     "Naaf achter": "Formula lichtmetaal, centerlock Disc, QR, 32-gaats",
+     "Naaf voor": "Formula lichtmetaal, centerlock Disc, 12 mm steekas, 32-gaats",
+     "Pedaal": "Kunststof body met lichtmetalen kooi",
+     "Rem": "Shimano MT-201 hydraulische schijfremmen",
+     "Shifter": "Shimano Tiagra Rapid Fire, 10-speed",
+     "Stuur": "Bontrager Satellite Plus IsoZone, 31,8 mm, 15 mm rise",
+     "Stuurpen": "Bontrager Elite, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+     "Velg": "Bontrager Tubeless Ready Disc, 32-gaats",
+     "Voorderailleur": "Shimano Tiagra",
+     "Voorvork": "FX carbon, Flat-Mount schijfremmen, verborgen spatbordbevestigingen",
+     "Zadel": "Bontrager H1",
+     "Zadelpen": "Bontrager SSR, tweeboutsbevestiging, 27,2 mm, 12 mm offset"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/hybride-fietsen/fitness-fietsen/fx/fx-sport-4/a/21559/"
+   },
+   "2019": {
+    "captured": "2026-11-09",
+    "colour_images": {
+     "Matte Metallic Gunmetal": "Trek/years/fxsport4_2019_mattemetallicgunmetal_site.jpg"
+    },
+    "colours": [
+     "Matte Metallic Gunmetal"
+    ],
+    "image": "Trek/years/fxsport4_2019_site.jpg",
+    "price": null,
+    "sheet_name": null,
+    "sheet_years": "2018 - 2019",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano RD-4700 Tiagra",
+     "Balhoofdstel": "1-1/8\" Ahead, afgedichte industrielagers",
+     "Bottom bracket": "Industrielager, externe cup",
+     "Buitenband": "Bontrager AW1 Hard-Case Lite, 700x32c",
+     "Cassette": "Shimano Tiagra, 11-34, 10-speed",
+     "Crankstel": "Shimano R460, 48/34",
+     "Frame": "200 Series Alpha Aluminium, geschikt voor DuoTrap S, bevestigingspunten voor drager en spatborden",
+     "Gewicht": "M - 10.30 kg / 22.7 lbs",
+     "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en bagage) van 136 kg.",
+     "Handvatten": "Bontrager Satellite IsoZone Plus, lock-on, ergonomisch",
+     "Ketting": "KMC X10",
+     "Naaf achter": "Formula lichtmetaal, centerlock Disc, QR, 32-gaats",
+     "Naaf voor": "Formula lichtmetaal, centerlock Disc, 12 mm steekas, 32-gaats",
+     "Pedaal": "Kunststof body met lichtmetalen kooi",
+     "Rem": "Shimano MT-201 hydraulische schijfremmen",
+     "Shifter": "Shimano Tiagra Rapid Fire, 10-speed",
+     "Stuur": "Bontrager Satellite Plus IsoZone, 31,8 mm, 15 mm rise",
+     "Stuurpen": "Bontrager Elite, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+     "Velg": "Bontrager Tubeless Ready Disc, 32-gaats",
+     "Voorderailleur": "Shimano Tiagra",
+     "Voorvork": "FX carbon, Flat-Mount schijfremmen, verborgen spatbordbevestigingen",
+     "Zadel": "Bontrager H1",
+     "Zadelpen": "Bontrager SSR, tweeboutsbevestiging, 27,2 mm, 12 mm offset"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/hybride-fietsen/fitness-fietsen/fx/fx-sport-4/a/21559/"
+   },
+   "2020": {
+    "captured": "2026-11-09",
+    "colour_images": {
+     "Matte Metallic Gunmetal": "Trek/years/fxsport4_2020_mattemetallicgunmetal_site.jpg"
+    },
+    "colours": [
+     "Matte Metallic Gunmetal"
+    ],
+    "image": "Trek/years/fxsport4_2020_site.jpg",
+    "price": null,
+    "sheet_name": null,
+    "sheet_years": "2020",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano Tiagra 4700, medium kooi",
+     "As achterwiel": "152 x 5 mm QR",
+     "As voorwiel": "Bontrager Switch steekas",
+     "Balhoofdstel": "1-1/8\" Ahead, afgedichte industrielagers",
+     "Balhoofdstelonderdeel (zie ook: Lager)": "1-1/8\" Ahead, afgedichte industrielagers",
+     "Buitenband": "Bontrager R1 Hard-Case Lite, stalen hieldraad, 60 tpi, 700 x 32 mm",
+     "Cassette": "Shimano Tiagra HG500, 11-34, 10 speed",
+     "Crankstel": "Shimano R460, 48/34, 170 mm lengte",
+     "Frame": "200 Series Alpha Aluminium, geschikt voor DuoTrap S, interne kabelgeleiding, Flat-Mount schijfrembevestiging, bevestigingspunten voor drager en spatborden, 135 x 5 mm QR",
+     "Handvatten": "Bontrager Satellite IsoZone Plus, lock-on, ergonomisch",
+     "Naaf achter": "Formula lichtmetaal, centerlock disc, 135 x 5 mm",
+     "Naaf voor": "Formula lichtmetaal, centerlock disc, 100 x 12 mm steekas",
+     "Pedaal": "Wellgo M141, kunststof body, lichtmetalen kooi",
+     "Rem": "Shimano hydraulische schijfrem, MT201 hendel, UR300 remklauw",
+     "Remblok": "Brake Pad Shimano Resin Disc Pad B01S",
+     "Shifter": "Shimano Tiagra 4700, 10-speed",
+     "Spaken": "14g roestvast staal, zwart",
+     "Stuur": "Bontrager Satellite Plus IsoZone, lichtmetaal, 31,8 mm, 15 mm rise, 600 mm breedte",
+     "Stuurpen": "Bontrager Elite, 31,8 mm, geschikt voor Blendr, 7 graden, 100 mm lengte",
+     "Velg": "Bontrager Tubeless Ready Disc, 32-gaats, Presta-ventiel",
+     "Voorderailleur": "Shimano Tiagra 4700, 34,9 mm klem, down swing",
+     "Voorvork": "FX Carbon, ahead lichtmetalen stuurbuis, verborgen spatbordbevestigingen, flat-mount schijfrembevestiging, 405 mm as-tot-kroon, 100 x 12 mm steekas",
+     "Zadel": "Bontrager H1",
+     "Zadelpen": "Bontrager lichtmetaal, 27,2 mm, 12 mm offset, 330 mm lengte"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/hybride-fietsen/fitness-fietsen/fx/fx-sport-4/a/27994/"
+   },
+   "2024": {
+    "captured": "2026-11-09",
+    "colour_images": {
+     "LITHIUM GREY": "Trek/years/fxsport4_2024_lithiumgrey_site.jpg"
+    },
+    "colours": [
+     "LITHIUM GREY"
+    ],
+    "image": "Trek/years/fxsport4_2024_site.jpg",
+    "price": null,
+    "sheet_name": null,
+    "sheet_years": "2024",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano CUES U6000 GS",
+     "As achterwiel": "169 x 5 mm schroefas",
+     "As voorwiel": "135 x 5 mm schroefas",
+     "Balhoofdstelonderdeel (zie ook: Lager)": "Bontrager balhoofdexpanderplug en topkap",
+     "Buitenband": "Bontrager GR1 Expert, Hard-Case Lite, stalen hieldraad, 60 tpi, 700 x 40 mm",
+     "Cassette": "Shimano CUES LG300, LINKGLIDE, 11-48, 10-speed",
+     "Crankstel": "Prowheel lichtmetaal, 42T narrow-wide kettingblad, 175 mm lengte",
+     "Frame": "400 series OCLV Carbon, interne kabelgeleiding, 3s chain keeper, geschikt voor DuoTrap S, bevestigingspunten voor spatborden, flat-mount schijfrembevestiging, 135 x 5 mm ThruSkew",
+     "Handvatten": "Bontrager Satellite IsoZone Plus, lock-on, ergonomisch",
+     "Ketting": "Shimano LG500, 9/10/11-speed",
+     "Lager": "1.5\", afgedicht industrielager",
+     "Naaf achter": "Formula CL-52 lichtmetaal, 100 x 5 mm",
+     "Naaf voor": "Formula CL-51 lichtmetaal, 100 x 5 mm",
+     "Pedaal": "Bontrager City pedalen",
+     "Rem": "Shimano hydraulische schijfrem, MT201 hendel, UR300 remklauw",
+     "Remschijf": "Shimano RT10, centerlock, 160 mm",
+     "Shifter": "Shimano CUES U6000 met optische versnellingsindicator, 10 versnellingen",
+     "Spaken": "14g roestvast staal, zwart",
+     "Stuur": "Bontrager Satellite Plus IsoZone, lichtmetaal, 31,8 mm, 15 mm rise, 600 mm breedte",
+     "Stuurpen": "Bontrager Elite, 31,8 mm, geschikt voor Blendr, 7 graden, 90 mm lengte",
+     "Velg": "Bontrager Paradigm, Tubeless Ready, 32-gaats, 21 mm velgbreedte, Presta-ventiel",
+     "Voorvork": "Carbon, verborgen spatbordbevestigingen, flat-mount schijfrembevestiging, 100 x 5 mm ThruSkew",
+     "Zadel": "Bontrager H1",
+     "Zadelpen": "Bontrager lichtmetaal, 27,2 mm, 12 mm offset, 330 mm lengte"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/hybride-fietsen/fitness-fietsen/fx/fx-sport-4/a/40822/"
    }
   },
   "FX Sport AL 3": {
