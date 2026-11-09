@@ -549,7 +549,8 @@ def bianchi_parts(name):
 
 # Specialized names a model [S-Works] family [generation] [level] - groupset: "S-Works Tarmac SL8 - Shimano Dura-Ace Di2",
 # "Tarmac SL8 Expert - Shimano Ultegra Di2", older ones without the dash: "Tarmac SL7 Expert Ultegra Di2 Disc".
-SPECIALIZED_LEVELS = ("Base", "Sport", "Comp", "Elite", "Expert", "Pro", "S-Level")
+# S-Works is the top level of the model, not a model of its own: "S-Works Tarmac SL8" is the Tarmac SL8, level S-Works.
+SPECIALIZED_LEVELS = ("Base", "Sport", "Comp", "Elite", "Expert", "Pro", "S-Level", "S-Works")
 _SPECIALIZED_FAMILIES = {"tarmac", "aethos", "allez", "crux", "diverge", "roubaix", "venge", "shiv", "amira", "ruby"}
 _SPECIALIZED_GEN = re.compile(r"^(?:SL\d|\d|ViAS)$")
 # Special editions are a colour of their build: "S-Works Tarmac SL7 - Sagan Collection", "LTD - Remco Evenepoel".
@@ -562,7 +563,7 @@ _SPECIALIZED_SPELLING = [(r"\bShimano\s+", ""), (r"\bSRAM\s+", ""), (r"\beTAP\b"
                          (r"\b(Rival|Force|Red|Apex) AXS\b", r"\1 eTap AXS"), (r"\bRed AXS eTap\b", "Red eTap AXS"),
                          (r"^Di2$", "Dura-Ace Di2"), (r"\s*/\s*\S+ Eagle AXS", ""), (r"\bHydraulic Disc\b", "")]
 # Specialized generations sold as one model: the generation follows from the model year, as for Trek.
-SPECIALIZED_ONE_MODEL = {"Aethos 2": "Aethos", "S-Works Aethos 2": "S-Works Aethos"}
+SPECIALIZED_ONE_MODEL = {"Aethos 2": "Aethos"}
 
 
 def specialized_parts(name):
@@ -580,15 +581,32 @@ def specialized_parts(name):
     left, _dash, right = n.partition(" - ")
     frame = bool(re.search(r"\bFrameset\b|\bModule\b", left))
     left = re.sub(r"\s*\b(?:Frameset|TT Disc Module|Module)\b", "", left)
-    edition = None
+    # An edition can sit at the end of the name ("... LTD"), fill the part
+    # after the dash ("- Red Bull 2025 TdF"), or both. Strip every one, so a
+    # special edition never becomes a build of its own; the dash part wins
+    # as the colour name because it is the more specific one.
+    found = []
+    stripped = True
+    while stripped:
+        stripped = False
+        for pattern in _SPECIALIZED_EDITIONS:
+            in_name = re.search(r"\b(?:%s)$" % pattern, left)
+            if in_name and in_name.start() > 0:
+                found.append(in_name.group(0))
+                left, stripped = left[:in_name.start()].strip(), True
+                break
     for pattern in _SPECIALIZED_EDITIONS:
-        in_name, after_dash = re.search(r"\b(?:%s)$" % pattern, left), re.fullmatch(pattern, right)
-        if in_name:
-            edition, left = in_name.group(0), left[:in_name.start()].strip()
-        elif after_dash:
-            edition, right = right, ""
-        if edition:
+        if right and re.fullmatch(pattern, right):
+            found.insert(0, right)
+            right = ""
             break
+    for pattern in _SPECIALIZED_EDITIONS:
+        at_end = re.search(r"\s(?:%s)$" % pattern, right) if right else None
+        if at_end and not found:
+            found.append(at_end.group(0).strip())
+            right = right[:at_end.start()].strip()
+            break
+    edition = found[0] if found else None
     words = re.sub(r"\s+Disc\b", "", left).split()
     if not words:
         return name, None, None
@@ -608,10 +626,11 @@ def specialized_parts(name):
             level.append(word)
         else:
             extra.append(word)
-    name_of = lambda with_gen: (("S-Works " if works else "") + " ".join(model + (["Alloy"] if alloy else []))
-                                + (" " + gen if with_gen and gen else ""))
-    if frame:  # one frameset model over the family's generations
-        return name_of(False) + " frameset", None, edition
+    if works:
+        level.insert(0, "S-Works")
+    name_of = lambda with_gen: " ".join(model + (["Alloy"] if alloy else [])) + (" " + gen if with_gen and gen else "")
+    if frame:  # one frameset model over the family's generations; the S-Works frame is its top build
+        return name_of(False) + " frameset", "S-Works" if works else None, edition
     groupset = " ".join(extra + ([right] if right else []))
     for pattern, spelled in _SPECIALIZED_SPELLING:
         groupset = re.sub(pattern, spelled, groupset).strip()
@@ -622,13 +641,19 @@ def specialized_parts(name):
     return SPECIALIZED_ONE_MODEL.get(model, model), build, edition
 
 
+# Ridley's RS is the higher level of the same model: "Falcn RS 2.0 Shimano Ultegra Di2 2x12" is the Falcn, level RS.
+RIDLEY_LEVELS = {"Falcn RS 2.0": "Falcn", "Grifn RS Road": "Grifn Road", "Astr RS": "Astr"}
+_LEVELS = {"Specialized": SPECIALIZED_LEVELS, "Ridley": ("RS",)}
+
+
 def build_level(model):
-    """The level a Specialized build starts with ("Expert" of "Expert Ultegra Di2"), which the model page puts first
-    when there are many builds; None for other brands and a build without one."""
-    if model.get("brand") != "Specialized":
+    """The level a build starts with ("Expert" of Specialized's "Expert Ultegra Di2", "S-Works", Ridley's "RS"), which
+    the model page puts first; None for other brands and a build without one."""
+    levels = _LEVELS.get(model.get("brand"))
+    if not levels:
         return None
-    first = (site_split(model)[1] or "").split(" ")[0]
-    return first if first in SPECIALIZED_LEVELS else None
+    build = site_split(model)[1] or ""
+    return next((level for level in levels if build == level or build.startswith(level + " ")), None)
 
 
 def site_split(model):
@@ -642,7 +667,10 @@ def site_split(model):
         return bianchi_parts(model["name"])[:2]
     if model.get("brand") == "Specialized":
         return specialized_parts(model["name"])[:2]
-    return split_build(model)
+    name, build = split_build(model)
+    if model.get("brand") == "Ridley" and build and name in RIDLEY_LEVELS:
+        return RIDLEY_LEVELS[name], "RS " + build
+    return name, build
 
 
 def same_model(a, b):
@@ -673,7 +701,7 @@ def _build_order(m):
     Specialized), then spec tier low to high, then price."""
     number = re.match(r"\d+", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
     level = build_level(m)
-    first = SPECIALIZED_LEVELS.index(level) + 1 if level else int(number.group()) if number else 0
+    first = _LEVELS[m["brand"]].index(level) + 1 if level else int(number.group()) if number else 0
     return (first, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
 
 

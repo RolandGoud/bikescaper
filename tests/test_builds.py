@@ -176,13 +176,16 @@ def test_specialized_names_split_into_model_and_build():
     assert checks.specialized_parts("Tarmac SL8 Expert - Shimano Ultegra Di2") == ("Tarmac SL8", "Expert Ultegra Di2", None)
     # an older name without the dash, with Disc: the same build
     assert checks.specialized_parts("Tarmac SL7 Expert Ultegra Di2 Disc")[:2] == ("Tarmac SL7", "Expert Ultegra Di2")
-    # S-Works is a model of its own, its build the groupset; an edition is a colour of its build
-    assert checks.specialized_parts("S-Works Tarmac SL7 - Shimano Dura-Ace Di2")[:2] == ("S-Works Tarmac SL7", "Dura-Ace Di2")
-    assert checks.specialized_parts("S-Works Tarmac SL8 LTD - Red Bull 2025 TdF")[2] == "Red Bull 2025 TdF"
-    # Aethos 2 is the Aethos; a frameset is one model over its generations
+    # S-Works is the top level of the model, its build the groupset; an edition is a colour of its build, also
+    # when "LTD" sits in the name and the edition after the dash
+    assert checks.specialized_parts("S-Works Tarmac SL7 - Shimano Dura-Ace Di2")[:2] == ("Tarmac SL7", "S-Works Dura-Ace Di2")
+    assert checks.specialized_parts("S-Works Tarmac SL8 LTD - Red Bull 2025 TdF") == ("Tarmac SL8", "S-Works", "Red Bull 2025 TdF")
+    assert checks.specialized_parts("S-Works Crux 5 LTD - Built for Legends")[1] == "S-Works"
+    assert checks.specialized_parts("Tarmac SL7 Expert - Shimano Ultegra Di2 Team Replica")[1:] == ("Expert Ultegra Di2", "Team Replica")
+    # Aethos 2 is the Aethos; a frameset is one model over its generations, the S-Works frame its build
     assert checks.specialized_parts("Aethos 2 Pro - SRAM Force AXS")[:2] == ("Aethos", "Pro Force eTap AXS")
-    assert checks.specialized_parts("S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step")[0] == "S-Works Tarmac frameset"
-    assert checks.specialized_parts("S-Works Tarmac SL8 Frameset LTD - Demi Dreaming")[0] == "S-Works Tarmac frameset"
+    assert checks.specialized_parts("S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step")[:2] == ("Tarmac frameset", "S-Works")
+    assert checks.specialized_parts("S-Works Tarmac SL8 Frameset LTD - Demi Dreaming")[0] == "Tarmac frameset"
     # Women's is a build of its own; Men's is left out; the alloy Diverge is a model of its own
     assert checks.specialized_parts("Women's Tarmac Disc Expert")[1] == "Expert Women's"
     assert checks.specialized_parts("Men's Diverge Comp")[:2] == ("Diverge", "Comp")
@@ -195,7 +198,7 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     seed.load(conn)
     slug = conn.execute("SELECT slug FROM models WHERE name = 'Aethos 2 Expert - Shimano Ultegra Di2'").fetchone()[0]
     page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
-    assert re.findall(r'class="level-tab[^"]*" data-level="(\w+)"', page) == ["Sport", "Comp", "Expert", "Pro"]
+    assert re.findall(r'class="level-tab[^"]*" data-level="([\w-]+)"', page) == ["Sport", "Comp", "Expert", "Pro", "S-Works"]
     assert 'class="level-tab on" data-level="Expert"' in page  # the bike's own level is open
     # the other levels' groupsets are there, hidden; a pill names the groupset only
     assert '<div class="build-row" data-level="Comp" hidden>' in page and '<div class="build-row" data-level="Expert">' in page
@@ -203,3 +206,14 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     assert "<span>Ultegra Di2</span>" in expert[:expert.index("</div>")]
     # a model without levels keeps one row of pills
     assert "level-tab" not in app.test_client().get("/models/trek-madone-sl-6-gen-8?lang=nl").get_data(as_text=True)
+
+
+def test_ridley_rs_is_a_level_of_its_model():
+    rs = {"brand": "Ridley", "name": "Falcn RS 2.0 Shimano Ultegra Di2 2x12"}
+    assert checks.site_split(rs) == ("Falcn", "RS Shimano Ultegra Di2 2x12")
+    assert checks.build_level(rs) == "RS"
+    plain = {"brand": "Ridley", "name": "Falcn Shimano 105 Di2 2x12"}
+    assert checks.site_split(plain) == ("Falcn", "Shimano 105 Di2 2x12") and checks.build_level(plain) is None
+    # a frameset stays a model of its own, and the matching still sees the RS on its own words
+    assert checks.site_split({"brand": "Ridley", "name": "Astr RS Frameset"}) == ("Astr RS Frameset", None)
+    assert checks.split_build(rs) == ("Falcn RS 2.0", "Shimano Ultegra Di2 2x12")
