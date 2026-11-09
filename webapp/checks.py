@@ -1438,8 +1438,10 @@ def without_generation(name):
 
 
 def model_title(name):
-    """"Tarmac SL9 Comp - Shimano 105 Di2" -> "Tarmac SL9 Comp - 105 Di2": the name we show, without "Shimano"."""
+    """"Tarmac SL9 Comp - Shimano 105 Di2" -> "Tarmac SL9 Comp - 105 Di2": the name we show, without "Shimano";
+    a generation in brackets: "Madone SL 7 Gen 8" -> "Madone SL 7 (Gen 8)"."""
     shown = re.sub(r"\s*\bShimano\b\s*", " ", name or "", flags=re.I)
+    shown = re.sub(r"(?<!\()\bgen\s*(\d+)\b(?!\))", r"(Gen \1)", shown, flags=re.I)
     shown = re.sub(r"\s+[-\u2013]\s*$", "", re.sub(r"\s{2,}", " ", shown)).strip()
     return shown or name
 
@@ -1447,7 +1449,7 @@ def model_title(name):
 def family_name(name):
     """"Madone SL 6 Gen 8" -> "Madone SL 6": the model as the report's heading names it, without "Shimano" (model_title)
     and without the generation, which the matched model below the heading gives in full."""
-    shown = re.sub(r"\s*\b(?:Gen(?:eration)?\.?\s*\d+)\b", "", model_title(name), flags=re.I)
+    shown = re.sub(r"\s*\(?\b(?:Gen(?:eration)?\.?\s*\d+)\b\)?", "", model_title(name), flags=re.I)
     return re.sub(r"\s{2,}", " ", shown).strip(" -\u2013") or model_title(name)
 
 
