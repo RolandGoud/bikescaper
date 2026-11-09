@@ -4,18 +4,21 @@ from webapp import checks, db, scores, seed
 from webapp.app import create_app
 
 
-def test_a_complete_ad_that_adds_up_scores_full_marks_and_a_bare_one_loses_a_point_per_gap(tmp_path):
+def test_an_ad_with_what_the_wizard_asks_for_scores_full_marks_and_a_bare_one_loses_points_per_gap(tmp_path):
     conn = db.connect(str(tmp_path / "s.sqlite3"))
     seed.load(conn)
     models = db.all_models(conn)
     full = {"title": "Trek Domane SL 6 Gen 4 2023 maat 56 zwart", "asking_price": 2900,
-            "description": "Shimano 105 Di2, in nette staat, aankoopbewijs aanwezig"}
+            "description": "Shimano 105 Di2, gebruikt met normale gebruikssporen. Aankoopbewijs aanwezig. "
+                           "Vorige maand een grote onderhoudsbeurt gehad bij de dealer, ongeveer 6000 km gereden. "
+                           "Altijd binnen gestald, nooit gevallen, verkoop wegens aanschaf van een nieuwe fiets."}
     bare = {"title": "Trek Domane SL 6 Gen 4", "asking_price": 2900, "description": ""}
     score, lost = scores.ad_score(full, checks.run_check(models, full))
     assert score >= 9, lost
     score_bare, lost_bare = scores.ad_score(bare, checks.run_check(models, bare))
-    assert {k for _p, k, _d in lost_bare} >= {"no_year", "no_size", "no_condition"}
-    assert score_bare <= score - 3
+    assert {k for _p, k, _d in lost_bare} >= {"no_year", "no_size", "no_condition", "no_service",
+                                              "short_text"}
+    assert score_bare <= 2
 
 
 def test_an_ad_without_a_model_scores_at_most_4():
@@ -33,6 +36,17 @@ def test_one_dark_photo_scores_low(tmp_path):
     keys = {k for _p, k, _d in lost}
     assert score <= 3 and {"few_photos", "dark", "small"} <= keys
     assert scores.photo_score(0, []) == (None, [])
+
+
+def test_photos_are_measured_against_the_wizards_ten_shots(tmp_path):
+    paths = []
+    for i in range(6):
+        path = tmp_path / f"{i}.jpg"
+        Image.new("RGB", (1200, 800), (120, 130, 140)).save(path)
+        paths.append(str(path))
+    score, lost = scores.photo_score(6, paths)
+    assert ("few_photos", "6") in {(k, d) for _p, k, d in lost} and score < 10
+    assert scores.photo_score(10, paths)[0] > score
 
 
 def test_admin_page_shows_the_stats_and_the_period_charts(tmp_path):
