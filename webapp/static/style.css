@@ -1821,12 +1821,25 @@ select { max-width: 100%; }
 .model-card { grid-template-columns: 400px minmax(0, 1fr); }
 .model-card .model-gallery, .model-card .model-gallery.has-years { display: flex; flex-direction: column; gap: 8px; flex: none; width: 100%; }
 .model-card .model-gallery .photo { border: 0; border-radius: 8px; }
-.model-card .gallery-colours { margin-top: 0; order: 10; }  /* under the years: a colour belongs to a year */
-.model-card .year-rail.gallery-thumbs { order: 9; flex: none; flex-direction: row; flex-wrap: nowrap; width: 100%; max-height: none; overflow-x: auto; overflow-y: hidden; gap: 6px; padding: 3px; }  /* one row that slides, like the photos */
-.model-card .year-rail .gallery-thumb { flex: 0 0 auto; }
-.model-card .year-rail .gallery-thumb { width: auto; padding: 4px 10px; border-radius: 999px; gap: 6px; background: transparent; }
-.model-card .year-rail .gallery-year { font: 600 12px var(--mono); }
+/* The years as tabs above the photo, in one row that slides (newest on the right); arrows at the ends when they don't all fit. */
+.model-card .gallery-years { display: flex; align-items: stretch; border-bottom: 1px solid var(--faint); }
+.model-card .year-rail.gallery-thumbs { flex: 1; flex-direction: row; flex-wrap: nowrap; width: auto; max-height: none; margin: 0; padding: 0; gap: 0; overflow-x: auto; overflow-y: hidden; }
+.model-card .year-rail .gallery-thumb { flex: 0 0 auto; width: auto; margin-bottom: -1px; padding: 8px 12px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; box-shadow: none; }
+.model-card .year-rail .gallery-year { font: 600 13px var(--mono); color: var(--muted); }
+.model-card .year-rail .gallery-thumb:hover .gallery-year { color: var(--text); }
+.model-card .year-rail .gallery-thumb.empty .gallery-year { color: var(--muted); opacity: .6; }
+.model-card .year-rail .gallery-thumb[aria-pressed="true"] { border: 0; border-bottom: 2px solid var(--accent); background: none; box-shadow: none; }
+.model-card .year-rail .gallery-thumb[aria-pressed="true"] .gallery-year { color: var(--accent); opacity: 1; }
 .model-card .year-rail .gallery-n { display: none; }
+.gallery-years-nav { flex: none; padding: 0 8px; border: 0; background: none; color: var(--muted); font-size: 18px; cursor: pointer; }
+.gallery-years-nav:hover { color: var(--text); }
+.gallery-years-nav:disabled { opacity: .3; cursor: default; }
+.gallery-years-nav[hidden] { display: none; }
+/* Under the photos one line: the colours, and which photo is on show at the end. */
+.model-card .gallery-foot { display: flex; align-items: center; gap: 4px 12px; }
+.model-card .gallery-foot .gallery-colours { flex: 1; min-width: 0; margin: 0; padding: 0; border: 0; background: none; min-height: 0; }
+.model-card .gallery-foot .gallery-count { position: static; margin-left: auto; padding: 0; background: none; color: var(--muted); font: 11px var(--mono); white-space: nowrap; }
+.model-card .gallery-foot .gallery-count[hidden] { display: none; }
 .model-card .ad-tiles .k { display: flex; align-items: center; gap: 6px; }
 .model-card .ad-tiles .v { margin-top: 6px; font-weight: 700; font-size: 16px; min-height: 24px; display: flex; align-items: center; }
 .model-card .ad-tiles .v.small { font-size: 13px; }
