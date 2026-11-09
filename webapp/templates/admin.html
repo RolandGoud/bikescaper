@@ -8,9 +8,11 @@
                         'brand': _('Brand unknown'), 'low': _('Low confidence')} %}
 {% set matched_label = {'matched': _('Matched to a model'), 'unmatched': _('Without a model')} %}
 {% set reason_label = {'no_year': _('no year'), 'no_size': _('no size'), 'no_groupset': _('no groupset'),
-                       'no_condition': _('no condition'), 'no_model': _('no model found'), 'name_clash': _('name clashes'),
+                       'no_condition': _('no condition'),
+                       'no_service': _('no service or mileage'), 'short_text': _('short text'), 'no_model': _('no model found'), 'name_clash': _('name clashes'),
                        'impossible': _("year or material can't be"), 'downgraded': _('parts below the original'),
                        'price': _('price off'), 'few_photos': _('photos'), 'no_side': _('no side view'),
+                       'no_drive_side': _('no drive side'), 'one_side': _('one side only'),
                        'no_details': _('no close-ups'), 'blurry': _('blurry'), 'dark': _('too dark'),
                        'small': _('too small'), 'stock': _('catalogue photo')} %}
 {% macro score(v) -%}
