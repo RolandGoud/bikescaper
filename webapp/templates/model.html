@@ -63,7 +63,7 @@
         {% if sub %}<div class="stage-sub">{{ sub|join(' · ') }}</div>{% endif %}
       </div>
     </div>
-    <div class="price-sticker"><b data-fact="sticker">{{ m.price_eur|eur if m.price_eur else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
+    <div class="price-sticker">{% set sp = m|shown_price %}<b data-fact="sticker">{{ (sp[0]|eur ~ ('*' if sp[1] else '')) if sp[0] else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
   </section>
   {% if builds|length > 1 %}{# a model with more than one build (Ridley, Trek, Bianchi, Specialized): each build is its own page, with its own
      photo, parts and price. A build sold over several generations is one pill: its years are the model's years below. #}

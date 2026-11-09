@@ -277,6 +277,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["split_title"] = checks.split_title  # the name, year, size and colour in an ad title
     app.jinja_env.filters["model_base"] = lambda m: checks.site_split(m)[0]  # "Noah Fast 3.0", "Madone SL": no build
     app.jinja_env.filters["build_label"] = checks.build_label  # "Ultegra Di2 2x12"
+    app.jinja_env.filters["shown_price"] = checks.shown_price  # (price, german) on the price tag and the build pills
     app.jinja_env.filters["is_frameset"] = app.jinja_env.tests["is_frameset"] = checks.is_frameset
     app.jinja_env.filters["model_group"] = checks.model_group  # "Madone SL 6 Gen 8" -> "Madone SL 6", in the Model menu
     app.jinja_env.filters["line_key"] = checks.line_key

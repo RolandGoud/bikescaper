@@ -268,3 +268,5 @@ def test_a_build_pill_shows_the_price_its_page_shows(tmp_path):
     pills = [re.sub(r"<[^>]+>", " ", p).split() for p in re.findall(r'<a class="build-pill.*?</a>', row[:row.index("</div>")], re.S)]
     four = next(p for p in pills if "4" in p[:2])
     assert four[-1] == "€1.949*" and "–" not in four
+    # and the price tag says the same before any year is picked
+    assert '<b data-fact="sticker">€1.949*</b>' in page

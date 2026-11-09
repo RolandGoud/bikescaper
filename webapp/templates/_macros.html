@@ -254,8 +254,9 @@
     {# under the name: the bike type (its line drawing and name), then the number of builds on a line of its own;
        the ads matched to it as a tag in the bottom-right corner #}
     {% if kind %}<span class="small muted kind-line"><span class="type-icon" aria-hidden="true" style="--icon: url('{{ url_for('static', filename='types/' ~ m.discipline ~ '.svg') }}')"></span>{{ _(kind) }}</span>{% endif %}
-    {% if m.build_count and m.build_count > 1 %}<span class="small muted">{{ _('{n} builds', n=m.build_count) }}</span>{% endif %}
-    {%- if m.matched %}{% set label = _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) %}<span class="ad-count small corner" title="{{ label }}" aria-label="{{ label }}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h4.6a1.5 1.5 0 0 1 1.06.44l4.4 4.4a1.5 1.5 0 0 1 0 2.12l-4.6 4.6a1.5 1.5 0 0 1-2.12 0l-4.4-4.4A1.5 1.5 0 0 1 2 8.1z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="5.5" r="1.2" fill="currentColor"/></svg>{{ m.matched }}</span>{% endif %}
+    {% if (m.build_count and m.build_count > 1) or m.matched %}<div class="foot-row">
+    {%- if m.build_count and m.build_count > 1 %}<span class="small muted">{{ _('{n} builds', n=m.build_count) }}</span>{% else %}<span></span>{% endif %}
+    {%- if m.matched %}{% set label = _('Matched to 1 ad') if m.matched == 1 else _('Matched to {n} ads', n=m.matched) %}<span class="ad-count small corner" title="{{ label }}" aria-label="{{ label }}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h4.6a1.5 1.5 0 0 1 1.06.44l4.4 4.4a1.5 1.5 0 0 1 0 2.12l-4.6 4.6a1.5 1.5 0 0 1-2.12 0l-4.4-4.4A1.5 1.5 0 0 1 2 8.1z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="5.5" r="1.2" fill="currentColor"/></svg>{{ m.matched }}</span>{% endif %}</div>{% endif %}
   </div>
 </a>
 {%- endmacro %}
