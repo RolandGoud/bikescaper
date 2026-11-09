@@ -110,28 +110,17 @@ def test_the_catalogue_is_one_grid_with_the_type_on_each_tile(tmp_path):
     path = str(tmp_path / "t.sqlite3")
     seed.load(db.connect(path))
     page = create_app(path).test_client().get("/models?brand=Cannondale&lang=nl").get_data(as_text=True)
-    assert page.count('<div class="model-grid">') == 2  # no heading per type, only the models and the framesets
+    assert page.count('<div class="model-grid">') == 1  # no heading per type: the type is a filter
     assert 'class="type-icon" role="img"' in page and "/static/types/gravel.svg" in page
 
 
-def test_framesets_have_their_own_section_and_fitness_bikes_are_hidden(tmp_path):
+def test_fitness_bikes_are_hidden(tmp_path):
     from webapp import checks, db, seed
     from webapp.app import create_app
     path = str(tmp_path / "t.sqlite3")
     seed.load(db.connect(path))
-    client = create_app(path).test_client()
-    page = client.get("/models?current=0&lang=en").get_data(as_text=True)
-    models_at, frames_at = page.index("<h2>Models"), page.index("<h2>Framesets")
-    assert models_at < frames_at  # the framesets come last
-    tiles = re.findall(r'class="model-card" href="/models/([^"]+)"', page[models_at:frames_at])
-    assert tiles and not any("frameset" in t for t in tiles)
-    assert "frameset" in page[frames_at:]
-    # a frame by its type, whatever its name says (Canyon's frame kits)
-    conn = db.connect(path)
-    kits = [m["slug"] for m in db.all_models(conn) if checks.discipline_of(m) == "frames" and not checks.is_frameset(m)]
-    assert not any(f'href="/models/{s}"' in page[models_at:frames_at] for s in kits)
+    page = create_app(path).test_client().get("/models?current=0&lang=en").get_data(as_text=True)
     # city and fitness bikes are left out, also from the Type menu
     assert 'value="fitness"' not in page
-    conn = db.connect(path)
-    fitness = [m["slug"] for m in db.all_models(conn) if checks.discipline_of(m) == "fitness"]
+    fitness = [m["slug"] for m in db.all_models(db.connect(path)) if checks.discipline_of(m) == "fitness"]
     assert fitness and not any(f'href="/models/{s}"' in page for s in fitness)

@@ -889,12 +889,8 @@ def create_app(db_path=None):
         matched = matched_ads(conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall(), models())
         for m in items:
             m["matched"] = sum(len(matched.get(i, [])) for i in m.get("ids") or [m["id"]])  # a model's every build
-        # One grid, cheapest first: the type is a filter and an icon on each tile, no longer a heading of its own.
-        # The framesets have a section of their own at the bottom.
-        order = lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])
-        frame = lambda m: checks.is_frameset(m) or m["discipline"] == "frames"  # also Canyon's "Frame Kit", BMC's MOD
-        groups = [("all", "Models", sorted((m for m in items if not frame(m)), key=order)),
-                  ("frames", "Framesets", sorted((m for m in items if frame(m)), key=order))]
+        # One grid, cheapest first: the type is a filter and an icon on each tile, no longer a heading of its own
+        groups = [("all", "Models", sorted(items, key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))]
         # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
         brand_menu = sorted((b for b in BRANDS if b["scraper"]),
                             key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
