@@ -1,4 +1,5 @@
-"""Scores for the admin page: how good an ad's photos are and how complete and consistent its text is.
+"""Scores for the admin page: how good an ad's photos are and how complete and consistent its text is,
+measured against what the improve-your-ad wizard (the Selling page) asks a seller for.
 
 Both start at 10 and lose points per rule, and each lost point comes with its reason, so the admin
 page can show why an ad scored what it did."""
@@ -44,48 +45,86 @@ def match_problems(report):
     return out
 
 
+# What the improve-your-ad wizard (the Selling page) asks a seller for, and what an ad loses without it.
+# Year and size are the first things a buyer asks, so they cost the most.
+AD_GAPS = (("year", 2), ("size", 2), ("groupset", 1), ("condition", 1), ("proof", 1), ("service", 1))
+SERVICE = re.compile(r"onderhoud|onderhouden|service|beurt|\bkm\b|kilometer", re.I)  # seller.SERVICE
+SHORT_TEXT = 25  # words of description below which an ad says too little to go on
+
+
 def ad_score(listing, report):
-    """(score out of 10, [(points lost, reason key, detail)])."""
+    """(score out of 10, [(points lost, reason key, detail)]), measured against what the improve-your-ad
+    wizard asks for: year, size, groupset, condition, invoice, service and mileage, and an ad that adds up."""
     lost = []
-    gaps = [k for k in missing(report, listing) if k in ("year", "size", "groupset", "condition")]
-    for key in gaps[:4]:
-        lost.append((1, "no_" + key, None))
+    text = f"{listing.get('title') or ''}\n{listing.get('description') or ''}"
+    gaps = set(missing(report, listing))
+    if not SERVICE.search(text):
+        gaps.add("service")
+    for key, points in AD_GAPS:
+        if key in gaps:
+            lost.append((points, "no_" + key, None))
+    words = len((listing.get("description") or "").split())
+    if words < SHORT_TEXT:
+        lost.append((1, "short_text", str(words)))
     if not report.get("model"):
-        return min(4, 10 - len(lost)), lost + [(0, "no_model", None)]
+        return min(3, max(0, 10 - sum(p for p, _k, _d in lost))), lost + [(0, "no_model", None)]
     clashes = (report.get("name_check") or {}).get("conflicts") or []
     if clashes:
         lost.append((3, "name_clash", " / ".join(f"{ours} ↔ {theirs}" for ours, theirs in clashes[:2])))
     if (report.get("age") or {}).get("status") == BAD or report.get("material_alert"):
-        lost.append((2, "impossible", None))
+        lost.append((3, "impossible", None))
     down = [r for r in (report.get("specs") or {}).get("rows", []) if r.get("step", 0) < 0]
     if down:
-        lost.append((min(2, len(down)), "downgraded", ", ".join(str(r["part"]) for r in down[:2])))
+        lost.append((min(3, len(down)), "downgraded", ", ".join(str(r["part"]) for r in down[:3])))
     value = report.get("value") or {}
     asking, high = listing.get("asking_price"), value.get("high")
-    if value.get("status") == BAD or (value.get("status") == WARN and asking and high and asking > 1.25 * high):
+    if value.get("status") == BAD:
+        lost.append((2, "price", None))
+    elif value.get("status") == WARN and asking and high and asking > 1.25 * high:
         lost.append((1, "price", None))
     return max(0, 10 - sum(p for p, _k, _d in lost)), lost
 
 
+# The wizard's photo step asks for 10 shots: the whole bike from both sides and from the front three-quarter,
+# and seven close-ups (derailleur, chainrings, shifters, brakes, frame sticker, rim, tyre).
+WANTED_PHOTOS = 10
+FEW_PHOTOS = {1: 6, 2: 5, 3: 5, 4: 4, 5: 3, 6: 3, 7: 2, 8: 1, 9: 1}  # points lost for n photos
+WANTED_DETAILS = 7
+
+
 def photo_score(n, paths):
     """(score out of 10, [(points lost, reason key, detail)]) for an ad with n photos, of which paths are the
-    files we stored (the others only count), or (None, []) for an ad typed in without photos."""
+    files we stored (the others only count), or (None, []) for an ad typed in without photos. Measured
+    against the wizard's 10 shots."""
     if not n:
         return None, []
-    looks = [q for q in (bike_fit.photo_quality(p) for p in paths) if q]
+    looks = [(q, p) for q, p in ((bike_fit.photo_quality(p), p) for p in paths) if q]
     lost = []
-    if n < 6:
-        lost.append((5 if n == 1 else 3 if n <= 3 else 1, "few_photos", str(n)))
+    if n < WANTED_PHOTOS:
+        lost.append((FEW_PHOTOS[min(n, 9)], "few_photos", str(n)))
     if looks:
-        if not any(q["side"] for q in looks):
-            lost.append((2, "no_side", None))
-        if sum(1 for q in looks if not q["side"]) < 2:
-            lost.append((2, "no_details", None))
+        sides = {bike_fit.faces_left(p) for q, p in looks if q["side"]} - {None}
+        if not any(q["side"] for q, _p in looks):
+            lost.append((3, "no_side", None))
+        elif False not in sides:  # bars on the right: the drive side, the shot buyers look at first
+            lost.append((1, "no_drive_side", None))
+        elif True not in sides:
+            lost.append((1, "one_side", None))
+        details = sum(1 for q, _p in looks if not q["side"])
+        if details < 2:
+            lost.append((3, "no_details", str(details)))
+        elif details < 4:
+            lost.append((2, "no_details", str(details)))
+        elif details < 6:
+            lost.append((1, "no_details", str(details)))
         half = len(looks) / 2
         for key in ("blurry", "dark", "small"):
-            if sum(1 for q in looks if q[key]) > half:
-                lost.append((1, key, None))
-        if any(q["stock"] for q in looks):
+            bad = sum(1 for q, _p in looks if q[key])
+            if bad > half:
+                lost.append((2, key, str(bad)))
+            elif bad:
+                lost.append((1, key, str(bad)))
+        if any(q["stock"] for q, _p in looks):
             lost.append((3, "stock", None))
     return max(0, 10 - sum(p for p, _k, _d in lost)), lost
 
