@@ -102,3 +102,13 @@ def test_all_tiers_counts_each_model_once(tmp_path):
     per_tier = [int(n) for n in re.findall(r'data-tier="\d" data-label="[^"]+" data-count="(\d+)"', menu)]
     # (a model without a known tier is in none of them)
     assert max(per_tier) <= total <= len(_cards(html)) and total < sum(per_tier)
+
+
+def test_the_catalogue_is_one_grid_with_the_type_on_each_tile(tmp_path):
+    from webapp import db, seed
+    from webapp.app import create_app
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    page = create_app(path).test_client().get("/models?brand=Cannondale&lang=nl").get_data(as_text=True)
+    assert page.count('<div class="model-grid">') == 1  # no heading per type: the type is a filter
+    assert 'class="type-icon" role="img"' in page and "/static/types/gravel.svg" in page

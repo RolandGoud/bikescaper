@@ -676,6 +676,9 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .brand-mark::before { content: ""; display: block; width: 100%; height: 100%; background: var(--ink); -webkit-mask: var(--logo) left center / contain no-repeat; mask: var(--logo) left center / contain no-repeat; }
 .brand-mark.text { width: auto; height: auto; font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); }
 .brand-mark.text::before { content: none; }
+/* the bike type's line drawing before a tile's name (the catalogue's Type filter uses the same drawings) */
+.model-card .type-icon { flex: none; width: 26px; height: 16px; margin-top: 2px; background: var(--muted, currentColor); -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+.model-card .title-row .type-icon + span { margin-right: auto; }
 .status.overlay { position: absolute; z-index: 1; top: 8px; right: 8px; box-shadow: 0 1px 3px rgba(16, 17, 20, 0.15); }
 .status.discontinued { background: var(--bad-bg); color: var(--bad); }
 .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }

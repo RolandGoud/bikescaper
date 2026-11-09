@@ -425,7 +425,7 @@ def create_app(db_path=None):
                 "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
-                "periods": prices.PERIODS,
+                "periods": prices.PERIODS, "kind_labels": dict(DISCIPLINES + OTHER),
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
 
     def offers(slots=sponsored.SLOTS, tiles=False):
@@ -876,9 +876,8 @@ def create_app(db_path=None):
         matched = matched_ads(conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall(), models())
         for m in items:
             m["matched"] = sum(len(matched.get(i, [])) for i in m.get("ids") or [m["id"]])  # a model's every build
-        groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
-                                      key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
-                  for key, label in DISCIPLINES + OTHER]
+        # One grid, cheapest first: the type is a filter and an icon on each tile, no longer a heading of its own
+        groups = [("all", "Models", sorted(items, key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))]
         # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
         brand_menu = sorted((b for b in BRANDS if b["scraper"]),
                             key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
