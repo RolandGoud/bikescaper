@@ -37,13 +37,15 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     client = app.test_client()
     menu = _menu(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True))
     labels = dict((k, label) for k, label, _n in menu)
-    assert labels["madone"] == "All Madone" and labels["madone-sl"] == "Madone SL" and "madone-sl-7" not in labels
-    assert labels["madone-sl-frameset"] == "Madone SL frameset"  # a frameset is a model of its own
+    # the model is the family (SL and SLR are its levels), the frameset a model of its own
+    assert labels["madone"] == "All Madone" and labels["madone-model"] == "Madone" and "madone-sl" not in labels
+    assert labels["madone-frameset"] == "Madone frameset"
     assert "domane-plus" in labels and not any("gen" in k for k in labels)
-    # one Madone SL holds every build and generation: one tile
-    sl = _cards(client.get("/models?brand=Trek&model=madone-sl&current=0").get_data(as_text=True))
-    assert len(sl) == 1 and "madone-sl-" in sl[0] and "frameset" not in sl[0]
-    # the address of a build from before still finds its model
+    # one Madone holds every level, build and generation: one tile
+    sl = _cards(client.get("/models?brand=Trek&model=madone-model&current=0").get_data(as_text=True))
+    assert len(sl) == 1 and "madone-" in sl[0] and "frameset" not in sl[0]
+    # the addresses of a model and a build from before still find it
+    assert _cards(client.get("/models?brand=Trek&model=madone-sl&current=0").get_data(as_text=True)) == sl
     assert _cards(client.get("/models?brand=Trek&model=madone-sl-7&current=0").get_data(as_text=True)) == sl
     sl7 = sl
     # the whole line

@@ -121,23 +121,29 @@ def test_trek_names_split_into_model_build_generation_and_edition():
     assert checks.trek_parts("Émonda SL 7 Disc eTap")[:2] == ("Émonda SL", "7 eTap")
     assert checks.trek_parts("Checkpoint AL 3 Gen 1")[:2] == ("Checkpoint ALR", "3")  # Trek's old name for the line
     assert checks.trek_parts("Domane SLR 9 AXS No. 76 Gen 5")[:2] == ("Domane SLR", "9 AXS")
-    assert checks.model_group("Madone SL 7 Gen 8 - The First 50 Replica", "Trek") == "Madone SL"
+    assert checks.model_group("Madone SL 7 Gen 8 - The First 50 Replica", "Trek") == "Madone"
+    # the site shows the family as the model, its frame as the level
+    assert checks.trek_levels("Madone SL 6 AXS Gen 8") == ("Madone", "SL", "6 AXS")
+    assert checks.trek_levels("Madone SLR Gen 7 frameset") == ("Madone frameset", "SLR", None)
+    assert checks.trek_levels("Speed Concept SLR 7")[:2] == ("Speed Concept", "SLR")
 
 
 def test_trek_model_page_lists_each_build_once(models):
     gen6 = next(m for m in models if m["slug"] == "trek-madone-sl-6-gen-6")
     builds = checks.builds_of(gen6, models)
     labels = [checks.build_label(b) for b in builds]
-    assert len(labels) == len(set(labels)) and "7" in labels and "6" in labels
+    # the Madone holds the SL and SLR levels; each build once
+    assert len(labels) == len(set(labels)) and "SL 7" in labels and "SL 6" in labels and "SLR 9" in labels
     assert not any("Disc" in label for label in labels)
     assert not any("First 50" in b["name"] or "frameset" in b["name"] for b in builds)  # a colour; a model of its own
     # by number, then tier low to high
-    numbers = [int(l.split()[0]) for l in labels]
+    sl = [l for l in labels if l.startswith("SL ")]
+    numbers = [int(l.split()[1]) for l in sl]
     assert numbers == sorted(numbers)
-    sevens = [checks.model_tier(b) or 0 for b in builds if checks.build_label(b).startswith("7")]
+    sevens = [checks.model_tier(b) or 0 for b in builds if checks.build_label(b).startswith("SL 7")]
     assert sevens == sorted(sevens)
     # the 6 of every generation is one build: the newest one
-    assert next(b for b in builds if checks.build_label(b) == "6")["name"] == "Madone SL 6 Gen 8"
+    assert next(b for b in builds if checks.build_label(b) == "SL 6")["name"] == "Madone SL 6 Gen 8"
 
 
 def test_bianchi_names_split_into_model_and_build():
@@ -208,7 +214,7 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     expert = page[page.index('data-level="Expert">'):]
     assert "<span>Ultegra Di2</span>" in expert[:expert.index("</div>")]
     # a model without levels keeps one row of pills
-    assert "level-tab" not in app.test_client().get("/models/trek-madone-sl-6-gen-8?lang=nl").get_data(as_text=True)
+    assert "level-tab" not in app.test_client().get("/models/ridley-x-ride-disc-shimano-grx-600-2x12?lang=nl").get_data(as_text=True)
 
 
 def test_ridley_models_are_families_with_levels():

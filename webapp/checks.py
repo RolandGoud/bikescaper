@@ -646,6 +646,21 @@ def specialized_parts(name):
     return family, build, edition
 
 
+# Trek's model is the family (Domane, Madone, Émonda, Checkpoint); the frame (AL, ALR, SL, SLR, RSL) is its level.
+_TREK_FAMILIES = ("Speed Concept", "FX Sport")
+
+
+def trek_levels(name):
+    """(family, level, build) of a Trek name: "Madone SL 6 AXS Gen 8" gives ("Madone", "SL", "6 AXS"); a frameset is
+    the family's frameset with its level as the build: ("Madone frameset", "SLR", None)."""
+    model, build, _gen, _edition = trek_parts(name)
+    frame = model.endswith(" frameset")
+    model = model[:-len(" frameset")] if frame else model
+    family = next((f for f in _TREK_FAMILIES if model == f or model.startswith(f + " ")), model.split(" ")[0])
+    level = model[len(family):].strip() or None
+    return family + (" frameset" if frame else ""), level, build
+
+
 # Ridley's model is the family (Grifn, Fenix, Falcn, Noah, Kanzo); the rest of the name before the groupset is the
 # level: "Falcn RS 2.0 Shimano Ultegra Di2 2x12" is the Falcn, level "RS 2.0", build "Shimano Ultegra Di2 2x12".
 RIDLEY_SPELLING = [(r"^INVENIO\b", "Invenio"), (r"\s*\bDisc\b", ""), (r"\bRoad\b\s*", "")]
@@ -729,6 +744,8 @@ def build_level(model):
         return level_parts(model["brand"], model["name"])[1]
     if model.get("brand") == "Ridley":
         return ridley_parts(model["name"])[1]
+    if model.get("brand") == "Trek":
+        return trek_levels(model["name"])[1]
     levels = _LEVELS.get(model.get("brand"))
     if not levels:
         return None
@@ -741,8 +758,8 @@ def site_split(model):
     builds as pills. ("Noah Fast 3.0", "Shimano Ultegra Di2 2x12"), ("Madone SL", "6 AXS"), ("Madone SL frameset",
     None); other brands (name, None)."""
     if model.get("brand") == "Trek":
-        name, build, _gen, _edition = trek_parts(model["name"])
-        return name, build
+        family, level, build = trek_levels(model["name"])
+        return family, " ".join(p for p in (level, build) if p) or None
     if model.get("brand") == "Bianchi":
         return bianchi_parts(model["name"])[:2]
     if model.get("brand") == "Specialized":
@@ -782,7 +799,7 @@ def is_frameset(model):
 def _build_order(m):
     """Builds as the switcher lists them: by their number ("5", "6 AXS", "7"; Trek) or level ("Comp", "Expert";
     Specialized), then spec tier low to high, then price."""
-    number = re.match(r"\d+", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
+    number = re.search(r"\b\d+\b", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
     level = build_level(m)
     first = _LEVELS[m["brand"]].index(level) + 1 if level and m["brand"] in _LEVELS else int(number.group()) if number else 0
     # Specialized's generations are in the build ("Expert SL8 Ultegra Di2"): the newest first within a level

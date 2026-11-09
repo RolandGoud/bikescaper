@@ -973,7 +973,7 @@ def create_app(db_path=None):
             by_level.setdefault(checks.build_level(b) or "", []).append(b)
         # a brand with a fixed ladder of levels keeps the builds' order (Sport, Comp, ...); others go cheapest first
         levels = list(by_level.items())
-        if model["brand"] in checks.LEVEL_BRANDS or model["brand"] == "Ridley":
+        if model["brand"] not in checks._LEVELS:
             levels.sort(key=lambda lv: min((b["price_eur"] or 1e9) for b in lv[1]))
         levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
