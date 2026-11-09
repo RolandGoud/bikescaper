@@ -164,7 +164,7 @@ def test_the_colour_editor_takes_only_the_models_colourways(tmp_path, monkeypatc
     assert colour in page
 
 
-def test_the_admin_ranking_has_a_tab_per_score_and_both_orders(tmp_path, monkeypatch):
+def test_the_admin_ranking_shows_both_scores_and_orders_from_the_header(tmp_path, monkeypatch):
     app, client, url, check_id = setup(tmp_path, monkeypatch)
     login(client)
     page = client.get("/admin?lang=en").get_data(as_text=True)
@@ -172,3 +172,8 @@ def test_the_admin_ranking_has_a_tab_per_score_and_both_orders(tmp_path, monkeyp
         assert f'data-rank="{rank}"' in page
     ad_low = page.split('data-rank="ad-low"')[1].split("</table>")[0]
     assert f"/check/{check_id}" in ad_low and ad_low.rindex('class="sc') > ad_low.rindex('class="why"')
+    # Both scores in either tab, the order switched from the score column's header.
+    row = ad_low.split("<td>", 1)[1]
+    assert row.count('class="sc') == 2
+    assert 'data-sort="photo"' in ad_low and 'data-sort="ad"' in ad_low and 'aria-sort="ascending"' in ad_low
+    assert "data-rank-order" not in page

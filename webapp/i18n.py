@@ -135,7 +135,6 @@ NL = {
     'Per brand': 'Per merk',
     'Ads ranked by score': 'Advertenties gerangschikt op score',
     'Score': 'Score',
-    'Order': 'Volgorde',
     'Lowest first': 'Laagste eerst',
     'Highest first': 'Hoogste eerst',
     'No ads with a photo score yet.': 'Nog geen advertenties met een fotoscore.',
