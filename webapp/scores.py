@@ -46,15 +46,16 @@ def match_problems(report):
 
 
 # What the improve-your-ad wizard (the Selling page) asks a seller for, and what an ad loses without it.
-# Year and size are the first things a buyer asks, so they cost the most.
-AD_GAPS = (("year", 2), ("size", 2), ("groupset", 1), ("condition", 1), ("proof", 1), ("service", 1))
+# Year and size are the first things a buyer asks, so they cost the most. The invoice is asked too but not
+# scored: almost no ad mentions one, so it would cost nearly every ad a point without telling them apart.
+AD_GAPS = (("year", 2), ("size", 2), ("groupset", 1), ("condition", 1), ("service", 1))
 SERVICE = re.compile(r"onderhoud|onderhouden|service|beurt|\bkm\b|kilometer", re.I)  # seller.SERVICE
 SHORT_TEXT = 25  # words of description below which an ad says too little to go on
 
 
 def ad_score(listing, report):
     """(score out of 10, [(points lost, reason key, detail)]), measured against what the improve-your-ad
-    wizard asks for: year, size, groupset, condition, invoice, service and mileage, and an ad that adds up."""
+    wizard asks for: year, size, groupset, condition, service and mileage, and an ad that adds up."""
     lost = []
     text = f"{listing.get('title') or ''}\n{listing.get('description') or ''}"
     gaps = set(missing(report, listing))
