@@ -160,6 +160,7 @@ NL = {
     "Check a listing": "Advertentie checken",
     "Listings": "Advertenties",
     "Models": "Modellen",
+    "Framesets": "Framesets",
     "Size finder": "Maatzoeker",
     "Value": "Waarde",
     "Main": "Hoofdmenu",
