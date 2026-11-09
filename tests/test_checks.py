@@ -1822,7 +1822,7 @@ def test_an_earlier_year_shows_its_own_generation(tmp_path):
     from webapp.app import create_app
     page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
     assert 'data-fact="title"><span class="sr-only">Trek </span>Domane <span class="acc">AL</span></h1>' in page
-    assert '<span data-fact="title">Domane AL 2 Gen 3</span>' in page
+    assert '<span data-fact="title">Domane AL 2 (Gen 3)</span>' in page
     assert '<div class="v">2021–2023</div>' in page and "eerdere gen. · gen 2" in page
 
 
@@ -1879,7 +1879,7 @@ def test_models_page_tiles_leave_the_generation_out(tmp_path):
     tiles = client.get("/models?brand=Trek&lang=nl").get_data(as_text=True)
     assert ">Domane AL</span>" in tiles and "Gen 4</span>" not in tiles  # Trek's tile is the model, its builds inside
     # the model page itself keeps the generation
-    assert "Domane AL 2 Gen 4" in client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
+    assert "Domane AL 2 (Gen 4)" in client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
 
 
 def test_only_the_estimated_years_next_to_the_ads_year_are_ringed():
@@ -1977,7 +1977,7 @@ def test_report_heading_shows_the_ad_and_our_match_apart(tmp_path):
     ad, match = page.index('class="ad-card'), page.index('class="match-strip"')
     # The heading names the model without its generation; the full name is in our match, under the ad.
     assert re.search(r"<h1>.*Domane <span class=\"acc\">SL 6</span></h1>", page)
-    assert page.lower().index("domane sl 6 gen 4</span>") > match
+    assert page.lower().index("domane sl 6 (gen 4)</span>") > match
     # The ad's own text and facts, as the seller wrote them, and its site's logo as the link to it.
     assert ad < page.index("Mooie fiets, weinig gereden.") < match
     assert ad < page.index("Zo goed als nieuw") < match
