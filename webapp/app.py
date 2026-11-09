@@ -892,8 +892,9 @@ def create_app(db_path=None):
         # One grid, cheapest first: the type is a filter and an icon on each tile, no longer a heading of its own.
         # The framesets have a section of their own at the bottom.
         order = lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])
-        groups = [("all", "Models", sorted((m for m in items if not checks.is_frameset(m)), key=order)),
-                  ("frames", "Framesets", sorted((m for m in items if checks.is_frameset(m)), key=order))]
+        frame = lambda m: checks.is_frameset(m) or m["discipline"] == "frames"  # also Canyon's "Frame Kit", BMC's MOD
+        groups = [("all", "Models", sorted((m for m in items if not frame(m)), key=order)),
+                  ("frames", "Framesets", sorted((m for m in items if frame(m)), key=order))]
         # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
         brand_menu = sorted((b for b in BRANDS if b["scraper"]),
                             key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))

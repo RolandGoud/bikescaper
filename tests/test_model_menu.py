@@ -126,6 +126,10 @@ def test_framesets_have_their_own_section_and_fitness_bikes_are_hidden(tmp_path)
     tiles = re.findall(r'class="model-card" href="/models/([^"]+)"', page[models_at:frames_at])
     assert tiles and not any("frameset" in t for t in tiles)
     assert "frameset" in page[frames_at:]
+    # a frame by its type, whatever its name says (Canyon's frame kits)
+    conn = db.connect(path)
+    kits = [m["slug"] for m in db.all_models(conn) if checks.discipline_of(m) == "frames" and not checks.is_frameset(m)]
+    assert not any(f'href="/models/{s}"' in page[models_at:frames_at] for s in kits)
     # city and fitness bikes are left out, also from the Type menu
     assert 'value="fitness"' not in page
     conn = db.connect(path)
