@@ -80,46 +80,45 @@
   <section class="box ranking" data-ranking>
     <h3>{{ _('Ads ranked by score') }}</h3>
     {% if ranked.ad.low %}
-    <div class="ranking-controls">
-      <div class="filters" role="group" aria-label="{{ _('Score') }}">
-        <button class="pill small-pill on" type="button" data-rank-kind="photo" aria-pressed="true">{{ _('Photos') }}</button>
-        <button class="pill small-pill" type="button" data-rank-kind="ad" aria-pressed="false">{{ _('Ad') }}</button>
-      </div>
-      <div class="filters" role="group" aria-label="{{ _('Order') }}">
-        <button class="pill small-pill on" type="button" data-rank-order="low" aria-pressed="true">{{ _('Lowest first') }}</button>
-        <button class="pill small-pill" type="button" data-rank-order="high" aria-pressed="false">{{ _('Highest first') }}</button>
-      </div>
-    </div>
-    {% for kind in ['photo', 'ad'] %}{% for order in ['low', 'high'] %}
+    {% for kind in ['photo', 'ad', 'confidence'] %}{% for order in ['low', 'high'] %}
     <div class="table-scroll" data-rank="{{ kind }}-{{ order }}"{% if not (kind == 'photo' and order == 'low') %} hidden{% endif %}><table>
-      <tr><th>{{ _('Ad')|upper }}</th><th>{{ _('Model')|upper }}</th><th>{{ _('Confidence')|upper }}</th><th>{{ _('Why')|upper }}</th>
-        <th class="score-col">{{ (_('Photos') if kind == 'photo' else _('Ad'))|upper }}</th></tr>
+      {% set sort = 'ascending' if order == 'low' else 'descending' %}
+      {% macro head(k, label) -%}
+      <th class="{{ 'score-col' if k != 'confidence' }}{{ ' sorted' if k == kind }}"{% if k == kind %} aria-sort="{{ sort }}"{% endif %}><button type="button" class="sort-head" data-sort="{{ k }}"
+        title="{{ _('Lowest first') if k == kind and order == 'high' else _('Highest first') if k == kind else _('Lowest first') }}">{{ label|upper }}<span aria-hidden="true">{{ (' ↑' if order == 'low' else ' ↓') if k == kind else ' ↕' }}</span></button></th>
+      {%- endmacro %}
+      <tr><th>{{ _('Ad')|upper }}</th><th>{{ _('Model')|upper }}</th>{{ head('confidence', _('Confidence')) }}<th>{{ _('Why')|upper }}</th>
+        {{ head('photo', _('Photos')) }}{{ head('ad', _('Ad')) }}</tr>
       {% for it in ranked[kind][order] %}
+      {% set photo_why = reasons(it.photo_lost, _('photo') ~ ': ') %}{% set ad_why = reasons(it.ad_lost) %}
       <tr>
         <td><a href="{{ url_for('report', check_id=it.listing.id) }}">{{ it.listing.title }}</a></td>
-        <td>{% if it.model %}{{ it.model.name|model_title }}{% else %}—{% endif %}</td>
+        <td>{% if it.model %}{% if it.brand and it.brand != '?' %}{{ it.brand }} - {% endif %}{{ it.model.name|model_title }}{% else %}—{% endif %}</td>
         <td>{{ _(it.confidence) if it.confidence else '—' }}</td>
-        <td class="why">{{ reasons(it[kind ~ '_lost']) or '—' }}</td>
-        <td class="score-col">{{ score(it[kind]) }}</td>
+        <td class="why">{{ ((photo_why ~ ad_why) if kind == 'photo' else (ad_why ~ photo_why)) or '—' }}</td>
+        <td class="score-col">{{ score(it.photo) }}</td>
+        <td class="score-col">{{ score(it.ad) }}</td>
       </tr>
-      {% else %}<tr><td colspan="5" class="muted">{{ _('No ads with a photo score yet.') }}</td></tr>
+      {% else %}<tr><td colspan="6" class="muted">{{ _('No ads with a photo score yet.') if kind == 'photo' else '—' }}</td></tr>
       {% endfor %}
     </table></div>
     {% endfor %}{% endfor %}
     <script>
       (function () {
         var box = document.querySelector("[data-ranking]"), state = {kind: "photo", order: "low"};
-        box.querySelectorAll("[data-rank-kind], [data-rank-order]").forEach(function (button) {
+        var show = function () {
+          box.querySelectorAll("[data-rank]").forEach(function (t) {
+            t.hidden = t.dataset.rank !== state.kind + "-" + state.order;
+          });
+        };
+        // A score's column header ranks by that score, and flips the order once it does.
+        box.querySelectorAll("[data-sort]").forEach(function (button) {
           button.addEventListener("click", function () {
-            var key = button.dataset.rankKind ? "kind" : "order", attr = "data-rank-" + key;
-            state[key] = button.getAttribute(attr);
-            box.querySelectorAll("[" + attr + "]").forEach(function (b) {
-              b.classList.toggle("on", b === button);
-              b.setAttribute("aria-pressed", String(b === button));
-            });
-            box.querySelectorAll("[data-rank]").forEach(function (t) {
-              t.hidden = t.dataset.rank !== state.kind + "-" + state.order;
-            });
+            if (state.kind === button.dataset.sort) state.order = state.order === "low" ? "high" : "low";
+            else state.kind = button.dataset.sort;
+            show();
+            var head = box.querySelector("[data-rank]:not([hidden]) [data-sort='" + state.kind + "']");
+            if (head) head.focus();
           });
         });
       })();

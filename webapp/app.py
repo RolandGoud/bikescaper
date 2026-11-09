@@ -1236,10 +1236,14 @@ def create_app(db_path=None):
                           "ad": ad, "ad_lost": ad_lost, "photo": photo, "photo_lost": photo_lost})
         stats = scores.summarise(items)
         # The ranking table: a tab per score (photos, ad), each lowest first or highest first, 15 ads a list.
+        # Ranked by the photo score, the ad score or the match confidence, each lowest or highest first (15 a list).
+        level = {"low": 0, "medium": 1, "high": 2}
+        rank_by = {"photo": lambda it: (it["photo"], it["ad"]),
+                   "ad": lambda it: (it["ad"], -1 if it["photo"] is None else it["photo"]),
+                   "confidence": lambda it: (level.get(it["confidence"]), it["ad"])}
         ranked = {}
-        for kind, other in (("photo", "ad"), ("ad", "photo")):
-            scored = sorted((it for it in items if it[kind] is not None),
-                            key=lambda it: (it[kind], it[other] if it[other] is not None else -1))
+        for kind, key in rank_by.items():
+            scored = sorted((it for it in items if key(it)[0] is not None), key=key)
             ranked[kind] = {"low": scored[:15], "high": scored[::-1][:15]}
         return render_template("admin.html", stats=stats, ranked=ranked, nav=None,
                                photos=photo_counts.overview(models(), GALLERIES),
