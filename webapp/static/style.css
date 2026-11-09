@@ -695,7 +695,8 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .brand-mark.text::before { content: none; }
 /* the bike type's line drawing before a tile's name (the catalogue's Type filter uses the same drawings) */
 .model-card .type-icon { flex: none; width: 26px; height: 16px; margin-top: 2px; background: var(--muted, currentColor); -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
-.model-card .title-row .type-icon + span { margin-right: auto; }
+.model-card .kind-line { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.model-card .kind-line .type-icon { margin-top: 0; width: 22px; height: 14px; }
 .status.overlay { position: absolute; z-index: 1; top: 8px; right: 8px; box-shadow: 0 1px 3px rgba(16, 17, 20, 0.15); }
 .status.discontinued { background: var(--bad-bg); color: var(--bad); }
 .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
@@ -1695,11 +1696,14 @@ select { max-width: 100%; }
 .builds .build-pill.t4 { background: var(--accent); color: var(--ink); }
 .builds .build-pill.t5 { background: var(--text); color: var(--ink); }
 .builds .build-pill:hover { border-color: var(--text); }
-.builds .build-pill.on { box-shadow: none; outline: 2px solid var(--text); outline-offset: 2px; }
+/* the bike on this page: a thick ring and a check mark, the other builds of its level a step back */
+.builds .build-pill.on { box-shadow: none; outline: 3px solid var(--text); outline-offset: 3px; }
+.builds .build-pill.on > span::before { content: "\2713\00a0"; }
+.builds .build-row:has(.build-pill.on) .build-pill:not(.on):not(:hover) { opacity: .5; }
 @media (max-width: 700px) { .builds .build-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bp-model { display: none; } }
 .level-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .level-tab { font: 600 14px var(--body); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--text); cursor: pointer; }
-.level-tab small { font-weight: 400; opacity: .6; }
+.level-tab small { font-weight: 400; color: inherit; opacity: .7; }
 .level-tab.on { background: var(--text); color: var(--ink); border-color: var(--text); }
 .builds .build-row[hidden] { display: none; }
 .build-row form { margin: 0; }

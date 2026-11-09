@@ -365,11 +365,11 @@ def test_status_on_pages(tmp_path):
     assert "Discontinued" in page and "2025-07-18" in page
     # "Only bikes still sold" is on by default; current=0 (the form's hidden field when unticked) turns it off
     page = client.get("/models?lang=nl&current=0").data.decode()
-    assert "Uit productie" in page and "Endurace 7 RAW" in page
+    assert "Uit productie" in page and ">Endurace</span>" in page  # the tile is the family
     for url in ["/models?lang=en", "/models?lang=en&current=1", "/models?lang=en&current=1&current=0"]:
         page = client.get(url).data.decode()
-        # (a Trek tile is the model with its builds: "Domane SL")
-        assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and ">Domane SL</span>" in page
+        # (a Trek tile is the family with its levels and builds: "Domane")
+        assert "Endurace 7 RAW" not in page and "Madone SL 6 Gen 7" not in page and ">Domane</span>" in page
 
 
 def test_old_database_gets_status_columns(tmp_path):
@@ -651,8 +651,8 @@ def test_tiers_on_pages(tmp_path):
     page = client.get("/models/trek-domane-slr-9-gen-4?lang=en").get_data(as_text=True)
     assert "Spec tier" in page and "Top" in page
     listing = client.get("/models?tier=5&lang=en").get_data(as_text=True)
-    # a model is on the list when one of its builds is of that tier (Trek's tile is the model: "Domane SLR")
-    assert ">Domane SLR</span>" in listing and ">Domane AL</span>" not in listing
+    # a model is on the list when one of its builds is of that tier (Trek's tile is the family: "Domane")
+    assert ">Domane</span>" in listing and ">Domane AL</span>" not in listing
 
 
 @pytest.mark.parametrize("text,tier", [("Shimano GRX 400", 2), ("Shimano GRX RX400", 2), ("GRX 600 groep", 3),
@@ -972,7 +972,8 @@ def test_model_page_shows_family_as_tiles(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/canyon-endurace-allroad?lang=nl").data.decode()
     others = page.split("Andere Endurace-modellen")[1]
-    assert 'class="model-card" href="/models/canyon-endurace-cf-7"' in others and "brand-mark" in others
+    # the Endurace's levels and builds are on its own page; the Endurace:ON is another model of the family
+    assert 'class="model-card" href="/models/canyon-endurace-on-7"' in others and "brand-mark" in others
 
 
 def test_models_page_takes_several_brands(tmp_path):
@@ -1821,7 +1822,7 @@ def test_an_earlier_year_shows_its_own_generation(tmp_path):
     assert 2024 not in gens  # our own generation
     from webapp.app import create_app
     page = create_app(path).test_client().get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
-    assert 'data-fact="title"><span class="sr-only">Trek </span>Domane <span class="acc">AL</span></h1>' in page
+    assert 'data-fact="title"><span class="sr-only">Trek </span>Domane <span class="acc"></span></h1>' in page
     assert '<span data-fact="title">Domane AL 2 (Gen 3)</span>' in page
     assert '<div class="v">2021–2023</div>' in page and "eerdere gen. · gen 2" in page
 
@@ -1865,9 +1866,9 @@ def test_model_titles_leave_shimano_out(tmp_path):
     client = create_app(path).test_client()
     tiles = client.get("/models?brand=Specialized&lang=nl").get_data(as_text=True)
     # the tile is the model (its builds are on the model page), and no title keeps the Shimano
-    assert "Tarmac SL9" in tiles and "Shimano 105 Di2</span>" not in tiles
+    assert ">Tarmac</span>" in tiles and "Shimano 105 Di2</span>" not in tiles
     page = client.get("/models/" + seed.slugify("Specialized Tarmac SL9 Comp - Shimano 105 Di2")).get_data(as_text=True)
-    assert 'Tarmac <span class="acc">SL9</span></h1>' in page and ">105 Di2</span>" in page  # the build is a pill
+    assert 'Tarmac <span class="acc"></span></h1>' in page and ">SL9 105 Di2</span>" in page  # the build is a pill
 
 
 def test_models_page_tiles_leave_the_generation_out(tmp_path):
@@ -1878,7 +1879,7 @@ def test_models_page_tiles_leave_the_generation_out(tmp_path):
     seed.load(db.connect(path))
     client = create_app(path).test_client()
     tiles = client.get("/models?brand=Trek&lang=nl").get_data(as_text=True)
-    assert ">Domane AL</span>" in tiles and "Gen 4</span>" not in tiles  # Trek's tile is the model, its builds inside
+    assert ">Domane</span>" in tiles and "Gen 4</span>" not in tiles  # Trek's tile is the family, its builds inside
     # the model page itself keeps the generation
     assert "Domane AL 2 (Gen 4)" in client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
 
@@ -2078,8 +2079,8 @@ def test_model_tile_shows_the_ad_count_as_a_number(tmp_path):
                      ("Trek Domane SL 6", 2500, f"https://www.marktplaats.nl/v/fietsen/a{4000000 + n}", model_id))
     conn.commit()
     page = app.test_client().get("/models?lang=nl&brand=Trek").data.decode()
-    # the Domane SL tile, whichever build it shows: the ads of all its builds count
-    tile = next(t for t in page.split('<a class="model-card"')[1:] if '>Domane SL</span>' in t)
+    # the Domane tile, whichever build it shows: the ads of all its builds count
+    tile = next(t for t in page.split('<a class="model-card"')[1:] if '>Domane</span>' in t)
     tile = tile[:tile.index("</a>")]
     # the number beside the price, with the sentence as its tooltip, not as a line of its own
     assert re.search(r'<span class="ad-count small" title="Gekoppeld aan 3 advertenties"[^>]*>.*</svg>3</span>', tile)
