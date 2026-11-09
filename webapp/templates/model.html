@@ -48,13 +48,27 @@
     </div>
     <div class="price-sticker"><b data-fact="sticker">{{ m.price_eur|eur if m.price_eur else '–' }}</b><span>{{ _('New price')|upper }}</span></div>
   </section>
-  {% if builds|length > 1 %}{# a model with more than one build (Ridley, Trek): each build is its own page, with its own
+  {% if builds|length > 1 %}{# a model with more than one build (Ridley, Trek, Bianchi, Specialized): each build is its own page, with its own
      photo, parts and price. A build sold over several generations is one pill: its years are the model's years below. #}
   {% set here = m|build_label %}
   <div class="block-head"><span>{{ _('Build') }}</span></div>
   <nav class="builds build-card" aria-label="{{ _('Builds') }}">
     <div class="k">{{ _('{n} builds of the {model} on the {brand} site', n=builds|length, model=(m|model_base)|model_title, brand=m.brand) }}</div>
-    <div class="build-row">{% for b in builds %}{% set on = (b|build_label) == here %}<a class="build-pill t{{ b.tier or 0 }}{{ ' on' if on }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if on %} aria-current="page"{% endif %}{% if b.tier %} title="{{ _('Spec tier {tier} of 5', tier=b.tier) }}: {{ _(tier_names[b.tier]) }}"{% endif %}><span>{% if b|build_label %}<span class="bp-model">{{ (b|model_base)|model_title }} </span>{% endif %}{{ (b|build_label or b|model_base)|model_title }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></a>{% endfor %}</div>
+    {% macro build_pill(b, level='') %}{% set on = (b|build_label) == here %}{% set label = b|build_label %}{% if level and label and label.startswith(level + ' ') %}{% set label = label[level|length + 1:] %}{% endif %}<a class="build-pill t{{ b.tier or 0 }}{{ ' on' if on }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if on %} aria-current="page"{% endif %}{% if b.tier %} title="{{ _('Spec tier {tier} of 5', tier=b.tier) }}: {{ _(tier_names[b.tier]) }}"{% endif %}><span>{% if b|build_label and not level %}<span class="bp-model">{{ (b|model_base)|model_title }} </span>{% endif %}{{ (label or b|model_base)|model_title }}</span><small>{{ b.price_eur|eur if b.price_eur else '–' }}</small></a>{% endmacro %}
+    {% if levels %}{# the levels first (Sport, Comp, Expert, Pro), then the picked level's groupsets #}
+    <div class="level-tabs">{% for level, group in levels %}<button type="button" class="level-tab{{ ' on' if level == here_level }}" data-level="{{ level }}" aria-pressed="{{ 'true' if level == here_level else 'false' }}">{{ level or _('Other') }} <small>{{ group|length }}</small></button>{% endfor %}</div>
+    {% for level, group in levels %}<div class="build-row" data-level="{{ level }}"{% if level != here_level %} hidden{% endif %}>{% for b in group %}{{ build_pill(b, level) }}{% endfor %}</div>{% endfor %}
+    <script>
+      document.querySelectorAll('.level-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          document.querySelectorAll('.level-tab').forEach(function (t) { var on = t === tab; t.classList.toggle('on', on); t.setAttribute('aria-pressed', on); });
+          document.querySelectorAll('.builds .build-row[data-level]').forEach(function (row) { row.hidden = row.dataset.level !== tab.dataset.level; });
+        });
+      });
+    </script>
+    {% else %}
+    <div class="build-row">{% for b in builds %}{{ build_pill(b) }}{% endfor %}</div>
+    {% endif %}
   </nav>
   {% endif %}
   <div class="block-head"><span>{{ _('The model') }}</span></div>

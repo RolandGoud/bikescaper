@@ -170,3 +170,36 @@ def test_a_build_without_a_groupset_shows_its_model_name_once(tmp_path):
     assert any(p.startswith("Impulso Allroad GRX 400") for p in pills)
     assert any(re.match(r"Impulso Allroad\W", p) and "GRX" not in p for p in pills)  # the entry without a groupset
     assert not any("Impulso Allroad Impulso Allroad" in p for p in pills)
+
+
+def test_specialized_names_split_into_model_and_build():
+    assert checks.specialized_parts("Tarmac SL8 Expert - Shimano Ultegra Di2") == ("Tarmac SL8", "Expert Ultegra Di2", None)
+    # an older name without the dash, with Disc: the same build
+    assert checks.specialized_parts("Tarmac SL7 Expert Ultegra Di2 Disc")[:2] == ("Tarmac SL7", "Expert Ultegra Di2")
+    # S-Works is a model of its own, its build the groupset; an edition is a colour of its build
+    assert checks.specialized_parts("S-Works Tarmac SL7 - Shimano Dura-Ace Di2")[:2] == ("S-Works Tarmac SL7", "Dura-Ace Di2")
+    assert checks.specialized_parts("S-Works Tarmac SL8 LTD - Red Bull 2025 TdF")[2] == "Red Bull 2025 TdF"
+    # Aethos 2 is the Aethos; a frameset is one model over its generations
+    assert checks.specialized_parts("Aethos 2 Pro - SRAM Force AXS")[:2] == ("Aethos", "Pro Force eTap AXS")
+    assert checks.specialized_parts("S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step")[0] == "S-Works Tarmac frameset"
+    assert checks.specialized_parts("S-Works Tarmac SL8 Frameset LTD - Demi Dreaming")[0] == "S-Works Tarmac frameset"
+    # Women's is a build of its own; Men's is left out; the alloy Diverge is a model of its own
+    assert checks.specialized_parts("Women's Tarmac Disc Expert")[1] == "Expert Women's"
+    assert checks.specialized_parts("Men's Diverge Comp")[:2] == ("Diverge", "Comp")
+    assert checks.specialized_parts("Diverge Comp E5 - SRAM Apex")[:2] == ("Diverge Alloy", "Comp Apex")
+
+
+def test_specialized_model_page_shows_the_levels_first(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    slug = conn.execute("SELECT slug FROM models WHERE name = 'Aethos 2 Expert - Shimano Ultegra Di2'").fetchone()[0]
+    page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
+    assert re.findall(r'class="level-tab[^"]*" data-level="(\w+)"', page) == ["Sport", "Comp", "Expert", "Pro"]
+    assert 'class="level-tab on" data-level="Expert"' in page  # the bike's own level is open
+    # the other levels' groupsets are there, hidden; a pill names the groupset only
+    assert '<div class="build-row" data-level="Comp" hidden>' in page and '<div class="build-row" data-level="Expert">' in page
+    expert = page[page.index('data-level="Expert">'):]
+    assert "<span>Ultegra Di2</span>" in expert[:expert.index("</div>")]
+    # a model without levels keeps one row of pills
+    assert "level-tab" not in app.test_client().get("/models/trek-madone-sl-6-gen-8?lang=nl").get_data(as_text=True)

@@ -473,7 +473,7 @@ def split_build(model, frames=False):
 # Brands whose builds the site shows under one model: Ridley names them by groupset (split_build), Trek by the
 # number after the model ("Madone SL 6 AXS Gen 8": the Madone SL, build 6 AXS). Trek's generations are model years
 # of the same build, and its special editions ("- The First 50 Replica", "No. 76") a colour of their build.
-SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi"}
+SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi", "Specialized"}
 # Trek's older names for a line it still sells under another one.
 TREK_RENAMED = {"Checkpoint AL": "Checkpoint ALR", "Domane+ AL": "Domane+ ALR"}
 _TREK_GEN = re.compile(r"\s*\b[Gg]en\s*(\d+)\b")
@@ -547,6 +547,90 @@ def bianchi_parts(name):
     return model, build, edition
 
 
+# Specialized names a model [S-Works] family [generation] [level] - groupset: "S-Works Tarmac SL8 - Shimano Dura-Ace Di2",
+# "Tarmac SL8 Expert - Shimano Ultegra Di2", older ones without the dash: "Tarmac SL7 Expert Ultegra Di2 Disc".
+SPECIALIZED_LEVELS = ("Base", "Sport", "Comp", "Elite", "Expert", "Pro", "S-Level")
+_SPECIALIZED_FAMILIES = {"tarmac", "aethos", "allez", "crux", "diverge", "roubaix", "venge", "shiv", "amira", "ruby"}
+_SPECIALIZED_GEN = re.compile(r"^(?:SL\d|\d|ViAS)$")
+# Special editions are a colour of their build: "S-Works Tarmac SL7 - Sagan Collection", "LTD - Remco Evenepoel".
+_SPECIALIZED_EDITIONS = (r"Sagan Collection(?: Overexposed)?(?: LTD)?", r"Founder'?s Edition", r"Team Replica", r"Speed of Light Collection",
+                         r"Mixtape(?: LTD)?", r"Built for Legends", r"Remco.*", r"Red Bull.*", r"Demi Dreaming",
+                         r"FDJ.*|SD Worx.*|Soudal.*", r"McLaren", r"Blue Tint Fade", r"Limited-Edition", r"Campagnolo LTD",
+                         r"Ekar LTD", r"LTD")
+_SPECIALIZED_SPELLING = [(r"\bShimano\s+", ""), (r"\bSRAM\s+", ""), (r"\beTAP\b", "eTap"), (r"\bRED\b", "Red"),
+                         (r"\bUDi2\b", "Ultegra Di2"), (r"\bDura[ -]?Ace\b|\bDA\b", "Dura-Ace"),
+                         (r"\b(Rival|Force|Red|Apex) AXS\b", r"\1 eTap AXS"), (r"\bRed AXS eTap\b", "Red eTap AXS"),
+                         (r"^Di2$", "Dura-Ace Di2"), (r"\s*/\s*\S+ Eagle AXS", ""), (r"\bHydraulic Disc\b", "")]
+# Specialized generations sold as one model: the generation follows from the model year, as for Trek.
+SPECIALIZED_ONE_MODEL = {"Aethos 2": "Aethos", "S-Works Aethos 2": "S-Works Aethos"}
+
+
+def specialized_parts(name):
+    """(model, build, edition) of a Specialized catalogue name. The model is [S-Works] family generation, with the
+    frame next to it (STR, DSW, Alloy for E5 or alloy), the build the level and the groupset: "Tarmac SL8 Expert -
+    Shimano Ultegra Di2" gives ("Tarmac SL8", "Expert Ultegra Di2", None); "S-Works Tarmac SL7 - Sagan Collection"
+    gives ("S-Works Tarmac SL7", None, "Sagan Collection"). Disc is the same build; Women's a build of its own; a
+    frameset is one model over its generations: ("S-Works Tarmac frameset", None, None)."""
+    n = (name or "").replace("–", " - ").replace(":", " -").strip()
+    women = "Women's" in n
+    n = re.sub(r"\b(?:Men's|Women's)\s*", "", n)
+    n = re.sub(r"\bSL (\d)\b", r"SL\1", n)
+    n = re.sub(r"\bCruX\b", "Crux", re.sub(r"\bVias\b", "ViAS", n))
+    n = re.sub(r"^(S-Works )?Sagan Collection (.*)$", r"\1\2 Sagan Collection", n)
+    left, _dash, right = n.partition(" - ")
+    frame = bool(re.search(r"\bFrameset\b|\bModule\b", left))
+    left = re.sub(r"\s*\b(?:Frameset|TT Disc Module|Module)\b", "", left)
+    edition = None
+    for pattern in _SPECIALIZED_EDITIONS:
+        in_name, after_dash = re.search(r"\b(?:%s)$" % pattern, left), re.fullmatch(pattern, right)
+        if in_name:
+            edition, left = in_name.group(0), left[:in_name.start()].strip()
+        elif after_dash:
+            edition, right = right, ""
+        if edition:
+            break
+    words = re.sub(r"\s+Disc\b", "", left).split()
+    if not words:
+        return name, None, None
+    works = words[0] == "S-Works"
+    words = words[1:] if works else words
+    model, gen, level, extra, alloy = [words[0].capitalize() if words[0].lower() != "crux" else "Crux"], None, [], [], False
+    for word in words[1:]:
+        if _SPECIALIZED_GEN.match(word) and gen is None and not level:
+            gen = word
+        elif word in ("STR", "DSW", "Sprint"):
+            model.append(word)
+        elif word in ("E5", "Alloy"):
+            alloy = True
+        elif word == "Carbon":
+            pass
+        elif word in SPECIALIZED_LEVELS or word in ("EVO", "X1", "Ultralight"):
+            level.append(word)
+        else:
+            extra.append(word)
+    name_of = lambda with_gen: (("S-Works " if works else "") + " ".join(model + (["Alloy"] if alloy else []))
+                                + (" " + gen if with_gen and gen else ""))
+    if frame:  # one frameset model over the family's generations
+        return name_of(False) + " frameset", None, edition
+    groupset = " ".join(extra + ([right] if right else []))
+    for pattern, spelled in _SPECIALIZED_SPELLING:
+        groupset = re.sub(pattern, spelled, groupset).strip()
+    build = " ".join(level + ([re.sub(r"\s+", " ", groupset)] if groupset else [])) or None
+    if women:
+        build = (build + " " if build else "") + "Women's"
+    model = name_of(True)
+    return SPECIALIZED_ONE_MODEL.get(model, model), build, edition
+
+
+def build_level(model):
+    """The level a Specialized build starts with ("Expert" of "Expert Ultegra Di2"), which the model page puts first
+    when there are many builds; None for other brands and a build without one."""
+    if model.get("brand") != "Specialized":
+        return None
+    first = (site_split(model)[1] or "").split(" ")[0]
+    return first if first in SPECIALIZED_LEVELS else None
+
+
 def site_split(model):
     """(model name, build) as the site groups a catalogue entry: one tile and one model page per model, with its
     builds as pills. ("Noah Fast 3.0", "Shimano Ultegra Di2 2x12"), ("Madone SL", "6 AXS"), ("Madone SL frameset",
@@ -556,6 +640,8 @@ def site_split(model):
         return name, build
     if model.get("brand") == "Bianchi":
         return bianchi_parts(model["name"])[:2]
+    if model.get("brand") == "Specialized":
+        return specialized_parts(model["name"])[:2]
     return split_build(model)
 
 
@@ -583,10 +669,12 @@ def is_frameset(model):
 
 
 def _build_order(m):
-    """Builds as the switcher lists them: by their number ("5", "6 AXS", "7"; Trek), then spec tier low to high, then
-    price."""
+    """Builds as the switcher lists them: by their number ("5", "6 AXS", "7"; Trek) or level ("Comp", "Expert";
+    Specialized), then spec tier low to high, then price."""
     number = re.match(r"\d+", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
-    return (int(number.group()) if number else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
+    level = build_level(m)
+    first = SPECIALIZED_LEVELS.index(level) + 1 if level else int(number.group()) if number else 0
+    return (first, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
 
 
 def _representative(entries):
@@ -595,7 +683,8 @@ def _representative(entries):
     def rank(m):
         _model, _build, gen, edition = (trek_parts(m["name"]) if m["brand"] == "Trek" else
                                          (None, None, None, bianchi_parts(m["name"])[2]) if m["brand"] == "Bianchi"
-                                         else (None, None, None, None))
+                                         else (None, None, None, specialized_parts(m["name"])[2])
+                                         if m["brand"] == "Specialized" else (None, None, None, None))
         return (catalogue_status(m)[0] != "current", bool(edition), -(gen or 0),
                 -(scrape_year(m) or 0), m.get("price_eur") or 1e9, m["name"])
     return min(entries, key=rank)

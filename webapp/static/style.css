@@ -1669,6 +1669,11 @@ select { max-width: 100%; }
 .builds .build-pill:hover { border-color: var(--text); }
 .builds .build-pill.on { box-shadow: none; outline: 2px solid var(--text); outline-offset: 2px; }
 @media (max-width: 700px) { .builds .build-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bp-model { display: none; } }
+.level-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.level-tab { font: 600 14px var(--body); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--text); cursor: pointer; }
+.level-tab small { font-weight: 400; opacity: .6; }
+.level-tab.on { background: var(--text); color: var(--ink); border-color: var(--text); }
+.builds .build-row[hidden] { display: none; }
 .build-row form { margin: 0; }
 .build-pill { display: inline-flex; flex-direction: column; gap: 2px; min-width: 96px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--raised); color: var(--text); font: 600 14px var(--body); text-align: left; text-decoration: none; cursor: pointer; }
 .build-pill small { font-weight: 400; font-size: 12px; color: var(--muted); }
