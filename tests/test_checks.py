@@ -1864,9 +1864,10 @@ def test_model_titles_leave_shimano_out(tmp_path):
     seed.load(db.connect(path))
     client = create_app(path).test_client()
     tiles = client.get("/models?brand=Specialized&lang=nl").get_data(as_text=True)
-    assert ">Tarmac SL9 Comp - 105 Di2</span>" in tiles and "Shimano 105 Di2</span>" not in tiles
+    # the tile is the model (its builds are on the model page), and no title keeps the Shimano
+    assert "Tarmac SL9" in tiles and "Shimano 105 Di2</span>" not in tiles
     page = client.get("/models/" + seed.slugify("Specialized Tarmac SL9 Comp - Shimano 105 Di2")).get_data(as_text=True)
-    assert 'Tarmac <span class="acc">SL9 Comp - 105 Di2</span></h1>' in page
+    assert 'Tarmac <span class="acc">SL9</span></h1>' in page and ">105 Di2</span>" in page  # the build is a pill
 
 
 def test_models_page_tiles_leave_the_generation_out(tmp_path):
