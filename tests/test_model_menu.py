@@ -116,3 +116,15 @@ def test_the_catalogue_is_one_grid_with_the_type_on_each_tile(tmp_path):
     assert page.count('<div class="model-grid">') == 1  # no heading per type: the type is a filter
     # the second line names the type, after its line drawing
     assert re.search(r'class="small muted kind-line"><span class="type-icon"[^>]*gravel.svg[^>]*></span>Gravel', page)
+
+
+def test_fitness_bikes_are_hidden(tmp_path):
+    from webapp import checks, db, seed
+    from webapp.app import create_app
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    page = create_app(path).test_client().get("/models?current=0&lang=en").get_data(as_text=True)
+    # city and fitness bikes are left out, also from the Type menu
+    assert 'value="fitness"' not in page
+    fitness = [m["slug"] for m in db.all_models(db.connect(path)) if checks.discipline_of(m) == "fitness"]
+    assert fitness and not any(f'href="/models/{s}"' in page for s in fitness)

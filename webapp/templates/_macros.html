@@ -77,7 +77,9 @@
       {% if r.model %}<span class="verdict-pill {{ r.value.status }}">{{ r.value.headline }}</span>
       {% else %}<span class="verdict-pill unknown">{{ _('No matching model yet') }}</span>{% endif %}
     </div>
-    <div class="ad-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ ad.name }}{% endif %}</div>
+    {# The photo already shows the brand (its logo, or its name for brands without one), so the name leaves it out;
+       screen readers still hear it. #}
+    <div class="ad-name">{% if r.model %}<span class="sr-only">{{ r.model.brand }} </span>{{ r.model.name|model_title|drop_brand(r.model.brand) }}{% else %}{{ ad.name }}{% endif %}</div>
     {% set site = site_mark(row.listing_url)|trim %}
     {% if r.model or site %}<div class="ad-source">{{ site }}{% if r.model %}<div class="ad-title">“{{ ad.name }}”</div>{% endif %}</div>{% endif %}
     <div class="card-foot">
