@@ -1225,8 +1225,13 @@ def create_app(db_path=None):
                           "missing": scores.missing(report, listing), "problems": scores.match_problems(report),
                           "ad": ad, "ad_lost": ad_lost, "photo": photo, "photo_lost": photo_lost})
         stats = scores.summarise(items)
-        worst = sorted(items, key=lambda it: (it["ad"] + (it["photo"] if it["photo"] is not None else it["ad"])))[:15]
-        return render_template("admin.html", stats=stats, worst=worst, nav=None,
+        # The ranking table: a tab per score (photos, ad), each lowest first or highest first, 15 ads a list.
+        ranked = {}
+        for kind, other in (("photo", "ad"), ("ad", "photo")):
+            scored = sorted((it for it in items if it[kind] is not None),
+                            key=lambda it: (it[kind], it[other] if it[other] is not None else -1))
+            ranked[kind] = {"low": scored[:15], "high": scored[::-1][:15]}
+        return render_template("admin.html", stats=stats, ranked=ranked, nav=None,
                                photos=photo_counts.overview(models(), GALLERIES),
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
                                dropped=request.args.get("dropped", type=int), first_year=checks.FIRST_YEAR,
