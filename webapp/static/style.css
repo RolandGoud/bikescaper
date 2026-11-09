@@ -840,7 +840,9 @@ select { max-width: 100%; }
 .nav-btn:hover:not(:disabled) { border-color: var(--line-strong); }
 .nav-btn:disabled { opacity: 0.35; cursor: default; }
 .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.recent-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+/* position: relative makes the row the containing block of its cards' absolutely placed .sr-only names, so the row
+   clips them; without it they escape the scroll box and widen the whole page past the last card. */
+.recent-row { position: relative; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
 .recent-row.paged { scrollbar-width: none; }
 .recent-row.paged::-webkit-scrollbar { display: none; }
 .recent-row > .listing-card, .recent-row > .sponsored-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
