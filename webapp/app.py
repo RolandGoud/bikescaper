@@ -966,6 +966,15 @@ def create_app(db_path=None):
             abort(404)
         # a model with builds: the switcher under its name, each build with its spec tier as its colour
         builds = [dict(b, tier=checks.model_tier(b)) for b in checks.builds_of(model, models())]
+        # Builds named level + groupset (Specialized's "Expert Ultegra Di2"): the levels first, and only the picked
+        # level's groupsets, so a model with many builds doesn't show them all at once. The bike's own level is open.
+        levels = []
+        for b in builds:
+            level = checks.build_level(b) or ""
+            if not levels or levels[-1][0] != level:
+                levels.append((level, []))
+            levels[-1][1].append(b)
+        levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
         siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))
                                        for m in models()
@@ -989,7 +998,7 @@ def create_app(db_path=None):
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)
-        return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings, builds=builds,
+        return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
                                year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
