@@ -23,8 +23,8 @@ def test_split_build():
     assert checks.split_build({"brand": "Ridley", "name": "Kanzo A Frameset"}) == ("Kanzo A Frameset", None)  # its own model
     assert checks.split_build({"brand": "Ridley", "name": "Fenix Disc Classified Rival AXS 1x12"})[0] == "Fenix Disc"
     assert checks.split_build({"brand": "Trek", "name": "Madone SL 6 Gen 8"}) == ("Madone SL 6 Gen 8", None)
-    assert checks.build_label({"brand": "Ridley", "name": "Noah Fast 3.0 Shimano Ultegra Di2 2x12"}) == "Ultegra Di2 2x12"
-    assert checks.model_group("Noah Fast 3.0 SRAM Red AXS 2x12", "Ridley") == "Noah Fast 3.0"
+    assert checks.build_label({"brand": "Ridley", "name": "Noah Fast 3.0 Shimano Ultegra Di2 2x12"}) == "Fast 3.0 Ultegra Di2 2x12"
+    assert checks.model_group("Noah Fast 3.0 SRAM Red AXS 2x12", "Ridley") == "Noah"
 
 
 def _top(models, title):
@@ -65,12 +65,13 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     client = app.test_client()
     html = client.get("/models?brand=Ridley&lang=en").get_data(as_text=True)
     titles = re.findall(r'<span style="font-weight: 700">([^<]+)</span>', html)
-    assert titles.count("Noah Fast 3.0") == 1 and not any("Ultegra" in t for t in titles)
-    assert "Noah Fast 3.0 Frameset" in titles  # a frameset is a tile of its own, never a build
-    assert "4 builds" in html and "New from €" not in html and "New €" not in html
+    # the model is the family: the Noah 3.0 and Noah Fast 3.0 are levels of the Noah
+    assert titles.count("Noah") == 1 and not any("Ultegra" in t or "Fast" in t for t in titles)
+    assert "Noah frameset" in titles  # a frameset is a tile of its own, never a build
+    assert "9 builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"]+)"', page)
-    assert len(pills) == 4 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
+    assert len(pills) == 9 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
 
 
 def test_a_model_with_one_build_has_no_build_section(tmp_path):
@@ -87,7 +88,7 @@ def test_the_frameset_is_one_candidate_with_the_builds(models):
     assert _top(models, "Ridley Noah Fast 3.0 Ultegra Di2 maat M") == "Noah Fast 3.0 Shimano Ultegra Di2 2x12"
     frame = _by_name(models, "Noah Fast 3.0 Frameset")
     built = _by_name(models, "Noah Fast 3.0 Shimano Ultegra Di2 2x12")
-    assert checks.same_model(frame, built) and not checks.builds_of(frame, models)
+    assert checks.same_model(frame, built) and not checks.builds_of(frame, models, split=checks.split_build)
     report = checks.run_check(models, {"title": "Ridley Noah Fast 3.0 Ultegra Di2", "description": "", "asking_price": 6000})
     others = [r["pct"] for r in report["matches"] if not checks.same_model(r["model"], report["model"])]
     assert str(report["confidence"]) != "medium" or not others or max(others) >= report["match"]["pct"] - 15
@@ -173,23 +174,25 @@ def test_a_build_without_a_groupset_shows_its_model_name_once(tmp_path):
 
 
 def test_specialized_names_split_into_model_and_build():
-    assert checks.specialized_parts("Tarmac SL8 Expert - Shimano Ultegra Di2") == ("Tarmac SL8", "Expert Ultegra Di2", None)
+    assert checks.specialized_parts("Tarmac SL8 Expert - Shimano Ultegra Di2") == ("Tarmac", "Expert SL8 Ultegra Di2", None)
     # an older name without the dash, with Disc: the same build
-    assert checks.specialized_parts("Tarmac SL7 Expert Ultegra Di2 Disc")[:2] == ("Tarmac SL7", "Expert Ultegra Di2")
+    assert checks.specialized_parts("Tarmac SL7 Expert Ultegra Di2 Disc")[:2] == ("Tarmac", "Expert SL7 Ultegra Di2")
     # S-Works is the top level of the model, its build the groupset; an edition is a colour of its build, also
     # when "LTD" sits in the name and the edition after the dash
-    assert checks.specialized_parts("S-Works Tarmac SL7 - Shimano Dura-Ace Di2")[:2] == ("Tarmac SL7", "S-Works Dura-Ace Di2")
-    assert checks.specialized_parts("S-Works Tarmac SL8 LTD - Red Bull 2025 TdF") == ("Tarmac SL8", "S-Works", "Red Bull 2025 TdF")
-    assert checks.specialized_parts("S-Works Crux 5 LTD - Built for Legends")[1] == "S-Works"
-    assert checks.specialized_parts("Tarmac SL7 Expert - Shimano Ultegra Di2 Team Replica")[1:] == ("Expert Ultegra Di2", "Team Replica")
+    assert checks.specialized_parts("S-Works Tarmac SL7 - Shimano Dura-Ace Di2")[:2] == ("Tarmac", "S-Works SL7 Dura-Ace Di2")
+    assert checks.specialized_parts("S-Works Tarmac SL8 LTD - Red Bull 2025 TdF") == ("Tarmac", "S-Works SL8", "Red Bull 2025 TdF")
+    assert checks.specialized_parts("S-Works Crux 5 LTD - Built for Legends")[:2] == ("Crux", "S-Works 5")
+    assert checks.specialized_parts("Tarmac SL7 Expert - Shimano Ultegra Di2 Team Replica")[1:] == ("Expert SL7 Ultegra Di2", "Team Replica")
     # Aethos 2 is the Aethos; a frameset is one model over its generations, the S-Works frame its build
     assert checks.specialized_parts("Aethos 2 Pro - SRAM Force AXS")[:2] == ("Aethos", "Pro Force eTap AXS")
-    assert checks.specialized_parts("S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step")[:2] == ("Tarmac frameset", "S-Works")
+    assert checks.specialized_parts("S-Works Tarmac SL9 Team Replica Frameset - Soudal Quick-Step")[:2] == ("Tarmac frameset", "S-Works SL9")
     assert checks.specialized_parts("S-Works Tarmac SL8 Frameset LTD - Demi Dreaming")[0] == "Tarmac frameset"
     # Women's is a build of its own; Men's is left out; the alloy Diverge is a model of its own
     assert checks.specialized_parts("Women's Tarmac Disc Expert")[1] == "Expert Women's"
     assert checks.specialized_parts("Men's Diverge Comp")[:2] == ("Diverge", "Comp")
-    assert checks.specialized_parts("Diverge Comp E5 - SRAM Apex")[:2] == ("Diverge Alloy", "Comp Apex")
+    assert checks.specialized_parts("Diverge Comp E5 - SRAM Apex")[:2] == ("Diverge", "Comp Alloy Apex")
+    # the model is the family: Allez Sprint is the Allez, the Sprint frame a part of its build
+    assert checks.specialized_parts("Allez Sprint Comp - Shimano 105")[:2] == ("Allez", "Comp Sprint 105")
 
 
 def test_specialized_model_page_shows_the_levels_first(tmp_path):
@@ -208,12 +211,27 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     assert "level-tab" not in app.test_client().get("/models/trek-madone-sl-6-gen-8?lang=nl").get_data(as_text=True)
 
 
-def test_ridley_rs_is_a_level_of_its_model():
+def test_ridley_models_are_families_with_levels():
     rs = {"brand": "Ridley", "name": "Falcn RS 2.0 Shimano Ultegra Di2 2x12"}
-    assert checks.site_split(rs) == ("Falcn", "RS Shimano Ultegra Di2 2x12")
-    assert checks.build_level(rs) == "RS"
+    assert checks.site_split(rs) == ("Falcn", "RS 2.0 Shimano Ultegra Di2 2x12")
+    assert checks.build_level(rs) == "RS 2.0"
     plain = {"brand": "Ridley", "name": "Falcn Shimano 105 Di2 2x12"}
     assert checks.site_split(plain) == ("Falcn", "Shimano 105 Di2 2x12") and checks.build_level(plain) is None
     # a frameset stays a model of its own, and the matching still sees the RS on its own words
-    assert checks.site_split({"brand": "Ridley", "name": "Astr RS Frameset"}) == ("Astr RS Frameset", None)
+    assert checks.site_split({"brand": "Ridley", "name": "Astr RS Frameset"}) == ("Astr frameset", "RS")
     assert checks.split_build(rs) == ("Falcn RS 2.0", "Shimano Ultegra Di2 2x12")
+    assert checks.site_split({"brand": "Ridley", "name": "Grifn RS Road Shimano Ultegra Di2 2x12"}) == ("Grifn", "RS Shimano Ultegra Di2 2x12")
+    assert checks.site_split({"brand": "Ridley", "name": "Fenix Disc Shimano 105 2x12"}) == ("Fenix", "Shimano 105 2x12")
+
+
+def test_bmc_cannondale_and_scott_models_are_families_with_levels():
+    assert checks.level_parts("BMC", "Teammachine SLR 01 DISC TWO") == ("Teammachine", "SLR 01", "TWO")
+    assert checks.level_parts("BMC", "Roadmachine FIVE") == ("Roadmachine", None, "FIVE")
+    assert checks.level_parts("BMC", "Teammachine R 01 Frameset") == ("Teammachine frameset", "R 01", None)
+    assert checks.level_parts("Cannondale", "CAAD13 Disc Ultegra") == ("CAAD", "CAAD13", "Ultegra")
+    assert checks.level_parts("Cannondale", "Synapse HiMOD Force eTap AXS Disc") == ("Synapse", "Hi-MOD", "Force eTap AXS")
+    assert checks.level_parts("Cannondale", "SuperSix Evo Carbon Ultegra Di2") == ("SuperSix EVO", None, "Ultegra Di2")
+    assert checks.level_parts("Cannondale", "Topstone Carbon 105 Women's Disc")[1:] == ("Carbon", "105 Women's")
+    assert checks.level_parts("Scott", "Addict RC Pro") == ("Addict", "RC", "Pro")
+    assert checks.level_parts("Scott", "Foil RC Pro HMX Frameset") == ("Foil frameset", "RC", "Pro HMX")
+    assert checks.build_level({"brand": "Scott", "name": "Speedster Gravel 20"}) == "Gravel"

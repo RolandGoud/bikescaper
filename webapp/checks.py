@@ -473,7 +473,7 @@ def split_build(model, frames=False):
 # Brands whose builds the site shows under one model: Ridley names them by groupset (split_build), Trek by the
 # number after the model ("Madone SL 6 AXS Gen 8": the Madone SL, build 6 AXS). Trek's generations are model years
 # of the same build, and its special editions ("- The First 50 Replica", "No. 76") a colour of their build.
-SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi", "Specialized"}
+SITE_BUILD_BRANDS = {"Ridley", "Trek", "Bianchi", "Specialized", "BMC", "Cannondale", "Scott"}
 # Trek's older names for a line it still sells under another one.
 TREK_RENAMED = {"Checkpoint AL": "Checkpoint ALR", "Domane+ AL": "Domane+ ALR"}
 _TREK_GEN = re.compile(r"\s*\b[Gg]en\s*(\d+)\b")
@@ -613,11 +613,12 @@ def specialized_parts(name):
     works = words[0] == "S-Works"
     words = words[1:] if works else words
     model, gen, level, extra, alloy = [words[0].capitalize() if words[0].lower() != "crux" else "Crux"], None, [], [], False
+    frame_words = []
     for word in words[1:]:
         if _SPECIALIZED_GEN.match(word) and gen is None and not level:
             gen = word
         elif word in ("STR", "DSW", "Sprint"):
-            model.append(word)
+            frame_words.append(word)
         elif word in ("E5", "Alloy"):
             alloy = True
         elif word == "Carbon":
@@ -628,27 +629,106 @@ def specialized_parts(name):
             extra.append(word)
     if works:
         level.insert(0, "S-Works")
-    name_of = lambda with_gen: " ".join(model + (["Alloy"] if alloy else [])) + (" " + gen if with_gen and gen else "")
-    if frame:  # one frameset model over the family's generations; the S-Works frame is its top build
-        return name_of(False) + " frameset", "S-Works" if works else None, edition
+    # The model is the family alone (Tarmac, Diverge, Allez): the generation and the frame (SL8, STR, Alloy, Sprint) are
+    # part of the build, after its level: "Expert SL8 Ultegra Di2". The Aethos 2 is the Aethos (SPECIALIZED_ONE_MODEL).
+    family = model[0]
+    if gen and (family + " " + gen) in SPECIALIZED_ONE_MODEL:
+        gen = None
+    frame_part = ([gen] if gen else []) + frame_words + (["Alloy"] if alloy else [])
+    if frame:  # one frameset model over the family; the generation and S-Works frame are its builds
+        return family + " frameset", " ".join(level[:1] + frame_part) or None, edition
     groupset = " ".join(extra + ([right] if right else []))
     for pattern, spelled in _SPECIALIZED_SPELLING:
         groupset = re.sub(pattern, spelled, groupset).strip()
-    build = " ".join(level + ([re.sub(r"\s+", " ", groupset)] if groupset else [])) or None
+    build = " ".join(level[:1] + frame_part + level[1:] + ([re.sub(r"\s+", " ", groupset)] if groupset else [])) or None
     if women:
         build = (build + " " if build else "") + "Women's"
-    model = name_of(True)
-    return SPECIALIZED_ONE_MODEL.get(model, model), build, edition
+    return family, build, edition
 
 
-# Ridley's RS is the higher level of the same model: "Falcn RS 2.0 Shimano Ultegra Di2 2x12" is the Falcn, level RS.
-RIDLEY_LEVELS = {"Falcn RS 2.0": "Falcn", "Grifn RS Road": "Grifn Road", "Astr RS": "Astr"}
-_LEVELS = {"Specialized": SPECIALIZED_LEVELS, "Ridley": ("RS",)}
+# Ridley's model is the family (Grifn, Fenix, Falcn, Noah, Kanzo); the rest of the name before the groupset is the
+# level: "Falcn RS 2.0 Shimano Ultegra Di2 2x12" is the Falcn, level "RS 2.0", build "Shimano Ultegra Di2 2x12".
+RIDLEY_SPELLING = [(r"^INVENIO\b", "Invenio"), (r"\s*\bDisc\b", ""), (r"\bRoad\b\s*", "")]
+_LEVELS = {"Specialized": SPECIALIZED_LEVELS}
+
+
+def ridley_parts(name):
+    """(family, level, build) of a Ridley name: ("Falcn", "RS 2.0", "Shimano Ultegra Di2 2x12"); a frameset is the
+    family's frameset model with its level as the build: "Grifn RS Road Frameset" gives ("Grifn frameset", "RS", None)."""
+    base, build = split_build({"brand": "Ridley", "name": name}, frames=True)
+    for pattern, spelled in RIDLEY_SPELLING:
+        base = re.sub(pattern, spelled, base).strip()
+    family, _space, level = base.partition(" ")
+    if build and is_frameset({"name": build}):
+        return family + " frameset", level or None, None
+    return family, level or None, build
+
+
+# Brands whose model is the family ("Teammachine", "Synapse", "Addict"), with its frame versions as levels ("SLR 01",
+# "Hi-MOD", "RC") and the builds under each level. Per brand: the spelling that makes names comparable, the families
+# (longest first wins), and how the level is found: the words right after the family that are level words ("levels"),
+# or everything between the family and the build words at the end ("builds").
+LEVEL_BRANDS = {
+    "BMC": {
+        "spelling": [(r"\bDISC\b|\bDisc\b", ""), (r"\bROAD\b", "Road"), (r"\bRoad (0\d)\b", r"\1 Road"),
+                     (r"\bRM (0\d)\b", r"\1"), (r"\bAL X\b", "X AL"), (r"^UnReStricted One \(URS\) V1$", "URS")],
+        "families": ["Roadmachine", "Teammachine", "Speedmachine", "Timemachine", "Crossmachine", "Kaius", "URS"],
+        "builds": r"ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|LTD|MOD|ICS2|TEAM|FB|FRS|RIVAL|Edition",
+    },
+    "Cannondale": {
+        "spelling": [(r"^700 ", ""), (r"\bDisc\b", ""), (r"\b(?:Hi[- ]?MOD|HiMOD|High-Mod|HM)\b", "Hi-MOD"),
+                     (r"\bAl\b", "Aluminium"), (r"^CAAD(\d\d)\b", r"CAAD CAAD\1"), (r"^Super[Ss]ix(?: E[Vv][Oo])?\b", "SuperSix EVO"),
+                     (r"^(SuperSix EVO|SystemSix) Carbon\b", r"\1"),  # these are carbon whatever the name says
+                     (r"\bRED\b", "Red")],
+        "families": ["SuperSix EVO", "SystemSix", "SuperSlice", "Synapse", "Topstone", "SuperX", "CAAD", "Slate"],
+        "levels": r"Carbon|Aluminium|Hi-MOD|LAB71|CAAD\d*|Optimo|SE|SM|CX",
+    },
+    "Scott": {
+        "spelling": [],
+        "families": ["Speedster", "Addict", "Foil", "Plasma"],
+        "levels": r"RC|Gravel",
+    },
+}
+
+
+def level_parts(brand, name):
+    """(model, level, build) of a LEVEL_BRANDS name: "Teammachine SLR 01 TWO" gives ("Teammachine", "SLR 01", "TWO"),
+    "Synapse Carbon 105 Disc" ("Synapse", "Carbon", "105"), "Addict RC Pro Frameset" ("Addict frameset", "RC",
+    "Pro"); a name of another family (name, None, None). A frameset is a model of its own, as for the other brands."""
+    rules = LEVEL_BRANDS[brand]
+    n = re.sub(r"\s+", " ", name or "").strip()
+    women = bool(re.search(r"\bWomen'?s\b", n))
+    n = re.sub(r"\s*\bWomen'?s\b", "", n)
+    frame = bool(re.search(r"\b(?:Frameset|Module)\b", n, re.I))
+    n = re.sub(r"\s*\b(?:Frameset|Module)\b", "", n, flags=re.I)
+    for pattern, spelled in rules["spelling"]:
+        n = re.sub(r"\s+", " ", re.sub(pattern, spelled, n)).strip()
+    family = next((f for f in sorted(rules["families"], key=len, reverse=True)
+                   if n.lower() == f.lower() or n.lower().startswith(f.lower() + " ")), None)
+    if not family:
+        return name, None, None
+    words = n[len(family):].split()
+    if "builds" in rules:
+        at = len(words)
+        while at and re.fullmatch(rules["builds"], words[at - 1], re.I):
+            at -= 1
+        level, build = words[:at], words[at:]
+    else:
+        at = 0
+        while at < len(words) and re.fullmatch(rules["levels"], words[at]):
+            at += 1
+        level, build = words[:at], words[at:]
+    build = " ".join(build + (["Women's"] if women else [])) or None
+    return family + (" frameset" if frame else ""), " ".join(level) or None, build
 
 
 def build_level(model):
     """The level a build starts with ("Expert" of Specialized's "Expert Ultegra Di2", "S-Works", Ridley's "RS"), which
     the model page puts first; None for other brands and a build without one."""
+    if model.get("brand") in LEVEL_BRANDS:
+        return level_parts(model["brand"], model["name"])[1]
+    if model.get("brand") == "Ridley":
+        return ridley_parts(model["name"])[1]
     levels = _LEVELS.get(model.get("brand"))
     if not levels:
         return None
@@ -667,10 +747,13 @@ def site_split(model):
         return bianchi_parts(model["name"])[:2]
     if model.get("brand") == "Specialized":
         return specialized_parts(model["name"])[:2]
-    name, build = split_build(model)
-    if model.get("brand") == "Ridley" and build and name in RIDLEY_LEVELS:
-        return RIDLEY_LEVELS[name], "RS " + build
-    return name, build
+    if model.get("brand") in LEVEL_BRANDS:
+        family, level, build = level_parts(model["brand"], model["name"])
+        return family, " ".join(p for p in (level, build) if p) or None
+    if model.get("brand") == "Ridley":
+        family, level, build = ridley_parts(model["name"])
+        return family, " ".join(p for p in (level, build) if p) or None
+    return split_build(model)
 
 
 def same_model(a, b):
@@ -689,7 +772,7 @@ def build_label(model):
     build = site_split(model)[1]
     if not build:
         return None
-    return re.sub(r"^(?:Shimano|SRAM|Campagnolo)\s+", "", build, flags=re.I)
+    return re.sub(r"(?:^|(?<=\s))(?:Shimano|SRAM|Campagnolo)\s+", "", build, flags=re.I)
 
 
 def is_frameset(model):
@@ -701,8 +784,10 @@ def _build_order(m):
     Specialized), then spec tier low to high, then price."""
     number = re.match(r"\d+", build_label(m) or "") if m["brand"] == "Trek" else None  # Bianchi's "105" is no number
     level = build_level(m)
-    first = _LEVELS[m["brand"]].index(level) + 1 if level else int(number.group()) if number else 0
-    return (first, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
+    first = _LEVELS[m["brand"]].index(level) + 1 if level and m["brand"] in _LEVELS else int(number.group()) if number else 0
+    # Specialized's generations are in the build ("Expert SL8 Ultegra Di2"): the newest first within a level
+    gen = re.search(r"\bSL(\d)\b", build_label(m) or "") if m["brand"] == "Specialized" else None
+    return (first, -int(gen.group(1)) if gen else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
 
 
 def _representative(entries):
@@ -718,16 +803,18 @@ def _representative(entries):
     return min(entries, key=rank)
 
 
-def builds_of(model, models):
+def builds_of(model, models, split=None):
     """Every build of this entry's model, one entry each (a build of several generations or editions is one), in
-    the switcher's order; [] for a model without builds and for a frameset."""
-    base, build = site_split(model)
+    the switcher's order; [] for a model without builds and for a frameset. The site groups by site_split; the
+    matching passes split=split_build, its own narrower models (the Noah Fast 3.0 apart from the Noah 3.0)."""
+    split = split or site_split
+    base, build = split(model)
     if model.get("brand") not in SITE_BUILD_BRANDS or (not build and not base):
         return []
-    same = [m for m in models if m["brand"] == model["brand"] and site_split(m)[0] == base]
+    same = [m for m in models if m["brand"] == model["brand"] and split(m)[0] == base]
     by_label = {}
     for m in same:
-        by_label.setdefault(build_label(m) or "", []).append(m)
+        by_label.setdefault((build_label(m) if split is site_split else split(m)[1]) or "", []).append(m)
     if len(by_label) < 2 and not build:
         return []
     return sorted((_representative(entries) for entries in by_label.values()), key=_build_order)
@@ -3325,7 +3412,7 @@ def build_choice(chosen, models, claims, listing, by_hand=False):
     "frame_only": the ad sells only the frame}."""
     if not chosen or chosen.get("brand") not in BUILD_BRANDS:
         return None
-    builds = builds_of(chosen, models)
+    builds = builds_of(chosen, models, split=split_build)
     if len(builds) < 2:
         return None
     text = f"{listing.get('title') or ''} {listing.get('description') or ''}"

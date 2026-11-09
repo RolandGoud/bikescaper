@@ -968,12 +968,13 @@ def create_app(db_path=None):
         builds = [dict(b, tier=checks.model_tier(b)) for b in checks.builds_of(model, models())]
         # Builds named level + groupset (Specialized's "Expert Ultegra Di2"): the levels first, and only the picked
         # level's groupsets, so a model with many builds doesn't show them all at once. The bike's own level is open.
-        levels = []
+        by_level = {}
         for b in builds:
-            level = checks.build_level(b) or ""
-            if not levels or levels[-1][0] != level:
-                levels.append((level, []))
-            levels[-1][1].append(b)
+            by_level.setdefault(checks.build_level(b) or "", []).append(b)
+        # a brand with a fixed ladder of levels keeps the builds' order (Sport, Comp, ...); others go cheapest first
+        levels = list(by_level.items())
+        if model["brand"] in checks.LEVEL_BRANDS or model["brand"] == "Ridley":
+            levels.sort(key=lambda lv: min((b["price_eur"] or 1e9) for b in lv[1]))
         levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
         siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))
