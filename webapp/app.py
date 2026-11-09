@@ -828,10 +828,10 @@ def create_app(db_path=None):
                  for m in models() if (not q or q in m["name"].lower())
                  and (not groupset or groupset_key(m) == groupset)]
         items = [m for m in items if not current or m["status"] == "current"]
-        items = model_tiles(items)
+        items = model_tiles(items, tier)
         # each brand's count in the brand menu: what picking it would show with the other filters kept
         brand_counts = Counter(m["brand"] for m in items
-                               if (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind))
+                               if (not tier or has_tier(m, tier)) and (not kind or m["discipline"] == kind))
         items = [m for m in items if not picked or m["brand"] in picked]
         # the Model menu: the models of the picked brand with all their
         # generations together ("Madone SL 7"), under their line ("Madone"), which can be picked as a whole too.
@@ -839,7 +839,7 @@ def create_app(db_path=None):
         lines = {}
         for m in items:
             m["line"], m["group"] = checks.model_line(m["name"]), checks.model_group(m["name"], m["brand"])
-            fits = (not tier or m["tier"] == tier) and (not kind or m["discipline"] == kind)
+            fits = (not tier or has_tier(m, tier)) and (not kind or m["discipline"] == kind)
             entry = lines.setdefault(checks.line_key(m["line"]), {"names": Counter(), "count": 0, "models": {}})
             entry["names"][m["line"]] += 1
             entry["count"] += fits
@@ -866,14 +866,16 @@ def create_app(db_path=None):
             items = [m for m in items if checks.line_key(m["line"]) == model]
         elif picked_model:
             items = [m for m in items if group_key(m) == model]
-        tier_counts = {t: sum(1 for m in items if m["tier"] == t and (not kind or m["discipline"] == kind))
+        tier_counts = {t: sum(1 for m in items if has_tier(m, t) and (not kind or m["discipline"] == kind))
                        for t in TIERS}
-        items = [m for m in items if not tier or m["tier"] == tier]
+        # "All tiers": every tile with a tier once, though a model with builds of several tiers is in each of them
+        tier_total = sum(1 for m in items if any(has_tier(m, t) for t in TIERS) and (not kind or m["discipline"] == kind))
+        items = [m for m in items if not tier or has_tier(m, tier)]
         counts = {key: sum(1 for m in items if m["discipline"] == key) for key, _label in DISCIPLINES + OTHER}
         items = [m for m in items if not kind or m["discipline"] == kind]
         matched = matched_ads(conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall(), models())
         for m in items:
-            m["matched"] = len(matched.get(m["id"], []))
+            m["matched"] = sum(len(matched.get(i, [])) for i in m.get("ids") or [m["id"]])  # a model's every build
         groups = [(key, label, sorted((m for m in items if m["discipline"] == key),
                                       key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))
                   for key, label in DISCIPLINES + OTHER]
@@ -883,7 +885,7 @@ def create_app(db_path=None):
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=DISCIPLINES, brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                model=model, model_menu=model_menu,
-                               tier=tier, tier_counts=tier_counts, groupset=groupset, groupset_name=groupset_name,
+                               tier=tier, tier_counts=tier_counts, tier_total=tier_total, groupset=groupset, groupset_name=groupset_name,
                                nav="models", sponsored=offers(("side",), tiles=True))
 
     def groupset_key(model):
@@ -926,28 +928,36 @@ def create_app(db_path=None):
                                shops=groupset_shops.links(groupset_shops.load(app.config["GROUPSET_SHOPS_PATH"]), gen),
                                nav="groupsets")
 
+    def has_tier(m, tier):
+        """Whether a tile has a build of this spec tier."""
+        return tier in (m.get("tiers") or {m["tier"]})
+
     def group_key(m):
         """The Model menu's key for an entry's model. A model named like its line (Trek's "Boone", from "Boone 5")
         gets its own key, so that "All Boone" (with the Boone frameset) and "Boone" stay two options."""
         key = checks.line_key(m["group"])
         return key + "-model" if key == checks.line_key(m["line"]) else key
 
-    def model_tiles(items):
-        """One tile per model for a brand that lists every build (and Trek every generation) as its own entry: its
-        cheapest build, with the number of builds. Other entries stay as they are."""
-        tiles, labels = {}, {}
-        # the build on sale before an older generation or a sold-out one, then the cheapest
+    def model_tiles(items, tier=None):
+        """One tile per model for a brand that lists every build (and Trek every generation) as its own entry: a
+        build on sale, of the picked spec tier if there is one, then the cheapest; with the number of builds and
+        every build's tier (the tier filter keeps a model that has a build of that tier) and id (its ads are the
+        model's). Others stay as they are."""
+        tiles, labels, tiers, ids = {}, {}, {}, {}
         def tile_rank(m):
-            return (checks.catalogue_status(m)[0] != "current", m["price_eur"] or 1e9)
+            return (bool(tier) and m["tier"] != tier, checks.catalogue_status(m)[0] != "current", m["price_eur"] or 1e9)
         for m in items:
             if m["brand"] not in checks.SITE_BUILD_BRANDS:
                 tiles[("", m["id"])] = m
                 continue
             key = (m["brand"], checks.site_split(m)[0])
             labels.setdefault(key, set()).add(checks.build_label(m) or "")
+            tiers.setdefault(key, set()).add(m.get("tier"))
+            ids.setdefault(key, []).append(m["id"])
             if key not in tiles or tile_rank(m) < tile_rank(tiles[key]):
                 tiles[key] = m
-        return [dict(m, build_count=len(labels[key])) if key in labels else m for key, m in tiles.items()]
+        return [dict(m, build_count=len(labels[key]), tiers=tiers[key], ids=ids[key]) if key in labels else m
+                for key, m in tiles.items()]
 
     @app.route("/models/<slug>")
     def model_page(slug):

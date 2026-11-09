@@ -90,3 +90,15 @@ def test_model_tile_is_a_build_on_sale(tmp_path):
         siblings = [m for m in trek if checks.site_split(m)[0] == checks.site_split(tile)[0]]
         if any(checks.catalogue_status(m)[0] == "current" for m in siblings):
             assert checks.catalogue_status(tile)[0] == "current", slug
+
+
+def test_all_tiers_counts_each_model_once(tmp_path):
+    # a Trek model with builds of several tiers is under each of those tiers, but "All tiers" counts it once
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    html = app.test_client().get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True)
+    menu = re.search(r'<select name="tier".*?</select>', html, re.S).group(0)
+    total = int(re.search(r'data-label="All tiers" data-count="(\d+)"', menu).group(1))
+    per_tier = [int(n) for n in re.findall(r'data-tier="\d" data-label="[^"]+" data-count="(\d+)"', menu)]
+    # (a model without a known tier is in none of them)
+    assert max(per_tier) <= total <= len(_cards(html)) and total < sum(per_tier)
