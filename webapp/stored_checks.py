@@ -143,6 +143,16 @@ def delete_old(conn, photo_folder):
     return len(ids)
 
 
+def delete(conn, photo_folder, check_id):
+    """Delete one check altogether, by hand from the report's edit mode: its row, its stored report and its folder
+    (the ad's photos and what was read from them). Returns whether it was there."""
+    shutil.rmtree(os.path.join(photo_folder, str(check_id)), ignore_errors=True)
+    conn.execute("DELETE FROM check_results WHERE check_id = ?", (check_id,))
+    gone = conn.execute("DELETE FROM checks WHERE id = ?", (check_id,)).rowcount
+    conn.commit()
+    return bool(gone)
+
+
 def computed_at(conn, check_id):
     """When the stored report of this check was worked out (UTC, 'YYYY-MM-DD HH:MM:SS'), or None."""
     row = conn.execute("SELECT computed_at FROM check_results WHERE check_id = ?", (check_id,)).fetchone()

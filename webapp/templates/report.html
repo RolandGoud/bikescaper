@@ -524,6 +524,20 @@
     {% if checked_at and checked_at[:10] != listing.created_at[:10] %}{{ _('Report worked out on {when} with the matching of that day, still as of the check date.', when=checked_at[:10]) }}{% endif %}
     <button class="link-button" type="submit">{{ _('Run this check again') }}</button>
   </form>
+  {% if edit and is_admin() %}
+  {# Apart from the rest of the edit mode, at the very end: delete the whole check. It opens first, then needs a
+     ticked box before the button does anything (app.py delete_check). #}
+  <section class="ed-danger" id="delete-check">
+    <details>
+      <summary>🗑 {{ _('Delete this check') }}</summary>
+      <form method="post" action="{{ url_for('delete_check', check_id=listing.id) }}">
+        <p>{{ _('This deletes check {id} altogether: the check, its report and the photos kept from the ad. It disappears from the listings and the statistics, and can\'t be undone.', id=listing.id) }}</p>
+        <label class="ed-check"><input type="checkbox" name="confirm" value="{{ listing.id }}" required> {{ _('Yes, delete check {id}', id=listing.id) }}</label>
+        <button class="ed-delete" type="submit">{{ _('Delete for good') }}</button>
+      </form>
+    </details>
+  </section>
+  {% endif %}
 </main>
 {% if listing.photos %}
 {# Clicking an ad photo, or the slider, opens them all here; without JS the links open the photo itself. #}

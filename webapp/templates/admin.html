@@ -25,6 +25,7 @@
 {% set brand_name = {} %}
 {% for k in stats.brands %}{% if brand_name.update({k: _('unknown') if k == '?' else _('Other') if k == 'other' else k}) %}{% endif %}{% endfor %}
 <main class="wrap page admin">
+  {% if deleted %}<p class="ok" role="status" style="font-weight: 600">{{ _('Done: check {id} is deleted.', id=deleted) }}</p>{% endif %}
   <div class="admin-head"><h1>{{ _('Statistics') }}</h1>
     {% if is_admin() %}<form method="post" action="{{ url_for('admin_logout') }}"><input type="hidden" name="next" value="{{ url_for('admin') }}"><button class="pill small-pill" type="submit">{{ _('Log out') }}</button></form>
     {% else %}<a class="pill small-pill" href="{{ url_for('admin_login', next=url_for('admin')) }}">{{ _('Log in to correct checks') }}</a>{% endif %}</div>

@@ -703,6 +703,17 @@ def create_app(db_path=None):
         conn().commit()
         return redirect(url_for("report", check_id=check_id, edit=1) + "#" + {"main_photo": "ad-photos"}.get(field, "edit-" + field))
 
+    @app.route("/check/<int:check_id>/delete", methods=["POST"])
+    @admin_only
+    def delete_check(check_id):
+        """Delete the whole check, from the report's edit mode: the check, its stored report and its photos. The form
+        sends the check's number back as `confirm` (a ticked box), so a stray post deletes nothing."""
+        if request.form.get("confirm", type=int) != check_id:
+            abort(400)
+        if not stored_checks.delete(conn(), ad_photos.folder(app.config["DB_PATH"]), check_id):
+            abort(404)
+        return redirect(url_for("admin", deleted=check_id))
+
     @app.route("/check/<int:check_id>/recheck", methods=["POST"])
     def recheck_report(check_id):
         """Run this check again with today's matching and catalogue, e.g. after the matching changed,
@@ -1256,7 +1267,8 @@ def create_app(db_path=None):
         return render_template("admin.html", stats=stats, ranked=ranked, nav=None,
                                photos=photo_counts.overview(models(), GALLERIES),
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
-                               dropped=request.args.get("dropped", type=int), first_year=checks.FIRST_YEAR,
+                               dropped=request.args.get("dropped", type=int),
+                               deleted=request.args.get("deleted", type=int), first_year=checks.FIRST_YEAR,
                                missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
 
     @app.route("/check/<int:check_id>/duo-side")
