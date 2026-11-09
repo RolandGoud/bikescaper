@@ -87,7 +87,7 @@ def test_model_page_lists_matched_ads_also_removed_ones(app):
     assert 'Matched ads <span class="muted count">2</span>' in page
     # Each row carries the check page's title, the matched bike; the ad's own title only as a tooltip.
     names = [part.split(">", 1)[1].split("<", 1)[0].strip() for part in page.split('<span class="ad-name"')[1:]]
-    assert names == ["Trek Domane SL 6 gen 4"] * 2
+    assert names == ["Trek Domane SL 6 (Gen 4)"] * 2  # the generation in brackets
     assert 'title="Original ad title: Trek Domane SL 6 Gen 4 rood"' in page and "Removed" in page
     assert "not in the asking price" in page  # the €50 one
     assert "Mooie racefiets" not in page

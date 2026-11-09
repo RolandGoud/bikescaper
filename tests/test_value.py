@@ -19,7 +19,7 @@ def test_an_estimate_is_saved_and_listed(client):
     assert response.status_code == 302 and "estimate=1" in response.headers["Location"]
     page = client.get(response.headers["Location"]).data.decode()
     assert "Earlier estimates" in page and "Shown above" in page
-    assert "Domane SL 6 gen 4" in page and "€2.500" in page and "Visible wear" in page
+    assert "Domane SL 6 (Gen 4)" in page and "€2.500" in page and "Visible wear" in page
     assert page.count('class="value-bar"') == 1  # the fair price with its bar, as there's an asking price
     client.post("/value", data={"brand": "Trek", "model": DOMANE})
     page = client.get("/value?lang=en").data.decode()
