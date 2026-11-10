@@ -213,7 +213,7 @@
         <a class="small" href="#spec-sheet">{{ _('All specs') }} ↓</a></div>
       {% endif %}
       <div class="model-foot">
-        <p class="small muted price-note" data-fact="price-note"></p>
+        {% set sp = m|shown_price %}<p class="small muted price-note" data-fact="price-note">{% if sp[0] and sp[1] %}{{ _('* For the new price of this model, year and colour we used an alternative source (the German list price in the TOUR/BIKE database), so we can\'t guarantee it is fully reliable.') }}{% endif %}</p>
         <a class="btn ghost product-link" href="{{ m.url }}" target="_blank" rel="noopener">{{ brand_label({'name': m.brand, 'logo': logos.get(m.brand)}) }} {{ _('Product page') }} <span aria-hidden="true">↗</span></a>
       </div>
     </div>

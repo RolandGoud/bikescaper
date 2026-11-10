@@ -270,3 +270,5 @@ def test_a_build_pill_shows_the_price_its_page_shows(tmp_path):
     assert four[-1] == "€1.949*" and "–" not in four
     # and the price tag says the same before any year is picked
     assert '<b data-fact="sticker">€1.949*</b>' in page
+    note = re.search(r'class="small muted price-note" data-fact="price-note">(.*?)</p>', page, re.S).group(1)
+    assert note.startswith("*")
