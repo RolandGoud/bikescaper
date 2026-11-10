@@ -277,6 +277,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["split_title"] = checks.split_title  # the name, year, size and colour in an ad title
     app.jinja_env.filters["model_base"] = lambda m: checks.site_split(m)[0]  # "Noah Fast 3.0", "Madone SL": no build
     app.jinja_env.filters["build_label"] = checks.build_label  # "Ultegra Di2 2x12"
+    app.jinja_env.filters["shown_price"] = checks.shown_price  # (price, german) on the price tag and the build pills
     app.jinja_env.filters["is_frameset"] = app.jinja_env.tests["is_frameset"] = checks.is_frameset
     app.jinja_env.filters["model_group"] = checks.model_group  # "Madone SL 6 Gen 8" -> "Madone SL 6", in the Model menu
     app.jinja_env.filters["line_key"] = checks.line_key
@@ -1014,7 +1015,8 @@ def create_app(db_path=None):
         if model is None:
             abort(404)
         # a model with builds: the switcher under its name, each build with its spec tier as its colour
-        builds = [dict(b, tier=checks.model_tier(b)) for b in checks.builds_of(model, models())]
+        # each build's price as its own page's price tag shows it (also the archive's or German list price)
+        builds = [dict(b, tier=checks.model_tier(b), shown=checks.shown_price(b)) for b in checks.builds_of(model, models())]
         # Builds named level + groupset (Specialized's "Expert Ultegra Di2"): the levels first, and only the picked
         # level's groupsets, so a model with many builds doesn't show them all at once. The bike's own level is open.
         by_level = {}

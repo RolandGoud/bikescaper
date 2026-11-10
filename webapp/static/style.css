@@ -724,6 +724,10 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .model-card .price-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .model-card .ad-count { flex: none; display: inline-flex; align-items: center; gap: 5px; font-weight: 700; color: var(--text); padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); }
 .model-card .ad-count svg { width: 13px; height: 13px; }
+/* the last line: the number of builds at the left, the ads tag in the tile's bottom-right corner;
+   the body fills the tile, so that line sits at the bottom also in a row of taller tiles */
+.model-card .body { flex: 1; }
+.model-card .foot-row { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
 /* Filter animation (models.js): a card that drops out fades where it was, underneath the cards gliding into place. */
 .model-grid .model-card { position: relative; z-index: 1; }
 .model-card.leaving { position: fixed; z-index: 0; margin: 0; pointer-events: none; }

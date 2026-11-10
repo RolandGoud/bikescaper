@@ -1043,6 +1043,17 @@ def _same(a, b):
         re.sub(r"\s+", " ", _plain(html.unescape(str(b)))).strip(" .")
 
 
+def shown_price(model):
+    """(price, german) the price tag shows for a model: its own list price, else the newest year's price we know
+    (from the archive, or the German list price as a fallback, then german is True); (None, False) when none."""
+    if model.get("price_eur"):
+        return model["price_eur"], False
+    for tab in reversed(year_tabs(model)):
+        if tab.get("price"):
+            return tab["price"], bool(tab.get("price_german"))
+    return None, False
+
+
 def year_tabs(model, today=None):
     """One tab per catalogue year from FIRST_SPEC_YEAR (or the model's earliest sheet) to this year, for
     the spec sheet on the model page.

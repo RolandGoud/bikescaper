@@ -24,7 +24,8 @@ def test_model_line_and_group():
 
 def _menu(html):
     menu = re.search(r'<select name="model".*?</select>', html, re.S).group(0)
-    return re.findall(r'<option value="([^"]+)" data-label="([^"]+)" data-count="(\d+)"', menu)
+    assert "data-count" not in menu  # no counts in the model menu
+    return re.findall(r'<option value="([^"]+)" data-label="([^"]+)"()', menu)
 
 
 def _cards(html):
@@ -38,9 +39,11 @@ def test_model_menu_lists_models_without_generations(tmp_path):
     menu = _menu(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True))
     labels = dict((k, label) for k, label, _n in menu)
     # the model is the family (SL and SLR are its levels), the frameset a model of its own
-    assert labels["madone"] == "All Madone" and labels["madone-model"] == "Madone" and "madone-sl" not in labels
+    # one flat list of models: no "All Madone" item for the line, no headings
+    assert labels["madone-model"] == "Madone" and "madone" not in labels and "madone-sl" not in labels
+    assert "<optgroup" not in client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True)
     assert "madone-frameset" not in labels  # the frameset is the Madone's last level
-    assert "domane-plus" in labels and not any("gen" in k for k in labels)
+    assert "domane-plus-model" in labels and not any("gen" in k for k in labels)
     # one Madone holds every level, build and generation: one tile
     sl = _cards(client.get("/models?brand=Trek&model=madone-model&current=0").get_data(as_text=True))
     assert len(sl) == 1 and "madone-" in sl[0] and "frameset" not in sl[0]
@@ -72,7 +75,7 @@ def test_model_named_like_its_line_keeps_its_own_option(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
     labels = dict((k, label) for k, label, _n in _menu(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True)))
-    assert labels["boone"] == "All Boone" and labels["boone-model"] == "Boone"
+    assert labels["boone-model"] == "Boone" and "boone" not in labels
     line = _cards(client.get("/models?brand=Trek&model=boone&current=0").get_data(as_text=True))
     model = _cards(client.get("/models?brand=Trek&model=boone-model&current=0").get_data(as_text=True))
     # the frameset is a build of the Boone now: one tile for the line and the model
@@ -128,3 +131,12 @@ def test_fitness_bikes_are_hidden(tmp_path):
     assert 'value="fitness"' not in page
     fitness = [m["slug"] for m in db.all_models(db.connect(path)) if checks.discipline_of(m) == "fitness"]
     assert fitness and not any(f'href="/models/{s}"' in page for s in fitness)
+
+
+def test_the_catalogue_has_no_search_field(tmp_path):
+    from webapp import db, seed
+    from webapp.app import create_app
+    path = str(tmp_path / "t.sqlite3")
+    seed.load(db.connect(path))
+    page = create_app(path).test_client().get("/models?lang=nl").get_data(as_text=True)
+    assert 'id="q"' not in page and 'class="search"' not in page
