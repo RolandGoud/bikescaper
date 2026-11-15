@@ -1084,7 +1084,7 @@ def create_app(db_path=None):
             or next((f for f in families if f["name"] == request.args.get("family")), None)
         def pic(ms):  # the photo a family or version card shows: a current, recent, top build with a photo
             ms = [m for m in ms if m.get("image")]
-            return max(ms, key=lambda m: (m.get("status") != "discontinued", m.get("model_year") or 0,
+            return max(ms, key=lambda m: (checks.catalogue_status(m)[0] != "discontinued", m.get("model_year") or 0,
                                           m.get("price_eur") or 0), default=None)
         for kind, fs in picker:
             for f in fs:
@@ -1106,8 +1106,7 @@ def create_app(db_path=None):
         kind = family["kind"] if family else request.args.get("type") if request.args.get("type") in kinds \
             else kinds[0] if len(kinds) == 1 else None
         types = [{"kind": k, "families": len(fs), "count": sum(f["count"] for f in fs),
-                  "pic": max((f["pic"] for f in fs if f["pic"]), default=None,
-                             key=lambda m: (m.get("status") != "discontinued", m.get("model_year") or 0))}
+                  "pic": pic([f["pic"] for f in fs if f["pic"]])}
                  for k, fs in picker]
         step = request.args.get("step")
         if step not in ("brand", "type", "family", "version", "height") or (step == "version" and not family) \
