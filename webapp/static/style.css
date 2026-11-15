@@ -953,6 +953,12 @@ select { max-width: 100%; }
 .card.market.split { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 28px; }
 .market-side { padding-right: 28px; border-right: 1px solid var(--line); }
 .market-side .facts { grid-template-columns: 1fr; }
+/* One dark block with a row per number, label left and amount right, so the column ends about level with the five ads. */
+.market-side .facts { gap: 0; padding: 4px 16px; background: var(--ground); border-radius: 12px; }
+.market-side .facts div { padding: 0; background: none; border-radius: 0; }
+.market-side .facts > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; }
+.market-side .facts > div + div { border-top: 1px solid var(--line); }
+.market-side .facts .v { font-size: 17px; }
 .market-side .asking > .row:first-child { flex-direction: column; align-items: flex-start !important; gap: 10px; }
 .card.market .other-ads { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 @media (max-width: 900px) {
