@@ -2,6 +2,7 @@
 title: Cannondale Topstone: gravelen van €1.299 tot €7.999
 date: 2026-11-15
 category: models
+model: Cannondale Topstone
 summary: Aluminium of carbon, met of zonder Lefty-vork: de Topstone-familie uitgelegd. En waarom gravelprijzen, anders dan racefietsprijzen, juist zakken.
 stat: −23%
 stat_label: Carbon 2 AXS in een jaar

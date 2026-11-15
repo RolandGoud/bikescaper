@@ -23,7 +23,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, articles, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
+from . import ad_gone, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -472,7 +472,9 @@ def create_app(db_path=None):
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
                 "periods": prices.PERIODS, "kind_labels": dict(DISCIPLINES + OTHER),
-                "covered": [b["name"] for b in BRANDS if b["scraper"]]}
+                "covered": [b["name"] for b in BRANDS if b["scraper"]],
+                # for the blog cards (_macros.html blog_cards) on the home page and in a report
+                "blog_categories": blog.CATEGORIES, "post_date": post_date, "minutes": blog.reading_minutes}
 
     app.jinja_env.globals["ad_spots"] = sponsored.spots
 
@@ -517,7 +519,7 @@ def create_app(db_path=None):
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
                                hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers(),
-                               stats=hero_stats(rows, ads), articles=articles.ARTICLES)
+                               stats=hero_stats(rows, ads), posts=blog.published(blog.load(), g.lang)[:3])
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
@@ -629,6 +631,7 @@ def create_app(db_path=None):
                                translated=translated,
                                checked_at=stored_checks.computed_at(conn(), check_id),
                                all_models=models(), asking=asking, nav="check", other_ads=other_ads,
+                               reads=blog.for_report(blog.load(), g.lang, result.get("model")),
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
     def neighbouring_checks(check_id):
