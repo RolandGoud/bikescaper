@@ -1374,6 +1374,7 @@ select { max-width: 100%; }
 .gen.here { background: var(--accent); border-color: var(--accent); color: var(--ink); }
 .gen.here .gen-facts { color: var(--ink); opacity: 0.75; }
 .gen.dim { opacity: 0.45; }
+.gen.off-path { opacity: 0.4; filter: grayscale(1); }
 .gen-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-weight: 600; }
 .gen-facts { font-family: var(--mono); font-size: 11px; color: var(--muted); }
 .yours { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-soft); }
