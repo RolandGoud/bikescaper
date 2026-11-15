@@ -2025,13 +2025,27 @@ def test_family_name_leaves_out_the_generation():
     assert checks.ad_condition("x\nConditie: Zo goed als nieuw\nFramemaat: L") == "Zo goed als nieuw"
 
 
-def test_the_ad_card_always_has_a_year_tile(tmp_path):
+def test_the_ad_card_leaves_out_tiles_the_ad_gives_nothing_for(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    client.post("/check", data={"title": "Trek Domane SL 6 maat 56", "asking_price": "2450"})
+    client.post("/check", data={"title": "Trek Domane SL 6 maat 56", "asking_price": "2450",
+                                "description": "Met Shimano Ultegra groep."})
     page = client.get("/check/1?lang=nl").data.decode()
-    assert '<span class="k">MODELJAAR</span><b class="muted">Niet vermeld</b>' in page
+    tiles = page[page.index('class="ad-tiles"'):page.index('class="ad-text"')]
+    assert "Niet vermeld" not in tiles and "MODELJAAR" not in tiles
+    assert '<span class="k">MAAT</span><b>56</b>' in tiles
+    # The groupset the ad names has its tile, also outside the edit mode.
+    assert re.search(r'<span class="k">GROEP</span><b>[^<]*Ultegra', tiles)
+
+
+def test_the_ad_groupset_is_the_one_the_photos_show_when_the_text_names_none(monkeypatch):
+    claims = {"groupset": None}
+    assert checks.ad_groupset(claims, None) is None
+    monkeypatch.setattr(checks, "photo_group", lambda read: {"name": "Shimano Ultegra", "electronic": True})
+    assert checks.ad_groupset(claims, {"any": 1}) == {"label": "Shimano Ultegra Di2", "from_photos": True}
+    said = {"groupset": {"label": "SRAM Force", "name": "SRAM Force", "electronic": False}}
+    assert checks.ad_groupset(said, {"any": 1}) == {"label": "SRAM Force", "from_photos": False}
 
 
 def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_last(tmp_path):

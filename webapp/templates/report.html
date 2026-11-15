@@ -84,10 +84,12 @@
   {% set ad_colour = r.ad_colour or (listing.title|split_title).colour %}
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
-  {# The year always has a tile, also when the ad doesn't give one. #}
-  {% if facts.append((_('Year'), c.year or _('Not stated'), 'year' if c.year else 'none')) %}{% endif %}
-  {% if c.size or edit %}{% if facts.append((_('Size'), c.size or _('Not stated'), 'size' if c.size else 'none')) %}{% endif %}{% endif %}
-  {% if edit %}{% if facts.append((_('Groupset'), c.groupset.label if c.groupset else _('Not stated'), 'groupset' if c.groupset else 'none')) %}{% endif %}{% endif %}
+  {# Only the facts the ad gives: a tile with nothing in it is left out, also in the edit mode, where the card's one
+     pencil sets the year, size and groupset. The groupset is the one the ad names, else the one its photos show. #}
+  {% set ad_group = r.ad_groupset if r.ad_groupset is defined else ({'label': c.groupset.label, 'from_photos': False} if c.groupset else None) %}
+  {% if c.year %}{% if facts.append((_('Year'), c.year, 'year')) %}{% endif %}{% endif %}
+  {% if c.size %}{% if facts.append((_('Size'), c.size, 'size')) %}{% endif %}{% endif %}
+  {% if ad_group %}{% if facts.append((_('Groupset'), ad_group.label, 'photos' if ad_group.from_photos else 'groupset')) %}{% endif %}{% endif %}
   {# The colour only when the ad names one; the colour we go by is in "Our match", where it can be set. #}
   {% if ad_colour %}{% if facts.append((_('Colour'), ad_colour, None)) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
@@ -148,8 +150,15 @@
     </div>
     {% endif %}
     <div class="ad-info">
-      {% if facts %}<div class="ad-tiles" style="--n: {{ facts|length }}">{% for label, value, kind in facts %}
-        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}{{ tile_lock(label) }}</div>{% endfor %}
+      {# At most four tiles a row, the rows as even as they go (five: three and two); with more than four, the
+         condition, which is the last one and often long, gets a row of its own under the others. #}
+      {% set wide = facts|length > 4 and condition %}
+      {% set rest = facts|length - (1 if wide else 0) %}
+      {% set rows = (rest + 3) // 4 %}{% set cols = ((rest + rows - 1) // rows) if rows else 1 %}
+      {% if facts %}<div class="ad-tiles" style="--n: {{ cols }}">{% for label, value, kind in facts %}
+        {% set i = loop.index0 %}
+        {% set short = cols - rest % cols if rest % cols else 0 %}
+        <div{% if wide and loop.last %} class="wide"{% else %} class="{{ 'below' if i >= cols }}{{ ' row-start' if i and i % cols == 0 }}{{ ' fill' if short and i == rest - 1 }}"{% if short and i == rest - 1 %} style="--span: {{ short + 1 }}"{% endif %}{% endif %}><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'photos' %} title="{{ _("From the ad's photos") }}"{% endif %}>{{ value }}</b>{% endif %}{{ tile_lock(label) }}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
