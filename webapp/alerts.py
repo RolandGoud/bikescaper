@@ -67,8 +67,16 @@ def sign_up(conn, email, model, scope="model", size=None, max_price=None, lang="
     asking again by accident, or to change the highest price, never turns off one that works."""
     scope = "family" if scope == "family" else "model"
     size = norm_size(size)
-    count = conn.execute("SELECT COUNT(*) FROM alerts WHERE lower(email) = lower(?)", (email,)).fetchone()[0]
-    if count >= PER_ADDRESS:
+    wanted = watches({"scope": scope, "size": size}, model)
+    others = 0
+    for other in conn.execute("SELECT * FROM alerts WHERE lower(email) = lower(?)", (email,)).fetchall():
+        other_model = db.get_model(conn, model_id=other["model_id"])
+        if other_model and watches(other, other_model) == wanted:
+            if not other["confirmed_at"]:
+                stop(conn, other["id"])  # an earlier request for the same, whose mail may never have come
+            continue  # a running one is replaced on confirming, so it doesn't count against the limit
+        others += 1
+    if others >= PER_ADDRESS:
         return None
     token = secrets.token_urlsafe(24)
     conn.execute("INSERT INTO alerts (email, model_id, scope, size, max_price, lang, site, token) "

@@ -178,3 +178,18 @@ def test_alert_mails_leave_the_visitors_mail_limit_alone(conn, monkeypatch):
     confirmed(conn, model(conn), size="56")
     alerts.run(conn, search=ads, send=lambda *a, **kw: calls.append(kw), pause=0)
     assert calls[0]["count"] is False
+
+
+def test_asking_again_at_the_limit_still_replaces(conn):
+    m = model(conn)
+    for size in ("50", "52", "54", "56", "58"):
+        confirmed(conn, m, size=size)
+    # Changing one of the five (or retrying a lost confirmation mail, twice) still works...
+    first = alerts.sign_up(conn, "rider@example.com", m, size="56", max_price=1400)
+    again = alerts.sign_up(conn, "rider@example.com", m, size="56", max_price=1400)
+    assert first and again and alerts.by_token(conn, first) is None  # the earlier request is replaced
+    assert conn.execute("SELECT COUNT(*) FROM alerts").fetchone()[0] == 6
+    alerts.confirm(conn, alerts.by_token(conn, again)["id"])
+    assert conn.execute("SELECT COUNT(*) FROM alerts").fetchone()[0] == 5
+    # ...but a sixth bike doesn't.
+    assert alerts.sign_up(conn, "rider@example.com", m, size="60") is None
