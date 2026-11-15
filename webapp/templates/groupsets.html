@@ -7,6 +7,11 @@
 {% macro facts(g) -%}
 {{ _('{n}-speed', n=g.speeds) }} · {{ _(shift_labels[g.shift]) }} · {{ brakes(g) }}
 {%- endmacro %}
+{# On a chart tile: speeds and brakes only, so the tiles stay narrow and the lines between them get room. No
+   "mechanical": the row label and the model name (Di2, AXS, eTap) already tell the shifting. #}
+{% macro short_facts(g) -%}
+{{ _('{n}-sp', n=g.speeds) }} · {{ _('rim/disc') if g.brakes|length > 1 else (_('disc') if g.brakes[0] == 'disc' else _('rim')) }}
+{%- endmacro %}
 {% macro path_card(g, p, show_effort=false) -%}
 <div class="path-card fit-{{ p.fit }}">
   <div class="row" style="justify-content: space-between; gap: 8px">
@@ -94,7 +99,7 @@
             {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
             <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% set ups = cross_upgrades(g.key) %}{% if ups %} data-up="{{ ups|join(' ') }}"{% endif %}{% set against = advised_against(g.key) %}{% if against %} data-against="{{ against|join(' ') }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}" href="{{ url_for('groupset_paths', brand=brand, type=kind) if here else url_for('groupset_paths', have=g.key) ~ '#paths' }}"{% if here %} title="{{ _('Click again to clear') }}"{% endif %}{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
               <span class="gen-top">{# The column's logo names the series: the tile shows only the model (6800, Di2 R8150). #}{% set short = g.name.startswith(s.name ~ ' ') %}<span class="gen-name">{% if short %}<span class="sr-only">{{ s.name }} </span>{{ g.name[s.name|length + 1:] }}{% else %}{{ g.name }}{% endif %}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% endif %}</span>
-              <span class="gen-facts">{{ facts(g) }}</span>
+              <span class="gen-facts" title="{{ facts(g) }}">{{ short_facts(g) }}</span>
             </a></li>
             {% endfor %}
           </ul>
