@@ -68,16 +68,20 @@ def sign_up(conn, email, model, scope="model", size=None, max_price=None, lang="
     scope = "family" if scope == "family" else "model"
     size = norm_size(size)
     wanted = watches({"scope": scope, "size": size}, model)
-    others = 0
+    # The limit counts the bikes an address watches, so a running alert and its pending replacement are one.
+    watched, earlier = set(), []
     for other in conn.execute("SELECT * FROM alerts WHERE lower(email) = lower(?)", (email,)).fetchall():
         other_model = db.get_model(conn, model_id=other["model_id"])
-        if other_model and watches(other, other_model) == wanted:
+        key = watches(other, other_model) if other_model else ("gone", other["id"])
+        if key == wanted:
             if not other["confirmed_at"]:
-                stop(conn, other["id"])  # an earlier request for the same, whose mail may never have come
-            continue  # a running one is replaced on confirming, so it doesn't count against the limit
-        others += 1
-    if others >= PER_ADDRESS:
+                earlier.append(other["id"])
+        else:
+            watched.add(key)
+    if len(watched) >= PER_ADDRESS:
         return None
+    for alert_id in earlier:  # an earlier request for the same, whose mail may never have come
+        stop(conn, alert_id)
     token = secrets.token_urlsafe(24)
     conn.execute("INSERT INTO alerts (email, model_id, scope, size, max_price, lang, site, token) "
                  "VALUES (?,?,?,?,?,?,?,?)", (email, model["id"], scope, size, max_price, lang, site, token))

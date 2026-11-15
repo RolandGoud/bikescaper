@@ -193,3 +193,11 @@ def test_asking_again_at_the_limit_still_replaces(conn):
     assert conn.execute("SELECT COUNT(*) FROM alerts").fetchone()[0] == 5
     # ...but a sixth bike doesn't.
     assert alerts.sign_up(conn, "rider@example.com", m, size="60") is None
+
+
+def test_a_pending_change_counts_as_the_alert_it_replaces(conn):
+    m = model(conn)
+    for size in ("50", "52", "54", "56"):
+        confirmed(conn, m, size=size)
+    alerts.sign_up(conn, "rider@example.com", m, size="56", max_price=1400)  # not confirmed yet
+    assert alerts.sign_up(conn, "rider@example.com", m, size="58")  # the fifth bike
