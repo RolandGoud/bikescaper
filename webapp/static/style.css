@@ -1275,9 +1275,9 @@ select { max-width: 100%; }
 .review-item[data-verdict="retake"] .verdict { background: var(--bad-bg); color: var(--bad); }
 .review-tip { font-weight: 600; }
 .review-flag { color: var(--warn); }
-.shot[data-verdict="improve"] { border-color: var(--warn); }
+.shot.done[data-verdict="improve"] { border-color: var(--warn); }
 .shot[data-verdict="improve"] .shot-ok { background: var(--warn); }
-.shot[data-verdict="retake"] { border-color: var(--bad); }
+.shot.done[data-verdict="retake"] { border-color: var(--bad); }
 .shot[data-verdict="retake"] .shot-ok { background: var(--bad); }
 @media (max-width: 560px) {
   .review-item { grid-template-columns: 84px 1fr; gap: 10px; }

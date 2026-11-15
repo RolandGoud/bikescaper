@@ -72,14 +72,15 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    if (button.disabled) return;  // a double click starts one review, not two
+    busy(true);
     window.sellPhotoSlots().then(function (photos) {
-      if (!photos.length) { say(form.dataset.tNone); return; }
+      if (!photos.length) { busy(false); say(form.dataset.tNone); return; }
       var data = new FormData(form), sent = {};
       photos.forEach(function (p) {
         data.append("shot-" + p.key, p.blob, p.key + ".jpg");
         sent[p.key] = URL.createObjectURL(p.blob);
       });
-      busy(true);
       body.hidden = true;
       say(form.dataset.tBusy);
       fetch(form.action, {method: "POST", body: data, headers: {"X-Requested-With": "fetch"}})
