@@ -30,7 +30,8 @@ GENERATIONS_NOTE = "Model years entered by hand from launch dates; not yet check
 # newest catalogue year falls in. Entered by hand from launch dates (a bike launched mid-year is sold as next
 # year's model), because our oldest spec sheet is often years after the real launch. Wins over GENERATIONS.
 LINEAGES = [
-    ("Specialized", r"\btarmac\b", [(2017, 2020, "sl6", "Tarmac SL6"), (2021, 2023, "sl7", "Tarmac SL7"),
+    ("Specialized", r"\btarmac\b", [(2009, 2011, "sl3", "Tarmac SL3"), (2012, 2014, "sl4", "Tarmac SL4"),
+                                    (2015, 2016, "sl5", "Tarmac SL5"), (2017, 2020, "sl6", "Tarmac SL6"), (2021, 2023, "sl7", "Tarmac SL7"),
                                     (2024, None, "sl8", "Tarmac SL8")]),
     ("Trek", r"\bemonda sl", [(2015, 2017, None, "Émonda (2015–2017)"), (2018, 2020, None, "Émonda (2018–2020)"),
                               (2021, None, None, "Émonda (2021–)")]),
