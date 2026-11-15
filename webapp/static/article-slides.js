@@ -15,8 +15,9 @@ document.querySelectorAll(".article-slides").forEach((box) => {
     i = (i + slides.length) % slides.length;
     track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
   };
+  let shown = 0;  // the slide in view, kept so a resize can put it back in place
   const update = () => {
-    const i = Math.min(current(), slides.length - 1);
+    const i = shown = Math.min(current(), slides.length - 1);
     dots.forEach((d, k) => d.setAttribute("aria-current", k === i ? "true" : "false"));
     upnextBtn.textContent = slides[(i + 1) % slides.length].querySelector("h3").textContent;
   };
@@ -31,6 +32,7 @@ document.querySelectorAll(".article-slides").forEach((box) => {
     if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
   });
   track.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
+  // after a resize the old scroll position can sit between two slides: line the slide that was in view up again
+  window.addEventListener("resize", () => { track.scrollTo({ left: shown * track.clientWidth, behavior: "instant" }); update(); });
   update();
 });
