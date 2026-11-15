@@ -2252,14 +2252,19 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .build-strip .ms-check small { display: block; -webkit-line-clamp: unset; overflow: visible; }
 /* The card's checks show the label and the value, large; the explanation is a tooltip over the row above (beside
    the frame check on wide screens, over the model, as the card's edge is above it), on hover, tap or keyboard focus. */
-.match-strip .ms-check { justify-content: center; gap: 6px; cursor: help; outline: none; }
+/* Every cell starts at the top, so the labels and the values line up across a row, whatever a value's length. */
+.match-strip .ms-check { justify-content: flex-start; gap: 6px; cursor: help; outline: none; }
 .match-strip .ms-check .k { font-size: 12px; }
 .match-strip .ms-check b { font-size: 21px; line-height: 1.2; gap: 10px; }
 .match-strip .ms-check b i { width: 22px; height: 22px; font-size: 13px; }
 .match-strip .ms-fact .sw { width: 18px; height: 18px; }
+/* A long value (a colour name) stays on one line on wide screens, two on phones; the tooltip names it in full. */
+.match-strip .ms-check b > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 980px) { .match-strip .ms-check b > span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; } }
+/* The tooltip in the site's tooltip style (as the price "i" bubble): body font, 14px, regular weight, normal case. */
 .match-strip .ms-check small { position: absolute; z-index: 3; left: 12px; right: 12px; bottom: calc(100% - 4px); display: block; -webkit-line-clamp: unset; overflow: visible;
-  padding: 8px 11px; border-radius: 8px; background: var(--raised); border: 1px solid var(--line-strong); box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
-  color: var(--text); font-size: 13px; line-height: 1.4; opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity .15s, transform .15s, visibility .15s; pointer-events: none; }
+  padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line-strong); box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+  color: var(--text); font: 400 14px/1.4 var(--body); letter-spacing: normal; text-transform: none; text-align: left; opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity .15s, transform .15s, visibility .15s; pointer-events: none; }
 .match-strip .ms-check:hover small, .match-strip .ms-check:focus-visible small, .match-strip .ms-check:focus small { opacity: 1; visibility: visible; transform: none; }
 .match-strip .ms-check:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
 @media (min-width: 981px) { .match-strip > .ms-check small { left: auto; right: calc(100% - 8px); bottom: auto; top: 10px; width: min(360px, 90%); transform: translateX(4px); } }
