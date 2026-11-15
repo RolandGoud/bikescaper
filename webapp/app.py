@@ -22,7 +22,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -670,6 +670,14 @@ def create_app(db_path=None):
 
     app.jinja_env.globals["account"] = account
 
+    def live_updates():
+        """The NAS's recent updates, for the admin's "Just live" note (base.html); [] for everyone else."""
+        return updates.recent(app.config["DB_PATH"]) if is_admin() else []
+
+    app.jinja_env.globals["live_updates"] = live_updates
+    app.jinja_env.globals["live_updating"] = lambda: updates.updating(app.config["DB_PATH"]) if is_admin() else None
+    app.jinja_env.globals["update_time"] = updates.when
+
     def admin_only(view):
         """The admin pages and their buttons: without a login, to the login page (a form post: refused)."""
         @functools.wraps(view)
@@ -680,6 +688,13 @@ def create_app(db_path=None):
                 abort(403)
             return redirect(url_for("admin_login", next=request.full_path.rstrip("?")))
         return wrapped
+
+    @app.route("/admin/live")
+    @admin_only
+    def live_status():
+        """The account menu's "installing / just live" part, for static/live-note.js to swap in while a page is open."""
+        db_path = app.config["DB_PATH"]
+        return render_template("_live_note.html", ups=updates.recent(db_path), upd=updates.updating(db_path))
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
     def change_match(check_id):
@@ -1451,7 +1466,8 @@ def create_app(db_path=None):
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
                                dropped=request.args.get("dropped", type=int),
                                deleted=request.args.get("deleted", type=int), first_year=checks.FIRST_YEAR,
-                               missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
+                               missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS,
+                               updates=updates.load(app.config["DB_PATH"])[:20])
 
     @app.route("/check/<int:check_id>/duo-side")
     def duo_side(check_id):

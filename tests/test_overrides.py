@@ -113,7 +113,7 @@ def test_the_header_has_a_login_icon_and_once_logged_in_an_account_menu(tmp_path
     assert 'class="account-login"' in page and "/admin/login" in page and 'id="account-menu"' not in page
     login(client)
     page = client.get("/?lang=en").get_data(as_text=True)
-    assert 'id="account-menu"' in page and "Admin</button>" in page
+    assert 'id="account-menu"' in page and "</svg>Admin<span class=\"live-spin\"" in page
     assert 'href="/admin"' in page and "Log out" in page and 'class="account-login"' not in page
 
 
