@@ -31,6 +31,8 @@
   --mono: "IBM Plex Mono", monospace;
 }
 * { box-sizing: border-box; }
+/* Always keep room for the vertical scrollbar, so a page that grows (picking a group on /groupsets) does not jump sideways. */
+html { scrollbar-gutter: stable; }
 body { margin: 0; background: var(--ground); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.45; }
 a { color: var(--link); }
 a:hover { color: var(--link-hover); }
