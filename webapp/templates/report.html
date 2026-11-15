@@ -33,8 +33,22 @@
 </details>
 {%- endmacro %}
 {% macro lock(field) %}{% if field in r.locked %}<span class="ed-lock" title="{{ _('Set by hand: kept when the check runs again') }}">🔒</span>{% endif %}{% endmacro %}
+{% macro check_nav() -%}
+{# Step to the check before or after this one, in the order of the "Every check" list (newest first). At either end
+   the link is shown greyed out, so the pair keeps its place. An admin in edit mode stays in edit mode. #}
+<nav class="check-nav" aria-label="{{ _('Other checks') }}">
+  {% if neighbours.prev %}<a href="{{ url_for('report', check_id=neighbours.prev, edit=1 if edit else none) }}" rel="prev" title="{{ _('Check #{id}', id=neighbours.prev) }}">‹ {{ _('Previous check') }}</a>
+  {% else %}<span aria-disabled="true" title="{{ _('This is the newest check') }}">‹ {{ _('Previous check') }}</span>{% endif %}
+  <a href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
+  {% if neighbours.next %}<a href="{{ url_for('report', check_id=neighbours.next, edit=1 if edit else none) }}" rel="next" title="{{ _('Check #{id}', id=neighbours.next) }}">{{ _('Next check') }} ›</a>
+  {% else %}<span aria-disabled="true" title="{{ _('This is the oldest check') }}">{{ _('Next check') }} ›</span>{% endif %}
+</nav>
+{%- endmacro %}
 <main class="wrap page">
-  <div class="crumbs"><a href="{{ url_for('listings') }}">{{ _('Listings') }}</a> / {{ _('Check report') }}</div>
+  <div class="crumbs-row">
+    <div class="crumbs"><a href="{{ url_for('listings') }}">{{ _('Listings') }}</a> / {{ _('Check report') }}</div>
+    {{ check_nav() }}
+  </div>
 
   {# The heading in two blocks. "The ad" holds only what the ad itself says (plus the ad-and-catalogue slider): the
      model's name over the photo with the brand's logo and the seller's own title, the asking price, the ad's photos,
@@ -527,6 +541,7 @@
     {% if checked_at and checked_at[:10] != listing.created_at[:10] %}{{ _('Report worked out on {when} with the matching of that day, still as of the check date.', when=checked_at[:10]) }}{% endif %}
     <button class="link-button" type="submit">{{ _('Run this check again') }}</button>
   </form>
+  <div class="crumbs-row foot">{{ check_nav() }}</div>
   {% if edit and is_admin() %}
   {# Apart from the rest of the edit mode, at the very end: delete the whole check. It opens first, then needs a
      ticked box before the button does anything (app.py delete_check). #}

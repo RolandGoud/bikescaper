@@ -271,6 +271,14 @@ textarea { padding: 12px 14px; height: auto; min-height: 120px; resize: vertical
 /* report */
 main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 28px; }
 .crumbs { font-size: 14px; color: var(--muted); }
+/* the crumbs with, on the right, the links to the check before and after this one */
+.crumbs-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; }
+.crumbs-row.foot { justify-content: flex-end; margin-top: -12px; }
+.check-nav { display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.check-nav a { text-decoration: none; }
+.check-nav a:hover { text-decoration: underline; }
+.check-nav span[aria-disabled] { color: var(--muted); opacity: .55; }
+@media (max-width: 640px) { .check-nav { width: 100%; justify-content: space-between; } .crumbs-row.foot { margin-top: 0; } }
 .badge { padding: 2px 8px; border-radius: 4px; background: var(--faint); font-weight: 600; }
 .listing-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
 .head-media { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
