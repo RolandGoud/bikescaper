@@ -723,8 +723,8 @@ def create_app(db_path=None):
                 value = int(value) if value.isdigit() and 1980 <= int(value) <= date.today().year + 1 else None
             elif field == "size":
                 value = value[:12] or None
-            elif field == "colour":  # one of the colourways of the model the check is matched to now
-                value = value if value in checks.colour_choices(checks.run_check(models(), listing_dict(row))["model"]) else None
+            elif field == "colour":  # a colourway of the model, or any colour typed by hand
+                value = value[:40] or None
             elif field == "groupset":
                 key, _sep, tier = value.partition(":")
                 value = {"key": key, "tier": int(tier) if tier.isdigit() else None,

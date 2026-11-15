@@ -2057,7 +2057,7 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .ed-pen { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--warn); background: var(--warn-bg); color: var(--warn); font-size: 14px; cursor: pointer; }
 .ed-pop[open] > .ed-pen { background: var(--warn); color: var(--ink); }
 .ed-form { position: absolute; z-index: 30; top: 34px; left: 0; width: min(300px, calc(100vw - 48px)); display: grid; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--warn); background: var(--card); box-shadow: 0 12px 30px rgba(0, 0, 0, .5); font: 400 14px var(--body); color: var(--text); text-transform: none; letter-spacing: 0; }
-.ed-form select { height: 42px; width: 100%; font-size: 15px; }
+.ed-form select, .ed-form input[type="text"] { height: 42px; width: 100%; font-size: 15px; }
 .ed-auto { font-size: 12px; color: var(--muted); }
 .ed-check { display: flex; gap: 8px; align-items: center; font-size: 14px; }
 .ed-check input { height: auto; }

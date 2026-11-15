@@ -67,14 +67,15 @@
 
   {# The ad's photos (a big one and the strip to pick it from), the facts the ad gives and its text, as cells of one card. #}
   {% set c = r.claims %}
-  {% set colour_said = r.colour_set or (r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour) %}
+  {% set colour_said = r.colour_set or r.colour_typed or (r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour) %}
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
   {# The year always has a tile, also when the ad doesn't give one. #}
   {% if facts.append((_('Year'), c.year or _('Not stated'), 'year' if c.year else 'none')) %}{% endif %}
   {% if c.size or edit %}{% if facts.append((_('Size'), c.size or _('Not stated'), 'size' if c.size else 'none')) %}{% endif %}{% endif %}
   {% if edit %}{% if facts.append((_('Groupset'), c.groupset.label if c.groupset else _('Not stated'), 'groupset' if c.groupset else 'none')) %}{% endif %}{% endif %}
-  {% if colour_said or (edit and edit.colours) %}{% if facts.append((_('Colour'), colour_said or _('Not stated'), None if colour_said else 'none')) %}{% endif %}{% endif %}
+  {# The colour too always has a tile, so it can be set by hand when the ad doesn't name one. #}
+  {% if facts.append((_('Colour'), colour_said or _('Not stated'), None if colour_said else 'none')) %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
   {% if condition %}{% if facts.append((_('Condition'), condition, None)) %}{% endif %}{% endif %}
   {% macro tile_editor(label) -%}
@@ -98,12 +99,14 @@
     <select name="value" required>{% for gs in edit.groupsets %}<option value="{{ gs.key }}:{{ gs.tier }}"{{ ' selected' if cur and cur.key == gs.key and cur.tier == gs.tier }}>{{ gs.name }}</option>{% endfor %}</select>
     <label class="ed-check"><input type="checkbox" name="electronic" value="1"{{ ' checked' if cur and cur.electronic }}> {{ _('Electronic (Di2, AXS, eTap, EPS)') }}</label>
     {% endcall %}
-  {% elif edit and field == 'colour' and edit.colours %}
-    {# The model's colourways, every year's: picking one also dates the bike, unless the year is set by hand too. #}
+  {% elif edit and field == 'colour' %}
+    {# The model's colourways, every year's, to pick from: picking one also dates the bike, unless the year is set by
+       hand too. Any other colour can be typed; it shows on the tile but doesn't date the bike. #}
     {% set a = edit.auto.photo_year.colour if edit.auto.photo_year and edit.auto.photo_year.colour else edit.auto.colourway.name if edit.auto.colourway else None %}
     {% call editor('colour', a or _('not stated')) %}
-    {% set current = r.colour_set or (r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None) %}
-    <select name="value" required>{% for c in edit.colours %}<option{{ ' selected' if c == current }}>{{ c }}</option>{% endfor %}</select>
+    {% set current = r.colour_set or r.colour_typed or (r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None) %}
+    <input type="text" name="value" required maxlength="40" value="{{ current or '' }}" list="colour-choices" placeholder="{{ _('Colour') }}" autocomplete="off">
+    {% if edit.colours %}<datalist id="colour-choices">{% for c in edit.colours %}<option value="{{ c }}">{% endfor %}</datalist>{% endif %}
     {% endcall %}
   {% endif %}
   {%- endmacro %}

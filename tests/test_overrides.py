@@ -92,7 +92,7 @@ def test_bad_values_are_refused(tmp_path, monkeypatch):
     app, client, url, check_id = setup(tmp_path, monkeypatch)
     login(client)
     for data in ({"field": "year", "value": "1890"}, {"field": "model", "value": "no-such-bike"},
-                 {"field": "groupset", "value": "nope:9"}, {"field": "colour", "value": "red"}):
+                 {"field": "groupset", "value": "nope:9"}, {"field": "colour", "value": "  "}):
         assert client.post(f"/check/{check_id}/override", data=data).status_code == 400
 
 
@@ -144,11 +144,28 @@ def test_a_colour_set_by_hand_wins_and_dates_the_bike(tmp_path, monkeypatch):
     other = next(y for y in sheets if y not in years)
     report = checks.run_check(models, dict(row, overrides={"colour": colour, "year": other}))
     assert report["year"]["year"] == other and report["spec_year"] == other and report["colour_set"] == colour
-    # A colour another model has counts as not set.
-    assert checks.run_check(models, dict(row, overrides={"colour": "No Such Colour"}))["colour_set"] is None
+    # A colour the model doesn't have is shown as typed, but doesn't date the bike.
+    report = checks.run_check(models, dict(row, overrides={"colour": "No Such Colour"}))
+    assert report["colour_set"] is None and report["colour_typed"] == "No Such Colour"
 
 
-def test_the_colour_editor_takes_only_the_models_colourways(tmp_path, monkeypatch):
+def test_the_colour_tile_is_always_there_and_takes_any_colour(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    conn = db.connect(app.config["DB_PATH"])
+    # An ad that names no colour, matched to no model: the tile still shows, and the edit mode has its pencil.
+    conn.execute("UPDATE checks SET title = 'Racefiets te koop', description = '' WHERE id = ?", (check_id,))
+    conn.commit()
+    page = client.get(url + "?lang=en").get_data(as_text=True)
+    assert '<span class="k">COLOUR</span><b class="muted">Not stated</b>' in page
+    login(client)
+    assert 'id="edit-colour"' in client.get(url + "?edit=1&lang=en").get_data(as_text=True)
+    assert client.post(f"/check/{check_id}/override", data={"field": "colour", "value": "Mat petrol"}).status_code == 302
+    assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"colour": "Mat petrol"}
+    page = client.get(url + "?lang=en").get_data(as_text=True)
+    assert '<span class="k">COLOUR</span><b>Mat petrol</b>' in page
+
+
+def test_the_colour_editor_offers_the_models_colourways(tmp_path, monkeypatch):
     app, client, url, check_id = setup(tmp_path, monkeypatch)
     login(client)
     conn = db.connect(app.config["DB_PATH"])
