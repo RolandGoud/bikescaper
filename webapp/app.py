@@ -717,7 +717,7 @@ def create_app(db_path=None):
         if row is None:
             abort(404)
         field = request.form.get("field")
-        if field not in checks.OVERRIDE_KEYS and field not in ("all", "match"):
+        if field not in checks.OVERRIDE_KEYS and field not in ("all", "match", "ad"):
             abort(400)
         overrides = json.loads(row["overrides"] or "{}") or {}
         if field == "all":
@@ -734,32 +734,53 @@ def create_app(db_path=None):
             overrides["year"] = int(value) if value else None
             overrides["colour"] = (request.form.get("colour") or "").strip()[:40]
             overrides = {k: v for k, v in overrides.items() if v}
+        elif field == "ad":
+            # The ad card's one form: the year, size and groupset the ad gives, at once. One left on "automatic"
+            # (empty) goes back to the matching; anything else is locked. A bad value refuses the whole form.
+            for key in AD_FIELDS:
+                if key not in request.form:
+                    continue
+                raw = (request.form.get(key) or "").strip()
+                if not raw:
+                    overrides.pop(key, None)
+                    continue
+                value = override_value(key, raw, row)
+                if value is None:
+                    abort(400)
+                overrides[key] = value
         elif request.form.get("clear"):
             overrides.pop(field, None)
         else:
-            value = (request.form.get("value") or "").strip()
-            if field == "model":
-                value = value if any(m["slug"] == value for m in models()) else None
-            elif field == "year":
-                value = int(value) if value.isdigit() and 1980 <= int(value) <= date.today().year + 1 else None
-            elif field == "size":
-                value = value[:12] or None
-            elif field == "colour":  # a colourway of the model, or any colour typed by hand
-                value = value[:40] or None
-            elif field == "groupset":
-                key, _sep, tier = value.partition(":")
-                value = {"key": key, "tier": int(tier) if tier.isdigit() else None,
-                         "electronic": bool(request.form.get("electronic"))}
-                value = value if checks.groupset_claim(value) else None
-            elif field == "main_photo":
-                count = len(json.loads(row["photos"])) if row["photos"] else 0
-                value = int(value) if value.isdigit() and int(value) < count else None
+            value = override_value(field, (request.form.get("value") or "").strip(), row)
             if value is None:
                 abort(400)
             overrides[field] = value
         conn().execute("UPDATE checks SET overrides = ? WHERE id = ?", (json.dumps(overrides) if overrides else None, check_id))
         conn().commit()
         return redirect(url_for("report", check_id=check_id, edit=1) + "#" + {"main_photo": "ad-photos", "match": "edit-match"}.get(field, "edit-" + field))
+
+    # The values the ad card's one edit form sets together (field "ad").
+    AD_FIELDS = ("year", "size", "groupset")
+
+    def override_value(field, value, row):
+        """A value set by hand, checked: None when it isn't one `field` can take."""
+        if field == "model":
+            return value if any(m["slug"] == value for m in models()) else None
+        if field == "year":
+            return int(value) if value.isdigit() and 1980 <= int(value) <= date.today().year + 1 else None
+        if field == "size":
+            return value[:12] or None
+        if field == "colour":  # a colourway of the model, or any colour typed by hand
+            return value[:40] or None
+        if field == "groupset":
+            key, _sep, tier = value.partition(":")
+            claim = {"key": key, "tier": int(tier) if tier.isdigit() else None,
+                     "electronic": bool(request.form.get("electronic"))}
+            return claim if checks.groupset_claim(claim) else None
+        if field == "main_photo":
+            count = len(json.loads(row["photos"])) if row["photos"] else 0
+            return int(value) if value.isdigit() and int(value) < count else None
+        return None
 
     @app.route("/check/<int:check_id>/delete", methods=["POST"])
     @admin_only

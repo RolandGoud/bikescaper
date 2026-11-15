@@ -30,6 +30,8 @@ def test_only_a_logged_in_admin_can_correct_a_check(tmp_path, monkeypatch):
     assert login(client).status_code == 302
     page = client.get(url + "?edit=1&lang=en").data
     assert b"Edit mode" in page and b"edit-year" in page and b"edit-match" in page and b"edit-groupset" in page
+    # The ad card has one pencil for all its values, by its heading, like Our match: none on the tiles.
+    assert page.count(b'class="ed-pen"') == 2 and b'id="edit-ad"' in page
     client.post("/admin/logout")
     assert client.post(f"/check/{check_id}/override", data={"field": "year", "value": "2020"}).status_code == 403
 
@@ -229,3 +231,24 @@ def test_an_admin_can_delete_a_whole_check(tmp_path, monkeypatch):
     assert client.get(url).status_code == 404
     assert "Klaar: check" in client.get(response.headers["Location"] + "&lang=nl").data.decode()
     assert client.post(f"/check/{check_id}/delete", data={"confirm": check_id}).status_code == 404
+
+
+def test_the_ad_card_sets_all_its_values_in_one_go(tmp_path, monkeypatch):
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    conn = db.connect(app.config["DB_PATH"])
+    stored = lambda: json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0] or "{}")
+    data = {"field": "ad", "year": "2020", "size": "54", "groupset": "105:3", "electronic": "1"}
+    response = client.post(f"/check/{check_id}/override", data=data)
+    assert response.status_code == 302 and response.headers["Location"].endswith("#edit-ad")
+    assert stored() == {"year": 2020, "size": "54", "groupset": {"key": "105", "tier": 3, "electronic": True}}
+    # Left on automatic (empty), a value goes back to the matching; the others stay locked.
+    client.post(f"/check/{check_id}/override", data=dict(data, year=""))
+    assert stored() == {"size": "54", "groupset": {"key": "105", "tier": 3, "electronic": True}}
+    # The form shows what's locked as picked, and the automatic value for the rest.
+    page = client.get(url + "?edit=1&lang=en").get_data(as_text=True)
+    form = page.split('id="edit-ad"')[1].split("</details>")[0]
+    assert "<option selected>54</option>" in form and "Automatic: 2022" in form
+    # A bad value refuses the whole form.
+    assert client.post(f"/check/{check_id}/override", data=dict(data, year="1890")).status_code == 400
+    assert stored() == {"size": "54", "groupset": {"key": "105", "tier": 3, "electronic": True}}
