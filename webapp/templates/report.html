@@ -178,22 +178,9 @@
   <div class="block-head"><span>{{ _('Our match') }}</span>
   {% if edit %}
     <div class="ms-edit">{{ lock('model') }}
-      {# One form for the model, the model year and the colour; each can go back to the matching. #}
-      {% call editor('match', (edit.auto.model.brand ~ ' ' ~ edit.auto.model.name|model_title) if edit.auto.model else _('no model')) %}
-      <label class="ed-label">{{ _('Model') }}<select name="model">
-        <option value="">{{ _('Automatic') }}</option>
-        {% for m in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if edit.overrides.model == m.slug }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
-        <optgroup label="{{ _('All models') }}">{% for m in all_models if m not in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if edit.overrides.model == m.slug }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}</optgroup>
-      </select></label>
-      {% set a = edit.auto.year %}
-      <label class="ed-label">{{ _('Model year') }}<select name="year">
-        <option value="">{{ _('Automatic') }}{% if a %}: {{ a.year }}{% endif %}</option>
-        {% for y in edit.years %}<option value="{{ y }}"{{ ' selected' if y == edit.overrides.year }}>{{ y }}</option>{% endfor %}
-      </select></label>
-      {% set ac = edit.auto.photo_year.colour if edit.auto.photo_year and edit.auto.photo_year.colour else edit.auto.colourway.name if edit.auto.colourway else None %}
-      <label class="ed-label">{{ _('Colour') }}<input type="text" name="colour" maxlength="40" value="{{ edit.overrides.colour or '' }}" list="colour-choices" placeholder="{{ _('Automatic') }}{% if ac %}: {{ ac }}{% endif %}" autocomplete="off"></label>
-      {% if edit.colours %}<datalist id="colour-choices">{% for c in edit.colours %}<option value="{{ c }}">{% endfor %}</datalist>{% endif %}
-      {% endcall %}
+      {# The pencil opens the match picker: the catalogue's photos, colours and parts of each model year, to pick
+         the model, the model year and the colour at once; each can go back to the matching. #}
+      <div class="ed-pop" id="edit-match"><button type="button" class="ed-pen" aria-label="{{ _('Change') }}" aria-haspopup="dialog" aria-controls="match-picker" data-open-picker{{ ' data-open-now' if request.args.get('open') == 'match' }}>✎</button></div>
     </div>
     {% endif %}
   </div>
@@ -625,6 +612,54 @@
 </dialog>
 <script src="{{ url_for('static', filename='lightbox.js') }}" defer></script>
 <script src="{{ url_for('static', filename='photo-strip.js') }}" defer></script>
+{% endif %}
+{% if edit and edit.picker %}{% set pk = edit.picker %}
+{# The match picker, a page overlay for the "Our match" pencil (static/match-picker.js fills it from the data). #}
+<dialog class="pk" id="match-picker" aria-labelledby="pk-title">
+  <form class="pk-box" method="post" action="{{ url_for('set_override', check_id=listing.id) }}">
+    <input type="hidden" name="field" value="match">
+    <input type="hidden" name="model" value="{{ pk.set.model }}">
+    <input type="hidden" name="year" value="{{ pk.set.year }}">
+    <input type="hidden" name="colour" value="{{ pk.set.colour }}">
+    <div class="pk-head"><h2 id="pk-title">{{ _('Choose our match') }}</h2>
+      <span class="pk-ad">{{ _('Ad') }}: <b>{{ listing.title }}</b>{% if listing.asking_price %} · {{ listing.asking_price|eur }}{% endif %}</span>
+      <button class="pk-x" type="button" data-close aria-label="{{ _('Close') }}">×</button></div>
+    <div class="pk-body">
+      <div class="pk-rail">
+        <span class="pk-k">{{ _('Model') }}</span>
+        <div class="pk-models" role="listbox" aria-label="{{ _('Model') }}"></div>
+        <input class="pk-search" type="search" list="pk-all" placeholder="{{ _('Search another model') }}" aria-label="{{ _('Search another model') }}" autocomplete="off">
+        <datalist id="pk-all">{% for m in all_models %}<option value="{{ m.brand }} {{ m.name|model_title }}" data-slug="{{ m.slug }}">{% endfor %}</datalist>
+      </div>
+      <div class="pk-main">
+        <div class="pk-hero"><span class="pk-mark"></span><img alt=""></div>
+        <div class="pk-side">
+          <div><span class="pk-k pk-brand"></span><div class="pk-name"></div><p class="pk-note small muted" hidden></p></div>
+          <div><span class="pk-k">{{ _('Model year') }}</span>
+            <div class="pk-years"></div>
+            <select class="pk-other-year" aria-label="{{ _('Other year') }}"><option value="">{{ _('Other year') }}…</option>{% for y in pk.years %}<option value="{{ y }}">{{ y }}</option>{% endfor %}</select></div>
+          <div><span class="pk-k pk-colour-k"></span>
+            <div class="pk-colours"></div>
+            <input class="pk-other-colour" type="text" maxlength="40" list="pk-colour-choices" placeholder="{{ _('Other colour') }}" aria-label="{{ _('Other colour') }}" autocomplete="off">
+            {% if edit.colours %}<datalist id="pk-colour-choices">{% for c in edit.colours %}<option value="{{ c }}">{% endfor %}</datalist>{% endif %}</div>
+          <div class="pk-specs"><span class="pk-k pk-specs-k"></span><dl class="pk-parts"></dl></div>
+          <div class="pk-price-box"><span class="pk-k pk-price-k"></span><div class="pk-price"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pk-foot"><div class="pk-sel"><span class="pk-k">{{ _('Your choice') }}</span><b></b></div>
+      <span class="pk-buttons"><button class="pk-auto" type="submit" data-all-auto>{{ _('All automatic') }}</button>
+        <button class="pk-lock" type="submit">{{ _('Lock') }}</button></span></div>
+  </form>
+</dialog>
+<script type="application/json" id="match-picker-data">{{ dict(pk, t={
+  'automatic': _('Automatic'), 'auto_lc': _('automatic'), 'match': _('{pct}% match', pct='{pct}'),
+  'colour_in': _('Colour in {year}', year='{year}'), 'specs': _('Specs {year}', year='{year}'),
+  'price': _('New price {year}', year='{year}'), 'as_ad': _('as in the ad'),
+  'no_year': _('We have no catalogue data for {year}; this is {shown}.', year='{year}', shown='{shown}'),
+  'no_years': _('No model years of this model in the catalogue'), 'no_colours': _('No colours known for this year'),
+  'colour': _('Colour'), 'model_year': _('Model year')})|tojson }}</script>
+<script src="{{ url_for('static', filename='match-picker.js') }}" defer></script>
 {% endif %}
 <script src="{{ url_for('static', filename='ad-tiles.js') }}" defer></script>
 <script>
