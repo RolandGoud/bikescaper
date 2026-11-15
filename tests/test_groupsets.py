@@ -305,3 +305,13 @@ def test_tiles_show_the_model_and_cards_pick_brand_and_type(tmp_path):
     assert '<span class="gen-name"><span class="sr-only">Ultegra </span>6800</span>' in page
     assert 'class="brand-cards"' in page and 'class="bike-types"' in page and "filter-box" not in page
     assert "groepen</small>" in page and page.count('class="bike-icon"') == 3
+
+
+def test_tiles_show_only_speeds_and_brakes(tmp_path):
+    """Roland: less on a tile, so there is room for the lines; never "Mechanisch" (the row and name say it)."""
+    client = create_app(str(tmp_path / "app.sqlite3")).test_client()
+    for url in ("/groupsets?lang=nl", "/groupsets?brand=SRAM&type=mtb&lang=nl"):
+        page = client.get(url).data.decode()
+        tiles = [t.split("</span>")[0] for t in page.split('<span class="gen-facts"')[1:]]
+        assert tiles and all("Mechanisch" not in t.split(">", 1)[1] for t in tiles)
+    assert '>10-sp · velg/schijf</span>' in client.get("/groupsets?lang=nl").data.decode()
