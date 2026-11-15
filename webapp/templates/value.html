@@ -104,7 +104,7 @@
           {% if h.before %}
           <span class="badge updated" title="{{ _('A new estimate for the same bike came in right after this one, so it updated this one.') }}">{{ _('Updated {time}', time=h.row.updated_at[11:16]) }}</span>
           {% if h.changes %}<span class="muted small estimate-changes">{% for f in h.changes %}{{ labels[f] }} {{ shown_value(f, h.before[f]) }} → {{ shown_value(f, h.row[f]) }}{{ ' · ' if not loop.last }}{% endfor %}</span>{% endif %}
-          <form method="post" action="{{ url_for('value_split', estimate_id=h.row.id) }}"><button class="btn ghost sm" type="submit">{{ _('This was not an update') }}</button></form>
+          {% if can_split is none or h.row.id in can_split %}<form method="post" action="{{ url_for('value_split', estimate_id=h.row.id) }}"><button class="btn ghost sm" type="submit">{{ _('This was not an update') }}</button></form>{% endif %}
           {% endif %}
           {% if shown and h.row.id == shown.id %}<span class="badge">{{ _('Shown above') }}</span>{% endif %}
           <a class="open" href="{{ url_for('value', estimate=h.row.id) }}">{{ _('Open estimate') }} →</a>

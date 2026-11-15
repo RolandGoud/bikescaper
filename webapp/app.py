@@ -1276,6 +1276,13 @@ def create_app(db_path=None):
     ESTIMATE_FIELDS = ("year", "condition", "asking_price")
     REVISION_MINUTES = 10  # a new estimate this soon after the last one, for the same bike, revises it
 
+    def own_estimates():
+        """Estimates made or updated from this browser; only these can be split again (or the admin's)."""
+        return session.get("my_estimates", [])
+
+    def mark_own(*ids):
+        session["my_estimates"] = (own_estimates() + [i for i in ids if i not in own_estimates()])[-50:]
+
     def revision_of(inputs):
         """The estimate this browser made just before, when the new inputs look like a revision of it: the same
         model, at most two of year, condition and asking price changed, and within a few minutes of its last
@@ -1317,6 +1324,7 @@ def create_app(db_path=None):
                                  (inputs["model_id"], inputs["year"], inputs["condition"], inputs["asking_price"]))
             conn().commit()
             session["last_estimate"] = cur.lastrowid
+            mark_own(cur.lastrowid)
             return redirect(url_for("value", estimate=cur.lastrowid))
         by_id = {m["id"]: m for m in models()}
         rows = conn().execute("SELECT * FROM estimates ORDER BY id DESC").fetchall()
@@ -1348,6 +1356,7 @@ def create_app(db_path=None):
                             "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)})
         return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
                                asking=asking, result=result, shown=shown, history=history,
+                               can_split=set(own_estimates()) if not is_admin() else None,
                                this_year=date.today().year, nav="value")
 
     @app.post("/value/<int:estimate_id>/split")
@@ -1356,7 +1365,7 @@ def create_app(db_path=None):
         made at the time of that update, and the old one gets back what it had before."""
         row = conn().execute("SELECT * FROM estimates WHERE id = ?", (estimate_id,)).fetchone()
         revisions = json.loads(row["revisions"] or "[]") if row else []
-        if not revisions:
+        if not revisions or not (estimate_id in own_estimates() or is_admin()):
             return redirect(url_for("value", estimate=estimate_id if row else None))
         before = revisions.pop()
         cur = conn().execute("INSERT INTO estimates (created_at, model_id, year, condition, asking_price) VALUES (?,?,?,?,?)",
@@ -1366,6 +1375,7 @@ def create_app(db_path=None):
                         json.dumps(revisions) if revisions else None, estimate_id))
         conn().commit()
         session["last_estimate"] = cur.lastrowid  # a further tweak now revises the split-off one
+        mark_own(cur.lastrowid)
         return redirect(url_for("value", estimate=cur.lastrowid))
 
     def improved_examples(limit=5):

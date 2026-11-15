@@ -95,3 +95,13 @@ def test_a_different_bike_or_a_later_one_gets_its_own_entry(client):
     other = client.application.test_client()  # another visitor never revises yours
     other.post("/value", data=first | {"year": "2019", "condition": "damaged", "asking": "950"})
     assert len(estimates(client)[1]) == 4
+
+
+def test_only_its_own_browser_can_split_an_estimate(client):
+    first = {"brand": "Trek", "model": DOMANE, "year": "2023"}
+    client.post("/value", data=first)
+    client.post("/value", data=first | {"asking": "2000"})
+    other = client.application.test_client()
+    assert "This was not an update" not in other.get("/value?lang=en").data.decode()
+    other.post("/value/1/split")
+    assert len(estimates(client)[1]) == 1
