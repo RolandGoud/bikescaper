@@ -19,10 +19,10 @@
       <div><dt>{{ _('brands') }}</dt><dd>{{ stats.brands }}</dd></div>
       {% if stats.too_high is not none %}<div><dt>{{ _('ask more than the fair price') }}</dt><dd>{{ stats.too_high }}%</dd></div>{% endif %}
     </dl>
+    {% if hero_credit %}
+    <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
+    {% endif %}
   </div>
-  {% if hero_credit %}
-  <p class="hero-credit">{{ _('Photo') }}: <a href="{{ hero_credit.source }}" rel="noopener" target="_blank">{{ hero_credit.author }}</a> · <a href="{{ hero_credit.license_url }}" rel="noopener license" target="_blank">{{ hero_credit.license }}</a></p>
-  {% endif %}
 </section>
 
 {# Everything below the hero; on wide screens the side offer sits in the margin next to it. #}
