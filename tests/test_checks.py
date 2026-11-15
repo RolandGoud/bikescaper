@@ -752,7 +752,24 @@ def test_size_check_estimates_cm_sizes_the_chart_skips(models):
 def test_tab_headlines_are_short(models):
     older = checks.age_summary({"status": checks.UNKNOWN, "headline": checks.Msg("Probably older than we can check"),
                                 "detail": None, "older": True}, None)
-    assert en(older["tab_headline"]) == "Older than we know"
+    assert en(older["tab_headline"]) == "Older than we know"  # No year in the ad: the short headline stays.
+
+
+def test_the_age_tab_shows_just_the_year():
+    # Check 184: the pill already says watch out, so "Na de opvolger van dit ..." makes way for the year.
+    replaced = {"status": checks.WARN, "year": 2023, "headline": checks.Msg("After this model was replaced"),
+                "detail": checks.Msg("x")}
+    estimate = {"status": checks.OK, "headline": checks.Msg("y"), "detail": checks.Msg("z")}
+    tab = checks.age_summary(replaced, estimate, {"year": 2023, "how": "ad", "first": 2019, "last": 2021})
+    assert tab["tab_headline"] == "2023" and en(tab["headline"]).startswith("After this model was replaced")
+    older = dict(replaced, status=checks.UNKNOWN, older=True, headline=checks.Msg("Probably older than we can check"))
+    assert checks.age_summary(older, None)["tab_headline"] == "2023"
+    # A purchase year shows the model year; an ad without a year the year we go by.
+    ok = dict(replaced, status=checks.OK, year=2026, headline=checks.Msg("Adds up"))
+    assert checks.age_summary(ok, estimate, {"year": 2025, "how": "purchase", "first": 2025, "last": 2025})["tab_headline"] == "2025"
+    none = {"status": checks.WARN, "headline": checks.Msg("Year not stated"), "detail": checks.Msg("x")}
+    assert checks.age_summary(none, None, {"year": 2024, "how": "estimate", "first": 2022, "last": 2026})["tab_headline"] == "2024"
+    assert not checks.age_summary(none, None).get("tab_headline")
 
 
 def test_size_lines_group_builds_that_share_a_chart(models):
