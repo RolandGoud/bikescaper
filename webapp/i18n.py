@@ -1184,6 +1184,7 @@ NL = {
     "1x only. The 10-42 cassette needs an XD freehub.": "Alleen 1x. De 10-42-cassette heeft een XD-freehub nodig.",
     "1x gravel.": "1x gravel.",
     "1x11": "1x11",
+    "Click again to clear": "Klik nogmaals om te wissen",
     "1x only. The 11-44 cassette fits an HG freehub, the 10-44 needs XDR.": "Alleen 1x. De 11-44 cassette past op een HG-freehub, de 10-44 vraagt XDR.",
     "1x with a 10-51 cassette needs a Micro Spline freehub.": "1x met een 10-51 cassette vraagt een Micro Spline-freehub.",
     "AXS, wireless": "AXS, draadloos",

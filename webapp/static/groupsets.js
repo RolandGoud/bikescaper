@@ -242,7 +242,7 @@
     const link = e.target.closest("a.gen, .logo-pills a, .clear-pick");
     if (!link || !plain(e)) return;
     e.preventDefault();
-    const key = link.matches("a.gen") ? new URL(link.href).searchParams.get("have") : null;
+    const key = link.matches("a.gen") ? link.dataset.key : null;  // keep the clicked tile in place, also when it clears
     show(link.href.split("#")[0], true, key);
   });
   addEventListener("popstate", () => show(location.href, false));

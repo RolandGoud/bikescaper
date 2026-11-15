@@ -163,16 +163,16 @@ def test_downgrades_stay_with_the_brand_and_go_down():
 def test_series_show_their_logo_once_the_file_is_there(tmp_path):
     assert groupsets.logo_path({"name": "SX / NX Eagle"}) == "logos/groupsets/sx-nx-eagle.svg"
     app = create_app(str(tmp_path / "app.sqlite3"))
-    logo = os.path.join(app.static_folder, groupsets.logo_path({"name": "Claris"}))
+    logo = os.path.join(app.static_folder, groupsets.logo_path({"name": "SLX"}))
     assert not os.path.exists(logo)  # the test adds and removes it
-    page = app.test_client().get("/groupsets?lang=en").data.decode()
-    assert '<span class="step-name">Claris</span>' in page
-    assert 'aria-label="Dura-Ace"' in page  # a shipped logo
+    page = app.test_client().get("/groupsets?type=mtb&lang=en").data.decode()
+    assert '<span class="step-name">SLX</span>' in page
+    assert 'aria-label="XTR"' in page  # a shipped logo
     with open(logo, "w") as f:
         f.write("<svg xmlns='http://www.w3.org/2000/svg'/>")
     try:
-        page = app.test_client().get("/groupsets?lang=en").data.decode()
-        assert 'aria-label="Claris"' in page and "logos/groupsets/claris.svg" in page
+        page = app.test_client().get("/groupsets?type=mtb&lang=en").data.decode()
+        assert 'aria-label="SLX"' in page and "logos/groupsets/slx.svg" in page
     finally:
         os.remove(logo)
 
@@ -287,3 +287,11 @@ def test_one_by_variants_fit_a_one_by_frame():
     p = path(GENERATIONS["apex-11"], GENERATIONS["rival-1"])
     assert p["effort"] == 1 and p["fit"] == "ok"  # Rival 1 needs no front derailleur mount
     assert path(GENERATIONS["apex-11"], GENERATIONS["rival-22"])["fit"] == "check"
+
+
+def test_clicking_your_groupset_again_clears_it(tmp_path):
+    page = create_app(str(tmp_path / "app.sqlite3")).test_client().get("/groupsets?have=r7000&lang=nl").data.decode()
+    tile = page[page.index('data-key="r7000"'):]
+    tile = tile[:tile.index(">")]
+    assert 'href="/groupsets?brand=Shimano&amp;type=road"' in tile and "Klik nogmaals om te wissen" in tile
+    assert 'href="/groupsets?have=r8000#paths"' in page  # other tiles still pick
