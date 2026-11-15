@@ -358,7 +358,8 @@
 
 {# Without a heading the table stands in a section of its own, which carries the heading (the check page). #}
 {% macro compare_ads(ads, heading=none) -%}
-    {% set cols = [('year', _('Year')), ('groupset', _('Groupset')), ('wheels', _('Wheels')), ('price', _('Asking price'))] %}
+    {# The year and the asking price only: the list sits next to the second-hand numbers, where four columns don't fit. #}
+    {% set cols = [('year', _('Year')), ('price', _('Asking price'))] %}
     <div class="matched-ads ad-compare{{ ' own' if not heading }}" id="ads">
       {% if heading %}<h3>{{ heading }} <span class="muted count">{{ ads|length }}</span></h3>{% endif %}
       <p class="small muted">{{ _('Compared with this ad: what differs is marked. ≈ is a year we estimated.') }}</p>

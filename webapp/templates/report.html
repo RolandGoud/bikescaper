@@ -567,16 +567,16 @@
     {% endif %}
   </section>
 
-  {# What others ask for the model: the median, average and range of their asking prices, under the checks. #}
-  {% if asking %}
+  {# What others ask for the model, in one section: the median, average and range of their asking prices in a column
+     on the left, the other ads themselves on the right (live first, five a page). On a phone they stack. #}
+  {% if asking or other_ads %}
   <div class="block-head"><span>{{ _('What others ask for this model') }}</span></div>
-  <section class="card market">{{ asking_box(asking, compare=listing.asking_price) }}</section>
-  {% endif %}
-
-  {# The other ads for the same model, a section of its own under the checks, headed like "The ad" and "Our match". #}
-  {% if other_ads %}
-  <div class="block-head"><span><b class="count">{{ other_ads|length }}</b> {{ _('Other ads for this model') }}</span></div>
-  <section class="card other-ads">{{ compare_ads(other_ads) }}</section>
+  <section class="card market{{ ' split' if asking and other_ads }}">
+    {% if asking %}<div class="market-side">{{ asking_box(asking, compare=listing.asking_price) }}</div>{% endif %}
+    {% if other_ads %}<div class="other-ads">
+      <h3 class="other-ads-head"><b class="count">{{ other_ads|length }}</b> {{ _('other ads') }}</h3>
+      {{ compare_ads(other_ads) }}</div>{% endif %}
+  </section>
   {% endif %}
 
   {% if r.questions %}

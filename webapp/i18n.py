@@ -1389,6 +1389,7 @@ NL = {
     "Our match": "Onze match",
     "Our assessment": "Onze beoordeling",
     "What others ask for this model": "Wat anderen vragen voor dit model",
+    "other ads": "andere advertenties",
     "Placed on {date}": "Geplaatst op {date}",
     "the seller's title": "titel van de verkoper",
     "Open the photos": "Open de foto's",
