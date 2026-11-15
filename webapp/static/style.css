@@ -949,6 +949,18 @@ select { max-width: 100%; }
 .ad-compare.own { margin-top: 0; padding-top: 0; border-top: 0; }
 .ad-compare.own > p { margin: 0; }
 .value-how .value-chips { margin-top: 12px; }
+/* The check page's market section: the second-hand numbers in a column on the left, the other ads on the right. */
+.card.market.split { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 28px; }
+.market-side { padding-right: 28px; border-right: 1px solid var(--line); }
+.market-side .facts { grid-template-columns: 1fr; }
+.market-side .asking > .row:first-child { flex-direction: column; align-items: flex-start !important; gap: 10px; }
+.card.market .other-ads { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+@media (max-width: 900px) {
+  .card.market.split { grid-template-columns: 1fr; }
+  .market-side { padding: 0 0 20px; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+.other-ads-head { display: flex; align-items: baseline; gap: 8px; margin: 0; font-size: 18px; }
+.other-ads-head .count { color: var(--accent); }
 .block-head .count { font-weight: 700; color: var(--accent); }
 .compare-table tbody tr[hidden] { display: none; }
 .compare-table tbody tr[hidden] + tr { border-top: 0; }
@@ -963,9 +975,10 @@ select { max-width: 100%; }
 .compare-table thead th { font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); text-align: left; padding: 0 10px 8px; border-bottom: 1px solid var(--line); }
 .compare-table thead th:first-child { padding-left: 0; }
 .compare-table tbody tr + tr { border-top: 1px solid var(--line); }
-.compare-table tbody th { text-align: left; font-weight: inherit; padding: 10px 10px 10px 0; width: 38%; }
+.compare-table tbody th { text-align: left; font-weight: inherit; padding: 10px 10px 10px 0; width: 58%; }
 .compare-table td { padding: 10px; vertical-align: middle; min-width: 0; overflow-wrap: anywhere; }
 .compare-table td:last-child { text-align: right; padding-right: 0; }
+.compare-table thead th:last-child { text-align: right; padding-right: 0; }
 .compare-table .ad-cell { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); min-width: 0; }
 .compare-table a.ad-cell:hover .ad-name { text-decoration: underline; }
 .compare-table .v { display: block; font-weight: 600; }

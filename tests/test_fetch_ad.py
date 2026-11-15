@@ -478,7 +478,7 @@ def test_report_titles_the_matched_bike_and_lists_the_other_ads_for_it(tmp_path)
     assert '<h1><span class="sr-only">Giant </span>TCR <span class="acc">Advanced 2</span></h1>' in page
     assert "“Giant TCR Advanced 2 2021 maat M”" in page
     assert 'href="https://www.marktplaats.nl/v/a1"' in page and 'aria-label="Open de advertentie op Marktplaats"' in page
-    assert "Andere advertenties voor dit model" in page and 'href="/check/2"' in page
+    assert 'class="other-ads-head"' in page and 'href="/check/2"' in page
 
 
 def test_report_and_tiles_show_the_site_the_ad_was_found_on(tmp_path):
@@ -541,7 +541,7 @@ def test_report_compares_the_other_ads_on_year_parts_and_price(tmp_path):
     rows = table.split("<tr")  # newest first: 3, then 2
     other = next(r for r in rows if 'href="/check/2"' in r)
     assert "2 jaar nieuwer" in other and "€200 duurder" in other
-    assert other.count('class="differs"') == 3  # year, groupset and price; the wheels are the same
+    assert other.count('class="differs"') == 2  # year and price; the groupset and wheels columns aren't shown
     # An ad without a year gets an estimated one; the same price isn't marked.
     third = next(r for r in rows if 'href="/check/3"' in r)
     assert "≈" in third and "duurder" not in third and "goedkoper" not in third
@@ -574,7 +574,7 @@ def test_other_ads_are_their_own_section_live_first_five_a_page(tmp_path):
     conn.commit()
     page = app.test_client().get("/check/1?lang=nl").data.decode()
     assert "Onze beoordeling" in page and "Wat anderen vragen voor dit model" in page
-    assert '<b class="count">7</b> Andere advertenties voor dit model' in page
-    links = [page.index(f'href="/check/{n}"', page.index('class="card other-ads"')) for n in (7, 2, 8)]
+    assert '<b class="count">7</b> andere advertenties' in page
+    links = [page.index(f'href="/check/{n}"', page.index('class="other-ads"')) for n in (7, 2, 8)]
     assert links == sorted(links)  # newest live ad first, oldest live ad last, the expired one after them
     assert 'class="map-pager compare-pager"' in page and page.count('data-page=') >= 2
