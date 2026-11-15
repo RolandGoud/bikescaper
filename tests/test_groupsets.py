@@ -273,3 +273,11 @@ def test_a_negation_on_another_line_doesnt_count():
     assert checks.says_electronic("Shimano Ultegra Di2\nNo scratches") is True
     assert checks.says_electronic("Geen krassen\nUltegra Di2") is True
     assert checks.says_electronic("Ultegra Di2 nee") is True  # no colon: not the "Di2: nee" spec style
+
+
+def test_advised_against_lines_are_marked(tmp_path):
+    against = groupsets.advised_against("4700")  # Tiagra 10s on an HG body: 11-speed needs another freehub body
+    assert "r7000" in against and "r3000" not in against
+    assert all(path(GENERATIONS["4700"], GENERATIONS[k])["effort"] == 4 for k in against)
+    page = create_app(str(tmp_path / "app.sqlite3")).test_client().get("/groupsets?lang=nl").data.decode()
+    assert 'data-not-advised="Afgeraden"' in page and 'data-against="' in page
