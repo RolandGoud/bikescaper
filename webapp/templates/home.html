@@ -44,6 +44,32 @@
   </div>
 </section>
 
+{% if cards %}
+<section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
+  {# One row of cards; the counter and arrows next to the heading page through it (static/recent-row.js).
+     Without JS the row just scrolls sideways. The see-all pill sits outside .row-nav, after the arrows, so it stays
+     when every card fits and the arrows hide. #}
+  <div class="row-head">
+    <h2>{{ _('Recently checked') }}</h2>
+    <div class="row-tools">
+      <div class="row-nav" hidden>
+        <span class="row-count" aria-live="polite"></span>
+        <button class="nav-btn row-prev" type="button" aria-label="{{ _('Previous ads') }}">‹</button>
+        <button class="nav-btn row-next" type="button" aria-label="{{ _('Next ads') }}">›</button>
+      </div>
+      <a class="see-all" href="{{ url_for('listings') }}" aria-label="{{ _('Show all {count} checked ads', count=total) }}"><span class="see-all-long">{{ _('Show all {count}', count=total) }}</span><span class="see-all-short">{{ _('All {count}', count=total) }}</span></a>
+    </div>
+  </div>
+  <div class="recent-row">
+    {# The sponsored card goes third, after two real ones (last when there are fewer). #}
+    {% for row, r in cards %}{% if loop.index0 == 2 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}{{ listing_card(row, r) }}{% endfor %}
+    {% if cards|length < 3 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if sponsored.banner %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
+
 {% if articles %}
 {# Articles on buying a stolen bike (articles.py), one slide at a time. The slides are a row that scrolls and snaps,
    so a swipe works and without JS every article can still be reached; static/article-slides.js adds the dots,
@@ -76,32 +102,6 @@
   </div>
 </section>
 {% endif %}
-
-{% if cards %}
-<section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
-  {# One row of cards; the counter and arrows next to the heading page through it (static/recent-row.js).
-     Without JS the row just scrolls sideways. The see-all pill sits outside .row-nav, after the arrows, so it stays
-     when every card fits and the arrows hide. #}
-  <div class="row-head">
-    <h2>{{ _('Recently checked') }}</h2>
-    <div class="row-tools">
-      <div class="row-nav" hidden>
-        <span class="row-count" aria-live="polite"></span>
-        <button class="nav-btn row-prev" type="button" aria-label="{{ _('Previous ads') }}">‹</button>
-        <button class="nav-btn row-next" type="button" aria-label="{{ _('Next ads') }}">›</button>
-      </div>
-      <a class="see-all" href="{{ url_for('listings') }}" aria-label="{{ _('Show all {count} checked ads', count=total) }}"><span class="see-all-long">{{ _('Show all {count}', count=total) }}</span><span class="see-all-short">{{ _('All {count}', count=total) }}</span></a>
-    </div>
-  </div>
-  <div class="recent-row">
-    {# The sponsored card goes third, after two real ones (last when there are fewer). #}
-    {% for row, r in cards %}{% if loop.index0 == 2 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}{{ listing_card(row, r) }}{% endfor %}
-    {% if cards|length < 3 and sponsored.card %}{{ sponsored_card(sponsored.card) }}{% endif %}
-  </div>
-</section>
-{% endif %}
-
-{% if sponsored.banner %}{{ sponsored_banner(sponsored.banner) }}{% endif %}
 
 <section class="wrap row" style="padding-top: 40px; padding-bottom: 72px; justify-content: space-between; gap: 24px">
   <div class="stack" style="gap: 8px; flex: 1 1 420px">
