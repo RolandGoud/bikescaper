@@ -3,6 +3,8 @@ title: Wat kost een groepset je echt? De nieuwprijs van een fiets per groep
 date: 2026-11-08
 category: market
 summary: Een fiets met 105 kost nieuw rond de €2.600, met Ultegra Di2 rond de €6.500 en met Dura-Ace Di2 boven de €10.000. Zo lees je een advertentie aan de groepset af.
+stat: +€1.400
+stat_label: voor elektronisch schakelen
 ---
 
 De groepset (schakelaars, derailleurs, crankstel, remmen) is het onderdeel waar fabrikanten hun prijsladder op bouwen. Hetzelfde frame komt vaak in vier of vijf uitvoeringen, en het enige verschil is de groep. Daarom is de groepset de snelste manier om in een advertentie te zien in welke prijsklasse een fiets thuishoort.
@@ -27,6 +29,8 @@ We hebben de fietsen in onze [catalogus](/models) gegroepeerd op hun groepset en
 | Shimano Dura-Ace Di2 | 46 | €10.799 |
 | SRAM Red | 116 | €11.999 |
 | Campagnolo Super Record | 10 | €14.349 |
+
+![De kleur is het niveau van de groep, zoals Bikecheck het indeelt.](chart:groupset-prices)
 
 ## Drie dingen om te onthouden
 

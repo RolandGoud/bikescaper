@@ -3,6 +3,8 @@ title: Wat de groepset zegt over het niveau van een fiets
 date: 2026-11-15
 category: guides
 summary: Claris, 105, Ultegra, Dura-Ace: zo lees je aan de groep af in welke klasse een fiets valt, en waarom een Ultegra van tien jaar oud geen topgroep meer is.
+stat: −1
+stat_label: niveau per vijf jaar
 ---
 
 De groepset is het handigste houvast in een advertentie. Fabrikanten bouwen hun prijsladder erop, dus wie de groep kent, weet ongeveer wat de fiets nieuw kostte en wat voor frame en wielen erbij horen. Bikecheck deelt elke groep in op vijf niveaus, voor alle merken gelijk.
@@ -16,6 +18,8 @@ De groepset is het handigste houvast in een advertentie. Fabrikanten bouwen hun 
 | 3 · Midden | 105 | Rival | instap-carbon |
 | 4 · Performance | Ultegra | Force | performance-carbon |
 | 5 · Top | Dura-Ace | Red | het topcarbon van het merk |
+
+![](chart:tier-ladder)
 
 Voor gravelfietsen gebruikt Shimano GRX, met eigen nummers (400, 600, 800) die ongeveer naast Tiagra, 105 en Ultegra staan. Een **Di2** (Shimano) of **AXS** (SRAM) achter de naam betekent elektronisch schakelen.
 

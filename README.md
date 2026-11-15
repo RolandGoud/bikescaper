@@ -2,6 +2,8 @@
 
 A comprehensive bike scraping system with **automatic WordPress integration** and **organized file management**.
 
+> **Hosting Bikecheck anywhere but the NAS?** Go through [docs/going-public.md](docs/going-public.md) first: the privacy and contact pages need `CONTACT_EMAIL` and `SITE_OWNER`.
+
 ## 🚀 **Available Scrapers**
 
 ### 1. 🚲 **Trek Bikes Scraper** (`trek_bikes_scraper.py`)

@@ -71,6 +71,9 @@ NL = {
     'Buying guides': 'Koopgidsen',
     'Model deep-dives': 'Modellen uitgelicht',
     'Seasonal': 'Seizoen',
+    'In numbers': 'In cijfers',
+    'Every story starts with one number from our data. Open it to read where it comes from.': 'Elk verhaal begint met één getal uit onze data. Open het om te lezen waar het vandaan komt.',
+    "Image: Bikecheck, from the brands' own product photos": "Beeld: Bikecheck, met de productfoto's van de merken",
     "Today": "Vandaag",
     "Yesterday": "Gisteren",
     "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",
@@ -1617,4 +1620,6 @@ NL = {
     "Show all {n}": "Bekijk alle {n}",
     "Your draft isn't published and doesn't count in our price figures. It joins the list of ads we helped with, without your text.":
         "Je concept wordt niet gepubliceerd en telt niet mee in onze prijzen. Het komt in de lijst van advertenties waarmee we hielpen, zonder je tekst.",
+    "No ads yet. Make a new ad or check one above, and it shows up here.":
+        "Nog geen advertenties. Maak hierboven een nieuwe advertentie of check er een, dan komt die hier te staan.",
 }

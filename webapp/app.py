@@ -1516,8 +1516,10 @@ def create_app(db_path=None):
         browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
         if form.get("step") == "start" and not link and step == "gaps":
             # "Check my ad" with nothing pasted: back to the choice, with the reason.
+            archive, archive_total = sell_archive()
             return render_template("sell.html", form=form, r=None, error=gettext("Paste the link to your ad."),
-                                   step="start", examples=[], **page), 400
+                                   step="start", examples=[], archive=archive, archive_total=archive_total,
+                                   can_act=None if is_admin() else set(own_sell_ads()), **page), 400
         if link and not browsing and not (form.get("title") or "").strip():
             try:
                 ad = fetch_ad.fetch_listing(link)
@@ -1633,7 +1635,7 @@ def create_app(db_path=None):
             abort(404)  # written ahead: not out yet
         more = [p for p in blog.published(blog.load(), g.lang) if p["slug"] != slug]
         related = ([p for p in more if p["category"] == post["category"]] + [p for p in more if p["category"] != post["category"]])[:3]
-        return render_template("blog_post.html", post=post, body=blog.render(post["body"]), categories=blog.CATEGORIES,
+        return render_template("blog_post.html", post=post, body=blog.render(post["body"], post["lang"]), categories=blog.CATEGORIES,
                                related=related, post_date=post_date, minutes=blog.reading_minutes, nav="blog")
 
     # Privacy statement, contact and affiliate disclosure: static pages, one template per language

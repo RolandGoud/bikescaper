@@ -32,6 +32,7 @@ services:
       # MAIL_FROM: you@gmail.com
       # Mail also confirms the addresses left for the photo review; to hear about each confirmed one:
       # NOTIFY_EMAIL: you@gmail.com
+      # Required anywhere public (see docs/going-public.md); the privacy pages are incomplete without them.
       # The address on the Contact and Privacy pages (else NOTIFY_EMAIL, MAIL_FROM or SMTP_USER is shown),
       # and the name of whoever runs the site, for the privacy statement:
       # CONTACT_EMAIL: info@example.nl

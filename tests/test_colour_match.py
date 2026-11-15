@@ -225,10 +225,13 @@ def test_black_ad_shows_a_black_photo_when_several_colourways_are_black(models):
 
 
 def test_black_ad_shows_the_black_photo_of_the_model_year(models):  # noqa: F811
-    # One model year, in two colours: its black one, not the year's first photo.
+    # Each year in two colours, one of them black (2023 Satin Obsidian, 2025 Satin Carbon / Red Pearl / Black;
+    # 2024 has none): a black one, not a year's first photo.
     r = _check(models, "Aethos Pro - Shimano Ultegra Di2", "Specialized Aethos Pro zwart")
-    assert r["photo_year"] == {"year": 2025, "colour": "Satin Carbon / Red Pearl / Black"}
-    assert r["model"]["image"] == checks.colour_images(r["model"], 2025)["Satin Carbon / Red Pearl / Black"]
+    assert r["photo_year"] in ({"year": 2025, "colour": "Satin Carbon / Red Pearl / Black"},
+                               {"year": 2023, "colour": "Satin Obsidian/Chaos Pearl Granite/Birch"})
+    year = r["photo_year"]["year"]
+    assert r["model"]["image"] == checks.colour_images(r["model"], year)[r["photo_year"]["colour"]]
     # Most years came in black: the photo of a black one, not just the year's first photo.
     r = _check(models, "Domane SL 6 gen 4", "Trek Domane SL6 zwart")
     assert "black" in colour_match.families_in(r["photo_year"]["colour"], brand_words=True)

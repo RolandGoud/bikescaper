@@ -3,6 +3,8 @@ title: Wat kost een nieuwe racefiets per merk? 1.136 prijzen op een rij
 date: 2026-11-01
 category: market
 summary: Van Cube tot Factor: de mediane nieuwprijs van 16 merken uit onze catalogus. Handig om te weten voordat je een tweedehands prijs beoordeelt.
+stat: 16
+stat_label: merken vergeleken
 ---
 
 Wie een tweedehands racefiets koopt, moet eerst weten wat die fiets nieuw kostte. Alles wat een verkoper vraagt, is daar een percentage van. Daarom houdt Bikecheck de nieuwprijzen bij van de merken zelf: in onze [catalogus](/models) staan nu **1.136 race-, gravel- en tijdritfietsen met een actuele Nederlandse nieuwprijs**, van 16 merken.
@@ -29,6 +31,8 @@ De mediaan is de middelste prijs: de helft van de modellen is goedkoper, de helf
 | Lapierre | 31 | €3.899 | €999 | €10.499 |
 | Rose | 26 | €3.410 | €1.020 | €8.650 |
 | Cube | 51 | €3.299 | €799 | €9.999 |
+
+![De lijn loopt van de goedkoopste tot de duurste fiets van elk merk.](chart:brand-prices)
 
 ## Wat valt op
 

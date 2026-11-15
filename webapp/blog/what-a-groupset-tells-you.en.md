@@ -3,6 +3,8 @@ title: What a groupset tells you about a bike
 date: 2026-11-15
 category: guides
 summary: Claris, 105, Ultegra, Dura-Ace: how to read a bike's class from its groupset, and why a ten-year-old Ultegra isn't a top groupset any more.
+stat: −1
+stat_label: tier every five years
 ---
 
 The groupset is the most useful handle in an ad. Brands build their price ladder on it, so if you know the groupset, you roughly know what the bike cost new and what frame and wheels come with it. Bikecheck rates every groupset on five tiers, the same for every brand.
@@ -16,6 +18,8 @@ The groupset is the most useful handle in an ad. Brands build their price ladder
 | 3 · Mid | 105 | Rival | entry carbon |
 | 4 · Performance | Ultegra | Force | performance carbon |
 | 5 · Top | Dura-Ace | Red | the brand's top carbon |
+
+![](chart:tier-ladder)
 
 Gravel bikes use Shimano GRX, with its own numbers (400, 600, 800) that sit roughly next to Tiagra, 105 and Ultegra. **Di2** (Shimano) or **AXS** (SRAM) after the name means electronic shifting.
 

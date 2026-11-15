@@ -3,6 +3,8 @@ title: Cannondale Topstone: gravelen van €1.299 tot €7.999
 date: 2026-11-15
 category: models
 summary: Aluminium of carbon, met of zonder Lefty-vork: de Topstone-familie uitgelegd. En waarom gravelprijzen, anders dan racefietsprijzen, juist zakken.
+stat: −23%
+stat_label: Carbon 2 AXS in een jaar
 ---
 
 De Topstone is Cannondales gravelfiets en een van de breedste families in onze catalogus: we kennen er 47, waarvan 24 met een actuele prijs. Voor een tweedehands koper is het een interessante fiets, want de prijzen lopen ver uiteen en zakken bij sommige uitvoeringen zelfs.
@@ -41,6 +43,8 @@ Waar racefietsen de afgelopen jaren steeds duurder werden, zie je bij de Topston
 - **Topstone 1**: €2.449 in 2022, €2.399 in 2024.
 - **Topstone Carbon 2 AXS**: €3.999 in 2024, €3.099 in 2025.
 - **Topstone Carbon 1 RLE**: €8.999 in 2023, €7.799 in 2024.
+
+![](chart:topstone-falls)
 
 Voor een koper betekent dat: let op wat de fiets in **zijn eigen jaar** kostte. Een verkoper die rekent vanaf zijn oude, hogere aankoopprijs vraagt al snel te veel.
 

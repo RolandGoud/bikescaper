@@ -3,6 +3,8 @@ title: Hoe snel verliest een racefiets zijn waarde?
 date: 2026-11-15
 category: market
 summary: Een kwart in het eerste jaar, daarna zo'n 12% per jaar. En waarom een fiets uit 2020 tweedehands goedkoper is dan je zou denken: de nieuwprijzen zijn sindsdien flink gestegen.
+stat: −25%
+stat_label: in het eerste jaar
 ---
 
 "Wat is mijn fiets nog waard?" is de vraag die we het vaakst krijgen. Het eerlijke antwoord: dat hangt vooral af van wat hij nieuw kostte en hoe oud hij is. Zo rekent de [waardeschatter](/value) van Bikecheck het uit, en zo kun je het zelf ook doen.
@@ -23,6 +25,8 @@ Een racefiets verliest **zo'n 25% in het eerste jaar** (een nieuwe fiets is na d
 | 8 jaar | 31% | €1.530 |
 | 10 jaar | 24% | €1.190 |
 
+![Zo rekent de waardeschatter: de lijn is de schatting, de band de eerlijke prijs.](chart:value-curve)
+
 Daar komt de staat bij: **als nieuw** telt 5% hoger, **gebruikt** 8% lager en **beschadigd** 40% lager. Een fiets van tien jaar of ouder is nooit meer "als nieuw", wat de advertentie ook zegt: rubber, lagers en het frame zijn verouderd. Zijn onderdelen vervangen door een goedkopere klasse, bijvoorbeeld een 105-groep op een fiets die met Ultegra werd geleverd, dan gaat er nog 10% af voor de eerste stap.
 
 Rond de uitkomst geven we een bandbreedte van 10% erboven en eronder. Alles binnen die band noemen we een eerlijke prijs.
@@ -39,6 +43,8 @@ We hebben in ons archief **75 modellen** waarvan we de nieuwprijs kennen in twee
 | Giant Propel Advanced 1 | €2.299 (2020) | €4.399 (2025) | +91% |
 | Giant TCR Advanced 1 | €2.299 (2021) | €3.499 (2026) | +52% |
 | BMC URS ONE | €8.999 (2020) | €4.499 (2026) | −50% |
+
+![Nieuwprijzen uit de catalogus en de gearchiveerde specificaties.](chart:price-rises)
 
 Rekenen vanaf de huidige prijs maakt een oudere fiets dus te duur. Een TCR Advanced 1 uit 2021 kostte toen €2.299; vijf jaar later is hij volgens de curve zo'n €1.030 waard, niet de €1.570 die je krijgt als je van de nieuwprijs van nu uitgaat. Daarom gebruikt Bikecheck waar we het hebben **de nieuwprijs van het bouwjaar zelf**.
 

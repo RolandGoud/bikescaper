@@ -3,6 +3,8 @@ title: Buying a road bike in autumn: how to do it well
 date: 2026-11-01
 category: seasonal
 summary: The season is over, the new model years are in the shops and riders who upgrade put their old bike up for sale. Why November is a good month to look second-hand, and what to watch.
+stat: 5
+stat_label: steps to search smart
 ---
 
 In spring everyone wants a road bike at once. Autumn is different: the season is over, the new model years are in the shops, and riders who upgrade put their old bike up for sale. For a buyer that's a good time to look calmly.
@@ -12,6 +14,8 @@ In spring everyone wants a road bike at once. Autumn is different: the season is
 - **Less competition.** If you look now, you less often have to reply within the hour to stand a chance.
 - **Upgraders sell.** Anyone who already has next season's bike wants the old one gone before winter.
 - **The seller can show you the bike.** A bike that has just ridden the season is easy to judge: it hasn't been standing in a shed for months.
+
+![](chart:buying-year)
 
 One caveat: we don't (yet) measure how asking prices move per season, so we can't say how big that advantage is in euros. What is certain: the more time you have, the less you need to accept a price that's too high.
 
