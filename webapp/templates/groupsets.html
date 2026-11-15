@@ -62,7 +62,8 @@
   <div class="brand-picker">
     <nav class="brand-cards" aria-label="{{ _('Brand') }}">
       {% for b in brands %}<a class="{{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind) }}"{% if b.name == brand %} aria-current="true"{% endif %}{% if b.colour %} style="--bc: {{ b.colour }}"{% endif %}>
-        {{- brand_label(b) }}{% if b.groups %}<small>{{ _('{n} groups', n=b.groups) }}</small>{% endif %}
+        {%- if b.logo %}<span class="brand-corner" aria-hidden="true" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% endif %}
+        {{- brand_label(b) }}
         {#- Its groupsets basic to top: logos where they all have one, else a dot for each and the top one's name. #}
         {%- if b.series %}<span class="brand-series" aria-hidden="true">{% if b.series|selectattr('logo', 'none')|list %}{% for s in b.series[:-1] %}<i class="dot"></i>{% endfor %}<b>{{ b.series[-1].name }}</b>{% else %}{% for s in b.series %}<i style="--l: url('{{ url_for('static', filename=s.logo) }}')"></i>{% endfor %}{% endif %}</span>{% endif %}</a>{% endfor %}
     </nav>

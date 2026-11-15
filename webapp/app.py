@@ -1113,8 +1113,6 @@ def create_app(db_path=None):
         return render_template("groupsets.html", kind=kind, current=current, paths=paths,
                                down=down, by_key={g["key"]: p for g, p in paths + down}, ladders=groupsets.ladders(kind, brand),
                                brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b)),
-                                                      # its number of groups for the type, none when it makes none
-                                                      "groups": sum(len(steps) for _label, steps in by_kind.get(kind, [])),
                                                       "colour": groupsets.BRAND_COLOURS.get(b),
                                                       # its main ladder for the type, basic to top, for the card's row
                                                       "series": [{"name": s["name"], "logo": logo_if_there(groupsets.logo_path(s))}
