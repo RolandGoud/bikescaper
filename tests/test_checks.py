@@ -2068,6 +2068,8 @@ def test_the_ad_card_has_at_most_four_tiles_a_row_and_the_last_row_shares_out(tm
     # Five tiles: four, then the condition across the whole row.
     assert tiles.count('<span class="k">') == 5 and 'style="--n: 4"' in tiles
     assert re.search(r'class="below row-start fill" style="--span: 4"><span class="k">STAAT', tiles)
+    # One tile's value too long for its line puts every value under its label (ad-tiles.js).
+    assert 'class="ad-tiles inline"' in page and "ad-tiles.js" in page
 
 
 def test_the_ad_groupset_is_the_one_the_photos_show_when_the_text_names_none(monkeypatch):
