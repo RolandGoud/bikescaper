@@ -1381,10 +1381,14 @@ select { max-width: 100%; }
   .row-gutter { display: block; grid-row: 1; grid-column: 1; }
   .ladder .row-label { grid-column: 1; width: auto; padding: 12px 0; flex-direction: column; justify-content: center; gap: 10px; border-radius: 12px; margin: 0 0 14px; }
   .ladder .row-label > :not(svg) { writing-mode: vertical-rl; transform: rotate(180deg); }
-  .ladder .row-label:not(.row-0) { margin-top: 14px; }
+  .ladder { --row-space: 80px; }  /* room above and below the line between rows */
+  /* The first label starts level with the first tiles, below the series logos. */
+  .ladder .row-label.row-0 { margin-top: 46px; }
+  .ladder .row-label:not(.row-0) { margin-top: var(--row-space); }
+  .ladder:has(.row-label) .step { align-self: start; }
   .row-label.row-0 { grid-row: 2 / 4; } .row-label.row-1 { grid-row: 4 / 6; } .row-label.row-2 { grid-row: 6 / 8; }
   .ladder:has(.row-label) .step.row-0 { grid-row: 2 / 4; } .ladder:has(.row-label) .step.row-1 { grid-row: 4 / 6; } .ladder:has(.row-label) .step.row-2 { grid-row: 6 / 8; }
-  .ladder:has(.row-label) .step:not(.row-0) { margin-top: 14px; }
+  .ladder:has(.row-label) .step:not(.row-0) { margin-top: var(--row-space); }
 }
 /* The tier above the series, one label across neighbouring series of the same tier. */
 .tier-span { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
