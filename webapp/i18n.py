@@ -1557,12 +1557,22 @@ NL = {
     "Is this bike stolen? Check the frame number": "Is deze fiets gestolen? Check het framenummer",
     "Look up the frame number in the RDW register. Note: “not registered” doesn't mean the bike is clean.":
         "Zoek het framenummer op in het register van de RDW. Let op: “niet geregistreerd” betekent niet dat de fiets schoon is.",
-    "Stop Heling: check the serial number with the police": "Stop Heling: check het serienummer bij de politie",
-    "See straight away whether a bike or part has been reported stolen.": "Zie meteen of een fiets of onderdeel als gestolen is opgegeven.",
     "MyBike: has the bike been reported stolen?": "MyBike: staat de fiets als gestolen gemeld?",
     "Belgium's federal bike register. Enter the number on the bike's MyBike sticker to see whether it's been reported stolen.":
         "Het federale fietsregister van België. Vul het nummer van de MyBike-sticker op de fiets in en zie of hij als gestolen is gemeld.",
     "The law": "De wet",
+    "Buying guide": "Koopgids",
+    "Warning signs": "Waarschuwingssignalen",
+    "Frame check": "Framecheck",
+    "Buying second-hand? What to ask the seller": "Tweedehands kopen? Dit vraag je de verkoper",
+    "Ask for ID and a receipt with the frame number. A seller who won't give them is very likely selling a stolen bike.":
+        "Vraag om legitimatie en een kwitantie met het framenummer. Wil de verkoper die niet geven, dan is de fiets hoogstwaarschijnlijk gestolen.",
+    "6 signs you might be buying a stolen racing bike": "6 signalen dat je een gestolen racefiets koopt",
+    "No papers, a seller who knows nothing about the bike, won't meet at home, a deal that's too good to be true.":
+        "Geen papieren, een verkoper die niks van de fiets weet, niet thuis wil afspreken, een deal die te mooi is om waar te zijn.",
+    "Check a frame number in three registers at once": "Check een framenummer in drie registers tegelijk",
+    "BIKEBAZE searches its own bike register, Stop Heling and the international Bike Index in one go, free and anonymous.":
+        "BIKEBAZE zoekt in één keer in het eigen fietsregister, Stop Heling en de internationale Bike Index, gratis en anoniem.",
     "How to spot a stolen bike": "Zo herken je een gestolen fiets",
     "A lock forced off, a dealer sticker torn away, grinding marks where a postcode was: the signs the police look for.":
         "Een opengebroken slot, een weggekrabde dealersticker, slijpplekken waar een postcode zat: de signalen waar de politie op let.",
