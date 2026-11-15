@@ -288,6 +288,8 @@ NL = {
     "That part may have been swapped: the frame goes first.": "Dat onderdeel is misschien vervangen: het frame gaat voor.",
     "Rim brakes: {name} came with disc brakes only from {year} on.": "Velgremmen: de {name} had vanaf {year} alleen nog schijfremmen.",
     "Disc brakes: {name} came with rim brakes up to {year}.": "Schijfremmen: de {name} had tot en met {year} velgremmen.",
+    "Cable disc brakes or quick releases: {name} came with hydraulic brakes from {year} on.":
+        "Mechanische schijfremmen of snelspanners: de {name} had vanaf {year} hydraulische remmen.",
     "That doesn't fit the brakes, which go first: the colour may look alike.":
         "Dat past niet bij de remmen, en die gaan voor: de kleur lijkt misschien alleen hetzelfde.",
     "{claimed} is when it was bought; the ad's details point to model year {years}.": "{claimed} is het jaar van aankoop; de details wijzen op modeljaar {years}.",

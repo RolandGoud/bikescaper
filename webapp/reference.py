@@ -46,6 +46,14 @@ LINEAGES = [
                                            (2022, None, None, "Synapse Carbon (2022–)")]),
     ("Canyon", r"\baeroad\b", [(2015, 2020, None, "Aeroad (2015–2020)"), (2021, None, None, "Aeroad (2021–)")]),
 ]
+# Model lines whose first disc-brake bikes had cable-pulled (mechanical) disc brakes and quick releases, before
+# hydraulic brakes and thru-axles: (brand, pattern on the model's name, first disc year, first year with hydraulic
+# brakes and thru-axles). Entered by hand from launch dates (check 59: a Defy Advanced 1 with TRP Spyre brakes and
+# quick releases is a 2015-2016 bike, whatever colour it was set to). Without an entry, the model's own spec sheets
+# date the hydraulic brakes (hydraulic_first_year).
+CABLE_DISC_YEARS = [
+    ("Giant", r"\bdefy advanced [0-3]\b", 2015, 2017),
+]
 LINEAGES_NOTE = "Launch years of each generation entered by hand; our spec sheets fill in the rest."
 
 # Generic rider-height charts (cm) per brand and size label, used until the

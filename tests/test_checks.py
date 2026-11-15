@@ -2248,3 +2248,24 @@ def test_listed_sizes_cut_the_brand_chart_to_the_models_sizes():
     own = checks.model_size_chart(model)
     assert own["source"] == "listed" and list(own["sizes"]) == ["S", "M"]
     assert checks.model_size_chart({**model, "sizes": []})["source"] == "generic"
+
+
+CHECK_59 = ("Te koop een goed onderhouden Giant Defy Advanced 1 Carbon racefiets in framemaat L. Deze fiets is "
+            "uitgerust met: - Carbon Advanced frame + voorvork - Shimano 105 groepset - 2x 11 versnellingen - "
+            "Mechanische schijfremmen - D-fuse zadelpen.\nRem: Schijfrem\nMateriaal: Carbon")
+
+
+def test_cable_disc_brakes_date_an_old_defy_whatever_its_colour(models):
+    # Check 59: a Defy Advanced 1 with TRP Spyre cable disc brakes and quick releases (2015-2016) was dated 2021 by
+    # a 2021 colourway set by hand. The brakes go before the colour, as rim and disc brakes do.
+    defy = next(m for m in models if m["brand"] == "Giant" and m["name"] == "Defy Advanced 1")
+    for overrides in ({}, {"model": defy["slug"], "colour": "Carbon/Charcoal/Chrome"}):
+        r = checks.run_check(models, {"title": "Giant Defy Advanced 1 racefiets Carbon framemaat L",
+                                      "description": CHECK_59, "asking_price": 1195, "overrides": overrides},
+                             today=TODAY)
+        assert (r["year_estimate"]["first"], r["year_estimate"]["last"]) == (2015, 2016), overrides
+        assert checks.pre_2018_year(r) in (2015, 2016)
+    low = checks._plain(CHECK_59)
+    assert checks.cable_disc_years(defy, low) == (2015, 2017)
+    assert checks.cable_disc_years(defy, checks._plain("Defy met snelspanners")) == (2015, 2017)
+    assert checks.cable_disc_years(defy, checks._plain("hydraulische schijfremmen")) is None
