@@ -137,3 +137,15 @@ def test_the_nas_raises_and_clears_the_installing_flag(monkeypatch, tmp_path):
     au.installing(None, None)
     au.installing(None, None)  # already gone: fine
     assert not (tmp_path / "updating.json").exists()
+
+
+def test_the_menu_shows_four_changes_and_links_the_rest(tmp_path, monkeypatch):
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    client = site(tmp_path, monkeypatch, [
+        {"sha": f"{i}" * 40, "time": now, "changes": [{"title": f"Change {i}", "pr": i, "url": "u", "check": None}]}
+        for i in range(1, 7)])
+    with client.session_transaction() as s:
+        s["admin"] = True
+    part = client.get("/admin/live?lang=en").get_data(as_text=True)
+    assert part.count("<li data-sha") == 6 and part.count(" hidden>") == 2  # all counted, two out of sight
+    assert 'href="/admin#updates"' in part and "See more (2)" in part

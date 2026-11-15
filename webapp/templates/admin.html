@@ -205,7 +205,7 @@
     </form>
   </section>
   {# What the NAS's updates put live (nas/autoupdate.py), newest first; the note in the corner shows the latest ones. #}
-  <section class="box live-history">
+  <section class="box live-history" id="updates">
     <h2>{{ _('Updates on the site') }}</h2>
     {% if updates %}
     <ol>
