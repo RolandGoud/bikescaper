@@ -52,24 +52,6 @@
   "Aethos Comp - Shimano 105 Di2": {
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss 100% Red Ghost Pearl over Dune White/Dune White": [
-      "Specialized/years/aethoscompshimano105di2_2023_gloss100redghostpearloverdunewhitedunewhite_1_site.jpg",
-      "Specialized/years/aethoscompshimano105di2_2023_gloss100redghostpearloverdunewhitedunewhite_2_site.jpg",
-      "Specialized/years/aethoscompshimano105di2_2023_gloss100redghostpearloverdunewhitedunewhite_3_site.jpg",
-      "Specialized/years/aethoscompshimano105di2_2023_gloss100redghostpearloverdunewhitedunewhite_4_site.jpg"
-     ],
-     "Satin Carbon/Abalone over Carbon": [
-      "Specialized/years/aethoscompshimano105di2_2023_satincarbonabaloneovercarbon_1_site.jpg",
-      "Specialized/years/aethoscompshimano105di2_2023_satincarbonabaloneovercarbon_2_site.jpg",
-      "Specialized/years/aethoscompshimano105di2_2023_satincarbonabaloneovercarbon_3_site.jpg",
-      "Specialized/years/aethoscompshimano105di2_2023_satincarbonabaloneovercarbon_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss 100% Red Ghost Pearl over Dune White/Dune White": "Specialized/years/aethoscompshimano105di2_2023_gloss100redghostpearloverdunewhitedunewhite_site.jpg",
-     "Satin Carbon/Abalone over Carbon": "Specialized/years/aethoscompshimano105di2_2023_satincarbonabaloneovercarbon_site.jpg"
-    },
     "colours": [
      "Gloss 100% Red Ghost Pearl over Dune White/Dune White",
      "Satin Carbon/Abalone over Carbon"
@@ -468,26 +450,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Carbon / Flake Silver / Gloss Black Fork Fade": [
-      "Specialized/years/aethosprosramforceetapaxs_2022_carbonflakesilverglossblackforkfade_1_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_carbonflakesilverglossblackforkfade_2_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_carbonflakesilverglossblackforkfade_3_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_carbonflakesilverglossblackforkfade_4_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_carbonflakesilverglossblackforkfade_5_site.jpg"
-     ],
-     "Maroon / Black Tint Edge Fade": [
-      "Specialized/years/aethosprosramforceetapaxs_2022_maroonblacktintedgefade_1_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_maroonblacktintedgefade_2_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_maroonblacktintedgefade_3_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_maroonblacktintedgefade_4_site.jpg",
-      "Specialized/years/aethosprosramforceetapaxs_2022_maroonblacktintedgefade_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Carbon / Flake Silver / Gloss Black Fork Fade": "Specialized/years/aethosprosramforceetapaxs_2022_carbonflakesilverglossblackforkfade_site.jpg",
-     "Maroon / Black Tint Edge Fade": "Specialized/years/aethosprosramforceetapaxs_2022_maroonblacktintedgefade_site.jpg"
-    },
     "colours": [
      "Maroon / Black Tint Edge Fade",
      "Carbon / Flake Silver / Gloss Black Fork Fade"
@@ -932,15 +894,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Black/Cast Battleship/Carbon": [
-      "Specialized/years/allezshimanoclaris_2022_satinblackcastbattleshipcarbon_1_site.jpg",
-      "Specialized/years/allezshimanoclaris_2022_satinblackcastbattleshipcarbon_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Black/Cast Battleship/Carbon": "Specialized/years/allezshimanoclaris_2022_satinblackcastbattleshipcarbon_site.jpg"
-    },
     "colours": [
      "Satin Black/Cast Battleship/Carbon"
     ],
@@ -976,25 +929,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Lagoon Blue/Cool Grey/Blaze": [
-      "Specialized/years/allezshimanoclaris_2023_glosslagoonbluecoolgreyblaze_1_site.jpg",
-      "Specialized/years/allezshimanoclaris_2023_glosslagoonbluecoolgreyblaze_2_site.jpg"
-     ],
-     "Gloss Smoke/White/Silver Dust": [
-      "Specialized/years/allezshimanoclaris_2023_glosssmokewhitesilverdust_1_site.jpg",
-      "Specialized/years/allezshimanoclaris_2023_glosssmokewhitesilverdust_2_site.jpg"
-     ],
-     "Satin Maroon/Silver Dust/Flo Red": [
-      "Specialized/years/allezshimanoclaris_2023_satinmaroonsilverdustflored_1_site.jpg",
-      "Specialized/years/allezshimanoclaris_2023_satinmaroonsilverdustflored_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Lagoon Blue/Cool Grey/Blaze": "Specialized/years/allezshimanoclaris_2023_glosslagoonbluecoolgreyblaze_site.jpg",
-     "Gloss Smoke/White/Silver Dust": "Specialized/years/allezshimanoclaris_2023_glosssmokewhitesilverdust_site.jpg",
-     "Satin Maroon/Silver Dust/Flo Red": "Specialized/years/allezshimanoclaris_2023_satinmaroonsilverdustflored_site.jpg"
-    },
     "colours": [
      "Gloss Smoke/White/Silver Dust",
      "Gloss Lagoon Blue/Cool Grey/Blaze",
@@ -1133,10 +1067,6 @@
   "Allez Comp Compact 105": {
    "2011": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Navy Blue/Silver": "Specialized/years/allezcompcompact105_2011_whitenavybluesilver_site.jpg"
-    },
     "colours": [
      "White/Navy Blue/Silver"
     ],
@@ -1220,10 +1150,6 @@
   "Allez Comp Int Compact": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Flo Red/Black": "Specialized/years/allezcompintcompact_2010_floredblack_site.jpg"
-    },
     "colours": [
      "Flo Red/Black"
     ],
@@ -1310,10 +1236,6 @@
   "Allez DSW SL Sprint Comp": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "MOTO ORANGE/BRIGHT YELLOW/BLACK": "Specialized/years/allezdswslsprintcomp_2017_motoorangebrightyellowblack_site.jpg"
-    },
     "colours": [
      "MOTO ORANGE/BRIGHT YELLOW/BLACK"
     ],
@@ -1351,10 +1273,6 @@
   "Allez E5": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Tarmac Black/White/Red": "Specialized/years/alleze5_2016_glosstarmacblackwhitered_site.jpg"
-    },
     "colours": [
      "Gloss Tarmac Black/White/Red"
     ],
@@ -1391,10 +1309,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN BLACK / GLOSS WHITE": "Specialized/years/alleze5_2017_satinblackglosswhite_site.jpg"
-    },
     "colours": [
      "SATIN BLACK / GLOSS WHITE"
     ],
@@ -1478,10 +1392,6 @@
   "Allez E5 Sport": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic Wht / Tarmac Black / Rkt Red / Wht": "Specialized/years/alleze5sport_2016_glossmetallicwhttarmacblackrktredwht_site.jpg"
-    },
     "colours": [
      "Gloss Metallic Wht / Tarmac Black / Rkt Red / Wht"
     ],
@@ -1838,10 +1748,6 @@
   "Allez Elite Compact": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Black": "Specialized/years/allezelitecompact_2010_whiteblack_site.jpg"
-    },
     "colours": [
      "White/Black"
     ],
@@ -1884,10 +1790,6 @@
   "Allez Elite Double": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White": "Specialized/years/allezelitedouble_2009_glosswhite_site.jpg"
-    },
     "colours": [
      "Gloss White"
     ],
@@ -1930,10 +1832,6 @@
   "Allez Elite Int'l Compact": {
    "2008": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Team Gerolsteiner": "Specialized/years/allezeliteintlcompact_2008_teamgerolsteiner_site.jpg"
-    },
     "colours": [
      "Team Gerolsteiner"
     ],
@@ -2016,10 +1914,6 @@
   "Allez Jr.": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Red / White / Black": "Specialized/years/allezjr_2016_glossredwhiteblack_site.jpg"
-    },
     "colours": [
      "Gloss Red / White / Black"
     ],
@@ -2183,10 +2077,6 @@
    },
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Monster Green / Satin Black / White": "Specialized/years/allezsport_2015_glossmonstergreensatinblackwhite_site.jpg"
-    },
     "colours": [
      "Gloss Monster Green / Satin Black / White"
     ],
@@ -2222,10 +2112,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Cosmic White/Satin Black": "Specialized/years/allezsport_2019_glosscosmicwhitesatinblack_site.jpg"
-    },
     "colours": [
      "Gloss Cosmic White/Satin Black"
     ],
@@ -2353,15 +2239,6 @@
   "Allez Sport - Shimano Sora": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Dove Grey/Satin Black": [
-      "Specialized/years/allezsportshimanosora_2022_glossdovegreysatinblack_1_site.jpg",
-      "Specialized/years/allezsportshimanosora_2022_glossdovegreysatinblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Dove Grey/Satin Black": "Specialized/years/allezsportshimanosora_2022_glossdovegreysatinblack_site.jpg"
-    },
     "colours": [
      "Gloss Dove Grey/Satin Black"
     ],
@@ -2399,10 +2276,6 @@
   "Allez Sport Double": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Black": "Specialized/years/allezsportdouble_2009_glossblack_site.jpg"
-    },
     "colours": [
      "Gloss Black"
     ],
@@ -2568,10 +2441,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Black/Reflective Light Silver/Clean": "Specialized/years/allezsprintcomp_2019_satinblackreflectivelightsilverclean_site.jpg"
-    },
     "colours": [
      "Satin Black/Reflective Light Silver/Clean"
     ],
@@ -2608,22 +2477,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Tarmac Black/Brushed Foil": [
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_1_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_2_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_3_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_4_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_5_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_6_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_7_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_8_site.jpg",
-      "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_9_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Tarmac Black/Brushed Foil": "Specialized/years/allezsprintcomp_2021_tarmacblackbrushedfoil_site.jpg"
-    },
     "colours": [
      "Tarmac Black/Brushed Foil"
     ],
@@ -2908,10 +2761,6 @@
   "Amira": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Cool Grey/ Light Turquoise/ Black": "Specialized/years/amira_2017_satincoolgreylightturquoiseblack_site.jpg"
-    },
     "colours": [
      "Satin Cool Grey/ Light Turquoise/ Black"
     ],
@@ -2949,10 +2798,6 @@
   "Amira Comp": {
    "2011": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Blue/White": "Specialized/years/amiracomp_2011_bluewhite_site.jpg"
-    },
     "colours": [
      "Blue/White"
     ],
@@ -3030,10 +2875,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/ Charcoal": "Specialized/years/amiracomp_2017_satincarboncharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/ Charcoal"
     ],
@@ -3071,10 +2912,6 @@
   "Amira Elite Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/Electric Blue/White": "Specialized/years/amiraelitecompact_2012_carbonelectricbluewhite_site.jpg"
-    },
     "colours": [
      "Carbon/Electric Blue/White"
     ],
@@ -3197,10 +3034,6 @@
   "Amira SL4 Comp CEN": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal": "Specialized/years/amirasl4compcen_2016_satincarboncharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal"
     ],
@@ -3279,10 +3112,6 @@
   "Amira SL4 Sport": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Met White/Charcoal/Silver": "Specialized/years/amirasl4sport_2016_glossmetwhitecharcoalsilver_site.jpg"
-    },
     "colours": [
      "Gloss Met White/Charcoal/Silver"
     ],
@@ -3359,10 +3188,6 @@
   "Amira Sport": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Moto Green": "Specialized/years/amirasport_2014_glosswhitemotogreen_site.jpg"
-    },
     "colours": [
      "Gloss White/Moto Green"
     ],
@@ -3401,10 +3226,6 @@
    },
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic Black/Pearl White/Silver": "Specialized/years/amirasport_2015_glossmetallicblackpearlwhitesilver_site.jpg"
-    },
     "colours": [
      "Gloss Metallic Black/Pearl White/Silver"
     ],
@@ -3485,19 +3306,6 @@
   "CruX E5 Sport": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Team Yellow/Acid Mint/Tarmac Black/Clean": [
-      "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_1_site.jpg",
-      "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_2_site.jpg",
-      "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_3_site.jpg",
-      "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_4_site.jpg",
-      "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_5_site.jpg",
-      "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Team Yellow/Acid Mint/Tarmac Black/Clean": "Specialized/years/cruxe5sport_2019_glossteamyellowacidminttarmacblackclean_site.jpg"
-    },
     "colours": [
      "Gloss Team Yellow/Acid Mint/Tarmac Black/Clean"
     ],
@@ -3535,10 +3343,6 @@
   "CruX Elite": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/Charcoal/Red Keyline": "Specialized/years/cruxelite_2015_glosscarboncharcoalredkeyline_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/Charcoal/Red Keyline"
     ],
@@ -3658,10 +3462,6 @@
   "CruX Elite X1": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Cyan/Yellow/Tarmac Black": "Specialized/years/cruxelitex1_2016_glosscyanyellowtarmacblack_site.jpg"
-    },
     "colours": [
      "Gloss Cyan/Yellow/Tarmac Black"
     ],
@@ -3697,10 +3497,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS ROCKET RED / TARMAC BLACK / MONSTER GREEN": "Specialized/years/cruxelitex1_2017_glossrocketredtarmacblackmonstergreen_site.jpg"
-    },
     "colours": [
      "GLOSS ROCKET RED / TARMAC BLACK / MONSTER GREEN"
     ],
@@ -3825,10 +3621,6 @@
   "CruX Expert Carbon": {
    "2011": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Red/Carbon/White": "Specialized/years/cruxexpertcarbon_2011_redcarbonwhite_site.jpg"
-    },
     "colours": [
      "Red/Carbon/White"
     ],
@@ -3868,10 +3660,6 @@
   "CruX Expert Force": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Black/Red": "Specialized/years/cruxexpertforce_2012_whiteblackred_site.jpg"
-    },
     "colours": [
      "White/Black/Red"
     ],
@@ -4032,10 +3820,6 @@
    },
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Rocket Red/Light Blue/Navy": "Specialized/years/cruxsporte5_2018_glossrocketredlightbluenavy_site.jpg"
-    },
     "colours": [
      "Gloss Rocket Red/Light Blue/Navy"
     ],
@@ -4113,28 +3897,6 @@
   "Crux Comp - SRAM Rival": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Arctic Blue/Tarmac Black": [
-      "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_1_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_2_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_3_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_4_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_5_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_6_site.jpg"
-     ],
-     "Satin Smoke/Black/Cool Grey": [
-      "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_1_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_2_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_3_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_4_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_5_site.jpg",
-      "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Arctic Blue/Tarmac Black": "Specialized/years/cruxcompsramrival_2022_glossarcticbluetarmacblack_site.jpg",
-     "Satin Smoke/Black/Cool Grey": "Specialized/years/cruxcompsramrival_2022_satinsmokeblackcoolgrey_site.jpg"
-    },
     "colours": [
      "Satin Smoke/Black/Cool Grey",
      "Gloss Arctic Blue/Tarmac Black"
@@ -4170,17 +3932,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "SATIN FOREST GREEN/METALLIC DEEP LAKE": [
-      "Specialized/years/cruxcompsramrival_2023_satinforestgreenmetallicdeeplake_1_site.jpg",
-      "Specialized/years/cruxcompsramrival_2023_satinforestgreenmetallicdeeplake_2_site.jpg",
-      "Specialized/years/cruxcompsramrival_2023_satinforestgreenmetallicdeeplake_3_site.jpg",
-      "Specialized/years/cruxcompsramrival_2023_satinforestgreenmetallicdeeplake_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "SATIN FOREST GREEN/METALLIC DEEP LAKE": "Specialized/years/cruxcompsramrival_2023_satinforestgreenmetallicdeeplake_site.jpg"
-    },
     "colours": [
      "SATIN FOREST GREEN/METALLIC DEEP LAKE"
     ],
@@ -4218,18 +3969,6 @@
   "Crux Expert - SRAM Rival XPLR AXS": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Forest/Light Silver": [
-      "Specialized/years/cruxexpertsramrivalxplraxs_2022_satinforestlightsilver_1_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2022_satinforestlightsilver_2_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2022_satinforestlightsilver_3_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2022_satinforestlightsilver_4_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2022_satinforestlightsilver_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Forest/Light Silver": "Specialized/years/cruxexpertsramrivalxplraxs_2022_satinforestlightsilver_site.jpg"
-    },
     "colours": [
      "Satin Forest/Light Silver"
     ],
@@ -4265,28 +4004,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "GLOSS CARBON/TARMAC BLACK": [
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_1_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_2_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_3_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_4_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_5_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_6_site.jpg"
-     ],
-     "SATIN HARVEST GOLD METALLIC/OAK GREEN": [
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_1_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_2_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_3_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_4_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_5_site.jpg",
-      "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "GLOSS CARBON/TARMAC BLACK": "Specialized/years/cruxexpertsramrivalxplraxs_2023_glosscarbontarmacblack_site.jpg",
-     "SATIN HARVEST GOLD METALLIC/OAK GREEN": "Specialized/years/cruxexpertsramrivalxplraxs_2023_satinharvestgoldmetallicoakgreen_site.jpg"
-    },
     "colours": [
      "GLOSS CARBON/TARMAC BLACK",
      "SATIN HARVEST GOLD METALLIC/OAK GREEN"
@@ -4471,16 +4188,6 @@
   "Crux Pro - SRAM Force XPLR AXS": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Dusty Blue/Ice Papaya": [
-      "Specialized/years/cruxprosramforcexplraxs_2022_satindustyblueicepapaya_1_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2022_satindustyblueicepapaya_2_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2022_satindustyblueicepapaya_3_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Dusty Blue/Ice Papaya": "Specialized/years/cruxprosramforcexplraxs_2022_satindustyblueicepapaya_site.jpg"
-    },
     "colours": [
      "Satin Dusty Blue/Ice Papaya"
     ],
@@ -4516,19 +4223,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "GLOSS METALLIC DEEP LAKE/ GREEN PEARL": [
-      "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_1_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_2_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_3_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_4_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_5_site.jpg",
-      "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "GLOSS METALLIC DEEP LAKE/ GREEN PEARL": "Specialized/years/cruxprosramforcexplraxs_2023_glossmetallicdeeplakegreenpearl_site.jpg"
-    },
     "colours": [
      "GLOSS METALLIC DEEP LAKE/ GREEN PEARL"
     ],
@@ -4709,19 +4403,6 @@
   "Diverge 4 Pro LTD - SRAM RED XPLR": {
    "2026": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Vivid Red": [
-      "Specialized/years/diverge4proltdsramredxplr_2026_vividred_1_site.jpg",
-      "Specialized/years/diverge4proltdsramredxplr_2026_vividred_2_site.jpg",
-      "Specialized/years/diverge4proltdsramredxplr_2026_vividred_3_site.jpg",
-      "Specialized/years/diverge4proltdsramredxplr_2026_vividred_4_site.jpg",
-      "Specialized/years/diverge4proltdsramredxplr_2026_vividred_5_site.jpg",
-      "Specialized/years/diverge4proltdsramredxplr_2026_vividred_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Vivid Red": "Specialized/years/diverge4proltdsramredxplr_2026_vividred_site.jpg"
-    },
     "colours": [
      "Vivid Red"
     ],
@@ -4924,10 +4605,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Gloss Carbon/Dream Silver": "Specialized/years/divergecompcen_2017_satincarbonglosscarbondreamsilver_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Gloss Carbon/Dream Silver"
     ],
@@ -5014,24 +4691,6 @@
   "Diverge Comp Carbon - SRAM Apex eTAP AXS": {
    "2024": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Metallic Sulfur / Amber Glow / Purple Haze / Metallic Obsidian": [
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_glossmetallicsulfuramberglowpurplehazemetallicobsidian_1_site.jpg",
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_glossmetallicsulfuramberglowpurplehazemetallicobsidian_2_site.jpg",
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_glossmetallicsulfuramberglowpurplehazemetallicobsidian_3_site.jpg",
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_glossmetallicsulfuramberglowpurplehazemetallicobsidian_4_site.jpg"
-     ],
-     "Satin Oak Green / Smoke": [
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_satinoakgreensmoke_1_site.jpg",
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_satinoakgreensmoke_2_site.jpg",
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_satinoakgreensmoke_3_site.jpg",
-      "Specialized/years/divergecompcarbonsramapexetapaxs_2024_satinoakgreensmoke_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Metallic Sulfur / Amber Glow / Purple Haze / Metallic Obsidian": "Specialized/years/divergecompcarbonsramapexetapaxs_2024_glossmetallicsulfuramberglowpurplehazemetallicobsidian_site.jpg",
-     "Satin Oak Green / Smoke": "Specialized/years/divergecompcarbonsramapexetapaxs_2024_satinoakgreensmoke_site.jpg"
-    },
     "colours": [
      "Satin Oak Green / Smoke",
      "Gloss Metallic Sulfur / Amber Glow / Purple Haze / Metallic Obsidian"
@@ -5127,16 +4786,6 @@
   "Diverge Comp Carbon - SRAM Rival": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Olive/Oak/Chrome/Wild": [
-      "Specialized/years/divergecompcarbonsramrival_2022_satinoliveoakchromewild_1_site.jpg",
-      "Specialized/years/divergecompcarbonsramrival_2022_satinoliveoakchromewild_2_site.jpg",
-      "Specialized/years/divergecompcarbonsramrival_2022_satinoliveoakchromewild_3_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Olive/Oak/Chrome/Wild": "Specialized/years/divergecompcarbonsramrival_2022_satinoliveoakchromewild_site.jpg"
-    },
     "colours": [
      "Satin Olive/Oak/Chrome/Wild"
     ],
@@ -5283,24 +4932,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Ice Blue/Smoke/Chrome/Clean": [
-      "Specialized/years/divergecompe5_2021_glossicebluesmokechromeclean_1_site.jpg",
-      "Specialized/years/divergecompe5_2021_glossicebluesmokechromeclean_2_site.jpg",
-      "Specialized/years/divergecompe5_2021_glossicebluesmokechromeclean_3_site.jpg",
-      "Specialized/years/divergecompe5_2021_glossicebluesmokechromeclean_4_site.jpg"
-     ],
-     "Gloss Tarmac Black/Satin Maroon/Chrome/Clean": [
-      "Specialized/years/divergecompe5_2021_glosstarmacblacksatinmaroonchromeclean_1_site.jpg",
-      "Specialized/years/divergecompe5_2021_glosstarmacblacksatinmaroonchromeclean_2_site.jpg",
-      "Specialized/years/divergecompe5_2021_glosstarmacblacksatinmaroonchromeclean_3_site.jpg",
-      "Specialized/years/divergecompe5_2021_glosstarmacblacksatinmaroonchromeclean_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Ice Blue/Smoke/Chrome/Clean": "Specialized/years/divergecompe5_2021_glossicebluesmokechromeclean_site.jpg",
-     "Gloss Tarmac Black/Satin Maroon/Chrome/Clean": "Specialized/years/divergecompe5_2021_glosstarmacblacksatinmaroonchromeclean_site.jpg"
-    },
     "colours": [
      "Gloss Tarmac Black/Satin Maroon/Chrome/Clean",
      "Gloss Ice Blue/Smoke/Chrome/Clean"
@@ -5338,26 +4969,6 @@
   "Diverge Comp E5 - SRAM Apex": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Spruce/Oak Metallic/Chrome/Wild": [
-      "Specialized/years/divergecompe5sramapex_2022_glossspruceoakmetallicchromewild_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_glossspruceoakmetallicchromewild_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_glossspruceoakmetallicchromewild_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_glossspruceoakmetallicchromewild_4_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_glossspruceoakmetallicchromewild_5_site.jpg"
-     ],
-     "Satin Maroon/Light Silver/Chrome/Clean": [
-      "Specialized/years/divergecompe5sramapex_2022_satinmaroonlightsilverchromeclean_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_satinmaroonlightsilverchromeclean_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_satinmaroonlightsilverchromeclean_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_satinmaroonlightsilverchromeclean_4_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2022_satinmaroonlightsilverchromeclean_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Spruce/Oak Metallic/Chrome/Wild": "Specialized/years/divergecompe5sramapex_2022_glossspruceoakmetallicchromewild_site.jpg",
-     "Satin Maroon/Light Silver/Chrome/Clean": "Specialized/years/divergecompe5sramapex_2022_satinmaroonlightsilverchromeclean_site.jpg"
-    },
     "colours": [
      "Gloss Spruce/Oak Metallic/Chrome/Wild",
      "Satin Maroon/Light Silver/Chrome/Clean"
@@ -5394,29 +5005,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "GLOSS DARK MOSS GREEN/PEARL": [
-      "Specialized/years/divergecompe5sramapex_2023_glossdarkmossgreenpearl_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_glossdarkmossgreenpearl_2_site.jpg"
-     ],
-     "GLOSS DARK NAVY/METALLIC MARINE": [
-      "Specialized/years/divergecompe5sramapex_2023_glossdarknavymetallicmarine_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_glossdarknavymetallicmarine_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_glossdarknavymetallicmarine_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_glossdarknavymetallicmarine_4_site.jpg"
-     ],
-     "SATIN SILVER DUST/SMOKE": [
-      "Specialized/years/divergecompe5sramapex_2023_satinsilverdustsmoke_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_satinsilverdustsmoke_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_satinsilverdustsmoke_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2023_satinsilverdustsmoke_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "GLOSS DARK MOSS GREEN/PEARL": "Specialized/years/divergecompe5sramapex_2023_glossdarkmossgreenpearl_site.jpg",
-     "GLOSS DARK NAVY/METALLIC MARINE": "Specialized/years/divergecompe5sramapex_2023_glossdarknavymetallicmarine_site.jpg",
-     "SATIN SILVER DUST/SMOKE": "Specialized/years/divergecompe5sramapex_2023_satinsilverdustsmoke_site.jpg"
-    },
     "colours": [
      "GLOSS DARK MOSS GREEN/PEARL",
      "GLOSS DARK NAVY/METALLIC MARINE",
@@ -5501,33 +5089,6 @@
    },
    "2025": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Metallic Obsidian / Metallic Pine Green": [
-      "Specialized/years/divergecompe5sramapex_2025_glossmetallicobsidianmetallicpinegreen_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_glossmetallicobsidianmetallicpinegreen_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_glossmetallicobsidianmetallicpinegreen_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_glossmetallicobsidianmetallicpinegreen_4_site.jpg"
-     ],
-     "Gloss Taupe / Slate": [
-      "Specialized/years/divergecompe5sramapex_2025_glosstaupeslate_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_glosstaupeslate_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_glosstaupeslate_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_glosstaupeslate_4_site.jpg"
-     ],
-     "Satin Deep Orange / Deep Lake": [
-      "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_1_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_2_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_3_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_4_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_5_site.jpg",
-      "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Metallic Obsidian / Metallic Pine Green": "Specialized/years/divergecompe5sramapex_2025_glossmetallicobsidianmetallicpinegreen_site.jpg",
-     "Gloss Taupe / Slate": "Specialized/years/divergecompe5sramapex_2025_glosstaupeslate_site.jpg",
-     "Satin Deep Orange / Deep Lake": "Specialized/years/divergecompe5sramapex_2025_satindeeporangedeeplake_site.jpg"
-    },
     "colours": [
      "Gloss Metallic Obsidian / Metallic Pine Green",
      "Satin Deep Orange / Deep Lake",
@@ -5780,34 +5341,6 @@
   "Diverge E5 Elite - Shimano GRX": {
    "2025": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Dusky Pink / Cypress Green Metallic": [
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossduskypinkcypressgreenmetallic_1_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossduskypinkcypressgreenmetallic_2_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossduskypinkcypressgreenmetallic_3_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossduskypinkcypressgreenmetallic_4_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossduskypinkcypressgreenmetallic_5_site.jpg"
-     ],
-     "Gloss Sea Foam / Dune White": [
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossseafoamdunewhite_1_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossseafoamdunewhite_2_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossseafoamdunewhite_3_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossseafoamdunewhite_4_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_glossseafoamdunewhite_5_site.jpg"
-     ],
-     "Satin Ashen / Obsidian": [
-      "Specialized/years/divergee5eliteshimanogrx_2025_satinashenobsidian_1_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_satinashenobsidian_2_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_satinashenobsidian_3_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_satinashenobsidian_4_site.jpg",
-      "Specialized/years/divergee5eliteshimanogrx_2025_satinashenobsidian_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Dusky Pink / Cypress Green Metallic": "Specialized/years/divergee5eliteshimanogrx_2025_glossduskypinkcypressgreenmetallic_site.jpg",
-     "Gloss Sea Foam / Dune White": "Specialized/years/divergee5eliteshimanogrx_2025_glossseafoamdunewhite_site.jpg",
-     "Satin Ashen / Obsidian": "Specialized/years/divergee5eliteshimanogrx_2025_satinashenobsidian_site.jpg"
-    },
     "colours": [
      "Satin Ashen / Obsidian",
      "Gloss Dusky Pink / Cypress Green Metallic",
@@ -5889,10 +5422,6 @@
   "Diverge Elite DSW": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Black / Rocket Red": "Specialized/years/divergeelitedsw_2017_satinblackrocketred_site.jpg"
-    },
     "colours": [
      "Satin Black / Rocket Red"
     ],
@@ -5930,11 +5459,6 @@
   "Diverge Elite DSW CEN": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Ano/Rkt Red": "Specialized/years/divergeelitedswcen_2016_anorktred_site.jpg",
-     "Gloss Moto Orange/Gallardo Orange": "Specialized/years/divergeelitedswcen_2016_glossmotoorangegallardoorange_site.jpg"
-    },
     "colours": [
      "Ano/Rkt Red",
      "Gloss Moto Orange/Gallardo Orange"
@@ -6073,18 +5597,6 @@
   "Diverge Elite E5 - Shimano GRX": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Slate/Cool Grey/Chrome/Wild": [
-      "Specialized/years/divergeelitee5shimanogrx_2022_glossslatecoolgreychromewild_1_site.jpg",
-      "Specialized/years/divergeelitee5shimanogrx_2022_glossslatecoolgreychromewild_2_site.jpg",
-      "Specialized/years/divergeelitee5shimanogrx_2022_glossslatecoolgreychromewild_3_site.jpg",
-      "Specialized/years/divergeelitee5shimanogrx_2022_glossslatecoolgreychromewild_4_site.jpg",
-      "Specialized/years/divergeelitee5shimanogrx_2022_glossslatecoolgreychromewild_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Slate/Cool Grey/Chrome/Wild": "Specialized/years/divergeelitee5shimanogrx_2022_glossslatecoolgreychromewild_site.jpg"
-    },
     "colours": [
      "Gloss Slate/Cool Grey/Chrome/Wild"
     ],
@@ -6262,19 +5774,6 @@
   "Diverge Expert Carbon": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Oak Green Metallic/Gloss White/Chrome/Clean": [
-      "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_1_site.jpg",
-      "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_2_site.jpg",
-      "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_3_site.jpg",
-      "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_4_site.jpg",
-      "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_5_site.jpg",
-      "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Oak Green Metallic/Gloss White/Chrome/Clean": "Specialized/years/divergeexpertcarbon_2021_satinoakgreenmetallicglosswhitechromeclean_site.jpg"
-    },
     "colours": [
      "Satin Oak Green Metallic/Gloss White/Chrome/Clean"
     ],
@@ -6309,18 +5808,6 @@
   "Diverge Expert Carbon - SRAM Rival eTAP AXS": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Arctic Blue/Sand Speckle/Terra Cotta": [
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxs_2022_glossarcticbluesandspeckleterracotta_1_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxs_2022_glossarcticbluesandspeckleterracotta_2_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxs_2022_glossarcticbluesandspeckleterracotta_3_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxs_2022_glossarcticbluesandspeckleterracotta_4_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxs_2022_glossarcticbluesandspeckleterracotta_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Arctic Blue/Sand Speckle/Terra Cotta": "Specialized/years/divergeexpertcarbonsramrivaletapaxs_2022_glossarcticbluesandspeckleterracotta_site.jpg"
-    },
     "colours": [
      "Gloss Arctic Blue/Sand Speckle/Terra Cotta"
     ],
@@ -6358,28 +5845,6 @@
   "Diverge Expert Carbon - SRAM Rival eTAP AXS / GX Eagle AXS": {
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "GLOSS DARK NAVY GRANITE OVER CARBON/PEARL": [
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_1_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_2_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_3_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_4_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_5_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_6_site.jpg"
-     ],
-     "GLOSS DUNE WHITE/TAUPE": [
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_1_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_2_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_3_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_4_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_5_site.jpg",
-      "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "GLOSS DARK NAVY GRANITE OVER CARBON/PEARL": "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdarknavygraniteovercarbonpearl_site.jpg",
-     "GLOSS DUNE WHITE/TAUPE": "Specialized/years/divergeexpertcarbonsramrivaletapaxsgxeagleaxs_2023_glossdunewhitetaupe_site.jpg"
-    },
     "colours": [
      "GLOSS DUNE WHITE/TAUPE",
      "GLOSS DARK NAVY GRANITE OVER CARBON/PEARL"
@@ -6652,19 +6117,6 @@
   "Diverge Pro Carbon - SRAM Force eTAP AXS / X01 Eagle AXS": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Sand/Satin Doppio": [
-      "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_1_site.jpg",
-      "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_2_site.jpg",
-      "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_3_site.jpg",
-      "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_4_site.jpg",
-      "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_5_site.jpg",
-      "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Sand/Satin Doppio": "Specialized/years/divergeprocarbonsramforceetapaxsx01eagleaxs_2022_glosssandsatindoppio_site.jpg"
-    },
     "colours": [
      "Gloss Sand/Satin Doppio"
     ],
@@ -6877,19 +6329,6 @@
   "Diverge STR Pro": {
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Blaze/Violet Ghost Pearl Fade": [
-      "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_1_site.jpg",
-      "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_2_site.jpg",
-      "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_3_site.jpg",
-      "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_4_site.jpg",
-      "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_5_site.jpg",
-      "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Blaze/Violet Ghost Pearl Fade": "Specialized/years/divergestrpro_2023_satinblazevioletghostpearlfade_site.jpg"
-    },
     "colours": [
      "Satin Blaze/Violet Ghost Pearl Fade"
     ],
@@ -7030,10 +6469,6 @@
   "Diverge Sport A1": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Graphite / Hyper": "Specialized/years/divergesporta1_2015_graphitehyper_site.jpg"
-    },
     "colours": [
      "Graphite / Hyper"
     ],
@@ -7110,10 +6545,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN STERLING / HYPER / CYAN": "Specialized/years/divergesporta1cen_2017_satinsterlinghypercyan_site.jpg"
-    },
     "colours": [
      "SATIN STERLING / HYPER / CYAN"
     ],
@@ -7152,15 +6583,6 @@
   "Diverge Sport Carbon": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Cast Blue Metallic/Ice Blue/Chrome/Clean": [
-      "Specialized/years/divergesportcarbon_2021_satincastbluemetallicicebluechromeclean_1_site.jpg",
-      "Specialized/years/divergesportcarbon_2021_satincastbluemetallicicebluechromeclean_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Cast Blue Metallic/Ice Blue/Chrome/Clean": "Specialized/years/divergesportcarbon_2021_satincastbluemetallicicebluechromeclean_site.jpg"
-    },
     "colours": [
      "Satin Cast Blue Metallic/Ice Blue/Chrome/Clean"
     ],
@@ -7196,17 +6618,6 @@
   "Diverge Sport Carbon - SRAM Apex": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Limestone/Black/Chrome/Clean": [
-      "Specialized/years/divergesportcarbonsramapex_2022_glosslimestoneblackchromeclean_1_site.jpg",
-      "Specialized/years/divergesportcarbonsramapex_2022_glosslimestoneblackchromeclean_2_site.jpg",
-      "Specialized/years/divergesportcarbonsramapex_2022_glosslimestoneblackchromeclean_3_site.jpg",
-      "Specialized/years/divergesportcarbonsramapex_2022_glosslimestoneblackchromeclean_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Limestone/Black/Chrome/Clean": "Specialized/years/divergesportcarbonsramapex_2022_glosslimestoneblackchromeclean_site.jpg"
-    },
     "colours": [
      "Gloss Limestone/Black/Chrome/Clean"
     ],
@@ -7241,15 +6652,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "SATIN CARBON/BLACK": [
-      "Specialized/years/divergesportcarbonsramapex_2023_satincarbonblack_1_site.jpg",
-      "Specialized/years/divergesportcarbonsramapex_2023_satincarbonblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "SATIN CARBON/BLACK": "Specialized/years/divergesportcarbonsramapex_2023_satincarbonblack_site.jpg"
-    },
     "colours": [
      "SATIN CARBON/BLACK"
     ],
@@ -7287,25 +6689,6 @@
   "Diverge Sport Carbon - Shimano GRX": {
    "2024": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Metallic Spruce / Spruce": [
-      "Specialized/years/divergesportcarbonshimanogrx_2024_glossmetallicsprucespruce_1_site.jpg",
-      "Specialized/years/divergesportcarbonshimanogrx_2024_glossmetallicsprucespruce_2_site.jpg"
-     ],
-     "Satin Carbon / Blue Onyx": [
-      "Specialized/years/divergesportcarbonshimanogrx_2024_satincarbonblueonyx_1_site.jpg",
-      "Specialized/years/divergesportcarbonshimanogrx_2024_satincarbonblueonyx_2_site.jpg"
-     ],
-     "Satin Purple Indigo Tint / Purple Indigo / Amber Glow": [
-      "Specialized/years/divergesportcarbonshimanogrx_2024_satinpurpleindigotintpurpleindigoamberglow_1_site.jpg",
-      "Specialized/years/divergesportcarbonshimanogrx_2024_satinpurpleindigotintpurpleindigoamberglow_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Metallic Spruce / Spruce": "Specialized/years/divergesportcarbonshimanogrx_2024_glossmetallicsprucespruce_site.jpg",
-     "Satin Carbon / Blue Onyx": "Specialized/years/divergesportcarbonshimanogrx_2024_satincarbonblueonyx_site.jpg",
-     "Satin Purple Indigo Tint / Purple Indigo / Amber Glow": "Specialized/years/divergesportcarbonshimanogrx_2024_satinpurpleindigotintpurpleindigoamberglow_site.jpg"
-    },
     "colours": [
      "Gloss Metallic Spruce / Spruce",
      "Satin Carbon / Blue Onyx",
@@ -7448,10 +6831,6 @@
   "Dolce": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS WHITE / FLAKE SILVER": "Specialized/years/dolce_2017_glosswhiteflakesilver_site.jpg"
-    },
     "colours": [
      "GLOSS WHITE / FLAKE SILVER"
     ],
@@ -7525,10 +6904,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin/Gloss/Cool Gray/Acid Pink": "Specialized/years/dolce_2019_satinglosscoolgrayacidpink_site.jpg"
-    },
     "colours": [
      "Satin/Gloss/Cool Gray/Acid Pink"
     ],
@@ -7618,10 +6993,6 @@
   "Dolce Sport": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Indigo/Charcoal/Silver": "Specialized/years/dolcesport_2016_glosswhiteindigocharcoalsilver_site.jpg"
-    },
     "colours": [
      "Gloss White/Indigo/Charcoal/Silver"
     ],
@@ -7700,10 +7071,6 @@
   "Dolce Sport EQ": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Indigo/Charcoal/Silver": "Specialized/years/dolcesporteq_2015_glosswhiteindigocharcoalsilver_site.jpg"
-    },
     "colours": [
      "Gloss White/Indigo/Charcoal/Silver"
     ],
@@ -7741,10 +7108,6 @@
   "Dolce Sport Triple": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Black/Charcoal": "Specialized/years/dolcesporttriple_2010_blackcharcoal_site.jpg"
-    },
     "colours": [
      "Black/Charcoal"
     ],
@@ -7785,10 +7148,6 @@
    },
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Black/Flo Red": "Specialized/years/dolcesporttriple_2012_glosswhiteblackflored_site.jpg"
-    },
     "colours": [
      "Gloss White/Black/Flo Red"
     ],
@@ -7829,10 +7188,6 @@
   "Dolce Sport Triple EQ": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic White/Silver/Purple": "Specialized/years/dolcesporttripleeq_2014_glossmetallicwhitesilverpurple_site.jpg"
-    },
     "colours": [
      "Gloss Metallic White/Silver/Purple"
     ],
@@ -7873,10 +7228,6 @@
   "Dolce Triple": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Silver/White": "Specialized/years/dolcetriple_2009_glosssilverwhite_site.jpg"
-    },
     "colours": [
      "Gloss Silver/White"
     ],
@@ -7980,11 +7331,6 @@
   "Men's Diverge Comp": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Dirty White/Rocket Red/Tarmac Black": "Specialized/years/mensdivergecomp_2018_glossdirtywhiterocketredtarmacblack_site.jpg",
-     "Satin Blue Tint/Charcoal": "Specialized/years/mensdivergecomp_2018_satinbluetintcharcoal_site.jpg"
-    },
     "colours": [
      "Gloss Dirty White/Rocket Red/Tarmac Black",
      "Satin Blue Tint/Charcoal"
@@ -8205,19 +7551,6 @@
   "Men's Diverge E5 Comp": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Battleship/Hyper": [
-      "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_1_site.jpg",
-      "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_2_site.jpg",
-      "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_3_site.jpg",
-      "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_4_site.jpg",
-      "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_5_site.jpg",
-      "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Battleship/Hyper": "Specialized/years/mensdivergee5comp_2019_satinbattleshiphyper_site.jpg"
-    },
     "colours": [
      "Satin Battleship/Hyper"
     ],
@@ -8570,10 +7903,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Tarmac Black/Flo Red": "Specialized/years/mensdivergesport_2019_satintarmacblackflored_site.jpg"
-    },
     "colours": [
      "Satin Tarmac Black/Flo Red"
     ],
@@ -8651,19 +7980,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon/Gloss Black": [
-      "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_1_site.jpg",
-      "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_2_site.jpg",
-      "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_3_site.jpg",
-      "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_4_site.jpg",
-      "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_5_site.jpg",
-      "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon/Gloss Black": "Specialized/years/menssworksdiverge_2019_satincarbonglossblack_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Gloss Black"
     ],
@@ -8781,18 +8097,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Black/Silver Holo/Clean": [
-      "Specialized/years/menssworkstarmac_2019_satinblacksilverholoclean_1_site.jpg",
-      "Specialized/years/menssworkstarmac_2019_satinblacksilverholoclean_2_site.jpg",
-      "Specialized/years/menssworkstarmac_2019_satinblacksilverholoclean_3_site.jpg",
-      "Specialized/years/menssworkstarmac_2019_satinblacksilverholoclean_4_site.jpg",
-      "Specialized/years/menssworkstarmac_2019_satinblacksilverholoclean_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Black/Silver Holo/Clean": "Specialized/years/menssworkstarmac_2019_satinblacksilverholoclean_site.jpg"
-    },
     "colours": [
      "Satin Black/Silver Holo/Clean"
     ],
@@ -8830,19 +8134,6 @@
   "Men's S-Works Tarmac Disc": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Black/Silver Holo/Clean": [
-      "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_1_site.jpg",
-      "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_2_site.jpg",
-      "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_3_site.jpg",
-      "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_4_site.jpg",
-      "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_5_site.jpg",
-      "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Black/Silver Holo/Clean": "Specialized/years/menssworkstarmacdisc_2019_satinblacksilverholoclean_site.jpg"
-    },
     "colours": [
      "Satin Black/Silver Holo/Clean"
     ],
@@ -9015,10 +8306,6 @@
   "Men's Tarmac Comp": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Black/Gloss Flo Red Clean": "Specialized/years/menstarmaccomp_2018_blackglossfloredclean_site.jpg"
-    },
     "colours": [
      "Black/Gloss Flo Red Clean"
     ],
@@ -9054,20 +8341,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon/Charcoal/Rocket Red/White": [
-      "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_1_site.jpg",
-      "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_2_site.jpg",
-      "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_3_site.jpg",
-      "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_4_site.jpg",
-      "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_5_site.jpg",
-      "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Storm Grey/Rocket Red/Clean": "Specialized/years/menstarmaccomp_2019_glossstormgreyrocketredclean_site.jpg",
-     "Satin Carbon/Charcoal/Rocket Red/White": "Specialized/years/menstarmaccomp_2019_satincarboncharcoalrocketredwhite_site.jpg"
-    },
     "colours": [
      "Gloss Storm Grey/Rocket Red/Clean",
      "Satin Carbon/Charcoal/Rocket Red/White"
@@ -9147,10 +8420,6 @@
   "Men's Tarmac Disc Comp": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic White Silver/Rocket Red/Tarmac Black": "Specialized/years/menstarmacdisccomp_2019_glossmetallicwhitesilverrocketredtarmacblack_site.jpg"
-    },
     "colours": [
      "Gloss Metallic White Silver/Rocket Red/Tarmac Black",
      "Gloss Metallic White Silver/Rocket Red/Tarmac Black"
@@ -9297,19 +8566,6 @@
   "Men's Tarmac Disc Pro": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Black/Holographic Black": [
-      "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_1_site.jpg",
-      "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_2_site.jpg",
-      "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_3_site.jpg",
-      "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_4_site.jpg",
-      "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_5_site.jpg",
-      "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Black/Holographic Black": "Specialized/years/menstarmacdiscpro_2019_satinblackholographicblack_site.jpg"
-    },
     "colours": [
      "Satin Black/Holographic Black"
     ],
@@ -9489,19 +8745,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Chameleon Green/Cast Blue/Tarmac Black/Team Yellow": [
-      "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_1_site.jpg",
-      "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_2_site.jpg",
-      "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_3_site.jpg",
-      "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_4_site.jpg",
-      "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_5_site.jpg",
-      "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Chameleon Green/Cast Blue/Tarmac Black/Team Yellow": "Specialized/years/menstarmacexpert_2019_glosschameleongreencastbluetarmacblackteamyellow_site.jpg"
-    },
     "colours": [
      "Gloss Chameleon Green/Cast Blue/Tarmac Black/Team Yellow"
     ],
@@ -9539,10 +8782,6 @@
   "Men's Tarmac Pro": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon Gloss Rocket Red/Tarmac Black/Metallic White Silver": "Specialized/years/menstarmacpro_2018_carbonglossrocketredtarmacblackmetallicwhitesilver_site.jpg"
-    },
     "colours": [
      "Carbon Gloss Rocket Red/Tarmac Black/Metallic White Silver"
     ],
@@ -9581,19 +8820,6 @@
   "Men's Tarmac SL4 Sport": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Candy Red/Rocket Red/Tarmac Black/Clean": [
-      "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_1_site.jpg",
-      "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_2_site.jpg",
-      "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_3_site.jpg",
-      "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_4_site.jpg",
-      "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_5_site.jpg",
-      "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Candy Red/Rocket Red/Tarmac Black/Clean": "Specialized/years/menstarmacsl4sport_2019_glosscandyredrocketredtarmacblackclean_site.jpg"
-    },
     "colours": [
      "Gloss Candy Red/Rocket Red/Tarmac Black/Clean"
     ],
@@ -9674,10 +8900,6 @@
   "Men's Tarmac Sport": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Rocket Red/Satin Black Clean": "Specialized/years/menstarmacsport_2018_rocketredsatinblackclean_site.jpg"
-    },
     "colours": [
      "Rocket Red/Satin Black Clean"
     ],
@@ -9795,15 +9017,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Flo Red w/Blue Ghost Pearl/Tarmac Black": [
-      "Specialized/years/roubaix_2020_glossfloredwblueghostpearltarmacblack_1_site.jpg",
-      "Specialized/years/roubaix_2020_glossfloredwblueghostpearltarmacblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Flo Red w/Blue Ghost Pearl/Tarmac Black": "Specialized/years/roubaix_2020_glossfloredwblueghostpearltarmacblack_site.jpg"
-    },
     "colours": [
      "Gloss Flo Red w/Blue Ghost Pearl/Tarmac Black"
     ],
@@ -9837,15 +9050,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Tarmac Black/Abalone": [
-      "Specialized/years/roubaix_2021_glosstarmacblackabalone_1_site.jpg",
-      "Specialized/years/roubaix_2021_glosstarmacblackabalone_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Tarmac Black/Abalone": "Specialized/years/roubaix_2021_glosstarmacblackabalone_site.jpg"
-    },
     "colours": [
      "Gloss Tarmac Black/Abalone"
     ],
@@ -9881,19 +9085,6 @@
   "Roubaix - Hydraulic Disc": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin/Carbon/Charcoal/Clean": [
-      "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_1_site.jpg",
-      "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_2_site.jpg",
-      "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_3_site.jpg",
-      "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_4_site.jpg",
-      "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_5_site.jpg",
-      "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin/Carbon/Charcoal/Clean": "Specialized/years/roubaixhydraulicdisc_2019_satincarboncharcoalclean_site.jpg"
-    },
     "colours": [
      "Satin/Carbon/Charcoal/Clean"
     ],
@@ -9931,17 +9122,6 @@
   "Roubaix - Shimano Tiagra": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Maroon/Silver Dust/Black Reflective": [
-      "Specialized/years/roubaixshimanotiagra_2022_maroonsilverdustblackreflective_1_site.jpg",
-      "Specialized/years/roubaixshimanotiagra_2022_maroonsilverdustblackreflective_2_site.jpg",
-      "Specialized/years/roubaixshimanotiagra_2022_maroonsilverdustblackreflective_3_site.jpg",
-      "Specialized/years/roubaixshimanotiagra_2022_maroonsilverdustblackreflective_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Maroon/Silver Dust/Black Reflective": "Specialized/years/roubaixshimanotiagra_2022_maroonsilverdustblackreflective_site.jpg"
-    },
     "colours": [
      "Maroon/Silver Dust/Black Reflective"
     ],
@@ -9980,10 +9160,6 @@
   "Roubaix Comp": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Red/White": "Specialized/years/roubaixcomp_2009_glossredwhite_site.jpg"
-    },
     "colours": [
      "Gloss Red/White"
     ],
@@ -10062,10 +9238,6 @@
    },
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Tarmac Black/White Reflective Clean": "Specialized/years/roubaixcomp_2018_glosstarmacblackwhitereflectiveclean_site.jpg"
-    },
     "colours": [
      "Gloss Tarmac Black/White Reflective Clean"
     ],
@@ -10161,20 +9333,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Crystal Flake/Black": [
-      "Specialized/years/roubaixcomp_2020_glosscrystalflakeblack_1_site.jpg",
-      "Specialized/years/roubaixcomp_2020_glosscrystalflakeblack_2_site.jpg"
-     ],
-     "Gloss Dove Gray/Crimson-Rocket Red": [
-      "Specialized/years/roubaixcomp_2020_glossdovegraycrimsonrocketred_1_site.jpg",
-      "Specialized/years/roubaixcomp_2020_glossdovegraycrimsonrocketred_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Crystal Flake/Black": "Specialized/years/roubaixcomp_2020_glosscrystalflakeblack_site.jpg",
-     "Gloss Dove Gray/Crimson-Rocket Red": "Specialized/years/roubaixcomp_2020_glossdovegraycrimsonrocketred_site.jpg"
-    },
     "colours": [
      "Gloss Crystal Flake/Black",
      "Gloss Dove Gray/Crimson-Rocket Red"
@@ -10211,17 +9369,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Smoke/Carbon/Black": [
-      "Specialized/years/roubaixcomp_2021_satinsmokecarbonblack_1_site.jpg",
-      "Specialized/years/roubaixcomp_2021_satinsmokecarbonblack_2_site.jpg",
-      "Specialized/years/roubaixcomp_2021_satinsmokecarbonblack_3_site.jpg",
-      "Specialized/years/roubaixcomp_2021_satinsmokecarbonblack_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Smoke/Carbon/Black": "Specialized/years/roubaixcomp_2021_satinsmokecarbonblack_site.jpg"
-    },
     "colours": [
      "Satin Smoke/Carbon/Black"
     ],
@@ -10348,15 +9495,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "UNDEREXPOSED": [
-      "Specialized/years/roubaixcompsagancollection_2020_underexposed_1_site.jpg",
-      "Specialized/years/roubaixcompsagancollection_2020_underexposed_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "UNDEREXPOSED": "Specialized/years/roubaixcompsagancollection_2020_underexposed_site.jpg"
-    },
     "colours": [
      "UNDEREXPOSED"
     ],
@@ -10394,10 +9532,6 @@
   "Roubaix Comp Compact": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/White": "Specialized/years/roubaixcompcompact_2010_carbonwhite_site.jpg"
-    },
     "colours": [
      "Carbon/White"
     ],
@@ -10479,19 +9613,6 @@
   "Roubaix Comp–Ultegra Di2": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon/Hyper": [
-      "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_1_site.jpg",
-      "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_2_site.jpg",
-      "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_3_site.jpg",
-      "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_4_site.jpg",
-      "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_5_site.jpg",
-      "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon/Hyper": "Specialized/years/roubaixcompultegradi2_2019_satincarbonhyper_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Hyper"
     ],
@@ -10529,10 +9650,6 @@
   "Roubaix Elite": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Hyper/Charcoal": "Specialized/years/roubaixelite_2017_satincarbonhypercharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Hyper/Charcoal"
     ],
@@ -10567,10 +9684,6 @@
    },
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Black/Gloss Black/Black Reflective Clean": "Specialized/years/roubaixelite_2018_satinblackglossblackblackreflectiveclean_site.jpg"
-    },
     "colours": [
      "Satin Black/Gloss Black/Black Reflective Clean"
     ],
@@ -10636,10 +9749,6 @@
   "Roubaix Expert": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White": "Specialized/years/roubaixexpert_2009_glosswhite_site.jpg"
-    },
     "colours": [
      "Gloss White"
     ],
@@ -10786,15 +9895,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Black/Charcoal": [
-      "Specialized/years/roubaixexpert_2020_satinblackcharcoal_1_site.jpg",
-      "Specialized/years/roubaixexpert_2020_satinblackcharcoal_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Black/Charcoal": "Specialized/years/roubaixexpert_2020_satinblackcharcoal_site.jpg"
-    },
     "colours": [
      "Satin Black/Charcoal"
     ],
@@ -10830,15 +9930,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon/White": [
-      "Specialized/years/roubaixexpert_2021_satincarbonwhite_1_site.jpg",
-      "Specialized/years/roubaixexpert_2021_satincarbonwhite_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon/White": "Specialized/years/roubaixexpert_2021_satincarbonwhite_site.jpg"
-    },
     "colours": [
      "Satin Carbon/White"
     ],
@@ -10966,10 +10057,6 @@
   "Roubaix Expert Compact": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/White": "Specialized/years/roubaixexpertcompact_2010_carbonwhite_site.jpg"
-    },
     "colours": [
      "Carbon/White",
      "Test Model - Red"
@@ -11186,19 +10273,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Chameleon Silver Green/Black/Spectraflair/Black Reflective": [
-      "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_1_site.jpg",
-      "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_2_site.jpg",
-      "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_3_site.jpg",
-      "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_4_site.jpg",
-      "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_5_site.jpg",
-      "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Chameleon Silver Green/Black/Spectraflair/Black Reflective": "Specialized/years/roubaixprosramforceetapaxs_2022_chameleonsilvergreenblackspectraflairblackreflective_site.jpg"
-    },
     "colours": [
      "Chameleon Silver Green/Black/Spectraflair/Black Reflective"
     ],
@@ -11236,10 +10310,6 @@
   "Roubaix SL3 Expert Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Carbon": "Specialized/years/roubaixsl3expertcompact_2012_whitecarbon_site.jpg"
-    },
     "colours": [
      "White/Carbon"
     ],
@@ -11302,10 +10372,6 @@
   "Roubaix SL4 Comp": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Rkt Red/Clean": "Specialized/years/roubaixsl4comp_2016_satincarbonrktredclean_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Rkt Red/Clean"
     ],
@@ -11343,10 +10409,6 @@
   "Roubaix SL4 Comp Disc": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Project Clean Satin Black": "Specialized/years/roubaixsl4compdisc_2015_projectcleansatinblack_site.jpg"
-    },
     "colours": [
      "Project Clean Satin Black"
     ],
@@ -11382,10 +10444,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Project Clean Satin Black": "Specialized/years/roubaixsl4compdisc_2016_projectcleansatinblack_site.jpg"
-    },
     "colours": [
      "Project Clean Satin Black"
     ],
@@ -11423,10 +10481,6 @@
   "Roubaix SL4 Disc": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal": "Specialized/years/roubaixsl4disc_2015_satincarboncharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal"
     ],
@@ -11464,10 +10518,6 @@
   "Roubaix SL4 Elite Disc": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Charcoal/Black/White": "Specialized/years/roubaixsl4elitedisc_2015_satincharcoalblackwhite_site.jpg"
-    },
     "colours": [
      "Satin Charcoal/Black/White"
     ],
@@ -11502,10 +10552,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal/White": "Specialized/years/roubaixsl4elitedisc_2016_satincarboncharcoalwhite_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal/White"
     ],
@@ -11543,10 +10589,6 @@
   "Roubaix SL4 Expert Ultegra Di2 Disc": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Orange/Black": "Specialized/years/roubaixsl4expertultegradi2disc_2014_glossorangeblack_site.jpg"
-    },
     "colours": [
      "Gloss Orange/Black"
     ],
@@ -11587,10 +10629,6 @@
   "Roubaix SL4 Pro Disc Race": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Black/White/Charcoal": "Specialized/years/roubaixsl4prodiscrace_2015_satinblackwhitecharcoal_site.jpg"
-    },
     "colours": [
      "Satin Black/White/Charcoal"
     ],
@@ -11628,10 +10666,6 @@
   "Roubaix SL4 Sora Disc": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal": "Specialized/years/roubaixsl4soradisc_2014_satincarboncharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal"
     ],
@@ -11672,11 +10706,6 @@
   "Roubaix SL4 Sport": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Hyper/Black/Charcoal": "Specialized/years/roubaixsl4sport_2015_glosshyperblackcharcoal_site.jpg",
-     "Satin Charcoal/Black/White": "Specialized/years/roubaixsl4sport_2015_satincharcoalblackwhite_site.jpg"
-    },
     "colours": [
      "Gloss Hyper/Black/Charcoal",
      "Satin Charcoal/Black/White"
@@ -11713,10 +10742,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Red/White": "Specialized/years/roubaixsl4sport_2016_satincarbonredwhite_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Red/White"
     ],
@@ -11752,10 +10777,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Flo Red/Clean": "Specialized/years/roubaixsl4sport_2017_satincarbonfloredclean_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Flo Red/Clean"
     ],
@@ -11792,10 +10813,6 @@
   "Roubaix SL4 Sport 105": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Pearl White/Black": "Specialized/years/roubaixsl4sport105_2014_glosspearlwhiteblack_site.jpg"
-    },
     "colours": [
      "Gloss Pearl White/Black"
     ],
@@ -11836,10 +10853,6 @@
   "Roubaix SL4 Sport SRAM Disc": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal/Red": "Specialized/years/roubaixsl4sportsramdisc_2014_satincarboncharcoalred_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal/Red"
     ],
@@ -12044,28 +11057,6 @@
    },
    "2025": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Sea Foam / Violet / Pearl": [
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_1_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_2_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_3_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_4_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_5_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_6_site.jpg"
-     ],
-     "Satin Copper / Smoke": [
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_1_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_2_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_3_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_4_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_5_site.jpg",
-      "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Sea Foam / Violet / Pearl": "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_glossseafoamvioletpearl_site.jpg",
-     "Satin Copper / Smoke": "Specialized/years/roubaixsl8expertsramrivaletapaxs_2025_satincoppersmoke_site.jpg"
-    },
     "colours": [
      "Gloss Sea Foam / Violet / Pearl",
      "Satin Copper / Smoke"
@@ -12310,10 +11301,6 @@
   "Roubaix Sport": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/Nordic Red/Metallic White": "Specialized/years/roubaixsport_2018_glosscarbonnordicredmetallicwhite_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/Nordic Red/Metallic White"
     ],
@@ -12348,19 +11335,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Tarmac Black/Oil": [
-      "Specialized/years/roubaixsport_2019_glosstarmacblackoil_1_site.jpg",
-      "Specialized/years/roubaixsport_2019_glosstarmacblackoil_2_site.jpg",
-      "Specialized/years/roubaixsport_2019_glosstarmacblackoil_3_site.jpg",
-      "Specialized/years/roubaixsport_2019_glosstarmacblackoil_4_site.jpg",
-      "Specialized/years/roubaixsport_2019_glosstarmacblackoil_5_site.jpg",
-      "Specialized/years/roubaixsport_2019_glosstarmacblackoil_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Tarmac Black/Oil": "Specialized/years/roubaixsport_2019_glosstarmacblackoil_site.jpg"
-    },
     "colours": [
      "Gloss Tarmac Black/Oil"
     ],
@@ -12446,20 +11420,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Ice Blue/Carbon/Tarmac Black": [
-      "Specialized/years/roubaixsport_2021_glossicebluecarbontarmacblack_1_site.jpg",
-      "Specialized/years/roubaixsport_2021_glossicebluecarbontarmacblack_2_site.jpg"
-     ],
-     "Satin Flake Silver/Black": [
-      "Specialized/years/roubaixsport_2021_satinflakesilverblack_1_site.jpg",
-      "Specialized/years/roubaixsport_2021_satinflakesilverblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Ice Blue/Carbon/Tarmac Black": "Specialized/years/roubaixsport_2021_glossicebluecarbontarmacblack_site.jpg",
-     "Satin Flake Silver/Black": "Specialized/years/roubaixsport_2021_satinflakesilverblack_site.jpg"
-    },
     "colours": [
      "Satin Flake Silver/Black",
      "Gloss Ice Blue/Carbon/Tarmac Black"
@@ -12498,26 +11458,6 @@
   "Roubaix Sport - Shimano 105": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Doppio/Sand": [
-      "Specialized/years/roubaixsportshimano105_2022_doppiosand_1_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_doppiosand_2_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_doppiosand_3_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_doppiosand_4_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_doppiosand_5_site.jpg"
-     ],
-     "Smoke/Silver Dust/Black Reflective": [
-      "Specialized/years/roubaixsportshimano105_2022_smokesilverdustblackreflective_1_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_smokesilverdustblackreflective_2_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_smokesilverdustblackreflective_3_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_smokesilverdustblackreflective_4_site.jpg",
-      "Specialized/years/roubaixsportshimano105_2022_smokesilverdustblackreflective_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Doppio/Sand": "Specialized/years/roubaixsportshimano105_2022_doppiosand_site.jpg",
-     "Smoke/Silver Dust/Black Reflective": "Specialized/years/roubaixsportshimano105_2022_smokesilverdustblackreflective_site.jpg"
-    },
     "colours": [
      "Smoke/Silver Dust/Black Reflective",
      "Doppio/Sand"
@@ -12556,10 +11496,6 @@
   "Ruby": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Black/Chameleon": "Specialized/years/ruby_2018_glossblackchameleon_site.jpg"
-    },
     "colours": [
      "Gloss Black/Chameleon"
     ],
@@ -12639,10 +11575,6 @@
   "Ruby Comp": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Lululemon Manifesto": "Specialized/years/rubycomp_2015_lululemonmanifesto_site.jpg"
-    },
     "colours": [
      "Lululemon Manifesto"
     ],
@@ -12878,10 +11810,6 @@
   "Ruby Comp Compact": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Blue Tint Carbon": "Specialized/years/rubycompcompact_2009_glossbluetintcarbon_site.jpg"
-    },
     "colours": [
      "Gloss Blue Tint Carbon"
     ],
@@ -12922,10 +11850,6 @@
    },
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Blue Carbon/White": "Specialized/years/rubycompcompact_2010_bluecarbonwhite_site.jpg"
-    },
     "colours": [
      "Blue Carbon/White"
     ],
@@ -12964,10 +11888,6 @@
    },
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Crimson/Black": "Specialized/years/rubycompcompact_2012_whitecrimsonblack_site.jpg"
-    },
     "colours": [
      "White/Crimson/Black"
     ],
@@ -12994,10 +11914,6 @@
   "Ruby Compact": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic Black/Silver": "Specialized/years/rubycompact_2014_glossmetallicblacksilver_site.jpg"
-    },
     "colours": [
      "Gloss Metallic Black/Silver"
     ],
@@ -13038,10 +11954,6 @@
   "Ruby Double": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin White Tinted Carbon/Silver/White": "Specialized/years/rubydouble_2015_satinwhitetintedcarbonsilverwhite_site.jpg"
-    },
     "colours": [
      "Satin White Tinted Carbon/Silver/White"
     ],
@@ -13079,10 +11991,6 @@
   "Ruby Elite": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS BLACK/LIGHT TURQUOISE/WHITE": "Specialized/years/rubyelite_2017_glossblacklightturquoisewhite_site.jpg"
-    },
     "colours": [
      "GLOSS BLACK/LIGHT TURQUOISE/WHITE"
     ],
@@ -13117,10 +12025,6 @@
    },
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Cosmic Flake White/Flake Silver": "Specialized/years/rubyelite_2018_glosscosmicflakewhiteflakesilver_site.jpg"
-    },
     "colours": [
      "Gloss Cosmic Flake White/Flake Silver"
     ],
@@ -13157,10 +12061,6 @@
   "Ruby Elite Disc": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Deep Indigo/Prl Turquoise/Prl Hyper": "Specialized/years/rubyelitedisc_2016_glossdeepindigoprlturquoiseprlhyper_site.jpg"
-    },
     "colours": [
      "Gloss Deep Indigo/Prl Turquoise/Prl Hyper"
     ],
@@ -13297,10 +12197,6 @@
   "Ruby Expert Compact": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Red": "Specialized/years/rubyexpertcompact_2009_glosswhitered_site.jpg"
-    },
     "colours": [
      "Gloss White/Red"
     ],
@@ -13341,10 +12237,6 @@
    },
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/Red": "Specialized/years/rubyexpertcompact_2010_carbonred_site.jpg"
-    },
     "colours": [
      "Carbon/Red"
     ],
@@ -13385,10 +12277,6 @@
   "Ruby Expert Ultegra Di2": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Turquoise/ Hyper Green/ Black": "Specialized/years/rubyexpertultegradi2_2017_satinturquoisehypergreenblack_site.jpg"
-    },
     "colours": [
      "Satin Turquoise/ Hyper Green/ Black"
     ],
@@ -13425,10 +12313,6 @@
   "Ruby Pro Dura-Ace": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/White": "Specialized/years/rubyproduraace_2009_glosscarbonwhite_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/White"
     ],
@@ -13471,10 +12355,6 @@
   "Ruby SL4 - Rim Brake": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN COOL GRAY/HYPER GREEN/BLACK": "Specialized/years/rubysl4rimbrake_2017_satincoolgrayhypergreenblack_site.jpg"
-    },
     "colours": [
      "SATIN COOL GRAY/HYPER GREEN/BLACK"
     ],
@@ -13511,10 +12391,6 @@
   "Ruby Sport": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Deep Blue/Charcoal": "Specialized/years/rubysport_2015_glosswhitedeepbluecharcoal_site.jpg"
-    },
     "colours": [
      "Gloss White/Deep Blue/Charcoal"
     ],
@@ -13629,19 +12505,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin/Tarmac Black/Acid Pink/Charcoal": [
-      "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_1_site.jpg",
-      "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_2_site.jpg",
-      "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_3_site.jpg",
-      "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_4_site.jpg",
-      "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_5_site.jpg",
-      "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin/Tarmac Black/Acid Pink/Charcoal": "Specialized/years/rubysport_2019_satintarmacblackacidpinkcharcoal_site.jpg"
-    },
     "colours": [
      "Satin/Tarmac Black/Acid Pink/Charcoal"
     ],
@@ -13727,17 +12590,6 @@
   "S-Works Aethos - SRAM RED AXS": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Flake Silver/Red Gold Chameleon Tint/Brushed Chrome": [
-      "Specialized/years/sworksaethossramredaxs_2021_satinflakesilverredgoldchameleontintbrushedchrome_1_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2021_satinflakesilverredgoldchameleontintbrushedchrome_2_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2021_satinflakesilverredgoldchameleontintbrushedchrome_3_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2021_satinflakesilverredgoldchameleontintbrushedchrome_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Flake Silver/Red Gold Chameleon Tint/Brushed Chrome": "Specialized/years/sworksaethossramredaxs_2021_satinflakesilverredgoldchameleontintbrushedchrome_site.jpg"
-    },
     "colours": [
      "Satin Flake Silver/Red Gold Chameleon Tint/Brushed Chrome"
     ],
@@ -13772,18 +12624,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Carbon / Chameleon Eyris Color Run / Chrome Foil": [
-      "Specialized/years/sworksaethossramredaxs_2022_carbonchameleoneyriscolorrunchromefoil_1_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2022_carbonchameleoneyriscolorrunchromefoil_2_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2022_carbonchameleoneyriscolorrunchromefoil_3_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2022_carbonchameleoneyriscolorrunchromefoil_4_site.jpg",
-      "Specialized/years/sworksaethossramredaxs_2022_carbonchameleoneyriscolorrunchromefoil_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Carbon / Chameleon Eyris Color Run / Chrome Foil": "Specialized/years/sworksaethossramredaxs_2022_carbonchameleoneyriscolorrunchromefoil_site.jpg"
-    },
     "colours": [
      "Carbon / Chameleon Eyris Color Run / Chrome Foil"
     ],
@@ -13968,18 +12808,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Cool Grey/Chameleon Eyris Tint/Brushed Chrome": [
-      "Specialized/years/sworksaethosshimanoduraacedi2_2022_coolgreychameleoneyristintbrushedchrome_1_site.jpg",
-      "Specialized/years/sworksaethosshimanoduraacedi2_2022_coolgreychameleoneyristintbrushedchrome_2_site.jpg",
-      "Specialized/years/sworksaethosshimanoduraacedi2_2022_coolgreychameleoneyristintbrushedchrome_3_site.jpg",
-      "Specialized/years/sworksaethosshimanoduraacedi2_2022_coolgreychameleoneyristintbrushedchrome_4_site.jpg",
-      "Specialized/years/sworksaethosshimanoduraacedi2_2022_coolgreychameleoneyristintbrushedchrome_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Cool Grey/Chameleon Eyris Tint/Brushed Chrome": "Specialized/years/sworksaethosshimanoduraacedi2_2022_coolgreychameleoneyristintbrushedchrome_site.jpg"
-    },
     "colours": [
      "Cool Grey/Chameleon Eyris Tint/Brushed Chrome"
     ],
@@ -14187,10 +13015,6 @@
   "S-Works Amira SL4 Mid-Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Flo Red/Carbon": "Specialized/years/sworksamirasl4midcompact_2012_whitefloredcarbon_site.jpg"
-    },
     "colours": [
      "White/Flo Red/Carbon"
     ],
@@ -14230,10 +13054,6 @@
   "S-Works Amira eTap": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Tarmac Black/Gloss Nordic Red/KOOL SILVER": "Specialized/years/sworksamiraetap_2017_tarmacblackglossnordicredkoolsilver_site.jpg"
-    },
     "colours": [
      "Tarmac Black/Gloss Nordic Red/KOOL SILVER"
     ],
@@ -14454,19 +13274,6 @@
   "S-Works Crux - SRAM RED XPLR eTAP AXS": {
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "SATIN METALLIC DARK NAVY/MYSTIC BLUE/MIDNIGHT SHADOW METALLIC SPECKLE": [
-      "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_1_site.jpg",
-      "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_2_site.jpg",
-      "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_3_site.jpg",
-      "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_4_site.jpg",
-      "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_5_site.jpg",
-      "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "SATIN METALLIC DARK NAVY/MYSTIC BLUE/MIDNIGHT SHADOW METALLIC SPECKLE": "Specialized/years/sworkscruxsramredxplretapaxs_2023_satinmetallicdarknavymysticbluemidnightshadowmetallicspeckle_site.jpg"
-    },
     "colours": [
      "SATIN METALLIC DARK NAVY/MYSTIC BLUE/MIDNIGHT SHADOW METALLIC SPECKLE"
     ],
@@ -14603,19 +13410,6 @@
   "S-Works Diverge": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon/Color Run Pearl/Chrome/Clean": [
-      "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_1_site.jpg",
-      "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_2_site.jpg",
-      "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_3_site.jpg",
-      "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_4_site.jpg",
-      "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_5_site.jpg",
-      "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon/Color Run Pearl/Chrome/Clean": "Specialized/years/sworksdiverge_2021_satincarboncolorrunpearlchromeclean_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Color Run Pearl/Chrome/Clean"
     ],
@@ -14748,19 +13542,6 @@
   "S-Works Diverge STR": {
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Forest Green/Dark Moss Green/Black Pearl": [
-      "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_1_site.jpg",
-      "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_2_site.jpg",
-      "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_3_site.jpg",
-      "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_4_site.jpg",
-      "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_5_site.jpg",
-      "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Forest Green/Dark Moss Green/Black Pearl": "Specialized/years/sworksdivergestr_2023_satinforestgreendarkmossgreenblackpearl_site.jpg"
-    },
     "colours": [
      "Satin Forest Green/Dark Moss Green/Black Pearl"
     ],
@@ -15011,15 +13792,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Green Tint/Spectraflair/Satin Flake Silver": [
-      "Specialized/years/sworksroubaixsramredetapaxs_2021_glossgreentintspectraflairsatinflakesilver_1_site.jpg",
-      "Specialized/years/sworksroubaixsramredetapaxs_2021_glossgreentintspectraflairsatinflakesilver_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Green Tint/Spectraflair/Satin Flake Silver": "Specialized/years/sworksroubaixsramredetapaxs_2021_glossgreentintspectraflairsatinflakesilver_site.jpg"
-    },
     "colours": [
      "Gloss Green Tint/Spectraflair/Satin Flake Silver"
     ],
@@ -15181,15 +13953,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Dove Gray/Rocket Red/Black": [
-      "Specialized/years/sworksroubaixshimanoduraacedi2_2020_glossdovegrayrocketredblack_1_site.jpg",
-      "Specialized/years/sworksroubaixshimanoduraacedi2_2020_glossdovegrayrocketredblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Dove Gray/Rocket Red/Black": "Specialized/years/sworksroubaixshimanoduraacedi2_2020_glossdovegrayrocketredblack_site.jpg"
-    },
     "colours": [
      "Gloss Dove Gray/Rocket Red/Black"
     ],
@@ -15313,10 +14076,6 @@
   "S-Works Roubaix SL SRAM": {
    "2008": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "QuickStep": "Specialized/years/sworksroubaixslsram_2008_quickstep_site.jpg"
-    },
     "colours": [
      "QuickStep"
     ],
@@ -15355,10 +14114,6 @@
   "S-Works Roubaix SL2 DA": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Raw Carbon": "Specialized/years/sworksroubaixsl2da_2010_rawcarbon_site.jpg"
-    },
     "colours": [
      "Raw Carbon"
     ],
@@ -15399,10 +14154,6 @@
   "S-Works Roubaix SL2 Dura-Ace": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Team Carbon/Red": "Specialized/years/sworksroubaixsl2duraace_2009_teamcarbonred_site.jpg"
-    },
     "colours": [
      "Team Carbon/Red"
     ],
@@ -15445,10 +14196,6 @@
   "S-Works Roubaix SL4 Disc Di2": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin /Gloss Carbon": "Specialized/years/sworksroubaixsl4discdi2_2015_satinglosscarbon_site.jpg"
-    },
     "colours": [
      "Satin /Gloss Carbon"
     ],
@@ -15485,10 +14232,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Chrome/Clean": "Specialized/years/sworksroubaixsl4discdi2_2016_satincarbonchromeclean_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Chrome/Clean"
     ],
@@ -15526,10 +14269,6 @@
   "S-Works Roubaix SL4 RED Disc": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin/Gloss Carbon/Red": "Specialized/years/sworksroubaixsl4reddisc_2014_satinglosscarbonred_site.jpg"
-    },
     "colours": [
      "Satin/Gloss Carbon/Red"
     ],
@@ -15570,10 +14309,6 @@
   "S-Works Roubaix SL4 X": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Black/White": "Specialized/years/sworksroubaixsl4x_2014_glossblackwhite_site.jpg"
-    },
     "colours": [
      "Gloss Black/White"
     ],
@@ -15744,15 +14479,6 @@
   "S-Works Shiv Disc": {
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon/Gloss Holographic Foil": [
-      "Specialized/years/sworksshivdisc_2020_satincarbonglossholographicfoil_1_site.jpg",
-      "Specialized/years/sworksshivdisc_2020_satincarbonglossholographicfoil_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon/Gloss Holographic Foil": "Specialized/years/sworksshivdisc_2020_satincarbonglossholographicfoil_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Gloss Holographic Foil"
     ],
@@ -15872,25 +14598,6 @@
   "S-Works Shiv Disc Limited-Edition": {
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Sunset Five-O/Gloss White": [
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_1_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_2_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_3_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_4_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_5_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_6_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_7_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_8_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_9_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_10_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_11_site.jpg",
-      "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_12_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Sunset Five-O/Gloss White": "Specialized/years/sworksshivdisclimitededition_2019_sunsetfiveoglosswhite_site.jpg"
-    },
     "colours": [
      "Sunset Five-O/Gloss White"
     ],
@@ -16012,10 +14719,6 @@
   "S-Works Tarmac Disc eTap": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN/ GLOSS CARBON/ FLO RED/ METALLIC WHITE": "Specialized/years/sworkstarmacdiscetap_2017_satinglosscarbonfloredmetallicwhite_site.jpg"
-    },
     "colours": [
      "SATIN/ GLOSS CARBON/ FLO RED/ METALLIC WHITE"
     ],
@@ -16054,10 +14757,6 @@
   "S-Works Tarmac Dura-Ace": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin/ Gloss Carbon/ White": "Specialized/years/sworkstarmacduraace_2015_satinglosscarbonwhite_site.jpg"
-    },
     "colours": [
      "Satin/ Gloss Carbon/ White"
     ],
@@ -16093,10 +14792,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Gloss Rocket Red/White": "Specialized/years/sworkstarmacduraace_2016_satincarbonglossrocketredwhite_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Gloss Rocket Red/White"
     ],
@@ -16131,10 +14826,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Rocket Red/Metallic White": "Specialized/years/sworkstarmacduraace_2017_satincarbonrocketredmetallicwhite_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Rocket Red/Metallic White"
     ],
@@ -16172,10 +14863,6 @@
   "S-Works Tarmac SL2 Dura-Ace": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/Red": "Specialized/years/sworkstarmacsl2duraace_2009_carbonred_site.jpg"
-    },
     "colours": [
      "Carbon/Red"
     ],
@@ -16218,10 +14905,6 @@
   "S-Works Tarmac SL3 Dura-Ace": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Flo Red/Carbon/Pearl White": "Specialized/years/sworkstarmacsl3duraace_2010_floredcarbonpearlwhite_site.jpg"
-    },
     "colours": [
      "Flo Red/Carbon/Pearl White"
     ],
@@ -16303,10 +14986,6 @@
   "S-Works Tarmac SL4 Dura-Ace Di2": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin/Gloss Carbon/Red": "Specialized/years/sworkstarmacsl4duraacedi2_2014_satinglosscarbonred_site.jpg"
-    },
     "colours": [
      "Satin/Gloss Carbon/Red"
     ],
@@ -16347,10 +15026,6 @@
   "S-Works Tarmac SL4 RED HRR": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin/Gloss Carbon/Red": "Specialized/years/sworkstarmacsl4redhrr_2014_satinglosscarbonred_site.jpg"
-    },
     "colours": [
      "Satin/Gloss Carbon/Red"
     ],
@@ -16391,10 +15066,6 @@
   "S-Works Tarmac SL4 SRAM RED": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon Satin/Flo Red": "Specialized/years/sworkstarmacsl4sramred_2012_carbonsatinflored_site.jpg"
-    },
     "colours": [
      "Carbon Satin/Flo Red"
     ],
@@ -16530,20 +15201,6 @@
   "S-Works Tarmac SL7 - SRAM RED eTAP AXS": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Carbon/Color Run Silver Green": [
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2021_carboncolorrunsilvergreen_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2021_carboncolorrunsilvergreen_2_site.jpg"
-     ],
-     "Green Tint Fade over Spectraflair/Chrome": [
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2021_greentintfadeoverspectraflairchrome_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2021_greentintfadeoverspectraflairchrome_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Carbon/Color Run Silver Green": "Specialized/years/sworkstarmacsl7sramredetapaxs_2021_carboncolorrunsilvergreen_site.jpg",
-     "Green Tint Fade over Spectraflair/Chrome": "Specialized/years/sworkstarmacsl7sramredetapaxs_2021_greentintfadeoverspectraflairchrome_site.jpg"
-    },
     "colours": [
      "Green Tint Fade over Spectraflair/Chrome",
      "Carbon/Color Run Silver Green"
@@ -16579,16 +15236,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "SATIN CARBON / SPECTRAFLAIR TINT / GLOSS BRUSHED CHROME": [
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2022_satincarbonspectraflairtintglossbrushedchrome_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2022_satincarbonspectraflairtintglossbrushedchrome_2_site.jpg",
-      "Specialized/years/sworkstarmacsl7sramredetapaxs_2022_satincarbonspectraflairtintglossbrushedchrome_3_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "SATIN CARBON / SPECTRAFLAIR TINT / GLOSS BRUSHED CHROME": "Specialized/years/sworkstarmacsl7sramredetapaxs_2022_satincarbonspectraflairtintglossbrushedchrome_site.jpg"
-    },
     "colours": [
      "SATIN CARBON / SPECTRAFLAIR TINT / GLOSS BRUSHED CHROME"
     ],
@@ -16673,10 +15320,6 @@
   "S-Works Tarmac SL7 - Sagan Collection": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Decon Green/Yellow": "Specialized/years/sworkstarmacsl7sagancollection_2021_decongreenyellow_site.jpg"
-    },
     "colours": [
      "Decon Green/Yellow"
     ],
@@ -16814,28 +15457,6 @@
    },
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "GLOSS BLACK PEARL GRANITE OVER CARBON / CHROME": [
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_2_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_3_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_4_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_5_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_6_site.jpg"
-     ],
-     "SATIN RED ONYX GRANITE OVER BLACK / METALLIC WHITE SILVER": [
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_2_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_3_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_4_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_5_site.jpg",
-      "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "GLOSS BLACK PEARL GRANITE OVER CARBON / CHROME": "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_glossblackpearlgraniteovercarbonchrome_site.jpg",
-     "SATIN RED ONYX GRANITE OVER BLACK / METALLIC WHITE SILVER": "Specialized/years/sworkstarmacsl7shimanoduraacedi2_2023_satinredonyxgraniteoverblackmetallicwhitesilver_site.jpg"
-    },
     "colours": [
      "SATIN RED ONYX GRANITE OVER BLACK / METALLIC WHITE SILVER",
      "GLOSS BLACK PEARL GRANITE OVER CARBON / CHROME"
@@ -16874,15 +15495,6 @@
   "S-Works Tarmac SL7 - Speed of Light Collection": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Red Tint/Chameleon/White": [
-      "Specialized/years/sworkstarmacsl7speedoflightcollection_2022_redtintchameleonwhite_1_site.jpg",
-      "Specialized/years/sworkstarmacsl7speedoflightcollection_2022_redtintchameleonwhite_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Red Tint/Chameleon/White": "Specialized/years/sworkstarmacsl7speedoflightcollection_2022_redtintchameleonwhite_site.jpg"
-    },
     "colours": [
      "Red Tint/Chameleon/White"
     ],
@@ -17097,18 +15709,6 @@
   "S-Works Tarmac SL8 - Shimano Dura-Ace Di2": {
    "2024": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin Carbon / Viavi Cynan Blue / Viavi Silver-Blue Pearl Fade / Gloss Metallic White Silver": [
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2024_satincarbonviavicynanblueviavisilverbluepearlfadeglossmetallicwhitesilver_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2024_satincarbonviavicynanblueviavisilverbluepearlfadeglossmetallicwhitesilver_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2024_satincarbonviavicynanblueviavisilverbluepearlfadeglossmetallicwhitesilver_3_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2024_satincarbonviavicynanblueviavisilverbluepearlfadeglossmetallicwhitesilver_4_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2024_satincarbonviavicynanblueviavisilverbluepearlfadeglossmetallicwhitesilver_5_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin Carbon / Viavi Cynan Blue / Viavi Silver-Blue Pearl Fade / Gloss Metallic White Silver": "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2024_satincarbonviavicynanblueviavisilverbluepearlfadeglossmetallicwhitesilver_site.jpg"
-    },
     "colours": [
      "Satin Carbon / Viavi Cynan Blue / Viavi Silver-Blue Pearl Fade / Gloss Metallic White Silver"
     ],
@@ -17145,28 +15745,6 @@
    },
    "2025": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Dove Grey / Silver Dust Blurred Impasto / Black Pearl": [
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_3_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_4_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_5_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_6_site.jpg"
-     ],
-     "Gloss Solidity / Red To Black Pearl / Metallic White Silver": [
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_3_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_4_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_5_site.jpg",
-      "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Dove Grey / Silver Dust Blurred Impasto / Black Pearl": "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glossdovegreysilverdustblurredimpastoblackpearl_site.jpg",
-     "Gloss Solidity / Red To Black Pearl / Metallic White Silver": "Specialized/years/sworkstarmacsl8shimanoduraacedi2_2025_glosssolidityredtoblackpearlmetallicwhitesilver_site.jpg"
-    },
     "colours": [
      "Gloss Dove Grey / Silver Dust Blurred Impasto / Black Pearl",
      "Gloss Solidity / Red To Black Pearl / Metallic White Silver"
@@ -17264,16 +15842,6 @@
   "S-Works Tarmac SL8 Frameset LTD - Demi Dreaming": {
    "2026": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Demi Dreaming LTD": [
-      "Specialized/years/sworkstarmacsl8framesetltddemidreaming_2026_demidreamingltd_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8framesetltddemidreaming_2026_demidreamingltd_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8framesetltddemidreaming_2026_demidreamingltd_3_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Demi Dreaming LTD": "Specialized/years/sworkstarmacsl8framesetltddemidreaming_2026_demidreamingltd_site.jpg"
-    },
     "colours": [
      "Demi Dreaming LTD"
     ],
@@ -17396,19 +15964,6 @@
   "S-Works Tarmac SL8 LTD - Remco's ‘Golden Season’": {
    "2025": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "‘Golden Season’": [
-      "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_1_site.jpg",
-      "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_2_site.jpg",
-      "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_3_site.jpg",
-      "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_4_site.jpg",
-      "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_5_site.jpg",
-      "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "‘Golden Season’": "Specialized/years/sworkstarmacsl8ltdremcosgoldenseason_2025_goldenseason_site.jpg"
-    },
     "colours": [
      "‘Golden Season’"
     ],
@@ -17550,10 +16105,6 @@
   "S-Works Tarmac eTap": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN/ GLOSS CARBON/ FLO RED/ METALLIC WHITE": "Specialized/years/sworkstarmacetap_2017_satinglosscarbonfloredmetallicwhite_site.jpg"
-    },
     "colours": [
      "SATIN/ GLOSS CARBON/ FLO RED/ METALLIC WHITE"
     ],
@@ -17591,10 +16142,6 @@
   "S-Works Tarmac eTap 32": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Cosmic Black/White/Clean": "Specialized/years/sworkstarmacetap32_2017_glosscosmicblackwhiteclean_site.jpg"
-    },
     "colours": [
      "Gloss Cosmic Black/White/Clean"
     ],
@@ -17674,24 +16221,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "SATIN CARBON/TARMAC BLACK": [
-      "Specialized/years/sworksvenge_2020_satincarbontarmacblack_1_site.jpg",
-      "Specialized/years/sworksvenge_2020_satincarbontarmacblack_2_site.jpg",
-      "Specialized/years/sworksvenge_2020_satincarbontarmacblack_3_site.jpg",
-      "Specialized/years/sworksvenge_2020_satincarbontarmacblack_4_site.jpg"
-     ],
-     "Storm Grey/Satin Black": [
-      "Specialized/years/sworksvenge_2020_stormgreysatinblack_1_site.jpg",
-      "Specialized/years/sworksvenge_2020_stormgreysatinblack_2_site.jpg",
-      "Specialized/years/sworksvenge_2020_stormgreysatinblack_3_site.jpg",
-      "Specialized/years/sworksvenge_2020_stormgreysatinblack_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "SATIN CARBON/TARMAC BLACK": "Specialized/years/sworksvenge_2020_satincarbontarmacblack_site.jpg",
-     "Storm Grey/Satin Black": "Specialized/years/sworksvenge_2020_stormgreysatinblack_site.jpg"
-    },
     "colours": [
      "SATIN CARBON/TARMAC BLACK",
      "Storm Grey/Satin Black"
@@ -17772,10 +16301,6 @@
   "S-Works Venge DA": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon /Flo Red": "Specialized/years/sworksvengeda_2012_glosscarbonflored_site.jpg"
-    },
     "colours": [
      "Gloss Carbon /Flo Red"
     ],
@@ -17900,10 +16425,6 @@
   "S-Works Venge Dura-Ace": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/Satin Black": "Specialized/years/sworksvengeduraace_2015_glosscarbonsatinblack_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/Satin Black"
     ],
@@ -17983,10 +16504,6 @@
    },
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/Satin Black": "Specialized/years/sworksvengeduraacedi2_2015_glosscarbonsatinblack_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/Satin Black"
     ],
@@ -18024,10 +16541,6 @@
   "S-Works Venge RED HRR": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Gloss Carbon/Red": "Specialized/years/sworksvengeredhrr_2014_satincarbonglosscarbonred_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Gloss Carbon/Red"
     ],
@@ -18154,10 +16667,6 @@
   "S-Works Venge ViAS Disc Di2": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Tarmac Black/Purple Chameleon/Metallic White Silver": "Specialized/years/sworksvengeviasdiscdi2_2018_tarmacblackpurplechameleonmetallicwhitesilver_site.jpg"
-    },
     "colours": [
      "Tarmac Black/Purple Chameleon/Metallic White Silver"
     ],
@@ -18278,10 +16787,6 @@
    },
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Black/Charcoal": "Specialized/years/shivelite_2015_satincarbonblackcharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Black/Charcoal"
     ],
@@ -18316,10 +16821,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon / White": "Specialized/years/shivelite_2016_glosscarbonwhite_site.jpg"
-    },
     "colours": [
      "Gloss Carbon / White"
     ],
@@ -18355,10 +16856,6 @@
    },
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/White": "Specialized/years/shivelite_2018_glosscarbonwhite_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/White"
     ],
@@ -18554,10 +17051,6 @@
    },
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/Metallic Wht Silver": "Specialized/years/shivexpertdisc_2021_carbonmetallicwhtsilver_site.jpg"
-    },
     "colours": [
      "Carbon/Metallic Wht Silver"
     ],
@@ -18756,10 +17249,6 @@
   "Tarmac Comp": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS ROCKET RED / TARMAC BLACK": "Specialized/years/tarmaccomp_2017_glossrocketredtarmacblack_site.jpg"
-    },
     "colours": [
      "GLOSS ROCKET RED / TARMAC BLACK"
     ],
@@ -18797,11 +17286,6 @@
   "Tarmac Comp CEN": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Light Blue/Rkt Red/Tarmac Black": "Specialized/years/tarmaccompcen_2016_glosslightbluerktredtarmacblack_site.jpg",
-     "Satin Carbon/White/Clean": "Specialized/years/tarmaccompcen_2016_satincarbonwhiteclean_site.jpg"
-    },
     "colours": [
      "Gloss Light Blue/Rkt Red/Tarmac Black",
      "Satin Carbon/White/Clean"
@@ -18840,10 +17324,6 @@
   "Tarmac Comp Compact": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Team Carbon/Red": "Specialized/years/tarmaccompcompact_2009_teamcarbonred_site.jpg"
-    },
     "colours": [
      "Team Carbon/Red"
     ],
@@ -18884,10 +17364,6 @@
    },
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Carbon": "Specialized/years/tarmaccompcompact_2010_whitecarbon_site.jpg"
-    },
     "colours": [
      "White/Carbon"
     ],
@@ -18928,10 +17404,6 @@
   "Tarmac Comp Compact 105": {
    "2011": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Carbon/Red/White": "Specialized/years/tarmaccompcompact105_2011_carbonredwhite_site.jpg"
-    },
     "colours": [
      "Carbon/Red/White"
     ],
@@ -18971,10 +17443,6 @@
   "Tarmac Comp Compact Ultegra": {
    "2011": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Black/Red": "Specialized/years/tarmaccompcompactultegra_2011_glosswhiteblackred_site.jpg"
-    },
     "colours": [
      "Gloss White/Black/Red"
     ],
@@ -19015,10 +17483,6 @@
   "Tarmac Comp Disc": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN CARBON / WHITE": "Specialized/years/tarmaccompdisc_2017_satincarbonwhite_site.jpg"
-    },
     "colours": [
      "SATIN CARBON / WHITE"
     ],
@@ -19056,11 +17520,6 @@
   "Tarmac Comp Mid-Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Charcoal Satin/Red": "Specialized/years/tarmaccompmidcompact_2012_charcoalsatinred_site.jpg",
-     "White/Blue": "Specialized/years/tarmaccompmidcompact_2012_whiteblue_site.jpg"
-    },
     "colours": [
      "Charcoal Satin/Red",
      "White/Blue"
@@ -19146,10 +17605,6 @@
   "Tarmac Expert": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal": "Specialized/years/tarmacexpert_2015_satincarboncharcoal_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal"
     ],
@@ -19185,10 +17640,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Red/Hyper": "Specialized/years/tarmacexpert_2016_satincarbonredhyper_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Red/Hyper"
     ],
@@ -19226,10 +17677,6 @@
   "Tarmac Expert Compact": {
    "2008": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White": "Specialized/years/tarmacexpertcompact_2008_white_site.jpg"
-    },
     "colours": [
      "White"
     ],
@@ -19266,10 +17713,6 @@
    },
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Team Carbon/Red": "Specialized/years/tarmacexpertcompact_2009_teamcarbonred_site.jpg"
-    },
     "colours": [
      "Team Carbon/Red"
     ],
@@ -19312,10 +17755,6 @@
   "Tarmac Expert Disc": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS MONSTER GREEN / TEAM YELLOW / EDGE FADE": "Specialized/years/tarmacexpertdisc_2017_glossmonstergreenteamyellowedgefade_site.jpg"
-    },
     "colours": [
      "GLOSS MONSTER GREEN / TEAM YELLOW / EDGE FADE"
     ],
@@ -19354,10 +17793,6 @@
   "Tarmac Expert Disc Race": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Red/Hyper": "Specialized/years/tarmacexpertdiscrace_2016_satincarbonredhyper_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Red/Hyper"
     ],
@@ -19394,10 +17829,6 @@
   "Tarmac Expert SL Compact": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Red/Carbon": "Specialized/years/tarmacexpertslcompact_2010_redcarbon_site.jpg"
-    },
     "colours": [
      "Red/Carbon"
     ],
@@ -19524,10 +17955,6 @@
   "Tarmac Pro Race": {
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Cyan": "Specialized/years/tarmacprorace_2015_satincarboncyan_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Cyan"
     ],
@@ -19563,10 +17990,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/White/Clean": "Specialized/years/tarmacprorace_2016_satincarbonwhiteclean_site.jpg"
-    },
     "colours": [
      "Satin Carbon/White/Clean"
     ],
@@ -19604,10 +18027,6 @@
   "Tarmac Pro SL Compact Dura Ace": {
    "2010": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Red": "Specialized/years/tarmacproslcompactduraace_2010_whitered_site.jpg"
-    },
     "colours": [
      "White/Red"
     ],
@@ -19648,10 +18067,6 @@
   "Tarmac Pro SL Compact SRAM": {
    "2009": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White": "Specialized/years/tarmacproslcompactsram_2009_glosswhite_site.jpg"
-    },
     "colours": [
      "Gloss White"
     ],
@@ -19694,10 +18109,6 @@
   "Tarmac Pro Ultegra Di2": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS NAVY/ BABY BLUE / ROCKET RED": "Specialized/years/tarmacproultegradi2_2017_glossnavybabybluerocketred_site.jpg"
-    },
     "colours": [
      "GLOSS NAVY/ BABY BLUE / ROCKET RED"
     ],
@@ -19733,10 +18144,6 @@
   "Tarmac SL3 Pro Dura-Ace": {
    "2011": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Black/Red": "Specialized/years/tarmacsl3produraace_2011_glosswhiteblackred_site.jpg"
-    },
     "colours": [
      "Gloss White/Black/Red"
     ],
@@ -19777,10 +18184,6 @@
   "Tarmac SL4": {
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN CARBON / FLO RED": "Specialized/years/tarmacsl4_2017_satincarbonflored_site.jpg"
-    },
     "colours": [
      "SATIN CARBON / FLO RED"
     ],
@@ -19818,10 +18221,6 @@
   "Tarmac SL4 Comp Ultegra": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/Red/White": "Specialized/years/tarmacsl4compultegra_2014_glosscarbonredwhite_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/Red/White"
     ],
@@ -19862,10 +18261,6 @@
   "Tarmac SL4 Comp Ultegra Di2": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/Red/White": "Specialized/years/tarmacsl4compultegradi2_2014_glosscarbonredwhite_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/Red/White"
     ],
@@ -19904,11 +18299,6 @@
    },
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic White/ Candy Blue": "Specialized/years/tarmacsl4compultegradi2_2015_glossmetallicwhitecandyblue_site.jpg",
-     "Satin Carbon/Hyper Green/Cyan": "Specialized/years/tarmacsl4compultegradi2_2015_satincarbonhypergreencyan_site.jpg"
-    },
     "colours": [
      "Gloss Metallic White/ Candy Blue",
      "Satin Carbon/Hyper Green/Cyan"
@@ -19988,10 +18378,6 @@
   "Tarmac SL4 Pro Dura-Ace": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Metallic Silver/Black/White": "Specialized/years/tarmacsl4produraace_2014_glossmetallicsilverblackwhite_site.jpg"
-    },
     "colours": [
      "Gloss Metallic Silver/Black/White"
     ],
@@ -20032,10 +18418,6 @@
   "Tarmac SL4 Pro SRAM RED Mid-Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Black Satin/Neon Red": "Specialized/years/tarmacsl4prosramredmidcompact_2012_blacksatinneonred_site.jpg"
-    },
     "colours": [
      "Black Satin/Neon Red"
     ],
@@ -20076,10 +18458,6 @@
   "Tarmac SL4 Pro Ui2 Mid-Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Black": "Specialized/years/tarmacsl4proui2midcompact_2012_whiteblack_site.jpg"
-    },
     "colours": [
      "White/Black"
     ],
@@ -20120,10 +18498,6 @@
   "Tarmac SL4 Sora": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Carbon/White/Charcoal": "Specialized/years/tarmacsl4sora_2014_glosscarbonwhitecharcoal_site.jpg"
-    },
     "colours": [
      "Gloss Carbon/White/Charcoal"
     ],
@@ -20164,11 +18538,6 @@
   "Tarmac SL4 Sport": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Red/Black/White": "Specialized/years/tarmacsl4sport_2014_glossredblackwhite_site.jpg",
-     "Satin Carbon/Silver/Yellow/White": "Specialized/years/tarmacsl4sport_2014_satincarbonsilveryellowwhite_site.jpg"
-    },
     "colours": [
      "Gloss Red/Black/White",
      "Satin Carbon/Silver/Yellow/White"
@@ -20208,11 +18577,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS MOTO ORANGE/BRIGHT YELLOW/TARMAC BLACK": "Specialized/years/tarmacsl4sport_2017_glossmotoorangebrightyellowtarmacblack_site.jpg",
-     "GLOSS TARMAC BLACK/TEAM YELLOW": "Specialized/years/tarmacsl4sport_2017_glosstarmacblackteamyellow_site.jpg"
-    },
     "colours": [
      "GLOSS MOTO ORANGE/BRIGHT YELLOW/TARMAC BLACK",
      "GLOSS TARMAC BLACK/TEAM YELLOW"
@@ -20292,21 +18656,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Pine Green / Light Silver": [
-      "Specialized/years/tarmacsl6shimanotiagra_2022_pinegreenlightsilver_1_site.jpg",
-      "Specialized/years/tarmacsl6shimanotiagra_2022_pinegreenlightsilver_2_site.jpg",
-      "Specialized/years/tarmacsl6shimanotiagra_2022_pinegreenlightsilver_3_site.jpg"
-     ],
-     "Tarmac Black / Smoke - Wild": [
-      "Specialized/years/tarmacsl6shimanotiagra_2022_tarmacblacksmokewild_1_site.jpg",
-      "Specialized/years/tarmacsl6shimanotiagra_2022_tarmacblacksmokewild_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Pine Green / Light Silver": "Specialized/years/tarmacsl6shimanotiagra_2022_pinegreenlightsilver_site.jpg",
-     "Tarmac Black / Smoke - Wild": "Specialized/years/tarmacsl6shimanotiagra_2022_tarmacblacksmokewild_site.jpg"
-    },
     "colours": [
      "Tarmac Black / Smoke - Wild",
      "Pine Green / Light Silver"
@@ -20345,21 +18694,6 @@
   "Tarmac SL6 Comp": {
    "2021": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Forest Green/Flake Silver": [
-      "Specialized/years/tarmacsl6comp_2021_forestgreenflakesilver_1_site.jpg",
-      "Specialized/years/tarmacsl6comp_2021_forestgreenflakesilver_2_site.jpg",
-      "Specialized/years/tarmacsl6comp_2021_forestgreenflakesilver_3_site.jpg"
-     ],
-     "Red Tint Fade/White with Gold Pearl": [
-      "Specialized/years/tarmacsl6comp_2021_redtintfadewhitewithgoldpearl_1_site.jpg",
-      "Specialized/years/tarmacsl6comp_2021_redtintfadewhitewithgoldpearl_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Forest Green/Flake Silver": "Specialized/years/tarmacsl6comp_2021_forestgreenflakesilver_site.jpg",
-     "Red Tint Fade/White with Gold Pearl": "Specialized/years/tarmacsl6comp_2021_redtintfadewhitewithgoldpearl_site.jpg"
-    },
     "colours": [
      "Red Tint Fade/White with Gold Pearl",
      "Forest Green/Flake Silver"
@@ -20588,20 +18922,6 @@
   "Tarmac SL6 Disc Sport": {
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Carbon/Chameleon": [
-      "Specialized/years/tarmacsl6discsport_2020_glosscarbonchameleon_1_site.jpg",
-      "Specialized/years/tarmacsl6discsport_2020_glosscarbonchameleon_2_site.jpg"
-     ],
-     "Gloss Light Silver/Charcoal/Tarmac Black": [
-      "Specialized/years/tarmacsl6discsport_2020_glosslightsilvercharcoaltarmacblack_1_site.jpg",
-      "Specialized/years/tarmacsl6discsport_2020_glosslightsilvercharcoaltarmacblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Carbon/Chameleon": "Specialized/years/tarmacsl6discsport_2020_glosscarbonchameleon_site.jpg",
-     "Gloss Light Silver/Charcoal/Tarmac Black": "Specialized/years/tarmacsl6discsport_2020_glosslightsilvercharcoaltarmacblack_site.jpg"
-    },
     "colours": [
      "Gloss Light Silver/Charcoal/Tarmac Black",
      "Gloss Carbon/Chameleon"
@@ -20684,20 +19004,6 @@
   "Tarmac SL6 Sport - Shimano 105": {
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Carbon/Smoke": [
-      "Specialized/years/tarmacsl6sportshimano105_2022_carbonsmoke_1_site.jpg",
-      "Specialized/years/tarmacsl6sportshimano105_2022_carbonsmoke_2_site.jpg"
-     ],
-     "Flo Red / Tarmac Black": [
-      "Specialized/years/tarmacsl6sportshimano105_2022_floredtarmacblack_1_site.jpg",
-      "Specialized/years/tarmacsl6sportshimano105_2022_floredtarmacblack_2_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Carbon/Smoke": "Specialized/years/tarmacsl6sportshimano105_2022_carbonsmoke_site.jpg",
-     "Flo Red / Tarmac Black": "Specialized/years/tarmacsl6sportshimano105_2022_floredtarmacblack_site.jpg"
-    },
     "colours": [
      "Flo Red / Tarmac Black",
      "Carbon/Smoke"
@@ -20786,31 +19092,6 @@
   "Tarmac SL7 Comp - Shimano 105 Di2": {
    "2023": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Dune White/Metallic Obsidian": [
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossdunewhitemetallicobsidian_1_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossdunewhitemetallicobsidian_2_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossdunewhitemetallicobsidian_3_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossdunewhitemetallicobsidian_4_site.jpg"
-     ],
-     "Gloss Metallic Midnight Shadow/Black": [
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossmetallicmidnightshadowblack_1_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossmetallicmidnightshadowblack_2_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossmetallicmidnightshadowblack_3_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_glossmetallicmidnightshadowblack_4_site.jpg"
-     ],
-     "Satin Metallic Deep Lake/Purple Orchid": [
-      "Specialized/years/tarmacsl7compshimano105di2_2023_satinmetallicdeeplakepurpleorchid_1_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_satinmetallicdeeplakepurpleorchid_2_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_satinmetallicdeeplakepurpleorchid_3_site.jpg",
-      "Specialized/years/tarmacsl7compshimano105di2_2023_satinmetallicdeeplakepurpleorchid_4_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Dune White/Metallic Obsidian": "Specialized/years/tarmacsl7compshimano105di2_2023_glossdunewhitemetallicobsidian_site.jpg",
-     "Gloss Metallic Midnight Shadow/Black": "Specialized/years/tarmacsl7compshimano105di2_2023_glossmetallicmidnightshadowblack_site.jpg",
-     "Satin Metallic Deep Lake/Purple Orchid": "Specialized/years/tarmacsl7compshimano105di2_2023_satinmetallicdeeplakepurpleorchid_site.jpg"
-    },
     "colours": [
      "Satin Metallic Deep Lake/Purple Orchid",
      "Gloss Dune White/Metallic Obsidian",
@@ -21123,28 +19404,6 @@
    },
    "2022": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Carbon/Oil Tint/Forest Green": [
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_1_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_2_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_3_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_4_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_5_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_6_site.jpg"
-     ],
-     "Maroon / Black / Light Silver": [
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_1_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_2_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_3_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_4_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_5_site.jpg",
-      "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Carbon/Oil Tint/Forest Green": "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_glosscarbonoiltintforestgreen_site.jpg",
-     "Maroon / Black / Light Silver": "Specialized/years/tarmacsl7expertshimanoultegradi2_2022_maroonblacklightsilver_site.jpg"
-    },
     "colours": [
      "Maroon / Black / Light Silver",
      "Gloss Carbon/Oil Tint/Forest Green"
@@ -21703,28 +19962,6 @@
    },
    "2026": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Blue Majesty Metallic": [
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_1_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_2_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_3_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_4_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_5_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_6_site.jpg"
-     ],
-     "Gloss Obsidian Metallic": [
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_1_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_2_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_3_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_4_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_5_site.jpg",
-      "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Blue Majesty Metallic": "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossbluemajestymetallic_site.jpg",
-     "Gloss Obsidian Metallic": "Specialized/years/tarmacsl8expertshimanoultegradi2_2026_glossobsidianmetallic_site.jpg"
-    },
     "colours": [
      "Gloss Obsidian Metallic",
      "Gloss Blue Majesty Metallic"
@@ -21991,28 +20228,6 @@
    },
    "2025": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Carbon / Metallic White Silver": [
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_1_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_2_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_3_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_4_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_5_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_6_site.jpg"
-     ],
-     "Gloss Liquid Silver / Satin Blue Pearl Over Black Liquid Metal": [
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_1_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_2_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_3_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_4_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_5_site.jpg",
-      "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Carbon / Metallic White Silver": "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glosscarbonmetallicwhitesilver_site.jpg",
-     "Gloss Liquid Silver / Satin Blue Pearl Over Black Liquid Metal": "Specialized/years/tarmacsl8proshimanoultegradi2_2025_glossliquidsilversatinbluepearloverblackliquidmetal_site.jpg"
-    },
     "colours": [
      "Gloss Carbon / Metallic White Silver",
      "Gloss Liquid Silver / Satin Blue Pearl Over Black Liquid Metal"
@@ -22151,11 +20366,6 @@
    },
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss White/Navy/Black": "Specialized/years/tarmacsport_2016_glosswhitenavyblack_site.jpg",
-     "Satin Carbon/White/Red": "Specialized/years/tarmacsport_2016_satincarbonwhitered_site.jpg"
-    },
     "colours": [
      "Gloss White/Navy/Black",
      "Satin Carbon/White/Red"
@@ -22238,10 +20448,6 @@
   "Venge Elite": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Charcoal/Clean": "Specialized/years/vengeelite_2016_satincarboncharcoalclean_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Charcoal/Clean"
     ],
@@ -22277,10 +20483,6 @@
    },
    "2017": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "GLOSS TARMAC BLACK / TEAM YELLOW / METALLIC WHITE": "Specialized/years/vengeelite_2017_glosstarmacblackteamyellowmetallicwhite_site.jpg"
-    },
     "colours": [
      "GLOSS TARMAC BLACK / TEAM YELLOW / METALLIC WHITE"
     ],
@@ -22317,10 +20519,6 @@
    },
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Tarmac Black/Rocket Red/Metallic White": "Specialized/years/vengeelite_2018_tarmacblackrocketredmetallicwhite_site.jpg"
-    },
     "colours": [
      "Tarmac Black/Rocket Red/Metallic White"
     ],
@@ -22359,10 +20557,6 @@
   "Venge Elite 105": {
    "2014": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Team Omega Pharma/Quick Step": "Specialized/years/vengeelite105_2014_teamomegapharmaquickstep_site.jpg"
-    },
     "colours": [
      "Team Omega Pharma/Quick Step"
     ],
@@ -22401,10 +20595,6 @@
    },
    "2015": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Carbon/Red/White": "Specialized/years/vengeelite105_2015_satincarbonredwhite_site.jpg"
-    },
     "colours": [
      "Satin Carbon/Red/White"
     ],
@@ -22442,10 +20632,6 @@
   "Venge Expert": {
    "2016": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Gloss Gallargo Orange/Black/Charcoal": "Specialized/years/vengeexpert_2016_glossgallargoorangeblackcharcoal_site.jpg"
-    },
     "colours": [
      "Gloss Gallargo Orange/Black/Charcoal"
     ],
@@ -22483,10 +20669,6 @@
   "Venge Expert Disc": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Tarmac Black/Green Chameleon/Team Yellow Clean": "Specialized/years/vengeexpertdisc_2018_tarmacblackgreenchameleonteamyellowclean_site.jpg"
-    },
     "colours": [
      "Tarmac Black/Green Chameleon/Team Yellow Clean"
     ],
@@ -22525,10 +20707,6 @@
   "Venge Expert Mid-Compact": {
    "2012": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "White/Yellow": "Specialized/years/vengeexpertmidcompact_2012_whiteyellow_site.jpg"
-    },
     "colours": [
      "White/Yellow"
     ],
@@ -22618,10 +20796,6 @@
    },
    "2020": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "SATIN BLACK/HOLOGRAPHIC BLACK": "Specialized/years/vengepro_2020_satinblackholographicblack_site.jpg"
-    },
     "colours": [
      "SATIN BLACK/HOLOGRAPHIC BLACK"
     ],
@@ -22911,10 +21085,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Black/Charcoal": "Specialized/years/womensdivergee5_2019_satinblackcharcoal_site.jpg"
-    },
     "colours": [
      "Satin Black/Charcoal"
     ],
@@ -22991,19 +21161,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Gloss Cast Berry/Storm/Ice Blue": [
-      "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_1_site.jpg",
-      "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_2_site.jpg",
-      "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_3_site.jpg",
-      "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_4_site.jpg",
-      "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_5_site.jpg",
-      "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Gloss Cast Berry/Storm/Ice Blue": "Specialized/years/womensdivergee5comp_2019_glosscastberrystormiceblue_site.jpg"
-    },
     "colours": [
      "Gloss Cast Berry/Storm/Ice Blue"
     ],
@@ -23042,10 +21199,6 @@
   "Women's Diverge E5 Elite": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Cool Grey/Flake Silver": "Specialized/years/womensdivergee5elite_2018_coolgreyflakesilver_site.jpg"
-    },
     "colours": [
      "Cool Grey/Flake Silver"
     ],
@@ -23081,19 +21234,6 @@
    },
    "2019": {
     "captured": "2026-11-01",
-    "colour_angles": {
-     "Satin White Mountains/Tropical Teal-Nice Blue/Black": [
-      "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_1_site.jpg",
-      "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_2_site.jpg",
-      "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_3_site.jpg",
-      "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_4_site.jpg",
-      "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_5_site.jpg",
-      "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_6_site.jpg"
-     ]
-    },
-    "colour_images": {
-     "Satin White Mountains/Tropical Teal-Nice Blue/Black": "Specialized/years/womensdivergee5elite_2019_satinwhitemountainstropicaltealniceblueblack_site.jpg"
-    },
     "colours": [
      "Satin White Mountains/Tropical Teal-Nice Blue/Black"
     ],
@@ -23330,10 +21470,6 @@
   "Women's S-Works Tarmac": {
    "2018": {
     "captured": "2026-11-01",
-    "colour_angles": {},
-    "colour_images": {
-     "Satin Gloss Monocoat Black/Acid Purple/Rocket Red Fade": "Specialized/years/womenssworkstarmac_2018_satinglossmonocoatblackacidpurplerocketredfade_site.jpg"
-    },
     "colours": [
      "Satin Gloss Monocoat Black/Acid Purple/Rocket Red Fade"
     ],
