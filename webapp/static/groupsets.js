@@ -113,6 +113,17 @@
       svg.setAttribute("height", origin.height);
       svg.setAttribute("aria-hidden", "true");
       const all = tiles(section), here = all.find((t) => t.here);
+      // A shaded band behind each tier column, from its tier label down to the bottom of the ladder.
+      section.querySelectorAll(".ladder").forEach((ladder) => {
+        const bottom = ladder.getBoundingClientRect().bottom - origin.top;
+        ladder.querySelectorAll(":scope > .tier-span").forEach((t, i) => {
+          const r = t.getBoundingClientRect(), band = document.createElementNS(NS, "rect");
+          Object.entries({ x: r.left - origin.left - 16, y: r.top - origin.top - 10, width: r.width + 32,
+                           height: bottom - r.top + origin.top + 16, rx: 16, class: `col-band${i % 2 ? " even" : ""}` })
+            .forEach(([k, v]) => band.setAttribute(k, v));
+          svg.append(band);
+        });
+      });
 
       const colors = new Map([...new Set(all.map((t) => t.system))].map((system, i) => [system, METRO[i % METRO.length]]));
       const links = [];
@@ -239,7 +250,7 @@
       draw(false);
       return;
     }
-    const link = e.target.closest("a.gen, .logo-pills a, .clear-pick");
+    const link = e.target.closest("a.gen, .brand-cards a, .bike-types a, .clear-pick");
     if (!link || !plain(e)) return;
     e.preventDefault();
     const key = link.matches("a.gen") ? link.dataset.key : null;  // keep the clicked tile in place, also when it clears

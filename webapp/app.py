@@ -1108,8 +1108,10 @@ def create_app(db_path=None):
         down = groupsets.downgrades(current["key"]) if current else []
         return render_template("groupsets.html", kind=kind, current=current, paths=paths,
                                down=down, by_key={g["key"]: p for g, p in paths + down}, ladders=groupsets.ladders(kind, brand),
-                               brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b))}
-                                                     for b in groupsets.LADDERS], disciplines=kinds,
+                               brand=brand, brands=[{"name": b, "logo": logo_if_there(groupsets.BRAND_LOGOS.get(b)),
+                                                      # its number of groups for the type, none when it makes none
+                                                      "groups": sum(len(steps) for _label, steps in by_kind.get(kind, []))}
+                                                     for b, by_kind in groupsets.LADDERS.items()], disciplines=kinds,
                                effort=groupsets.EFFORT, cost=groupsets.COST, not_worth_it=groupsets.NOT_WORTH_IT, advise_against=groupsets.ADVISE_AGAINST, fit=groupsets.FIT, shift_labels=groupsets.SHIFT_LABELS,
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS,
                                columns=groupsets.columns,

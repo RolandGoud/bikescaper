@@ -51,18 +51,21 @@
     <h1 style="font-size: 44px">{{ _('Groupset upgrade paths') }}</h1>
     <p class="muted">{{ _("Each brand's groupsets from basic to top. Pick the one on your bike to see what you can upgrade to, and what has to change.") }}</p>
   </div>
-  <div class="filter-box">
-    <nav class="logo-pills" aria-label="{{ _('Brand') }}">
-      {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}</a>{% endfor %}
+  {# Pick the brand on a card, the bike type beside it, each type with its own bike: thin tyres and drop bars for
+     road, wider for gravel, fat tyres and a flat bar for the mountain bike. #}
+  {% set bikes = {'road': (2.2, false), 'gravel': (3.6, false), 'mtb': (5, true)} %}
+  <div class="brand-picker">
+    <nav class="brand-cards" aria-label="{{ _('Brand') }}">
+      {% for b in brands %}<a class="{{ 'on' if b.name == brand }}" href="{{ url_for('groupset_paths', brand=b.name, type=kind) }}"{% if b.name == brand %} aria-current="true"{% endif %}>{{ brand_label(b) }}{% if b.groups %}<small>{{ _('{n} groups', n=b.groups) }}</small>{% endif %}</a>{% endfor %}
     </nav>
-    <nav class="logo-pills" aria-label="{{ _('Type') }}">
-      {% for key, label in disciplines %}<a class="pill small-pill {{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key) }}"{% if kind == key %} aria-current="true"{% endif %}>{{ _(label) }}</a>{% endfor %}
+    <nav class="bike-types" aria-label="{{ _('Type') }}">
+      {% for key, label in disciplines %}{% set tyre, flat = bikes.get(key, (2.2, false)) %}<a class="{{ 'on' if kind == key }}" href="{{ url_for('groupset_paths', brand=brand, type=key) }}"{% if kind == key %} aria-current="true"{% endif %}><svg class="bike-icon" viewBox="0 0 64 36" aria-hidden="true"><circle cx="13" cy="24" r="10" stroke-width="{{ tyre }}"/><circle cx="51" cy="24" r="10" stroke-width="{{ tyre }}"/><path d="M13 24 L24 10 L44 10 L51 24 M24 10 L31 24 L44 10 M31 24 L13 24 M44 10 L42 5 {{ 'M39 5 L48 5' if flat else 'M40 5 C46 4 47 9 44 10' }} M24 10 L22 6 M19 6 L26 6"/></svg><span>{{ _(label) }}</span></a>{% endfor %}
     </nav>
   </div>
 
   {% for brand, brand_ladders in ladders %}
   <section class="stack brand-ladders">
-    <h2>{{ brand }}</h2>
+    <h2 class="sr-only">{{ brand }}</h2>
     {% for label, steps in brand_ladders %}
     {% set cols = columns(steps) %}
     <div class="ladder-block">
@@ -90,7 +93,7 @@
             {% set here = current and current.key == g.key %}
             {% set label = (_(fit[p.fit][0]) if p.fit == 'no' else _(effort[p.effort][0]) ~ (' · ' ~ _(fit['check'][0]) if p.fit == 'check' else '')) if p %}
             <li><a data-key="{{ g.key }}" style="view-transition-name: g-{{ g.key }}" data-system="{{ g.system }}" data-year="{{ g.year }}"{% set ups = cross_upgrades(g.key) %}{% if ups %} data-up="{{ ups|join(' ') }}"{% endif %}{% set against = advised_against(g.key) %}{% if against %} data-against="{{ against|join(' ') }}"{% endif %}{% if p %} data-effort="{{ p.effort }}" data-fit="{{ p.fit }}"{% endif %} class="gen{{ ' here' if here }}{{ ' dim' if current and not p and not here }}{{ ' nofit' if p and p.fit == 'no' }}" href="{{ url_for('groupset_paths', brand=brand, type=kind) if here else url_for('groupset_paths', have=g.key) ~ '#paths' }}"{% if here %} title="{{ _('Click again to clear') }}"{% endif %}{% if here %} aria-current="true"{% endif %}{% if p %} title="{{ label }}"{% endif %}>
-              <span class="gen-top"><span class="gen-name">{{ g.name }}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% endif %}</span>
+              <span class="gen-top">{# The column's logo names the series: the tile shows only the model (6800, Di2 R8150). #}{% set short = g.name.startswith(s.name ~ ' ') %}<span class="gen-name">{% if short %}<span class="sr-only">{{ s.name }} </span>{{ g.name[s.name|length + 1:] }}{% else %}{{ g.name }}{% endif %}</span>{% if p %}<span class="badges" role="img" aria-label="{{ label }}">{% if p.fit == 'no' %}<span class="effort nofit">✕</span>{% else %}{% if p.fit == 'check' %}<span class="effort check">!</span>{% endif %}<span class="effort e{{ p.effort }}">{{ p.effort }}</span>{% endif %}</span>{% endif %}</span>
               <span class="gen-facts">{{ facts(g) }}</span>
             </a></li>
             {% endfor %}
