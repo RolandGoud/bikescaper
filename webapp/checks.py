@@ -3595,6 +3595,8 @@ def run_check(models, listing, today=None):
     one_each = list({(m["brand"], split_build(m, frames=True)[0]): (sc, m) for sc, m in reversed(ranked)}.values())[::-1]
     level = confidence(one_each) if not chosen_by_you else None
     report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
+              # The groupset the ad names, else the one its photos show, for the ad's own tiles.
+              "ad_groupset": ad_groupset(claims, listing.get("photo_groupset")),
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen,
               # Which of OVERRIDE_KEYS an admin set by hand, for the edit mode's locks.
               "locked": sorted(k for k in OVERRIDE_KEYS if overrides.get(k)), "builds": builds,
@@ -3741,6 +3743,21 @@ def pre_2018_year(report):
 ELECTRONIC_NAME = {"Shimano": "Di2", "SRAM": "AXS", "Campagnolo": "EPS"}
 
 
+def groupset_name(group):
+    """"Shimano Ultegra Di2": a groupset as detect_groupset gives it, by name, with its electronic name when it is."""
+    extra = ELECTRONIC_NAME.get(group["name"].split()[0]) if group.get("electronic") else None
+    return f"{group['name']} {extra}" if extra else group["name"]
+
+
+def ad_groupset(claims, photo_read):
+    """{"label", "from_photos"}: the groupset the ad's words name, else the one a read of its photos shows, or None
+    when neither does."""
+    if claims.get("groupset"):
+        return {"label": claims["groupset"]["label"], "from_photos": False}
+    seen = photo_group(photo_read)
+    return {"label": groupset_name(seen), "from_photos": True} if seen else None
+
+
 def head_facts(model, claims, value):
     """The few facts for the report's heading: [(label, value)] for the year, size and groupset the ad gives,
     and the model's new price in the year it's valued as, which is our catalogue's, never the seller's."""
@@ -3751,9 +3768,7 @@ def head_facts(model, claims, value):
         facts.append((Msg("Size"), str(claims["size"])))
     group = claims["groupset"]
     if group:
-        brand = group["name"].split()[0]
-        extra = ELECTRONIC_NAME.get(brand) if group.get("electronic") else None
-        facts.append((Msg("Groupset"), f"{group['name']} {extra}" if extra else group["name"]))
+        facts.append((Msg("Groupset"), groupset_name(group)))
     year = value.get("model_year")
     price = new_price(model, year)
     if price:

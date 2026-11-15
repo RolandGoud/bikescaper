@@ -246,6 +246,7 @@ NL = {
     "The site didn't answer in time.": "De site reageerde niet op tijd.",
     "That link doesn't look like an ad.": "Die link lijkt geen advertentie te zijn.",
     "Photos from the ad": "Foto's uit de advertentie",
+    "From the ad's photos": "Uit de foto's van de advertentie",
     "Download as PDF": "Download als pdf",
     "Mail me this report": "Mail mij dit rapport",
     "you@example.com": "jij@voorbeeld.nl",
