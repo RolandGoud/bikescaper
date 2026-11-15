@@ -213,14 +213,14 @@ def test_shop_page_links_each_shop(tmp_path):
 
 def test_wireless_row(tmp_path):
     shimano = groupsets.LADDERS["Shimano"]["road"][0][1]
-    assert groupsets.split_wireless(shimano)
+    assert groupsets.split_wireless(shimano) and len(groupsets.shift_rows(shimano)) == 3
     t_type = [steps for label, steps in groupsets.LADDERS["SRAM"]["mtb"] if "Transmission" in steps[0]["name"]][0]
-    assert not groupsets.split_wireless(t_type)  # wireless only: one row
+    assert not groupsets.split_wireless(t_type) and not groupsets.shift_rows(t_type)  # wireless only: one row
     app = create_app(str(tmp_path / "app.sqlite3"))
     page = app.test_client().get("/groupsets?have=r7100&lang=nl").data.decode()
-    wired, wireless = page.index('class="row-label wired"'), page.index('class="row-label wireless"')
-    assert wired < page.index('data-key="r7100"') < wireless < page.index('data-key="r7150"')
-    assert wireless < page.index('data-key="r8100"') and page.index('data-key="r8050"') < wireless
+    mech, wired, wireless = (page.index(f'row-label row-{i} {k}') for i, k in enumerate(("mech", "wired", "wireless")))
+    assert mech < page.index('data-key="r7100"') < wired < wireless < page.index('data-key="r7150"')
+    assert wireless < page.index('data-key="r8100"') and wired < page.index('data-key="r8050"') < wireless
     page = app.test_client().get("/groupsets?brand=SRAM&type=mtb").data.decode()
     assert 'data-key="xx-t"' in page  # a wireless-only ladder keeps its tiles, in one row
 
@@ -317,3 +317,13 @@ def test_tiles_show_only_speeds_and_brakes(tmp_path):
         tiles = [t.split("</span>")[0] for t in page.split('<span class="gen-facts"')[1:]]
         assert tiles and all("Mechanisch" not in t.split(">", 1)[1] for t in tiles)
     assert '>10-sp · velg/schijf</span>' in client.get("/groupsets?lang=nl").data.decode()
+
+
+def test_mechanical_wired_and_wireless_rows(tmp_path):
+    """Roland: wired Di2 is electronic, so it doesn't sit under "Mechanisch"; each shifting kind gets its own row."""
+    assert [k for k, _l in groupsets.shift_rows(groupsets.LADDERS["Shimano"]["road"][0][1])] == ["mech", "wired", "wireless"]
+    client = create_app(str(tmp_path / "app.sqlite3")).test_client()
+    page = client.get("/groupsets?lang=nl").data.decode()
+    assert "Elektronisch, bedraad" in page and "Mechanisch en bedraad" not in page
+    wired = page.split('row-label row-1 wired')[1].split('row-label row-2')[0]
+    assert "Ultegra Di2 6870" in wired and "Ultegra 6800<" not in wired

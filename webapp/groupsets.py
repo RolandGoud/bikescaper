@@ -458,6 +458,22 @@ def is_downgrade(current, target):
     return False
 
 
+# The rows of the diagram, each shifting kind its own: mechanical, electronic with wires, wireless (semi-wireless Di2
+# too, its derailleurs talk to the shifters by radio).
+SHIFT_ROWS = [("mech", "Mechanical"), ("wired", "Electronic, wired"), ("wireless", "Electronic, wireless")]
+
+
+def shift_row(gen):
+    return "mech" if gen["shift"] == "mech" else "wireless" if gen["shift"] in WIRELESS else "wired"
+
+
+def shift_rows(steps):
+    """[(row key, label)] for the shifting kinds on the ladder, in diagram order; [] when it has just one, which then
+    needs no rows."""
+    kinds = {shift_row(g) for s in steps for g in s["gens"]}
+    return [(k, label) for k, label in SHIFT_ROWS if k in kinds] if len(kinds) > 1 else []
+
+
 def split_wireless(steps):
     """Whether a ladder has both wireless and other generations: the diagram then puts the wireless ones in a row of
     their own, below the mechanical and wired ones."""
