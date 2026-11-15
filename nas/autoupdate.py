@@ -3,11 +3,13 @@
 Used by nas/docker-compose.yml, which runs it in two ways:
 
   python autoupdate.py --now     download the latest code into /app (on container start)
-  python autoupdate.py --watch   every UPDATE_MINUTES, check GitHub for a new commit and, if there
-                                 is one, install it and reload gunicorn without stopping the site
+  python autoupdate.py --watch   every CHECK_SECONDS (default 30), check GitHub for a new commit and,
+                                 if there is one, install it and reload gunicorn without stopping the site
 
-The check asks the GitHub API only for the branch's commit id and sends the last answer's ETag,
-so an unchanged branch costs nothing against GitHub's limit of 60 requests an hour. Saved checks
+The check asks GitHub's git server for the branch's commit id only (git's "ls-refs", one small
+request, the same as `git ls-remote`), which isn't counted against the API's limit of 60 requests an
+hour, so a merge is live within a minute or two. If that fails it falls back to the API, sending the
+last answer's ETag. UPDATE_MINUTES "0" still turns checking off. Saved checks
 are in /data and are never touched. If anything goes wrong the site keeps running the code it
 has, and the next check tries again.
 """
@@ -41,6 +43,38 @@ def log(msg):
 
 def branch():
     return os.environ.get("BRANCH") or "main"
+
+
+def pkt(line):
+    data = line.encode()
+    return f"{len(data) + 4:04x}".encode() + data
+
+
+def git_head():
+    """The branch's newest commit id, asked from GitHub's git server (git protocol v2 ls-refs)."""
+    ref = f"refs/heads/{branch()}"
+    body = pkt("command=ls-refs\n") + b"0001" + pkt(f"ref-prefix {ref}\n") + b"0000"
+    req = urllib.request.Request(f"https://github.com/{REPO}.git/git-upload-pack", data=body,
+                                 headers={"Content-Type": "application/x-git-upload-pack-request",
+                                          "Accept": "application/x-git-upload-pack-result",
+                                          "Git-Protocol": "version=2",
+                                          "User-Agent": "git/2 bikecompare-nas"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        answer = resp.read().decode("ascii", "replace")
+    for line in answer.split("\n"):
+        parts = line[4:].split() if len(line) > 4 else []  # drop the pkt-line length
+        if len(parts) >= 2 and parts[1] == ref and len(parts[0]) == 40:
+            return parts[0]
+    raise RuntimeError(f"{ref} not in GitHub's answer")
+
+
+def head():
+    """The branch's newest commit id; None only when the API fallback says it is unchanged."""
+    try:
+        return git_head()
+    except Exception as exc:
+        log(f"git check failed ({exc}); asking the API")
+        return latest_commit()
 
 
 def latest_commit():
@@ -119,7 +153,7 @@ def now():
         if name.startswith(".update-"):
             shutil.rmtree(os.path.join(APP, name), ignore_errors=True)
     try:
-        sha = latest_commit()
+        sha = head()
         if sha and sha == installed_commit() and os.path.exists(os.path.join(APP, "webapp", "app.py")):
             log(f"already on {sha[:7]}")
             return
@@ -141,16 +175,16 @@ def now():
 
 def watch():
     global etag
-    minutes = float(os.environ.get("UPDATE_MINUTES") or 10)
-    if minutes <= 0:
+    if float(os.environ.get("UPDATE_MINUTES") or 1) <= 0:
         log("UPDATE_MINUTES is 0, not checking for updates")
         return
-    log(f"checking {REPO} {branch()} for new commits every {minutes:g} minutes")
+    seconds = max(10.0, float(os.environ.get("CHECK_SECONDS") or 30))
+    log(f"checking {REPO} {branch()} for new commits every {seconds:g} seconds")
     while True:
-        time.sleep(minutes * 60)
+        time.sleep(seconds)
         sha = None
         try:
-            sha = latest_commit()
+            sha = head()
             if not sha or sha == installed_commit() or failed.get(sha, 0) >= 3:
                 continue
             log(f"new commit {sha[:7]}, installing")

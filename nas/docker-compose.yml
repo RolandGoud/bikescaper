@@ -5,8 +5,9 @@
 # UGREEN NAS: Docker app > Project > Create, paste this file, deploy.
 # The site is then at http://<nas-ip>:8280 (the first start takes a few minutes).
 #
-# New code on GitHub is picked up by itself: every 10 minutes the container checks for a new
-# commit, installs it and reloads the site without stopping it. A restart also updates.
+# New code on GitHub is picked up by itself: every 30 seconds the container checks for a new
+# commit, installs it and reloads the site without stopping it, so a merge is live within a
+# minute or two. A restart also updates.
 # Saved checks are in "bikecompare-data" and are kept.
 
 services:
@@ -16,7 +17,8 @@ services:
     working_dir: /app
     environment:
       BRANCH: main
-      UPDATE_MINUTES: "10"   # how often to check GitHub for new code; "0" turns it off
+      CHECK_SECONDS: "30"    # how often to check GitHub for new code
+      # UPDATE_MINUTES: "0"  # remove the # to stop checking for new code
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
       # To read the groupset from the ad's photos when the ad doesn't name it (Claude API, about 2-4 cents
