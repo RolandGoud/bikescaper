@@ -29,7 +29,7 @@ def test_only_a_logged_in_admin_can_correct_a_check(tmp_path, monkeypatch):
     assert login(client, "wrong").status_code == 400
     assert login(client).status_code == 302
     page = client.get(url + "?edit=1&lang=en").data
-    assert b"Edit mode" in page and b"edit-year" in page and b"edit-model" in page and b"edit-groupset" in page
+    assert b"Edit mode" in page and b"edit-year" in page and b"edit-match" in page and b"edit-groupset" in page
     client.post("/admin/logout")
     assert client.post(f"/check/{check_id}/override", data={"field": "year", "value": "2020"}).status_code == 403
 
@@ -149,20 +149,26 @@ def test_a_colour_set_by_hand_wins_and_dates_the_bike(tmp_path, monkeypatch):
     assert report["colour_set"] is None and report["colour_typed"] == "No Such Colour"
 
 
-def test_the_colour_tile_is_always_there_and_takes_any_colour(tmp_path, monkeypatch):
+def test_the_match_card_always_has_a_colour_tile_and_the_ad_card_only_a_named_one(tmp_path, monkeypatch):
     app, client, url, check_id = setup(tmp_path, monkeypatch)
     conn = db.connect(app.config["DB_PATH"])
-    # An ad that names no colour, matched to no model: the tile still shows, and the edit mode has its pencil.
-    conn.execute("UPDATE checks SET title = 'Racefiets te koop', description = '' WHERE id = ?", (check_id,))
+    # An ad that names no colour: no Kleur tile in the ad card, a "Not known" one in the match card.
+    conn.execute("UPDATE checks SET title = 'Trek Domane SL 6 Gen 4 maat 56', description = '' WHERE id = ?", (check_id,))
     conn.commit()
     page = client.get(url + "?lang=en").get_data(as_text=True)
-    assert '<span class="k">COLOUR</span><b class="muted">Not stated</b>' in page
+    ad_card, match_card = page.split('class="match-strip')
+    assert "COLOUR" not in ad_card and 'class="ms-facts"' in match_card and 'class="ms-photo"' in match_card
+    assert "MODEL YEAR" in match_card and "COLOUR" in match_card and "GROUPSET" in match_card
+    # The match form sets the model year and the colour at once; "automatic" clears a value.
     login(client)
-    assert 'id="edit-colour"' in client.get(url + "?edit=1&lang=en").get_data(as_text=True)
-    assert client.post(f"/check/{check_id}/override", data={"field": "colour", "value": "Mat petrol"}).status_code == 302
-    assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"colour": "Mat petrol"}
-    page = client.get(url + "?lang=en").get_data(as_text=True)
-    assert '<span class="k">COLOUR</span><b>Mat petrol</b>' in page
+    assert 'id="edit-match"' in client.get(url + "?edit=1&lang=en").get_data(as_text=True)
+    assert client.post(f"/check/{check_id}/override", data={"field": "match", "model": "", "year": "2023", "colour": "Mat petrol"}).status_code == 302
+    assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"year": 2023, "colour": "Mat petrol"}
+    page = client.get(url + "?lang=en").get_data(as_text=True).split('class="match-strip')[1]
+    assert "Mat petrol" in page and ">2023</b>" in page
+    assert client.post(f"/check/{check_id}/override", data={"field": "match", "model": "", "year": "", "colour": ""}).status_code == 302
+    assert conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0] is None
+    assert client.post(f"/check/{check_id}/override", data={"field": "match", "model": "no-such-bike"}).status_code == 400
 
 
 def test_the_colour_editor_offers_the_models_colourways(tmp_path, monkeypatch):
@@ -174,7 +180,7 @@ def test_the_colour_editor_offers_the_models_colourways(tmp_path, monkeypatch):
     row = conn.execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
     model = checks.run_check(db.all_models(conn), dict(row, overrides={}))["model"]
     colour = checks.colour_choices(model)[-1]
-    assert b"edit-colour" in client.get(url + "?edit=1&lang=en").data
+    assert colour.encode() in client.get(url + "?edit=1&lang=en").data  # offered in the match form
     assert client.post(f"/check/{check_id}/override", data={"field": "colour", "value": colour}).status_code == 302
     assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"colour": colour}
     page = client.get(url + "?lang=en").get_data(as_text=True)
