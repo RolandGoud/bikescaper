@@ -2389,12 +2389,15 @@ body.pk-open { overflow: hidden; }
 .live-busy strong { color: var(--accent-soft); }
 .live-pending li { opacity: .8; }
 .account .tools-menu:has(.live-note li) { min-width: 380px; }
-.live-note { display: flex; flex-direction: column; max-height: min(60vh, 420px); margin-bottom: 6px; padding-bottom: 6px;
+.live-note { flex: none; display: flex; flex-direction: column; margin-bottom: 6px; padding-bottom: 6px;
   border-bottom: 1px solid var(--line); font-size: 14px; }
 .live-head { display: flex; align-items: center; gap: 8px; padding: 6px 10px; }
 .live-head strong { font-weight: 600; }
 .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--ok-bg); }
-.live-note ol { margin: 0; padding: 0; list-style: none; overflow-y: auto; }
+.live-note ol { margin: 0; padding: 0; list-style: none; }
+.live-note li[hidden] { display: none; }
+.live-and { margin: 0; padding: 4px 10px 8px; color: var(--muted); font-size: 13px; }
+.site-header .tools-menu a.live-more { margin-top: 2px; padding: 8px 10px; color: var(--link); font-size: 14px; font-weight: 600; }
 .live-note li { padding: 8px 10px; border-top: 1px solid var(--line); }
 .live-note li.new { box-shadow: inset 3px 0 var(--accent); }
 .live-title { display: block; line-height: 1.35; font-weight: 400; }
@@ -2403,7 +2406,7 @@ body.pk-open { overflow: hidden; }
 .site-header .live-links a:hover { color: var(--link-hover); background: none; text-decoration: underline; }
 .site-header .live-links a.live-check { font-weight: 700; }
 .live-links time { margin-left: auto; color: var(--muted); font-family: var(--mono); font-size: 12px; }
-@media (max-width: 900px) { .account .tools-menu:has(.live-note li) { min-width: 0; } .live-note { max-height: 50vh; } }
+@media (max-width: 900px) { .account .tools-menu:has(.live-note li) { min-width: 0; } }
 .menu-button .live-badge { display: inline-block; margin-left: 6px; }
 .menu-button .live-badge[hidden], .live-spin[hidden] { display: none; }
 .live-note:not(:has(li)) { display: none; }

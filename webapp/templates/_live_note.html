@@ -1,20 +1,24 @@
 {# What's being installed and what just went live, in the admin's account menu (base.html); also sent on its own by
    /admin/live, which static/live-note.js asks every few seconds so the menu follows an update as it happens. #}
+{% set shown = 4 %}{# changes in the menu; the rest stay hidden (still counted on the button) behind "See more" #}
 <div class="live-inner" data-shas="{{ ups|map(attribute='sha')|join(' ') }}" data-updating="{{ upd.sha if upd else '' }}">
   {% if upd %}
   <div class="live-head live-busy"><span class="live-spin" aria-hidden="true"></span><strong>{{ _('Installing on the site…') }}</strong></div>
   <ol class="live-pending">
     {% for c in upd.changes or [{'title': _('Update {sha}', sha=upd.sha[:7])}] %}
-    <li><span class="live-title">{{ c.title }}</span>{% if c.pr %}<span class="live-links"><a href="{{ c.url }}" target="_blank" rel="noopener">PR #{{ c.pr }} ↗</a></span>{% endif %}</li>
+    <li{% if loop.index > 3 %} hidden{% endif %}><span class="live-title">{{ c.title }}</span>{% if c.pr %}<span class="live-links"><a href="{{ c.url }}" target="_blank" rel="noopener">PR #{{ c.pr }} ↗</a></span>{% endif %}</li>
     {% endfor %}
   </ol>
+  {% if upd.changes|length > 3 %}<p class="live-and">{{ _('and {n} more', n=upd.changes|length - 3) }}</p>{% endif %}
   {% endif %}
   {% if ups %}
+  {% set ns = namespace(n=0) %}
   <div class="live-head"><span class="live-dot" aria-hidden="true"></span><strong>{{ _('Just live on the site') }}</strong></div>
   <ol>
     {% for u in ups %}
     {% for c in u.changes or [{'title': _('Update {sha}', sha=u.sha[:7]), 'url': 'https://github.com/RolandGoud/bikescaper/commit/' ~ u.sha}] %}
-    <li data-sha="{{ u.sha }}">
+    {% set ns.n = ns.n + 1 %}
+    <li data-sha="{{ u.sha }}"{% if ns.n > shown %} hidden{% endif %}>
       <span class="live-title">{{ c.title }}</span>
       <span class="live-links">
         {% if c.check %}<a class="live-check" href="{{ c.check }}" target="_blank" rel="noopener">{{ _('Check it') }} ↗</a>{% endif %}
@@ -25,5 +29,6 @@
     {% endfor %}
     {% endfor %}
   </ol>
+  <a class="live-more" href="{{ url_for('admin') }}#updates">{{ _('See more ({n})', n=ns.n - shown) if ns.n > shown else _('All updates') }} →</a>
   {% endif %}
 </div>
