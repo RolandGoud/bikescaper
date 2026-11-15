@@ -591,11 +591,20 @@ def create_app(db_path=None):
                     "groupsets": checks.groupset_choices(),
                     "colours": checks.colour_choices(model)}
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
-                               edit=edit,
+                               edit=edit, neighbours=neighbouring_checks(check_id),
                                translated=translated,
                                checked_at=stored_checks.computed_at(conn(), check_id),
                                all_models=models(), asking=asking, nav="check", other_ads=other_ads,
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
+
+    def neighbouring_checks(check_id):
+        """The checks either side of this one in the order of /checks (newest first), to step through them from the
+        report: `prev` is the newer one, `next` the older one; None at the ends."""
+        def one(where, order):
+            row = conn().execute(f"SELECT id FROM checks WHERE {db.PUBLISHED} AND id {where} ? ORDER BY id {order} LIMIT 1",
+                                 (check_id,)).fetchone()
+            return row["id"] if row else None
+        return {"prev": one(">", "ASC"), "next": one("<", "DESC")}
 
     def pdf_of(check_id, height):
         row = conn().execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()

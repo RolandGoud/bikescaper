@@ -102,3 +102,20 @@ def test_a_model_shown_in_another_photo_follows_a_catalogue_reload(tmp_path):
     shown = stored_checks.load(data, fresh)["model"]
     today = next(m for m in fresh if m["slug"] == models[0]["slug"])
     assert shown["id"] == today["id"] != models[0]["id"] and shown["image"] == "other.jpg"
+
+
+def test_the_report_links_to_the_checks_either_side(tmp_path):
+    app, client, first = app_with_a_check(tmp_path)
+    second = client.post("/check", data={"title": "Canyon Ultimate CF SL 8 2021 maat M", "asking_price": "2100",
+                                         "rider_height": "180"}).headers["Location"]
+    third = client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": "2300",
+                                        "rider_height": "180"}).headers["Location"]
+    one, two, three = (int(u.rsplit("/", 1)[1]) for u in (first, second, third))
+    # The order of /checks is newest first: the newer check is "previous", the older one "next".
+    page = client.get(second + "?lang=en").data.decode()
+    assert f'href="/check/{three}" rel="prev"' in page and f'href="/check/{one}" rel="next"' in page
+    assert "Previous check" in page and "Next check" in page
+    newest = client.get(third + "?lang=en").data.decode()
+    assert 'rel="prev"' not in newest and "This is the newest check" in newest and f'href="/check/{two}" rel="next"' in newest
+    oldest = client.get(first + "?lang=nl").data.decode()
+    assert 'rel="next"' not in oldest and "Dit is de oudste check" in oldest and "Vorige check" in oldest

@@ -317,6 +317,12 @@ NL = {
 
     # report
     "Check report": "Checkrapport",
+    "Other checks": "Andere checks",
+    "Previous check": "Vorige check",
+    "Next check": "Volgende check",
+    "Check #{id}": "Check #{id}",
+    "This is the newest check": "Dit is de nieuwste check",
+    "This is the oldest check": "Dit is de oudste check",
     "PASTED AD": "GEPLAKTE ADVERTENTIE",
     "Found on {site}": "Gevonden op {site}",
     "checked {date}": "gecheckt op {date}",
