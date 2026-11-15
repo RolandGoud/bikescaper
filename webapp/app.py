@@ -24,7 +24,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import ad_gone, articles, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
-from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
+from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
 
@@ -1310,6 +1310,30 @@ def create_app(db_path=None):
         changed = [f for f in ESTIMATE_FIELDS if row[f] != inputs[f]]
         return row if len(changed) <= 2 else None
 
+    def settled_outcomes(rows, by_id):
+        """Each estimate's result and the second-hand prices next to it, worked out once, on the first
+        page load after it was made or changed, and stored; later loads show what was stored. Estimates
+        from before outcomes were stored are worked out as of the day they were made."""
+        outcomes, known = {}, None
+        for r in rows:
+            m = by_id.get(r["model_id"])
+            if m is None:
+                continue
+            if r["outcome"]:
+                outcomes[r["id"]] = thaw(json.loads(r["outcome"]))
+                continue
+            made = date.fromisoformat((r["updated_at"] or r["created_at"])[:10])
+            past = estimate(m, r["year"], r["condition"], r["asking_price"], made)
+            if past.get("low") and not past.get("bar"):  # no asking price: the bar shows just the fair range
+                past["bar"] = checks.value_bar(past["low"], past["high"], past["original"])
+            known = known if known is not None else prices.known_ads(conn(), models())
+            outcome = {"result": freeze(past), "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD, made)}
+            conn().execute("UPDATE estimates SET outcome = ? WHERE id = ? AND outcome IS NULL",
+                           (json.dumps(outcome, default=str), r["id"]))
+            outcomes[r["id"]] = thaw(json.loads(json.dumps(outcome, default=str)))
+        conn().commit()
+        return outcomes
+
     @app.route("/value", methods=["GET", "POST"])
     def value():
         if request.method == "POST":
@@ -1325,10 +1349,10 @@ def create_app(db_path=None):
                       "asking_price": number(request.form.get("asking"))}
             last = revision_of(inputs)
             if last is not None and any(last[f] != inputs[f] for f in ESTIMATE_FIELDS):
-                before = {f: last[f] for f in ESTIMATE_FIELDS} | {"updated_at": last["updated_at"]}
+                before = {f: last[f] for f in ESTIMATE_FIELDS} | {"updated_at": last["updated_at"], "outcome": last["outcome"]}
                 revisions = json.loads(last["revisions"] or "[]") + [before]
                 conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, "
-                               "updated_at = datetime('now'), revisions = ? WHERE id = ?",
+                               "updated_at = datetime('now'), revisions = ?, outcome = NULL WHERE id = ?",
                                (inputs["year"], inputs["condition"], inputs["asking_price"], json.dumps(revisions), last["id"]))
                 conn().commit()
             if last is not None:  # updated, or the very same inputs sent again
@@ -1350,23 +1374,22 @@ def create_app(db_path=None):
             year = request.args.get("year", type=int)
             condition = request.args.get("condition") or None
             asking = number(request.args.get("asking"))
-        result = estimate(model, year, condition, asking) if model else None
+        outcomes = settled_outcomes(rows, by_id)
+        if shown:  # the stored outcome, as listed below, not one worked out again today
+            result = outcomes.get(shown["id"], {}).get("result")
+        else:
+            result = estimate(model, year, condition, asking) if model else None
         brand = model["brand"] if model else request.args.get("brand")
-        known = prices.known_ads(conn(), models())
         history = []
         for r in rows:
             m = by_id.get(r["model_id"])
-            if m is None:  # its model left the catalogue
+            if m is None or r["id"] not in outcomes:  # its model left the catalogue
                 continue
-            made = date.fromisoformat(r["created_at"][:10])
-            past = estimate(m, r["year"], r["condition"], r["asking_price"], made)
-            if past.get("low") and not past.get("bar"):  # no asking price: the bar shows just the fair range
-                past["bar"] = checks.value_bar(past["low"], past["high"], past["original"])
             revisions = json.loads(r["revisions"] or "[]")
             before = revisions[-1] if revisions else None
             changes = [f for f in ESTIMATE_FIELDS if before[f] != r[f]] if before else []
-            history.append({"row": r, "model": m, "result": past, "before": before, "changes": changes,
-                            "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)})
+            history.append({"row": r, "model": m, "result": outcomes[r["id"]]["result"], "before": before,
+                            "changes": changes, "asking": outcomes[r["id"]]["asking"]})
         return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
                                asking=asking, result=result, shown=shown, history=history,
                                can_split=set(own_estimates()) if not is_admin() else None,
@@ -1381,11 +1404,12 @@ def create_app(db_path=None):
         if not revisions or not (estimate_id in own_estimates() or is_admin()):
             return redirect(url_for("value", estimate=estimate_id if row else None))
         before = revisions.pop()
-        cur = conn().execute("INSERT INTO estimates (created_at, model_id, year, condition, asking_price) VALUES (?,?,?,?,?)",
-                             (row["updated_at"] or row["created_at"], row["model_id"], row["year"], row["condition"], row["asking_price"]))
-        conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, updated_at = ?, revisions = ? WHERE id = ?",
-                       (before["year"], before["condition"], before["asking_price"], before.get("updated_at"),
-                        json.dumps(revisions) if revisions else None, estimate_id))
+        cur = conn().execute("INSERT INTO estimates (created_at, model_id, year, condition, asking_price, outcome) VALUES (?,?,?,?,?,?)",
+                             (row["updated_at"] or row["created_at"], row["model_id"], row["year"], row["condition"],
+                              row["asking_price"], row["outcome"]))
+        conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, updated_at = ?, revisions = ?, outcome = ? "
+                       "WHERE id = ?", (before["year"], before["condition"], before["asking_price"], before.get("updated_at"),
+                                        json.dumps(revisions) if revisions else None, before.get("outcome"), estimate_id))
         conn().commit()
         session["last_estimate"] = cur.lastrowid  # a further tweak now revises the split-off one
         mark_own(cur.lastrowid)
