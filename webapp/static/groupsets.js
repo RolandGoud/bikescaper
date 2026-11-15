@@ -101,7 +101,10 @@
 
   const draw = (animate) => {
     main.querySelectorAll(".path-lines").forEach((s) => s.remove());
-    if (matchMedia("(max-width: 640px)").matches) return;  // the ladders stack on phones
+    if (matchMedia("(max-width: 640px)").matches) {  // the ladders stack on phones: no lines, nothing greyed
+      main.querySelectorAll(".gen.off-path").forEach((el) => el.classList.remove("off-path"));
+      return;
+    }
     main.querySelectorAll(".brand-ladders").forEach((section) => {
       const origin = section.getBoundingClientRect();
       const svg = document.createElementNS(NS, "svg");
