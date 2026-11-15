@@ -1565,6 +1565,4 @@ NL = {
         "Het federale fietsregister van België, waar je het framenummer van een fiets checkt.",
     "Bike theft and insurance": "Fietsdiefstal en verzekering",
     "How registering your bike works, and what to do when it's stolen.": "Hoe registratie werkt en wat je doet als je fiets gestolen is.",
-    "Checklist: buying a used e-bike": "Checklist: tweedehands e-bike kopen",
-    "Battery, motor and papers: what to check before you pay.": "Accu, motor en papieren: wat je controleert voor je betaalt.",
 }
