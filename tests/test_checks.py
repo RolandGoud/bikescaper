@@ -1728,6 +1728,21 @@ def test_a_generation_starts_at_its_launch_not_at_our_oldest_sheet(models):
     assert [g["name"] for g in age["generations"]] == ["Tarmac SL7", "S-Works Tarmac SL8 - SRAM RED AXS"]
 
 
+def test_an_old_tarmac_without_years_is_not_the_newest_generation(models):
+    # Check 175: an archived S-Works Tarmac SL3 (2010-2011) has no years in our catalogue (nothing from before
+    # 2018), so the lineage's newest generation (the 2024 SL8) used to stand in and dated the ad 2024.
+    m = dict(_tarmac_sl8(models), name="S-Works Tarmac SL3 Dura-Ace", year_specs={"checked": [2018], "years": {}})
+    gen = checks.generation(m)
+    assert (gen["first"], gen["last"], gen["name"]) == (2009, 2011, "Tarmac SL3")
+    claims = checks.read_claims("Specialized S-Works Tarmac SL3 racefiets", "Dura Ace, velgremmen")
+    resolved = checks.resolve_year(m, claims, checks.check_age(m, claims, TODAY), None, TODAY)
+    assert resolved["year"] < checks.FIRST_YEAR
+    assert checks.pre_2018_year({"model": m, "claims": claims, "year": resolved}) == resolved["year"]
+    # A generation the table doesn't list at all is no stand-in for the newest one either.
+    assert checks.generation(dict(m, name="S-Works Tarmac SL2")) is None
+    assert checks.generation(dict(m, name="Tarmac SL7 Expert"))["name"] == "Tarmac SL7"
+
+
 def test_details_outside_the_generation_are_another_generation(models):
     # The details point to 2018-2020, before the SL8 launched (2024): priced at their middle, but not reliable.
     m = _tarmac_sl8(models)

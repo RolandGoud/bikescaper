@@ -894,6 +894,18 @@ def newest_year(model, today):
     return max(today.year, scrape_year(model) or 0)
 
 
+def _unlisted_generation(plain, gens):
+    """Whether a model name gives a generation in the way the lineage's names do ("sl6", "gen 3": letters and a
+    number) with a number the lineage doesn't list."""
+    listed = {}
+    for g in gens:
+        m = re.fullmatch(r"([a-z]+)\s*(\d+)", g[2] or "")
+        if m:
+            listed.setdefault(m.group(1), set()).add(m.group(2))
+    return any(m.group(1) not in numbers for word, numbers in listed.items()
+               for m in re.finditer(rf"\b{word}\s*(\d+)\b", plain))
+
+
 def generation(model):
     """The generation the model belongs to: {"first", "last" (None = still sold), "name", "earlier": [(first, last,
     name)], "note"}, from the hand-entered lineages (LINEAGES), else the generation table (GENERATIONS), else None.
@@ -905,6 +917,9 @@ def generation(model):
         named = [g for g in gens if g[2] and re.search(r"\b" + g[2].replace(" ", r"\s*") + r"\b", plain)]
         if named:
             mine = named[-1]
+        elif _unlisted_generation(plain, gens):
+            # The name gives a generation the table doesn't list (a "Tarmac SL2"): not the newest one we know.
+            return None
         else:
             # The newest model year we have under this very name (a predecessor's sheet has a sheet_name).
             own = [int(y) for y, e in ((model.get("year_specs") or {}).get("years") or {}).items()
