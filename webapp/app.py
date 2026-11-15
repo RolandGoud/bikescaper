@@ -1313,7 +1313,7 @@ def create_app(db_path=None):
     def settled_outcomes(rows, by_id):
         """Each estimate's result and the second-hand prices next to it, worked out once, on the first
         page load after it was made or changed, and stored; later loads show what was stored. Estimates
-        from before outcomes were stored are worked out as of the day they were made."""
+        from before outcomes were stored get their fair value as of the day they were made."""
         outcomes, known = {}, None
         for r in rows:
             m = by_id.get(r["model_id"])
@@ -1327,7 +1327,9 @@ def create_app(db_path=None):
             if past.get("low") and not past.get("bar"):  # no asking price: the bar shows just the fair range
                 past["bar"] = checks.value_bar(past["low"], past["high"], past["original"])
             known = known if known is not None else prices.known_ads(conn(), models())
-            outcome = {"result": freeze(past), "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD, made)}
+            # the second-hand prices as of now: for a new estimate that is the day it was made, and older ones
+            # keep the figures the page was showing for them until outcomes were stored
+            outcome = {"result": freeze(past), "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)}
             conn().execute("UPDATE estimates SET outcome = ? WHERE id = ? AND outcome IS NULL",
                            (json.dumps(outcome, default=str), r["id"]))
             outcomes[r["id"]] = thaw(json.loads(json.dumps(outcome, default=str)))
