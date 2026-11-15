@@ -133,7 +133,7 @@ def test_one_brand_at_a_time(tmp_path):
     page = client.get("/groupsets?brand=Campagnolo&type=mtb&lang=en").data.decode()
     assert "Super Record" in page and "Mountain bike" not in page  # no MTB groups: back to road
     page = client.get("/groupsets?have=gx-eagle&lang=en").data.decode()  # the groupset sets brand and type
-    assert 'aria-current="true"><span class="pill-logo" role="img" aria-label="SRAM"' in page and "XX1 Eagle AXS" in page
+    assert 'aria-current="true" style="--bc: #EF4444"><span class="pill-logo" role="img" aria-label="SRAM"' in page and "XX1 Eagle AXS" in page
 
 
 def test_gravel_has_its_own_type_but_upgrades_cross():
@@ -327,3 +327,12 @@ def test_mechanical_wired_and_wireless_rows(tmp_path):
     assert "Elektronisch, bedraad" in page and "Mechanisch en bedraad" not in page
     wired = page.split('row-label row-1 wired')[1].split('row-label row-2')[0]
     assert "Ultegra Di2 6870" in wired and "Ultegra 6800<" not in wired
+
+
+def test_brand_cards_show_their_groupsets(tmp_path):
+    """Roland: brand cards in the brand's colour, with its groupsets basic to top along the bottom."""
+    client = create_app(str(tmp_path / "app.sqlite3")).test_client()
+    page = client.get("/groupsets?lang=nl").data.decode()
+    assert 'style="--bc: #3B82F6"' in page and "logos/groupsets/dura-ace.svg" in page.split('class="brand-cards"')[1].split("</nav>")[0]
+    campa = page.split('class="brand-cards"')[1].split("</nav>")[0].split("--bc: #D4A72C")[1]
+    assert '<i class="dot"></i>' in campa and "<b>Super Record</b>" in campa  # no logos yet: dots and the top name

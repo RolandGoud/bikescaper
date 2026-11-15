@@ -20,6 +20,8 @@ DISCIPLINES = [("road", "Road"), ("gravel", "Gravel"), ("mtb", "Mountain bike")]
 RULES = {"gravel": "road"}  # type -> the discipline its upgrade rules follow, when it isn't its own
 # Logos for the brand pills, as on the models page; a brand without one shows its name.
 BRAND_LOGOS = {"Shimano": "logos/shimano.svg", "SRAM": "logos/sram.svg", "Campagnolo": "logos/campagnolo.svg"}
+# Each brand card's accent: a glow, its border when picked, and its top groupset in this colour.
+BRAND_COLOURS = {"Shimano": "#3B82F6", "SRAM": "#EF4444", "Campagnolo": "#D4A72C"}
 
 SHIFT_LABELS = {
     "mech": "Mechanical",
