@@ -32,17 +32,27 @@
 {% if logos.get(brand) %}<span class="brand-mark" role="img" aria-label="{{ brand }}" style="--logo: url('{{ url_for('static', filename=logos[brand]) }}')"></span>{% elif brand %}<span class="brand-mark text">{{ brand }}</span>{% endif %}
 {%- endmacro %}
 
-{# The site we found the ad on (Marktplaats or 2dehands), its logo on a white pill in front of the ad's own title on an ad tile. #}
-{# 2ememain is 2dehands' French-language site, so it shows the 2dehands logo under its own name. #}
+{# The sites we find ads on: a piece of the ad's address, the name we show, and its logo in static/logos/
+   (<logo>.svg in the site's own colours, <logo>-light.svg with light lettering for the dark pages).
+   2ememain is 2dehands' French-language site, so it shows the 2dehands logo under its own name.
+   A new site is one more line here; without a logo (None) it shows its name in the logo's place. #}
+{% set ad_sites = [
+  ('marktplaats', 'Marktplaats', 'marktplaats'),
+  ('2dehands', '2dehands', '2dehands'),
+  ('2ememain', '2ememain', '2dehands'),
+] %}
 {% macro site_name(url) -%}
-{{ 'Marktplaats' if url and 'marktplaats' in url else ('2dehands' if url and '2dehands' in url else ('2ememain' if url and '2ememain' in url else '')) }}
+{% for part, name, logo in ad_sites if url and part in url %}{% if loop.first %}{{ name }}{% endif %}{% endfor %}
 {%- endmacro %}
+{# The site's logo file, or nothing for a site without one. #}
 {% macro site_logo(name, light=False) -%}
-{{ url_for('static', filename=('logos/marktplaats' if name == 'Marktplaats' else 'logos/2dehands') ~ ('-light' if light else '') ~ '.svg') }}
+{% for part, n, logo in ad_sites if n == name and logo %}{% if loop.first %}{{ url_for('static', filename='logos/' ~ logo ~ ('-light' if light else '') ~ '.svg') }}{% endif %}{% endfor %}
 {%- endmacro %}
+{# The site we found the ad on, its light logo straight on the dark card (no pill), at the foot of an ad tile. #}
 {% macro site_mark(url) -%}
-{% set site = site_name(url) %}
-{% if site %}<span class="site-mark"><img src="{{ site_logo(site) }}" alt="{{ _('Found on {site}', site=site) }}" title="{{ _('Found on {site}', site=site) }}" height="11"></span>{% endif %}
+{% set site = site_name(url) %}{% set logo = site_logo(site, light=True) %}
+{% if site and logo %}<span class="site-mark"><img src="{{ logo }}" alt="{{ _('Found on {site}', site=site) }}" title="{{ _('Found on {site}', site=site) }}" height="12"></span>
+{%- elif site %}<span class="site-mark text" title="{{ _('Found on {site}', site=site) }}">{{ site }}</span>{% endif %}
 {%- endmacro %}
 
 {# An ad's town, linking to the listings map opened there (when the map knows the place). Inside another
