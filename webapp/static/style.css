@@ -1653,23 +1653,6 @@ select { max-width: 100%; }
 .pill-menu { margin-top: 6px; padding: 8px; background: rgba(12, 13, 16, .88); backdrop-filter: blur(6px); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 12px 32px rgba(0, 0, 0, .5); }
 .pill-menu [aria-disabled="true"] { opacity: .45; cursor: default; }
 .pill-menu .group { align-self: flex-start; margin-top: 4px; padding: 3px 8px; border-radius: var(--pill-radius); background: var(--ground); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-/* data-families (the size finder's model picker): a heading per type, its families as chips, the opened family's
-   options in a panel below the chips. While searching only the panels show, each with its family's name. */
-.pill-menu.families { max-width: min(560px, calc(100vw - 32px)); }
-.pill-menu .type { margin-top: 6px; padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--ground); font: 700 13px var(--body); color: var(--text); box-shadow: 0 6px 18px rgba(0, 0, 0, .55); }
-.pill-menu .type[hidden], .pill-menu .fam-row[hidden], .pill-menu .fam-panel[hidden] { display: none; }
-.pill-menu .fam-row { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 0 4px; }
-.pill-menu .fam { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: var(--pill-radius); background: var(--raised); color: var(--text); font: 600 14px var(--body); cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, .55); }
-.pill-menu .fam .n { opacity: 1; color: var(--muted); font-size: 12px; }
-.pill-menu .fam .chevron { width: 10px; height: 10px; fill: none; stroke: var(--muted); stroke-width: 2; transition: transform .15s; }
-.pill-menu .fam[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-.pill-menu .fam.picked { border-color: var(--text); }
-.pill-menu .fam.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 6px 18px rgba(0, 0, 0, .55); }
-.pill-menu .fam-panel { display: flex; flex-direction: column; gap: 4px; margin: 0 0 6px; padding: 6px 4px 6px 10px; border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0; background: color-mix(in srgb, var(--ground) 85%, transparent); }
-.pill-menu .fam-panel ul { padding: 0; max-height: none; overflow: visible; }
-.pill-menu .fam-title { display: none; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 2px 4px; }
-.pill-menu.searching .fam-title { display: block; }
-.pill-menu.searching .fam-panel { border-left-color: var(--line-strong); }
 /* Brand options (data-logo): the logo in the text colour, left-aligned, in the pills and the closed button. */
 .pill-select .pill-brand { display: flex; align-items: center; min-width: 0; }
 .pill-select .pill-brand .pill-logo { width: 96px; height: 20px; color: var(--text); -webkit-mask-position: left center; mask-position: left center; }
@@ -1961,6 +1944,51 @@ select { max-width: 100%; }
 .wizard li.on i { background: var(--accent); color: var(--ink); }
 .wizard li.done i { background: #2C6B52; color: var(--text); }
 .wizard .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* The size finder's steps: the same bar inside the page, links instead of form buttons, each picked value under its step. */
+.size-wizard { border: 0; background: none; }
+.size-wizard ol { padding: 0; }
+.size-wizard li > a, .size-wizard li > span { display: flex; align-items: flex-start; gap: 8px; padding: 10px 4px 2px; color: var(--muted); font-weight: 600; font-size: 14px; text-decoration: none; }
+.size-wizard li > span { opacity: .55; }
+.size-wizard li.on > span { opacity: 1; color: var(--text); }
+.size-wizard li > a:hover { color: var(--text); }
+.size-wizard .lbl small { display: block; overflow: hidden; text-overflow: ellipsis; color: var(--text); font-weight: 500; font-size: 13px; }
+.size-step h2 { margin: 0; }
+.pick-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+/* The model and version steps: a card per choice, the catalogue photo above its name. */
+.pick-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.pick-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--card); color: var(--text); text-decoration: none; }
+.pick-card:hover, .pick-card.on { border-color: var(--accent); color: var(--text); }
+.pick-card .photo { aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: var(--photo-bg); color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--faint); }
+.pick-card .photo img { width: 100%; height: 100%; object-fit: contain; }
+.pick-name { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px 12px; font-weight: 700; font-size: 15px; }
+.pick-name .count { color: var(--muted); font-weight: 500; font-size: 13px; }
+/* The model step: a row per family, a small photo, its type, then versions, new price and tier range. */
+.pick-list { display: flex; flex-direction: column; gap: 8px; }
+.pick-row { display: grid; grid-template-columns: 150px minmax(160px, 1.2fr) 3fr 16px; align-items: center; gap: 20px; padding: 8px 16px 8px 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--text); text-decoration: none; }
+.pick-row:hover, .pick-row.on { border-color: var(--accent); color: var(--text); }
+.pick-row .photo { aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px; background: var(--photo-bg); color: var(--muted); font-size: 11px; }
+.pick-row .photo img { width: 100%; height: 100%; object-fit: contain; }
+.pick-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-size: 16px; }
+.pick-row .type-icon, .pick-card .type-icon { flex: none; width: 22px; height: 14px; background: var(--muted); -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+.pick-row .kind-line, .pick-card .kind-line { display: inline-flex; align-items: center; gap: 6px; }
+.pick-specs { display: grid; grid-template-columns: 1fr 1.4fr 1.4fr; gap: 16px; margin: 0; }
+.pick-specs dt { color: var(--muted); font-size: 12px; }
+.pick-specs dd { margin: 2px 0 0; font-weight: 600; font-size: 14px; white-space: nowrap; }
+.pick-go { width: 12px; height: 12px; fill: none; stroke: var(--muted); stroke-width: 1.6; }
+@media (max-width: 640px) {
+  .pick-row { grid-template-columns: 104px 1fr; gap: 6px 12px; padding: 8px; }
+  .pick-row .photo { grid-row: span 2; }
+  .pick-specs { grid-template-columns: auto auto; gap: 2px 12px; }
+  .pick-specs div:nth-child(3), .pick-go { display: none; }
+  .pick-specs dd { font-size: 13px; white-space: normal; }
+}
+.height-step { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+.chosen-bike { flex: 0 1 340px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; color: var(--text); text-decoration: none; }
+.chosen-bike:hover { border-color: var(--accent); color: var(--text); }
+.chosen-bike .photo { aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: var(--photo-bg); }
+.chosen-bike .photo img { width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 640px) { .pick-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
+.height-form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
 .step-nav { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
 .step-nav .btn:not(.ghost):only-child { margin-left: auto; }
 .step-panel[hidden], #result[hidden] { display: none !important; }
