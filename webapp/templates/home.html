@@ -44,6 +44,39 @@
   </div>
 </section>
 
+{% if articles %}
+{# Articles on buying a stolen bike (articles.py), one slide at a time. The slides are a row that scrolls and snaps,
+   so a swipe works and without JS every article can still be reached; static/article-slides.js adds the dots,
+   arrows and the "up next" line. Every link opens the article in a new tab. #}
+<section class="wrap" style="padding-top: 40px; padding-bottom: 40px">
+  <div class="article-slides">
+    <div class="as-side">
+      <span class="as-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <h2 id="as-title">{{ _("Don't buy a stolen bike") }}</h2>
+      <p class="muted">{{ _('Buying on Marktplaats or 2dehands? These checks and guides help you tell whether a bike is stolen.') }}</p>
+    </div>
+    <div class="as-main">
+      <div class="as-track" role="region" aria-roledescription="carousel" aria-labelledby="as-title" tabindex="0">
+        {% for a in articles %}
+        <article class="as-slide" id="article-{{ loop.index }}" aria-roledescription="slide" aria-label="{{ loop.index }} / {{ loop.length }}">
+          <div class="as-meta"><span class="as-tag">{{ _(a.tag) }}</span><span class="as-flag">{{ a.country }}</span><span class="as-n">{{ '%02d' % loop.index }} / {{ '%02d' % loop.length }}</span></div>
+          <h3>{{ _(a.title) }}</h3>
+          <p>{{ _(a.text) }}</p>
+          <a class="as-go" href="{{ a.url }}" target="_blank" rel="noopener">{{ _('Read on {site}', site=a.site) }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> ({{ _('opens in a new tab') }})</span></a>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="as-ctrl" hidden>
+        <div class="as-dots">{% for a in articles %}<button type="button" aria-label="{{ _('Article {n}', n=loop.index) }}"></button>{% endfor %}</div>
+        <button class="nav-btn as-prev" type="button" aria-label="{{ _('Previous article') }}">‹</button>
+        <button class="nav-btn as-next" type="button" aria-label="{{ _('Next article') }}">›</button>
+      </div>
+      <p class="as-upnext" hidden><span>{{ _('Up next') }}</span> <button type="button"></button></p>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {% if cards %}
 <section class="wrap stack" style="padding-top: 40px; padding-bottom: 40px">
   {# One row of cards; the counter and arrows next to the heading page through it (static/recent-row.js).
@@ -84,4 +117,5 @@
 </section>
 </div>
 <script src="{{ url_for('static', filename='recent-row.js') }}" defer></script>
+<script src="{{ url_for('static', filename='article-slides.js') }}" defer></script>
 {% endblock %}
