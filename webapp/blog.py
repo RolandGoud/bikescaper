@@ -180,3 +180,23 @@ def render(body, lang="nl"):
             i += 1
     flush()
     return Markup("\n".join(html))
+
+
+# What a check report links to, after the article on the matched model (an article with `model: Trek Domane` in its
+# header goes with every Trek whose name starts with Domane): the guides for the step a reader of a report is at.
+REPORT_READS = ["spotting-a-stolen-bike", "reading-a-bike-ad", "how-fast-bikes-lose-value"]
+
+
+def about_model(post, model):
+    """Whether an article is the deep-dive on this catalogue model's family."""
+    brand, _, family = (post.get("model") or "").partition(" ")
+    return bool(model and brand and family) and model["brand"].lower() == brand.lower() \
+        and model["name"].lower().startswith(family.lower())
+
+
+def for_report(posts, lang, model=None, today=None, n=3):
+    """The articles a check report links to: the one on its model if there is one, then REPORT_READS."""
+    shown = published(posts, lang, today)
+    first = [p for p in shown if about_model(p, model)][:1]
+    by_slug = {p["slug"]: p for p in shown}
+    return (first + [by_slug[s] for s in REPORT_READS if s in by_slug])[:n]

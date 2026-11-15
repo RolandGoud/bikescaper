@@ -2520,54 +2520,6 @@ body.pk-open { overflow: hidden; }
 .live-history ul a { margin-left: 10px; font-size: 13px; white-space: nowrap; }
 @media (max-width: 640px) { .live-history-body > ol > li { grid-template-columns: 1fr; gap: 4px; } }
 
-/* Stolen-bike articles on the home page (home.html, static/article-slides.js): the heading on a dark green panel,
-   the articles one at a time beside it (under it on a phone). The controls sit next to the slide's button on wide
-   screens and under the slide on a phone. */
-.article-slides { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--card); }
-.as-side { padding: 32px; display: flex; flex-direction: column; gap: 14px; background: linear-gradient(160deg, var(--ok-bg), var(--ground) 80%); border-right: 1px solid var(--line); }
-.as-icon { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--ink); }
-.as-side h2 { font-size: 30px; }
-.as-main { display: grid; grid-template-columns: minmax(0, 1fr); padding: 32px 0; min-width: 0; }
-.as-track { grid-area: 1 / 1; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
-.as-track.paged { scrollbar-width: none; }
-.as-track.paged::-webkit-scrollbar { display: none; }
-.as-track:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.as-slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 14px; padding: 0 32px; min-width: 0; }
-.as-slide::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 2px; background: var(--accent); }
-.as-meta { display: flex; align-items: center; gap: 10px; }
-.as-tag { font: 500 11px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
-.as-flag { font: 500 11px/1 var(--mono); letter-spacing: .08em; padding: 4px 6px; border-radius: var(--pill-radius); border: 1px solid var(--line-strong); color: var(--muted); }
-.as-n { margin-left: auto; font: 500 13px var(--mono); color: var(--muted); }
-.as-slide h3 { font-family: var(--display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 28px; line-height: 1.08; }
-.as-slide p { color: var(--muted); max-width: 52ch; }
-.as-go { align-self: flex-start; margin-top: auto; display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border-radius: var(--pill-button-radius); background: var(--accent); color: var(--ink); font-weight: 700; text-decoration: none; white-space: nowrap; }
-.as-go:hover { background: var(--accent-soft); color: var(--ink); }
-.as-ctrl { position: relative; z-index: 1; grid-area: 1 / 1; align-self: end; justify-self: end; margin: 0 32px 2px 0; display: flex; align-items: center; gap: 8px; }
-.as-ctrl[hidden], .as-upnext[hidden] { display: none; }
-.as-dots { display: flex; gap: 2px; margin-right: 6px; }
-.as-dots button { width: 18px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
-.as-dots button::before { content: ""; width: 8px; height: 8px; border-radius: 4px; background: var(--line-strong); transition: width .2s; }
-.as-dots button[aria-current="true"] { width: 30px; }
-.as-dots button[aria-current="true"]::before { width: 22px; background: var(--accent); }
-.as-dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
-.as-upnext { margin: 18px 32px 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
-.as-upnext span { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--link); margin-right: 6px; }
-.as-upnext button { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
-.as-upnext button:hover { color: var(--text); text-decoration: underline; }
-/* below this the slide's button and the controls don't fit on one line */
-@media (max-width: 1100px) { .as-ctrl { grid-area: 2 / 1; justify-self: start; margin: 18px 32px 0; } }
-@media (max-width: 760px) {
-  .article-slides { grid-template-columns: minmax(0, 1fr); }
-  .as-side { padding: 22px; border-right: 0; border-bottom: 1px solid var(--line); }
-  .as-side h2 { font-size: 24px; }
-  .as-main { padding: 22px 0; }
-  .as-slide { padding: 0 22px; }
-  .as-slide::before { display: none; }
-  .as-slide h3 { font-size: 22px; }
-  .as-ctrl { grid-area: 2 / 1; justify-self: start; margin: 18px 22px 0; }
-  .as-upnext { margin: 18px 22px 0; }
-}
-
 /* Blog (/blog, /blog/<slug>): a card per article, the article itself in a narrow reading column. Each category has its
    own colour on its label, so the four kinds tell apart at a glance. */
 .blog-head { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
@@ -2608,6 +2560,8 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .blog-table tr:last-child td { border-bottom: 0; }
 .blog-table .num { text-align: right; font-family: var(--mono); font-size: 14px; }
 .blog-related { display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--line); padding-top: 28px; }
+.report-reads .blog-grid, .home-blog .blog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }  /* three: newest or most relevant */
+@media (max-width: 900px) { .report-reads .blog-grid, .home-blog .blog-grid { grid-template-columns: minmax(0, 1fr); } }
 .blog-related .blog-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 @media (max-width: 640px) {
   .blog-head h1 { font-size: 34px; }

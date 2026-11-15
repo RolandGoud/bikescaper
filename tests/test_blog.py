@@ -91,3 +91,36 @@ def test_charts_come_in_the_article_language():
     nl = blog.render("![](chart:value-curve)", "nl")
     en = blog.render("![](chart:value-curve)", "en")
     assert "jaar oud" in nl and "years old" in en
+
+
+def test_home_shows_the_newest_posts_instead_of_outside_articles(client):
+    for lang, heading in (("nl", "Uit het blog"), ("en", "From the blog")):
+        page = client.get(f"/?lang={lang}").get_data(as_text=True)
+        assert heading in page and "article-slides" not in page
+        newest = blog.published(blog.load(), lang)[:3]
+        for p in newest:
+            assert f'href="/blog/{p["slug"]}"' in page
+        assert page.count('class="blog-card') == 3
+
+
+def test_a_report_links_the_article_on_its_model_first():
+    posts = blog.load()
+    domane = {"brand": "Trek", "name": "Domane SL 6 Gen 4"}
+    assert [p["slug"] for p in blog.for_report(posts, "en", domane)] == \
+        ["trek-domane", "spotting-a-stolen-bike", "reading-a-bike-ad"]
+    tcr = {"brand": "Giant", "name": "TCR Advanced Pro 1"}
+    assert blog.for_report(posts, "nl", tcr)[0]["slug"] == "giant-tcr-advanced"
+    other = {"brand": "Trek", "name": "Madone SL 6"}
+    assert [p["slug"] for p in blog.for_report(posts, "en", other)] == blog.REPORT_READS
+    assert [p["slug"] for p in blog.for_report(posts, "en", None)] == blog.REPORT_READS
+
+
+def test_a_report_page_shows_the_reads(client):
+    app = client.application
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (title, asking_price) VALUES (?, ?)", ("Trek Domane AL 4 Gen 4 2024", 1050))
+    conn.commit()
+    check_id = conn.execute("SELECT max(id) FROM checks").fetchone()[0]
+    page = client.get(f"/check/{check_id}?lang=en").get_data(as_text=True)
+    assert "Read before you buy" in page
+    assert 'href="/blog/spotting-a-stolen-bike"' in page and 'href="/blog/trek-domane"' in page

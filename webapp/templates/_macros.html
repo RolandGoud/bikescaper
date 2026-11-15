@@ -430,3 +430,18 @@
       {% endif %}
     </div>
 {%- endmacro %}
+
+{# Blog cards (blog.py) as on /blog, for the home page and a check report: category, date, title, summary. The whole
+   card is the link. `post_date` and `minutes` come from the page's context. #}
+{% macro blog_cards(posts, heading='h3') -%}
+<div class="blog-grid">
+  {% for p in posts %}
+  <article class="blog-card cat-{{ p.category }}">
+    <div class="blog-meta mono"><span class="blog-cat">{{ _(blog_categories[p.category]) }}</span><span>{{ post_date(p.date, lang) }}</span></div>
+    <{{ heading }}><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></{{ heading }}>
+    <p class="muted small">{{ p.summary }}</p>
+    <span class="blog-more mono">{{ _('{n} min read', n=minutes(p.body)) }} →</span>
+  </article>
+  {% endfor %}
+</div>
+{%- endmacro %}
