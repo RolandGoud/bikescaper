@@ -1257,6 +1257,32 @@ select { max-width: 100%; }
 .offer-buy .offer-price { font-family: var(--display); font-size: 40px; font-weight: 800; line-height: 1; }
 .offer-buy .small { color: #DCDCE4; }
 .offer-buy .btn { grid-column: 1 / -1; margin-top: 8px; }
+/* The photo review prototype (static/photo-review.js): the result under the offer, and a verdict on each slot. */
+.paid-offer.busy .btn { opacity: .6; cursor: progress; }
+.photo-review { display: flex; flex-direction: column; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.photo-review h2 { font-size: 24px; margin-bottom: 6px; }
+.photo-review .review-status { margin: 0; color: var(--muted); }
+.photo-review .review-summary { font-size: 17px; }
+.review-list { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 10px; }
+.review-item { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: start; padding: 10px; border-radius: 10px; background: var(--raised); border-left: 4px solid var(--ok); }
+.review-item[data-verdict="improve"] { border-left-color: var(--warn); }
+.review-item[data-verdict="retake"] { border-left-color: var(--bad); }
+.review-item img { width: 120px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; background: #111317; }
+.review-item p { margin: 4px 0 0; }
+.review-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.review-head .verdict { padding: 1px 8px; border-radius: var(--pill-radius); font-size: 13px; font-weight: var(--pill-weight); background: var(--ok-bg); color: var(--ok); }
+.review-item[data-verdict="improve"] .verdict { background: var(--warn-bg); color: var(--warn); }
+.review-item[data-verdict="retake"] .verdict { background: var(--bad-bg); color: var(--bad); }
+.review-tip { font-weight: 600; }
+.review-flag { color: var(--warn); }
+.shot[data-verdict="improve"] { border-color: var(--warn); }
+.shot[data-verdict="improve"] .shot-ok { background: var(--warn); }
+.shot[data-verdict="retake"] { border-color: var(--bad); }
+.shot[data-verdict="retake"] .shot-ok { background: var(--bad); }
+@media (max-width: 560px) {
+  .review-item { grid-template-columns: 84px 1fr; gap: 10px; }
+  .review-item img { width: 84px; }
+}
 .preview { border: 1px solid var(--line); background: var(--raised); color: #fff; }
 .preview .mono { color: var(--accent-soft); }
 .preview .legend { color: #B4B4C2; }

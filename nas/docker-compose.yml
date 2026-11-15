@@ -22,7 +22,9 @@ services:
       BIKECOMPARE_DB: /data/bikecompare.sqlite3
       PYTHONUNBUFFERED: "1"
       # To read the groupset from the ad's photos when the ad doesn't name it (Claude API, about 2-4 cents
-      # per check, once per check), fill in a key from console.anthropic.com and remove the #:
+      # per check, once per check), and to turn on the photo review prototype on the Selling page (a few
+      # cents per review, at most PHOTO_REVIEW_PER_DAY a day, default 40), fill in a key from
+      # console.anthropic.com and remove the #:
       # ANTHROPIC_API_KEY: sk-ant-...
       # To let people mail themselves their check report, fill these in and remove the #:
       # SMTP_HOST: smtp.gmail.com

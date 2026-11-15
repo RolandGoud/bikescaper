@@ -41,7 +41,7 @@
     </div>
   </section>
   {% endfor %}
-  <p class="photos-note small muted" data-local hidden>{{ _('Your photos stay on your phone or computer. We only show them here so you can check them; nothing is uploaded.') }}</p>
+  <p class="photos-note small muted" data-local hidden>{% if can_review %}{{ _('Your photos stay on your phone or computer. Only when you ask for the photo review below are they sent, once, for that review.') }}{% else %}{{ _('Your photos stay on your phone or computer. We only show them here so you can check them; nothing is uploaded.') }}{% endif %}</p>
 
   {# The camera in the page (static/photo-slots.js): the outline over the live view, the photo straight into the shot's slot. #}
   <dialog class="camera" id="camera" aria-label="{{ _('Take photo') }}">
@@ -52,6 +52,47 @@
     <button class="camera-shutter" type="button" aria-label="{{ _('Take photo') }}"></button>
   </dialog>
 
+  {% if can_review %}
+  {# The photo review as a prototype (webapp/photo_review.py, static/photo-review.js): the filled slots go to the
+     Claude API once, for this review only, and the verdict lands on each slot and in the list below. #}
+  <form class="paid-offer" method="post" action="{{ url_for('photo_review_start') }}" data-photo-review
+        data-result="{{ url_for('photo_review_result', token='TOKEN') }}"
+        data-t-busy="{{ _('Looking at your photos… this takes up to a minute.') }}"
+        data-t-failed="{{ _('The review didn’t work this time. Try again in a moment.') }}"
+        data-t-none="{{ _('Add at least one photo first.') }}"
+        data-t-again="{{ _('Review again') }}">
+    <input type="hidden" name="model_id" value="{{ r.model.id if r and r.model else form.model_id or '' }}">
+    <div>
+      <div class="mono">{{ _('PROTOTYPE · PHOTO REVIEW') }}</div>
+      <h3>{{ _('Let us review your photos') }}</h3>
+      <p class="small">{{ _('We check each photo for light, background, sharpness, angle and whether the details buyers want are readable, and tell you which to retake.') }}</p>
+      <p class="small">{{ _('Free while we test it. For the review your photos are sent once to Claude, the AI model of Anthropic, and not kept by us. It can get things wrong.') }}</p>
+    </div>
+    <div class="offer-buy"><div class="offer-price">{{ _('Free') }}</div><div class="small">{{ _('up to 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
+  </form>
+  <section class="photo-review" data-review-out hidden aria-live="polite">
+    <p class="review-status" data-review-status></p>
+    <div data-review-body hidden>
+      <h2>{{ _('Your photo review') }}</h2>
+      <p class="review-summary" data-review-summary></p>
+      <ul class="review-list" data-review-list></ul>
+      <p class="small muted" data-review-missing hidden>{{ _('Not taken yet:') }} <span></span></p>
+      <p class="small muted">{{ _('A prototype: the review is made by an AI model and can be wrong. Trust your own eye too.') }}</p>
+    </div>
+    <template data-review-item>
+      <li class="review-item"><img alt=""><div><div class="review-head"><b></b><span class="verdict"></span></div>
+        <p class="review-notes"></p><p class="review-tip"></p><p class="review-flag" hidden></p><p class="review-checks small muted"></p></div></li>
+    </template>
+    <script type="application/json" data-review-words>{{ {
+      "keep": _("Keep"), "improve": _("Could be better"), "retake": _("Retake"),
+      "stock": _("This looks like a manufacturer or shop photo. Buyers trust your own photos more."),
+      "privacy": _("In view:"), "light": _("Light"), "background": _("Background"), "sharpness": _("Sharpness"),
+      "angle": _("Angle"), "details": _("Details readable"),
+      "good": _("good"), "ok": _("ok"), "poor": _("poor"), "busy": _("busy"), "sharp": _("sharp"), "soft": _("soft"),
+      "blurry": _("blurry"), "wrong": _("wrong"), "yes": _("yes"), "partly": _("partly"), "no": _("no")
+    }|tojson }}</script>
+  </section>
+  {% else %}
   {# Not built yet: this offer is here to see whether sellers want it (see the /sell/photo-review route). #}
   <form class="paid-offer" method="post" action="{{ url_for('photo_review') }}" data-fake-door>
     <input type="hidden" name="model_id" value="{{ r.model.id if r and r.model else form.model_id or '' }}">
@@ -62,6 +103,7 @@
     </div>
     <div class="offer-buy"><div class="offer-price">€5</div><div class="small">{{ _('for 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
   </form>
+  {% endif %}
 
   <div class="step-nav">
     <span class="small muted">{{ _('No photos yet? You can add them later.') }}</span>
