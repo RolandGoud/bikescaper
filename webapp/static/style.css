@@ -1439,7 +1439,6 @@ select { max-width: 100%; }
 .brand-ladders .ladder > .tier-span { position: relative; z-index: 1; padding: 4px 0 10px; margin-bottom: 4px; border-bottom: 1px solid var(--line-strong); }
 .brand-ladders .ladder > .tier-span > * { font-size: 13px; padding: 4px 12px; }
 .brand-ladders .step-head, .brand-ladders .row-label { position: relative; z-index: 1; }
-.brand-ladders .gen-name { font-family: var(--mono); font-size: 15px; }
 .brand-ladders .gen { padding: 7px 10px; }
 .brand-ladders .gen-facts { white-space: nowrap; }
 /* Basis to Top: a line through the tier labels, greener towards the top. */
