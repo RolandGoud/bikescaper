@@ -124,6 +124,16 @@
           svg.append(band);
         });
       });
+      // A rule across the ladder between the shifting rows (mechanical, wired, wireless), level with each side label.
+      section.querySelectorAll(".ladder").forEach((ladder) => {
+        const lr = ladder.getBoundingClientRect();
+        ladder.querySelectorAll(".row-label:not(.row-0)").forEach((label) => {
+          const y = label.getBoundingClientRect().top - origin.top - 10, rule = document.createElementNS(NS, "rect");
+          Object.entries({ x: lr.left - origin.left, y, width: lr.width, height: 2, rx: 1, class: "row-rule" })
+            .forEach(([k, v]) => rule.setAttribute(k, v));
+          svg.append(rule);
+        });
+      });
 
       const colors = new Map([...new Set(all.map((t) => t.system))].map((system, i) => [system, METRO[i % METRO.length]]));
       const links = [];

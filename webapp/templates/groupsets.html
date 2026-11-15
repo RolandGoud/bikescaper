@@ -76,22 +76,25 @@
     <div class="ladder-block">
       {% if brand_ladders|length > 1 %}<div class="ladder-label">{{ _(label) }}</div>{% endif %}
       <div class="ladder" style="--steps: {{ cols|length }}">
+        {# A cable for mechanical, a bolt for wired electronic, radio waves for wireless. #}
+        {% set row_icons = {'mech': '<svg viewBox="0 0 24 24"><path d="M3 18c4 0 4-12 9-12s5 12 9 12"/></svg>', 'wired': '<svg viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg>', 'wireless': '<svg viewBox="0 0 24 24"><path d="M4.5 9.5a11 11 0 0 1 15 0M7.5 13a6.5 6.5 0 0 1 9 0"/><circle cx="12" cy="17" r="1.2"/></svg>'} %}
+        {% set rows = shift_rows(steps) or [(none, none)] %}
+        {% if rows[0][0] %}<div class="row-gutter" aria-hidden="true"></div>{% endif %}{# keeps the labels' column free in the tier row #}
         {% for t, _series, _up in cols %}<div class="tier-span">{{ tier_badge(t, small=true) }}</div>{% endfor %}
-        {% set rows = [(false, _('Mechanical and wired')), (true, _('Wireless'))] if split_wireless(steps) else [(none, none)] %}
         <ol class="ladder-steps">
-        {% for row_wireless, row_label in rows %}
-        {% if row_label %}<li class="row-label{{ ' wireless' if row_wireless else ' wired' }}" aria-hidden="true">{{ row_label }}</li>{% endif %}
+        {% for row, row_label in rows %}
+        {% set row_i = loop.index0 %}
+        {% if row_label %}<li class="row-label row-{{ row_i }} {{ row }}" aria-hidden="true">{{ row_icons[row]|safe }}<span>{{ _(row_label) }}</span></li>{% endif %}
         {% for t, series, up in cols %}
-        {% set level = loop.index0 and not up and not row_wireless %}
-        <li class="step{{ ' wireless' if row_wireless else ' wired' }}{{ ' up' if up and not row_wireless }}{{ ' level' if level }}" data-col="{{ loop.index0 }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
+        {% set level = loop.index0 and not up and not row_i %}
+        <li class="step row-{{ row_i }}{{ ' ' ~ row if row }}{{ ' up' if up and not row_i }}{{ ' level' if level }}" data-col="{{ loop.index0 }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
           {% if level %}<span class="sr-only">{{ _('Same level: no upgrade from the column before') }}</span>{% endif %}
           {% for s in series %}
-          {% set wired_gens = s.gens|rejectattr('shift', 'in', wireless)|list %}
-          {% set gens = s.gens if row_wireless is none else s.gens|selectattr('shift', 'in', wireless)|list if row_wireless else wired_gens %}
+          {% set gens = s.gens if row is none else s.gens|selectattr('key', 'in', row_keys(s, row))|list %}
           {% if gens %}
           <div class="series">
-          {# The name above the series' first tiles: in the wireless row only for a series that is wireless only. #}
-          {% if not row_wireless or not wired_gens %}<div class="step-head"><span class="step-name">{{ brand_label({"name": s.name, "logo": series_logo(s)}) }}</span>{% if loop.first and not row_wireless %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>{% endif %}
+          {# The name above the series' first tiles: only in the first row it has generations in. #}
+          {% if row is none or row == first_row(s, rows) %}<div class="step-head"><span class="step-name">{{ brand_label({"name": s.name, "logo": series_logo(s)}) }}</span>{% if loop.first and not row_i %}<span class="step-tier">{{ tier_badge(t, small=true) }}</span>{% endif %}</div>{% endif %}
           <ul class="gens">
             {% for g in gens %}
             {% set p = by_key.get(g.key) %}

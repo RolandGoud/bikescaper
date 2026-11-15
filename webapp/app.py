@@ -1121,6 +1121,9 @@ def create_app(db_path=None):
                                columns=groupsets.columns,
                                series_logo=lambda s: logo_if_there(groupsets.logo_path(s)),
                                cross_upgrades=groupsets.cross_upgrades, advised_against=groupsets.advised_against, split_wireless=groupsets.split_wireless,
+                               shift_rows=groupsets.shift_rows,
+                               row_keys=lambda s, row: [g["key"] for g in s["gens"] if groupsets.shift_row(g) == row],
+                               first_row=lambda s, rows: next((r for r, _l in rows if any(groupsets.shift_row(g) == r for g in s["gens"])), None),
                                wireless=groupsets.WIRELESS, nav="groupsets")
 
     @app.route("/groupsets/<key>/shop")

@@ -1259,6 +1259,8 @@ NL = {
     "Downgrades: {n} options": "Downgrades: {n} opties",
     "Same level: no upgrade from the column before": "Zelfde niveau: geen upgrade vanaf de kolom ervoor",
     "Wireless": "Draadloos",
+    "Electronic, wired": "Elektronisch, bedraad",
+    "Electronic, wireless": "Elektronisch, draadloos",
     "With {groupset}": "Met {groupset}",
     "Your groupset": "Jouw groepset",
     "Your shifters keep working: change the rear derailleur, cassette and chain.": "Je shifters blijven werken: vervang achterderailleur, cassette en ketting.",
