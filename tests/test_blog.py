@@ -100,7 +100,7 @@ def test_home_shows_the_newest_posts_instead_of_outside_articles(client):
         newest = blog.published(blog.load(), lang)[:3]
         for p in newest:
             assert f'href="/blog/{p["slug"]}"' in page
-        assert page.count('class="blog-card') == 3
+        assert page.count('<article class="brick') == 3 and "blog/heroes/" in page
 
 
 def test_a_report_links_the_article_on_its_model_first():
