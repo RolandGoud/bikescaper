@@ -3,26 +3,35 @@
 {% block head %}<meta name="description" content="{{ _('Prices, buying guides and model deep-dives for second-hand road and gravel bikes, from the data behind Bikecheck.') }}">{% endblock %}
 {% block body %}
 <main class="wrap page blog-index">
-  <header class="blog-head">
-    <span class="mono muted">{{ _('Bikecheck blog') }}</span>
-    <h1>{{ _('Blog') }}</h1>
-    <p class="muted">{{ _('Prices, buying guides and model deep-dives for second-hand road and gravel bikes, from the data behind Bikecheck.') }}</p>
+  <header class="blog-wall-head">
+    <div class="blog-head">
+      <span class="mono">{{ _('Bikecheck blog') }}</span>
+      <h1>{{ _('In numbers') }}</h1>
+      <p class="muted">{{ _('Every story starts with one number from our data. Open it to read where it comes from.') }}</p>
+    </div>
+    {# One category at a time; "All" clears it. #}
+    <nav class="filters" aria-label="{{ _('Categories') }}">
+      <a class="pill small-pill {{ 'on' if not category }}" href="{{ url_for('blog_index') }}"{% if not category %} aria-current="page"{% endif %}>{{ _('All') }}<span class="count">{{ total }}</span></a>
+      {% for key, name in categories.items() %}
+      <a class="pill small-pill {{ 'on' if category == key }}" href="{{ url_for('blog_index', category=key) }}"{% if category == key %} aria-current="page"{% endif %}>{{ _(name) }}<span class="count">{{ counts[key] or 0 }}</span></a>
+      {% endfor %}
+    </nav>
   </header>
-  {# One category at a time; "All" clears it. #}
-  <nav class="filters" aria-label="{{ _('Categories') }}">
-    <a class="pill small-pill {{ 'on' if not category }}" href="{{ url_for('blog_index') }}"{% if not category %} aria-current="page"{% endif %}>{{ _('All') }}<span class="count">{{ total }}</span></a>
-    {% for key, name in categories.items() %}
-    <a class="pill small-pill {{ 'on' if category == key }}" href="{{ url_for('blog_index', category=key) }}"{% if category == key %} aria-current="page"{% endif %}>{{ _(name) }}<span class="count">{{ counts[key] or 0 }}</span></a>
-    {% endfor %}
-  </nav>
   {% if posts %}
-  <div class="blog-grid">
+  {# A wall of tiles, each led by the article's one headline number over its hero. The newest is big; with a longer
+     list one more is wide, with a short (filtered) one the rest are wide, so the grid closes without gaps. #}
+  <div class="blog-wall">
     {% for p in posts %}
-    <article class="blog-card cat-{{ p.category }}">
-      <div class="blog-meta mono"><span class="blog-cat">{{ _(categories[p.category]) }}</span><span>{{ post_date(p.date, lang) }}</span></div>
-      <h2><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h2>
-      <p class="muted">{{ p.summary }}</p>
-      <span class="blog-more mono">{{ _('{n} min read', n=minutes(p.body)) }} →</span>
+    {% set size = 'big' if loop.first else ('wide' if posts|length <= 3 or loop.index == 6 else '') %}
+    <article class="brick {{ size }} cat-{{ p.category }}">
+      {% if p.hero %}<img class="brick-img" src="{{ url_for('static', filename=p.hero) }}" alt="" loading="{{ 'eager' if loop.index <= 3 else 'lazy' }}">{% endif %}
+      <div class="brick-top"><span class="blog-cat">{{ _(categories[p.category]) }}</span><span class="mono">{{ post_date(p.date, lang) }}</span></div>
+      <div class="brick-text">
+        {% if p.stat %}<div class="brick-num">{{ p.stat }}</div>{% endif %}
+        {% if p.stat_label %}<div class="brick-num-label mono">{{ p.stat_label }}</div>{% endif %}
+        <h2><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h2>
+        {% if size == 'big' %}<p class="brick-summary">{{ p.summary }}</p>{% endif %}
+      </div>
     </article>
     {% endfor %}
   </div>

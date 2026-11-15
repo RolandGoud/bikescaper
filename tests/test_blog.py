@@ -40,6 +40,7 @@ def test_future_articles_stay_hidden():
 def test_render_handles_tables_lists_callouts_and_links():
     html = blog.render("## Kop\n\nTekst met **vet** en [link](/value) en [extern](https://rdw.nl).\n\n"
                        "- een\n- twee\n\n| A | Prijs |\n|---|---|\n| x | €1.000 |\n\n> Let op <script>")
+    assert '<td>x</td>' in html  # text stays left-aligned, numbers go right
     assert "<h2>Kop</h2>" in html and "<strong>vet</strong>" in html
     assert '<a href="/value">link</a>' in html and 'href="https://rdw.nl" target="_blank" rel="noopener"' in html
     assert "<ul><li>een</li><li>twee</li></ul>" in html
@@ -48,12 +49,13 @@ def test_render_handles_tables_lists_callouts_and_links():
 
 
 def test_list_and_article_pages_in_both_languages(client):
-    for lang, heading, read in (("nl", "Blog", "min lezen"), ("en", "Blog", "min read")):
+    for lang, heading, read in (("nl", "Blog", "In cijfers"), ("en", "Blog", "In numbers")):
         page = client.get(f"/blog?lang={lang}").get_data(as_text=True)
         assert heading in page and read in page
-        assert page.count('class="blog-card') == len(blog.published(blog.load(), lang))
+        assert page.count('<article class="brick') == len(blog.published(blog.load(), lang))
     page = client.get("/blog?category=models&lang=en").get_data(as_text=True)
-    assert page.count('class="blog-card') == 3 and "Trek Domane" in page
+    assert page.count('<article class="brick') == 3 and "Trek Domane" in page
+    assert page.count('class="brick big') == 1 and page.count('class="brick wide') == 2  # closes the grid
     nl = client.get("/blog/trek-domane?lang=nl").get_data(as_text=True)
     en = client.get("/blog/trek-domane?lang=en").get_data(as_text=True)
     assert "tweedehands" in nl and "second-hand" in en
@@ -71,3 +73,21 @@ def test_every_link_in_an_article_works(client):
             for url in re.findall(r"\]\((/[^)\s]*)\)", v["body"]):
                 path = url.split("#")[0]
                 assert client.get(path).status_code == 200, (slug, v["lang"], url)
+
+
+def test_every_article_has_a_hero_a_number_and_its_charts(client):
+    for slug, versions in blog.load().items():
+        for v in versions.values():
+            assert v["hero"] and v.get("stat") and v.get("stat_label"), (slug, v["lang"])
+            for chart in re.findall(r"\(chart:([a-z0-9-]+)\)", v["body"]):
+                html = blog.render(f"![x](chart:{chart})", v["lang"])
+                assert "<svg" in html, (slug, chart)
+        page = client.get(f"/blog/{slug}?lang=nl").get_data(as_text=True)
+        assert f"blog/heroes/{slug}.jpg" in page
+        assert client.get(f"/static/blog/heroes/{slug}.jpg").status_code == 200
+
+
+def test_charts_come_in_the_article_language():
+    nl = blog.render("![](chart:value-curve)", "nl")
+    en = blog.render("![](chart:value-curve)", "en")
+    assert "jaar oud" in nl and "years old" in en

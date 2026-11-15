@@ -3,6 +3,8 @@ title: What does a groupset really cost you? A bike's new price per groupset
 date: 2026-11-08
 category: market
 summary: A bike with 105 costs about €2,600 new, with Ultegra Di2 about €6,500, and with Dura-Ace Di2 over €10,000. How to read an ad's price class from its groupset.
+stat: +€1,400
+stat_label: for electronic shifting
 ---
 
 The groupset (shifters, derailleurs, crankset, brakes) is what brands build their price ladder on. The same frame often comes in four or five builds, and the only difference is the groupset. That makes it the quickest way to see which price class a bike in an ad belongs to.
@@ -27,6 +29,8 @@ We grouped the bikes in our [catalogue](/models) by their groupset and worked ou
 | Shimano Dura-Ace Di2 | 46 | €10,799 |
 | SRAM Red | 116 | €11,999 |
 | Campagnolo Super Record | 10 | €14,349 |
+
+![The colour is the groupset's tier, as Bikecheck rates it.](chart:groupset-prices)
 
 ## Three things to remember
 

@@ -2616,3 +2616,102 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
   .blog-body { font-size: 16px; }
   .blog-grid { grid-template-columns: 1fr; }
 }
+
+/* Blog pictures: the hero at the top of an article, and figures in the text. A chart (tools/build_blog_charts.py) is
+   inline SVG, so its text uses the page's fonts and its colours come from the classes below. */
+.blog-hero { margin: 4px 0 0; display: flex; flex-direction: column; gap: 6px; }
+.blog-hero img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); display: block; }
+.blog-hero figcaption, .blog-figure figcaption { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+.blog-figure { margin: 8px 0; display: flex; flex-direction: column; gap: 8px; }
+.blog-figure img { width: 100%; height: auto; border-radius: 12px; }
+.blog-chart { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 18px 14px; }
+.blog-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.blog-chart text { font-family: var(--body); fill: var(--text); }
+.blog-chart .cap { font-family: var(--mono); font-size: 13px; fill: var(--muted); letter-spacing: 0.03em; }
+.blog-chart .lbl { font-size: 14px; }
+.blog-chart .lbl.strong { font-weight: 700; fill: var(--ink); }
+.blog-chart .strong-dark { font-weight: 600; fill: var(--ink); font-size: 12px; }
+.blog-chart .val { font-family: var(--mono); font-size: 12.5px; fill: #DCDCE4; }
+.blog-chart .tick { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+.blog-chart .grid { stroke: var(--line); stroke-width: 1; }
+.blog-chart .ref, .blog-chart .tickline { stroke: var(--line-strong); stroke-dasharray: 4 4; }
+.blog-chart .range { stroke: var(--line-strong); stroke-width: 4; stroke-linecap: round; }
+.blog-chart .dot { fill: var(--accent); stroke: var(--card); stroke-width: 2; }
+.blog-chart .line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linejoin: round; }
+.blog-chart .band { fill: var(--accent); opacity: 0.16; }
+.blog-chart .stem { stroke: var(--line-strong); stroke-width: 2; }
+.blog-chart .then { fill: var(--card); stroke: var(--muted); stroke-width: 2; }
+.blog-chart .up { stroke: var(--warn); stroke-width: 3; }
+.blog-chart .up-dot { fill: var(--warn); }
+.blog-chart .down { stroke: var(--accent); stroke-width: 3; }
+.blog-chart .down-dot { fill: var(--accent); }
+.blog-chart .band-bar { fill: var(--accent); opacity: 0.7; }
+.blog-chart .sq.ok { fill: var(--accent); }
+.blog-chart .sq.warn { fill: #F2C27A; }
+.blog-chart .sq.warn2 { fill: #D9A055; }
+.blog-chart .sq.warn3 { fill: #B98545; }
+.blog-chart .sq.bad { fill: var(--bad); }
+.blog-chart .sq.unk { fill: var(--line-strong); }
+.blog-chart .sq.unk2 { fill: var(--faint); stroke: var(--line-strong); }
+.blog-chart .zone.bad { fill: var(--bad-bg); stroke: var(--bad); }
+.blog-chart .zone.okish { fill: var(--faint); stroke: var(--line-strong); }
+.blog-chart .zone.ok { fill: var(--ok-bg); stroke: var(--accent); }
+.blog-chart .zone.warn { fill: var(--warn-bg); stroke: var(--warn); }
+.blog-chart .arrow { fill: none; stroke: var(--warn); stroke-width: 2.5; stroke-linecap: round; }
+.blog-chart .frame.al { fill: #9A9CA6; }
+.blog-chart .frame.sl { fill: #F2C27A; }
+.blog-chart .frame.slr { fill: var(--accent); }
+.blog-chart .month { fill: var(--raised); }
+.blog-chart .season.busy { fill: #F2C27A; }
+.blog-chart .season.mid { fill: #7AB8FF; }
+.blog-chart .season.now { fill: var(--accent); }
+.blog-chart .nowline { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 3 3; }
+/* On a phone a chart keeps a readable size and scrolls sideways instead of shrinking its text to nothing. */
+@media (max-width: 640px) {
+  .blog-chart { padding: 12px 10px 10px; overflow-x: auto; }
+  .blog-chart svg { min-width: 600px; }
+}
+
+/* /blog, "In numbers": a wall of tiles. Each shows the article's hero, darkened at the bottom, with its headline
+   number in the category's colour. The whole tile is the link. */
+.blog-wall-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+.blog-head h1 { font-size: 56px; }
+.blog-wall { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 230px; grid-auto-flow: dense; gap: 14px; }
+.brick { --cat: var(--accent); position: relative; overflow: hidden; border-radius: 18px; border: 1px solid var(--line); background: var(--card);
+  display: flex; flex-direction: column; justify-content: space-between; padding: 18px; isolation: isolate; transition: border-color .15s; }
+.brick:hover { border-color: var(--cat); }
+.brick.big { grid-column: span 2; grid-row: span 2; }
+.brick.wide { grid-column: span 2; }
+.brick-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .4s ease; }
+.brick:hover .brick-img { transform: scale(1.04); }
+.brick::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(12,13,16,.1) 0%, rgba(12,13,16,.25) 40%, rgba(12,13,16,.94) 100%); }
+.brick-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: #C9CAD2; }
+.brick .blog-cat { background: rgba(12,13,16,.65); font-size: 11px; font-family: var(--mono); white-space: nowrap; }
+.brick-top .mono { white-space: nowrap; }
+.cat-market.brick { --cat: #34D399; } .cat-guides.brick { --cat: #7AB8FF; } .cat-models.brick { --cat: #F2C27A; } .cat-seasonal.brick { --cat: #E7A0F0; }
+.brick-text { display: flex; flex-direction: column; gap: 4px; }
+.brick-num { font-family: var(--display); font-style: italic; font-weight: 900; font-size: 58px; line-height: .95; color: var(--cat); letter-spacing: -0.01em;
+  text-shadow: 0 2px 18px rgba(0,0,0,.5); }
+.brick-num-label { font-size: 12px; color: #DCDCE4; }
+.brick h2 { font-family: var(--body); font-style: normal; text-transform: none; font-weight: 700; font-size: 17px; line-height: 1.22; letter-spacing: 0; margin-top: 8px; }
+.brick h2 a { color: #fff; text-decoration: none; }
+.brick h2 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }  /* the whole tile is the link */
+.brick h2 a:focus-visible { outline: none; }
+.brick:has(a:focus-visible) { outline: 2px solid var(--cat); outline-offset: 2px; }
+.brick.big .brick-num { font-size: 104px; }
+.brick.big h2 { font-size: 27px; }
+.brick-summary { color: #C9CAD2; max-width: 520px; margin-top: 4px; }
+@media (max-width: 1000px) { .blog-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } .blog-wall-head { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .blog-head h1 { font-size: 38px; }
+  .blog-wall { grid-auto-rows: 200px; gap: 10px; }
+  .brick { padding: 12px; border-radius: 14px; }
+  .brick-num { font-size: 40px; }
+  .brick h2 { font-size: 14px; margin-top: 4px; }
+  .brick.big .brick-num { font-size: 68px; }
+  .brick.big h2 { font-size: 20px; }
+  .brick .brick-top .mono { display: none; }
+  .brick-summary { display: none; }
+}
+.blog-card-img { width: calc(100% + 44px); margin: -22px -22px 4px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px 18px 0 0; display: block; }

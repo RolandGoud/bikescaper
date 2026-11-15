@@ -3,6 +3,8 @@ title: Een gestolen fiets herkennen voordat je betaalt
 date: 2026-11-08
 category: guides
 summary: Te goedkoop, geen bon, een verkoper die niets van de fiets weet. De signalen, de registers waarin je een framenummer opzoekt en wat de wet zegt over heling.
+stat: <60%
+stat_label: van de eerlijke prijs: verdacht
 ---
 
 Een racefiets van €4.000 die voor €900 te koop staat, is geen meevaller. Het is een van de duidelijkste signalen dat er iets niet klopt. En wie een gestolen fiets koopt, is niet alleen de fiets kwijt als die wordt teruggevonden: volgens [de politie](https://www.politie.nl/informatie/heling-is-strafbaar.html) is heling strafbaar, ook als je alleen had *kunnen vermoeden* dat de fiets gestolen was.
@@ -10,6 +12,8 @@ Een racefiets van €4.000 die voor €900 te koop staat, is geen meevaller. Het
 ## De prijs: verdacht goedkoop
 
 Bikecheck berekent voor elke advertentie een eerlijke bandbreedte uit de nieuwprijs, de leeftijd en de staat. Ligt de vraagprijs **onder 60% van de onderkant van die band**, dan noemen we hem *verdacht goedkoop* en zetten we er een waarschuwing bij. Een iets lage prijs is gewoon een goede deal; een prijs ver daaronder vraagt om een verklaring.
+
+![Voorbeeld met de Domane SL 6 uit 2021. De grenzen zijn die van de Bikecheck-prijscheck.](chart:price-zones)
 
 ## De signalen
 

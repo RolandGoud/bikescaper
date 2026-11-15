@@ -3,6 +3,8 @@ title: Trek Domane second-hand: AL, SL or SLR, and what to pay
 date: 2026-11-01
 category: models
 summary: The Domane is Trek's comfortable road bike and one of the bikes we check most. How to tell the versions apart and how to work out a fair price.
+stat: 70
+stat_label: Domanes in the catalogue
 ---
 
 Trek is the brand we meet most in ads: in a sample of 72 checked ads, 28 were Treks, and the Domane is a regular among them. It makes sense: it's a bike for long rides on rough roads, with a more upright position and room for wide tyres. Just what many Dutch and Belgian riders are after.
@@ -36,11 +38,15 @@ The number after AL, SL or SLR gives the groupset's level: 2 is Claris, 4 Tiagra
 | [Domane SLR 7 Gen 5](/models/trek-domane-slr-7-gen-5) | Ultegra Di2 | €6,999 |
 | [Domane SLR 9 Gen 5](/models/trek-domane-slr-9-gen-5) | Dura-Ace Di2 | €9,999 |
 
+![](chart:domane-lineup)
+
 Worth noting: Gen 4 and Gen 5 are both in Trek's range right now, and the newer SL 5 Gen 5 is €300 cheaper than the SL 5 Gen 4.
 
 ## Mind the generation
 
 The generation sets the new price, and that has risen a lot. A **Domane SL 6 Gen 3** cost €3,299 in 2020, €3,999 in 2021 and €4,199 in 2022. An **AL 2 Gen 3** was €729 in 2021. Value an old Domane from today's price and you'll quickly be too high.
+
+![New prices from Trek's archived spec sheets.](chart:domane-sl6-gen3)
 
 **Worked example.** A 2021 Domane SL 6 Gen 3 (€3,999 new) in normal used condition is worth about **€1,620 to €1,980** after five years, according to our [value estimator](/value).
 
