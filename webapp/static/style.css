@@ -2250,14 +2250,13 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
   .account .tools-button { margin-left: 0; }
 }
 .build-strip .ms-check small { display: block; -webkit-line-clamp: unset; overflow: visible; }
-/* The card's checks show the label and the value, large; the explanation is a tooltip over the row above (beside
+/* The card's checks show the label and the value, at the size of the ad's info tiles above; the explanation is a tooltip over the row above (beside
    the frame check on wide screens, over the model, as the card's edge is above it), on hover, tap or keyboard focus. */
 /* Every cell starts at the top, so the labels and the values line up across a row, whatever a value's length. */
 .match-strip .ms-check { justify-content: flex-start; gap: 6px; cursor: help; outline: none; }
-.match-strip .ms-check .k { font-size: 12px; }
-.match-strip .ms-check b { font-size: 21px; line-height: 1.2; gap: 10px; }
-.match-strip .ms-check b i { width: 22px; height: 22px; font-size: 13px; }
-.match-strip .ms-fact .sw { width: 18px; height: 18px; }
+.match-strip .ms-check b { font-size: 16px; line-height: 1.3; gap: 8px; }
+.match-strip .ms-check b i { width: 18px; height: 18px; font-size: 11px; }
+.match-strip .ms-fact .sw { width: 14px; height: 14px; }
 /* A long value (a colour name) stays on one line on wide screens, two on phones; the tooltip names it in full. */
 .match-strip .ms-check b > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 980px) { .match-strip .ms-check b > span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; } }
