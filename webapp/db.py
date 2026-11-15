@@ -107,11 +107,48 @@ def connect(path=None):
     for column, kind in ADDED_ESTIMATE_COLUMNS:
         if column not in have:
             conn.execute(f"ALTER TABLE estimates ADD COLUMN {column} {kind}")
+    if conn.execute("PRAGMA user_version").fetchone()[0] < 1:
+        conn.commit()
+        conn.execute("BEGIN IMMEDIATE")  # one worker folds; the others wait, then see it done
+        if conn.execute("PRAGMA user_version").fetchone()[0] < 1:
+            fold_old_estimates(conn)
+            conn.execute("PRAGMA user_version = 1")
+        conn.commit()
     have = {r["name"] for r in conn.execute("PRAGMA table_info(photo_review_interest)")}
     for column, kind in ADDED_INTEREST_COLUMNS:
         if column not in have:
             conn.execute(f"ALTER TABLE photo_review_interest ADD COLUMN {column} {kind}")
     return conn
+
+
+ESTIMATE_FIELDS = ("year", "condition", "asking_price")
+REVISION_MINUTES = 10  # webapp/app.py folds a new estimate into the last one made this soon before
+
+
+def fold_old_estimates(conn):
+    """Once, for estimates saved before quick follow-ups were folded together: an estimate made within
+    REVISION_MINUTES of the one just before it, for the same model and with at most two of year, condition
+    and asking price changed, becomes an update of that one, as the value page now does. It is kept in the
+    earlier row's revisions, so "This was not an update" splits it off again. Returns the ids folded away."""
+    rows = [dict(r) for r in conn.execute("SELECT *, julianday(created_at) AS made FROM estimates ORDER BY id")]
+    folded, prev = [], None
+    for row in rows:
+        if prev is not None and row["model_id"] == prev["model_id"] and not row.get("revisions") \
+                and (row["made"] - prev["last"]) * 1440 <= REVISION_MINUTES \
+                and sum(prev[f] != row[f] for f in ESTIMATE_FIELDS) <= 2:
+            revisions = json.loads(prev.get("revisions") or "[]") + \
+                [{f: prev[f] for f in ESTIMATE_FIELDS} | {"updated_at": prev.get("updated_at")}]
+            prev.update({f: row[f] for f in ESTIMATE_FIELDS}, updated_at=row["created_at"],
+                        revisions=json.dumps(revisions), last=row["made"])
+            conn.execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, updated_at = ?, revisions = ? "
+                         "WHERE id = ?", (prev["year"], prev["condition"], prev["asking_price"], prev["updated_at"],
+                                          prev["revisions"], prev["id"]))
+            conn.execute("DELETE FROM estimates WHERE id = ?", (row["id"],))
+            folded.append(row["id"])
+            continue
+        prev = row
+        prev["last"] = conn.execute("SELECT julianday(?)", (row.get("updated_at") or row["created_at"],)).fetchone()[0]
+    return folded
 
 
 PUBLISHED = "coalesce(too_old, 0) = 0"  # SQL for the checks the site shows (webapp/stored_checks.py settle_ages)

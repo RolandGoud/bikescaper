@@ -1,3 +1,4 @@
+import json
 from webapp import db, seed
 from webapp.app import create_app
 
@@ -105,3 +106,40 @@ def test_only_its_own_browser_can_split_an_estimate(client):
     assert "This was not an update" not in other.get("/value?lang=en").data.decode()
     other.post("/value/1/split")
     assert len(estimates(client)[1]) == 1
+
+
+def test_estimates_from_before_folding_are_folded_once(tmp_path):
+    from webapp import db
+    path = str(tmp_path / "old.sqlite3")
+    conn = db.connect(path)
+    seed.load(conn)
+    trek = db.get_model(conn, slug=DOMANE)["id"]
+    other = conn.execute("SELECT id FROM models WHERE id != ? LIMIT 1", (trek,)).fetchone()[0]
+    rows = [("2026-11-15 20:55:10", trek, 2025, None, None),
+            ("2026-11-15 20:56:20", trek, 2025, None, 1950),        # #2: revises #1
+            ("2026-11-15 20:58:00", trek, 2025, "used", 1900),      # #3: revises it again
+            ("2026-11-15 21:30:00", trek, 2025, "used", 1900),      # #4: too late
+            ("2026-11-15 21:31:00", other, 2025, "used", 1900),     # #5: another model
+            ("2026-11-15 21:32:00", other, 2019, "damaged", 500)]   # #6: all three changed
+    conn.executemany("INSERT INTO estimates (created_at, model_id, year, condition, asking_price) VALUES (?,?,?,?,?)", rows)
+    conn.execute("PRAGMA user_version = 0")
+    conn.commit()
+    conn = db.connect(path)
+    left = conn.execute("SELECT * FROM estimates ORDER BY id").fetchall()
+    assert [r["id"] for r in left] == [1, 4, 5, 6]
+    first = left[0]
+    assert (first["condition"], first["asking_price"], first["updated_at"]) == ("used", 1900, "2026-11-15 20:58:00")
+    assert [(r["condition"], r["asking_price"]) for r in json.loads(first["revisions"])] == [(None, None), (None, 1950)]
+    conn.execute("INSERT INTO estimates (model_id, year) VALUES (?, 2025)", (other,))
+    conn.commit()
+    assert len(db.connect(path).execute("SELECT id FROM estimates").fetchall()) == 5  # only once
+    app = create_app(path)
+    client = app.test_client()
+    with client.session_transaction() as s:
+        s["admin"] = True
+    app.config["ADMIN_PASSWORD"] = "x"
+    assert "This was not an update" in client.get("/value?lang=en").data.decode()
+    client.post("/value/1/split")  # the last fold comes back as its own estimate
+    conn = db.connect(path)
+    assert conn.execute("SELECT asking_price FROM estimates WHERE id = 1").fetchone()[0] == 1950
+    assert conn.execute("SELECT created_at FROM estimates ORDER BY id DESC").fetchone()[0] == "2026-11-15 20:58:00"
