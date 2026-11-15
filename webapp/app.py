@@ -1282,8 +1282,7 @@ def create_app(db_path=None):
         claims = {"year": year, "condition": condition, "groupset": None}
         return checks.check_value(model, claims, asking, {"rows": []}, {"status": checks.OK}, today=today)
 
-    ESTIMATE_FIELDS = ("year", "condition", "asking_price")
-    REVISION_MINUTES = 10  # a new estimate this soon after the last one, for the same bike, revises it
+    ESTIMATE_FIELDS, REVISION_MINUTES = db.ESTIMATE_FIELDS, db.REVISION_MINUTES
 
     def own_estimates():
         """Estimates made or updated from this browser; only these can be split again (or the admin's)."""
