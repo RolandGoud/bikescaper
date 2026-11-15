@@ -2616,3 +2616,17 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
   .blog-body { font-size: 16px; }
   .blog-grid { grid-template-columns: 1fr; }
 }
+
+/* The price alert on a model page: which bikes, size, highest price and email on one row, wrapping on a phone. */
+.alert-card { margin-top: 16px; }
+.alert-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0 10px; align-items: end; }
+.alert-scope { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 22px; border: 0; padding: 0; margin: 0; }
+.alert-scope label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
+.alert-scope input { height: auto; width: 18px; height: 18px; accent-color: var(--accent); }
+.alert-email { grid-column: 1 / -1; }
+.alert-send { grid-column: 1 / -1; }
+.alert-send .btn { width: 100%; }
+@media (min-width: 760px) {
+  .alert-form { grid-template-columns: 140px 160px 1fr auto; }
+  .alert-email, .alert-send { grid-column: auto; }
+}

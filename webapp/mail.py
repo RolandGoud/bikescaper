@@ -37,11 +37,13 @@ def allowed(ip, now=None):
     return recent < PER_ADDRESS_PER_HOUR and len(_sent) < PER_DAY
 
 
-def send(to, subject, text, pdf=None, filename=None, ip=None):
+def send(to, subject, text, pdf=None, filename=None, ip=None, headers=None):
     message = EmailMessage()
     message["From"] = os.environ.get("MAIL_FROM") or os.environ.get("SMTP_USER")
     message["To"] = to
     message["Subject"] = subject
+    for name, value in (headers or {}).items():  # e.g. List-Unsubscribe on the price alerts
+        message[name] = value
     message.set_content(text)
     if pdf:
         message.add_attachment(pdf, maintype="application", subtype="pdf", filename=filename)
