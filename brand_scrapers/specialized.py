@@ -107,21 +107,43 @@ def product_urls(fetcher):
 
 
 SITEMAP = BASE + "/nl/nl/sitemap.xml"
+US_SITEMAP = BASE + "/us/en/sitemap.xml"
+
+
+def _sitemap_pages(fetcher, index_url, locale):
+    """{product number: URL name} from the Product sitemaps a sitemap index lists."""
+    pages = {}
+    for sitemap in re.findall(r"<loc>\s*([^<\s]+Product[^<\s]*\.xml)\s*</loc>", fetcher.get(index_url) or ""):
+        for name, pid in re.findall(rf"<loc>\s*https://www\.specialized\.com/{locale}/([^/<]+)/p/(\d+)\s*</loc>",
+                                    fetcher.get(sitemap) or ""):
+            pages.setdefault(pid, name)
+    return pages
 
 
 def sitemap_urls(fetcher):
-    """Every product page in Specialized's NL sitemap, as /nl/nl/<name>/p/<id> URLs.
+    """Every product page in Specialized's NL and US sitemaps, as /nl/nl/<name>/p/<id> URLs.
 
     The shop listings show only the bikes on sale; the sitemap also lists the ones Specialized stopped selling
     and still serves a page for (the Tarmac SL8 Expert - SRAM Rival AXS, every Venge). The sitemap writes
-    them as /nl/<name>/p/<id>, which 404s: the page lives under /nl/nl/."""
-    index = fetcher.get(SITEMAP) or ""
-    urls = {}
-    for sitemap in re.findall(r"<loc>\s*([^<\s]+Product[^<\s]*\.xml)\s*</loc>", index):
-        for name, pid in re.findall(r"<loc>\s*https://www\.specialized\.com/nl/(?:nl/)?([^/<]+)/p/(\d+)\s*</loc>",
-                                    fetcher.get(sitemap) or ""):
-            urls.setdefault(pid, f"{BASE}/nl/nl/{name}/p/{pid}")
+    them as /nl/<name>/p/<id>, which 404s: the page lives under /nl/nl/.
+
+    The US sitemap lists many older bikes the NL one leaves out (the 2024 Tarmac SL8 Pro - Shimano Ultegra
+    Di2, 216960), and the NL site still serves most of them under the same number, in Dutch and in euros
+    (a wrong name part redirects to the right one). Those come last, as NL URLs too; us_page gives the US
+    page for one the NL site doesn't serve."""
+    urls = {pid: f"{BASE}/nl/nl/{name}/p/{pid}" for pid, name in _sitemap_pages(fetcher, SITEMAP, r"nl(?:/nl)?").items()}
+    for pid, name in _sitemap_pages(fetcher, US_SITEMAP, r"(?:us/)?en").items():
+        urls.setdefault(pid, f"{BASE}/nl/nl/{name}/p/{pid}")
     return list(urls.values())
+
+
+def us_page(url):
+    """The US page of a /nl/nl/ product URL: for the older bikes only the US site still serves."""
+    return url.replace("/nl/nl/", "/us/en/", 1) if "/nl/nl/" in url else None
+
+
+def is_us(url):
+    return "/us/en/" in (url or "")
 
 
 def parse(page, url):
@@ -167,7 +189,8 @@ def parse(page, url):
         "brand": BRAND,
         "url": url,
         "sku": product.get("code"),
-        "price": min(prices) if prices else None,
+        # a US page gives dollars, which say nothing about the price here
+        "price": min(prices) if prices and not is_us(url) else None,
         "category": category_of(product["name"], paths),
         "family": cats[-1] if cats else "",
         "model_year": product.get("modelYear"),
