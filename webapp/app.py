@@ -729,7 +729,7 @@ def create_app(db_path=None):
                 colours.append({"name": name, "image": pic(image), "swatch": (colourways.get(name) or {}).get("swatch")})
             groups = checks.spec_groups(dict(model, specs=sheet["specs"]))
             parts = [{"key": label, "label": gettext(label), "value": value}
-                     for label, value, _tier in checks.key_parts(groups, limit=4)]
+                     for label, value, _tier in checks.key_parts(groups, limit=5) if label != "Weight"][:4]
             kg = checks.weight_kg(next((v for _g, rows in groups for en, _nl, v in rows if en == "Weight"), None))
             if kg:  # key_parts cuts "8,7 kg" at its comma
                 parts.append({"key": "Weight", "label": gettext("Weight"),
