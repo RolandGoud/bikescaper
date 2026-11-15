@@ -6,7 +6,7 @@
 // your groupset's way up, to the closest in age column by column. Clicking a line keeps that line bold and re-picks
 // the bold lines either side of it so the path runs through its tiles (to and from yours where it can); clicking a
 // bold line clears the path. Lines down a column turn bold on their own when clicked. A tile gets
-// a bullet on each side where a line meets it. A line to a groupset we advise against going to from the tile it starts
+// a bullet on each side where a line meets it. A bold line to a groupset we advise against going to from the tile it starts
 // at (a new freehub body on top of a whole new drivetrain) gets a red X halfway.
 // Navigation: picking a groupset (a tile), brand or type fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
@@ -163,7 +163,7 @@
       });
       links.forEach((l) => hit(svg, l, bold(l)));
       ends.forEach(([x, y, color]) => dot(svg, x, y, color));
-      links.filter((l) => l.against).forEach((l) => cross(svg, l.d));
+      links.filter((l) => l.against && bold(l)).forEach((l) => cross(svg, l.d));
       all.forEach((t) => t.el.style.setProperty("--line", colors.get(t.system)));
 
       section.prepend(svg);
