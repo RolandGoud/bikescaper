@@ -1014,6 +1014,8 @@ select { max-width: 100%; }
 .check-row { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .check-row-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 20px; border-top: 1px solid var(--faint); background: var(--ground); }
 .check-row-foot .mono { color: var(--muted); }
+.check-row-foot .badge.updated { background: var(--ok-bg); color: var(--ok); }
+.check-row-foot form { display: contents; }
 .check-row-foot .open { margin-left: auto; font-weight: 700; text-decoration: none; }
 .check-row-foot .open:hover { text-decoration: underline; }
 .check-row-body { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 24px; padding: 20px; align-items: start; }
@@ -1523,7 +1525,6 @@ select { max-width: 100%; }
   .brand-ladders .ladder > .tier-span { display: none; }
   .brand-ladders .step.up::before, .brand-ladders .step.level::before { left: calc(50% - 12px); top: -24px; }
   .brand-ladders .step.up::before { transform: rotate(90deg); }
-}
 }
 .brand-ladders .gen { position: relative; z-index: 2; }
 ::view-transition-group(*) { animation-duration: 0.42s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }

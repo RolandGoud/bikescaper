@@ -995,6 +995,10 @@ NL = {
     "Earlier estimates": "Eerdere schattingen",
     "Every estimate made here, newest first: what was put in, and what came out on that day.": "Elke schatting die hier gemaakt is, nieuwste eerst: wat er is ingevuld en wat eruit kwam op die dag.",
     "Shown above": "Staat hierboven",
+    "Updated {time}": "Bijgewerkt {time}",
+    "A new estimate for the same bike came in right after this one, so it updated this one.":
+        "Vlak na deze schatting kwam er een nieuwe voor dezelfde fiets binnen, dus die heeft deze bijgewerkt.",
+    "This was not an update": "Dit was geen update",
     "Open estimate": "Schatting openen",
     "Show on the map": "Toon op de kaart",
     "Where the checked bikes are": "Waar de gecheckte fietsen staan",

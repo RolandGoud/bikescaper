@@ -1282,20 +1282,58 @@ def create_app(db_path=None):
         claims = {"year": year, "condition": condition, "groupset": None}
         return checks.check_value(model, claims, asking, {"rows": []}, {"status": checks.OK}, today=today)
 
+    ESTIMATE_FIELDS = ("year", "condition", "asking_price")
+    REVISION_MINUTES = 10  # a new estimate this soon after the last one, for the same bike, revises it
+
+    def own_estimates():
+        """Estimates made or updated from this browser; only these can be split again (or the admin's)."""
+        return session.get("my_estimates", [])
+
+    def mark_own(*ids):
+        session["my_estimates"] = (own_estimates() + [i for i in ids if i not in own_estimates()])[-50:]
+
+    def revision_of(inputs):
+        """The estimate this browser made just before, when the new inputs look like a revision of it: the same
+        model, at most two of year, condition and asking price changed, and within a few minutes of its last
+        change. None when it looks like a separate bike."""
+        last_id = session.get("last_estimate")
+        if not last_id:
+            return None
+        row = conn().execute("SELECT *, (julianday('now') - julianday(coalesce(updated_at, created_at))) * 1440 "
+                             "AS minutes FROM estimates WHERE id = ?", (last_id,)).fetchone()
+        if row is None or row["model_id"] != inputs["model_id"] or row["minutes"] > REVISION_MINUTES:
+            return None
+        changed = [f for f in ESTIMATE_FIELDS if row[f] != inputs[f]]
+        return row if len(changed) <= 2 else None
+
     @app.route("/value", methods=["GET", "POST"])
     def value():
         if request.method == "POST":
             # Every estimate is saved, so the page can list them below the form; the redirect keeps a
-            # reload from saving it twice.
+            # reload from saving it twice. One made right after the last, for the same bike with a field or
+            # two changed, updates that one instead; "This was not an update" splits it off again.
             model = db.get_model(conn(), slug=request.form.get("model"))
             if model is None:
                 return redirect(url_for("value", brand=request.form.get("brand")))
             condition = request.form.get("condition") or None
+            inputs = {"model_id": model["id"], "year": number(request.form.get("year"), int),
+                      "condition": condition if condition in checks.CONDITION_LABEL else None,
+                      "asking_price": number(request.form.get("asking"))}
+            last = revision_of(inputs)
+            if last is not None and any(last[f] != inputs[f] for f in ESTIMATE_FIELDS):
+                before = {f: last[f] for f in ESTIMATE_FIELDS} | {"updated_at": last["updated_at"]}
+                revisions = json.loads(last["revisions"] or "[]") + [before]
+                conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, "
+                               "updated_at = datetime('now'), revisions = ? WHERE id = ?",
+                               (inputs["year"], inputs["condition"], inputs["asking_price"], json.dumps(revisions), last["id"]))
+                conn().commit()
+            if last is not None:  # updated, or the very same inputs sent again
+                return redirect(url_for("value", estimate=last["id"]))
             cur = conn().execute("INSERT INTO estimates (model_id, year, condition, asking_price) VALUES (?,?,?,?)",
-                                 (model["id"], number(request.form.get("year"), int),
-                                  condition if condition in checks.CONDITION_LABEL else None,
-                                  number(request.form.get("asking"))))
+                                 (inputs["model_id"], inputs["year"], inputs["condition"], inputs["asking_price"]))
             conn().commit()
+            session["last_estimate"] = cur.lastrowid
+            mark_own(cur.lastrowid)
             return redirect(url_for("value", estimate=cur.lastrowid))
         by_id = {m["id"]: m for m in models()}
         rows = conn().execute("SELECT * FROM estimates ORDER BY id DESC").fetchall()
@@ -1320,11 +1358,34 @@ def create_app(db_path=None):
             past = estimate(m, r["year"], r["condition"], r["asking_price"], made)
             if past.get("low") and not past.get("bar"):  # no asking price: the bar shows just the fair range
                 past["bar"] = checks.value_bar(past["low"], past["high"], past["original"])
-            history.append({"row": r, "model": m, "result": past,
+            revisions = json.loads(r["revisions"] or "[]")
+            before = revisions[-1] if revisions else None
+            changes = [f for f in ESTIMATE_FIELDS if before[f] != r[f]] if before else []
+            history.append({"row": r, "model": m, "result": past, "before": before, "changes": changes,
                             "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)})
         return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
                                asking=asking, result=result, shown=shown, history=history,
+                               can_split=set(own_estimates()) if not is_admin() else None,
                                this_year=date.today().year, nav="value")
+
+    @app.post("/value/<int:estimate_id>/split")
+    def value_split(estimate_id):
+        """Undo the last update folded into an estimate: its latest inputs become an estimate of their own,
+        made at the time of that update, and the old one gets back what it had before."""
+        row = conn().execute("SELECT * FROM estimates WHERE id = ?", (estimate_id,)).fetchone()
+        revisions = json.loads(row["revisions"] or "[]") if row else []
+        if not revisions or not (estimate_id in own_estimates() or is_admin()):
+            return redirect(url_for("value", estimate=estimate_id if row else None))
+        before = revisions.pop()
+        cur = conn().execute("INSERT INTO estimates (created_at, model_id, year, condition, asking_price) VALUES (?,?,?,?,?)",
+                             (row["updated_at"] or row["created_at"], row["model_id"], row["year"], row["condition"], row["asking_price"]))
+        conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, updated_at = ?, revisions = ? WHERE id = ?",
+                       (before["year"], before["condition"], before["asking_price"], before.get("updated_at"),
+                        json.dumps(revisions) if revisions else None, estimate_id))
+        conn().commit()
+        session["last_estimate"] = cur.lastrowid  # a further tweak now revises the split-off one
+        mark_own(cur.lastrowid)
+        return redirect(url_for("value", estimate=cur.lastrowid))
 
     def improved_examples(limit=5):
         """Recently checked ads next to the ad we would write for them, for the Selling page. Only ads

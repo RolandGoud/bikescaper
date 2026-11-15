@@ -63,7 +63,9 @@ CREATE TABLE IF NOT EXISTS estimates (
     model_id INTEGER NOT NULL REFERENCES models(id),
     year INTEGER,         -- model year as typed in, NULL = not given
     condition TEXT,       -- NULL = normal use, else a key of checks.CONDITION_LABEL
-    asking_price REAL     -- NULL = not given
+    asking_price REAL,    -- NULL = not given
+    updated_at TEXT,      -- when a quick follow-up estimate was folded into this one, NULL = never
+    revisions TEXT        -- JSON list of the earlier inputs it replaced, oldest first, for "this was not an update"
 );
 CREATE TABLE IF NOT EXISTS photo_review_interest (
     id INTEGER PRIMARY KEY,
@@ -79,6 +81,7 @@ CREATE TABLE IF NOT EXISTS photo_review_interest (
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
                        ("source", "TEXT"), ("posted_at", "TEXT"), ("gone_reason", "TEXT"),
                        ("too_old", "INTEGER"), ("overrides", "TEXT")]
+ADDED_ESTIMATE_COLUMNS = [("updated_at", "TEXT"), ("revisions", "TEXT")]
 ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT"),
@@ -100,6 +103,10 @@ def connect(path=None):
     for column, kind in ADDED_CHECK_COLUMNS:
         if column not in have:
             conn.execute(f"ALTER TABLE checks ADD COLUMN {column} {kind}")
+    have = {r["name"] for r in conn.execute("PRAGMA table_info(estimates)")}
+    for column, kind in ADDED_ESTIMATE_COLUMNS:
+        if column not in have:
+            conn.execute(f"ALTER TABLE estimates ADD COLUMN {column} {kind}")
     have = {r["name"] for r in conn.execute("PRAGMA table_info(photo_review_interest)")}
     for column, kind in ADDED_INTEREST_COLUMNS:
         if column not in have:

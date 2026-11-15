@@ -53,6 +53,9 @@
       <p class="muted">{{ _('Every estimate made here, newest first: what was put in, and what came out on that day.') }}</p>
     </div>
     <div class="check-rows">
+      {% set conditions = {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')} %}
+      {% set labels = {'year': _('Model year'), 'condition': _('Condition'), 'asking_price': _('Asking price')} %}
+      {% macro shown_value(field, v) %}{% if field == 'condition' %}{{ conditions.get(v, _('Normal use')) }}{% elif field == 'asking_price' %}{{ v|eur if v else '–' }}{% else %}{{ v or '–' }}{% endif %}{% endmacro %}
       {% for h in history %}{% set r = h.result %}
       <article class="check-row{{ ' current' if shown and h.row.id == shown.id }}">
         <div class="check-row-body">
@@ -65,7 +68,7 @@
               <dt>{{ _('Brand') }}</dt><dd>{{ h.model.brand }}</dd>
               <dt>{{ _('Model') }}</dt><dd class="strong"><a href="{{ url_for('model_page', slug=h.model.slug) }}">{{ h.model.name|model_title }}</a></dd>
               <dt>{{ _('Model year') }}</dt><dd>{{ h.row.year or '–' }}</dd>
-              <dt>{{ _('Condition') }}</dt><dd>{{ {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(h.row.condition, _('Normal use')) }}</dd>
+              <dt>{{ _('Condition') }}</dt><dd>{{ conditions.get(h.row.condition, _('Normal use')) }}</dd>
               <dt>{{ _('Asking price') }}</dt><dd>{{ h.row.asking_price|eur }}</dd>
             </dl>
           </section>
@@ -98,6 +101,11 @@
         </div>
         <footer class="check-row-foot">
           <span class="mono">#{{ h.row.id }} · {{ h.row.created_at[:16] }}</span>
+          {% if h.before %}
+          <span class="badge updated" title="{{ _('A new estimate for the same bike came in right after this one, so it updated this one.') }}">{{ _('Updated {time}', time=h.row.updated_at[11:16]) }}</span>
+          {% if h.changes %}<span class="muted small estimate-changes">{% for f in h.changes %}{{ labels[f] }} {{ shown_value(f, h.before[f]) }} → {{ shown_value(f, h.row[f]) }}{{ ' · ' if not loop.last }}{% endfor %}</span>{% endif %}
+          {% if can_split is none or h.row.id in can_split %}<form method="post" action="{{ url_for('value_split', estimate_id=h.row.id) }}"><button class="btn ghost sm" type="submit">{{ _('This was not an update') }}</button></form>{% endif %}
+          {% endif %}
           {% if shown and h.row.id == shown.id %}<span class="badge">{{ _('Shown above') }}</span>{% endif %}
           <a class="open" href="{{ url_for('value', estimate=h.row.id) }}">{{ _('Open estimate') }} →</a>
         </footer>
