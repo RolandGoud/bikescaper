@@ -117,10 +117,13 @@
   "image": "Specialized/archived/aethoscompshimano105di2.jpg",
   "years": [
    2023,
+   2024,
    2025
   ],
   "skus": [
-   "256975"
+   "256975",
+   "216935",
+   "221468"
   ]
  },
  {
@@ -238,7 +241,11 @@
   ],
   "image": "Specialized/archived/aethosexpertsramrivaletapaxs.jpg",
   "years": [
+   2023,
    2025
+  ],
+  "skus": [
+   "216934"
   ]
  },
  {
@@ -296,11 +303,13 @@
   ],
   "image": "Specialized/archived/aethosprosramforceetapaxs.jpg",
   "years": [
+   2021,
    2022,
    2025
   ],
   "skus": [
-   "199441"
+   "199441",
+   "187064"
   ]
  },
  {
@@ -361,7 +370,13 @@
   ],
   "image": "Specialized/archived/aethosproshimanoultegradi2.jpg",
   "years": [
+   2023,
+   2024,
    2025
+  ],
+  "skus": [
+   "216933",
+   "221466"
   ]
  },
  {
@@ -478,7 +493,11 @@
   ],
   "image": "Specialized/archived/allez.jpg",
   "years": [
-   2015
+   2015,
+   2019
+  ],
+  "skus": [
+   "154231"
   ]
  },
  {
@@ -655,7 +674,17 @@
   ],
   "image": "Specialized/archived/allezelite.jpg",
   "years": [
-   2015
+   2015,
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "skus": [
+   "133817",
+   "159280",
+   "171313",
+   "184449"
   ]
  },
  {
@@ -719,13 +748,15 @@
   ],
   "image": "Specialized/archived/allezshimanoclaris.jpg",
   "years": [
+   2021,
    2022,
    2023,
    2025
   ],
   "skus": [
    "199476",
-   "199980"
+   "199980",
+   "184447"
   ]
  },
  {
@@ -787,11 +818,15 @@
   "years": [
    2014,
    2015,
-   2019
+   2019,
+   2020,
+   2021
   ],
   "skus": [
    "154238",
-   "93186"
+   "93186",
+   "171312",
+   "184448"
   ]
  },
  {
@@ -972,7 +1007,13 @@
   ],
   "image": "Specialized/archived/allezsprintcompdisc.jpg",
   "years": [
-   2020
+   2019,
+   2020,
+   2021
+  ],
+  "skus": [
+   "154235",
+   "184442"
   ]
  },
  {
@@ -1443,13 +1484,15 @@
   "years": [
    2022,
    2023,
+   2024,
    2025,
    2026
   ],
   "skus": [
    "4223481",
    "199960",
-   "205811"
+   "205811",
+   "221366"
   ]
  },
  {
@@ -1616,6 +1659,9 @@
   "image": "Specialized/archived/divergebasee5.jpg",
   "years": [
    2021
+  ],
+  "skus": [
+   "199684"
   ]
  },
  {
@@ -1918,7 +1964,13 @@
   ],
   "image": "Specialized/archived/divergee5shimanoclaris.jpg",
   "years": [
+   2022,
+   2023,
    2025
+  ],
+  "skus": [
+   "199973",
+   "217060"
   ]
  },
  {
@@ -2036,7 +2088,11 @@
   ],
   "image": "Specialized/archived/mensdivergee5elite.jpg",
   "years": [
+   2018,
    2019
+  ],
+  "skus": [
+   "129178"
   ]
  },
  {
@@ -2207,7 +2263,12 @@
   ],
   "image": "Specialized/archived/divergeelitee5.jpg",
   "years": [
+   2020,
    2021
+  ],
+  "skus": [
+   "171309",
+   "199688"
   ]
  },
  {
@@ -2869,7 +2930,11 @@
   ],
   "image": "Specialized/archived/divergestrexpertsramrivaletapaxsgxeagleaxs.jpg",
   "years": [
-   2023
+   2023,
+   2024
+  ],
+  "skus": [
+   "221357"
   ]
  },
  {
@@ -3041,12 +3106,14 @@
   "image": "Specialized/archived/roubaix.jpg",
   "years": [
    2018,
+   2019,
    2020,
    2021
   ],
   "skus": [
    "170558",
-   "184477"
+   "184477",
+   "159163"
   ]
  },
  {
@@ -3105,6 +3172,7 @@
    2009,
    2017,
    2018,
+   2019,
    2020,
    2021
   ],
@@ -3112,7 +3180,8 @@
    "129154",
    "170244",
    "184475",
-   "22406"
+   "22406",
+   "154469"
   ]
  },
  {
@@ -3832,10 +3901,14 @@
   "image": "Specialized/archived/rubycomp.jpg",
   "years": [
    2015,
-   2016
+   2016,
+   2018,
+   2019
   ],
   "skus": [
-   "65344"
+   "65344",
+   "128997",
+   "154486"
   ]
  },
  {
@@ -3891,11 +3964,13 @@
   "years": [
    2015,
    2016,
+   2018,
    2019
   ],
   "skus": [
    "154490",
-   "65445"
+   "65445",
+   "128872"
   ]
  },
  {
@@ -3956,12 +4031,14 @@
    2014,
    2015,
    2016,
-   2018
+   2018,
+   2019
   ],
   "skus": [
    "106341",
    "128979",
-   "65270"
+   "65270",
+   "154497"
   ]
  },
  {
@@ -4309,11 +4386,13 @@
   "years": [
    2021,
    2022,
-   2023
+   2023,
+   2025
   ],
   "skus": [
    "199439",
-   "187062"
+   "187062",
+   "4221534"
   ]
  },
  {
@@ -4614,7 +4693,11 @@
   ],
   "image": "Specialized/archived/sworksroubaix.jpg",
   "years": [
+   2018,
    2019
+  ],
+  "skus": [
+   "134017"
   ]
  },
  {
@@ -4668,7 +4751,11 @@
   ],
   "image": "Specialized/archived/sworksroubaixsagancollection.jpg",
   "years": [
+   2020,
    2021
+  ],
+  "skus": [
+   "171046"
   ]
  },
  {
@@ -5699,10 +5786,12 @@
   "image": "Specialized/archived/sworkstarmacsl8sramredaxs.jpg",
   "years": [
    2024,
+   2025,
    2026
   ],
   "skus": [
-   "216959"
+   "216959",
+   "4221539"
   ]
  },
  {
@@ -7100,10 +7189,13 @@
   "image": "Specialized/archived/tarmacsl7compshimano105di2.jpg",
   "years": [
    2023,
+   2024,
    2025
   ],
   "skus": [
-   "257114"
+   "257114",
+   "216925",
+   "218668"
   ]
  },
  {
@@ -7590,11 +7682,13 @@
   ],
   "image": "Specialized/archived/tarmacsl8proshimanoultegradi2.jpg",
   "years": [
+   2024,
    2025,
    2026
   ],
   "skus": [
-   "4274935"
+   "4274935",
+   "216960"
   ]
  },
  {
@@ -7656,11 +7750,13 @@
   ],
   "image": "Specialized/archived/tarmacsl8prosramforceaxs.jpg",
   "years": [
+   2024,
    2025,
    2026
   ],
   "skus": [
-   "4221537"
+   "4221537",
+   "216954"
   ]
  },
  {
@@ -8223,10 +8319,12 @@
   "image": "Specialized/archived/alleze5.jpg",
   "years": [
    2016,
-   2017
+   2017,
+   2020
   ],
   "skus": [
-   "115176"
+   "115176",
+   "171311"
   ]
  },
  {
@@ -8535,7 +8633,11 @@
   ],
   "image": "Specialized/archived/dolcesport.jpg",
   "years": [
-   2016
+   2016,
+   2018
+  ],
+  "skus": [
+   "128983"
   ]
  },
  {
@@ -9201,10 +9303,12 @@
   "image": "Specialized/archived/dolce.jpg",
   "years": [
    2017,
+   2018,
    2019
   ],
   "skus": [
-   "154317"
+   "154317",
+   "129087"
   ]
  },
  {
@@ -10584,7 +10688,11 @@
   ],
   "image": "Specialized/archived/ruby.jpg",
   "years": [
-   2018
+   2018,
+   2019
+  ],
+  "skus": [
+   "159164"
   ]
  },
  {
@@ -10897,7 +11005,11 @@
   ],
   "image": "Specialized/archived/womensdivergee5.jpg",
   "years": [
+   2018,
    2019
+  ],
+  "skus": [
+   "128856"
   ]
  },
  {
@@ -11289,7 +11401,11 @@
   ],
   "image": "Specialized/archived/mensdivergesport.jpg",
   "years": [
+   2018,
    2019
+  ],
+  "skus": [
+   "152240"
   ]
  },
  {
@@ -11420,12 +11536,16 @@
   "image": "Specialized/archived/roubaixexpert.jpg",
   "years": [
    2009,
+   2018,
+   2019,
    2020,
    2021
   ],
   "skus": [
    "184474",
-   "22412"
+   "22412",
+   "133928",
+   "154667"
   ]
  },
  {
@@ -11485,7 +11605,11 @@
   ],
   "image": "Specialized/archived/roubaixcompsagancollection.jpg",
   "years": [
+   2018,
    2020
+  ],
+  "skus": [
+   "157741"
   ]
  },
  {
@@ -11542,7 +11666,11 @@
   ],
   "image": "Specialized/archived/vengepro.jpg",
   "years": [
+   2019,
    2020
+  ],
+  "skus": [
+   "154594"
   ]
  },
  {
@@ -11944,7 +12072,12 @@
   ],
   "image": "Specialized/archived/divergecompe5.jpg",
   "years": [
+   2020,
    2021
+  ],
+  "skus": [
+   "171308",
+   "199685"
   ]
  },
  {
@@ -12291,7 +12424,11 @@
   ],
   "image": "Specialized/archived/tarmacsl6shimanotiagra.jpg",
   "years": [
+   2021,
    2022
+  ],
+  "skus": [
+   "175300"
   ]
  },
  {
@@ -12495,7 +12632,11 @@
   ],
   "image": "Specialized/archived/roubaixprosramforceetapaxs.jpg",
   "years": [
+   2020,
    2022
+  ],
+  "skus": [
+   "171045"
   ]
  },
  {
@@ -13055,7 +13196,11 @@
   ],
   "image": "Specialized/archived/divergeelitee5shimanogrx.jpg",
   "years": [
-   2022
+   2022,
+   2023
+  ],
+  "skus": [
+   "217059"
   ]
  },
  {
@@ -13134,11 +13279,13 @@
   "years": [
    2022,
    2023,
+   2024,
    2025
   ],
   "skus": [
    "217058",
-   "4223497"
+   "4223497",
+   "221373"
   ]
  },
  {
@@ -13206,7 +13353,11 @@
   ],
   "image": "Specialized/archived/sworksdivergestr.jpg",
   "years": [
-   2023
+   2023,
+   2024
+  ],
+  "skus": [
+   "221360"
   ]
  },
  {
@@ -13791,7 +13942,11 @@
   ],
   "image": "Specialized/archived/divergecompcarbonsramapexetapaxs.jpg",
   "years": [
-   2024
+   2024,
+   2025
+  ],
+  "skus": [
+   "4223498"
   ]
  },
  {
@@ -17501,6 +17656,3856 @@
   "image": "Specialized/archived/roubaixsl4disc.jpg",
   "years": [
    2015
+  ]
+ },
+ {
+  "name": "Allez Junior",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/allez-junior/p/128824",
+  "sku": "128824",
+  "price": null,
+  "category": "Race",
+  "family": "Allez",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized A1 Premium Aluminum, fully manipulated tubing w/ Smooth Welds, 1-1/8\" lower bearing",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadel": "Body Geometry Youth Performance, steel rails, synthetic leather",
+   "Zadelpen": "Alloy, 2-bolt clamp",
+   "Zadelpenklem": "Bolt type, alloy, 31.8mm",
+   "Voorvork": "Specialized A1 Premium Aluminum, 1-1/8\" alloy steerer",
+   "Wiel voor": "Axis Sport Jr.",
+   "Wiel achter": "Axis Sport Jr.",
+   "Buitenband": "Turbo Elite, 60 TPI, folding bead, BlackBelt protection, 650Cx23mm",
+   "Achterband": "Turbo Elite, 60 TPI, folding bead, BlackBelt protection, 650Cx23mm",
+   "Binnenband": "650C x 20/28mm",
+   "Shifter": "microSHIFT R482, short reach, 8-speed",
+   "Voorderailleur": "Shimano Claris, clamp-on",
+   "Achterderailleur": "Shimano Claris, 8-speed",
+   "Cassette": "SunRace, 8-speed, 11-32t",
+   "Crankstel": "Forged alloy, square taper, 110 BCD",
+   "CHAINRINGS": "36/22T",
+   "Bottom bracket": "BSA, square-taper, 68mm",
+   "Ketting": "KMC X8 w/ Missing Link™, 8-speed",
+   "Achterrem": "Tektro, alloy, dual-pivot",
+   "Rem": "Tektro, alloy, dual-pivot",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Rocket Red/Tarmac Black"
+  ],
+  "color_hexes": [
+   "#ed422e"
+  ],
+  "sizes": [
+   "44"
+  ],
+  "image_url": "https://resources.specialized.com/image/90018-73_ALLEZ_JR-650C_RKTRED-TARBLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90018-73_ALLEZ_JR-650C_RKTRED-TARBLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/allezjunior.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Men's Tarmac SL5 Expert DA",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-tarmac-sl5-expert-da/p/128857",
+  "sku": "128857",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized Tarmac SL5, FACT 10r carbon, Rider-First Engineered™, compact race design, 1-3/8\" lower bearing, threaded BB, 130mm spacing",
+   "Voorvork": "S-Works FACT full carbon, size-specific taper",
+   "Wiel voor": "Roval SLX 24 Rims, DT Swiss 350 hubs, DT Swiss Competition spokes, 20h",
+   "Wiel achter": "Roval SLX 24 Rims, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x24mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x24mm",
+   "Binnenband": "700x20/28mm, 48mm Presta valve",
+   "Shifter": "Shimano Dura-Ace 9100, 11-speed",
+   "Voorderailleur": "Shimano Dura-Ace 9100, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace 9100, 11-speed",
+   "Cassette": "Shimano 105, 11-speed, 11-28t",
+   "Crankstel": "Shimano Dura-Ace R9100",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "Shimano Dura-Ace BB",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 123x75mm",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadel": "Toupe Expert Gel, 143mm, hollow titanium rails, Adaptive Edge",
+   "Zadelpen": "Specialized Comp carbon, single bolt",
+   "Rem": "Shimano Dura-Ace 9100",
+   "Achterrem": "Shimano Dura-Ace 9100",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Chameleon/Tarmac Black Clean",
+   "Cosmic Black/White/Hologram Clean"
+  ],
+  "color_hexes": [
+   "#405168",
+   "#2B2E34"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90618-33_TAR-MEN_SL5-EXPERT-DA_CMLN-TARBLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90618-33_TAR-MEN_SL5-EXPERT-DA_CMLN-TARBLK_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90618-34_TAR-MEN_SL5-EXPERT-DA_CSMBLK-WHT_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "image": "Specialized/archived/menstarmacsl5expertda.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Shiv Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/shiv-expert/p/128972",
+  "sku": "128972",
+  "price": null,
+  "category": "Triathlon / TT",
+  "family": "Shiv",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 10r carbon, FACT IS construction, crosswind-optimized airfoils, 1-1/8\" lower bearing, OSBB, Control Tower Fit System, Fuelselage Integrated Hydration System, 130mm spacing",
+   "Voorvork": "Specialized FACT carbon, full monocoque",
+   "Wiel voor": "DT R460, sealed cartridge hubs, 14g spokes, 20h",
+   "Wiel achter": "DT R460, sealed cartridge hubs, 14g spokes, 24h",
+   "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x24mm",
+   "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x24mm",
+   "Binnenband": "700x20/28mm, 40mm Presta valve",
+   "Achterderailleur": "Shimano Ultegra 8000, 11-speed",
+   "Cassette": "Shimano 11-speed Ultegra 8000, 11-28t",
+   "Crankstel": "Shimano Ultegra R8000",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "Praxis BB30 w/ Shimano conversion adaptor",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Voorderailleur": "Shimano Ultegra 8000, braze-on",
+   "Stuur": "Specialized Shiv Alloy Aerobars",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap w/ gel",
+   "Zadelpen": "12.5mm Shiv seatpost",
+   "Rem": "Specialized Shiv",
+   "Achterrem": "Specialized Shiv",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Chameleon/Rocket Red"
+  ],
+  "color_hexes": [
+   "#405168"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://resources.specialized.com/image/97418-30_SHIV_EXPERT_CMLN-RKTRED_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97418-30_SHIV_EXPERT_CMLN-RKTRED_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/shivexpert.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "CruX E5",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/crux-e5/p/128988",
+  "sku": "128988",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized E5 Premium Aluminum, fully manipulated tubing, semi-compact race design, shaped top tube, 1-3/8\" lower bearing, internal cable routing, integrated headset, OSBB, post mount disc, 135mm rear spacing",
+   "Zadelpenklem": "Alloy, 31.8mm, bolt type",
+   "Voorvork": "Specialized FACT carbon, disc-specific, quick-release",
+   "Wiel voor": "Axis Sport Disc, quick-release",
+   "Wiel achter": "Axis Sport Disc, quick-release",
+   "Buitenband": "Tracer Sport, 60 TPI, wire bead, 700x33mm",
+   "Achterband": "Tracer Sport, 60 TPI, wire bead, 700x33mm",
+   "Binnenband": "700x28/38mm, 48mm Presta valve w/ extender",
+   "Crankstel": "Praxis Alba 2D, BB30",
+   "CHAINRINGS": "46/36T",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra, braze-on",
+   "Achterderailleur": "Shimano Tiagra, long cage, 10-speed",
+   "Cassette": "Shimano Tiagra, 10-speed, 11-32t",
+   "Ketting": "KMC X10, 10-speed w/ Missing Link™",
+   "Zadel": "Body Geometry Toupé Sport, steel rails, 143mm",
+   "Zadelpen": "Alloy, 2-bolt clamp",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurlint": "Specialized CX Pro Gel",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Achterrem": "Tektro Spyre, post mount, mechanical disc",
+   "Rem": "Tektro Spyre, post mount, mechanical disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Tarmac Black/Flo Red/Metallic White",
+   "Gloss Tarmac Black/Hyper/Metallic White"
+  ],
+  "color_hexes": [
+   "#C2C2C2",
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "46",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91417-70_CRUX_E5_TARBLK-FLORED-METWHT_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91417-70_CRUX_E5_TARBLK-FLORED-METWHT_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/91417-71_CRUX_E5_TARBLK-HYP-METWHT_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "image": "Specialized/archived/cruxe5.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Women's Tarmac Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/womens-tarmac-expert/p/129064",
+  "sku": "129064",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized Tarmac SL6, FACT 10r carbon, Rider-First Engineered™, OSBB, clean routing, internally integrated seat clamp, 130mm rear spacing",
+   "Voorvork": "S-Works FACT carbon",
+   "Zadelpenklem": "Tarmac SL6 clamp assembly",
+   "Wiel voor": "Roval SLX 24 Rims, DT Swiss 350 hubs, DT Swiss Competition spokes, 20h",
+   "Wiel achter": "Roval SLX 24 Rims, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "700x18/25mm, 60mm Presta valve",
+   "Shifter": "Shimano Ultegra 8000, 11-speed",
+   "Voorderailleur": "Shimano Ultegra 8000, braze-on",
+   "Achterderailleur": "Shimano Ultegra 8000, 11-speed",
+   "Cassette": "Shimano Ultegra 8000,11-speed, 11-30t",
+   "Crankstel": "Shimano Ultegra R8000",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "Praxis BB30 w/ Shimano conversion adaptor",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Zadel": "Oura Pro, 155mm, carbon rails, carbon base",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 123x75mm",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadelpen": "S-Works FACT Carbon Tarmac seatpost, 20mm offset",
+   "Achterrem": "Shimano Ultegra 8010 direct mount",
+   "Rem": "Shimano Ultegra 8010 direct mount",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Satin Gloss Cool Gray/Acid Pink/Black"
+  ],
+  "color_hexes": [
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54"
+  ],
+  "image_url": "https://resources.specialized.com/image/97218-30_TAR-WMN_SL6-EXPERT_CLGRY-ACDPNK-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97218-30_TAR-WMN_SL6-EXPERT_CLGRY-ACDPNK-BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/womenstarmacexpert.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "S-Works CruX",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-crux/p/129089",
+  "sku": "129089",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, Rider-First Engineered™, 1-3/8\"\" lower bearing, 12x142mm thru-axle, flat mount disc, OSBB",
+   "Voorvork": "S-Works FACT 11r carbon, 12x100mm thru-axle",
+   "Buitenband": "Terra Pro, 2Bliss Ready, 700x33mm",
+   "Achterband": "Terra Pro, 2Bliss Ready, 700x33mm",
+   "Wiel voor": "Roval CLX 50 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 50mm depth, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 50 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 50mm depth, DT Swiss 240 internals, CeramicSpeed bearings, 24h",
+   "Binnenband": "700x28/38mm, 48mm Presta valve w/ extender",
+   "Crankstel": "Carbon fiber spider",
+   "CHAINRINGS": "46/36T",
+   "Shifter": "Shimano Dura-Ace Disc 9120",
+   "Achterderailleur": "Shimano Dura-Ace 9100, 11-speed",
+   "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-30t",
+   "Bottom bracket": "OSBB, CeramicSpeed bearings",
+   "Ketting": "Shimano Dura-Ace,11-speed",
+   "Voorderailleur": "Shimano Dura-Ace 9100, clamp-on",
+   "Zadel": "Body Geometry S-Works Phenom, carbon rails, 143mm",
+   "Zadelpen": "S-Works FACT carbon, 20mm offset",
+   "Stuur": "S-Works SL Carbon Shallow Drop, 125x75mm",
+   "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+   "Stuurlint": "Specialized S-Wrap HD",
+   "Rem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
+   "Achterrem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss SL Black/Cosmos/Rocket Red/White"
+  ],
+  "color_hexes": [
+   "#2B2E34"
+  ],
+  "sizes": [
+   "46",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91418-01_CRUX_SW_LTBLK-RKTRED-WHT_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91418-01_CRUX_SW_LTBLK-RKTRED-WHT_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/sworkscrux.jpg",
+  "years": [
+   2018,
+   2019,
+   2020,
+   2022
+  ],
+  "skus": [
+   "154297",
+   "171342",
+   "199959"
+  ]
+ },
+ {
+  "name": "Roubaix Pro",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/roubaix-pro/p/129103",
+  "sku": "129103",
+  "price": null,
+  "category": "Endurance",
+  "family": "Roubaix",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "FACT 11r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+   "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+   "Wiel voor": "Roval CL 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, 21h",
+   "Wiel achter": "Roval CL 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, 24h",
+   "Buitenband": "S-Works Turbo 2Bliss Ready, 180 TPI, folding bead, BlackBelt Protection, GRIPTON compound, 700x28mm",
+   "Achterband": "S-Works Turbo, 2Bliss Ready, 180 TPI, folding bead, BlackBelt Protection, GRIPTON compound, 700x28mm",
+   "Binnenband": "Standard, Presta valve",
+   "Shifter": "Shimano Dura-Ace 9120 hydraulic disc",
+   "Voorderailleur": "Shimano Dura-Ace 9100, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace 9100, 11-speed",
+   "Cassette": "Shimano Ultegra 8000,11-speed, 11-30t",
+   "Crankstel": "S-Works FACT Carbon",
+   "CHAINRINGS": "Alloy spider, 50/34T",
+   "Bottom bracket": "Praxis 6806 bearings",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Stuur": "S-Works Carbon Hover Drop, 125x75mm",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadel": "Body Geometry Phenom Expert, Adaptive Edge design, hollow titanium rails, carbon fiber base, 143mm",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Rem": "Shimano Dura-Ace 9120 hydraulic disc",
+   "Achterrem": "Shimano Dura-Ace 9120 hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Tarmac Black/Graphite Edge Fade/White Reflective Clean"
+  ],
+  "color_hexes": [
+   "#2B2E34"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/94418-11_RBX_PRO_TARBLK-GRPH-WHT_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94418-11_RBX_PRO_TARBLK-GRPH-WHT_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/roubaixpro.jpg",
+  "years": [
+   2018,
+   2021
+  ],
+  "skus": [
+   "184473"
+  ]
+ },
+ {
+  "name": "Amira SL4",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/amira-sl4/p/129130",
+  "sku": "129130",
+  "price": null,
+  "category": "Race",
+  "family": "",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 9r carbon, women's carbon layup & Competitive Geometry, tapered head tube, threaded BB, internal routing, 130mm spacing",
+   "Voorvork": "Specialized FACT carbon, full monocoque",
+   "Zadelpenklem": "Specialized, alloy, 27.2mm",
+   "Wiel voor": "DT R460, sealed cartridge hubs, 14g spokes, 20h",
+   "Wiel achter": "DT R460, sealed cartridge hubs, 14g spokes, 24h",
+   "Buitenband": "Espoir Elite, 60 TPI, Kevlar® bead, 700x23mm",
+   "Achterband": "Espoir Elite, 60 TPI, Kevlar® bead, 700x23mm",
+   "Binnenband": "700x20/28mm, 40mm Presta valve",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra, braze-on",
+   "Achterderailleur": "Shimano Tiagra, long cage, 10-speed",
+   "Cassette": "Shimano Tiagra, 10-speed, 12-28t",
+   "Crankstel": "Praxis Alba 2D",
+   "CHAINRINGS": "50/34T",
+   "Ketting": "KMC X10EL, 10-speed w/ Missing Link™",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadel": "Oura Sport, 155mm, nylon base, synthetic leather",
+   "Zadelpen": "Specialized Comp Carbon, Single Bolt",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors",
+   "Achterrem": "Tektro Axis caliper",
+   "Rem": "Tektro Axis caliper"
+  },
+  "color_names": [
+   "Satin Gloss Black"
+  ],
+  "color_hexes": [
+   "#2B2E34"
+  ],
+  "sizes": [
+   "44",
+   "48",
+   "51",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/97218-70_AMIRA_SL4_BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97218-70_AMIRA_SL4_BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/amirasl4.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Men's Diverge E5",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-diverge-e5/p/129184",
+  "sku": "129184",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized E5 Premium Aluminum, Open Road Geometry, threaded BB, 12x142mm thru-axle, flat mount disc",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Zadel": "Body Geometry Toupé Sport, steel rails, 143mm",
+   "Zadelpen": "Alloy, 2-bolt clamp, 12mm offset, 27.2mm, anti-corrosion hardware",
+   "Zadelpenklem": "Alloy rack mount seat collar, 31.8mm",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Wiel voor": "Axis Sport Disc",
+   "Wiel achter": "Axis Sport Disc",
+   "Buitenband": "Espoir Sport, 60 TPI, wire bead, double BlackBelt protection, 700x30mm",
+   "Achterband": "Espoir Sport, 60 TPI, wire bead, double BlackBelt protection, 700x30mm",
+   "Binnenband": "700x28/38mm, 48mm Presta valve",
+   "Shifter": "Shimano Claris 2000, 8-speed",
+   "Voorderailleur": "Shimano Claris, braze-on",
+   "Achterderailleur": "Shimano Claris, long cage, 8-speed",
+   "Cassette": "Sunrace, 8-speed, 11-34t",
+   "Crankstel": "Shimano RS200",
+   "CHAINRINGS": "46/34T",
+   "Bottom bracket": "Threaded",
+   "Ketting": "KMC X8, 8-speed w/ Missing Link™",
+   "Rem": "Tektro Mira, flat mount, mechanical disc",
+   "Achterrem": "Tektro Mira, flat mount, mechanical disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Candy Red/Tarmac Black"
+  ],
+  "color_hexes": [
+   "#bc1d32"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95418-85_DIV-MEN_E5_CNDYRED-TARBLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95418-85_DIV-MEN_E5_CNDYRED-TARBLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/mensdivergee5.jpg",
+  "years": [
+   2018,
+   2019
+  ],
+  "skus": [
+   "154312"
+  ]
+ },
+ {
+  "name": "Women's Diverge Comp",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/womens-diverge-comp/p/129202",
+  "sku": "129202",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat mount disc, BB386 Evo",
+   "Voorvork": "Specialized FACT carbon, flat mount disc, 12x100mm thru-axle",
+   "Binnenband": "700x28/38mm, 48mm Presta valve",
+   "Wiel voor": "Axis Elite Disc",
+   "Wiel achter": "Axis Elite Disc",
+   "Buitenband": "Specialized Trigger Pro, 60 TPI, 2Bliss Ready, folding bead, 700x38mm",
+   "Achterband": "Specialized Trigger Pro, 60 TPI, 2Bliss Ready, folding bead, 700x38mm",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Zadelpenklem": "Alloy, 31.2mm",
+   "Zadel": "Myth Comp, Thin, 155mm, Hollow Cr-Mo",
+   "Stuur": "Specialized Comp Hover Bar, 6061 alloy, 70x125mm w/ Di2 hole",
+   "Crankstel": "Praxis Alba 2D, BB386",
+   "CHAINRINGS": "48/32T",
+   "Shifter": "Shimano RS505 disc",
+   "Voorderailleur": "Shimano 105 Ez, braze-on",
+   "Achterderailleur": "Shimano 105, 11-speed",
+   "Cassette": "Shimano 105, 11-speed, 11-32t",
+   "Ketting": "KMC X11EL, 11-speed w/ Missing Link™",
+   "Rem": "Shimano RS505, hydraulic disc",
+   "Achterrem": "Shimano RS505, hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Cali Fade/Tarmac Black"
+  ],
+  "color_hexes": [
+   "#53bfa4"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/95418-42_DIV-WMN_COMP_CALFDE-TARBLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95418-42_DIV-WMN_COMP_CALFDE-TARBLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/womensdivergecomp.jpg",
+  "years": [
+   2018,
+   2019
+  ],
+  "skus": [
+   "154315"
+  ]
+ },
+ {
+  "name": "CruX Expert X1",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/crux-expert-x1/p/129207",
+  "sku": "129207",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "FACT 11r carbon, Rider-First Engineered™, 1-3/8\"\" lower bearing, 12x142mm thru-axle, flat mount disc, OSBB",
+   "Voorvork": "S-Works FACT 11r carbon, 12x100mm thru-axle",
+   "Wiel voor": "Roval SLX 24 Disc, sealed cartridge hubs, DT Swiss Competition spokes, 24h",
+   "Wiel achter": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+   "Buitenband": "Terra Pro, 2Bliss Ready, 700x33mm",
+   "Achterband": "Terra Pro, 2Bliss Ready, 700x33mm",
+   "Binnenband": "700x28/38mm, 48mm Presta valve w/ extender",
+   "Shifter": "SRAM Force 1 hydraulic, 11-speed",
+   "Achterderailleur": "SRAM Force 1, mid cage, 11-speed",
+   "Cassette": "SRAM PG-1170, 11-speed, 11-32t",
+   "Crankstel": "SRAM Force 1",
+   "CHAINRINGS": "Steel, 40T",
+   "Bottom bracket": "SRAM BB30, 68mm, no spacer",
+   "Ketting": "SRAM PC-1170, 11-speed",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap HD",
+   "Zadel": "Body Geometry Phenom Expert, Adaptive Edge design, hollow titanium rails, carbon fiber base, 143mm",
+   "Zadelpen": "S-Works FACT carbon, 20mm offset",
+   "Rem": "SRAM Force, hydraulic disc",
+   "Achterrem": "SRAM Force, hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Blue Tint/Moto Orange/Team Yellow/Metallic White",
+   "Gloss Rocket Red/Neon Blue/Cyan/Metallic White Silver"
+  ],
+  "color_hexes": [
+   "#C2C2C2",
+   "#ed623b"
+  ],
+  "sizes": [
+   "46",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91418-30_CRUX_EXPERT-X1_BLUTNT-MXORG-TEAMYEL_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91418-30_CRUX_EXPERT-X1_BLUTNT-MXORG-TEAMYEL_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/91418-31_CRUX_EXPERT-X1_RKTRED-NENBLU-CYN_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "image": "Specialized/archived/cruxexpertx1.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Men's Tarmac",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-tarmac/p/129267",
+  "sku": "129267",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized Tarmac SL4, FACT 9r carbon, compact race design, 1-3/8\" lower bearing, threaded BB, 130mm spacing",
+   "Voorvork": "Specialized FACT carbon, full monocoque",
+   "Zadelpenklem": "Specialized, alloy, 27.2mm",
+   "Wiel voor": "DT R460, sealed cartridge hubs, 14g spokes, 20h",
+   "Wiel achter": "DT R460, sealed cartridge hubs, 14g spokes, 24h",
+   "Buitenband": "Espoir Elite, 60 TPI, Kevlar® bead, 700x23mm",
+   "Achterband": "Espoir Elite, 60 TPI, Kevlar® bead, 700x23mm",
+   "Binnenband": "700x20/28mm, 40mm Presta valve",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra, braze-on",
+   "Achterderailleur": "Shimano Tiagra, long cage, 10-speed",
+   "Cassette": "Shimano Tiagra, 10-speed, 12-28t",
+   "Crankstel": "Praxis Alba M30, solid forged arms, 6061 chainrings, 110 BCD, 11-speed",
+   "CHAINRINGS": "50/34T",
+   "Ketting": "KMC X10EL, 10-speed w/ Missing Link™",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadel": "Body Geometry Toupé Sport, steel rails, 143mm",
+   "Zadelpen": "Specialized Comp carbon, single bolt",
+   "Achterrem": "Tektro Axis caliper",
+   "Rem": "Tektro Axis caliper",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Bora Team Replica",
+   "Carbon/Flo Red Clean"
+  ],
+  "color_hexes": [
+   "#2B2E34",
+   "#252423"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90618-70_TAR-MEN_SL4_BORA_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90618-70_TAR-MEN_SL4_BORA_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90618-71_TAR-MEN_SL4_CARB-FLORED_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "image": "Specialized/archived/menstarmac.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Shiv Sport",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/shiv-sport/p/129271",
+  "sku": "129271",
+  "price": null,
+  "category": "Triathlon / TT",
+  "family": "Shiv",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 10r carbon, FACT IS construction, crosswind-optimized airfoils, 1-1/8\" lower bearing, OSBB, Control Tower Fit System, 130mm spacing",
+   "Voorvork": "Specialized FACT carbon, full monocoque",
+   "Wiel voor": "DT R460, sealed cartridge hubs, 14g spokes, 20h",
+   "Wiel achter": "DT R460, sealed cartridge hubs, 14g spokes, 24h",
+   "Buitenband": "Espoir Sport, 700x23mm",
+   "Achterband": "Espoir Sport, 700x23mm",
+   "Binnenband": "700x20/28mm, 40mm Presta valve",
+   "Shifter": "microSHIFT TT",
+   "Voorderailleur": "Shimano Tiagra, braze-on",
+   "Achterderailleur": "Shimano Tiagra, long cage, 10-speed",
+   "Cassette": "Shimano Tiagra, 10-speed, 12-28t",
+   "Crankstel": "Praxis Alba 2D, BB386",
+   "CHAINRINGS": "Carbon fiber spider, 52/36T",
+   "Ketting": "KMC X10EL, 10-speed w/ Missing Link™",
+   "Stuur": "Specialized Shiv Alloy Aerobars",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap w/ gel",
+   "Zadel": "Body Geometry Sitero Comp, hollow Cr-Mo rails",
+   "Zadelpen": "12.5mm Shiv seatpost",
+   "Rem": "Specialized Shiv",
+   "Achterrem": "Specialized Shiv",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Charcoal/Tarmac Black Fade/Rocket Red"
+  ],
+  "color_hexes": [
+   "#6C6861"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://resources.specialized.com/image/97417-60_SHIV_SPORT_CHAR-TARBLK-RKTRED_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97417-60_SHIV_SPORT_CHAR-TARBLK-RKTRED_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/shivsport.jpg",
+  "years": [
+   2018,
+   2020
+  ],
+  "skus": [
+   "171303"
+  ]
+ },
+ {
+  "name": "Venge Pro Disc",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/venge-pro-disc/p/133818",
+  "sku": "133818",
+  "price": null,
+  "category": "Race",
+  "family": "",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "FACT 11r carbon, Rider-First Engineered™, Win Tunnel Engineered, internal cable routing, 12x142mm thru-axle, carbon OSBB, flat disc mount",
+   "Voorvork": "S-Works FACT 11r carbon, full monocoque",
+   "Zadelpenklem": "Specialized Venge assembly",
+   "Wiel voor": "Roval CL 64 Disc rim, Roval AFD1, Centerlock, 21h",
+   "Wiel achter": "Roval CL 64 Disc rim, Roval AFD2, Centerlock, DT Swiss 240 internals, 11-speed, 12x142mm thru-axle, 24h",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "700x18/25mm, 80mm Presta valve",
+   "Voorderailleur": "Shimano Dura-Ace 9100, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace 9100, 11-speed",
+   "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-30t",
+   "Crankstel": "S-Works carbon fiber, alloy spider",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "Praxis 6806 bearings",
+   "Ketting": "Shimano Dura-Ace,11-speed",
+   "Shifter": "Shimano Dura-Ace Disc 9120",
+   "Stuur": "S-Works Aerofly",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadel": "Power Expert, 143mm, nylon base, synthetic leather, hollow titanium rails",
+   "Zadelpen": "Specialized Venge Aero seatpost, FACT carbon",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Green Chameleon/Tarmac Black Fade/Rocket Red Clean"
+  ],
+  "color_hexes": [
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/97818-10_VENGE_PRO-DISC_CMLNGRN-TARBLK-RKTRED_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97818-10_VENGE_PRO-DISC_CMLNGRN-TARBLK-RKTRED_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/vengeprodisc.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Ruby Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/ruby-expert/p/133930",
+  "sku": "133930",
+  "price": null,
+  "category": "Race",
+  "family": "",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 10r carbon, Women's Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat-disc mounts",
+   "Voorvork": "Specialized FACT full-carbon, flat-mount disc, 12x100mm thru-axle",
+   "Wiel voor": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+   "Wiel achter": "Roval SLX 24 Disc, DT Swiss 350 hubs, DT Swiss Competition spokes, 24h",
+   "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x28mm",
+   "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x28mm",
+   "Binnenband": "Standard, Presta valve",
+   "Shifter": "Shimano Ultegra 8020, hydraulic disc",
+   "Voorderailleur": "Shimano Ultegra 8000, braze-on",
+   "Achterderailleur": "Shimano Ultegra 8000, long cage, 11-speed",
+   "Cassette": "Shimano 11-speed Ultegra 8000, 11-32t",
+   "Crankstel": "Shimano Ultegra R8000",
+   "CHAINRINGS": "50/34T",
+   "Bottom bracket": "Shimano Ultegra",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Zadel": "Ruby Expert, 155mm, hollow titanium rails, Adaptive Edge, gel padding",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Stuur": "Specialized Expert Hover, alloy, 75x125mm",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-WRAP Roubaix w/ Sticky gel",
+   "Rem": "Shimano Ultegra 8020, hydraulic disc",
+   "Achterrem": "Shimano Ultegra 8020, hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Satin Tarmac Black/Cali Fade/Black"
+  ],
+  "color_hexes": [
+   "#2B2E34"
+  ],
+  "sizes": [
+   "44",
+   "48",
+   "51",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/90218-30_RUBY_EXPERT_TARBLK-CALFDE-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90218-30_RUBY_EXPERT_TARBLK-CALFDE-BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/rubyexpert.jpg",
+  "years": [
+   2018,
+   2019
+  ],
+  "skus": [
+   "154489"
+  ]
+ },
+ {
+  "name": "CruX Sport",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/crux-sport/p/134246",
+  "sku": "134246",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "FACT 11r carbon, Rider-First Engineered™, 1-3/8\" lower bearing, 12x142mm thru-axle, flat mount disc, OSBB",
+   "Voorvork": "S-Works FACT 11r carbon, 12x100mm thru-axle",
+   "Buitenband": "Tracer Sport, 60 TPI, wire bead, 700x33mm",
+   "Achterband": "Tracer Sport, 60 TPI, wire bead, 700x33mm",
+   "Wiel voor": "Axis Sport Disc",
+   "Wiel achter": "Axis Sport Disc",
+   "Binnenband": "700x28/38mm, 48mm Presta valve w/ extender",
+   "Achterderailleur": "Shimano 105, short cage, 11-speed",
+   "Crankstel": "Praxis Alba 2D, BB30",
+   "CHAINRINGS": "46/36T",
+   "Shifter": "Shimano RS505 disc",
+   "Voorderailleur": "Shimano 105 Ez, clamp-on",
+   "Cassette": "Shimano 105, 11-speed, 11-28t",
+   "Ketting": "KMC X11, 11-speed w/ Missing Link™",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadelpen": "Alloy, 2-bolt clamp",
+   "Zadel": "Phenom Sport, 143mm width, steel rails",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Rem": "Shimano RS505, hydraulic disc",
+   "Achterrem": "Shimano RS505, hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Red Tint/Metallic White Silver/Flo Red"
+  ],
+  "color_hexes": [
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "46",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91418-61_CRUX_SPORT_REDTNT-METWHTSIL-FLORED_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91418-61_CRUX_SPORT_REDTNT-METWHTSIL-FLORED_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/cruxsport.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "S-Works Roubaix McLaren Dura-Ace Di2",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-roubaix-mclaren-dura-ace-di2/p/134255",
+  "sku": "134255",
+  "price": null,
+  "category": "Endurance",
+  "family": "Roubaix",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+   "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+   "Wiel voor": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 24h",
+   "Buitenband": "Turbo Cotton, 700x28mm",
+   "Achterband": "Turbo Cotton, 700x28mm",
+   "Binnenband": "Standard, Presta valve",
+   "CHAINRINGS": "52/36T",
+   "Shifter": "Shimano Dura-Ace Di2 Disc 9170",
+   "Voorderailleur": "Shimano Dura-Ace Di2 9150, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace Di2 9150, 11-speed",
+   "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-30t",
+   "Crankstel": "S-Works carbon fiber",
+   "Bottom bracket": "OSBB, CeramicSpeed bearings",
+   "Ketting": "Shimano Dura-Ace,11-speed",
+   "Zadel": "S-Works Phenom GT, 143mm, carbon rails, EVA foam, carbon base",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Stuur": "S-Works Carbon Hover Drop, 125x75mm",
+   "Stuurlint": "Specialized Leather Tape",
+   "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+   "Rem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
+   "Achterrem": "Shimano Dura-Ace Di2 9170 hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Heritage Orange/Black"
+  ],
+  "color_hexes": [
+   "#f8a754"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/94418-00_RBX_SW-MCLAREN-Di2_GLDORG-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94418-00_RBX_SW-MCLAREN-Di2_GLDORG-BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/sworksroubaixmclarenduraacedi2.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "S-Works Ruby eTap",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-ruby-etap/p/134293",
+  "sku": "134293",
+  "price": null,
+  "category": "Race",
+  "family": "S-Works Bikes",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 11r carbon, Women's Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+   "Voorvork": "S-Works FACT full-carbon, flat-mount disc, 12x100mm thru-axle",
+   "Wiel voor": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 24h",
+   "Buitenband": "Turbo Cotton, 700x28mm",
+   "Achterband": "Turbo Cotton, 700x28mm",
+   "Binnenband": "Standard, Presta valve",
+   "Shifter": "SRAM eTap, hydraulic disc, wireless",
+   "Voorderailleur": "SRAM eTap, Braze-on, wireless",
+   "Achterderailleur": "SRAM eTap, 11-speed, wireless",
+   "Cassette": "SRAM Red 22, 11-speed, 11-32t",
+   "Crankstel": "SRAM Red 22, GXP",
+   "CHAINRINGS": "50/34T",
+   "Bottom bracket": "SRAM GXP, 68mm",
+   "Ketting": "SRAM Red 22",
+   "Stuur": "S-Works Carbon Hover Drop, 125x75mm",
+   "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadel": "Ruby Pro, 155mm, carbon rails, Adaptive Edge",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Rem": "SRAM eTap, hydraulic disc",
+   "Achterrem": "SRAM eTap, hydraulic disc",
+   "Pedaal": "Nylon"
+  },
+  "color_names": [
+   "Satin Tarmac Black/Nordic Red/Kool Silver"
+  ],
+  "color_hexes": [
+   "#2B2E34"
+  ],
+  "sizes": [
+   "44",
+   "48",
+   "51",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/176489?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/176489?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/sworksrubyetap.jpg",
+  "years": [
+   2018,
+   2019
+  ],
+  "skus": [
+   "154484"
+  ]
+ },
+ {
+  "name": "S-Works Venge ViAS Disc eTap",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-venge-vias-disc-etap/p/134294",
+  "sku": "134294",
+  "price": null,
+  "category": "Race",
+  "family": "S-Works Bikes",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, Rider-First Engineered™, Win Tunnel Engineered, internal cable routing, 12x142mm thru-axle, carbon OSBB, flat disc mount",
+   "Voorvork": "S-Works FACT 11r carbon, full monocoque",
+   "Zadelpenklem": "Specialized Venge assembly",
+   "Wiel voor": "Roval CLX 64 Disc rim, Roval AFD1, Centerlock, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 64 Disc rim, Roval AFD2, Centerlock, CeramicSpeed bearings, DT Swiss 240 internals, 11-speed, 12x142mm thru-axle, 24h",
+   "Buitenband": "Turbo Cotton, 700x26mm, 320 TPI",
+   "Achterband": "Turbo Cotton, 700x26mm, 320 TPI",
+   "Binnenband": "700x18/25mm, 80mm Presta valve",
+   "Voorderailleur": "SRAM eTap, Braze-on, wireless",
+   "Achterderailleur": "SRAM eTap",
+   "Cassette": "SRAM Red 22, 11-28t",
+   "Crankstel": "S-Works FACT carbon, OSBB, Quarq Power Meter, w/CeramicSpeed ceramic bearings",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "SRAM BB30, 68mm",
+   "Ketting": "SRAM Red 22",
+   "Shifter": "SRAM eTap disc",
+   "Stuur": "S-Works Aerofly ViAS, 25mm",
+   "Stuurpen": "Venge ViAS aero",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadel": "S-Works Power, 143mm, carbon rails, carbon base, synthetic leather",
+   "Zadelpen": "Specialized Venge Aero seatpost, FACT carbon",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Metallic White/Satin Carbon/Black"
+  ],
+  "color_hexes": [
+   "#F9F8F6"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/99017-04_VENGE_SW-DISC-VIAS-ETAP_METWHT-CARB-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/99017-04_VENGE_SW-DISC-VIAS-ETAP_METWHT-CARB-BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/sworksvengeviasdiscetap.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Women's Diverge Sport",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/womens-diverge-sport/p/151181",
+  "sku": "151181",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat mount disc, BB386 Evo",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadel": "Women's Body Geometry Myth Sport, 155mm, Thin, steel rails",
+   "Zadelpen": "Alloy, 2-bolt clamp, 12mm offset, 27.2mm, anti-corrosion hardware",
+   "Zadelpenklem": "Alloy, 31.2mm",
+   "Voorvork": "Specialized FACT carbon, flat mount disc, 12x100mm thru-axle",
+   "Wiel voor": "Axis Sport Disc",
+   "Wiel achter": "Axis Sport Disc",
+   "Buitenband": "Specialized Trigger Sport, 60 TPI, BlackBelt protection, 700x38mm",
+   "Achterband": "Specialized Trigger Sport, 60 TPI, BlackBelt protection, 700x38mm",
+   "Binnenband": "700x28/38mm, 48mm Presta valve",
+   "Shifter": "Shimano Tiagra",
+   "Voorderailleur": "Shimano Tiagra, braze-on",
+   "Achterderailleur": "Shimano Tiagra, long cage, 10-speed",
+   "Cassette": "Shimano Tiagra, 10-speed, 11-34t",
+   "Crankstel": "Praxis Alba 2D, BB386",
+   "CHAINRINGS": "48/32T",
+   "Ketting": "KMC X10, 10-speed w/ Missing Link™",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors",
+   "Achterrem": "Tektro Spyre, flat mount, mechanical disc",
+   "Rem": "Tektro Spyre, flat mount, mechanical disc"
+  },
+  "color_names": [
+   "Satin Taupe/Acid Kiwi/Black"
+  ],
+  "color_hexes": [
+   "#9b8874"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/95418-66_DIV-WMN_SPORT_SNST-CMLN-ACDPRP_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95418-66_DIV-WMN_SPORT_SNST-CMLN-ACDPRP_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/womensdivergesport.jpg",
+  "years": [
+   2018,
+   2019
+  ],
+  "skus": [
+   "154648"
+  ]
+ },
+ {
+  "name": "Roubaix Expert UDi2",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/roubaix-expert-udi2/p/154102",
+  "sku": "154102",
+  "price": null,
+  "category": "Endurance",
+  "family": "Roubaix",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "Specialized FACT 10r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+   "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+   "Wiel voor": "DT R460 Disc, thru-axle, 2Bliss Ready",
+   "Wiel achter": "DT R460 Disc, thru-axle, 2Bliss Ready",
+   "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "Standard, Presta valve",
+   "Voorderailleur": "Shimano Ultegra Di2 Front Derailleur Braze-on",
+   "Achterderailleur": "Shimano Ultegra Di2 GS, 11-speed",
+   "Shifter": "Shimano R785 Di2, hydraulic disc",
+   "Cassette": "Shimano Ultegra, 11-speed, 11-28t",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Crankstel": "Shimano Ultegra",
+   "CHAINRINGS": "52/36T",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuur": "Specialized Comp Hover Bar, 6061 alloy, 70x125mm w/ Di2 hole",
+   "Stuurlint": "S-Wrap w/ Sticky gel",
+   "Zadel": "Specialized Phenom Expert, 143mm, hollow Ti rails",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Rem": "Shimano RS805 Hydraulic disc",
+   "Achterrem": "Shimano RS805 Hydraulic disc",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Neon Yellow/Monster Green",
+   "Tarmac Black/Charcoal"
+  ],
+  "color_hexes": [
+   "#a3cc4e",
+   "#2B2E34"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61",
+   "64"
+  ],
+  "image_url": "https://resources.specialized.com/image/94417-32_RBX_EXPERT-UDI2_NENYEL-MONGRN_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94417-32_RBX_EXPERT-UDI2_NENYEL-MONGRN_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/94417-33_RBX_EXPERT-UDI2_TARBLK-CHAR_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [],
+   []
+  ],
+  "image": "Specialized/archived/roubaixexpertudi2.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "CruX Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/crux-expert/p/154298",
+  "sku": "154298",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "FACT 11r carbon, Rider-First Engineered™, OSBB, 1-3/8\" lower bearing, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "S-Works FACT 11r carbon, 12x100mm thru-axle",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "Specialized CX Pro Gel",
+   "Zadel": "Body Geometry Phenom Expert, hollow titanium rails, carbon fiber base, 143mm",
+   "Zadelpen": "S-Works FACT carbon 27.2mm, 20mm offset",
+   "Zadelpenklem": "Included w/ frame",
+   "Achterrem": "SRAM Force, flat-mount disc",
+   "Rem": "SRAM Force, flat-mount disc",
+   "Shifter": "SRAM Force 1 hydraulic disc w/ ICJ",
+   "Achterderailleur": "SRAM Force 1, long cage",
+   "Cassette": "SRAM PG-1130, 11-32t",
+   "Crankstel": "Praxis Zayante Carbon M30, 1x direct-mount",
+   "CHAINRINGS": "Praxis Wave Tech, 40T",
+   "Bottom bracket": "Praxis M30",
+   "Ketting": "KMC X11 EL, 11-speed w/ Missing Link™",
+   "Wiel voor": "Roval C 38 Disc, carbon, tubeless-ready, 38mm depth, 24h",
+   "Wiel achter": "Roval C 38 Disc, carbon, tubeless-ready, 38mm depth, 24h",
+   "Buitenband": "Tracer Pro, 2Bliss Ready, 700x33mm",
+   "Achterband": "Tracer Pro, 2Bliss Ready, 700x33mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/ reflectors"
+  },
+  "color_names": [
+   "Gloss Team Yellow/Rocket Red/Tarmac Black/Clean"
+  ],
+  "color_hexes": [
+   "#fbf63c"
+  ],
+  "sizes": [
+   "46",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91419-30_CRUX_EXPERT_TEAMYEL-RKTRED-TARBLK_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/cruxexpert.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Men's Diverge",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-diverge/p/154305",
+  "sku": "154305",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Stuur": "Specialized Adventure Gear Hover, 12-degree flare",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 6-degree rise",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Body Geometry Toupé Sport, steel rails, 143mm",
+   "Zadelpen": "Carbon, single-bolt, 27.2mm",
+   "Zadelpenklem": "Diverge Collar, Alloy, 31.2mm",
+   "Achterrem": "Shimano RS405, hydraulic disc",
+   "Rem": "Shimano RS405, hydraulic disc",
+   "Shifter": "Shimano RS405 Shifters, hydraulic disc, 10-speed",
+   "Voorderailleur": "Shimano Tiagra, 10-speed",
+   "Achterderailleur": "Shimano Tiagra, GS cage, 10-speed",
+   "Cassette": "SunRace, 11-34t, 10-speed",
+   "Crankstel": "Praxis Alba",
+   "CHAINRINGS": "48/32T",
+   "Bottom bracket": "Praxis, PF30",
+   "Ketting": "KMC X10, 10-Speed",
+   "Wiel voor": "Axis Sport Disc",
+   "Wiel achter": "Axis Sport Disc",
+   "Buitenband": "Sawtooth Sport, black, 700x38mm",
+   "Achterband": "Sawtooth Sport, black, 700x38mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/reflectors"
+  },
+  "color_names": [
+   "Gloss Storm Grey/Rocket Red/Black",
+   "Carbon/Acid Kiwi"
+  ],
+  "color_hexes": [
+   "#7e98aa",
+   "#524e4b"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-71_DIV_BASE_STRMGRY-RKTRED-BLK_DETAIL-6?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-70_DIV_BASE_CARB-ACDKWI_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/mensdiverge.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Women's Diverge",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/womens-diverge/p/154311",
+  "sku": "154311",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2019,
+  "specifications": {
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Stuur": "Specialized Adventure Gear Hover, 12-degree flare",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 6-degree rise",
+   "Stuurlint": "S-Wrap Roubaix bar tape w/ sticky gel",
+   "Zadel": "Women's Body Geometry Myth Sport, 155mm, thin, steel rails",
+   "Zadelpen": "Carbon, single-bolt, 27.2mm",
+   "Zadelpenklem": "Diverge Collar, Alloy, 31.2mm",
+   "Achterrem": "Shimano RS405, hydraulic disc",
+   "Rem": "Shimano RS405, hydraulic disc",
+   "Shifter": "Shimano RS405 Shifters, hydraulic disc, 10-speed",
+   "Voorderailleur": "Shimano Tiagra, 10-speed, braze-on",
+   "Achterderailleur": "Shimano Tiagra, GS cage, 10-speed",
+   "Cassette": "SunRace, 11-34t, 10-speed",
+   "Crankstel": "Praxis Alba",
+   "CHAINRINGS": "48/32T",
+   "Bottom bracket": "Praxis, PF30",
+   "Ketting": "KMC X10, 10-Speed",
+   "Wiel voor": "Axis Sport Disc",
+   "Wiel achter": "Axis Sport Disc",
+   "Buitenband": "Sawtooth Sport, black, 700x38mm",
+   "Achterband": "Sawtooth Sport, black, 700x38mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/reflectors",
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386"
+  },
+  "color_names": [
+   "Satin Storm Grey/Ice Blue/Reflective"
+  ],
+  "color_hexes": [
+   "#7e98aa"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/95419-75_DIV-WMN_BASE_STRMGRY-ICEBLU_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95419-75_DIV-WMN_BASE_STRMGRY-ICEBLU_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/womensdiverge.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Ruby Comp - Ultegra Di2",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/ruby-comp-ultegra-di2/p/154488",
+  "sku": "154488",
+  "price": null,
+  "category": "Race",
+  "family": "",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Specialized FACT 10r carbon, Women's Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat-disc mounts",
+   "Voorvork": "Specialized FACT full-carbon, flat-mount disc, 12x100mm thru-axle",
+   "Stuur": "Specialized Comp Hover Bar, 6061 alloy, 75x125mm w/ Di2 hole",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Ruby Comp 155mm, hollow Cr-Mo rails, gel padding",
+   "Zadelpen": "S-Works CG-R, FACT carbon fiber, single-bolt, 27.2mm",
+   "Rem": "Shimano Ultegra, hydraulic disc",
+   "Achterrem": "Shimano Ultegra, hydraulic disc",
+   "Shifter": "Shimano Ultegra Di2 Disc R8070",
+   "Voorderailleur": "Shimano Ultegra Di2 R8050, braze-on",
+   "Achterderailleur": "Shimano Ultegra Di2 R8050, GS medium cage",
+   "Cassette": "Shimano Ultegra, 11-speed, 11-34t",
+   "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed",
+   "CHAINRINGS": "50/34T",
+   "Bottom bracket": "Shimano Ultegra, BBR60",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Wiel voor": "DT R470 Disc, sealed cartridge hubs, 14g spokes, 24h",
+   "Wiel achter": "DT R470 Disc, sealed cartridge hubs, 14g spokes, 24h",
+   "Buitenband": "Specialized Turbo Pro, 700x28mm",
+   "Achterband": "Specialized Turbo Pro, 700x28m",
+   "Binnenband": "Presta, 48mm valve",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/reflectors"
+  },
+  "color_names": [
+   "Gloss Satin/Purple Tint-Red Tint Fade/Acid Lava/Black",
+   "Satin Dusty Turquoise/Copper Foil"
+  ],
+  "color_hexes": [
+   "#2B2E34",
+   "#009998"
+  ],
+  "sizes": [
+   "44",
+   "48",
+   "51",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-54_RUBY_COMP-UDI2_PRPTNT-REDTNT-ACDLAVA_DETAIL-6?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90219-53_RUBY_COMP-UDI2_DSTTUR-ICELAVA_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/rubycompultegradi2.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Men's Tarmac Disc Sport",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-tarmac-disc-sport/p/154556",
+  "sku": "154556",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Tarmac SL6, FACT 9r carbon, Rider-First Engineered™, threaded BB, clean routing, 12x142mm thru-axle, flat-mount disc",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Body Geometry Toupé Sport, steel rails, 143mm",
+   "Zadelpen": "S-Works FACT carbon 27.2mm, 20mm offset",
+   "Zadelpenklem": "Alloy, 30.6mm",
+   "Voorvork": "FACT carbon, 12x100mm thru-axle, flat-mount disc",
+   "Achterrem": "Shimano 105 R7070, hydraulic disc",
+   "Rem": "Shimano 105 R7070, hydraulic disc",
+   "Shifter": "Shimano 105 Disc R7020",
+   "Voorderailleur": "Shimano 105 R7000, braze-on",
+   "Achterderailleur": "Shimano 105 R7000-GS, medium cage",
+   "Cassette": "Shimano 105 R7000, 11-speed, 11-30t",
+   "Crankstel": "Shimano 105 R7000",
+   "CHAINRINGS": "50/34",
+   "Bottom bracket": "Shimano threaded",
+   "Ketting": "KMC X11 EL, 11-speed w/ Missing Link™",
+   "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "Presta, 48mm valve"
+  },
+  "color_names": [
+   "Satin Cast Battleship/Hyper/Clean",
+   "Gloss Flo Red/Metallic White Silver/Tarmac Black"
+  ],
+  "color_hexes": [
+   "#0d5da8",
+   "#bc232b"
+  ],
+  "sizes": [
+   "54",
+   "58",
+   "61",
+   "49"
+  ],
+  "image_url": "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-62_TAR_SL6-SPORT-DISC_CSTBTLSHP-HYP_DETAIL-6?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-63_TAR_SL6-SPORT-DISC_FLORED-METWHTSIL-TARBLK_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/menstarmacdiscsport.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Men's Tarmac Disc Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-tarmac-disc-expert/p/154558",
+  "sku": "154558",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Tarmac SL6, FACT 10r carbon, Rider-First Engineered™, OSBB, clean routing, internally integrated seat clamp, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "FACT carbon, 12x100mm thru-axle, flat-mount disc",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Toupe Expert Gel, 143mm, hollow titanium rails, Adaptive Edge",
+   "Zadelpen": "S-Works FACT carbon Tarmac seatpost, 20mm offset",
+   "Zadelpenklem": "Tarmac SL6 clamp assembly",
+   "Achterrem": "Shimano Ultegra R8070, hydraulic disc",
+   "Rem": "Shimano Ultegra R8070, hydraulic disc",
+   "Shifter": "Shimano Ultegra Disc R8020",
+   "Voorderailleur": "Shimano Ultegra R8000, braze-on",
+   "Achterderailleur": "Shimano Ultegra R8000-GS, medium cage",
+   "Cassette": "Shimano Ultegra R8000, 11-speed, 11-30t",
+   "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed, 52/36T",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "Praxis, BB30 for Shimano",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Wiel voor": "Roval C 38 Disc, carbon, tubeless-ready, 38mm depth, 24h",
+   "Wiel achter": "Roval C 38 Disc, carbon, tubeless-ready, 38mm depth, 24h",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "Turbo Ultralight, 48mm Presta valve"
+  },
+  "color_names": [
+   "Black/Nearly Black/Charcoal/Rocket Red/Camo",
+   "Chameleon Green/Cast Blue/Tarmac Black/Team Yellow",
+   "White/Blue Ghost Pearl/Satin Black/Clean"
+  ],
+  "color_hexes": [
+   "#000000",
+   "#252918",
+   "#f9faf9"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90618-36_TAR_SL6-EXPERT-DISC_CMLNGRN-CSTBLU-TARBLK_HERO?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90618-37_TAR_SL6-EXPERT-DISC__HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90618-35_TAR_SL6-EXPERT-DISC_BLK-NRBLK-CHAR_DETAIL-6?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/90618-36_TAR_SL6-EXPERT-DISC_CMLNGRN-CSTBLU-TARBLK_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90618-36_TAR_SL6-EXPERT-DISC_CMLNGRN-CSTBLU-TARBLK_RDSQ?q=80&w=1200&fm=png"
+   ],
+   []
+  ],
+  "image": "Specialized/archived/menstarmacdiscexpert.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Women's Tarmac Disc Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/womens-tarmac-disc-expert/p/154568",
+  "sku": "154568",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Tarmac SL6, FACT 10r carbon, Rider-First Engineered™, OSBB, clean routing, internally integrated seat clamp, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "FACT carbon, 12x100mm thru-axle, flat-mount disc",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Oura Expert Gel, 155mm",
+   "Zadelpen": "S-Works FACT carbon Tarmac seatpost, 20mm offset",
+   "Zadelpenklem": "Tarmac SL6 clamp assembly",
+   "Achterrem": "Shimano Ultegra R8070, hydraulic disc",
+   "Rem": "Shimano Ultegra R8070, hydraulic disc",
+   "Shifter": "Shimano Ultegra Disc R8020",
+   "Voorderailleur": "Shimano Ultegra R8000, braze-on",
+   "Achterderailleur": "Shimano Ultegra R8000-GS, medium cage",
+   "Cassette": "Shimano Ultegra R8000, 11-speed, 11-30t",
+   "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed, 52/36T",
+   "Bottom bracket": "Praxis, BB30 for Shimano",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Wiel voor": "Roval C 38 Disc, carbon, tubeless-ready, 38mm depth, 24h",
+   "Wiel achter": "Roval C 38 Disc, carbon, tubeless-ready, 38mm depth, 24h",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "Turbo Ultralight, 48mm Presta valve"
+  },
+  "color_names": [
+   "Gloss Storm Grey/Ice Blue/Acid Lava"
+  ],
+  "color_hexes": [
+   "#7e98aa"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/97218-31_TAR-WMN_SL6-EXPERT-DISC_STRMGRY-ICEBLU-ACDLAVA_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97218-31_TAR-WMN_SL6-EXPERT-DISC_STRMGRY-ICEBLU-ACDLAVA_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/womenstarmacdiscexpert.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Men's S-Works Roubaix Di2 - Sagan Collection",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-s-works-roubaix-di2-sagan-collection/p/157721",
+  "sku": "157721",
+  "price": null,
+  "category": "Endurance",
+  "family": "Roubaix",
+  "model_year": 2018,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, Endurance Geometry, Rider-First Engineered™, 12x142mm thru-axle, Future Shock suspension, 20mm of travel, flat disc mounts",
+   "Voorvork": "Specialized FACT carbon, 12x100mm thru-axle",
+   "Stuur": "S-Works Carbon Hover Drop, 125x75mm",
+   "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+   "Zadel": "Body Geometry S-Works Phenom, carbon rails, 143mm",
+   "Zadelpen": "Specialized CG-R, FACT carbon, single-bolt, 27.2mm",
+   "Rem": "Shimano Dura-Ace Di2 9170, hydraulic disc",
+   "Achterrem": "Shimano Dura-Ace Di2 9170, hydraulic disc",
+   "Voorderailleur": "Shimano Dura-Ace Di2 9150, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace Di2 9150, 11-speed",
+   "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-30t",
+   "Crankstel": "S-Works Power Cranks—Dual, dual-sided power meter",
+   "CHAINRINGS": "50/34T",
+   "Bottom bracket": "OSBB, CeramicSpeed bearings",
+   "Ketting": "KMC X11SL, 11-speed",
+   "Shifter": "Shimano Dura-Ace Di2 Disc 9170",
+   "Wiel voor": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 32 Disc, Win Tunnel Engineered, carbon rim, 32mm depth, Roval AFD Hub, CeramicSpeed bearings, 24h",
+   "Buitenband": "Turbo Cotton, 700x28mm",
+   "Achterband": "Turbo Cotton, 700x28mm",
+   "Binnenband": "Standard, Presta valve",
+   "Pedaal": "Nylon, 105x78x28mm, loose balls w/ reflectors"
+  },
+  "color_names": [
+   "Black Gold"
+  ],
+  "color_hexes": [
+   "#2B2E34"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/94418-03_RBX_SW-DI2-SAGAN-COLLECTION_BLKGLD_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94418-03_RBX_SW-DI2-SAGAN-COLLECTION_BLKGLD_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/menssworksroubaixdi2sagancollection.jpg",
+  "years": [
+   2018
+  ]
+ },
+ {
+  "name": "Men's Diverge Pro",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-diverge-pro/p/157773",
+  "sku": "157773",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Stuur": "Easton EC70 AX Carbon Adventure Bar, 16-degree flare",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Body Geometry Phenom Pro, Carbon Rail, 143mm",
+   "Zadelpen": "S-Works CG-R, FACT carbon fiber, single-bolt, 27.2mm",
+   "Zadelpenklem": "Diverge collar for carbon frames",
+   "Achterrem": "Shimano Ultegra 8070, flat-mount disc",
+   "Rem": "Shimano Ultegra 8070, flat-mount disc",
+   "Shifter": "Shimano Ultegra Di2 Shilft Lever Kit, ST-R8070",
+   "Voorderailleur": "Shimano Ultegra Di2 R8050, braze-on",
+   "Achterderailleur": "Shimano Ultegra RD-8050 Di2, Shadow Design, GS 11-speed",
+   "Cassette": "Shimano Ultegra, 11-speed, 11-32t",
+   "Crankstel": "Praxis Zayante Carbon",
+   "CHAINRINGS": "48/32T",
+   "Bottom bracket": "Praxis, PF30",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Wiel voor": "Roval CL32 Disc",
+   "Wiel achter": "Roval CL32 Disc",
+   "Buitenband": "Sawtooth 2Bliss Ready, 700x38mm",
+   "Achterband": "Sawtooth 2Bliss Ready, 700x38mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/reflectors"
+  },
+  "color_names": [
+   "Satin Cav Tint Green/Blue Crystal Flake/Light Silver"
+  ],
+  "color_hexes": [
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-10_DIV_PRO-UDI2-19_CAVGRN-BLUCRYFLK-LTSIL_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/mensdivergepro.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Men's S-Works Tarmac Disc - Sagan Collection LTD",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-s-works-tarmac-disc-sagan-collection-ltd/p/157777",
+  "sku": "157777",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "FACT 12r carbon fiber, Rider-First Engineered™, OSBB, clean routing, internally integrated seat clamp, 12x142mm thru-axle, flat-mount disc",
+   "Stuur": "S-Works Shallow Bend Carbon, 125mm drop x 75 mm reach",
+   "Stuurpen": "S-Works SL, alloy, titanium bolts, 6-degree rise",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "S-Works Toupé, Body Geometry shape, 143mm width, carbon rails",
+   "Zadelpen": "S-Works FACT carbon Tarmac seatpost, 20mm offset",
+   "Zadelpenklem": "Tarmac SL6 clamp assembly",
+   "Achterrem": "Shimano Dura-Ace R9170, hydraulic disc",
+   "Rem": "Shimano Dura-Ace R9170, hydraulic disc",
+   "Shifter": "Shimano Dura-Ace Di2 Disc R9170",
+   "Voorderailleur": "Shimano Dura-Ace Di2 R9150, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace Di2 R9150, 11-speed",
+   "Cassette": "Shimano Dura-Ace R9100, 11-speed, 11-30t",
+   "Crankstel": "S-Works Power Cranks, dual-sided power measurement, +/- 1.5% accuracy",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "OSBB, CeramicSpeed bearings",
+   "Ketting": "Shimano Dura-Ace, 11-speed",
+   "Wiel voor": "Roval CLX 50 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 50mm depth, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 50 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 50mm depth, DT Swiss 240 internals, CeramicSpeed bearings, 24h",
+   "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
+   "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
+   "Binnenband": "Turbo Ultralight, 60mm Presta valve",
+   "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle, flat-mount disc"
+  },
+  "color_names": [
+   "Dark Teal/Charcoal"
+  ],
+  "color_hexes": [
+   "#009998"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-01_TAR_SL6-SW-DISC-DI2-SAGAN-COLL_DKTL-CHAR_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/menssworkstarmacdiscsagancollectionltd.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "S-Works Venge - Sagan Collection",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-venge-sagan-collection/p/157778",
+  "sku": "157778",
+  "price": null,
+  "category": "Race",
+  "family": "S-Works Bikes",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, Rider-First Engineered™, Win Tunnel Engineered, internal electric only cable routing, OSBB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "S-Works FACT 11r carbon, 100x12mm thru-axle, flat-mount disc",
+   "Stuur": "S-Works Aerofly II, 80mm reach x 130mm drop",
+   "Stuurpen": "Venge integrated stem, 6-degree",
+   "Stuurlint": "S-Wrap Roubaix bar tape",
+   "Zadel": "S-Works Power, 143mm, carbon rails, carbon base, synthetic leather",
+   "Zadelpen": "2019 S-Works Venge aero seatpost, FACT carbon, Di2-compatible",
+   "Zadelpenklem": "Venge integrated two-piece wedge",
+   "Achterrem": "Shimano Dura-Ace R9170, hydraulic disc",
+   "Rem": "Shimano Dura-Ace R9170, hydraulic disc",
+   "Shifter": "Shimano Dura-Ace Di2 Disc R9170",
+   "Voorderailleur": "Shimano Dura-Ace Di2 R9150, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace Di2 R9150, 11-speed",
+   "Cassette": "Shimano Dura-Ace 9100, 11-speed, 11-28t",
+   "Crankstel": "S-Works Power Cranks, dual-sided power measurement, +/- 1.5% accuracy",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "OSBB, CeramicSpeed bearings",
+   "Ketting": "Shimano Dura-Ace, 11-speed",
+   "Wiel voor": "Roval CLX 64 Disc rim, Roval AFD1, Center Lock™, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 64 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 64mm depth, DT Swiss 240 internals, CeramicSpeed bearings, 24h",
+   "Buitenband": "Turbo Cotton, 320 TPI, 700x26mm",
+   "Achterband": "Turbo Cotton, 320 TPI, 700x26mm",
+   "Binnenband": "Turbo Ultralight, 80mm Presta valve",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/reflectors"
+  },
+  "color_names": [
+   "Dark Teal/Charcoal"
+  ],
+  "color_hexes": [
+   "#a6d8ce"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/97819-01_VENGE-SW-DISC-DI2-SAGAN-COLL-DKTL-CHAR_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97819-01_VENGE-SW-DISC-DI2-SAGAN-COLL-DKTL-CHAR_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/sworksvengesagancollection.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Men's Tarmac Disc Comp - Sagan Collection LTD",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/mens-tarmac-disc-comp-sagan-collection-ltd/p/157874",
+  "sku": "157874",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Tarmac SL6, FACT 9r carbon, Rider-First Engineered™, threaded BB, clean routing, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "FACT carbon, 12x100mm thru-axle, flat-mount disc",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Toupe Comp Gel, 143mm, hollow Cro-Mo rails, Adaptive Edge",
+   "Zadelpen": "S-Works FACT carbon 27.2mm, 20mm offset",
+   "Zadelpenklem": "Alloy 31.2mm",
+   "Achterrem": "Shimano Ultegra R8070, hydraulic disc",
+   "Rem": "Shimano Ultegra R8070, hydraulic disc",
+   "Shifter": "Shimano Ultegra Disc R8020",
+   "Voorderailleur": "Shimano Ultegra R8000, braze-on",
+   "Achterderailleur": "Shimano Ultegra R8000-GS, medium cage",
+   "Cassette": "Shimano Ultegra R8000, 11-speed, 11-30t",
+   "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed, 52/36T",
+   "CHAINRINGS": "52/36T",
+   "Bottom bracket": "Shimano threaded",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "Presta, 48mm valve"
+  },
+  "color_names": [
+   "Dark Teal/Charcoal"
+  ],
+  "color_hexes": [
+   "#a6d8ce"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90619-55_TAR_SL6-COMP-DISC-SAGAN-COLL_DKTL-CHAR_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/menstarmacdisccompsagancollectionltd.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Dolce Elite",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/dolce-elite/p/159491",
+  "sku": "159491",
+  "price": null,
+  "category": "Race",
+  "family": "",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Specialized A1 Premium Aluminum, Women's Endurance Geometry, women's fully manipulated tube sets, threaded bottom bracket, 1-1/8\" lower bearing, 130mm spacing",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 6-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadel": "Women's Body Geometry Myth Sport, 155mm, thin, steel rails",
+   "Zadelpen": "Alloy, 2-bolt Clamp, 12mm offset, 27.2mm, anti-corrosion hardware",
+   "Zadelpenklem": "Bolt-type, 31.8mm",
+   "Voorvork": "Specialized FACT carbon fiber, alloy steerer/crown, Zertz inserts",
+   "Achterrem": "Axis 1.0 caliper",
+   "Rem": "Axis 1.0 caliper",
+   "Shifter": "Shimano 105 R7000, 11-speed",
+   "Voorderailleur": "Shimano R7000, clamp-on",
+   "Achterderailleur": "Shimano 105 R7000 GS, medium cage, 11-speed",
+   "Cassette": "Shimano 105 R7000, 11-speed, 11-32t",
+   "Crankstel": "Praxis Alba M30, PF30",
+   "CHAINRINGS": "48/32T",
+   "Bottom bracket": "Included w/ crankset",
+   "Ketting": "KMC X10 Extra Lightweight, 11-speed",
+   "Wiel voor": "DT R460, sealed cartridge hubs, 14g spokes, 20h",
+   "Wiel achter": "DT R460, sealed cartridge hubs, 14g spokes, 24h",
+   "Buitenband": "Espoir Sport, 60 TPI, wire bead, double BlackBelt protection, 700x25mm",
+   "Achterband": "Espoir Sport, 60 TPI, wire bead, double BlackBelt protection, 700x25mm",
+   "Binnenband": "Presta, 40mm valve",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/ reflectors"
+  },
+  "color_names": [
+   "Uv Lilac/Black/Reflective/Clean"
+  ],
+  "color_hexes": [
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "44",
+   "48",
+   "51",
+   "54",
+   "57"
+  ],
+  "image_url": "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_DETAIL_1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_DETAIL_2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_DETAIL_3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_DETAIL_4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_DETAIL_5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90819-41_DOLCE_ELITE-19_UVLLC-BLK_DETAIL_6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/dolceelite.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Women's Diverge Expert X1",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/womens-diverge-expert-x1/p/161991",
+  "sku": "161991",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2019,
+  "specifications": {
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Stuur": "Specialized Adventure Gear Hover, 12-degree flare",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "S-Wrap Roubaix w/ sticky gel",
+   "Zadel": "Women's Body Geometry Myth Comp, 155mm, thin, steel rails",
+   "Zadelpen": "S-Works CG-R, FACT carbon fiber, single-bolt, 27.2mm",
+   "Zadelpenklem": "Diverge collar for carbon frames",
+   "Achterrem": "SRAM Force, flat-mount disc",
+   "Rem": "SRAM Force, flat-mount disc",
+   "Shifter": "SRAM Force 1x hydraulic disc",
+   "Achterderailleur": "SRAM Force 1, long cage",
+   "Cassette": "SRAM XG 1150, 11-speed, 10-42t",
+   "Crankstel": "Praxis Zayante carbon 1X",
+   "CHAINRINGS": "40T",
+   "Bottom bracket": "Praxis, PF30",
+   "Ketting": "KMC X11 EL, 11-speed w/ Missing Link™",
+   "Wiel voor": "Roval C38 Disc",
+   "Wiel achter": "Roval C38 Disc",
+   "Naaf achter": "LU HAI RVT50L-K5-B17-AN2-N4-F1,TUBELESS VALVE STEM FOR WC007.",
+   "Buitenband": "Sawtooth 2Bliss Ready, 700x38mm",
+   "Achterband": "Sawtooth 2Bliss Ready, 700x38mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Pedaal": "Nylon, 105x78x28mm, loose ball w/reflectors"
+  },
+  "color_names": [
+   "White Sage/Dusty Turquoise/Black"
+  ],
+  "color_hexes": [
+   "#C2C2C2"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_HERO?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_HERO?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_DETAIL-1?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_DETAIL-2?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_DETAIL-3?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_DETAIL-4?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_DETAIL-5?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95419-33_DIV-WMN_EXPERT-X1_WHTSGE-DSTTUR-BLK_DETAIL-6?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/womensdivergeexpertx1.jpg",
+  "years": [
+   2019
+  ]
+ },
+ {
+  "name": "Diverge Pro",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/diverge-pro/p/171059",
+  "sku": "171059",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2020,
+  "specifications": {
+   "Stuur": "Easton EC70 AX Carbon, 16-degree flare",
+   "Stuurpen": "Future Stem, Pro",
+   "Stuurlint": "Roubaix S-Wrap",
+   "Zadel": "Body Geometry Power Pro, hollow titanium rails",
+   "Zadelpenklem": "Collar for carbon frames",
+   "Rem": "Shimano 105, Hydraulic disc",
+   "Achterrem": "Shimano 105, Hydraulic disc",
+   "Wiel voor": "Roval CL32 Disc",
+   "Wiel achter": "Roval CL32 Disc",
+   "Naaf achter": "Roval CLX32 tubeless valve stem",
+   "Achterband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Buitenband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Binnenband": "Presta valve, 48mm",
+   "Shifter": "Shimano Ultegra Di2 Disc R8070",
+   "Voorderailleur": "Shimano Ultegra Di2 R8050, braze-on",
+   "Achterderailleur": "Shimano Ultegra RX, RX805",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Cassette": "Shimano Ultegra, 11-speed, 11-34t",
+   "Crankstel": "Praxis Zayante carbon 1X",
+   "Chainrings": "40T",
+   "Bottom bracket": "Praxis, PF30",
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle"
+  },
+  "color_names": [
+   "Satin Sage Green/Mint Speckle"
+  ],
+  "color_hexes": [
+   "#badc72"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95420-10_DIVERGE-PRO-CARBON-UDI2-SGEGRN-MNT_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95420-10_DIVERGE-PRO-CARBON-UDI2-SGEGRN-MNT_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95420-10_DIVERGE-PRO-CARBON-UDI2-SGEGRN-MNT_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95420-10_DIVERGE-PRO-CARBON-UDI2-SGEGRN-MNT_RDSQ?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/divergepro.jpg",
+  "years": [
+   2020
+  ]
+ },
+ {
+  "name": "S-Works Shiv Disc - SRAM RED eTap AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-shiv-disc-sram-red-etap-axs/p/171300",
+  "sku": "171300",
+  "price": null,
+  "category": "Triathlon / TT",
+  "family": "Shiv",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, FACT IS construction, crosswind-optimized airfoils, OSBB, Integrated Fit System, Integrated Nutrition and Hydration Fuelcell, flat-mount disc brakes",
+   "Stuurlint": "Roubaix S-Wrap",
+   "Stuur": "Specialized Shiv Aerobar, carbon, variable stack adjust",
+   "Zadel": "Sitero Pro, carbon rails",
+   "Zadelpen": "Shiv Disc Carbon Post, 25 Forward Offset and 0mm Offset",
+   "Voorvork": "FACT carbon, integrated Fit System, flat-mount disc, 12x100mm thru-axle",
+   "Rem": "SRAM S-900 Aero, HRD",
+   "Achterrem": "SRAM S-900 Aero, HRD",
+   "Shifter": "SRAM eTap Clics",
+   "Achterderailleur": "SRAM RED eTAP AXS, 12-speed",
+   "Cassette": "SRAM RED XG-1290, 12-speed, 10-33t",
+   "Ketting": "SRAM RED 12-speed",
+   "Crankstel": "SRAM RED 1 AXS Power, Aero",
+   "Bottom bracket": "SRAM DUB for BB30",
+   "Wiel voor": "Roval CLX 64 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 64mm depth, CeramicSpeed bearings, 21h",
+   "Wiel achter": "Roval CLX 64 Disc, carbon, tubeless-ready, Win Tunnel Engineered, 64mm depth, DT Swiss 240 internals, CeramicSpeed bearings, 24h",
+   "Spaken": "Roval CLX 64 tubeless valve stem",
+   "Buitenband": "Turbo Cotton, 320 TPI, 700x24mm",
+   "Achterband": "Turbo Cotton, 320 TPI, 700x24mm",
+   "Binnenband": "Turbo Ultralight, 80mm Presta valve"
+  },
+  "color_names": [
+   "Gloss Metallic Crimson/Dove Grey"
+  ],
+  "color_hexes": [
+   "#bc1d32"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://resources.specialized.com/image/97420-01_SHIV-SW-DISC-ETAP-METCRMSN-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97420-01_SHIV-SW-DISC-ETAP-METCRMSN-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/97420-01_SHIV-SW-DISC-ETAP-METCRMSN-DOVGRY_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/97420-01_SHIV-SW-DISC-ETAP-METCRMSN-DOVGRY_RDSQ?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/sworksshivdiscsramredetapaxs.jpg",
+  "years": [
+   2020
+  ]
+ },
+ {
+  "name": "Diverge Comp",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/diverge-comp/p/171307",
+  "sku": "171307",
+  "price": 3499,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2020,
+  "specifications": {
+   "Stuur": "Specialized Adventure Gear Hover, 103mm drop x 70mm reach x 12º flare",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Roubaix S-Wrap",
+   "Zadel": "Body Geometry Power Sport, steel rails",
+   "Zadelpenklem": "Collar for carbon frames",
+   "Rem": "Shimano 105, Hydraulic disc",
+   "Achterrem": "Shimano 105, Hydraulic disc",
+   "Shifter": "Shimano Ultegra Disc R8020",
+   "Voorderailleur": "Shimano Ultegra R8000, braze-on",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Achterderailleur": "Shimano Ultegra RX800, 11-speed",
+   "Cassette": "Shimano Ultegra, 11-speed, 11-34t",
+   "Crankstel": "Praxis Zayante, BB30",
+   "Bottom bracket": "Praxis, PF30",
+   "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Achterband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Buitenband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Binnenband": "Presta valve, 48mm",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386"
+  },
+  "color_names": [
+   "Gloss Carbon/Gunmetal Reflective Clean"
+  ],
+  "color_hexes": [
+   "#524e4b"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95420-53_DIVERGE-COMP-CARBON-CARB-GUN_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95420-53_DIVERGE-COMP-CARBON-CARB-GUN_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95420-53_DIVERGE-COMP-CARBON-CARB-GUN_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95420-53_DIVERGE-COMP-CARBON-CARB-GUN_RDSQ?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/divergecomp.jpg",
+  "years": [
+   2020
+  ]
+ },
+ {
+  "name": "Diverge E5",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/diverge-e5/p/171310",
+  "sku": "171310",
+  "price": 1049,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2020,
+  "specifications": {
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Zadel": "Body Geometry Power Sport, hollow Cr-Mo rails",
+   "Zadelpen": "Alloy, 2-bolt Clamp, 12mm offset, 27.2mm, anti-corrosion hardware",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadelpenklem": "Diverge rack-mount seat collar",
+   "Shifter": "Shimano Claris 2000, 8-speed",
+   "Voorderailleur": "Shimano Claris, 8-speed, braze-on",
+   "Achterderailleur": "Shimano Claris, 8-speed",
+   "Cassette": "SunRace, 8-speed, 11-34t",
+   "Crankstel": "Shimano Claris R200",
+   "Chainrings": "50/34T",
+   "Bottom bracket": "BSA, 68mm, square-taper",
+   "Ketting": "KMC X8 w/ Missing Link™, 8-speed",
+   "Wiel voor": "Axis Sport Disc",
+   "Wiel achter": "Axis Sport Disc",
+   "Buitenband": "Specialized Roadsport, 60TPI, wire bead, Flak Jacket protection, 700x35mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Achterband": "Specialized Roadsport, 60TPI, wire bead, Flak Jacket protection, 700x35mm",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Achterrem": "Tektro Mira, flat-mount, mechanical disc",
+   "Rem": "Tektro Mira, flat-mount, mechanical disc",
+   "Pedaal": "REMOVE",
+   "SWAT": "Fender Clamp Adaptor",
+   "Frame": "Specialized E5 Premium Aluminum, Open Road Geometry, threaded BB, 12x142mm thru-axle, flat-mount disc"
+  },
+  "color_names": [
+   "Satin Black/Charcoal Camo",
+   "Satin Crimson/Rocket Red Clean"
+  ],
+  "color_hexes": [
+   "#000000",
+   "#bc1d32"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95420-73_DIVERGE-E5-BLK-CHAR-CAMO_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95420-73_DIVERGE-E5-BLK-CHAR-CAMO_HERO-SQUARE?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/95420-74_DIVERGE-E5-CRMSN-RKTRED_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95420-73_DIVERGE-E5-BLK-CHAR-CAMO_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95420-73_DIVERGE-E5-BLK-CHAR-CAMO_RDSQ?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/95420-74_DIVERGE-E5-CRMSN-RKTRED_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95420-74_DIVERGE-E5-CRMSN-RKTRED_RDSQ?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/divergee5.jpg",
+  "years": [
+   2020
+  ]
+ },
+ {
+  "name": "S-Works Diverge - SRAM eTap AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-diverge-sram-etap-axs/p/171315",
+  "sku": "171315",
+  "price": null,
+  "category": "Gravel",
+  "family": "S-Works Bikes",
+  "model_year": 2020,
+  "specifications": {
+   "Frame": "S-Works FACT 11r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc",
+   "Stuurlint": "Roubaix S-Wrap",
+   "Stuurpen": "S-Works Future Stem",
+   "Stuur": "Easton EC70 AX Carbon, 16-degree flare",
+   "Zadel": "S-Works Power, carbon rails, carbon base, synthetic leather",
+   "Zadelpen": "X-Fusion Manic Dropper, 50mm travel",
+   "Zadelpenklem": "Collar for carbon frames",
+   "Voorvork": "S-Works FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Rem": "SRAM RED eTAP AXS, hydraulic disc",
+   "Achterrem": "SRAM RED eTAP AXS, hydraulic disc",
+   "Shifter": "SRAM Red eTap AXS",
+   "Achterderailleur": "SRAM XX1 Eagle AXS",
+   "Cassette": "SRAM XG-1295 Eagle, 12-speed, 10-50t",
+   "Ketting": "SRAM XX1 Eagle, 12-speed",
+   "Crankstel": "SRAM RED AXS, 42T",
+   "Chainrings": "Steel, 30T",
+   "Bottom bracket": "SRAMM BB DUB, BB386",
+   "Wiel voor": "Roval CLX 32 Disc",
+   "Wiel achter": "Roval CLX 32 Disc",
+   "Naaf achter": "Roval CLX32 tubeless valve stem",
+   "Spaken": "DT Swiss, 12x100mm thru-axle, QR",
+   "Buitenband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Achterband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Binnenband": "Presta valve, 48mm"
+  },
+  "color_names": [
+   "Gloss Chameleon-Sunset Chameleon Fade/Holographic Black Clean"
+  ],
+  "color_hexes": [
+   "#255214"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95420-00_DIVERGE-SW-CARBON-ETAP-CMLN-SNST-BLKHLG_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95420-00_DIVERGE-SW-CARBON-ETAP-CMLN-SNST-BLKHLG_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95420-00_DIVERGE-SW-CARBON-ETAP-CMLN-SNST-BLKHLG_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95420-00_DIVERGE-SW-CARBON-ETAP-CMLN-SNST-BLKHLG_RDSQ?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/sworksdivergesrametapaxs.jpg",
+  "years": [
+   2020
+  ]
+ },
+ {
+  "name": "Diverge Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/diverge-expert/p/171326",
+  "sku": "171326",
+  "price": 4799,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2020,
+  "specifications": {
+   "Stuur": "Specialized Adventure Gear Hover, 103mm drop x 70mm reach x 12º flare",
+   "Zadel": "Body Geometry Power Expert, titanium rails",
+   "Stuurpen": "Future Stem, Pro",
+   "Stuurlint": "Roubaix S-Wrap",
+   "Zadelpenklem": "Collar for carbon frames",
+   "Shifter": "SRAM Force 1x hydraulic disc",
+   "Achterderailleur": "SRAM Force 1, long cage",
+   "Cassette": "SRAM XG 1150, 11-speed, 10-42t",
+   "Crankstel": "Praxis Zayante carbon 1X",
+   "Bottom bracket": "Praxis, PF30",
+   "Ketting": "KMC X11 Extra Lightweight, 11-speed",
+   "Wiel voor": "Roval C38 Disc",
+   "Wiel achter": "Roval C38 Disc",
+   "Naaf achter": "REMOVE",
+   "Buitenband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Achterband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Binnenband": "Presta valve, 48mm",
+   "Voorvork": "Specialized FACT carbon, flat-mount disc, 12x100mm thru-axle",
+   "Frame": "Specialized FACT 9r carbon, Open Road Geometry, 12x142mm thru-axle, Future Shock Progressive suspension, 20mm of travel, flat-mount disc, BB386"
+  },
+  "color_names": [
+   "Satin Navy/White Mountains Clean"
+  ],
+  "color_hexes": [
+   "#293c76"
+  ],
+  "sizes": [
+   "48",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95420-31_DIVERGE-EXPERT-CARBON-X1-NVY-WHTMTN_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95420-31_DIVERGE-EXPERT-CARBON-X1-NVY-WHTMTN_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95420-31_DIVERGE-EXPERT-CARBON-X1-NVY-WHTMTN_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95420-31_DIVERGE-EXPERT-CARBON-X1-NVY-WHTMTN_RDSQ?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/divergeexpert.jpg",
+  "years": [
+   2020
+  ]
+ },
+ {
+  "name": "Diverge Pro Carbon",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/diverge-pro-carbon/p/175283",
+  "sku": "175283",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2021,
+  "specifications": {
+   "SWAT": "Integrated SWAT door, internal storage system",
+   "Shifter": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM X01 Eagle AXS",
+   "Cassette": "SRAM XG-1295 Eagle, 12-speed, 10-50t",
+   "Ketting": "SRAX X01 Eagle, 12-speed",
+   "Crankstel": "SRAM Force 1x, 42T",
+   "Chainrings": "42T",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Stuur": "Easton EC70 AX Carbon, 16-degree flare",
+   "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+   "Stuurpen": "Future Stem, Pro",
+   "Stuurlint": "Roubaix S-Wrap",
+   "Zadel": "Body Geometry Power Pro, hollow titanium rails",
+   "Wiel voor": "Roval Terra CL, 25mm inner width carbon rim, 32mm depth, DT for Roval 350 hub, 24h, DT Swiss Comp Race spokes",
+   "Wiel achter": "Roval Terra CL, 25mm inner width carbon rim, 32mm depth, DT for Roval 350 hub, 24h, DT Swiss Comp Race spokes",
+   "Buitenband": "Pathfinder Pro, 2Bliss Ready, transparent sidewall, 700x38mm",
+   "Achterband": "Pathfinder Pro, 2Bliss Ready, transparent sidewall, 700x38mm",
+   "Binnenband": "700x28/38mm, 48mm Presta valve",
+   "Voorvork": "Future Shock 2.0 w/ Damper, Smooth Boot, FACT carbon, 12x100 mm thru-axle, flat-mount",
+   "Frame": "Specialized Diverge FACT 9r carbon, SWAT™ Door integration, Future Shock suspension, threaded BB, internal routing, 12x142mm thru-axle, flat-mount disc",
+   "Zadelpenklem": "Alloy, 30.8mm"
+  },
+  "color_names": [
+   "Gloss Redwood/Smoke/Chrome/Clean"
+  ],
+  "color_hexes": [
+   "#811515"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_D2-BAR?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/96220-10_DIVERGE-PRO-CARBON-ETAP-REDWD-SMK-CHRM_D4-SSTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/divergeprocarbon.jpg",
+  "years": [
+   2021
+  ]
+ },
+ {
+  "name": "Crux Pro",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/crux-pro/p/187059",
+  "sku": "187059",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2021,
+  "specifications": {
+   "Achterrem": "SRAM Rival 1, hydraulic disc",
+   "Rem": "SRAM Rival 1, hydraulic disc",
+   "Shifter": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTAP AXS, 12-speed",
+   "Cassette": "SRAM Force, XG-1270 D1, 12-speed, 10-36t",
+   "Crankstel": "SRAM Force 1x",
+   "Bottom bracket": "SRAM DUB for BB30",
+   "Ketting": "SRAM CN Force 12-speed",
+   "Wiel voor": "Roval Terra CL, 25mm inner width carbon rim, 32mm depth, DT for Roval 350 hub, 24h, DT Swiss Comp Race spokes",
+   "Wiel achter": "Roval Terra CL, 25mm inner width carbon rim, 32mm depth, DT for Roval 350 hub, 24h, DT Swiss Comp Race spokes",
+   "Buitenband": "Tracer Pro, 2Bliss Ready, 700x33mm",
+   "Achterband": "Tracer Pro, 2Bliss Ready, 700x33mm",
+   "Binnenband": "Presta valve, 48mm",
+   "Stuur": "S-Works Short & Shallow, 125mm Drop, 75mm Reach w/Di2 Hole",
+   "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuurlint": "Specialized CX Pro Gel",
+   "Zadel": "Body Geometry Power Pro, hollow titanium rails",
+   "Zadelpenklem": "Included w/ frame",
+   "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+   "Frame": "FACT 11r carbon, Rider-First Engineered™, OSBB, 1-3/8\" lower bearing, 12x142mm thru-axle, flat-mount disc"
+  },
+  "color_names": [
+   "Smoke/Dove Grey"
+  ],
+  "color_hexes": [
+   "#524e4b"
+  ],
+  "sizes": [
+   "46",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91421-10_CRUX-PRO-SMK-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91421-10_CRUX-PRO-SMK-DOVGRY_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/cruxpro.jpg",
+  "years": [
+   2021
+  ]
+ },
+ {
+  "name": "Aethos Expert",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/aethos-expert/p/187065",
+  "sku": "187065",
+  "price": 5800,
+  "category": "Race",
+  "family": "Aethos",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Aethos FACT 10r Carbon, Rider First Engineered™, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Zadelpenklem": "Specialized Alloy, 30.0mm",
+   "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "Shimano 105, Hydraulic disc",
+   "Achterrem": "Shimano 105, Hydraulic disc",
+   "Shifter": "Shimano Ultegra Di2 Disc R8070",
+   "Voorderailleur": "Shimano Ultegra Di2 R8050, braze-on",
+   "Achterderailleur": "Shimano Ultegra Di2 R8050, GS medium cage",
+   "Cassette": "Shimano Ultegra R8000, 11-speed, 11-30t",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Crankstel": "Shimano Ultegra R8000, HollowTech 2, 11-speed",
+   "Bottom bracket": "Shimano Threaded BSA BB",
+   "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Naaf voor": "Tubeless Valve",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+   "Stuurlint": "Aethos Expert Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Expert",
+   "Zadelpen": "Roval Alpinist Carbon Seatpost",
+   "Pedaal": "TEST RIDE PEDALS PROVIDED BY SPECIALIZED",
+   "Gewicht": "7.14 kg (15 lb, 11.9 oz)"
+  },
+  "color_names": [
+   "Gloss Ice Blue / Teal Tint / Flake Silver"
+  ],
+  "color_hexes": [
+   "#86d2e0"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_D2-BAR?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/97221-30_AETHOS-EXPERT-ICEBLU-TLTNT-FLKSIL_D3-HT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/aethosexpert.jpg",
+  "years": [
+   2021
+  ]
+ },
+ {
+  "name": "Crux",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/crux/p/187432",
+  "sku": "187432",
+  "price": 3300,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2021,
+  "specifications": {
+   "Achterrem": "SRAM Rival 1, hydraulic disc",
+   "Rem": "SRAM Rival 1, hydraulic disc",
+   "Wiel voor": "Axis Elite Disc",
+   "Wiel achter": "Axis Elite Disc",
+   "Buitenband": "Tracer Sport, 700x33mm",
+   "Achterband": "Tracer Sport, 700x33mm",
+   "Shifter": "SRAM Apex 1x HRD",
+   "Achterderailleur": "SRAM Apex 1, long cage, 11-speed",
+   "Cassette": "Sunrace, 11-speed, 11-36t",
+   "Crankstel": "Praxis Alba M30, 1x direct-mount",
+   "TANDWIELEN": "40T",
+   "Bottom bracket": "Praxis 6806 bearings",
+   "Ketting": "KMC X11 Extra Lightweight, 11-speed",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Zadel": "Body Geometry Power Sport, steel rails",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuurlint": "Specialized CX Pro Gel",
+   "Zadelpen": "Specialized Alloy, Single Bolt, 27.2mm",
+   "Zadelpenklem": "Included w/ frame",
+   "Frame": "FACT 11r carbon, Rider-First Engineered™, OSBB, 1-3/8\" lower bearing, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "S-Works FACT carbon, 12x100mm thru-axle",
+   "Binnenband": "Presta valve, 48mm"
+  },
+  "color_names": [
+   "Forest Green/Flake Silver"
+  ],
+  "color_hexes": [
+   "#4ca52f"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91421-70_CRUX-FSTGRN-FLKSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91421-70_CRUX-FSTGRN-FLKSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/crux.jpg",
+  "years": [
+   2021
+  ]
+ },
+ {
+  "name": "Allez Sprint LTD - SRAM Force eTap AXS 1x",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/allez-sprint-ltd-sram-force-etap-axs-1x/p/189819",
+  "sku": "189819",
+  "price": null,
+  "category": "Race",
+  "family": "Allez",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Specialized E5 Premium Aluminum Disc frame with D'Aluisio Smartweld Technology, hydroformed aluminum tubing, tapered head tube, fully internally routed cables, threaded BB",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuur": "S-Works Aerofly II",
+   "Zadel": "Body Geometry Power Pro, hollow titanium rails",
+   "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, Di2 Compatible, 20mm offset",
+   "Zadelpenklem": "Allez Sprint seat collar",
+   "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "SRAM Force, Hydraulic Disc",
+   "Achterrem": "SRAM Force, Hydraulic Disc",
+   "Shifter": "SRAM Force eTap AXS",
+   "Achterderailleur": "SRAM Force eTap AXS, 12-speed",
+   "Cassette": "SRAM Force, XG-1270 D1, 12-speed, 10-36t",
+   "Ketting": "SRAM CN Force 12-speed",
+   "Crankstel": "SRAM Force 1 AXS Power Meter, 46T",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Wiel voor": "Roval Rapide CL, 21mm internal width carbon rim, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes",
+   "Wiel achter": "Roval Rapide CL, 21mm internal width carbon rim, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Binnenband": "Turbo Ultralight, 60mm Presta valve"
+  },
+  "color_names": [
+   "Gloss Purple Tint Over Chameleon / Satin Chameleon"
+  ],
+  "color_hexes": [
+   "#24197A"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90021-76_ALLEZ-SPRINT-LTD-PRPTNTALU-CMLN_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90021-76_ALLEZ-SPRINT-LTD-PRPTNTALU-CMLN_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90021-76_ALLEZ-SPRINT-LTD-PRPTNTALU-CMLN_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90021-76_ALLEZ-SPRINT-LTD-PRPTNTALU-CMLN_DETAIL1?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/allezsprintltdsramforceetapaxs1x.jpg",
+  "years": [
+   2021
+  ]
+ },
+ {
+  "name": "Diverge Pro Carbon - Campagnolo LTD",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/diverge-pro-carbon--campagnolo-ltd/p/199112",
+  "sku": "199112",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "Specialized Diverge FACT 9r carbon, SWAT™ Door integration, Future Shock suspension, threaded BB, internal routing, 12x142mm thru-axle, flat-mount disc",
+   "Zadelpenklem": "Alloy, 30.8mm",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Stuurpen": "Future Stem, Pro",
+   "Stuur": "Easton EC70 AX Carbon, 16-degree flare",
+   "Zadel": "Body Geometry Power Pro",
+   "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+   "Voorvork": "Future Shock 2.0 w/ Damper, Smooth Boot, FACT carbon, 12x100 mm thru-axle, flat-mount",
+   "Rem": "Campagnolo Ekar, hydraulic",
+   "Achterrem": "Campagnolo Ekar, hydraulic",
+   "Shifter": "Campagnolo Ekar, hydraulic brake levers, 13s mechanical shifting",
+   "Achterderailleur": "Campagnolo Ekar, 13-speed",
+   "Cassette": "Campagnolo Ekar, 13-speed 9-42t",
+   "Ketting": "Campagnolo Ekar, 13-speed",
+   "Crankstel": "Campagnolo Ekar",
+   "Chainrings": "38T",
+   "Bottom bracket": "Campagnolo",
+   "Wiel voor": "Roval Terra CL",
+   "Wiel achter": "Roval Terra CL",
+   "Buitenband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Achterband": "Pathfinder Pro 2Bliss Ready, Transparent Sidewall, 700x38c",
+   "Binnenband": "Presta valve, 48mm",
+   "SWAT": "Integrated SWAT door, internal storage system"
+  },
+  "color_names": [
+   "Gloss Maroon/Black Tint Fade/Satin Black/Chrome"
+  ],
+  "color_hexes": [
+   "#590F22"
+  ],
+  "sizes": [
+   "52",
+   "54",
+   "56",
+   "58"
+  ],
+  "image_url": "https://resources.specialized.com/image/95421-01_DIVERGE-LTD-CARBON-MRN-BLKTNT-BLK_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95421-01_DIVERGE-LTD-CARBON-MRN-BLKTNT-BLK_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   []
+  ],
+  "image": "Specialized/archived/divergeprocarboncampagnololtd.jpg",
+  "years": [
+   2021
+  ]
+ },
+ {
+  "name": "Tarmac SL7 Pro - SRAM Force eTAP AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/tarmac-sl7-pro-sram-force-etap-axs/p/199466",
+  "sku": "199466",
+  "price": 9000,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Tarmac SL7 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "SRAM Force eTAP AXS, hydraulic disc",
+   "Achterrem": "SRAM Force eTAP AXS, hydraulic disc",
+   "Shifter": "SRAM Force eTap AXS",
+   "Voorderailleur": "SRAM Force eTAP AXS, braze-on",
+   "Achterderailleur": "SRAM Force eTAP AXS, 12-speed",
+   "Cassette": "SRAM Force, 12-speed, 10-33t",
+   "Ketting": "SRAM Force 12-speed",
+   "Crankstel": "SRAM Force AXS Power Meter",
+   "Kettingblad": "Steel, 30T",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Wiel voor": "Roval Rapide CL, 21mm internal width carbon rim, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel achter": "Roval Rapide CL, 21mm internal width carbon rim, Win Tunnel Engineered, DT for Roval 350 hub, DT Swiss Revolution spokes",
+   "Binnenband": "Turbo Ultralight, 60mm Presta valve",
+   "Stuurpen": "Tarmac integrated stem, 6-degree",
+   "Stuur": "Roval Rapide Handlebar, carbon",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Pro, hollow titanium rails",
+   "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, 20mm offset",
+   "Zadelpenklem": "Tarmac integrated wedge"
+  },
+  "color_names": [
+   "Carbon / Smoke / Metallic White Silver"
+  ],
+  "color_hexes": [
+   "#000000"
+  ],
+  "sizes": [
+   "56"
+  ],
+  "image_url": "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_D4-STTT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_D2-BAR?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90622-10_TARMAC-SL7-PRO-ETAP-CARB-SMK-METWHTSIL_D3-HT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/tarmacsl7prosramforceetapaxs.jpg",
+  "years": [
+   2022
+  ]
+ },
+ {
+  "name": "Allez Elite - SRAM Rival",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/allez-elite-sram-rival/p/199474",
+  "sku": "199474",
+  "price": null,
+  "category": "Race",
+  "family": "Allez",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Specialized E5 Premium Aluminum, fully manipulated tubing w/ SmoothWelds, 1-1/8\"- 1-3/8\" tapered head tube, internal cable routing, threaded BB, 130mm spacing",
+   "Voorvork": "Specialized FACT carbon, 1-1/8\" to 1-3/8\" taper, fender eyelets",
+   "Rem": "Axis 1.0 caliper",
+   "Achterrem": "Axis 1.0 caliper",
+   "Shifter": "SRAM Rival 22",
+   "Voorderailleur": "SRAM Rival 22, clamp-on",
+   "Achterderailleur": "SRAM Rival 22, 11-speed",
+   "Cassette": "SunRace, 11-speed, 11-32t",
+   "Ketting": "KMC X11 Extra Lightweight, 11-speed",
+   "Crankstel": "Praxis Alba",
+   "Chainrings": "50/34T",
+   "Bottom bracket": "Praxis 68mm BSA",
+   "Wiel voor": "DT R460, sealed cartridge hubs, 14g spokes, 20h",
+   "Buitenband": "RoadSport, 700x26",
+   "Achterband": "RoadSport, 700x26",
+   "Wiel achter": "DT R460, sealed cartridge hubs, 14g spokes, 24h",
+   "Binnenband": "Presta, 40mm valve",
+   "Stuurpen": "Specialized, 3D-forged alloy, 4-bolt, 7-degree rise",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurlint": "Specialized S-Wrap",
+   "Zadel": "Body Geometry Bridge Saddle, steel rails",
+   "Zadelpen": "Alloy, 2-bolt Clamp, 12mm offset, 27.2mm, anti-corrosion hardware",
+   "Zadelpenklem": "Bolt-type, 31.8mm"
+  },
+  "color_names": [
+   "Satin Black/Gloss Black",
+   "Gloss Cast Blue/Flake Silver/Carbon",
+   "Gloss Smoke/Ice Papaya/Carbon"
+  ],
+  "color_hexes": [
+   "#000000",
+   "#16263E",
+   "#000000"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/94622-40_ALLEZ-E5-ELITE-BLK-BLK_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94622-40_ALLEZ-E5-ELITE-BLK-BLK_HERO-SQUARE?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/94622-42_ALLEZ-E5-ELITE-CSTBLU-FLKSIL-CARB_HERO-SQUARE?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/94622-41_ALLEZ-E5-ELITE-SMK-ICEPPYA-CARB_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/94622-40_ALLEZ-E5-ELITE-BLK-BLK_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-40_ALLEZ-E5-ELITE-BLK-BLK_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-40_ALLEZ-E5-ELITE-BLK-BLK_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-40_ALLEZ-E5-ELITE-BLK-BLK_D3-HT?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/94622-42_ALLEZ-E5-ELITE-CSTBLU-FLKSIL-CARB_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-42_ALLEZ-E5-ELITE-CSTBLU-FLKSIL-CARB_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-42_ALLEZ-E5-ELITE-CSTBLU-FLKSIL-CARB_D3-POV?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/94622-41_ALLEZ-E5-ELITE-SMK-ICEPPYA-CARB_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-41_ALLEZ-E5-ELITE-SMK-ICEPPYA-CARB_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94622-41_ALLEZ-E5-ELITE-SMK-ICEPPYA-CARB_D3-HT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/allezelitesramrival.jpg",
+  "years": [
+   2022
+  ]
+ },
+ {
+  "name": "S-Works Diverge - SRAM RED eTAP AXS / XX1 Eagle AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/s-works-diverge-sram-red-etap-axs--xx1-eagle-axs/p/199968",
+  "sku": "199968",
+  "price": 14000,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2022,
+  "specifications": {
+   "Voorvork": "Future Shock 2.0 w/ Damper, Smooth Boot, FACT carbon, 12x100 mm thru-axle, flat-mount",
+   "Rem": "SRAM Red eTap AXS, hydraulic disc, 160mm CenterLine XR rotor",
+   "Achterrem": "SRAM Red eTap AXS, hydraulic disc, 160mm CenterLine XR rotor",
+   "Shifter": "SRAM Red eTap AXS",
+   "Achterderailleur": "SRAM XX1 Eagle AXS",
+   "Cassette": "SRAM XG-1295 Eagle, 12-speed, 10-50t",
+   "Ketting": "SRAM XX1 Eagle, 12-speed",
+   "Crankstel": "SRAM Red 1 AXS",
+   "Kettingblad": "42T",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Wiel voor": "Roval Terra CLX, 25mm internal width, 32mm depth, 21h, Tubeless ready, DT for Roval hub, Centerlock disc, DT Swiss Aerolite spokes",
+   "Buitenband": "Pathfinder Pro 2BR, Tan sidewall, 700x42",
+   "Achterband": "Pathfinder Pro 2BR, Tan sidewall, 700x42",
+   "Wiel achter": "Roval Terra CLX, 25mm internal width, 32mm depth, 21h, Tubeless ready, DT for Roval hub, Centerlock disc, DT Swiss Aerolite spokes",
+   "Binnenband": "Standard 40mm SV 700x32-50",
+   "Frame": "S-Works Diverge FACT 11r carbon, SWAT™ Door integration, Future Shock suspension, threaded BB, internal routing, 12x142mm thru-axle, flat-mount disc",
+   "Zadelpenklem": "Specialized Alloy, 30.8mm",
+   "Stuurpen": "S-Works Future Stem w/ Integrated Computer mount",
+   "Stuur": "Roval Terra, carbon, 103mm drop x 70mm reach x 12º flare",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry S-Works Power, carbon fiber rails, carbon fiber base",
+   "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+   "SWAT": "Integrated SWAT door, internal storage system"
+  },
+  "color_names": [
+   "Gloss Light Silver/Dream Silver/Dusty Blue/Wild"
+  ],
+  "color_hexes": [
+   "#575861"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95422-00_DIVERGE-SW-LTSIL-DRMSIL-DSTBLU_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95422-00_DIVERGE-SW-LTSIL-DRMSIL-DSTBLU_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95422-00_DIVERGE-SW-LTSIL-DRMSIL-DSTBLU_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95422-00_DIVERGE-SW-LTSIL-DRMSIL-DSTBLU_RDSQ_?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95422-00_DIVERGE-SW-LTSIL-DRMSIL-DSTBLU_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95422-00_DIVERGE-SW-LTSIL-DRMSIL-DSTBLU_D2-BAR?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/sworksdivergesramredetapaxsxx1eagleaxs.jpg",
+  "years": [
+   2022
+  ]
+ },
+ {
+  "name": "Tarmac SL7 Expert - SRAM Rival AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/tarmac-sl7-expert-sram-rival-axs/p/216926",
+  "sku": "216926",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Tarmac SL7 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "SRAM Rival, hydraulic disc",
+   "Achterrem": "SRAM Rival, hydraulic disc",
+   "Shifter": "SRAM Rival AXS",
+   "Voorderailleur": "SRAM Rival eTAP AXS, braze-on",
+   "Achterderailleur": "SRAM Rival eTAP AXS, Max 36T",
+   "Cassette": "SRAM XG 1250 10-36",
+   "Ketting": "SRAM Rival 12 speed",
+   "Crankstel": "SRAM Rival AXS with Power",
+   "Chainrings": "48/35T",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel voor": "Roval C38, 21mm internal width carbon rim",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel achter": "Roval C38, 21mm internal width carbon rim",
+   "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+   "Stuurpen": "Tarmac integrated stem, 6-degree",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Expert",
+   "Zadelpen": "2021 S-Works Tarmac Carbon seat post, FACT Carbon, 20mm offset",
+   "Zadelpenklem": "Tarmac integrated wedge"
+  },
+  "color_names": [
+   "Gloss Morning Mist/White",
+   "Satin Carbon/White"
+  ],
+  "color_hexes": [
+   "#CAD3D9",
+   "#404042"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_HERO-SQUARE?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_D2-BAR?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-31_TARMAC-SL7-EXPERT-MORNMST-WHT_D4-STTT?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_D2-BAR?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90623-30_TARMAC-SL7-EXPERT-CARB-WHT_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/tarmacsl7expertsramrivalaxs.jpg",
+  "years": [
+   2023
+  ]
+ },
+ {
+  "name": "Diverge Comp Carbon - Shimano GRX",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/diverge-comp-carbon-shimano-grx/p/216973",
+  "sku": "216973",
+  "price": null,
+  "category": "Gravel",
+  "family": "Diverge",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Specialized Diverge FACT 9r carbon, SWAT™ Door integration, Future Shock suspension, threaded BB, internal routing, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "Future Shock 2.0 w/ Damper, Smooth Boot, FACT carbon, 12x100 mm thru-axle, flat-mount",
+   "Rem": "Shimano GRX ST-R810, Hydraulic Disc, 160mm centerlock, SM-RT70",
+   "Achterrem": "Shimano GRX ST-R810, Hydraulic Disc, 160mm centerlock, SM-RT70",
+   "Shifter": "Shimano GRX 2x11 speed, ST-R810, Hydraulic Disc",
+   "Voorderailleur": "Shimano GRX R810",
+   "Achterderailleur": "Shimano GRX R810, 11speed",
+   "Cassette": "Shimano Ultegra, 11-speed, 11-34t",
+   "Ketting": "Shimano Ultegra, 11-speed",
+   "Crankstel": "Shimano GRX RX600",
+   "Chainrings": "46/30T",
+   "Bottom bracket": "Shimano BSA Threaded",
+   "Wiel voor": "DT Swiss G540 rim, 24mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples",
+   "Buitenband": "Pathfinder Pro 2BR, Tan sidewall, 700x42",
+   "Achterband": "Pathfinder Pro 2BR, Tan sidewall, 700x42",
+   "Wiel achter": "DT Swiss G540 rim, 24mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples",
+   "Binnenband": "Standard 40mm SV 700x32-50",
+   "Stuurpen": "Future Stem, Comp",
+   "Stuur": "Specialized Adventure Gear Hover, 103mm drop x 70mm reach x 12º flare",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Sport, steel rails",
+   "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+   "Zadelpenklem": "Specialized Alloy, 30.8mm",
+   "SWAT": "Integrated SWAT door, internal storage system",
+   "Gewicht": "10.0kg (22 lb, .7 oz)"
+  },
+  "color_names": [
+   "GLOSS OBSIDIAN/HARVEST GOLD METALLIC",
+   "GLOSS METALLIC DEEP LAKE GRANITE/PEARL"
+  ],
+  "color_hexes": [
+   "#151516",
+   "#1F3C48"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/95423-53_DIVERGE-COMP-CARBON-OBSD-HRVGLDMET_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/95423-53_DIVERGE-COMP-CARBON-OBSD-HRVGLDMET_HERO-SQUARE?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/95423-54_DIVERGE-COMP-CARBON-DPLAKEMET-GRNT-PRL_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/95423-53_DIVERGE-COMP-CARBON-OBSD-HRVGLDMET_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95423-53_DIVERGE-COMP-CARBON-OBSD-HRVGLDMET_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95423-53_DIVERGE-COMP-CARBON-OBSD-HRVGLDMET_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95423-53_DIVERGE-COMP-CARBON-OBSD-HRVGLDMET_D3-HT?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/95423-54_DIVERGE-COMP-CARBON-DPLAKEMET-GRNT-PRL_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95423-54_DIVERGE-COMP-CARBON-DPLAKEMET-GRNT-PRL_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95423-54_DIVERGE-COMP-CARBON-DPLAKEMET-GRNT-PRL_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/95423-54_DIVERGE-COMP-CARBON-DPLAKEMET-GRNT-PRL_D3-HT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/divergecompcarbonshimanogrx.jpg",
+  "years": [
+   2023
+  ]
+ },
+ {
+  "name": "Allez Sprint LTD - Shimano 105 Di2",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/allez-sprint-ltd-shimano-105-di2/p/218273",
+  "sku": "218273",
+  "price": 3950,
+  "category": "Race",
+  "family": "Allez",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Specialized E5 Premium Aluminum Disc frame with D'Aluisio Smartweld Sprint Technology, hydroformed aluminum tubing, tapered head tube, fully internally routed cables, threaded BB",
+   "Voorvork": "FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "Shimano 105, Hydraulic disc",
+   "Achterrem": "Shimano 105, Hydraulic disc",
+   "Shifter": "Shimano 105 Di2 ST-R7170, 12-speed",
+   "Voorderailleur": "Shimano 105 Di2 R7170, braze-on",
+   "Achterderailleur": "Shimano 105 Di2 R7170, 12-speed",
+   "Cassette": "Shimano 105, 12-speed, 11-34t",
+   "Ketting": "Shimano SLX CN-M7100, 12-speed",
+   "Crankstel": "Shimano 105, 12-speed",
+   "Kettingblad": "32T",
+   "Bottom bracket": "Shimano Threaded BSA BB",
+   "Wiel voor": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Buitenband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Achterband": "Turbo Pro, 60 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel achter": "DT Swiss R470 rim, 20mm internal width, tubeless ready, 24h, Specialized full sealed bearing thru axle hub, centerlock disc, alloy freehub body, DT Swiss Champion 14G stainless steel spokes, DT Swiss brass nipples.",
+   "Binnenband": "Presta, 40mm valve",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuur": "Specialized Shallow Drop, 6061, 70x125mm, 31.8mm clamp",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Sport, steel rails",
+   "Zadelpen": "S-Works Tarmac Carbon seat post, FACT Carbon, 20mm offset",
+   "Zadelpenklem": "Allez Sprint seat collar"
+  },
+  "color_names": [
+   "GLOSS SPECTRAFLAIR GRANITE OVER BLACK / METALLIC WHITE SILVER"
+  ],
+  "color_hexes": [
+   "#1E292C"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_D2-BAR?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/90023-70_ALLEZ-SPRINT-LTD-SPCTFLR-GRNT-METWHTSIL_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/allezsprintltdshimano105di2.jpg",
+  "years": [
+   2023
+  ]
+ },
+ {
+  "name": "S-Works Roubaix SL8 LTD - SRAM RED AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/s-works-roubaix-sl8-ltd--sram-red-axs/p/275618",
+  "sku": "275618",
+  "price": 14500,
+  "category": "Endurance",
+  "family": "S-Works Fietsen",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "FACT 12R, Rider First Engineered™ (RFE), FreeFoil Shape Library tubes, threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "Future Shock 3.3 w/ Smooth Boot, FACT Carbon 12x100mm, thru-axle, flat-mount disc",
+   "Rem": "NEW SRAM RED, Hydraulic Disc, 160mm",
+   "Achterrem": "NEW SRAM RED, Hydraulic Disc, 160mm",
+   "Shifter": "NEW SRAM RED AXS, 12-speed",
+   "Voorderailleur": "NEW SRAM RED AXS, braze-on",
+   "Achterderailleur": "NEW SRAM RED AXS, 12-speed",
+   "Cassette": "NEW SRAM RED XG-1290, 12-speed, 10-36t",
+   "Ketting": "NEW SRAM RED 12-speed",
+   "Crankstel": "NEW SRAM RED AXS Power Meter",
+   "Kettingblad": "46/33",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Buitenband": "S-Works Mondo 2BR, 700x32c",
+   "Wiel voor": "Roval Terra CLX II, 25mm internal width, 32mm depth, 21h, Tubeless ready, Roval LFD hub with ceramic SINC bearings, Centerlock disc, DT Swiss Aerolite spokes",
+   "Achterband": "S-Works Mondo 2BR, 700x32c",
+   "Wiel achter": "Roval Terra CLX II, 25mm internal width, 32mm depth, 24h, Tubeless ready, Roval LFD hub with ceramic SINC bearings, Centerlock disc, DT Swiss Aerolite spokes",
+   "Binnenband": "700x28/38mm, 60mm Presta valve",
+   "Stuurpen": "S-Works Future Stem",
+   "Stuur": "S-Works Carbon Hover Drop 125mm, Reach 75mm, w/Di2 hole",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "S-Works Power with Mirror",
+   "Zadelpen": "S-Works Pave Seat post",
+   "Zadelpenklem": "Hidden drop clamp",
+   "SWAT": "Hammerhead Karoo 3 with K-edge stem mount",
+   "Gewicht": "7.44 kg (16 lb, 6.4 oz)"
+  },
+  "color_names": [
+   "Satin Glacial Metallic / Gloss Black Pearl"
+  ],
+  "color_hexes": [
+   "#97AFC7"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94424-00_ROUBAIX-SW-LTD-GCLMET-BLKPRL_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/sworksroubaixsl8ltdsramredaxs.jpg",
+  "years": [
+   2025
+  ]
+ },
+ {
+  "name": "S-Works Tarmac SL8 LTD - Forward 50 Collection",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/nl/nl/s-works-tarmac-sl8-ltd-forward-50-collection/p/4221560",
+  "sku": "4221560",
+  "price": 16500,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "S-Works Tarmac SL8 FACT 12r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "S-Works FACT 12r Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "Shimano Dura-Ace R9270, hydraulic disc 160mm rotor",
+   "Achterrem": "Shimano Dura-Ace R9270, hydraulic disc 140mm rotor",
+   "Shifter": "Shimano Dura-Ace R9270, hydraulic disc",
+   "Voorderailleur": "Shimano Dura-Ace R9250, braze-on",
+   "Achterderailleur": "Shimano Dura-Ace R9250, 12-speed, Ceramic Speed Pulley Wheels",
+   "Cassette": "Shimano Dura-Ace, 12-speed, 11-30t",
+   "Ketting": "Shimano Dura-Ace, 12-speed",
+   "Crankstel": "Shimano Dura-Ace R9200, HollowTech II, 12-speed with 4iiii PRECISION 3+ Powermeter Dual-Sided",
+   "TANDWIELEN": "52/36T",
+   "Bottom bracket": "Ceramic Speed BSA - Shimano",
+   "Buitenband": "S-Works Turbo Rapidair 2BR, 700x26mm",
+   "Wiel voor": "Rapide CLX II Team Forward 50 LTD, Hooked, 700c, Disc Brake, Tubeless, 51mm-Depth, 21mm Internal Width, DT Swiss Aerolite II spokes, Ceramic Bearings",
+   "Achterband": "S-Works Turbo Rapidair 2BR, 700x26mm",
+   "Wiel achter": "Rapide CLX II Team Forward 50 LTD, Hooked, 700c, Disc Brake, Tubeless, 60mm-Depth, 21mm Internal Width, DT Swiss Aerolite II spokes, Ceramic Bearings",
+   "Binnenband": "Turbo Ultralight, 60mm Front, 80mm Rear, Presta valve",
+   "Stuurpen": "Roval Rapide Cockpit, Integrated Bar/Stem",
+   "Stuur": "Roval Rapide Cockpit, Integrated Bar/Stem",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "S-Works Power with Mirror, Forward 50 LTD",
+   "Zadelpen": "S-Works Tarmac SL8 Carbon seat post, FACT Carbon, 15mm offset, Forward 50 LTD",
+   "Zadelpenklem": "Tarmac Integrated Wedge",
+   "SWAT": "Ceramic Speed SLT Headset bearings",
+   "Gewicht": "6.65kg (14 lb, 10.6 oz)"
+  },
+  "color_names": [
+   "Forward 50"
+  ],
+  "color_hexes": [
+   "#A5A5AA"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/74925-11_TARMAC-SW-LTD-FORWARD-50_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/sworkstarmacsl8ltdforward50collection.jpg",
+  "years": [
+   2025
+  ]
+ },
+ {
+  "name": "Roubaix SL8 Expert - SRAM Force AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/roubaix-sl8-expert-sram-force-axs/p/4263266",
+  "sku": "4263266",
+  "price": null,
+  "category": "Endurance",
+  "family": "Roubaix",
+  "model_year": 2027,
+  "specifications": {
+   "Frame": "FACT 10R, Rider First Engineered™ (RFE), FreeFoil Shape Library tubes, threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "Future Shock 3.2 w/ Smooth Boot, FACT Carbon 12x100mm, thru-axle, flat-mount disc",
+   "Rem": "SRAM Force E1, hydraulic disc",
+   "Achterrem": "SRAM Force E1, hydraulic disc",
+   "Shifter": "SRAM Force AXS E1, hydraulic disc",
+   "Voorderailleur": "SRAM Force AXS E1, braze-on",
+   "Achterderailleur": "SRAM Force AXS E1, 12-speed",
+   "Cassette": "SRAM Force XG-1270 E1, 12 speed 10-36",
+   "Ketting": "SRAM Force Flattop E1",
+   "Crankstel": "SRAM Force E1, 46/33t",
+   "Bottom bracket": "SRAM DUB BSA 68",
+   "Buitenband": "Mondo TLR Endurance Tire, 700x32, GRIPTON T2/T5",
+   "Wiel voor": "Roval C38, 21mm internal width carbon rim, tubeless ready",
+   "Achterband": "Mondo TLR Endurance Tire, 700x32, GRIPTON T2/T5",
+   "Wiel achter": "Roval C38, 21mm internal width carbon rim, tubeless ready",
+   "Binnenband": "700x28-38mm, 48mm Presta valve",
+   "Stuurpen": "Future Stem, Pro",
+   "Stuur": "Specialized Hover Expert, Alloy, 125mm Drop, 75mm Reach w/Di2 Hole",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Expert, hollow Ti rails",
+   "Zadelpen": "S-Works Pave",
+   "Zadelpenklem": "Hidden drop clamp",
+   "Gewicht": "8.1 kg (17 lb, 13.7 oz)"
+  },
+  "color_names": [
+   "Gloss Birch"
+  ],
+  "color_hexes": [
+   "#F3F1E7"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61",
+   "64"
+  ],
+  "image_url": "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94427-30_ROUBAIX-EXPERT-BRCH-BDXMET_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/roubaixsl8expertsramforceaxs.jpg",
+  "years": [
+   2027
+  ]
+ },
+ {
+  "name": "S-Works Crux LTD - SRAM RED XPLR",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/s-works-crux-ltd-sram-red-xplr/p/4277914",
+  "sku": "4277914",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2025,
+  "specifications": {
+   "Frame": "S-Works Crux FACT 12r Carbon, Rider First Engineered™, Threaded BB, 12x142mm thru-axle, flat-mount disc, UDH dropout",
+   "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "NEW SRAM Red XPLR, Hydraulic Disc",
+   "Achterrem": "NEW SRAM Red XPLR, Hydraulic Disc",
+   "Shifter": "SRAM Red AXS",
+   "Achterderailleur": "NEW SRAM Red XPLR, 13sp",
+   "Cassette": "NEW SRAM Red XPLR, 13sp, 10-46t",
+   "Ketting": "NEW SRAM Red XPLR, 13sp",
+   "Crankstel": "SRAM Red AXS Power Meter",
+   "Chainrings": "40t",
+   "Bottom bracket": "SRAM DUB BSA",
+   "Buitenband": "S-works Pathfinder, 2BR, 700x42",
+   "Wiel voor": "Roval Terra CLX II, 25mm internal width, Tubeless ready, 32mm depth, 21h, Roval AFD1, Centerlock, DT Swiss Aerolite spokes",
+   "Achterband": "S-works Pathfinder, 2BR, 700x42",
+   "Wiel achter": "Roval Terra CLX II, 25mm internal width, Tubeless Ready, 32mm depth, 24h, Roval AFD2, Centerlock, DT Swiss EXP internals, SRAM XDR, DT Swiss Aerolite spokes",
+   "Binnenband": "48mm Presta Valve, 700X28-38",
+   "Stuurpen": "Alpinist SL, alloy, titanium bolts, 6-degree rise",
+   "Stuur": "Roval Terra, carbon, 103mm drop x 70mm reach x 12º flare",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry S-Works Power with Mirror, carbon fiber rails, carbon fiber base",
+   "Zadelpen": "Roval Alpinist Carbon Seatpost",
+   "Zadelpenklem": "Specialized Alloy, 30.0mm, titanium bolt",
+   "Accessories": "K-Edge, LTD, Hammerhead Karoo III",
+   "Gewicht": "6.94 kg (15 lb, 4.8 oz)"
+  },
+  "color_names": [
+   "Satin Carbon / Rebel Pink Tint + Ion Blurred Impasto / Gloss Black Tint"
+  ],
+  "color_hexes": [
+   "#594C4D"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91425-01_CRUX-SW-LTD-CARB-RBLPNKTNT_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/sworkscruxltdsramredxplr.jpg",
+  "years": [
+   2025
+  ]
+ },
+ {
+  "name": "Tarmac SL8 Expert - SRAM Force AXS",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/tarmac-sl8-expert-sram-force-axs/p/4293510",
+  "sku": "4293510",
+  "price": null,
+  "category": "Race",
+  "family": "Tarmac",
+  "model_year": 2026,
+  "specifications": {
+   "Frame": "Tarmac SL8 FACT 10r Carbon, Rider First Engineered™, Win Tunnel Engineered, Clean Routing, Threaded BB, 12x142mm thru-axle, flat-mount disc",
+   "Voorvork": "FACT 10r Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "NEW SRAM Force AXS E1, hydraulic disc 160mm rotor",
+   "Achterrem": "NEW SRAM Force AXS E1, hydraulic disc 160mm rotor",
+   "Shifter": "NEW SRAM Force AXS E1 HRD",
+   "Voorderailleur": "NEW SRAM Force AXS E1",
+   "Achterderailleur": "NEW SRAM Force AXS E1",
+   "Cassette": "NEW SRAM Force XG-1270, 12sp, 10-33t",
+   "Ketting": "NEW SRAM Force E1",
+   "Crankstel": "NEW SRAM Force E1, 48/35t",
+   "Bottom bracket": "SRAM DUB BSA",
+   "Buitenband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel voor": "Roval C38, 21mm internal width carbon rim, tubeless ready",
+   "Achterband": "S-Works Turbo, 120 TPI, folding bead, BlackBelt protection, 700x26mm",
+   "Wiel achter": "Roval C38, 21mm internal width carbon rim, tubeless ready",
+   "Binnenband": "Turbo Ultralight, 48mm Presta valve",
+   "Stuurpen": "Tarmac integrated stem, 6-degree",
+   "Stuur": "Specialized Expert Shallow Drop, alloy, 125mm drop x 75mm reach",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Expert",
+   "Zadelpen": "S-Works Tarmac SL8 Carbon seat post, FACT Carbon, 15mm offset",
+   "Zadelpenklem": "Tarmac integrated wedge",
+   "Balhoofdstel": "Stem headset spacers kit for SL7 stem & Roval Rapide cockpit use",
+   "Gewicht": "7.26 kg (16 lb, 0.1 oz)"
+  },
+  "color_names": [
+   "Gloss Blue Majesty Metallic",
+   "Gloss Obsidian Metallic"
+  ],
+  "color_hexes": [
+   "#173791",
+   "#282021"
+  ],
+  "sizes": [
+   "44",
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_HERO-SQUARE?q=80&w=1200&fm=png",
+   "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-33_TARMAC-SL8-EXPERT-AXS-MAJBLUMET-DLMMET_D4-STTT?q=80&w=1200&fm=png"
+   ],
+   [
+    "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/94926-34_TARMAC-SL8-EXPERT-AXS-METOBSD-REDPRL-WHT_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/tarmacsl8expertsramforceaxs.jpg",
+  "years": [
+   2026
+  ]
+ },
+ {
+  "name": "Crux Expert - Shimano GRX Di2",
+  "brand": "Specialized",
+  "url": "https://www.specialized.com/us/en/crux-expert-shimano-grx-di2/p/4293746",
+  "sku": "4293746",
+  "price": null,
+  "category": "Gravel",
+  "family": "Crux",
+  "model_year": 2026,
+  "specifications": {
+   "Frame": "Crux FACT 10r Carbon, Rider First Engineered™, Threaded BB, 12x142mm thru-axle, flat-mount disc, UDH dropout",
+   "Voorvork": "S-Works FACT Carbon, 12x100mm thru-axle, flat-mount disc",
+   "Rem": "Shimano GRX 800, Hydraulic Disc",
+   "Achterrem": "Shimano GRX 800, Hydraulic Disc",
+   "Shifter": "Shimano GRX Di2 RX825",
+   "Achterderailleur": "Shimano GRX Di2 RD-RX827, 12-speed",
+   "Cassette": "Shimano Deore XT CS-M8100, 12-speed, 10-51t",
+   "Ketting": "Shimano XT CN-M8100, 12-speed",
+   "Crankstel": "Shimano GRX RX820, 40t",
+   "Bottom bracket": "Shimano Threaded BSA BB",
+   "Buitenband": "Pathfinder 700x40, Tubeless Ready",
+   "Wiel voor": "Roval Terra C, 25mm inner width carbon tubeless ready rim, 32mm depth, DT 370 hub, 24h, DT Swiss Comp Race spokes",
+   "Achterband": "Pathfinder 700x40, Tubeless Ready",
+   "Wiel achter": "Roval Terra C, 25mm inner width carbon tubeless ready rim, 32mm depth, DT 370 hub, 24h, DT Swiss Comp Race spokes",
+   "Binnenband": "700x32-50mm, 40mm Presta valve",
+   "Stuurpen": "Specialized Pro SL, alloy, 4-bolt",
+   "Stuur": "Specialized Adventure Gear, 118.9mm drop x 70mm reach x 12º flare",
+   "Stuurlint": "Supacaz Super Sticky Kush",
+   "Zadel": "Body Geometry Power Expert",
+   "Zadelpen": "Roval Terra Carbon Seat Post, 20mm Offset",
+   "Zadelpenklem": "Specialized Alloy, 30mm",
+   "Gewicht": "7.95 kg (17 lb, 8.4 oz)"
+  },
+  "color_names": [
+   "Carbon"
+  ],
+  "color_hexes": [
+   "#373538"
+  ],
+  "sizes": [
+   "49",
+   "52",
+   "54",
+   "56",
+   "58",
+   "61"
+  ],
+  "image_url": "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_HERO-SQUARE?q=80&w=1200&fm=png",
+  "color_image_urls": [
+   "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_HERO-SQUARE?q=80&w=1200&fm=png"
+  ],
+  "color_angle_urls": [
+   [
+    "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_HERO-PDP?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_FDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_RDSQ?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_D1-POV?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_D3-HT?q=80&w=1200&fm=png",
+    "https://resources.specialized.com/image/91426-32_CRUX-EXPERT-DI2-CARB-NBLMET_D4-STTT?q=80&w=1200&fm=png"
+   ]
+  ],
+  "image": "Specialized/archived/cruxexpertshimanogrxdi2.jpg",
+  "years": [
+   2026
   ]
  }
 ]

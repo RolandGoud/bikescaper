@@ -729,6 +729,10 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
         if pid in known:
             continue
         page = fetcher.get(url)
+        if not page and getattr(module, "us_page", None) and module.us_page(url):
+            # A page the NL site doesn't serve (an older bike only the US sitemap lists): the US one, without its price.
+            url = module.us_page(url)
+            page = fetcher.get(url)
         try:
             bike = module.parse(page, url) if page else None
         except Exception as exc:
@@ -741,6 +745,8 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
         if build in on_sale:  # an old URL that now shows a current bike, or an earlier year of one
             continue
         year = str(bike.get("model_year") or "")
+        if year.isdigit() and int(year) < FIRST_YEAR:  # the US sitemap reaches back to 2007; the catalogue starts later
+            continue
         ours = archived.get(build)
         if ours:  # another model year of a bike we have
             if by_id:

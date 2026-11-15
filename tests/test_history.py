@@ -1,3 +1,4 @@
+import json
 from brand_scrapers import history
 
 
@@ -231,6 +232,81 @@ def test_specialized_sitemap_lists_pages_the_shop_dropped():
     assert specialized.sitemap_urls(Fake()) == [
         "https://www.specialized.com/nl/nl/tarmac-sl8-expert-sram-rival-axs/p/216955",
         "https://www.specialized.com/nl/nl/s-works-venge/p/171336"]
+
+
+def test_specialized_sitemap_adds_the_older_bikes_only_the_us_sitemap_lists():
+    from brand_scrapers import specialized
+
+    class Fake:
+        pages = {
+            specialized.SITEMAP: "<sitemap><loc>https://media.specialized.com/sitemaps/NL-Product-nl-EUR.xml</loc></sitemap>",
+            "https://media.specialized.com/sitemaps/NL-Product-nl-EUR.xml":
+                "<url><loc>https://www.specialized.com/nl/tarmac-sl8-pro-shimano-ultegra-di2/p/4221576</loc></url>",
+            specialized.US_SITEMAP: "<sitemap><loc>https://media.specialized.com/sitemaps/US-Product-en-USD.xml</loc></sitemap>",
+            "https://media.specialized.com/sitemaps/US-Product-en-USD.xml":
+                "<url><loc>https://www.specialized.com/en/tarmac-sl8-pro-shimano-ultegra-di2/p/4221576</loc></url>"
+                "<url><loc>https://www.specialized.com/en/tarmac-sl8-pro-shimano-ultegra-di2/p/216960</loc></url>",
+        }
+
+        def get(self, url):
+            return self.pages.get(url)
+
+    # the NL page of a number only the US sitemap lists: Dutch specs and euros
+    assert specialized.sitemap_urls(Fake()) == [
+        "https://www.specialized.com/nl/nl/tarmac-sl8-pro-shimano-ultegra-di2/p/4221576",
+        "https://www.specialized.com/nl/nl/tarmac-sl8-pro-shimano-ultegra-di2/p/216960"]
+    assert specialized.us_page("https://www.specialized.com/nl/nl/roubaix-expert-udi2/p/154102") == \
+        "https://www.specialized.com/us/en/roubaix-expert-udi2/p/154102"
+
+
+def test_specialized_us_page_gives_no_price():
+    from brand_scrapers import specialized
+    page = ('<script>self.__next_f.push([1,"' + json.dumps(json.dumps({
+        "modelYear": 2018, "isBike": True, "name": "Roubaix Expert UDi2", "code": "154102",
+        "colors": [{"displayName": "Gloss Black", "sizes": [{"name": "54", "skus": {"values": [
+            {"prices": {"regular": {"raw": 4500}}}]}}]}]}, separators=(",", ":")))[1:-1] + '"])</script>')
+    nl = specialized.parse(page, "https://www.specialized.com/nl/nl/roubaix-expert-udi2/p/154102")
+    us = specialized.parse(page, "https://www.specialized.com/us/en/roubaix-expert-udi2/p/154102")
+    assert nl["price"] == 4500 and us["price"] is None and us["sizes"] == ["54"]
+
+
+def test_specialized_archived_reads_the_us_page_when_the_nl_site_has_none(tmp_path, monkeypatch):
+    import sqlite3
+    from brand_scrapers import specialized
+    (tmp_path / "data" / "years" / "archived").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "site").mkdir()
+    (tmp_path / "data" / "years" / "archived" / "Specialized.json").write_text("[]")
+    db = tmp_path / "t.db"
+    conn = sqlite3.connect(db)
+    conn.execute("CREATE TABLE models (brand, name, source_file)")
+    conn.commit()
+    nl = "https://www.specialized.com/nl/nl/roubaix-expert-udi2/p/154102"
+    fetched = []
+
+    def parse(page, url):
+        return {"name": "Roubaix Expert UDi2", "model_year": 2018, "sku": "154102", "category": "Endurance",
+                "price": None if specialized.is_us(url) else 1, "specifications": {}, "image_url": None,
+                "color_names": []}
+
+    class Fake:
+        def get(self, url, binary=False):
+            fetched.append(url)
+            return "page" if "/us/en/" in url else None
+
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(specialized, "sitemap_urls", lambda _f: [nl])
+    monkeypatch.setattr(specialized, "parse", parse)
+    monkeypatch.setattr(history, "recognised", lambda _s: 99)
+    found = history.pages_archived("Specialized", None, str(db), fetcher=Fake())
+    assert fetched[:2] == [nl, specialized.us_page(nl)]
+    old = "https://www.specialized.com/nl/nl/roubaix-pro/p/115446"  # a 2014 page: older than the catalogue
+    monkeypatch.setattr(specialized, "sitemap_urls", lambda _f: [old])
+    monkeypatch.setattr(specialized, "parse", lambda page, url: dict(parse(page, url), name="Roubaix Pro", sku="115446", model_year=2014))
+    assert [b["name"] for b in history.pages_archived("Specialized", None, str(db), fetcher=Fake())] == ["Roubaix Expert UDi2"]
+    assert [(b["name"], b["years"], b["price"]) for b in found] == [("Roubaix Expert UDi2", [2018], None)]
+    sheets = json.loads((tmp_path / "data" / "years" / "site" / "Specialized.json").read_text())["models"]
+    assert sheets["Roubaix Expert UDi2"]["2018"]["url"] == specialized.us_page(nl)
+    assert sheets["Roubaix Expert UDi2"]["2018"]["price"] is None
 
 
 def test_specialized_archived_keeps_what_it_had_and_adds_other_years(tmp_path, monkeypatch):
