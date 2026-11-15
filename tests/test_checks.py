@@ -2039,6 +2039,20 @@ def test_the_ad_card_leaves_out_tiles_the_ad_gives_nothing_for(tmp_path):
     assert re.search(r'<span class="k">GROEP</span><b>[^<]*Ultegra', tiles)
 
 
+def test_the_ad_card_has_at_most_four_tiles_a_row_and_the_last_row_shares_out(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    conn.execute("INSERT INTO checks (title, description, asking_price, location) VALUES (?, ?, ?, ?)",
+                 ("Trek Domane SL 6 2022 maat 56", "Shimano 105 groep.\nConditie: Zo goed als nieuw", 2450, "Utrecht"))
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=nl").data.decode()
+    tiles = page[page.index('class="ad-tiles"'):page.index('class="ad-text"')]
+    # Five tiles: four, then the condition across the whole row.
+    assert tiles.count('<span class="k">') == 5 and 'style="--n: 4"' in tiles
+    assert re.search(r'class="below row-start fill" style="--span: 4"><span class="k">STAAT', tiles)
+
+
 def test_the_ad_groupset_is_the_one_the_photos_show_when_the_text_names_none(monkeypatch):
     claims = {"groupset": None}
     assert checks.ad_groupset(claims, None) is None
