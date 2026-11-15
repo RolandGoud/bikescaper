@@ -2706,7 +2706,19 @@ STATUS_RANK = {BAD: 3, WARN: 2, OK: 1, UNKNOWN: 0}
 
 def age_summary(age, estimate, resolved=None):
     """The age tab's verdict, in line with its section: the age check and the year estimate together.
-    The worse of the two leads; when one can't tell, the other speaks."""
+    The worse of the two leads; when one can't tell, the other speaks.
+
+    The tab itself shows just the year (tab_headline): its pill already says whether to watch out, and the
+    section below says why. That is the ad's year, or the model year we go by when the ad's year is when it was
+    bought or the ad gives none. Without any year the tab keeps the headline."""
+    tab = _age_summary(age, estimate, resolved)
+    year = resolved["year"] if resolved and (resolved["how"] == "purchase" or not age.get("year")) else age.get("year")
+    if year:
+        tab["tab_headline"] = str(year)
+    return tab
+
+
+def _age_summary(age, estimate, resolved=None):
     # The tab's OK / watch out / not OK pill gives the verdict, so a check that adds up shows its year.
     adds_up = Msg("Model year {year}", year=age["year"]) if age["status"] == OK and age.get("year") else None
     if adds_up and resolved and resolved["how"] == "purchase":
@@ -3684,7 +3696,7 @@ def run_check(models, listing, today=None):
     if claims.get("year_from") == "admin":
         # We looked up the year ourselves: that leads the tab, whatever the ad's clues said.
         report["age_tab"] = {"status": OK, "headline": Msg("Model year {year}", year=claims["year"]),
-                             "detail": Msg("We checked this year by hand.")}
+                             "tab_headline": str(claims["year"]), "detail": Msg("We checked this year by hand.")}
     if report["year"]["how"] == "older" and report["match"] and (report["match"].get("shifting") or {}).get("same") is False:
         # A generation older than any we know may well shift otherwise than today's: that's no mismatch.
         report["match"] = dict(report["match"], shifting=None)
