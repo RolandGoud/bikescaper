@@ -53,6 +53,7 @@ if (note) {
   // Only while the tab is in view (a hidden tab asks nothing), and only for the admin: the script and /admin/live are
   // admin-only. One small request every 10 s, answered from two small files on the NAS.
   let timer = null;
+  let historyState = null;
   const poll = async () => {
     clearTimeout(timer);
     if (document.visibilityState === "visible") {
@@ -66,13 +67,15 @@ if (note) {
           if (inner && `${inner.dataset.updating}|${inner.dataset.shas}` !== state) {
             note.querySelector(".live-inner").replaceWith(inner);
             show();
-            // On the admin page the history follows too, with what's being installed on top.
-            const history = document.querySelector(".live-history-body");
-            if (history) {
-              const part = await fetch(`${note.dataset.url}?part=history`, { cache: "no-store" });
-              if (part.ok) { history.innerHTML = await part.text(); localTimes(); }
-            }
           }
+        }
+        // On the admin page the history follows too, with what's being installed on top. It keeps its own state,
+        // so a failed fetch (say, while the site reloads) is tried again on the next poll.
+        const history = document.querySelector(".live-history-body");
+        if (history && historyState !== state) {
+          const want = state;
+          const part = await fetch(`${note.dataset.url}?part=history`, { cache: "no-store" });
+          if (part.ok) { history.innerHTML = await part.text(); localTimes(); historyState = want; }
         }
       } catch (e) { /* offline or the site is reloading: try again next time */ }
     }
@@ -80,5 +83,6 @@ if (note) {
   };
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") poll(); });
   show();
+  historyState = state;  // the page came with the history as it is now
   timer = setTimeout(poll, POLL);
 }
