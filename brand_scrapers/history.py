@@ -706,6 +706,14 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
     # other brands' URLs end in a model name or a year, so each URL stands for itself.
     by_id = brand == "Specialized"
     known = {str(b.get("sku")) for b in bikes} | set().union(*(b.get("skus") or [] for b in bikes)) if by_id else set()
+    # The product numbers of pages from before FIRST_YEAR (the US sitemap goes back to 2007): read once, not each run.
+    too_old_file = os.path.join(ROOT, "data", "years", "archived", f"{brand}_too_old.txt")
+    try:
+        with open(too_old_file, encoding="utf-8") as fh:
+            too_old = {line.split()[0] for line in fh if line.strip()}
+    except OSError:
+        too_old = set()
+    known |= too_old if by_id else set()
 
     def key(url):
         m = by_id and re.search(URL_ID[brand], urlparse(url).path.rstrip("/"))
@@ -729,7 +737,7 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
         if pid in known:
             continue
         page = fetcher.get(url)
-        if not page and getattr(module, "us_page", None) and module.us_page(url):
+        if not page and getattr(fetcher, "status", 404) == 404 and getattr(module, "us_page", None) and module.us_page(url):
             # A page the NL site doesn't serve (an older bike only the US sitemap lists): the US one, without its price.
             url = module.us_page(url)
             page = fetcher.get(url)
@@ -746,6 +754,8 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
             continue
         year = str(bike.get("model_year") or "")
         if year.isdigit() and int(year) < FIRST_YEAR:  # the US sitemap reaches back to 2007; the catalogue starts later
+            if by_id:
+                too_old.add(pid)
             continue
         ours = archived.get(build)
         if ours:  # another model year of a bike we have
@@ -767,6 +777,9 @@ def pages_archived(brand, cdx_folder, db_path, fetcher=None):
                 "price": bike.get("price"), "colours": bike.get("color_names") or [],
                 "image": bike.get("image") or save_photo(fetcher, brand, slug, year, bike.get("image_url"))}
         log.info("%s archived: %s %s%s", brand, bike["name"], year, "" if not ours else " (another year)")
+    if too_old:
+        with open(too_old_file, "w", encoding="utf-8") as fh:
+            fh.write("".join(f"{pid}\n" for pid in sorted(too_old)))
     _save_archived(brand, bikes, sheets)
     log.info("%s archived: %d new models, %d in all", brand, added, len(bikes))
     return bikes

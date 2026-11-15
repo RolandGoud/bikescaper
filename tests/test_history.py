@@ -303,6 +303,11 @@ def test_specialized_archived_reads_the_us_page_when_the_nl_site_has_none(tmp_pa
     monkeypatch.setattr(specialized, "sitemap_urls", lambda _f: [old])
     monkeypatch.setattr(specialized, "parse", lambda page, url: dict(parse(page, url), name="Roubaix Pro", sku="115446", model_year=2014))
     assert [b["name"] for b in history.pages_archived("Specialized", None, str(db), fetcher=Fake())] == ["Roubaix Expert UDi2"]
+    # read once: its number is kept, and the next run doesn't fetch it again
+    assert (tmp_path / "data" / "years" / "archived" / "Specialized_too_old.txt").read_text() == "115446\n"
+    fetched.clear()
+    history.pages_archived("Specialized", None, str(db), fetcher=Fake())
+    assert fetched == []
     assert [(b["name"], b["years"], b["price"]) for b in found] == [("Roubaix Expert UDi2", [2018], None)]
     sheets = json.loads((tmp_path / "data" / "years" / "site" / "Specialized.json").read_text())["models"]
     assert sheets["Roubaix Expert UDi2"]["2018"]["url"] == specialized.us_page(nl)
@@ -353,6 +358,31 @@ def test_specialized_archived_keeps_what_it_had_and_adds_other_years(tmp_path, m
                                                          ("Tarmac SL8 Expert - SRAM Rival AXS", [2024])]
     sheets = json.loads((tmp_path / "data" / "years" / "site" / "Specialized.json").read_text())["models"]
     assert sorted(sheets["S-Works Venge"]) == ["2019"] and sorted(sheets["Tarmac SL8 Expert - SRAM Rival AXS"]) == ["2024"]
+
+
+def test_specialized_archived_keeps_to_the_nl_page_when_it_only_failed(tmp_path, monkeypatch):
+    # A timeout or a 500 on the NL page is not "no NL page": no US page (and no dollar-less entry) for it.
+    import sqlite3
+    from brand_scrapers import specialized
+    (tmp_path / "data" / "years" / "archived").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "site").mkdir()
+    (tmp_path / "data" / "years" / "archived" / "Specialized.json").write_text("[]")
+    db = tmp_path / "t.db"
+    sqlite3.connect(db).execute("CREATE TABLE models (brand, name, source_file)")
+    nl = "https://www.specialized.com/nl/nl/roubaix-expert-udi2/p/154102"
+    fetched = []
+
+    class Fake:
+        status = 503
+
+        def get(self, url, binary=False):
+            fetched.append(url)
+            return None
+
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(specialized, "sitemap_urls", lambda _f: [nl])
+    assert history.pages_archived("Specialized", None, str(db), fetcher=Fake()) == []
+    assert fetched == [nl]
 
 
 def test_cannondale_archived_pages_are_not_keyed_by_product_number(tmp_path, monkeypatch):
