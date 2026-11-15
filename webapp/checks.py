@@ -12,7 +12,7 @@ from datetime import date
 
 from . import colour_match
 from .i18n import Msg, join, join_list
-from .reference import (FIRST_YEAR, BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
+from .reference import (FIRST_YEAR, CABLE_DISC_YEARS, BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
                         RIM_BRAKE_LAST_YEAR, SIZE_NOTE, TREK_DOTTED_LAST_YEAR, TREK_DOTTED_NAME, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
@@ -2506,7 +2506,7 @@ def year_colour_fits(images, title, description=""):
 
 
 # The year clues that come from parts a bike can be given later (estimate_year), by the start of their message.
-BRAKE_CLUES = ("Rim brakes", "Disc brakes")
+BRAKE_CLUES = ("Rim brakes", "Disc brakes", "Cable disc brakes")
 COLOUR_CLUES = ("The photos show colour", "Colour '", "In the ad's colours")
 PART_CLUES = ("{part}: bikes from", "The photos show {part}", "Parts {parts}", "{n}-speed")
 
@@ -2573,6 +2573,12 @@ def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None
         # colour its photos seem to show).
         clues.append((rim_last + 1, None, Msg("Disc brakes: {name} came with rim brakes up to {year}.",
                                               name=model["name"], year=rim_last)))
+    if claims["brakes"] != "Rim" and (cable := cable_disc_years(model, low)):
+        # Cable-pulled disc brakes or quick releases date a frame from before hydraulic brakes and thru-axles, and
+        # go before a colour like any brakes (check 59: a Defy Advanced 1 with TRP Spyre brakes set to a 2021
+        # colourway).
+        clues.append((cable[0], cable[1] - 1, Msg("Cable disc brakes or quick releases: {name} came with hydraulic "
+                                                  "brakes from {year} on.", name=model["name"], year=cable[1])))
     dotted = model["brand"] == "Trek" and re.search(TREK_DOTTED_NAME, low)
     if dotted:
         clues.append((None, TREK_DOTTED_LAST_YEAR, Msg("Trek's '{name}' naming: {year} or older.",
@@ -2687,6 +2693,30 @@ def _clue_span(clues):
     first = max([c[0] for c in clues if c[0]] or [None], key=lambda y: y or 0)
     last = min([c[1] for c in clues if c[1]] or [None], key=lambda y: y or 9999)
     return first, last
+
+
+# Cable-pulled disc brakes ("mechanische schijfremmen", TRP Spyre, Avid BB7) or quick releases on a disc-brake bike.
+CABLE_DISC = (r"\bmechani\w*\s+(?:schijf\w*|disc\w*)|\b(?:schijf|disc)\w*\s*\(?\s*mechani|\bkabel\w*\s*schijfrem|"
+              r"\bcable\w*\s+disc|\bspyre\b|\bbb\s?[57]\b")
+QUICK_RELEASE = r"\bsnelspan\w*|\bquick[\s-]?release"
+
+
+def cable_disc_years(model, low):
+    """(first, first hydraulic year) for an ad that says its disc brakes are cable-pulled, or (from the hand-entered
+    table only) that it has quick releases, on a model that came with hydraulic brakes; first is None when unknown.
+    None when the ad says neither, or nothing dates the switch: the hand-entered CABLE_DISC_YEARS first, else the
+    model's sheets when every one of them has hydraulic brakes (the year before the oldest is the newest a cable
+    brake can be)."""
+    cable = re.search(CABLE_DISC, low)
+    entry = next(((f, h) for brand, pattern, f, h in CABLE_DISC_YEARS
+                  if brand == model["brand"] and re.search(pattern, _plain(model["name"]))), None)
+    if entry and (cable or re.search(QUICK_RELEASE, low)):
+        return entry
+    sheets = year_sheets(model)
+    if cable and sheets and all(re.search(r"hydraul", _plain(spec(dict(model, specs=s["specs"]), "Rem") or ""))
+                                for s in sheets.values()):
+        return None, min(sheets)
+    return None
 
 
 def rim_brake_last_year(model):
