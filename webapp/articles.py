@@ -25,8 +25,4 @@ ARTICLES = [
      "site": "mobilit.belgium.be", "country": "BE", "tag": "Government",
      "title": "Bike theft and insurance",
      "text": "How registering your bike works, and what to do when it's stolen."},
-    {"url": "https://www.test-aankoop.be/mobiliteit/fietsen/dossier/tweedehands-elektrische-fiets",
-     "site": "test-aankoop.be", "country": "BE", "tag": "Buying guide",
-     "title": "Checklist: buying a used e-bike",
-     "text": "Battery, motor and papers: what to check before you pay."},
 ]
