@@ -45,11 +45,17 @@
         </div>
         {# The account menu: a person icon to log in (then on to the admin page), and once logged in a menu with the account's links (app.py account). #}
         {% set acc = account() %}
+        {% set ups = live_updates() %}
+        {% set upd = live_updating() %}
         {% if acc %}
         <div class="tools account">
           <button type="button" class="tools-button on" aria-expanded="false" aria-controls="account-menu">
-            <svg class="account-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>{{ acc.label }}</button>
+            <svg class="account-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>{{ acc.label }}{% if is_admin() %}<span class="live-spin" aria-label="{{ _('Update in progress') }}" title="{{ _('Update in progress') }}"{% if not upd %} hidden{% endif %}></span><span class="live-badge" hidden></span>{% endif %}</button>
           <div id="account-menu" class="tools-menu">
+            {# After each NAS update, what just went live (nas/autoupdate.py notes it, webapp/updates.py reads it): each
+               change with a link to the page to check and to its PR, both in a new tab. The count on the button is what
+               this browser hasn't seen yet; opening the menu clears it (static/live-note.js). #}
+            {% if is_admin() %}<div class="live-note" data-url="{{ url_for('live_status') }}">{% include "_live_note.html" %}</div>{% endif %}
             {% for text, hint, url in acc.links %}<a href="{{ url }}">{{ text }}{% if hint %}<small>{{ hint }}</small>{% endif %}</a>{% endfor %}
             <form method="post" action="{{ url_for('admin_logout') }}"><input type="hidden" name="next" value="{{ request.full_path if request.method == 'GET' else url_for('home') }}"><button type="submit" class="account-logout">{{ _('Log out') }}</button></form>
           </div>
@@ -70,6 +76,7 @@
     <span>{{ _('Not affiliated with Marktplaats or any bike brand.') }}</span>
   </div>
 </footer>
+{% if is_admin() %}<script src="{{ url_for('static', filename='live-note.js') }}" defer></script>{% endif %}
 <script src="{{ url_for('static', filename='duo.js') }}" defer></script>
 <script src="{{ url_for('static', filename='menu.js') }}" defer></script>
 <script src="{{ url_for('static', filename='place-links.js') }}" defer></script>
