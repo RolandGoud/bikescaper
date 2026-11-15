@@ -1387,6 +1387,8 @@ NL = {
     # The report's heading: the ad, and our match under it.
     "The ad": "De advertentie",
     "Our match": "Onze match",
+    "Our assessment": "Onze beoordeling",
+    "What others ask for this model": "Wat anderen vragen voor dit model",
     "Placed on {date}": "Geplaatst op {date}",
     "the seller's title": "titel van de verkoper",
     "Open the photos": "Open de foto's",

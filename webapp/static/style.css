@@ -493,6 +493,33 @@ main.page { padding-top: 32px; padding-bottom: 72px; display: flex; flex-directi
 .i-tip .bubble { display: none; position: absolute; right: -8px; bottom: calc(100% + 10px); width: 240px; max-width: 70vw; padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line-strong); color: var(--text); font: 400 14px/1.4 var(--body); text-align: left; z-index: 5; box-shadow: 0 8px 24px rgba(0, 0, 0, .4); }
 .i-tip .bubble::after { content: ""; position: absolute; right: 12px; top: 100%; border: 7px solid transparent; border-top-color: var(--raised); }
 .i-tip:hover .bubble, .i-tip:focus .bubble { display: block; }
+/* The verdict and the prices as one card, like Our match: thin grey dividers, the status as a rail on top of each cell. */
+.value-card { border: 1px solid var(--line); border-radius: 0; background: var(--card); overflow: hidden; }
+.value-card .value-verdict, .value-card .value-prices > div { --s: var(--unknown); position: relative; background: none; border-radius: 0; }
+.value-card .value-verdict::before, .value-card .value-prices > div::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--s); }
+.value-card .value-prices > .ask.ok-bg, .value-card .value-prices > .ask.warn-bg, .value-card .value-prices > .ask.bad-bg { background: none; }
+.value-card .value-verdict.ok-bg, .value-card .value-prices > .ask.ok-bg, .value-card .value-prices > .fair { --s: var(--ok); }
+.value-card .value-verdict.warn-bg, .value-card .value-prices > .ask.warn-bg { --s: var(--warn); }
+.value-card .value-verdict.bad-bg, .value-card .value-prices > .ask.bad-bg { --s: var(--bad); }
+.value-card .value-verdict { padding: 18px 20px; }
+.value-card .value-verdict strong { color: var(--s); font-size: 20px; }
+.value-card .value-verdict span { color: var(--muted); opacity: 1; font-size: 14px; }
+.value-card .value-prices { gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.value-card .value-prices.no-ask { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.value-card .value-verdict + .value-prices { border-top: 1px solid var(--line); }
+.value-card .value-prices > div { padding: 16px 20px; }
+.value-card .value-prices > div + div { border-left: 1px solid var(--line); }
+.value-card .value-prices .n { font-size: 30px; }
+@media (max-width: 700px) {
+  .value-card .value-prices { grid-template-columns: 1fr 1fr; }
+  .value-card .value-prices > .fair { border-bottom: 1px solid var(--line); }
+  .value-card .value-prices > div + div { border-left: 0; }
+  .value-card .value-prices > .new { border-left: 1px solid var(--line); }
+  .value-card .value-prices.no-ask > .new { border-left: 0; }
+  .value-card .value-prices .n { font-size: 24px; }
+}
+.slider-panel { padding: 22px 24px 18px; background: var(--ground); border-radius: 14px; }
+@media (max-width: 700px) { .slider-panel { padding: 18px 16px 14px; } }
 .price-slider { position: relative; }
 .price-slider.with-pin { padding-top: 46px; }
 .price-slider .track { position: relative; height: 14px; border-radius: 999px; background-color: var(--ground);
@@ -919,6 +946,19 @@ select { max-width: 100%; }
 }
 /* Check page: the other ads for the model in a table next to this ad, what differs marked */
 .ad-compare > p { margin: 4px 0 0; }
+.ad-compare.own { margin-top: 0; padding-top: 0; border-top: 0; }
+.ad-compare.own > p { margin: 0; }
+.value-how .value-chips { margin-top: 12px; }
+.block-head .count { font-weight: 700; color: var(--accent); }
+.compare-table tbody tr[hidden] { display: none; }
+.compare-table tbody tr[hidden] + tr { border-top: 0; }
+.compare-pager { margin-top: 14px; }
+.compare-pager button { font: inherit; color: var(--text); cursor: pointer; }
+.compare-pager .map-pager-step { font-weight: 600; font-size: 14px; }
+.compare-pager .map-pager-step[disabled] { opacity: .35; cursor: default; }
+.compare-pager .map-pager-pages button { min-width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); background: var(--card); font-family: var(--mono); }
+.compare-pager .map-pager-pages button:hover { border-color: var(--accent); }
+.compare-pager .map-pager-pages button[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: var(--ink); }
 .compare-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 15px; }
 .compare-table thead th { font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); text-align: left; padding: 0 10px 8px; border-bottom: 1px solid var(--line); }
 .compare-table thead th:first-child { padding-left: 0; }

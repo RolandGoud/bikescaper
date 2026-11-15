@@ -340,6 +340,8 @@
       <a href="#specs">{{ _('See the spec comparison →') }}</a></div>
   </div>
   {% endif %}
+  {# The checks under their own heading, like "The ad" and "Our match" above them. #}
+  <div class="block-head"><span>{{ _('Our assessment') }}</span></div>
   <div class="report-tabs" role="tablist" aria-label="{{ _('Check report') }}">
     {% for key, label in [('value', _('Fair price')), ('age', _('AGE')), ('specs', _('SPECS')), ('size', _('SIZE'))] %}
     {% set v = tab_of[key] %}
@@ -362,7 +364,10 @@
   <section id="value" class="card report-panel" role="tabpanel" aria-labelledby="tab-value">
     <h2>{{ _('Value estimate') }}</h2>
     {% set v = r.value %}
-    {# The verdict first, in words; then the three prices, the slider, what the estimate goes by, and how it's made (folded). #}
+    {# The verdict in words, the three prices, the slider; what the estimate goes by and how it's made, folded.
+       What others ask for the model is a section of its own under the checks. #}
+    {# The verdict and the three prices as one card with thin dividers and a coloured rail per cell, like Our match. #}
+    {% if v.low %}<div class="value-card">{% endif %}
     {% if v.low and listing.asking_price and v.status in ('ok', 'warn', 'bad') %}
     <div class="value-verdict {{ v.status }}-bg">
       <i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[v.status] }}</i>
@@ -389,8 +394,11 @@
       {% endif %}
     </div>
     {% endif %}
+    {% if v.low %}</div>{% endif %}
     {% set sl = v.slider %}
     {% if sl %}
+    {# The slider on a dark inset panel of its own, like the new-price tile above it. #}
+    <div class="slider-panel">
     <div class="price-slider{{ ' with-pin' if sl.asking is defined }}" style="--lo: {{ sl.low }}%; --hi: {{ sl.high }}%; --suspect: {{ sl.suspect }}%{% if sl.asking is defined %}; --ask: {{ sl.asking }}%{% endif %}"
          role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=listing.asking_price|eur) if listing.asking_price else _('Fair range {low} to {high}', low=v.low|eur, high=v.high|eur) }}">
       {% if sl.asking is defined %}<div class="pin {{ v.status }} {{ sl.align }}" aria-hidden="true"><b>{{ _('Asking {asking}', asking=listing.asking_price|eur) }}{% if sl.beyond %} →{% endif %}</b></div>{% endif %}
@@ -401,17 +409,18 @@
       <div class="axis" aria-hidden="true">{% for value, at, minor in sl.ticks %}<span{% if minor %} class="minor"{% elif loop.last %} class="new"{% endif %} style="left: {{ at }}%">{{ _('New {price}', price=value|eur) if loop.last else value|eur }}</span>{% endfor %}</div>
       <div class="zones" aria-hidden="true"><span class="ok">← {{ _('Cheaper than fair') }}</span><span class="warn">{{ _('Dearer than fair') }} →</span></div>
     </div>
-    {% endif %}
-    {% if v.detail and not (v.low and listing.asking_price) %}<p>{{ v.detail }}</p>{% endif %}
-    {% if v.original %}
-    <div class="value-chips">
-      <span><em>{{ _('Model year') }}</em>{{ v.model_year }}</span>
-      <span><em>{{ _('Condition') }}</em>{{ v.condition or _('not stated') }}</span>
     </div>
     {% endif %}
-    {% if v.steps or v.notes %}
+    {% if v.detail and not (v.low and listing.asking_price) %}<p>{{ v.detail }}</p>{% endif %}
+    {% if v.steps or v.notes or v.original %}
     <details class="value-how">
       <summary>{{ _('How we estimate this') }}</summary>
+      {% if v.original %}
+      <div class="value-chips">
+        <span><em>{{ _('Model year') }}</em>{{ v.model_year }}</span>
+        <span><em>{{ _('Condition') }}</em>{{ v.condition or _('not stated') }}</span>
+      </div>
+      {% endif %}
       {% if v.steps %}
       <div class="value-steps">
         {% for s in v.steps %}<div><div class="k">{{ s.label }}</div><div class="v">{{ s.value|eur }}{% if s.change is defined %} <small>{{ '+' if s.change > 0 else '−' }}{{ (s.change|abs * 100)|round|int }}%</small>{% endif %}</div></div>{% endfor %}
@@ -421,8 +430,6 @@
       <ul>{% for n in v.notes or [] %}<li>{{ n }}</li>{% endfor %}</ul>
     </details>
     {% endif %}
-    {% if asking %}{{ asking_box(asking, compare=listing.asking_price) }}{% endif %}
-    {% if other_ads %}{{ compare_ads(other_ads, _('Other ads for this model')) }}{% endif %}
   </section>
 
   <section id="age" class="card report-panel" role="tabpanel" aria-labelledby="tab-age">
@@ -562,6 +569,18 @@
     {% endif %}
   </section>
 
+  {# What others ask for the model: the median, average and range of their asking prices, under the checks. #}
+  {% if asking %}
+  <div class="block-head"><span>{{ _('What others ask for this model') }}</span></div>
+  <section class="card market">{{ asking_box(asking, compare=listing.asking_price) }}</section>
+  {% endif %}
+
+  {# The other ads for the same model, a section of its own under the checks, headed like "The ad" and "Our match". #}
+  {% if other_ads %}
+  <div class="block-head"><span><b class="count">{{ other_ads|length }}</b> {{ _('Other ads for this model') }}</span></div>
+  <section class="card other-ads">{{ compare_ads(other_ads) }}</section>
+  {% endif %}
+
   {% if r.questions %}
   <section class="card dark">
     <h2>{{ _('Ask the seller') }}</h2>
@@ -610,6 +629,28 @@
 <script src="{{ url_for('static', filename='photo-strip.js') }}" defer></script>
 {% endif %}
 <script>
+  // The other ads for the model, five a page; the pager shows only with JS, so without it every ad shows.
+  document.querySelectorAll(".compare-pager").forEach(nav => {
+    const rows = [...nav.closest(".ad-compare").querySelectorAll("tbody tr")], size = +nav.dataset.size;
+    const pages = Math.ceil(rows.length / size), nums = [...nav.querySelectorAll("[data-page]")];
+    let page = 1;
+    const show = to => {
+      page = Math.min(Math.max(to, 1), pages);
+      rows.forEach((tr, i) => tr.hidden = Math.floor(i / size) + 1 !== page);
+      nums.forEach(b => +b.dataset.page === page ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
+      nav.querySelector('[data-step="-1"]').disabled = page === 1;
+      nav.querySelector('[data-step="1"]').disabled = page === pages;
+    };
+    nav.addEventListener("click", e => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      const before = nav.closest("section").getBoundingClientRect().top;
+      show(b.dataset.page ? +b.dataset.page : page + +b.dataset.step);
+      if (before < 0) nav.closest("section").scrollIntoView({block: "start"});
+    });
+    nav.hidden = false;
+    show(1);
+  });
   // The ad's text shows three lines, with a button to unfold the rest when there's more; without JS it shows whole.
   document.querySelectorAll(".ad-text").forEach(function (box) {
     var body = box.querySelector(".ad-text-body"), more = box.querySelector(".ad-text-more");
