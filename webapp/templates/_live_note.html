@@ -1,0 +1,29 @@
+{# What's being installed and what just went live, in the admin's account menu (base.html); also sent on its own by
+   /admin/live, which static/live-note.js asks every few seconds so the menu follows an update as it happens. #}
+<div class="live-inner" data-shas="{{ ups|map(attribute='sha')|join(' ') }}" data-updating="{{ upd.sha if upd else '' }}">
+  {% if upd %}
+  <div class="live-head live-busy"><span class="live-spin" aria-hidden="true"></span><strong>{{ _('Installing on the site…') }}</strong></div>
+  <ol class="live-pending">
+    {% for c in upd.changes or [{'title': _('Update {sha}', sha=upd.sha[:7])}] %}
+    <li><span class="live-title">{{ c.title }}</span>{% if c.pr %}<span class="live-links"><a href="{{ c.url }}" target="_blank" rel="noopener">PR #{{ c.pr }} ↗</a></span>{% endif %}</li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+  {% if ups %}
+  <div class="live-head"><span class="live-dot" aria-hidden="true"></span><strong>{{ _('Just live on the site') }}</strong></div>
+  <ol>
+    {% for u in ups %}
+    {% for c in u.changes or [{'title': _('Update {sha}', sha=u.sha[:7]), 'url': 'https://github.com/RolandGoud/bikescaper/commit/' ~ u.sha}] %}
+    <li data-sha="{{ u.sha }}">
+      <span class="live-title">{{ c.title }}</span>
+      <span class="live-links">
+        {% if c.check %}<a class="live-check" href="{{ c.check }}" target="_blank" rel="noopener">{{ _('Check it') }} ↗</a>{% endif %}
+        {% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ ('PR #%d' % c.pr) if c.pr else _('Commit') }} ↗</a>{% endif %}
+        <time datetime="{{ u.time }}" data-local>{{ update_time(u.time) }}</time>
+      </span>
+    </li>
+    {% endfor %}
+    {% endfor %}
+  </ol>
+  {% endif %}
+</div>

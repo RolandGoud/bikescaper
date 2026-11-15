@@ -23,7 +23,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -617,6 +617,7 @@ def create_app(db_path=None):
                     if model else [],
                     "groupsets": checks.groupset_choices(),
                     "colours": checks.colour_choices(model)}
+            edit["picker"] = match_picker(result, auto, own["overrides"], row)
         return render_template("report.html", listing=listing_dict(row, count=times), r=result, height=height or row["rider_height"],
                                edit=edit, neighbours=neighbouring_checks(check_id),
                                translated=translated,
@@ -695,6 +696,14 @@ def create_app(db_path=None):
 
     app.jinja_env.globals["account"] = account
 
+    def live_updates():
+        """The NAS's recent updates, for the admin's "Just live" note (base.html); [] for everyone else."""
+        return updates.recent(app.config["DB_PATH"]) if is_admin() else []
+
+    app.jinja_env.globals["live_updates"] = live_updates
+    app.jinja_env.globals["live_updating"] = lambda: updates.updating(app.config["DB_PATH"]) if is_admin() else None
+    app.jinja_env.globals["update_time"] = updates.when
+
     def admin_only(view):
         """The admin pages and their buttons: without a login, to the login page (a form post: refused)."""
         @functools.wraps(view)
@@ -705,6 +714,13 @@ def create_app(db_path=None):
                 abort(403)
             return redirect(url_for("admin_login", next=request.full_path.rstrip("?")))
         return wrapped
+
+    @app.route("/admin/live")
+    @admin_only
+    def live_status():
+        """The account menu's "installing / just live" part, for static/live-note.js to swap in while a page is open."""
+        db_path = app.config["DB_PATH"]
+        return render_template("_live_note.html", ups=updates.recent(db_path), upd=updates.updating(db_path))
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
     def change_match(check_id):
@@ -735,6 +751,67 @@ def create_app(db_path=None):
     def admin_logout():
         session.clear()
         return redirect(request.form.get("next") if (request.form.get("next") or "").startswith("/") else url_for("home"))
+
+    def picker_entry(model, pct=None):
+        """One model for the match picker (the report's "Our match" pencil): its catalogue model years, newest
+        first, each with its photo, colourways (with their photo when we have one), main parts and new price."""
+        def pic(path):
+            return url_for("images", path=path) if path else None
+        found = (model.get("year_specs") or {}).get("years") or {}
+        own_year = checks.scrape_year(model)
+        colourways = {w["name"]: w for w in model.get("colorways") or []}
+        years = []
+        for year, sheet in sorted(checks.year_sheets(model).items(), reverse=True):
+            entry, own = found.get(str(year)) or {}, own_year == year
+            colours = []
+            for name in sheet["colours"]:
+                image = (entry.get("colour_images") or {}).get(name) or (
+                    (colourways.get(name) or {}).get("image") if own else None)
+                colours.append({"name": name, "image": pic(image), "swatch": (colourways.get(name) or {}).get("swatch")})
+            groups = checks.spec_groups(dict(model, specs=sheet["specs"]))
+            parts = [{"key": label, "label": gettext(label), "value": value}
+                     for label, value, _tier in checks.key_parts(groups, limit=5) if label != "Weight"][:4]
+            kg = checks.weight_kg(next((v for _g, rows in groups for en, _nl, v in rows if en == "Weight"), None))
+            if kg:  # key_parts cuts "8,7 kg" at its comma
+                parts.append({"key": "Weight", "label": gettext("Weight"),
+                              "value": (f"{kg:g}".replace(".", ",") if g.lang == "nl" else f"{kg:g}") + " kg"})
+            price = checks.new_price(model, year)
+            years.append({"year": year, "image": pic(entry.get("image") or (model.get("image") if own else None)),
+                          "price": eur(price) if price else None, "colours": colours, "parts": parts})
+        return {"slug": model["slug"], "brand": model["brand"], "name": checks.model_title(model["name"]),
+                "pct": pct, "image": pic(model.get("image")), "years": years}
+
+    def match_picker(result, auto, overrides, row):
+        """What the match picker shows: the models the matching found (with how well the ad fits each), plus the
+        automatic one and the one set by hand when they aren't among them; what's automatic; what's set by hand."""
+        by_slug = {m["slug"]: m for m in models()}
+        entries = [picker_entry(m["model"], m["pct"]) for m in result.get("matches") or []] or \
+            [picker_entry(m) for m in result.get("candidates") or []]
+        for slug in ((auto.get("model") or {}).get("slug"), overrides.get("model")):
+            if slug and slug in by_slug and not any(e["slug"] == slug for e in entries):
+                entries.insert(0, picker_entry(by_slug[slug]))
+        a_model = auto.get("model")
+        a_colour = (auto.get("photo_year") or {}).get("colour") or (auto.get("colourway") or {}).get("name")
+        claims = auto.get("claims") or {}
+        return {"models": entries,
+                "auto": {"model": a_model["slug"] if a_model else None,
+                         "label": f"{a_model['brand']} {checks.model_title(a_model['name'])}" if a_model else None,
+                         "pct": (auto.get("match") or {}).get("pct"),
+                         "year": (auto.get("year") or {}).get("year"), "colour": a_colour},
+                "set": {"model": overrides.get("model") or "", "year": overrides.get("year") or "",
+                        "colour": overrides.get("colour") or ""},
+                "ad_groupset": (claims.get("groupset") or {}).get("name"),
+                "years": list(range(date.today().year + 1, checks.FIRST_YEAR - 1, -1)),
+                "more": url_for("match_picker_model", slug="SLUG")}
+
+    @app.route("/admin/match-picker/<slug>")
+    @admin_only
+    def match_picker_model(slug):
+        """One more model for the match picker, picked from the search under its list."""
+        model = next((m for m in models() if m["slug"] == slug), None)
+        if model is None:
+            abort(404)
+        return jsonify(picker_entry(model))
 
     @app.route("/check/<int:check_id>/override", methods=["POST"])
     def set_override(check_id):
@@ -1419,7 +1496,8 @@ def create_app(db_path=None):
                                stored=stored_checks.summary(conn()), rechecked=request.args.get("rechecked"),
                                dropped=request.args.get("dropped", type=int),
                                deleted=request.args.get("deleted", type=int), first_year=checks.FIRST_YEAR,
-                               missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS)
+                               missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS,
+                               updates=updates.load(app.config["DB_PATH"])[:20])
 
     @app.route("/check/<int:check_id>/duo-side")
     def duo_side(check_id):
