@@ -1,0 +1,21 @@
+{# The admin page's update history (admin.html), newest first, with what the NAS is installing right now on top.
+   Also sent on its own by /admin/live?part=history, so static/live-note.js can keep it current while the page is open. #}
+{% if upd or updates %}
+<ol>
+  {% if upd %}
+  <li class="live-now"><span class="live-when"><span class="live-spin" aria-hidden="true"></span>{{ _('Now') }}</span>
+    <ul><li class="live-busy-title">{{ _('Installing on the site…') }}</li>
+      {% for c in upd.changes or [{'title': _('Update {sha}', sha=upd.sha[:7])}] %}
+      <li>{{ c.title }}{% if c.pr %} <a href="{{ c.url }}" target="_blank" rel="noopener">PR #{{ c.pr }} ↗</a>{% endif %}</li>
+      {% endfor %}</ul></li>
+  {% endif %}
+  {% for u in updates %}
+  <li><time datetime="{{ u.time }}" data-local>{{ update_time(u.time) }}</time>
+    <ul>{% for c in u.changes or [{'title': _('Update {sha}', sha=u.sha[:7]), 'url': 'https://github.com/RolandGoud/bikescaper/commit/' ~ u.sha}] %}
+      <li>{{ c.title }}
+        {% if c.check %}<a href="{{ c.check }}" target="_blank" rel="noopener">{{ _('Check it') }} ↗</a>{% endif %}
+        {% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ ('PR #%d' % c.pr) if c.pr else _('Commit') }} ↗</a>{% endif %}</li>
+    {% endfor %}</ul></li>
+  {% endfor %}
+</ol>
+{% else %}<p class="muted">{{ _('None noted yet: the NAS notes each update it puts live from now on.') }}</p>{% endif %}

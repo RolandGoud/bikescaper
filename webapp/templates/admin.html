@@ -207,18 +207,8 @@
   {# What the NAS's updates put live (nas/autoupdate.py), newest first; the note in the corner shows the latest ones. #}
   <section class="box live-history" id="updates">
     <h2>{{ _('Updates on the site') }}</h2>
-    {% if updates %}
-    <ol>
-      {% for u in updates %}
-      <li><time datetime="{{ u.time }}" data-local>{{ update_time(u.time) }}</time>
-        <ul>{% for c in u.changes or [{'title': _('Update {sha}', sha=u.sha[:7]), 'url': 'https://github.com/RolandGoud/bikescaper/commit/' ~ u.sha}] %}
-          <li>{{ c.title }}
-            {% if c.check %}<a href="{{ c.check }}" target="_blank" rel="noopener">{{ _('Check it') }} ↗</a>{% endif %}
-            {% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ ('PR #%d' % c.pr) if c.pr else _('Commit') }} ↗</a>{% endif %}</li>
-        {% endfor %}</ul></li>
-      {% endfor %}
-    </ol>
-    {% else %}<p class="muted">{{ _('None noted yet: the NAS notes each update it puts live from now on.') }}</p>{% endif %}
+    {# Filled again by static/live-note.js (from /admin/live?part=history) when an update starts or finishes. #}
+    <div class="live-history-body">{% include "_live_history.html" %}</div>
   </section>
 </main>
 <script type="application/json" id="admin-data">{{ {'week': stats.week, 'month': stats.month, 'ads': _('{n} ads'),

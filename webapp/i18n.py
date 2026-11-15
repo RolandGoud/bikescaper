@@ -1495,6 +1495,7 @@ NL = {
     "Update in progress": "Update bezig",
     "See more ({n})": "Meer bekijken ({n})",
     "All updates": "Alle updates",
+    "Now": "Nu",
     "and {n} more": "en nog {n}",
     "Check it": "Bekijken",
     "Update {sha}": "Update {sha}",
