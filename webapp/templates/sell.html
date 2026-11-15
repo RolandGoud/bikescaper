@@ -37,14 +37,16 @@
       <button class="btn" type="submit" form="sell-form" name="go" value="gaps">{{ _('Check my ad') }} →</button>
     </section>
   </div>
-  {% if archive %}
   {# Every ad the helper made or checked, like the value estimator's list: open to everyone, but only the
      browser that made one (or the admin) can open it again in the helper or remove it. #}
   <section class="stack sell-archive" id="helped" style="gap: 16px">
     <div class="stack" style="gap: 4px">
-      <h2 style="font-size: 28px">{{ _('Ads we helped with') }} <span class="muted">{{ archive_total }}</span></h2>
+      <h2 style="font-size: 28px">{{ _('Ads we helped with') }}{% if archive_total %} <span class="muted">{{ archive_total }}</span>{% endif %}</h2>
       <p class="muted">{{ _('Every ad made or checked here, newest first: what was put in, and what came out on that day. The seller’s own text stays private.') }}</p>
     </div>
+    {% if not archive %}
+    <p class="card muted sell-archive-empty">{{ _('No ads yet. Make a new ad or check one above, and it shows up here.') }}</p>
+    {% endif %}
     <div class="check-rows">
       {% for a in archive %}{% set r = a.r %}{% set row = a.row %}{% set v = r.value %}{% set mine = can_act is none or row.id in can_act %}
       <article class="check-row">
@@ -99,7 +101,6 @@
     </div>
     {% if archive|length < archive_total %}<a class="btn ghost" style="align-self: center" href="{{ url_for('sell', all=1) }}#helped">{{ _('Show all {n}', n=archive_total) }}</a>{% endif %}
   </section>
-  {% endif %}
 </main>
 {% else %}
 <nav class="wizard" id="steps" aria-label="{{ _('Improve your ad, step by step') }}"><ol class="wrap">
