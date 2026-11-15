@@ -1632,7 +1632,7 @@ def create_app(db_path=None):
             abort(404)  # written ahead: not out yet
         more = [p for p in blog.published(blog.load(), g.lang) if p["slug"] != slug]
         related = ([p for p in more if p["category"] == post["category"]] + [p for p in more if p["category"] != post["category"]])[:3]
-        return render_template("blog_post.html", post=post, body=blog.render(post["body"]), categories=blog.CATEGORIES,
+        return render_template("blog_post.html", post=post, body=blog.render(post["body"], post["lang"]), categories=blog.CATEGORIES,
                                related=related, post_date=post_date, minutes=blog.reading_minutes, nav="blog")
 
     @app.route("/how-it-works")

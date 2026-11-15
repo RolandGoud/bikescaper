@@ -3,9 +3,13 @@ title: In het voorjaar je racefiets verkopen? Begin nu
 date: 2026-11-15
 category: seasonal
 summary: In maart en april zoekt iedereen een racefiets. Wie dan als eerste een goede advertentie heeft staan, verkoopt het snelst. Wat je deze winter al kunt voorbereiden.
+stat: 5
+stat_label: stappen deze winter
 ---
 
 Als de dagen langer worden, gaat half Nederland een racefiets zoeken. Wie dan meteen een sterke advertentie heeft staan, met goede foto's, het juiste modeljaar en een eerlijke prijs, verkoopt het snelst. Het meeste werk kun je nu al doen, als de fiets toch binnen staat.
+
+![](chart:selling-plan)
 
 ## 1. Zoek uit wat je fiets precies is
 

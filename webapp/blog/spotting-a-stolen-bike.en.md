@@ -3,6 +3,8 @@ title: Spotting a stolen bike before you pay
 date: 2026-11-08
 category: guides
 summary: Too cheap, no receipt, a seller who knows nothing about the bike. The warning signs, the registers to look up a frame number and what Dutch law says about handling stolen goods.
+stat: <60%
+stat_label: of the fair price: suspicious
 ---
 
 A €4,000 road bike for sale at €900 isn't a lucky find. It's one of the clearest signs that something is off. And if you buy a stolen bike, you don't just lose it when it's traced: according to [the Dutch police](https://www.politie.nl/informatie/heling-is-strafbaar.html), handling stolen goods (heling) is a crime even if you only *could have suspected* the bike was stolen.
@@ -10,6 +12,8 @@ A €4,000 road bike for sale at €900 isn't a lucky find. It's one of the clea
 ## The price: suspiciously cheap
 
 For every ad, Bikecheck works out a fair range from the new price, the age and the condition. If the asking price is **below 60% of the bottom of that range**, we call it *suspiciously cheap* and add a warning. A slightly low price is just a good deal; a price far below it needs an explanation.
+
+![Example with the 2021 Domane SL 6. The limits are those of the Bikecheck price check.](chart:price-zones)
 
 ## The signs
 

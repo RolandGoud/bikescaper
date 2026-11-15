@@ -3,6 +3,8 @@ title: Cannondale Topstone: gravel from €1,299 to €7,999
 date: 2026-11-15
 category: models
 summary: Aluminium or carbon, with or without a Lefty fork: the Topstone family explained. And why gravel prices, unlike road bike prices, are falling.
+stat: −23%
+stat_label: Carbon 2 AXS in one year
 ---
 
 The Topstone is Cannondale's gravel bike and one of the widest families in our catalogue: we know 47, 24 of them with a current price. For a second-hand buyer it's an interesting bike, because prices vary a lot and for some builds are even dropping.
@@ -41,6 +43,8 @@ Where road bikes kept getting dearer in recent years, the Topstone shows the opp
 - **Topstone 1**: €2,449 in 2022, €2,399 in 2024.
 - **Topstone Carbon 2 AXS**: €3,999 in 2024, €3,099 in 2025.
 - **Topstone Carbon 1 RLE**: €8,999 in 2023, €7,799 in 2024.
+
+![](chart:topstone-falls)
 
 For a buyer that means: look at what the bike cost in **its own year**. A seller who works from their old, higher purchase price will easily ask too much.
 

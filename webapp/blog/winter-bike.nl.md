@@ -3,6 +3,8 @@ title: Een winterfiets kopen: waar let je op?
 date: 2026-11-08
 category: seasonal
 summary: Zout, regen en modder slopen een dure racefiets. Een tweede, goedkope fiets voor de winter is vaak slimmer. Waar je op let, en welke modellen uit onze catalogus geschikt zijn.
+stat: €690
+stat_label: een winterfiets na vier jaar
 ---
 
 Wie in de winter doortraint, ziet zijn fiets lijden: pekel op de weg, modder, regen. Een ketting en cassette zijn dan in een paar maanden op, en een dure carbon fiets met elektronische groep wil je daar liever niet aan blootstellen. Daarom kopen veel renners een tweede fiets voor de winter. Tweedehands, en niet te duur.
@@ -29,6 +31,8 @@ Uit onze [catalogus](/models), met hun nieuwprijs van nu:
 | [Trek Checkpoint ALR 3 Gen 3](/models/trek-checkpoint-alr-3-gen-3) | gravel, aluminium | €1.299 |
 | [Cannondale Topstone 3](/models/cannondale-topstone-3) | gravel, aluminium | €1.499 |
 | [Giant Revolt 2](/models/giant-revolt-2) | gravel, aluminium | €1.499 |
+
+![Eerlijke prijs bij normaal gebruik, volgens de waardeschatter.](chart:winter-values)
 
 Tweedehands betaal je voor zo'n fiets van een paar jaar oud ruwweg de helft. Een fiets van €1.499 nieuw is na vier jaar volgens onze [waardeschatter](/value) zo'n **€690 tot €840** waard, bij normaal gebruik.
 

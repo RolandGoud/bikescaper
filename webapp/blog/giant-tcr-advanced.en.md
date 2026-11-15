@@ -3,6 +3,8 @@ title: Giant TCR Advanced: the affordable carbon racer, second-hand
 date: 2026-11-08
 category: models
 summary: After Trek, the bike we check most. Advanced, Advanced Pro or Advanced SL, what "PC" means, and why a 2021 TCR cost much less than one today.
+stat: +47%
+stat_label: Advanced 2 since 2021
 ---
 
 The Giant TCR is Giant's classic all-round road bike: light, stiff, and not expensive for carbon. In our sample of 72 checked ads, Giant was the second most common brand with 23, and the TCR is the biggest group among them.
@@ -41,6 +43,8 @@ The TCR shows clearly how new prices have climbed:
 | TCR Advanced 2 | €1,899 (2021) | €2,799 (2025) |
 | TCR Advanced 1 | €2,299 (2021) | €3,499 (2026) |
 | TCR Advanced 2 Disc | €1,999 (2020), €2,549 (2022) | |
+
+![](chart:tcr-rises)
 
 A TCR Advanced 2 got nearly half again as expensive in four years. For a buyer that's good news: an older TCR is relatively cheap second-hand, *if* the seller works from the old new price.
 

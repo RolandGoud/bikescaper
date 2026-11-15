@@ -3,6 +3,8 @@ title: Reading a bike ad: 7 things to check before you reply
 date: 2026-11-01
 category: guides
 summary: In more than half of the ads we went through, the model year didn't match the photos or the parts. How to read an ad on Marktplaats or 2dehands the way we do.
+stat: 38/72
+stat_label: model years were off
 ---
 
 An ad is the seller's story, not a spec sheet. Usually in good faith, but often not quite right. Bikecheck reads every ad you [paste](/) next to the brand's original spec sheet. These are the seven things we check, and that you can check yourself.
@@ -14,6 +16,8 @@ An ad is the seller's story, not a spec sheet. Usually in good faith, but often 
 ## 2. Is the year right?
 
 This is the biggest trap. We went through a sample of **72 checked ads** and compared three things: the year in the text, the year that fits the colour in the photos, and the years that spec was sold. **Only 34 of the 72 agreed on all three.** In the rest at least one was off, usually because the seller gives the purchase year instead of the model year, or fills it in from memory.
+
+![Each square is one ad from our sample.](chart:ad-years)
 
 One year easily makes a 10% difference in value. When in doubt, ask for the receipt.
 
