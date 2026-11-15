@@ -81,20 +81,20 @@
 
   {# The ad's photos (a big one and the strip to pick it from), the facts the ad gives and its text, as cells of one card. #}
   {% set c = r.claims %}
-  {% set colour_said = r.colour_set or r.colour_typed or (r.colourway.name if r.colourway and not r.colour_from_photos else (listing.title|split_title).colour) %}
+  {% set ad_colour = r.ad_colour or (listing.title|split_title).colour %}
   {% set condition = listing.description|ad_condition or {'like-new': _('Like new'), 'used': _('Visible wear'), 'damaged': _('Damaged')}.get(c.condition) %}
   {% set facts = [] %}
   {# The year always has a tile, also when the ad doesn't give one. #}
   {% if facts.append((_('Year'), c.year or _('Not stated'), 'year' if c.year else 'none')) %}{% endif %}
   {% if c.size or edit %}{% if facts.append((_('Size'), c.size or _('Not stated'), 'size' if c.size else 'none')) %}{% endif %}{% endif %}
   {% if edit %}{% if facts.append((_('Groupset'), c.groupset.label if c.groupset else _('Not stated'), 'groupset' if c.groupset else 'none')) %}{% endif %}{% endif %}
-  {# The colour too always has a tile, so it can be set by hand when the ad doesn't name one. #}
-  {% if facts.append((_('Colour'), colour_said or _('Not stated'), None if colour_said else 'none')) %}{% endif %}
+  {# The colour only when the ad names one; the colour we go by is in "Our match", where it can be set. #}
+  {% if ad_colour %}{% if facts.append((_('Colour'), ad_colour, None)) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
   {% if condition %}{% if facts.append((_('Condition'), condition, None)) %}{% endif %}{% endif %}
   {% macro tile_editor(label) -%}
-  {# In the edit mode, the year, size, groupset and colour tiles get a lock when set by hand and a pencil to change them. #}
-  {% set field = {(_('Year')|string): 'year', (_('Size')|string): 'size', (_('Groupset')|string): 'groupset', (_('Colour')|string): 'colour'}.get(label|string) %}
+  {# In the edit mode, the year, size and groupset tiles get a lock when set by hand and a pencil to change them. #}
+  {% set field = {(_('Year')|string): 'year', (_('Size')|string): 'size', (_('Groupset')|string): 'groupset'}.get(label|string) %}
   {% if field %}{{ lock(field) }}{% endif %}
   {% if edit and field == 'year' %}{% set a = edit.auto.year %}
     {% call editor('year', (a.year ~ ' (' ~ ({'ad': _('from the ad'), 'photo': _('from the colour'), 'purchase': _('from the purchase year'), 'details': _('from the details'), 'estimate': _('estimated'), 'generation': _('middle of the generation'), 'catalogue': _('our catalogue'), 'older': _('from the ad')}.get(a.how, a.how)) ~ ')') if a else _('no model')) %}
@@ -112,15 +112,6 @@
     {% set cur = r.claims.groupset %}
     <select name="value" required>{% for gs in edit.groupsets %}<option value="{{ gs.key }}:{{ gs.tier }}"{{ ' selected' if cur and cur.key == gs.key and cur.tier == gs.tier }}>{{ gs.name }}</option>{% endfor %}</select>
     <label class="ed-check"><input type="checkbox" name="electronic" value="1"{{ ' checked' if cur and cur.electronic }}> {{ _('Electronic (Di2, AXS, eTap, EPS)') }}</label>
-    {% endcall %}
-  {% elif edit and field == 'colour' %}
-    {# The model's colourways, every year's, to pick from: picking one also dates the bike, unless the year is set by
-       hand too. Any other colour can be typed; it shows on the tile but doesn't date the bike. #}
-    {% set a = edit.auto.photo_year.colour if edit.auto.photo_year and edit.auto.photo_year.colour else edit.auto.colourway.name if edit.auto.colourway else None %}
-    {% call editor('colour', a or _('not stated')) %}
-    {% set current = r.colour_set or r.colour_typed or (r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None) %}
-    <input type="text" name="value" required maxlength="40" value="{{ current or '' }}" list="colour-choices" placeholder="{{ _('Colour') }}" autocomplete="off">
-    {% if edit.colours %}<datalist id="colour-choices">{% for c in edit.colours %}<option value="{{ c }}">{% endfor %}</datalist>{% endif %}
     {% endcall %}
   {% endif %}
   {%- endmacro %}
@@ -169,16 +160,32 @@
   <div class="block-head"><span>{{ _('Our match') }}</span>
   {% if edit %}
     <div class="ms-edit">{{ lock('model') }}
-      {% call editor('model', (edit.auto.model.brand ~ ' ' ~ edit.auto.model.name|model_title) if edit.auto.model else _('no model')) %}
-      <select name="value" required>
-        {% for m in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
-        <optgroup label="{{ _('All models') }}">{% for m in all_models if m not in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if m.id == r.model.id }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}</optgroup>
-      </select>
+      {# One form for the model, the model year and the colour; each can go back to the matching. #}
+      {% call editor('match', (edit.auto.model.brand ~ ' ' ~ edit.auto.model.name|model_title) if edit.auto.model else _('no model')) %}
+      <label class="ed-label">{{ _('Model') }}<select name="model">
+        <option value="">{{ _('Automatic') }}</option>
+        {% for m in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if edit.overrides.model == m.slug }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}
+        <optgroup label="{{ _('All models') }}">{% for m in all_models if m not in r.candidates %}<option value="{{ m.slug }}"{{ ' selected' if edit.overrides.model == m.slug }}>{{ m.brand }} {{ m.name|model_title }}</option>{% endfor %}</optgroup>
+      </select></label>
+      {% set a = edit.auto.year %}
+      <label class="ed-label">{{ _('Model year') }}<select name="year">
+        <option value="">{{ _('Automatic') }}{% if a %}: {{ a.year }}{% endif %}</option>
+        {% for y in edit.years %}<option value="{{ y }}"{{ ' selected' if y == edit.overrides.year }}>{{ y }}</option>{% endfor %}
+      </select></label>
+      {% set ac = edit.auto.photo_year.colour if edit.auto.photo_year and edit.auto.photo_year.colour else edit.auto.colourway.name if edit.auto.colourway else None %}
+      <label class="ed-label">{{ _('Colour') }}<input type="text" name="colour" maxlength="40" value="{{ edit.overrides.colour or '' }}" list="colour-choices" placeholder="{{ _('Automatic') }}{% if ac %}: {{ ac }}{% endif %}" autocomplete="off"></label>
+      {% if edit.colours %}<datalist id="colour-choices">{% for c in edit.colours %}<option value="{{ c }}">{% endfor %}</datalist>{% endif %}
       {% endcall %}
     </div>
     {% endif %}
   </div>
-  <section class="match-strip{{ ' no-checks' if not (mt and not r.chosen_by_you) }}">
+  {# The card: the catalogue photo of the bike (in the ad's colour and year when we have it), the model and how sure
+     we are, the frame check, and under them the model year, colour and groupset we go by. #}
+  {% set shown_colour = r.colour_set or r.colour_typed or colour %}
+  {% set yr = c.year %}{% set ag = r.age %}
+  {% set ys = 'warn' if not yr else ag.status if ag.status in ('ok', 'warn', 'bad') else 'unknown' %}
+  <section class="match-strip{{ ' no-checks' if not (mt and not r.chosen_by_you) }}{{ ' has-photo' if r.model.image }}">
+    {% if r.model.image %}<a class="ms-photo" href="{{ url_for('model_page', slug=r.model.slug) }}" aria-hidden="true" tabindex="-1">{{ photo(r.model) }}</a>{% endif %}
     <a class="ms-model" href="{{ url_for('model_page', slug=r.model.slug) }}">
       <span class="ms-row"><svg class="ms-bike" width="38" height="23" viewBox="0 0 600 360" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="134.0" cy="226.0" r="112"/><circle cx="134.0" cy="226.0" r="90"/><circle cx="465.3" cy="226.0" r="112"/><circle cx="465.3" cy="226.0" r="90"/><circle cx="134.0" cy="226.0" r="7"/><circle cx="465.3" cy="226.0" r="7"/><path d="M134.0 226.0 L269.3 249.4 L219.8 82.3 L398.3 61.8 L413.1 109.8 L269.3 249.4"/><path d="M134.0 226.0 L219.8 82.3"/><path d="M413.1 109.8 Q437.2 185.8 465.3 226.0"/><path d="M398.3 61.8 L396.3 53.5 L433.8 46.8 h20.1 c15.1 0 19.4 16.1 14.1 30.2 c-3.4 8.7 -11.4 12.7 -20.8 12.1"/><path d="M219.8 82.3 L210 44"/><path d="M186 38 L236 40"/><circle cx="269.3" cy="249.4" r="30"/><path d="M269.3 249.4 L310 284"/></svg>
         {% set bc = r.get('builds') %}
@@ -201,16 +208,23 @@
       <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[fs] }}</i>{{ mt.found|join(' · ') if mt.found else _('No model words in the ad') }}</b>
       {% set note %}{% if issues %}{{ issues|map(attribute='1')|join(' · ') }}{% else %}{{ _('All model words are in the ad') }}{% if mt.shifting %} · {{ _('Shifting: {kind}', kind=sh[mt.shifting.model]) }}{% endif %}{% endif %}{% endset %}
       <small title="{{ note|trim }}">{{ note }}</small></div>
-    {# The year: green when the ad's year falls in the years the model was sold; amber or red only for a real clash
-       (before its launch, after it was replaced, an earlier generation). Doubts from the parts stay in the age tab. #}
-    {% set yr = c.year %}{% set ag = r.age %}
-    {% set ys = 'warn' if not yr else ag.status if ag.status in ('ok', 'warn', 'bad') else 'unknown' %}
-    <div class="ms-check {{ ys }}"><span class="k">{{ _('Year')|upper }}</span>
-      <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{% if not yr %}{{ _('No year in the ad') }}{% elif ys == 'ok' %}{{ _('{year} fits this model', year=yr) }}{% else %}{{ yr }}: {{ ag.headline }}{% endif %}</b>
-      {% set note = _('Ask for the invoice or the serial number.') if not yr else ag.detail %}
-      <small title="{{ note }}">{{ note }}</small></div>
     {% endif %}
     <a class="ms-swap" href="#pick-model"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="m17 20 4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg><span>{{ _('Match with another model') }}</span></a>
+    <div class="ms-facts">
+      {# The year: green when the ad's year falls in the years the model was sold; amber or red only for a real clash
+         (before its launch, after it was replaced, an earlier generation). Doubts from the parts stay in the age tab. #}
+      <div class="ms-check ms-fact {{ ys }}"><span class="k">{{ _('Model year')|upper }} {{ lock('year') }}</span>
+        <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ r.year.year }}</b>
+        {% set note = r.year.note or (_('No year in the ad') ~ ' · ' ~ _('Ask for the invoice or the serial number.') if not yr else _('{year} fits this model', year=yr) if ys == 'ok' else ag.headline) %}
+        <small title="{{ note }}">{{ note }}</small></div>
+      <div class="ms-check ms-fact {{ 'ok' if shown_colour else 'unknown' }}"><span class="k">{{ _('Colour')|upper }} {{ lock('colour') }}</span>
+        {% if shown_colour %}<b>{% if shown_colour|swatch_css %}<i class="sw" style="background: {{ shown_colour|swatch_css }}"></i>{% endif %}{{ shown_colour }}</b>
+        <small>{{ _('the colour set by hand') if r.colour_set or r.colour_typed else _("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names') }}</small>
+        {% else %}<b class="muted">{{ _('Not known') }}</b><small>{{ _('The ad names no colour and its photos show none we know.') }}</small>{% endif %}</div>
+      <div class="ms-check ms-fact {{ 'ok' if c.groupset else 'unknown' }}"><span class="k">{{ _('Groupset')|upper }} {{ lock('groupset') }}</span>
+        {% if c.groupset %}<b>{{ c.groupset.label }}</b><small>{{ _('Chosen by you') if 'groupset' in r.locked else _('The groupset in the ad') }}</small>
+        {% else %}<b class="muted">{{ _('Not known') }}</b><small>{{ _('The ad names no groupset.') }}</small>{% endif %}</div>
+    </div>
   </section>
   {% if bc %}
   {# A model with builds (Ridley): the build the ad names, else the middle one by price until someone picks it.

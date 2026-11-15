@@ -3610,7 +3610,10 @@ def run_check(models, listing, today=None):
     report["colour_set"] = set_colour
     if set_colour:
         report["colour_typed"] = None
-    fitting = [] if set_colour else colour_match.fits(chosen, listing["title"], listing.get("description") or "")
+    said = colour_match.fits(chosen, listing["title"], listing.get("description") or "")
+    # The colourway the ad's own words name, for the ad's facts; None when they name none or several fit.
+    report["ad_colour"] = said[0]["name"] if len(said) == 1 else None
+    fitting = [] if set_colour else said
     report["colourway"] = fitting[0] if len(fitting) == 1 else None
     report["colour_from_photos"] = False
     if set_colour:

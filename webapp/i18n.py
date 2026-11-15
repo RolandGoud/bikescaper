@@ -465,6 +465,7 @@ NL = {
     "{n} builds of the {model} on the {brand} site": "{n} builds van de {model} op de site van {brand}",
     "The photo, parts and new price below are of the build you pick; the colours are the same for each.": "De foto, onderdelen en nieuwprijs hieronder zijn van de build die je kiest; de kleuren zijn voor elke build gelijk.",
     "Not known": "Niet bekend",
+    "The ad names no colour and its photos show none we know.": "De advertentie noemt geen kleur en de foto's tonen geen kleur die we kennen.",
     "The groupset in the ad": "De groep uit de advertentie",
     "The ad names no groupset.": "De advertentie noemt geen groep.",
     "The ad names {groupset}, which {model} isn’t sold with today.": "De advertentie noemt {groupset}, en daarmee wordt de {model} nu niet verkocht.",

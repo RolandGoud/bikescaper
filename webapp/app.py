@@ -717,11 +717,23 @@ def create_app(db_path=None):
         if row is None:
             abort(404)
         field = request.form.get("field")
-        if field not in checks.OVERRIDE_KEYS and field != "all":
+        if field not in checks.OVERRIDE_KEYS and field not in ("all", "match"):
             abort(400)
         overrides = json.loads(row["overrides"] or "{}") or {}
         if field == "all":
             overrides = {}
+        elif field == "match":
+            # The "Our match" form: the model, the model year and the colour at once; an empty one means automatic.
+            value = (request.form.get("model") or "").strip()
+            if value and not any(m["slug"] == value for m in models()):
+                abort(400)
+            overrides["model"] = value
+            value = (request.form.get("year") or "").strip()
+            if value and not (value.isdigit() and 1980 <= int(value) <= date.today().year + 1):
+                abort(400)
+            overrides["year"] = int(value) if value else None
+            overrides["colour"] = (request.form.get("colour") or "").strip()[:40]
+            overrides = {k: v for k, v in overrides.items() if v}
         elif request.form.get("clear"):
             overrides.pop(field, None)
         else:
@@ -747,7 +759,7 @@ def create_app(db_path=None):
             overrides[field] = value
         conn().execute("UPDATE checks SET overrides = ? WHERE id = ?", (json.dumps(overrides) if overrides else None, check_id))
         conn().commit()
-        return redirect(url_for("report", check_id=check_id, edit=1) + "#" + {"main_photo": "ad-photos"}.get(field, "edit-" + field))
+        return redirect(url_for("report", check_id=check_id, edit=1) + "#" + {"main_photo": "ad-photos", "match": "edit-match"}.get(field, "edit-" + field))
 
     @app.route("/check/<int:check_id>/delete", methods=["POST"])
     @admin_only

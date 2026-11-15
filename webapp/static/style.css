@@ -1760,7 +1760,20 @@ select { max-width: 100%; }
 .site-logo { display: block; height: 20px; width: auto; }
 .site-link:hover { border-color: var(--accent); }
 
-.match-strip { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) auto; align-items: stretch; border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+.match-strip { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: stretch; border-radius: 14px; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+/* The report's card: the catalogue photo spans both rows on the left, the swap bar on the right; under the model
+   and the frame check a row of three tiles: the model year, the colour and the groupset we go by. */
+.ms-photo { grid-row: 1 / 3; grid-column: 1; display: grid; place-items: center; width: 200px; padding: 10px; background: var(--photo-bg); border-right: 1px solid var(--line); }
+.ms-photo img { width: 100%; max-height: 150px; object-fit: contain; }
+.match-strip .ms-swap { grid-row: 1 / 3; grid-column: -2; }
+.ms-facts { grid-row: 2; grid-column: 1 / -2; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.match-strip.has-photo .ms-facts { grid-column: 2 / -2; }
+.ms-fact { justify-content: center !important; }
+.ms-facts .ms-fact:first-child { border-left: 0; }
+.ms-facts .ms-fact:first-child::before { left: 0; }
+.ms-fact b.muted { color: var(--muted); font-weight: 500; }
+.ms-fact .sw { flex: none; width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255, 255, 255, .25); }
+.ms-fact .k .ed-lock { margin-left: 4px; }
 .ms-model { display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 0; padding: 14px 22px 14px 18px; color: var(--text); text-decoration: none; }
 .ms-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .ms-bike { flex: none; color: var(--accent); }
@@ -1828,15 +1841,21 @@ select { max-width: 100%; }
 /* The report's Frame and Year cells always get room for their text: the model takes what's left (its name at two
    lines at most), and where that gets too narrow the checks move to a second row under the model. */
 @media (min-width: 981px) {
-  .match-strip:not(.used-strip):not(.no-checks) { grid-template-columns: minmax(0, 1fr) repeat(2, minmax(250px, 280px)) auto; }
+  .match-strip:not(.used-strip):not(.no-checks) { grid-template-columns: minmax(0, 1fr) minmax(250px, 280px) auto; }
+  .match-strip.has-photo:not(.used-strip):not(.no-checks) { grid-template-columns: 200px minmax(0, 1fr) minmax(250px, 280px) auto; }
+  .match-strip.has-photo.no-checks { grid-template-columns: 200px minmax(0, 1fr) auto; }
 }
 @media (min-width: 761px) and (max-width: 980px) {
-  .match-strip:not(.used-strip):not(.no-checks) { grid-template-columns: repeat(2, minmax(0, 1fr)) auto; }
-  .match-strip:not(.used-strip):not(.no-checks) .ms-model { grid-column: 1 / 3; }
-  .match-strip:not(.used-strip):not(.no-checks) .ms-swap { grid-column: 3; grid-row: 1 / 3; }
-  .match-strip:not(.used-strip) .ms-check { border-top: 1px solid var(--line); }
-  .match-strip:not(.used-strip) .ms-check:nth-of-type(1) { border-left: 0; }
-  .match-strip:not(.used-strip) .ms-check:nth-of-type(1)::before { left: 0; }
+  /* Tablets: the photo on top of the card, the frame check on its own row, the facts under it. */
+  .match-strip:not(.used-strip) { grid-template-columns: minmax(0, 1fr) auto; }
+  .match-strip:not(.used-strip) .ms-photo { grid-row: 1; grid-column: 1 / -1; width: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .match-strip:not(.used-strip) .ms-photo img { max-height: 180px; }
+  .match-strip:not(.used-strip) .ms-swap { grid-column: 2; grid-row: 1 / 3; }
+  .match-strip.has-photo:not(.used-strip) .ms-swap { grid-row: 2 / 4; }
+  .match-strip:not(.used-strip) .ms-facts { grid-row: auto; }
+  .match-strip:not(.used-strip) > .ms-check { grid-column: 1; border-left: 0; border-top: 1px solid var(--line); }
+  .match-strip:not(.used-strip) > .ms-check::before { left: 0; }
+  .match-strip:not(.used-strip) .ms-facts, .match-strip.has-photo:not(.used-strip) .ms-facts { grid-column: 1 / -1; }
 }
 
 @media (max-width: 760px) {
@@ -1863,7 +1882,16 @@ select { max-width: 100%; }
   .match-strip { grid-template-columns: minmax(0, 1fr) auto; }
   .ms-check { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
   .ms-check::before { left: 0; }
-  .ms-swap { grid-row: 1; grid-column: 2; }
+  .ms-photo { grid-row: 1; grid-column: 1 / -1; width: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .ms-photo img { max-height: 170px; }
+  .match-strip .ms-swap { grid-row: 1; grid-column: 2; }
+  .match-strip.has-photo .ms-swap { grid-row: 2; }
+  .match-strip.has-photo .ms-model { grid-row: 2; }
+  .ms-facts, .match-strip.has-photo .ms-facts { grid-row: auto; grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0; }
+  .ms-facts .ms-fact { grid-column: auto; }
+  .ms-facts .ms-fact:nth-child(even) { border-left: 1px solid var(--line); }
+  .ms-facts .ms-fact:nth-child(even)::before { left: -1px; }
+  .ms-facts .ms-fact:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .match-strip:not(.used-strip) .ms-name { max-width: none; -webkit-line-clamp: 4; }  /* the checks have their own rows here, so the name can take more lines */
 }
 
@@ -2069,6 +2097,7 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .ed-auto { font-size: 12px; color: var(--muted); }
 .ed-check { display: flex; gap: 8px; align-items: center; font-size: 14px; }
 .ed-check input { height: auto; }
+.ed-label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
 .ed-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 .ed-save, .ed-clear { height: 36px; padding: 0 12px; border-radius: 6px; font: 700 14px var(--body); cursor: pointer; }
 .ed-save { border: 0; background: var(--accent); color: var(--ink); }
@@ -2080,6 +2109,11 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .ed-delete { height: 40px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--bad); color: var(--ink); font: 700 15px var(--body); cursor: pointer; }
 .ms-edit { display: inline-flex; align-items: center; gap: 4px; text-transform: none; letter-spacing: 0; }
 .block-head .ms-edit { margin-left: 6px; }
+.block-head { position: relative; }
+@media (max-width: 760px) {
+  .block-head .ed-pop { position: static; }
+  .block-head .ed-form { left: 0; right: 0; width: auto; }
+}
 .ed-photos { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--warn); display: grid; gap: 8px; }
 .ed-photos .k { font: 500 11px var(--mono); color: var(--warn); letter-spacing: .06em; }
 .ed-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; }
