@@ -1515,8 +1515,10 @@ def create_app(db_path=None):
         browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
         if form.get("step") == "start" and not link and step == "gaps":
             # "Check my ad" with nothing pasted: back to the choice, with the reason.
+            archive, archive_total = sell_archive()
             return render_template("sell.html", form=form, r=None, error=gettext("Paste the link to your ad."),
-                                   step="start", examples=[], **page), 400
+                                   step="start", examples=[], archive=archive, archive_total=archive_total,
+                                   can_act=None if is_admin() else set(own_sell_ads()), **page), 400
         if link and not browsing and not (form.get("title") or "").strip():
             try:
                 ad = fetch_ad.fetch_listing(link)

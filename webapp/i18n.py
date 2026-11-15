@@ -1623,4 +1623,6 @@ NL = {
     "Show all {n}": "Bekijk alle {n}",
     "Your draft isn't published and doesn't count in our price figures. It joins the list of ads we helped with, without your text.":
         "Je concept wordt niet gepubliceerd en telt niet mee in onze prijzen. Het komt in de lijst van advertenties waarmee we hielpen, zonder je tekst.",
+    "No ads yet. Make a new ad or check one above, and it shows up here.":
+        "Nog geen advertenties. Maak hierboven een nieuwe advertentie of check er een, dan komt die hier te staan.",
 }
