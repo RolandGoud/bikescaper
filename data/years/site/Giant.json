@@ -10316,6 +10316,45 @@
      "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
     },
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0-di2-2025"
+   },
+   "2026": {
+    "captured": "2026-11-15",
+    "colour_images": {
+     "Carbon": "Giant/years/tcradvancedpro0di2_2026_carbon_site.jpg"
+    },
+    "colours": [
+     "Carbon"
+    ],
+    "image": "Giant/years/tcradvancedpro0di2_2026_site.jpg",
+    "price": 6499.0,
+    "source": "site",
+    "specs": {
+     "Aandrijving": "Shimano CN-M8100",
+     "Achterderailleur": "Shimano Ultegra Di2 RD-R8150",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "CADEX Road Race GC, tubeless, 700x30mm, folding",
+     "Cassette": "Shimano Ultegra, 12-speed, 11x34",
+     "Crankstel": "Shimano Ultegra, 36/52 with Giant Power Pro power meter XS:165mm, S:165mm, M:170mm, M/L:170mm, L:172.5mm, XL:172.5mm",
+     "Demper": "N/A",
+     "Extra's": "computer mount, tubeless prepared, 33mm max tire size",
+     "Frame": "Advanced-grade Composite, 12x142mm thru-axle, disc",
+     "Gewicht": "-",
+     "Handvatten": "Stratus Lite 2.0",
+     "Maximale bandenmaat": "33mm",
+     "Naven": "[F] Giant Low Friction Hub, CenterLock, 12mm thru-axle, [R] Giant Low Friction Hub, 40t ratchet driver, CenterLock, 12mm thru-axle",
+     "Rem": "Shimano Ultegra Di2 hydraulic, Shimano RT-CL800 rotors [F]160mm, [R]140mm",
+     "Remgreep": "Shimano Ultegra Di2",
+     "Shifter": "Shimano Ultegra Di2",
+     "Spaken": "Giant Aero Carbon Spoke",
+     "Stuur": "Giant Contact SLR XS:420/370mm, S:420/370mm, M:440/390mm, M/L:440/390mm, L:440/390mm, XL:440/390mm",
+     "Stuurpen": "Giant Contact SL AeroLight XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+     "Velg": "Giant SLR 0 40 WheelSystem, [F]40mm, [R]40mm",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
+     "Voorvork": "Advanced SL-grade Composite, full-composite OverDrive Aero steerer, 12x100mm thru-axle, disc",
+     "Zadel": "Giant Fleet SL",
+     "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-0--di2-"
    }
   },
   "TCR Advanced Pro 1": {
@@ -10666,6 +10705,63 @@
      "Zadelpen": "Giant Variant, composite"
     },
     "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-3-disc-2020"
+   }
+  },
+  "TCR Advanced Pro Disc 0 Di2": {
+   "2022": {
+    "captured": "2026-11-15",
+    "colour_angles": {
+     "Gloss Amber Glow / Matte Carbon": [
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_1.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_2.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_3.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_4.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_5.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_6.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_7.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_8.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_9.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_10.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_11.jpg",
+      "Giant/gallery/tcradvancedprodisc0di2_glossamberglowmattecarbon_12.jpg"
+     ]
+    },
+    "colour_images": {
+     "Gloss Amber Glow / Matte Carbon": "Giant/years/tcradvancedprodisc0di2_2022_glossamberglowmattecarbon_site.jpg"
+    },
+    "colours": [
+     "Gloss Amber Glow / Matte Carbon"
+    ],
+    "image": "Giant/years/tcradvancedprodisc0di2_2022_site.jpg",
+    "price": 5899.0,
+    "source": "site",
+    "specs": {
+     "Aandrijving": "Shimano Ultegra",
+     "Achterderailleur": "Shimano Ultegra Di2 RD-R8150",
+     "Bottom bracket": "Shimano, press fit",
+     "Buitenband": "CADEX Race, tubeless, 700x25c (26.5mm), folding",
+     "Cassette": "Shimano Ultegra, 12-speed, 11x30",
+     "Crankstel": "Shimano Ultegra, 36/52 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
+     "Demper": "N/A",
+     "Extra's": "computer mount, tubeless prepared, 32mm max tire size",
+     "Frame": "Advanced-Grade Composite, disc",
+     "Gewicht": "7,28kg",
+     "Handvatten": "Stratus Lite 2.0",
+     "Naven": "Giant SLR 1 42 Carbon Disc WheelSystem, 12mm thru-axle",
+     "Pedaal": "N/A",
+     "Rem": "Shimano Ultegra Di2 hydraulic, Shimano RT-MT800 rotors [F]160mm, [R]140mm",
+     "Remgreep": "Shimano Ultegra Di2 hydraulic",
+     "Shifter": "Shimano Ultegra Di2 ST-R8170",
+     "Spaken": "Giant SLR 1 42 Carbon Disc WheelSystem",
+     "Stuur": "Giant Contact SLR XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
+     "Stuurpen": "Giant Contact SL XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
+     "Velg": "Giant SLR 1 42 Carbon Disc WheelSystem",
+     "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
+     "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
+     "Zadel": "Giant Fleet SL",
+     "Zadelpen": "Giant Variant, composite, -5/+15mm offset"
+    },
+    "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-0-di2-2022"
    }
   },
   "TCR Advanced Pro Disc 1 UT": {
