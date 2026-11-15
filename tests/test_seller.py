@@ -1,3 +1,4 @@
+import json
 from datetime import date
 
 import pytest
@@ -143,7 +144,7 @@ def test_the_page_works_and_saves_nothing(client):
     assert "Your new ad" in page and "2024 · size 56" in page
     assert c.post("/sell", data={"title": ""}).status_code == 400
     conn = db.connect(app.config["DB_PATH"])
-    assert conn.execute("SELECT COUNT(*) FROM checks").fetchone()[0] == 0
+    assert conn.execute("SELECT COUNT(*) FROM checks").fetchone()[0] == 0  # a draft never counts as an ad
 
 
 def test_the_photo_review_offer_counts_interest(client):
@@ -281,3 +282,37 @@ def test_every_photo_shot_and_step_has_dutch():
     assert [t for t in texts if t not in i18n.NL] == []
     import os
     assert all(os.path.exists(f"webapp/static/photo-guide/{key}.svg") for key, *_ in PHOTO_SHOTS)
+
+
+def test_helped_ads_are_listed_on_the_start_page(client):
+    c, app = client
+    assert "Ads we helped with" not in c.get("/sell?lang=en").data.decode()
+    # The steps of one ad update one entry.
+    c.post("/sell?lang=en", data={**DRAFT})
+    c.post("/sell?lang=en", data={**DRAFT, "year": "2024", "size": "56", "go": "price"})
+    conn = db.connect(app.config["DB_PATH"])
+    rows = conn.execute("SELECT * FROM sell_ads").fetchall()
+    assert len(rows) == 1 and rows[0]["updated_at"] and json.loads(rows[0]["answers"]) == {"size": "56", "year": 2024}
+    page = c.get("/sell?lang=en").data.decode()
+    assert "Ads we helped with" in page and page.count('<article class="check-row') == 1
+    assert DRAFT["title"] in page and "Domane SL 6" in page and "New ad" in page and "#1 ·" in page
+    assert "Ophalen in Utrecht" not in page  # the seller's own text stays out of the list
+    assert "Open in the helper" in page and "Remove" in page
+    assert "Advertenties waarmee we hielpen" in c.get("/sell?lang=nl").data.decode()
+    # Another browser sees it, but can't open or remove it.
+    other = app.test_client()
+    page = other.get("/sell?lang=en").data.decode()
+    assert page.count('<article class="check-row') == 1 and "Open in the helper" not in page and "See the model" in page
+    assert other.get("/sell?ad=1&lang=en").data.decode().count("What do you want to do?") == 1
+    other.post("/sell/ad/1/remove")
+    assert conn.execute("SELECT COUNT(*) FROM sell_ads").fetchone()[0] == 1
+    # The browser that made it opens it again as it was left, and a change updates that entry.
+    page = c.get("/sell?ad=1&lang=en").data.decode()
+    assert "Your new ad" in page and "Ophalen in Utrecht" in page and "<option selected>2024</option>" in page
+    # An ad checked by its link is a second entry.
+    c.post("/sell?lang=en", data={"title": "Trek Domane SL 6", "ad_link": "https://www.marktplaats.nl/v/x", "asking_price": "2400"})
+    assert conn.execute("SELECT COUNT(*) FROM sell_ads").fetchone()[0] == 2
+    page = c.get("/sell?lang=en").data.decode()
+    assert "Ad checked" in page and page.index("#2 ·") < page.index("#1 ·")  # newest first
+    c.post("/sell/ad/2/remove")
+    assert [r["id"] for r in conn.execute("SELECT id FROM sell_ads")] == [1]

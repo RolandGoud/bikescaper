@@ -1388,7 +1388,7 @@ def create_app(db_path=None):
 
     def improved_examples(limit=5):
         """Recently checked ads next to the ad we would write for them, for the Selling page. Only ads
-        read from a public link: drafts typed on the Selling page are never saved."""
+        read from a public link, from the buyers' checks; the helper's own ads have their archive (sell_archive)."""
         rows = conn().execute(f"SELECT * FROM checks WHERE listing_url IS NOT NULL AND removed_at IS NULL AND {db.PUBLISHED} "
                               "ORDER BY id DESC LIMIT 60").fetchall()
         found, ads = [], None
@@ -1406,9 +1406,80 @@ def create_app(db_path=None):
                 break
         return found
 
+    SELL_AD_MINUTES = 60  # a draft changed within this long after its last change is the same ad, not a new one
+    SELL_ARCHIVE_SHOWN = 12  # helped ads listed on the start page before "Show all"
+
+    def own_sell_ads():
+        """Ads made or checked in the helper from this browser; only these can be opened again or removed (or the admin's)."""
+        return session.get("my_sell_ads", [])
+
+    def can_act_on_sell_ad(ad_id):
+        return is_admin() or ad_id in own_sell_ads()
+
+    def save_sell_ad(link, draft, answers, model_id):
+        """Keep the ad the helper worked on, for the archive on the start page. The steps of one ad (each a POST of
+        the same form) update one entry: the one this browser saved last, while it is the same ad (the same link,
+        or for a new ad the same title or model) and was changed less than SELL_AD_MINUTES ago, or was opened again
+        from the archive."""
+        answers = json.dumps({k: v for k, v in answers.items() if v not in (None, "")}, sort_keys=True)
+        values = (link or None, draft["title"], draft["description"] or None, draft["asking_price"], model_id, answers)
+        last_id = session.get("last_sell_ad")
+        row = conn().execute("SELECT *, (julianday('now') - julianday(coalesce(updated_at, created_at))) * 1440 "
+                             "AS minutes FROM sell_ads WHERE id = ?", (last_id,)).fetchone() if last_id else None
+        same = row is not None and (row["minutes"] <= SELL_AD_MINUTES or session.get("opened_sell_ad") == row["id"]) \
+            and row["ad_link"] == (link or None) and (link or row["title"] == draft["title"] or row["model_id"] == model_id)
+        if same:
+            if (row["ad_link"], row["title"], row["description"], row["asking_price"], row["model_id"], row["answers"]) != values:
+                conn().execute("UPDATE sell_ads SET ad_link = ?, title = ?, description = ?, asking_price = ?, model_id = ?, "
+                               "answers = ?, updated_at = datetime('now') WHERE id = ?", values + (row["id"],))
+                conn().commit()
+            return row["id"]
+        cur = conn().execute("INSERT INTO sell_ads (ad_link, title, description, asking_price, model_id, answers) "
+                             "VALUES (?,?,?,?,?,?)", values)
+        conn().commit()
+        session["last_sell_ad"] = cur.lastrowid
+        session.pop("opened_sell_ad", None)
+        session["my_sell_ads"] = (own_sell_ads() + [cur.lastrowid])[-50:]
+        return cur.lastrowid
+
+    def sell_ad_form(row):
+        """The helper's form for an ad from the archive, as the seller last left it."""
+        answers = json.loads(row["answers"] or "{}")
+        return {"title": row["title"], "description": row["description"] or "", "ad_link": row["ad_link"] or "",
+                "mode": "link" if row["ad_link"] else "manual", "model_id": str(row["model_id"]),
+                "asking_price": f"{row['asking_price']:g}" if row["asking_price"] is not None else ""} | \
+            {k: str(v) for k, v in answers.items()}
+
+    def sell_archive(show_all=False):
+        """Every ad the helper made or checked, newest first, worked out again as on the day it was made: what was put
+        in and what came out. The seller's own text stays out of it; only the browser that made it can open it again."""
+        rows = conn().execute("SELECT * FROM sell_ads ORDER BY id DESC").fetchall()
+        by_id = {m["id"]: m for m in models()}
+        rows = [r for r in rows if r["model_id"] in by_id]  # its model left the catalogue
+        ads, items = prices.known_ads(conn(), models()), []
+        for row in rows if show_all else rows[:SELL_ARCHIVE_SHOWN]:
+            made = date.fromisoformat(row["created_at"][:10])
+            r = seller.improve(models(), {"title": row["title"], "description": row["description"] or "",
+                                          "asking_price": row["asking_price"], "model_id": row["model_id"]},
+                               json.loads(row["answers"] or "{}"), today=made, ads=ads)
+            if not r.get("model"):
+                continue
+            items.append({"row": row, "r": r, "total": len(r["facts"]),
+                          "added": [f["label"] for f in r["facts"] if f["source"] in ("cat", "you")],
+                          "open": [f["label"] for f in r["facts"] if f["source"] == "open"]})
+        return items, len(rows)
+
+    @app.post("/sell/ad/<int:ad_id>/remove")
+    def sell_ad_remove(ad_id):
+        if can_act_on_sell_ad(ad_id):
+            conn().execute("DELETE FROM sell_ads WHERE id = ?", (ad_id,))
+            conn().commit()
+        return redirect(url_for("sell") + "#helped")
+
     @app.route("/sell", methods=["GET", "POST"])
     def sell():
-        """Help a seller improve a draft ad, one step at a time. Everything comes from the form; nothing is saved.
+        """Help a seller improve a draft ad, one step at a time. Everything comes from the form; the ad it ends up
+        with is kept for the archive on the start page (save_sell_ad).
 
         A GET starts with a choice: make a new ad (on to the photos) or check an existing one by its link
         (straight to the gaps). ?step=photos or ?step=ad opens that step instead. Every later page is a POST of the same form, so the answers
@@ -1416,12 +1487,24 @@ def create_app(db_path=None):
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
         page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
                 "shots": PHOTO_SHOTS, "shot_examples": PHOTO_EXAMPLES, "can_mail": mail.configured()}
+        opened = None
         if request.method == "GET":
-            step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "start"
-            return render_template("sell.html", form={}, r=None, error=None, step=step,
-                                   examples=improved_examples() if step == "ad" else [], **page)
-        form = request.form.to_dict()
-        step = next((s for s in (form.get("go"), form.get("step")) if s in SELL_STEP_KEYS), "gaps")
+            ad_id = request.args.get("ad", type=int)
+            if ad_id and can_act_on_sell_ad(ad_id):
+                opened = conn().execute("SELECT * FROM sell_ads WHERE id = ?", (ad_id,)).fetchone()
+            if opened is None:
+                step = request.args.get("step") if request.args.get("step") in ("photos", "ad") else "start"
+                archive, archive_total = sell_archive(request.args.get("all") == "1") if step == "start" else ([], 0)
+                return render_template("sell.html", form={}, r=None, error=None, step=step,
+                                       examples=improved_examples() if step == "ad" else [], archive=archive,
+                                       archive_total=archive_total, can_act=None if is_admin() else set(own_sell_ads()),
+                                       **page)
+            # Opened again from the archive: the helper as the seller left it, and a change updates that entry.
+            form, step = sell_ad_form(opened), "gaps"
+            session["last_sell_ad"] = session["opened_sell_ad"] = opened["id"]
+        else:
+            form = request.form.to_dict()
+            step = next((s for s in (form.get("go"), form.get("step")) if s in SELL_STEP_KEYS), "gaps")
         error = None
         link = (form.get("ad_link") or "").strip()
         browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
@@ -1447,6 +1530,8 @@ def create_app(db_path=None):
         answers = {"year": number(form.get("use_year") or form.get("year"), int), "size": form.get("size"), "condition": form.get("condition"),
                    "invoice": form.get("invoice"), "service": form.get("service"), "wheels": form.get("wheels")}
         r = seller.improve(models(), draft, answers, ads=prices.known_ads(conn(), models()))
+        if r.get("model"):
+            save_sell_ad(link, draft, answers, r["model"]["id"])
         return render_template("sell.html", form=form, r=r, error=error, step=step, all_models=models(), examples=[], **page,
                                condition_labels=checks.CONDITION_LABEL)
 

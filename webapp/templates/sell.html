@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% from "_macros.html" import part_icon %}
 {% from "_macros.html" import photo with context %}
-{% from "_macros.html" import site_mark, brand_mark with context %}
+{% from "_macros.html" import site_mark, site_name, brand_mark with context %}
 {% block title %}{{ _('Sell your bike') }} · Bikecheck{% endblock %}
 {% block body %}
 {# A wizard in five steps (SELL_STEPS in app.py). One form carries the draft and the answers from step to step:
    every field on the page joins it with form="sell-form", and static/sell.js sends it again when an answer
-   changes. The steps that aren't on screen stay in the page, hidden, so their answers go along. Nothing is saved. #}
+   changes. The steps that aren't on screen stay in the page, hidden, so their answers go along. The ad it ends up
+   with is kept for the archive under the start choice (save_sell_ad in app.py), without the seller's own text. #}
 {% set keys = steps|map(attribute=0)|list %}{% set step_at = keys.index(step) if step in keys else -1 %}
 {% set can_check = r is not none or form.title %}
 <form id="sell-form" method="post" action="{{ url_for('sell') }}#steps">
@@ -36,6 +37,69 @@
       <button class="btn" type="submit" form="sell-form" name="go" value="gaps">{{ _('Check my ad') }} →</button>
     </section>
   </div>
+  {% if archive %}
+  {# Every ad the helper made or checked, like the value estimator's list: open to everyone, but only the
+     browser that made one (or the admin) can open it again in the helper or remove it. #}
+  <section class="stack sell-archive" id="helped" style="gap: 16px">
+    <div class="stack" style="gap: 4px">
+      <h2 style="font-size: 28px">{{ _('Ads we helped with') }} <span class="muted">{{ archive_total }}</span></h2>
+      <p class="muted">{{ _('Every ad made or checked here, newest first: what was put in, and what came out on that day. The seller’s own text stays private.') }}</p>
+    </div>
+    <div class="check-rows">
+      {% for a in archive %}{% set r = a.r %}{% set row = a.row %}{% set v = r.value %}{% set mine = can_act is none or row.id in can_act %}
+      <article class="check-row">
+        <div class="check-row-body">
+          <a class="check-row-photo" href="{{ url_for('model_page', slug=r.model.slug) }}" tabindex="-1" aria-hidden="true">
+            <div class="photo">{{ photo(r.model) }}{{ brand_mark(r.model.brand) }}{% if row.ad_link %}{{ site_mark(row.ad_link) }}{% endif %}</div>
+          </a>
+          <section class="check-col">
+            <h2>{{ _('Request') }}</h2>
+            <dl>
+              <dt>{{ _('Kind') }}</dt><dd>{% if row.ad_link %}{{ _("Ad checked") }}{% else %}{{ _("New ad") }}{% endif %}</dd>
+              <dt>{{ _('Title') }}</dt><dd class="ad-title-in">{{ row.title }}</dd>
+              <dt>{{ _('Recognised as') }}</dt><dd class="strong"><a href="{{ url_for('model_page', slug=r.model.slug) }}">{{ r.model.brand }} {{ r.model.name|model_title }}</a></dd>
+              <dt>{{ _('Asking price') }}</dt><dd>{{ row.asking_price|eur if row.asking_price else '–' }}</dd>
+              {% if row.ad_link %}<dt>{{ _('Ad') }}</dt><dd><a href="{{ row.ad_link }}" rel="noopener nofollow" target="_blank">{{ site_name(row.ad_link) or _('Open the ad') }} ↗</a></dd>{% endif %}
+            </dl>
+          </section>
+          <section class="check-col">
+            <h2>{{ _('Result') }}</h2>
+            <dl>
+              <dt>{{ _('New title') }}</dt><dd class="strong">{{ r.title }}</dd>
+              <dt>{{ _('What buyers want to know') }}</dt>
+              <dd>{{ _('{before} of {total} in the ad, {after} after', before=r.counts.draft, total=a.total, after=a.total - r.counts.open) }}</dd>
+            </dl>
+            {% if a.added %}<div class="check-row-facts">{% for f in a.added %}<span>+ {{ f }}</span>{% endfor %}</div>{% endif %}
+            {% if v.low %}
+            <div class="price-bar">
+              <div class="price-bar-top"><span class="amount">{{ v.low|eur }}–{{ v.high|eur }}</span>{% if r.suggested %}<span class="chip ok-bg">{{ _('Our suggestion') }} {{ r.suggested|eur }}</span>{% endif %}</div>
+              {% if v.bar %}
+              <div class="value-bar" role="img" aria-label="{{ _('Fair range {low} to {high}, asking {asking}', low=v.low|eur, high=v.high|eur, asking=r.asking|eur) if r.asking else _('Fair range {low} to {high}', low=v.low|eur, high=v.high|eur) }}">
+                <div class="range" style="left: {{ v.bar.low }}%; width: {{ v.bar.width }}%"></div>
+                {% if v.bar.asking %}<div class="ask" style="left: {{ v.bar.asking }}%"></div>{% endif %}
+              </div>
+              {% endif %}
+              <span class="muted small">{{ _('Fair value') }}{% if r.asking %} · {{ _('Asking price') }} {{ r.asking|eur }}{% endif %}</span>
+            </div>
+            {% endif %}
+          </section>
+        </div>
+        <footer class="check-row-foot">
+          <span class="mono">#{{ row.id }} · {{ row.created_at[:16] }}</span>
+          {% if row.updated_at %}<span class="badge updated" title="{{ _('The seller went on changing this ad in the helper.') }}">{{ _('Updated {time}', time=row.updated_at[11:16]) }}</span>{% endif %}
+          {% if mine %}
+          <form method="post" action="{{ url_for('sell_ad_remove', ad_id=row.id) }}"><button class="btn ghost sm" type="submit">{{ _('Remove') }}</button></form>
+          <a class="open" href="{{ url_for('sell', ad=row.id) }}#steps">{{ _('Open in the helper') }} →</a>
+          {% else %}
+          <a class="open" href="{{ url_for('model_page', slug=r.model.slug) }}">{{ _('See the model') }} →</a>
+          {% endif %}
+        </footer>
+      </article>
+      {% endfor %}
+    </div>
+    {% if archive|length < archive_total %}<a class="btn ghost" style="align-self: center" href="{{ url_for('sell', all=1) }}#helped">{{ _('Show all {n}', n=archive_total) }}</a>{% endif %}
+  </section>
+  {% endif %}
 </main>
 {% else %}
 <nav class="wizard" id="steps" aria-label="{{ _('Improve your ad, step by step') }}"><ol class="wrap">
@@ -74,7 +138,7 @@
           <textarea form="sell-form" name="description" placeholder="Mooie racefiets, weinig gebruikt. Shimano 105. Ophalen in Utrecht.">{{ form.description or '' }}</textarea>
         </label>
       </div>
-      <div class="actions field wide"><button class="btn" type="submit" form="sell-form" name="go" value="gaps">{{ _('Improve my ad') }}</button><span class="hint">{{ _("Your draft isn't saved or published, and doesn't count in our price figures.") }}</span></div>
+      <div class="actions field wide"><button class="btn" type="submit" form="sell-form" name="go" value="gaps">{{ _('Improve my ad') }}</button><span class="hint">{{ _("Your draft isn't published and doesn't count in our price figures. It joins the list of ads we helped with, without your text.") }}</span></div>
     </div>
   </div>
   {% if hero_credit %}
