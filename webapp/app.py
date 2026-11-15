@@ -564,8 +564,10 @@ def create_app(db_path=None):
             priced = {i for a in known if a["model_id"] == result["model"]["id"] for i in a["check_ids"]}
             rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
             own = checks.ad_facts(result, row["asking_price"])
-            for r, n in sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
-                               key=lambda a: a[0]["created_at"], reverse=True):
+            # Ads still up first, then the gone ones (expired, removed); newest check first in each.
+            ads = sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
+                         key=lambda a: a[0]["created_at"], reverse=True)
+            for r, n in sorted(ads, key=lambda a: bool(a[0]["removed_at"])):
                 if fetch_ad.ad_key(r) == key:
                     continue
                 other = listing_dict(r, count=n)

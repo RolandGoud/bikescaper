@@ -557,3 +557,24 @@ def test_ad_facts_leave_out_parts_the_ad_does_not_state():
     assert checks.fact_differences(dict(own, wheels="Bontrager Aeolus Pro 51 wielen"), dict(facts, wheels="Aeolus Pro 51")) == {}
     assert checks.fact_differences(dict(own, wheels="Aeolus Pro 51"), dict(facts, wheels="Aeolus Elite 50")) == {"wheels": True}
     assert checks.fact_differences(own, dict(facts, year=2020, price=1000)) == {"year": -2, "price": -200}
+
+
+def test_other_ads_are_their_own_section_live_first_five_a_page(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    seed.load(db.connect(app.config["DB_PATH"]))
+    conn = db.connect(app.config["DB_PATH"])
+    conn.execute("INSERT INTO checks (listing_url, title, asking_price) VALUES ('https://www.marktplaats.nl/v/a0', 'Giant TCR Advanced 2 2021 maat M', 1500)")
+    # An expired ad checked last, then six still up, checked before it: the expired one goes to the bottom.
+    for i in range(1, 7):
+        conn.execute("INSERT INTO checks (listing_url, title, asking_price, created_at) VALUES (?, 'Giant TCR Advanced 2 2021', ?, ?)",
+                     (f"https://www.marktplaats.nl/v/a{i}", 1400 + i * 10, f"2026-10-0{i} 10:00:00"))
+    conn.execute("INSERT INTO checks (listing_url, title, asking_price, created_at, removed_at, gone_reason)"
+                 " VALUES ('https://www.marktplaats.nl/v/a9', 'Giant TCR Advanced 2 2021', 1475, '2026-10-20 10:00:00', '2026-10-25', 'expired')")
+    conn.commit()
+    page = app.test_client().get("/check/1?lang=nl").data.decode()
+    assert "Onze beoordeling" in page and "Wat anderen vragen voor dit model" in page
+    assert '<b class="count">7</b> Andere advertenties voor dit model' in page
+    links = [page.index(f'href="/check/{n}"', page.index('class="card other-ads"')) for n in (7, 2, 8)]
+    assert links == sorted(links)  # newest live ad first, oldest live ad last, the expired one after them
+    assert 'class="map-pager compare-pager"' in page and page.count('data-page=') >= 2

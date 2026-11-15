@@ -356,10 +356,11 @@
   {%- endif -%}
 {%- endmacro %}
 
-{% macro compare_ads(ads, heading) -%}
+{# Without a heading the table stands in a section of its own, which carries the heading (the check page). #}
+{% macro compare_ads(ads, heading=none) -%}
     {% set cols = [('year', _('Year')), ('groupset', _('Groupset')), ('wheels', _('Wheels')), ('price', _('Asking price'))] %}
-    <div class="matched-ads ad-compare" id="ads">
-      <h3>{{ heading }} <span class="muted count">{{ ads|length }}</span></h3>
+    <div class="matched-ads ad-compare{{ ' own' if not heading }}" id="ads">
+      {% if heading %}<h3>{{ heading }} <span class="muted count">{{ ads|length }}</span></h3>{% endif %}
       <p class="small muted">{{ _('Compared with this ad: what differs is marked. ≈ is a year we estimated.') }}</p>
       <table class="compare-table">
         <thead><tr><th scope="col">{{ _('Ad') }}</th>{% for key, label in cols %}<th scope="col">{{ label }}</th>{% endfor %}</tr></thead>
@@ -379,6 +380,14 @@
           {% endfor %}
         </tbody>
       </table>
+      {# Five ads a page: the buttons are drawn by the check page's script, so without JS every ad shows. #}
+      {% if not heading and ads|length > 5 %}
+      <nav class="map-pager compare-pager" aria-label="{{ _('Pages') }}" data-size="5" hidden>
+        <button type="button" class="map-pager-step" data-step="-1">← {{ _('Previous') }}</button>
+        <span class="map-pager-pages">{% for _p in range(((ads|length) + 4) // 5) %}<button type="button" data-page="{{ loop.index }}">{{ loop.index }}</button>{% endfor %}</span>
+        <button type="button" class="map-pager-step" data-step="1">{{ _('Next') }} →</button>
+      </nav>
+      {% endif %}
     </div>
 {%- endmacro %}
 
