@@ -7,3 +7,5 @@ gx-eagle, gx-transmission, nx, potenza, record, red, rival, slx, sora, super-rec
 veloce, x0-transmission, x01, x01-eagle, x1, xt, xtr, xx-xx-sl-transmission, xx1, xx1-eagle (all .svg)
 
 The SRAM ones (apex, rival, force, red, gx-transmission, x0-transmission, xx-xx-sl-transmission) are the white series logos from sram.com.
+
+Shimano 105, GRX and SRAM XX1 / XX1 Eagle come from the PNGs on seeklogo.com, turned into a mask and wrapped in an SVG.
