@@ -154,7 +154,7 @@
          whole row, six: four and two halves). The condition, often long, is the last one. #}
       {% set cols = [facts|length, 4]|min %}{% set k = facts|length % cols if cols else 0 %}
       {% set start = facts|length - k %}{% set span = (cols // k) if k else 1 %}
-      {% if facts %}<div class="ad-tiles" style="--n: {{ cols }}">{% for label, value, kind in facts %}
+      {% if facts %}<div class="ad-tiles inline" style="--n: {{ cols }}">{% for label, value, kind in facts %}
         {% set i = loop.index0 %}{% set w = (cols - span * (k - 1) if loop.last else span) if i >= start else 1 %}
         <div class="{{ 'below' if i >= cols }}{{ ' row-start' if i and i % cols == 0 }}{{ ' fill' if w > 1 }}"{% if w > 1 %} style="--span: {{ w }}"{% endif %}><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'photos' %} title="{{ _("From the ad's photos") }}"{% endif %}>{{ value }}</b>{% endif %}{{ tile_lock(label) }}</div>{% endfor %}
       </div>{% endif %}

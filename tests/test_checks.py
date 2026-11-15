@@ -2032,7 +2032,7 @@ def test_the_ad_card_leaves_out_tiles_the_ad_gives_nothing_for(tmp_path):
     client.post("/check", data={"title": "Trek Domane SL 6 maat 56", "asking_price": "2450",
                                 "description": "Met Shimano Ultegra groep."})
     page = client.get("/check/1?lang=nl").data.decode()
-    tiles = page[page.index('class="ad-tiles"'):page.index('class="ad-text"')]
+    tiles = page[page.index('class="ad-tiles'):page.index('class="ad-text"')]
     assert "Niet vermeld" not in tiles and "MODELJAAR" not in tiles
     assert '<span class="k">MAAT</span><b>56</b>' in tiles
     # The groupset the ad names has its tile, also outside the edit mode.
@@ -2047,7 +2047,7 @@ def test_the_ad_card_has_at_most_four_tiles_a_row_and_the_last_row_shares_out(tm
                  ("Trek Domane SL 6 2022 maat 56", "Shimano 105 groep.\nConditie: Zo goed als nieuw", 2450, "Utrecht"))
     conn.commit()
     page = app.test_client().get("/check/1?lang=nl").data.decode()
-    tiles = page[page.index('class="ad-tiles"'):page.index('class="ad-text"')]
+    tiles = page[page.index('class="ad-tiles'):page.index('class="ad-text"')]
     # Five tiles: four, then the condition across the whole row.
     assert tiles.count('<span class="k">') == 5 and 'style="--n: 4"' in tiles
     assert re.search(r'class="below row-start fill" style="--span: 4"><span class="k">STAAT', tiles)
