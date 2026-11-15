@@ -134,7 +134,7 @@ def fold_old_estimates(conn):
     folded, prev = [], None
     for row in rows:
         if prev is not None and row["model_id"] == prev["model_id"] and not row.get("revisions") \
-                and (row["made"] - prev["last"]) * 1440 <= REVISION_MINUTES \
+                and 0 <= (row["made"] - prev["last"]) * 1440 <= REVISION_MINUTES \
                 and sum(prev[f] != row[f] for f in ESTIMATE_FIELDS) <= 2:
             revisions = json.loads(prev.get("revisions") or "[]") + \
                 [{f: prev[f] for f in ESTIMATE_FIELDS} | {"updated_at": prev.get("updated_at")}]
