@@ -1724,6 +1724,10 @@ select { max-width: 100%; }
 .ad-tiles > div { padding: 14px 18px; border-left: 1px solid var(--line); min-width: 0; }
 .ad-tiles > div:first-child, .ad-tiles > .row-start { border-left: 0; }
 .ad-tiles > .below { border-top: 1px solid var(--line); }
+/* The ad's tiles: the label and its value on one line ("MAAT 54"); a value that doesn't fit beside its label goes
+   under it, as before. */
+.ad-tiles.inline > div { display: flex; flex-wrap: wrap; align-items: center; align-content: flex-start; column-gap: 10px; row-gap: 6px; }
+.ad-tiles.inline b { margin-top: 0; min-width: 0; }
 /* The tiles of a short last row share it out, so the row has no hole. */
 @media (min-width: 761px) { .ad-tiles > .fill { grid-column: span var(--span); } }
 .ad-tiles b { display: block; margin-top: 6px; font-size: 16px; overflow-wrap: anywhere; }
