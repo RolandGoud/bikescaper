@@ -13,7 +13,8 @@ header between `---` lines:
 
 An article dated in the future stays hidden until that day, so posts can be written ahead. Optional header
 fields: `stat` and `stat_label`, the article's one headline number for the list page, and `hero`, a picture under
-webapp/static (default blog/heroes/<slug>.jpg). The body is a small
+webapp/static (default blog/heroes/<slug>.jpg). A model deep-dive can add `model: Trek Domane` (brand, then the
+start of the model name): a check report on a matching bike links it first (see `for_report`). The body is a small
 Markdown subset (see `render`): `##`/`###` headings, paragraphs, `-` and `1.` lists, `>` call-outs, `|` tables,
 **bold**, *italic*, [links](/value), and pictures on a line of their own: `![caption](chart:value-curve)` for a chart. Links to other sites open in a new tab.
 """
