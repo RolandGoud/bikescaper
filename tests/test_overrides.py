@@ -252,3 +252,32 @@ def test_the_ad_card_sets_all_its_values_in_one_go(tmp_path, monkeypatch):
     # A bad value refuses the whole form.
     assert client.post(f"/check/{check_id}/override", data=dict(data, year="1890")).status_code == 400
     assert stored() == {"size": "54", "groupset": {"key": "105", "tier": 3, "electronic": True}}
+
+
+def test_the_match_picker_shows_the_catalogue_per_model_year(tmp_path, monkeypatch):
+    """The "Our match" pencil opens the match picker: the candidate models, each with its catalogue model years,
+    their colours, main parts and new price, and what's automatic; it posts the same "match" form."""
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    login(client)
+    page = client.get(url + "?edit=1&lang=nl").get_data(as_text=True)
+    assert 'id="match-picker"' in page and "match-picker.js" in page and "Onze match kiezen" in page
+    data = json.loads(page.split('id="match-picker-data">')[1].split("</script>")[0])
+    conn = db.connect(app.config["DB_PATH"])
+    row = conn.execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
+    auto = checks.run_check(db.all_models(conn), dict(row, overrides={}))
+    assert data["auto"]["model"] == auto["model"]["slug"] and data["set"] == {"model": "", "year": "", "colour": ""}
+    first = next(m for m in data["models"] if m["slug"] == auto["model"]["slug"])
+    assert first["pct"] and first["years"] and first["years"] == sorted(first["years"], key=lambda y: -y["year"])
+    year = next(y for y in first["years"] if y["parts"])
+    assert {p["key"] for p in year["parts"]} >= {"Frame", "Groupset"}
+    assert all(y["image"] for y in first["years"])  # each model year with its own photo
+    # The texts in the visitor's language; every model year to pick, also one the catalogue hasn't.
+    assert data["t"]["automatic"] == "Automatisch" and data["years"][0] >= data["years"][-1]
+    # Another model from the search comes from its own address, for an admin only.
+    other = next(m for m in db.all_models(conn) if "Madone" in m["name"])
+    more = client.get(data["more"].replace("SLUG", other["slug"])).get_json()
+    assert more["slug"] == other["slug"] and more["years"]
+    assert client.get(data["more"].replace("SLUG", "no-such-bike")).status_code == 404
+    client.post("/admin/logout")
+    assert client.get(data["more"].replace("SLUG", other["slug"])).status_code == 302
+    assert 'id="match-picker"' not in client.get(url + "?edit=1").get_data(as_text=True)
