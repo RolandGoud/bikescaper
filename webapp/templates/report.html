@@ -150,15 +150,13 @@
     </div>
     {% endif %}
     <div class="ad-info">
-      {# At most four tiles a row, the rows as even as they go (five: three and two); with more than four, the
-         condition, which is the last one and often long, gets a row of its own under the others. #}
-      {% set wide = facts|length > 4 and condition %}
-      {% set rest = facts|length - (1 if wide else 0) %}
-      {% set rows = (rest + 3) // 4 %}{% set cols = ((rest + rows - 1) // rows) if rows else 1 %}
+      {# At most four tiles a row; the tiles left over for a last row share it out (five: four and one across the
+         whole row, six: four and two halves). The condition, often long, is the last one. #}
+      {% set cols = [facts|length, 4]|min %}{% set k = facts|length % cols if cols else 0 %}
+      {% set start = facts|length - k %}{% set span = (cols // k) if k else 1 %}
       {% if facts %}<div class="ad-tiles" style="--n: {{ cols }}">{% for label, value, kind in facts %}
-        {% set i = loop.index0 %}
-        {% set short = cols - rest % cols if rest % cols else 0 %}
-        <div{% if wide and loop.last %} class="wide"{% else %} class="{{ 'below' if i >= cols }}{{ ' row-start' if i and i % cols == 0 }}{{ ' fill' if short and i == rest - 1 }}"{% if short and i == rest - 1 %} style="--span: {{ short + 1 }}"{% endif %}{% endif %}><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'photos' %} title="{{ _("From the ad's photos") }}"{% endif %}>{{ value }}</b>{% endif %}{{ tile_lock(label) }}</div>{% endfor %}
+        {% set i = loop.index0 %}{% set w = (cols - span * (k - 1) if loop.last else span) if i >= start else 1 %}
+        <div class="{{ 'below' if i >= cols }}{{ ' row-start' if i and i % cols == 0 }}{{ ' fill' if w > 1 }}"{% if w > 1 %} style="--span: {{ w }}"{% endif %}><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'photos' %} title="{{ _("From the ad's photos") }}"{% endif %}>{{ value }}</b>{% endif %}{{ tile_lock(label) }}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
