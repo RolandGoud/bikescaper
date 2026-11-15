@@ -1606,4 +1606,18 @@ NL = {
     "Bought a bike that turns out to be stolen?": "Fiets gekocht die gestolen blijkt?",
     "A great bike at a giveaway price is a warning sign. What happens if you bought in good faith, and how to play it safe.":
         "Een prima fiets voor een spotprijs is een waarschuwing. Wat er gebeurt als je te goeder trouw kocht, en hoe je op safe speelt.",
+    "Ads we helped with": "Advertenties waarmee we hielpen",
+    "Every ad made or checked here, newest first: what was put in, and what came out on that day. The seller’s own text stays private.":
+        "Elke advertentie die hier gemaakt of gecheckt is, nieuwste eerst: wat er is ingevuld en wat eruit kwam op die dag. De eigen tekst van de verkoper blijft privé.",
+    "Kind": "Soort",
+    "Ad checked": "Advertentie gecheckt",
+    "New ad": "Nieuwe advertentie",
+    "New title": "Nieuwe titel",
+    "{before} of {total} in the ad, {after} after": "{before} van {total} in de advertentie, {after} erna",
+    "The seller went on changing this ad in the helper.": "De verkoper heeft deze advertentie daarna nog aangepast in de hulp.",
+    "Open in the helper": "Openen in de hulp",
+    "See the model": "Bekijk het model",
+    "Show all {n}": "Bekijk alle {n}",
+    "Your draft isn't published and doesn't count in our price figures. It joins the list of ads we helped with, without your text.":
+        "Je concept wordt niet gepubliceerd en telt niet mee in onze prijzen. Het komt in de lijst van advertenties waarmee we hielpen, zonder je tekst.",
 }

@@ -67,6 +67,17 @@ CREATE TABLE IF NOT EXISTS estimates (
     updated_at TEXT,      -- when a quick follow-up estimate was folded into this one, NULL = never
     revisions TEXT        -- JSON list of the earlier inputs it replaced, oldest first, for "this was not an update"
 );
+CREATE TABLE IF NOT EXISTS sell_ads (
+    id INTEGER PRIMARY KEY,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT,      -- when the seller last changed it in the helper, NULL = never after the first go
+    ad_link TEXT,         -- the ad's link when an ad that's online was checked, NULL = a new ad made here
+    title TEXT NOT NULL,  -- the title as put in (or read from the link)
+    description TEXT,     -- the text as put in; never shown in the archive, only to the browser that made it
+    asking_price REAL,
+    model_id INTEGER NOT NULL REFERENCES models(id),  -- the model we recognised, or the one the seller picked
+    answers TEXT          -- JSON of the answers given in the helper (year, size, condition, ...)
+);
 CREATE TABLE IF NOT EXISTS photo_review_interest (
     id INTEGER PRIMARY KEY,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
