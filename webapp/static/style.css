@@ -1456,7 +1456,12 @@ select { max-width: 100%; }
 /* The tier columns (bands drawn by groupsets.js): the tier label on top, the model number alone on each tile. */
 .path-lines .col-band { fill: rgba(255, 255, 255, 0.028); stroke: rgba(255, 255, 255, 0.05); }
 .path-lines .col-band.even { fill: rgba(255, 255, 255, 0.045); }
-.brand-ladders .ladder > .tier-span { position: relative; z-index: 1; padding: 4px 0 10px; margin-bottom: 4px; border-bottom: 1px solid var(--line-strong); }
+.brand-ladders .ladder > .tier-span { position: relative; z-index: 1; padding: 4px 0 6px; }
+/* The series logo or name centred under its tier, with the column's thin line below it. */
+@media (min-width: 641px) {
+  .brand-ladders .step-head { justify-content: center; padding-bottom: 10px; border-bottom: 1px solid var(--line-strong); }
+  .brand-ladders .step-name .pill-logo { -webkit-mask-position: center; mask-position: center; }
+}
 .brand-ladders .ladder > .tier-span > * { font-size: 13px; padding: 4px 12px; }
 .brand-ladders .step-head, .brand-ladders .row-label { position: relative; z-index: 1; }
 .brand-ladders .gen { padding: 7px 10px; }

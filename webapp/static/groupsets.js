@@ -124,14 +124,18 @@
           svg.append(band);
         });
       });
-      // A rule across the ladder between the shifting rows (mechanical, wired, wireless), level with each side label.
+      // Between the shifting rows (mechanical, wired, wireless), level with each side label: the same thin line as
+      // under the series logos, one per tier column.
       section.querySelectorAll(".ladder").forEach((ladder) => {
-        const lr = ladder.getBoundingClientRect();
+        const cols = [...ladder.querySelectorAll(":scope > .tier-span")].map((t) => t.getBoundingClientRect());
         ladder.querySelectorAll(".row-label:not(.row-0)").forEach((label) => {
-          const y = label.getBoundingClientRect().top - origin.top - 10, rule = document.createElementNS(NS, "rect");
-          Object.entries({ x: lr.left - origin.left, y, width: lr.width, height: 2, rx: 1, class: "row-rule" })
-            .forEach(([k, v]) => rule.setAttribute(k, v));
-          svg.append(rule);
+          const y = label.getBoundingClientRect().top - origin.top - 8;
+          cols.forEach((c) => {
+            const rule = document.createElementNS(NS, "rect");
+            Object.entries({ x: c.left - origin.left, y, width: c.width, height: 1, class: "row-rule" })
+              .forEach(([k, v]) => rule.setAttribute(k, v));
+            svg.append(rule);
+          });
         });
       });
 
