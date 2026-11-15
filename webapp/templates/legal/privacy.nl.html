@@ -1,0 +1,60 @@
+{% extends "legal/_layout.html" %}
+{% block heading %}Privacyverklaring{% endblock %}
+{% block content %}
+<section class="card">
+  <p>Bikecheck helpt je een tweedehands racefiets te beoordelen en te verkopen. We hebben daarvoor zo min mogelijk over jou nodig: je hoeft geen account te maken, we plaatsen geen tracking- of advertentiecookies en we gebruiken geen analysediensten. Hieronder staat precies wat we wel bewaren, waarom, en hoe lang.</p>
+  <p>Verantwoordelijk voor de verwerking is Bikecheck{% if owner %} ({{ owner }}){% endif %}. Vragen of verzoeken over je gegevens: {% include "legal/_mail.html" %}.</p>
+</section>
+
+<section class="card">
+  <h2>Wat we bewaren</h2>
+  <h3>Gecheckte advertenties</h3>
+  <p>Als je een advertentie laat checken, bewaren we wat de check leest: de link, titel, tekst, vraagprijs, plaats en foto's van de advertentie, en de lichaamslengte als je die invult. De check is openbaar en staat bij Advertenties, zodat anderen dezelfde fiets kunnen terugvinden. Het gaat om gegevens die de verkoper zelf openbaar heeft gemaakt; jouw naam, e-mail of IP-adres koppelen we er niet aan. Daarnaast checkt de site zelf elke dag nieuwe advertenties op dezelfde manier.</p>
+  <p>Grondslag: gerechtvaardigd belang (kopers helpen een eerlijk beeld te krijgen van een aangeboden fiets). Bewaartermijn: zolang de check nuttig is als vergelijking. Checks van fietsen van vóór ons eerste modeljaar wissen we meteen. Ben je de verkoper en wil je je advertentie van de site af? Mail ons, dan halen we hem weg.</p>
+
+  <h3>Waardeschattingen</h3>
+  <p>Bij een schatting bewaren we het model, het jaar, de staat en eventueel een vraagprijs. Daar zit niets van jou in. In een cookie onthouden we welke schattingen van jouw browser zijn, zodat je die terugziet.</p>
+
+  <h3>Advertentiehulp (Verkopen)</h3>
+  <p>Wat je in de advertentiehulp invult (titel, tekst, vraagprijs, model en je antwoorden over jaar, maat en staat) bewaren we, zodat je verder kunt waar je was. Titel, prijs en model verschijnen in het overzicht van advertenties waarmee we hielpen; je eigen tekst laten we alleen aan jouw browser zien. Je kunt je advertentie daar zelf verwijderen.</p>
+  <p>De foto's die je in de advertentiehulp maakt of kiest, blijven in je eigen browser (IndexedDB). Ze worden nooit naar ons gestuurd.</p>
+
+  <h3>Rapport per e-mail</h3>
+  <p>Laat je een checkrapport mailen, dan gebruiken we je e-mailadres alleen om dat ene bericht te versturen. We slaan het adres niet op. Om misbruik te voorkomen onthouden we je IP-adres maximaal 24 uur in het geheugen van de server (niet in de database), zodat niemand de mail kan gebruiken om te spammen.</p>
+
+  <h3>Melding over de fotobeoordeling</h3>
+  <p>Wil je horen wanneer de fotobeoordeling start, dan bewaren we je e-mailadres, je taal en een bevestigingscode. We mailen je eerst een link; pas als je die opent telt je aanmelding. We gebruiken het adres alleen om je één keer te laten weten dat de dienst er is. Grondslag: toestemming, die je altijd kunt intrekken. Een niet-bevestigd adres gebruiken we nergens voor. We bewaren het adres tot die ene mail verstuurd is, of tot je vraagt het te wissen.</p>
+
+  <h3>Serverlogboek</h3>
+  <p>Zoals elke webserver noteert de onze bij elk bezoek je IP-adres, de pagina, het tijdstip en je browser. Dat gebruiken we alleen om storingen en misbruik op te sporen, nooit om bezoekers te volgen of profielen te maken.</p>
+</section>
+
+<section class="card">
+  <h2>Cookies en opslag in je browser</h2>
+  <p>We gebruiken alleen functionele cookies. Daarvoor is geen toestemming nodig, en daarom zie je geen cookiemelding.</p>
+  <div class="kv">
+    <div>lang</div><div>Onthoudt of je de site in het Nederlands of Engels wilt zien. Een jaar geldig.</div>
+    <div>session</div><div>Onthoudt welke waardeschattingen en advertenties van jouw browser zijn, en houdt de beheerder ingelogd. Ondertekend, zodat niemand hem kan namaken. Verdwijnt als je je browser sluit (voor de beheerder na 31 dagen).</div>
+    <div>sell-photos (IndexedDB)</div><div>De foto's uit de advertentiehulp, alleen op je eigen apparaat. Je wist ze door de gegevens van deze site in je browser te wissen.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Andere partijen</h2>
+  <ul>
+    <li><b>Google Fonts.</b> De lettertypes van de site komen van Google. Daardoor ziet Google je IP-adres als je een pagina opent.</li>
+    <li><b>unpkg.</b> De kaart bij Advertenties laadt de kaartsoftware (Leaflet) van unpkg.com, dat daardoor je IP-adres ziet.</li>
+    <li><b>Mailprovider.</b> Mails die je bij ons aanvraagt, gaan via onze mailprovider naar je toe.</li>
+    <li><b>Anthropic (Claude).</b> Om de groepset op foto's te herkennen en Franstalige advertenties te vertalen, sturen we foto's en tekst van openbare advertenties naar de Claude-API. Gegevens over jou sturen we niet mee.</li>
+    <li><b>Affiliatenetwerken.</b> Klik je op een gesponsorde link, dan ga je naar een netwerk als Daisycon, TradeTracker of Awin en daarna naar de winkel. Die verwerken vanaf dat moment gegevens volgens hun eigen privacyverklaring. Op onze eigen pagina's draaien geen scripts of pixels van adverteerders. Zie <a href="{{ url_for('affiliate') }}">Affiliatelinks</a>.</li>
+  </ul>
+  <p>We verkopen je gegevens aan niemand.</p>
+</section>
+
+<section class="card">
+  <h2>Je rechten</h2>
+  <p>Je mag ons vragen welke gegevens we over je hebben, ze laten verbeteren of wissen, bezwaar maken tegen het gebruik, het gebruik laten beperken of ze in een gangbaar bestand meekrijgen. Mail daarvoor naar {% include "legal/_mail.html" %}. We reageren binnen een maand.</p>
+  <p>Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de <a href="https://autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a>.</p>
+  <p>Verandert er iets aan wat we bewaren, dan passen we deze verklaring aan en zie je bovenaan de nieuwe datum.</p>
+</section>
+{% endblock %}

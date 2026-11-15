@@ -2617,6 +2617,19 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
   .blog-grid { grid-template-columns: 1fr; }
 }
 
+/* Privacy, contact and affiliate pages (templates/legal/) */
+.legal { display: flex; flex-direction: column; gap: 20px; padding-bottom: 48px; }
+.legal-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.legal-tabs a { padding: 7px 14px; border: 1px solid var(--line-strong); border-radius: var(--pill-radius); color: var(--muted);
+  text-decoration: none; font-size: 14px; font-weight: 600; }
+.legal-tabs a:hover { color: #fff; }
+.legal-tabs a.on { color: var(--accent); border-color: var(--accent); }
+.legal-date { margin: -8px 0 0; font-family: var(--mono); font-size: 13px; }
+.legal .card p, .legal .card li { line-height: 1.6; }
+.legal .card ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+.legal .card h3 { margin: 4px 0 0; font-size: 17px; }
+.legal .kv div:nth-child(even) { color: #DCDCE4; }
+.legal .mail-big { font-size: 22px; font-weight: 700; word-break: break-all; }
 /* Blog pictures: the hero at the top of an article, and figures in the text. A chart (tools/build_blog_charts.py) is
    inline SVG, so its text uses the page's fonts and its colours come from the classes below. */
 .blog-hero { margin: 4px 0 0; display: flex; flex-direction: column; gap: 6px; }
