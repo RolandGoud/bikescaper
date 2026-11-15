@@ -224,26 +224,27 @@
     {% for w in mt.missing %}{% if issues.append(('warn', _('“{word}” isn’t in the ad', word=w))) %}{% endif %}{% endfor %}
     {% if r.not_exact %}{% if issues.append(('warn', _('The ad names a version we don’t have in the catalogue, so this is the closest bike we have. Pick the right one if it’s listed.'))) %}{% endif %}{% endif %}
     {% set fs = 'bad' if issues|selectattr('0', 'equalto', 'bad')|list else 'warn' if issues else 'ok' %}
-    <div class="ms-check {{ fs }}"><span class="k">{{ _('Frame')|upper }}</span>
+    <div tabindex="0" class="ms-check {{ fs }}"><span class="k">{{ _('Frame')|upper }}</span>
       <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕'}[fs] }}</i>{{ mt.found|join(' · ') if mt.found else _('No model words in the ad') }}</b>
       {% set note %}{% if issues %}{{ issues|map(attribute='1')|join(' · ') }}{% else %}{{ _('All model words are in the ad') }}{% if mt.shifting %} · {{ _('Shifting: {kind}', kind=sh[mt.shifting.model]) }}{% endif %}{% endif %}{% endset %}
-      <small title="{{ note|trim }}">{{ note }}</small></div>
+      <small role="tooltip">{{ note }}</small></div>
     {% endif %}
     <a class="ms-swap" href="#pick-model"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4"/><path d="M3 8h13a4 4 0 0 1 4 4"/><path d="m17 20 4-4-4-4"/><path d="M21 16H8a4 4 0 0 1-4-4"/></svg><span>{{ _('Match with another model') }}</span></a>
+    {# Each check's explanation is a tooltip (its small), shown on hover, tap or focus; the cell shows the value. #}
     <div class="ms-facts">
       {# The year: green when the ad's year falls in the years the model was sold; amber or red only for a real clash
          (before its launch, after it was replaced, an earlier generation). Doubts from the parts stay in the age tab. #}
-      <div class="ms-check ms-fact {{ ys }}"><span class="k">{{ _('Model year')|upper }} {{ lock('year') }}</span>
+      <div tabindex="0" class="ms-check ms-fact {{ ys }}"><span class="k">{{ _('Model year')|upper }} {{ lock('year') }}</span>
         <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ r.year.year }}</b>
         {% set note = r.year.note or (_('No year in the ad') ~ ' · ' ~ _('Ask for the invoice or the serial number.') if not yr else _('{year} fits this model', year=yr) if ys == 'ok' else ag.headline) %}
-        <small title="{{ note }}">{{ note }}</small></div>
-      <div class="ms-check ms-fact {{ 'ok' if shown_colour else 'unknown' }}"><span class="k">{{ _('Colour')|upper }} {{ lock('colour') }}</span>
+        <small role="tooltip">{{ note }}</small></div>
+      <div tabindex="0" class="ms-check ms-fact {{ 'ok' if shown_colour else 'unknown' }}"><span class="k">{{ _('Colour')|upper }} {{ lock('colour') }}</span>
         {% if shown_colour %}<b>{% if shown_colour|swatch_css %}<i class="sw" style="background: {{ shown_colour|swatch_css }}"></i>{% endif %}{{ shown_colour }}</b>
-        <small>{{ _('the colour set by hand') if r.colour_set or r.colour_typed else _("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names') }}</small>
-        {% else %}<b class="muted">{{ _('Not known') }}</b><small>{{ _('The ad names no colour and its photos show none we know.') }}</small>{% endif %}</div>
-      <div class="ms-check ms-fact {{ 'ok' if c.groupset else 'unknown' }}"><span class="k">{{ _('Groupset')|upper }} {{ lock('groupset') }}</span>
-        {% if c.groupset %}<b>{{ c.groupset.label }}</b><small>{{ _('Chosen by you') if 'groupset' in r.locked else _('The groupset in the ad') }}</small>
-        {% else %}<b class="muted">{{ _('Not known') }}</b><small>{{ _('The ad names no groupset.') }}</small>{% endif %}</div>
+        <small role="tooltip">{{ _('the colour set by hand') if r.colour_set or r.colour_typed else _("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names') }}</small>
+        {% else %}<b class="muted">{{ _('Not known') }}</b><small role="tooltip">{{ _('The ad names no colour and its photos show none we know.') }}</small>{% endif %}</div>
+      <div tabindex="0" class="ms-check ms-fact {{ 'ok' if c.groupset else 'unknown' }}"><span class="k">{{ _('Groupset')|upper }} {{ lock('groupset') }}</span>
+        {% if c.groupset %}<b>{{ c.groupset.label }}</b><small role="tooltip">{{ _('Chosen by you') if 'groupset' in r.locked else _('The groupset in the ad') }}</small>
+        {% else %}<b class="muted">{{ _('Not known') }}</b><small role="tooltip">{{ _('The ad names no groupset.') }}</small>{% endif %}</div>
     </div>
   </section>
   {% if bc %}
