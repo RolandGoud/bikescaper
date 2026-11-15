@@ -306,7 +306,7 @@ def test_tiles_show_the_model_and_cards_pick_brand_and_type(tmp_path):
     assert 'class="brand-cards"' in page and 'class="bike-types"' in page and "filter-box" not in page
     assert "groepen</small>" in page and page.count('class="bike-icon"') == 3
     page = client.get("/groupsets?brand=Campagnolo&lang=nl").data.decode()
-    assert '<span class="gen-name">Centaur</span>' in page and "-speed)</span>" not in page  # no "(11-speed)"
+    assert '<span class="gen-name">Centaur 11-speed</span>' in page and "-speed)</span>" not in page  # no brackets
 
 
 def test_tiles_show_only_speeds_and_brakes(tmp_path):
