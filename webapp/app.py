@@ -38,6 +38,7 @@ STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
 # Short month names for the day headings on the listings page.
 MONTHS = {"nl": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],
           "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
+LEGAL_UPDATED = {"nl": "15 november 2026", "en": "15 November 2026"}  # change with the privacy text
 TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
@@ -1634,6 +1635,30 @@ def create_app(db_path=None):
         related = ([p for p in more if p["category"] == post["category"]] + [p for p in more if p["category"] != post["category"]])[:3]
         return render_template("blog_post.html", post=post, body=blog.render(post["body"]), categories=blog.CATEGORIES,
                                related=related, post_date=post_date, minutes=blog.reading_minutes, nav="blog")
+
+    # Privacy statement, contact and affiliate disclosure: static pages, one template per language
+    # (templates/legal/<page>.<lang>.html). The address on them is CONTACT_EMAIL, else the site's own mail
+    # addresses; SITE_OWNER names who runs the site (the AVG's "verwerkingsverantwoordelijke").
+    def contact_email():
+        return next((os.environ[k] for k in ("CONTACT_EMAIL", "NOTIFY_EMAIL", "MAIL_FROM", "SMTP_USER")
+                     if os.environ.get(k)), None)
+
+    def legal_page(page):
+        return render_template(f"legal/{page}.{g.lang}.html", nav=None, page=page, contact=contact_email(),
+                               owner=os.environ.get("SITE_OWNER") or None, updated=LEGAL_UPDATED[g.lang],
+                               can_mail=mail.configured())
+
+    @app.route("/privacy")
+    def privacy():
+        return legal_page("privacy")
+
+    @app.route("/contact")
+    def contact():
+        return legal_page("contact")
+
+    @app.route("/affiliate")
+    def affiliate():
+        return legal_page("affiliate")
 
     @app.route("/how-it-works")
     def how():

@@ -1,0 +1,20 @@
+{% extends "legal/_layout.html" %}
+{% block heading %}Affiliate links{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>How we make money</h2>
+  <p>Bikecheck is free. To pay for the site we show a few sponsored links: offers on the home page and between the bikes under Listings and Our catalogue, and the shops on the groupset pages. If you buy something through such a link, the shop pays us a small fee. It costs you nothing extra.</p>
+  <p>You can tell a sponsored link by the <b>AD · Sponsored</b> label, or by the button to a shop on a groupset page. The links go through affiliate networks such as Daisycon, TradeTracker and Awin.</p>
+</section>
+<section class="card">
+  <h2>What that doesn't change</h2>
+  <ul>
+    <li>Checks, scores, value estimates and size advice come from the same calculation for every bike and every brand. No advertiser can change them or pay for them.</li>
+    <li>We're not affiliated with Marktplaats, 2dehands or any bike brand.</li>
+    <li>No advertiser scripts, pixels or cookies run on our pages. Only when you click a sponsored link does the network track that click, on its side. More in our <a href="{{ url_for('privacy') }}">privacy statement</a>.</li>
+  </ul>
+</section>
+<section class="card">
+  <p>Questions about an offer or a partnership? Email {% include "legal/_mail.html" %}.</p>
+</section>
+{% endblock %}

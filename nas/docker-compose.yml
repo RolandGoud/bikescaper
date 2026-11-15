@@ -32,6 +32,10 @@ services:
       # MAIL_FROM: you@gmail.com
       # Mail also confirms the addresses left for the photo review; to hear about each confirmed one:
       # NOTIFY_EMAIL: you@gmail.com
+      # The address on the Contact and Privacy pages (else NOTIFY_EMAIL, MAIL_FROM or SMTP_USER is shown),
+      # and the name of whoever runs the site, for the privacy statement:
+      # CONTACT_EMAIL: info@example.nl
+      # SITE_OWNER: Your name or company
       # To correct a check by hand (model, year, groupset, size, main photo): log in at /admin/login with this
       # password, then choose "Deze check corrigeren" on a report. Fill it in and remove the #:
       # ADMIN_PASSWORD: pick-a-long-password
