@@ -279,13 +279,13 @@ LADDERS = {
                 series("veloce", "Veloce", [
                     gen("veloce-10", "Veloce (10-speed)", 2009, 10, "mech", "campa-10", ["campa"], ["rim"]),
                 ], tier=2),
-                series("potenza", "Potenza", [
-                    gen("potenza-11", "Potenza (11-speed)", 2016, 11, "mech", "campa-11", ["campa"], ["rim", "disc"]),
-                ], tier=3),
                 series("centaur", "Centaur", [
                     gen("centaur-10", "Centaur (10-speed)", 2009, 10, "mech", "campa-10", ["campa"], ["rim"]),
                     gen("centaur-11", "Centaur (11-speed)", 2018, 11, "mech", "campa-11", ["campa", "n3w"], ["rim", "disc"]),
                 ]),
+                series("potenza", "Potenza", [
+                    gen("potenza-11", "Potenza (11-speed)", 2016, 11, "mech", "campa-11", ["campa"], ["rim", "disc"]),
+                ], tier=3),
                 series("athena", "Athena", [
                     gen("athena-11", "Athena (11-speed)", 2011, 11, "mech", "campa-11", ["campa"], ["rim"]),
                     gen("athena-eps", "Athena EPS (11-speed)", 2014, 11, "eps", "campa-eps-11", ["campa"], ["rim"]),
