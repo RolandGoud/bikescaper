@@ -1,0 +1,22 @@
+{% extends "legal/_layout.html" %}
+{% block heading %}Contact{% endblock %}
+{% block content %}
+<section class="card">
+  {% if contact %}
+  <p>Mail ons, we lezen alles en antwoorden meestal binnen een paar dagen.</p>
+  <a class="mail-big" href="mailto:{{ contact }}">{{ contact }}</a>
+  {% else %}
+  <p>Het contactadres staat nog niet ingesteld. Probeer het later nog eens.</p>
+  {% endif %}
+</section>
+<section class="card">
+  <h2>Waarover je ons kunt mailen</h2>
+  <ul>
+    <li><b>Een check klopt niet.</b> Verkeerd model, jaar, groepset of maat herkend? Stuur de link van de check mee, dan corrigeren we hem.</li>
+    <li><b>Je advertentie staat op de site.</b> Ben je de verkoper en wil je hem eraf? Stuur de link mee, dan halen we hem weg.</li>
+    <li><b>Je gegevens.</b> Inzien, verbeteren of wissen; zie de <a href="{{ url_for('privacy') }}">privacyverklaring</a>.</li>
+    <li><b>Een merk of model ontbreekt</b>, of je hebt een idee voor de site.</li>
+    <li><b>Adverteren of samenwerken</b>; zie ook <a href="{{ url_for('affiliate') }}">affiliatelinks</a>.</li>
+  </ul>
+</section>
+{% endblock %}

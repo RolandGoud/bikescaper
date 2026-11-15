@@ -35,6 +35,7 @@ class Fetcher:
             "Accept-Language": "nl-NL,nl;q=0.9,en;q=0.8",
         })
         self.delay = delay
+        self.status = None  # the last answer's status code: 404 when get gave None for a missing page
         self.delays = delays or {}  # host -> seconds, e.g. a robots.txt crawl-delay
         self._last = {}
 
@@ -47,6 +48,7 @@ class Fetcher:
             try:
                 resp = self.session.get(url, timeout=60)
                 self._last[host] = time.time()
+                self.status = resp.status_code
                 if resp.status_code == 404:
                     return None
                 resp.raise_for_status()
@@ -54,6 +56,7 @@ class Fetcher:
                     resp.encoding = "utf-8"  # requests would guess Latin-1 and mangle names like HANZŌ
                 return resp.content if binary else resp.text
             except requests.RequestException as exc:
+                self.status = getattr(exc.response, "status_code", None)
                 log.warning("%s (attempt %d): %s", url, attempt + 1, exc)
                 time.sleep(5 * (attempt + 1))
         return None

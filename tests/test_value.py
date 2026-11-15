@@ -143,3 +143,26 @@ def test_estimates_from_before_folding_are_folded_once(tmp_path):
     conn = db.connect(path)
     assert conn.execute("SELECT asking_price FROM estimates WHERE id = 1").fetchone()[0] == 1950
     assert conn.execute("SELECT created_at FROM estimates ORDER BY id DESC").fetchone()[0] == "2026-11-15 20:58:00"
+
+
+def test_an_estimate_is_worked_out_once_and_stored(client):
+    client.post("/value", data={"brand": "Trek", "model": DOMANE, "year": "2023", "condition": "used", "asking": "2500"})
+    page = client.get("/value?lang=en").data.decode()
+    conn, rows = estimates(client)
+    outcome = json.loads(rows[0]["outcome"])
+    assert outcome["result"]["low"] and "count" in outcome["asking"]
+    # later loads show what was stored, not a new calculation
+    outcome["result"]["low"], outcome["result"]["high"] = 1234, 1567
+    conn.execute("UPDATE estimates SET outcome = ?", (json.dumps(outcome),))
+    conn.commit()
+    page = client.get("/value?lang=en").data.decode()
+    assert "€1.234–€1.567" in page
+    page = client.get("/value?estimate=1&lang=nl").data.decode()  # the open one too, and still translated
+    assert "€1.234 tot €1.567" in page and "Eerlijke waarde" in page
+    # a revision works it out again; splitting gives each its own stored outcome back
+    client.post("/value", data={"brand": "Trek", "model": DOMANE, "year": "2023", "condition": "used", "asking": "2000"})
+    page = client.get("/value?lang=en").data.decode()
+    assert "€1.234" not in page
+    client.post("/value/1/split")
+    page = client.get("/value?lang=en").data.decode()
+    assert "€1.234–€1.567" in page and page.count('<article class="check-row') == 2

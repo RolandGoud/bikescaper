@@ -2,7 +2,10 @@
 title: Giant TCR Advanced: de betaalbare carbon racer, tweedehands bekeken
 date: 2026-11-08
 category: models
+model: Giant TCR
 summary: Na Trek de fiets die we het vaakst checken. Advanced, Advanced Pro of Advanced SL, wat "PC" betekent, en waarom een TCR uit 2021 veel minder kostte dan nu.
+stat: +47%
+stat_label: Advanced 2 sinds 2021
 ---
 
 De Giant TCR is de klassieke allround racefiets van Giant: licht, stijf en voor een carbon fiets niet duur. In onze steekproef van 72 gecheckte advertenties was Giant met 23 stuks het op een na meest voorkomende merk, en de TCR is daar de grootste groep van.
@@ -41,6 +44,8 @@ Bij de TCR zie je goed hoe nieuwprijzen zijn opgelopen:
 | TCR Advanced 2 | €1.899 (2021) | €2.799 (2025) |
 | TCR Advanced 1 | €2.299 (2021) | €3.499 (2026) |
 | TCR Advanced 2 Disc | €1.999 (2020), €2.549 (2022) | |
+
+![](chart:tcr-rises)
 
 Een TCR Advanced 2 is in vier jaar bijna de helft duurder geworden. Voor een koper is dat goed nieuws: een oudere TCR is tweedehands relatief goedkoop, áls de verkoper rekent vanaf de oude nieuwprijs.
 

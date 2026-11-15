@@ -3,9 +3,13 @@ title: Selling your road bike in spring? Start now
 date: 2026-11-15
 category: seasonal
 summary: In March and April everyone is looking for a road bike. Whoever has a good ad up first sells fastest. What you can prepare this winter.
+stat: 5
+stat_label: steps this winter
 ---
 
 When the days get longer, half the Netherlands goes looking for a road bike. If you have a strong ad up right then, with good photos, the right model year and a fair price, you sell fastest. Most of the work you can do now, while the bike is indoors anyway.
+
+![](chart:selling-plan)
 
 ## 1. Find out exactly what your bike is
 

@@ -11,9 +11,12 @@ header between `---` lines:
     summary: One or two sentences for the list page and the search snippet.
     ---
 
-An article dated in the future stays hidden until that day, so posts can be written ahead. The body is a small
+An article dated in the future stays hidden until that day, so posts can be written ahead. Optional header
+fields: `stat` and `stat_label`, the article's one headline number for the list page, and `hero`, a picture under
+webapp/static (default blog/heroes/<slug>.jpg). A model deep-dive can add `model: Trek Domane` (brand, then the
+start of the model name): a check report on a matching bike links it first (see `for_report`). The body is a small
 Markdown subset (see `render`): `##`/`###` headings, paragraphs, `-` and `1.` lists, `>` call-outs, `|` tables,
-**bold**, *italic* and [links](/value). Links to other sites open in a new tab.
+**bold**, *italic*, [links](/value), and pictures on a line of their own: `![caption](chart:value-curve)` for a chart. Links to other sites open in a new tab.
 """
 import os
 import re
@@ -25,6 +28,9 @@ FOLDER = os.path.join(os.path.dirname(__file__), "blog")
 # The four kinds of article, in the order of the filter on /blog. English is the key, translated in i18n.NL.
 CATEGORIES = {"market": "Market data", "guides": "Buying guides", "models": "Model deep-dives", "seasonal": "Seasonal"}
 FILE = re.compile(r"^([a-z0-9-]+)\.(nl|en)\.md$")
+STATIC = os.path.join(os.path.dirname(__file__), "static")
+CHARTS = os.path.join(STATIC, "blog", "charts")  # built by tools/build_blog_charts.py, <name>.<lang>.svg
+IMAGE = re.compile(r"^!\[([^\]]*)\]\(([^)\s]+)\)$")
 
 
 def parse(text):
@@ -49,7 +55,9 @@ def load(folder=FOLDER):
         slug, lang = found.groups()
         with open(os.path.join(folder, name), encoding="utf-8") as f:
             meta, body = parse(f.read())
-        posts.setdefault(slug, {})[lang] = dict(meta, slug=slug, lang=lang, body=body)
+        # The hero: webapp/static/blog/heroes/<slug>.jpg (tools/build_blog_heroes.py), unless the header names another.
+        hero = meta.get("hero") or (f"blog/heroes/{slug}.jpg" if os.path.exists(os.path.join(STATIC, "blog", "heroes", f"{slug}.jpg")) else None)
+        posts.setdefault(slug, {})[lang] = dict(meta, slug=slug, lang=lang, body=body, hero=hero)
     return posts
 
 
@@ -74,6 +82,7 @@ INLINE = [
     (re.compile(r"\*\*(.+?)\*\*"), r"<strong>\1</strong>"),
     (re.compile(r"(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])"), r"<em>\1</em>"),
 ]
+NUMBER = re.compile(r"^[+−\-<]?€?\d[\d.,]*%?(\s*\(\d{4}\))?$")  # €2.599, +65%, 51, €3.699 (2019)
 LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 
 
@@ -95,7 +104,22 @@ def _cells(line):
     return [c.strip() for c in line.strip().strip("|").split("|")]
 
 
-def render(body):
+def figure(caption, src, lang):
+    """A picture in the article: `![caption](chart:name)` puts that chart inline in the article's language, so it
+    takes the page's fonts and colours; `![caption](/static/...)` is an ordinary image."""
+    cap = f"<figcaption>{inline(caption)}</figcaption>" if caption else ""
+    if src.startswith("chart:"):
+        name = src[len("chart:"):]
+        for code in (lang, "en", "nl"):
+            path = os.path.join(CHARTS, f"{name}.{code}.svg")
+            if os.path.exists(path):
+                with open(path, encoding="utf-8") as f:
+                    return f'<figure class="blog-figure blog-chart">{f.read()}{cap}</figure>'
+        return ""
+    return f'<figure class="blog-figure"><img src="{escape(src)}" alt="{escape(caption)}" loading="lazy">{cap}</figure>'
+
+
+def render(body, lang="nl"):
     """The article body as HTML."""
     html, para, lines = [], [], body.splitlines()
 
@@ -109,6 +133,11 @@ def render(body):
         line = lines[i].rstrip()
         if not line.strip():
             flush()
+            i += 1
+        elif IMAGE.match(line.strip()):
+            flush()
+            caption, src = IMAGE.match(line.strip()).groups()
+            html.append(figure(caption, src, lang))
             i += 1
         elif line.startswith("### ") or line.startswith("## "):
             flush()
@@ -139,7 +168,7 @@ def render(body):
                 i += 1
             head, rest = rows[0], [r for r in rows[1:] if not all(re.fullmatch(r":?-+:?", c) for c in r)]
             # a column of numbers (euros, percentages, counts) is right-aligned
-            numeric = [all(re.search(r"\d", r[k]) for r in rest if k < len(r)) and bool(rest) for k in range(len(head))]
+            numeric = [bool(rest) and all(NUMBER.match(r[k]) for r in rest if k < len(r) and r[k]) for k in range(len(head))]
             def cell(tag, text, k):
                 cls = ' class="num"' if numeric[k] else ""
                 return f"<{tag}{cls}>{inline(text)}</{tag}>"
@@ -152,3 +181,23 @@ def render(body):
             i += 1
     flush()
     return Markup("\n".join(html))
+
+
+# What a check report links to, after the article on the matched model (an article with `model: Trek Domane` in its
+# header goes with every Trek whose name starts with Domane): the guides for the step a reader of a report is at.
+REPORT_READS = ["spotting-a-stolen-bike", "reading-a-bike-ad", "how-fast-bikes-lose-value"]
+
+
+def about_model(post, model):
+    """Whether an article is the deep-dive on this catalogue model's family."""
+    brand, _, family = (post.get("model") or "").partition(" ")
+    return bool(model and brand and family) and model["brand"].lower() == brand.lower() \
+        and model["name"].lower().startswith(family.lower())
+
+
+def for_report(posts, lang, model=None, today=None, n=3):
+    """The articles a check report links to: the one on its model if there is one, then REPORT_READS."""
+    shown = published(posts, lang, today)
+    first = [p for p in shown if about_model(p, model)][:1]
+    by_slug = {p["slug"]: p for p in shown}
+    return (first + [by_slug[s] for s in REPORT_READS if s in by_slug])[:n]

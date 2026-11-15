@@ -286,7 +286,9 @@ def test_every_photo_shot_and_step_has_dutch():
 
 def test_helped_ads_are_listed_on_the_start_page(client):
     c, app = client
-    assert "Ads we helped with" not in c.get("/sell?lang=en").data.decode()
+    # Before any ad, the list is there with a hint, so the feature is visible from the start.
+    page = c.get("/sell?lang=en").data.decode()
+    assert "Ads we helped with" in page and "No ads yet." in page and '<article class="check-row' not in page
     # The steps of one ad update one entry.
     c.post("/sell?lang=en", data={**DRAFT})
     c.post("/sell?lang=en", data={**DRAFT, "year": "2024", "size": "56", "go": "price"})

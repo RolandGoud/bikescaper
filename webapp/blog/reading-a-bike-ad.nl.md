@@ -3,6 +3,8 @@ title: Een fietsadvertentie lezen: 7 dingen die je checkt voor je reageert
 date: 2026-11-01
 category: guides
 summary: In meer dan de helft van de advertenties die we naliepen, klopte het bouwjaar niet met de foto's of de onderdelen. Zo lees je een advertentie op Marktplaats of 2dehands zoals wij dat doen.
+stat: 38/72
+stat_label: jaartallen klopten niet
 ---
 
 Een advertentie is een verhaal van de verkoper, geen specificatieblad. Meestal te goeder trouw, maar vaak net niet helemaal juist. Bikecheck leest elke advertentie die je [plakt](/) naast de originele specificaties van het merk. Dit zijn de zeven dingen die we nalopen, en die je ook zelf kunt checken.
@@ -14,6 +16,8 @@ Een advertentie is een verhaal van de verkoper, geen specificatieblad. Meestal t
 ## 2. Klopt het bouwjaar?
 
 Dit is de grootste valkuil. We liepen een steekproef van **72 gecheckte advertenties** na en vergeleken drie dingen: het jaar uit de tekst, het jaar dat bij de kleur op de foto past, en het jaar waarin die specificatie werd verkocht. **Maar 34 van de 72 klopten op alle punten.** Bij de rest week minstens één af, meestal omdat de verkoper het aankoopjaar noemt in plaats van het modeljaar, of het jaar uit zijn hoofd invult.
+
+![Elk vierkantje is een advertentie uit onze steekproef.](chart:ad-years)
 
 Een jaar verschil scheelt al snel 10% in de waarde. Vraag bij twijfel naar de aankoopbon.
 

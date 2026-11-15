@@ -3,6 +3,8 @@ title: What does a new road bike cost per brand? 1,136 prices compared
 date: 2026-11-01
 category: market
 summary: From Cube to Factor, the median new price of 16 brands in our catalogue. Worth knowing before you judge a second-hand price.
+stat: 16
+stat_label: brands compared
 ---
 
 If you buy a used road bike, you first need to know what that bike cost new. Whatever a seller asks is a percentage of that. That's why Bikecheck tracks the brands' own new prices: our [catalogue](/models) now holds **1,136 road, gravel and time trial bikes with a current Dutch new price**, from 16 brands.
@@ -29,6 +31,8 @@ The median is the middle price: half the models cost less, half cost more. One v
 | Lapierre | 31 | €3,899 | €999 | €10,499 |
 | Rose | 26 | €3,410 | €1,020 | €8,650 |
 | Cube | 51 | €3,299 | €799 | €9,999 |
+
+![The line runs from each brand's cheapest to its dearest bike.](chart:brand-prices)
 
 ## What stands out
 

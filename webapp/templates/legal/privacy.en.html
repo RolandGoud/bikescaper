@@ -1,0 +1,60 @@
+{% extends "legal/_layout.html" %}
+{% block heading %}Privacy statement{% endblock %}
+{% block content %}
+<section class="card">
+  <p>Bikecheck helps you judge and sell a second-hand road bike. We need as little about you as possible for that: there's no account to make, we set no tracking or advertising cookies, and we use no analytics services. Below is exactly what we do keep, why, and for how long.</p>
+  <p>Bikecheck{% if owner %} ({{ owner }}){% endif %} is the controller of this data. Questions or requests about your data: {% include "legal/_mail.html" %}.</p>
+</section>
+
+<section class="card">
+  <h2>What we keep</h2>
+  <h3>Checked ads</h3>
+  <p>When you check an ad, we keep what the check reads: the ad's link, title, text, asking price, place and photos, and your height if you fill it in. The check is public and listed under Listings, so others can find the same bike. This is data the seller made public themselves; we don't link your name, email or IP address to it. The site also checks new ads by itself every day, in the same way.</p>
+  <p>Legal basis: legitimate interest (helping buyers get a fair picture of a bike for sale). Kept for as long as the check is useful as a comparison. Checks of bikes from before our first model year are deleted straight away. Are you the seller and want your ad off the site? Email us and we'll take it down.</p>
+
+  <h3>Value estimates</h3>
+  <p>For an estimate we keep the model, year, condition and any asking price. Nothing about you is in it. A cookie remembers which estimates came from your browser, so you can see them again.</p>
+
+  <h3>Ad helper (Selling)</h3>
+  <p>What you enter in the ad helper (title, text, asking price, model and your answers about year, size and condition) is kept so you can carry on where you left off. The title, price and model appear in the list of ads we helped with; your own text is only shown to your browser. You can delete your ad there yourself.</p>
+  <p>The photos you take or pick in the ad helper stay in your own browser (IndexedDB). They are never sent to us.</p>
+
+  <h3>Report by email</h3>
+  <p>If you have a check report emailed to you, we use your address only to send that one message. We don't store it. To prevent abuse, the server remembers your IP address in memory (not in the database) for at most 24 hours, so nobody can use the mail to send spam.</p>
+
+  <h3>Photo review notification</h3>
+  <p>If you want to hear when the photo review launches, we keep your email address, your language and a confirmation code. We first email you a link; your sign-up only counts once you open it. We use the address only to tell you once that the service is there. Legal basis: consent, which you can withdraw at any time. An unconfirmed address isn't used for anything. We keep the address until that one email is sent, or until you ask us to delete it.</p>
+
+  <h3>Server log</h3>
+  <p>Like every web server, ours notes your IP address, the page, the time and your browser on each visit. We use this only to find faults and abuse, never to follow visitors or build profiles.</p>
+</section>
+
+<section class="card">
+  <h2>Cookies and storage in your browser</h2>
+  <p>We only use functional cookies. These need no consent, which is why you don't see a cookie banner.</p>
+  <div class="kv">
+    <div>lang</div><div>Remembers whether you want the site in Dutch or English. Valid for a year.</div>
+    <div>session</div><div>Remembers which value estimates and ads came from your browser, and keeps the admin logged in. Signed, so nobody can forge it. Gone when you close your browser (for the admin after 31 days).</div>
+    <div>sell-photos (IndexedDB)</div><div>The photos from the ad helper, on your own device only. Clear this site's data in your browser to delete them.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Other parties</h2>
+  <ul>
+    <li><b>Google Fonts.</b> The site's typefaces come from Google, so Google sees your IP address when you open a page.</li>
+    <li><b>unpkg.</b> The map under Listings loads its map software (Leaflet) from unpkg.com, which therefore sees your IP address.</li>
+    <li><b>Mail provider.</b> Emails you ask us for reach you through our mail provider.</li>
+    <li><b>Anthropic (Claude).</b> To recognise the groupset in photos and translate French ads, we send photos and text of public ads to the Claude API. Nothing about you is sent with them.</li>
+    <li><b>Affiliate networks.</b> When you click a sponsored link, you go to a network such as Daisycon, TradeTracker or Awin and then to the shop. From then on they handle data under their own privacy policy. No advertiser scripts or pixels run on our own pages. See <a href="{{ url_for('affiliate') }}">Affiliate links</a>.</li>
+  </ul>
+  <p>We don't sell your data to anyone.</p>
+</section>
+
+<section class="card">
+  <h2>Your rights</h2>
+  <p>You can ask us what data we hold about you, have it corrected or deleted, object to its use, have its use restricted, or get it in a common file format. Email {% include "legal/_mail.html" %} for any of these. We reply within a month.</p>
+  <p>If you disagree with how we handle your data, you can complain to the Dutch data protection authority, the <a href="https://autoriteitpersoonsgegevens.nl/en">Autoriteit Persoonsgegevens</a>.</p>
+  <p>If what we keep changes, we update this statement and you'll see the new date at the top.</p>
+</section>
+{% endblock %}

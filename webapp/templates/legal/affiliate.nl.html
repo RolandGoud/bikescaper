@@ -1,0 +1,20 @@
+{% extends "legal/_layout.html" %}
+{% block heading %}Affiliatelinks{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Hoe we geld verdienen</h2>
+  <p>Bikecheck is gratis. Om de site te betalen tonen we een paar gesponsorde links: aanbiedingen op de homepage en tussen de fietsen bij Advertenties en Onze catalogus, en de winkels op de pagina's van de groepsets. Koop je iets via zo'n link, dan krijgen wij een kleine vergoeding van de winkel. Jij betaalt daar niets extra voor.</p>
+  <p>Je herkent een gesponsorde link aan het label <b>AD · Gesponsord</b>, of aan de knop naar een winkel op een groepsetpagina. De links lopen via affiliatenetwerken als Daisycon, TradeTracker en Awin.</p>
+</section>
+<section class="card">
+  <h2>Wat dat niet verandert</h2>
+  <ul>
+    <li>Checks, scores, waardeschattingen en maatadvies komen uit dezelfde berekening voor elke fiets en elk merk. Geen adverteerder kan daar iets aan veranderen of voor betalen.</li>
+    <li>We zijn niet verbonden aan Marktplaats, 2dehands of een fietsmerk.</li>
+    <li>Op onze pagina's draaien geen scripts, pixels of cookies van adverteerders. Pas als je op een gesponsorde link klikt, volgt het netwerk die klik aan hun kant. Meer daarover in onze <a href="{{ url_for('privacy') }}">privacyverklaring</a>.</li>
+  </ul>
+</section>
+<section class="card">
+  <p>Vragen over een aanbieding of een samenwerking? Mail naar {% include "legal/_mail.html" %}.</p>
+</section>
+{% endblock %}

@@ -3,6 +3,8 @@ title: Buying a winter bike: what to look for
 date: 2026-11-08
 category: seasonal
 summary: Salt, rain and mud wreck an expensive road bike. A second, cheap bike for winter is often smarter. What to look for, and which models from our catalogue fit the bill.
+stat: €690
+stat_label: a winter bike after four years
 ---
 
 Anyone who keeps training through winter sees their bike suffer: road salt, mud, rain. A chain and cassette can be worn out in a few months, and an expensive carbon bike with an electronic groupset is something you'd rather not expose to that. So many riders buy a second bike for winter. Second-hand, and not too dear.
@@ -29,6 +31,8 @@ From our [catalogue](/models), with today's new price:
 | [Trek Checkpoint ALR 3 Gen 3](/models/trek-checkpoint-alr-3-gen-3) | gravel, aluminium | €1,299 |
 | [Cannondale Topstone 3](/models/cannondale-topstone-3) | gravel, aluminium | €1,499 |
 | [Giant Revolt 2](/models/giant-revolt-2) | gravel, aluminium | €1,499 |
+
+![Fair price in normal use, according to the value estimator.](chart:winter-values)
 
 Second-hand, a bike like this a few years old costs roughly half. A bike that was €1,499 new is worth about **€690 to €840** after four years in normal use, according to our [value estimator](/value).
 

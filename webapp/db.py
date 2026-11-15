@@ -65,7 +65,8 @@ CREATE TABLE IF NOT EXISTS estimates (
     condition TEXT,       -- NULL = normal use, else a key of checks.CONDITION_LABEL
     asking_price REAL,    -- NULL = not given
     updated_at TEXT,      -- when a quick follow-up estimate was folded into this one, NULL = never
-    revisions TEXT        -- JSON list of the earlier inputs it replaced, oldest first, for "this was not an update"
+    revisions TEXT,       -- JSON list of the earlier inputs it replaced, oldest first, for "this was not an update"
+    outcome TEXT          -- JSON of the result and second-hand prices, worked out once when made; NULL = not yet
 );
 CREATE TABLE IF NOT EXISTS sell_ads (
     id INTEGER PRIMARY KEY,
@@ -111,7 +112,7 @@ CREATE TABLE IF NOT EXISTS photo_review_interest (
 ADDED_CHECK_COLUMNS = [("photos", "TEXT"), ("last_checked_at", "TEXT"), ("removed_at", "TEXT"),
                        ("source", "TEXT"), ("posted_at", "TEXT"), ("gone_reason", "TEXT"),
                        ("too_old", "INTEGER"), ("overrides", "TEXT")]
-ADDED_ESTIMATE_COLUMNS = [("updated_at", "TEXT"), ("revisions", "TEXT")]
+ADDED_ESTIMATE_COLUMNS = [("updated_at", "TEXT"), ("revisions", "TEXT"), ("outcome", "TEXT")]
 ADDED_INTEREST_COLUMNS = [("token", "TEXT"), ("confirmed_at", "TEXT")]
 ADDED_COLUMNS = [("last_seen", "TEXT"), ("latest_scrape", "TEXT"), ("missed_scrapes", "INTEGER"),
                  ("colorways", "TEXT"), ("photo_years", "TEXT"), ("year_specs", "TEXT"),

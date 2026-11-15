@@ -23,8 +23,8 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, alerts, articles, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
-from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
+from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
+from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
 
@@ -38,6 +38,7 @@ STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
 # Short month names for the day headings on the listings page.
 MONTHS = {"nl": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],
           "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
+LEGAL_UPDATED = {"nl": "15 november 2026", "en": "15 November 2026"}  # change with the privacy text
 TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
@@ -471,7 +472,9 @@ def create_app(db_path=None):
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
                 "periods": prices.PERIODS, "kind_labels": dict(DISCIPLINES + OTHER),
-                "covered": [b["name"] for b in BRANDS if b["scraper"]]}
+                "covered": [b["name"] for b in BRANDS if b["scraper"]],
+                # for the blog cards (_macros.html blog_cards) on the home page and in a report
+                "blog_categories": blog.CATEGORIES, "post_date": post_date, "minutes": blog.reading_minutes}
 
     app.jinja_env.globals["ad_spots"] = sponsored.spots
 
@@ -516,7 +519,7 @@ def create_app(db_path=None):
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
                                hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers(),
-                               stats=hero_stats(rows, ads), articles=articles.ARTICLES)
+                               stats=hero_stats(rows, ads), posts=blog.published(blog.load(), g.lang)[:3])
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():
@@ -628,6 +631,7 @@ def create_app(db_path=None):
                                translated=translated,
                                checked_at=stored_checks.computed_at(conn(), check_id),
                                all_models=models(), asking=asking, nav="check", other_ads=other_ads,
+                               reads=blog.for_report(blog.load(), g.lang, result.get("model")),
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
     def neighbouring_checks(check_id):
@@ -1375,6 +1379,32 @@ def create_app(db_path=None):
         changed = [f for f in ESTIMATE_FIELDS if row[f] != inputs[f]]
         return row if len(changed) <= 2 else None
 
+    def settled_outcomes(rows, by_id):
+        """Each estimate's result and the second-hand prices next to it, worked out once, on the first
+        page load after it was made or changed, and stored; later loads show what was stored. Estimates
+        from before outcomes were stored get their fair value as of the day they were made."""
+        outcomes, known = {}, None
+        for r in rows:
+            m = by_id.get(r["model_id"])
+            if m is None:
+                continue
+            if r["outcome"]:
+                outcomes[r["id"]] = thaw(json.loads(r["outcome"]))
+                continue
+            made = date.fromisoformat((r["updated_at"] or r["created_at"])[:10])
+            past = estimate(m, r["year"], r["condition"], r["asking_price"], made)
+            if past.get("low") and not past.get("bar"):  # no asking price: the bar shows just the fair range
+                past["bar"] = checks.value_bar(past["low"], past["high"], past["original"])
+            known = known if known is not None else prices.known_ads(conn(), models())
+            # the second-hand prices as of now: for a new estimate that is the day it was made, and older ones
+            # keep the figures the page was showing for them until outcomes were stored
+            outcome = {"result": freeze(past), "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)}
+            conn().execute("UPDATE estimates SET outcome = ? WHERE id = ? AND outcome IS NULL",
+                           (json.dumps(outcome, default=str), r["id"]))
+            outcomes[r["id"]] = thaw(json.loads(json.dumps(outcome, default=str)))
+        conn().commit()
+        return outcomes
+
     @app.route("/value", methods=["GET", "POST"])
     def value():
         if request.method == "POST":
@@ -1390,10 +1420,10 @@ def create_app(db_path=None):
                       "asking_price": number(request.form.get("asking"))}
             last = revision_of(inputs)
             if last is not None and any(last[f] != inputs[f] for f in ESTIMATE_FIELDS):
-                before = {f: last[f] for f in ESTIMATE_FIELDS} | {"updated_at": last["updated_at"]}
+                before = {f: last[f] for f in ESTIMATE_FIELDS} | {"updated_at": last["updated_at"], "outcome": last["outcome"]}
                 revisions = json.loads(last["revisions"] or "[]") + [before]
                 conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, "
-                               "updated_at = datetime('now'), revisions = ? WHERE id = ?",
+                               "updated_at = datetime('now'), revisions = ?, outcome = NULL WHERE id = ?",
                                (inputs["year"], inputs["condition"], inputs["asking_price"], json.dumps(revisions), last["id"]))
                 conn().commit()
             if last is not None:  # updated, or the very same inputs sent again
@@ -1415,23 +1445,22 @@ def create_app(db_path=None):
             year = request.args.get("year", type=int)
             condition = request.args.get("condition") or None
             asking = number(request.args.get("asking"))
-        result = estimate(model, year, condition, asking) if model else None
+        outcomes = settled_outcomes(rows, by_id)
+        if shown:  # the stored outcome, as listed below, not one worked out again today
+            result = outcomes.get(shown["id"], {}).get("result")
+        else:
+            result = estimate(model, year, condition, asking) if model else None
         brand = model["brand"] if model else request.args.get("brand")
-        known = prices.known_ads(conn(), models())
         history = []
         for r in rows:
             m = by_id.get(r["model_id"])
-            if m is None:  # its model left the catalogue
+            if m is None or r["id"] not in outcomes:  # its model left the catalogue
                 continue
-            made = date.fromisoformat(r["created_at"][:10])
-            past = estimate(m, r["year"], r["condition"], r["asking_price"], made)
-            if past.get("low") and not past.get("bar"):  # no asking price: the bar shows just the fair range
-                past["bar"] = checks.value_bar(past["low"], past["high"], past["original"])
             revisions = json.loads(r["revisions"] or "[]")
             before = revisions[-1] if revisions else None
             changes = [f for f in ESTIMATE_FIELDS if before[f] != r[f]] if before else []
-            history.append({"row": r, "model": m, "result": past, "before": before, "changes": changes,
-                            "asking": prices.asking_price(known, m["id"], prices.DEFAULT_PERIOD)})
+            history.append({"row": r, "model": m, "result": outcomes[r["id"]]["result"], "before": before,
+                            "changes": changes, "asking": outcomes[r["id"]]["asking"]})
         return render_template("value.html", models=models(), model=model, brand=brand, year=year, condition=condition,
                                asking=asking, result=result, shown=shown, history=history,
                                can_split=set(own_estimates()) if not is_admin() else None,
@@ -1446,11 +1475,12 @@ def create_app(db_path=None):
         if not revisions or not (estimate_id in own_estimates() or is_admin()):
             return redirect(url_for("value", estimate=estimate_id if row else None))
         before = revisions.pop()
-        cur = conn().execute("INSERT INTO estimates (created_at, model_id, year, condition, asking_price) VALUES (?,?,?,?,?)",
-                             (row["updated_at"] or row["created_at"], row["model_id"], row["year"], row["condition"], row["asking_price"]))
-        conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, updated_at = ?, revisions = ? WHERE id = ?",
-                       (before["year"], before["condition"], before["asking_price"], before.get("updated_at"),
-                        json.dumps(revisions) if revisions else None, estimate_id))
+        cur = conn().execute("INSERT INTO estimates (created_at, model_id, year, condition, asking_price, outcome) VALUES (?,?,?,?,?,?)",
+                             (row["updated_at"] or row["created_at"], row["model_id"], row["year"], row["condition"],
+                              row["asking_price"], row["outcome"]))
+        conn().execute("UPDATE estimates SET year = ?, condition = ?, asking_price = ?, updated_at = ?, revisions = ?, outcome = ? "
+                       "WHERE id = ?", (before["year"], before["condition"], before["asking_price"], before.get("updated_at"),
+                                        json.dumps(revisions) if revisions else None, before.get("outcome"), estimate_id))
         conn().commit()
         session["last_estimate"] = cur.lastrowid  # a further tweak now revises the split-off one
         mark_own(cur.lastrowid)
@@ -1580,8 +1610,10 @@ def create_app(db_path=None):
         browsing = step in ("photos", "ad")  # going back to the start: no fetch and no complaint about a missing title
         if form.get("step") == "start" and not link and step == "gaps":
             # "Check my ad" with nothing pasted: back to the choice, with the reason.
+            archive, archive_total = sell_archive()
             return render_template("sell.html", form=form, r=None, error=gettext("Paste the link to your ad."),
-                                   step="start", examples=[], **page), 400
+                                   step="start", examples=[], archive=archive, archive_total=archive_total,
+                                   can_act=None if is_admin() else set(own_sell_ads()), **page), 400
         if link and not browsing and not (form.get("title") or "").strip():
             try:
                 ad = fetch_ad.fetch_listing(link)
@@ -1697,8 +1729,32 @@ def create_app(db_path=None):
             abort(404)  # written ahead: not out yet
         more = [p for p in blog.published(blog.load(), g.lang) if p["slug"] != slug]
         related = ([p for p in more if p["category"] == post["category"]] + [p for p in more if p["category"] != post["category"]])[:3]
-        return render_template("blog_post.html", post=post, body=blog.render(post["body"]), categories=blog.CATEGORIES,
+        return render_template("blog_post.html", post=post, body=blog.render(post["body"], post["lang"]), categories=blog.CATEGORIES,
                                related=related, post_date=post_date, minutes=blog.reading_minutes, nav="blog")
+
+    # Privacy statement, contact and affiliate disclosure: static pages, one template per language
+    # (templates/legal/<page>.<lang>.html). The address on them is CONTACT_EMAIL, else the site's own mail
+    # addresses; SITE_OWNER names who runs the site (the AVG's "verwerkingsverantwoordelijke").
+    def contact_email():
+        return next((os.environ[k] for k in ("CONTACT_EMAIL", "NOTIFY_EMAIL", "MAIL_FROM", "SMTP_USER")
+                     if os.environ.get(k)), None)
+
+    def legal_page(page):
+        return render_template(f"legal/{page}.{g.lang}.html", nav=None, page=page, contact=contact_email(),
+                               owner=os.environ.get("SITE_OWNER") or None, updated=LEGAL_UPDATED[g.lang],
+                               can_mail=mail.configured())
+
+    @app.route("/privacy")
+    def privacy():
+        return legal_page("privacy")
+
+    @app.route("/contact")
+    def contact():
+        return legal_page("contact")
+
+    @app.route("/affiliate")
+    def affiliate():
+        return legal_page("affiliate")
 
     @app.route("/how-it-works")
     def how():

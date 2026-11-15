@@ -6,6 +6,7 @@
 <meta property="og:description" content="{{ post.summary }}">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="{{ post.date.isoformat() }}">
+{% if post.hero %}<meta property="og:image" content="{{ url_for('static', filename=post.hero, _external=True) }}">{% endif %}
 {% endblock %}
 {% block body %}
 <main class="wrap page blog-post-page">
@@ -18,6 +19,12 @@
     </div>
     <h1>{{ post.title }}</h1>
     <p class="blog-lead">{{ post.summary }}</p>
+    {% if post.hero %}
+    <figure class="blog-hero">
+      <img src="{{ url_for('static', filename=post.hero) }}" alt="" width="1600" height="900">
+      <figcaption>{{ _("Image: Bikecheck, from the brands' own product photos") }}</figcaption>
+    </figure>
+    {% endif %}
     <div class="blog-body">{{ body }}</div>
   </article>
   {% if related %}
@@ -26,6 +33,7 @@
     <div class="blog-grid">
       {% for p in related %}
       <article class="blog-card cat-{{ p.category }}">
+        {% if p.hero %}<img class="blog-card-img" src="{{ url_for('static', filename=p.hero) }}" alt="" loading="lazy">{% endif %}
         <div class="blog-meta mono"><span class="blog-cat">{{ _(categories[p.category]) }}</span><span>{{ post_date(p.date, lang) }}</span></div>
         <h3><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h3>
         <p class="muted small">{{ p.summary }}</p>

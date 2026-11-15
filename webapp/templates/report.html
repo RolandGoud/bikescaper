@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_move, aged_chip, part_icon %}
-{% from "_macros.html" import asking_box, duo_photo, matched_ads, compare_ads, place_link, site_name, site_logo with context %}
+{% from "_macros.html" import asking_box, duo_photo, matched_ads, compare_ads, place_link, site_name, site_logo, blog_cards with context %}
 {% block title %}{{ _('Check report') }}: {{ listing.title }} · Bikecheck{% endblock %}
 {% block body %}
 {% if is_admin() %}
@@ -576,6 +576,11 @@
     <button class="btn" type="button" style="align-self: flex-start" data-copied="{{ _('Copied') }}" onclick="navigator.clipboard.writeText([...document.querySelectorAll('#questions li')].map(li => li.textContent).join('\n')); this.textContent = this.dataset.copied">{{ _('Copy questions') }}</button>
   </section>
   {% endif %}
+  {% endif %}
+  {% if reads %}
+  {# Our own articles for this step (blog.for_report): the one on this model first, if we wrote one. #}
+  <div class="block-head"><span>{{ _('Read before you buy') }}</span></div>
+  <section class="report-reads">{{ blog_cards(reads) }}</section>
   {% endif %}
   <form class="stored-note muted small" method="post" action="{{ url_for('recheck_report', check_id=listing.id) }}">
     {{ _('Checked on {when}.', when=listing.created_at[:10]) }}

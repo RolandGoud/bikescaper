@@ -3,6 +3,8 @@ title: Een racefiets kopen in het najaar: zo pak je het slim aan
 date: 2026-11-01
 category: seasonal
 summary: Het seizoen is voorbij, de nieuwe modeljaren liggen in de winkel en wie wil upgraden zet zijn oude fiets te koop. Waarom november een goede maand is om tweedehands te zoeken, en waar je op let.
+stat: 5
+stat_label: stappen om slim te zoeken
 ---
 
 In het voorjaar wil iedereen tegelijk een racefiets. In het najaar ligt dat anders: het seizoen zit erop, de nieuwe modeljaren staan in de winkel en wie wil upgraden, zet zijn oude fiets te koop. Voor een koper is dat een goed moment om rustig te zoeken.
@@ -12,6 +14,8 @@ In het voorjaar wil iedereen tegelijk een racefiets. In het najaar ligt dat ande
 - **Minder concurrentie.** Wie nu zoekt, hoeft minder vaak binnen een uur te reageren om nog kans te maken.
 - **Upgraders verkopen.** Wie zijn nieuwe fiets voor volgend seizoen al heeft, wil de oude kwijt voor de winter.
 - **De verkoper kan je de fiets laten zien.** Een fiets die net het seizoen heeft gereden, kun je goed beoordelen: hij is niet maanden in de schuur blijven staan.
+
+![](chart:buying-year)
 
 Een kanttekening: we meten (nog) niet per seizoen hoe vraagprijzen bewegen, dus hoe groot dat voordeel in euro's is, kunnen we niet zeggen. Wat wel vaststaat: hoe meer tijd je hebt, hoe minder je een te hoge prijs hoeft te accepteren.
 

@@ -430,3 +430,21 @@
       {% endif %}
     </div>
 {%- endmacro %}
+
+{# Three blog tiles (blog.py) as on /blog: the hero, the headline number in the category's colour, the title. For the
+   home page and a check report; the whole tile is the link. `post_date` comes from the page's context. #}
+{% macro blog_cards(posts, heading='h3') -%}
+<div class="blog-wall three">
+  {% for p in posts %}
+  <article class="brick cat-{{ p.category }}">
+    {% if p.hero %}<img class="brick-img" src="{{ url_for('static', filename=p.hero) }}" alt="" loading="lazy">{% endif %}
+    <div class="brick-top"><span class="blog-cat">{{ _(blog_categories[p.category]) }}</span><span class="mono">{{ post_date(p.date, lang) }}</span></div>
+    <div class="brick-text">
+      {% if p.stat %}<div class="brick-num">{{ p.stat }}</div>{% endif %}
+      {% if p.stat_label %}<div class="brick-num-label mono">{{ p.stat_label }}</div>{% endif %}
+      <{{ heading }}><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></{{ heading }}>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{%- endmacro %}
