@@ -614,9 +614,12 @@
     });
   });
   // The edit pop-ups (the pencils in the edit mode): a click outside one, or Esc, closes it, and opening one closes the others.
+  // A pick in a select's own menu can reach the page as a click on <html> (Firefox, phones); the select still has
+  // the focus then, so that click isn't outside (a real click elsewhere moves the focus on mousedown first).
   document.addEventListener("click", function (e) {
+    var picking = document.activeElement && document.activeElement.tagName === "SELECT";
     document.querySelectorAll("details.ed-pop[open]").forEach(function (pop) {
-      if (!pop.contains(e.target)) pop.open = false;
+      if (!pop.contains(e.target) && !(picking && pop.contains(document.activeElement))) pop.open = false;
     });
   });
   document.addEventListener("keydown", function (e) {
