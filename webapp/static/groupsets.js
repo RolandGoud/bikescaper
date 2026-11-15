@@ -129,7 +129,11 @@
       section.querySelectorAll(".ladder").forEach((ladder) => {
         const cols = [...ladder.querySelectorAll(":scope > .tier-span")].map((t) => t.getBoundingClientRect());
         ladder.querySelectorAll(".row-label:not(.row-0)").forEach((label) => {
-          const y = label.getBoundingClientRect().top - origin.top - 8;
+          // halfway between the row above's lowest tile and this row's label
+          const i = +[...label.classList].find((c) => /^row-\d$/.test(c)).slice(4);
+          const above = Math.max(...[...ladder.querySelectorAll(`.step.row-${i - 1} .gen, .row-label.row-${i - 1}`)]
+            .map((el) => el.getBoundingClientRect().bottom));
+          const y = Math.round((above + label.getBoundingClientRect().top) / 2 - origin.top);
           cols.forEach((c) => {
             const rule = document.createElementNS(NS, "rect");
             Object.entries({ x: c.left - origin.left, y, width: c.width, height: 1, class: "row-rule" })
