@@ -1441,9 +1441,10 @@ select { max-width: 100%; }
 .brand-ladders .step-head, .brand-ladders .row-label { position: relative; z-index: 1; }
 .brand-ladders .gen-name { font-family: var(--mono); font-size: 15px; }
 /* Brand cards with their number of groups, the bike types beside them with a bike icon each. */
-.brand-picker { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: stretch; }
+/* The cards keep one height, whatever the number of bike types beside them (Campagnolo has two). */
+.brand-picker { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
 .brand-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
-.brand-cards a { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px 20px; min-height: 110px; overflow: hidden;
+.brand-cards a { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px 20px; height: 120px; box-sizing: border-box; overflow: hidden;
   border-radius: 16px; border: 1px solid var(--line); background: linear-gradient(135deg, var(--raised), var(--ink)); color: var(--muted); text-decoration: none; }
 .brand-cards a:hover { color: var(--text); border-color: var(--line-strong); }
 .brand-cards .pill-logo { width: 130px; height: 26px; -webkit-mask-position: left center; mask-position: left center; }
@@ -1462,7 +1463,7 @@ select { max-width: 100%; }
   .bike-types { flex-direction: row; order: -1; }
   .bike-types a { flex: 1; flex-direction: column; gap: 2px; padding: 6px; font-size: 12px; }
   .brand-cards { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-  .brand-cards a { min-height: 64px; padding: 10px; justify-content: center; }
+  .brand-cards a { height: 64px; padding: 10px; justify-content: center; }
   .brand-cards a::after, .brand-cards small { display: none; }
   .brand-cards .pill-logo { width: 76px; height: 16px; }
   .brand-ladders .ladder { padding: 0; margin: 0; }
