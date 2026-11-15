@@ -2,6 +2,7 @@
 title: Cannondale Topstone: gravel from €1,299 to €7,999
 date: 2026-11-15
 category: models
+model: Cannondale Topstone
 summary: Aluminium or carbon, with or without a Lefty fork: the Topstone family explained. And why gravel prices, unlike road bike prices, are falling.
 stat: −23%
 stat_label: Carbon 2 AXS in one year
