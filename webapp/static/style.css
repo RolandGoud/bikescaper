@@ -2417,12 +2417,16 @@ body.pk-open { overflow: hidden; }
 .live-head .live-spin { margin-left: 0; }
 .live-busy strong { color: var(--accent-soft); }
 .live-pending li { opacity: .8; }
+.live-history .live-now { color: var(--accent-soft); }
+.live-when { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; }
+.live-when .live-spin { margin-left: 0; }
+.live-busy-title { font-weight: 600; }
 .live-history ol { margin: 0; padding: 0; list-style: none; }
-.live-history > ol > li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
+.live-history-body > ol > li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
 .live-history time { color: var(--muted); font-family: var(--mono); font-size: 13px; }
 .live-history ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
 .live-history ul a { margin-left: 10px; font-size: 13px; white-space: nowrap; }
-@media (max-width: 640px) { .live-history > ol > li { grid-template-columns: 1fr; gap: 4px; } }
+@media (max-width: 640px) { .live-history-body > ol > li { grid-template-columns: 1fr; gap: 4px; } }
 
 /* Stolen-bike articles on the home page (home.html, static/article-slides.js): the heading on a dark green panel,
    the articles one at a time beside it (under it on a phone). The controls sit next to the slide's button on wide

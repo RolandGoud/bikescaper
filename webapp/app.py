@@ -718,8 +718,12 @@ def create_app(db_path=None):
     @app.route("/admin/live")
     @admin_only
     def live_status():
-        """The account menu's "installing / just live" part, for static/live-note.js to swap in while a page is open."""
+        """The account menu's "installing / just live" part, or with ?part=history the admin page's update history,
+        for static/live-note.js to swap in while a page is open."""
         db_path = app.config["DB_PATH"]
+        if request.args.get("part") == "history":
+            return render_template("_live_history.html", updates=updates.load(db_path)[:20],
+                                   upd=updates.updating(db_path))
         return render_template("_live_note.html", ups=updates.recent(db_path), upd=updates.updating(db_path))
 
     @app.route("/check/<int:check_id>/match", methods=["POST"])
@@ -1497,7 +1501,8 @@ def create_app(db_path=None):
                                dropped=request.args.get("dropped", type=int),
                                deleted=request.args.get("deleted", type=int), first_year=checks.FIRST_YEAR,
                                missing_keys=scores.MISSING, problem_keys=scores.PROBLEMS,
-                               updates=updates.load(app.config["DB_PATH"])[:20])
+                               updates=updates.load(app.config["DB_PATH"])[:20],
+                               upd=updates.updating(app.config["DB_PATH"]))
 
     @app.route("/check/<int:check_id>/duo-side")
     def duo_side(check_id):

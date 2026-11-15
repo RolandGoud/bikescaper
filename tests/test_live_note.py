@@ -149,3 +149,18 @@ def test_the_menu_shows_four_changes_and_links_the_rest(tmp_path, monkeypatch):
     part = client.get("/admin/live?lang=en").get_data(as_text=True)
     assert part.count("<li data-sha") == 6 and part.count(" hidden>") == 2  # all counted, two out of sight
     assert 'href="/admin#updates"' in part and "See more (2)" in part
+
+
+def test_the_admin_pages_history_shows_what_is_being_installed(tmp_path, monkeypatch):
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    client = site(tmp_path, monkeypatch, [
+        {"sha": "a" * 40, "time": now, "changes": [{"title": "Earlier change", "pr": 1, "url": "u", "check": None}]}])
+    (tmp_path / "updating.json").write_text(json.dumps({"sha": "d" * 40, "since": now, "changes": [
+        {"title": "Change going live", "pr": 436, "url": "https://github.com/RolandGoud/bikescaper/pull/436"}]}))
+    with client.session_transaction() as s:
+        s["admin"] = True
+    part = client.get("/admin/live?part=history&lang=en").get_data(as_text=True)
+    assert part.index("Change going live") < part.index("Earlier change") and "Installing on the site" in part
+    page = client.get("/admin?lang=en", follow_redirects=True).get_data(as_text=True)
+    history = page.split('class="live-history-body"')[1]
+    assert 'class="live-now"' in history and "Change going live" in history and "Earlier change" in history
