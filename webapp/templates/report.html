@@ -92,30 +92,42 @@
   {% if ad_colour %}{% if facts.append((_('Colour'), ad_colour, None)) %}{% endif %}{% endif %}
   {% if listing.location %}{% if facts.append((_('Place'), listing.location, 'place')) %}{% endif %}{% endif %}
   {% if condition %}{% if facts.append((_('Condition'), condition, None)) %}{% endif %}{% endif %}
-  {% macro tile_editor(label) -%}
-  {# In the edit mode, the year, size and groupset tiles get a lock when set by hand and a pencil to change them. #}
+  {% macro tile_lock(label) -%}
+  {# In the edit mode, a tile set by hand gets a lock; the one pencil by the card's heading changes them. #}
   {% set field = {(_('Year')|string): 'year', (_('Size')|string): 'size', (_('Groupset')|string): 'groupset'}.get(label|string) %}
   {% if field %}{{ lock(field) }}{% endif %}
-  {% if edit and field == 'year' %}{% set a = edit.auto.year %}
-    {% call editor('year', (a.year ~ ' (' ~ ({'ad': _('from the ad'), 'photo': _('from the colour'), 'purchase': _('from the purchase year'), 'details': _('from the details'), 'estimate': _('estimated'), 'generation': _('middle of the generation'), 'catalogue': _('our catalogue'), 'older': _('from the ad')}.get(a.how, a.how)) ~ ')') if a else _('no model')) %}
-    <select name="value" required>{% for y in edit.years %}<option value="{{ y }}"{{ ' selected' if y == (edit.overrides.year or r.year and r.year.year) }}>{{ y }}</option>{% endfor %}</select>
-    {% endcall %}
-  {% elif edit and field == 'size' %}
-    {% call editor('size', edit.auto.claims.size or _('not stated')) %}
-    {% set current = edit.overrides.size or r.claims.size %}
-    <select name="value" required>{% for z in edit.sizes %}<option{{ ' selected' if z == current }}>{{ z }}</option>{% endfor %}
-      {% if current and current not in edit.sizes %}<option selected>{{ current }}</option>{% endif %}</select>
-    {% endcall %}
-  {% elif edit and field == 'groupset' %}
-    {% set auto_row = (edit.auto.specs.rows if edit.auto.specs else [])|selectattr('key', 'equalto', 'groupset')|first %}
-    {% call editor('groupset', auto_row.listing if auto_row and auto_row.listing else (edit.auto.claims.groupset.label if edit.auto.claims.groupset else _('not stated'))) %}
-    {% set cur = r.claims.groupset %}
-    <select name="value" required>{% for gs in edit.groupsets %}<option value="{{ gs.key }}:{{ gs.tier }}"{{ ' selected' if cur and cur.key == gs.key and cur.tier == gs.tier }}>{{ gs.name }}</option>{% endfor %}</select>
-    <label class="ed-check"><input type="checkbox" name="electronic" value="1"{{ ' checked' if cur and cur.electronic }}> {{ _('Electronic (Di2, AXS, eTap, EPS)') }}</label>
-    {% endcall %}
-  {% endif %}
   {%- endmacro %}
-  <div class="block-head"><span>{{ _('The ad') }}</span></div>
+  <div class="block-head"><span>{{ _('The ad') }}</span>
+  {% if edit %}
+    {# One pencil for the whole card, like Our match: one form for the year, size and groupset the ad gives. Each
+       starts on "automatic" (what the matching reads) unless set by hand; saving locks what isn't automatic. #}
+    {% set ov = edit.overrides %}
+    {% set how = {'ad': _('from the ad'), 'photo': _('from the colour'), 'purchase': _('from the purchase year'), 'details': _('from the details'), 'estimate': _('estimated'), 'generation': _('middle of the generation'), 'catalogue': _('our catalogue'), 'older': _('from the ad')} %}
+    <div class="ms-edit">
+    <details class="ed-pop" id="edit-ad"{% if request.args.get('open') in ('ad', 'year', 'size', 'groupset') %} open{% endif %}>
+      <summary class="ed-pen" aria-label="{{ _('Change') }}">✎</summary>
+      <form class="ed-form" method="post" action="{{ url_for('set_override', check_id=listing.id) }}">
+        <input type="hidden" name="field" value="ad">
+        {% set a = edit.auto.year %}
+        <label class="ed-label" id="edit-year">{{ _('Year') }} {{ lock('year') }}<select name="year">
+          <option value="">{{ _('Automatic') }}: {{ (a.year ~ ' (' ~ how.get(a.how, a.how) ~ ')') if a else _('no model') }}</option>
+          {% for y in edit.years %}<option value="{{ y }}"{{ ' selected' if y == ov.year }}>{{ y }}</option>{% endfor %}</select></label>
+        <label class="ed-label" id="edit-size">{{ _('Size') }} {{ lock('size') }}<select name="size">
+          <option value="">{{ _('Automatic') }}: {{ edit.auto.claims.size or _('not stated') }}</option>
+          {% for z in edit.sizes %}<option{{ ' selected' if z == ov.size }}>{{ z }}</option>{% endfor %}
+          {% if ov.size and ov.size not in edit.sizes %}<option selected>{{ ov.size }}</option>{% endif %}</select></label>
+        {% set auto_row = (edit.auto.specs.rows if edit.auto.specs else [])|selectattr('key', 'equalto', 'groupset')|first %}
+        {% set cur = ov.groupset %}
+        <label class="ed-label" id="edit-groupset">{{ _('Groupset') }} {{ lock('groupset') }}<select name="groupset">
+          <option value="">{{ _('Automatic') }}: {{ auto_row.listing if auto_row and auto_row.listing else (edit.auto.claims.groupset.label if edit.auto.claims.groupset else _('not stated')) }}</option>
+          {% for gs in edit.groupsets %}<option value="{{ gs.key }}:{{ gs.tier }}"{{ ' selected' if cur and cur.key == gs.key and cur.tier == gs.tier }}>{{ gs.name }}</option>{% endfor %}</select></label>
+        <label class="ed-check"><input type="checkbox" name="electronic" value="1"{{ ' checked' if cur and cur.electronic }}> {{ _('Electronic (Di2, AXS, eTap, EPS)') }}</label>
+        <span class="ed-buttons"><button class="ed-save" type="submit">{{ _('Lock') }}</button></span>
+      </form>
+    </details>
+    </div>
+  {% endif %}
+  </div>
   <section class="ad-card{{ ' no-photos' if not listing.photos }}">
     {% if listing.photos %}
     <div class="ad-gallery">
@@ -137,7 +149,7 @@
     {% endif %}
     <div class="ad-info">
       {% if facts %}<div class="ad-tiles" style="--n: {{ facts|length }}">{% for label, value, kind in facts %}
-        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}{{ tile_editor(label) }}</div>{% endfor %}
+        <div><span class="k">{{ label|string|upper }}</span>{% if kind == 'place' %}<b class="place"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{ place_link(value, listing.listing_url) }}</b>{% else %}<b{% if kind == 'none' %} class="muted"{% endif %}>{{ value }}</b>{% endif %}{{ tile_lock(label) }}</div>{% endfor %}
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
@@ -600,6 +612,15 @@
       more.setAttribute("aria-expanded", open);
       more.textContent = open ? more.dataset.less : label;
     });
+  });
+  // The edit pop-ups (the pencils in the edit mode): a click outside one, or Esc, closes it, and opening one closes the others.
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll("details.ed-pop[open]").forEach(function (pop) {
+      if (!pop.contains(e.target)) pop.open = false;
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") document.querySelectorAll("details.ed-pop[open]").forEach(function (pop) { pop.open = false; });
   });
   // Esc closes the model panel
   document.addEventListener("keydown", function (e) {

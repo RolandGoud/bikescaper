@@ -2109,6 +2109,10 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .ed-delete { height: 40px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--bad); color: var(--ink); font: 700 15px var(--body); cursor: pointer; }
 .ms-edit { display: inline-flex; align-items: center; gap: 4px; text-transform: none; letter-spacing: 0; }
 .block-head .ms-edit { margin-left: 6px; }
+/* A pop-up by a section's heading opens under the heading's left edge, so it fits on a phone too. */
+.block-head { position: relative; }
+.block-head .ed-pop { position: static; }
+.block-head .ed-form { top: calc(100% + 8px); left: 0; }
 .block-head { position: relative; }
 @media (max-width: 760px) {
   .block-head .ed-pop { position: static; }
