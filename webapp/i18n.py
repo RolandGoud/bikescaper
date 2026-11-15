@@ -58,6 +58,19 @@ def join_list(parts):
 
 
 NL = {
+    # the blog (templates/blog.html, blog_post.html, webapp/blog.py)
+    'Blog': 'Blog',
+    'Bikecheck blog': 'Bikecheck blog',
+    'Prices, buying guides and model deep-dives for second-hand road and gravel bikes, from the data behind Bikecheck.': 'Prijzen, koopgidsen en modellen uitgelicht voor tweedehands race- en gravelfietsen, uit de data achter Bikecheck.',
+    'Categories': 'Categorieën',
+    '{n} min read': '{n} min lezen',
+    'No articles here yet.': 'Hier staan nog geen artikelen.',
+    'All articles': 'Alle artikelen',
+    'Read next': 'Lees ook',
+    'Market data': 'Marktdata',
+    'Buying guides': 'Koopgidsen',
+    'Model deep-dives': 'Modellen uitgelicht',
+    'Seasonal': 'Seizoen',
     "Today": "Vandaag",
     "Yesterday": "Gisteren",
     "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",

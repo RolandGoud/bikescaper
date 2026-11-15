@@ -23,7 +23,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, articles, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
+from . import ad_gone, articles, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -156,6 +156,11 @@ def local_day(stamp):
         return when.astimezone(ZoneInfo("Europe/Amsterdam")).date()
     except ZoneInfoNotFoundError:  # no time zone data installed: the UTC day is at most a few hours off
         return when.date()
+
+
+def post_date(day, lang):
+    """A blog article's date: "15 nov 2026"."""
+    return f"{day.day} {MONTHS.get(lang, MONTHS['en'])[day.month - 1]} {day.year}"
 
 
 def day_heading(day, today, lang):
@@ -1518,6 +1523,32 @@ def create_app(db_path=None):
         return render_template("sell_interest.html", nav="sell", rows=rows,
                                clicks=sum(r["clicks"] for r in rows), emails=sum(r["emails"] for r in rows),
                                pending=sum(r["pending"] for r in rows))
+
+    @app.route("/blog")
+    def blog_index():
+        """Every published article, newest first, filterable by category."""
+        posts = blog.load()
+        category = request.args.get("category")
+        category = category if category in blog.CATEGORIES else None
+        everything = blog.published(posts, g.lang)
+        counts = Counter(p["category"] for p in everything)
+        shown = [p for p in everything if category is None or p["category"] == category]
+        return render_template("blog.html", posts=shown, category=category, categories=blog.CATEGORIES,
+                               counts=counts, total=len(everything), post_date=post_date,
+                               minutes=blog.reading_minutes, nav="blog")
+
+    @app.route("/blog/<slug>")
+    def blog_post(slug):
+        versions = blog.load().get(slug)
+        if not versions:
+            abort(404)
+        post = blog.pick(versions, g.lang)
+        if post["date"] > date.today():
+            abort(404)  # written ahead: not out yet
+        more = [p for p in blog.published(blog.load(), g.lang) if p["slug"] != slug]
+        related = ([p for p in more if p["category"] == post["category"]] + [p for p in more if p["category"] != post["category"]])[:3]
+        return render_template("blog_post.html", post=post, body=blog.render(post["body"]), categories=blog.CATEGORIES,
+                               related=related, post_date=post_date, minutes=blog.reading_minutes, nav="blog")
 
     @app.route("/how-it-works")
     def how():

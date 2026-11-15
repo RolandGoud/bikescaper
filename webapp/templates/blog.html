@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Blog') }} · Bikecheck{% endblock %}
+{% block head %}<meta name="description" content="{{ _('Prices, buying guides and model deep-dives for second-hand road and gravel bikes, from the data behind Bikecheck.') }}">{% endblock %}
+{% block body %}
+<main class="wrap page blog-index">
+  <header class="blog-head">
+    <span class="mono muted">{{ _('Bikecheck blog') }}</span>
+    <h1>{{ _('Blog') }}</h1>
+    <p class="muted">{{ _('Prices, buying guides and model deep-dives for second-hand road and gravel bikes, from the data behind Bikecheck.') }}</p>
+  </header>
+  {# One category at a time; "All" clears it. #}
+  <nav class="filters" aria-label="{{ _('Categories') }}">
+    <a class="pill small-pill {{ 'on' if not category }}" href="{{ url_for('blog_index') }}"{% if not category %} aria-current="page"{% endif %}>{{ _('All') }}<span class="count">{{ total }}</span></a>
+    {% for key, name in categories.items() %}
+    <a class="pill small-pill {{ 'on' if category == key }}" href="{{ url_for('blog_index', category=key) }}"{% if category == key %} aria-current="page"{% endif %}>{{ _(name) }}<span class="count">{{ counts[key] or 0 }}</span></a>
+    {% endfor %}
+  </nav>
+  {% if posts %}
+  <div class="blog-grid">
+    {% for p in posts %}
+    <article class="blog-card cat-{{ p.category }}">
+      <div class="blog-meta mono"><span class="blog-cat">{{ _(categories[p.category]) }}</span><span>{{ post_date(p.date, lang) }}</span></div>
+      <h2><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h2>
+      <p class="muted">{{ p.summary }}</p>
+      <span class="blog-more mono">{{ _('{n} min read', n=minutes(p.body)) }} →</span>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="muted">{{ _('No articles here yet.') }}</p>
+  {% endif %}
+</main>
+{% endblock %}

@@ -2567,3 +2567,52 @@ body.pk-open { overflow: hidden; }
   .as-ctrl { grid-area: 2 / 1; justify-self: start; margin: 18px 22px 0; }
   .as-upnext { margin: 18px 22px 0; }
 }
+
+/* Blog (/blog, /blog/<slug>): a card per article, the article itself in a narrow reading column. Each category has its
+   own colour on its label, so the four kinds tell apart at a glance. */
+.blog-head { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+.blog-head h1 { font-size: 44px; }
+.blog-head .mono { color: var(--accent); text-transform: uppercase; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.blog-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px;
+  position: relative; transition: border-color .15s; }
+.blog-card:hover { border-color: var(--line-strong); }
+.blog-card h2, .blog-card h3 { font-family: var(--body); font-style: normal; text-transform: none; font-weight: 700; font-size: 20px; line-height: 1.25; letter-spacing: 0; }
+.blog-card h3 { font-size: 17px; }
+.blog-card h2 a, .blog-card h3 a { color: var(--text); text-decoration: none; }
+.blog-card h2 a::after, .blog-card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 18px; }  /* the whole card is the link */
+.blog-card:hover h2 a, .blog-card:hover h3 a { color: var(--accent-soft); }
+.blog-more { margin-top: auto; font-size: 12px; color: var(--accent); }
+.blog-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; color: var(--muted); }
+.blog-cat { --cat: var(--accent); color: var(--cat); border: 1px solid var(--cat); border-radius: var(--pill-radius); padding: 1px 6px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; }
+a.blog-cat:hover { color: var(--cat); background: var(--faint); }
+.cat-market .blog-cat { --cat: #34D399; }
+.cat-guides .blog-cat { --cat: #7AB8FF; }
+.cat-models .blog-cat { --cat: #F2C27A; }
+.cat-seasonal .blog-cat { --cat: #E7A0F0; }
+.blog-post-page { max-width: 808px; }
+.blog-post { display: flex; flex-direction: column; gap: 16px; }
+.blog-back { font-size: 12px; text-decoration: none; }
+.blog-post h1 { font-size: 40px; line-height: 1.08; }
+.blog-lead { font-size: 19px; color: #C9CAD2; }
+.blog-body { display: flex; flex-direction: column; gap: 16px; font-size: 17px; line-height: 1.65; border-top: 1px solid var(--line); padding-top: 24px; }
+.blog-body h2 { font-size: 24px; margin-top: 18px; }
+.blog-body h3 { font-size: 19px; margin-top: 8px; }
+.blog-body ul, .blog-body ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.blog-body strong { color: #fff; }
+.blog-callout { background: var(--ok-bg); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 14px 18px; }
+.blog-table { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+.blog-table table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.blog-table th, .blog-table td { padding: 9px 14px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.blog-table th { background: var(--raised); font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+.blog-table tr:last-child td { border-bottom: 0; }
+.blog-table .num { text-align: right; font-family: var(--mono); font-size: 14px; }
+.blog-related { display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--line); padding-top: 28px; }
+.blog-related .blog-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+@media (max-width: 640px) {
+  .blog-head h1 { font-size: 34px; }
+  .blog-post h1 { font-size: 30px; }
+  .blog-lead { font-size: 17px; }
+  .blog-body { font-size: 16px; }
+  .blog-grid { grid-template-columns: 1fr; }
+}
