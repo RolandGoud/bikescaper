@@ -26,9 +26,12 @@ docker compose up -d --build          # http://<host>:8280
 
 **On a UGREEN NAS (UGOS Pro), easiest:** open the Docker app, go to Project > Create, paste the
 contents of `nas/docker-compose.yml` and deploy. That file needs nothing next to it: on every
-start the container downloads the latest `main` from GitHub, and while it runs it checks every 10
-minutes for a new commit and switches to it without stopping the site (`nas/autoupdate.py`; set
-`UPDATE_MINUTES` to change how often, `"0"` turns it off). A commit that fails to start is skipped.
+start the container downloads the latest `main` from GitHub, and while it runs it checks every 30
+seconds for a new commit and switches to it without stopping the site (`nas/autoupdate.py`), so a
+merge to `main` is live on the NAS within a minute or two with nothing else to do. The check is one
+small request to GitHub's git server (like `git ls-remote`), not the API, so it doesn't run into
+GitHub's limit of 60 API requests an hour. Set `CHECK_SECONDS` to change how often, or
+`UPDATE_MINUTES: "0"` to turn it off. A commit that fails to start is skipped.
 
 The root `docker-compose.yml` instead builds from a full copy of this repo, so the whole repo
 folder has to be on the NAS (Project > Create pointed at that folder, or
