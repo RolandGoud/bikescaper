@@ -3571,7 +3571,9 @@ def run_check(models, listing, today=None):
     report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen,
               # Which of OVERRIDE_KEYS an admin set by hand, for the edit mode's locks.
-              "locked": sorted(k for k in OVERRIDE_KEYS if overrides.get(k)), "builds": builds}
+              "locked": sorted(k for k in OVERRIDE_KEYS if overrides.get(k)), "builds": builds,
+              # A colour set by hand that isn't one of the model's colourways: shown, but it doesn't date the bike.
+              "colour_typed": overrides.get("colour") or None}
     if chosen is None:
         return report
     if not chosen_by_you:
@@ -3595,6 +3597,8 @@ def run_check(models, listing, today=None):
     # doesn't have, after the model was changed, counts as not set).
     set_colour = overrides.get("colour") if overrides.get("colour") in colour_choices(chosen) else None
     report["colour_set"] = set_colour
+    if set_colour:
+        report["colour_typed"] = None
     fitting = [] if set_colour else colour_match.fits(chosen, listing["title"], listing.get("description") or "")
     report["colourway"] = fitting[0] if len(fitting) == 1 else None
     report["colour_from_photos"] = False
