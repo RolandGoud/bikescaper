@@ -313,9 +313,9 @@ def test_model_page_shows_spec_groups(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
     page = client.get("/models/trek-domane-sl-6-gen-4?lang=en").data.decode()
-    assert "Drivetrain" in page and "Rear derailleur" in page
+    assert "DRIVETRAIN" in page and "Rear derailleur" in page  # the tab labels are upper case
     page = client.get("/models/trek-domane-sl-6-gen-4?lang=nl").data.decode()
-    assert "Aandrijving" in page and "Achterderailleur" in page
+    assert "AANDRIJVING" in page and "Achterderailleur" in page
 
 
 def test_key_parts_name_the_main_parts_with_their_tiers():
@@ -716,7 +716,7 @@ def test_models_use_their_own_size_chart(models):
             assert got["source"] == chart["source"] and got["sizes"], slug
     published = [m for m in models if checks.model_size_chart(m)["source"] == "brand"]
     assert {m["brand"] for m in published} >= {"Trek", "Canyon", "Cannondale"}
-    unknown = dict(first(models), slug="no-such-model")
+    unknown = dict(first(models), slug="no-such-model", sizes=[])  # no chart and no listed sizes
     assert checks.model_size_chart(unknown)["source"] == "generic"
 
 
@@ -782,11 +782,28 @@ def test_model_is_greyed_out_until_a_brand_is_picked(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
-    for url in ("/size?lang=en", "/value?lang=en"):
-        page = client.get(url).data.decode()
-        assert "Pick a brand…" in page and re.search(r'<select name="model"[^>]*disabled', page), url
-    for url in ("/size?brand=Trek&lang=en", "/value?brand=Trek&lang=en"):
-        assert not re.search(r'<select name="model"[^>]*disabled', client.get(url).data.decode()), url
+    page = client.get("/value?lang=en").data.decode()
+    assert "Pick a brand…" in page and re.search(r'<select name="model"[^>]*disabled', page)
+    assert not re.search(r'<select name="model"[^>]*disabled', client.get("/value?brand=Trek&lang=en").data.decode())
+
+
+def test_size_finder_walks_brand_type_model_version_height(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/size?lang=en").data.decode()
+    assert "Which brand?" in page and 'href="/size?brand=Trek' in page
+    page = client.get("/size?brand=Trek&lang=en").data.decode()  # Trek sells more than one type: the type step
+    assert "What kind of bike?" in page and 'href="/size?brand=Trek&amp;type=road' in page
+    page = client.get("/size?brand=Trek&type=road&lang=en").data.decode()  # only the road families
+    assert "Which Trek model?" in page and "Domane" in page and "Checkpoint" not in page
+    assert "New price" in page and "Tier" in page  # the list's specs
+    page = client.get("/size?brand=Trek&family=Domane&lang=en").data.decode()  # the family's versions
+    assert "Which Domane?" in page and "AL 2 Gen 4" in page and "Other Domane" in page
+    page = client.get("/size?brand=Trek&family=all&height=180&lang=en").data.decode()  # skip to the brand chart
+    assert "How tall are you?" in page and 'class="sizes"' in page
+    # the step bar links back to the earlier steps with what was picked
+    assert "Racefiets" not in page and 'href="/size?step=type&amp;brand=Trek' in page
 
 
 def test_size_finder_picks_a_model(tmp_path):
@@ -796,10 +813,9 @@ def test_size_finder_picks_a_model(tmp_path):
     conn = db.connect(app.config["DB_PATH"])
     model = next(m for m in db.all_models(conn) if checks.model_size_chart(m)["source"] == "brand")
     page = client.get(f"/size?model={model['slug']}&height=180&lang=en").data.decode()
-    assert "own size chart for this model" in page and "selected" in page
-    page = client.get("/size?brand=Giant&height=181&lang=en").data.decode()
+    assert "own size chart for this model" in page and "How tall are you?" in page
+    page = client.get("/size?brand=Giant&family=all&height=181&lang=en").data.decode()
     assert "pick a model for its own chart" in page
-    assert 'data-type="Road"' in page and "data-short=" in page
 
 
 def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
@@ -886,7 +902,7 @@ def test_size_systems_split_frame_and_letter_sizes(tmp_path):
     assert checks.size_systems(["S", "M"]) == [("Letter sizes", ["S", "M"])]
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    page = app.test_client().get("/size?brand=Trek&height=178&lang=en").data.decode()
+    page = app.test_client().get("/size?brand=Trek&family=all&height=178&lang=en").data.decode()
     assert page.count('class="sizes"') == 2 and "Letter sizes" in page
 
 

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_macros.html" import brand_label, photo, tier_badge with context %}
 {% block title %}{{ _('Size finder') }} · Bikecheck{% endblock %}
 {% block body %}
 <main class="wrap page">
@@ -6,28 +7,91 @@
     <h1 style="font-size: 44px">{{ _('Size finder') }}</h1>
     <p class="muted">{{ _('Pick a brand and model and enter your height to see which frame sizes fit.') }}</p>
   </div>
-  <form class="card" method="get" style="flex-direction: row; flex-wrap: wrap; align-items: flex-end">
-    <label class="field">{{ _('Brand') }}
-      <select name="brand" onchange="this.form.model.value = ''; this.form.submit()"><option value="" {{ 'selected' if not brand }} disabled>{{ _('Pick a brand…') }}</option>{% for b in brands %}<option {{ 'selected' if b.name == brand }}{% if b.logo %} data-logo="{{ url_for('static', filename=b.logo) }}"{% endif %}>{{ b.name }}</option>{% endfor %}</select>
-    </label>
-    <label class="field">{{ _('Model') }}
-      <select name="model" data-families {{ 'disabled' if not brand }}>
-        <option value="">{{ _('All models (brand chart)') }}</option>
-        {% for kind, families in picker %}{% for f in families %}
-        <optgroup label="{{ f.name }}" data-type="{{ _(kinds[kind]) }}">
-          {% for l, short in f.lines %}{% set tail = ' · ' ~ _('brand chart') if l.chart.source == 'generic' else '' %}<option value="{{ l.key }}" data-short="{{ (short or _('Other {family}', family=f.name)) ~ tail }}" {{ 'selected' if line and l.key == line.key }}>{{ l.label }}{{ tail }}</option>{% endfor %}
-        </optgroup>
-        {% endfor %}{% endfor %}
-      </select>
-    </label>
+{% set single = family and family.lines|length == 1 %}
+{% set order = ["brand", "type", "family", "version", "height"] %}
+{% set at = order.index(step) %}
+{% set steps = [
+  ("brand", _("Brand"), brand, url_for('size_finder', step='brand', height=height)),
+  ("type", _("Type"), _(kind_labels[kind]) if kind and kind in kind_labels else none, url_for('size_finder', step='type', brand=brand, height=height) if brand and types|length > 1),
+  ("family", _("Model"), family.name if family else _("All models") if all_models else none, url_for('size_finder', step='family', brand=brand, type=kind, height=height) if kind),
+  ("version", _("Version"), (line.label if line and not single) or none, url_for('size_finder', step='version', brand=brand, family=family.name, height=height) if family and not single),
+  ("height", _("Your height"), none, url_for('size_finder', brand=brand, model=line.key if line, family='all' if all_models and not line, height=height) if line or all_models)] %}
+<nav class="wizard size-wizard" aria-label="{{ _('Size finder') }}"><ol>
+  {% for key, label, picked, href in steps %}
+  <li class="{{ 'on' if key == step else 'done' if loop.index0 < at and picked }}">
+    {% if href and key != step %}<a href="{{ href }}">{% else %}<span{% if key == step %} aria-current="step"{% endif %}>{% endif %}
+      <i>{{ loop.index }}</i><span class="lbl">{{ label }}{% if picked and key != step %}<small>{{ picked }}</small>{% endif %}</span>
+    {% if href and key != step %}</a>{% else %}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ol></nav>
+
+<section class="card size-step">
+  {% if step == "brand" %}
+  <h2>{{ _('Which brand?') }}</h2>
+  <div class="pick-pills">
+    {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('size_finder', brand=b.name, height=height) }}">{{ brand_label(b) }}</a>{% endfor %}
+  </div>
+  {% elif step == "type" %}
+  <h2>{{ _('What kind of bike?') }}</h2>
+  <div class="pick-cards">
+    {% for t in types %}
+    <a class="pick-card {{ 'on' if t.kind == kind }}" href="{{ url_for('size_finder', brand=brand, type=t.kind, height=height) }}">
+      <div class="photo">{{ photo(t.pic, alt=_(kind_labels[t.kind]) if t.kind in kind_labels else '') }}</div>
+      <div class="pick-name"><span class="kind-line">{% if t.kind != 'other' %}<span class="type-icon" aria-hidden="true" style="--icon: url('{{ url_for('static', filename='types/' ~ t.kind ~ '.svg') }}')"></span>{% endif %}{{ _(kind_labels[t.kind]) if t.kind in kind_labels else _('Other') }}</span><span class="count">{{ _('1 model') if t.count == 1 else _('{n} models', n=t.count) }}</span></div>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="small muted"><a href="{{ url_for('size_finder', brand=brand, family='all', height=height) }}">{{ _("Don't know the model? Use {brand}'s general chart", brand=brand) }}</a></p>
+  {% elif step == "family" %}
+  <h2>{{ _('Which {brand} model?', brand=brand) }}</h2>
+  <div class="pick-list">
+    {% for k, families in picker if k == kind %}{% for f in families %}
+    <a class="pick-row {{ 'on' if family and f.name == family.name }}" href="{{ url_for('size_finder', brand=brand, family=f.name, height=height) }}">
+      <div class="photo">{{ photo(f.pic, alt=brand ~ ' ' ~ f.name) }}</div>
+      <div class="pick-main"><b>{{ f.name }}</b></div>
+      <dl class="pick-specs">
+        <div><dt>{{ _('Versions') }}</dt><dd>{{ f.lines|length }}{% if f.count > f.lines|length %} <span class="muted">· {{ _('{n} models', n=f.count) }}</span>{% endif %}</dd></div>
+        <div><dt>{{ _('New price') }}</dt><dd>{% if f.prices %}{{ f.prices[0]|eur }}{% if f.prices[1] != f.prices[0] %} – {{ f.prices[1]|eur }}{% endif %}{% else %}–{% endif %}</dd></div>
+        <div><dt>{{ _('Tier') }}</dt><dd>{% if f.tiers %}{{ tier_badge(f.tiers[0], small=true) }}{% if f.tiers[1] != f.tiers[0] %} – {{ tier_badge(f.tiers[1], small=true) }}{% endif %}{% else %}–{% endif %}</dd></div>
+      </dl>
+      <svg class="pick-go" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg>
+    </a>
+    {% endfor %}{% endfor %}
+  </div>
+  <p class="small muted"><a href="{{ url_for('size_finder', brand=brand, family='all', height=height) }}">{{ _("Don't know the model? Use {brand}'s general chart", brand=brand) }}</a></p>
+  {% elif step == "version" %}
+  <h2>{{ _('Which {family}?', family=family.name) }}</h2>
+  <div class="pick-cards">
+    {% for l, short in family.lines %}
+    <a class="pick-card {{ 'on' if line and l.key == line.key }}" href="{{ url_for('size_finder', brand=brand, model=l.key, height=height) }}">
+      <div class="photo">{{ photo(family.pics[l.key], alt=l.label) }}</div>
+      <div class="pick-name">{{ short or _('Other {family}', family=family.name) }}<span class="count">{{ _("{brand}'s general chart", brand=brand) if l.chart.source == 'generic' else _('{n} models', n=l.models|length) if l.models|length > 1 else (l.models[0].name|model_title) if short != l.models[0].name else '' }}</span></div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  {% set bike = family.pics[line.key] if family and line else none %}
+  <div class="height-step">
+  {% if bike %}<a class="chosen-bike" href="{{ url_for('model_page', slug=bike.slug) }}">
+    <div class="photo">{{ photo(bike) }}</div>
+    <div class="pick-name">{{ line.label }}<span class="count">{{ brand }}{% if line.models|length > 1 %} · {{ _('{n} models', n=line.models|length) }}{% endif %}</span></div>
+  </a>{% endif %}
+  <div class="stack">
+  <h2>{{ _('How tall are you?') }}</h2>
+  <form method="get" class="height-form">
+    <input type="hidden" name="brand" value="{{ brand }}">
+    {% if line %}<input type="hidden" name="model" value="{{ line.key }}">{% else %}<input type="hidden" name="family" value="all">{% endif %}
     <label class="field">{{ _('Your height (cm)') }}
       <input name="height" type="number" min="120" max="220" value="{{ height }}">
     </label>
     <button class="btn" type="submit">{{ _('Find my size') }}</button>
   </form>
-  {% if not brand %}
-  <section class="card"><p class="muted">{{ _('Pick a brand first, then a model if you know it.') }}</p></section>
-  {% else %}
+  </div>
+  </div>
+  {% endif %}
+</section>
+  {% if step == "height" %}
   <section class="card">
     <h2>{{ _('{model} sizes for {height} cm', model=line.label if line else brand, height=height) }}</h2>
     {% for heading, group in rows %}

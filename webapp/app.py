@@ -1106,9 +1106,45 @@ def create_app(db_path=None):
         brand = request.args.get("brand") or (picked and picked["brand"]) or None
         height = request.args.get("height", type=int) or 178
         if brand is None:  # nothing to show until a brand is picked; the Model list stays greyed out
-            return render_template("size.html", brand=None, height=height, picker=[], line=None, nav="size")
+            return render_template("size.html", brand=None, height=height, picker=[], line=None, family=None,
+                                   step="brand", kind=None, types=[], nav="size")
         lines = checks.size_lines(models(), brand)
         line = next((l for l in lines if picked and any(m["slug"] == slug for m in l["models"])), None)
+        picker = checks.size_picker(lines)
+        families = [f for _, fs in picker for f in fs]
+        # The menu picks a family; a family with more than one line shows its lines in a section below the form.
+        family = next((f for f in families if line and any(l["key"] == line["key"] for l, _ in f["lines"])), None) \
+            or next((f for f in families if f["name"] == request.args.get("family")), None)
+        def pic(ms):  # the photo a family or version card shows: a current, recent, top build with a photo
+            ms = [m for m in ms if m.get("image")]
+            return max(ms, key=lambda m: (checks.catalogue_status(m)[0] != "discontinued", m.get("model_year") or 0,
+                                          m.get("price_eur") or 0), default=None)
+        for kind, fs in picker:
+            for f in fs:
+                ms = [m for l, _ in f["lines"] for m in l["models"]]
+                prices = [m["price_eur"] for m in ms if m.get("price_eur")]
+                tiers = [t for t in map(checks.model_tier, ms) if t]
+                f.update(kind=kind, count=len(ms), prices=(min(prices), max(prices)) if prices else None,
+                         tiers=(min(tiers), max(tiers)) if tiers else None)
+        for f in families:
+            f["pic"] = pic([m for l, _ in f["lines"] for m in l["models"]])
+            f["pics"] = {l["key"]: pic(l["models"]) for l, _ in f["lines"]}
+        if family and not line and len(family["lines"]) == 1:
+            line = family["lines"][0][0]
+        # A wizard: brand, type (skipped when the brand has one), family, version (only for a family with more
+        # than one), height. The step bar's links go back to an earlier step; without one, the page opens at
+        # the first step that still needs a choice.
+        all_models = request.args.get("family") == "all"
+        kinds = [k for k, _ in picker]
+        kind = family["kind"] if family else request.args.get("type") if request.args.get("type") in kinds \
+            else kinds[0] if len(kinds) == 1 else None
+        types = [{"kind": k, "families": len(fs), "count": sum(f["count"] for f in fs),
+                  "pic": pic([f["pic"] for f in fs if f["pic"]])}
+                 for k, fs in picker]
+        step = request.args.get("step")
+        if step not in ("brand", "type", "family", "version", "height") or (step == "version" and not family) \
+                or (step == "family" and not kind):
+            step = "height" if line or all_models else "version" if family else "family" if kind else "type"
         chart = line["chart"] if line else {"sizes": checks.size_options(brand), "geometry": {}, "source": "generic"}
         rows = [{"size": k, "low": lo, "high": hi, "fit": lo <= height <= hi, "near": lo - 4 <= height <= hi + 4,
                  "geometry": chart["geometry"].get(k)} for k, (lo, hi) in chart["sizes"].items()]
@@ -1117,7 +1153,7 @@ def create_app(db_path=None):
         own = {source: sum(len(l["models"]) for l in lines if l["chart"]["source"] == source)
                for source in ("brand", "geometry")}
         return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,
-                               picker=checks.size_picker(lines), kinds=dict(DISCIPLINES + OTHER),
+                               picker=picker, family=family, step=step, all_models=all_models, kind=kind, types=types,
                                chart=chart, note=checks.size_note(chart, brand), own=own,
                                total=sum(len(l["models"]) for l in lines), nav="size")
 
