@@ -313,9 +313,9 @@ def test_model_page_shows_spec_groups(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
     page = client.get("/models/trek-domane-sl-6-gen-4?lang=en").data.decode()
-    assert "Drivetrain" in page and "Rear derailleur" in page
+    assert "DRIVETRAIN" in page and "Rear derailleur" in page  # the tab labels are upper case
     page = client.get("/models/trek-domane-sl-6-gen-4?lang=nl").data.decode()
-    assert "Aandrijving" in page and "Achterderailleur" in page
+    assert "AANDRIJVING" in page and "Achterderailleur" in page
 
 
 def test_key_parts_name_the_main_parts_with_their_tiers():
