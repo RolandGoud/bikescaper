@@ -70,7 +70,7 @@ def test_rotation_gives_every_card_offer_in_the_visitors_language():
     assert sponsored.rotation([offer("c", ["banner"])], "nl") == []
 
 
-def test_listings_and_models_show_ads_as_tiles_5_15_25(tmp_path):
+def test_listings_and_models_show_ad_tiles_at_random_places(tmp_path):
     path = tmp_path / "sponsored.json"
     path.write_text(json.dumps([offer("card1", ["card"]), offer("card2", ["card"]), offer("side", ["side"])]))
     app = create_app(str(tmp_path / "app.sqlite3"))
@@ -90,18 +90,20 @@ def test_listings_and_models_show_ads_as_tiles_5_15_25(tmp_path):
     listings = client.get("/listings").data.decode()
     grid = listings[listings.index('class="grid listing-grid"'):]
     tiles = re.findall(r'class="(listing-card|sponsored-card fluid)', grid)
-    assert tiles == ["listing-card"] * 4 + ["sponsored-card fluid"] + ["listing-card"] * 9 + \
-        ["sponsored-card fluid"] + ["listing-card"]
-    assert "card1 nl" in grid and "card2 nl" in grid  # the two tiles show different offers
+    assert tiles.count("listing-card") == 14 and tiles[-1] == "listing-card"
+    assert 1 <= tiles.count("sponsored-card fluid") <= 2 and "fluid fluid" not in " ".join(tiles)
+    assert 2 <= tiles.index("sponsored-card fluid") <= 6
+    if tiles.count("sponsored-card fluid") == 2:
+        assert "card1 nl" in grid and "card2 nl" in grid  # the two tiles show different offers
 
     models = client.get("/models").data.decode()
     assert "ad-banner" not in models and "ad-sky" in models
     grid = models[models.index('class="model-grid"'):]
     grid = grid[:grid.index("</section>")]
     tiles = re.findall(r'class="(model-card|sponsored-card fluid)', grid)
-    assert tiles[:15] == ["model-card"] * 4 + ["sponsored-card fluid"] + ["model-card"] * 9 + ["sponsored-card fluid"]
-    assert tiles[-1] == "model-card"
-    assert all(tiles[i] == ("sponsored-card fluid" if i % 10 == 4 else "model-card") for i in range(len(tiles)))
+    assert tiles[-1] == "model-card" and "sponsored-card fluid" in tiles[2:7]
+    ads = [i for i, t in enumerate(tiles) if t == "sponsored-card fluid"]
+    assert all(8 <= b - a <= 13 for a, b in zip(ads, ads[1:]))  # 7-12 models between two ads
 
     app.config["SPONSORED_PATH"] = str(tmp_path / "none.json")  # no offers: no ad tiles
     assert "sponsored-card" not in client.get("/models").data.decode()
@@ -122,3 +124,15 @@ def test_stylesheet_braces_balance():
             depth += line.count("{") - line.count("}")
             assert depth >= 0
     assert depth == 0
+
+
+def test_ad_spots_move_around():
+    rng = random.Random(1)
+    runs = [sponsored.spots(60, rng) for _ in range(50)]
+    for spots in runs:
+        first, *rest = sorted(spots)
+        assert 2 <= first <= 6 and all(7 <= b - a <= 12 for a, b in zip(sorted(spots), sorted(spots)[1:]))
+        assert max(spots) < 60
+    # Not always the same column of a four-wide grid, and not the same places every time.
+    assert len({min(s) % 4 for s in runs}) > 1 and len({frozenset(s) for s in runs}) > 1
+    assert sponsored.spots(3, rng) == set() and sponsored.spots(4, random.Random(0)) <= {2, 3}

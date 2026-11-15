@@ -16,7 +16,8 @@ import statistics
 import secrets
 import sys
 import threading
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, redirect, render_template, request,
                    send_from_directory, session, url_for)
@@ -34,6 +35,9 @@ HIDDEN_KINDS = {"fitness"}
 STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 # Our own links are relative (url_for), so any link to http(s):// leaves the site.
+# Short month names for the day headings on the listings page.
+MONTHS = {"nl": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],
+          "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
 TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
@@ -143,6 +147,26 @@ def group_checks(rows):
         if not newest.get("removed_at") and row["removed_at"]:
             newest["removed_at"], newest["gone_reason"] = row["removed_at"], row["gone_reason"]
     return [(newest, count) for newest, count in groups.values()]
+
+
+def local_day(stamp):
+    """The day a stored UTC time (\"2026-11-15 23:30:00\") fell on in the Netherlands and Belgium."""
+    when = datetime.fromisoformat(stamp[:19]).replace(tzinfo=timezone.utc)
+    try:
+        return when.astimezone(ZoneInfo("Europe/Amsterdam")).date()
+    except ZoneInfoNotFoundError:  # no time zone data installed: the UTC day is at most a few hours off
+        return when.date()
+
+
+def day_heading(day, today, lang):
+    """The heading over the ads checked on a day: Today, Yesterday, else the date ("12 nov", with the year when
+    it isn't this year's)."""
+    if day == today:
+        return gettext("Today")
+    if day == today - timedelta(days=1):
+        return gettext("Yesterday")
+    text = f"{day.day} {MONTHS.get(lang, MONTHS['en'])[day.month - 1]}"
+    return text if day.year == today.year else f"{text} {day.year}"
 
 
 def too_high_share(results):
@@ -443,6 +467,8 @@ def create_app(db_path=None):
                 "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
                 "periods": prices.PERIODS, "kind_labels": dict(DISCIPLINES + OTHER),
                 "covered": [b["name"] for b in BRANDS if b["scraper"]]}
+
+    app.jinja_env.globals["ad_spots"] = sponsored.spots
 
     def offers(slots=sponsored.SLOTS, tiles=False):
         """The sponsored offers for this page's slots (webapp/sponsored.py); with tiles, also the
@@ -834,7 +860,11 @@ def create_app(db_path=None):
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         cards = [(listing_dict(r, count=n), stored_check(listing_dict(r)))
                  for r, n in group_checks(rows)]
-        return render_template("listings.html", cards=cards, nav="listings", sponsored=offers(("side",), tiles=True))
+        # Each card under the day of its ad's newest check; a day's cards run on in the same rows as the next day's.
+        today = local_day(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))
+        days = [day_heading(local_day(row["created_at"]), today, g.get("lang", DEFAULT_LANGUAGE)) for row, _ in cards]
+        return render_template("listings.html", cards=list(zip(cards, days)), nav="listings",
+                               sponsored=offers(("side",), tiles=True))
 
     @app.route("/checks")
     def all_checks():

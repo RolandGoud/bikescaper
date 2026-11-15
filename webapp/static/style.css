@@ -2261,3 +2261,25 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .match-strip .ms-check:hover small, .match-strip .ms-check:focus-visible small, .match-strip .ms-check:focus small { opacity: 1; visibility: visible; transform: none; }
 .match-strip .ms-check:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
 @media (min-width: 981px) { .match-strip > .ms-check small { left: auto; right: calc(100% - 8px); bottom: auto; top: 10px; width: min(360px, 90%); transform: translateX(4px); } }
+/* Listings: a line over each card for the day it was checked, named over the day's first card and again, dimmer,
+   at the start of a row the day carries on into (static/day-rail.js). Days share rows. */
+.listing-grid .dated { display: flex; flex-direction: column; min-width: 0; }
+.listing-grid .dated > .listing-card, .listing-grid .dated > .sponsored-card { flex: 1; }
+.listing-grid .day-rail { position: relative; height: 26px; display: flex; align-items: center; }
+.listing-grid .day-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line-strong); }
+.listing-grid .dated.joins .day-rail { margin-right: -16px; }
+.listing-grid .day-rail span { position: relative; display: none; padding-right: 10px; background: var(--ground); font-family: var(--mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--text); white-space: nowrap; }
+.listing-grid .dated.starts .day-rail span { display: inline-flex; align-items: center; gap: 8px; }
+.listing-grid .dated.starts .day-rail span::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--text); }
+.listing-grid .dated.row-start .day-rail span { display: inline-block; color: var(--muted); }
+.listing-grid .dated.starts.row-start .day-rail span { display: inline-flex; color: var(--text); }
+@media (max-width: 560px) { .listing-grid .dated:not(.starts) .day-rail { display: none; } }
+/* A listing card's model name and the seller's title: one line each, cut off with … (the whole text on hover). */
+.listing-card .ad-name, .listing-card .ad-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: normal; }
+/* A listing card's price row in the colour of its price check (the .ok/.warn/.bad text colour), as a soft band
+   across the card with a bar of that colour on the left; the verdict reads as text in it, not as a pill. */
+.listing-card .card-price { --c: var(--muted); --t: rgba(236, 236, 239, .06); margin: -18px -18px 0; padding: 14px 18px 14px 15px; background: var(--t); border-left: 3px solid var(--c); border-bottom: 1px solid var(--t); }
+.listing-card .card-price.ok { --c: var(--ok); --t: rgba(52, 211, 153, .13); }
+.listing-card .card-price.warn { --c: var(--warn); --t: rgba(242, 194, 122, .13); }
+.listing-card .card-price.bad { --c: var(--bad); --t: rgba(255, 143, 134, .14); }
+.listing-card .card-price .verdict-pill { background: none; padding: 0; color: var(--c); font-size: 13px; font-weight: 600; }

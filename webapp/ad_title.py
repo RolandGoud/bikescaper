@@ -65,17 +65,25 @@ def without_brand(title, brand=None):
     return text or (title or "").strip()
 
 
+# A brand's top line, shown in front of the model name, that a tile whose photo shows the brand leaves out too.
+SUB_BRANDS = {"specialized": ["S-Works"]}
+
+
 def drop_brand(text, brand):
     """The text without this one brand's name in front, for a tile whose photo already shows the brand:
     "Giant TCR Advanced" with brand "Giant" gives "TCR Advanced". Case and spacing don't matter ("GIANT",
     "De Rosa", "derosa", "de-rosa"); only a whole word goes, so "Giantess" stays. The brand inside a name
-    stays ("Bugatti Factor ONE"), as do other brands and sub-brands ("S-Works"). Text that is nothing but
-    the brand stays as it is."""
+    stays ("Bugatti Factor ONE"), as do other brands. The brand's own top line in front goes too
+    (SUB_BRANDS: "S-Works Tarmac SL8" gives "Tarmac SL8"), but not inside the name ("Tarmac S-Works").
+    Text that is nothing but the brand stays as it is."""
     text = text or ""
     words = re.findall(r"[^\W_]+", brand or "")
     if not words:
         return text
     name = r"[\s-]*".join(re.escape(w) for w in words)
     shown = re.sub(rf"^\s*{name}(?![\w-])", " ", text, flags=re.I)
+    for sub in SUB_BRANDS.get(" ".join(words).lower(), []):
+        pattern = r"[\s-]*".join(re.escape(w) for w in re.findall(r"[^\W_]+", sub))
+        shown = re.sub(rf"^[\s-]*{pattern}(?![\w-])", " ", shown, flags=re.I)
     shown = re.sub(r"^[\s,;:|/·–—-]+|[\s,;:|/·–—-]+$", "", re.sub(r"\s{2,}", " ", shown))
     return shown or text.strip()

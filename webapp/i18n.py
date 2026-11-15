@@ -58,6 +58,8 @@ def join_list(parts):
 
 
 NL = {
+    "Today": "Vandaag",
+    "Yesterday": "Gisteren",
     "We go by the year in the ad: that part was probably upgraded.": "We gaan uit van het jaar in de advertentie: dat onderdeel is waarschijnlijk vervangen.",
     "{n}-speed: the {years} spec sheets.": "{n}-speed: de specificaties van {years}.",
     # admin statistics page

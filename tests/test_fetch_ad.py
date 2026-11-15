@@ -357,7 +357,7 @@ def test_same_ad_checked_twice_is_one_card(tmp_path):
 
     page = client.get("/listings?lang=nl").data.decode()
     assert page.count('class="listing-card"') == 3
-    assert "€2.300" in page and "€2.500" not in page  # the card shows the newest check
+    assert "€\u00a02.300" in page and "2.500" not in page  # the card shows the newest check
     assert 'href="/check/2"' in page and 'href="/check/1"' not in page
 
     # each person's own report still exists (the report no longer says how often the ad was checked)
