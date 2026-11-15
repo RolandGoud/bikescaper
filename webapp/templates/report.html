@@ -164,7 +164,7 @@
         {% elif listing.description %}<p class="ad-text-body">{{ listing.description }}</p>{% else %}<p class="muted">{{ _('The ad has no text of its own.') }}</p>{% endif %}
         <div class="ad-text-foot">
           {% if listing.description %}<button class="ad-text-more" type="button" aria-expanded="false" hidden data-less="{{ _('Fold up') }} ▴">{{ _('Read the whole text') }} ▾</button>{% else %}<span></span>{% endif %}
-          {% if site %}<a class="btn ghost site-link" href="{{ listing.listing_url }}" rel="noopener nofollow" aria-label="{{ _('Open the ad on {site}', site=site) }}"><img class="site-logo" src="{{ site_logo(site, light=True) }}" alt="" height="20"><span aria-hidden="true">↗</span></a>
+          {% if site %}<a class="btn ghost site-link" href="{{ listing.listing_url }}" rel="noopener nofollow" aria-label="{{ _('Open the ad on {site}', site=site) }}">{% set logo = site_logo(site, light=True) %}{% if logo %}<img class="site-logo" src="{{ logo }}" alt="" height="20">{% else %}<span class="site-logo text">{{ site }}</span>{% endif %}<span aria-hidden="true">↗</span></a>
           {% elif not listing.listing_url %}<span class="mono muted small">{{ _('PASTED AD') }}</span>{% endif %}
         </div>
       </div>

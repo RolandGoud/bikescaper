@@ -271,7 +271,7 @@ def test_the_page_opens_on_the_link_and_shows_ads_we_improved(client):
     conn.commit()
     page = c.get("/sell?step=ad&lang=en").data.decode()  # the examples sit with the draft, step 2
     assert "How we improved an ad" in page and "trek domane racefiets" in page
-    assert '<span class="site-mark"><img src="/static/logos/marktplaats.svg"' in page  # the site it was placed on
+    assert '<span class="site-mark"><img src="/static/logos/marktplaats-light.svg"' in page  # the site it was placed on
     assert "Typed Domane SL 6" not in page  # only ads read from a public link
 
 
