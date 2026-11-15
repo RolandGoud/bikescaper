@@ -172,7 +172,10 @@
       links.filter((l) => l.against && bold(l)).forEach((l) => cross(svg, l.d));
       // Tiles take their line's colour only on the bold path (all of them while there is none), and only up to a
       // red X: the tiles past one are not a way we advise.
-      const onPath = new Set(boldLinks.map((l) => l.from).filter((t) => !boldLinks.some((l) => l.to === t)));
+      // Up from yours when the path runs through it (not back down to the groupsets below it), else from its start.
+      const throughYours = here && boldLinks.some((l) => l.from === here || l.to === here);
+      const onPath = new Set(throughYours ? [here]
+        : boldLinks.map((l) => l.from).filter((t) => !boldLinks.some((l) => l.to === t)));
       for (let grew = true; grew;) {
         grew = false;
         boldLinks.forEach((l) => {
