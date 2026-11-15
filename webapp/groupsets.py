@@ -410,6 +410,19 @@ def cross_upgrades(key):
             if g["system"] != current["system"] and g["ladder"] == current["ladder"] and is_upgrade(current, g)]
 
 
+def advised_against(key):
+    """The generations in `key`'s ladder that we advise against going to from it (a new freehub body on top of a
+    whole new drivetrain, level 4, on a frame they fit), as keys: the diagram puts a red X on these lines."""
+    current = GENERATIONS[key]
+    found = []
+    for g in GENERATIONS.values():
+        if g["key"] != key and g["ladder"] == current["ladder"]:
+            p = path(current, g)
+            if p["effort"] == 4 and p["fit"] != "no":
+                found.append(g["key"])
+    return found
+
+
 def downgrades(key):
     """The generations below `key` from the same brand, each with its path, sorted like `upgrades`."""
     current = GENERATIONS[key]

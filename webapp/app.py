@@ -1004,7 +1004,7 @@ def create_app(db_path=None):
                                freehubs=groupsets.FREEHUBS, other_brands=groupsets.OTHER_BRANDS,
                                columns=groupsets.columns,
                                series_logo=lambda s: logo_if_there(groupsets.logo_path(s)),
-                               cross_upgrades=groupsets.cross_upgrades, split_wireless=groupsets.split_wireless,
+                               cross_upgrades=groupsets.cross_upgrades, advised_against=groupsets.advised_against, split_wireless=groupsets.split_wireless,
                                wireless=groupsets.WIRELESS, nav="groupsets")
 
     @app.route("/groupsets/<key>/shop")

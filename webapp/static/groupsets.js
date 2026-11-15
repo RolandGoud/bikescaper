@@ -6,7 +6,8 @@
 // your groupset's way up, to the closest in age column by column. Clicking a line keeps that line bold and re-picks
 // the bold lines either side of it so the path runs through its tiles (to and from yours where it can); clicking a
 // bold line clears the path. Lines down a column turn bold on their own when clicked. A tile gets
-// a bullet on each side where a line meets it.
+// a bullet on each side where a line meets it. A line to a groupset we advise against going to from the tile it starts
+// at (a new freehub body on top of a whole new drivetrain) gets a red X halfway.
 // Navigation: picking a groupset (a tile), brand or type fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
 // links just load the page.
@@ -17,13 +18,15 @@
   const METRO = ["#FF8A5C", "#7C8CFF", "#F2C27A", "#C792EA", "#FF8F86", "#6CC4FF", "#E6A1C8", "#9A9CA6"];
   const css = getComputedStyle(document.documentElement);
   const DOT = css.getPropertyValue("--card").trim() || "#fff";
+  const RED = "#FF3B30";  // a true red, apart from the coral line colour and --bad
   const NS = "http://www.w3.org/2000/svg";
   const still = matchMedia("(prefers-reduced-motion: reduce)");
 
   const tiles = (section) => [...section.querySelectorAll(".ladder")].flatMap((ladder, l) =>
     [...ladder.querySelectorAll(".step")].flatMap((step) =>
       [...step.querySelectorAll(".gen")].map((el) => ({ el, ladder: l, step: +step.dataset.col, system: el.dataset.system,
-        year: +el.dataset.year, up: (el.dataset.up || "").split(" ").filter(Boolean), here: el.classList.contains("here") }))));
+        year: +el.dataset.year, up: (el.dataset.up || "").split(" ").filter(Boolean),
+        against: (el.dataset.against || "").split(" ").filter(Boolean), here: el.classList.contains("here") }))));
 
   const box = (t, origin) => {
     const r = t.el.getBoundingClientRect();
@@ -59,7 +62,8 @@
     p.dataset.id = link.id;
     p.dataset.bold = bold ? "1" : "";
     const name = (t) => t.el.querySelector(".gen-name").textContent;
-    p.append(Object.assign(document.createElementNS(NS, "title"), { textContent: `${name(link.from)} → ${name(link.to)}` }));
+    const note = link.against ? ` · ${main.dataset.notAdvised || "Not advised"}` : "";
+    p.append(Object.assign(document.createElementNS(NS, "title"), { textContent: `${name(link.from)} → ${name(link.to)}${note}` }));
     svg.append(p);
   };
 
@@ -72,6 +76,25 @@
     Object.entries({ cx: x, cy: y, r: 4, fill: DOT, stroke: color, "stroke-width": 2.5 })
       .forEach(([k, v]) => c.setAttribute(k, v));
     svg.append(c);
+  };
+
+  // A red X on a card-coloured disc halfway along a line we advise against.
+  const cross = (svg, d) => {
+    const probe = document.createElementNS(NS, "path");
+    probe.setAttribute("d", d);
+    svg.append(probe);
+    const { x, y } = probe.getPointAtLength(probe.getTotalLength() / 2);
+    probe.remove();
+    const g = document.createElementNS(NS, "g");
+    g.classList.add("advise-x");
+    const c = document.createElementNS(NS, "circle");
+    Object.entries({ cx: x, cy: y, r: 10, fill: DOT, stroke: RED, "stroke-width": 1.5 }).forEach(([k, v]) => c.setAttribute(k, v));
+    const s = 4.5;
+    const x_ = document.createElementNS(NS, "path");
+    Object.entries({ d: `M${x - s},${y - s} L${x + s},${y + s} M${x + s},${y - s} L${x - s},${y + s}`, stroke: RED,
+                     "stroke-width": 3, "stroke-linecap": "round", fill: "none" }).forEach(([k, v]) => x_.setAttribute(k, v));
+    g.append(c, x_);
+    svg.append(g);
   };
 
   const draw = (animate) => {
@@ -88,7 +111,8 @@
 
       const colors = new Map([...new Set(all.map((t) => t.system))].map((system, i) => [system, METRO[i % METRO.length]]));
       const links = [];
-      const link = (from, to, d, gap) => links.push({ from, to, d, gap, id: `${from.el.dataset.key}>${to.el.dataset.key}` });
+      const link = (from, to, d, gap) => links.push({ from, to, d, gap, id: `${from.el.dataset.key}>${to.el.dataset.key}`,
+                                                      against: from.against.includes(to.el.dataset.key) });
       all.forEach((t, k) => {
         const on = all.filter((n) => n.system === t.system && n.ladder === t.ladder);
         const next = on.filter((n) => n.step > t.step);
@@ -139,6 +163,7 @@
       });
       links.forEach((l) => hit(svg, l, bold(l)));
       ends.forEach(([x, y, color]) => dot(svg, x, y, color));
+      links.filter((l) => l.against).forEach((l) => cross(svg, l.d));
       all.forEach((t) => t.el.style.setProperty("--line", colors.get(t.system)));
 
       section.prepend(svg);
