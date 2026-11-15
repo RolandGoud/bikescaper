@@ -16,14 +16,22 @@
   </div>
   {% if cards %}
   <div class="grid listing-grid">
-    {# Tiles 5, 15, 25, … are sponsored (after 4 checked ads, then after every 9 more), never last;
-       with fewer than four ads it goes at the end. #}
-    {% for row, r in cards %}{{ listing_card(row, r) }}{% if sponsored.tiles and loop.index % 9 == 4 and not loop.last %}{{ sponsored_tile(sponsored.tiles[(loop.index // 9) % sponsored.tiles|length]) }}{% endif %}{% endfor %}
-    {% if cards|length < 4 and sponsored.tiles %}{{ sponsored_tile(sponsored.tiles[0]) }}{% endif %}
+    {# Ad tiles at random places (webapp/sponsored.py spots: about one per ten ads), so they don't always land
+       in the same column; never last. With fewer than four ads one goes at the end.
+       Over each card a line for the day it was checked, named over the day's first card: a day's cards and the
+       next day's share a row. static/day-rail.js joins the lines across a row and names the day again at the
+       start of a row it carries on into; a sponsored tile sits on the line of the day it's in. #}
+    {% set spots, ads = ad_spots(cards|length), namespace(n=0) %}
+    {% for (row, r), day in cards %}{% set starts = loop.first or day != loop.previtem[1] %}
+    <div class="dated{{ ' starts' if starts }}"><div class="day-rail"{{ ' aria-hidden="true"'|safe if not starts }}><span>{{ day }}</span></div>{{ listing_card(row, r) }}</div>
+    {%- if sponsored.tiles and loop.index in spots %}
+    <div class="dated"><div class="day-rail" aria-hidden="true"><span>{{ day }}</span></div>{{ sponsored_tile(sponsored.tiles[ads.n % sponsored.tiles|length]) }}</div>{% set ads.n = ads.n + 1 %}{% endif %}{% endfor %}
+    {% if cards|length < 4 and sponsored.tiles %}<div class="dated"><div class="day-rail" aria-hidden="true"><span>{{ cards[-1][1] }}</span></div>{{ sponsored_tile(sponsored.tiles[0]) }}</div>{% endif %}
   </div>
   {% else %}
   <div class="card"><p>{{ _('No checks yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
   {% endif %}
 </main>
 </div>
+<script src="{{ url_for('static', filename='day-rail.js') }}" defer></script>
 {% endblock %}

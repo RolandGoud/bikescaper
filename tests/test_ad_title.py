@@ -39,7 +39,13 @@ def test_drop_brand():
     assert ad_title.drop_brand("De Rosa Merak", "De Rosa") == "Merak"
     assert ad_title.drop_brand("DeRosa Merak", "De Rosa") == "Merak"
     assert ad_title.drop_brand("de-rosa Merak", "De Rosa") == "Merak"
-    assert ad_title.drop_brand("Tarmac S-Works", "Specialized") == "Tarmac S-Works"  # sub-brand stays
+    assert ad_title.drop_brand("Tarmac S-Works", "Specialized") == "Tarmac S-Works"  # inside the name it stays
+    # The logo already says Specialized, and its top line in front goes too.
+    assert ad_title.drop_brand("S-Works Tarmac SL8 - Dura-Ace Di2", "Specialized") == "Tarmac SL8 - Dura-Ace Di2"
+    assert ad_title.drop_brand("Specialized S-Works Tarmac SL8", "Specialized") == "Tarmac SL8"
+    assert ad_title.drop_brand("s works Aethos", "Specialized") == "Aethos"
+    assert ad_title.drop_brand("S-Works Tarmac", "Trek") == "S-Works Tarmac"  # only the brand's own
+    assert ad_title.drop_brand("S-Works", "Specialized") == "S-Works"
     assert ad_title.drop_brand("Giantess 2", "Giant") == "Giantess 2"  # whole words only
     assert ad_title.drop_brand("Bugatti Factor ONE", "Factor") == "Bugatti Factor ONE"  # part of the name
     assert ad_title.drop_brand("Domane SL 6", "Trek") == "Domane SL 6"

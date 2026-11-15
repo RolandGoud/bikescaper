@@ -51,10 +51,25 @@ def pick(offers, lang, rng=random, slots=SLOTS):
 
 
 def rotation(offers, lang, slot="card", rng=random):
-    """The offers for a run of ad tiles in a grid (tiles 5, 15, 25, … on /models and /listings), in a
+    """The offers for a run of ad tiles in a grid (at the places spots() picks on /models and /listings), in a
     random order the page cycles through, so tiles next to each other differ when there are two or
     more offers. Each in the visitor's language, as pick() gives them. [] when no offer fits."""
     fits = [o for o in offers if slot in o.get("slots", [])]
     rng.shuffle(fits)
     return [{"url": o["url"], "advertiser": o.get("advertiser", ""), "image": o.get("image"),
              **(o.get(lang) or o.get("en") or o.get("nl") or {})} for o in fits]
+
+
+FIRST_SPOT = (2, 6)  # the first ad tile in a grid comes after this many cards (at random, both ends included)
+SPOT_GAP = (7, 12)   # and each next one after this many more
+
+
+def spots(count, rng=random, first=FIRST_SPOT, gap=SPOT_GAP):
+    """Where the ad tiles go in a grid of count cards: the card numbers (from 1) an ad tile follows. At random
+    places, so the ads don't always land in the same column, about one per ten cards; never after the last card,
+    and none in a grid of fewer than four."""
+    found, n = set(), rng.randint(*first)
+    while count >= 4 and n < count:
+        found.add(n)
+        n += rng.randint(*gap)
+    return found
