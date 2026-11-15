@@ -910,6 +910,7 @@ NL = {
     "Second-hand asking price": "Vraagprijs tweedehands",
     "Period": "Periode",
     "{n} days": "{n} dagen",
+    "{n} groups": "{n} groepen",
     "Median": "Mediaan",
     "Average": "Gemiddeld",
     "Range": "Spreiding",

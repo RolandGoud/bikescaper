@@ -98,7 +98,7 @@ def test_page_renders(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     client = app.test_client()
     page = client.get("/groupsets?lang=nl").data.decode()
-    assert "Groepset upgraden" in page and "Dura-Ace Di2 R9200" in page and "modellen met" not in page  # no bike links
+    assert "Groepset upgraden" in page and "Dura-Ace </span>Di2 R9200" in page and "modellen met" not in page  # no bike links
     assert "GRX RX820" not in page and "GRX RX820" in client.get("/groupsets?type=gravel").data.decode()  # own type
     page = client.get("/groupsets?have=r7000&lang=en").data.decode()
     assert "Upgrades from Shimano 105 R7000" in page and "Mix and match" in page and "Switching brand" in page
@@ -112,7 +112,7 @@ def test_page_renders(tmp_path):
     page = client.get("/groupsets?have=4700&lang=nl").data.decode()  # level 4 from Tiagra, and ! cards at 4
     assert "Vaak niet kostenefficiënt" in page and "Deze upgrade raden we af" in page and "zeker als je huidige fiets goed verkoopbaar is" in page
     assert page.index('class="stack brand-ladders"') < page.index('id="paths"')  # the ladders come first
-    assert "XTR M9100" in client.get("/groupsets?type=mtb").data.decode()
+    assert "XTR </span>M9100" in client.get("/groupsets?type=mtb").data.decode()
     assert client.get("/groupsets?have=nonsense").status_code == 200
     page = client.get("/groupsets?have=5800&lang=nl").data.decode()
     assert "Upgrades vanaf hier" not in page and 'href="/groupsets/r8000/shop">Waar te koop</a>' in page
@@ -127,9 +127,9 @@ def test_one_brand_at_a_time(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     client = app.test_client()
     page = client.get("/groupsets?lang=en").data.decode()
-    assert "Dura-Ace Di2 R9200" in page and "Red AXS" not in page  # Shimano first
+    assert "Dura-Ace </span>Di2 R9200" in page and "Red AXS" not in page  # Shimano first
     page = client.get("/groupsets?brand=SRAM&lang=en").data.decode()
-    assert "Red AXS" in page and "Dura-Ace" not in page
+    assert "Red </span>AXS" in page and "Dura-Ace" not in page
     page = client.get("/groupsets?brand=Campagnolo&type=mtb&lang=en").data.decode()
     assert "Super Record" in page and "Mountain bike" not in page  # no MTB groups: back to road
     page = client.get("/groupsets?have=gx-eagle&lang=en").data.decode()  # the groupset sets brand and type
@@ -295,3 +295,13 @@ def test_clicking_your_groupset_again_clears_it(tmp_path):
     tile = tile[:tile.index(">")]
     assert 'href="/groupsets?brand=Shimano&amp;type=road"' in tile and "Klik nogmaals om te wissen" in tile
     assert 'href="/groupsets?have=r8000#paths"' in page  # other tiles still pick
+
+
+def test_tiles_show_the_model_and_cards_pick_brand_and_type(tmp_path):
+    """Roland: the series logo heads each column, so a tile shows only its model; brands are cards with their number
+    of groups for the type, the types sit beside them with a bike icon."""
+    client = create_app(str(tmp_path / "app.sqlite3")).test_client()
+    page = client.get("/groupsets?lang=nl").data.decode()
+    assert '<span class="gen-name"><span class="sr-only">Ultegra </span>6800</span>' in page
+    assert 'class="brand-cards"' in page and 'class="bike-types"' in page and "filter-box" not in page
+    assert "groepen</small>" in page and page.count('class="bike-icon"') == 3
