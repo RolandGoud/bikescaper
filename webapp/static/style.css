@@ -1451,9 +1451,10 @@ select { max-width: 100%; }
 .brand-ladders .step.up::before { background: var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239A9CA6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 7l5 5-5 5'/%3E%3C/svg%3E") center / 16px no-repeat; }
 .brand-ladders .step.level::before { font-size: 15px; line-height: 22px; }
 /* Brand cards with their number of groups, the bike types beside them with a bike icon each. */
-/* The cards keep one height, whatever the number of bike types beside them (Campagnolo has two). */
-.brand-picker { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-.brand-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+/* Cards and bike types keep one size, whatever is selected or how many types a brand has (Campagnolo has two). */
+.brand-picker { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 16px; align-items: start; }
+.brand-picker .bike-types { min-height: 120px; justify-content: flex-start; }
+.brand-cards { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; }
 .brand-cards a { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px 20px; height: 120px; box-sizing: border-box; overflow: hidden;
   border-radius: 16px; border: 1px solid var(--line); background: linear-gradient(135deg, var(--raised), var(--ink)); color: var(--muted); text-decoration: none; }
 .brand-cards a:hover { color: var(--text); border-color: var(--line-strong); }
@@ -1471,8 +1472,9 @@ select { max-width: 100%; }
 @media (max-width: 640px) {
   .brand-picker { grid-template-columns: 1fr; }
   .bike-types { flex-direction: row; order: -1; }
-  .bike-types a { flex: 1; flex-direction: column; gap: 2px; padding: 6px; font-size: 12px; }
-  .brand-cards { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .brand-picker .bike-types { min-height: 0; }
+  .bike-types a { flex: 0 0 calc((100% - 12px) / 3); flex-direction: column; gap: 2px; padding: 6px; font-size: 12px; }
+  .brand-cards { gap: 6px; }
   .brand-cards a { height: 64px; padding: 10px; justify-content: center; }
   .brand-cards a::after, .brand-cards small { display: none; }
   .brand-cards .pill-logo { width: 76px; height: 16px; }
