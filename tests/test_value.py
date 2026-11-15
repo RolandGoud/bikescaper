@@ -41,3 +41,57 @@ def test_an_unknown_model_saves_nothing(client):
     response = client.post("/value", data={"brand": "Trek", "model": "nope"})
     assert response.status_code == 302
     assert "Earlier estimates" not in client.get("/value?lang=en").data.decode()
+
+
+def estimates(client):
+    from webapp import db
+    conn = db.connect(client.application.config["DB_PATH"])
+    return conn, conn.execute("SELECT * FROM estimates ORDER BY id").fetchall()
+
+
+def test_a_quick_follow_up_updates_the_last_estimate(client):
+    first = {"brand": "Trek", "model": DOMANE, "year": "2023", "condition": ""}
+    client.post("/value", data=first)
+    response = client.post("/value", data=first | {"asking": "1.950"})
+    assert "estimate=1" in response.headers["Location"]  # no second entry
+    _conn, rows = estimates(client)
+    assert len(rows) == 1 and rows[0]["asking_price"] == 1950 and rows[0]["updated_at"]
+    page = client.get("/value?lang=nl").data.decode()
+    assert page.count('<article class="check-row') == 1
+    assert "Bijgewerkt" in page and "Vraagprijs – → €1.950" in page and "Dit was geen update" in page
+    page = client.get("/value?lang=en").data.decode()
+    assert "Asking price – → €1.950" in page and "This was not an update" in page
+    client.post("/value", data=first | {"asking": "1.950"})  # the same again changes nothing
+    assert len(estimates(client)[1]) == 1
+
+
+def test_not_an_update_splits_it_off(client):
+    first = {"brand": "Trek", "model": DOMANE, "year": "2023"}
+    client.post("/value", data=first)
+    client.post("/value", data=first | {"condition": "used", "asking": "2000"})
+    response = client.post("/value/1/split")
+    assert "estimate=2" in response.headers["Location"]
+    _conn, rows = estimates(client)
+    assert [(r["condition"], r["asking_price"], r["updated_at"], r["revisions"]) for r in rows] == \
+        [(None, None, None, None), ("used", 2000, None, None)]
+    page = client.get("/value?lang=en").data.decode()
+    assert page.count('<article class="check-row') == 2 and "This was not an update" not in page
+    # a further tweak now revises the split-off one
+    client.post("/value", data=first | {"condition": "used", "asking": "1800"})
+    _conn, rows = estimates(client)
+    assert len(rows) == 2 and rows[1]["asking_price"] == 1800 and rows[0]["asking_price"] is None
+
+
+def test_a_different_bike_or_a_later_one_gets_its_own_entry(client):
+    first = {"brand": "Trek", "model": DOMANE, "year": "2023", "condition": "used", "asking": "2000"}
+    client.post("/value", data=first)
+    client.post("/value", data=first | {"year": "2019", "condition": "damaged", "asking": "900"})  # all three changed
+    conn, rows = estimates(client)
+    assert len(rows) == 2
+    conn.execute("UPDATE estimates SET created_at = datetime('now', '-11 minutes')")
+    conn.commit()
+    client.post("/value", data=first | {"year": "2019", "condition": "damaged", "asking": "950"})  # too late
+    assert len(estimates(client)[1]) == 3
+    other = client.application.test_client()  # another visitor never revises yours
+    other.post("/value", data=first | {"year": "2019", "condition": "damaged", "asking": "950"})
+    assert len(estimates(client)[1]) == 4
