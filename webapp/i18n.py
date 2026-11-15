@@ -169,6 +169,7 @@ NL = {
     "Tools": "Hulpmiddelen",
     "Which frame size fits you": "Welke framemaat bij je past",
     "A rough fair price for a used bike": "Een ruwe, eerlijke prijs voor je fiets",
+    "What your groupset can be upgraded to": "Waarnaar je je groepset kunt upgraden",
     "Language": "Taal",
     "Bikecheck · prototype": "Bikecheck · prototype",
     "How it works": "Zo werkt het",

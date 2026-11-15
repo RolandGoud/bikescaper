@@ -12,7 +12,7 @@
     <p class="muted">{{ _("{count} models from the brands' Dutch catalogues.", count=count) }}</p>
     {% if groupset %}<p class="row small"><span class="chip ok-bg">{{ _('With {groupset}', groupset=groupset_name or groupset) }}</span>
       <a href="{{ url_for('catalog', brand=picked or None, model=model, type=kind, q=q or None, current=None if current else 0, tier=tier) }}">{{ _('All groupsets') }}</a>
-      {% if config.SHOW_GROUPSETS %}<a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a>{% endif %}</p>{% endif %}
+      <a href="{{ url_for('groupset_paths') }}">{{ _('Groupset upgrade paths') }}</a></p>{% endif %}
   </div>
   {# One filter box: brand, type, tier, still sold and search, all in one form. The brand menu shows the logos
      (pill-select.js reads data-logo); brands without a scraper stay out, as do types without bikes. #}
