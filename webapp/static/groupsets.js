@@ -138,7 +138,9 @@
 
       // The bold path: out from the chosen line both ways (or up from yours), each step to the tile closest in age,
       // and back through yours when it can.
-      const across = links.filter((l) => l.gap.includes(">"));
+      // With a groupset picked, lines starting below it lead down, not up: they never join the bold path.
+      const down = (l) => here && l.from.ladder === here.ladder && l.from.step < here.step;
+      const across = links.filter((l) => l.gap.includes(">") && !down(l));
       const nearest = (ls, year, side) => ls.find((l) => l[side] === here)
         || ls.reduce((a, b) => (Math.abs(b[side].year - year) < Math.abs(a[side].year - year) ? b : a));
       const path_ = [];
@@ -156,7 +158,7 @@
         }
       }
       const way = new Set(path_.map((l) => l.id));
-      const bold = (l) => (l.gap.includes(">") ? way.has(l.id) : picked.get(l.gap) === l.id);
+      const bold = (l) => !down(l) && (l.gap.includes(">") ? way.has(l.id) : picked.get(l.gap) === l.id);
 
       const boldLinks = links.filter(bold);
       const ends = new Map();  // dots: "key:side" -> [x, y, colour]
@@ -167,7 +169,7 @@
         ends.set(`${l.from.el.dataset.key}:${down ? "l" : "r"}`, [down ? from.l : from.r, from.y, color]);
         ends.set(`${l.to.el.dataset.key}:l`, [to.l, to.y, color]);
       });
-      links.forEach((l) => hit(svg, l, bold(l)));
+      links.filter((l) => !down(l)).forEach((l) => hit(svg, l, bold(l)));  // lines down aren't clickable
       ends.forEach(([x, y, color]) => dot(svg, x, y, color));
       links.filter((l) => l.against && bold(l)).forEach((l) => cross(svg, l.d));
       // Tiles take their line's colour only on the bold path (all of them while there is none), and only up to a
