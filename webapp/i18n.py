@@ -45,6 +45,28 @@ class Msg:
         return f"Msg({self.text!r})"
 
 
+def freeze(value):
+    """A result holding Msg objects as plain JSON data, to store; thaw() gives the Msg objects back, so a
+    stored result is still shown in the reader's language."""
+    if isinstance(value, Msg):
+        return {"__msg__": value.text, "kw": freeze(value.kwargs)}
+    if isinstance(value, dict):
+        return {k: freeze(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [freeze(v) for v in value]
+    return value
+
+
+def thaw(value):
+    if isinstance(value, dict):
+        if "__msg__" in value:
+            return Msg(value["__msg__"], **thaw(value["kw"]))
+        return {k: thaw(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [thaw(v) for v in value]
+    return value
+
+
 def join(*parts):
     """Join messages with a space, dropping empty ones."""
     parts = [p for p in parts if p]
