@@ -111,11 +111,16 @@ def test_the_report_links_to_the_checks_either_side(tmp_path):
     third = client.post("/check", data={"title": "Trek Domane SL6 2022 maat 56 Ultegra", "asking_price": "2300",
                                         "rider_height": "180"}).headers["Location"]
     one, two, three = (int(u.rsplit("/", 1)[1]) for u in (first, second, third))
-    # The order of /checks is newest first: the newer check is "previous", the older one "next".
+    # By check number: "previous" is the nearest lower number, "next" the nearest higher one.
     page = client.get(second + "?lang=en").data.decode()
-    assert f'href="/check/{three}" rel="prev"' in page and f'href="/check/{one}" rel="next"' in page
-    assert "Previous check" in page and "Next check" in page
+    assert f'href="/check/{one}" rel="prev"' in page and f'href="/check/{three}" rel="next"' in page
+    assert "Previous check" in page and "Next check" in page and "Every check" not in page.split("<main")[1].split("ad-stage")[0]
     newest = client.get(third + "?lang=en").data.decode()
-    assert 'rel="prev"' not in newest and "This is the newest check" in newest and f'href="/check/{two}" rel="next"' in newest
+    assert 'rel="next"' not in newest and "This is the newest check" in newest and f'href="/check/{two}" rel="prev"' in newest
     oldest = client.get(first + "?lang=nl").data.decode()
-    assert 'rel="next"' not in oldest and "Dit is de oudste check" in oldest and "Vorige check" in oldest
+    assert 'rel="prev"' not in oldest and "Dit is de oudste check" in oldest and "Volgende check" in oldest
+    # A number in between that's gone is skipped: from the first check, next goes straight to the third.
+    login_admin(app, client)
+    assert client.post(f"/check/{two}/delete", data={"confirm": str(two)}).status_code == 302
+    skipped = client.get(first + "?lang=en").data.decode()
+    assert f'href="/check/{three}" rel="next"' in skipped

@@ -34,14 +34,13 @@
 {%- endmacro %}
 {% macro lock(field) %}{% if field in r.locked %}<span class="ed-lock" title="{{ _('Set by hand: kept when the check runs again') }}">🔒</span>{% endif %}{% endmacro %}
 {% macro check_nav() -%}
-{# Step to the check before or after this one, in the order of the "Every check" list (newest first). At either end
-   the link is shown greyed out, so the pair keeps its place. An admin in edit mode stays in edit mode. #}
+{# Step to the check with the nearest lower or higher number (a number that's gone or hidden is skipped). At either
+   end the link is shown greyed out, so the pair keeps its place. An admin in edit mode stays in edit mode. #}
 <nav class="check-nav" aria-label="{{ _('Other checks') }}">
   {% if neighbours.prev %}<a href="{{ url_for('report', check_id=neighbours.prev, edit=1 if edit else none) }}" rel="prev" title="{{ _('Check #{id}', id=neighbours.prev) }}">‹ {{ _('Previous check') }}</a>
-  {% else %}<span aria-disabled="true" title="{{ _('This is the newest check') }}">‹ {{ _('Previous check') }}</span>{% endif %}
-  <a href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
+  {% else %}<span aria-disabled="true" title="{{ _('This is the oldest check') }}">‹ {{ _('Previous check') }}</span>{% endif %}
   {% if neighbours.next %}<a href="{{ url_for('report', check_id=neighbours.next, edit=1 if edit else none) }}" rel="next" title="{{ _('Check #{id}', id=neighbours.next) }}">{{ _('Next check') }} ›</a>
-  {% else %}<span aria-disabled="true" title="{{ _('This is the oldest check') }}">{{ _('Next check') }} ›</span>{% endif %}
+  {% else %}<span aria-disabled="true" title="{{ _('This is the newest check') }}">{{ _('Next check') }} ›</span>{% endif %}
 </nav>
 {%- endmacro %}
 <main class="wrap page">
