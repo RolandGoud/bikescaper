@@ -9,7 +9,6 @@ stat_label: stappen deze winter
 
 Als de dagen langer worden, gaat half Nederland een racefiets zoeken. Wie dan meteen een sterke advertentie heeft staan, met goede foto's, het juiste modeljaar en een eerlijke prijs, verkoopt het snelst. Het meeste werk kun je nu al doen, als de fiets toch binnen staat.
 
-![](chart:selling-plan)
 
 ## 1. Zoek uit wat je fiets precies is
 

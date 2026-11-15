@@ -2601,12 +2601,59 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .blog-body ul, .blog-body ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
 .blog-body strong { color: #fff; }
 .blog-callout { background: var(--ok-bg); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 14px 18px; }
-.blog-table { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+/* Article tables look like the site's other tables (.compare-table): small mono headings, rules between rows, no box. */
+.blog-table { overflow-x: auto; }
 .blog-table table { width: 100%; border-collapse: collapse; font-size: 15px; }
-.blog-table th, .blog-table td { padding: 9px 14px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
-.blog-table th { background: var(--raised); font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
-.blog-table tr:last-child td { border-bottom: 0; }
-.blog-table .num { text-align: right; font-family: var(--mono); font-size: 14px; }
+.blog-table th { font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+  text-align: left; padding: 0 10px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.blog-table td { padding: 10px; vertical-align: middle; white-space: nowrap; }
+.blog-table tbody tr + tr { border-top: 1px solid var(--line); }
+.blog-table th:first-child, .blog-table td:first-child { padding-left: 0; }
+.blog-table th:last-child, .blog-table td:last-child { padding-right: 0; }
+.blog-table td:first-child { font-weight: 600; }
+.blog-table .num { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.blog-table th.num { font-weight: 500; }
+.blog-table tr.is-picked td { color: var(--accent); }
+.blog-table .tier { vertical-align: middle; }
+/* Brand and groupset names as their logos, in the text colour (like .pill-logo). */
+.blog-logos { display: inline-flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
+.blog-logo { display: inline-block; flex: none; vertical-align: middle; background: currentColor;
+  -webkit-mask: var(--logo) left center / contain no-repeat; mask: var(--logo) left center / contain no-repeat; }
+.blog-logo-rest { font-weight: 500; color: var(--muted); font-size: 14px; }
+/* A chart and its table in one place: Chart | Table, the chart first (blog.py switch). */
+.blog-switch { display: flex; flex-direction: column; gap: 10px; margin: 8px 0; }
+.blog-switch-toggle { align-self: flex-end; position: relative; }
+.blog-switch-toggle label { padding: 5px 12px; font-size: 13px; }
+.blog-switch .blog-figure { margin: 0; }
+.blog-switch:has(input[value="chart"]:checked) .blog-switch-table,
+.blog-switch:has(input[value="table"]:checked) .blog-switch-chart { display: none; }
+/* Live charts (static/blog.js): the reader's own numbers. */
+.blog-live-inputs { display: flex; flex-wrap: wrap; gap: 12px 18px; margin-bottom: 12px; }
+.blog-live-inputs label { display: flex; flex-direction: column; gap: 4px; font-family: var(--mono); font-size: 12px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em; }
+.blog-live-field { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-strong); border-radius: 8px; padding: 0 10px;
+  background: var(--ink); color: var(--text); font-family: var(--body); font-size: 15px; text-transform: none; letter-spacing: 0; }
+.blog-live-field input { width: 82px; border: 0; background: transparent; color: var(--text); font: 600 15px var(--body); padding: 8px 0; }
+.blog-live-field input[name="age"] { width: 44px; }
+.blog-live-field input:focus { outline: none; }
+.blog-live-field:focus-within, .blog-live-inputs select:focus { border-color: var(--accent); outline: none; }
+.blog-live-inputs select { border: 1px solid var(--line-strong); border-radius: 8px; background: var(--ink); color: var(--text);
+  font: 600 15px var(--body); padding: 8px 10px; text-transform: none; letter-spacing: 0; }
+.blog-live-picks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.blog-live-picks label { --c: var(--accent); display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; border-radius: var(--pill-radius);
+  border: 1px solid var(--line-strong); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--muted); user-select: none; }
+.blog-live-picks input { appearance: none; -webkit-appearance: none; flex: none; width: 14px !important; height: 14px; padding: 0; border-radius: 4px; border: 2px solid var(--c); margin: 0; cursor: pointer; }
+.blog-live-picks input:checked { background: var(--c); }
+.blog-live-picks label:has(input:checked) { color: var(--text); border-color: var(--c); }
+.blog-live-picks input:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+.blog-chart .yline { fill: none; stroke-width: 3; stroke-linejoin: round; }
+.blog-chart .ydot { stroke: var(--card); stroke-width: 2; }
+.blog-chart .pick-line { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 4; }
+.blog-chart .pick-range { stroke: var(--accent); stroke-width: 6; stroke-linecap: round; opacity: .45; }
+.blog-chart .pick-dot { fill: var(--accent); stroke: var(--ink); stroke-width: 3; }
+.blog-chart .val { paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round; }
+.blog-chart .pick-val { stroke: none;  font-family: var(--mono); font-size: 13.5px; font-weight: 700; fill: var(--ink); }
+.blog-chart .pick-plate { fill: var(--accent); }
 .blog-related { display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--line); padding-top: 28px; }
 .blog-related .blog-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 @media (max-width: 640px) {
@@ -2670,7 +2717,10 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 @media (max-width: 640px) {
   .blog-chart { padding: 12px 10px 10px; overflow-x: auto; }
   .blog-chart svg { min-width: 600px; }
+  .blog-chart.blog-live { overflow-x: visible; }  /* only the drawing scrolls, the inputs stay put */
+  .blog-live-svg { overflow-x: auto; }
 }
+.blog-live-inputs select { width: auto; max-width: 100%; }
 
 /* /blog, "In numbers": a wall of tiles. Each shows the article's hero, darkened at the bottom, with its headline
    number in the category's colour. The whole tile is the link. */

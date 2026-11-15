@@ -17,6 +17,7 @@ webapp/static (default blog/heroes/<slug>.jpg). The body is a small
 Markdown subset (see `render`): `##`/`###` headings, paragraphs, `-` and `1.` lists, `>` call-outs, `|` tables,
 **bold**, *italic*, [links](/value), and pictures on a line of their own: `![caption](chart:value-curve)` for a chart. Links to other sites open in a new tab.
 """
+import json
 import os
 import re
 from datetime import date
@@ -29,6 +30,13 @@ CATEGORIES = {"market": "Market data", "guides": "Buying guides", "models": "Mod
 FILE = re.compile(r"^([a-z0-9-]+)\.(nl|en)\.md$")
 STATIC = os.path.join(os.path.dirname(__file__), "static")
 CHARTS = os.path.join(STATIC, "blog", "charts")  # built by tools/build_blog_charts.py, <name>.<lang>.svg
+# What tools/build_blog_heroes.py notes per hero: its focus point (so a cropped tile keeps the subject in view),
+# and where the photo comes from (a brand's product photo, or a free photo with its author and licence).
+try:
+    with open(os.path.join(STATIC, "blog", "heroes", "heroes.json"), encoding="utf-8") as _f:
+        HEROES = json.load(_f)
+except (OSError, ValueError):
+    HEROES = {}
 IMAGE = re.compile(r"^!\[([^\]]*)\]\(([^)\s]+)\)$")
 
 
@@ -56,7 +64,11 @@ def load(folder=FOLDER):
             meta, body = parse(f.read())
         # The hero: webapp/static/blog/heroes/<slug>.jpg (tools/build_blog_heroes.py), unless the header names another.
         hero = meta.get("hero") or (f"blog/heroes/{slug}.jpg" if os.path.exists(os.path.join(STATIC, "blog", "heroes", f"{slug}.jpg")) else None)
-        posts.setdefault(slug, {})[lang] = dict(meta, slug=slug, lang=lang, body=body, hero=hero)
+        about = HEROES.get(slug, {}) if hero == f"blog/heroes/{slug}.jpg" else {}
+        focus = about.get("focus") or [50, 50]
+        posts.setdefault(slug, {})[lang] = dict(meta, slug=slug, lang=lang, body=body, hero=hero,
+                                                hero_focus=f"{focus[0]}% {focus[1]}%", hero_credit=about.get("credit"),
+                                                hero_brand=about.get("brand"))
     return posts
 
 
@@ -85,9 +97,67 @@ NUMBER = re.compile(r"^[+−\-<]?€?\d[\d.,]*%?(\s*\(\d{4}\))?$")  # €2.599, 
 LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 
 
-def inline(text):
-    """Escape a line and apply bold, italic and links."""
+TIER_NAMES = {"nl": {1: "Basis", 2: "Instap", 3: "Midden", 4: "Performance", 5: "Top"},
+              "en": {1: "Basic", 2: "Entry", 3: "Mid", 4: "Performance", 5: "Top"}}
+TIER_TOKEN = re.compile(r"\{tier:([1-5])\}")
+LOGOS = os.path.join(STATIC, "logos")
+# Brands with a logo under static/logos/, longest first so "Campagnolo" wins over nothing shorter by accident.
+BRAND_FILES = {"Shimano": "shimano", "SRAM": "sram", "Campagnolo": "campagnolo", "Trek": "trek", "Canyon": "canyon",
+               "Specialized": "specialized", "Giant": "giant", "Cannondale": "cannondale", "Cube": "cube", "Factor": "factor",
+               "Scott": "scott", "Orbea": "orbea", "Lapierre": "lapierre", "Bianchi": "bianchi", "BMC": "bmc",
+               "Cervélo": "cervelo", "Ridley": "ridley", "Rose": "rose", "Wilier": "wilier"}
+# Groupset series with a logo under static/logos/groupsets/ (what the groupsets page shows). GRX goes by its
+# hundreds: GRX 400, GRX 600 and GRX 800 (820, 822, 825) each have their own mark.
+SERIES_FILES = {"Dura-Ace": "dura-ace", "Ultegra": "ultegra", "105": "105", "Tiagra": "tiagra", "Sora": "sora",
+                "Claris": "claris", "Red": "red", "RED": "red", "Force": "force", "Rival": "rival", "Apex": "apex"}
+SERIES = re.compile(r"^(?:(" + "|".join(re.escape(k) for k in SERIES_FILES) + r")|GRX ([468])\d\d)(?=\s|,|$)")
+
+
+def _viewbox(path):
+    with open(path, encoding="utf-8") as f:
+        m = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', f.read(2000))
+    return (float(m.group(1)), float(m.group(2))) if m else (5.0, 1.0)
+
+
+def logo(rel, name, height):
+    """A logo in the text's colour, sized from its own proportions (like brand_label in _macros.html)."""
+    path = os.path.join(STATIC, rel)
+    if not os.path.exists(path):
+        return None
+    w, h = _viewbox(path)
+    width = min(110, round(height * w / h))
+    return (f'<span class="blog-logo" role="img" aria-label="{escape(name)}" title="{escape(name)}" '
+            f'style="--logo: url(\'/static/{rel}\'); width: {width}px; height: {height}px"></span>')
+
+
+def with_logos(text):
+    """A table cell's brand and groupset names as their logos where the site has them: "Shimano 105 Di2" becomes
+    the Shimano logo, the 105 logo and "Di2"; "Claris, Sora" both logos; "GRX 825 Di2" the GRX 800 logo and "Di2".
+    None when nothing in the cell has a logo, so it stays plain text."""
+    pieces, found = [], False
+    for piece in text.split(", "):
+        out, rest = [], piece
+        for brand, file in BRAND_FILES.items():
+            if rest == brand or rest.startswith(brand + " "):
+                out.append(logo(f"logos/{file}.svg", brand, 16))
+                rest = rest[len(brand):].strip()
+                break
+        m = SERIES.match(rest)
+        if m:
+            name = m.group(0)
+            file = SERIES_FILES[m.group(1)] if m.group(1) else f"grx-{m.group(2)}00"
+            out.append(logo(f"logos/groupsets/{file}.svg", name, 13))
+            rest = rest[m.end():].strip()
+        out = [o for o in out if o]
+        found = found or bool(out)
+        pieces.append("".join(out) + (f'<span class="blog-logo-rest">{escape(rest)}</span>' if rest else ""))
+    return f'<span class="blog-logos">{"".join(pieces)}</span>' if found else None
+
+
+def inline(text, lang="nl"):
+    """Escape a line and apply bold, italic, links and {tier:n} badges."""
     out = str(escape(text))
+    out = TIER_TOKEN.sub(lambda m: f'<span class="tier t{m.group(1)} small">{TIER_NAMES.get(lang, TIER_NAMES["en"])[int(m.group(1))]}</span>', out)
     for pattern, html in INLINE:
         out = pattern.sub(html, out)
 
@@ -103,28 +173,68 @@ def _cells(line):
     return [c.strip() for c in line.strip().strip("|").split("|")]
 
 
+WORDS = {"nl": {"chart": "Grafiek", "table": "Tabel", "show": "Toon als", "new": "Nieuwprijs", "age": "Leeftijd",
+                "years": "jaar", "condition": "Staat", "normal": "Normaal gebruik", "like-new": "Als nieuw",
+                "used": "Gebruikt", "damaged": "Beschadigd"},
+         "en": {"chart": "Chart", "table": "Table", "show": "Show as", "new": "New price", "age": "Age",
+                "years": "years", "condition": "Condition", "normal": "Normal use", "like-new": "Like new",
+                "used": "Used", "damaged": "Damaged"}}
+# Charts you can play with: the reader's own numbers redraw them in the page (static/blog.js).
+LIVE = {"value-curve", "price-rises", "tcr-rises", "topstone-falls", "domane-sl6-gen3"}
+
+
+def live_controls(name, lang):
+    """The inputs above a live chart. The value curve: new price, age and condition, as on /value."""
+    w = WORDS.get(lang, WORDS["en"])
+    if name != "value-curve":
+        return ""
+    conditions = "".join(f'<option value="{k}"{" selected" if k == "" else ""}>{w[k or "normal"]}</option>'
+                         for k in ("", "like-new", "used", "damaged"))
+    return ('<div class="blog-live-inputs">'
+            f'<label>{w["new"]}<span class="blog-live-field"><span>€</span><input type="number" name="new" value="5000" '
+            'min="100" max="30000" step="50" inputmode="numeric"></span></label>'
+            f'<label>{w["age"]}<span class="blog-live-field"><input type="number" name="age" value="4" min="0" max="15" '
+            f'step="1" inputmode="numeric"><span>{w["years"]}</span></span></label>'
+            f'<label>{w["condition"]}<select name="condition">{conditions}</select></label></div>')
+
+
 def figure(caption, src, lang):
     """A picture in the article: `![caption](chart:name)` puts that chart inline in the article's language, so it
     takes the page's fonts and colours; `![caption](/static/...)` is an ordinary image."""
-    cap = f"<figcaption>{inline(caption)}</figcaption>" if caption else ""
+    cap = f"<figcaption>{inline(caption, lang)}</figcaption>" if caption else ""
     if src.startswith("chart:"):
         name = src[len("chart:"):]
         for code in (lang, "en", "nl"):
             path = os.path.join(CHARTS, f"{name}.{code}.svg")
             if os.path.exists(path):
                 with open(path, encoding="utf-8") as f:
+                    if name in LIVE:
+                        return (f'<figure class="blog-figure blog-chart blog-live" data-live="{name}" data-lang="{lang}">'
+                                f'{live_controls(name, lang)}<div class="blog-live-svg">{f.read()}</div>{cap}</figure>')
                     return f'<figure class="blog-figure blog-chart">{f.read()}{cap}</figure>'
         return ""
     return f'<figure class="blog-figure"><img src="{escape(src)}" alt="{escape(caption)}" loading="lazy">{cap}</figure>'
 
 
+def switch(key, chart, table, lang):
+    """A chart and its table in one place, with a Chart | Table toggle (the site's .toggle); the chart shows first.
+    Pure CSS (:has), so without it both simply show."""
+    w = WORDS.get(lang, WORDS["en"])
+    return (f'<div class="blog-switch">'
+            f'<div class="toggle blog-switch-toggle" role="radiogroup" aria-label="{w["show"]}">'
+            f'<input type="radio" id="{key}-chart" name="{key}" value="chart" checked><label for="{key}-chart">{w["chart"]}</label>'
+            f'<input type="radio" id="{key}-table" name="{key}" value="table"><label for="{key}-table">{w["table"]}</label></div>'
+            f'<div class="blog-switch-chart">{chart}</div><div class="blog-switch-table">{table}</div></div>')
+
+
 def render(body, lang="nl"):
     """The article body as HTML."""
     html, para, lines = [], [], body.splitlines()
+    switches = 0
 
     def flush():
         if para:
-            html.append(f"<p>{inline(' '.join(para))}</p>")
+            html.append(f"<p>{inline(' '.join(para), lang)}</p>")
             para.clear()
 
     i = 0
@@ -136,12 +246,18 @@ def render(body, lang="nl"):
         elif IMAGE.match(line.strip()):
             flush()
             caption, src = IMAGE.match(line.strip()).groups()
-            html.append(figure(caption, src, lang))
+            fig = figure(caption, src, lang)
+            if src.startswith("chart:") and html and html[-1].startswith('<div class="blog-table">') and fig:
+                # A table right above a chart of the same numbers: one or the other, the chart first.
+                switches += 1
+                html[-1] = switch(f"sw{switches}", fig, html[-1], lang)
+            else:
+                html.append(fig)
             i += 1
         elif line.startswith("### ") or line.startswith("## "):
             flush()
             level = 3 if line.startswith("### ") else 2
-            html.append(f"<h{level}>{inline(line[level + 1:])}</h{level}>")
+            html.append(f"<h{level}>{inline(line[level + 1:], lang)}</h{level}>")
             i += 1
         elif re.match(r"^(- |\d+\. )", line):
             flush()
@@ -151,14 +267,14 @@ def render(body, lang="nl"):
                 items.append(re.sub(r"^(- |\d+\. )", "", lines[i].rstrip()))
                 i += 1
             tag = "ol" if ordered else "ul"
-            html.append(f"<{tag}>" + "".join(f"<li>{inline(t)}</li>" for t in items) + f"</{tag}>")
+            html.append(f"<{tag}>" + "".join(f"<li>{inline(t, lang)}</li>" for t in items) + f"</{tag}>")
         elif line.startswith(">"):
             flush()
             quote = []
             while i < len(lines) and lines[i].startswith(">"):
                 quote.append(lines[i][1:].strip())
                 i += 1
-            html.append(f'<aside class="blog-callout"><p>{inline(" ".join(quote))}</p></aside>')
+            html.append(f'<aside class="blog-callout"><p>{inline(" ".join(quote), lang)}</p></aside>')
         elif line.startswith("|"):
             flush()
             rows = []
@@ -166,11 +282,13 @@ def render(body, lang="nl"):
                 rows.append(_cells(lines[i]))
                 i += 1
             head, rest = rows[0], [r for r in rows[1:] if not all(re.fullmatch(r":?-+:?", c) for c in r)]
+            rest = [(r + [""] * len(head))[:len(head)] for r in rest]  # every row as wide as the heading
             # a column of numbers (euros, percentages, counts) is right-aligned
             numeric = [bool(rest) and all(NUMBER.match(r[k]) for r in rest if k < len(r) and r[k]) for k in range(len(head))]
             def cell(tag, text, k):
                 cls = ' class="num"' if numeric[k] else ""
-                return f"<{tag}{cls}>{inline(text)}</{tag}>"
+                logos = None if tag == "th" or numeric[k] or "[" in text else with_logos(text)
+                return f"<{tag}{cls}>{logos or inline(text, lang)}</{tag}>"
             table = ("<thead><tr>" + "".join(cell("th", c, k) for k, c in enumerate(head)) + "</tr></thead><tbody>"
                      + "".join("<tr>" + "".join(cell("td", c, k) for k, c in enumerate(r)) + "</tr>" for r in rest)
                      + "</tbody>")

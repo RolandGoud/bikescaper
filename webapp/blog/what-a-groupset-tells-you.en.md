@@ -13,13 +13,12 @@ The groupset is the most useful handle in an ad. Brands build their price ladder
 
 | Tier | Shimano | SRAM | Typical frame |
 |---|---|---|---|
-| 1 · Basic | Claris, Sora | | aluminium or steel |
-| 2 · Entry | Tiagra, CUES | Apex | aluminium |
-| 3 · Mid | 105 | Rival | entry carbon |
-| 4 · Performance | Ultegra | Force | performance carbon |
-| 5 · Top | Dura-Ace | Red | the brand's top carbon |
+| {tier:1} | Claris, Sora | | aluminium or steel |
+| {tier:2} | Tiagra, CUES | Apex | aluminium |
+| {tier:3} | 105 | Rival | entry carbon |
+| {tier:4} | Ultegra | Force | performance carbon |
+| {tier:5} | Dura-Ace | Red | the brand's top carbon |
 
-![](chart:tier-ladder)
 
 Gravel bikes use Shimano GRX, with its own numbers (400, 600, 800) that sit roughly next to Tiagra, 105 and Ultegra. **Di2** (Shimano) or **AXS** (SRAM) after the name means electronic shifting.
 
