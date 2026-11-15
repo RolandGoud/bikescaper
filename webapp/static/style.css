@@ -2288,7 +2288,7 @@ dialog.camera::backdrop { background: rgba(0, 0, 0, .85); }
 .listing-card .ad-name, .listing-card .ad-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: normal; }
 /* A listing card's price row in the colour of its price check (the .ok/.warn/.bad text colour), as a soft band
    across the card with a bar of that colour on the left; the verdict reads as text in it, not as a pill. */
-.listing-card .card-price { --c: var(--muted); --t: rgba(236, 236, 239, .06); margin: -18px -18px 0; padding: 14px 18px 14px 15px; background: var(--t); border-left: 3px solid var(--c); border-bottom: 1px solid var(--t); }
+.listing-card .card-price { --c: var(--muted); --t: rgba(236, 236, 239, .06); margin: -18px -18px 0; padding: 5px 18px 5px 15px; background: var(--t); border-left: 3px solid var(--c); border-bottom: 1px solid var(--t); }
 .listing-card .card-price.ok { --c: var(--ok); --t: rgba(52, 211, 153, .13); }
 .listing-card .card-price.warn { --c: var(--warn); --t: rgba(242, 194, 122, .13); }
 .listing-card .card-price.bad { --c: var(--bad); --t: rgba(255, 143, 134, .14); }
