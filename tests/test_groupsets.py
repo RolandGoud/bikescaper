@@ -185,7 +185,7 @@ def test_wireless_generations_come_last():
                     wireless = [g["shift"] in groupsets.WIRELESS for g in s["gens"]]
                     assert wireless == sorted(wireless), s["name"]
     ultegra = groupsets.LADDERS["Shimano"]["road"][0][1][4]
-    assert ultegra["gens"][-1]["key"] == "r8100" and ultegra["gens"][0]["key"] == "6800"
+    assert ultegra["gens"][-1]["key"] == "r8100" and ultegra["gens"][0]["key"] == "6700"
 
 
 def test_cross_system_upgrades():
@@ -281,3 +281,9 @@ def test_advised_against_lines_are_marked(tmp_path):
     assert all(path(GENERATIONS["4700"], GENERATIONS[k])["effort"] == 4 for k in against)
     page = create_app(str(tmp_path / "app.sqlite3")).test_client().get("/groupsets?lang=nl").data.decode()
     assert 'data-not-advised="Afgeraden"' in page and 'data-against="' in page
+
+
+def test_one_by_variants_fit_a_one_by_frame():
+    p = path(GENERATIONS["apex-11"], GENERATIONS["rival-1"])
+    assert p["effort"] == 1 and p["fit"] == "ok"  # Rival 1 needs no front derailleur mount
+    assert path(GENERATIONS["apex-11"], GENERATIONS["rival-22"])["fit"] == "check"
