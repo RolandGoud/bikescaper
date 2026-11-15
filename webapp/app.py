@@ -22,7 +22,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from . import ad_gone, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
+from . import ad_gone, articles, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, gettext
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -485,7 +485,7 @@ def create_app(db_path=None):
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None
         return render_template("home.html", cards=cards, total=len(ads), nav="check", hero_bg=hero_bg,
                                hero_credit=HERO_CREDITS.get(hero_bg), sponsored=offers(),
-                               stats=hero_stats(rows, ads))
+                               stats=hero_stats(rows, ads), articles=articles.ARTICLES)
 
     @app.route("/check", methods=["GET", "POST"])
     def new_check():

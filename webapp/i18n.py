@@ -1528,4 +1528,34 @@ NL = {
     "Admin": "Beheer",
     "Statistics": "Statistieken",
     "Matches and scores": "Matches en scores",
+    # stolen-bike articles on the home page (articles.py)
+    "Don't buy a stolen bike": "Gestolen fiets? Check voor je koopt",
+    "Buying on Marktplaats or 2dehands? These checks and guides help you tell whether a bike is stolen.":
+        "Koop je op Marktplaats of 2dehands? Met deze checks en gidsen zie je of een fiets gestolen is.",
+    "Read on {site}": "Lees op {site}",
+    "Up next": "Hierna",
+    "Previous article": "Vorig artikel",
+    "Next article": "Volgend artikel",
+    "Article {n}": "Artikel {n}",
+    "Articles on stolen bikes": "Artikelen over gestolen fietsen",
+    "opens in a new tab": "opent in een nieuw tabblad",
+    "Official check": "Officiële check",
+    "Police": "Politie",
+    "Buying guide": "Koopgids",
+    "Government": "Overheid",
+    "Is this bike stolen? Check the frame number": "Is deze fiets gestolen? Check het framenummer",
+    "Look up the frame number in the RDW register. Note: “not registered” doesn't mean the bike is clean.":
+        "Zoek het framenummer op in het register van de RDW. Let op: “niet geregistreerd” betekent niet dat de fiets schoon is.",
+    "Stop Heling: check the serial number with the police": "Stop Heling: check het serienummer bij de politie",
+    "See straight away whether a bike or part has been reported stolen.": "Zie meteen of een fiets of onderdeel als gestolen is opgegeven.",
+    "Buying a used bike: what to look out for": "Tweedehands fiets kopen: waar let je op?",
+    "Tips for the viewing, the papers and the test ride, so you don't end up with a bad buy.":
+        "Tips voor de bezichtiging, de papieren en de proefrit, zodat je geen miskoop doet.",
+    "MyBike: has the bike been reported stolen?": "MyBike: staat de fiets als gestolen gemeld?",
+    "Belgium's federal bike register, where you can check a bike's frame number.":
+        "Het federale fietsregister van België, waar je het framenummer van een fiets checkt.",
+    "Bike theft and insurance": "Fietsdiefstal en verzekering",
+    "How registering your bike works, and what to do when it's stolen.": "Hoe registratie werkt en wat je doet als je fiets gestolen is.",
+    "Checklist: buying a used e-bike": "Checklist: tweedehands e-bike kopen",
+    "Battery, motor and papers: what to check before you pay.": "Accu, motor en papieren: wat je controleert voor je betaalt.",
 }
