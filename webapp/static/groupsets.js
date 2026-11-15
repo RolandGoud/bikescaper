@@ -6,7 +6,7 @@
 // your groupset's way up, to the closest in age column by column. Clicking a line keeps that line bold and re-picks
 // the bold lines either side of it so the path runs through its tiles (to and from yours where it can); clicking a
 // bold line clears the path. Lines down a column turn bold on their own when clicked. A tile gets
-// a bullet on each side where a line meets it, and only the tiles on the bold path take their line's colour. A bold line to a groupset we advise against going to from the tile it starts
+// a bullet on each side where a line meets it, and only the tiles on the bold path, up to a red X, take their line's colour. A bold line to a groupset we advise against going to from the tile it starts
 // at (a new freehub body on top of a whole new drivetrain) gets a red X halfway.
 // Navigation: picking a groupset (a tile), brand or type fetches the new page and morphs into it (View
 // Transitions where the browser has them), keeping the tile you clicked where it was. Without JavaScript the
@@ -164,8 +164,16 @@
       links.forEach((l) => hit(svg, l, bold(l)));
       ends.forEach(([x, y, color]) => dot(svg, x, y, color));
       links.filter((l) => l.against && bold(l)).forEach((l) => cross(svg, l.d));
-      // Tiles take their line's colour only on the bold path (all of them while there is none).
-      const onPath = new Set(links.filter(bold).flatMap((l) => [l.from, l.to]));
+      // Tiles take their line's colour only on the bold path (all of them while there is none), and only up to a
+      // red X: the tiles past one are not a way we advise.
+      const boldLinks = links.filter(bold);
+      const onPath = new Set(boldLinks.map((l) => l.from).filter((t) => !boldLinks.some((l) => l.to === t)));
+      for (let grew = true; grew;) {
+        grew = false;
+        boldLinks.forEach((l) => {
+          if (!l.against && onPath.has(l.from) && !onPath.has(l.to)) onPath.add(l.to), (grew = true);
+        });
+      }
       all.forEach((t) => (onPath.size && !onPath.has(t) ? t.el.style.removeProperty("--line")
         : t.el.style.setProperty("--line", colors.get(t.system))));
 
