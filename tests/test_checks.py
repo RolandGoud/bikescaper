@@ -890,7 +890,7 @@ def test_certainty_comes_back_when_our_match_is_picked_again(tmp_path):
     client.post("/check/1/match", data={"model_id": other})
     page = client.get("/check/1?lang=nl").data.decode()
     assert "Gekozen door jou" in page and "zekerheid:" not in page
-    assert 'class="match-strip no-checks"' in page  # no check cells: the strip closes up to the side bar
+    assert 'class="match-strip no-checks' in page  # no check cells: the strip closes up to the side bar
 
     client.post("/check/1/match", data={"model_id": ours})
     page = client.get("/check/1?lang=nl").data.decode()
@@ -1262,7 +1262,7 @@ def test_model_page_year_selector_runs_oldest_to_current(tmp_path):
     assert "year-photo" not in page  # the year photos moved out of the spec tabs
     shown = {int(y) for _p, y in years}
     assert shown == set(range(min(shown), max(shown) + 1))  # a year without a photo gets a placeholder
-    assert re.search(r'id="gallery-chip">\d{4}<', page)  # the year only, no colour
+    assert re.search(r'<span class="gallery-year">\d{4}</span>', page)  # the thumbs name the year only, no colour
     assert "nog niet verzameld" not in page  # model years from the year sheets
 
 
@@ -1591,7 +1591,7 @@ def test_model_page_marks_every_changed_part_beside_its_tier(tmp_path):
     page = app.test_client().get("/models/trek-domane-al-4-gen-4?lang=nl").data.decode()
     panel = page[page.index('id="year-2027"'):]
     panel = panel[:panel.index('class="year-panel"')] if 'class="year-panel"' in panel else panel
-    assert re.search(r'<div class="part"><span>Ketting</span><span class="spec-tier">.*?</span><span class="move same"', panel)
+    assert re.search(r'<th scope="row">Ketting</th>(?:(?!</tr>).)*<td class="change"><span class="move same"', panel, re.S)
     assert 'class="move down"' in panel
     assert 'class="changed"' not in page and "changed-key" not in page
 
@@ -2007,7 +2007,7 @@ def test_report_heading_shows_the_ad_and_our_match_apart(tmp_path):
                   3250, "Utrecht", "https://www.2dehands.be/v/fietsen/m1-domane"))
     conn.commit()
     page = app.test_client().get("/check/1?lang=en").get_data(as_text=True)
-    ad, match = page.index('class="ad-card'), page.index('class="match-strip"')
+    ad, match = page.index('class="ad-card'), page.index('class="match-strip')
     # The heading names the model without its generation; the full name is in our match, under the ad.
     assert re.search(r"<h1>.*Domane <span class=\"acc\">SL 6</span></h1>", page)
     assert page.lower().index("domane sl 6 (gen 4)</span>") > match
@@ -2016,7 +2016,7 @@ def test_report_heading_shows_the_ad_and_our_match_apart(tmp_path):
     assert ad < page.index("Zo goed als nieuw") < match
     assert 'logos/2dehands-light.svg' in page and 'aria-label="Open the ad on 2dehands"' in page
     # A year in the model's years reads as fitting, in green.
-    assert re.search(r'class="ms-check ok"><span class="k">YEAR</span>\s*<b>.*2023 fits this model', page)
+    assert re.search(r'class="ms-check ms-fact ok"><span class="k">MODEL YEAR\s*</span>\s*<b>(?:(?!</div>)[\s\S])*2023 fits this model', page)
 
 
 def test_family_name_leaves_out_the_generation():
