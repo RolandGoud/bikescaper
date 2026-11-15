@@ -599,13 +599,14 @@ def create_app(db_path=None):
                                can_mail=mail.configured(), mailed=request.args.get("mailed"))
 
     def neighbouring_checks(check_id):
-        """The checks either side of this one in the order of /checks (newest first), to step through them from the
-        report: `prev` is the newer one, `next` the older one; None at the ends."""
+        """The checks either side of this one by check number, to step through them from the report: `prev` is the
+        nearest lower number, `next` the nearest higher one, skipping numbers that are gone or not shown; None at
+        the ends."""
         def one(where, order):
             row = conn().execute(f"SELECT id FROM checks WHERE {db.PUBLISHED} AND id {where} ? ORDER BY id {order} LIMIT 1",
                                  (check_id,)).fetchone()
             return row["id"] if row else None
-        return {"prev": one(">", "ASC"), "next": one("<", "DESC")}
+        return {"prev": one("<", "DESC"), "next": one(">", "ASC")}
 
     def pdf_of(check_id, height):
         row = conn().execute("SELECT * FROM checks WHERE id = ?", (check_id,)).fetchone()
