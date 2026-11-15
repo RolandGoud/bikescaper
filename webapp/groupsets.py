@@ -79,23 +79,29 @@ LADDERS = {
         "road": [
             ("Road", [
                 series("claris", "Claris", [
+                    gen("2400", "Claris 2400", 2012, 8, "mech", "shimano-road-8", ["hg"], ["rim"]),
                     gen("r2000", "Claris R2000", 2016, 8, "mech", "shimano-road-8", ["hg"], ["rim", "disc"],
                         note="Disc versions use cable-pulled brakes."),
                 ]),
                 series("sora", "Sora", [
+                    gen("3500", "Sora 3500", 2012, 9, "mech", "shimano-road-9", ["hg"], ["rim"]),
                     gen("r3000", "Sora R3000", 2016, 9, "mech", "shimano-road-9", ["hg"], ["rim", "disc"]),
                 ]),
                 series("tiagra", "Tiagra", [
+                    gen("4600", "Tiagra 4600", 2012, 10, "mech", "shimano-road-10", ["hg"], ["rim"]),
                     gen("4700", "Tiagra 4700", 2016, 10, "mech", "shimano-road-10-4700", ["hg"], ["rim", "disc"],
                         note="Its rear derailleur doesn't work with older 10-speed road shifters."),
                 ]),
                 series("105", "105", [
+                    gen("5700", "105 5700", 2010, 10, "mech", "shimano-road-10", ["hg"], ["rim"]),
                     gen("5800", "105 5800", 2014, 11, "mech", "shimano-road-11", ["hg11"], ["rim"]),
                     gen("r7000", "105 R7000", 2018, 11, "mech", "shimano-road-11", ["hg11"], ["rim", "disc"]),
                     gen("r7150", "105 Di2 R7150", 2022, 12, "di2-wireless", "shimano-di2-12", ["hg11"], ["disc"]),
                     gen("r7100", "105 R7100", 2023, 12, "mech", "shimano-road-12", ["hg11"], ["disc"]),
                 ]),
                 series("ultegra", "Ultegra", [
+                    gen("6700", "Ultegra 6700", 2010, 10, "mech", "shimano-road-10", ["hg"], ["rim"]),
+                    gen("6770", "Ultegra Di2 6770", 2010, 10, "di2", "shimano-di2-10", ["hg"], ["rim"]),
                     gen("6800", "Ultegra 6800", 2014, 11, "mech", "shimano-road-11", ["hg11"], ["rim"]),
                     gen("6870", "Ultegra Di2 6870", 2014, 11, "di2", "shimano-di2-11", ["hg11"], ["rim"]),
                     gen("r8000", "Ultegra R8000", 2017, 11, "mech", "shimano-road-11", ["hg11"], ["rim", "disc"]),
@@ -104,6 +110,8 @@ LADDERS = {
                         ["rim", "disc"], note="Electronic only: there is no mechanical 12-speed Ultegra."),
                 ]),
                 series("dura-ace", "Dura-Ace", [
+                    gen("7900", "Dura-Ace 7900", 2009, 10, "mech", "shimano-road-10", ["hg"], ["rim"]),
+                    gen("7970", "Dura-Ace Di2 7970", 2009, 10, "di2", "shimano-di2-10", ["hg"], ["rim"]),
                     gen("9000", "Dura-Ace 9000", 2013, 11, "mech", "shimano-road-11", ["hg11"], ["rim"]),
                     gen("9070", "Dura-Ace Di2 9070", 2013, 11, "di2", "shimano-di2-11", ["hg11"], ["rim"]),
                     gen("r9100", "Dura-Ace R9100", 2016, 11, "mech", "shimano-road-11", ["hg11"], ["rim", "disc"]),
@@ -134,20 +142,25 @@ LADDERS = {
         "mtb": [
             ("Mountain bike", [
                 series("deore", "Deore", [
+                    gen("m6000", "Deore M6000", 2015, 10, "mech", "shimano-mtb-10", ["hg"], ["disc"]),
+                    gen("m4100", "Deore M4100", 2020, 10, "mech", "shimano-mtb-10", ["hg"], ["disc"]),
                     gen("m5100", "Deore M5100", 2020, 11, "mech", "shimano-mtb-11", ["hg"], ["disc"]),
                     gen("m6100", "Deore M6100", 2020, 12, "mech", "shimano-mtb-12", ["ms"], ["disc"]),
                 ]),
                 series("slx", "SLX", [
+                    gen("m670", "SLX M670", 2010, 10, "mech", "shimano-mtb-10", ["hg"], ["disc"]),
                     gen("m7000", "SLX M7000", 2016, 11, "mech", "shimano-mtb-11", ["hg"], ["disc"]),
                     gen("m7100", "SLX M7100", 2019, 12, "mech", "shimano-mtb-12", ["ms"], ["disc"]),
                 ]),
                 series("xt", "XT", [
+                    gen("m780", "XT M780", 2012, 10, "mech", "shimano-mtb-10", ["hg"], ["disc"]),
                     gen("m8000", "XT M8000", 2015, 11, "mech", "shimano-mtb-11", ["hg"], ["disc"]),
                     gen("m8050", "XT Di2 M8050", 2015, 11, "di2", "shimano-di2-mtb-11", ["hg"], ["disc"]),
                     gen("m8100", "XT M8100", 2018, 12, "mech", "shimano-mtb-12", ["ms"], ["disc"]),
                     gen("m8250", "XT Di2 M8250", 2025, 12, "di2-mtb", "shimano-di2-mtb-12", ["ms"], ["disc"]),
                 ]),
                 series("xtr", "XTR", [
+                    gen("m980", "XTR M980", 2011, 10, "mech", "shimano-mtb-10", ["hg"], ["disc"]),
                     gen("m9000", "XTR M9000", 2014, 11, "mech", "shimano-mtb-11", ["hg"], ["disc"]),
                     gen("m9050", "XTR Di2 M9050", 2014, 11, "di2", "shimano-di2-mtb-11", ["hg"], ["disc"]),
                     gen("m9100", "XTR M9100", 2018, 12, "mech", "shimano-mtb-12", ["ms"], ["disc"]),
@@ -168,6 +181,7 @@ LADDERS = {
         "road": [
             ("Road", [
                 series("apex", "Apex", [
+                    gen("apex-10", "Apex (10-speed)", 2010, 10, "mech", "sram-road-10", ["hg"], ["rim"]),
                     gen("apex-11", "Apex 1 (11-speed)", 2015, 11, "mech", "sram-road-11", ["hg11", "xd"], ["rim", "disc"],
                         note="1x only.", one_by=True),
                     gen("apex-12", "Apex (12-speed)", 2023, 12, "mech", "sram-apex-12", ["hg11", "xdr"], ["disc"],
@@ -176,18 +190,29 @@ LADDERS = {
                         note="1x only. The 11-44 cassette fits an HG freehub, the 10-44 needs XDR.", one_by=True),
                 ]),
                 series("rival", "Rival", [
+                    gen("rival-10", "Rival (10-speed)", 2012, 10, "mech", "sram-road-10", ["hg"], ["rim"]),
                     gen("rival-22", "Rival 22", 2013, 11, "mech", "sram-road-11", ["hg11"], ["rim", "disc"]),
+                    gen("rival-1", "Rival 1", 2015, 11, "mech", "sram-road-11", ["hg11", "xd"], ["rim", "disc"],
+                        note="1x only. The 10-42 cassette needs an XD freehub.", one_by=True),
                     gen("rival-axs", "Rival AXS", 2021, 12, "axs", "sram-axs-12", ["xdr"], ["disc"]),
+                    gen("rival-xplr-axs", "Rival XPLR AXS", 2021, 12, "axs", "sram-axs-12", ["xdr"], ["disc"],
+                        note="1x gravel.", one_by=True),
                 ]),
                 series("force", "Force", [
+                    gen("force-10", "Force (10-speed)", 2012, 10, "mech", "sram-road-10", ["hg"], ["rim"]),
                     gen("force-22", "Force 22", 2013, 11, "mech", "sram-road-11", ["hg11"], ["rim", "disc"]),
+                    gen("force-1", "Force 1", 2015, 11, "mech", "sram-road-11", ["hg11", "xd"], ["rim", "disc"],
+                        note="1x only. The 10-42 cassette needs an XD freehub.", one_by=True),
                     gen("force-axs", "Force AXS", 2019, 12, "axs", "sram-axs-12", ["xdr"], ["rim", "disc"],
                         note="The 2025 generation is disc only and mixes with older AXS parts."),
+                    gen("force-xplr-axs", "Force XPLR AXS", 2021, 12, "axs", "sram-axs-12", ["xdr"], ["disc"],
+                        note="1x gravel.", one_by=True),
                     gen("force-xplr-13", "Force XPLR AXS (13-speed)", 2025, 13, "axs", "sram-xplr-13", ["xdr"],
                         ["disc"], udh=True, shifters_from=("sram-axs-12",),
                         note="1x gravel. Needs a wide 1x crank.", one_by=True),
                 ]),
                 series("red", "Red", [
+                    gen("red-10", "Red (10-speed)", 2012, 10, "mech", "sram-road-10", ["hg"], ["rim"]),
                     gen("red-22", "Red 22", 2013, 11, "mech", "sram-road-11", ["hg11"], ["rim", "disc"]),
                     gen("red-etap", "Red eTap", 2015, 11, "etap", "sram-etap-11", ["hg11"], ["rim", "disc"]),
                     gen("red-axs", "Red AXS", 2019, 12, "axs", "sram-axs-12", ["xdr"], ["rim", "disc"],
@@ -215,6 +240,23 @@ LADDERS = {
                     gen("xx1-eagle-axs", "XX1 Eagle AXS", 2019, 12, "axs", "sram-eagle-axs", ["xd"], ["disc"]),
                 ]),
             ]),
+            ("1x11", [
+                series("sx", "NX", [
+                    gen("nx-11", "NX (11-speed)", 2016, 11, "mech", "sram-mtb-11", ["hg"], ["disc"]),
+                ]),
+                series("gx", "GX", [
+                    gen("gx-11", "GX (11-speed)", 2015, 11, "mech", "sram-mtb-11", ["xd"], ["disc"]),
+                ]),
+                series("x1", "X1", [
+                    gen("x1-11", "X1 (11-speed)", 2014, 11, "mech", "sram-mtb-11", ["xd"], ["disc"]),
+                ], tier=3),
+                series("x0", "X01", [
+                    gen("x01-11", "X01 (11-speed)", 2013, 11, "mech", "sram-mtb-11", ["xd"], ["disc"]),
+                ]),
+                series("xx", "XX1", [
+                    gen("xx1-11", "XX1 (11-speed)", 2012, 11, "mech", "sram-mtb-11", ["xd"], ["disc"]),
+                ]),
+            ]),
             ("Eagle Transmission (T-Type)", [
                 series("gx", "GX Transmission", [
                     gen("gx-t", "GX Eagle Transmission", 2023, 12, "axs", "sram-t-type", ["xd"], ["disc"], udh=True,
@@ -234,16 +276,37 @@ LADDERS = {
     "Campagnolo": {
         "road": [
             ("Road", [
+                series("veloce", "Veloce", [
+                    gen("veloce-10", "Veloce (10-speed)", 2009, 10, "mech", "campa-10", ["campa"], ["rim"]),
+                ], tier=2),
                 series("centaur", "Centaur", [
+                    gen("centaur-10", "Centaur (10-speed)", 2009, 10, "mech", "campa-10", ["campa"], ["rim"]),
                     gen("centaur-11", "Centaur (11-speed)", 2018, 11, "mech", "campa-11", ["campa", "n3w"], ["rim", "disc"]),
                 ]),
+                series("potenza", "Potenza", [
+                    gen("potenza-11", "Potenza (11-speed)", 2016, 11, "mech", "campa-11", ["campa"], ["rim", "disc"]),
+                ], tier=3),
+                series("athena", "Athena", [
+                    gen("athena-11", "Athena (11-speed)", 2011, 11, "mech", "campa-11", ["campa"], ["rim"]),
+                    gen("athena-eps", "Athena EPS (11-speed)", 2014, 11, "eps", "campa-eps-11", ["campa"], ["rim"]),
+                ], tier=3),
                 series("chorus", "Chorus", [
+                    gen("chorus-11", "Chorus (11-speed)", 2009, 11, "mech", "campa-11", ["campa"], ["rim", "disc"]),
+                    gen("chorus-eps", "Chorus EPS (11-speed)", 2015, 11, "eps", "campa-eps-11", ["campa"], ["rim"]),
                     gen("chorus-12", "Chorus (12-speed)", 2020, 12, "mech", "campa-12", ["campa", "n3w"], ["rim", "disc"]),
                 ]),
                 series("record", "Record", [
+                    gen("record-11", "Record (11-speed)", 2009, 11, "mech", "campa-11", ["campa"], ["rim", "disc"]),
+                    gen("record-eps", "Record EPS (11-speed)", 2011, 11, "eps", "campa-eps-11", ["campa"], ["rim", "disc"]),
                     gen("record-12", "Record (12-speed)", 2018, 12, "mech", "campa-12", ["campa", "n3w"], ["rim", "disc"]),
+                    gen("record-eps-12", "Record EPS (12-speed)", 2019, 12, "eps", "campa-eps-12", ["campa", "n3w"],
+                        ["rim", "disc"]),
+                    gen("record-wrl-13", "Record 13 Wireless", 2025, 13, "wrl", "campa-wrl-13", ["n3w"], ["disc"]),
                 ]),
                 series("super-record", "Super Record", [
+                    gen("sr-11", "Super Record (11-speed)", 2009, 11, "mech", "campa-11", ["campa"], ["rim", "disc"]),
+                    gen("sr-eps-11", "Super Record EPS (11-speed)", 2011, 11, "eps", "campa-eps-11", ["campa"],
+                        ["rim", "disc"]),
                     gen("sr-12", "Super Record (12-speed)", 2018, 12, "mech", "campa-12", ["campa", "n3w"], ["rim", "disc"]),
                     gen("sr-eps-12", "Super Record EPS (12-speed)", 2019, 12, "eps", "campa-eps-12", ["campa", "n3w"],
                         ["rim", "disc"]),
