@@ -28,6 +28,7 @@
         <a href="{{ url_for('listings') }}" class="{{ 'on' if nav == 'listings' }}"{% if nav == 'listings' %} aria-current="page"{% endif %}>{{ _('Listings') }}</a>
         <a href="{{ url_for('sell') }}" class="{{ 'on' if nav == 'sell' }}"{% if nav == 'sell' %} aria-current="page"{% endif %}>{{ _('Improve my ad') }}</a>
         <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}"{% if nav == 'models' %} aria-current="page"{% endif %}>{{ _('Our catalogue') }}</a>
+        <a href="{{ url_for('blog_index') }}" class="{{ 'on' if nav == 'blog' }}"{% if nav == 'blog' %} aria-current="page"{% endif %}>{{ _('Blog') }}</a>
         <div class="tools">
           <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value', 'groupsets', 'map') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
           <div id="tools-menu" class="tools-menu">
@@ -73,6 +74,7 @@
     <span>{{ _('Bikecheck · prototype') }}</span>
     <a href="{{ url_for('how') }}">{{ _('How it works') }}</a>
     <a href="{{ url_for('how') }}#sources">{{ _('Data sources') }}</a>
+    <a href="{{ url_for('blog_index') }}">{{ _('Blog') }}</a>
     <span>{{ _('Not affiliated with Marktplaats or any bike brand.') }}</span>
   </div>
 </footer>

@@ -56,6 +56,7 @@ they survive restarts and rebuilds. To reload the catalogue after new scrapes:
 | Size finder | `/size` | Height to frame size per model line (builds sharing a frame are grouped), from `webapp/size_charts.json`; brand chart when a model has none. |
 | Value estimator | `/value` | Fair price from new price, model year and condition. |
 | How it works | `/how-it-works` | Method, data sources and limits. |
+| Blog | `/blog`, `/blog/<slug>` | Articles in four categories (market data, buying guides, model deep-dives, seasonal), one Markdown file per article and language in `webapp/blog/` (`<slug>.nl.md`, `<slug>.en.md`; header and Markdown subset in `webapp/blog.py`). An article dated in the future stays hidden until that day. |
 
 The site is in Dutch and English. It follows the browser's language (Dutch when unsure), and the
 NL/EN switch in the header changes it and remembers the choice in a cookie. Texts live in
