@@ -147,3 +147,34 @@ def test_without_mail_there_is_no_alert_form(client, monkeypatch):
     c, _, _ = client
     monkeypatch.delenv("SMTP_HOST", raising=False)
     assert "/alert\"" not in c.get("/models/trek-domane-sl-6-gen-3").data.decode()
+
+
+def test_asking_again_keeps_the_running_alert_until_confirmed(conn):
+    m = model(conn)
+    confirmed(conn, m, size="56")
+    alerts.run(conn, search=ads, send=lambda *a, **kw: None, pause=0)
+    token = alerts.sign_up(conn, "rider@example.com", m, size="56", max_price=1400)
+    assert conn.execute("SELECT COUNT(*) FROM alerts WHERE confirmed_at IS NOT NULL").fetchone()[0] == 1
+    alerts.confirm(conn, alerts.by_token(conn, token)["id"])
+    rows = conn.execute("SELECT * FROM alerts").fetchall()
+    assert len(rows) == 1 and rows[0]["max_price"] == 1400 and rows[0]["token"] == token
+    # The ads the old alert mailed about stay seen.
+    sent = []
+    assert alerts.run(conn, search=ads, send=lambda *a, **kw: sent.append(a), pause=0) == 0
+
+
+def test_another_generations_page_replaces_the_same_alert(conn):
+    confirmed(conn, model(conn), size="56")
+    confirmed(conn, model(conn, "trek-domane-sl-6-gen-4"), size="56")
+    assert conn.execute("SELECT COUNT(*) FROM alerts").fetchone()[0] == 1
+    # Another size is another alert.
+    confirmed(conn, model(conn), size="58")
+    assert conn.execute("SELECT COUNT(*) FROM alerts").fetchone()[0] == 2
+
+
+def test_alert_mails_leave_the_visitors_mail_limit_alone(conn, monkeypatch):
+    monkeypatch.setattr(mail, "_sent", [])
+    calls = []
+    confirmed(conn, model(conn), size="56")
+    alerts.run(conn, search=ads, send=lambda *a, **kw: calls.append(kw), pause=0)
+    assert calls[0]["count"] is False

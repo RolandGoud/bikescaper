@@ -37,7 +37,8 @@ def allowed(ip, now=None):
     return recent < PER_ADDRESS_PER_HOUR and len(_sent) < PER_DAY
 
 
-def send(to, subject, text, pdf=None, filename=None, ip=None, headers=None):
+def send(to, subject, text, pdf=None, filename=None, ip=None, headers=None, count=True):
+    """count=False leaves the mail out of the visitors' limits (allowed): the price alerts' daily mails."""
     message = EmailMessage()
     message["From"] = os.environ.get("MAIL_FROM") or os.environ.get("SMTP_USER")
     message["To"] = to
@@ -59,4 +60,5 @@ def send(to, subject, text, pdf=None, filename=None, ip=None, headers=None):
         if user:
             server.login(user, password or "")
         server.send_message(message)
-    _sent.append((time.time(), ip))
+    if count:
+        _sent.append((time.time(), ip))

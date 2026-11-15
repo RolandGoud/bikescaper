@@ -54,16 +54,19 @@ def norm_size(size):
 
 # Signing up and stopping
 
+def watches(alert, model):
+    """What an alert watches, the same for every generation's or build's page: two alerts of one address with the
+    same answer would mail the same ads."""
+    what = family_label(model).lower() if alert["scope"] == "family" else model_key(model)
+    return (alert["scope"], what, alert["size"] or "")
+
+
 def sign_up(conn, email, model, scope="model", size=None, max_price=None, lang="nl", site=""):
     """A new alert, unconfirmed: returns its token for the confirmation link, or None when the address has too
-    many alerts already. The same alert asked again (same address, model, scope and size) is replaced, so a
-    lost confirmation mail can be asked for again."""
+    many alerts already. A running alert is left alone until the new one is confirmed (confirm replaces it), so
+    asking again by accident, or to change the highest price, never turns off one that works."""
     scope = "family" if scope == "family" else "model"
     size = norm_size(size)
-    same = conn.execute("SELECT id FROM alerts WHERE lower(email) = lower(?) AND model_id = ? AND scope = ? "
-                        "AND coalesce(size, '') = ?", (email, model["id"], scope, size or "")).fetchall()
-    for row in same:
-        stop(conn, row["id"])
     count = conn.execute("SELECT COUNT(*) FROM alerts WHERE lower(email) = lower(?)", (email,)).fetchone()[0]
     if count >= PER_ADDRESS:
         return None
@@ -79,8 +82,20 @@ def by_token(conn, token):
 
 
 def confirm(conn, alert_id):
-    conn.execute("UPDATE alerts SET confirmed_at = datetime('now') WHERE id = ? AND confirmed_at IS NULL",
-                 (alert_id,))
+    """Start the alert. Another alert of the same address that watches the same bikes (from another generation's
+    page, or asked for again) is replaced by it, keeping the ads that one already mailed about."""
+    alert = conn.execute("SELECT * FROM alerts WHERE id = ?", (alert_id,)).fetchone()
+    if alert is None or alert["confirmed_at"]:
+        return
+    model = db.get_model(conn, model_id=alert["model_id"])
+    for other in conn.execute("SELECT * FROM alerts WHERE lower(email) = lower(?) AND id != ?",
+                              (alert["email"], alert_id)).fetchall():
+        other_model = db.get_model(conn, model_id=other["model_id"])
+        if model and other_model and watches(other, other_model) == watches(alert, model):
+            conn.execute("INSERT OR IGNORE INTO alert_ads (alert_id, ad_key) "
+                         "SELECT ?, ad_key FROM alert_ads WHERE alert_id = ?", (alert_id, other["id"]))
+            stop(conn, other["id"])
+    conn.execute("UPDATE alerts SET confirmed_at = datetime('now') WHERE id = ?", (alert_id,))
     conn.commit()
 
 
@@ -226,7 +241,7 @@ def run(conn, search=daily_checks.search, send=mail.send, pause=daily_checks.PAU
                 i18n.current_language.reset(language)
             site = (alert["site"] or "").rstrip("/")
             try:
-                send(alert["email"], subject, text, headers={
+                send(alert["email"], subject, text, count=False, headers={
                     "List-Unsubscribe": f"<{site}/alerts/{alert['token']}/stop>",
                     "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"})
             except Exception as e:  # the ads stay seen: better one missed mail than the same ads twice
