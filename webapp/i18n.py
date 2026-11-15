@@ -1550,19 +1550,22 @@ NL = {
     "opens in a new tab": "opent in een nieuw tabblad",
     "Official check": "Officiële check",
     "Police": "Politie",
-    "Buying guide": "Koopgids",
-    "Government": "Overheid",
     "Is this bike stolen? Check the frame number": "Is deze fiets gestolen? Check het framenummer",
     "Look up the frame number in the RDW register. Note: “not registered” doesn't mean the bike is clean.":
         "Zoek het framenummer op in het register van de RDW. Let op: “niet geregistreerd” betekent niet dat de fiets schoon is.",
     "Stop Heling: check the serial number with the police": "Stop Heling: check het serienummer bij de politie",
     "See straight away whether a bike or part has been reported stolen.": "Zie meteen of een fiets of onderdeel als gestolen is opgegeven.",
-    "Buying a used bike: what to look out for": "Tweedehands fiets kopen: waar let je op?",
-    "Tips for the viewing, the papers and the test ride, so you don't end up with a bad buy.":
-        "Tips voor de bezichtiging, de papieren en de proefrit, zodat je geen miskoop doet.",
     "MyBike: has the bike been reported stolen?": "MyBike: staat de fiets als gestolen gemeld?",
-    "Belgium's federal bike register, where you can check a bike's frame number.":
-        "Het federale fietsregister van België, waar je het framenummer van een fiets checkt.",
-    "Bike theft and insurance": "Fietsdiefstal en verzekering",
-    "How registering your bike works, and what to do when it's stolen.": "Hoe registratie werkt en wat je doet als je fiets gestolen is.",
+    "Belgium's federal bike register. Enter the number on the bike's MyBike sticker to see whether it's been reported stolen.":
+        "Het federale fietsregister van België. Vul het nummer van de MyBike-sticker op de fiets in en zie of hij als gestolen is gemeld.",
+    "The law": "De wet",
+    "How to spot a stolen bike": "Zo herken je een gestolen fiets",
+    "A lock forced off, a dealer sticker torn away, grinding marks where a postcode was: the signs the police look for.":
+        "Een opengebroken slot, een weggekrabde dealersticker, slijpplekken waar een postcode zat: de signalen waar de politie op let.",
+    "Buying a stolen bike is a crime": "Een gestolen fiets kopen is strafbaar",
+    "Heling is punishable even if you only could have suspected the bike was stolen: up to a year in prison or a fine.":
+        "Heling is ook strafbaar als je alleen had kunnen vermoeden dat de fiets gestolen was: tot een jaar cel of een boete.",
+    "Bought a bike that turns out to be stolen?": "Fiets gekocht die gestolen blijkt?",
+    "A great bike at a giveaway price is a warning sign. What happens if you bought in good faith, and how to play it safe.":
+        "Een prima fiets voor een spotprijs is een waarschuwing. Wat er gebeurt als je te goeder trouw kocht, en hoe je op safe speelt.",
 }
