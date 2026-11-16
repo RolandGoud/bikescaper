@@ -328,6 +328,102 @@ def stage(slug, key, cx, cy, width, scene, streak, rim, seed=1):
             "brand": BRAND.get(key, "Giant"), "credit": CREDITS[scene[0]]}
 
 
+def logo_png(name, height):
+    """A brand logo from webapp/static/logos, white, `height` pixels high. Chromium draws it (Playwright for Node, run
+    with `node`), because some logos use SVG masks that other renderers get wrong."""
+    import io
+    import subprocess
+    import tempfile
+    svg = open(os.path.join(ROOT, "webapp", "static", "logos", name), encoding="utf-8").read().replace("#101114", "#fff")
+    svg = svg.replace("<svg ", f'<svg height="{height * 2}" ', 1)
+    with tempfile.TemporaryDirectory() as tmp:
+        out = os.path.join(tmp, "logo.png")
+        js = ("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();"
+              "const p=await b.newPage();await p.setContent(process.argv[2]);"
+              "await p.locator('svg').screenshot({path:process.argv[1],omitBackground:true});await b.close()})()")
+        subprocess.run(["node", "-e", js, out, f'<body style="margin:0">{svg}</body>'], check=True)
+        im = Image.open(io.BytesIO(open(out, "rb").read())).convert("RGBA")
+    return im.resize((round(im.width * height / im.height), height), Image.LANCZOS)
+
+def print_run(slug, key, word, brand_logo, scene, ink, accent, tag, size, seed=1):
+    """A model article's hero as a poster: the model name three times like a misprinted run (outlined, the middle line
+    filled), the brand's own photo of the bike riding across with speed stripes, the brand logo, a small tag, and the
+    article's Unsplash landscape blurred behind it all. The logo is drawn by the
+    browser (logo_png)."""
+    from PIL import ImageFont
+    font = "/usr/share/fonts/opentype/inter/InterDisplay-BlackItalic.otf"
+    bold = "/usr/share/fonts/opentype/inter/InterDisplay-Bold.otf"
+    rnd = random.Random(seed)
+    # the landscape: very soft, darkened and pulled towards the bike's colour
+    back = frame(source(scene[0]), *scene[1:], False).filter(ImageFilter.GaussianBlur(16))
+    bg = (np.asarray(back).astype(float) / 255) ** 1.3
+    grey = bg.mean(axis=2, keepdims=True)
+    tone = np.array(ink, float) / 255
+    bg = (grey * 0.35 + bg * 0.65) * (0.45 + 0.35 * tone)
+    yy, xx = np.mgrid[0:H, 0:W].astype(float)
+    v = np.hypot((xx - W * 0.5) / (W * 0.62), (yy - H * 0.5) / (H * 0.66))
+    bg = bg * np.clip(1.1 - v ** 2.2 * 0.7, 0.15, 1)[..., None]
+    canvas = Image.fromarray((np.clip(bg, 0, 1) * 255).astype(np.uint8)).convert("RGBA")
+
+    def layer_at(img, centre):
+        L = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        L.paste(img, (int(centre[0] - img.width / 2), int(centre[1] - img.height / 2)), img)
+        return L
+
+    def text(fill, stroke):
+        f = ImageFont.truetype(font, size)
+        bb = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), word, font=f, stroke_width=stroke)
+        t = Image.new("RGBA", (bb[2] - bb[0] + 40, bb[3] - bb[1] + 40), (0, 0, 0, 0))
+        ImageDraw.Draw(t).text((20 - bb[0], 20 - bb[1]), word, font=f, fill=fill, stroke_width=stroke,
+                               stroke_fill=(*ink, 255))
+        return t.rotate(-4, expand=True, resample=Image.BICUBIC)
+
+    for i, y in enumerate((0.17, 0.48, 0.79)):
+        canvas.alpha_composite(layer_at(text((*ink, 255) if i == 1 else (0, 0, 0, 0), 0 if i == 1 else 3),
+                                        (W * 0.5 + (i - 1) * 14, H * y)))
+    # speed stripes behind the bike
+    lines = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(lines)
+    for _ in range(12):
+        y, x, length, w = rnd.uniform(H * 0.45, H * 0.82), rnd.uniform(-300, W * 0.4), rnd.uniform(300, 900), rnd.randint(6, 26)
+        dr.rounded_rectangle((x, y, x + length, y + w), radius=w // 2, fill=(*accent, 255))
+    canvas.alpha_composite(lines.rotate(-6, resample=Image.BICUBIC))
+    # the bike, cut out of its studio photo, with a soft drop shadow
+    im = frame(source(key), 0.5, 0.5, 1.3, True)
+    alpha = np.asarray(studio_alpha(im)).astype(float) / 255
+    a = np.asarray(im).astype(float) / 255
+    k = np.maximum(alpha, 0.05)[..., None]
+    a = np.clip((a - (1 - k)) / k, 0, 1)
+    ys, xs = np.where(alpha > 0.3)
+    bike = Image.fromarray((np.dstack([a, alpha])[ys.min():ys.max() + 1, xs.min():xs.max() + 1] * 255).astype(np.uint8), "RGBA")
+    bike = bike.resize((round(bike.width * 540 / bike.height), 540), Image.LANCZOS).rotate(-3, expand=True,
+                                                                                       resample=Image.BICUBIC)
+    bl = layer_at(bike, (W * 0.5, H * 0.56))
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 255), (24, 30), bl.split()[3].filter(ImageFilter.GaussianBlur(14)).point(lambda p: int(p * 0.4)))
+    canvas.alpha_composite(sh)
+    canvas.alpha_composite(bl)
+    # the brand logo, white, top left; the tag, top right
+    logo = logo_png(brand_logo, 70)
+    # a soft dark patch behind the logo, so it reads over the outlined name
+    patch = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(patch).rounded_rectangle((40, 38, 100 + logo.width, 112 + logo.height - 40), radius=30,
+                                            fill=(0, 0, 0, 150))
+    canvas.alpha_composite(patch.filter(ImageFilter.GaussianBlur(16)))
+    canvas.alpha_composite(logo, (70, 60))
+    f = ImageFont.truetype(bold, 34)
+    bb = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), tag, font=f)
+    t = Image.new("RGBA", (bb[2] - bb[0] + 48, bb[3] - bb[1] + 28), (0, 0, 0, 0))
+    ImageDraw.Draw(t).rounded_rectangle((0, 0, t.width - 1, t.height - 1), radius=t.height // 2, fill=(*accent, 255))
+    ImageDraw.Draw(t).text((24 - bb[0], 14 - bb[1]), tag, font=f, fill=(20, 20, 20, 255))
+    canvas.alpha_composite(layer_at(t.rotate(12, expand=True, resample=Image.BICUBIC), (W * 0.84, H * 0.16)))
+    out = np.asarray(canvas.convert("RGB")).astype(float) + np.random.default_rng(seed).normal(0, 9, (H, W, 1))
+    os.makedirs(OUT, exist_ok=True)
+    Image.fromarray(out.clip(0, 255).astype(np.uint8)).save(os.path.join(OUT, f"{slug}.jpg"), quality=88, optimize=True,
+                                                            progressive=True)
+    return {"focus": [50, 56], "source": key, "brand": BRAND.get(key, "Giant"), "credit": CREDITS[scene[0]]}
+
+
 # The first heroes, built from the brands' studio shots (python tools/build_blog_heroes.py --studio [slug ...]).
 # slug: source, crop centre x/y and width (fractions), the beam (from, to, half-angle), its colour, and extras
 STUDIO = {
@@ -397,15 +493,17 @@ HEROES = {
 }
 
 
-# The model articles: the brand's own photo of that bike, staged by stage() in front of the article's scene.
+# The model articles: the brand's own photo of that bike as a print-run poster (print_run()), over the article's
+# landscape. stage() is the earlier, quieter take.
 MODELS = {
-    "trek-domane": dict(key="trek-domane-sl6", cx=0.5, cy=0.54, width=1.45, scene=("unsplash:nIdWCuL-61M", 0.5, 0.5, 0.88),
-                        streak=(255, 170, 90), rim=(255, 200, 150)),
-    "giant-tcr-advanced": dict(key="tcr-sl1", cx=0.5, cy=0.54, width=1.4, scene=("unsplash:ZZay7O20jgc", 0.55, 0.55, 0.95),
-                               streak=(120, 170, 255), rim=(200, 220, 255)),
-    "cannondale-topstone": dict(key="topstone-c2", cx=0.5, cy=0.54, width=1.4,
-                                scene=("unsplash:zEdh7yYIwBU", 0.45, 0.5, 0.95), streak=(190, 255, 150),
-                                rim=(230, 255, 200)),
+    "trek-domane": dict(key="trek-domane-sl6", word="DOMANE", brand_logo="trek.svg", size=300, tag="ENDURANCE",
+                        scene=("unsplash:nIdWCuL-61M", 0.5, 0.5, 0.88), ink=(255, 160, 80), accent=(255, 214, 120)),
+    "giant-tcr-advanced": dict(key="tcr-sl1", word="TCR", brand_logo="giant.svg", size=520, tag="RACE",
+                               scene=("unsplash:ZZay7O20jgc", 0.55, 0.55, 0.95), ink=(110, 180, 255),
+                               accent=(150, 255, 220)),
+    "cannondale-topstone": dict(key="topstone-c2", word="TOPSTONE", brand_logo="cannondale.svg", size=240, tag="GRAVEL",
+                                scene=("unsplash:zEdh7yYIwBU", 0.45, 0.5, 0.95), ink=(190, 240, 90),
+                                accent=(255, 150, 80)),
 }
 
 
@@ -421,7 +519,7 @@ if __name__ == "__main__":
         if only and slug not in only:
             continue
         if not studio and slug in MODELS:
-            meta[slug] = stage(slug, seed=sum(map(ord, slug)), **MODELS[slug])
+            meta[slug] = print_run(slug, seed=sum(map(ord, slug)), **MODELS[slug])
         else:
             meta[slug] = (spotlight if studio else mood)(slug, seed=sum(map(ord, slug)), **spec)
         print("built", slug)

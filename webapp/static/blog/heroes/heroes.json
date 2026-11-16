@@ -13,8 +13,8 @@
  },
  "cannondale-topstone": {
   "focus": [
-   49,
-   52
+   50,
+   56
   ],
   "source": "topstone-c2",
   "brand": "Cannondale",
@@ -27,7 +27,7 @@
  "giant-tcr-advanced": {
   "focus": [
    50,
-   53
+   56
   ],
   "source": "tcr-sl1",
   "brand": "Giant",
@@ -112,7 +112,7 @@
  "trek-domane": {
   "focus": [
    50,
-   61
+   56
   ],
   "source": "trek-domane-sl6",
   "brand": "Trek",
