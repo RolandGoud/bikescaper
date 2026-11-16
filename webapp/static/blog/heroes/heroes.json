@@ -49,26 +49,26 @@
  },
  "how-fast-bikes-lose-value": {
   "focus": [
-   56,
-   47
+   45,
+   50
   ],
-  "source": "unsplash:qPZZwQCFuZw",
+  "source": "unsplash:jSjbkyJAmIo",
   "credit": {
-   "author": "Fabien Maurin",
+   "author": "Miraxh Tereziu",
    "license": "Unsplash License",
-   "url": "https://unsplash.com/photos/a-bicycle-parked-in-a-fence-qPZZwQCFuZw?utm_source=bikecheck&utm_medium=referral"
+   "url": "https://unsplash.com/photos/a-bicycle-leans-against-a-wall-in-sunlight-jSjbkyJAmIo?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "new-prices-per-brand": {
   "focus": [
-   48,
-   52
+   47,
+   50
   ],
-  "source": "unsplash:HwL6XbH6EA0",
+  "source": "unsplash:vj4Qi9ToRXQ",
   "credit": {
-   "author": "Anne Nyg\u00e5rd",
+   "author": "Markus Spiske",
    "license": "Unsplash License",
-   "url": "https://unsplash.com/photos/bicycles-parked-in-front-of-store-HwL6XbH6EA0?utm_source=bikecheck&utm_medium=referral"
+   "url": "https://unsplash.com/photos/blue-and-white-road-bike-leaning-on-wall-vj4Qi9ToRXQ?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "reading-a-bike-ad": {
@@ -97,14 +97,14 @@
  },
  "spotting-a-stolen-bike": {
   "focus": [
-   30,
-   60
+   52,
+   38
   ],
-  "source": "unsplash:Z0RiKsv9Gks",
+  "source": "unsplash:gaeP0enIkiQ",
   "credit": {
-   "author": "Riccardo Bernucci",
+   "author": "Abdulrahman Alhaidari",
    "license": "Unsplash License",
-   "url": "https://unsplash.com/photos/a-close-up-of-a-bicycle-on-a-city-street-Z0RiKsv9Gks?utm_source=bikecheck&utm_medium=referral"
+   "url": "https://unsplash.com/photos/a-bicycle-locked-to-a-rack-by-the-water-gaeP0enIkiQ?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "trek-domane": {
@@ -133,14 +133,14 @@
  },
  "winter-bike": {
   "focus": [
-   56,
-   58
+   50,
+   55
   ],
-  "source": "unsplash:6kQ6HSeGIwE",
+  "source": "unsplash:HPpj2190tGs",
   "credit": {
-   "author": "Tanya Prodaan",
+   "author": "Alessio Soggetti",
    "license": "Unsplash License",
-   "url": "https://unsplash.com/photos/bicycle-handlebars-covered-in-snow-at-night-6kQ6HSeGIwE?utm_source=bikecheck&utm_medium=referral"
+   "url": "https://unsplash.com/photos/yellow-and-black-road-bike-HPpj2190tGs?utm_source=bikecheck&utm_medium=referral"
   }
  }
 }

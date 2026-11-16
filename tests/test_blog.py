@@ -118,8 +118,8 @@ def test_a_table_and_its_chart_share_a_toggle_with_the_chart_first():
 def test_hero_credits_and_focus(client):
     page = client.get("/blog/spotting-a-stolen-bike?lang=en").get_data(as_text=True)
     # Unsplash's attribution: the photographer and Unsplash, both linked with the referral parameters
-    assert "Riccardo Bernucci</a> on <a href=\"https://unsplash.com/?utm_source=bikecheck&amp;utm_medium=referral\"" in page
-    assert "utm_source=bikecheck" in page.split("Riccardo Bernucci")[0].rsplit("<a ", 1)[1]
+    assert "Abdulrahman Alhaidari</a> on <a href=\"https://unsplash.com/?utm_source=bikecheck&amp;utm_medium=referral\"" in page
+    assert "utm_source=bikecheck" in page.split("Abdulrahman Alhaidari")[0].rsplit("<a ", 1)[1]
     page = client.get("/blog/trek-domane?lang=nl").get_data(as_text=True)
     assert "Ben Guernsey</a> op <a" in page and "bewerkt door Bikecheck" in page
     assert "object-position" in client.get("/blog?lang=nl").get_data(as_text=True)
