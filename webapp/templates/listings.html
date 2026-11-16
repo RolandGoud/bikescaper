@@ -1,37 +1,93 @@
 {% extends "base.html" %}
-{% from "_macros.html" import listing_card, sponsored_tile, sponsored_side with context %}
+{% from "_macros.html" import listing_card, sponsored_tile, sponsored_side, photo, place_link, removed_banner, view_icon with context %}
 {% block title %}{{ _('Listings') }} · Bikecheck{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+{% endblock %}
 {% block body %}
+{# The listings in one place: every checked ad as cards or as a table (?view=table), and beside them on a wide
+   screen a small map of where they are (webapp/static/side-map.js) that opens the big map (/listings/map).
+   Narrower, the small map gives way to a floating "Map" button. #}
 <div class="side-host">
 {% if sponsored.side %}{{ sponsored_side(sponsored.side) }}{% endif %}
 <main class="wrap page">
   <div class="stack" style="gap: 8px">
-    <h1 style="font-size: 44px">{{ _('Checked listings') }}</h1>
+    <h1 style="font-size: 44px">{{ _('Listings') }}</h1>
     <p class="muted">{{ _('Every ad checked on this site.') }}</p>
   </div>
-  <div class="filters" aria-label="{{ _('Views') }}">
-    <a class="pill on" href="{{ url_for('listings') }}" aria-current="page">{{ _('One card per ad') }}</a>
-    <a class="pill" href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
-    <a class="pill" href="{{ url_for('listings_map') }}">{{ _('On the map') }}</a>
+  <div class="listings-bar">
+    <nav class="view-switch" aria-label="{{ _('Views') }}">
+      {% for key, label in [('cards', _('Cards')), ('table', _('Table'))] %}
+      <a href="{{ url_for('listings', view='table') if key == 'table' else url_for('listings') }}" class="{{ 'on' if view == key }}"{% if view == key %} aria-current="page"{% endif %}>{{ view_icon(key) }}{{ label }}</a>
+      {% endfor %}
+    </nav>
+    {% if cards %}<p class="listings-count">{{ _('{ads} ads · {checks} checks', ads=cards|length, checks=checks_count) }}</p>{% endif %}
   </div>
   {% if cards %}
-  <div class="grid listing-grid">
-    {# Ad tiles at random places (webapp/sponsored.py spots: about one per ten ads), so they don't always land
-       in the same column; never last. With fewer than four ads one goes at the end.
-       Over each card a line for the day it was checked, named over the day's first card: a day's cards and the
-       next day's share a row. static/day-rail.js joins the lines across a row and names the day again at the
-       start of a row it carries on into; a sponsored tile sits on the line of the day it's in. #}
-    {% set spots, ads = ad_spots(cards|length), namespace(n=0) %}
-    {% for (row, r), day in cards %}{% set starts = loop.first or day != loop.previtem[1] %}
-    <div class="dated{{ ' starts' if starts }}"><div class="day-rail"{{ ' aria-hidden="true"'|safe if not starts }}><span>{{ day }}</span></div>{{ listing_card(row, r) }}</div>
-    {%- if sponsored.tiles and loop.index in spots %}
-    <div class="dated"><div class="day-rail" aria-hidden="true"><span>{{ day }}</span></div>{{ sponsored_tile(sponsored.tiles[ads.n % sponsored.tiles|length]) }}</div>{% set ads.n = ads.n + 1 %}{% endif %}{% endfor %}
-    {% if cards|length < 4 and sponsored.tiles %}<div class="dated"><div class="day-rail" aria-hidden="true"><span>{{ cards[-1][1] }}</span></div>{{ sponsored_tile(sponsored.tiles[0]) }}</div>{% endif %}
+  <div class="listings-split">
+    <div class="listings-main">
+    {% if view == 'table' %}
+    {# One row per ad (its newest check); the bike opens the report, the place the big map there. #}
+    <table class="ad-table">
+      <thead><tr>
+        <th scope="col">{{ _('Bike') }}</th><th scope="col" class="num">{{ _('Asking price') }}</th><th scope="col">{{ _('Price verdict') }}</th>
+        <th scope="col" class="c-size">{{ _('Size') }}</th><th scope="col" class="c-place">{{ _('Place') }}</th>
+      </tr></thead>
+      <tbody>
+      {% for (row, r), day in cards %}
+      {% set status = r.value.status if r.model else 'unknown' %}
+      <tr>
+        <td class="c-bike"><a class="t-bike" href="{{ url_for('report', check_id=row.id) }}">
+          <span class="t-thumb">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{{ removed_banner(row) }}</span>
+          <span class="t-text">
+            <span class="t-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</span>
+            {% if r.model %}<span class="t-ad">“{{ row.title|no_brand(r.model.brand) }}”</span>{% endif %}
+          </span>
+        </a></td>
+        <td class="num c-price"><b>{{ row.asking_price|eur if row.asking_price else '–' }}</b></td>
+        <td class="c-verdict"><span class="t-verdict {{ status }}"><b class="map-dot {{ status }}"></b>{{ r.value.headline if r.model else _('No matching model yet') }}</span></td>
+        <td class="c-size">{{ r.claims.size or '–' }}</td>
+        <td class="c-place">{% if row.location %}{{ place_link(row.location, row.listing_url) }}{% else %}–{% endif %}<span class="t-day">{{ day }}{% if row.times_checked > 1 %}<span class="t-times" title="{{ _('This ad: {n}× checked', n=row.times_checked) }}">{{ row.times_checked }}×</span>{% endif %}</span></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="grid listing-grid">
+      {# Ad tiles at random places (webapp/sponsored.py spots: about one per ten ads), so they don't always land
+         in the same column; never last. With fewer than four ads one goes at the end.
+         Over each card a line for the day it was checked, named over the day's first card: a day's cards and the
+         next day's share a row. static/day-rail.js joins the lines across a row and names the day again at the
+         start of a row it carries on into; a sponsored tile sits on the line of the day it's in. #}
+      {% set spots, ads = ad_spots(cards|length), namespace(n=0) %}
+      {% for (row, r), day in cards %}{% set starts = loop.first or day != loop.previtem[1] %}
+      <div class="dated{{ ' starts' if starts }}"><div class="day-rail"{{ ' aria-hidden="true"'|safe if not starts }}><span>{{ day }}</span></div>{{ listing_card(row, r) }}</div>
+      {%- if sponsored.tiles and loop.index in spots %}
+      <div class="dated"><div class="day-rail" aria-hidden="true"><span>{{ day }}</span></div>{{ sponsored_tile(sponsored.tiles[ads.n % sponsored.tiles|length]) }}</div>{% set ads.n = ads.n + 1 %}{% endif %}{% endfor %}
+      {% if cards|length < 4 and sponsored.tiles %}<div class="dated"><div class="day-rail" aria-hidden="true"><span>{{ cards[-1][1] }}</span></div>{{ sponsored_tile(sponsored.tiles[0]) }}</div>{% endif %}
+    </div>
+    {% endif %}
+    </div>
+    <aside class="side-map" aria-label="{{ _('Map of the ads') }}">
+      <div class="side-map-head"><span>{{ _('{n} place' if pins|length == 1 else '{n} places', n=pins|length) }}</span><a href="{{ url_for('listings_map') }}">{{ _('Big map') }} →</a></div>
+      <div id="side-map" class="ads-map" data-benelux="{{ url_for('static', filename='benelux.json') }}"></div>
+      <div class="map-legend small muted">
+        <span><b class="map-dot ok"></b>{{ _('Fair price') }}</span>
+        <span><b class="map-dot warn"></b>{{ _('Too high') }}</span>
+        <span><b class="map-dot bad"></b>{{ _('Suspiciously cheap') }}</span>
+      </div>
+    </aside>
   </div>
+  <a class="map-fab" href="{{ url_for('listings_map') }}">{{ view_icon('map') }}{{ _('Map') }}</a>
   {% else %}
   <div class="card"><p>{{ _('No checks yet.') }} <a href="{{ url_for('home') }}">{{ _('Check your first listing') }}</a>.</p></div>
   {% endif %}
 </main>
 </div>
-<script src="{{ url_for('static', filename='day-rail.js') }}" defer></script>
+{% if cards %}
+<script type="application/json" id="side-map-pins">{{ pins|tojson }}</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script src="{{ url_for('static', filename='side-map.js') }}" defer></script>
+{% endif %}
+{% if view == 'cards' %}<script src="{{ url_for('static', filename='day-rail.js') }}" defer></script>{% endif %}
 {% endblock %}
