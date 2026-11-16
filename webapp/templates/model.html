@@ -245,14 +245,15 @@
       {% for group, rows in spec_tab_order(t.specs) %}
       <div class="spec-group" role="tabpanel" id="group-{{ t.year }}-{{ loop.index }}" aria-labelledby="gtab-{{ t.year }}-{{ loop.index }}"{% if not loop.first %} hidden{% endif %}>
           <table class="spec-rows{{ ' with-change' if t.changed }}">
-            {% if t.changed %}<thead><tr><th>{{ _('Part') }}</th><th>{{ _('Tier') }}</th><th></th><th>{{ _('vs. previous model') }}</th></tr></thead>{% endif %}
+            {# The header row and the change column show on every year; with no year before it to compare with, the column is left blank. #}
+            <thead><tr><th>{{ _('Part') }}</th><th>{{ _('Tier') }}</th><th></th><th>{% if t.changed %}{{ _('vs. previous model') }}{% endif %}</th></tr></thead>
             <tbody>
-            {% if t.tiers.groups[group] %}<tr class="overall"><th scope="row">{{ _('Overall tier') }}</th><td class="tier-cell">{{ tier_badge(t.tiers.groups[group]) }}</td><td>{% if rows|selectattr('0', 'in', t.tiers.rows)|list %}<span class="tier-legend"><span class="tier-same t{{ t.tiers.groups[group] }}"></span>{{ _('same tier as the group') }}</span>{% endif %}</td>{% if t.changed %}<td></td>{% endif %}</tr>{% endif %}
+            {% if t.tiers.groups[group] %}<tr class="overall"><th scope="row">{{ _('Overall tier') }}</th><td class="tier-cell">{{ tier_badge(t.tiers.groups[group]) }}</td><td>{% if rows|selectattr('0', 'in', t.tiers.rows)|list %}<span class="tier-legend"><span class="tier-same t{{ t.tiers.groups[group] }}"></span>{{ _('same tier as the group') }}</span>{% endif %}</td><td></td></tr>{% endif %}
             {% for en, nl, v in rows %}{% set move = t.moves[en] if t.moves and en in t.moves else ('same' if en in t.changed) %}
             <tr><th scope="row">{{ nl if lang == 'nl' else en }}</th>
               <td class="tier-cell">{{ part_tier(t.tiers.rows[en], t.tiers.groups[group]) }}</td>
               <td class="value">{{ v }}{{ aged_chip(t.tiers.aged[en]) }}</td>
-              {% if t.changed %}<td class="change">{% if move == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif move == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% elif move %}<span class="move same" title="{{ _('Changed on {year}, same tier', year=t.year - 1) }}">– {{ _('similar') }}</span>{% endif %}</td>{% endif %}
+              <td class="change">{% if move == 'up' %}<span class="move up" title="{{ _('Upgrade on {year}', year=t.year - 1) }}">▲ {{ _('upgrade') }}</span>{% elif move == 'down' %}<span class="move down" title="{{ _('Downgrade on {year}', year=t.year - 1) }}">▼ {{ _('downgrade') }}</span>{% elif move %}<span class="move same" title="{{ _('Changed on {year}, same tier', year=t.year - 1) }}">– {{ _('similar') }}</span>{% endif %}</td>
             </tr>
             {% endfor %}
             </tbody>
