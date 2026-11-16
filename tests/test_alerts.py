@@ -208,3 +208,12 @@ def test_family_names_as_the_brand_writes_them(conn):
     assert names["TCR Advanced 0"] == "Giant TCR"
     assert names["S5 Dura-Ace Di2"] == "Cervelo S5"
     assert names["S-Works Venge"] == "Specialized Venge"
+
+
+def test_one_search_per_line_without_accents(conn):
+    emonda = [m for m in db.all_models(conn) if m["name"].startswith("Émonda")][:2]
+    for m in emonda:
+        confirmed(conn, m, scope="family")
+    searched = []
+    alerts.run(conn, search=lambda q, site: searched.append(q) or [], send=lambda *a, **kw: None, pause=0)
+    assert searched == ["Trek Emonda"] * len(alerts.SITES)

@@ -21,6 +21,7 @@ all of it; an alert not confirmed within UNCONFIRMED_DAYS is deleted too.
     python -m webapp.alerts      # one pass by hand (also when the daily checks are off)
 """
 import secrets
+import unicodedata
 import sys
 import time
 
@@ -37,6 +38,12 @@ SITES = (daily_checks.MARKTPLAATS, daily_checks.TWEEDEHANDS)
 def family_label(model):
     """"Trek Domane" for any Domane build: how the form and the mail name the family, and what the alert searches."""
     return f"{model['brand']} {checks.model_line(model['name'])}"
+
+
+def search_query(model):
+    """What the alert searches for a line: "Trek Emonda", without accents, as the daily checks search it."""
+    text = unicodedata.normalize("NFKD", family_label(model))
+    return "".join(c for c in text if not unicodedata.combining(c))
 
 
 def same_line(a, b):
@@ -214,10 +221,12 @@ def run(conn, search=daily_checks.search, send=mail.send, pause=daily_checks.PAU
     for alert in alerts:
         model = by_id.get(alert["model_id"])
         if model is not None:
-            families.setdefault(family_label(model), []).append((alert, model))
+            # one search per line, however the catalogue spells it ("CruX", "Crux")
+            line = (model["brand"].lower(), checks.line_key(checks.model_line(model["name"])))
+            families.setdefault(line, (search_query(model), []))[1].append((alert, model))
     sent = 0
     first = True
-    for family, watching in families.items():
+    for family, watching in families.values():
         ads = []
         for site in SITES:
             if not first and pause:
