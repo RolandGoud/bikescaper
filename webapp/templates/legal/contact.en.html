@@ -1,0 +1,22 @@
+{% extends "legal/_layout.html" %}
+{% block heading %}Contact{% endblock %}
+{% block content %}
+<section class="card">
+  {% if contact %}
+  <p>Email us. We read everything and usually reply within a few days.</p>
+  <a class="mail-big" href="mailto:{{ contact }}">{{ contact }}</a>
+  {% else %}
+  <p>The contact address hasn't been set up yet. Please try again later.</p>
+  {% endif %}
+</section>
+<section class="card">
+  <h2>What you can email us about</h2>
+  <ul>
+    <li><b>A check is wrong.</b> Wrong model, year, groupset or size recognised? Send the check's link and we'll correct it.</li>
+    <li><b>Your ad is on the site.</b> Are you the seller and want it off? Send the link and we'll take it down.</li>
+    <li><b>Your data.</b> See, correct or delete it; see the <a href="{{ url_for('privacy') }}">privacy statement</a>.</li>
+    <li><b>A brand or model is missing</b>, or you have an idea for the site.</li>
+    <li><b>Advertising or partnerships</b>; see also <a href="{{ url_for('affiliate') }}">affiliate links</a>.</li>
+  </ul>
+</section>
+{% endblock %}

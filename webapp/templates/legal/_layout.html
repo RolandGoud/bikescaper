@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{# The privacy statement, contact page and affiliate disclosure (app.py legal_page): one template per
+   language extends this, so the three share a title row and the switch between them. #}
+{% block title %}{% block heading %}{% endblock %} · Bikecheck{% endblock %}
+{% block body %}
+<main class="wrap page legal" style="max-width: 860px">
+  <nav class="legal-tabs" aria-label="{{ _('About this site') }}">
+    {% for key, endpoint, label in [("privacy", "privacy", _("Privacy")), ("contact", "contact", _("Contact")), ("affiliate", "affiliate", _("Affiliate links"))] %}
+    <a href="{{ url_for(endpoint) }}" class="{{ 'on' if page == key }}"{% if page == key %} aria-current="page"{% endif %}>{{ label }}</a>
+    {% endfor %}
+  </nav>
+  <h1 style="font-size: 44px">{{ self.heading() }}</h1>
+  {% if page != "contact" %}<p class="muted legal-date">{{ _('Last updated {date}', date=updated) }}</p>{% endif %}
+  {% block content %}{% endblock %}
+</main>
+{% endblock %}
