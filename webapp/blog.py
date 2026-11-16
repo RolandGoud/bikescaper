@@ -25,6 +25,8 @@ from datetime import date
 
 from markupsafe import Markup, escape
 
+from webapp.reference import FIRST_YEAR  # the catalogue's first model year: the value curve goes no further back
+
 FOLDER = os.path.join(os.path.dirname(__file__), "blog")
 # The four kinds of article, in the order of the filter on /blog. English is the key, translated in i18n.NL.
 CATEGORIES = {"market": "Market data", "guides": "Buying guides", "models": "Model deep-dives", "seasonal": "Seasonal"}
@@ -202,7 +204,7 @@ def live_controls(name, lang):
     return ('<div class="blog-live-inputs">'
             f'<label>{w["new"]}<span class="blog-live-field"><span>€</span><input type="number" name="new" value="5000" '
             'min="100" max="30000" step="50" inputmode="numeric"></span></label>'
-            f'<label>{w["age"]}<span class="blog-live-field"><input type="number" name="age" value="4" min="0" max="15" '
+            f'<label>{w["age"]}<span class="blog-live-field"><input type="number" name="age" value="4" min="0" max="{date.today().year - FIRST_YEAR}" '
             f'step="1" inputmode="numeric"><span>{w["years"]}</span></span></label>'
             f'<label>{w["condition"]}<select name="condition">{conditions}</select></label></div>')
 
