@@ -141,7 +141,12 @@
       box_.type = "checkbox"; box_.checked = true;
       lab.style.setProperty("--c", COLOURS[k % COLOURS.length]);
       lab.appendChild(box_);
-      lab.appendChild(document.createTextNode(s.label));
+      if (s.html) {  // brand and groupset logos, built by tools/build_blog_charts.py from webapp/blog.py with_logos
+        var name = document.createElement("span");
+        name.innerHTML = s.html;
+        name.setAttribute("aria-label", s.label);
+        lab.appendChild(name);
+      } else lab.appendChild(document.createTextNode(s.label));
       box_.addEventListener("change", function () {
         on[k] = box_.checked;
         if (!on.some(Boolean)) { on[k] = box_.checked = true; lab.title = w.keep; }
@@ -204,8 +209,61 @@
     draw();
   }
 
+  // Where an asking price lands: the reader's price as a marker on the verdict zones.
+  function priceZones(fig) {
+    var lang = fig.dataset.lang === "en" ? "en" : "nl";
+    var svg = fig.querySelector("svg[data-series]"), input = fig.querySelector("[name=asking]");
+    if (!svg || !input) return;
+    var d = JSON.parse(svg.getAttribute("data-series"));
+    var mark = el("g", {"class": "zone-mark"});
+    svg.appendChild(mark);
+    function draw() {
+      var v = Math.max(0, Math.min(d.vmax, parseFloat(input.value) || 0));
+      var x = d.x0 + (d.x1 - d.x0) * v / d.vmax, zone = d.zones.filter(function (z) { return v >= z[0] && v < z[1]; })[0] || d.zones[d.zones.length - 1];
+      mark.replaceChildren(
+        el("line", {x1: x, y1: d.y - 4, x2: x, y2: d.y + 38, "class": "pick-line"}),
+        el("path", {d: "M" + (x - 8) + "," + (d.y + 46) + " L" + (x + 8) + "," + (d.y + 46) + " L" + x + "," + (d.y + 36) + "Z", "class": "pick-plate"}));
+      var tag = label(Math.max(d.x0 + 4, Math.min(d.x1 - 4, x)), d.y + 100, eur(v, lang) + ": " + zone[2],
+        "pick-val", x < d.x0 + 120 ? "start" : x > d.x1 - 120 ? "end" : "middle");
+      mark.appendChild(tag);
+      try {
+        var bb = tag.getBBox();
+        mark.insertBefore(el("rect", {x: bb.x - 6, y: bb.y - 3, width: bb.width + 12, height: bb.height + 6, rx: 6, "class": "pick-plate"}), tag);
+      } catch (e) { /* not rendered */ }
+    }
+    input.addEventListener("input", draw);
+    draw();
+  }
+
+  // Winter bikes: the fair range after the reader's number of years.
+  function winterValues(fig) {
+    var svg = fig.querySelector("svg[data-series]"), input = fig.querySelector("[name=age]");
+    if (!svg || !input) return;
+    var d = JSON.parse(svg.getAttribute("data-series")), lang = fig.dataset.lang === "en" ? "en" : "nl";
+    var sx = function (v) { return d.x0 + (d.x1 - d.x0) * v / d.vmax; };
+    function draw() {
+      var age = Math.max(1, Math.min(10, Math.round(parseFloat(input.value) || 4))), f = factor(age, "");
+      svg.querySelectorAll("rect.band-bar[data-new]").forEach(function (r) {
+        var p = parseFloat(r.dataset.new), lo = Math.round(p * f * 0.9 / 10) * 10, hi = Math.round(p * f * 1.1 / 10) * 10;
+        r.setAttribute("x", sx(lo).toFixed(1));
+        r.setAttribute("width", (sx(hi) - sx(lo)).toFixed(1));
+        var tip = r.querySelector("title");
+        if (tip) tip.textContent = eur(lo, lang) + " – " + eur(hi, lang);
+      });
+      svg.querySelectorAll("line.stem[data-new]").forEach(function (l) {
+        l.setAttribute("x1", sx(Math.round(parseFloat(l.dataset.new) * f * 1.1 / 10) * 10).toFixed(1));
+      });
+      svg.querySelectorAll("[data-tpl]").forEach(function (t) { t.textContent = fill(t.dataset.tpl, {n: age}); });
+    }
+    input.addEventListener("input", draw);
+    draw();
+  }
+
   document.querySelectorAll(".blog-live").forEach(function (fig) {
-    if (fig.dataset.live === "value-curve") valueCurve(fig);
+    var kind = fig.dataset.live;
+    if (kind === "value-curve") valueCurve(fig);
+    else if (kind === "price-zones") priceZones(fig);
+    else if (kind === "winter-values") winterValues(fig);
     else priceYears(fig);
   });
 })();

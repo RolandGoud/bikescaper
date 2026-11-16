@@ -131,7 +131,7 @@ def logo(rel, name, height):
             f'style="--logo: url(\'/static/{rel}\'); width: {width}px; height: {height}px"></span>')
 
 
-def with_logos(text):
+def with_logos(text, brand_height=16, series_height=13):
     """A table cell's brand and groupset names as their logos where the site has them: "Shimano 105 Di2" becomes
     the Shimano logo, the 105 logo and "Di2"; "Claris, Sora" both logos; "GRX 825 Di2" the GRX 800 logo and "Di2".
     None when nothing in the cell has a logo, so it stays plain text."""
@@ -140,14 +140,14 @@ def with_logos(text):
         out, rest = [], piece
         for brand, file in BRAND_FILES.items():
             if rest == brand or rest.startswith(brand + " "):
-                out.append(logo(f"logos/{file}.svg", brand, 16))
+                out.append(logo(f"logos/{file}.svg", brand, brand_height))
                 rest = rest[len(brand):].strip()
                 break
         m = SERIES.match(rest)
         if m:
             name = m.group(0)
             file = SERIES_FILES[m.group(1)] if m.group(1) else f"grx-{m.group(2)}00"
-            out.append(logo(f"logos/groupsets/{file}.svg", name, 13))
+            out.append(logo(f"logos/groupsets/{file}.svg", name, series_height))
             rest = rest[m.end():].strip()
         out = [o for o in out if o]
         found = found or bool(out)
@@ -176,17 +176,25 @@ def _cells(line):
 
 WORDS = {"nl": {"chart": "Grafiek", "table": "Tabel", "show": "Toon als", "new": "Nieuwprijs", "age": "Leeftijd",
                 "years": "jaar", "condition": "Staat", "normal": "Normaal gebruik", "like-new": "Als nieuw",
-                "used": "Gebruikt", "damaged": "Beschadigd"},
+                "used": "Gebruikt", "damaged": "Beschadigd", "asking": "Vraagprijs"},
          "en": {"chart": "Chart", "table": "Table", "show": "Show as", "new": "New price", "age": "Age",
                 "years": "years", "condition": "Condition", "normal": "Normal use", "like-new": "Like new",
-                "used": "Used", "damaged": "Damaged"}}
+                "used": "Used", "damaged": "Damaged", "asking": "Asking price"}}
 # Charts you can play with: the reader's own numbers redraw them in the page (static/blog.js).
-LIVE = {"value-curve", "price-rises", "tcr-rises", "topstone-falls", "domane-sl6-gen3"}
+LIVE = {"value-curve", "price-rises", "tcr-rises", "topstone-falls", "domane-sl6-gen3", "price-zones", "winter-values"}
 
 
 def live_controls(name, lang):
     """The inputs above a live chart. The value curve: new price, age and condition, as on /value."""
     w = WORDS.get(lang, WORDS["en"])
+    if name == "price-zones":
+        return ('<div class="blog-live-inputs">'
+                f'<label>{w["asking"]}<span class="blog-live-field"><span>€</span><input type="number" name="asking" value="1400" '
+                'min="0" max="2600" step="10" inputmode="numeric"></span></label></div>')
+    if name == "winter-values":
+        return ('<div class="blog-live-inputs">'
+                f'<label>{w["age"]}<span class="blog-live-field"><input type="number" name="age" value="4" min="1" max="10" '
+                f'step="1" inputmode="numeric"><span>{w["years"]}</span></span></label></div>')
     if name != "value-curve":
         return ""
     conditions = "".join(f'<option value="{k}"{" selected" if k == "" else ""}>{w[k or "normal"]}</option>'
