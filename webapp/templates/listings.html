@@ -29,6 +29,7 @@
     {% if view == 'table' %}
     {# One row per ad (its newest check); the bike opens the report, the place the big map there. #}
     <table class="ad-table">
+      <colgroup><col><col class="w-price"><col class="w-verdict"><col class="w-size"><col class="w-place"></colgroup>
       <thead><tr>
         <th scope="col">{{ _('Bike') }}</th><th scope="col" class="num">{{ _('Asking price') }}</th><th scope="col">{{ _('Price verdict') }}</th>
         <th scope="col" class="c-size">{{ _('Size') }}</th><th scope="col" class="c-place">{{ _('Place') }}</th>
@@ -38,14 +39,13 @@
       {% set status = r.value.status if r.model else 'unknown' %}
       <tr>
         <td class="c-bike"><a class="t-bike" href="{{ url_for('report', check_id=row.id) }}">
-          <span class="t-thumb">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{{ removed_banner(row) }}</span>
+          <span class="t-thumb{{ '' if row.photos else ' catalogue' }}">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{{ removed_banner(row) }}</span>
           <span class="t-text">
-            <span class="t-name">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</span>
-            {% if r.model %}<span class="t-ad">“{{ row.title|no_brand(r.model.brand) }}”</span>{% endif %}
+            <span class="t-name"{% if r.model %} title="“{{ row.title }}”"{% endif %}>{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</span>
           </span>
         </a></td>
         <td class="num c-price"><b>{{ row.asking_price|eur if row.asking_price else '–' }}</b></td>
-        <td class="c-verdict"><span class="t-verdict {{ status }}"><b class="map-dot {{ status }}"></b>{{ r.value.headline if r.model else _('No matching model yet') }}</span></td>
+        <td class="c-verdict" title="{{ r.value.headline if r.model else _('No matching model yet') }}"><span class="t-verdict {{ status }}"><b class="map-dot {{ status }}"></b>{{ r.value.headline if r.model else _('No matching model yet') }}</span></td>
         <td class="c-size">{{ r.claims.size or '–' }}</td>
         <td class="c-place">{% if row.location %}{{ place_link(row.location, row.listing_url) }}{% else %}–{% endif %}<span class="t-day">{{ day }}{% if row.times_checked > 1 %}<span class="t-times" title="{{ _('This ad: {n}× checked', n=row.times_checked) }}">{{ row.times_checked }}×</span>{% endif %}</span></td>
       </tr>
