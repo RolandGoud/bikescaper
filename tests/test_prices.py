@@ -97,6 +97,25 @@ def test_model_page_lists_matched_ads_also_removed_ones(app):
     assert "Matched to 2 ads" in models_page
 
 
+def test_model_page_puts_expired_ads_last(app):
+    conn = db.connect(app.config["DB_PATH"])
+    rows = [  # (id, placed, price, removed_at, gone_reason): newest first would be 4, 3, 2, 1
+        (1, "2026-11-01 10:00:00", 1100, None, None),
+        (2, "2026-11-02 10:00:00", 1200, "2026-11-10 08:00:00", "removed"),
+        (3, "2026-11-03 10:00:00", 1300, "2026-11-10 08:00:00", "expired"),
+        (4, "2026-11-04 10:00:00", 1400, None, None),
+    ]
+    for i, made, price, removed, why in rows:
+        conn.execute("INSERT INTO checks (id, listing_url, title, asking_price, created_at, removed_at, gone_reason) "
+                     "VALUES (?,?,?,?,?,?,?)", (i, f"https://www.marktplaats.nl/v/x/y/m210000000{i}-trek",
+                                                "Trek Domane SL 6 Gen 4", price, made, removed, why))
+    conn.commit()
+    page = app.test_client().get(f"/models/{DOMANE}?lang=nl").data.decode()
+    ids = [int(part.split('href="/check/', 1)[1].split('"', 1)[0]) for part in page.split('<a class="ad-tile"')[1:]]
+    assert ids == [4, 2, 1, 3]  # newest first, the expired one ("Verlopen") at the bottom
+    assert "Verlopen" in page
+
+
 def test_report_alone_says_no_other_ads(app):
     add_checks(app, [(1, 2000)])
     client = app.test_client()

@@ -39,6 +39,11 @@ def reason(posted_at, last_seen_live, found_gone):
     return "removed"
 
 
+def expired(row):
+    """True for an ad that went off the site because its run ended, the ones shown as "Expired"."""
+    return bool(row["removed_at"]) and row["gone_reason"] == "expired"
+
+
 def label(row):
     """How a gone ad is shown, or None while it's up:
     {"kind": "expired" | "removed" | "gone", "short", "text", "tip"}, translated for the page."""
