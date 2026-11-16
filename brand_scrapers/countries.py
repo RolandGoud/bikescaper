@@ -373,7 +373,10 @@ def tidy_specs(specs):
     out = {}
     for label, value in specs.items():
         label = LABELS.get(label, label)
-        if label in SPEC_LABELS and label not in out:
+        if label == "Gewicht":  # the number and size only: other sites follow it with a paragraph of footnote
+            from webapp.checks import weight_short
+            value = weight_short(value)
+        if value and label in SPEC_LABELS and label not in out:
             out[label] = value
     return out
 

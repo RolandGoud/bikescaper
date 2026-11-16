@@ -1181,8 +1181,40 @@ def sheet_year(model):
 
 
 def weight_kg(text):
-    m = re.search(r"(\d+(?:[.,]\d+)?)\s*kg", text or "")
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*kg", text or "", re.I)
     return float(m.group(1).replace(",", ".")) if m else None
+
+
+# The frame size a weight is given for: "Size 54", "en taille M", "maat 56", "taglia M", "Größe L", or Trek's
+# "56 cm - 8.06 kg"
+_WEIGHT_SIZE = re.compile(r"\b(?:size|maat|taille|taglia|gr(?:ö|oe)(?:ss|ß)e|talla|storlek|str\.?)\s*:?\s*"
+                          r"([2-4]?X{0,3}[SML](?:/[SML])?|\d{2}(?:\.5)?)(?:\s*cm)?\b|^\s*(\d{2}(?:\.5)?)\s*cm\s*[-–]"
+                          r"|kg\s*\(\s*([2-4]?X{0,3}[SML]|\d{2})\s*\)", re.I)
+
+
+def weight_short(text, lang="nl"):
+    """A spec sheet's weight as the model page's tile shows it: the number and the size it is for, "8,5 kg (M)",
+    without the brands' footnotes ("*Poids basés sur les cadres peints...", "as pictured with all accessories").
+    Grams under 3 kg stay grams (a frame). None when the text gives no weight (Giant's "The most accurate way to
+    determine any bike's weight is to have your local dealer weigh it")."""
+    text = text or ""
+    kg = weight_kg(text)
+    m = re.search(r"(\d{3,5})\s*g(?:r|ram)?\b", text) if kg is None else None
+    if kg is None and m:
+        grams = int(m.group(1))
+        kg = grams / 1000 if grams >= 3000 else None
+        if kg is None:
+            shown = f"{grams} g"
+    if kg is None and not m:
+        return None
+    if kg is not None:
+        if not 0.5 <= kg <= 40:
+            return None
+        number = f"{kg:.2f}".rstrip("0").rstrip(".") if kg != int(kg) else f"{kg:.0f}"
+        shown = (number.replace(".", ",") if lang == "nl" else number) + " kg"
+    size = _WEIGHT_SIZE.search(text)
+    size = size and (size.group(1) or size.group(2) or size.group(3))
+    return f"{shown} ({size.upper()})" if size else shown
 
 
 def weight_tier(model, text):
