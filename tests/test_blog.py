@@ -165,3 +165,9 @@ def test_charts_show_logos_and_the_live_ones_have_their_inputs():
     winter = blog.render("![](chart:winter-values)", "en")
     assert 'data-live="winter-values"' in winter and 'name="age"' in winter and "data-tpl=" in winter
     assert "logos/canyon.svg" in blog.render("![](chart:price-rises)", "en")  # the bike picks
+
+
+def test_the_value_curve_goes_back_no_further_than_the_catalogue():
+    from webapp.reference import FIRST_YEAR
+    html = blog.render("![](chart:value-curve)", "nl")
+    assert f'name="age" value="4" min="0" max="{date.today().year - FIRST_YEAR}"' in html

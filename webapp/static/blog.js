@@ -3,15 +3,16 @@
 (function () {
   "use strict";
   var W = 720, NS = "http://www.w3.org/2000/svg";
+  var FIRST_YEAR = 2018;  // webapp/reference.py: the catalogue's first model year
   var COLOURS = ["#34D399", "#7AB8FF", "#F2C27A", "#E7A0F0"];
   var WORDS = {
-    nl: {title: "Waarde van een fiets van {p} nieuw", normal: "normaal gebruik", "like-new": "als nieuw", used: "gebruikt",
-         damaged: "beschadigd", axis: "jaar oud · de band is de eerlijke prijs (±10%)", newprice: "nieuwprijs",
-         pick: "{n} jaar: {lo} – {hi}", pick1: "1 jaar: {lo} – {hi}", pick0: "Dit jaar: {lo} – {hi}",
+    nl: {title: "Waarde van een fiets uit {y} van {p} nieuw", normal: "normaal gebruik", "like-new": "als nieuw", used: "gebruikt",
+         damaged: "beschadigd", axis: "modeljaar · de band is de eerlijke prijs (±10%)", newprice: "nieuwprijs {y}",
+         pick: "{y}, {n} jaar oud: {lo} – {hi}", pick1: "{y}, 1 jaar oud: {lo} – {hi}", pick0: "{y}, nieuw dit jaar: {lo} – {hi}",
          show: "Toon", keep: "Minstens één fiets blijft zichtbaar"},
-    en: {title: "Value of a bike that cost {p} new", normal: "normal use", "like-new": "like new", used: "used",
-         damaged: "damaged", axis: "years old · the band is the fair price (±10%)", newprice: "new price",
-         pick: "{n} years: {lo} – {hi}", pick1: "1 year: {lo} – {hi}", pick0: "This year: {lo} – {hi}",
+    en: {title: "Value of a {y} bike that cost {p} new", normal: "normal use", "like-new": "like new", used: "used",
+         damaged: "damaged", axis: "model year · the band is the fair price (±10%)", newprice: "new price {y}",
+         pick: "{y}, {n} years old: {lo} – {hi}", pick1: "{y}, 1 year old: {lo} – {hi}", pick0: "{y}, new this year: {lo} – {hi}",
          show: "Show", keep: "At least one bike stays visible"}
   };
   // webapp/checks.py check_value: 80% this year, then 75% and 12% off each further year; condition on top;
@@ -59,13 +60,19 @@
       return isFinite(v) ? Math.min(hi, Math.max(lo, v)) : dflt;
     }
     function draw() {
-      var price = num("new", 100, 30000, 5000), age = Math.round(num("age", 0, 15, 4));
-      var condition = inputs.querySelector("[name=condition]").value;
-      var last = Math.max(10, age), x0 = 70, x1 = W - 30, y0 = 40, y1 = 300;
+      // The bike is `age` years old: year 0 is its model year, the last year is now. The catalogue starts at
+      // FIRST_YEAR, so the age goes no higher than this year minus that.
+      var now = new Date().getFullYear(), maxAge = Math.max(0, now - FIRST_YEAR);
+      var ageInput = inputs.querySelector("[name=age]");
+      ageInput.max = maxAge;
+      if (parseFloat(ageInput.value) > maxAge) ageInput.value = maxAge;
+      var price = num("new", 100, 30000, 5000), age = Math.round(num("age", 0, maxAge, Math.min(4, maxAge)));
+      var condition = inputs.querySelector("[name=condition]").value, model = now - age;
+      var last = age, x0 = 70, x1 = W - 30, y0 = 40, y1 = 300;
       var scale = niceMax(price * Math.max(1, factor(0, condition) * 1.1));
-      var sx = function (a) { return x0 + (x1 - x0) * a / last; };
+      var sx = function (a) { return last ? x0 + (x1 - x0) * a / last : (x0 + x1) / 2; };  // a new bike: one point
       var sy = function (v) { return y1 - (y1 - y0) * v / scale.max; };
-      var title = fill(w.title, {p: eur(price, lang)}) + ", " + w[condition || "normal"];
+      var title = fill(w.title, {p: eur(price, lang), y: model}) + ", " + w[condition || "normal"];
       var svg = canvas(y1 + 46, title);
       svg.appendChild(label(x0, 18, title, "cap"));
       for (var v = 0; v <= scale.max; v += scale.step) {
@@ -78,14 +85,15 @@
         .concat(pts.slice().reverse().map(function (p) { return sx(p[0]).toFixed(1) + "," + sy(p[1] * 0.9).toFixed(1); }));
       svg.appendChild(el("polygon", {points: band.join(" "), "class": "band"}));
       svg.appendChild(el("line", {x1: x0, y1: sy(price), x2: x1, y2: sy(price), "class": "ref"}));
-      svg.appendChild(label(x1, sy(price) - 6, w.newprice, "tick", "end"));
+      svg.appendChild(label(x1, sy(price) - 6, fill(w.newprice, {y: model}), "tick", "end"));
       svg.appendChild(el("polyline", {points: pts.map(function (p) { return sx(p[0]).toFixed(1) + "," + sy(p[1]).toFixed(1); }).join(" "), "class": "line"}));
-      var every = last > 10 ? 3 : 2;
+      var every = last > 5 ? 2 : 1;
       pts.forEach(function (p) {
         svg.appendChild(el("circle", {cx: sx(p[0]), cy: sy(p[1]), r: 4, "class": "dot"}));
-        if (p[0] % every === 0 && Math.abs(p[0] - age) > 2)
+        // a value label where it doesn't crowd the reader's own point (the highlighted one, at the right)
+        if (p[0] % every === 0 && sx(age) - sx(p[0]) > 190)
           svg.appendChild(label(sx(p[0]) + (p[0] === 0 ? -4 : 0), sy(p[1]) - 12, eur(Math.round(p[1] / 10) * 10, lang), "val", p[0] === 0 ? "start" : "middle"));
-        if (last <= 10 || p[0] % 1 === 0) svg.appendChild(label(sx(p[0]), y1 + 18, String(p[0]), "tick", "middle"));
+        svg.appendChild(label(sx(p[0]), y1 + 18, String(model + p[0]), "tick", "middle"));
       });
       // the reader's bike: a guide line, a big dot and the fair range
       var mid = price * factor(age, condition), lo = Math.round(mid * 0.9 / 10) * 10, hi = Math.round(mid * 1.1 / 10) * 10;
@@ -93,8 +101,12 @@
       svg.appendChild(el("line", {x1: px, y1: py, x2: px, y2: y1, "class": "pick-line"}));
       svg.appendChild(el("line", {x1: px, y1: sy(mid * 1.1), x2: px, y2: sy(mid * 0.9), "class": "pick-range"}));
       svg.appendChild(el("circle", {cx: px, cy: py, r: 8, "class": "pick-dot"}));
-      var text = fill(age === 0 ? w.pick0 : age === 1 ? w.pick1 : w.pick, {n: age, lo: eur(lo, lang), hi: eur(hi, lang)});
-      var right = px > (x0 + x1) / 2, tx = right ? px - 14 : px + 14, ty = Math.max(y0 + 6, sy(mid * 1.1) - 10);
+      var text = fill(age === 0 ? w.pick0 : age === 1 ? w.pick1 : w.pick, {n: age, y: now, lo: eur(lo, lang), hi: eur(hi, lang)});
+      // the label sits left of the point, so it goes above the band over the whole width it covers (the curve
+      // rises to the left)
+      var right = px > (x0 + x1) / 2 + 1, tx = right ? px - 14 : px + 14;
+      var reach = right && last ? Math.max(0, Math.floor(age - 340 / ((x1 - x0) / last))) : age;
+      var ty = Math.max(y0 + 6, sy(price * factor(reach, condition) * 1.1) - 12);
       var tag = label(tx, ty, text, "pick-val", right ? "end" : "start");
       svg.appendChild(tag);
       svg.appendChild(label((x0 + x1) / 2, y1 + 38, w.axis, "tick", "middle"));
