@@ -13,13 +13,12 @@ De groepset is het handigste houvast in een advertentie. Fabrikanten bouwen hun 
 
 | Niveau | Shimano | SRAM | Typisch frame |
 |---|---|---|---|
-| 1 · Basis | Claris, Sora | | aluminium of staal |
-| 2 · Instap | Tiagra, CUES | Apex | aluminium |
-| 3 · Midden | 105 | Rival | instap-carbon |
-| 4 · Performance | Ultegra | Force | performance-carbon |
-| 5 · Top | Dura-Ace | Red | het topcarbon van het merk |
+| {tier:1} | Claris, Sora | | aluminium of staal |
+| {tier:2} | Tiagra, CUES | Apex | aluminium |
+| {tier:3} | 105 | Rival | instap-carbon |
+| {tier:4} | Ultegra | Force | performance-carbon |
+| {tier:5} | Dura-Ace | Red | het topcarbon van het merk |
 
-![](chart:tier-ladder)
 
 Voor gravelfietsen gebruikt Shimano GRX, met eigen nummers (400, 600, 800) die ongeveer naast Tiagra, 105 en Ultegra staan. Een **Di2** (Shimano) of **AXS** (SRAM) achter de naam betekent elektronisch schakelen.
 
