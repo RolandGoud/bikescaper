@@ -577,13 +577,15 @@ def add_other_scrapes(conn):
 def add_archived(conn):
     """Add the lines the brands no longer sell (data/years/archived/<Brand>.json, brand_scrapers/history.py
     --archived): Émonda SLR, Defy Advanced SL; then those only Mantel's old pages list (data/years/mantel/lines/,
-    brand_scrapers/mantel.py) and the UK shops' (data/years/uk/lines/, brand_scrapers/uk.py). Existing rows are left alone, so saved checks keep their matches."""
+    brand_scrapers/mantel.py) and the UK shops' (data/years/uk/lines/, brand_scrapers/uk.py), and the bikes only the
+    brands' other country sites sell (data/years/countries/, brand_scrapers/countries.py). Existing rows are left alone, so saved checks keep their matches."""
     count = 0
     have = {r[0] for r in conn.execute("SELECT slug FROM models")}
     for path in sorted(glob.glob(os.path.join(ROOT, "data", "years", "archived", "*.json"))
                        + glob.glob(os.path.join(ROOT, "data", "years", "brandsites", "lines", "*.json"))
                        + glob.glob(os.path.join(ROOT, "data", "years", "mantel", "lines", "*.json"))
-                       + glob.glob(os.path.join(ROOT, "data", "years", "uk", "lines", "*.json"))):
+                       + glob.glob(os.path.join(ROOT, "data", "years", "uk", "lines", "*.json"))
+                       + glob.glob(os.path.join(ROOT, "data", "years", "countries", "*.json"))):
         brand = os.path.splitext(os.path.basename(path))[0]
         try:
             with open(path, encoding="utf-8") as fh:

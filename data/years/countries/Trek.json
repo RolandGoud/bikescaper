@@ -1,0 +1,52 @@
+[
+ {
+  "name": "Domane SL 4 Gen 5",
+  "brand": "Trek",
+  "url": "https://www.trekbikes.com/us/en_US/bikes/road-bikes/performance-road-bikes/domane/f/F221/domane-sl-4-gen-5/79845/",
+  "sku": "79845",
+  "price": null,
+  "category": "Performance road bikes",
+  "model_year": 2027,
+  "specifications": {
+   "Ketting": "Shimano LG500, 9/10/11 speed",
+   "Frame": "500 Series OCLV Carbon, internal cable routing, integrated frame bag mounts, T47, integrated chain keeper, fender mounts, flat mount disc, UDH 142x12mm thru axle",
+   "Voorvork": "Domane SL carbon, tapered carbon steerer, internal brake routing, fender mounts, flat mount disc, carbon dropouts, 12x100mm thru axle",
+   "Balhoofdstel": "Bontrager Headset Expander Plug and Top Cap",
+   "Naaf voor": "Formula RX-512 alloy, 6-bolt, 100x12mm thru axle",
+   "Crankstel": "Shimano Tiagra R4000, 50/34, 165mm length",
+   "Stuurpen": "Bontrager Elite, 31.8mm, Blendr compatible, 7 degree, 120mm length",
+   "Stuur": "Bontrager Comp Riser, alloy, 20mm rise, 31.8, 70mm reach, 36cm width",
+   "Zadel": "Verse Short, steel rails, 145mm width",
+   "Achterderailleur": "Shimano Tiagra R4000",
+   "Zadelpen": "Bontrager carbon, 27.2mm, 8mm offset, 330mm length",
+   "Cassette": "Shimano RS400, 11-36, 11 speed",
+   "Bottom bracket": "Praxis, T47 threaded, internal bearing",
+   "Stuurlint": "Trek gel cork",
+   "Voorderailleur": "Shimano Tiagra R4000, braze-on, down swing",
+   "Remschijf": "Tektro TR160, 6-bolt, 160mm",
+   "Shifter": "Shimano Tiagra R4020",
+   "As voorwiel": "Bontrager Switch chamfered thru axle",
+   "As achterwiel": "Bontrager Switch chamfered thru axle",
+   "Naaf achter": "Formula RX-142 alloy, 6-bolt, Shimano 11-speed freehub, 142x12mm thru axle",
+   "Buitenband": "Bontrager Kwaremont Comp, Hard-Case Lite, wire bead, 60 tpi, 700x32mm",
+   "Velg": "Bontrager Paradigm 23, Tubeless Ready, 24-hole, 23mm width, Presta valve"
+  },
+  "color_names": [
+   "Matte Deep Smoke",
+   "Matte Nightshade"
+  ],
+  "image_url": "https://media.trekbikes.com/image/upload/f_png,w_1200/DomaneSL4-27-79845-A-Primary",
+  "color_image_urls": [
+   "https://media.trekbikes.com/image/upload/f_png,w_1200/DomaneSL4-27-79845-A-Primary",
+   "https://media.trekbikes.com/image/upload/f_png,w_1200/DomaneSL4-27-79845-C-Primary"
+  ],
+  "country": "us",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Trek/Domane_SL_4_Gen_5.jpg",
+  "color_images": [
+   "Trek/Domane_SL_4_Gen_5_colour_Matte_Deep_Smoke.jpg",
+   "Trek/Domane_SL_4_Gen_5_colour_Matte_Nightshade.jpg"
+  ]
+ }
+]
