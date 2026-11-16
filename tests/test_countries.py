@@ -55,3 +55,24 @@ def test_seed_adds_the_country_bikes(tmp_path):
     seed.add_archived(conn)
     row = conn.execute("SELECT price_eur, url, specs FROM models WHERE brand = 'Trek' AND name = 'Domane SL 4 Gen 5'").fetchone()
     assert row is not None and row[0] is None and "/us/" in row[1] and json.loads(row[2])["Frame"]
+
+
+def test_weight_tile_shows_only_the_number_and_size():
+    from webapp.checks import weight_short
+    assert weight_short("8,5 kg* (en taille M) *Poids basés sur les cadres peints en production") == "8,5 kg (M)"
+    assert weight_short("8.0kg | Size 54 as pictured with all accessories", "en") == "8 kg (54)"
+    assert weight_short("56 cm - 10.61 kg (met TLR sealant, zonder binnenbanden)") == "10,61 kg (56)"
+    assert weight_short("1855g | Size 54 as pictured with all accessories") == "1855 g (54)"
+    assert weight_short("8.9 Kg (including FuelTank, Rear Storage and Light)") == "8,9 kg"
+    # a paragraph without a weight in it never reaches the tile
+    assert weight_short("The most accurate way to determine any bike’s weight is to have your local dealer weigh it") is None
+    assert weight_short("-") is None
+
+
+def test_country_bikes_keep_no_footnotes_in_their_weight():
+    folder = os.path.join(countries.ROOT, "data", "years", "countries")
+    for name in os.listdir(folder):
+        with open(os.path.join(folder, name), encoding="utf-8") as fh:
+            for bike in json.load(fh):
+                weight = bike["specifications"].get("Gewicht")
+                assert weight is None or len(weight) <= 16, (bike["name"], weight)

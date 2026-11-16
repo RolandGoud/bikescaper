@@ -302,6 +302,7 @@ def create_app(db_path=None):
     app.jinja_env.filters["swatch_css"] = colour_match.swatch_css
     app.jinja_env.filters["photo_colour"] = seed.photo_colour  # the frame's colour in a photo, for a name we can't read
     app.jinja_env.filters["years_list"] = checks._years_list
+    app.jinja_env.filters["weight_short"] = checks.weight_short  # "8,5 kg (M)", without the brand's footnote
     app.jinja_env.filters["without_generation"] = checks.without_generation
     app.jinja_env.filters["split_title"] = checks.split_title  # the name, year, size and colour in an ad title
     app.jinja_env.filters["model_base"] = lambda m: checks.site_split(m)[0]  # "Noah Fast 3.0", "Madone SL": no build
