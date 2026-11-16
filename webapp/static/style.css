@@ -935,14 +935,13 @@ select { max-width: 100%; }
 .price-line .track { position: relative; height: 6px; margin: 0 7px; border-radius: 3px; background: var(--raised); }
 .price-line i { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--accent); border: 2px solid var(--card); }
 /* Hovering (or tapping) a dot marks it like the median: a green line through it and its price above, in the median
-   label's mono text; the median label steps aside meanwhile. */
+   label's mono text. The median label sits under the line, out of its way. */
 .price-line i::before { content: ""; position: absolute; left: 50%; top: -9px; bottom: -9px; width: 2px; margin-left: -1px; background: var(--accent); z-index: -1; opacity: 0; }
 .price-line i::after { content: attr(data-price); position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%); color: var(--accent); font: 600 12px/1 var(--mono); white-space: nowrap; opacity: 0; pointer-events: none; }
 .price-line i:hover { z-index: 3; cursor: default; box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.28); }
 .price-line i:hover::before, .price-line i:hover::after { opacity: 1; }
-.price-line .track:has(i:hover) em span { opacity: 0; }
 .price-line em { position: absolute; top: -7px; bottom: -7px; width: 2px; margin-left: -1px; background: var(--text); pointer-events: none; } /* a dot on the median still gets the hover */
-.price-line em span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); padding-bottom: 3px; font: 500 11px/1 var(--mono); font-style: normal; color: var(--text); white-space: nowrap; }
+.price-line em span { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 4px; font: 500 11px/1 var(--mono); font-style: normal; color: var(--text); white-space: nowrap; }
 .price-line .ends { display: flex; justify-content: space-between; margin-top: 8px; font: 500 12px/1 var(--mono); color: var(--muted); }
 .asking-hint { margin: 0; font-size: 14px; color: var(--muted); }
 .asking-estimate { min-height: 40px; padding: 0 16px; font-size: 14px; }
