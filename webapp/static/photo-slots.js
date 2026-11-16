@@ -1,6 +1,7 @@
 // Selling page, step 1: the seller's own photo in each shot's slot, taken with the camera in the page (the
 // shot's outline over the live view) or picked from the phone, and the last step's list in upload order.
-// The photos are kept in this browser only (IndexedDB, made smaller first) and never sent anywhere.
+// The photos are kept in this browser only (IndexedDB, made smaller first) and only sent when the seller asks
+// for the photo review (static/photo-review.js).
 // Without IndexedDB (a private window, blocked storage) a photo still shows until the page changes.
 (function () {
   var slots = document.querySelectorAll(".shot[data-shot]");
@@ -58,6 +59,11 @@
     slot.querySelector("[data-add]").hidden = !!blob;
     slot.querySelector("[data-replace]").hidden = !blob;
     slot.classList.toggle("done", !!blob);
+    slot.removeAttribute("data-verdict");  // a new or removed photo hasn't been reviewed
+    slot.dataset.v = (+slot.dataset.v || 0) + 1;  // so a review still running doesn't stamp the new photo
+    var ok = slot.querySelector(".shot-ok");
+    ok.textContent = "✓";
+    ok.removeAttribute("title");
     count();
   }
   function count() {
@@ -135,6 +141,13 @@
     });
     load(key).then(function (blob) { if (blob) show(slot, blob); });
   });
+
+  // For the photo review (static/photo-review.js): the filled slots, in page order, as [{key, blob}].
+  window.sellPhotoSlots = function () {
+    return Promise.all(Array.prototype.map.call(slots, function (slot) {
+      return load(slot.dataset.shot).then(function (blob) { return blob ? {key: slot.dataset.shot, blob: blob} : null; });
+    })).then(function (all) { return all.filter(Boolean); });
+  };
 
   // The last step: the photos the seller added, in the order to upload them.
   if (order) {
