@@ -17,8 +17,8 @@ from .common import Fetcher, dedupe, log, save_colour_images, save_image, write_
 
 ADAPTERS = {m.BRAND.lower(): m for m in (specialized, giant, cannondale, cube, factor, scott, orbea, trek,
                                          lapierre, bianchi, bmc, cervelo, ridley, rose, wilier)}
-# Brands whose store lists earlier model years too (and BMC its Bike Archive): those go to data/years/ in the same run.
-OWN_YEARS = (bianchi, bmc)
+# Brands whose store lists earlier model years too (BMC its Bike Archive, Ridley the pages of the codes it probed): those go to data/years/ in the same run.
+OWN_YEARS = (bianchi, bmc, ridley)
 
 
 def run(names, limit=None, images=True):

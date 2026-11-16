@@ -1,0 +1,3727 @@
+[
+ {
+  "name": "Astr Classified Rival AXS 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID017",
+  "sku": "ASTR7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "ASTR, TA 12x100, Integrated forkcrown diffuser; 50mm rake, D-Shape steerer",
+   "Frame": "ASTR, HM carbon, BB86, TA12x142, 52mm tire clearance",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Classified // 12s // 11-34",
+   "Shifter": "Classified Rival AXS 1x12",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 400mm // Zero offset // Black",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Schwalbe G-One Evo R // Tubeless Ready // 50mm",
+   "Wiel achter": "4ZA Levanto G Classified- NO STI",
+   "Wiel voor": "Forza Levanto Gravel db // TA 12x100mm // Clincher-TLR // Forza 3 Beaufort hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Orange/Unknown"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIASTRID017_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIASTRID017_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/astrclassifiedrivalaxs1x12.jpg"
+ },
+ {
+  "name": "Astr RS SRAM Force XPLR",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIARSRID007",
+  "sku": "ASTRRS7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "ASTR RS, TA 12x100, Integrated forkcrown diffuser; 50mm rake, D-Shape steerer",
+   "Ketting": "Sram FORCE 12sp 116 links",
+   "Crankstel": "Sram Force Dub WIDE // 172.5 // 42T",
+   "Frame": "ASTR RS, Ultra HM carbon, BB86, TA12x142",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Sram XG-1271 // 12sp // 10-44T",
+   "Shifter": "Sram Force XPLR",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Terreno T50 // 700x50c // TLR // Black-Black",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 50mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 50mm deep // 24mm internal width",
+   "Achterderailleur": "Sram Force XPLR",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Silver"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIARSRID007_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIARSRID007_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/astrrssramforcexplr.jpg"
+ },
+ {
+  "name": "Astr RS Shimano GRX 800 Di2 2x",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIARSRID077",
+  "sku": "ASTRRS7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "Astr RS 7E8/ARS26D2s",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Crankstel": "Shimano GRX 820 // 172,5mm // 48-31",
+   "Frame": "Astr RS 7E8/size S/ARS26D2s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra // 12s // 11-34",
+   "Shifter": "Shimano GRX800 DI2 2x",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Terreno T60 700x45c/Grav Brown-blk-blk G2.0 OEM HP",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 42mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 42mm deep // 24mm internal width",
+   "Achterderailleur": "Shimano GRX DI2",
+   "Voorderailleur": "Shimano GRX Di2 // Braze-on",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Raw Sugar/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIARSRID077_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIARSRID077_image_2048x.jpg"
+  ],
+  "years": [
+   2024,
+   2026
+  ],
+  "image": "Ridley/archived/astrrsshimanogrx800di22x.jpg"
+ },
+ {
+  "name": "Astr SRAM Apex XPLR AXS 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID111",
+  "sku": "ASTR7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "Astr 7E8/AST26D2s",
+   "Stuurpen": "Forza Stratos Pro // 90 mm // Semi-integrated cablerouting",
+   "Ketting": "Sram APEX 12sp 116 links",
+   "Crankstel": "Sram Apex 1x12 // 42T // 172mm",
+   "Frame": "ASTR, HM carbon, BB86, TA12x142, 52mm tire clearance",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle San Marco Shortfit 2.0",
+   "Cassette": "SRAM XPLR PG-1231 12s 11-44T",
+   "Shifter": "Sram Apex XPLR AXS 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 400mm // Zero offset // Black",
+   "Stuur": "Forza Stratos Pro // 380 (cc shifters) - 420 (cc drops) // Reach: 75mm // Drop: 125mm",
+   "Buitenband": "Vittoria Terreno T50 // 700x50c // TLR // Black-Black",
+   "Wiel achter": "DT Swiss G1800 Spline // TA 12x142mm // Tubeless Ready // 25mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss G1800 Spline // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "SRAM APEX XPLR AXS // 12s",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Storm Green Metallic / Lime Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIASTRID111_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIASTRID111_image_2048x.jpg"
+  ],
+  "years": [
+   2024,
+   2026
+  ],
+  "image": "Ridley/archived/astrsramapexxplraxs1x12.jpg"
+ },
+ {
+  "name": "Astr SRAM Rival AXS XPLR 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID007",
+  "sku": "ASTR7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "ASTR, TA 12x100, Integrated forkcrown diffuser; 50mm rake, D-Shape steerer",
+   "Ketting": "Sram RIVAL 12sp 116 links",
+   "Crankstel": "SRAM RIVAL1 // 172 // 42",
+   "Frame": "ASTR, HM carbon, BB86, TA12x142, 52mm tire clearance",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "SRAM XPLR XG-1251 // 12s // 10-44",
+   "Shifter": "Sram Rival AXS XPLR 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 400mm // Zero offset // Black",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Schwalbe G-One Evo R // Tubeless Ready // 50mm",
+   "Wiel achter": "DT Swiss G1800 Spline // TA 12x142mm // Tubeless Ready // 25mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss G1800 Spline // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "Sram Rival eTap AXS XPLR // 12sp",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Orange/Unknown"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIASTRID007_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIASTRID007_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/astrsramrivalaxsxplr1x12.jpg"
+ },
+ {
+  "name": "Astr Shimano GRX 800 Di2 2x",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIASTRID141",
+  "sku": "ASTR7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "Astr 7E8/AST26D2s",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Crankstel": "Shimano GRX 820 // 172,5mm // 48-31",
+   "Frame": "ASTR, HM carbon, BB86, TA12x142, 52mm tire clearance",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra // 12s // 11-34",
+   "Shifter": "Shimano GRX800 DI2 2x",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 400mm // Zero offset // Black",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Terreno T60 700x45c/Grav Brown-blk-blk G2.0 OEM HP",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 42mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 42mm deep // 24mm internal width",
+   "Achterderailleur": "Shimano GRX DI2",
+   "Voorderailleur": "Shimano GRX Di2 // Braze-on",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Storm Green Metallic / Lime Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIASTRID141_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIASTRID141_image_2048x.jpg"
+  ],
+  "years": [
+   2024,
+   2026
+  ],
+  "image": "Ridley/archived/astrshimanogrx800di22x.jpg"
+ },
+ {
+  "name": "Fenix SLA Disc Shimano 105 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFADRID037",
+  "sku": "FENIXSLADISC",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2022,
+  "specifications": {
+   "Voorvork": "Fenix SLA Disc 7E5/BlackGlossy",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "Shimano 105 R7000 // 172.5 // 50-34",
+   "Frame": "Fenix SLA Disc 7E5/size XXS/FAD02As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano 105 2x11sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Zaffiro V // 700x25c // Black",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Black"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIFADRID037_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIFADRID037_image_2048x.jpg"
+  ],
+  "years": [
+   2020,
+   2021,
+   2022
+  ],
+  "image": "Ridley/archived/fenixsladiscshimano1052x11.jpg"
+ },
+ {
+  "name": "Fenix SLA Disc Shimano 105 Disc HD Mix",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFADRID001",
+  "sku": "FENIXSLADISC",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Fenix SLA Disc 7E5/BlackGlossy",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "Shimano 105 R7000 // 172.5 // 50-34",
+   "Frame": "Fenix SLA Disc 7E5/size XXS/FAD01As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano 105 Disc HD Mix",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Zaffiro V // 700x25c // Black",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Red"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIFADRID001_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIFADRID001_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/fenixsladiscshimano105dischdmix.jpg"
+ },
+ {
+  "name": "Fenix SLA Disc Shimano 105 Disc MD Mix",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFADRID007",
+  "sku": "FENIXSLADISC",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Fenix SLA Disc 7E5/BlackGlossy",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "Shimano 105 R7000 // 172.5 // 50-34",
+   "Frame": "Fenix SLA Disc 7E5/size XXS/FAD01As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano 105 Disc MD Mix",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Zaffiro V // 700x25c // Black",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Red"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIFADRID007_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIFADRID007_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/fenixsladiscshimano105discmdmix.jpg"
+ },
+ {
+  "name": "Fenix SLiC SRAM Rival AXS 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFSDRID667",
+  "sku": "FENIXSLDISC7E5",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2022,
+  "specifications": {
+   "Voorvork": "Fenix, 30T-24T HM UD Carbon, TA 12x100 mm",
+   "Stuurpen": "Deda Super Box // 100 mm // Polish On Black",
+   "Ketting": "Sram RIVAL 110 links",
+   "Crankstel": "SRAM Rival AXS // 12s // 172,5 // 48-35",
+   "Frame": "Fenix, 30T-24T HM UD Carbon, Diamond Shape, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "SRAM XG-1250 // 12s // 10-36",
+   "Shifter": "Sram Rival AXS 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "DEDA Zero2 // 420mm (cc) // Black-on-Black",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // XD-R // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Voorderailleur": "SRAM Rival eTap AXS // 2x12s // Braze-On",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIFSDRID667_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIFSDRID667_image_2048x.jpg"
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Ridley/archived/fenixslicsramrivalaxs2x12.jpg"
+ },
+ {
+  "name": "Fenix SLiC Shimano Ultegra 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFSDRID559",
+  "sku": "FENIXSLDISC7E5",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Fenix, 30T-24T HM UD Carbon, TA 12x100 mm",
+   "Stuurpen": "Deda Super Box // 100 mm // Polish On Black",
+   "Crankstel": "RotoR Vegast // 172,5 // 50-34",
+   "Frame": "Fenix, 30T-24T HM UD Carbon, Diamond Shape, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano SM-RT70 CL 140mm",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "Shimano Ultegra 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "DEDA Zero2 // 420mm (cc) // Black-on-Black",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "Forza Norte db // Shimano HG11 // TA 12x142mm // Clincher // Forza 3 Beaufort // 20mm Internal Width // 23mm deep",
+   "Wiel voor": "Forza Norte db // TA 12x100mm // Tubeless Ready // Forza 3 Beaufort // 20mm Internal Width // 23mm deep",
+   "Achterderailleur": "Shimano Ultegra R8000 // 11s // Long Cage (34T)",
+   "Voorderailleur": "Shimano Ultegra (R8000) // 2x11s",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIFSDRID559_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIFSDRID559_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/fenixslicshimanoultegra2x11.jpg"
+ },
+ {
+  "name": "Fenix SLiC Shimano Ultegra Di2",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIFSDRID855",
+  "sku": "FENIXSLDISC7E5",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "Fenix, 30T-24T HM UD Carbon, TA 12x100 mm",
+   "Ketting": "KMC chain X12 108 links + link Silver",
+   "Crankstel": "Shimano Ultegra // 12s // 172,5 // 52-36",
+   "Frame": "Fenix, 30T-24T HM UD Carbon, Diamond Shape, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-MT800 CL 140mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra // 12s // 11-30",
+   "Shifter": "Shimano Ultegra Di2",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 100mm - 400mm (cc shifters) - 420mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "Shimano Ultegra Di2 12sp",
+   "Voorderailleur": "Shimano Ultegra Di2 // 2x12 // Braze-on",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIFSDRID855_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIFSDRID855_image_2048x.jpg"
+  ],
+  "years": [
+   2021,
+   2023
+  ],
+  "image": "Ridley/archived/fenixslicshimanoultegradi2.jpg"
+ },
+ {
+  "name": "Grifn A Gravel Shimano GRX 400 2x10",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKALRID001",
+  "sku": "GRIFNA7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA Allroad 7E7/Black Glossy",
+   "Stuurpen": "Forza Stratos Pro // 80 mm // Semi-integrated cablerouting",
+   "Crankstel": "Shimano GRX 600 172.5mm 46-30T 10sp",
+   "Frame": "Grifn A, Multiple mounting points, fender mounts, internal dynamo routing, UDH, 12x142TA",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano HG50 // 10s // 11-36",
+   "Shifter": "Shimano GRX400 2x10sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "4ZA Stratos Gravel 400/460",
+   "Buitenband": "Terreno T30 700x40c/Rigid/Full Black OEM",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano GRX 400 // 10s // Max 36T",
+   "Voorderailleur": "Shimano GRX 400 // 2x10s",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Silver Chain Grey/Black"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKALRID001_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKALRID001_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifnagravelshimanogrx4002x10.jpg"
+ },
+ {
+  "name": "Grifn A Gravel Shimano GRX 600 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKALRID007",
+  "sku": "GRIFNA7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA Allroad 7E7/Black Glossy",
+   "Stuurpen": "Forza Stratos Pro // 80 mm // Semi-integrated cablerouting",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Crankstel": "Shimano GRX 610 // 172,5 // 46-30",
+   "Frame": "Grifn A, Multiple mounting points, fender mounts, internal dynamo routing, UDH, 12x142TA",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano 105 // 12s // 11-36",
+   "Shifter": "Shimano GRX600 2x12sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "4ZA Stratos Gravel 400/460",
+   "Buitenband": "Terreno T30 700x40c/Rigid/Full Black OEM",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano GRX 800 // 12sp // Medium Cage (36T)",
+   "Voorderailleur": "Shimano GRX 800 // Braze-On",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Silver Chain Grey/Black"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKALRID007_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKALRID007_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifnagravelshimanogrx6002x12.jpg"
+ },
+ {
+  "name": "Grifn Gravel Classified GRX 800 Di2 11sp",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID081",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad // TA12x100 // Integrated dynamo routing // Fender mounts // Full Carbon",
+   "Frame": "Grifn, F-Steerer headtube, TA12x142mm, integrated dynamo routing",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Classified // 11s // 11-34",
+   "Shifter": "Classified GRX800 DI2 11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "4ZA Levanto G Classified- NO STI",
+   "Wiel voor": "Forza Levanto Gravel db // TA 12x100mm // Clincher-TLR // Forza 3 Beaufort hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "Shimano GRX 815 Di2 // 11s // Medium Cage (34T)",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Grey/Red"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID081_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID081_image_2048x.jpg"
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Ridley/archived/grifngravelclassifiedgrx800di211sp.jpg"
+ },
+ {
+  "name": "Grifn Gravel GRX 800 2x11 Promo",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID287",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Grifn 7E7/D1120As",
+   "Stuurpen": "Forza Stratos // 100 mm // Black Glossy",
+   "Crankstel": "Shimano GRX600 // 11s // 172,5 // 46-30",
+   "Frame": "Grifn 7E7/Size S/D1120As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "GRX800 2x11 Promo",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "St.BLA Forza Cirrus // 400mm (cc) // Stealth Black",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Achterderailleur": "Shimano GRX 810 // 11s // Medium Cage (34T)",
+   "Voorderailleur": "Shimano GRX 810 // 2x11s // Braze-On",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Grey/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID287_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID287_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifngravelgrx8002x11promo.jpg"
+ },
+ {
+  "name": "Grifn Gravel SRAM Apex XPLR AXS 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID617",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad 7E7/GRC26D4s",
+   "Ketting": "Sram APEX 12sp 114 links",
+   "Crankstel": "Sram Apex 1x12 // 42T // 172mm",
+   "Frame": "Grifn 7E7/Size XS/GRC26D4s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle San Marco Shortfit 2.0",
+   "Cassette": "SRAM XPLR PG-1231 12s 11-44T",
+   "Shifter": "Sram Apex XPLR AXS 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x38c // Folding-TLR // Tan Wall",
+   "Wiel achter": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Wiel voor": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "SRAM APEX XPLR AXS // 12s",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Candy Red Metallic Silver"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID617_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID617_image_2048x.jpg"
+  ],
+  "years": [
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/grifngravelsramapexxplraxs1x12.jpg"
+ },
+ {
+  "name": "Grifn Gravel SRAM Rival AXS WIDE 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID107",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad // TA12x100 // Integrated dynamo routing // Fender mounts // Full Carbon",
+   "Ketting": "Sram RIVAL 12sp 116 links",
+   "Crankstel": "SRAM FC RIVAL WIDE // 172 // 43/30T",
+   "Frame": "Grifn, F-Steerer headtube, TA12x142mm, integrated dynamo routing",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "SRAM XG-1250 // 12s // 10-36",
+   "Shifter": "Sram Rival AXS WIDE 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 100mm - 380mm (cc shifters) - 420mm (cc drops) // Drop 125mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Wiel voor": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Voorderailleur": "SRAM RIVAL ETAP AXS WIDE",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Red/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID107_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID107_image_2048x.jpg"
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Ridley/archived/grifngravelsramrivalaxswide2x12.jpg"
+ },
+ {
+  "name": "Grifn Gravel SRAM Rival AXS XPLR 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID403",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad // TA12x100 // Integrated dynamo routing // Fender mounts // Full Carbon",
+   "Ketting": "Sram RIVAL 12sp 116 links",
+   "Crankstel": "SRAM FC RIVAL1 DUB WIDE 172 46",
+   "Frame": "Grifn 7E7/Size XXS/GRC02Bs",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Advan L3 // Manganese Rails // Black",
+   "Cassette": "SRAM XPLR XG-1251 // 12s // 10-44",
+   "Shifter": "Sram Rival AXS XPLR 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 50mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 50mm deep // 24mm internal width",
+   "Achterderailleur": "Sram Rival eTap AXS XPLR // 12sp",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Green/Yellow"
+  ],
+  "sizes": [
+   "2XS"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID403_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID403_image_2048x.jpg"
+  ],
+  "years": [
+   2024,
+   2025
+  ],
+  "image": "Ridley/archived/grifngravelsramrivalaxsxplr1x12.jpg"
+ },
+ {
+  "name": "Grifn Gravel SRAM Rival XPLR 1x13",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID593",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad 7E7/GRC26D4s",
+   "Ketting": "Sram RIVAL 118 links",
+   "Crankstel": "SRAM Rival XPLR // 172,5 // 42",
+   "Frame": "Grifn 7E7/Size XS/GRC26D4s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Advan L3 // Manganese Rails // Black",
+   "Cassette": "SRAM XG-1351 // 13s // 10-46",
+   "Shifter": "Sram Rival XPLR 1x13",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 50mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 50mm deep // 24mm internal width",
+   "Achterderailleur": "SRAM RIVAL XPLR // 13sp",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Candy Red Metallic Silver"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID593_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID593_image_2048x.jpg"
+  ],
+  "years": [
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/grifngravelsramrivalxplr1x13.jpg"
+ },
+ {
+  "name": "Grifn Gravel Shimano GRX 600 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID257",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad // TA12x100 // Integrated dynamo routing // Fender mounts // Full Carbon",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "Shimano GRX600 // 11s // 172,5 // 46-30",
+   "Frame": "Grifn, F-Steerer headtube, TA12x142mm, integrated dynamo routing",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano GRX600 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano GRX 810 // 11s // Medium Cage (34T)",
+   "Voorderailleur": "Shimano GRX 810 // 2x11s // Braze-On",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID257_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID257_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/grifngravelshimanogrx6002x11.jpg"
+ },
+ {
+  "name": "Grifn Gravel Shimano GRX 600 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID599",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad 7E7/GRC26D4s",
+   "Stuurpen": "Forza Stratos Pro // 90 mm // Semi-integrated cablerouting",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Crankstel": "Shimano GRX 610 // 172,5 // 46-30",
+   "Frame": "Grifn 7E7/Size XS/GRC26D4s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano 105 // 12s // 11-36",
+   "Shifter": "Shimano GRX600 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Stratos Pro // 380 (cc shifters) - 420 (cc drops) // Reach: 75mm // Drop: 125mm",
+   "Buitenband": "Continental Terra Speed // 700x35c // TLR // Black-Black",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano GRX 800 // 12sp // Medium Cage (36T)",
+   "Voorderailleur": "Shimano GRX 800 // Braze-On",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Candy Red Metallic Silver"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID599_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID599_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/grifngravelshimanogrx6002x12.jpg"
+ },
+ {
+  "name": "Grifn Gravel Shimano GRX 800 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID261",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad // TA12x100 // Integrated dynamo routing // Fender mounts // Full Carbon",
+   "Crankstel": "Shimano GRX600 // 11s // 172,5 // 46-30",
+   "Frame": "Grifn, F-Steerer headtube, TA12x142mm, integrated dynamo routing",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "Shimano GRX800 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "Shimano GRX 810 // 11s // Medium Cage (34T)",
+   "Voorderailleur": "Shimano GRX 810 // 2x11s // Braze-On",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID261_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID261_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/grifngravelshimanogrx8002x11.jpg"
+ },
+ {
+  "name": "Grifn Gravel Shimano GRX 800 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID575",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad 7E7/GRC26D4s",
+   "Stuurpen": "Forza Stratos Pro // 90 mm // Semi-integrated cablerouting",
+   "Ketting": "KMC chain X12 112 links + link Silver",
+   "Crankstel": "Shimano GRX 610 // 172,5 // 46-30",
+   "Frame": "Grifn 7E7/Size XS/GRC26D4s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle San Marco Shortfit 2.0",
+   "Cassette": "Shimano Ultegra // 12s // 11-34",
+   "Shifter": "Shimano GRX800 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "4ZA Stratos Gravel 400/460",
+   "Buitenband": "Schwalbe G-One RS Pro // 700x35c // TLR // Black-Transparent",
+   "Wiel achter": "DT Swiss G1800 Spline // TA 12x142mm // Tubeless Ready // 25mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss G1800 Spline // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "Shimano GRX 800 // 12sp // Medium Cage (36T)",
+   "Voorderailleur": "Shimano GRX 800 // Braze-On",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Candy Red Metallic Silver"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID575_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID575_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/grifngravelshimanogrx8002x12.jpg"
+ },
+ {
+  "name": "Grifn Gravel Shimano GRX 800 Di2 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID117",
+  "sku": "GRIFN7E7GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad 7E7/D1060C",
+   "Crankstel": "Shimano GRX600 // 11s // 172,5 // 46-30",
+   "Frame": "Kanzo AllRoad 7E7/Size S/D1060C",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Boost Superflow // Carbon Rails // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "Shimano GRX800 DI2 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 100mm - 380mm (cc shifters) - 420mm (cc drops) // Drop 125mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "DT Swiss ERC1400 // TA 12x142mm // Tubeless Ready // 45mm deep // 22mm internal width",
+   "Wiel voor": "DT Swiss ERC1400 // TA 12x100mm // Tubeless Ready // 45mm deep // 22mm internal width",
+   "Achterderailleur": "Shimano GRX 815 Di2 // 11s // Medium Cage (34T)",
+   "Voorderailleur": "Shimano front derailleur GRX 815 DI2 braze-on",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Black/Red"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID117_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID117_image_2048x.jpg"
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Ridley/archived/grifngravelshimanogrx800di22x11.jpg"
+ },
+ {
+  "name": "Grifn RS Gravel SRAM Force XPLR",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID025",
+  "sku": "GRIFNRS7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Grifn RS // TA 12x100mm // Internal dynamo routing // Fender mounts // Full Carbon",
+   "Ketting": "Sram FORCE 12sp 116 links",
+   "Crankstel": "Sram Force Dub WIDE // 172.5 // 46T",
+   "Frame": "Grifn RS // TA12x142 // Mudguard mounts // UDH // BB86 // Removable front derailleur clamp",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Advan L3 // Manganese Rails // Black",
+   "Cassette": "Sram XG-1271 // 12sp // 10-44T",
+   "Shifter": "Sram Force XPLR",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 50mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 50mm deep // 24mm internal width",
+   "Achterderailleur": "Sram Force XPLR",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID025_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID025_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifnrsgravelsramforcexplr.jpg"
+ },
+ {
+  "name": "Grifn RS Gravel SRAM Force XPLR 1x13",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID217",
+  "sku": "GRIFNRS7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad RS 7E8/GRS26D3s",
+   "Ketting": "Sram FORCE 118 links",
+   "Crankstel": "SRAM Force XPLR incl spindle powermeter // 165 // 42",
+   "Frame": "Grifn RS 7E8/size XS/GRS26D3s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Advan L3 // Manganese Rails // Black",
+   "Cassette": "SRAM XG-1371 // 13s // 10-46",
+   "Shifter": "Sram Force XPLR 1x13",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x38c // Folding-TLR // Tan Wall",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 50mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 50mm deep // 24mm internal width",
+   "Achterderailleur": "SRAM Force XPLR",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Starstruck Black/Silver/Neon"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID217_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID217_image_2048x.jpg"
+  ],
+  "years": [
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/grifnrsgravelsramforcexplr1x13.jpg"
+ },
+ {
+  "name": "Grifn RS Gravel SRAM Red XPLR 1x13",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID229",
+  "sku": "GRIFNRS7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad RS 7E8/GRS26D3s",
+   "Ketting": "Sram RED 12-13sp 118 links",
+   "Crankstel": "SRAM RED XPLR incl Powermeter // 172,5 // 42",
+   "Frame": "Grifn RS 7E8/size XS/GRS26D3s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow 3D // Carbon Rails // Black",
+   "Cassette": "SRAM XG-1391 // 13s // 10-46",
+   "Shifter": "Sram Red XPLR 1x13",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 100mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Schwalbe G-One RS Pro // 700x40c // TLR // Black-Transparent",
+   "Wiel achter": "FORZA Skiron50 // DT Swiss 370 hub // XD-R // Tubeless Ready// 50mm Deep // 23mmm Internal Width",
+   "Wiel voor": "FORZA Skiron50 // DT Swiss 370 hub // Tubeless Ready// 50mm Deep // 23mmm Internal Width",
+   "Achterderailleur": "SRAM RED XPLR AXS",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Starstruck Black/Silver/Neon"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID229_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID229_image_2048x.jpg"
+  ],
+  "years": [
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/grifnrsgravelsramredxplr1x13.jpg"
+ },
+ {
+  "name": "Grifn RS Gravel SRAM Rival AXS XPLR 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID019",
+  "sku": "GRIFNRS7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Grifn RS // TA 12x100mm // Internal dynamo routing // Fender mounts // Full Carbon",
+   "Ketting": "Sram RIVAL 12sp 116 links",
+   "Crankstel": "SRAM FC RIVAL1 DUB WIDE 172 46",
+   "Frame": "Grifn RS // TA12x142 // Mudguard mounts // UDH // BB86 // Removable front derailleur clamp",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "SRAM XPLR XG-1251 // 12s // 10-44",
+   "Shifter": "Sram Rival AXS XPLR 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Wiel voor": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "Sram Rival eTap AXS XPLR // 12sp",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID019_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID019_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifnrsgravelsramrivalaxsxplr1x12.jpg"
+ },
+ {
+  "name": "Grifn RS Gravel Shimano GRX 800 Di2 2x",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID223",
+  "sku": "GRIFNRS7E8GRAVEL",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad RS 7E8/GRS26D3s",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Crankstel": "Shimano GRX 820 // 172,5mm // 48-31",
+   "Frame": "Grifn RS 7E8/size XS/GRS26D3s",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra // 12s // 11-34",
+   "Shifter": "Shimano GRX800 DI2 2x",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Terreno Dry // 700x35c // TNT",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 42mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 42mm deep // 24mm internal width",
+   "Achterderailleur": "Shimano GRX DI2",
+   "Voorderailleur": "Shimano GRX Di2 // Braze-on",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Starstruck Black/Silver/Neon"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID223_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID223_image_2048x.jpg"
+  ],
+  "years": [
+   2024,
+   2026
+  ],
+  "image": "Ridley/archived/grifnrsgravelshimanogrx800di22x.jpg"
+ },
+ {
+  "name": "Grifn RS Road SRAM Red AXS 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID127",
+  "sku": "GRIFNRS7E8ROAD",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Grifn RS // TA 12x100mm // Internal dynamo routing // Fender mounts // Full Carbon",
+   "Ketting": "Sram RED 12sp 110 links",
+   "Crankstel": "SRAM RED incl Powermeter // 165 // 48-35",
+   "Frame": "Grifn RS // TA12x142 // Mudguard mounts // UDH // BB86 // Removable front derailleur clamp",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR MY26 L3 3D CRB OEM",
+   "Cassette": "SRAM XG-1290 // 12s // 10-33",
+   "Shifter": "Sram Red AXS 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Corsa Pro Control 700x34c TLR/Fold/para",
+   "Wiel achter": "DT Swiss ERC1400 // TA 12x142mm // Tubeless Ready // 45mm deep // 22mm internal width",
+   "Wiel voor": "DT Swiss ERC1400 // TA 12x100mm // Tubeless Ready // 45mm deep // 22mm internal width",
+   "Achterderailleur": "SRAM RED AXS // 12s",
+   "Voorderailleur": "SRAM RED AXS // 2x12 // Braze-on",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID127_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID127_image_2048x.jpg"
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Ridley/archived/grifnrsroadsramredaxs2x12.jpg"
+ },
+ {
+  "name": "Grifn RS Road Shimano 105 Di2 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIGRSRID007",
+  "sku": "GRIFNRS7E8ROAD",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Grifn RS // TA 12x100mm // Internal dynamo routing // Fender mounts // Full Carbon",
+   "Ketting": "KMC chain X12 112 links + link Silver",
+   "Crankstel": "Shimano 105 // 172,5 // 50/34",
+   "Frame": "Grifn RS // TA12x142 // Mudguard mounts // UDH // BB86 // Removable front derailleur clamp",
+   "Remschijf": "Shimano RT-CL700 CL 160mm W/Lockring",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano 105// 12s // 11-34",
+   "Shifter": "Shimano 105 DI2 // 2x12s",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // Zero Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated Flared // 90mm - 380mm (cc shifters) - 445mm (cc drops) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Corsa N.ext 700x34c/TLR/Full Black G2.0 OEM HP",
+   "Wiel achter": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Wiel voor": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "Shimano 105 DI2 // 2x12s",
+   "Voorderailleur": "Shimano 105 DI2 // 2x12 // Braze-on",
+   "Maximale bandenmaat": "42mm (1x drivetrain) / 38mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIGRSRID007_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIGRSRID007_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifnrsroadshimano105di22x12.jpg"
+ },
+ {
+  "name": "Grifn Road Shimano 105 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID251",
+  "sku": "GRIFN7E7ROAD",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA AllRoad // TA12x100 // Integrated dynamo routing // Fender mounts // Full Carbon",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "Shimano 105 R7000 // 172.5 // 50-34",
+   "Frame": "Grifn, F-Steerer headtube, TA12x142mm, integrated dynamo routing",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 (R7000) // 11s // 11-30",
+   "Shifter": "Shimano 105 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Cirrus // Carbon-Alloy // 10mm Offset // 350mm // 27,2mm",
+   "Stuur": "St.BLA Forza Cirrus // 400mm (cc) // Stealth Black",
+   "Buitenband": "Vittoria Zaffiro EVO V // 700x30c // Folding // Full Black",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Battleship Grey/Candy Red Metallic"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID251_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID251_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/grifnroadshimano1052x11.jpg"
+ },
+ {
+  "name": "Grifn Road Shimano 105 R7020 11sp planbike",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKARRID277",
+  "sku": "GRIFN7E7ROAD",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Grifn 7E7/D1120As",
+   "Stuurpen": "Forza Stratos // 120 mm // Black Glossy",
+   "Crankstel": "Shimano 105 R7000 // 172.5 // 50-34",
+   "Frame": "Grifn 7E7/Size XL/D1120As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 (R7000) // 11s // 11-30",
+   "Shifter": "Shimano 105 R7020 11sp planbike",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 420mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Zaffiro V // 700x25c // Black",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s",
+   "Maximale bandenmaat": "38 mm"
+  },
+  "color_names": [
+   "Grey/Black"
+  ],
+  "sizes": [
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKARRID277_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKARRID277_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/grifnroadshimano105r702011spplanbike.jpg"
+ },
+ {
+  "name": "Kanzo A SRAM Apex 1",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID451",
+  "sku": "KANZOA",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Crankstel": "Sram Apex1 // 42T // 172mm",
+   "Frame": "Kanzo Aluminium, Triple Butted Hydroformed 6061-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Front 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-42",
+   "Shifter": "SRAM Apex 1",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Continental Contact Speed // 27.5x2.0 // Black-Black",
+   "Wiel achter": "Forza Allroad Adventure 650b // Clincher",
+   "Wiel voor": "Forza Allroad Adventure 650b // Clincher",
+   "Achterderailleur": "SRAM Apex1 // Long Cage",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Brown"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXTARID451_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXTARID451_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/kanzoasramapex1.jpg"
+ },
+ {
+  "name": "Kanzo A SRAM Apex 1x11 HDB",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID909",
+  "sku": "KANZOA",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100 mm, Hidden Fender Mounts",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Crankstel": "Sram Apex1 // 42T // 172mm",
+   "Frame": "Kanzo Aluminium, Triple Butted Hydroformed 6061-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-42",
+   "Shifter": "Sram Apex 1x11 HDB",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Dry // 700x38c",
+   "Achterderailleur": "SRAM Apex1 // Long Cage",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Black"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXTARID909_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXTARID909_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/kanzoasramapex1x11hdb.jpg"
+ },
+ {
+  "name": "Kanzo A SRAM Apex Mecanical Disc 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID575",
+  "sku": "KANZOA",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 100 mm // Black Glossy",
+   "Crankstel": "Sram Apex1 // 42T // 172mm",
+   "Frame": "Kanzo Aluminium, Triple Butted Hydroformed 6061-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Front 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-42",
+   "Shifter": "Sram Apex Mecanical Disc 1x11sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "Forza Stratos, Compact // 420mm (cc) // Black Glossy",
+   "Buitenband": "Continental Contact Speed // 27.5x2.0 // Black-Black",
+   "Wiel achter": "Forza Allroad Adventure 650b // Clincher",
+   "Wiel voor": "Forza Allroad Adventure 650b // Clincher",
+   "Achterderailleur": "SRAM Apex1 // Long Cage",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Silver"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXTARID575_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXTARID575_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/kanzoasramapexmecanicaldisc1x11.jpg"
+ },
+ {
+  "name": "Kanzo A Shimano 105 Disc HD Mix",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID471",
+  "sku": "KANZOA",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "FSA Omega MegaExo // 172,5 // 48-32",
+   "Frame": "Kanzo Aluminium, Triple Butted Hydroformed 6061-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 (R7000) // 11s // 11-30",
+   "Shifter": "Shimano 105 Disc HD Mix",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Dry // 700x38c",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Brown"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXTARID471_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXTARID471_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/kanzoashimano105dischdmix.jpg"
+ },
+ {
+  "name": "Kanzo A Shimano Ultegra Disc Mix HD",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXTARID489",
+  "sku": "KANZOA",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "FSA Omega MegaExo // 172,5 // 48-32",
+   "Frame": "Kanzo Aluminium, Triple Butted Hydroformed 6061-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano Ultegra Disc Mix HD",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Dry // 700x38c",
+   "Achterderailleur": "Shimano Ultegra R8000 // 11s // Long Cage (34T)",
+   "Voorderailleur": "Shimano Ultegra (R8000) // 2x11s",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Brown"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXTARID489_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXTARID489_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/kanzoashimanoultegradiscmixhd.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Alu Equipped Shimano GRX 400 2x10",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID145",
+  "sku": "KANZOADV_A_7E8_EQ",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos Pro // 80 mm // Semi-integrated cablerouting",
+   "Crankstel": "Shimano GRX 600 172.5mm 46-30T 10sp",
+   "Frame": "Kanzo Adventure Alu 7E8/XXS/D1176A",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano HG50 // 10s // 11-36",
+   "Shifter": "Shimano GRX400 2x10sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "Forza Stratos Pro // 380 (cc shifters) - 420 (cc drops) // Reach: 75mm // Drop: 125mm",
+   "Buitenband": "Schwalbe G-One Overland 365 TLE 45-622 Black",
+   "Wiel achter": "DT Swiss G1800 Spline // TA 12x142mm // Tubeless Ready // 25mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss G1800 Spline Dynamo 25mm",
+   "Achterderailleur": "Shimano GRX 400 // 10s // Max 36T",
+   "Voorderailleur": "Shimano GRX 400 // 2x10s"
+  },
+  "color_names": [
+   "Black"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAVRID145_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAVRID145_image_2048x.jpg"
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Ridley/archived/kanzoadventurealuequippedshimanogrx4002x10.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Alu SRAM XPLR Mullet",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID043",
+  "sku": "KANZOADVENTUREALU7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "Sram APEX 12sp 116 links",
+   "Crankstel": "Sram Apex 1x12 // 42T // 172mm",
+   "Frame": "Kanzo Adventure A, integrated packing mounts and dynamo routing, 52mm (1x) - 47mm (2x) tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1230 Eagle // 12s // 11-50T",
+   "Shifter": "Sram XPLR Mullet",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "4ZA Stratos Gravel 400/460",
+   "Buitenband": "Terreno T50 mixed 45-622 Gravel full black Rigid",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "SRAM XPLR Mullet",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Black/Silver"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAVRID043_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAVRID043_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventurealusramxplrmullet.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Alu Shimano GRX 400 2x10",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAVRID001",
+  "sku": "KANZOADVENTUREALU7E8",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos Pro // 80 mm // Semi-integrated cablerouting",
+   "Crankstel": "Shimano GRX 600 172.5mm 46-30T 10sp",
+   "Frame": "Kanzo Adventure A, integrated packing mounts and dynamo routing, 52mm (1x) - 47mm (2x) tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano HG50 // 10s // 11-36",
+   "Shifter": "Shimano GRX400 2x10sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "4ZA Stratos Gravel 400/460",
+   "Buitenband": "Terreno T50 mixed 45-622 Gravel full black Rigid",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano GRX 400 // 10s // Max 36T",
+   "Voorderailleur": "Shimano GRX 400 // 2x10s",
+   "Maximale bandenmaat": "52mm (1x drivetrain) / 47mm (2x drivetrain)"
+  },
+  "color_names": [
+   "Black/Silver"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAVRID001_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAVRID001_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventurealushimanogrx4002x10.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Classified Rival AXS 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID191",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "KMC chain X12 112 links + link Silver",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Classified // 12s // 11-34",
+   "Shifter": "Classified Rival AXS 1x12",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x47c // Folding-TLR // Tan Wall",
+   "Wiel achter": "4ZA Norte G Classified - NO STI",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID191_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID191_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventureclassifiedrivalaxs1x12.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Apex 1x11 HDB",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID181",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Crankstel": "Sram Apex1 // 42T // 172mm",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-42",
+   "Shifter": "Sram Apex 1x11 HDB",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Ritchey Butano II Comp // 420 mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x47c // Folding-TLR // Tan Wall",
+   "Achterderailleur": "SRAM Apex1 // Long Cage",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID181_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID181_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventuresramapex1x11hdb.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Apex XPLR 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID067",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "Sram APEX 12sp 116 links",
+   "Crankstel": "Sram Apex 1x12 // 42T // 172mm",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM XPLR PG-1231 12s 11-44T",
+   "Shifter": "Sram Apex XPLR 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Mezcal TNT // 700x44c // Folding-TLR // Anthracite-Black-Black",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "SRAM Apex 1x12 XPLR Rear Derailleur",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID067_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID067_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventuresramapexxplr1x12.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Apex XPLR AXS 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID347",
+  "sku": "KANZOADVENTURE7E71",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2026,
+  "specifications": {
+   "Voorvork": "4ZA Gravel 54 Disc 7E8/KAD26D5s",
+   "Stuurpen": "Forza Stratos Pro // 80 mm // Semi-integrated cablerouting",
+   "Ketting": "Sram APEX 12sp 116 links",
+   "Crankstel": "Sram Apex 1x12 // 42T // 172mm",
+   "Frame": "Kanzo Adventure 7E7.1/size S/KAD26D5s",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "SRAM XPLR PG-1231 12s 11-44T",
+   "Shifter": "Sram Apex XPLR AXS 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Forza Stratos Pro // 380 (cc shifters) - 420 (cc drops) // Reach: 75mm // Drop: 125mm",
+   "Buitenband": "Vittoria Terreno T50 // 700x50c // TLR // Black-Black",
+   "Wiel achter": "DT Swiss G1800 Spline // TA 12x142mm // Tubeless Ready // 25mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss G1800 Spline // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "SRAM APEX XPLR AXS // 12s",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Jeans Blue Metallic/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID347_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID347_image_2048x.jpg"
+  ],
+  "years": [
+   2025,
+   2026
+  ],
+  "image": "Ridley/archived/kanzoadventuresramapexxplraxs1x12.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Force XPLR",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID221",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "Sram FORCE 12sp 116 links",
+   "Crankstel": "Sram Force Dub WIDE // 172.5 // 42T",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Sram XG-1271 // 12sp // 10-44T",
+   "Shifter": "Sram Force XPLR",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Terreno T60 700x45c/Grav Brown-blk-blk G2.0 OEM HP",
+   "Wiel achter": "DT Swiss GRC1600 // TA 12x142mm // 50mm deep // 24mm internal width",
+   "Wiel voor": "DT Swiss GRC1600 // TA 12x100mm // 50mm deep // 24mm internal width",
+   "Achterderailleur": "Sram Force XPLR",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID221_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID221_image_2048x.jpg"
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Ridley/archived/kanzoadventuresramforcexplr.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Rival 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID171",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Crankstel": "SRAM S350 // 172,5 // 42",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-42",
+   "Shifter": "Sram Rival 1x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x47c // Folding-TLR // Tan Wall",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "SRAM Rival1 // Long Cage",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID171_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID171_image_2048x.jpg"
+  ],
+  "years": [
+   2022,
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventuresramrival1x11.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Rival AXS XPLR 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID261",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "Sram RIVAL 12sp 116 links",
+   "Crankstel": "SRAM RIVAL1 // 172 // 42",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "SRAM XPLR XG-1251 // 12s // 10-44",
+   "Shifter": "Sram Rival AXS XPLR 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Schwalbe G-One Evo R // Tubeless Ready // 50mm",
+   "Wiel achter": "FORZA Skiron50 // DT Swiss 370 hub // XD-R // Tubeless Ready// 50mm Deep // 23mmm Internal Width",
+   "Wiel voor": "FORZA Skiron50 // DT Swiss 370 hub // Tubeless Ready// 50mm Deep // 23mmm Internal Width",
+   "Achterderailleur": "Sram Rival eTap AXS XPLR // 12sp",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Desert Dune Metallic/Black Metallic"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID261_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID261_image_2048x.jpg"
+  ],
+  "years": [
+   2022,
+   2024,
+   2025
+  ],
+  "image": "Ridley/archived/kanzoadventuresramrivalaxsxplr1x12.jpg"
+ },
+ {
+  "name": "Kanzo Adventure SRAM Rival XPLR 1x13",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID237",
+  "sku": "KANZOADVENTURE7E71",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "Sram RIVAL 120 links",
+   "Crankstel": "SRAM Rival XPLR // 172,5 // 42",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle San Marco Shortfit 2.0",
+   "Cassette": "SRAM XG-1351 // 13s // 10-46",
+   "Shifter": "Sram Rival XPLR 1x13",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Ritchey Butano II Comp // 440 mm",
+   "Buitenband": "Schwalbe G-One Evo R // Tubeless Ready // 50mm",
+   "Wiel achter": "FORZA Skiron50 // DT Swiss 370 hub // XD-R // Tubeless Ready// 50mm Deep // 23mmm Internal Width",
+   "Wiel voor": "FORZA Skiron50 // DT Swiss 370 hub // Tubeless Ready// 50mm Deep // 23mmm Internal Width",
+   "Achterderailleur": "SRAM RIVAL XPLR // 13sp",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID237_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID237_image_2048x.jpg"
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Ridley/archived/kanzoadventuresramrivalxplr1x13.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Shimano GRX 800 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID201",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano XT M8000 // 11s // 11-42",
+   "Shifter": "Shimano GRX800 1x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x47c // Folding-TLR // Tan Wall",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "Shimano GRX 812 // 11s // Long Cage (42T)",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID201_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID201_image_2048x.jpg"
+  ],
+  "years": [
+   2022,
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventureshimanogrx8001x11.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Shimano GRX 800 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID071",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Ketting": "KMCchain 12S 120+link Silver",
+   "Crankstel": "Shimano GRX 800 // 172mm // 42T",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano XT // 12s // 10-45T",
+   "Shifter": "Shimano GRX800 1x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x47c // Folding-TLR // Tan Wall",
+   "Wiel achter": "DT Swiss G1800 Spline // TA 12x142mm // Tubeless Ready // 25mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss G1800 Spline // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "Shimano GRX 800 // 12sp // Medium Cage (45T)",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID071_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID071_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventureshimanogrx8001x12.jpg"
+ },
+ {
+  "name": "Kanzo Adventure Shimano GRX 800 Di2 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKADRID081",
+  "sku": "KANZOADVENTURE7E7",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Gravel Disc,12mm TA, FM, Dynamo routing, 54mm tire clearance",
+   "Stuurpen": "Forza Stratos // 80 mm // Black Glossy",
+   "Frame": "Kanzo Adventure, 24-30T HM UD Carbon, integrated packing mounts and dynamo routing, 2.1” tire clearance, TA12-142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano XT M8000 // 11s // 11-42",
+   "Shifter": "Shimano GRX800 DI2 1x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "4ZA Cirrus // 27.2 // 350mm // Zero offset // Black",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Mezcal TNT // 700x44c // Folding-TLR // Anthracite-Black-Black",
+   "Wiel achter": "DT Swiss GRC1400 Dicut // TA 12x142mm // Tubeless Ready // 50mm Deep // 24mm Internal Width",
+   "Wiel voor": "DT Swiss GRC1400 Dicut // TA 12x100mm // Tubeless Ready// 50mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "Shimano GRX 817 Di2 // 11s // Long Cage (42T)",
+   "Maximale bandenmaat": "29\" x 2.1\""
+  },
+  "color_names": [
+   "Gold/Green"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKADRID081_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKADRID081_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/kanzoadventureshimanogrx800di21x11.jpg"
+ },
+ {
+  "name": "Kanzo Fast Classified GRX 800 Di2 11sp",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAFRID023",
+  "sku": "KANZOFAST",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Kanzo Fast, 30T HM/HR UD Carbon, F-Steerer Integrated Cables, TA 12x100mm",
+   "Frame": "Kanzo Fast, 30T HM/HR UD Carbon, F-Tubing, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Classified ETS Adapter kit 140_20_0",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Classified // 11s // 11-34",
+   "Shifter": "Classified GRX800 DI2 11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Gravel Integrated // Carbon // 100mm - 380/440mm (cc) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x38c // Folding-TLR // Tan Wall",
+   "Wiel achter": "4ZA Levanto G Classified- NO STI",
+   "Wiel voor": "Forza Levanto Gravel db // TA 12x100mm // Clincher-TLR // Forza 3 Beaufort hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "Shimano GRX 815 Di2 // 11s // Medium Cage (34T)",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Green/Green"
+  ],
+  "sizes": [
+   "M",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAFRID023_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAFRID023_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/kanzofastclassifiedgrx800di211sp.jpg"
+ },
+ {
+  "name": "Kanzo Fast SRAM Rival 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAFRID002",
+  "sku": "KANZOFAST",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Kanzo Fast, 30T HM/HR UD Carbon, F-Steerer Integrated Cables, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 100 mm // Black Glossy",
+   "Crankstel": "SRAM RIVAL1 // 172 // 42",
+   "Frame": "Kanzo Fast, 30T HM/HR UD Carbon, F-Tubing, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-42",
+   "Shifter": "Sram Rival 1x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Deda Superzero Alloy Gravel // 420mm (cc shifters) - 50mm (cc drops) // 16° flared // Drop 120mm // Reach 75mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x38c // Folding-TLR // Tan Wall",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "SRAM Rival1 // Long Cage",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Green/Green"
+  ],
+  "sizes": [
+   "S",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAFRID002_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAFRID002_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/kanzofastsramrival1x11.jpg"
+ },
+ {
+  "name": "Kanzo Fast Shimano GRX 800 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAFRID006",
+  "sku": "KANZOFAST",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Kanzo Fast, 30T HM/HR UD Carbon, F-Steerer Integrated Cables, TA 12x100mm",
+   "Ketting": "KMCchain 11S 116+link",
+   "Frame": "Kanzo Fast, 30T HM/HR UD Carbon, F-Tubing, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano XT M8000 // 11s // 11-42",
+   "Shifter": "Shimano GRX800 1x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Gravel Integrated // Carbon // 90mm - 380/440mm (cc) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x38c // Folding-TLR // Tan Wall",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "Shimano GRX 812 // 11s // Long Cage (42T)",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Green/Green"
+  ],
+  "sizes": [
+   "XS"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAFRID006_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAFRID006_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/kanzofastshimanogrx8001x11.jpg"
+ },
+ {
+  "name": "Kanzo Fast Shimano GRX 800 Di2 1x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIKAFRID032",
+  "sku": "KANZOFAST",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Kanzo Fast, 30T HM/HR UD Carbon, F-Steerer Integrated Cables, TA 12x100mm",
+   "Frame": "Kanzo Fast, 30T HM/HR UD Carbon, F-Tubing, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-CL800 CL 160mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano XT M8000 // 11s // 11-42",
+   "Shifter": "Shimano GRX800 DI2 1x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Gravel Integrated // Carbon // 100mm - 380/440mm (cc) // 16° flared // Drop 120mm // Reach 70mm",
+   "Buitenband": "Vittoria Terreno Dry TLR // 700x38c // Folding-TLR // Tan Wall",
+   "Wiel achter": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Wiel voor": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "Shimano GRX 817 Di2 // 11s // Long Cage (42T)",
+   "Maximale bandenmaat": "42 mm"
+  },
+  "color_names": [
+   "Green/Green"
+  ],
+  "sizes": [
+   "S",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIKAFRID032_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIKAFRID032_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/kanzofastshimanogrx800di21x11.jpg"
+ },
+ {
+  "name": "Noah 3.0 Classified Rival AXS 1x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID033",
+  "sku": "NOAH7E8",
+  "price": null,
+  "category": "Race",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Noah 7E8 45mm/NH3-01As",
+   "Ketting": "KMC chain X12 112 links + link Silver",
+   "Frame": "Noah 7E8/size S/NH3-01As",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia SLR Advan L3 // Manganese Rails // Black",
+   "Cassette": "Classified // 12s // 11-34",
+   "Shifter": "Classified Rival AXS 1x12",
+   "Material": "Carbon",
+   "Zadelpen": "Deda aero seatpost for Ridley // 6mm Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 100mm - 360mm (cc shifters) - 400mm (cc drops) // Drop 125mm // Reach 75mm",
+   "Buitenband": "Corsa N.EXT 30x622 TLR full black G2.0 OEM HP",
+   "Wiel achter": "4ZA Levanto db Classified - NO STI",
+   "Wiel voor": "Forza Levanto db // TA 12x100mm // Clincher-TLR // Forza 3 Beaufort hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Maximale bandenmaat": "34 mm"
+  },
+  "color_names": [
+   "Empress Grey/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINH3RID033_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINH3RID033_image_2048x.jpg"
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Ridley/archived/noah30classifiedrivalaxs1x12.jpg"
+ },
+ {
+  "name": "Noah 3.0 Shimano 105 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINH3RID021",
+  "sku": "NOAH7E8",
+  "price": null,
+  "category": "Race",
+  "model_year": 2025,
+  "specifications": {
+   "Voorvork": "Noah 7E8 45mm/NH3-01As",
+   "Stuurpen": "Deda Super Box // 100 mm // Polish On Black",
+   "Ketting": "KMC chain X12 110 links + link Silver",
+   "Crankstel": "Shimano 105 // 50/34 // 170mm",
+   "Frame": "Noah 7E8/size S/NH3-01As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano 105// 12s // 11-34",
+   "Shifter": "Shimano 105 - 2x12",
+   "Material": "Carbon",
+   "Zadelpen": "Deda aero seatpost for Ridley // 6mm Offset // 350mm",
+   "Stuur": "DEDA Zero2 // 420mm (cc) // Black-on-Black",
+   "Buitenband": "Vittoria Zaffiro Pro V 700x28c full-blk G2.0",
+   "Wiel achter": "DT Swiss E1800 Spline // TA 12x142mm // Tubeless Ready // 30mm Deep // 22mm Internal Width",
+   "Wiel voor": "DT Swiss E1800 Spline // TA 12x100mm // Tubeless Ready// 30mm Deep // 22mm Internal Width",
+   "Achterderailleur": "Shimano 105 12sp",
+   "Voorderailleur": "Shimano 105",
+   "Maximale bandenmaat": "34 mm"
+  },
+  "color_names": [
+   "Empress Grey/Black"
+  ],
+  "sizes": [
+   "XS",
+   "S"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINH3RID021_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINH3RID021_image_2048x.jpg"
+  ],
+  "years": [
+   2025
+  ],
+  "image": "Ridley/archived/noah30shimano1052x12.jpg"
+ },
+ {
+  "name": "Noah Disc SRAM Rival AXS 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINHDRID085",
+  "sku": "NOAHDISC7E7",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Disc, 24T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Ketting": "Sram RIVAL 110 links",
+   "Crankstel": "SRAM Rival AXS // 12s // 172,5 // 48-35",
+   "Frame": "Noah Disc, 24-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "SRAM XG-1250 // 12s // 10-36",
+   "Shifter": "Sram Rival AXS 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 90mm - 380mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Corsa Pro 700x26c TLR/Fold/para-blk-blk",
+   "Wiel achter": "DT Swiss ERC1600 // TA 12x142mm // Tubeless Ready // 45mm deep // 22mm internal width",
+   "Wiel voor": "DT Swiss ERC1600 // TA 12x100mm // Tubeless Ready // 45mm deep // 22mm internal width",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Voorderailleur": "SRAM Rival eTap AXS // 2x12s // Braze-On",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/Chrome"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINHDRID085_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINHDRID085_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/noahdiscsramrivalaxs2x12.jpg"
+ },
+ {
+  "name": "Noah Disc Shimano 105 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINHDRID091",
+  "sku": "NOAHDISC7E7",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Disc, 24T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Stuurpen": "Deda Super Box // 90 mm // Polish On Black",
+   "Crankstel": "Shimano 105 R7000 // 172.5 // 50-34",
+   "Frame": "Noah Disc, 24-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano 105 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "DEDA Zero2 // 400mm (cc) // Black-on-Black",
+   "Buitenband": "Vittoria Zaffiro Pro // 700x25c // Black",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/Chrome"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINHDRID091_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINHDRID091_image_2048x.jpg"
+  ],
+  "years": [
+   2022,
+   2024
+  ],
+  "image": "Ridley/archived/noahdiscshimano1052x11.jpg"
+ },
+ {
+  "name": "Noah Disc Shimano 105 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINHDRID079",
+  "sku": "NOAHDISC7E7",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Disc, 24T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Ketting": "KMC chain X12 110 links + link Silver",
+   "Crankstel": "Shimano 105 // 50/34 // 170mm",
+   "Frame": "Noah Disc, 24-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105// 12s // 11-34",
+   "Shifter": "Shimano 105 - 2x12",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 90mm - 380mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "DT Swiss E1800 Spline // TA 12x142mm // Tubeless Ready // 30mm Deep // 22mm Internal Width",
+   "Wiel voor": "DT Swiss E1800 Spline // TA 12x100mm // Tubeless Ready// 30mm Deep // 22mm Internal Width",
+   "Achterderailleur": "Shimano 105 12sp",
+   "Voorderailleur": "Shimano 105",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/Chrome"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINHDRID079_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINHDRID079_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/noahdiscshimano1052x12.jpg"
+ },
+ {
+  "name": "Noah Disc Shimano 105 Di2 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINHDRID103",
+  "sku": "NOAHDISC7E7",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Disc, 24T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Ketting": "KMC chain X12 110 links + link Silver",
+   "Crankstel": "Shimano 105 // 50/34 // 170mm",
+   "Frame": "Noah Disc, 24-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano 105// 12s // 11-34",
+   "Shifter": "Shimano 105 DI2 // 2x12s",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 90mm - 380mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "DT Swiss E1800 Spline // TA 12x142mm // Tubeless Ready // 30mm Deep // 22mm Internal Width",
+   "Wiel voor": "DT Swiss E1800 Spline // TA 12x100mm // Tubeless Ready// 30mm Deep // 22mm Internal Width",
+   "Achterderailleur": "Shimano 105 DI2 // 2x12s",
+   "Voorderailleur": "Shimano 105 DI2 // 2x12 // Braze-on",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/Chrome"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINHDRID103_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINHDRID103_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/noahdiscshimano105di22x12.jpg"
+ },
+ {
+  "name": "Noah Disc Shimano Ultegra 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINHDRID139",
+  "sku": "NOAHDISC7E7",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Disc, 24T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 45mm",
+   "Crankstel": "Shimano Ultegra (R8000) // 172,5 // 50-34",
+   "Frame": "Noah Disc, 24-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-MT800 CL 140mm W/Lockring",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "Shimano Ultegra 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Cirrus Pro Integrated // 100mm - 400mm (cc shifters) - 420mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "Shimano Ultegra R8000 // 11s // Long Cage (34T)",
+   "Voorderailleur": "Shimano Ultegra (R8000) // 2x11s",
+   "Maximale bandenmaat": "28 mm"
+  },
+  "color_names": [
+   "Black/Chrome"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINHDRID139_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINHDRID139_image_2048x.jpg"
+  ],
+  "years": [
+   2022,
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/noahdiscshimanoultegra2x11.jpg"
+ },
+ {
+  "name": "Noah Fast Disc SRAM Force AXS 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID115",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Ketting": "Sram FORCE 12sp 110 links",
+   "Crankstel": "SRAM Force AXS // 12s // 172,5 // 48-35",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "SRAM XG-1270 // 12s // 10-33",
+   "Shifter": "Sram Force AXS 2X12",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 90mm - 380mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Corsa Pro 700x26c TLR/Fold/para-blk-blk",
+   "Wiel achter": "4ZA Vardar 50 DB R 19TL -7BF V2 SHI- NO STI",
+   "Wiel voor": "4ZA Vardar 50 DB F 19TL -7BF V2- NO STI",
+   "Achterderailleur": "SRAM Force AXS // 12s",
+   "Voorderailleur": "SRAM Force AXS // 2x12s // Braze-on"
+  },
+  "color_names": [
+   "Gold-Black"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID115_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID115_image_2048x.jpg"
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Ridley/archived/noahfastdiscsramforceaxs2x12.jpg"
+ },
+ {
+  "name": "Noah Fast Disc SRAM Rival AXS 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID061",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2022,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc_50mm 7E6/NFD02As",
+   "Ketting": "Sram RIVAL 110 links",
+   "Crankstel": "SRAM Rival AXS // 12s // 172,5 // 48-35",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Bracket Mounting Bolts SS T25 27mm Flat Mount",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "SRAM XG-1250 // 12s // 10-36",
+   "Shifter": "Sram Rival AXS 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 90mm - 380mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // XD-R // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "SRAM Rival eTap AXS // 12s",
+   "Voorderailleur": "SRAM Rival eTap AXS // 2x12s // Braze-On"
+  },
+  "color_names": [
+   "Silver/Red"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID061_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID061_image_2048x.jpg"
+  ],
+  "years": [
+   2022
+  ],
+  "image": "Ridley/archived/noahfastdiscsramrivalaxs2x12.jpg"
+ },
+ {
+  "name": "Noah Fast Disc Shimano 105 Di2 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID103",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Ketting": "KMC chain X12 110 links + link Silver",
+   "Crankstel": "Shimano 105 // 50/34 // 170mm",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model Y // Black",
+   "Cassette": "Shimano 105// 12s // 11-34",
+   "Shifter": "Shimano 105 DI2 // 2x12s",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 90mm - 380mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "Shimano 105 DI2 // 2x12s",
+   "Voorderailleur": "Shimano 105 DI2 // 2x12 // Braze-on"
+  },
+  "color_names": [
+   "Viola Cameleon-White"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID103_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID103_image_2048x.jpg"
+  ],
+  "years": [
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/noahfastdiscshimano105di22x12.jpg"
+ },
+ {
+  "name": "Noah Fast Disc Shimano Dura-Ace Di2",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID057",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 45mm",
+   "Crankstel": "Shimano Dura-Ace (9100) // 172,5 // 52-36",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-CL800 CL 160mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra (R8000) //11s // 11-30",
+   "Shifter": "Shimano Dura-Ace Di2",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero for Noah Fast (Disc) // 350mm",
+   "Stuur": "Int. N1 HBR 7E3.1/Size 100-380/400/NFD02Cs",
+   "Buitenband": "Vittoria Corsa G 2.0 // 700x25c // Folding // Para-Black",
+   "Wiel achter": "4ZA Vardar 50 DB R 19TL -7BF V2 SHI- NO STI",
+   "Wiel voor": "4ZA Vardar 50 DB F 19TL -7BF V2- NO STI",
+   "Achterderailleur": "Shimano Dura-Ace Di2 (9150) // 11s",
+   "Voorderailleur": "Shimano Dura-Ace (9150) // 2x11s"
+  },
+  "color_names": [
+   "Silver"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID057_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID057_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/noahfastdiscshimanoduraacedi2.jpg"
+ },
+ {
+  "name": "Noah Fast Disc Shimano Ultegra",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID035",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 45mm",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-CL800 CL 160mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "Shimano Ultegra",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 120mm - 420mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "Shimano Ultegra R8000 // 11s // Long Cage (34T)",
+   "Voorderailleur": "Shimano Ultegra (R8000) // 2x11s"
+  },
+  "color_names": [
+   "Silver/Red"
+  ],
+  "sizes": [
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID035_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID035_image_2048x.jpg"
+  ],
+  "years": [
+   2020,
+   2021
+  ],
+  "image": "Ridley/archived/noahfastdiscshimanoultegra.jpg"
+ },
+ {
+  "name": "Noah Fast Disc Shimano Ultegra 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID031",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc_50mm 7E6/NFD02As",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-CL800 CL 160mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra R8000 // 11s // 11-32",
+   "Shifter": "Shimano Ultegra 2x11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 90mm - 380mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Rubino Pro G2.0 // 700x25c //Folding // Full Black",
+   "Wiel achter": "FORZA Skiron38 // DT Swiss 370 hub // Tubeless Ready// 38mm Deep // 19mmm Internal Width",
+   "Wiel voor": "Forza Skiron CR38 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 19mm Internal Width // 38mm deep",
+   "Achterderailleur": "Shimano Ultegra R8000 // 11s // Long Cage (34T)",
+   "Voorderailleur": "Shimano Ultegra (R8000) // 2x11s"
+  },
+  "color_names": [
+   "Silver/Red"
+  ],
+  "sizes": [
+   "XS",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID031_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID031_image_2048x.jpg"
+  ],
+  "years": [
+   2021
+  ],
+  "image": "Ridley/archived/noahfastdiscshimanoultegra2x11.jpg"
+ },
+ {
+  "name": "Noah Fast Disc Shimano Ultegra Di2",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID027",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 45mm",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-CL800 CL 160mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra (R8000) //11s // 11-30",
+   "Shifter": "Shimano Ultegra Di2",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 100mm - 380mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Corsa G 2.0 // 700x25c // Folding // Para-Black",
+   "Wiel achter": "4ZA Vardar 50 DB R 19TL -7BF V2 SHI- NO STI",
+   "Wiel voor": "4ZA Vardar 50 DB F 19TL -7BF V2- NO STI",
+   "Achterderailleur": "Shimano Ultegra Di2 (R8050) // 11s",
+   "Voorderailleur": "Shimano Ultegra Di2 (R8050) // 2x11s //"
+  },
+  "color_names": [
+   "Silver/Red"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID027_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID027_image_2048x.jpg"
+  ],
+  "years": [
+   2020,
+   2021
+  ],
+  "image": "Ridley/archived/noahfastdiscshimanoultegradi2.jpg"
+ },
+ {
+  "name": "Noah Fast Disc Shimano Ultegra Di2 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBINFDRID109",
+  "sku": "NOAHFAST_DISC",
+  "price": null,
+  "category": "Race",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Noah Fast Disc, 60T-40T-30T HM UD Carbon, In-Mould F-Surface Technology, TA 12x100mm // 50mm",
+   "Ketting": "KMC chain X12 108 links + link Silver",
+   "Crankstel": "Shimano Ultegra // 12s // 172,5 // 52-36",
+   "Frame": "Noah Fast Disc, 50T-40T-30T HM UD Carbon, F-Tubing, In-Mould F-Surface Plus, F-Steerer Head Tube, TA 12x142mm",
+   "Remschijf": "Shimano RT-MT800 CL 140mm W/Lockring",
+   "Zadel": "Selle Italia SLR Boost // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra // 12s // 11-30",
+   "Shifter": "Shimano Ultegra DI2 2x12sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Aero Integrated // 90mm - 380mm (cc) // NFH03Am",
+   "Buitenband": "Vittoria Corsa Pro 700x26c TLR/Fold/para-blk-blk",
+   "Wiel achter": "DT Swiss ARC1400 Dicut // TA 12x142mm // Tubeless Ready // 50mm Deep // 20mm Internal Width",
+   "Wiel voor": "DT Swiss ARC1400 Dicut // TA 12x100mm // Tubeless Ready// 50mm Deep // 20mmm Internal Width",
+   "Achterderailleur": "Shimano Ultegra Di2 12sp",
+   "Voorderailleur": "Shimano Ultegra Di2 // 2x12 // Braze-on"
+  },
+  "color_names": [
+   "Viola Cameleon-White"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBINFDRID109_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBINFDRID109_image_2048x.jpg"
+  ],
+  "years": [
+   2022,
+   2023,
+   2024
+  ],
+  "image": "Ridley/archived/noahfastdiscshimanoultegradi22x12.jpg"
+ },
+ {
+  "name": "X-Night RS Classified GRX 800 Di2 11sp",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRSRID013",
+  "sku": "XNIGHTRS7E8",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA Oryx Disc D-shape 7E8/XRS01As",
+   "Frame": "X-Night RS 7E8/size XS/XRS01As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Classified // 11s // 11-34",
+   "Shifter": "Classified GRX800 DI2 11sp",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Wiel voor": "Classified Powershift CF G42 // Internal width 25mm // Heigth 42mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Terreno T80 // 700x33c // TLR // Black-Black",
+   "Achterderailleur": "Shimano GRX 815 Di2 // 11s // Medium Cage (34T)",
+   "Maximale bandenmaat": "36mm"
+  },
+  "color_names": [
+   "UD Carbon/Starstruck/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRSRID013_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRSRID013_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/xnightrsclassifiedgrx800di211sp.jpg"
+ },
+ {
+  "name": "X-Night RS SRAM Force AXS 1x12 (2024)",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRSRID009",
+  "sku": "XNIGHTRS7E8",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA Oryx Disc D-shape 7E8/XRS01As",
+   "Ketting": "Sram FORCE 12sp 110 links",
+   "Crankstel": "Sram Force Dub WIDE // 172.5 // 42T",
+   "Frame": "X-Night RS 7E8/size XS/XRS01As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "SRAM XG-1250 // 12s // 10-36",
+   "Shifter": "Sram Force AXS 1x12 (2024)",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Terreno T30 fine loose 31-622 CX endurance",
+   "Wiel achter": "DT Swiss GRC 1400 Dicut 50mm XDR",
+   "Wiel voor": "DT Swiss GRC1400 Dicut // TA 12x100mm // Tubeless Ready// 50mm Deep // 24mmm Internal Width",
+   "Achterderailleur": "SRAM Force AXS // 12s",
+   "Maximale bandenmaat": "36mm"
+  },
+  "color_names": [
+   "UD Carbon/Starstruck/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRSRID009_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRSRID009_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/xnightrssramforceaxs1x122024.jpg"
+ },
+ {
+  "name": "X-Night RS Shimano GRX 800 Di2 2x",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRSRID001",
+  "sku": "XNIGHTRS7E8",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "4ZA Oryx Disc D-shape 7E8/XRS01As",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Frame": "X-Night RS 7E8/size XS/XRS01As",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Novus Boost Superflow // Manganese Rails // Black",
+   "Cassette": "Shimano Ultegra // 12s // 11-34",
+   "Shifter": "Shimano GRX800 DI2 2x",
+   "Material": "Carbon",
+   "Zadelpen": "Forza Aero // 6mm Offset // 350mm",
+   "Stuur": "Forza Nimbus Pro // 90mm - 360mm (cc shifters) - 400mm (cc drops) // Stealth Black",
+   "Buitenband": "Vittoria Terreno T80 // 700x33c // TLR // Black-Black",
+   "Wiel achter": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Wiel voor": "Forza Skiron CG40 // TA 12x100mm // Clincher-TLR // DT Swiss 370 hub // 23mm Internal Width // 40mm deep",
+   "Achterderailleur": "Shimano GRX DI2",
+   "Voorderailleur": "Shimano GRX Di2 // Braze-on",
+   "Maximale bandenmaat": "36mm"
+  },
+  "color_names": [
+   "UD Carbon/Starstruck/White"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRSRID001_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRSRID001_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/xnightrsshimanogrx800di22x.jpg"
+ },
+ {
+  "name": "X-Ride Disc SRAM Rival 1 HD",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID895",
+  "sku": "X_RIDE_DISC",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "SRAM S350 // 172,5 // 42",
+   "Frame": "X-Ride Disc, Triple Butted 7005-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "SRAM PG-1130 // 11s // 11-32",
+   "Shifter": "SRAM Rival 1 HD",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Mix Cyclocross // 700x33c",
+   "Achterderailleur": "SRAM Rival1 // Medium Cage"
+  },
+  "color_names": [
+   "Grey"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID895_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID895_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/xridediscsramrival1hd.jpg"
+ },
+ {
+  "name": "X-Ride Disc Shimano 105 Disc HD Mix",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID883",
+  "sku": "X_RIDE_DISC",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "FSA Omega MegaExo // 172,5 // 46-36",
+   "Frame": "X-Ride Disc, Triple Butted 7005-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 (R7000) // 11s // 11-30",
+   "Shifter": "Shimano 105 Disc HD Mix",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Mix Cyclocross // 700x33c",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Grey"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID883_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID883_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/xridediscshimano105dischdmix.jpg"
+ },
+ {
+  "name": "X-Ride Disc Shimano GRX 400 2x10",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID979",
+  "sku": "X_RIDE_DISC",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2024,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "Shimano GRX 600 172.5mm 46-30T 10sp",
+   "Frame": "X-Ride Disc, Triple Butted 7005-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano HG50 // 10s // 11-36",
+   "Shifter": "Shimano GRX400 2x10sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "Forza Stratos Pro // 380 center-center shifters // Reach: 70mm // Drop: 122mm",
+   "Buitenband": "Vittoria Terreno Mix Cyclocross // 700x33c",
+   "Wiel achter": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Wiel voor": "DT Swiss G Classic // TA 12x100mm // Tubeless Ready// 25mm Deep // 24mm Internal Width // DT Swiss 370 hub",
+   "Achterderailleur": "Shimano GRX 400 // 10s // Max 36T",
+   "Voorderailleur": "Shimano GRX 400 // 2x10s"
+  },
+  "color_names": [
+   "Black/Grey"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID979_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID979_image_2048x.jpg"
+  ],
+  "years": [
+   2024
+  ],
+  "image": "Ridley/archived/xridediscshimanogrx4002x10.jpg"
+ },
+ {
+  "name": "X-Ride Disc Shimano GRX 600 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID955",
+  "sku": "X_RIDE_DISC",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Ketting": "KMCchain 11S 116+link",
+   "Crankstel": "FSA Gossamer // 172,5 // 46-36T",
+   "Frame": "X-Ride Disc, Triple Butted 7005-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano GRX600 2x11sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS171 DB // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 400mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Mix Cyclocross // 700x33c",
+   "Achterderailleur": "Shimano GRX 810 // 11s // Medium Cage (34T)",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Black/Grey"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID955_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID955_image_2048x.jpg"
+  ],
+  "years": [
+   2021,
+   2023
+  ],
+  "image": "Ridley/archived/xridediscshimanogrx6002x11.jpg"
+ },
+ {
+  "name": "X-Ride Disc Shimano GRX 800 2x11",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID961",
+  "sku": "X_RIDE_DISC",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Crankstel": "FSA Gossamer // 172,5 // 46-36T",
+   "Frame": "X-Ride Disc, Triple Butted 7005-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano GRX800 2x11sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "Forza Stratos, Compact // 420mm (cc) // Black Glossy",
+   "Buitenband": "Vittoria Terreno Mix Cyclocross // 700x33c",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "Shimano GRX 810 // 11s // Medium Cage (34T)",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Black/Grey"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID961_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID961_image_2048x.jpg"
+  ],
+  "years": [
+   2021,
+   2023
+  ],
+  "image": "Ridley/archived/xridediscshimanogrx8002x11.jpg"
+ },
+ {
+  "name": "X-Ride Disc Shimano GRX 800 2x12",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID973",
+  "sku": "X_RIDE_DISC",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2023,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 90 mm // Black Glossy",
+   "Ketting": "KMC chain X12 114 links + link Silver",
+   "Crankstel": "FSA Gossamer // 172,5 // 46-36T",
+   "Frame": "X-Ride Disc, Triple Butted 7005-T6 Aluminium, TA 12x142mm",
+   "Remschijf": "REVER Flat Mount Adapter, Rear 140 -> 160",
+   "Zadel": "Selle Italia Model A",
+   "Cassette": "Shimano Ultegra // 12s // 11-34",
+   "Shifter": "Shimano GRX800 2x12sp",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // Zero Offset // 350mm // 27,2mm // Black Glossy",
+   "Stuur": "Forza Stratos Pro // 380 center-center shifters // Reach: 70mm // Drop: 122mm",
+   "Buitenband": "Vittoria Terreno Mix Cyclocross // 700x33c",
+   "Wiel achter": "4ZA Norte G R 24TLR - 3BF GEN3 SHI - DT custom",
+   "Wiel voor": "4ZA Norte G F24TLR - 3BF GEN3 - DT custom",
+   "Achterderailleur": "Shimano GRX 800 // 12sp // Medium Cage (36T)",
+   "Voorderailleur": "Shimano 105"
+  },
+  "color_names": [
+   "Black/Grey"
+  ],
+  "sizes": [
+   "2XS",
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID973_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID973_image_2048x.jpg"
+  ],
+  "years": [
+   2023
+  ],
+  "image": "Ridley/archived/xridediscshimanogrx8002x12.jpg"
+ },
+ {
+  "name": "X-Ride Shimano 105 MIX",
+  "brand": "Ridley",
+  "url": "https://www.ridley-bikes.com/nl_NL/bikes/SBIXRIRID861",
+  "sku": "X_RIDE",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2020,
+  "specifications": {
+   "Voorvork": "Forza Oryx Disc, TA 12x100mm",
+   "Stuurpen": "Forza Stratos // 100 mm // Black Glossy",
+   "Crankstel": "FSA Omega MegaExo // 172,5 // 46-36",
+   "Frame": "X-Ride, Triple Butted 7005-T6 Aluminium",
+   "Zadel": "Selle Italia Model X // Black",
+   "Cassette": "Shimano 105 R7000 // 11s // 11-32",
+   "Shifter": "Shimano 105 MIX",
+   "Material": "Aluminium",
+   "Zadelpen": "Forza Stratos // 15mm Offset // 350mm // 27,2mm // Black Glossy",
+   "Wiel voor": "Shimano RS100 // Shimano 11s // Clincher",
+   "Stuur": "Forza Stratos, Compact // 420mm (cc) // Black Glossy",
+   "Buitenband": "Clement MXP // 700x33c // Wire",
+   "Achterrem": "Tektro Cross",
+   "Rem": "Tektro Cross",
+   "Achterderailleur": "Shimano 105 (R7000) // 11s",
+   "Voorderailleur": "Shimano 105 (R7000) // 2x11s"
+  },
+  "color_names": [
+   "Black"
+  ],
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "image_url": "https://images.cyclingfactory.be/SBIXRIRID861_image_2048x.jpg",
+  "color_image_urls": [
+   "https://images.cyclingfactory.be/SBIXRIRID861_image_2048x.jpg"
+  ],
+  "years": [
+   2020
+  ],
+  "image": "Ridley/archived/xrideshimano105mix.jpg"
+ }
+]

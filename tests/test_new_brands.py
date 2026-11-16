@@ -190,6 +190,7 @@ def test_nuxt_state_reads_minified_state():
     ("Shimano Dura Ace DI2 2x12", "Shimano Dura-Ace Di2 2x12"),
     ("Shimano GRX600 1x12sp", "Shimano GRX 600 1x12"),
     ("Shimano Cues 1x11, hydraulic disc brakes", "Shimano CUES 1x11"),
+    ("Sram Force AXS 2X12", "SRAM Force AXS 2x12"),
 ])
 def test_ridley_groupset_names(text, tidy):
     assert ridley.tidy_groupset(text) == tidy
@@ -309,3 +310,39 @@ def test_wilier_build_from_family_page():
     assert wilier.parse(product, {"code": "E603 (FRAMESET)", "groupset": "-", "msrp": 450000}, "u")["name"] == "Filante SLR Frameset"
     assert wilier.category_of({"category": {"slug": "road"}, "usages": [{"slug": "endurance"}]}) == "Endurance"
     assert wilier.geometry(product) == {"XS": {"stack": 505, "reach": 380}, "2XL": {"stack": 587, "reach": 399}}
+
+
+def test_ridley_archive_reads_earlier_years_and_follows_their_links(tmp_path, monkeypatch):
+    def page(code, model, groupset, year, family="aerotoaero", related=()):
+        data = {"bike": {"frame_family": family, "attributes": {
+                    "model": model, "groupset": groupset, "collection_year": f"Collection Ridley {year}",
+                    "frame": f"{model} frame", "fork": "Fork", "saddle": "Saddle", "seatpost": "Post", "stem": "Stem"}},
+                "price": {"msrp": "7899"}, "relations": {"othergroupsetsdifferentdesign": [{"externalid": c} for c in related],
+                                                         "othersizes": [{"externalid": "SIZE"}]}}
+        return code, data
+    pages = dict([page("SBINFDRID001", "Noah Fast Disc", "Shimano Ultegra Di2", 2020, related=["SBINFDRID020"]),
+                  page("SBINFDRID020", "Noah Fast Disc", "Shimano Ultegra", 2020),
+                  page("SBINFDRID003", "Noah Fast Disc", "Shimano Ultegra Di2", 2020),  # another size: the same build
+                  page("SBIOLDRID001", "Noah", "Shimano 105", 2016)])  # before 2018
+    codes = tmp_path / "codes.txt"
+    codes.write_text("SBINFDRID001\nSBINFDRID003\nSBIOLDRID001\n")
+    monkeypatch.setattr(ridley, "CODES", str(codes))
+    monkeypatch.setattr(ridley, "item_page", lambda fetcher, code: (pages.get(code), False))
+    class Families:  # the range today: none of these
+        def get(self, url):
+            return '{"result": []}'
+    bikes = ridley.archive(Families())
+    assert [(b["name"], b["model_year"], b["price"], b["category"]) for b in bikes] == [
+        ("Noah Fast Disc Shimano Ultegra Di2", 2020, None, "Race"), ("Noah Fast Disc Shimano Ultegra", 2020, None, "Race")]
+
+
+def test_ridley_falls_back_on_the_belgian_site(monkeypatch):
+    class Fetcher:
+        status = None
+
+        def get(self, url):
+            self.status = 500 if "/nl_NL/" in url else 200
+            return None if "/nl_NL/" in url else "page"
+    monkeypatch.setattr(ridley, "_dutch_failures", [])
+    monkeypatch.setattr(ridley, "item_data", lambda page: {"bike": {}} if page else None)
+    assert ridley.item_page(Fetcher(), "SBI1") == ({"bike": {}}, True)

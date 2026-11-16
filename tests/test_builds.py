@@ -36,8 +36,10 @@ def test_matching_finds_the_model_before_the_build(models):
     # a year is no version, and 105 is a groupset, not a Noah 105
     assert _top(models, "Ridley Noah Fast 2020 Dura-Ace").startswith("Noah Fast 3.0")
     assert _top(models, "Ridley Noah 105 di2") == "Noah 3.0 Shimano 105 Di2 2x12"
-    # a groupset the model isn't sold with today doesn't pull the ad to another model
-    assert _top(models, "Ridley Kanzo Fast GRX").startswith("Kanzo Fast 2.0")
+    # GRX came on the first Kanzo Fast (a retired line now), and an ad that names the 2.0 stays on the 2.0
+    top = _top(models, "Ridley Kanzo Fast GRX")
+    assert top.startswith("Kanzo Fast ") and "2.0" not in top and "GRX" in top
+    assert _top(models, "Ridley Kanzo Fast 2.0 GRX").startswith("Kanzo Fast 2.0")
     # the frameset only when the ad sells the frame
     assert "Frameset" not in _top(models, "Ridley Noah Fast 3.0 maat M zgan")
     assert _top(models, "Ridley Noah Fast 3.0 frameset maat M") == "Noah Fast 3.0 Frameset"
@@ -50,7 +52,7 @@ def test_build_choice(models):
     complete = [b for b in unknown["builds"]["all"] if not checks.is_frameset(b)]
     assert unknown["builds"]["state"] == "unknown"
     assert unknown["model"]["id"] == complete[(len(complete) - 1) // 2]["id"]  # the middle one by price
-    other = checks.run_check(models, {"title": "Ridley Kanzo Fast GRX", "description": "", "asking_price": 2000})
+    other = checks.run_check(models, {"title": "Ridley Kanzo Fast 2.0 GRX", "description": "", "asking_price": 2000})
     assert other["builds"]["state"] == "other"
     picked = _by_name(models, "Noah Fast 3.0 SRAM Red AXS 2x12")
     by_hand = checks.run_check(models, {"title": "Ridley Noah Fast 3.0", "description": "", "asking_price": 6000,
@@ -68,17 +70,21 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     # the model is the family: the Noah 3.0 and Noah Fast 3.0 are levels of the Noah
     assert titles.count("Noah") == 1 and not any("Ultegra" in t or "Fast" in t for t in titles)
     assert not any("rameset" in t for t in titles)  # a frameset is the last level of its family, no tile
-    assert "13 builds" in html and "New from €" not in html and "New €" not in html
+    assert " builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"]+)"', page)
-    assert len(pills) == 13 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
+    # the 13 builds on sale, and the retired Noah builds of earlier years (data/years/archived/Ridley.json)
+    builds = checks.builds_of(_by_name(db.all_models(db.connect(app.config["DB_PATH"])),
+                                       "Noah Fast 3.0 Shimano Ultegra Di2 2x12"), db.all_models(db.connect(app.config["DB_PATH"])))
+    assert len(pills) == len(builds) and sum(not checks.archived_line(b) for b in builds) == 13
+    assert [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
 
 
 def test_a_model_with_one_build_has_no_build_section(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    page = app.test_client().get("/models/ridley-x-ride-disc-shimano-grx-600-2x12?lang=en").get_data(as_text=True)
-    assert "X-Ride Disc" in page and 'class="builds build-card"' not in page and "build-pill" not in page
+    page = app.test_client().get("/models/ridley-dean-fast-disc-frameset?lang=en").get_data(as_text=True)
+    assert "Dean Fast Disc" in page and 'class="builds build-card"' not in page and "build-pill" not in page
 
 
 
