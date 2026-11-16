@@ -2843,7 +2843,7 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .t-thumb.catalogue img { object-fit: contain; }
 .t-thumb > span:not(.removed-banner) { display: none; }  /* "no photo yet" doesn't fit */
 .t-thumb .removed-banner { top: auto; right: 0; bottom: 0; left: 0; width: auto; padding: 0; transform: none; }
-.t-thumb .removed-banner > span { font-size: 8px; }
+.t-thumb .removed-banner > span { font-size: 7px; letter-spacing: 0; }
 .t-text { display: block; min-width: 0; overflow: hidden; }
 .t-name { display: block; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .t-verdict { font-weight: 600; }
@@ -2868,3 +2868,5 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
   .ad-table td.c-size { display: none; }
   .ad-table .c-place { grid-area: m; font-size: 13px; }
 }
+.table-pager { margin-top: 16px; }
+.table-pager .pager-gap { align-self: end; padding: 0 2px 6px; color: var(--muted); font-family: var(--mono); }

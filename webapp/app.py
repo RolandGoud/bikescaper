@@ -41,6 +41,7 @@ MONTHS = {"nl": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", 
           "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
 LEGAL_UPDATED = {"nl": "15 november 2026", "en": "15 November 2026"}  # change with the privacy text
 TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map
+TABLE_PER_PAGE = 10  # ads per page of the listings table (/listings?view=table)
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
 # credits.json holds each photo's author, licence and source, shown as a credit line in the hero.
@@ -990,8 +991,28 @@ def create_app(db_path=None):
         pins = [{"lat": p["lat"], "lng": p["lng"], "place": p["place"], "ads": len(p["ads"]),
                  "status": max((a["status"] for a in p["ads"]), key=lambda st: urgency.get(st, 0)),
                  "link": url_for("listings_map", place=p["place"], cc=p["country"])} for p in ad_pins(cards)]
-        return render_template("listings.html", cards=list(zip(cards, days)), nav="listings", view=view,
-                               checks_count=len(rows), pins=pins,
+        cards = list(zip(cards, days))
+        # The table comes in pages of TABLE_PER_PAGE ads (?page=, newest first); the cards show them all.
+        pages = max(1, -(-len(cards) // TABLE_PER_PAGE))
+        page = min(max(number(request.args.get("page"), int) or 1, 1), pages) if view == "table" else 1
+        pager = None
+        if view == "table" and pages > 1:
+            def page_url(n):
+                return url_for("listings", view="table", **({"page": n} if n > 1 else {}))
+            # The first and last page, and two either side of this one; a gap in between is shown as "…".
+            shown = sorted({1, pages, *range(max(1, page - 2), min(pages, page + 2) + 1)})
+            links, previous = [], 0
+            for n in shown:
+                if n - previous > 1:
+                    links.append(None)
+                links.append({"n": n, "url": page_url(n)})
+                previous = n
+            pager = {"page": page, "links": links,
+                     "prev": page_url(page - 1) if page > 1 else None,
+                     "next": page_url(page + 1) if page < pages else None}
+        rows_shown = cards[(page - 1) * TABLE_PER_PAGE:page * TABLE_PER_PAGE] if view == "table" else cards
+        return render_template("listings.html", cards=cards, rows_shown=rows_shown, pager=pager, nav="listings",
+                               view=view, checks_count=len(rows), pins=pins,
                                sponsored=offers(("side",), tiles=True))
 
     @app.route("/checks")

@@ -468,6 +468,26 @@ def test_listings_table_shows_one_row_per_ad(tmp_path):
     old = client.get("/checks")
     assert old.status_code == 301 and old.headers["Location"].endswith("/listings?view=table")
 
+def test_listings_table_comes_in_pages_of_ten(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    app.config["STORE_AD_PHOTOS"] = False
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    for n in range(23):  # 23 different typed-in ads
+        conn.execute("INSERT INTO checks (title, asking_price, location) VALUES (?, ?, 'Utrecht')",
+                     (f"Trek Domane SL6 2022 maat 56 nr {n}", 2000 + n))
+    conn.commit()
+    client = app.test_client()
+    first = client.get("/listings?view=table&lang=en").data.decode()
+    assert first.count('<td class="c-bike">') == 10 and "nr 22" in first and "nr 12" not in first
+    assert 'href="/listings?view=table&amp;page=2"' in first and 'aria-current="page">1</a>' in first
+    last = client.get("/listings?view=table&page=3&lang=en").data.decode()
+    assert last.count('<td class="c-bike">') == 3 and "nr 0" in last
+    assert client.get("/listings?view=table&page=99").data.decode().count('<td class="c-bike">') == 3
+    cards = client.get("/listings?lang=en").data.decode()
+    assert cards.count('class="listing-card"') == 23 and "table-pager" not in cards
+
+
 def test_report_titles_the_matched_bike_and_lists_the_other_ads_for_it(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     app.config["STORE_AD_PHOTOS"] = False
