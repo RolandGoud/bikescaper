@@ -13,10 +13,11 @@
  },
  "cannondale-topstone": {
   "focus": [
-   35,
-   62
+   49,
+   52
   ],
-  "source": "unsplash:zEdh7yYIwBU",
+  "source": "topstone-c2",
+  "brand": "Cannondale",
   "credit": {
    "author": "Rille Camera Strap",
    "license": "Unsplash License",
@@ -25,10 +26,11 @@
  },
  "giant-tcr-advanced": {
   "focus": [
-   66,
-   50
+   50,
+   53
   ],
-  "source": "unsplash:ZZay7O20jgc",
+  "source": "tcr-sl1",
+  "brand": "Giant",
   "credit": {
    "author": "Annie Spratt",
    "license": "Unsplash License",
@@ -109,10 +111,11 @@
  },
  "trek-domane": {
   "focus": [
-   72,
-   71
+   50,
+   61
   ],
-  "source": "unsplash:nIdWCuL-61M",
+  "source": "trek-domane-sl6",
+  "brand": "Trek",
   "credit": {
    "author": "Ben Guernsey",
    "license": "Unsplash License",

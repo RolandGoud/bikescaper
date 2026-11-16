@@ -31,6 +31,7 @@ COMMONS = "https://commons.wikimedia.org/wiki/Special:FilePath/"
 SOURCES = {
     "trek-domane-slr9": "https://media.trekbikes.com/image/upload/f_jpg,w_4000/DomaneSLR9-27-79926-A-Primary",
     "trek-domane-sl6": "https://media.trekbikes.com/image/upload/f_jpg,w_4000/DomaneSL6-26-57639-A-Primary",
+    "tcr-sl1": GIANT + "zzgqf9xwbjkjdjmev8ix/MY25TCRAdvancedSL1_ColorABlueDragonfly_Iris.jpg",
     "topstone-c2": "https://embed.widencdn.net/img/dorelrl/oj336v4hm2/3000px@1x/C25_C15335U_Topstone_Crb_2_AXS_1x_SGR_PD.jpg",
     "tcr-sl-crank": GIANT + "ccpgyga8zcnnwol24ocq/MY25TCRAdvancedSL1_ColorABlueDragonfly_Iris-D3.jpg",
     "tcr-sl-cockpit": GIANT + "kq1quuacyutfdpuwybeh/MY25TCRAdvancedSL1_ColorABlueDragonfly_Iris-D6.jpg",
@@ -272,6 +273,61 @@ def mood(slug, key, cx, cy, width, light, target, spread=24, colour=WARM, focus=
     return {"focus": [round(focus[0] / W * 100), round(focus[1] / H * 100)], "source": key, "credit": CREDITS[key]}
 
 
+def stage(slug, key, cx, cy, width, scene, streak, rim, seed=1):
+    """A model article's hero: the brand's own studio photo of the bike, cut out and set on a dark stage. A beam
+    lights it from the upper right, a thin rim light traces it, long-exposure light streaks in the bike's colour run
+    behind it, and a wet floor reflects it. The backdrop is the article's Unsplash scene (`scene`: key, cx, cy,
+    width), blurred and dark, credited as the background."""
+    im = frame(source(key), cx, cy, width, True)
+    alpha = np.asarray(studio_alpha(im)).astype(float) / 255
+    a = np.asarray(im).astype(float) / 255
+    # take the white studio background out of the soft edge pixels (spokes, cables), so no white fringe is left
+    k = np.maximum(alpha, 0.05)[..., None]
+    a = np.clip((a - (1 - k)) / k, 0, 1)
+    beam = cone((1300, -300), (800, 450), 26, soft=0.9)
+    bike = np.clip(a ** 1.5, 0, 1) * (0.25 + 1.0 * beam)[..., None]
+    inner = np.asarray(Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(5))) / 255
+    edge = Image.fromarray((np.clip(alpha - inner, 0, 1) * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.2))
+    bike = bike + (np.asarray(edge).astype(float) / 255)[..., None] * (np.array(rim, float) / 255) * 0.45
+    back = frame(source(scene[0]), *scene[1:], False).filter(ImageFilter.GaussianBlur(14))
+    bg = (np.asarray(back).astype(float) / 255) ** 1.6 * 0.35
+    rnd = random.Random(seed)
+    lines = Image.new("L", (W, H), 0)
+    dr = ImageDraw.Draw(lines)
+    for _ in range(26):
+        y, x0, length = rnd.gauss(H * 0.52, H * 0.13), rnd.uniform(-200, W * 0.5), rnd.uniform(400, 1300)
+        dr.line((x0, y, x0 + length, y - length * rnd.uniform(0.02, 0.06)), fill=int(rnd.uniform(60, 255)),
+                width=rnd.choice([1, 2, 2, 3, 5]))
+    lines = lines.filter(ImageFilter.GaussianBlur(2.5))
+    glow = np.asarray(lines.filter(ImageFilter.GaussianBlur(18))).astype(float)[..., None] / 255
+    lines = np.asarray(lines).astype(float)[..., None] / 255
+    bg = bg + (lines * 0.9 + glow * 1.3) * (np.array(streak, float) / 255)
+    bg = bg + (cone((1300, -300), (800, 450), 30, soft=1.0) * 0.10)[..., None] * np.array((1, 0.95, 0.9))
+    # the wet floor: the bike mirrored under its wheels, fading out
+    rows = np.where(alpha.max(axis=1) > 0.5)[0]
+    bottom = int(rows.max())
+    n = min(H - bottom, bottom)
+    mirror = np.zeros((H, W, 3))
+    mirror[bottom:bottom + n] = bike[bottom - n:bottom][::-1]
+    mirror_a = np.zeros((H, W))
+    mirror_a[bottom:bottom + n] = alpha[bottom - n:bottom][::-1] * np.linspace(0.35, 0, n)[:, None]
+    mirror = np.asarray(Image.fromarray((np.clip(mirror, 0, 1) * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(3)))
+    bg = bg * (1 - mirror_a[..., None]) + mirror.astype(float) / 255 * mirror_a[..., None]
+    img = bike * alpha[..., None] + bg * (1 - alpha[..., None])
+    yy, xx = np.mgrid[0:H, 0:W].astype(float)
+    v = np.hypot((xx - W * 0.5) / (W * 0.62), (yy - H * 0.5) / (H * 0.66))
+    img = img * np.clip(1.08 - v ** 2.2 * 0.8, 0.10, 1)[..., None]
+    img = 1 - np.exp(-img * 1.9)
+    img = img / (1 - math.exp(-1.9))
+    img = np.clip(img + np.random.default_rng(seed).normal(0, 0.018, (H, W, 1)), 0, 1)
+    os.makedirs(OUT, exist_ok=True)
+    Image.fromarray((img * 255).astype(np.uint8)).save(os.path.join(OUT, f"{slug}.jpg"), quality=86, optimize=True,
+                                                       progressive=True)
+    ys, xs = np.where(alpha > 0.5)
+    return {"focus": [round(xs.mean() / W * 100), round(ys.mean() / H * 100)], "source": key,
+            "brand": BRAND.get(key, "Giant"), "credit": CREDITS[scene[0]]}
+
+
 # The first heroes, built from the brands' studio shots (python tools/build_blog_heroes.py --studio [slug ...]).
 # slug: source, crop centre x/y and width (fractions), the beam (from, to, half-angle), its colour, and extras
 STUDIO = {
@@ -341,6 +397,18 @@ HEROES = {
 }
 
 
+# The model articles: the brand's own photo of that bike, staged by stage() in front of the article's scene.
+MODELS = {
+    "trek-domane": dict(key="trek-domane-sl6", cx=0.5, cy=0.54, width=1.45, scene=("unsplash:nIdWCuL-61M", 0.5, 0.5, 0.88),
+                        streak=(255, 170, 90), rim=(255, 200, 150)),
+    "giant-tcr-advanced": dict(key="tcr-sl1", cx=0.5, cy=0.54, width=1.4, scene=("unsplash:ZZay7O20jgc", 0.55, 0.55, 0.95),
+                               streak=(120, 170, 255), rim=(200, 220, 255)),
+    "cannondale-topstone": dict(key="topstone-c2", cx=0.5, cy=0.54, width=1.4,
+                                scene=("unsplash:zEdh7yYIwBU", 0.45, 0.5, 0.95), streak=(190, 255, 150),
+                                rim=(230, 255, 200)),
+}
+
+
 if __name__ == "__main__":
     if sys.argv[1:2] == ["--search"]:
         search(" ".join(sys.argv[2:]))
@@ -352,7 +420,10 @@ if __name__ == "__main__":
     for slug, spec in (STUDIO if studio else HEROES).items():
         if only and slug not in only:
             continue
-        meta[slug] = (spotlight if studio else mood)(slug, seed=sum(map(ord, slug)), **spec)
+        if not studio and slug in MODELS:
+            meta[slug] = stage(slug, seed=sum(map(ord, slug)), **MODELS[slug])
+        else:
+            meta[slug] = (spotlight if studio else mood)(slug, seed=sum(map(ord, slug)), **spec)
         print("built", slug)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(dict(sorted(meta.items())), f, indent=1)
