@@ -29,7 +29,7 @@ import urllib.request
 from datetime import datetime, timezone
 from urllib.parse import urlencode, urlsplit
 
-from . import ad_photos, checks, db, fetch_ad
+from . import ad_photos, checks, db, fetch_ad, mail
 from .recheck import EVERY, _stamp
 
 SOURCE = "daily"
@@ -44,7 +44,8 @@ TRIES = 3
 
 
 def search(query, site=MARKTPLAATS):
-    """The newest ads for a query on a site: [{"url", "title", "price", "photos"}], photos being how many."""
+    """The newest ads for a query on a site: [{"url", "title", "price", "photos", "description", "location"}],
+    photos being how many."""
     params = {"query": query, "l1CategoryId": BIKES, "limit": 30, "offset": 0,
               "sortBy": "SORT_INDEX", "sortOrder": "DECREASING"}
     request = urllib.request.Request(site + "/lrp/api/search?" + urlencode(params),
@@ -53,7 +54,10 @@ def search(query, site=MARKTPLAATS):
         data = json.loads(response.read(fetch_ad.MAX_BYTES))
     return [{"url": site + ad["vipUrl"], "title": ad.get("title") or "",
              "price": ((ad.get("priceInfo") or {}).get("priceCents") or 0) / 100,
-             "photos": len(ad.get("pictures") or ad.get("imageUrls") or [])}
+             "photos": len(ad.get("pictures") or ad.get("imageUrls") or []),
+             # the search's summary of the ad and its place, which the price alerts (alerts.py) read
+             "description": ad.get("categorySpecificDescription") or ad.get("description") or "",
+             "location": (ad.get("location") or {}).get("cityName") or ""}
             for ad in data.get("listings") or [] if ad.get("vipUrl")]
 
 
@@ -167,6 +171,14 @@ def run_locked(db_path, now=None):
                     print(f"storing photos of check {check_id} failed: {e}", file=sys.stderr, flush=True)
             if saved:
                 print(f"daily checks: saved {len(saved)}", flush=True)
+            if mail.configured():  # the price alerts read the newest ads once a day too
+                from . import alerts  # here, as alerts uses this module's search
+                try:
+                    sent = alerts.run(conn)
+                    if sent:
+                        print(f"price alerts: mailed {sent}", flush=True)
+                except Exception as e:
+                    print(f"price alerts failed: {e}", file=sys.stderr, flush=True)
         finally:
             conn.close()
 

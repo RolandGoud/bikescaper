@@ -79,6 +79,25 @@ CREATE TABLE IF NOT EXISTS sell_ads (
     model_id INTEGER NOT NULL REFERENCES models(id),  -- the model we recognised, or the one the seller picked
     answers TEXT          -- JSON of the answers given in the helper (year, size, condition, ...)
 );
+CREATE TABLE IF NOT EXISTS alerts (   -- price alerts left on a model page (webapp/alerts.py)
+    id INTEGER PRIMARY KEY,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    email TEXT NOT NULL,
+    model_id INTEGER NOT NULL REFERENCES models(id),
+    scope TEXT NOT NULL DEFAULT 'model',  -- "model": that model in any build or generation, "family": any of its family
+    size TEXT,            -- the frame size the ad has to state, NULL = any
+    max_price REAL,       -- NULL = only the fair range counts
+    lang TEXT,
+    site TEXT,            -- the site address the alert was made on, for the links in its mails
+    token TEXT NOT NULL UNIQUE,  -- the secret in its confirm and stop links
+    confirmed_at TEXT,    -- nothing is mailed before; unconfirmed alerts are deleted after a week
+    last_mail_at TEXT
+);
+CREATE TABLE IF NOT EXISTS alert_ads (  -- the ads an alert has seen, so none is mailed twice; deleted with the alert
+    alert_id INTEGER NOT NULL REFERENCES alerts(id),
+    ad_key TEXT NOT NULL,
+    PRIMARY KEY (alert_id, ad_key)
+);
 CREATE TABLE IF NOT EXISTS photo_review_interest (
     id INTEGER PRIMARY KEY,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),

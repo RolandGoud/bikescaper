@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Price alert') }} · Bikecheck{% endblock %}
+{% block body %}
+{# Where the price alert form lands, and its confirm and stop links (webapp/alerts.py). #}
+<main class="wrap page" style="max-width: 720px">
+  <section class="card">
+    {% if done == 'sent' %}
+    <h1 style="font-size: 34px">{{ _('Check your inbox') }}</h1>
+    <p>{{ _('We sent you a link. Open it to start the alert; until then we won’t email you about ads.') }}</p>
+    {% elif done == 'confirmed' %}
+    <h1 style="font-size: 34px">{{ _('Your alert is on') }}</h1>
+    <p>{{ _('We’ll email you when a new ad for {what} asks at most the middle of its fair range. At most one email a day.', what=what) }}</p>
+    {% elif done == 'stop' %}
+    <h1 style="font-size: 34px">{{ _('Stop this alert?') }}</h1>
+    <p>{{ _('Your alert for {what}. Stopping it deletes your email and the alert.', what=what) }}</p>
+    <form method="post"><button class="btn" type="submit">{{ _('Stop the alert') }}</button></form>
+    {% elif done == 'stopped' %}
+    <h1 style="font-size: 34px">{{ _('Alert stopped') }}</h1>
+    <p>{{ _('We deleted your email and the alert. You won’t hear from us about it again.') }}</p>
+    {% elif done == 'unknown' %}
+    <h1 style="font-size: 34px">{{ _("This link doesn't work") }}</h1>
+    <p>{{ _('The alert may be stopped already, or not confirmed within a week.') }}</p>
+    {% elif done == 'bad-email' %}
+    <h1 style="font-size: 34px">{{ _('Check your email address') }}</h1>
+    <p>{{ _('That doesn’t look like an email address. Go back and try again.') }}</p>
+    {% elif done == 'too-many' %}
+    <h1 style="font-size: 34px">{{ _('Too many alerts') }}</h1>
+    <p>{{ _('This address has {n} alerts already. Stop one with the link in its emails first.', n=5) }}</p>
+    {% else %}
+    <h1 style="font-size: 34px">{{ _('That didn’t work') }}</h1>
+    <p>{{ _('We couldn’t send the email just now. Please try again later.') }}</p>
+    {% endif %}
+    {% if m %}<p><a href="{{ url_for('model_page', slug=m.slug) }}">{{ _('To the {name} page', name=m.brand ~ ' ' ~ m.name|model_title) }}</a></p>{% endif %}
+  </section>
+</main>
+{% endblock %}
