@@ -14,6 +14,7 @@ import math
 import os
 import random
 import sys
+import urllib.parse
 import urllib.request
 
 import numpy as np
@@ -52,9 +53,42 @@ BRAND = {"trek-domane-slr9": "Trek", "trek-domane-sl6": "Trek", "topstone-c2": "
 WARM, COOL, MINT, AMBER, ICE = (255, 226, 186), (190, 214, 255), (170, 255, 214), (255, 178, 104), (200, 225, 255)
 
 
+UNSPLASH = "https://api.unsplash.com"
+
+
+def unsplash(path, **params):
+    """A call to the Unsplash API with the key from UNSPLASH_ACCESS_KEY (never in the repo; see docs/going-public.md)."""
+    key = os.environ.get("UNSPLASH_ACCESS_KEY")
+    if not key:
+        raise SystemExit("Set UNSPLASH_ACCESS_KEY to search or fetch Unsplash photos.")
+    url = UNSPLASH + path + ("?" + urllib.parse.urlencode(params) if params else "")
+    req = urllib.request.Request(url, headers={"Authorization": f"Client-ID {key}", "Accept-Version": "v1", **UA})
+    return json.load(urllib.request.urlopen(req, timeout=30))
+
+
+def search(query):
+    """Landscape Unsplash photos for a query, to pick hero sources from: python tools/build_blog_heroes.py --search ..."""
+    for p in unsplash("/search/photos", query=query, orientation="landscape", per_page=20)["results"]:
+        print(f"unsplash:{p['id']}  {p['width']}x{p['height']}  {p['user']['name']}  {(p.get('alt_description') or '')[:60]}")
+        print(f"    {p['urls']['small']}")
+
+
 def source(key):
+    """A hero source, downloaded once. `unsplash:<id>` fetches that Unsplash photo through the API, which counts the
+    download as Unsplash's API guidelines ask, and notes the photographer for the credit."""
     os.makedirs(CACHE, exist_ok=True)
-    path = os.path.join(CACHE, key + ".jpg")
+    path = os.path.join(CACHE, key.replace(":", "-") + ".jpg")
+    if not os.path.exists(path) and key.startswith("unsplash:"):
+        photo = unsplash(f"/photos/{key.split(':', 1)[1]}")
+        unsplash(urllib.parse.urlparse(photo["links"]["download_location"]).path)  # the download, counted
+        CREDITS[key] = {"author": photo["user"]["name"], "license": "Unsplash License",
+                        "url": photo["links"]["html"] + "?utm_source=bikecheck&utm_medium=referral"}
+        SOURCES[key] = photo["urls"]["raw"] + "&w=3000&q=90&fm=jpg"
+        with open(path + ".json", "w", encoding="utf-8") as f:
+            json.dump(CREDITS[key], f)
+    elif key.startswith("unsplash:") and os.path.exists(path + ".json"):
+        with open(path + ".json", encoding="utf-8") as f:
+            CREDITS[key] = json.load(f)
     if not os.path.exists(path):
         data = urllib.request.urlopen(urllib.request.Request(SOURCES[key], headers=UA), timeout=90).read()
         with open(path, "wb") as f:
@@ -133,8 +167,9 @@ def noise(scale, seed):
 def spotlight(slug, key, cx, cy, width, light, target, spread=16, colour=WARM, focus=None, blur=7.0,
               ambient=0.05, haze=0.16, dust=140, tint=(1.0, 1.0, 1.0), bg=(7, 8, 10), gain=2.0, sat=1.0, seed=1):
     """One hero: the crop of source `key`, lit by a beam from `light` towards `target`."""
+    photo = source(key)  # first, so an Unsplash photo's credit is known
     studio = key not in CREDITS
-    im = frame(source(key), cx, cy, width, studio)
+    im = frame(photo, cx, cy, width, studio)
     a = np.asarray(im).astype(float) / 255
     focus = focus or target
     beam = cone(light, target, spread)
@@ -227,6 +262,9 @@ HEROES = {
 
 
 if __name__ == "__main__":
+    if sys.argv[1:2] == ["--search"]:
+        search(" ".join(sys.argv[2:]))
+        sys.exit()
     only = sys.argv[1:]
     path = os.path.join(OUT, "heroes.json")
     meta = json.load(open(path)) if os.path.exists(path) else {}

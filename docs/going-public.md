@@ -14,6 +14,13 @@ disclosure (/affiliate) are **incomplete until the first two are set**.
 - [ ] `SECRET_KEY`: a long random value, so the session cookie isn't signed with a key derived from the
       admin password.
 
+## Optional settings
+
+- `UNSPLASH_ACCESS_KEY`: an Unsplash API key (unsplash.com/developers). Only `tools/build_blog_heroes.py` uses it,
+  to search for blog header photos (`--search <words>`) and to fetch a source written as `unsplash:<photo id>`;
+  the site itself never calls Unsplash. Keep it in the environment, never in the repo. A fetched photo's
+  photographer is credited under the picture, and the fetch counts as a download, as Unsplash's API guidelines ask.
+
 ## Privacy gaps to close
 
 - [ ] Host the Google Fonts on the site itself (webapp/templates/base.html), so visitors' IP addresses
