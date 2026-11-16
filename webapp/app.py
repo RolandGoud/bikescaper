@@ -945,16 +945,15 @@ def create_app(db_path=None):
         stored_checks.delete_old(conn(), ad_photos.folder(app.config["DB_PATH"]))
         return redirect(url_for("admin", dropped=check_id))
 
-    def ad_pins(rows):
+    def ad_pins(ads):
         """The ads as map pins, one per town (lat, lng, country, place, ads), busiest towns first.
-        rows: (newest check, times checked) per ad, as group_checks gives them."""
+        ads: (listing, its stored check) per ad, the listing made from the ad's newest check."""
         pins = {}
-        for row, count in rows:
+        for listing, result in ads:
+            row = listing
             spot = places.locate(row["location"], row["listing_url"])
             if not spot:  # a place we can't find stays off the map
                 continue
-            listing = listing_dict(row, count=count)
-            result = stored_check(listing)
             model = result["model"]
             pin = pins.setdefault(spot[:2], {"lat": spot[0], "lng": spot[1], "country": spot[2],
                                              "place": row["location"], "ads": []})
@@ -980,7 +979,7 @@ def create_app(db_path=None):
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         ads = group_checks(rows)
         view = "table" if request.args.get("view") == "table" else "cards"
-        cards = [(listing_dict(r, count=n), stored_check(listing_dict(r))) for r, n in ads]
+        cards = [(listing, stored_check(listing)) for listing in (listing_dict(r, count=n) for r, n in ads)]
         # Each card under the day of its ad's newest check; a day's cards run on in the same rows as the next day's.
         today = local_day(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))
         days = [day_heading(local_day(row["created_at"]), today, g.get("lang", DEFAULT_LANGUAGE)) for row, _ in cards]
@@ -988,7 +987,7 @@ def create_app(db_path=None):
         urgency = {"bad": 3, "warn": 2, "ok": 1, "unknown": 0}
         pins = [{"lat": p["lat"], "lng": p["lng"], "place": p["place"], "ads": len(p["ads"]),
                  "status": max((a["status"] for a in p["ads"]), key=lambda st: urgency.get(st, 0)),
-                 "link": url_for("listings_map", place=p["place"], cc=p["country"])} for p in ad_pins(ads)]
+                 "link": url_for("listings_map", place=p["place"], cc=p["country"])} for p in ad_pins(cards)]
         return render_template("listings.html", cards=list(zip(cards, days)), nav="listings", view=view,
                                checks_count=len(rows), pins=pins,
                                sponsored=offers(("side",), tiles=True))
@@ -1003,7 +1002,8 @@ def create_app(db_path=None):
         """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
         ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
-        pins = ad_pins(group_checks(rows))
+        pins = ad_pins([(listing, stored_check(listing))
+                        for listing in (listing_dict(r, count=n) for r, n in group_checks(rows))])
         focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
         # ?country=NL or BE shows only that country's towns; the switch above the map counts the ads per country.
         countries = [{"code": cc, "name": name, "ads": sum(len(p["ads"]) for p in pins if p["country"] == cc)}
