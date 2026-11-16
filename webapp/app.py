@@ -1247,7 +1247,7 @@ def create_app(db_path=None):
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)
-        return render_template("model.html", ads=ads, m=model, years=checks.sold_years(model), siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
+        return render_template("model.html", ads=ads, m=model, years=checks.shown_years(model), siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
                                year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),

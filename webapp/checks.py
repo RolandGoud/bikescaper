@@ -1091,8 +1091,13 @@ def year_tabs(model, today=None):
     generations = year_generations(model)
     # Earlier years only show for a model that has a sheet from then (Giant keeps some 2017 pages).
     first = min([FIRST_SPEC_YEAR] + [int(y) for y, e in archived.items() if e.get("specs")])
+    # A brand that still lists an earlier model year (Ridley's 2024 Grifn A in 2026) brought out no newer one: the
+    # years after it up to the scrape are that same bike, so they get no struck-through tab of their own.
+    carried = range(own_year + 1, int(model["seen_on"][:4]) + 1) if own_year else range(0)
     for year in range(first, max(today.year, own_year or 0) + 1):
         entry = archived.get(str(year))
+        if year in carried and not entry:
+            continue
         if year == own_year:
             tab = {"state": "scrape", "captured": model["seen_on"], "url": model.get("url"), "price": model.get("price_eur")}
             sheet = model["specs"]
@@ -1711,6 +1716,7 @@ def eur(value):
 
 SHEETS_NOTE = "From the spec sheets of each model year that {brand} or the Wayback Machine still has."
 PHOTOS_NOTE = "From our own catalogue scrape and the model years in {brand}'s photos; earlier years may be missing."
+STILL_SOLD_NOTE = "{brand} still sells this {year} model: no newer model year of it has come out."
 EARLIER_NOTE = "Earlier generations in our catalogue: {years}."
 
 
@@ -1895,6 +1901,22 @@ def sold_years(model, today=None):
                   and (not archived or not checked or first <= min(checked)))
     note = gen["note"] if gen and not archived else Msg(SHEETS_NOTE if archived else PHOTOS_NOTE, brand=model["brand"])
     return first, last, note, open_start, years
+
+
+def shown_years(model, today=None):
+    """sold_years for the model page's "Model years": (first, last or None for still sold, note). A model the brand
+    still sells as an earlier model year, with nothing newer in our catalogue, ends at that year instead of "now"
+    (Ridley's site lists the Grifn A 105 as "Collectie 2024" in 2026): the status already says it is still on
+    sale. The age check keeps sold_years, as a bike bought new in 2026 may well be sold as a 2026 one."""
+    known = sold_years(model, today)
+    if not known:
+        return None
+    first, last, note = known[:3]
+    own = scrape_year(model)
+    if (last is None and own and not generation(model) and own < int(model["seen_on"][:4])
+            and not any(y > own and not old for y, (_n, old) in known[4].items())):
+        return first, own, Msg(STILL_SOLD_NOTE, brand=model["brand"], year=own)
+    return first, last, note
 
 
 def check_age(model, claims, today=None):
