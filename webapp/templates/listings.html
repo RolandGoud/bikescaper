@@ -24,7 +24,7 @@
     {% if cards %}<p class="listings-count">{{ _('{ads} ads · {checks} checks', ads=cards|length, checks=checks_count) }}</p>{% endif %}
   </div>
   {% if cards %}
-  <div class="listings-split">
+  <div class="listings-split{{ ' table-view' if view == 'table' }}">
     <div class="listings-main">
     {% if view == 'table' %}
     {# One row per ad (its newest check); the bike opens the report, the place the big map there. #}
@@ -76,8 +76,10 @@
     {% endif %}
     </div>
     <aside class="side-map" aria-label="{{ _('Map of the ads') }}">
+      <div class="side-map-top">
       <div class="side-map-head"><span>{{ _('{n} place' if pins|length == 1 else '{n} places', n=pins|length) }}</span><a href="{{ url_for('listings_map') }}">{{ _('Big map') }} →</a></div>
       <div id="side-map" class="ads-map" data-benelux="{{ url_for('static', filename='benelux.json') }}"></div>
+      </div>
       <div class="map-legend small muted">
         <span><b class="map-dot ok"></b>{{ _('Fair price') }}</span>
         <span><b class="map-dot warn"></b>{{ _('Too high') }}</span>
