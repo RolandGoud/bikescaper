@@ -2932,63 +2932,6 @@
   "image": "Giant/archived/tcradvancedpro3disc.jpg"
  },
  {
-  "name": "TCR Advanced Pro Disc 0 Di2",
-  "brand": "Giant",
-  "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-0-di2-2022",
-  "sku": "2758",
-  "price": 5899.0,
-  "category": "Race",
-  "model_year": 2022,
-  "specifications": {
-   "Frame": "Advanced-Grade Composite, disc",
-   "Voorvork": "Advanced-Grade Composite, full-composite OverDrive 2 steerer, disc",
-   "Demper": "N/A",
-   "Stuur": "Giant Contact SLR XS:40cm, S:40cm, M:42cm, M/L:42cm, L:44cm, XL:44cm",
-   "Handvatten": "Stratus Lite 2.0",
-   "Stuurpen": "Giant Contact SL XS:80mm, S:90mm, M:100mm, M/L:110mm, L:110mm, XL:120mm",
-   "Zadelpen": "Giant Variant, composite, -5/+15mm offset",
-   "Zadel": "Giant Fleet SL",
-   "Pedaal": "N/A",
-   "Shifter": "Shimano Ultegra Di2 ST-R8170",
-   "Voorderailleur": "Shimano Ultegra Di2 FD-R8150",
-   "Achterderailleur": "Shimano Ultegra Di2 RD-R8150",
-   "Rem": "Shimano Ultegra Di2 hydraulic, Shimano RT-MT800 rotors [F]160mm, [R]140mm",
-   "Remgreep": "Shimano Ultegra Di2 hydraulic",
-   "Cassette": "Shimano Ultegra, 12-speed, 11x30",
-   "Aandrijving": "Shimano Ultegra",
-   "Crankstel": "Shimano Ultegra, 36/52 XS:170mm, S:170mm, M:172.5mm, M/L:172.5mm, L:175mm, XL:175mm",
-   "Bottom bracket": "Shimano, press fit",
-   "Velg": "Giant SLR 1 42 Carbon Disc WheelSystem",
-   "Naven": "Giant SLR 1 42 Carbon Disc WheelSystem, 12mm thru-axle",
-   "Spaken": "Giant SLR 1 42 Carbon Disc WheelSystem",
-   "Buitenband": "CADEX Race, tubeless, 700x25c (26.5mm), folding",
-   "Extra's": "computer mount, tubeless prepared, 32mm max tire size",
-   "Gewicht": "7,28kg"
-  },
-  "color_names": [
-   "Gloss Amber Glow / Matte Carbon"
-  ],
-  "sizes": [
-   "XS",
-   "S",
-   "M",
-   "ML",
-   "L",
-   "XL"
-  ],
-  "image_url": "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ykornyiobqxmxiswpnbp/MY22TCRAdvancedPro0Disc-Ui2_ColorAAmberGlow.jpg",
-  "color_image_urls": [
-   "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_750%2Cq_80%2Cw_1000/ykornyiobqxmxiswpnbp/MY22TCRAdvancedPro0Disc-Ui2_ColorAAmberGlow.jpg"
-  ],
-  "color_angle_urls": [
-   []
-  ],
-  "years": [
-   2022
-  ],
-  "image": "Giant/archived/tcradvancedprodisc0di2.jpg"
- },
- {
   "name": "TCR Advanced Pro Disc 1 UT",
   "brand": "Giant",
   "url": "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-1-ut-2022",

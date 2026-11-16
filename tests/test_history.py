@@ -535,6 +535,31 @@ def test_seed_folds_a_renamed_build_into_the_bike_it_is_now(tmp_path, monkeypatc
     assert seed.merge_renamed_models(conn) == 0
 
 
+def test_seed_folds_an_earlier_generation_into_the_build_it_is_now(tmp_path, monkeypatch):
+    import json
+    from webapp import db, seed
+    from webapp.app import create_app
+    (tmp_path / "data" / "years").mkdir(parents=True)
+    (tmp_path / "data" / "years" / "folded.json").write_text(json.dumps(
+        {"Giant": {"TCR Advanced Pro Disc 0 Di2": "TCR Advanced Pro 0-Di2"}}))
+    monkeypatch.setattr(seed, "ROOT", str(tmp_path))
+    conn = db.connect(str(tmp_path / "t.db"))
+    for name in ("TCR Advanced Pro Disc 0 Di2", "TCR Advanced Pro 0-Di2"):
+        conn.execute("INSERT INTO models (brand, name, slug, source_file, specs, colors) VALUES ('Giant', ?, ?, 'x', '{}', '[]')",
+                     (name, seed.slugify(f"Giant {name}")))
+    old, new = (conn.execute("SELECT id FROM models WHERE name = ?", (n,)).fetchone()[0]
+                for n in ("TCR Advanced Pro Disc 0 Di2", "TCR Advanced Pro 0-Di2"))
+    conn.execute("INSERT INTO checks (listing_url, title, model_id) VALUES ('u', 't', ?)", (old,))
+    conn.commit()
+    assert seed.fold_models(conn) == 1
+    assert [r[0] for r in conn.execute("SELECT name FROM models")] == ["TCR Advanced Pro 0-Di2"]
+    assert conn.execute("SELECT model_id FROM checks").fetchone()[0] == new
+    assert seed.fold_models(conn) == 0
+    # the old page sends people on to the bike it is now
+    page = create_app(str(tmp_path / "t.db")).test_client().get("/models/giant-tcr-advanced-pro-disc-0-di2")
+    assert page.status_code == 301 and page.headers["Location"].endswith("/models/giant-tcr-advanced-pro-0-di2")
+
+
 def test_trek_reads_a_carried_over_model_year_range():
     from brand_scrapers import trek
     assert trek.model_years("2027") == [2027] and trek.model_year("2027") == 2027

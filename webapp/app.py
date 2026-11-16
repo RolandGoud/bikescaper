@@ -1181,6 +1181,9 @@ def create_app(db_path=None):
     def model_page(slug):
         model = db.get_model(conn(), slug=slug)
         if model is None:
+            now = seed.folded_slugs().get(slug)  # an earlier generation folded into the build it is now
+            if now:
+                return redirect(url_for("model_page", slug=now), 301)
             abort(404)
         # a model with builds: the switcher under its name, each build with its spec tier as its colour
         # each build's price as its own page's price tag shows it (also the archive's or German list price)

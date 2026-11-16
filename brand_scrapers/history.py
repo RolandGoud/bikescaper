@@ -55,6 +55,8 @@ RENAMED = {
         "TCR Advanced 0-PC": ("TCR Advanced 0", "https://www.giant-bicycles.com/nl/tcr-advanced-0"),
         "TCR Advanced 1 - Pro Compact": ("TCR Advanced 1", "https://www.giant-bicycles.com/nl/tcr-advanced-1"),
         "TCR Advanced 2-PC": ("TCR Advanced 2", "https://www.giant-bicycles.com/nl/tcr-advanced-2"),
+        # the 2022 bike, one generation earlier (also in data/years/folded.json)
+        "TCR Advanced Pro 0-Di2": ("TCR Advanced Pro Disc 0 Di2", "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-0-di2"),
     },
 }
 

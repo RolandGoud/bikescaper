@@ -459,6 +459,11 @@ def year_specs(brand, name, _cache={}):
         for year, entry in (shop or {}).get("models", {}).get(name.strip(), {}).items():
             if entry.get("specs") and not (years.get(year) or {}).get("specs"):
                 years[year] = entry
+    # The names folded into this one (data/years/folded.json): their sheets fill the years it lacks, under their name.
+    for earlier in [o for o, n in folded_names().get(brand, {}).items() if n == name.strip()]:
+        for year, entry in (year_specs(brand, earlier).get("years") or {}).items():
+            if entry.get("specs") and not (years.get(year) or {}).get("specs"):
+                years[year] = dict(entry, sheet_name=entry.get("sheet_name") or earlier)
     found = [f for f in (archive, site) if f]
     # Nothing from before FIRST_YEAR: we keep no data for those years.
     out = {"checked": sorted({y for f in found for y in f["years"] if int(y) >= FIRST_YEAR}),
@@ -509,6 +514,8 @@ def refresh_year_specs(conn):
 
 def insert_bike(conn, brand, bike, rel, verb="INSERT OR REPLACE"):
     if (model_year(bike) or FIRST_YEAR) < FIRST_YEAR:  # we keep no data from before FIRST_YEAR
+        return 0
+    if bike.get("name", "").strip() in folded_names().get(brand, {}):  # its years show on the bike it is now
         return 0
     bike.setdefault("brand", brand)
     colors = bike.get("color_names") or ([bike["color"]] if bike.get("color") else [])
@@ -628,6 +635,48 @@ def merge_renamed_models(conn):
     return count
 
 
+def folded_names():
+    """{brand: {old name: the model it is now}} from data/years/folded.json: builds the brand renamed between
+    generations (Giant's 2022 "TCR Advanced Pro Disc 0 Di2" is the 2025 "TCR Advanced Pro 0-Di2"'s earlier
+    generation), whose old years now show as that model's year tabs (brand_scrapers/history.py RENAMED)."""
+    return _folded(ROOT)
+
+
+@functools.lru_cache(maxsize=None)
+def _folded(root):
+    try:
+        with open(os.path.join(root, "data", "years", "folded.json"), encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return {}
+
+
+def folded_slugs():
+    """{old slug: slug of the model it is now}, so an old model page link still finds the bike."""
+    return {slugify(f"{brand} {old}"): slugify(f"{brand} {new}")
+            for brand, names in folded_names().items() for old, new in names.items()}
+
+
+def fold_models(conn):
+    """Fold the models of data/years/folded.json into the model they are now: checks and estimates move to it,
+    and the old row goes. Returns how many models went."""
+    count = 0
+    for old, new in folded_slugs().items():
+        old_row = conn.execute("SELECT id FROM models WHERE slug = ?", (old,)).fetchone()
+        target = conn.execute("SELECT id FROM models WHERE slug = ?", (new,)).fetchone()
+        if not old_row or not target:
+            continue
+        old_id, target = old_row[0], target[0]
+        conn.execute("DELETE FROM check_results WHERE check_id IN (SELECT id FROM checks WHERE model_id = ?)", (old_id,))
+        conn.execute("UPDATE checks SET model_id = ? WHERE model_id = ?", (target, old_id))
+        conn.execute("UPDATE estimates SET model_id = ? WHERE model_id = ?", (target, old_id))
+        conn.execute("UPDATE photo_review_interest SET model_id = ? WHERE model_id = ?", (target, old_id))
+        conn.execute("DELETE FROM models WHERE id = ?", (old_id,))
+        count += 1
+    conn.commit()
+    return count
+
+
 def remove_old_models(conn):
     """Take the bikes from before FIRST_YEAR out of a catalogue loaded before it left them out (BMC's and
     Specialized's discontinued lines go back to 2006). A saved check matched to one by hand goes back to the
@@ -658,6 +707,7 @@ def load(conn):
     conn.commit()
     count += add_other_scrapes(conn)
     count += add_archived(conn)
+    count -= fold_models(conn)
     refresh_status(conn)
     return count
 
@@ -674,6 +724,7 @@ if __name__ == "__main__":
               f" updated status of {refresh_status(conn)},"
               f" read earlier years for {refresh_year_specs(conn)},"
               f" removed {remove_old_models(conn)} from before {FIRST_YEAR},"
-              f" folded {merge_renamed_models(conn)} renamed builds into the bike they are now")
+              f" folded {merge_renamed_models(conn)} renamed builds into the bike they are now"
+              f" and {fold_models(conn)} earlier generations into the build they are now")
     else:
         print(f"Loaded {load(conn)} models into {db.DB_PATH}")
