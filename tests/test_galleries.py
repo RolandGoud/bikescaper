@@ -118,10 +118,13 @@ def test_factor_takes_each_colours_studio_sides_and_close_ups_from_the_family_pa
 
 def test_ridley_takes_the_frames_photo_shoot_without_the_copies(monkeypatch):
     import json
-    state = {"data": [{"bike": {"inspirations": {"pictures": [{"name": n} for n in (
-        "X-nightRS-10.jpg", "X-nightRS-2.jpg", "X-nightRS-2 kopiëren.jpg", "specs.pdf")]}}}]}
-    page = "<script>window.__NUXT__=%s</script>" % json.dumps(state)
-    monkeypatch.setattr(galleries, "nuxt_state", lambda p: json.loads(p.split("=", 1)[1].split("</script>")[0]))
+    names = ["X-nightRS-10.jpg", "X-nightRS-2.jpg", "X-nightRS-2 kopiëren.jpg", "specs.pdf"]
+    # the page's Nuxt 3 state, flattened by devalue: {"data": {"options:asyncdata:x": {"bike": {"inspirations": ...}}}}
+    table = [{"data": 1}, {"options:asyncdata:x": 2}, {"bike": 3}, {"inspirations": 4}, {"pictures": 5},
+             list(range(6, 6 + 2 * len(names), 2))]
+    for i, n in enumerate(names):
+        table += [{"name": 7 + 2 * i}, n]
+    page = '<script type="application/json" id="__NUXT_DATA__">%s</script>' % json.dumps(table)
     found = galleries.ridley_page(Page(page), {"url": "u"})
     assert found == {"": ["https://images.cyclingfactory.be/inspirations/X-nightRS-2.jpg",
                           "https://images.cyclingfactory.be/inspirations/X-nightRS-10.jpg"]}
