@@ -68,10 +68,10 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     # the model is the family: the Noah 3.0 and Noah Fast 3.0 are levels of the Noah
     assert titles.count("Noah") == 1 and not any("Ultegra" in t or "Fast" in t for t in titles)
     assert not any("rameset" in t for t in titles)  # a frameset is the last level of its family, no tile
-    assert "12 builds" in html and "New from €" not in html and "New €" not in html
+    assert "13 builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
     pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"]+)"', page)
-    assert len(pills) == 12 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
+    assert len(pills) == 13 and [s for on, s in pills if on] == ["ridley-noah-fast-3-0-shimano-ultegra-di2-2x12"]
 
 
 def test_a_model_with_one_build_has_no_build_section(tmp_path):
