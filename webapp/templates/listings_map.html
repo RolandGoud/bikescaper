@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 {% block body %}
+{% from "_macros.html" import view_icon %}
 {# A small flag in muted colours: the Netherlands in horizontal stripes, Belgium in vertical ones. #}
 {% macro flag(cc) %}<svg class="map-flag" viewBox="0 0 3 3" preserveAspectRatio="none" aria-hidden="true">{% if cc == 'BE' %}<rect width="1" height="3" fill="var(--flag-black)"/><rect x="1" width="1" height="3" fill="var(--flag-gold)"/><rect x="2" width="1" height="3" fill="var(--flag-red)"/>{% else %}<rect width="3" height="1" fill="var(--flag-red)"/><rect y="1" width="3" height="1" fill="var(--flag-white)"/><rect y="2" width="3" height="1" fill="var(--flag-blue)"/>{% endif %}</svg>{% endmacro %}
 {# The Netherlands and Belgium as a grid of dots (webapp/static/benelux.json), one glowing pin per town with
@@ -15,11 +16,12 @@
     <h1 style="font-size: 44px">{{ _('Ads on the map') }}</h1>
     <p class="muted">{{ _('Where the checked bikes are. Click a pin or a town to find its ads.') }}</p>
   </div>
-  <div class="filters" aria-label="{{ _('Views') }}">
-    <a class="pill" href="{{ url_for('listings') }}">{{ _('One card per ad') }}</a>
-    <a class="pill" href="{{ url_for('all_checks') }}">{{ _('Every check') }}</a>
-    <a class="pill on" href="{{ url_for('listings_map') }}" aria-current="page">{{ _('On the map') }}</a>
-  </div>
+  {# Back to the listings as cards or as a table; on a wide screen the listings have a small map alongside. #}
+  <nav class="view-switch" aria-label="{{ _('Views') }}">
+    <a href="{{ url_for('listings') }}">{{ view_icon('cards') }}{{ _('Cards') }}</a>
+    <a href="{{ url_for('listings', view='table') }}">{{ view_icon('table') }}{{ _('Table') }}</a>
+    <a class="on" href="{{ url_for('listings_map') }}" aria-current="page">{{ view_icon('map') }}{{ _('Map') }}</a>
+  </nav>
   {% if countries|sum(attribute='ads') %}
   <div class="filters map-countries" aria-label="{{ _('Countries') }}">
     <a class="pill{{ ' on' if not country }}" href="{{ all_url }}"{% if not country %} aria-current="page"{% endif %}>{{ _('All') }}<span class="count">{{ countries|sum(attribute='ads') }}</span></a>

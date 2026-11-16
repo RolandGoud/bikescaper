@@ -24,7 +24,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import photo_review as sell_review
-from . import ad_gone, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
+from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
                         TIERS)
@@ -946,46 +946,15 @@ def create_app(db_path=None):
         stored_checks.delete_old(conn(), ad_photos.folder(app.config["DB_PATH"]))
         return redirect(url_for("admin", dropped=check_id))
 
-    @app.route("/listings")
-    def listings():
-        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
-        cards = [(listing_dict(r, count=n), stored_check(listing_dict(r)))
-                 for r, n in group_checks(rows)]
-        # Each card under the day of its ad's newest check; a day's cards run on in the same rows as the next day's.
-        today = local_day(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))
-        days = [day_heading(local_day(row["created_at"]), today, g.get("lang", DEFAULT_LANGUAGE)) for row, _ in cards]
-        return render_template("listings.html", cards=list(zip(cards, days)), nav="listings",
-                               sponsored=offers(("side",), tiles=True))
-
-    @app.route("/checks")
-    def all_checks():
-        """Every check one by one, newest first: what was put in and what came out."""
-        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
-        times = {}
-        for r in rows:
-            times[fetch_ad.ad_key(r)] = times.get(fetch_ad.ad_key(r), 0) + 1
-        known = prices.known_ads(conn(), models())
-        items = []
-        for r in rows:
-            listing = listing_dict(r, count=times[fetch_ad.ad_key(r)])
-            result = stored_check(listing)
-            asking = (prices.asking_price(known, result["model"]["id"], prices.DEFAULT_PERIOD, leave_out=r["id"])
-                      if result["model"] else None)
-            items.append((listing, result, asking))
-        return render_template("checks.html", items=items, nav="listings")
-
-    @app.route("/listings/map")
-    def listings_map():
-        """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
-        ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
-        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
+    def ad_pins(ads):
+        """The ads as map pins, one per town (lat, lng, country, place, ads), busiest towns first.
+        ads: (listing, its stored check) per ad, the listing made from the ad's newest check."""
         pins = {}
-        for row, count in group_checks(rows):
+        for listing, result in ads:
+            row = listing
             spot = places.locate(row["location"], row["listing_url"])
             if not spot:  # a place we can't find stays off the map
                 continue
-            listing = listing_dict(row, count=count)
-            result = stored_check(listing)
             model = result["model"]
             pin = pins.setdefault(spot[:2], {"lat": spot[0], "lng": spot[1], "country": spot[2],
                                              "place": row["location"], "ads": []})
@@ -1002,8 +971,41 @@ def create_app(db_path=None):
                 "catalogue": not listing["photos"],
                 "removed": ad_gone.label(row),
             })
+        return sorted(pins.values(), key=lambda p: (-len(p["ads"]), p["place"]))  # busiest towns first
+
+    @app.route("/listings")
+    def listings():
+        """Every checked ad, one per ad, as cards (the default) or as a table (?view=table), with a small map of
+        where they are beside them on a wide screen; the big map is /listings/map."""
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
+        ads = group_checks(rows)
+        view = "table" if request.args.get("view") == "table" else "cards"
+        cards = [(listing, stored_check(listing)) for listing in (listing_dict(r, count=n) for r, n in ads)]
+        # Each card under the day of its ad's newest check; a day's cards run on in the same rows as the next day's.
+        today = local_day(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))
+        days = [day_heading(local_day(row["created_at"]), today, g.get("lang", DEFAULT_LANGUAGE)) for row, _ in cards]
+        # For the small map: one dot per town in the colour of its most urgent price verdict, linking to the big map there.
+        urgency = {"bad": 3, "warn": 2, "ok": 1, "unknown": 0}
+        pins = [{"lat": p["lat"], "lng": p["lng"], "place": p["place"], "ads": len(p["ads"]),
+                 "status": max((a["status"] for a in p["ads"]), key=lambda st: urgency.get(st, 0)),
+                 "link": url_for("listings_map", place=p["place"], cc=p["country"])} for p in ad_pins(cards)]
+        return render_template("listings.html", cards=list(zip(cards, days)), nav="listings", view=view,
+                               checks_count=len(rows), pins=pins,
+                               sponsored=offers(("side",), tiles=True))
+
+    @app.route("/checks")
+    def all_checks():
+        """The old list of every check, now the table view of the listings."""
+        return redirect(url_for("listings", view="table"), 301)
+
+    @app.route("/listings/map")
+    def listings_map():
+        """Every ad on a map of the Netherlands and Belgium, one pin per place; a pin opens its ads' reports.
+        ?place= (a town's name, as the cards and reports link it) opens the map at that town's pin."""
+        rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
+        pins = ad_pins([(listing, stored_check(listing))
+                        for listing in (listing_dict(r, count=n) for r, n in group_checks(rows))])
         focus = places.locate(request.args.get("place"), in_country=request.args.get("cc"))
-        pins = sorted(pins.values(), key=lambda p: (-len(p["ads"]), p["place"]))  # busiest towns first in the list
         # ?country=NL or BE shows only that country's towns; the switch above the map counts the ads per country.
         countries = [{"code": cc, "name": name, "ads": sum(len(p["ads"]) for p in pins if p["country"] == cc)}
                      for cc, name in [("NL", gettext("Netherlands")), ("BE", gettext("Belgium"))]]
@@ -1023,7 +1025,7 @@ def create_app(db_path=None):
         pages = max(1, -(-len(pins) // TOWNS_PER_PAGE))
         page = selected // TOWNS_PER_PAGE + 1 if selected is not None else min(max(number(request.args.get("page"), int) or 1, 1), pages)
         page_urls = [url_for("listings_map", **keep, **({"page": n} if n > 1 else {})) for n in range(1, pages + 1)]
-        return render_template("listings_map.html", pins=pins, nav="map", selected=selected,
+        return render_template("listings_map.html", pins=pins, nav="listings", selected=selected,
                                page=page, page_urls=page_urls, per_page=TOWNS_PER_PAGE,
                                countries=countries, country=country, all_url=all_url)
 
@@ -1231,7 +1233,72 @@ def create_app(db_path=None):
                                size_chart=size_chart, size_note=checks.size_note(size_chart, model["brand"]),
                                asking=prices.asking_price(known, model["id"],
                                                           prices.period_of(request.args.get("period", type=int))),
+                               alert_form={"model": alerts.model_label(model), "family": alerts.family_label(model),
+                                           "sizes": list(size_chart["sizes"])} if mail.configured() else None,
                                nav="models")
+
+    @app.post("/models/<slug>/alert")
+    def alert_sign_up(slug):
+        """A price alert for the model: mails a confirmation link, and nothing else until it's opened."""
+        model = db.get_model(conn(), slug=slug)
+        if model is None:
+            abort(404)
+        email = (request.form.get("email") or "").strip()[:200]
+        size = (request.form.get("size") or "").strip()[:10] or None
+        max_price = number(request.form.get("max_price"))
+        ip = request.remote_addr
+        done = "sent"
+        if not mail.configured():
+            done = "no-mail"
+        elif not mail.valid(email):
+            done = "bad-email"
+        elif not mail.allowed(ip):
+            done = "busy"
+        else:
+            token = alerts.sign_up(conn(), email, model, request.form.get("scope"), size,
+                                   max_price if max_price and max_price > 0 else None, g.lang, request.url_root)
+            if token is None:
+                done = "too-many"
+            else:
+                alert = alerts.by_token(conn(), token)
+                try:
+                    mail.send(email, gettext("Confirm your Bikecheck price alert"),
+                              gettext("Someone, hopefully you, asked for an email when a new ad for {what} asks "
+                                      "less than its fair price. Open this link to start the alert:\n\n{link}\n\n"
+                                      "Didn't ask for this? Ignore this email: we delete the request in a week "
+                                      "and won't mail you again.", what=alerts.describe(alert, model),
+                                      link=url_for("alert_confirm", token=token, _external=True)), ip=ip)
+                except Exception as e:  # the alert stays unconfirmed and is deleted in a week
+                    print(f"alert confirmation mail failed: {e}", file=sys.stderr, flush=True)
+                    done = "failed"
+        if request.headers.get("X-Requested-With") == "fetch":
+            return jsonify(done=done)
+        return render_template("alert.html", nav="models", done=done, m=model), 200 if done == "sent" else 400
+
+    @app.route("/alerts/<token>/confirm")
+    def alert_confirm(token):
+        alert = alerts.by_token(conn(), token)
+        if alert is None:
+            return render_template("alert.html", nav="models", done="unknown", m=None), 404
+        alerts.confirm(conn(), alert["id"])
+        model = db.get_model(conn(), model_id=alert["model_id"])
+        return render_template("alert.html", nav="models", done="confirmed", m=model, alert=alert,
+                               what=alerts.describe(alert, model) if model else "")
+
+    @app.route("/alerts/<token>/stop", methods=["GET", "POST"])
+    def alert_stop(token):
+        """GET asks (a mail scanner opening the link mustn't stop it); POST stops, also as the one-click unsubscribe
+        of the mail's List-Unsubscribe header."""
+        alert = alerts.by_token(conn(), token)
+        if alert is None:
+            return render_template("alert.html", nav="models", done="stopped" if request.method == "POST" else "unknown",
+                                   m=None), 200 if request.method == "POST" else 404
+        model = db.get_model(conn(), model_id=alert["model_id"])
+        if request.method == "POST":
+            alerts.stop(conn(), alert["id"])
+            return render_template("alert.html", nav="models", done="stopped", m=model)
+        return render_template("alert.html", nav="models", done="stop", m=model, alert=alert,
+                               what=alerts.describe(alert, model) if model else "")
 
     @app.route("/size")
     def size_finder():

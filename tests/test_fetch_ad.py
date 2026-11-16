@@ -314,7 +314,7 @@ def test_removed_badge(tmp_path):
     # The tag comes after the title, not before it.
     assert report.index("Trek Domane SL6 2022") < report.index('class="removed-tag gone"')
     # On the ad tiles it's a ribbon on the photo, not a pill by the name.
-    for url in ["/?lang=en", "/listings?lang=en", "/checks?lang=en"]:
+    for url in ["/?lang=en", "/listings?lang=en", "/listings?view=table&lang=en"]:
         page = client.get(url).data.decode()
         assert '<span class="removed-banner gone"' in page and "<span>Removed</span>" in page, url
         assert 'class="removed-tag' not in page, url
@@ -446,22 +446,27 @@ def test_stores_ad_photos(tmp_path):
     assert 'src="/ad-photos/1/01.jpg"' in page and 'src="/ad-photos/1/02.png"' in page
 
 
-def test_all_checks_page_shows_request_and_result(tmp_path):
+def test_listings_table_shows_one_row_per_ad(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     app.config["STORE_AD_PHOTOS"] = False
     conn = db.connect(app.config["DB_PATH"])
     seed.load(conn)
-    for _ in range(2):  # the same typed-in ad checked twice: two rows, not one card
+    for _ in range(2):  # the same typed-in ad checked twice: one row, marked 2×
         conn.execute("INSERT INTO checks (title, description, asking_price, location, rider_height)"
                      " VALUES ('Trek Domane SL6 2022 maat 56', 'Ultegra, nieuwstaat', 2450, 'Utrecht', 181)")
     conn.execute("INSERT INTO checks (title, asking_price, source) VALUES ('Canyon Ultimate CF SL 2021', 1500, 'daily')")
     conn.commit()
     client = app.test_client()
-    page = client.get("/checks?lang=en").data.decode()
-    assert page.count('class="check-row"') == 3
-    assert "181 cm rider" in page and "Utrecht" in page and "€2.450" in page and "second-hand median" in page
-    assert "This ad: 2× checked" in page and "Daily example" not in page  # daily checks aren't marked
-
+    page = client.get("/listings?view=table&lang=en").data.decode()
+    assert page.count('<td class="c-bike">') == 2
+    assert "Utrecht" in page and "€2.450" in page and "This ad: 2× checked" in page
+    assert '<a href="/listings?view=table" class="on" aria-current="page">' in page
+    assert 'class="listing-card"' not in page and 'id="side-map"' in page
+    cards = client.get("/listings?lang=en").data.decode()
+    assert cards.count('class="listing-card"') == 2 and '<td class="c-bike">' not in cards
+    # The old list of every check now opens the table.
+    old = client.get("/checks")
+    assert old.status_code == 301 and old.headers["Location"].endswith("/listings?view=table")
 
 def test_report_titles_the_matched_bike_and_lists_the_other_ads_for_it(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))

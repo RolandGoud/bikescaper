@@ -288,6 +288,31 @@
   {# Last on the page: what it sells for second-hand, and the ads matched to it. #}
   <div class="block-head"><span>{{ _('Second-hand') }}</span></div>
   {{ asking_card(asking, ads, m) }}
+  {% if alert_form %}
+  {# A price alert: an email when a new ad for this model asks less than its fair price (webapp/alerts.py). #}
+  <section class="card alert-card" id="alert">
+    <h2>{{ _('Get an email for a good deal') }}</h2>
+    <p class="muted">{{ _('Once a day we read the newest ads on Marktplaats and 2dehands. When one asks at most the middle of its fair range, we email you the link.') }}</p>
+    <form method="post" action="{{ url_for('alert_sign_up', slug=m.slug) }}" class="alert-form">
+      <fieldset class="alert-scope">
+        <legend class="sr-only">{{ _('Which bikes') }}</legend>
+        <label><input type="radio" name="scope" value="model" checked> {{ alert_form.model|model_title }}</label>
+        <label><input type="radio" name="scope" value="family"> {{ _('any {family}', family=alert_form.family) }}</label>
+      </fieldset>
+      <label class="field">{{ _('Frame size') }}
+        <select name="size"><option value="">{{ _('Any size') }}</option>{% for k in alert_form.sizes %}<option value="{{ k }}">{{ k }}</option>{% endfor %}</select>
+      </label>
+      <label class="field">{{ _('Highest price') }}
+        <input type="number" name="max_price" min="0" step="50" inputmode="numeric" placeholder="€ · {{ _('optional') }}">
+      </label>
+      <label class="field alert-email">{{ _('Email') }}
+        <input type="email" name="email" required placeholder="{{ _('you@example.com') }}" autocomplete="email">
+      </label>
+      <div class="alert-send"><button class="btn" type="submit">{{ _('Alert me') }}</button></div>
+    </form>
+    <p class="small muted">{{ _('With a size, only ads that state that size count. We keep your email and these choices only for this alert; every email has a link to stop it, which deletes them.') }}</p>
+  </section>
+  {% endif %}
 </main>
 <script>
   // Year tabs above the spec sheet.

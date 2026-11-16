@@ -1189,7 +1189,7 @@ def test_listings_have_no_result_filter(tmp_path):
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/listings?lang=nl").data.decode()
     assert "Er klopt iets niet" not in page and "Vraag het na" not in page
-    assert "Elke check" in page  # the view switch stays
+    assert "Kaarten" in page and "Tabel" in page  # the view switch stays
 def test_year_tabs_show_our_scrape_and_archived_years():
     from datetime import date
     model = {"name": "Domane AL 2 Gen 4", "brand": "Trek", "seen_on": "2025-07-18", "price_eur": 999.0, "url": "u",

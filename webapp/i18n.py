@@ -980,6 +980,17 @@ NL = {
     "All checks": "Alle checks",
     "Every value check one by one, newest first: what was put in, and what came out.": "Elke waardecheck apart, nieuwste eerst: wat er werd ingevoerd en wat eruit kwam.",
     "Views": "Weergave",
+    "Cards": "Kaarten",
+    "Table": "Tabel",
+    "Map": "Kaart",
+    "{ads} ads · {checks} checks": "{ads} advertenties · {checks} checks",
+    "Bike": "Fiets",
+    "Price verdict": "Prijsoordeel",
+    "Checked": "Gecheckt",
+    "Big map": "Grote kaart",
+    "{n} place": "{n} plaats",
+    "{n} places": "{n} plaatsen",
+    "Too high": "Te hoog",
     "One card per ad": "Eén kaart per advertentie",
     "Every check": "Elke check",
     "Market": "Markt",
@@ -1609,6 +1620,77 @@ NL = {
     "Show all {n}": "Bekijk alle {n}",
     "Your draft isn't published and doesn't count in our price figures. It joins the list of ads we helped with, without your text.":
         "Je concept wordt niet gepubliceerd en telt niet mee in onze prijzen. Het komt in de lijst van advertenties waarmee we hielpen, zonder je tekst.",
+    # Price alerts (webapp/alerts.py, the model page's alert form and templates/alert.html)
+    'any {family}':
+        'elke {family}',
+    'up to {price}':
+        'tot {price}',
+    'A {what} under the fair price':
+        'Een {what} onder de eerlijke prijs',
+    '{n} ads under the fair price: {what}':
+        '{n} advertenties onder de eerlijke prijs: {what}',
+    'New ads for your alert ({what}), asking at most the middle of their fair range:':
+        'Nieuwe advertenties voor je melding ({what}) die hooguit het midden van hun eerlijke prijs vragen:',
+    "The fair range is a rough one, from the ad's title and summary. Paste the link on Bikecheck for the full check: {link}":
+        'De eerlijke prijs is een ruwe schatting, uit de titel en samenvatting van de advertentie. Plak de link op Bikecheck voor de volledige check: {link}',
+    'Stop this alert: {link}':
+        'Deze melding stoppen: {link}',
+    'Confirm your Bikecheck price alert':
+        'Bevestig je prijsmelding van Bikecheck',
+    "Someone, hopefully you, asked for an email when a new ad for {what} asks less than its fair price. Open this link to start the alert:\n\n{link}\n\nDidn't ask for this? Ignore this email: we delete the request in a week and won't mail you again.":
+        'Iemand, hopelijk jij, vroeg om een e-mail als een nieuwe advertentie voor {what} minder vraagt dan de eerlijke prijs. Open deze link om de melding te starten:\n\n{link}\n\nNiet aangevraagd? Negeer deze e-mail: we verwijderen de aanvraag binnen een week en mailen je niet meer.',
+    'Get an email for a good deal':
+        'Krijg een e-mail bij een goede deal',
+    'Once a day we read the newest ads on Marktplaats and 2dehands. When one asks at most the middle of its fair range, we email you the link.':
+        'Elke dag lezen we de nieuwste advertenties op Marktplaats en 2dehands. Vraagt er een hooguit het midden van de eerlijke prijs, dan mailen we je de link.',
+    'Which bikes':
+        'Welke fietsen',
+    'Any size':
+        'Elke maat',
+    'Highest price':
+        'Hoogste prijs',
+    'optional':
+        'optioneel',
+    'Email':
+        'E-mail',
+    'Alert me':
+        'Mail me',
+    'With a size, only ads that state that size count. We keep your email and these choices only for this alert; every email has a link to stop it, which deletes them.':
+        'Met een maat tellen alleen advertenties die die maat noemen. We bewaren je e-mail en deze keuzes alleen voor deze melding; elke e-mail heeft een link om te stoppen, die ze verwijdert.',
+    'Price alert':
+        'Prijsmelding',
+    'We sent you a link. Open it to start the alert; until then we won’t email you about ads.':
+        'We stuurden je een link. Open die om de melding te starten; tot dan mailen we je niet over advertenties.',
+    'Your alert is on':
+        'Je melding staat aan',
+    'We’ll email you when a new ad for {what} asks at most the middle of its fair range. At most one email a day.':
+        'We mailen je als een nieuwe advertentie voor {what} hooguit het midden van de eerlijke prijs vraagt. Hooguit één e-mail per dag.',
+    'Stop this alert?':
+        'Deze melding stoppen?',
+    'Your alert for {what}. Stopping it deletes your email and the alert.':
+        'Je melding voor {what}. Stoppen verwijdert je e-mail en de melding.',
+    'Stop the alert':
+        'Melding stoppen',
+    'Alert stopped':
+        'Melding gestopt',
+    'We deleted your email and the alert. You won’t hear from us about it again.':
+        'We hebben je e-mail en de melding verwijderd. Je hoort er niets meer over van ons.',
+    'The alert may be stopped already, or not confirmed within a week.':
+        'De melding is misschien al gestopt, of niet binnen een week bevestigd.',
+    'Check your email address':
+        'Controleer je e-mailadres',
+    'That doesn’t look like an email address. Go back and try again.':
+        'Dat lijkt geen e-mailadres. Ga terug en probeer het opnieuw.',
+    'Too many alerts':
+        'Te veel meldingen',
+    'This address has {n} alerts already. Stop one with the link in its emails first.':
+        'Dit adres heeft al {n} meldingen. Stop er eerst een met de link in de e-mails.',
+    'That didn’t work':
+        'Dat lukte niet',
+    'We couldn’t send the email just now. Please try again later.':
+        'We konden de e-mail nu niet versturen. Probeer het later opnieuw.',
+    'To the {name} page':
+        'Naar de pagina van de {name}',
     "No ads yet. Make a new ad or check one above, and it shows up here.":
         "Nog geen advertenties. Maak hierboven een nieuwe advertentie of check er een, dan komt die hier te staan.",
     # the photo review prototype (webapp/photo_review.py, templates/_sell_photos.html)
