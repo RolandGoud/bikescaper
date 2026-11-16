@@ -228,7 +228,7 @@
     {% if a.count and a.high > a.low %}
     {% set span = a.high - a.low %}
     <div class="price-line" aria-hidden="true">
-      <div class="track">{% for p in a.prices %}<i style="left: {{ 50 if not span else (p - a.low) / span * 100 }}%"></i>{% endfor %}
+      <div class="track">{% for p in a.prices %}<i data-price="{{ p|eur }}" style="left: {{ 50 if not span else (p - a.low) / span * 100 }}%"></i>{% endfor %}
         {%- if a.enough %}<em style="left: {{ 50 if not span else (a.median - a.low) / span * 100 }}%"><span>{{ _('median') }}</span></em>{% endif %}</div>
       <div class="ends"><span>{{ a.low|eur }}</span><span>{{ a.high|eur }}</span></div>
     </div>

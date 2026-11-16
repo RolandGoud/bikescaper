@@ -1245,10 +1245,16 @@ def create_app(db_path=None):
         # two shown years stays, and the last year always shows.
         first = next((i for i, t in enumerate(year_tabs) if t.get("image") or t.get("specs")), len(year_tabs) - 1)
         year_tabs = year_tabs[first:]
+        # Likewise after the line's last model year: a model sold up to 2025 gets no struck-through 2026 tab, only
+        # a later year that does have a photo or a spec sheet.
+        shown = checks.shown_years(model)
+        if shown and shown[1]:
+            last = max([shown[1]] + [t["year"] for t in year_tabs if t.get("image") or t.get("specs")])
+            year_tabs = [t for t in year_tabs if t["year"] <= last]
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)
-        return render_template("model.html", ads=ads, m=model, years=checks.shown_years(model), siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
+        return render_template("model.html", ads=ads, m=model, years=shown, siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
                                year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
