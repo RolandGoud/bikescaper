@@ -24,7 +24,7 @@
     {% for p in posts %}
     {% set size = 'big' if loop.first else ('wide' if posts|length <= 3 or loop.index == 6 else '') %}
     <article class="brick {{ size }} cat-{{ p.category }}">
-      {% if p.hero %}<img class="brick-img" src="{{ url_for('static', filename=p.hero) }}" alt="" loading="{{ 'eager' if loop.index <= 3 else 'lazy' }}">{% endif %}
+      {% if p.hero %}<img class="brick-img" src="{{ url_for('static', filename=p.hero) }}" style="object-position: {{ p.hero_focus }}" alt="" loading="{{ 'eager' if loop.index <= 3 else 'lazy' }}">{% endif %}
       <div class="brick-top"><span class="blog-cat">{{ _(categories[p.category]) }}</span><span class="mono">{{ post_date(p.date, lang) }}</span></div>
       <div class="brick-text">
         {% if p.stat %}<div class="brick-num">{{ p.stat }}</div>{% endif %}

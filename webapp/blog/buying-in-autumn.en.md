@@ -15,7 +15,6 @@ In spring everyone wants a road bike at once. Autumn is different: the season is
 - **Upgraders sell.** Anyone who already has next season's bike wants the old one gone before winter.
 - **The seller can show you the bike.** A bike that has just ridden the season is easy to judge: it hasn't been standing in a shed for months.
 
-![](chart:buying-year)
 
 One caveat: we don't (yet) measure how asking prices move per season, so we can't say how big that advantage is in euros. What is certain: the more time you have, the less you need to accept a price that's too high.
 

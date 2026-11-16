@@ -1,0 +1,60 @@
+{
+ "BMC": {
+  "Teammachine SLR 01 DISC LTD": "Teammachine SLR 01 LTD",
+  "Teammachine SLR 01 DISC MOD": "Teammachine SLR 01 MOD"
+ },
+ "Bianchi": {
+  "Infinito XE Disc Ultegra": "Infinito XE Ultegra",
+  "Infinito XE Rival eTap AXS": "Infinito XE Rival eTap AXS Disc"
+ },
+ "Cannondale": {
+  "Synapse Disc Dura-Ace": "Synapse Dura-Ace",
+  "Synapse Disc Sora": "Synapse Sora",
+  "Synapse Disc Ultegra": "Synapse Ultegra",
+  "SystemSix Carbon Ultegra Disc": "SystemSix Carbon Ultegra",
+  "SystemSix Hi-MOD Dura-Ace Di2 Disc": "SystemSix Hi-MOD Dura-Ace Di2",
+  "SystemSix Hi-MOD Ultegra Di2 Disc": "SystemSix Hi-MOD Ultegra Di2",
+  "SystemSix HiMOD Dura-Ace Di2 Disc": "SystemSix Hi-MOD Dura-Ace Di2",
+  "SystemSix HiMOD Ultegra Di2 Disc": "SystemSix Hi-MOD Ultegra Di2",
+  "SystemSix Ultegra Disc": "SystemSix Ultegra"
+ },
+ "Canyon": {
+  "Endurace 7 Disc": "Endurace 7",
+  "Endurace CF SL 8 Disc Di2": "Endurace CF SL 8 Di2",
+  "Endurace CF SL Disc 8": "Endurace CF SL 8",
+  "Endurace CF SL Disc 8 Aero": "Endurace CF SL 8 Aero",
+  "Endurace CF SLX Disc 9 Di2": "Endurace CF SLX 9 Di2"
+ },
+ "Cube": {
+  "Agree C:62 Race Disc": "Agree C:62 Race",
+  "Attain Pro Disc": "Attain Pro",
+  "Axial WS C:62 SL Disc": "Axial WS C:62 SL"
+ },
+ "Giant": {
+  "Defy Advanced 3 Hydraulic": "Defy Advanced 3",
+  "TCR Advanced Pro Disc 0 Di2": "TCR Advanced Pro 0-Di2"
+ },
+ "Lapierre": {
+  "Pulsium 5.0 Disc": "Pulsium 5.0"
+ },
+ "Specialized": {
+  "Crux Comp": "Crux Comp Disc",
+  "Crux Pro": "Crux Pro Disc",
+  "Diverge Comp E5 EVO": "Diverge Comp E5 EVO Disc",
+  "Diverge Expert": "Diverge Expert Disc",
+  "Diverge Pro": "Diverge Pro Disc",
+  "Diverge Sport Disc": "Diverge Sport",
+  "Roubaix - Hydraulic Disc": "Roubaix",
+  "Roubaix Expert Ultegra Di2": "Roubaix Expert Ultegra Di2 Disc",
+  "S-Works Roubaix": "S-Works Roubaix Disc",
+  "S-Works Roubaix Dura-Ace Di2": "S-Works Roubaix Dura-Ace Di2 Disc",
+  "S-Works Tarmac SL7 Dura-Ace Di2": "S-Works Tarmac SL7 Dura-Ace Di2 Disc",
+  "Tarmac SL6 Disc": "Tarmac SL6",
+  "Tarmac SL7 Expert Ultegra Di2": "Tarmac SL7 Expert Ultegra Di2 Disc",
+  "Venge Pro Disc": "Venge Pro"
+ },
+ "Trek": {
+  "Domane AL 5 Disc Gen 3": "Domane AL 5 Gen 3",
+  "Madone SL 6 Disc Gen 6": "Madone SL 6 Gen 6"
+ }
+}

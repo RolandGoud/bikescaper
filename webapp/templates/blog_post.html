@@ -22,7 +22,7 @@
     {% if post.hero %}
     <figure class="blog-hero">
       <img src="{{ url_for('static', filename=post.hero) }}" alt="" width="1600" height="900">
-      <figcaption>{{ _("Image: Bikecheck, from the brands' own product photos") }}</figcaption>
+      <figcaption>{% if post.hero_credit %}{{ _('Photo') }}: <a href="{{ post.hero_credit.url }}" target="_blank" rel="noopener">{{ post.hero_credit.author }}</a>, {{ post.hero_credit.license }}{{ _(', edited by Bikecheck') }}{% elif post.hero_brand %}{{ _('Image: Bikecheck, from a product photo by {brand}', brand=post.hero_brand) }}{% else %}{{ _("Image: Bikecheck, from the brands' own product photos") }}{% endif %}</figcaption>
     </figure>
     {% endif %}
     <div class="blog-body">{{ body }}</div>
@@ -33,7 +33,7 @@
     <div class="blog-grid">
       {% for p in related %}
       <article class="blog-card cat-{{ p.category }}">
-        {% if p.hero %}<img class="blog-card-img" src="{{ url_for('static', filename=p.hero) }}" alt="" loading="lazy">{% endif %}
+        {% if p.hero %}<img class="blog-card-img" src="{{ url_for('static', filename=p.hero) }}" style="object-position: {{ p.hero_focus }}" alt="" loading="lazy">{% endif %}
         <div class="blog-meta mono"><span class="blog-cat">{{ _(categories[p.category]) }}</span><span>{{ post_date(p.date, lang) }}</span></div>
         <h3><a href="{{ url_for('blog_post', slug=p.slug) }}">{{ p.title }}</a></h3>
         <p class="muted small">{{ p.summary }}</p>
@@ -43,4 +43,5 @@
   </section>
   {% endif %}
 </main>
+<script src="{{ url_for('static', filename='blog.js') }}" defer></script>
 {% endblock %}

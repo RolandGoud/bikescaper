@@ -55,6 +55,8 @@ RENAMED = {
         "TCR Advanced 0-PC": ("TCR Advanced 0", "https://www.giant-bicycles.com/nl/tcr-advanced-0"),
         "TCR Advanced 1 - Pro Compact": ("TCR Advanced 1", "https://www.giant-bicycles.com/nl/tcr-advanced-1"),
         "TCR Advanced 2-PC": ("TCR Advanced 2", "https://www.giant-bicycles.com/nl/tcr-advanced-2"),
+        # the 2022 bike, one generation earlier (also in data/years/folded.json)
+        "TCR Advanced Pro 0-Di2": ("TCR Advanced Pro Disc 0 Di2", "https://www.giant-bicycles.com/nl/tcr-advanced-pro-disc-0-di2"),
     },
 }
 
@@ -97,7 +99,7 @@ def save_photo(fetcher, brand, slug, year, url, width=1000, colour=None, angle=N
     return rel
 
 
-TREK_API = "https://api.trekbikes.com/occ/v2/nl/products/{code}/{kind}?lang=nl_NL&curr=EUR"
+TREK_API = "https://api.trekbikes.com/occ/v2/{country}/products/{code}/{kind}?lang={lang}&curr={curr}"
 TREK_PAGE = "https://www.trekbikes.com/nl/nl_NL/p/{code}/"
 # The spec rows on a Trek product page: <dt class="details-list__title ...">Frame</dt><dd ...>...</dd>
 TREK_PAGE_SPEC = re.compile(r'<dt class="details-list__title[^"]*">(.*?)</dt>\s*<dd class="details-list__definition[^"]*">(.*?)</dd>', re.S)
@@ -328,11 +330,13 @@ def trek_years(text):
     return list(range(found[0], last + 1))
 
 
-def trek_product(fetcher, code):
-    """{code, name, years, url, specs, image_url} from Trek's product API, or None."""
+def trek_product(fetcher, code, country="nl", lang="nl_NL", curr="EUR"):
+    """{code, name, years, url, specs, image_url} from Trek's product API, or None. The Dutch site's by default;
+    another country's (brand_scrapers/countries.py) for a bike the Dutch site has no spec sheet for."""
+    api = dict(code=code, country=country, lang=lang, curr=curr)
     try:
-        full = json.loads(fetcher.get(TREK_API.format(code=code, kind="full")) or "null")
-        sheet = json.loads(fetcher.get(TREK_API.format(code=code, kind="specifications")) or "null")
+        full = json.loads(fetcher.get(TREK_API.format(kind="full", **api)) or "null")
+        sheet = json.loads(fetcher.get(TREK_API.format(kind="specifications", **api)) or "null")
     except ValueError:
         return None
     if not full or not sheet:
@@ -376,7 +380,8 @@ def trek_product(fetcher, code):
             "years": trek_years(full.get("modelYearIntroAndCurrent")) or ([2000 + shot] if shot else []),
             "years_from_photos": not trek_years(full.get("modelYearIntroAndCurrent")) and bool(shot),
             "colours": colours, "colour_image_urls": colour_images, "colour_angle_urls": colour_angles,
-            "url": "https://www.trekbikes.com/nl/nl_NL" + (full.get("url") or f"/p/{code}/"),
+            "url": (f"https://www.trekbikes.com/{country}/{lang}" if country != "nl" else "https://www.trekbikes.com/nl/nl_NL")
+            + (full.get("url") or f"/p/{code}/"),
             "category": full.get("defaultCategory") or "",
             "sheet_years": full.get("modelYearIntroAndCurrent"), "specs": normalize_specs(pairs),
             "image_url": f"https://media.trekbikes.com/image/upload/f_png,w_1200/{primary}" if primary else None}

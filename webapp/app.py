@@ -23,6 +23,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
                    send_from_directory, session, url_for)
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+from . import photo_review as sell_review
 from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
@@ -1181,6 +1182,9 @@ def create_app(db_path=None):
     def model_page(slug):
         model = db.get_model(conn(), slug=slug)
         if model is None:
+            now = seed.folded_slugs().get(slug)  # an earlier generation folded into the build it is now
+            if now:
+                return redirect(url_for("model_page", slug=now), 301)
             abort(404)
         # a model with builds: the switcher under its name, each build with its spec tier as its colour
         # each build's price as its own page's price tag shows it (also the archive's or German list price)
@@ -1586,7 +1590,8 @@ def create_app(db_path=None):
         travel along: `go` is the step a button asks for, `step` the one on screen (for a resubmit after an answer)."""
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
         page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
-                "shots": PHOTO_SHOTS, "shot_examples": PHOTO_EXAMPLES, "can_mail": mail.configured()}
+                "shots": PHOTO_SHOTS, "shot_examples": PHOTO_EXAMPLES, "can_mail": mail.configured(),
+                "can_review": sell_review.enabled() and is_admin()}
         opened = None
         if request.method == "GET":
             ad_id = request.args.get("ad", type=int)
@@ -1647,6 +1652,39 @@ def create_app(db_path=None):
             return ("", 204)
         return render_template("sell_soon.html", nav="sell", done=False, can_mail=mail.configured())
 
+    # The photo review as a prototype (webapp/photo_review.py), only when the Claude API key is set and only for the
+    # admin, until sellers can pay for it: visitors keep the €5 offer that counts interest. The browser sends the
+    # filled shot slots here and asks for the result until it's there.
+    @app.route("/sell/photo-review/start", methods=["POST"])
+    def photo_review_start():
+        if not (sell_review.enabled() and is_admin()):
+            abort(404)
+        photos = []
+        for key in [k for k, *_ in PHOTO_SHOTS]:
+            upload = request.files.get(f"shot-{key}")
+            if upload and len(photos) < sell_review.MAX_PHOTOS:
+                data = sell_review.prepare(upload.read(sell_review.MAX_BYTES + 1))
+                if data:
+                    photos.append((key, data))
+        if not photos:
+            return jsonify(error=gettext("Add at least one photo first.")), 400
+        if not sell_review.allowed(app.config["DB_PATH"], request.remote_addr or ""):
+            return jsonify(error=gettext("The photo review is busy right now. Try again in an hour.")), 429
+        conn().execute("INSERT INTO photo_review_interest (kind, model_id, lang) VALUES ('review', ?, ?)",
+                       (number(request.form.get("model_id"), int), g.lang))
+        conn().commit()
+        token = sell_review.start(app.config["DB_PATH"], photos, PHOTO_SHOTS, g.lang, ip=request.remote_addr)
+        return jsonify(token=token), 202
+
+    @app.route("/sell/photo-review/result/<token>")
+    def photo_review_result(token):
+        if not (sell_review.enabled() and is_admin()):
+            abort(404)
+        found = sell_review.result(app.config["DB_PATH"], token, g.lang)
+        response = jsonify(found)
+        response.headers["Cache-Control"] = "no-store"
+        return response, 404 if found["status"] == "unknown" else 200
+
     @app.route("/sell/photo-review/notify", methods=["POST"])
     def photo_review_notify():
         """Mail a confirmation link to the address; it only counts (and only reaches NOTIFY_EMAIL) once opened.
@@ -1700,11 +1738,12 @@ def create_app(db_path=None):
         """How many sellers clicked the offer and left an email; counts only, never the addresses."""
         rows = conn().execute("SELECT date(created_at) AS day, SUM(kind = 'click') AS clicks, "
                               "SUM(kind = 'email' AND confirmed_at IS NOT NULL) AS emails, "
-                              "SUM(kind = 'email' AND confirmed_at IS NULL) AS pending FROM photo_review_interest "
+                              "SUM(kind = 'email' AND confirmed_at IS NULL) AS pending, SUM(kind = 'review') AS reviews "
+                              "FROM photo_review_interest "
                               "GROUP BY day ORDER BY day DESC").fetchall()
         return render_template("sell_interest.html", nav="sell", rows=rows,
                                clicks=sum(r["clicks"] for r in rows), emails=sum(r["emails"] for r in rows),
-                               pending=sum(r["pending"] for r in rows))
+                               pending=sum(r["pending"] for r in rows), reviews=sum(r["reviews"] for r in rows))
 
     @app.route("/blog")
     def blog_index():

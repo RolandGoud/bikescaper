@@ -93,6 +93,36 @@ def test_charts_come_in_the_article_language():
     assert "jaar oud" in nl and "years old" in en
 
 
+def test_tables_use_the_site_tier_badges_and_logos():
+    html = blog.render("| Niveau | Shimano | SRAM |\n|---|---|---|\n| {tier:3} | 105 Di2 | Rival |\n| {tier:5} | GRX 825 | x |", "nl")
+    assert '<span class="tier t3 small">Midden</span>' in html and '<span class="tier t5 small">Top</span>' in html
+    assert "logos/groupsets/105.svg" in html and "logos/groupsets/rival.svg" in html
+    assert "logos/groupsets/grx-800.svg" in html and '<span class="blog-logo-rest">Di2</span>' in html
+    assert blog.with_logos("microSHIFT Sword") is None and "logos/sram.svg" in blog.with_logos("SRAM Red")
+    assert "Basic" in blog.render("{tier:1}", "en")
+
+
+def test_a_table_and_its_chart_share_a_toggle_with_the_chart_first():
+    for slug in blog.load():
+        for v in blog.load()[slug].values():
+            html = blog.render(v["body"], v["lang"])
+            for block in html.split('<div class="blog-switch">')[1:]:
+                chart_at, table_at = block.index("blog-switch-chart"), block.index("blog-switch-table")
+                assert chart_at < table_at and re.search(r'value="chart" checked', block), slug
+    html = blog.render(blog.load()["how-fast-bikes-lose-value"]["nl"]["body"], "nl")
+    assert html.count('<div class="blog-switch">') == 2
+    assert 'data-live="value-curve"' in html and 'name="age"' in html and 'data-live="price-rises"' in html
+    assert "data-series=" in html  # the price lines' data, for static/blog.js
+
+
+def test_hero_credits_and_focus(client):
+    page = client.get("/blog/spotting-a-stolen-bike?lang=en").get_data(as_text=True)
+    assert "Jorge Franganillo" in page and "CC BY 4.0" in page
+    page = client.get("/blog/trek-domane?lang=nl").get_data(as_text=True)
+    assert "productfoto van Trek" in page
+    assert "object-position" in client.get("/blog?lang=nl").get_data(as_text=True)
+    assert client.get("/static/blog.js").status_code == 200
+
 def test_home_shows_the_newest_posts_instead_of_outside_articles(client):
     for lang, heading in (("nl", "Uit het blog"), ("en", "From the blog")):
         page = client.get(f"/?lang={lang}").get_data(as_text=True)
@@ -124,3 +154,20 @@ def test_a_report_page_shows_the_reads(client):
     page = client.get(f"/check/{check_id}?lang=en").get_data(as_text=True)
     assert "Read before you buy" in page
     assert 'href="/blog/spotting-a-stolen-bike"' in page and 'href="/blog/trek-domane"' in page
+
+
+def test_charts_show_logos_and_the_live_ones_have_their_inputs():
+    html = blog.render("![](chart:brand-prices)", "nl")
+    assert "foreignObject" in html and "logos/trek.svg" in html
+    assert "logos/groupsets/ultegra.svg" in blog.render("![](chart:groupset-prices)", "en")
+    zones = blog.render("![](chart:price-zones)", "nl")
+    assert 'data-live="price-zones"' in zones and 'name="asking"' in zones
+    winter = blog.render("![](chart:winter-values)", "en")
+    assert 'data-live="winter-values"' in winter and 'name="age"' in winter and "data-tpl=" in winter
+    assert "logos/canyon.svg" in blog.render("![](chart:price-rises)", "en")  # the bike picks
+
+
+def test_the_value_curve_goes_back_no_further_than_the_catalogue():
+    from webapp.reference import FIRST_YEAR
+    html = blog.render("![](chart:value-curve)", "nl")
+    assert f'name="age" value="4" min="0" max="{date.today().year - FIRST_YEAR}"' in html

@@ -15,7 +15,6 @@ In het voorjaar wil iedereen tegelijk een racefiets. In het najaar ligt dat ande
 - **Upgraders verkopen.** Wie zijn nieuwe fiets voor volgend seizoen al heeft, wil de oude kwijt voor de winter.
 - **De verkoper kan je de fiets laten zien.** Een fiets die net het seizoen heeft gereden, kun je goed beoordelen: hij is niet maanden in de schuur blijven staan.
 
-![](chart:buying-year)
 
 Een kanttekening: we meten (nog) niet per seizoen hoe vraagprijzen bewegen, dus hoe groot dat voordeel in euro's is, kunnen we niet zeggen. Wat wel vaststaat: hoe meer tijd je hebt, hoe minder je een te hoge prijs hoeft te accepteren.
 

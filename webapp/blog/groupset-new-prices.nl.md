@@ -13,22 +13,22 @@ We hebben de fietsen in onze [catalogus](/models) gegroepeerd op hun groepset en
 
 ## Mediane nieuwprijs per groepset
 
-| Groepset | Fietsen | Mediane nieuwprijs |
-|---|---|---|
-| Shimano Claris | 9 | €999 |
-| Shimano Sora | 8 | €1.149 |
-| Shimano Tiagra | 17 | €1.799 |
-| Shimano 105 | 92 | €2.599 |
-| Shimano GRX (gravel) | 99 | €2.990 |
-| SRAM Apex | 38 | €2.999 |
-| Shimano 105 Di2 | 60 | €3.999 |
-| SRAM Rival | 91 | €4.999 |
-| Shimano Ultegra | 41 | €4.999 |
-| Shimano Ultegra Di2 | 97 | €6.499 |
-| SRAM Force | 135 | €7.499 |
-| Shimano Dura-Ace Di2 | 46 | €10.799 |
-| SRAM Red | 116 | €11.999 |
-| Campagnolo Super Record | 10 | €14.349 |
+| Groepset | Niveau | Fietsen | Mediane nieuwprijs |
+|---|---|---|---|
+| Shimano Claris | {tier:1} | 9 | €999 |
+| Shimano Sora | {tier:1} | 8 | €1.149 |
+| Shimano Tiagra | {tier:2} | 17 | €1.799 |
+| Shimano 105 | {tier:3} | 92 | €2.599 |
+| Shimano GRX (gravel) | {tier:3} | 99 | €2.990 |
+| SRAM Apex | {tier:2} | 38 | €2.999 |
+| Shimano 105 Di2 | {tier:3} | 60 | €3.999 |
+| SRAM Rival | {tier:3} | 91 | €4.999 |
+| Shimano Ultegra | {tier:4} | 41 | €4.999 |
+| Shimano Ultegra Di2 | {tier:4} | 97 | €6.499 |
+| SRAM Force | {tier:4} | 135 | €7.499 |
+| Shimano Dura-Ace Di2 | {tier:5} | 46 | €10.799 |
+| SRAM Red | {tier:5} | 116 | €11.999 |
+| Campagnolo Super Record | {tier:5} | 10 | €14.349 |
 
 ![De kleur is het niveau van de groep, zoals Bikecheck het indeelt.](chart:groupset-prices)
 

@@ -9,7 +9,6 @@ stat_label: steps this winter
 
 When the days get longer, half the Netherlands goes looking for a road bike. If you have a strong ad up right then, with good photos, the right model year and a fair price, you sell fastest. Most of the work you can do now, while the bike is indoors anyway.
 
-![](chart:selling-plan)
 
 ## 1. Find out exactly what your bike is
 

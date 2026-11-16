@@ -1,0 +1,106 @@
+{
+ "buying-in-autumn": {
+  "focus": [
+   48,
+   58
+  ],
+  "source": "defy-fork",
+  "brand": "Giant"
+ },
+ "cannondale-topstone": {
+  "focus": [
+   48,
+   52
+  ],
+  "source": "topstone-c2",
+  "brand": "Cannondale"
+ },
+ "giant-tcr-advanced": {
+  "focus": [
+   62,
+   62
+  ],
+  "source": "tcr-sl-cockpit",
+  "brand": "Giant"
+ },
+ "groupset-new-prices": {
+  "focus": [
+   56,
+   62
+  ],
+  "source": "tcr-sl-crank",
+  "brand": "Giant"
+ },
+ "how-fast-bikes-lose-value": {
+  "focus": [
+   48,
+   47
+  ],
+  "source": "tcr-head",
+  "brand": "Giant"
+ },
+ "new-prices-per-brand": {
+  "focus": [
+   66,
+   62
+  ],
+  "source": "trek-domane-slr9",
+  "brand": "Trek"
+ },
+ "reading-a-bike-ad": {
+  "focus": [
+   50,
+   37
+  ],
+  "source": "defy-bars",
+  "brand": "Giant"
+ },
+ "selling-in-spring": {
+  "focus": [
+   52,
+   50
+  ],
+  "source": "revolt-badge",
+  "brand": "Giant"
+ },
+ "spotting-a-stolen-bike": {
+  "focus": [
+   40,
+   62
+  ],
+  "source": "lock",
+  "credit": {
+   "author": "Jorge Franganillo",
+   "license": "CC BY 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Manchester_-_bicycle_lock.jpg"
+  }
+ },
+ "trek-domane": {
+  "focus": [
+   61,
+   69
+  ],
+  "source": "trek-domane-sl6",
+  "brand": "Trek"
+ },
+ "what-a-groupset-tells-you": {
+  "focus": [
+   58,
+   62
+  ],
+  "source": "tcr-105",
+  "brand": "Giant"
+ },
+ "winter-bike": {
+  "focus": [
+   51,
+   58
+  ],
+  "source": "snow",
+  "credit": {
+   "author": "Wilfredor",
+   "license": "CC0",
+   "url": "https://commons.wikimedia.org/wiki/File:Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg"
+  }
+ }
+}

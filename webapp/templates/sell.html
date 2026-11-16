@@ -397,4 +397,5 @@
 </dialog>
 <script src="{{ url_for('static', filename='sell.js') }}" defer></script>
 <script src="{{ url_for('static', filename='photo-slots.js') }}" defer></script>
+{% if can_review %}<script src="{{ url_for('static', filename='photo-review.js') }}" defer></script>{% endif %}
 {% endblock %}

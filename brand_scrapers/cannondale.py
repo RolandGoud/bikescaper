@@ -10,17 +10,21 @@ import re
 from .common import clean, is_ebike, log, normalize_specs, parse_price
 
 BRAND = "Cannondale"
-SITEMAPS = ["https://a304077.sitemaphosting6.com/4356448/sitemap1.xml",
-            "https://a304077.sitemaphosting6.com/4356448/sitemap2.xml"]
+# One sitemap with every country's pages (robots.txt names it; the sitemap1/sitemap2 split it had is gone).
+SITEMAPS = ["https://a304077.sitemaphosting6.com/4356448/sitemap.xml"]
+
+
+def sitemap_urls(fetcher):
+    """Every page in the sitemaps, all countries' (brand_scrapers/countries.py reads the others)."""
+    urls = []
+    for sitemap in SITEMAPS:
+        urls += re.findall(r"<loc>([^<]+)</loc>", fetcher.get(sitemap) or "")
+    return list(dict.fromkeys(urls))
 
 
 def product_urls(fetcher):
-    urls = []
-    for sitemap in SITEMAPS:
-        for url in re.findall(r"<loc>([^<]+)</loc>", fetcher.get(sitemap) or ""):
-            if re.match(r"https://www\.cannondale\.com/nl-nl/bikes/road/[a-z-]+/[a-z0-9-]+/[a-z0-9-]+$", url):
-                urls.append(url)
-    return list(dict.fromkeys(urls))
+    return [url for url in sitemap_urls(fetcher)
+            if re.match(r"https://www\.cannondale\.com/nl-nl/bikes/road/[a-z-]+/[a-z0-9-]+/[a-z0-9-]+$", url)]
 
 
 def product_group(page):
