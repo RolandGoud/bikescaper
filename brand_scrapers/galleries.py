@@ -145,8 +145,8 @@ def ridley_page(fetcher, model):
     # Each frame has a photo shoot (the "inspirations" on its build pages: X-nightRS-1.jpg ...), shown on every
     # build of it; it doesn't follow the colour picked. Some shoots run to 150 photos: the first dozen will do,
     # and Windows' "... kopiëren" duplicates are left out.
-    state = nuxt_state(fetcher.get(model["url"]) or "") or {}
-    bike = ((state.get("data") or [{}])[0] or {}).get("bike") or {}
+    from .ridley import item_data
+    bike = (item_data(fetcher.get(model["url"]) or "") or {}).get("bike") or {}
     pictures = (bike.get("inspirations") or {}).get("pictures") or []
     names = [p.get("name") for p in pictures if isinstance(p, dict) and re.search(r"(?i)\.(jpe?g|png)$", p.get("name") or "")
              and not re.search(r"(?i)\bkopi|\bcopy\b", p.get("name"))]

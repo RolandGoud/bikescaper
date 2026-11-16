@@ -179,10 +179,9 @@ def cervelo(fetcher, model):
 
 
 def ridley(fetcher, model):
-    from .nuxt import nuxt_state
-    from .ridley import geometry
-    state = model["url"] and nuxt_state(fetcher.get(model["url"]))
-    sizes = state and geometry(((state.get("data") or [{}])[0]).get("bike") or {})
+    from .ridley import geometry, item_data
+    data = model["url"] and item_data(fetcher.get(model["url"]))
+    sizes = data and geometry(data.get("bike") or {})
     return sizes and {"source": "geometry", "sizes": sizes}
 
 

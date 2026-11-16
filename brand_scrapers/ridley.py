@@ -1,21 +1,25 @@
 """Ridley: road, gravel, cyclocross and TT bikes from the Dutch site (euro prices).
 
-ridley-bikes.com is a Nuxt app whose pages embed their state as minified JavaScript (read by
-nuxt.py). Any bike listing page carries the whole range: platforms (Aero-to-Weight, Endurance,
-...) with their frame models (Falcn RS 2.0, Grifn, ...), each with its builds (`$$groupsets`)
-and their price. Ridley sells each size and colour as its own item, so one item page per build
-gives the spec sheet, the model year ("Collectie Ridley 2027"), the other colours and sizes,
-and the geometry.
+Since early November 2026 ridley-bikes.com is a Nuxt 3 app: its pages no longer carry the range, which the site
+loads from Cycling Factory's API (`V1/families`): platforms (Aero-to-Weight, Endurance, ...) with their frame models
+(Falcn RS 2.0, Grifn, ...), each listing its items (`configurations`) with their build and price. Ridley sells each
+size and colour as its own item, so the items are grouped by build, and one item page per build gives the spec sheet,
+the model year ("Collectie Ridley 2027"), the other colours and sizes, and the geometry. The item pages embed their
+state as Nuxt 3 JSON (`__NUXT_DATA__`, read by nuxt.py); the old site's minified `window.__NUXT__` is read too.
+
+A few bikes are only in the site's menu, not in the API's range: the Invenio collection (Ridley x Tomorrowland). Their
+item pages are read as well, with the other builds they link to.
 """
 import json
 import re
 
 from .common import clean, log, normalize_specs, parse_price, size_name
-from .nuxt import nuxt_state
+from .nuxt import nuxt_data, nuxt_state
 
 BRAND = "Ridley"
 BASE = "https://www.ridley-bikes.com/nl_NL"
 LISTING = BASE + "/bikes/categories/road"
+FAMILIES = "https://api.cyclingfactory.be/V1/families?locale={locale}&brand=Ridley"
 PLATFORMS = {  # Ridley's platform code -> category; Track, Hardtail (MTB) and Kids are left out
     "AerotoAero": "Race",
     "AerotoWeight": "Race",
@@ -62,18 +66,61 @@ def model_year(attributes):
 
 
 def builds(listing):
-    """(platform code, frame model, build) for every road, gravel, cyclocross and TT build in the range."""
+    """(platform code, frame model, build) for every road, gravel, cyclocross and TT build in the range.
+
+    `listing` is the API's families ({"result": [platform, ...]}) or the old site's page state; a build is
+    {"groupset": ..., "designs": [{"externalid", "msrp"}, ...]}, one design per size and colour."""
+    listing = listing or {}
+    platforms = listing.get("result") if "result" in listing else \
+        ((listing.get("state") or {}).get("bikes") or {}).get("items")
     found = []
-    for platform in (((listing or {}).get("state") or {}).get("bikes") or {}).get("items") or []:
+    for platform in platforms or []:
         if platform.get("code") not in PLATFORMS:
             continue
         for frame in platform.get("frameplatformdetails") or []:
             if str(frame.get("electric")).lower() in ("ja", "yes", "true") or str(frame.get("electricBool")) == "True":
                 continue
-            for build in frame.get("$$groupsets") or []:
+            for build in frame.get("$$groupsets") or group_builds(frame.get("configurations")):
                 if build.get("designs"):
                     found.append((platform["code"], frame, build))
     return found
+
+
+def group_builds(configurations):
+    """The API's items of a frame, one per size and colour, grouped by build in the order they come."""
+    found = {}
+    for item in configurations or []:
+        if not item.get("externalid") or not clean(item.get("groupset")):
+            continue
+        key = item.get("groupsetCode") or tidy_groupset(item["groupset"]).lower()
+        build = found.setdefault(key, {"groupset": item["groupset"], "designs": []})
+        build["designs"].append({"externalid": item["externalid"], "msrp": item.get("msrp")})
+    return list(found.values())
+
+
+def item_data(page):
+    """{"bike", "price", "relations"} of an item page: the Nuxt 3 page's async data, or the old site's state."""
+    data = nuxt_data(page)
+    if data:
+        return next((v for v in (data.get("data") or {}).values() if isinstance(v, dict) and v.get("bike")), None)
+    state = nuxt_state(page)
+    found = ((state or {}).get("data") or [None])[0]
+    return found if isinstance(found, dict) and found.get("bike") else None
+
+
+def menu_items(fetcher):
+    """Item codes the site's menu links to (/bikes/SBIKAFRID340): the Invenio collection is only there."""
+    return list(dict.fromkeys(links_in((nuxt_data(fetcher.get(LISTING)) or {}).get("pinia"))))
+
+
+def links_in(value):
+    """The item codes of every /bikes/<code> link in a page's state."""
+    if isinstance(value, dict):
+        value = list(value.values())
+    if isinstance(value, list):
+        return [code for v in value for code in links_in(v)]
+    m = re.match(r"^/bikes/((?:SBI|FFS)[A-Z0-9]+)(?:\?|$)", value) if isinstance(value, str) else None
+    return [m.group(1)] if m else []
 
 
 SIZES = ["3XS", "2XS", "XS", "S", "M", "L", "XL", "2XL"]
@@ -135,8 +182,7 @@ def geometry(item):
     return sizes
 
 
-def parse(platform, frame, build, state, url):
-    data = (state.get("data") or [{}])[0]
+def parse(platform, frame, build, data, url):
     item, relations = data.get("bike") or {}, data.get("relations") or {}
     attributes = item.get("attributes") or {}
     groupset = tidy_groupset(build.get("groupset"))
@@ -169,21 +215,67 @@ def parse(platform, frame, build, state, url):
 
 
 def scrape(fetcher, limit=None):
-    bikes = []
-    for platform, frame, build in builds(nuxt_state(fetcher.get(LISTING))):
+    bikes, seen, done = [], set(), set()
+    text = fetcher.get(FAMILIES.format(locale="nl_NL"))
+    try:
+        listing = json.loads(text) if text else {}
+    except ValueError:
+        listing = {}
+    found = builds(listing)
+    if not found:
+        log.warning("Ridley: no bikes in the range from %s", FAMILIES.format(locale="nl_NL"))
+    known = {d["externalid"] for _, _, b in found for d in b["designs"]}
+    for platform, frame, build in found:
         if limit is not None and len(bikes) >= limit:
             break
-        code = build["designs"][0].get("externalid")
-        if not code:
+        bike = read_build(fetcher, platform, frame, build)
+        if bike and bike["name"] not in seen:
+            seen.add(bike["name"])
+            bikes.append(bike)
+    # the menu's bikes outside the range (the Invenio collection), and the other builds their pages link to
+    queue = [c for c in menu_items(fetcher) if c not in known]
+    while queue and (limit is None or len(bikes) < limit):
+        code = queue.pop(0)
+        if code in done:
             continue
+        done.add(code)
         url = f"{BASE}/bikes/{code}"
-        state = nuxt_state(fetcher.get(url))
-        if not state:
-            log.warning("Ridley: no bike data in %s", url)
+        data = item_data(fetcher.get(url))
+        item = (data or {}).get("bike") or {}
+        attributes = item.get("attributes") or {}
+        platform = platform_of(item)
+        if not platform or str(attributes.get("electric")).lower() in ("ja", "yes", "true"):
             continue
-        bike = parse(platform, frame, build, state, url)
-        if not bike["specifications"]:
-            log.warning("Ridley: no spec sheet in %s", url)
-        bikes.append(bike)
-        log.info("Ridley: %s %s (%s)", bike["name"], bike["model_year"], bike["price"])
+        for kind in ("othergroupsets", "otherdesigns"):
+            queue += [r["externalid"] for r in (data.get("relations") or {}).get(kind) or []
+                      if r.get("externalid") and r["externalid"] not in known]
+        frame = {"model": attributes.get("model")}
+        build = {"groupset": attributes.get("groupset"), "designs": [{"externalid": code}]}
+        bike = parse(platform, frame, build, data, url)
+        if bike["name"] not in seen and bike["specifications"]:
+            seen.add(bike["name"])
+            bikes.append(bike)
+            log.info("Ridley: %s %s (%s), from the menu", bike["name"], bike["model_year"], bike["price"])
     return bikes
+
+
+def platform_of(item):
+    """The platform code of an item outside the range: its frame_family is the code in lowercase ("enduranceroad")."""
+    family = clean(item.get("frame_family")).lower()
+    return next((code for code in PLATFORMS if code.lower() == family), None)
+
+
+def read_build(fetcher, platform, frame, build):
+    code = build["designs"][0].get("externalid")
+    if not code:
+        return None
+    url = f"{BASE}/bikes/{code}"
+    data = item_data(fetcher.get(url))
+    if not data:
+        log.warning("Ridley: no bike data in %s", url)
+        return None
+    bike = parse(platform, frame, build, data, url)
+    if not bike["specifications"]:
+        log.warning("Ridley: no spec sheet in %s", url)
+    log.info("Ridley: %s %s (%s)", bike["name"], bike["model_year"], bike["price"])
+    return bike

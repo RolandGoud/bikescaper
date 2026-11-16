@@ -218,6 +218,36 @@ def test_ridley_builds_leave_out_mtb_track_and_ebikes():
     assert [(p, f["model"]) for p, f, _ in ridley.builds(state)] == [("AerotoWeight", "Falcn RS 2.0")]
 
 
+def test_ridley_builds_from_the_api_group_items_by_build():
+    def item(code, groupset, gs_code, msrp):
+        return {"externalid": code, "groupset": groupset, "groupsetCode": gs_code, "msrp": msrp, "size": "m"}
+    families = {"result": [
+        {"code": "AerotoWeight", "frameplatformdetails": [
+            {"model": "Falcn RS 2.0", "electric": "Nee", "configurations": [
+                item("A1", "Shimano Ultegra DI2 2x12sp", "shiultr8170", 7499), item("B1", "Sram Red AXS 2x12sp", "sramred", 12499),
+                item("A2", "Shimano Ultegra DI2 2x12sp", "shiultr8170", 7499)]},
+            {"model": "Falcn RS", "electric": "Nee", "configurations": []},  # build-your-own only
+            {"model": "E-Falcn", "electric": "Ja", "configurations": [item("E1", "Shimano 105", "105", 5000)]}]},
+        {"code": "Track", "frameplatformdetails": [{"model": "Arena Fast", "configurations": [item("T1", "Frameset", "ffs", 4999)]}]},
+    ]}
+    found = ridley.builds(families)
+    assert [(p, f["model"], b["groupset"]) for p, f, b in found] == [
+        ("AerotoWeight", "Falcn RS 2.0", "Shimano Ultegra DI2 2x12sp"), ("AerotoWeight", "Falcn RS 2.0", "Sram Red AXS 2x12sp")]
+    assert found[0][2]["designs"] == [{"externalid": "A1", "msrp": 7499}, {"externalid": "A2", "msrp": 7499}]
+
+
+def test_ridley_item_data_reads_the_nuxt_3_page_and_the_old_one():
+    table = ('[{"data":1},{"faq:1":2,"options:asyncdata:abc":3},{"faqArticles":4},{"bike":5,"price":7,"relations":9},[],'
+             '{"frame_family":6},"enduranceroad",{"msrp":8},"2099",{}]')
+    page = f'<script type="application/json" id="__NUXT_DATA__" data-ssr="true">{table}</script>'
+    data = ridley.item_data(page)
+    assert data["price"] == {"msrp": "2099"} and ridley.platform_of(data["bike"]) == "EnduranceROAD"
+    old = '<script>window.__NUXT__=(function(a){return {data:[{bike:{externalid:a},price:{msrp:"1"}}]}}("SBI1"))</script>'
+    assert ridley.item_data(old)["bike"] == {"externalid": "SBI1"}
+    assert ridley.item_data("<html></html>") is None
+    assert ridley.platform_of({"frame_family": "kids"}) is None
+
+
 def test_nuxt_data_reads_devalue_state():
     table = '[{"data":1},{"product":2},["Reactive",3],{"name":4,"sizes":5,"self":-1},"Shave",[6,6],"M"]'
     page = f'<script type="application/json" id="__NUXT_DATA__" data-ssr="true">{table}</script>'
