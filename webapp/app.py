@@ -601,10 +601,10 @@ def create_app(db_path=None):
             priced = {i for a in known if a["model_id"] == result["model"]["id"] for i in a["check_ids"]}
             rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
             own = checks.ad_facts(result, row["asking_price"])
-            # Ads still up first, then the gone ones (expired, removed); newest check first in each.
+            # Ads still up first, then the removed ones, the expired ones last; newest check first in each.
             ads = sorted(matched_ads(rows, models()).get(result["model"]["id"], []),
                          key=lambda a: a[0]["created_at"], reverse=True)
-            for r, n in sorted(ads, key=lambda a: bool(a[0]["removed_at"])):
+            for r, n in sorted(ads, key=lambda a: (bool(a[0]["removed_at"]), ad_gone.expired(a[0]))):
                 if fetch_ad.ad_key(r) == key:
                     continue
                 other = listing_dict(r, count=n)
@@ -1236,9 +1236,10 @@ def create_app(db_path=None):
         known = prices.known_ads(conn(), models())
         priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
+        # Newest first, but the expired ads ("Verlopen") at the bottom: they're no longer for sale.
+        newest = sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"], reverse=True)
         ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), stored_check(listing_dict(r)))
-               for r, n in sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"],
-                                  reverse=True)]
+               for r, n in sorted(newest, key=lambda a: ad_gone.expired(a[0]))]
         year_tabs = checks.year_tabs(model)
         # Years before the first one with a photo or a spec sheet say nothing: the row starts there. A gap between
         # two shown years stays, and the last year always shows.
