@@ -2782,6 +2782,14 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .brick h3 a:focus-visible { outline: none; }
 @media (max-width: 760px) { .blog-wall.three { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 190px; } }
 .blog-card-img { width: calc(100% + 44px); margin: -22px -22px 4px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px 18px 0 0; display: block; }
+
+/* /blog filter transition (static/blog-wall.js): tiles that stay glide to their new place, the others fade. */
+::view-transition-group(*) { animation-duration: .5s; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+::view-transition-old(*), ::view-transition-new(*) { animation-duration: .3s; }
+::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+.blog-wall { transition: opacity .25s; }
+.blog-wall.wall-fade { opacity: 0; transition: none; }
+
 /* Listings: cards or table, with a small map alongside on a wide screen (templates/listings.html, static/side-map.js) */
 .listings-bar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
 .listings-count { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--muted); }

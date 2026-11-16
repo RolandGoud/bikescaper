@@ -171,3 +171,9 @@ def test_the_value_curve_goes_back_no_further_than_the_catalogue():
     from webapp.reference import FIRST_YEAR
     html = blog.render("![](chart:value-curve)", "nl")
     assert f'name="age" value="4" min="0" max="{date.today().year - FIRST_YEAR}"' in html
+
+
+def test_the_wall_filters_in_place_with_its_transition(client):
+    page = client.get("/blog?lang=nl").get_data(as_text=True)
+    assert "blog-wall.js" in page and client.get("/static/blog-wall.js").status_code == 200
+    assert 'href="/blog?category=models"' in page  # the pills stay real links without JavaScript
