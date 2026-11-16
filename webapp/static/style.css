@@ -1129,6 +1129,10 @@ select { max-width: 100%; }
 .spec-rows .value .move { margin-left: 10px; }
 .spec-rows .change, .spec-rows thead th:nth-child(4) { width: 190px; padding-right: 0; text-align: center; }
 .spec-rows tr.overall th, .spec-rows tr.overall td { background: var(--raised); }
+/* The rounded overall row has no lines of its own, nor the header line just above it: they ran straight
+   past its rounded corners. Its background marks it off well enough. */
+.spec-rows tr.overall th, .spec-rows tr.overall td { border-bottom: 0; }
+.spec-rows thead:has(+ tbody > tr.overall:first-child) th { border-bottom: 0; }
 .spec-rows tr.overall th { border-radius: 8px 0 0 8px; }
 .spec-rows tr.overall td:last-child { border-radius: 0 8px 8px 0; }
 .tier-same { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); vertical-align: 1px; margin-left: 2px; }
