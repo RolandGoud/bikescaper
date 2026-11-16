@@ -2,7 +2,8 @@
 
 The Dutch site comes first: every adapter reads it, with its euro prices. Some bikes only show up on the brand's
 other sites, though: a build Giant sells in France or Italy only (TCR Advanced 3, the KOM builds), the 2027 Domane
-SL 4 Gen 5 that Trek lists in the US only, the Cannondale builds of its Asian and Latin American sites. People
+SL 4 Gen 5 that Trek lists in the US only, the Cannondale builds of its Asian and Latin American sites, the Scott
+builds of its American, Australian and Swiss sites, Orbea's builds for other markets. People
 import them and sell them second-hand here, so the catalogue needs their specs and photos to match an ad.
 
 For each brand this lists the bikes on the other country sites, keeps those the Dutch site doesn't list and no
@@ -14,7 +15,9 @@ price in another currency (or the US's, before tax) is not the Dutch new price.
 Writes data/years/countries/<Brand>.json, one bike per entry as an adapter returns it, plus "country" (the site it
 was read from) and "source": "country". webapp/seed.py adds them after the catalogue, like the discontinued lines.
 
-    python -m brand_scrapers.countries [trek giant cannondale] [--no-images] [--limit N]
+    python -m brand_scrapers.countries [trek giant cannondale scott orbea] [--no-images] [--limit N]
+
+Scott and Orbea open a visible Chrome (browser.py): their sites turn away plain requests and cloud machines.
 """
 import argparse
 import glob
@@ -360,7 +363,200 @@ def cannondale(fetcher, limit=None):
     return bikes
 
 
-BRANDS = {"Trek": trek, "Giant": giant, "Cannondale": cannondale}
+# --- Scott ---------------------------------------------------------------------------------------------------------
+
+# The country catalogues Scott's robots.txt allows, English ones first: their labels need no translating. Scott and
+# Orbea turn away plain requests, so their pages are read in Chrome (browser.py), on a PC rather than in the cloud.
+SCOTT_SITES = ["gb/en", "us/en", "ca/en", "au/en", "nz/en", "za/en", "in/en", "dk/en", "se/en", "be/en", "global/en",
+               "at/de", "de/de", "ch/de", "ch/fr", "ch/it", "be/fr", "fr/fr", "it/it", "es/es", "pt/pt", "pl/pl",
+               "cz/cs", "ca/fr", "ar/es", "cl/es", "co/es", "mx/es", "br/pt"]
+SCOTT_PAGE = re.compile(r"https://www\.scott-sports\.com/([a-z]{2,6}/[a-z]{2})/product/(scott-[a-z0-9-]+)$")
+SCOTT_SKIP = re.compile(r"(^|-)(eride|e)(-|$)")
+
+
+def scott_pages(fetcher, site):
+    """{slug: url} of the road, gravel and TT bikes and framesets in one site's product sitemap."""
+    from . import scott as adapter
+    index = fetcher.get(f"https://www.scott-sports.com/{site}/sitemap.xml", page=False) or ""
+    pages = {}
+    for sitemap in re.findall(r"<loc>([^<]+/Product-[^<]+)</loc>", index):
+        for url in re.findall(r"<loc>([^<]+)</loc>", fetcher.get(sitemap, page=False) or ""):
+            m = SCOTT_PAGE.match(url)
+            core = re.match(r"scott-([a-z0-9-]+?)-(bike|frame-set)(-\d+)?$", m.group(2)) if m else None
+            if core and re.search(r"(^|-)(%s)(-|$)" % "|".join(adapter.FAMILIES), core.group(1)) \
+                    and not SCOTT_SKIP.search(core.group(1)) and not is_ebike(core.group(1).replace("-", " ")):
+                pages.setdefault(m.group(2), url)
+    return pages
+
+
+def scott_year(slug, bike, page):
+    """The page's size-chart year: the adapter's size-chart code, else the chart's title on older pages
+    ("Bikes-SizeChart-2021-BIKE"), else the year some slugs end in (scott-addict-rc-15-...-bike-2021)."""
+    m = re.search(r"SizeChart-(20\d\d)-", page or "") or re.search(r"-(20\d\d)$", slug)
+    return bike["model_year"] or (int(m.group(1)) if m else None)
+
+
+# Older pages are one per colour, the colour in the name: "Addict 20 disc pearl white", "Speedster Gravel 30 orange".
+SCOTT_COLOUR = re.compile(r"(?:\s+(?:pearl|stellar|carbon|onyx|marine|metallic|matt|gloss|dark|light|deep|raw|prism))*"
+                          r"\s+(?:white|black|blue|red|orange|green|grey|gray|silver|yellow|purple|pink|brown|beige)$",
+                          re.I)
+
+
+def scott_name(name):
+    """'Addict 20 disc pearl white' -> ('Addict 20 Disc', 'pearl white'); the catalogue writes 'Disc' upper case."""
+    m = SCOTT_COLOUR.search(name)
+    colour = m.group(0).strip() if m else None
+    name = name[:m.start()] if m else name
+    return re.sub(r"\bdisc\b", "Disc", name), colour
+
+
+def scott_labels(fetcher, site, pages, dutch):
+    """Scott's spec labels on one site in English, read off a product both it and the Dutch (English) site sell."""
+    from . import scott as adapter
+
+    def pairs(page):
+        group = adapter.product_group(page) or {}
+        return [(p.get("name"), p.get("value")) for p in group.get("additionalProperty") or []]
+
+    for slug in sorted(set(pages) & set(dutch)):
+        if "frame-set" in slug:
+            continue
+        found = translate(fetcher, pages[slug], dutch[slug], pairs)
+        if found:
+            return found
+    return {}
+
+
+def scott(fetcher, limit=None):
+    from . import scott as adapter
+    from .browser import BrowserFetcher
+    browser = BrowserFetcher(delay=2.0)
+    known = known_names("Scott")
+    try:
+        dutch = scott_pages(browser, "nl/en")
+        by_site = {site: scott_pages(browser, site) for site in SCOTT_SITES}
+        wanted = {}  # slug -> (site, url): the first site, English first, of each bike the Dutch site doesn't list
+        for site, pages in by_site.items():
+            for slug, url in pages.items():
+                if slug not in dutch:
+                    wanted.setdefault(slug, (site, url))
+        labels = {}
+        bikes = {}  # compact name -> bike: colour pages (scott-addict-20-disc-pearl-white-bike) fold into one bike
+        for slug, (site, url) in sorted(wanted.items())[:limit]:
+            page = browser.get(url)
+            bike = adapter.parse(page, url) if page else None
+            if not bike or not bike["specifications"]:
+                log.warning("Scott: no product data in %s", url)
+                continue
+            if not site.endswith("/en"):
+                if site not in labels:
+                    labels[site] = scott_labels(browser, site, by_site[site], dutch)
+                group = adapter.product_group(page) or {}
+                pairs = [(labels[site].get(clean(p.get("name")), clean(p.get("name"))), p.get("value"))
+                         for p in group.get("additionalProperty") or []]
+                bike["specifications"] = normalize_specs([(adapter.LABELS.get(k, k), v) for k, v in pairs
+                                                          if not adapter.SKIP.match(k or "")])
+            bike["model_year"] = scott_year(slug, bike, page)
+            bike["name"], colour = scott_name(bike["name"])
+            if colour and not bike["color_names"]:
+                bike["color_names"], bike["color_image_urls"] = [colour.title()], [bike["image_url"]]
+            key = compact(bike["name"])
+            if key in known or is_ebike(bike["name"], bike["family"]) \
+                    or (bike["model_year"] or FIRST_YEAR) < FIRST_YEAR:
+                continue
+            have = bikes.get(key)
+            if have and (have["model_year"] or 0) == (bike["model_year"] or 0):
+                for colour, photo in zip(bike["color_names"], bike["color_image_urls"]):
+                    if colour not in have["color_names"]:
+                        have["color_names"].append(colour)
+                        have["color_image_urls"].append(photo)
+                continue
+            if have and (have["model_year"] or 0) > (bike["model_year"] or 0):
+                continue
+            bike.update(price=None, country=site.split("/")[0])
+            bikes[key] = bike
+            log.info("Scott: %s %s from the %s site", bike["name"], bike["model_year"], site)
+    finally:
+        browser.close()
+    return list(bikes.values())
+
+
+# --- Orbea ---------------------------------------------------------------------------------------------------------
+
+def orbea_catalogues(fetcher):
+    """{family: {site: [slugs]}}: each family's catalogue on every country site, found through the Dutch
+    catalogue's hreflang links (the sites write the path in their own language: /es-es/catalogo/bicicletas-...)."""
+    from . import orbea as adapter
+    out = {}
+    for family in adapter.FAMILIES:
+        dutch = fetcher.get(f"{adapter.BASE}/catalog/fietsen-road-{family}") or ""
+        for site, url in sorted(dict(re.findall(r'hreflang="([a-z]{2}-[a-z]{2,3})"\s+href="([^"]+)"', dutch)).items()):
+            page = dutch if site == "nl-nl" else fetcher.get(url) or ""
+            out.setdefault(family, {})[site] = sorted(set(re.findall(
+                r'href="https://www\.orbea\.com/%s/([a-z0-9-]+)\?color=' % re.escape(site), page)))
+    return out
+
+
+def orbea_pairs(page):
+    from . import orbea as adapter
+    product = adapter.js_json(page, "product") or {}
+    return [(label, value) for group in (product.get("componentsGrouped") or {}).values()
+            for label, value in (group or {}).items()]
+
+
+def orbea_translate(fetcher, site, catalogues):
+    """Orbea's component labels on one site in Dutch, read off a bike both it and the Dutch site sell."""
+    from . import orbea as adapter
+    for family, sites in catalogues.items():
+        for slug in sorted(set(sites.get(site) or []) & set(sites.get("nl-nl") or [])):
+            found = translate(fetcher, f"https://www.orbea.com/{site}/{slug}", f"{adapter.BASE}/{slug}", orbea_pairs)
+            if found:
+                return found
+    return {}
+
+
+def orbea(fetcher, limit=None, catalogues=None):
+    from . import orbea as adapter
+    from .browser import BrowserFetcher
+    browser = BrowserFetcher(delay=2.0)
+    known = known_names("Orbea")
+    try:
+        catalogues = catalogues or orbea_catalogues(browser)
+        dutch = {slug for sites in catalogues.values() for slug in sites.get("nl-nl") or []}
+        wanted = {}  # slug -> (site, family): English sites first
+        for family, sites in catalogues.items():
+            for site in sorted(sites, key=lambda s: (not s.startswith("en-"), s)):
+                for slug in sites[site]:
+                    if slug not in dutch:
+                        wanted.setdefault(slug, (site, family))
+        labels, bikes = {}, {}
+        for slug, (site, family) in sorted(wanted.items())[:limit]:
+            url = f"https://www.orbea.com/{site}/{slug}"
+            page = browser.get(url)
+            bike = adapter.parse(page, url, family) if page else None
+            if not bike:
+                log.warning("Orbea: no product data in %s", url)
+                continue
+            if site not in labels:
+                labels[site] = orbea_translate(browser, site, catalogues)
+            bike["specifications"] = normalize_specs([
+                (adapter.LABELS.get(clean(labels[site].get(clean(k), k)).lower(), labels[site].get(clean(k), k)), v)
+                for k, v in orbea_pairs(page) if clean(v).upper() not in ("", "N/A", "-")])
+            key = compact(bike["name"])
+            if bike.pop("_ebike") or is_ebike(bike["name"]) or key in known \
+                    or (bike["model_year"] or FIRST_YEAR) < FIRST_YEAR or not bike["specifications"]:
+                continue
+            if key in bikes and (bikes[key]["model_year"] or 0) >= (bike["model_year"] or 0):
+                continue
+            bike.update(price=None, country=site.split("-")[1])
+            bikes[key] = bike
+            log.info("Orbea: %s %s from the %s site", bike["name"], bike["model_year"], site)
+    finally:
+        browser.close()
+    return list(bikes.values())
+
+
+BRANDS = {"Trek": trek, "Giant": giant, "Cannondale": cannondale, "Scott": scott, "Orbea": orbea}
 
 # English rows the Dutch pages label otherwise; after these, rows the site has no label for are left out (a model
 # name, the colours and sizes the bike has its own fields for, a fender or rack).

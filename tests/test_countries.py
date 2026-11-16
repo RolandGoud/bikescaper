@@ -76,3 +76,24 @@ def test_country_bikes_keep_no_footnotes_in_their_weight():
             for bike in json.load(fh):
                 weight = bike["specifications"].get("Gewicht")
                 assert weight is None or len(weight) <= 16, (bike["name"], weight)
+
+
+def test_scott_colour_pages_fold_into_one_bike():
+    assert countries.scott_name("Addict 20 disc pearl white") == ("Addict 20 Disc", "pearl white")
+    assert countries.scott_name("Addict RC 15 carbon onyx black") == ("Addict RC 15", "carbon onyx black")
+    assert countries.scott_name("Speedster Gravel 30 orange") == ("Speedster Gravel 30", "orange")
+    assert countries.scott_name("Addict Gravel RC HMX Frameset") == ("Addict Gravel RC HMX Frameset", None)
+
+
+def test_scott_year_from_older_size_charts_and_slugs():
+    bike = {"model_year": None}
+    assert countries.scott_year("scott-addict-30-disc-bike", bike, '"title":"Bikes-SizeChart-2021-BIKE_SCOTT"') == 2021
+    assert countries.scott_year("scott-addict-rc-15-carbon-onyx-black-bike-2021", bike, "") == 2021
+    assert countries.scott_year("scott-foil-rc-30-bike", {"model_year": 2024}, "") == 2024
+    assert countries.scott_year("scott-foil-rc-30-bike", bike, "") is None
+
+
+def test_orbea_pairs_read_the_components_of_a_page():
+    page = """<div x-init="product = JSON.parse('{&quot;type&quot;:&quot;bike&quot;,&quot;componentsGrouped&quot;:""" \
+           """{&quot;Frame&quot;:{&quot;Frame&quot;:&quot;Orbea Orca carbon&quot;,&quot;Fork&quot;:&quot;OMR&quot;}}}')">"""
+    assert countries.orbea_pairs(page) == [("Frame", "Orbea Orca carbon"), ("Fork", "OMR")]
