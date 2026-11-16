@@ -97,6 +97,7 @@ NL = {
     'Every story starts with one number from our data. Open it to read where it comes from.': 'Elk verhaal begint met één getal uit onze data. Open het om te lezen waar het vandaan komt.',
     "Photo": "Foto",
     ", edited by Bikecheck": ", bewerkt door Bikecheck",
+    "on": "op",
     "Image: Bikecheck, from a product photo by {brand}": "Beeld: Bikecheck, met een productfoto van {brand}",
     "Image: Bikecheck, from the brands' own product photos": "Beeld: Bikecheck, met de productfoto's van de merken",
     "Today": "Vandaag",

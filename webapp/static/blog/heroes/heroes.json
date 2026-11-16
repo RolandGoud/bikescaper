@@ -1,106 +1,146 @@
 {
  "buying-in-autumn": {
   "focus": [
-   48,
-   58
+   54,
+   53
   ],
-  "source": "defy-fork",
-  "brand": "Giant"
+  "source": "unsplash:fkb2fVN2pkI",
+  "credit": {
+   "author": "Tingkai Meng",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-man-riding-a-bike-down-a-road-surrounded-by-trees-fkb2fVN2pkI?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "cannondale-topstone": {
   "focus": [
-   48,
-   52
+   35,
+   62
   ],
-  "source": "topstone-c2",
-  "brand": "Cannondale"
+  "source": "unsplash:zEdh7yYIwBU",
+  "credit": {
+   "author": "Rille Camera Strap",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-man-riding-a-bike-through-a-lush-green-field-zEdh7yYIwBU?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "giant-tcr-advanced": {
   "focus": [
-   62,
-   62
+   66,
+   50
   ],
-  "source": "tcr-sl-cockpit",
-  "brand": "Giant"
+  "source": "unsplash:ZZay7O20jgc",
+  "credit": {
+   "author": "Annie Spratt",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/cyclist-in-silhouette-on-mountain-road-ZZay7O20jgc?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "groupset-new-prices": {
   "focus": [
-   56,
-   62
+   39,
+   53
   ],
-  "source": "tcr-sl-crank",
-  "brand": "Giant"
+  "source": "unsplash:itzedAcA6zc",
+  "credit": {
+   "author": "kensho masanishi",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-a-bikes-chain-and-gear-itzedAcA6zc?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "how-fast-bikes-lose-value": {
   "focus": [
-   48,
-   47
+   45,
+   50
   ],
-  "source": "tcr-head",
-  "brand": "Giant"
+  "source": "unsplash:jSjbkyJAmIo",
+  "credit": {
+   "author": "Miraxh Tereziu",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-bicycle-leans-against-a-wall-in-sunlight-jSjbkyJAmIo?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "new-prices-per-brand": {
   "focus": [
-   66,
-   62
+   47,
+   50
   ],
-  "source": "trek-domane-slr9",
-  "brand": "Trek"
+  "source": "unsplash:vj4Qi9ToRXQ",
+  "credit": {
+   "author": "Markus Spiske",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/blue-and-white-road-bike-leaning-on-wall-vj4Qi9ToRXQ?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "reading-a-bike-ad": {
   "focus": [
-   50,
-   37
+   66,
+   40
   ],
-  "source": "defy-bars",
-  "brand": "Giant"
+  "source": "unsplash:9phJzNSAEW4",
+  "credit": {
+   "author": "tiago almeida",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-the-handle-bars-on-a-bike-9phJzNSAEW4?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "selling-in-spring": {
   "focus": [
-   52,
-   50
+   73,
+   67
   ],
-  "source": "revolt-badge",
-  "brand": "Giant"
+  "source": "unsplash:oZUT7x06YvY",
+  "credit": {
+   "author": "Minna Autio",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-person-riding-a-bike-down-a-road-oZUT7x06YvY?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "spotting-a-stolen-bike": {
   "focus": [
-   40,
-   62
+   52,
+   38
   ],
-  "source": "lock",
+  "source": "unsplash:gaeP0enIkiQ",
   "credit": {
-   "author": "Jorge Franganillo",
-   "license": "CC BY 4.0",
-   "url": "https://commons.wikimedia.org/wiki/File:Manchester_-_bicycle_lock.jpg"
+   "author": "Abdulrahman Alhaidari",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-bicycle-locked-to-a-rack-by-the-water-gaeP0enIkiQ?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "trek-domane": {
   "focus": [
-   61,
-   69
+   72,
+   71
   ],
-  "source": "trek-domane-sl6",
-  "brand": "Trek"
+  "source": "unsplash:nIdWCuL-61M",
+  "credit": {
+   "author": "Ben Guernsey",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-man-riding-a-bike-down-a-curvy-road-nIdWCuL-61M?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "what-a-groupset-tells-you": {
   "focus": [
-   58,
-   62
+   50,
+   44
   ],
-  "source": "tcr-105",
-  "brand": "Giant"
+  "source": "unsplash:9mZVRcC9rN4",
+  "credit": {
+   "author": "Almas Salakhov",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-a-bikes-front-wheel-9mZVRcC9rN4?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "winter-bike": {
   "focus": [
-   51,
-   58
+   50,
+   55
   ],
-  "source": "snow",
+  "source": "unsplash:HPpj2190tGs",
   "credit": {
-   "author": "Wilfredor",
-   "license": "CC0",
-   "url": "https://commons.wikimedia.org/wiki/File:Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg"
+   "author": "Alessio Soggetti",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/yellow-and-black-road-bike-HPpj2190tGs?utm_source=bikecheck&utm_medium=referral"
   }
  }
 }
