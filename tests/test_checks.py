@@ -2269,3 +2269,25 @@ def test_cable_disc_brakes_date_an_old_defy_whatever_its_colour(models):
     assert checks.cable_disc_years(defy, low) == (2015, 2017)
     assert checks.cable_disc_years(defy, checks._plain("Defy met snelspanners")) == (2015, 2017)
     assert checks.cable_disc_years(defy, checks._plain("hydraulische schijfremmen")) is None
+
+
+def test_a_brand_still_selling_an_earlier_model_year_shows_that_year_only():
+    """Ridley lists the Grifn A 105 as its 2024 collection in November 2026: no 2025 or 2026 tab, and the model
+    years read 2024 (the status says it is still on sale), while the age check keeps it open to now."""
+    from datetime import date
+    today = date(2026, 11, 16)
+    model = {"name": "Grifn A Road Shimano 105 2x12", "brand": "Ridley", "seen_on": "2026-11-16", "model_year": 2024,
+             "price_eur": 2099.0, "url": "u", "missed_scrapes": 0, "last_seen": "2026-11-16",
+             "specs": {"Frame": "Grifn A", "Shifter": "Shimano 105 - 2x12"},
+             "year_specs": {"checked": list(range(2020, 2028)), "years": {}}}
+    tabs = [t["year"] for t in checks.year_tabs(model, today)]
+    assert tabs[-1] == 2024 and 2025 not in tabs and 2026 not in tabs
+    assert checks.sold_years(model, today)[:2] == (2024, None)
+    assert checks.shown_years(model, today)[:2] == (2024, 2024)
+    # A newer sheet keeps its tab, and the range runs on to now.
+    newer = dict(model, year_specs={"checked": list(range(2020, 2028)),
+                                    "years": {"2025": {"captured": "2025-05-01", "url": "a", "specs": {"Frame": "Grifn A"}}}})
+    assert [t["year"] for t in checks.year_tabs(newer, today)][-2:] == [2024, 2025]
+    assert checks.shown_years(newer, today)[1] is None
+    # This year's model is untouched.
+    assert checks.shown_years(dict(model, model_year=2026), today)[:2] == (2026, None)

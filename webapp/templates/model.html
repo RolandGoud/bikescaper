@@ -53,7 +53,7 @@
   <section class="ad-stage model-stage{{ ' no-photo' if not stage_img }}">
     {% if stage_img %}<div class="photo">{% if m.image %}{{ photo(m) }}{% else %}<img src="{{ url_for('images', path=stage_img) }}" alt="{{ m.brand }} {{ m.name|model_title }}"{% if m.brand != 'Canyon' %} class="on-white"{% endif %}>{% endif %}</div>{% endif %}
     <div class="stage-text">
-      <div class="stage-meta mono">{{ _(discipline) }}{% if years %} · {{ _('Model years') }} {{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% endif %}</div>
+      <div class="stage-meta mono">{{ _(discipline) }}{% if years %} · {{ _('Model years') if years[1] != years[0] else _('Model year') }} {{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% endif %}</div>
       <div>
         {% if logos.get(m.brand) %}<span class="stage-logo" role="img" aria-label="{{ m.brand }}" style="--logo: url('{{ url_for('static', filename=logos[m.brand]) }}')"></span>{% endif %}
         {% set name = (m|model_base if builds else m.name)|family_name %}{% set lead, _sp, rest = name.partition(' ') %}
@@ -198,7 +198,7 @@
       {% set weight = (specs|map(attribute=1)|sum(start=[])|selectattr('0', 'equalto', 'Weight')|first or [None, None, None])[2] %}{# only a weight: the number and size, never the brand's footnote or a paragraph of text #}{% set weight = weight|weight_short(g.lang) if weight else None %}
       {# Compact facts: the longer notes sit behind an (i) that opens on hover, tap or keyboard. #}
       <div class="ad-tiles model-tiles" style="--n: {{ 4 if weight else 3 }}">
-        <div data-fact="years"><div class="k">{{ _('Model years') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
+        <div data-fact="years"><div class="k">{{ _('Model years') if not years or years[1] != years[0] else _('Model year') }}{% if years %}{{ note(years[2]) }}{% endif %}</div>
           <div class="v">{% if years %}{{ years[0] }}{% if years[1] != years[0] %}–{{ years[1] or _('now') }}{% endif %}{% else %}{{ _('[not collected yet]') }}{% endif %}</div>
           </div>
         <div><div class="k">{{ _('Spec tier') }}{% if tiers.lagging or tiers.aged %}{% set lagging %}{% if tiers.lagging %}{{ _('Lower on') }} {% for g in tiers.lagging %}{{ _(g)|lower }}{{ ', ' if not loop.last }}{% endfor %}.{% endif %}{% if tiers.aged %} {{ _('The groupset is rated lower because the bike is {years} years old: one tier for every {step} years.', years=tiers.age, step=age_step) }}{% endif %}{% endset %}{{ note(lagging) }}{% endif %}</div>

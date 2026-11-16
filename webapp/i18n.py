@@ -486,6 +486,8 @@ NL = {
     "From the model years in {brand}'s own photos; earlier years may be missing.": "Uit de modeljaren in de eigen foto's van {brand}; eerdere jaren kunnen ontbreken.",
     "From the spec sheets of earlier model years that {brand} or the Wayback Machine still has; earlier years may be missing.":
         "Uit de specificaties van eerdere modeljaren die {brand} of de Wayback Machine nog heeft; eerdere jaren kunnen ontbreken.",
+    "{brand} still sells this {year} model: no newer model year of it has come out.":
+        "{brand} verkoopt dit {year}-model nog steeds: er is geen nieuwer modeljaar van verschenen.",
     "No photo of this colour yet.": "Nog geen foto van deze kleur.",
     "Status": "Status",
     "Still sold": "Nog te koop",
