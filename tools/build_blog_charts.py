@@ -7,7 +7,11 @@ python tools/build_blog_charts.py
 """
 import json
 import os
+import sys
 from html import escape
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+from webapp.blog import with_logos  # noqa: E402  the same logos as the article tables
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "webapp", "static", "blog", "charts")
 W = 720
@@ -29,6 +33,14 @@ def svg(h, body, title, data=None):
     extra = f' data-series="{escape(json.dumps(data, ensure_ascii=False))}"' if data is not None else ""
     return (f'<svg viewBox="0 0 {W} {h}" role="img" aria-label="{escape(title)}" xmlns="http://www.w3.org/2000/svg"{extra}>'
             f'<title>{escape(title)}</title>{"".join(body)}</svg>\n')
+
+
+def name_(x_right, y_mid, text, width, brand_height=13, series_height=11):
+    """A row label that shows brand and groupset logos where the site has them (HTML inside the SVG, so the logos
+    take the text colour like everywhere else), right-aligned to x_right."""
+    html = with_logos(text, brand_height, series_height) or escape(text)
+    return (f'<foreignObject x="{x_right - width:.1f}" y="{y_mid - 12:.1f}" width="{width}" height="24">'
+            f'<div xmlns="http://www.w3.org/1999/xhtml" class="chart-name">{html}</div></foreignObject>')
 
 
 def write(name, lang, content):
@@ -58,15 +70,15 @@ BRANDS = [("Factor", 51, 11399, 4699, 25799), ("Wilier", 48, 8700, 1899, 22800),
 
 
 def brand_prices(lang):
-    x0, x1, top, row = 120, W - 70, 40, 26
+    x0, x1, top, row = 130, W - 70, 40, 28
     scale = lambda v: x0 + (x1 - x0) * v / 26000
     h = top + row * len(BRANDS) + 40
     b = [t(x0, 18, "Nieuwprijs per merk: goedkoopste tot duurste, stip = mediaan" if lang == "nl"
            else "New price per brand: cheapest to dearest, dot = median", "cap")]
     b += axis(x0, x1, top - 10, h - 34, 25000, 5000, lang, scale)
-    for i, (name, n, med, lo, hi) in enumerate(BRANDS):
+    for i, (label, n, med, lo, hi) in enumerate(BRANDS):
         y = top + i * row + 8
-        b.append(t(x0 - 12, y + 4, name, "lbl", "end"))
+        b.append(name_(x0 - 14, y, label, x0 - 20, brand_height=13))
         b.append(f'<line x1="{scale(lo):.1f}" y1="{y}" x2="{scale(hi):.1f}" y2="{y}" class="range"/>')
         b.append(f'<circle cx="{scale(med):.1f}" cy="{y}" r="6" class="dot"/>')
         b.append(t(scale(hi) + 8, y + 4, eur(med, lang), "val"))
@@ -81,19 +93,19 @@ GROUPSETS = [("Shimano Claris", 999, 0), ("Shimano Sora", 1149, 0), ("Shimano Ti
 
 
 def groupset_prices(lang):
-    x0, x1, top, row = 190, W - 80, 40, 27
+    x0, x1, top, row = 250, W - 80, 40, 28
     scale = lambda v: x0 + (x1 - x0) * v / 15000
     h = top + row * len(GROUPSETS) + 46
     names = ["Basis", "Instap", "Midden", "Performance", "Top"] if lang == "nl" else ["Basic", "Entry", "Mid", "Performance", "Top"]
     b = [t(x0, 18, "Mediane nieuwprijs van een fiets, per groepset" if lang == "nl" else "Median new price of a bike, per groupset", "cap")]
-    for i, (name, med, tier) in enumerate(GROUPSETS):
+    for i, (label, med, tier) in enumerate(GROUPSETS):
         y = top + i * row
-        b.append(t(x0 - 12, y + 14, name, "lbl", "end"))
+        b.append(name_(x0 - 12, y + 10, label, x0 - 16, brand_height=10, series_height=10))
         b.append(f'<rect x="{x0}" y="{y + 2}" width="{scale(med) - x0:.1f}" height="17" rx="3" style="fill:{BAR[tier]}"/>')
         b.append(t(scale(med) + 8, y + 15, eur(med, lang), "val"))
     ly = h - 16
     for k, name in enumerate(names):
-        lx = x0 + k * 112
+        lx = 40 + k * 130
         b.append(f'<rect x="{lx}" y="{ly - 10}" width="12" height="12" rx="2" style="fill:{BAR[k]}"/>')
         b.append(t(lx + 18, ly, name, "tick"))
     write("groupset-prices", lang, svg(h, b, "Nieuwprijs per groepset" if lang == "nl" else "New price per groupset"))
@@ -157,7 +169,8 @@ def years_chart(name, lang, series, title):
         b.append(f'<rect x="{lx}" y="{ly - 10}" width="12" height="12" rx="3" style="fill:{c}"/>')
         b.append(t(lx + 18, ly, label, "tick"))
     h = y1 + 46 + ((len(series) + 1) // 2) * 20
-    data = {"title": title, "series": [{"label": label, "points": pts} for label, pts in series]}
+    data = {"title": title, "series": [{"label": label, "html": with_logos(label, 13, 11), "points": pts}
+                                       for label, pts in series]}
     write(name, lang, svg(h, b, title, data))
 
 
@@ -207,7 +220,9 @@ def price_zones(lang):
     for v in (round(low * 0.6), round(low * 0.95), high):
         b.append(f'<line x1="{s(v):.1f}" y1="{y - 8}" x2="{s(v):.1f}" y2="{y + 42}" class="tickline"/>')
         b.append(t(s(v), y - 14, eur(v, lang), "val", "middle"))
-    write("price-zones", lang, svg(160, b, "Prijsoordelen" if lang == "nl" else "Price verdicts"))
+    data = {"x0": x0, "x1": x1, "y": y, "vmax": vmax,
+            "zones": [[a, z, nl if lang == "nl" else en] for a, z, cls, nl, en in zones]}
+    write("price-zones", lang, svg(184, b, "Prijsoordelen" if lang == "nl" else "Price verdicts", data))
 
 
 # 7. Domane line-up today, on one price line
@@ -246,23 +261,26 @@ def winter_values(lang):
     x0, x1, top, row = 200, W - 40, 44, 30
     scale = lambda v: x0 + (x1 - x0) * v / 1600
     h = top + row * len(WINTER) + 66
-    b = [t(16, 18, "Nieuwprijs en eerlijke prijs na vier jaar" if lang == "nl" else "New price and fair price after four years", "cap")]
+    b = [t(16, 18, "Nieuwprijs en eerlijke prijs na vier jaar" if lang == "nl" else "New price and fair price after four years", "cap",
+           extra=f' data-tpl="{"Nieuwprijs en eerlijke prijs na {n} jaar" if lang == "nl" else "New price and fair price after {n} years"}"')]
     b += axis(x0, x1, top - 12, h - 60, 1500, 500, lang, scale)
     f = value_factor(4)
-    for i, (name, p) in enumerate(WINTER):
+    for i, (label, p) in enumerate(WINTER):
         y = top + i * row + 6
         lo, hi = round(p * f * 0.9, -1), round(p * f * 1.1, -1)
-        b.append(t(x0 - 12, y + 4, name, "lbl", "end"))
-        b.append(f'<rect x="{scale(lo):.1f}" y="{y - 7}" width="{scale(hi) - scale(lo):.1f}" height="14" rx="7" class="band-bar"/>')
-        b.append(f'<line x1="{scale(hi):.1f}" y1="{y}" x2="{scale(p):.1f}" y2="{y}" class="stem"/>')
+        b.append(name_(x0 - 12, y, label, x0 - 16, brand_height=10))
+        b.append(f'<rect x="{scale(lo):.1f}" y="{y - 7}" width="{scale(hi) - scale(lo):.1f}" height="14" rx="7" class="band-bar" data-new="{p}"><title>{eur(lo, lang)} – {eur(hi, lang)}</title></rect>')
+        b.append(f'<line x1="{scale(hi):.1f}" y1="{y}" x2="{scale(p):.1f}" y2="{y}" class="stem" data-new="{p}"/>')
         b.append(f'<circle cx="{scale(p):.1f}" cy="{y}" r="5" class="then"/>')
         b.append(t(scale(lo) - 6, y + 4, f"{eur(lo, lang)}–{eur(hi, lang)}", "val", "end") if False else "")
     ly = h - 14
     b.append(f'<rect x="{x0}" y="{ly - 10}" width="26" height="12" rx="6" class="band-bar"/>')
-    b.append(t(x0 + 34, ly, "eerlijke prijs na 4 jaar" if lang == "nl" else "fair price after 4 years", "tick"))
+    b.append(t(x0 + 34, ly, "eerlijke prijs na 4 jaar" if lang == "nl" else "fair price after 4 years", "tick",
+               extra=f' data-tpl="{"eerlijke prijs na {n} jaar" if lang == "nl" else "fair price after {n} years"}"'))
     b.append(f'<circle cx="{x0 + 240}" cy="{ly - 4}" r="5" class="then"/>')
     b.append(t(x0 + 252, ly, "nieuwprijs nu" if lang == "nl" else "new price now", "tick"))
-    write("winter-values", lang, svg(h, b, "Winterfietsen" if lang == "nl" else "Winter bikes"))
+    write("winter-values", lang, svg(h, b, "Winterfietsen" if lang == "nl" else "Winter bikes",
+                                     {"x0": x0, "x1": x1, "vmax": 1600, "age": 4}))
 
 
 def build(lang):

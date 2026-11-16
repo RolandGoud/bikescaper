@@ -154,3 +154,14 @@ def test_a_report_page_shows_the_reads(client):
     page = client.get(f"/check/{check_id}?lang=en").get_data(as_text=True)
     assert "Read before you buy" in page
     assert 'href="/blog/spotting-a-stolen-bike"' in page and 'href="/blog/trek-domane"' in page
+
+
+def test_charts_show_logos_and_the_live_ones_have_their_inputs():
+    html = blog.render("![](chart:brand-prices)", "nl")
+    assert "foreignObject" in html and "logos/trek.svg" in html
+    assert "logos/groupsets/ultegra.svg" in blog.render("![](chart:groupset-prices)", "en")
+    zones = blog.render("![](chart:price-zones)", "nl")
+    assert 'data-live="price-zones"' in zones and 'name="asking"' in zones
+    winter = blog.render("![](chart:winter-values)", "en")
+    assert 'data-live="winter-values"' in winter and 'name="age"' in winter and "data-tpl=" in winter
+    assert "logos/canyon.svg" in blog.render("![](chart:price-rises)", "en")  # the bike picks

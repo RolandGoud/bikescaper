@@ -2598,6 +2598,12 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .blog-live-picks input:checked { background: var(--c); }
 .blog-live-picks label:has(input:checked) { color: var(--text); border-color: var(--c); }
 .blog-live-picks input:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+/* A row label in a chart with the brand and groupset logos (build_blog_charts.py name_). */
+.blog-chart .chart-name { display: flex; justify-content: flex-end; align-items: center; height: 24px; font: 14px/1 var(--body); color: var(--text); white-space: nowrap; }
+.blog-chart .chart-name .blog-logos { gap: 6px; }
+.blog-chart .chart-name .blog-logo-rest { font-size: 13px; color: var(--text); font-weight: 400; }
+.blog-live-picks .blog-logos { gap: 6px; }
+.blog-live-picks .blog-logo-rest { color: inherit; font-size: 13px; font-weight: 600; }
 .blog-chart .yline { fill: none; stroke-width: 3; stroke-linejoin: round; }
 .blog-chart .ydot { stroke: var(--card); stroke-width: 2; }
 .blog-chart .pick-line { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 4; }
