@@ -1,0 +1,497 @@
+[
+ {
+  "name": "SuperSix EVO CX",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/cyclocross/supersix-evo-cx/supersix-evo-cx",
+  "sku": "C17201U",
+  "price": null,
+  "category": "Cyclocross",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "SuperSix EVO CX Carbon, internal cable routing w/ Switchplate, 12x142mm Speed Release thru-axle, SAVE, PF30-83 Ai, flat mount disc, integrated seatpost binder",
+   "Voorvork": "SuperSix EVO CX Carbon, SAVE, integrated crown race, 12x100mm Speed Release thru-axle, flat mount disc, internal routing, 1-1/8\" to 1-1/2\", 55mm offset",
+   "Balhoofdstel": "Integrated, 1-1/8\" - 1.5\"",
+   "Achterderailleur": "SRAM Force 1",
+   "Voorderailleur": "N/A (Braze-on compatible)",
+   "Shifter": "SRAM Force 1, 11-speed",
+   "Ketting": "SRAM CN-1130",
+   "Crankstel": "Cannondale 1, PF83A, OPI SpideRing, 40T",
+   "Cassette": "SRAM PG-1170, 11-36, 11-speed",
+   "Bottom bracket": "Cannondale Alloy PressFit30",
+   "Rem": "SRAM Force 1 hydraulic Disc, 160/140mm CenterLine rotors",
+   "Remgreep": "SRAM Force 1",
+   "Velg": "DT Swiss R470 DB, 28h",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700c",
+   "Naven": "(F) Formula CL-712, 12x100mm centerlock / (R) Formula RXC-400, 12x142mm centerlock",
+   "Buitenband": "Vittoria Terreno Mix TNT, 700x33c, tubeless ready",
+   "Achterband": "Vittoria Terreno Mix TNT, 700x33c, tubeless ready",
+   "Stuur": "Cannondale 2, 6061 Alloy, Compact",
+   "Stuurpen": "Cannondale 3, 6061 Alloy, 31.8, 7°",
+   "Handvatten": "Cannondale Bar Tape, 3.5mm",
+   "Zadel": "Fizik Aliante Delta, S-alloy rails",
+   "Zadelpen": "HollowGram 27 SL KNØT, Carbon, 2 bolt clamp, 330mm, 0mm offset all sizes"
+  },
+  "color_names": [
+   "Gold Dust"
+  ],
+  "sizes": [
+   "46",
+   "54"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/x4aqwx2nmt/1000px@1x/C22_C17201U_SuperSix_EVO_CX_GDT_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/x4aqwx2nmt/1000px@1x/C22_C17201U_SuperSix_EVO_CX_GDT_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/SuperSix_EVO_CX.jpg",
+  "color_images": [
+   "Cannondale/SuperSix_EVO_CX_colour_Gold_Dust.jpg"
+  ]
+ },
+ {
+  "name": "Synapse 3",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/endurance/synapse/synapse-3",
+  "sku": "C12702U",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Lightweight SmartForm C2 Alloy, SmartSense compatible, BSA threaded BB, internal cable routing, flat mount, 142x12 thru-axle, hidden rack/fender mounts",
+   "Voorvork": "Synapse Carbon, integrated crown race, 12x100mm thru-axle, internal routing, flat mount brake, fender mounts",
+   "Balhoofdstel": "Integrated, 1-1/8\" - 1-1/4\"",
+   "Achterderailleur": "Shimano Sora GS",
+   "Voorderailleur": "Shimano Sora",
+   "Shifter": "Shimano Sora, 9-speed",
+   "Ketting": "KMC Z9, 9-speed",
+   "Crankstel": "FSA Vero Compact, 50/34",
+   "Cassette": "Shimano Sora, 11-34, 9-speed",
+   "Bottom bracket": "FSA Cartridge",
+   "Rem": "Promax Decoder R mechanical disc, 160/160mm rotors",
+   "Remgreep": "Shimano Sora",
+   "Velg": "RD 3.1, 28h",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700c",
+   "Naven": "(F) Formula RX-512, 12x100mm centerlock / (R) Formula RX-142, 12x142mm centerlock",
+   "Buitenband": "Vittoria Zaffiro, 700x30c",
+   "Achterband": "Vittoria Zaffiro, 700x30c",
+   "Stuur": "Cannondale 4, 6061 Alloy, Compact",
+   "Stuurpen": "Cannondale 3, 6061 Alloy, 31.8, 7°",
+   "Handvatten": "Cannondale Bar Tape, 3.5mm",
+   "Zadel": "Cannondale Stage CX",
+   "Zadelpen": "Cannondale 4, 6061 Alloy, 27.2x350mm",
+   "Extra's": "Trainer Axle Caps"
+  },
+  "color_names": [
+   "Laguna Yellow"
+  ],
+  "sizes": [
+   "51",
+   "54",
+   "56"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/8ivpq8cou0/1000px@1x/C23_C12702U_Synapse_3_LYW_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/8ivpq8cou0/1000px@1x/C23_C12702U_Synapse_3_LYW_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/Synapse_3.jpg",
+  "color_images": [
+   "Cannondale/Synapse_3_colour_Laguna_Yellow.jpg"
+  ]
+ },
+ {
+  "name": "Synapse Carbon 3 L",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/endurance/synapse-carbon/synapse-crb-3-l",
+  "sku": "C12303U",
+  "price": null,
+  "category": "Endurance",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Synapse Carbon, SmartSense equipped, Proportional Response size-specific design, BSA threaded BB, flat mount brake, 12x142mm thru axle, thru-tube internal cable routing with Switch Plate, removable fender bridge, hidden rack/fender mounts",
+   "Voorvork": "Synapse Carbon, integrated crown race, Proportional Response size-specific design, 12x100mm thru-axle, thru-tube internal routing, hidden fender mounts",
+   "Balhoofdstel": "Synapse Sealed Bearing, integrated, 1-1/4\"-1-1/8\"",
+   "Achterderailleur": "Shimano 105 7100, 12-speed",
+   "Voorderailleur": "Shimano 105 7100, braze-on",
+   "Shifter": "Shimano 105 7100, 12-speed",
+   "Ketting": "Shimano 105 7100, 12-speed",
+   "Crankstel": "Shimano RS520, 50/34",
+   "Cassette": "Shimano 105 7100, 12-speed, 11-34",
+   "Bottom bracket": "Shimano BSA",
+   "Rem": "Shimano 105 7170 hydraulic disc, 160/160 RT70 rotors",
+   "Remgreep": "Shimano 105 7100, 12-speed",
+   "Velg": "RD 2.1, 28h, 21mm inner width",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700",
+   "Naven": "(F) Formula cartridge bearing, 12x100mm centerlock / (R) Formula cartridge bearing, 12x142mm centerlock",
+   "Buitenband": "Vittoria Zaffiro Pro Reflective, 700x30c",
+   "Stuur": "Cannondale 3, 6061 Alloy, Compact",
+   "Stuurpen": "Cannondale 3, 6061 Alloy, 31.8, 7°",
+   "Handvatten": "Fabric Knurl Bar Tape",
+   "Zadel": "Fizik Aliante Delta, S-alloy rails",
+   "Zadelpen": "Cannondale 3 SmartSense, 6061 Alloy, 27.2x350mm (48-56), 400mm (58-61)",
+   "Extra's": "SmartSense with Lights (note: EU and Eastern European countries receive STVZO-compliant systems), trainer-compatible axle caps"
+  },
+  "color_names": [
+   "Cashmere"
+  ],
+  "sizes": [
+   "51",
+   "54",
+   "56"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/v4uyq3njs6/1000px@1x/C23_C12303U_Synapse_Crb_3_L_CAS_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/v4uyq3njs6/1000px@1x/C23_C12303U_Synapse_Crb_3_L_CAS_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/Synapse_Carbon_3_L.jpg",
+  "color_images": [
+   "Cannondale/Synapse_Carbon_3_L_colour_Cashmere.jpg"
+  ]
+ },
+ {
+  "name": "SuperSix EVO SE 1",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/gravel/supersix-evo-se/supersix-evo-se-1-c17153u",
+  "sku": "C17153U",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "SuperSix EVO CX Carbon, internal cable routing w/ Switchplate, 12x142mm Speed Release thru-axle, PF30-83 Ai, flat mount disc, integrated seatpost binder",
+   "Voorvork": "SuperSix EVO CX Carbon, integrated crown race, 12x100mm Speed Release thru-axle, flat mount disc, internal routing, 1-1/8\" to 1-1/2\" Delta steerer, 55mm offset",
+   "Balhoofdstel": "Integrated, 1-1/8\" - 1.5\"",
+   "Achterderailleur": "Shimano GRX 822, Shadow RD+",
+   "Voorderailleur": "N/A (Braze-on compatible)",
+   "Shifter": "Shimano GRX 820, 12-speed",
+   "Ketting": "Shimano XT M8100, 12-speed",
+   "Crankstel": "HollowGram, PF83a w/ SpideRing, 40T",
+   "Cassette": "Shimano XT M8100, 10-45T, 12-speed",
+   "Bottom bracket": "Cannondale Alloy PressFit30",
+   "Rem": "Shimano GRX 820, 160/160mm CL800 rotors",
+   "Remgreep": "Shimano GRX 820",
+   "Velg": "HollowGram G-S 25 Carbon, 700c, 25mm internal width, 22mm deep, 24h F / 28h R, tubeless compatible",
+   "Spaken": "Formula Grand Forza, double butted (Ai Offset Dish - Rear)",
+   "Wielmaat": "700",
+   "Naven": "(F) Formula, sealed bearing 12x100mm, centerlock / (R) Formula, sealed bearing, 12x142mm, centerlock",
+   "Buitenband": "WTB Vulpine TCS Light, 700x40c, tubeless ready (Europe/UK - Vittoria Terreno Dry 40, 700x38c, tanwall, tubeless ready)",
+   "Stuur": "Vision Trimax Carbon Aero",
+   "Stuurpen": "Cannondale C1 Conceal, Alloy, 31.8, -6°",
+   "Handvatten": "Cannondale Bar Tape, 3.5mm",
+   "Zadel": "Prologo Dimension AGX Tirox, Titanium Rails",
+   "Zadelpen": "HollowGram 27 SL, Carbon, 2 bolt clamp, 330mm, 0mm offset (46cm), 15mm offset (51-58cm)"
+  },
+  "color_names": [
+   "Black Cherry"
+  ],
+  "sizes": [
+   "51",
+   "54",
+   "56",
+   "58"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/izqmbk8w9n/1000px@1x/C23_C17153U_SuperSix_EVO_SE_1_BCH_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/izqmbk8w9n/1000px@1x/C23_C17153U_SuperSix_EVO_SE_1_BCH_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/SuperSix_EVO_SE_1.jpg",
+  "color_images": [
+   "Cannondale/SuperSix_EVO_SE_1_colour_Black_Cherry.jpg"
+  ]
+ },
+ {
+  "name": "Topstone Carbon 2 L",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/gravel/topstone-carbon/topstone-carbon-2-l",
+  "sku": "C15253U",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Topstone Carbon, Kingpin suspension system, SmartSense equipped, Proportional Response construction, 12x142mm thru-axle, 27.2 dropper post ready, BSA 68mm threaded BB, DirectLine internal cable routing, removable fender bridge, multiple gear/bottle mounts",
+   "Voorvork": "Topstone Carbon, 1-1/8\" to 1.5\" steerer, 55mm OutFront offset, flat mount disc, internal routing, 12x100 thru-axle, triple bottle/gear mounts, fender mounts",
+   "Balhoofdstel": "Integrated, Carbon, 1-1/8\" - 1-1/2\"",
+   "Achterderailleur": "Shimano GRX 820, Shadow RD+",
+   "Voorderailleur": "Shimano GRX 820, braze-on",
+   "Shifter": "Shimano GRX 820, 12-speed",
+   "Ketting": "Shimano HG M7100, 12-speed",
+   "Crankstel": "Shimano GRX 820, 48/31",
+   "Cassette": "Shimano HG 710, 11-36, 12-speed",
+   "Bottom bracket": "Shimano BSA 68",
+   "Rem": "Shimano GRX 800 hydraulic disc, 160/160mm MT800 centerlock rotors",
+   "Remgreep": "Shimano GRX 800 hydraulic disc",
+   "Velg": "DT Swiss G540, 700c, 28h, 24mm inner width, tubeless ready",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700",
+   "Naven": "(F) Formula cartridge bearing, 12x100mm centerlock / (R) Formula cartridge bearing, 12x142mm centerlock",
+   "Buitenband": "Vittoria Terreno Dry 40, 700x38c, tanwall, tubeless ready",
+   "Stuur": "Cannondale 2 ShortDrop, 7050 alloy, 12 deg flare drop",
+   "Stuurpen": "Cannondale 2, 6061 Alloy, 31.8, 7°",
+   "Handvatten": "Fizik Solocush Soft, 3mm",
+   "Zadel": "Fizik Terra Argo X5, S-alloy rails",
+   "Zadelpen": "SAVE Carbon SmartSense, 27.2, 350mm (XS-L), 400mm (XL)",
+   "Extra's": "SmartSense with Lights"
+  },
+  "color_names": [
+   "Chili Powder",
+   "Jade"
+  ],
+  "sizes": [
+   "LG",
+   "MD",
+   "SM"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/mjhqzajyfm/1000px@1x/C23_C15253U_Topstone_Crb_2_L_JDE_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/ye65cj8jr8/1000px@1x/C24_C15253U_Topstone_Crb_2_L_CPW_PD.jpg",
+   "https://embed.widencdn.net/img/dorelrl/mjhqzajyfm/1000px@1x/C23_C15253U_Topstone_Crb_2_L_JDE_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/Topstone_Carbon_2_L.jpg",
+  "color_images": [
+   "Cannondale/Topstone_Carbon_2_L_colour_Chili_Powder.jpg",
+   "Cannondale/Topstone_Carbon_2_L_colour_Jade.jpg"
+  ]
+ },
+ {
+  "name": "Topstone Carbon 3",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/gravel/topstone-carbon/topstone-carbon-3",
+  "sku": "C15372U",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "Topstone Carbon, Kingpin suspension system, SmartSense compatible, Proportional Response construction, 12x142mm thru-axle, 27.2 dropper post ready, BSA 68mm threaded BB, DirectLine internal cable routing, removable fender bridge, multiple gear/bottle mounts",
+   "Voorvork": "Topstone Carbon, 1-1/8\" to 1.5\" steerer, 55mm OutFront offset, flat mount disc, internal routing, 12x100 thru-axle, triple bottle/gear mounts, fender mounts",
+   "Balhoofdstel": "Integrated, 1-1/8\" - 1.5\"",
+   "Achterderailleur": "Shimano GRX 810, Shadow RD+",
+   "Voorderailleur": "Shimano GRX 810, braze-on",
+   "Shifter": "Shimano GRX 600, 11-speed",
+   "Ketting": "Shimano HG601, 11-speed",
+   "Crankstel": "FSA Gossamer Pro Modular AGX+, 46/30",
+   "Cassette": "Shimano HG700, 11-34, 11-speed",
+   "Bottom bracket": "FSA Mega EXO",
+   "Rem": "Shimano GRX 400 hydraulic disc, 160/160mm RT64 rotors",
+   "Remgreep": "Shimano GRX 600 hydraulic disc",
+   "Velg": "WTB ST i23 TCS, 700c, 28h, tubeless ready",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700c",
+   "Naven": "(F) Formula cartridge bearing, 12x100mm centerlock / (R) Formula cartridge bearing, 12x142mm centerlock",
+   "Buitenband": "Maxxis Rambler TR, 700x40c, tubeless ready (Europe/UK - Vittoria Terreno Dry 700x38c ANT tubeless compatible)",
+   "Achterband": "WTB Riddler TCS Light, 700x45c, tubeless ready (Europe/UK - Vittoria Terreno Dry 700x38c ANT tubeless compatible)",
+   "Stuur": "Cannondale 3, butted 6061 Alloy, 16 deg flare drop",
+   "Stuurpen": "Cannondale 3, 6061 Alloy, 31.8, 7°",
+   "Handvatten": "Fizik Solocush Soft, 3mm",
+   "Zadel": "Fizik Aliante Delta, S-alloy rails",
+   "Zadelpen": "Cannondale 3, 6061 Alloy, 27.2x350mm",
+   "Extra's": "StrapRack tool/stuff holder"
+  },
+  "color_names": [
+   "Carbon",
+   "Quicksand"
+  ],
+  "sizes": [
+   "MD",
+   "SM",
+   "LG"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/pyp3umacjg/1000px@1x/C22_C15372U_Topstone_Crb_3_CRB_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/pyp3umacjg/1000px@1x/C22_C15372U_Topstone_Crb_3_CRB_PD.jpg",
+   "https://embed.widencdn.net/img/dorelrl/arfxsx02kh/1000px@1x/C22_C15372U_Topstone_Crb_3_QSD_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/Topstone_Carbon_3.jpg",
+  "color_images": [
+   "Cannondale/Topstone_Carbon_3_colour_Carbon.jpg",
+   "Cannondale/Topstone_Carbon_3_colour_Quicksand.jpg"
+  ]
+ },
+ {
+  "name": "Topstone Carbon Apex 1",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cl/bikes/road/gravel/topstone-carbon/topstone-carbon-apex-1",
+  "sku": "C15322U",
+  "price": null,
+  "category": "Gravel",
+  "model_year": 2023,
+  "specifications": {
+   "Frame": "Topstone Carbon, Kingpin suspension system, SmartSense compatible, Proportional Response construction, 12x142mm thru-axle, 27.2 dropper post ready, BSA 68mm threaded BB, DirectLine internal cable routing, removable fender bridge, multiple gear/bottle mounts",
+   "Voorvork": "Topstone Carbon, 1-1/8\" to 1.5\" steerer, 55mm OutFront offset, flat mount disc, internal routing, 12x100 thru-axle, triple bottle/gear mounts, fender mounts",
+   "Balhoofdstel": "Integrated, 1-1/8\" - 1.5\"",
+   "Achterderailleur": "SRAM Apex XPLR",
+   "Shifter": "SRAM Apex, hydraulic disc, 12-speed",
+   "Ketting": "SRAM Apex, 12-speed",
+   "Crankstel": "SRAM Apex 1 Wide Direct Mount, 40T",
+   "Cassette": "SRAM PG-1231 XPLR, 11-44, 12-speed",
+   "Bottom bracket": "SRAM DUB BSA Road 68 Wide",
+   "Rem": "SRAM Apex hydraulic disc, 160/160mm Centerline rotors",
+   "Remgreep": "SRAM Apex hydraulic disc",
+   "Velg": "DT Swiss G540, 28h, 24mm inner width",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700",
+   "Naven": "(F) Formula cartridge bearing, 12x100mm centerlock / (R) Formula cartridge bearing, 12x142mm centerlock",
+   "Buitenband": "Vittoria Terreno Dry, 700x38c, tubeless ready",
+   "Stuur": "Cannondale 3, butted 6061 Alloy, 16 deg flare drop",
+   "Stuurpen": "Cannondale 3, 6061 Alloy, 31.8, 7°",
+   "Handvatten": "Fizik Solocush Soft, 3mm",
+   "Zadel": "Fizik Aliante Delta, S-alloy rails",
+   "Zadelpen": "Cannondale 3, 6061 Alloy, 27.2x350mm",
+   "Extra's": "StrapRack tool/stuff holder"
+  },
+  "color_names": [
+   "Quicksand"
+  ],
+  "sizes": [
+   "LG",
+   "MD",
+   "SM"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/rlpbzrqcie/1000px@1x/C23_C15322U_Topstone_Crb_Apex_1_QSD_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/rlpbzrqcie/1000px@1x/C23_C15322U_Topstone_Crb_Apex_1_QSD_PD.jpg"
+  ],
+  "country": "en-cl",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/Topstone_Carbon_Apex_1.jpg",
+  "color_images": [
+   "Cannondale/Topstone_Carbon_Apex_1_colour_Quicksand.jpg"
+  ]
+ },
+ {
+  "name": "CAAD Optimo 3",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-cn/bikes/road/race/caad-optimo/caad-optimo-3",
+  "sku": "C14301M",
+  "price": null,
+  "category": "Race",
+  "model_year": 2021,
+  "specifications": {
+   "Frame": "SmartForm C2 Alloy, SAVE, tapered headtube, fender mounts, 130x10mm QR",
+   "Voorvork": "CAAD Optimo Full Carbon, 1-1/8\" to 1-1/4\" steerer, fender mounts, 100x9mm QR",
+   "Balhoofdstel": "CAAD Optimo, 1-1/8\" to 1-1/4\", 25mm top cap",
+   "Achterderailleur": "Shimano Sora GS",
+   "Voorderailleur": "Shimano Sora, 31.8 clamp",
+   "Shifter": "Shimano Sora, 9-speed",
+   "Ketting": "KMC X9, 9-speed",
+   "Crankstel": "FSA Vero Alloy, 50/34",
+   "Cassette": "Shimano HG50, 11-30, 9-speed",
+   "Bottom bracket": "Cartridge, square taper",
+   "Rem": "Promax RC-452, dual pivot calipers",
+   "Remgreep": "Shimano Sora",
+   "Naaf voor": "Formula RB-31",
+   "Naaf achter": "Formula RB-32",
+   "Remtype": "Rim",
+   "Velg": "RS 3.0, 24h front, 28h rear",
+   "Spaken": "Stainless Steel, 14g",
+   "Wielmaat": "700c",
+   "Buitenband": "Vittoria Zaffiro, 700x25c",
+   "Achterband": "Vittoria Zaffiro, 700x25c",
+   "Stuur": "6061 Alloy, Compact",
+   "Stuurpen": "6061 Alloy, 31.8, 7°",
+   "Handvatten": "Cannondale Bar Tape, 3.5mm",
+   "Zadel": "Cannondale Stage CX",
+   "Zadelpen": "Cannondale 4, 6061 Alloy, 27.2x350mm"
+  },
+  "color_names": [
+   "Ultra Violet"
+  ],
+  "sizes": [
+   "48",
+   "51",
+   "54",
+   "56",
+   "58"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/pr9bwqmmks/1000px@1x/C21_C14301M_CAAD_Optimo_3_ULV_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/pr9bwqmmks/1000px@1x/C21_C14301M_CAAD_Optimo_3_ULV_PD.jpg"
+  ],
+  "country": "en-cn",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/CAAD_Optimo_3.jpg",
+  "color_images": [
+   "Cannondale/CAAD_Optimo_3_colour_Ultra_Violet.jpg"
+  ]
+ },
+ {
+  "name": "SuperSix EVO Hi-MOD 2",
+  "brand": "Cannondale",
+  "url": "https://www.cannondale.com/en-br/bikes/road/race/supersix-evo/supersix-evo-hi-mod-2",
+  "sku": "C11202U",
+  "price": null,
+  "category": "Race",
+  "model_year": 2022,
+  "specifications": {
+   "Frame": "SuperSix EVO Hi-MOD Carbon, integrated cable routing w/ Switchplate, 12x142 Syntace thru-axle, BSA 68mm threaded BB, flat mount disc, integrated seat binder, SmartSense compatible",
+   "Voorvork": "SuperSix EVO Hi-MOD Carbon, integrated crown race, 12x100mm Syntace thru-axle, flat mount disc, internal routing, 1-1/8\" to 1-1/4\" Delta steerer, 55mm offset (44-54cm), 45mm offset (56-61cm)",
+   "Balhoofdstel": "Integrated, 1-1/8\" - 1-1/4\"",
+   "Achterderailleur": "Shimano Ultegra Di2 R8150",
+   "Voorderailleur": "Shimano Ultegra Di2 R8150",
+   "Shifter": "Shimano Ultegra Di2 R8170, wireless, 2x12",
+   "Ketting": "Shimano Ultegra, 12-speed",
+   "Crankstel": "Shimano Ultegra R8100, 52/36",
+   "Cassette": "Shimano Ultegra R8100, 11-30, 12-speed",
+   "Bottom bracket": "Shimano BSA 68",
+   "Rem": "Shimano Ultegra R8170, 160/140mm MT800 rotors",
+   "Remgreep": "Shimano Ultegra Di2 R8170 hydraulic disc",
+   "Velg": "HollowGram R-SL 50, Carbon, 20h front, 24h rear, 50mm deep, 21mm inner width, tubeless ready",
+   "Spaken": "DT Swiss Aerolite, straight-pull",
+   "Wielmaat": "700",
+   "Naven": "(F) HollowGram, sealed bearing 12x100mm centerlock / (R) HollowGram, 12x142mm centerlock w/ DT Swiss 240 internals",
+   "Buitenband": "Continental Grand Prix 5000, 700x25c",
+   "Stuur": "Vision Trimax Carbon Aero, 31.8mm",
+   "Stuurpen": "Cannondale C1 Conceal, Alloy, 31.8, -6°",
+   "Handvatten": "Fizik Tempo Bondcush Soft, 3mm",
+   "Zadel": "Prologo Dimension TiRox NDR, Titanium Rails",
+   "Zadelpen": "Cannondale C1 Aero 40 Carbon, 0mm offset (44-48cm), 20mm offset (51-61cm)",
+   "Extra's": "Cannondale Gripper Aero Bottles & ReGrip Aero Cages, tubeless valves, Shimano EC300 charging connector"
+  },
+  "color_names": [
+   "Black",
+   "Rally Red",
+   "Sonic Blue"
+  ],
+  "sizes": [
+   "48",
+   "51",
+   "54",
+   "56",
+   "58"
+  ],
+  "image_url": "https://embed.widencdn.net/img/dorelrl/uhpy14jwd3/1000px@1x/C23_C11202U_SuperSix_EVO_HM_2_SNB_PD.jpg",
+  "color_image_urls": [
+   "https://embed.widencdn.net/img/dorelrl/xgizebx6ha/1000px@1x/C24_C11202U_SuperSix_EVO_HM_2_BLK_PD.jpg",
+   "https://embed.widencdn.net/img/dorelrl/eimxsmpchz/1000px@1x/C24_C11202U_SuperSix_EVO_HM_2_RRD_PD.jpg",
+   "https://embed.widencdn.net/img/dorelrl/uhpy14jwd3/1000px@1x/C23_C11202U_SuperSix_EVO_HM_2_SNB_PD.jpg"
+  ],
+  "country": "en-br",
+  "source": "country",
+  "checked_on": "2026-11-15",
+  "image": "Cannondale/SuperSix_EVO_Hi_MOD_2.jpg",
+  "color_images": [
+   "Cannondale/SuperSix_EVO_Hi_MOD_2_colour_Black.jpg",
+   "Cannondale/SuperSix_EVO_Hi_MOD_2_colour_Rally_Red.jpg",
+   "Cannondale/SuperSix_EVO_Hi_MOD_2_colour_Sonic_Blue.jpg"
+  ]
+ }
+]

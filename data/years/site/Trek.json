@@ -1,5 +1,5 @@
 {
- "checked_on": "2026-11-09",
+ "checked_on": "2026-11-15",
  "models": {
   "Boone 5": {
    "2020": {
@@ -2325,6 +2325,51 @@
      "Zadelpen": "Bontrager carbon, 27,2 mm, 8 mm offset, 330 mm lengte"
     },
     "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/vakantie-en-toerfietsen/checkpoint/checkpoint-sl/f/F224-1/checkpoint-sl-5-axs-gen-3/47071/"
+   }
+  },
+  "Checkpoint SL 5 Gen 1": {
+   "2019": {
+    "captured": "2026-11-15",
+    "colour_images": {
+     "Cobra Blood": "Trek/years/checkpointsl5gen1_2019_cobrablood_site.jpg",
+     "Gravel": "Trek/years/checkpointsl5gen1_2019_gravel_site.jpg"
+    },
+    "colours": [
+     "Gravel",
+     "Cobra Blood"
+    ],
+    "image": "Trek/years/checkpointsl5gen1_2019_site.jpg",
+    "price": null,
+    "sheet_name": "Checkpoint SL 5",
+    "sheet_years": "2019",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano 105",
+     "Balhoofdstel": "Geïntegreerd, afgedichte industrielagers, 1-1/8\" bovenzijde, 1.5\" onderzijde",
+     "Bottom bracket": "BB90",
+     "Buitenband": "Bontrager GR1 Team Issue, Tubeless Ready, Inner Strength zijwanden, 120 tpi, aramide hieldraad, 700x40c",
+     "Cassette": "Shimano HG800 11-34, 11-speed",
+     "Crankstel": "Shimano 105, 50/34 (compact)",
+     "Frame": "500 Series OCLV Carbon, IsoSpeed achter, horizontaal verstelbare dropouts, taps toelopende balhoofdbuis, BB90, flat-mount schijfremmen, dragerbevestigingen, verborgen spatbordbevestigingen, Control Freak interne kabelgeleiding, 12 mm steekas, 3S chain keeper, Ride Tuned seatmast",
+     "Gewicht": "56cm - 9.60 kg / 21.17 lbs",
+     "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en vracht) van 125 kg.",
+     "Handvatten": "Bontrager tape",
+     "Ketting": "Shimano HG600, 11-speed",
+     "Maximale bandenmaat": "45c Bontrager banden (49 & 52 cm: 40c vanwege teen-overlap) met minimaal 4 mm ruimte tot het frame",
+     "Naaf achter": "Bontrager lichtmetalen afgedichte industrielagers, 12 mm lichtmetalen as, centerlock",
+     "Naaf voor": "Bontrager lichtmetalen afgedichte industrielagers, 12 mm lichtmetalen as, centerlock",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano RS505 Flat Mount hydraulische schijfremmen",
+     "Shifter": "Shimano RS505, 11-speed",
+     "Stuur": "Bontrager RL IsoZone VR-CF, 31,8 mm",
+     "Stuurpen": "Bontrager Elite, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+     "Velg": "Bontrager Tubeless Ready",
+     "Voorderailleur": "Shimano 105 FD-5801, aanlasnok",
+     "Voorvork": "Checkpoint carbon disc, carbon taps toelopende stuurbuis, Flat Mount schijfremmen, dragerbevestigingen, verborgen spatbordbevestigingen, 12 mm steekas",
+     "Zadel": "Bontrager Montrose Comp",
+     "Zadelpen": "Bontrager Ride Tuned seatmast cap, 10 mm offset"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/vakantie-en-toerfietsen/checkpoint/checkpoint-sl/checkpoint-sl-5/a/22632/"
    }
   },
   "Checkpoint SL 5 Gen 2": {
