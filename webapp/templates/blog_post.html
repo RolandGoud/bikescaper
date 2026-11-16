@@ -22,7 +22,7 @@
     {% if post.hero %}
     <figure class="blog-hero">
       <img src="{{ url_for('static', filename=post.hero) }}" alt="" width="1600" height="900">
-      <figcaption>{% if post.hero_credit %}{{ _('Photo') }}: <a href="{{ post.hero_credit.url }}" target="_blank" rel="noopener">{{ post.hero_credit.author }}</a>, {{ post.hero_credit.license }}{{ _(', edited by Bikecheck') }}{% elif post.hero_brand %}{{ _('Image: Bikecheck, from a product photo by {brand}', brand=post.hero_brand) }}{% else %}{{ _("Image: Bikecheck, from the brands' own product photos") }}{% endif %}</figcaption>
+      <figcaption>{% if post.hero_credit and post.hero_credit.license == 'Unsplash License' %}{{ _('Photo') }}: <a href="{{ post.hero_credit.url }}" target="_blank" rel="noopener">{{ post.hero_credit.author }}</a> {{ _('on') }} <a href="https://unsplash.com/?utm_source=bikecheck&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a>{{ _(', edited by Bikecheck') }}{% elif post.hero_credit %}{{ _('Photo') }}: <a href="{{ post.hero_credit.url }}" target="_blank" rel="noopener">{{ post.hero_credit.author }}</a>, {{ post.hero_credit.license }}{{ _(', edited by Bikecheck') }}{% elif post.hero_brand %}{{ _('Image: Bikecheck, from a product photo by {brand}', brand=post.hero_brand) }}{% else %}{{ _("Image: Bikecheck, from the brands' own product photos") }}{% endif %}</figcaption>
     </figure>
     {% endif %}
     <div class="blog-body">{{ body }}</div>

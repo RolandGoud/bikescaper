@@ -1,106 +1,146 @@
 {
  "buying-in-autumn": {
   "focus": [
-   48,
-   58
+   54,
+   53
   ],
-  "source": "defy-fork",
-  "brand": "Giant"
+  "source": "unsplash:fkb2fVN2pkI",
+  "credit": {
+   "author": "Tingkai Meng",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-man-riding-a-bike-down-a-road-surrounded-by-trees-fkb2fVN2pkI?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "cannondale-topstone": {
+  "focus": [
+   35,
+   62
+  ],
+  "source": "unsplash:zEdh7yYIwBU",
+  "credit": {
+   "author": "Rille Camera Strap",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-man-riding-a-bike-through-a-lush-green-field-zEdh7yYIwBU?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "giant-tcr-advanced": {
+  "focus": [
+   66,
+   50
+  ],
+  "source": "unsplash:ZZay7O20jgc",
+  "credit": {
+   "author": "Annie Spratt",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/cyclist-in-silhouette-on-mountain-road-ZZay7O20jgc?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "groupset-new-prices": {
+  "focus": [
+   39,
+   53
+  ],
+  "source": "unsplash:itzedAcA6zc",
+  "credit": {
+   "author": "kensho masanishi",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-a-bikes-chain-and-gear-itzedAcA6zc?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "how-fast-bikes-lose-value": {
+  "focus": [
+   56,
+   47
+  ],
+  "source": "unsplash:qPZZwQCFuZw",
+  "credit": {
+   "author": "Fabien Maurin",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-bicycle-parked-in-a-fence-qPZZwQCFuZw?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "new-prices-per-brand": {
   "focus": [
    48,
    52
   ],
-  "source": "topstone-c2",
-  "brand": "Cannondale"
- },
- "giant-tcr-advanced": {
-  "focus": [
-   62,
-   62
-  ],
-  "source": "tcr-sl-cockpit",
-  "brand": "Giant"
- },
- "groupset-new-prices": {
-  "focus": [
-   56,
-   62
-  ],
-  "source": "tcr-sl-crank",
-  "brand": "Giant"
- },
- "how-fast-bikes-lose-value": {
-  "focus": [
-   48,
-   47
-  ],
-  "source": "tcr-head",
-  "brand": "Giant"
- },
- "new-prices-per-brand": {
-  "focus": [
-   66,
-   62
-  ],
-  "source": "trek-domane-slr9",
-  "brand": "Trek"
+  "source": "unsplash:HwL6XbH6EA0",
+  "credit": {
+   "author": "Anne Nyg\u00e5rd",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/bicycles-parked-in-front-of-store-HwL6XbH6EA0?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "reading-a-bike-ad": {
   "focus": [
-   50,
-   37
+   66,
+   40
   ],
-  "source": "defy-bars",
-  "brand": "Giant"
+  "source": "unsplash:9phJzNSAEW4",
+  "credit": {
+   "author": "tiago almeida",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-the-handle-bars-on-a-bike-9phJzNSAEW4?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "selling-in-spring": {
   "focus": [
-   52,
-   50
+   73,
+   67
   ],
-  "source": "revolt-badge",
-  "brand": "Giant"
+  "source": "unsplash:oZUT7x06YvY",
+  "credit": {
+   "author": "Minna Autio",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-person-riding-a-bike-down-a-road-oZUT7x06YvY?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "spotting-a-stolen-bike": {
   "focus": [
-   40,
-   62
+   30,
+   60
   ],
-  "source": "lock",
+  "source": "unsplash:Z0RiKsv9Gks",
   "credit": {
-   "author": "Jorge Franganillo",
-   "license": "CC BY 4.0",
-   "url": "https://commons.wikimedia.org/wiki/File:Manchester_-_bicycle_lock.jpg"
+   "author": "Riccardo Bernucci",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-a-bicycle-on-a-city-street-Z0RiKsv9Gks?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "trek-domane": {
   "focus": [
-   61,
-   69
+   72,
+   71
   ],
-  "source": "trek-domane-sl6",
-  "brand": "Trek"
+  "source": "unsplash:nIdWCuL-61M",
+  "credit": {
+   "author": "Ben Guernsey",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-man-riding-a-bike-down-a-curvy-road-nIdWCuL-61M?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "what-a-groupset-tells-you": {
   "focus": [
-   58,
-   62
+   50,
+   44
   ],
-  "source": "tcr-105",
-  "brand": "Giant"
+  "source": "unsplash:9mZVRcC9rN4",
+  "credit": {
+   "author": "Almas Salakhov",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-close-up-of-a-bikes-front-wheel-9mZVRcC9rN4?utm_source=bikecheck&utm_medium=referral"
+  }
  },
  "winter-bike": {
   "focus": [
-   51,
+   56,
    58
   ],
-  "source": "snow",
+  "source": "unsplash:6kQ6HSeGIwE",
   "credit": {
-   "author": "Wilfredor",
-   "license": "CC0",
-   "url": "https://commons.wikimedia.org/wiki/File:Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg"
+   "author": "Tanya Prodaan",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/bicycle-handlebars-covered-in-snow-at-night-6kQ6HSeGIwE?utm_source=bikecheck&utm_medium=referral"
   }
  }
 }

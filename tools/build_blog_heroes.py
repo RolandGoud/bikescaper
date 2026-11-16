@@ -230,8 +230,51 @@ def spotlight(slug, key, cx, cy, width, light, target, spread=16, colour=WARM, f
     return meta
 
 
+def mood(slug, key, cx, cy, width, light, target, spread=24, colour=WARM, focus=None, base=0.55, gain=0.75,
+         gamma=1.15, sat=0.85, tint=(1.0, 1.0, 1.0), haze=0.10, dust=90, vignette=0.8, seed=1):
+    """One hero from an atmospheric photo (Unsplash): the photo keeps its own light and feeling, graded darker and
+    warmer or cooler, with the same spotlight signature as the studio heroes: a soft beam lifting the subject,
+    haze and dust in that beam, a deep vignette and film grain."""
+    photo = source(key)
+    im = frame(photo, cx, cy, width, False)
+    a = np.asarray(im).astype(float) / 255
+    focus = focus or target
+    col = np.array(colour, float) / 255
+    grey = a.mean(axis=2, keepdims=True)
+    img = np.clip(grey + (a - grey) * sat, 0, 1) ** gamma * np.array(tint)
+    beam = cone(light, target, spread, soft=0.8)
+    wide = cone(light, target, spread * 2.0, soft=1.0)
+    img = img * (base + gain * (0.7 * beam + 0.5 * wide))[..., None] * (0.75 + 0.25 * col)
+    swirl = 0.55 + 0.45 * noise(90, seed) * noise(35, seed + 1)
+    thin = np.clip(1.25 - np.mgrid[0:H, 0:W][0] / H, 0.3, 1)
+    img = img + ((beam * 0.8 + wide * 0.3) * thin * swirl)[..., None] * col * haze
+    rnd = random.Random(seed)
+    specks = Image.new("L", (W, H), 0)
+    dr = ImageDraw.Draw(specks)
+    for _ in range(dust):
+        x, y = rnd.uniform(0, W), rnd.uniform(0, H)
+        if beam[int(y), int(x)] < 0.3:
+            continue
+        r = rnd.choice([1, 1, 1.5, 2]) if rnd.random() < 0.93 else rnd.uniform(5, 10)
+        dr.ellipse((x - r, y - r, x + r, y + r), fill=int(rnd.uniform(50, 160) if r < 4 else rnd.uniform(10, 24)))
+    specks = np.asarray(specks.filter(ImageFilter.GaussianBlur(0.8))).astype(float)[..., None] / 255
+    img = img + specks * col * 0.8
+    yy, xx = np.mgrid[0:H, 0:W].astype(float)
+    v = np.hypot((xx - W * 0.5) / (W * 0.62), (yy - H * 0.5) / (H * 0.66))
+    img = img * np.clip(1.08 - v ** 2.2 * vignette, 0.10, 1)[..., None]
+    img = 1 - np.exp(-img * 1.9)
+    img = img / (1 - math.exp(-1.9))
+    grain = np.random.default_rng(seed).normal(0, 0.018, (H, W, 1))
+    img = np.clip(img + grain, 0, 1)
+    out = Image.fromarray((img * 255).astype(np.uint8))
+    os.makedirs(OUT, exist_ok=True)
+    out.save(os.path.join(OUT, f"{slug}.jpg"), quality=86, optimize=True, progressive=True)
+    return {"focus": [round(focus[0] / W * 100), round(focus[1] / H * 100)], "source": key, "credit": CREDITS[key]}
+
+
+# The first heroes, built from the brands' studio shots (python tools/build_blog_heroes.py --studio [slug ...]).
 # slug: source, crop centre x/y and width (fractions), the beam (from, to, half-angle), its colour, and extras
-HEROES = {
+STUDIO = {
     "new-prices-per-brand": dict(key="trek-domane-slr9", cx=0.56, cy=0.52, width=0.46, light=(1250, -260), target=(1050, 560),
                                  spread=19, colour=WARM),
     "groupset-new-prices": dict(key="tcr-sl-crank", cx=0.66, cy=0.62, width=0.62, light=(1350, -250), target=(900, 560),
@@ -261,17 +304,53 @@ HEROES = {
 }
 
 
+# The heroes now on the site: atmospheric Unsplash photos, graded in the spotlight style by mood().
+# slug: source, crop centre x/y and width (fractions of the photo), the beam (from, to; pixels of the 1600x900 hero),
+# the focus point that tiles keep in view, and the grade.
+HEROES = {
+    "new-prices-per-brand": dict(key="unsplash:HwL6XbH6EA0", cx=0.46, cy=0.52, width=0.85, light=(760, -320),
+                                 target=(760, 470), focus=(760, 470), base=0.85, gain=0.5, colour=WARM, sat=0.9),
+    "groupset-new-prices": dict(key="unsplash:itzedAcA6zc", cx=0.45, cy=0.55, width=0.9, light=(1250, -260),
+                                target=(620, 480), focus=(620, 480), base=0.30, gain=1.0, gamma=1.35, colour=WARM),
+    "how-fast-bikes-lose-value": dict(key="unsplash:qPZZwQCFuZw", cx=0.5, cy=0.5, width=0.9, light=(300, -300),
+                                      target=(900, 420), focus=(900, 420), base=0.45, gain=0.8, colour=AMBER, sat=0.8),
+    "reading-a-bike-ad": dict(key="unsplash:9phJzNSAEW4", cx=0.55, cy=0.45, width=0.95, light=(1050, -320),
+                              target=(1050, 380), focus=(1050, 360), base=0.75, gain=0.7, colour=COOL, sat=0.9),
+    "spotting-a-stolen-bike": dict(key="unsplash:Z0RiKsv9Gks", cx=0.5, cy=0.5, width=1.0, light=(1100, -300),
+                                   target=(500, 520), focus=(480, 540), base=0.6, gain=0.7, colour=(255, 214, 170),
+                                   tint=(0.95, 0.98, 1.05), sat=0.8),
+    "what-a-groupset-tells-you": dict(key="unsplash:9mZVRcC9rN4", cx=0.5, cy=0.5, width=0.9, light=(400, -300),
+                                      target=(800, 420), focus=(800, 400), base=0.7, gain=0.7, colour=MINT, sat=0.85),
+    "trek-domane": dict(key="unsplash:nIdWCuL-61M", cx=0.5, cy=0.5, width=0.88, light=(1350, -300), target=(1160, 620),
+                        focus=(1160, 640), base=0.55, gain=0.75, colour=AMBER, tint=(1.06, 1.0, 0.9)),
+    "giant-tcr-advanced": dict(key="unsplash:ZZay7O20jgc", cx=0.55, cy=0.55, width=0.95, light=(1450, -250),
+                               target=(1050, 450), focus=(1050, 450), base=0.6, gain=0.7, colour=(230, 205, 255),
+                               sat=0.85),
+    "cannondale-topstone": dict(key="unsplash:zEdh7yYIwBU", cx=0.45, cy=0.5, width=0.95, light=(1500, -150),
+                                target=(600, 450), focus=(560, 560), base=0.6, gain=0.6, colour=(220, 255, 200),
+                                gamma=1.3),
+    "buying-in-autumn": dict(key="unsplash:fkb2fVN2pkI", cx=0.6, cy=0.6, width=0.8, light=(850, -300),
+                             target=(860, 480), focus=(860, 480), base=0.55, gain=0.75, colour=AMBER,
+                             tint=(1.05, 0.95, 0.85), dust=160),
+    "winter-bike": dict(key="unsplash:6kQ6HSeGIwE", cx=0.5, cy=0.55, width=0.9, light=(1100, -300), target=(900, 520),
+                        focus=(900, 520), base=0.6, gain=0.7, colour=ICE, tint=(0.88, 0.95, 1.1), sat=0.55, dust=300),
+    "selling-in-spring": dict(key="unsplash:oZUT7x06YvY", cx=0.55, cy=0.55, width=0.9, light=(500, -250),
+                              target=(1150, 600), focus=(1170, 600), base=0.6, gain=0.6, colour=WARM, gamma=1.25),
+}
+
+
 if __name__ == "__main__":
     if sys.argv[1:2] == ["--search"]:
         search(" ".join(sys.argv[2:]))
         sys.exit()
-    only = sys.argv[1:]
+    studio = sys.argv[1:2] == ["--studio"]
+    only = sys.argv[2:] if studio else sys.argv[1:]
     path = os.path.join(OUT, "heroes.json")
     meta = json.load(open(path)) if os.path.exists(path) else {}
-    for slug, spec in HEROES.items():
+    for slug, spec in (STUDIO if studio else HEROES).items():
         if only and slug not in only:
             continue
-        meta[slug] = spotlight(slug, seed=sum(map(ord, slug)), **spec)
+        meta[slug] = (spotlight if studio else mood)(slug, seed=sum(map(ord, slug)), **spec)
         print("built", slug)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(dict(sorted(meta.items())), f, indent=1)
