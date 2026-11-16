@@ -29,9 +29,14 @@
 <section class="card size-step">
   {% if step == "brand" %}
   <h2>{{ _('Which brand?') }}</h2>
-  <div class="pick-pills">
-    {% for b in brands %}<a class="pill brand {{ 'on' if b.name == brand }}" href="{{ url_for('size_finder', brand=b.name, height=height) }}">{{ brand_label(b) }}</a>{% endfor %}
-  </div>
+  {# Cards like the groupsets page's brand cards: the logo, the brand's logo large and faded in the corner, a glow
+     in its colour, and along the bottom the bike types it has with its model count in colour. #}
+  <nav class="brand-cards size-brands" aria-label="{{ _('Brand') }}">
+    {% for b in cards %}<a class="{{ 'on' if b.name == brand }}" href="{{ url_for('size_finder', brand=b.name, height=height) }}"{% if b.name == brand %} aria-current="true"{% endif %}{% if b.colour %} style="--bc: {{ b.colour }}"{% endif %}>
+      {%- if b.logo %}<span class="brand-corner" aria-hidden="true" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% endif %}
+      {{- brand_label(b) }}
+      <span class="brand-kinds">{% for k in b.kinds if k != 'other' %}<i title="{{ _(kind_labels[k]) }}" style="--icon: url('{{ url_for('static', filename='types/' ~ k ~ '.svg') }}')"></i>{% endfor %}<b>{{ _('1 model') if b.count == 1 else _('{n} models', n=b.count) }}</b></span></a>{% endfor %}
+  </nav>
   {% elif step == "type" %}
   <h2>{{ _('What kind of bike?') }}</h2>
   <div class="pick-cards">

@@ -26,8 +26,8 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from . import photo_review as sell_review
 from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
-from .reference import (BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS, TIER_EXAMPLES,
-                        TIERS)
+from .reference import (BRAND_COLOURS, BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS,
+                        TIER_EXAMPLES, TIERS)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
@@ -1329,6 +1329,16 @@ def create_app(db_path=None):
         return render_template("alert.html", nav="models", done="stop", m=model, alert=alert,
                                what=alerts.describe(alert, model) if model else "")
 
+    def brand_cards():
+        """The size finder's brand cards, styled like the groupsets page's: each brand with its colour, the bike
+        types it has models of (in the type step's order) and how many models that is."""
+        cards = []
+        for b in BRANDS:
+            picker = checks.size_picker(checks.size_lines(models(), b["name"]))
+            cards.append({**b, "colour": BRAND_COLOURS.get(b["name"]), "kinds": [k for k, _ in picker],
+                          "count": sum(len(l["models"]) for _, fs in picker for f in fs for l, _ in f["lines"])})
+        return cards
+
     @app.route("/size")
     def size_finder():
         slug = request.args.get("model")
@@ -1337,7 +1347,7 @@ def create_app(db_path=None):
         height = request.args.get("height", type=int) or 178
         if brand is None:  # nothing to show until a brand is picked; the Model list stays greyed out
             return render_template("size.html", brand=None, height=height, picker=[], line=None, family=None,
-                                   step="brand", kind=None, types=[], nav="size")
+                                   step="brand", kind=None, types=[], cards=brand_cards(), nav="size")
         lines = checks.size_lines(models(), brand)
         line = next((l for l in lines if picked and any(m["slug"] == slug for m in l["models"])), None)
         picker = checks.size_picker(lines)
@@ -1385,6 +1395,7 @@ def create_app(db_path=None):
         return render_template("size.html", brand=brand, height=height, rows=rows, lines=lines, line=line,
                                picker=picker, family=family, step=step, all_models=all_models, kind=kind, types=types,
                                chart=chart, note=checks.size_note(chart, brand), own=own,
+                               cards=brand_cards() if step == "brand" else [],
                                total=sum(len(l["models"]) for l in lines), nav="size")
 
     def estimate(model, year, condition, asking, today=None):
