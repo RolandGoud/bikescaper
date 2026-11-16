@@ -1,54 +1,19 @@
-// /blog: the category pills filter the wall in place, with the "spotlight" transition. The wall goes dark, one
-// beam sweeps across and lights the new tiles as it passes, and each headline number counts up as the light
-// reaches it. Without JavaScript the pills are ordinary links; with "reduce motion" the wall simply fades over.
+// /blog: the category pills filter the wall in place, with the "reflow" transition: tiles that stay glide to their
+// new place and size, the others fade. Without JavaScript the pills are ordinary links; with "reduce motion", or in
+// a browser without view transitions, the wall simply fades over.
 (function () {
   "use strict";
-  var DUR = 800, DIM = 160;
   var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
 
-  function countUp(el, target) {
-    var m = target.match(/\d[\d.,]*/);
-    if (!m) return;
-    var digits = m[0].replace(/[.,]/g, ""), n = parseInt(digits, 10), sep = (m[0].match(/[.,]/) || [""])[0];
-    var t0 = performance.now(), dur = 520;
-    (function step(now) {
-      var k = Math.min(1, (now - t0) / dur), v = Math.round(n * (1 - Math.pow(1 - k, 3))), s = String(v);
-      if (sep) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
-      el.textContent = target.replace(m[0], s);
-      if (k < 1) requestAnimationFrame(step); else el.textContent = target;
-    })(t0);
-  }
-
-  async function spotlight(wall, next) {
-    wall.classList.add("wall-dim");
-    await sleep(DIM);
-    var nums = Array.from(next.querySelectorAll(".brick-num")), targets = nums.map(function (n) { return n.textContent; });
-    nums.forEach(function (n) { n.textContent = n.textContent.replace(/\d[\d.,]*/, "0"); });
-    next.classList.add("wall-reveal");
-    next.style.setProperty("--p", "-20%");
-    wall.replaceWith(next);
-    var box = next.getBoundingClientRect(), beam = document.createElement("div");
-    beam.className = "wall-beam";
-    beam.setAttribute("aria-hidden", "true");
-    Object.assign(beam.style, {top: (box.top + scrollY - 40) + "px", height: (box.height + 80) + "px", width: (box.width * 0.6) + "px"});
-    document.body.appendChild(beam);
-    var start = performance.now(), lit = new Set();
-    await new Promise(function (done) {
-      (function step(now) {
-        var k = Math.min(1, (now - start) / DUR), p = -20 + (1 - Math.pow(1 - k, 3)) * 140;
-        next.style.setProperty("--p", p + "%");
-        beam.style.left = (box.left + box.width * (p / 100 - 0.3)) + "px";
-        nums.forEach(function (n, i) {
-          if (!lit.has(i) && n.getBoundingClientRect().left - box.left < box.width * p / 100) { lit.add(i); countUp(n, targets[i]); }
-        });
-        if (k < 1) requestAnimationFrame(step); else done();
-      })(start);
-    });
-    nums.forEach(function (n, i) { if (!lit.has(i)) n.textContent = targets[i]; });
-    beam.remove();
-    next.classList.remove("wall-reveal");
+  // Reflow: every tile carries its article as a view-transition name, so a tile that stays glides to its new
+  // place and size, and the others fade out or in (the View Transitions API; CSS in style.css).
+  function name(b) { var a = b.querySelector("h2 a"); return a ? "brick-" + a.getAttribute("href").split("/").pop() : "none"; }
+  async function reflow(wall, next) {
+    wall.querySelectorAll(".brick").forEach(function (b) { b.style.viewTransitionName = name(b); });
+    next.querySelectorAll(".brick").forEach(function (b) { b.style.viewTransitionName = name(b); });
+    await document.startViewTransition(function () { wall.replaceWith(next); }).finished;
   }
 
   async function fade(wall, next) {
@@ -69,13 +34,13 @@
       next = document.adoptNode(next);
       var imgs = Array.from(next.querySelectorAll("img"));
       imgs.forEach(function (i) { i.loading = "eager"; });
-      // wait for the pictures (at most half a second), so the beam lights tiles, not empty boxes
+      // wait for the pictures (at most half a second), so new tiles don't fade in empty
       await Promise.race([Promise.all(imgs.map(function (i) { return i.decode().catch(function () {}); })), sleep(500)]);
       document.querySelector(".filters").replaceWith(document.adoptNode(doc.querySelector(".filters")));
       bind();
       if (push) history.pushState({blog: true}, "", href);
       document.title = doc.title;
-      await (calm ? fade : spotlight)(wall, next);
+      await (calm || !document.startViewTransition ? fade : reflow)(wall, next);
     } catch (e) {
       location.href = href;
     } finally {
