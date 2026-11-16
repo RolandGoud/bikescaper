@@ -2831,6 +2831,19 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .side-map-head { display: flex; justify-content: space-between; align-items: center; height: 26px; font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .side-map-head a { font: 600 14px var(--body); letter-spacing: 0; text-transform: none; text-decoration: none; }
 .side-map .ads-map { aspect-ratio: 3 / 4; }
+.side-map-top { display: grid; gap: 10px; }
+/* Table view on a wide screen: the map card ends level with the table. The table, the pager and the map are laid
+   out on one grid (the column wrapper steps aside), so the map's row is the table's and its legend sits by the pager. */
+@media (min-width: 1000px) {
+  .listings-split.table-view { row-gap: 16px; }
+  .listings-split.table-view .listings-main { display: contents; }
+  .listings-split.table-view .ad-table { grid-column: 1; grid-row: 1; }
+  .listings-split.table-view .table-pager { grid-column: 1; grid-row: 2; margin-top: 0; }
+  .listings-split.table-view .side-map { grid-column: 2; grid-row: 1 / span 2; grid-template-rows: subgrid; row-gap: 16px; align-self: stretch; position: static; }
+  .listings-split.table-view .side-map-top { grid-template-rows: auto 1fr; }
+  .listings-split.table-view .side-map .ads-map { aspect-ratio: auto; min-height: 320px; }
+  .listings-split.table-view .side-map .map-legend { align-self: start; }
+}
 .side-map .map-legend { font-size: 13px; gap: 6px 14px; }
 .side-map .map-pin { cursor: pointer; }
 /* the table: one compact line per ad, its columns fixed so it stays beside the small map */
