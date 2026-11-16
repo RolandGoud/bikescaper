@@ -28,7 +28,7 @@ def test_a_report_is_worked_out_once(tmp_path, monkeypatch):
     assert len(runs) == 1 and b"Age check" in second and b"Run this check again" in second
     # the same report, with the catalogue model kept by slug and not copied in
     assert first.count(b"Domane") == second.count(b"Domane")
-    client.get("/listings"), client.get("/checks"), client.get("/"), client.get("/admin")
+    client.get("/listings"), client.get("/listings?view=table"), client.get("/"), client.get("/admin")
     assert len(runs) == 1
 
 

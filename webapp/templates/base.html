@@ -30,12 +30,11 @@
         <a href="{{ url_for('catalog') }}" class="{{ 'on' if nav == 'models' }}"{% if nav == 'models' %} aria-current="page"{% endif %}>{{ _('Our catalogue') }}</a>
         <a href="{{ url_for('blog_index') }}" class="{{ 'on' if nav == 'blog' }}"{% if nav == 'blog' %} aria-current="page"{% endif %}>{{ _('Blog') }}</a>
         <div class="tools">
-          <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value', 'groupsets', 'map') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
+          <button type="button" class="tools-button {{ 'on' if nav in ('size', 'value', 'groupsets') }}" aria-expanded="false" aria-controls="tools-menu">{{ _('Tools') }}</button>
           <div id="tools-menu" class="tools-menu">
             <a href="{{ url_for('size_finder') }}" class="{{ 'on' if nav == 'size' }}"{% if nav == 'size' %} aria-current="page"{% endif %}>{{ _('Size finder') }}<small>{{ _('Which frame size fits you') }}</small></a>
             <a href="{{ url_for('value') }}" class="{{ 'on' if nav == 'value' }}"{% if nav == 'value' %} aria-current="page"{% endif %}>{{ _('Value estimator') }}<small>{{ _('A rough fair price for a used bike') }}</small></a>
             <a href="{{ url_for('groupset_paths') }}" class="{{ 'on' if nav == 'groupsets' }}"{% if nav == 'groupsets' %} aria-current="page"{% endif %}>{{ _('Groupset upgrade paths') }}<small>{{ _('What your groupset can be upgraded to') }}</small></a>
-            <a href="{{ url_for('listings_map') }}" class="{{ 'on' if nav == 'map' }}"{% if nav == 'map' %} aria-current="page"{% endif %}>{{ _('Ads on the map') }}<small>{{ _('Where the checked bikes are') }}</small></a>
           </div>
         </div>
         {# Inside the menu, so on a phone it folds away with the links. #}
