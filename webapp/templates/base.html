@@ -49,8 +49,8 @@
         {% set upd = live_updating() %}
         {% if acc %}
         <div class="tools account">
-          <button type="button" class="tools-button on" aria-expanded="false" aria-controls="account-menu">
-            <svg class="account-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>{{ acc.label }}{% if is_admin() %}<span class="live-spin" aria-label="{{ _('Update in progress') }}" title="{{ _('Update in progress') }}"{% if not upd %} hidden{% endif %}></span><span class="live-badge" hidden></span>{% endif %}</button>
+          <button type="button" class="tools-button on" aria-expanded="false" aria-controls="account-menu" aria-label="{{ acc.label }}" title="{{ acc.label }}">
+            <svg class="account-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span class="account-label">{{ acc.label }}</span>{% if is_admin() %}<span class="live-spin" aria-label="{{ _('Update in progress') }}" title="{{ _('Update in progress') }}"{% if not upd %} hidden{% endif %}></span><span class="live-badge" hidden></span>{% endif %}</button>
           <div id="account-menu" class="tools-menu">
             {# After each NAS update, what just went live (nas/autoupdate.py notes it, webapp/updates.py reads it): each
                change with a link to the page to check and to its PR, both in a new tab. The count on the button is what

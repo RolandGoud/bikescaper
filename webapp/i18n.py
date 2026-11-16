@@ -1098,7 +1098,7 @@ NL = {
     "For sellers": "Voor verkopers",
     "Groupset and wheels up close": "Groep en wielen van dichtbij",
     "Has a defect: [describe the damage].": "Heeft schade: [beschrijf de schade].",
-    "Improve my ad": "Verbeter mijn advertentie",
+    "Improve my ad": "Verbeter advertentie",
     "In your text": "Staat in je tekst",
     "Invoice": "Aankoopbon",
     "Invoice: ": "Aankoopbon: ",
