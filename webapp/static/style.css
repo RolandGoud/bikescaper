@@ -1544,6 +1544,16 @@ select { max-width: 100%; }
 .brand-series i.dot { flex: none; width: 6px; height: 6px; border-radius: 50%; -webkit-mask: none; mask: none; }
 .brand-series i:last-child, .brand-series b { opacity: 1; color: var(--bc); background-color: var(--bc); }
 .brand-series b { background: none; font-size: 12px; font-style: italic; white-space: nowrap; }
+/* The size finder's brand step: the same cards, wrapping four to a row (two on a phone), each with the bike
+   types the brand has and its model count in its colour along the bottom. */
+.size-brands { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.size-brands a { height: 126px; gap: 14px; }
+.brand-kinds { position: relative; display: flex; align-items: center; gap: 8px; min-height: 18px; font-size: 12px; }
+.brand-kinds i { flex: 0 1 18px; min-width: 8px; height: 18px;  /* shrink before the count is cut */
+  background: currentColor; opacity: 0.45;
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+.brand-kinds b { flex: none; margin-left: auto; color: var(--bc); font-style: italic; white-space: nowrap; }
+@media (max-width: 900px) { .size-brands { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .bike-types { display: flex; flex-direction: column; justify-content: center; gap: var(--type-gap, 6px); }
 .bike-types a { display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; border-radius: 12px; border: 1px solid transparent; color: var(--muted); font-weight: 600; font-size: 14px; text-decoration: none; }
 .bike-types a:hover { color: var(--text); }
@@ -1559,6 +1569,13 @@ select { max-width: 100%; }
   .brand-cards a { height: 64px; padding: 10px; justify-content: center; }
   .brand-corner, .brand-series { display: none; }
   .brand-cards .pill-logo { width: 76px; height: 16px; }
+  /* Two to a row: the logo with the model count under it; the type icons don't fit beside it. */
+  .size-brands { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .size-brands a { height: 92px; padding: 12px 14px; justify-content: space-between; }
+  .size-brands .pill-logo { width: 96px; height: 20px; }
+  .size-brands .brand-corner { display: block; width: 150px; height: 46px; right: -16px; bottom: -10px; }
+  .size-brands .brand-kinds i { display: none; }
+  .size-brands .brand-kinds b { margin-left: 0; }
   .brand-ladders .ladder { padding: 0; margin: 0; }
   .brand-ladders .ladder > .tier-span { display: none; }
   .brand-ladders .step.up::before, .brand-ladders .step.level::before { left: calc(50% - 12px); top: -24px; }

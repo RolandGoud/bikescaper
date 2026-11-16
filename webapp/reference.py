@@ -253,6 +253,12 @@ BRANDS = [
     {"name": "Wilier", "site": "https://www.wilier.com/en", "scraper": True, "aliases": ["wilier triestina"], "logo": "logos/wilier.svg"},
 ]
 BRAND_NAMES = [b["name"] for b in BRANDS]
+# Each brand's accent on the size finder's brand cards (a glow, its border when picked, its model count), like the
+# groupset brands' groupsets.BRAND_COLOURS. Close to the brand's own colour, nudged apart where several are red.
+BRAND_COLOURS = {"Trek": "#E0262B", "Canyon": "#CBD5E1", "Specialized": "#E1251B", "Giant": "#2F6FEB",
+                 "Cannondale": "#22C55E", "Cube": "#0EA5E9", "Factor": "#A1A1AA", "Scott": "#F97316",
+                 "Orbea": "#F59E0B", "Lapierre": "#3B82F6", "Bianchi": "#5FD3C4", "BMC": "#EF4444",
+                 "Cervelo": "#DC2626", "Ridley": "#2563EB", "Rose": "#E11D48", "Wilier": "#C81E1E"}
 BRAND_ALIASES = {alias: b["name"] for b in BRANDS for alias in [b["name"].lower()] + b.get("aliases", [])}
 
 # Used for brands without their own chart yet.

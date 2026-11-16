@@ -4,6 +4,7 @@ from datetime import date
 import pytest
 
 from webapp import checks, db, i18n, seed
+from webapp.reference import BRANDS
 from webapp.app import create_app
 
 TODAY = date(2026, 10, 18)
@@ -821,6 +822,18 @@ def test_size_finder_walks_brand_type_model_version_height(tmp_path):
     assert "How tall are you?" in page and 'class="sizes"' in page
     # the step bar links back to the earlier steps with what was picked
     assert "Racefiets" not in page and 'href="/size?step=type&amp;brand=Trek' in page
+
+
+def test_size_finder_brands_are_cards_like_the_groupsets_page(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/size?lang=en").data.decode()
+    assert 'class="brand-cards size-brands"' in page and page.count('class="brand-corner"') == len(BRANDS)
+    trek = re.search(r'<a class="" href="/size\?brand=Trek[^"]*" style="--bc: #E0262B">.*?</a>', page, re.S).group(0)
+    assert "types/road.svg" in trek and "types/gravel.svg" in trek and re.search(r"<b>\d+ models</b>", trek)
+    page = client.get("/size?step=brand&brand=Trek&lang=en").data.decode()  # back at the first step: Trek is picked
+    assert re.search(r'<a class="on" href="/size\?brand=Trek[^"]*" aria-current="true"', page)
 
 
 def test_size_finder_picks_a_model(tmp_path):
