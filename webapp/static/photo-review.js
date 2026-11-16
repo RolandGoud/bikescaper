@@ -15,14 +15,14 @@
   function slot(key) { return document.querySelector('.shot[data-shot="' + key + '"]'); }
   function shotTitle(key) { var s = slot(key); return s ? s.querySelector(".shot-cap b").textContent : key; }
 
-  function show(review, sent) {
+  function show(review, sent, versions) {
     say("");
     list.textContent = "";
     out.querySelector("[data-review-summary]").textContent = review.summary || "";
     document.querySelectorAll(".shot[data-verdict]").forEach(function (s) { s.removeAttribute("data-verdict"); });
     review.photos.forEach(function (p) {
       var s = slot(p.shot);
-      if (s) {
+      if (s && s.dataset.v === versions[p.shot]) {  // not when the photo was replaced or removed meanwhile
         s.setAttribute("data-verdict", p.verdict);
         var badge = s.querySelector(".shot-ok");
         badge.textContent = p.verdict === "keep" ? "✓" : p.verdict === "retake" ? "!" : "~";
@@ -59,12 +59,12 @@
     out.scrollIntoView({behavior: "smooth", block: "start"});
   }
 
-  function poll(token, sent, since) {
+  function poll(token, sent, versions, since) {
     fetch(form.dataset.result.replace("TOKEN", encodeURIComponent(token)), {headers: {"X-Requested-With": "fetch"}})
       .then(function (r) { return r.json(); })
       .then(function (r) {
-        if (r.status === "done") { busy(false); show(r, sent); }
-        else if (r.status === "running" && Date.now() - since < GIVE_UP_MS) setTimeout(function () { poll(token, sent, since); }, POLL_MS);
+        if (r.status === "done") { busy(false); show(r, sent, versions); }
+        else if (r.status === "running" && Date.now() - since < GIVE_UP_MS) setTimeout(function () { poll(token, sent, versions, since); }, POLL_MS);
         else { busy(false); say(form.dataset.tFailed); }
       })
       .catch(function () { busy(false); say(form.dataset.tFailed); });
@@ -76,8 +76,9 @@
     busy(true);
     window.sellPhotoSlots().then(function (photos) {
       if (!photos.length) { busy(false); say(form.dataset.tNone); return; }
-      var data = new FormData(form), sent = {};
+      var data = new FormData(form), sent = {}, versions = {};
       photos.forEach(function (p) {
+        versions[p.key] = slot(p.key).dataset.v;
         data.append("shot-" + p.key, p.blob, p.key + ".jpg");
         sent[p.key] = URL.createObjectURL(p.blob);
       });
@@ -87,7 +88,7 @@
         .then(function (r) { return r.json().then(function (j) { return {ok: r.ok, j: j}; }); })
         .then(function (r) {
           if (!r.ok || !r.j.token) { busy(false); say(r.j.error || form.dataset.tFailed); return; }
-          poll(r.j.token, sent, Date.now());
+          poll(r.j.token, sent, versions, Date.now());
         })
         .catch(function () { busy(false); say(form.dataset.tFailed); });
     });

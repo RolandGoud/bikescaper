@@ -60,6 +60,7 @@
     slot.querySelector("[data-replace]").hidden = !blob;
     slot.classList.toggle("done", !!blob);
     slot.removeAttribute("data-verdict");  // a new or removed photo hasn't been reviewed
+    slot.dataset.v = (+slot.dataset.v || 0) + 1;  // so a review still running doesn't stamp the new photo
     var ok = slot.querySelector(".shot-ok");
     ok.textContent = "✓";
     ok.removeAttribute("title");
