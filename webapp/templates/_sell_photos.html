@@ -54,7 +54,7 @@
 
   {% if can_review %}
   {# The photo review as a prototype (webapp/photo_review.py, static/photo-review.js): the filled slots go to the
-     Claude API once, for this review only, and the verdict lands on each slot and in the list below. #}
+     Claude API once, for this review only (for now only for the admin), and the verdict lands on each slot and in the list below. #}
   <form class="paid-offer" method="post" action="{{ url_for('photo_review_start') }}" data-photo-review
         data-result="{{ url_for('photo_review_result', token='TOKEN') }}"
         data-t-busy="{{ _('Looking at your photos… this takes up to a minute.') }}"
@@ -63,12 +63,12 @@
         data-t-again="{{ _('Review again') }}">
     <input type="hidden" name="model_id" value="{{ r.model.id if r and r.model else form.model_id or '' }}">
     <div>
-      <div class="mono">{{ _('PROTOTYPE · PHOTO REVIEW') }}</div>
+      <div class="mono">{{ _('PROTOTYPE · PHOTO REVIEW') }} · {{ _('ONLY FOR YOU (ADMIN)') }}</div>
       <h3>{{ _('Let us review your photos') }}</h3>
       <p class="small">{{ _('We check each photo for light, background, sharpness, angle and whether the details buyers want are readable, and tell you which to retake.') }}</p>
-      <p class="small">{{ _('Free while we test it. For the review your photos are sent once to Claude, the AI model of Anthropic, and not kept by us. It can get things wrong.') }}</p>
+      <p class="small">{{ _('Visitors still see the €5 offer with “Coming soon” until payment is built; this test is free for you. Your photos are sent once to Claude, the AI model of Anthropic, and not kept by us.') }}</p>
     </div>
-    <div class="offer-buy"><div class="offer-price">{{ _('Free') }}</div><div class="small">{{ _('up to 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
+    <div class="offer-buy"><div class="offer-price">€5</div><div class="small">{{ _('for 10 photos') }}</div><button class="btn" type="submit">{{ _('Review my photos') }}</button></div>
   </form>
   <section class="photo-review" data-review-out hidden aria-live="polite">
     <p class="review-status" data-review-status></p>

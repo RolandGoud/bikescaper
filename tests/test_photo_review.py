@@ -49,9 +49,12 @@ def jpeg(size=(2400, 1800)):
 def client(tmp_path, monkeypatch):
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     photo_review._asked.clear()
+    monkeypatch.setenv("ADMIN_PASSWORD", "pw")
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
-    return app.test_client(), app
+    c = app.test_client()
+    c.post("/admin/login", data={"password": "pw", "next": "/admin"})
+    return c, app
 
 
 def wait_done(path, token, lang="en"):
@@ -127,12 +130,18 @@ def test_without_a_key_the_offer_stays_coming_soon(tmp_path, monkeypatch):
     assert c.get("/sell/photo-review/result/x").status_code == 404
 
 
-def test_with_a_key_the_page_offers_the_prototype(client):
-    c, _app = client
+def test_with_a_key_only_the_admin_gets_the_prototype(client):
+    c, app = client
     page = c.get("/sell?step=photos&lang=nl").data.decode()
     assert "data-photo-review" in page and "data-fake-door" not in page and "photo-review.js" in page
-    assert "PROTOTYPE · FOTOCHECK" in page and "Gratis" in page
-    assert "Anthropic" in page  # the seller is told where the photos go
+    assert "PROTOTYPE · FOTOCHECK" in page and "ALLEEN VOOR JOU (ADMIN)" in page
+    assert "Anthropic" in page  # told where the photos go
+    # A visitor still sees the paid offer that only counts interest, and can't start a review.
+    visitor = app.test_client()
+    page = visitor.get("/sell?step=photos&lang=en").data.decode()
+    assert "data-fake-door" in page and "data-photo-review" not in page and "€5" in page
+    assert visitor.post("/sell/photo-review/start").status_code == 404
+    assert visitor.get("/sell/photo-review/result/x").status_code == 404
 
 
 def test_the_page_sends_the_slots_and_gets_the_review(client, monkeypatch):

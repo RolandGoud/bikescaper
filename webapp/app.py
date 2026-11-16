@@ -1523,7 +1523,7 @@ def create_app(db_path=None):
         hero_bg = random.choice(HERO_BACKGROUNDS) if HERO_BACKGROUNDS else None  # the home page's photos
         page = {"nav": "sell", "hero_bg": hero_bg, "hero_credit": HERO_CREDITS.get(hero_bg), "steps": SELL_STEPS,
                 "shots": PHOTO_SHOTS, "shot_examples": PHOTO_EXAMPLES, "can_mail": mail.configured(),
-                "can_review": sell_review.enabled()}
+                "can_review": sell_review.enabled() and is_admin()}
         opened = None
         if request.method == "GET":
             ad_id = request.args.get("ad", type=int)
@@ -1584,11 +1584,12 @@ def create_app(db_path=None):
             return ("", 204)
         return render_template("sell_soon.html", nav="sell", done=False, can_mail=mail.configured())
 
-    # The photo review as a prototype (webapp/photo_review.py), only when the Claude API key is set: the browser
-    # sends the filled shot slots here and asks for the result until it's there.
+    # The photo review as a prototype (webapp/photo_review.py), only when the Claude API key is set and only for the
+    # admin, until sellers can pay for it: visitors keep the €5 offer that counts interest. The browser sends the
+    # filled shot slots here and asks for the result until it's there.
     @app.route("/sell/photo-review/start", methods=["POST"])
     def photo_review_start():
-        if not sell_review.enabled():
+        if not (sell_review.enabled() and is_admin()):
             abort(404)
         photos = []
         for key in [k for k, *_ in PHOTO_SHOTS]:
@@ -1609,7 +1610,7 @@ def create_app(db_path=None):
 
     @app.route("/sell/photo-review/result/<token>")
     def photo_review_result(token):
-        if not sell_review.enabled():
+        if not (sell_review.enabled() and is_admin()):
             abort(404)
         found = sell_review.result(app.config["DB_PATH"], token, g.lang)
         response = jsonify(found)
