@@ -35,8 +35,14 @@ SITES = (daily_checks.MARKTPLAATS, daily_checks.TWEEDEHANDS)
 
 
 def family_label(model):
-    """"Trek Domane" for any Domane build, as the form and the mail name the family."""
-    return f"{model['brand']} {checks.family_of(model['name']).capitalize()}"
+    """"Trek Domane" for any Domane build: how the form and the mail name the family, and what the alert searches."""
+    return f"{model['brand']} {checks.model_line(model['name'])}"
+
+
+def same_line(a, b):
+    """Two models of one line, as the Models page's Model menu has them: any Tarmac, S-Works or not."""
+    return a["brand"] == b["brand"] and checks.line_key(checks.model_line(a["name"])) == checks.line_key(
+        checks.model_line(b["name"]))
 
 
 def model_key(model):
@@ -57,7 +63,7 @@ def norm_size(size):
 def watches(alert, model):
     """What an alert watches, the same for every generation's or build's page: two alerts of one address with the
     same answer would mail the same ads."""
-    what = family_label(model).lower() if alert["scope"] == "family" else model_key(model)
+    what = checks.line_key(family_label(model)) if alert["scope"] == "family" else model_key(model)
     return (alert["scope"], what, alert["size"] or "")
 
 
@@ -160,8 +166,7 @@ def fits(alert, model, ad, found):
     if found is None or found["suspect"]:
         return False
     if alert["scope"] == "family":
-        if (found["model"]["brand"] != model["brand"]
-                or checks.family_of(found["model"]["name"]) != checks.family_of(model["name"])):
+        if not same_line(found["model"], model):
             return False
     elif model_key(found["model"]) != model_key(model) or found["sure"] not in ("high", "medium"):
         return False

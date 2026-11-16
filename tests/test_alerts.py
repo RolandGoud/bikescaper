@@ -201,3 +201,10 @@ def test_a_pending_change_counts_as_the_alert_it_replaces(conn):
         confirmed(conn, m, size=size)
     alerts.sign_up(conn, "rider@example.com", m, size="56", max_price=1400)  # not confirmed yet
     assert alerts.sign_up(conn, "rider@example.com", m, size="58")  # the fifth bike
+
+
+def test_family_names_as_the_brand_writes_them(conn):
+    names = {m["name"]: alerts.family_label(m) for m in db.all_models(conn)}
+    assert names["TCR Advanced 0"] == "Giant TCR"
+    assert names["S5 Dura-Ace Di2"] == "Cervelo S5"
+    assert names["S-Works Venge"] == "Specialized Venge"
