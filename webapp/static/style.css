@@ -2744,15 +2744,18 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .brick.wide { grid-column: span 2; }
 .brick-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .4s ease; }
 .brick:hover .brick-img { transform: scale(1.04); }
+/* A model deep-dive's poster hero: blurred and dimmed on the wall (scaled up a little so the blur has no pale rim). */
+.brick-img.soft { filter: blur(14px) brightness(.55) saturate(.85); transform: scale(1.12); }
+.brick:hover .brick-img.soft { transform: scale(1.16); }
 .brick::before { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(12,13,16,.1) 0%, rgba(12,13,16,.25) 40%, rgba(12,13,16,.94) 100%); }
+  background: linear-gradient(180deg, rgba(12,13,16,.12) 0%, rgba(12,13,16,.3) 28%, rgba(12,13,16,.78) 55%, rgba(12,13,16,.95) 100%); }
 .brick-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: #C9CAD2; }
 .brick .blog-cat { background: rgba(12,13,16,.65); font-size: 11px; font-family: var(--mono); white-space: nowrap; }
 .brick-top .mono { white-space: nowrap; }
 .cat-market.brick { --cat: #34D399; } .cat-guides.brick { --cat: #7AB8FF; } .cat-models.brick { --cat: #F2C27A; } .cat-seasonal.brick { --cat: #E7A0F0; }
 .brick-text { display: flex; flex-direction: column; gap: 4px; }
 .brick-num { font-family: var(--display); font-style: italic; font-weight: 900; font-size: 58px; line-height: .95; color: var(--cat); letter-spacing: -0.01em;
-  text-shadow: 0 2px 18px rgba(0,0,0,.5); }
+  text-shadow: 0 1px 2px rgba(0,0,0,.85), 0 0 14px rgba(0,0,0,.7), 0 2px 28px rgba(0,0,0,.6); }
 .brick-num-label { font-size: 12px; color: #DCDCE4; }
 .brick h2 { font-family: var(--body); font-style: normal; text-transform: none; font-weight: 700; font-size: 17px; line-height: 1.22; letter-spacing: 0; margin-top: 8px; }
 .brick h2 a { color: #fff; text-decoration: none; }
