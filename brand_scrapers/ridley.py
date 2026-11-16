@@ -11,15 +11,19 @@ A few bikes are only in the site's menu, not in the API's range: the Invenio col
 item pages are read as well, with the other builds they link to.
 """
 import json
+import os
 import re
 
-from .common import clean, log, normalize_specs, parse_price, size_name
+from .common import ROOT, clean, log, normalize_specs, parse_price, size_name
 from .nuxt import nuxt_data, nuxt_state
 
 BRAND = "Ridley"
 BASE = "https://www.ridley-bikes.com/nl_NL"
 LISTING = BASE + "/bikes/categories/road"
 FAMILIES = "https://api.cyclingfactory.be/V1/families?locale={locale}&brand=Ridley"
+# Ridley's Belgian site, in Dutch with euro prices: it serves the same item pages when the Dutch one fails (in November
+# 2026 nl_NL answered "Did not find locale" for most bikes in the range while nl_BE showed them).
+FALLBACK = "https://www.ridley-bikes.com/nl_BE"
 PLATFORMS = {  # Ridley's platform code -> category; Track, Hardtail (MTB) and Kids are left out
     "AerotoAero": "Race",
     "AerotoWeight": "Race",
@@ -48,11 +52,12 @@ GROUPSET_WORDS = [(r"\bsram\b", "SRAM"), (r"\bdi2\b", "Di2"), (r"\bdura ace\b", 
 
 
 def tidy_groupset(text):
-    """"Sram Red AXS 2x12sp" -> "SRAM Red AXS 2x12"; "Shimano 105 DI2 // 2x12s" -> "Shimano 105 Di2 2x12"; "Shimano 105 - 2x12" -> "Shimano 105 2x12"."""
+    """"Sram Red AXS 2x12sp" -> "SRAM Red AXS 2x12"; "Shimano 105 DI2 // 2x12s" -> "Shimano 105 Di2 2x12"; "Shimano 105 - 2x12" -> "Shimano 105 2x12"; "2X12" -> "2x12"."""
     text = clean(text)
     for pattern, repl in GROUPSET_WORDS:
         text = re.sub(pattern, repl, text, flags=re.I)
     text = re.sub(r"(\d+x\d+)(?:sp|s)\b", r"\1", text, flags=re.I)
+    text = re.sub(r"\b(\d+)X(\d+)\b", r"\1x\2", text)  # "2X12" as the other builds write it
     return clean(text)
 
 
@@ -265,17 +270,131 @@ def platform_of(item):
     return next((code for code in PLATFORMS if code.lower() == family), None)
 
 
+_dutch_failures = []  # item pages the Dutch site failed on in this run
+
+
+def item_page(fetcher, code):
+    """(item data, whether it came from the Belgian site). After a few failures the Dutch site is skipped."""
+    if len(_dutch_failures) < 3:
+        data = item_data(fetcher.get(f"{BASE}/bikes/{code}"))
+        if data or fetcher.status == 404:
+            return data, False
+        _dutch_failures.append(code)
+    return item_data(fetcher.get(f"{FALLBACK}/bikes/{code}")), True
+
+
 def read_build(fetcher, platform, frame, build):
     code = build["designs"][0].get("externalid")
     if not code:
         return None
     url = f"{BASE}/bikes/{code}"
-    data = item_data(fetcher.get(url))
+    data, belgian = item_page(fetcher, code)
     if not data:
         log.warning("Ridley: no bike data in %s", url)
         return None
+    if belgian:  # the price list's Dutch price, not the Belgian page's
+        data = dict(data, price=None)
     bike = parse(platform, frame, build, data, url)
     if not bike["specifications"]:
         log.warning("Ridley: no spec sheet in %s", url)
     log.info("Ridley: %s %s (%s)", bike["name"], bike["model_year"], bike["price"])
     return bike
+
+
+# --- Earlier model years -------------------------------------------------------------------------------------------
+
+# Ridley keeps the item page of bikes it no longer sells (the 2020 Noah Fast Disc: /bikes/SBINFDRID001), with the
+# spec sheet, the collection year and the photos, but no list of them. Item codes are SBI + three letters for the frame
+# + RID + a number counted up over the years, so probe() tries the numbers of each frame's letters (HEAD requests)
+# and writes the codes found; archive() reads those pages and the other builds and colours each one links to.
+CODES = os.path.join(ROOT, "data", "years", "archived", "ridley_codes.txt")
+FIRST_YEAR = 2018
+# Letters of frames Ridley no longer lists, tried besides those in its sitemap: a guess at each old line's code.
+OLD_LETTERS = ("NOF NFA NFR NOA NSL NOS NHD NOD NDI HSX HLX HES HSL HEL HSD FSL FSX FEA FES LIZ LSL XND XNI XNS XNA "
+               "XNC XRI XRD XBO XTR KAS KSP KAN KAF KAC KAL KAD DFD DEA DEN DFA GRI GRA GRC NFD HED FEN ASD TRI TRF "
+               "ORY FAD").split()
+SITEMAP = "https://www.ridley-bikes.com/sitemap_products.xml"
+
+
+def probe(fetcher, step=2, beyond=100, old_numbers=40):
+    """The item codes Ridley's Belgian site answers for, from every frame's letters (those in the sitemap, up to
+    `beyond` past its highest number, and OLD_LETTERS up to `old_numbers`). Sizes of a build get consecutive numbers,
+    so every second number finds each build and colour; archive() follows their links to the rest."""
+    import concurrent.futures
+    top = {}
+    for code in re.findall(r"/bikes/SBI([A-Z0-9]{3})RID(\d{3})", fetcher.get(SITEMAP) or ""):
+        top[code[0]] = max(top.get(code[0], 0), int(code[1]))
+    codes = [f"SBI{p}RID{n:03d}" for p, m in top.items() for n in range(1, m + beyond + 1, step)]
+    codes += [f"SBI{p}RID{n:03d}" for p in OLD_LETTERS if p not in top for n in range(1, old_numbers + 1)]
+
+    def answers(code):
+        for _ in range(3):
+            try:
+                status = fetcher.session.head(f"{FALLBACK}/bikes/{code}", timeout=30, allow_redirects=False).status_code
+            except OSError:
+                continue
+            if status in (200, 404):
+                return status == 200
+        return False
+
+    with concurrent.futures.ThreadPoolExecutor(4) as pool:
+        found = [code for code, ok in zip(codes, pool.map(answers, codes)) if ok]
+    os.makedirs(os.path.dirname(CODES), exist_ok=True)
+    with open(CODES, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(sorted(found)) + "\n")
+    log.info("Ridley: %d of %d item codes answer", len(found), len(codes))
+    return found
+
+
+def archive(fetcher, limit=None):
+    """A bike per build and model year from 2018 on, read from the item pages of the codes probe() found (and the
+    builds and colours they link to); no price, as it isn't the new price of today."""
+    try:
+        with open(CODES, encoding="utf-8") as fh:
+            queue = [line.strip() for line in fh if line.strip()]
+    except OSError:
+        log.warning("Ridley: no %s, run `python -m brand_scrapers.ridley --probe` first", CODES)
+        return []
+    try:  # the range's items are the catalogue's own year: the scrape reads them
+        current = {d["externalid"] for _, _, b in builds(json.loads(fetcher.get(FAMILIES.format(locale="nl_NL")) or "{}"))
+                   for d in b["designs"]}
+    except ValueError:
+        current = set()
+    bikes, builds_seen, done = [], set(), set(current)
+    while queue and (limit is None or len(bikes) < limit):
+        code = queue.pop(0)
+        if code in done:
+            continue
+        done.add(code)
+        data, _ = item_page(fetcher, code)
+        item = (data or {}).get("bike") or {}
+        attributes = item.get("attributes") or {}
+        platform = platform_of(item)
+        year = model_year(attributes)
+        relations = (data or {}).get("relations") or {}
+        done.update(r.get("externalid") for r in relations.get("othersizes") or [])  # the same build, another size
+        if not platform or not year or year < FIRST_YEAR or str(attributes.get("electric")).lower() in ("ja", "yes", "true"):
+            continue
+        for kind, related in relations.items():
+            if kind.startswith("other") and kind != "othersizes":
+                queue += [r["externalid"] for r in related or [] if r.get("externalid") and r["externalid"] not in done]
+        key = (clean(attributes.get("model")).lower(), tidy_groupset(attributes.get("groupset")).lower(), year)
+        if key in builds_seen:
+            continue
+        builds_seen.add(key)
+        frame = {"model": attributes.get("model")}
+        build = {"groupset": attributes.get("groupset"), "designs": [{"externalid": code}]}
+        bike = dict(parse(platform, frame, build, dict(data, price=None), f"{BASE}/bikes/{code}"), price=None)
+        if bike["specifications"]:
+            bikes.append(bike)
+            log.info("Ridley: %s %s, an earlier year", bike["name"], bike["model_year"])
+    return bikes
+
+
+if __name__ == "__main__":
+    import logging
+    import sys
+    from .common import Fetcher
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    if "--probe" in sys.argv:
+        print(f"{len(probe(Fetcher()))} item codes -> {CODES}")
