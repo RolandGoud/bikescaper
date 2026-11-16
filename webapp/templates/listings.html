@@ -35,7 +35,7 @@
         <th scope="col" class="c-size">{{ _('Size') }}</th><th scope="col" class="c-place">{{ _('Place') }}</th>
       </tr></thead>
       <tbody>
-      {% for (row, r), day in cards %}
+      {% for (row, r), day in rows_shown %}
       {% set status = r.value.status if r.model else 'unknown' %}
       <tr>
         <td class="c-bike"><a class="t-bike" href="{{ url_for('report', check_id=row.id) }}">
@@ -52,6 +52,13 @@
       {% endfor %}
       </tbody>
     </table>
+    {% if pager %}
+    <nav class="map-pager table-pager" aria-label="{{ _('Pages') }}">
+      <a class="map-pager-step" href="{{ pager.prev or '' }}"{% if not pager.prev %} aria-disabled="true"{% endif %}>← {{ _('Previous') }}</a>
+      <span class="map-pager-pages">{% for link in pager.links %}{% if link %}<a href="{{ link.url }}"{% if link.n == pager.page %} aria-current="page"{% endif %}>{{ link.n }}</a>{% else %}<span class="pager-gap" aria-hidden="true">…</span>{% endif %}{% endfor %}</span>
+      <a class="map-pager-step" href="{{ pager.next or '' }}"{% if not pager.next %} aria-disabled="true"{% endif %}>{{ _('Next') }} →</a>
+    </nav>
+    {% endif %}
     {% else %}
     <div class="grid listing-grid">
       {# Ad tiles at random places (webapp/sponsored.py spots: about one per ten ads), so they don't always land
