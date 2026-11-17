@@ -1375,6 +1375,10 @@ NL = {
         "De advertentie noemt een uitvoering die niet in onze catalogus staat; dit is de fiets die er het dichtst bij komt. Kies zelf het juiste model als het erbij staat.",
     "Family": "Familie",
     "Version": "Uitvoering",
+    "Generation": "Generatie",
+    "This bike": "Deze fiets",
+    "* {brand}'s site gives no price for this build: the last known new price, from the German list price (TOUR/BIKE database).":
+        "* Geen prijs op de site van {brand}: de laatst bekende nieuwprijs, uit de Duitse prijslijst (TOUR/BIKE-database).",
     "{words} not in the model": "{words} niet in het model",
     "Models by match": "Modellen op match",
     "Our pick": "Onze keuze",

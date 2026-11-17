@@ -33,6 +33,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OTHER = [("other", "Other")]  # models no discipline rule recognises yet
 # Types the catalogue leaves out for now (their models stay in the database and on their own pages): city and fitness
 HIDDEN_KINDS = {"fitness"}
+# A tab of the build list with more builds than this gets a second row of choices: their versions (Trek's 5, 6, 7).
+BUILD_VERSIONS_FROM = 6
 STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
                  "unknown": "Status unknown"}
 # Our own links are relative (url_for), so any link to http(s):// leaves the site.
@@ -1197,6 +1199,33 @@ def create_app(db_path=None):
         return [dict(m, build_count=len(labels[key]), tiers=tiers[key], ids=ids[key]) if key in labels else m
                 for key, m in tiles.items()]
 
+    def build_group(level, group, model):
+        """One tab of the model page's build list: its builds cheapest first (a build without a price last), the
+        frame they share as a hint under the tab ("carbon · 500 Series OCLV"), and, for a tab of more than
+        BUILD_VERSIONS_FROM builds whose names carry at least two versions (Trek's 5, 6, 7; a Specialized
+        generation), the versions as a second row of choices, open on this bike's version or else the first."""
+        rows = sorted(group, key=lambda b: (b["shown"][0] is None, b["shown"][0] or 0, checks.build_label(b) or ""))
+        materials = list(dict.fromkeys(m for m in (checks.ref_material(b) for b in group) if m))
+        grades = sorted({g for g in (checks.ref_frame(b)[1] for b in group) if g})  # "500 Series OCLV" and "Oclv" are one
+        grade = grades[0] if grades and len({g.lower() for g in grades}) == 1 else None
+        if grade and grade.split("-")[0].lower() in level.lower():  # Canyon's "CF SLX" tab needs no "CF SLX" hint
+            grade = None
+        found = list(dict.fromkeys(b["version"] for b in rows if b["version"]))
+        versions, kind, picked = None, None, None
+        if len(group) > BUILD_VERSIONS_FROM and len(found) >= 2:
+            kind = "generation" if all(v.startswith("SL") for v in found) else "version"
+            # numbers low to high, generations newest first; the builds without a version last
+            found.sort(key=lambda v: -int(v[2:]) if kind == "generation" else int(v) if v.isdigit() else 99)
+            versions = [(v, sum(b["version"] == v for b in group)) for v in found]
+            other = sum(not b["version"] for b in group)
+            if other:
+                versions.append(("-", other))
+            own = next((b["version"] or "-" for b in group if b["id"] == model["id"]), None)
+            picked = own or versions[0][0]
+        hint = " · ".join([gettext(m).lower() for m in materials] + ([grade] if grade else []))
+        return {"level": level, "rows": rows, "hint": hint,
+                "versions": versions, "kind": kind, "picked": picked}
+
     @app.route("/models/<slug>")
     def model_page(slug):
         model = db.get_model(conn(), slug=slug)
@@ -1205,9 +1234,12 @@ def create_app(db_path=None):
             if now:
                 return redirect(url_for("model_page", slug=now), 301)
             abort(404)
-        # a model with builds: the switcher under its name, each build with its spec tier as its colour
-        # each build's price as its own page's price tag shows it (also the archive's or German list price)
-        builds = [dict(b, tier=checks.model_tier(b), shown=checks.shown_price(b)) for b in checks.builds_of(model, models())]
+        # a model with builds: the build list under its name. Each build with its spec tier, groupset, model years and
+        # its price as its own page's price tag shows it (also the archive's or German list price).
+        builds = [dict(b, tier=checks.model_tier(b), shown=checks.shown_price(b), groupset=checks.build_groupset(b),
+                       sold=checks.shown_years(b), gone=checks.catalogue_status(b)[0] == "discontinued",
+                       version=checks.build_version(b))
+                  for b in checks.builds_of(model, models())]
         # Builds named level + groupset (Specialized's "Expert Ultegra Di2"): the levels first, and only the picked
         # level's groupsets, so a model with many builds doesn't show them all at once. The bike's own level is open.
         by_level = {}
@@ -1218,6 +1250,8 @@ def create_app(db_path=None):
         if model["brand"] not in checks._LEVELS:
             levels.sort(key=lambda lv: statistics.median([b["price_eur"] or 1e9 for b in lv[1]]))  # the middle build
         levels.sort(key=lambda lv: lv[0] == "Frameset")  # the framesets always last
+        here_level = checks.build_level(model) or ""
+        build_groups = [build_group(level, group, model) for level, group in levels] if builds else []
         levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
         siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))
@@ -1258,7 +1292,7 @@ def create_app(db_path=None):
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)
-        return render_template("model.html", ads=ads, alternates=alternates, m=model, years=shown, siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
+        return render_template("model.html", ads=ads, alternates=alternates, m=model, years=shown, siblings=siblings, builds=builds, levels=levels, build_groups=build_groups, here_level=here_level,
                                year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),

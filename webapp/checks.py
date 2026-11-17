@@ -852,6 +852,31 @@ def _build_order(m):
     return (framed, first, -int(gen.group(1)) if gen else 0, model_tier(m) or 0, m.get("price_eur") or 1e9, m["name"])
 
 
+_VERSION = re.compile(r"(SL\d)\b|(\d{1,2})(?=$|[\s+\-.])")
+
+
+def build_version(model):
+    """The version a build's name gives after its level, which the model page's second row of choices picks
+    from: Trek's "6" of "SL 6 Di2", Canyon's "8" of "CF SLX 8 Di2", Giant's "1" of "Advanced 1+ - Di2", a
+    Specialized generation ("SL7" of "Expert SL7 Ultegra Di2"); None when the name has none (a groupset, "Base")."""
+    label = build_label(model) or ""
+    level = build_level(model)
+    if level and label.startswith(level):
+        label = label[len(level):]
+    found = _VERSION.match(label.strip())
+    return (found.group(1) or found.group(2)) if found else None
+
+
+def build_groupset(model):
+    """The groupset of a build as the model page's build list names it ("Shimano 105 Di2" for the sheet's "Shimano
+    105 R7150 Di2"): the one detect_groupset reads in the sheet's groupset part, else that part as it is; None without one."""
+    part = next((short for label, short, _t in key_parts(spec_groups(model), limit=5) if label == "Groupset"), None)
+    if not part:
+        return None
+    found = detect_groupset(part)
+    return groupset_name(found) if found else part
+
+
 def _representative(entries):
     """The entry that stands for a build sold over several generations or in an edition: the one on sale,
     the plain one rather than an edition, the newest generation, the cheapest."""

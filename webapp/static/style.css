@@ -2127,22 +2127,46 @@ select { max-width: 100%; }
 .build-card p { margin: 10px 0 0; }
 .builds .k { margin-bottom: 6px; font: 500 12px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .build-row { display: flex; flex-wrap: wrap; gap: 8px; }
-/* the model page's builds: five to a row (two on a phone, without the model's name), coloured by spec tier */
-.builds .build-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-.builds .build-pill { min-width: 0; border-color: transparent; }
-.builds .build-pill > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.builds .build-pill small { color: inherit; opacity: .75; }
-.builds .build-pill.t1 { background: var(--faint); color: var(--muted); }
-.builds .build-pill.t2 { background: var(--tier2-bg); color: var(--tier2); }
-.builds .build-pill.t3 { background: var(--tier3-bg); color: var(--tier3); }
-.builds .build-pill.t4 { background: var(--accent); color: var(--ink); }
-.builds .build-pill.t5 { background: var(--text); color: var(--ink); }
-.builds .build-pill:hover { border-color: var(--text); }
-/* the bike on this page: a thick ring and a check mark, the other builds of its level a step back */
-.builds .build-pill.on { box-shadow: none; outline: 3px solid var(--text); outline-offset: 3px; }
-.builds .build-pill.on > span::before { content: "\2713\00a0"; }
-.builds .build-row:has(.build-pill.on) .build-pill:not(.on):not(:hover) { opacity: .5; }
-@media (max-width: 700px) { .builds .build-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bp-model { display: none; } }
+/* the model page's builds: one row each, cheapest first, with a radio circle (filled for this bike), the name, groupset,
+   spec tier, model years and price; a build the brand no longer sells is greyed out */
+.builds .build-row { display: block; border-top: 1px solid var(--line); }
+.builds .build-pill, .builds .build-head { display: grid; grid-template-columns: 22px minmax(120px, 1.3fr) 2fr 120px 110px 110px; align-items: center; gap: 12px; }
+.builds .build-pill { min-width: 0; padding: 10px 10px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; color: var(--text); font: 400 15px var(--body); }
+.builds .build-pill:hover { background: var(--raised); }
+.builds .build-pill[data-gone] .bp-name, .builds .build-pill[data-gone] .bp-gs, .builds .build-pill[data-gone] .bp-price { color: var(--muted); }
+.builds .build-pill > * { min-width: 0; }
+.builds .bp-name { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.builds .bp-gs { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.builds .bp-years { color: var(--muted); font-size: 14px; }
+.builds .bp-price { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.builds .bp-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line-strong); }
+.builds .build-pill:hover .bp-radio { border-color: var(--text); }
+.builds .build-pill.on { background: var(--tier3-bg); border-radius: 8px; border-color: transparent; box-shadow: none; }
+.builds .build-pill.on .bp-radio { border-color: var(--accent); background: radial-gradient(circle, var(--accent) 0 4px, transparent 5px); }
+.builds .build-pill.on > * { color: var(--text) !important; }
+.builds .bp-here { margin-left: 6px; padding: 2px 5px; border-radius: 4px; background: var(--accent); color: var(--ink); font: 700 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; vertical-align: 2px; }
+.builds .build-head { padding: 4px 10px 6px; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.builds .build-head :last-child { text-align: right; }
+.builds .build-note { margin: 10px 0 0; }
+.builds .build-pill[hidden], .builds .build-versions[hidden] { display: none; }
+.build-versions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 12px; }
+.build-versions .bv-k { margin-right: 4px; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.build-versions .bv { min-width: 42px; padding: 5px 12px; border-radius: 8px; border: 1px solid var(--line-strong); background: transparent; color: var(--text); font: 600 14px var(--body); cursor: pointer; }
+.build-versions .bv small { margin-left: 2px; font-weight: 400; opacity: .65; }
+.build-versions .bv:hover { border-color: var(--text); }
+.build-versions .bv.on { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.builds .level-tab { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 7px 14px; border-radius: 12px; line-height: 1.15; }
+.builds .level-tab em { font: 400 12px var(--body); font-style: normal; opacity: .7; }
+@media (max-width: 700px) {
+  .bp-model, .builds .bp-here { display: none; }
+  .builds .build-head { display: none; }
+  .builds .build-pill { grid-template-columns: 22px 1fr auto; grid-template-areas: "r n p" "r g t"; row-gap: 2px; column-gap: 10px; }
+  .builds .bp-radio { grid-area: r; } .builds .bp-name { grid-area: n; } .builds .bp-price { grid-area: p; }
+  .builds .bp-gs { grid-area: g; color: var(--muted); font-size: 14px; } .builds .bp-tier { grid-area: t; justify-self: end; } .builds .bp-years { display: none; }
+  /* many frame tabs (Specialized has nine) slide sideways instead of filling the screen */
+  .builds .level-tabs { flex-wrap: nowrap; overflow-x: auto; margin-right: -18px; padding-right: 18px; scrollbar-width: none; }
+  .builds .level-tab { flex: none; }
+}
 .level-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .level-tab { font: 600 14px var(--body); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--text); cursor: pointer; }
 .level-tab small { font-weight: 400; color: inherit; opacity: .7; }
