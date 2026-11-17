@@ -27671,6 +27671,53 @@
     "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/%C3%A9monda/%C3%A9monda-slr/%C3%A9monda-slr-8/a/21713/"
    }
   },
+  "Émonda SLR 8 Disc": {
+   "2018": {
+    "captured": "2026-11-17",
+    "colour_images": {
+     "Matte Black/Gunmetal": "Trek/years/emondaslr8disc_2018_matteblackgunmetal_site.jpg",
+     "Radioactive Yellow/Trek Black": "Trek/years/emondaslr8disc_2018_radioactiveyellowtrekblack_site.jpg",
+     "Solid Charcoal/Radioactive Orange": "Trek/years/emondaslr8disc_2018_solidcharcoalradioactiveorange_site.jpg",
+     "Viper Red/Trek White": "Trek/years/emondaslr8disc_2018_viperredtrekwhite_site.jpg"
+    },
+    "colours": [
+     "Matte Black/Gunmetal",
+     "Solid Charcoal/Radioactive Orange",
+     "Viper Red/Trek White",
+     "Radioactive Yellow/Trek Black"
+    ],
+    "image": "Trek/years/emondaslr8disc_2018_site.jpg",
+    "price": null,
+    "sheet_name": null,
+    "sheet_years": "2018",
+    "source": "site",
+    "specs": {
+     "Achterderailleur": "Shimano Dura-Ace",
+     "Balhoofdstel": "Geïntegreerd, afgedichte industrielagers, 1-1/8˝ bovenzijde, 1.5˝ onderzijde",
+     "Bottom bracket": "BB90",
+     "Buitenband": "Bontrager R3 Hard-Case Lite, 120 TPI, aramide hieldraad, 700x25c",
+     "Cassette": "Shimano Dura-Ace 11-28, 11-speed",
+     "Crankstel": "Shimano Dura-Ace, 50/34 (compact)",
+     "Frame": "Ultralicht 700 Series OCLV Carbon, Ride Tuned prestatiegerichte buisoptimalisatie, E2 taps toelopende balhoofdbuis, BB90, Flat Mount-schijfremmen, 12 mm steekassen, interne kabelgeleiding, geschikt voor DuoTrap S, Ride Tuned seatmast",
+     "Gewicht": "56 cm - 6.92 kg / 15.26 lbs",
+     "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en vracht) van 125 kg.",
+     "Handvatten": "Bontrager stuurlint",
+     "Ketting": "Shimano Dura-Ace",
+     "Maximale bandenmaat": "25c Bontrager banden (met minimaal 4 mm ruimte tot het frame)",
+     "Pedaal": "Niet inbegrepen",
+     "Rem": "Shimano Dura-Ace Flat Mount hydraulische schijfremmen",
+     "Shifter": "Shimano Dura-Ace, 11-speed",
+     "Stuur": "Bontrager XXX OCLV carbon, VR-C, 31,8 mm",
+     "Stuurpen": "Bontrager Pro, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+     "Voorderailleur": "Shimano Dura-Ace, aanlasnok",
+     "Voorvork": "Émonda full carbon, carbon E2 stuurbuis, carbon dropouts, Flat Mount-schijfremmen",
+     "Wiel voor": "Bontrager Aeolus Pro 3 Tubeless Ready Disc",
+     "Zadel": "Bontrager Montrose Elite, titanium rails",
+     "Zadelpen": "Bontrager Ride Tuned carbon seatmast cap, 20 mm offset"
+    },
+    "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/%C3%A9monda/%C3%A9monda-slr/%C3%A9monda-slr-8-disc/a/22010/"
+   }
+  },
   "Émonda SLR 9": {
    "2020": {
     "captured": "2026-10-27",

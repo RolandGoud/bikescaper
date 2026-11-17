@@ -8,6 +8,7 @@ import json
 import os
 import re
 import unicodedata
+from collections import Counter
 from datetime import date
 
 from . import colour_match
@@ -1387,6 +1388,9 @@ def match_models(models, title, description="", claims=None):
     text = f"{title} {description}"
     complete = not FRAME_ONLY.search(text) and bool(claims["groupset"] or COMPLETE_BIKE.search(text))
     electronic = says_electronic(text)
+    # A bike sold with rim brakes and as a "Disc" next to it (the 2018 Émonda SLR 8 and SLR 8 Disc, check 216): the
+    # ad's brakes pick between the two, as "schijfremmen" doesn't match the "Disc" in the name.
+    twins = Counter((m["brand"], re.sub(r"\s+Disc\b", "", m["name"], flags=re.I)) for m in models)
     ranked = []
     for model in models:
         if claims["brand"] and model["brand"] != claims["brand"]:
@@ -1406,6 +1410,10 @@ def match_models(models, title, description="", claims=None):
         group = detect_groupset(groupset_text(model)) if electronic is not None else None
         if group and bool(group.get("electronic")) != electronic:
             score -= 0.5  # the ad says Di2 and this build shifts by cable, or the other way round
+        if claims["brakes"] and twins[(model["brand"], re.sub(r"\s+Disc\b", "", model["name"], flags=re.I))] > 1:
+            ours = ref_brakes(model)
+            if ours:
+                score += 0.5 if ours == claims["brakes"] else -0.5
         if _colour_named(model, f"{title} {description}"):
             score += 1.0  # the seller copied the brand's colour name: that colourway's model
         ranked.append((round(score, 2), model))

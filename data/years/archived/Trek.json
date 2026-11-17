@@ -2119,5 +2119,47 @@
   ],
   "price": null,
   "image": "Trek/archived/emondaslr8.jpg"
+ },
+ {
+  "name": "Émonda SLR 8 Disc",
+  "brand": "Trek",
+  "url": "https://www.trekbikes.com/nl/nl_NL/fietsen/racefietsen/prestatiegerichte-racefietsen/%C3%A9monda/%C3%A9monda-slr/%C3%A9monda-slr-8-disc/a/22010/",
+  "sku": "22010",
+  "category": "Performance road bikes",
+  "specifications": {
+   "Frame": "Ultralicht 700 Series OCLV Carbon, Ride Tuned prestatiegerichte buisoptimalisatie, E2 taps toelopende balhoofdbuis, BB90, Flat Mount-schijfremmen, 12 mm steekassen, interne kabelgeleiding, geschikt voor DuoTrap S, Ride Tuned seatmast",
+   "Voorvork": "Émonda full carbon, carbon E2 stuurbuis, carbon dropouts, Flat Mount-schijfremmen",
+   "Wiel voor": "Bontrager Aeolus Pro 3 Tubeless Ready Disc",
+   "Buitenband": "Bontrager R3 Hard-Case Lite, 120 TPI, aramide hieldraad, 700x25c",
+   "Maximale bandenmaat": "25c Bontrager banden (met minimaal 4 mm ruimte tot het frame)",
+   "Shifter": "Shimano Dura-Ace, 11-speed",
+   "Voorderailleur": "Shimano Dura-Ace, aanlasnok",
+   "Achterderailleur": "Shimano Dura-Ace",
+   "Crankstel": "Shimano Dura-Ace, 50/34 (compact)",
+   "Bottom bracket": "BB90",
+   "Cassette": "Shimano Dura-Ace 11-28, 11-speed",
+   "Ketting": "Shimano Dura-Ace",
+   "Pedaal": "Niet inbegrepen",
+   "Zadel": "Bontrager Montrose Elite, titanium rails",
+   "Zadelpen": "Bontrager Ride Tuned carbon seatmast cap, 20 mm offset",
+   "Stuur": "Bontrager XXX OCLV carbon, VR-C, 31,8 mm",
+   "Handvatten": "Bontrager stuurlint",
+   "Stuurpen": "Bontrager Pro, 31,8 mm, 7 graden, inclusief houders voor fietscomputer & verlichting",
+   "Balhoofdstel": "Geïntegreerd, afgedichte industrielagers, 1-1/8˝ bovenzijde, 1.5˝ onderzijde",
+   "Rem": "Shimano Dura-Ace Flat Mount hydraulische schijfremmen",
+   "Gewicht": "56 cm - 6.92 kg / 15.26 lbs",
+   "Gewichtslimiet": "Deze fiets heeft een maximaal toegestaan totaalgewicht (gecombineerd gewicht van fiets, rijder en vracht) van 125 kg."
+  },
+  "color_names": [
+   "Matte Black/Gunmetal",
+   "Solid Charcoal/Radioactive Orange",
+   "Viper Red/Trek White",
+   "Radioactive Yellow/Trek Black"
+  ],
+  "years": [
+   2018
+  ],
+  "price": null,
+  "image": "Trek/archived/emondaslr8disc.jpg"
  }
 ]
