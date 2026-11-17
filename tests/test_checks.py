@@ -1726,6 +1726,15 @@ def test_an_ad_without_a_year_shows_the_middle_year_its_details_allow(models):
     assert checks.middle_year([2020, 2021, 2022, 2023, 2024]) == 2022 and checks.middle_year([2021, 2022]) == 2021
 
 
+def test_the_2018_emonda_slr_8_is_in_the_catalogue(models):
+    # Check 216: Trek product 21713, which no Wayback listing of the Dutch site has (data/years/archived/trek_codes.txt).
+    for title in ("Trek Émonda SLR 8 maat 56", "Trek Emonda SLR8 H2 56cm"):
+        r = checks.run_check(models, {"title": title, "description": "Shimano Dura-Ace, carbon"})
+        assert r["model"]["name"] == "Émonda SLR 8", title
+    r = checks.run_check(models, {"title": "Trek Émonda SLR 8 2018", "description": "Dura-Ace"})
+    assert r["model"]["name"] == "Émonda SLR 8" and r["year"]["year"] == 2018
+
+
 def test_a_two_tone_colour_shows_its_own_photo_not_another_with_the_same_first_part(models):
     for text in ("Trek Émonda SLR 7 Navy Carbon Smoke / Viper Red", "Trek Emonda SLR 7 blauw rood"):
         r = checks.run_check(models, {"title": text, "description": "12 speed"})
