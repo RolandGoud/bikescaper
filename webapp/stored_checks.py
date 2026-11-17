@@ -34,8 +34,9 @@ def inputs_key(listing):
     wanted = {k: listing.get(k) for k in ("title", "description", "asking_price", "listing_url",
                                           "rider_height", "model_id")}
     if listing.get("overrides"):
-        # Only when there are some, so checks without them keep the reports they have.
-        wanted["overrides"] = listing["overrides"]
+        # Only when there are some, so checks without them keep the reports they have. The version makes reports
+        # stored before report["ad_year"] (the year tiles show only the ad's own year) run again.
+        wanted["overrides"] = {"set": listing["overrides"], "version": 2}
     if listing.get("photo_groupset"):
         # Only when there is one, so checks without it keep the reports they have.
         # The version makes reports stored before the crankset and the hover on each row run again.

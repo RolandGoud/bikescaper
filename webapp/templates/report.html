@@ -86,7 +86,9 @@
   {# Only the facts the ad gives: a tile with nothing in it is left out, also in the edit mode, where the card's one
      pencil sets the year, size and groupset. The groupset is the one the ad names, else the one its photos show. #}
   {% set ad_group = r.ad_groupset if r.ad_groupset is defined else ({'label': c.groupset.label, 'from_photos': False} if c.groupset else None) %}
-  {% if c.year %}{% if facts.append((_('Year'), c.year, 'year')) %}{% endif %}{% endif %}
+  {# The year only when the ad itself gives it: a year set by hand (the match's year) is the one we go by, not the ad's. #}
+  {% set ad_year = r.ad_year if r.ad_year is defined else c.year %}
+  {% if ad_year %}{% if facts.append((_('Year'), ad_year, None)) %}{% endif %}{% endif %}
   {% if c.size %}{% if facts.append((_('Size'), c.size, 'size')) %}{% endif %}{% endif %}
   {% if ad_group %}{% if facts.append((_('Groupset'), ad_group.label, 'photos' if ad_group.from_photos else 'groupset')) %}{% endif %}{% endif %}
   {# The colour only when the ad names one; the colour we go by is in "Our match", where it can be set. #}
@@ -187,7 +189,7 @@
   {# The card: the catalogue photo of the bike (in the ad's colour and year when we have it), the model and how sure
      we are, the frame check, and under them the model year, colour and groupset we go by. #}
   {% set shown_colour = r.colour_set or r.colour_typed or colour %}
-  {% set yr = c.year %}{% set ag = r.age %}
+  {% set yr = ad_year %}{% set ag = r.age %}
   {% set ys = 'warn' if not yr else ag.status if ag.status in ('ok', 'warn', 'bad') else 'unknown' %}
   {% set sc = {'ok': 'var(--ok)', 'warn': 'var(--warn)', 'bad': 'var(--bad)', 'unknown': 'var(--unknown)'} %}
   {# The facts' colours on the card, so the rail before each can blend into it. #}
@@ -221,9 +223,12 @@
     <div class="ms-facts">
       {# The year: green when the ad's year falls in the years the model was sold; amber or red only for a real clash
          (before its launch, after it was replaced, an earlier generation). Doubts from the parts stay in the age tab. #}
-      <div tabindex="0" class="ms-check ms-fact {{ ys }}"><span class="k">{{ _('Model year')|upper }} {{ lock('year') }}</span>
-        <b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ r.year.year }}</b>
-        {% set note = r.year.note or (_('No year in the ad') ~ ' · ' ~ _('Ask for the invoice or the serial number.') if not yr else _('{year} fits this model', year=yr) if ys == 'ok' else ag.headline) %}
+      {# Only the year the ad gives (check 218): with none, "Not known", whatever year the match goes by. #}
+      <div tabindex="0" class="ms-check ms-fact {{ ys }}"><span class="k">{{ _('Model year')|upper }}</span>
+        {% if yr %}<b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ yr }}</b>
+        {% else %}<b class="muted"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ _('Not known') }}</b>{% endif %}
+        {% set note = (_('No year in the ad') ~ ' · ' ~ _('Ask for the invoice or the serial number.') if not yr else r.year.note or (_('{year} fits this model', year=yr) if ys == 'ok' else ag.headline)) %}
+        {% if r.year and r.year.year != yr %}{% set note = note ~ ' · ' ~ _('We go by {year} for the price and the specs.', year=r.year.year) %}{% endif %}
         <small role="tooltip">{{ note }}</small></div>
       <div tabindex="0" class="ms-check ms-fact {{ 'ok' if shown_colour else 'unknown' }}"><span class="k">{{ _('Colour')|upper }} {{ lock('colour') }}</span>
         {% if shown_colour %}<b>{% if shown_colour|swatch_css %}<i class="sw" style="background: {{ shown_colour|swatch_css }}"></i>{% endif %}<span>{{ shown_colour }}</span></b>
