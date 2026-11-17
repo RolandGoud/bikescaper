@@ -3,3 +3,4 @@
 21559  FX Sport 4 (2018-2019)
 22632  Checkpoint SL 5 (2019), only listed on the Swedish site
 21713  Émonda SLR 8 (2018), check 216: no Wayback listing has it
+22010  Émonda SLR 8 Disc (2018), check 216: same line as 21713 for line_of(), so added by hand

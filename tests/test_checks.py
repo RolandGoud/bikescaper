@@ -1733,6 +1733,11 @@ def test_the_2018_emonda_slr_8_is_in_the_catalogue(models):
         assert r["model"]["name"] == "Émonda SLR 8", title
     r = checks.run_check(models, {"title": "Trek Émonda SLR 8 2018", "description": "Dura-Ace"})
     assert r["model"]["name"] == "Émonda SLR 8" and r["year"]["year"] == 2018
+    # Trek sold a "Disc" next to it the same year (product 22010): the ad's brakes pick between the two.
+    r = checks.run_check(models, {"title": "Trek Emonda SLR 8 56cm", "description": "Dura-Ace hydraulische schijfremmen"})
+    assert r["model"]["name"] == "Émonda SLR 8 Disc"
+    r = checks.run_check(models, {"title": "Trek Émonda SLR 8 Disc", "description": "Dura-Ace, velgremmen"})
+    assert r["model"]["name"] == "Émonda SLR 8 Disc"  # the name wins over a brake word
 
 
 def test_a_two_tone_colour_shows_its_own_photo_not_another_with_the_same_first_part(models):
