@@ -50,6 +50,8 @@
 {{ path_group('<span class="effort check">!</span>'|safe, 'check-fit', _(fit['check'][0]), _(fit['check'][1]) ~ ' ' ~ _('For example a UDH dropout, internal routing for wired Di2 or EPS, or a front derailleur mount.'), items_|selectattr('1.fit', 'equalto', 'check')|list, full, true, note=_(advise_against) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'equalto', 4)|list else _(not_worth_it) if items_|selectattr('1.fit', 'equalto', 'check')|selectattr('1.effort', 'ge', 3)|list) }}
 {{ path_group('<span class="effort nofit" aria-hidden="true">✕</span>'|safe, 'no-fit', _(fit['no'][0]), _(fit['no'][1]), items_|selectattr('1.fit', 'equalto', 'no')|list, full) }}
 {%- endmacro %}
+{# In the head, so the browser fetches it while the page is still coming in and the lines draw with the tiles. #}
+{% block head %}<script src="{{ url_for('static', filename='groupsets.js') }}" defer></script>{% endblock %}
 {% block body %}
 <main class="wrap page" data-not-advised="{{ _('Not advised') }}">
   <div class="stack" style="gap: 8px">
@@ -84,14 +86,14 @@
         {% set row_icons = {'mech': '<svg viewBox="0 0 24 24"><path d="M3 18c4 0 4-12 9-12s5 12 9 12"/></svg>', 'wired': '<svg viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg>', 'wireless': '<svg viewBox="0 0 24 24"><path d="M4.5 9.5a11 11 0 0 1 15 0M7.5 13a6.5 6.5 0 0 1 9 0"/><circle cx="12" cy="17" r="1.2"/></svg>'} %}
         {% set rows = shift_rows(steps) or [(none, none)] %}
         {% if rows[0][0] %}<div class="row-gutter" aria-hidden="true"></div>{% endif %}{# keeps the labels' column free in the tier row #}
-        {% for t, _series, _up in cols %}<div class="tier-span">{{ tier_badge(t, small=true) }}</div>{% endfor %}
+        {% for t, _series, _up in cols %}<div class="tier-span" style="--c: {{ loop.index0 }}">{{ tier_badge(t, small=true) }}</div>{% endfor %}
         <ol class="ladder-steps">
         {% for row, row_label in rows %}
         {% set row_i = loop.index0 %}
         {% if row_label %}<li class="row-label row-{{ row_i }} {{ row }}" aria-hidden="true">{{ row_icons[row]|safe }}<span>{{ _(row_label) }}</span></li>{% endif %}
         {% for t, series, up in cols %}
         {% set level = loop.index0 and not up and not row_i %}
-        <li class="step row-{{ row_i }}{{ ' ' ~ row if row }}{{ ' up' if up and not row_i }}{{ ' level' if level }}" data-col="{{ loop.index0 }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
+        <li class="step row-{{ row_i }}{{ ' ' ~ row if row }}{{ ' up' if up and not row_i }}{{ ' level' if level }}" data-col="{{ loop.index0 }}" style="--c: {{ loop.index0 }}"{% if level %} title="{{ _('Same level: no upgrade from the column before') }}"{% endif %}>
           {% if level %}<span class="sr-only">{{ _('Same level: no upgrade from the column before') }}</span>{% endif %}
           {% for s in series %}
           {% set gens = s.gens if row is none else s.gens|selectattr('key', 'in', row_keys(s, row))|list %}
@@ -168,5 +170,4 @@
     <p>{{ _("Rules of thumb for swapping a whole groupset, from the makers' compatibility charts. Check the exact parts with your bike shop before you buy: frames, cranks and wheels have their own limits.") }}</p>
   </div>
 </main>
-<script src="{{ url_for('static', filename='groupsets.js') }}" defer></script>
 {% endblock %}
