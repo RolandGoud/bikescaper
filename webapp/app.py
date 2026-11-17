@@ -1265,7 +1265,6 @@ def create_app(db_path=None):
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                size_chart=size_chart, size_note=checks.size_note(size_chart, model["brand"]),
                                size_height=height, size_fits=fits, size_near=near,
-                               size_system_short={"Frame size (cm)": "Frame size", "Letter sizes": "Letter size"},
                                asking=prices.asking_price(known, model["id"],
                                                           prices.period_of(request.args.get("period", type=int))),
                                alert_form={"model": alerts.model_label(model), "family": alerts.family_label(model),

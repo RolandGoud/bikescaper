@@ -2341,13 +2341,14 @@ def test_model_page_lights_up_the_sizes_for_your_height(tmp_path):
     page = client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
     # Without a height every pill shows plainly, each range with its cm, and the summary is empty.
     assert 'class="size-pills"' in page and "174–180 cm</small>" in page and 'class="on" data-size' not in page
+    assert "Vul je lengte in en zie welke maat past." in page
     page = client.get("/models/trek-domane-al-2-gen-4?lang=nl&height=178").get_data(as_text=True)
     chart = checks.model_size_chart(next(m for m in db.all_models(db.connect(app.config["DB_PATH"]))
                                          if m["slug"] == "trek-domane-al-2-gen-4"))
     fits = [k for k, (lo, hi) in chart["sizes"].items() if lo <= 178 <= hi]
     assert fits and 'class="size-pills fitted"' in page
     for k in fits:
-        assert f'class="on" data-size="{k}"' in page and f'<span class="size-chip">{k} ' in page
-    assert "Framemaat" in page and "size-fit.js" in page
+        assert f'class="on" data-size="{k}"' in page and f"<strong>{k}</strong>" in page
+    assert "Bij 178 cm:" in page and "size-fit.js" in page
     # A height no size fits says so.
     assert "Geen maat past bij 125 cm." in client.get("/models/trek-domane-al-2-gen-4?lang=nl&height=125").get_data(as_text=True)
