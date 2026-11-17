@@ -2313,3 +2313,22 @@ def test_a_brand_still_selling_an_earlier_model_year_shows_that_year_only():
     assert checks.shown_years(newer, today)[1] is None
     # This year's model is untouched.
     assert checks.shown_years(dict(model, model_year=2026), today)[:2] == (2026, None)
+
+
+def test_model_page_lights_up_the_sizes_for_your_height(tmp_path):
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    page = client.get("/models/trek-domane-al-2-gen-4?lang=nl").get_data(as_text=True)
+    # Without a height every pill shows plainly, each range with its cm, and the summary is empty.
+    assert 'class="size-pills"' in page and "174–180 cm</small>" in page and 'class="on" data-size' not in page
+    page = client.get("/models/trek-domane-al-2-gen-4?lang=nl&height=178").get_data(as_text=True)
+    chart = checks.model_size_chart(next(m for m in db.all_models(db.connect(app.config["DB_PATH"]))
+                                         if m["slug"] == "trek-domane-al-2-gen-4"))
+    fits = [k for k, (lo, hi) in chart["sizes"].items() if lo <= 178 <= hi]
+    assert fits and 'class="size-pills fitted"' in page
+    for k in fits:
+        assert f'class="on" data-size="{k}"' in page and f'<span class="size-chip">{k} ' in page
+    assert "Framemaat" in page and "size-fit.js" in page
+    # A height no size fits says so.
+    assert "Geen maat past bij 125 cm." in client.get("/models/trek-domane-al-2-gen-4?lang=nl&height=125").get_data(as_text=True)

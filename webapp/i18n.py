@@ -577,6 +577,9 @@ NL = {
     "Sizes": "Maten",
     "Under each size: stack / reach in mm.": "Onder elke maat: stack / reach in mm.",
     "Frame size (cm)": "Framemaat (cm)",
+    "Letter size": "Lettermaat",
+    "or": "of",
+    "No size fits {height} cm.": "Geen maat past bij {height} cm.",
     "Letter sizes": "Lettermaten",
     "Other {family} models": "Andere {family}-modellen",
 
