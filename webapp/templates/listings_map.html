@@ -16,7 +16,7 @@
     <h1 style="font-size: 44px">{{ _('Ads on the map') }}</h1>
     <p class="muted">{{ _('Where the checked bikes are. Click a pin or a town to find its ads.') }}</p>
   </div>
-  {# Back to the listings as cards or as a table; on a wide screen the listings have a small map alongside. #}
+  {# Back to the listings as cards or as a table; the map is only here, not beside them. #}
   <nav class="view-switch" aria-label="{{ _('Views') }}">
     <a href="{{ url_for('listings') }}">{{ view_icon('cards') }}{{ _('Cards') }}</a>
     <a href="{{ url_for('listings', view='table') }}">{{ view_icon('table') }}{{ _('Table') }}</a>
