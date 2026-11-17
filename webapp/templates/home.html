@@ -86,10 +86,11 @@
     <h2 style="font-size: 24px">{{ _('Brands we cover') }}</h2>
     <p class="muted">{{ _("Reference data comes from the brands' own Dutch catalogues. Dashed brands are coming next.") }}</p>
   </div>
-  <div class="row">
+  <div class="row home-brands">
     {% for b in brands %}
-      {% if b.scraper %}<a class="pill brand" href="{{ url_for('catalog', brand=b.name) }}">{{ brand_label(b) }}</a>
-      {% else %}<span class="pill brand soon" title="{{ _('Coming next') }}">{{ brand_label(b) }}</span>{% endif %}
+      {%- set corner %}{% if b.logo %}<span class="brand-corner" aria-hidden="true" style="--logo: url('{{ url_for('static', filename=b.logo) }}')"></span>{% endif %}{% endset %}
+      {% if b.scraper %}<a class="pill brand" href="{{ url_for('catalog', brand=b.name) }}"{% if brand_colours[b.name] %} style="--bc: {{ brand_colours[b.name] }}"{% endif %}>{{ corner }}{{ brand_label(b) }}</a>
+      {% else %}<span class="pill brand soon" title="{{ _('Coming next') }}"{% if brand_colours[b.name] %} style="--bc: {{ brand_colours[b.name] }}"{% endif %}>{{ corner }}{{ brand_label(b) }}</span>{% endif %}
     {% endfor %}
   </div>
 </section>

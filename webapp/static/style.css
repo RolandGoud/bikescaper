@@ -1578,6 +1578,18 @@ select { max-width: 100%; }
   -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
 .brand-kinds b { flex: none; margin-left: auto; color: var(--bc); font-style: italic; white-space: nowrap; }
 @media (max-width: 900px) { .size-brands { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* The home page's brands: small tiles like the size finder's brand cards, four to a row (three on a phone), each with
+   its brand's glow and its logo large, faded and tilted in the lower right, centred in its box so short wide logos
+   stay inside the tile. */
+.home-brands { display: grid; grid-template-columns: repeat(4, 118px); gap: 8px; }
+.home-brands .pill.brand { position: relative; overflow: hidden; --bc: var(--accent); height: 58px; padding: 0 12px; border-radius: 12px;
+  border-color: var(--line); color: var(--text);
+  background: radial-gradient(130% 150% at 100% 100%, color-mix(in srgb, var(--bc) 36%, transparent), transparent 62%), linear-gradient(135deg, var(--raised), var(--ink)); }
+.home-brands .pill.brand:hover { border-color: var(--bc); box-shadow: 0 6px 22px color-mix(in srgb, var(--bc) 24%, transparent); }
+.home-brands .pill.soon { border-color: var(--line-strong); }
+.home-brands .brand-corner { right: -14px; bottom: 2px; width: 92px; height: 26px; opacity: 0.3; transform: rotate(-12deg);
+  -webkit-mask-position: right center; mask-position: right center; }
+.home-brands .pill-logo { position: relative; width: 80px; height: 18px; -webkit-mask-position: left center; mask-position: left center; }
 .bike-types { display: flex; flex-direction: column; justify-content: center; gap: var(--type-gap, 6px); }
 .bike-types a { display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; border-radius: 12px; border: 1px solid transparent; color: var(--muted); font-weight: 600; font-size: 14px; text-decoration: none; }
 .bike-types a:hover { color: var(--text); }
@@ -1600,6 +1612,9 @@ select { max-width: 100%; }
   .size-brands .brand-corner { display: block; width: 150px; height: 46px; right: -16px; bottom: -10px; --road: 150px; }
   .size-brands .brand-kinds i { display: none; }
   .size-brands .brand-kinds b { margin-left: 0; }
+  .home-brands { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .home-brands .brand-corner { display: block; }
+  .home-brands .pill-logo { width: 70px; }
   .brand-ladders .ladder { padding: 0; margin: 0; }
   .brand-ladders .ladder > .tier-span { display: none; }
   .brand-ladders .step.up::before, .brand-ladders .step.level::before { left: calc(50% - 12px); top: -24px; }

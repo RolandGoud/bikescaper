@@ -471,7 +471,7 @@ def create_app(db_path=None):
     @app.context_processor
     def globals_():
         return {"brands": BRANDS, "logos": {b["name"]: b["logo"] for b in BRANDS if b.get("logo")},
-                "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
+                "brand_colours": BRAND_COLOURS, "status_labels": STATUS_LABELS, "charted": SIZE_CHARTS,
                 "lang": g.get("lang", DEFAULT_LANGUAGE),
                 "languages": LANGUAGES, "lang_url": lang_url, "this_page": this_page, "on_map": on_map,
                 "periods": prices.PERIODS, "kind_labels": dict(DISCIPLINES + OTHER),
