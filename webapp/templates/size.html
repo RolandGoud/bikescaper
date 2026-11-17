@@ -16,7 +16,7 @@
   ("family", _("Model"), family.name if family else _("All models") if all_models else none, url_for('size_finder', step='family', brand=brand, type=kind, height=height) if kind),
   ("version", _("Version"), (line.label if line and not single) or none, url_for('size_finder', step='version', brand=brand, family=family.name, height=height) if family and not single),
   ("height", _("Your height"), none, url_for('size_finder', brand=brand, model=line.key if line, family='all' if all_models and not line, height=height) if line or all_models)] %}
-<nav class="wizard size-wizard" aria-label="{{ _('Size finder') }}"><ol>
+<nav class="wizard size-wizard" aria-label="{{ _('Size finder') }}" data-step="{{ at }}"{% if kind and kind != 'other' %} data-kind="{{ kind }}"{% endif %} data-icons="{{ url_for('static', filename='types/') }}"><ol>
   {% for key, label, picked, href in steps %}
   <li class="{{ 'on' if key == step else 'done' if loop.index0 < at and picked }}">
     {% if href and key != step %}<a href="{{ href }}">{% else %}<span{% if key == step %} aria-current="step"{% endif %}>{% endif %}
@@ -25,6 +25,7 @@
   </li>
   {% endfor %}
 </ol></nav>
+<script src="{{ url_for('static', filename='size-peloton.js') }}" defer></script>
 
 <section class="card size-step">
   {% if step == "brand" %}

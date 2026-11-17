@@ -2235,6 +2235,18 @@ select { max-width: 100%; }
 .size-wizard li.on > span { opacity: 1; color: var(--text); }
 .size-wizard li > a:hover { color: var(--text); }
 .size-wizard .lbl small { display: block; overflow: hidden; text-overflow: ellipsis; color: var(--text); font-weight: 500; font-size: 13px; }
+/* The peloton on the size finder's bar (size-peloton.js): bike icons ride on top of the step lines, the pack in grey
+   in two rows, the breakaway in green. The bar leaves room above the lines for them. */
+.size-wizard { position: relative; padding-top: 24px; }
+.peloton { position: absolute; left: 0; right: 0; top: 3px; height: 20px; pointer-events: none; }
+.peloton span { position: absolute; left: 0; bottom: 0; width: 30px; height: 19px; background: #8A8D98;
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+  transition: transform 1.4s cubic-bezier(.35, .05, .25, 1); animation: pel-wobble 1s ease-in-out infinite alternate; }
+.peloton span.back { opacity: .55; }
+.peloton span.brk { background: var(--accent); }
+.peloton.phone span { width: 22px; height: 14px; }
+@keyframes pel-wobble { from { margin-left: -2px; } to { margin-left: 2px; margin-bottom: 1px; } }
+@media (prefers-reduced-motion: reduce) { .peloton span { animation: none; transition: none; } }
 .size-step h2 { margin: 0; }
 .pick-pills { display: flex; flex-wrap: wrap; gap: 8px; }
 /* The model and version steps: a card per choice, the catalogue photo above its name. */
