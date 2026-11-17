@@ -1754,6 +1754,20 @@ def test_the_2018_emonda_slr_8_is_in_the_catalogue(models):
     assert r["model"]["name"] == "Émonda SLR 8 Disc"  # the name wins over a brake word
 
 
+def test_the_2022_tcr_advanced_pro_disc_1_is_the_tcr_advanced_pro_1_discs_2022(models):
+    # Check 105: Giant product 2759, the "TCR Advanced Pro Disc 1" (Giant's Dutch site: "... Disc 1 UT"), is the 2022
+    # year of the TCR Advanced Pro 1 Disc (data/years/folded.json), not a model of its own the ad's name half fits.
+    assert not [m for m in models if m["name"] == "TCR Advanced Pro Disc 1 UT"]
+    for title in ("Giant TCR Advanced Pro Disc 1", "Giant TCR Advanced Pro 1 Disc 2022"):
+        r = checks.run_check(models, {"title": title, "description": "Shimano Ultegra, PowerPro, SLR 1 42 carbon"})
+        assert r["model"]["name"] == "TCR Advanced Pro 1 Disc" and r["spec_year"] == 2022, title
+    # No "Disc" in the title: the brakes pick between it and the 2016-2020 rim-brake TCR Advanced Pro 1.
+    r = checks.run_check(models, {"title": "Giant TCR Advanced Pro 1", "description": "Ultegra, hydraulische schijfremmen"})
+    assert r["model"]["name"] == "TCR Advanced Pro 1 Disc"
+    r = checks.run_check(models, {"title": "Giant TCR Advanced Pro 1", "description": "Ultegra, velgremmen"})
+    assert r["model"]["name"] == "TCR Advanced Pro 1"
+
+
 def test_a_two_tone_colour_shows_its_own_photo_not_another_with_the_same_first_part(models):
     for text in ("Trek Émonda SLR 7 Navy Carbon Smoke / Viper Red", "Trek Emonda SLR 7 blauw rood"):
         r = checks.run_check(models, {"title": text, "description": "12 speed"})

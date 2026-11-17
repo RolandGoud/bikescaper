@@ -1411,9 +1411,10 @@ def match_models(models, title, description="", claims=None):
         if group and bool(group.get("electronic")) != electronic:
             score -= 0.5  # the ad says Di2 and this build shifts by cable, or the other way round
         if claims["brakes"] and twins[(model["brand"], re.sub(r"\s+Disc\b", "", model["name"], flags=re.I))] > 1:
-            ours = ref_brakes(model)
-            if ours:
-                score += 0.5 if ours == claims["brakes"] else -0.5
+            # (the one of the pair without "Disc" in its name has rim brakes when its sheet doesn't say: Giant's
+            # 2016-2020 TCR Advanced Pro 1 next to the TCR Advanced Pro 1 Disc, check 105)
+            ours = ref_brakes(model) or ("Disc" if re.search(r"\bDisc\b", model["name"], re.I) else "Rim")
+            score += 0.5 if ours == claims["brakes"] else -0.5
         if _colour_named(model, f"{title} {description}"):
             score += 1.0  # the seller copied the brand's colour name: that colourway's model
         ranked.append((round(score, 2), model))
