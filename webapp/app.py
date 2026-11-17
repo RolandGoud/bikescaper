@@ -1228,6 +1228,11 @@ def create_app(db_path=None):
                                                 and checks.site_split(m)[0] == own)]),
                           key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
         size_chart = checks.model_size_chart(model)
+        # ?height= lights up the sizes that fit it (size-fit.js does the same as you type, from this browser's height).
+        height = request.args.get("height", type=int)
+        height = height if height and 120 <= height <= 220 else None
+        fits = {k for k, (lo, hi) in size_chart["sizes"].items() if height and lo <= height <= hi}
+        near = {k for k, (lo, hi) in size_chart["sizes"].items() if height and k not in fits and lo - 4 <= height <= hi + 4}
         known = prices.known_ads(conn(), models())
         priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
@@ -1255,6 +1260,8 @@ def create_app(db_path=None):
                                status=checks.catalogue_status(model),
                                discipline=dict(DISCIPLINES + OTHER)[checks.discipline_of(model)],
                                size_chart=size_chart, size_note=checks.size_note(size_chart, model["brand"]),
+                               size_height=height, size_fits=fits, size_near=near,
+                               size_system_short={"Frame size (cm)": "Frame size", "Letter sizes": "Letter size"},
                                asking=prices.asking_price(known, model["id"],
                                                           prices.period_of(request.args.get("period", type=int))),
                                alert_form={"model": alerts.model_label(model), "family": alerts.family_label(model),
