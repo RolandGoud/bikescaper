@@ -2111,7 +2111,7 @@ def test_model_page_heading_is_a_stage_with_the_model_card_and_second_hand_last(
     assert stage < card < page.index('id="spec-sheet"') < strip  # the second-hand card comes last
     assert "match-strip used-strip" not in page
     assert 'class="price-sticker"><b data-fact="sticker">' in page and "NIEUWPRIJS" in page
-    assert '<span class="acc">' in page[stage:card] and "Het model" in page and "Tweedehands" in page
+    assert '<span class="acc">' in page[stage:card] and "Het model: Giant Defy Advanced 2<" in page and "Tweedehands" in page
     assert 'href="#spec-sheet"' in page and 'id="spec-sheet"' in page
     assert 'href="/value?model=giant-defy-advanced-2"' in page[strip:]
 
