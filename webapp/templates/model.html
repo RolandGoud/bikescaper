@@ -288,7 +288,7 @@
   {% endif %}
   {# Last on the page: what it sells for second-hand, and the ads matched to it. #}
   <div class="block-head"><span>{{ _('Second-hand') }}</span></div>
-  {{ asking_card(asking, ads, m) }}
+  {{ asking_card(asking, ads, m, alternates) }}
   {% if alert_form %}
   {# A price alert: an email when a new ad for this model asks less than its fair price (webapp/alerts.py). #}
   <section class="card alert-card" id="alert">
