@@ -1621,6 +1621,15 @@ select { max-width: 100%; }
   .brand-ladders .step.up::before { transform: rotate(90deg); }
 }
 .brand-ladders .gen { position: relative; z-index: 2; }
+/* The chart's entrance when the page opens or switches brand or type (the lines sweep in from static/groupsets.js).
+   Ride: the tier columns roll in from the right one after another, with the Breakaway easing of the brand cards.
+   Not when a groupset is picked on the same chart (.calm: the tiles glide there), nor with reduced motion. */
+@keyframes chart-ride { from { opacity: 0; transform: translateX(18px); } }
+@keyframes chart-fade { from { opacity: 0; } }
+.brand-ladders:not(.calm) :is(.ladder > .tier-span, .step) {
+  animation: chart-ride .26s cubic-bezier(.2, .8, .2, 1) calc(var(--c, 0) * 40ms) backwards; }
+.brand-ladders:not(.calm) :is(.row-label, .ladder-label) { animation: chart-fade .2s ease-out backwards; }
+@media (prefers-reduced-motion: reduce) { .brand-ladders, .brand-ladders * { animation: none !important; } }
 ::view-transition-group(*) { animation-duration: 0.42s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
 
 /* Groupset shop page: one button per web shop. */
