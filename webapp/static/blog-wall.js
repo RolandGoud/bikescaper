@@ -53,7 +53,8 @@
       a.addEventListener("click", function (ev) {
         if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;  // new tab: leave it to the browser
         ev.preventDefault();
-        if (a.getAttribute("aria-current") !== "page") show(a.href, true);
+        // (not by its aria-current: static/instant-on.js has already moved that to the clicked pill)
+        if (a.href.split("#")[0] !== location.href.split("#")[0]) show(a.href, true);
       });
     });
   }
