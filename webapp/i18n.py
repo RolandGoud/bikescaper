@@ -717,6 +717,8 @@ NL = {
     "{family} gen {gen}: sold from {years}.": "{family} gen {gen}: verkocht vanaf {years}.",
     "Rim brakes on a carbon road bike: {year} or older.": "Velgremmen op een carbon racefiets: {year} of ouder.",
     "Trek's '{name}' naming: {year} or older.": "Treks naam '{name}': {year} of ouder.",
+    "An aluminium {brand} {family}: {year} or older; since then it's carbon only.":
+        "Een aluminium {brand} {family}: {year} of ouder; daarna alleen nog carbon.",
     "Colour '{colour}' is in {brand}'s {year} photos.": "Kleur '{colour}' staat in de foto's van {brand} uit {year}.",
     "Details disagree": "Details spreken elkaar tegen",
     "The parts and colour point to different years; some parts may have been swapped.":
