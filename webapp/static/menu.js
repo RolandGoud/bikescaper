@@ -39,3 +39,5 @@ document.addEventListener("click", (e) => {
   e.preventDefault();
   setTimeout(() => { window.location.href = card.href; }, 350);
 });
+// The back button brings the page back from the browser's cache as it was, sprint and all: stop it.
+addEventListener("pageshow", () => document.querySelectorAll(".brand-cards a.go").forEach((a) => a.classList.remove("go")));
