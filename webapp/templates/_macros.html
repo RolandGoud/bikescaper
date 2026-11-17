@@ -213,7 +213,7 @@
 {# The model page's second-hand card. Left: the period switch, the price (the median, else the one or few asking
    prices there are), how many ads and their range, and a line with a dot per ad price. Right: every ad matched
    to the model as a photo card, also the ones gone from the site, newest first. #}
-{% macro asking_card(a, ads, m) -%}
+{% macro asking_card(a, ads, m, alternates=[]) -%}
 <section class="card asking-card" id="asking">
   <div class="asking-side">
     <h2>{{ _('Second-hand asking price') }}</h2>
@@ -224,6 +224,8 @@
       <div><dt>{{ _('Median') if a.enough else _('Price') }}</dt><dd>{% if a.enough %}{{ a.median|eur }}{% elif a.count and a.low == a.high %}{{ a.low|eur }}{% elif a.count %}{{ a.low|eur }}–{{ a.high|eur }}{% else %}–{% endif %}</dd></div>
       <div><dt>{{ _('Ads') }}</dt><dd>{{ a.count }}</dd></div>
       {% if a.enough %}<div><dt>{{ _('Range') }}</dt><dd>{{ a.low|eur }}–{{ a.high|eur }}</dd></div>{% endif %}
+      {% if alternates %}{% set alt_prices = alternates|map(attribute='0.asking_price')|select|list %}
+      {% if alt_prices %}<div class="alt-row"><dt>{{ _('Alternatives') }}</dt><dd>{% if alt_prices|min == alt_prices|max %}{{ alt_prices|min|eur }}{% else %}{{ alt_prices|min|eur }}–{{ alt_prices|max|eur }}{% endif %}</dd></div>{% endif %}{% endif %}
     </dl>
     {% if a.count and a.high > a.low %}
     {% set span = a.high - a.low %}
@@ -233,7 +235,7 @@
       <div class="ends"><span>{{ a.low|eur }}</span><span>{{ a.high|eur }}</span></div>
     </div>
     {% endif %}
-    <p class="asking-hint">{% if not a.count %}{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}{% elif not a.enough %}{{ _('We show a typical price from {needed} ads.', needed=a.needed) }}{% else %}{{ _('Last {days} days.', days=a.days) }}{% endif %}</p>
+    <p class="asking-hint">{% if not a.count and alternates %}{{ _('No ads for this model in the last {days} days yet. Alternatives are other bikes for sale and don\'t count in its price.', days=a.days) }}{% elif not a.count %}{{ _('No ads for this model in the last {days} days yet.', days=a.days) }}{% elif not a.enough %}{{ _('We show a typical price from {needed} ads.', needed=a.needed) }}{% else %}{{ _('Last {days} days.', days=a.days) }}{% endif %}</p>
     <a class="btn ghost asking-estimate" href="{{ url_for('value', model=m.slug) }}">{{ _('Estimate a used price') }}</a>
   </div>
   <div class="asking-ads" id="ads">
@@ -246,10 +248,31 @@
       {% if not row.in_price %}<small>{{ _('not in the asking price') }}</small>{% endif %}
     </a>
     {% else %}
-    <p class="muted">{{ _('No ads matched to this model yet.') }}</p>
+    {% if alternates %}{{ alternate_ads(alternates, m) }}{% else %}
+    <p class="muted">{{ _('No ads matched to this model yet.') }}</p>{% endif %}
     {% endfor %}
   </div>
 </section>
+{%- endmacro %}
+
+
+{# The model page's alternates when no ad is matched to the model: the nearest bikes for sale (webapp/close_ads.py) in a
+   dashed frame headed Alternatives, each tile naming its own model and how close it is, so nobody takes them for this model. #}
+{% set step_labels = {'build': 'Other build', 'line': 'Same model line', 'brand': 'Same brand', 'similar': 'Similar bike'} %}
+{% macro alt_tile(row, other, step, m) -%}
+<a class="ad-tile alt-tile" href="{{ url_for('report', check_id=row.id) }}" title="{{ other.brand }} {{ other.name|model_title }}">
+  <span class="thumb">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(other) }}{% endif %}{% set g = gone(row) %}{% if g %}<span class="removed-tag {{ g.kind }}" title="{{ g.tip }}">{{ g.short }}</span>{% else %}<span class="alt-chip {{ step }}">{{ _(step_labels[step]) }}</span>{% endif %}</span>
+  <span class="alt-name">{% if other.brand != m.brand %}{{ other.brand }} {% endif %}{{ other.name|model_title }}</span>
+  <b>{{ row.asking_price|eur }}</b>
+  <small>{{ row.created_at[:10] }}{% if row.location %} · {{ row.location }}{% endif %}</small>
+</a>
+{%- endmacro %}
+{% macro alternate_ads(alternates, m) -%}
+  <div class="alt-frame">
+    <span class="alt-flag">{{ _('Alternatives') }}</span>
+    <p class="alt-intro">{{ _('No exact match for the {model} yet. These come closest, from other builds to similar bikes.', model=m.brand ~ ' ' ~ m.name|model_title) }}</p>
+    <div class="alt-grid">{% for row, other, step in alternates %}{{ alt_tile(row, other, step, m) }}{% endfor %}</div>
+  </div>
 {%- endmacro %}
 
 

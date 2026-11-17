@@ -24,7 +24,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import photo_review as sell_review
-from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
+from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, close_ads, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRAND_COLOURS, BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS,
                         TIER_EXAMPLES, TIERS)
@@ -1237,9 +1237,13 @@ def create_app(db_path=None):
         priced = {i for a in known if a["model_id"] == model["id"] for i in a["check_ids"]}
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         # Newest first, but the expired ads ("Verlopen") at the bottom: they're no longer for sale.
-        newest = sorted(matched_ads(rows, models()).get(model["id"], []), key=lambda a: a[0]["created_at"], reverse=True)
+        matched = matched_ads(rows, models())
+        newest = sorted(matched.get(model["id"], []), key=lambda a: a[0]["created_at"], reverse=True)
         ads = [(dict(listing_dict(r, count=n), in_price=r["id"] in priced), stored_check(listing_dict(r)))
                for r, n in sorted(newest, key=lambda a: ad_gone.expired(a[0]))]
+        # No ad of its own: the nearest bikes that are for sale instead, marked as alternatives (webapp/close_ads.py)
+        alternates = [] if ads else [(listing_dict(r, count=n), other, step)
+                                     for r, n, other, step in close_ads.close_ads(model, models(), matched)]
         year_tabs = checks.year_tabs(model)
         # Years before the first one with a photo or a spec sheet say nothing: the row starts there. A gap between
         # two shown years stays, and the last year always shows.
@@ -1254,7 +1258,7 @@ def create_app(db_path=None):
         # A discontinued line's own photo and colours are of all its years at once: it opens on its newest year instead.
         if "/archived/" in (model.get("source_file") or "") and any(t.get("image") for t in year_tabs):
             model = dict(model, image=None, colorways=None)
-        return render_template("model.html", ads=ads, m=model, years=shown, siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
+        return render_template("model.html", ads=ads, alternates=alternates, m=model, years=shown, siblings=siblings, builds=builds, levels=levels, here_level=checks.build_level(model) or "",
                                year_tabs=year_tabs, angles_now=GALLERIES.get(model.get("url")) or {},
                                specs=checks.spec_groups(model), tiers=checks.spec_tiers(model),
                                status=checks.catalogue_status(model),
