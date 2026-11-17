@@ -99,43 +99,19 @@
     svg.append(g);
   };
 
-  // The chart's entrance, when the page opens and when it switches to another brand or type: the tiles by CSS
-  // (style.css, so they come in on the first paint), the lines here as soon as they are drawn. Short, so the page
-  // stays quick to use. None with reduced motion.
-  const ENTER_MS = 600;
-  let entering = null;  // { at }: when the entrance started
-  // The column bands and then the lines sweep in from the left with the columns. `at`: how far in the entrance
-  // already is, when a redraw (fonts, resize) replaces them mid-way.
-  const enterLines = (section, back, svg, at) => {
-    if (!svg || still.matches) return;
-    const cols = Math.max(1, ...[...section.querySelectorAll(".ladder")].map((l) => l.querySelectorAll(":scope > .tier-span").length));
-    const sweep = (el, duration, delay, easing) => {
-      const a = el.animate([{ clipPath: "inset(-20px 100% -20px -20px)" }, { clipPath: "inset(-20px -20px -20px -20px)" }],
-                           { duration, delay, easing, fill: "backwards" });
-      a.currentTime = at;
-    };
-    sweep(back, 260 + cols * 40, 0, "ease-out");
-    sweep(svg, 260 + cols * 40, 60, "ease-out");
-  };
-
   const draw = (animate) => {
     main.querySelectorAll(".path-lines").forEach((s) => s.remove());
-    const phone = matchMedia("(max-width: 640px)").matches;
-    if (phone) {  // the ladders stack on phones: no lines, nothing greyed
+    if (matchMedia("(max-width: 640px)").matches) {  // the ladders stack on phones: no lines, nothing greyed
       main.querySelectorAll(".gen.off-path").forEach((el) => el.classList.remove("off-path"));
+      return;
     }
-    if (!phone) main.querySelectorAll(".brand-ladders").forEach((section) => {
+    main.querySelectorAll(".brand-ladders").forEach((section) => {
       const origin = section.getBoundingClientRect();
-      // Two layers: the column bands and row rules behind, the lines on top (so the lines can draw in on their own).
-      const layer = () => {
-        const s = document.createElementNS(NS, "svg");
-        s.classList.add("path-lines");
-        s.setAttribute("width", origin.width);
-        s.setAttribute("height", origin.height);
-        s.setAttribute("aria-hidden", "true");
-        return s;
-      };
-      const back = layer(), svg = layer();
+      const svg = document.createElementNS(NS, "svg");
+      svg.classList.add("path-lines");
+      svg.setAttribute("width", origin.width);
+      svg.setAttribute("height", origin.height);
+      svg.setAttribute("aria-hidden", "true");
       const all = tiles(section), here = all.find((t) => t.here);
       // A shaded band behind each tier column, from its tier label down to the bottom of the ladder.
       section.querySelectorAll(".ladder").forEach((ladder) => {
@@ -145,7 +121,7 @@
           Object.entries({ x: r.left - origin.left - 16, y: r.top - origin.top - 10, width: r.width + 32,
                            height: bottom - r.top + origin.top + 16, rx: 16, class: `col-band${i % 2 ? " even" : ""}` })
             .forEach(([k, v]) => band.setAttribute(k, v));
-          back.append(band);
+          svg.append(band);
         });
       });
       // Between the shifting rows (mechanical, wired, wireless), level with each side label: the same thin line as
@@ -162,7 +138,7 @@
             const rule = document.createElementNS(NS, "rect");
             Object.entries({ x: c.left - origin.left, y, width: c.width, height: 1, class: "row-rule" })
               .forEach(([k, v]) => rule.setAttribute(k, v));
-            back.append(rule);
+            svg.append(rule);
           });
         });
       });
@@ -243,70 +219,19 @@
       const anyPath = new Set(boldLinks.flatMap((l) => [l.from, l.to]));
       all.forEach((t) => t.el.classList.toggle("off-path", anyPath.size > 0 && !anyPath.has(t) && !t.here));
 
-      section.prepend(back, svg);
-      if (entering && performance.now() - entering.at < ENTER_MS) enterLines(section, back, svg, performance.now() - entering.at);
+      section.prepend(svg);
     });
-    if (animate && !entering) {
-      entering = { at: performance.now() };
-      main.querySelectorAll(".brand-ladders").forEach((section) => {
-        const [back, svg] = section.querySelectorAll(":scope > .path-lines");
-        enterLines(section, back, svg, 0);
-      });
-    }
   };
 
-  // In-place navigation. Pages are fetched as soon as the pointer is on a link (or a finger touches it), so most
-  // of the time the page is already here by the click.
-  const pages = new Map();  // url -> promise of the page's HTML
-  const page = (url) => {
-    if (!pages.has(url)) {
-      if (pages.size > 40) pages.delete(pages.keys().next().value);
-      pages.set(url, fetch(url).then((res) => {
-        if (!res.ok) throw new Error(res.status);
-        return res.text();
-      }).catch((err) => {
-        pages.delete(url);
-        throw err;
-      }));
-    }
-    return pages.get(url);
-  };
-  const NAV = "a.gen, .brand-cards a, .bike-types a, .clear-pick";
-  const warm = (e) => {
-    const link = e.target.closest?.(NAV);
-    if (link) page(link.href.split("#")[0]).catch(() => {});
-  };
-  main.addEventListener("pointerover", warm);
-  main.addEventListener("touchstart", warm, { passive: true });
-  main.addEventListener("focusin", warm);
-
-  // The brand cards and bike types stay in place through a switch (so a card's Breakaway sprint runs on), and only
-  // take the new page's state.
-  const keepPicker = (old, fresh) => {
-    const cards = old.querySelectorAll(".brand-cards a"), freshCards = fresh.querySelectorAll(".brand-cards a");
-    if (cards.length !== freshCards.length) return false;
-    cards.forEach((a, i) => {
-      const n = freshCards[i], go = a.classList.contains("go");
-      a.href = n.href;
-      a.className = n.className;
-      if (n.hasAttribute("aria-current")) a.setAttribute("aria-current", n.getAttribute("aria-current"));
-      else a.removeAttribute("aria-current");
-      if (go) {
-        a.classList.add("go");
-        setTimeout(() => a.classList.remove("go"), 500);
-      }
-    });
-    old.querySelector(".bike-types")?.replaceWith(fresh.querySelector(".bike-types"));
-    return true;
-  };
-
+  // In-place navigation.
   let latest = 0;
-  // morph: a groupset picked (or cleared) on the same chart, so the tiles glide; otherwise a new chart rides in.
-  const show = async (url, push, anchorKey, morph) => {
+  const show = async (url, push, anchorKey) => {
     const ticket = ++latest;
     let next;
     try {
-      next = new DOMParser().parseFromString(await page(url), "text/html");
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(res.status);
+      next = new DOMParser().parseFromString(await res.text(), "text/html");
       if (!next.querySelector("main.page")) throw new Error("no page");
     } catch {
       if (ticket === latest) location.href = url;
@@ -319,13 +244,7 @@
     const swap = () => {
       chosen = undefined;
       picked = new Map();
-      entering = null;
-      // A groupset picked on the same chart: the tiles glide (View Transitions), so they don't ride in again.
-      if (morph) next.querySelectorAll("main.page .brand-ladders").forEach((s) => s.classList.add("calm"));
-      const nodes = [...next.querySelector("main.page").childNodes];
-      const picker = main.querySelector(".brand-picker"), freshPicker = next.querySelector("main.page .brand-picker");
-      if (picker && freshPicker && keepPicker(picker, freshPicker)) nodes[nodes.indexOf(freshPicker)] = picker;
-      main.replaceChildren(...nodes);
+      main.replaceChildren(...next.querySelector("main.page").childNodes);
       const langs = document.querySelector(".lang-switch"), newLangs = next.querySelector(".lang-switch");
       if (langs && newLangs) langs.replaceWith(newLangs);
       document.title = next.title;
@@ -333,9 +252,9 @@
       const after = anchorOf(main)?.getBoundingClientRect().top;
       if (before !== undefined && after !== undefined) scrollBy(0, after - before);
       else if (!anchorKey && main.querySelector("#paths")) main.querySelector("#paths").scrollIntoView({ block: "start" });
-      draw(!morph);
+      draw(true);
     };
-    if (morph && document.startViewTransition && !still.matches) document.startViewTransition(swap);
+    if (document.startViewTransition && !still.matches) document.startViewTransition(swap);
     else swap();
   };
 
@@ -349,18 +268,15 @@
       draw(false);
       return;
     }
-    const link = e.target.closest(NAV);
+    const link = e.target.closest("a.gen, .brand-cards a, .bike-types a, .clear-pick");
     if (!link || !plain(e)) return;
     e.preventDefault();
     const key = link.matches("a.gen") ? link.dataset.key : null;  // keep the clicked tile in place, also when it clears
-    show(link.href.split("#")[0], true, key, link.matches("a.gen, .clear-pick"));
+    show(link.href.split("#")[0], true, key);
   });
   addEventListener("popstate", () => show(location.href, false));
 
-  // Draw straight away (this script is deferred, so the tiles are laid out), not after every logo has loaded, so
-  // the lines come in with the tiles; then again once the fonts and images are in, in case the tiles moved.
-  draw(true);
-  addEventListener("load", () => draw(false));
+  addEventListener("load", () => draw(true));
   addEventListener("resize", () => requestAnimationFrame(() => draw(false)));
   document.fonts?.ready.then(() => draw(false));
 })();
