@@ -136,3 +136,38 @@ def test_town_list_comes_in_pages(tmp_path, monkeypatch):
     # A picked town's "All places" goes back to the page it's on.
     page = client.get("/listings/map?place=Zwolle&cc=NL").data.decode()
     assert '<a class="map-back" href="/listings/map?page=2">' in page
+
+
+def test_a_towns_ads_come_in_pages_like_the_town_list(tmp_path, monkeypatch):
+    from webapp import app as app_module
+    monkeypatch.setattr(app_module, "TOWNS_PER_PAGE", 2)
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    for n in range(5):
+        client.post("/check", data={"title": f"Trek Domane SL6 2022 maat {50 + n}", "asking_price": "1500", "location": "Utrecht"})
+
+    def shown(page):  # the visible ads of the picked town
+        town = page.split('<section class="map-town" data-pin="0">', 1)[1].split("</section>", 1)[0]
+        return [a.split('class="map-ad-title">')[1].split("<")[0] for a in town.split('<a class="map-ad"')[1:]
+                if " hidden>" not in a.split(">")[0] + ">"]
+    page = client.get("/listings/map?place=Utrecht&cc=NL&lang=en").data.decode()
+    assert len(shown(page)) == 2 and "<b>1–2</b> of 5 ads" in page
+    assert 'href="/listings/map?place=Utrecht&amp;cc=NL&amp;page=3"' in page
+    page = client.get("/listings/map?place=Utrecht&cc=NL&page=3&lang=nl").data.decode()
+    assert len(shown(page)) == 1 and "<b>5–5</b> van 5 advertenties" in page
+    assert '<a class="map-back" href="/listings/map">' in page  # the town list stays on the town's own page
+
+
+def test_a_long_pager_skips_the_pages_far_away(tmp_path, monkeypatch):
+    from webapp import app as app_module
+    monkeypatch.setattr(app_module, "TOWNS_PER_PAGE", 1)
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    for n in range(9):
+        client.post("/check", data={"title": f"Trek Domane SL6 2022 maat {50 + n}", "asking_price": "1500", "location": "Utrecht"})
+    page = client.get("/listings/map?place=Utrecht&cc=NL&page=5").data.decode()
+    pager = page.split('<section class="map-town"', 1)[1].split('<div class="map-pager"', 1)[1].split("</div>", 1)[0]
+    numbers = [p.split(">")[1].split("<")[0] for p in pager.split('class="map-pager-pages">')[1].split("<a ")[2:-1]]
+    assert numbers == ["1", "4", "5", "6", "9"] and pager.count("map-pager-gap") == 2

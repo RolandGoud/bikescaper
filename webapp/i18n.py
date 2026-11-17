@@ -1421,6 +1421,8 @@ NL = {
     "No ads with a known place in this country yet.": "Nog geen advertenties met een bekende plaats in dit land.",
     "Places": "Plaatsen",
     "All places": "Alle plaatsen",
+    "{range} of {total} places": "{range} van {total} plaatsen",
+    "{range} of {total} ads": "{range} van {total} advertenties",
     "Next": "Volgende",
     "Previous": "Vorige",
     "Pages": "Pagina's",

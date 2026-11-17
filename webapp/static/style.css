@@ -1836,6 +1836,21 @@ select { max-width: 100%; }
 .map-pager-pages a { min-width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); background: var(--card); font-family: var(--mono); }
 .map-pager-pages a:hover { border-color: var(--accent); }
 .map-pager-pages a[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+/* The map page's pager, under the town list and under a town's ads: "1–12 of 31" and round ← 1 2 … 9 → on one line. */
+.map-towns .map-pager { flex-wrap: nowrap; margin-top: 4px; padding: 6px 4px 2px; }
+.map-town .map-pager { padding: 10px 10px 6px; }
+.map-pager-count { font: 600 13px var(--mono); color: var(--muted); white-space: nowrap; }
+.map-pager-count b { color: var(--text); }
+.map-towns .map-pager-pages { flex-wrap: nowrap; align-items: center; }
+.map-towns .map-pager-step { min-width: 36px; height: 36px; padding: 0; display: grid; place-items: center; border-radius: 50%; font-size: 16px; }
+.map-pager-gap { color: var(--muted); font-family: var(--mono); padding: 0 2px; }
+.map-ad[hidden] { display: none; }
+@media (max-width: 480px) {
+  .map-towns .map-pager { gap: 8px; }
+  .map-pager-count { font-size: 12px; }
+  .map-towns .map-pager-pages { gap: 4px; }
+  .map-towns .map-pager-pages a { min-width: 32px; height: 32px; font-size: 13px; }
+}
 .map-ad { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; padding: 8px; border-radius: 10px; text-decoration: none; color: var(--text); }
 .map-ad:hover, .map-ad:focus-visible { background: var(--raised); }
 .map-ad-photo { width: 96px; height: 68px; border-radius: 8px; background: var(--raised); overflow: hidden; }
