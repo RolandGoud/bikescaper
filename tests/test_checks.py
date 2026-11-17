@@ -987,6 +987,20 @@ def test_trek_dotted_name_is_from_before_2017(models):
     assert checks.conflicts(gen8, "Trek Madone SL 5 Gen 8, 5.000 km") == []
 
 
+def test_aluminium_defy_is_from_before_2017(models):
+    # Check 214: an aluminium Defy 1 with rim brakes matched the 2023 Defy Advanced 1 and passed as a 2023 bike.
+    r = run(models, "Giant Defy 1 - Maat L - 58cm",
+            "Fiets wordt niet meer gebruikt.\nMerk: Giant\nAantal versnellingen: Meer dan 20 versnellingen\n"
+            "Materiaal: Aluminium")
+    assert r["year_estimate"]["last"] == 2016
+    assert any("aluminium Giant Defy" in en(x) for x in r["year_estimate"]["evidence"])
+    assert checks.pre_2018_year(r) == 2016
+    assert checks.pre_2018_year(run(models, "Giant Defy 3 ALUXX frame")) == 2016
+    # A carbon Defy, or Giant's aluminium Contend, keeps its catalogue years.
+    assert checks.pre_2018_year(run(models, "Giant Defy Advanced 2 2020", "Materiaal: Carbon")) is None
+    assert checks.pre_2018_year(run(models, "Giant Contend 2", "Materiaal: Aluminium")) is None
+
+
 def test_year_estimate_from_named_colourway(models):
     r = run(models, "Canyon Endurace CF 7 Lillet Grey 2020")
     e = r["year_estimate"]

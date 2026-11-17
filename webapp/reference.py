@@ -226,6 +226,10 @@ RIM_BRAKE_LAST_YEAR = 2022
 # model year brought "SL 5", "ALR 4" and the like.
 TREK_DOTTED_NAME = r"\b(?:trek|madone|domane|emonda)\s+([1-9]\.[0-9])\b(?![.,]?\d)"
 TREK_DOTTED_LAST_YEAR = 2016
+# Families that came in aluminium only before our catalogue starts, by (brand, the model name's first word): the
+# last model year of the aluminium version. Giant's aluminium (ALUXX) Defy became the Contend for 2017; every
+# Defy since is carbon (check 214: an aluminium Defy 1 with rim brakes matched the 2023 Defy Advanced 1).
+ALLOY_FAMILY_LAST_YEAR = {("Giant", "Defy"): 2016}
 
 # Brands the site covers. `site` is the brand's own site the catalogue is read
 # from. Trek and Canyon have their own scrapers; the others are collected by

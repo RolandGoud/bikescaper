@@ -16,7 +16,7 @@ from .i18n import Msg, join, join_list
 from .reference import (FIRST_YEAR, CABLE_DISC_YEARS, BRAND_ALIASES, CATEGORY_WORDS, DISCIPLINES, ELECTRONIC, FAMILY_DISCIPLINES, GENERATIONS, GENERATIONS_NOTE,
                         LINEAGES, LINEAGES_NOTE,
                         GENERIC_SIZE_CHART, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSET_YEARS, GROUPSETS, NAME_WORDS, NO_MOTOR_GROUP, PART_TIERS, SIZE_CHARTS,
-                        RIM_BRAKE_LAST_YEAR, SIZE_NOTE, TREK_DOTTED_LAST_YEAR, TREK_DOTTED_NAME, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
+                        RIM_BRAKE_LAST_YEAR, SIZE_NOTE, TREK_DOTTED_LAST_YEAR, TREK_DOTTED_NAME, ALLOY_FAMILY_LAST_YEAR, SPEC_GROUPS, SPEC_LABELS, SPEC_PARTS, TIER_WEIGHTS,
                         WEIGHT_TIERS)
 
 OK, WARN, BAD, UNKNOWN = "ok", "warn", "bad", "unknown"
@@ -96,7 +96,7 @@ NON_FRAME_CARBON = re.compile(rf"\b(?:full\s+)?(?:carbon|composite)[\s-]+(?:{NON
                               rf"(?:carbon|composite)\b")
 
 
-MATERIAL_WORDS = {"Carbon": r"\bcarbon\b|\boclv\b|\bcf\b|\bcomposite\b", "Aluminium": r"alumini?um|\balu\b|lichtmetaal|\balr\b",
+MATERIAL_WORDS = {"Carbon": r"\bcarbon\b|\boclv\b|\bcf\b|\bcomposite\b", "Aluminium": r"alumini?um|\balu\b|lichtmetaal|\balr\b|\baluxx\b",
                   "Steel": r"\bstaal\b|\bsteel\b"}
 
 
@@ -2645,6 +2645,11 @@ def estimate_year(model, models, claims, text, seen_colour=None, photo_read=None
     if dotted:
         clues.append((None, TREK_DOTTED_LAST_YEAR, Msg("Trek's '{name}' naming: {year} or older.",
                                                        name=dotted.group(1), year=TREK_DOTTED_LAST_YEAR)))
+    alloy_last = ALLOY_FAMILY_LAST_YEAR.get((model["brand"], model["name"].split()[0]))
+    if alloy_last and ref_material(model) != "Aluminium" and "Aluminium" in (claims["material"], photo_frame(photo_read)):
+        # The ad's bike is aluminium and this family has been carbon-only since: an older bike, not today's model.
+        clues.append((None, alloy_last, Msg("An aluminium {brand} {family}: {year} or older; since then it's carbon only.",
+                                            brand=model["brand"], family=model["name"].split()[0], year=alloy_last)))
     sheet = sheet_clues(model, text, seen_colour)
     clues += sheet
     for name, year in [] if any(c[2].text.startswith(("Colour", "The photos")) for c in sheet) else _named_colourways(model, models):
