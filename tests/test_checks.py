@@ -1957,7 +1957,7 @@ def test_model_titles_leave_shimano_out(tmp_path):
     # the tile is the model (its builds are on the model page), and no title keeps the Shimano
     assert ">Tarmac</span>" in tiles and "Shimano 105 Di2</span>" not in tiles
     page = client.get("/models/" + seed.slugify("Specialized Tarmac SL9 Comp - Shimano 105 Di2")).get_data(as_text=True)
-    assert 'Tarmac <span class="acc"></span></h1>' in page and ">SL9 105 Di2</span>" in page  # the build is a pill
+    assert 'Tarmac <span class="acc"></span></h1>' in page and 'class="bp-name">SL9 105 Di2' in page  # the build is a pill
 
 
 def test_models_page_tiles_leave_the_generation_out(tmp_path):

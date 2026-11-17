@@ -225,7 +225,7 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     # the other levels' groupsets are there, hidden; a pill names the groupset only
     assert '<div class="build-row" data-level="Comp" hidden>' in page and '<div class="build-row" data-level="Expert">' in page
     expert = page[page.index('data-level="Expert">'):]
-    assert "<span>Ultegra Di2</span>" in expert[:expert.index("</div>")]
+    assert re.search(r'class="bp-name">Ultegra Di2\b', expert[:expert.index("</div>")])
     # a model without levels keeps one row of pills
     assert "level-tab" not in app.test_client().get("/models/ridley-x-ride-disc-shimano-grx-600-2x12?lang=nl").get_data(as_text=True)
 
@@ -278,3 +278,29 @@ def test_a_build_pill_shows_the_price_its_page_shows(tmp_path):
     assert '<b data-fact="sticker">€1.949*</b>' in page
     note = re.search(r'class="small muted price-note" data-fact="price-note">(.*?)</p>', page, re.S).group(1)
     assert note.startswith("*")
+
+
+def test_build_versions_and_groupsets():
+    assert checks.build_version({"brand": "Trek", "name": "Émonda SL 6 Pro Di2"}) == "6"
+    assert checks.build_version({"brand": "Specialized", "name": "Tarmac SL7 Expert - Shimano Ultegra Di2"}) == "SL7"
+    assert checks.build_version({"brand": "Bianchi", "name": "Oltre XR3 105"}) is None  # a groupset is no version
+
+
+def test_a_tab_with_many_builds_picks_a_version_first(tmp_path):
+    # the Émonda SL has ten builds: its versions 5, 6 and 7 as a second row, open on this bike's 6, cheapest first
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/trek-emonda-sl-6-di2?lang=en").get_data(as_text=True)
+    row = page[page.index('class="build-versions" data-for="SL"'):]
+    row = row[:row.index("</div>")]
+    assert re.findall(r'data-version="([^"]+)"', row) == ["5", "6", "7", "*"]
+    assert 'class="bv on" data-version="6"' in row
+    sl = page[page.index('class="build-row" data-level="SL">'):]
+    pills = re.findall(r'<a class="build-pill[^"]*"[^>]*?data-version="(\w)"( data-gone)?( hidden)?>.*?class="bp-price">([^<]*)<', sl[:sl.index("</div>")], re.S)
+    shown = [(v, price) for v, _gone, hidden, price in pills if not hidden]
+    assert {v for v, _p in shown} == {"6"} and len(pills) == 10
+    prices = [int(re.sub(r"\D", "", p)) for _v, p in shown]
+    assert prices == sorted(prices)
+    assert "Shimano 105 Di2" in sl and "This bike" in sl
+    # the ALR has three builds: no second row
+    assert 'data-for="ALR"' not in page
