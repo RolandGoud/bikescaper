@@ -271,34 +271,40 @@
     </div>
     {% endfor %}
   </section>
-  <section class="card">
-    <h2>{{ _('Sizes') }}</h2>
+  <section class="card size-card">
     {% set systems = size_systems(size_chart.sizes) %}
-    {# Your height: the sizes that fit it as green chips beside the box, and the same pills lit up below. Without a
-       height every pill shows plainly. size-fit.js keeps the height in this browser and updates it as you type;
-       without script, Enter reloads the page with ?height= and the same classes come from here. #}
+    {# Your height beside the heading, one sentence saying which size fits it (and which are borderline), and the
+       pills lit up the same way. size-fit.js keeps the height in this browser and redoes all of it as you type;
+       without script, Enter reloads the page with ?height= and the same comes from here. #}
+    <div class="size-head">
+      <h2>{{ _('Sizes') }}</h2>
+      <form class="size-fit" method="get" data-at="{{ _('At {height} cm:') }}" data-or="{{ _('or') }}"
+            data-none="{{ _('No size fits {height} cm.') }}" data-near="{{ _('Borderline:') }}"
+            data-from="{{ _('from {cm} cm') }}" data-to="{{ _('up to {cm} cm') }}"
+            data-empty="{{ _('Enter your height to see which size fits.') }}">
+        <label>{{ _('Your height') }}
+          <input name="height" type="number" inputmode="numeric" min="120" max="220" placeholder="178"
+                 value="{{ size_height or '' }}"><span>cm</span></label>
+      </form>
+    </div>
+    <div class="size-verdict" aria-live="polite">
+      {% if not size_height %}<p class="muted">{{ _('Enter your height to see which size fits.') }}</p>
+      {% else %}
+      <p>{% if size_fits %}<span class="size-tick" aria-hidden="true">✓</span>{{ _('At {height} cm:', height=size_height) }}
+        {% for heading, keys in systems if keys|select('in', size_fits)|first %}{% if not loop.first %}<span class="muted"> · </span>{% endif %}{% for k in keys if k in size_fits %}{% if not loop.first %} {{ _('or') }} {% endif %}<strong>{{ k }}</strong> <span class="muted nowrap">({{ size_chart.sizes[k][0] }}–{{ size_chart.sizes[k][1] }} cm)</span>{% endfor %}{% endfor %}
+        {% else %}{{ _('No size fits {height} cm.', height=size_height) }}{% endif %}</p>
+      {% if size_near %}<p class="muted">{{ _('Borderline:') }}
+        {% for k in size_chart.sizes if k in size_near %}{% set lo, hi = size_chart.sizes[k] %}{{ k }} ({{ _('from {cm} cm', cm=lo) if lo > size_height else _('up to {cm} cm', cm=hi) }}){{ ', ' if not loop.last }}{% endfor %}</p>{% endif %}
+      {% endif %}
+    </div>
     <div class="size-block">
-    <form class="size-fit" method="get" data-or="{{ _('or') }}" data-none="{{ _('No size fits {height} cm.') }}">
-      <label class="size-fit-height">{{ _('Your height') }}
-        <input name="height" type="number" inputmode="numeric" min="120" max="220" placeholder="178"
-               value="{{ size_height or '' }}"><span class="muted">cm</span></label>
-      <div class="size-fit-answer" aria-live="polite">
-        {% for heading, keys in systems %}{% set fits = keys|select('in', size_fits)|list %}
-        <span class="size-fit-group" data-system="{{ loop.index0 }}"{% if not fits %} hidden{% endif %}>
-          <span class="muted">{{ _(size_system_short[heading]) }}</span>
-          {% for k in fits %}{% if not loop.first %}<span class="muted">{{ _('or') }}</span>{% endif %}<span class="size-chip">{{ k }} <small>{{ size_chart.sizes[k][0] }}–{{ size_chart.sizes[k][1] }} cm</small></span>{% endfor %}
-        </span>
-        {% endfor %}
-        <span class="size-fit-none muted"{% if not size_height or size_fits %} hidden{% endif %}>{{ _('No size fits {height} cm.', height=size_height) }}</span>
-      </div>
-    </form>
     {% for heading, keys in systems %}
     {% if systems|length > 1 %}<div class="small muted size-pills-heading">{{ _(heading) }}</div>{% endif %}
-    <div class="size-pills{{ ' fitted' if size_height }}" data-system="{{ loop.index0 }}">{% for k in keys %}{% set lo, hi = size_chart.sizes[k] %}
+    <div class="size-pills{{ ' fitted' if size_height }}">{% for k in keys %}{% set lo, hi = size_chart.sizes[k] %}
       <div class="{{ 'on' if k in size_fits else 'near' if k in size_near }}" data-size="{{ k }}" data-low="{{ lo }}" data-high="{{ hi }}">{{ k }}<small>{{ lo }}–{{ hi }} cm</small></div>{% endfor %}</div>
     {% endfor %}
     </div>
-    <p class="small muted">{{ size_note }}
+    <p class="small muted size-source">{{ size_note }}
       <a href="{{ url_for('size_finder', model=m.slug) }}">{{ _('Open the size finder') }}</a></p>
   </section>
   {% if siblings %}

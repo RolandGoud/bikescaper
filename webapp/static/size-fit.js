@@ -1,56 +1,67 @@
-// The model page's sizes: type your height and the sizes that fit it turn green, as chips beside the box and as
-// pills below; sizes within 4 cm get a dashed edge, the rest dim. The height is kept in this browser, so the next
-// model page opens with it. Without script, Enter reloads the page with ?height= and the server does the same.
+// The model page's sizes: type your height and a sentence says which size fits it ("At 178 cm: M (175–183 cm)")
+// and which are borderline, within 4 cm ("Borderline: ML (from 180 cm)"); the pills light up the same way. The
+// height is kept in this browser, so the next model page opens with it. Without script, Enter reloads the page
+// with ?height= and the server renders the same.
 (() => {
   const form = document.querySelector('form.size-fit');
   if (!form) return;
   const input = form.querySelector('input[name=height]');
-  const answer = form.querySelector('.size-fit-answer');
-  const none = answer.querySelector('.size-fit-none');
-  const KEY = 'bikecheck-height';
+  const verdict = document.querySelector('.size-verdict');
+  const empty = form.dataset.empty;
+  const t = form.dataset, KEY = 'bikecheck-height';
+  const fill = (text, values) => text.replace(/\{(\w+)\}/g, (_, k) => values[k]);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const store = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) {} };
   if (!input.value) { try { input.value = localStorage.getItem(KEY) || ''; } catch (e) {} }
 
-  function chip(pill) {
-    const span = document.createElement('span');
-    span.className = 'size-chip';
-    span.append(pill.dataset.size + ' ');
-    const small = document.createElement('small');
-    small.textContent = pill.querySelector('small').textContent;
-    span.append(small);
-    return span;
-  }
-
   function update() {
-    const h = Number(input.value);
-    const valid = h >= 120 && h <= 220;
-    let any = false;
+    const h = Number(input.value), valid = h >= 120 && h <= 220;
+    const fits = [], near = [];  // fits: one list per size system (frame sizes in cm, letter sizes)
     document.querySelectorAll('.size-pills').forEach(row => {
       row.classList.toggle('fitted', valid);
-      const fits = [];
+      const own = [];
+      fits.push(own);
       row.querySelectorAll('[data-size]').forEach(p => {
         const lo = +p.dataset.low, hi = +p.dataset.high;
-        const on = valid && lo <= h && h <= hi;
+        const on = valid && lo <= h && h <= hi, close = valid && !on && lo - 4 <= h && h <= hi + 4;
         p.classList.toggle('on', on);
-        p.classList.toggle('near', valid && !on && lo - 4 <= h && h <= hi + 4);
-        if (on) fits.push(p);
+        p.classList.toggle('near', close);
+        if (on) own.push([p.dataset.size, lo, hi]);
+        if (close) near.push([p.dataset.size, lo, hi]);
       });
-      const group = answer.querySelector(`.size-fit-group[data-system="${row.dataset.system}"]`);
-      if (!group) return;
-      const label = group.firstElementChild;
-      group.replaceChildren(label);
-      fits.forEach((p, i) => {
-        if (i) { const or = document.createElement('span'); or.className = 'muted'; or.textContent = form.dataset.or; group.append(or); }
-        group.append(chip(p));
-      });
-      group.hidden = !fits.length;
-      any = any || fits.length > 0;
     });
-    none.textContent = form.dataset.none.replace('{height}', h);
-    none.hidden = !valid || any;
+    const lines = [];
+    if (!valid) {
+      lines.push(el('p', 'muted', empty));
+    } else {
+      const p = el('p');
+      const groups = fits.filter(g => g.length);
+      if (groups.length) {
+        p.append(Object.assign(el("span", "size-tick", "✓"), {ariaHidden: "true"}), fill(t.at, {height: h}), ' ');
+        groups.forEach((group, g) => {
+          if (g) p.append(el('span', 'muted', ' · '));
+          group.forEach(([k, lo, hi], i) => {
+            if (i) p.append(` ${t.or} `);
+            p.append(el('strong', '', k), ' ', el('span', 'muted nowrap', `(${lo}–${hi} cm)`));
+          });
+        });
+      } else {
+        p.append(fill(t.none, {height: h}));
+      }
+      lines.push(p);
+      if (near.length) {
+        lines.push(el('p', 'muted', `${t.near} ` + near.map(([k, lo, hi]) =>
+          `${k} (${lo > h ? fill(t.from, {cm: lo}) : fill(t.to, {cm: hi})})`).join(', ')));
+      }
+    }
+    verdict.replaceChildren(...lines);
   }
 
-  input.addEventListener('input', () => { update(); if (Number(input.value) >= 120 && Number(input.value) <= 220) store(input.value); else if (!input.value) store(''); });
+  input.addEventListener('input', () => {
+    const h = Number(input.value);
+    if (h >= 120 && h <= 220) store(input.value); else if (!input.value) store('');
+    update();
+  });
   form.addEventListener('submit', e => { e.preventDefault(); update(); });
-  update();
+  if (input.value) update();
 })();
