@@ -3672,6 +3672,9 @@ def run_check(models, listing, today=None):
         # The ad gives no year, the receipt in its photos does: its model year, else the year it was bought.
         claims = dict(claims, year=receipt["model_year"] or receipt["year"], year_is_purchase=not receipt["model_year"],
                       year_from="receipt")
+    # The year the ad itself gives (its text, an age it states, a receipt in its photos), before any year an admin
+    # set by hand: the report's year tiles show only this one (check 218: no year in the ad, so no year there).
+    ad_year = claims["year"]
     claims = apply_overrides(claims, overrides)
     ranked = match_models(models, listing["title"], listing.get("description") or "", claims)
     chosen = None
@@ -3690,7 +3693,7 @@ def run_check(models, listing, today=None):
     # The builds of one model are one candidate for how sure we are: their scores differ only by the groupset.
     one_each = list({(m["brand"], split_build(m, frames=True)[0]): (sc, m) for sc, m in reversed(ranked)}.values())[::-1]
     level = confidence(one_each) if not chosen_by_you else None
-    report = {"claims": claims, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
+    report = {"claims": claims, "ad_year": ad_year, "receipt": receipt, "candidates": [m for _, m in ranked[:8]],
               # The groupset the ad names, else the one its photos show, for the ad's own tiles.
               "ad_groupset": ad_groupset(claims, listing.get("photo_groupset")),
               "confidence": Msg(level) if level else None, "chosen_by_you": chosen_by_you, "model": chosen,
@@ -3808,7 +3811,7 @@ def run_check(models, listing, today=None):
                                   report["year_estimate"], report["year"])
     report["questions"] = seller_questions(chosen, claims, report["age"], report["specs"], report["size"],
                                            report["material_alert"])
-    report["facts"] = head_facts(chosen, claims, report["value"])
+    report["facts"] = head_facts(chosen, dict(claims, year=ad_year), report["value"])
     return report
 
 
@@ -3855,7 +3858,8 @@ def ad_groupset(claims, photo_read):
 
 
 def head_facts(model, claims, value):
-    """The few facts for the report's heading: [(label, value)] for the year, size and groupset the ad gives,
+    """The few facts for the report's heading: [(label, value)] for the year (claims["year"]: the ad's own, never one
+    set by hand), size and groupset the ad gives,
     and the model's new price in the year it's valued as, which is our catalogue's, never the seller's."""
     facts = []
     if claims["year"]:
@@ -3887,7 +3891,9 @@ def ad_facts(report, asking_price):
         return None if shown is None or getattr(shown, "text", None) == "Not stated" else shown
 
     year = report.get("year") or {}
-    return {"year": year.get("year"), "year_stated": year.get("how") in ("ad", "older"),
+    # A year set by hand isn't one the ad states (check 218): only the ad's own year counts as stated.
+    stated = report["ad_year"] if "ad_year" in report else (report.get("claims") or {}).get("year")
+    return {"year": year.get("year"), "year_stated": bool(stated) and year.get("how") in ("ad", "older"),
             "groupset": part("groupset"), "wheels": part("wheels"), "price": asking_price}
 
 
