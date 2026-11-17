@@ -977,8 +977,8 @@ def create_app(db_path=None):
 
     @app.route("/listings")
     def listings():
-        """Every checked ad, one per ad, as cards (the default) or as a table (?view=table), with a small map of
-        where they are beside them on a wide screen; the big map is /listings/map."""
+        """Every checked ad, one per ad, as cards (the default) or as a table (?view=table); the map of where they
+        are is a page of its own, /listings/map."""
         rows = conn().execute(f"SELECT * FROM checks WHERE {db.PUBLISHED} ORDER BY id DESC").fetchall()
         ads = group_checks(rows)
         view = "table" if request.args.get("view") == "table" else "cards"
@@ -986,11 +986,6 @@ def create_app(db_path=None):
         # Each card under the day of its ad's newest check; a day's cards run on in the same rows as the next day's.
         today = local_day(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))
         days = [day_heading(local_day(row["created_at"]), today, g.get("lang", DEFAULT_LANGUAGE)) for row, _ in cards]
-        # For the small map: one dot per town in the colour of its most urgent price verdict, linking to the big map there.
-        urgency = {"bad": 3, "warn": 2, "ok": 1, "unknown": 0}
-        pins = [{"lat": p["lat"], "lng": p["lng"], "place": p["place"], "ads": len(p["ads"]),
-                 "status": max((a["status"] for a in p["ads"]), key=lambda st: urgency.get(st, 0)),
-                 "link": url_for("listings_map", place=p["place"], cc=p["country"])} for p in ad_pins(cards)]
         cards = list(zip(cards, days))
         # The table comes in pages of TABLE_PER_PAGE ads (?page=, newest first); the cards show them all.
         pages = max(1, -(-len(cards) // TABLE_PER_PAGE))
@@ -1012,7 +1007,7 @@ def create_app(db_path=None):
                      "next": page_url(page + 1) if page < pages else None}
         rows_shown = cards[(page - 1) * TABLE_PER_PAGE:page * TABLE_PER_PAGE] if view == "table" else cards
         return render_template("listings.html", cards=cards, rows_shown=rows_shown, pager=pager, nav="listings",
-                               view=view, checks_count=len(rows), pins=pins,
+                               view=view, checks_count=len(rows),
                                sponsored=offers(("side",), tiles=True))
 
     @app.route("/checks")

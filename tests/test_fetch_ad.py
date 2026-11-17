@@ -461,7 +461,7 @@ def test_listings_table_shows_one_row_per_ad(tmp_path):
     assert page.count('<td class="c-bike">') == 2
     assert "Utrecht" in page and "€2.450" in page and "This ad: 2× checked" in page
     assert '<a href="/listings?view=table" class="on" aria-current="page">' in page
-    assert 'class="listing-card"' not in page and 'id="side-map"' in page
+    assert 'class="listing-card"' not in page and 'id="side-map"' not in page and '<a href="/listings/map">' in page
     cards = client.get("/listings?lang=en").data.decode()
     assert cards.count('class="listing-card"') == 2 and '<td class="c-bike">' not in cards
     # The old list of every check now opens the table.

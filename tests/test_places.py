@@ -61,7 +61,7 @@ def test_towns_link_to_the_map_opened_there(tmp_path):
         assert "place=Nergenshuizen" not in html, page  # a town the map doesn't know stays plain text
     page = client.get("/listings/map?place=Gent&cc=BE").data.decode()
     assert "var selected = 0;" in page  # Gent is the first (only) town on the map
-    # The map is reached from the listings (the small map's "Big map", the phone's Map button), not the Tools menu.
+    # The map is reached from the listings (the Map tab of the view switch), not the Tools menu.
     assert 'href="/listings/map"' in client.get("/listings").data.decode()
     assert 'href="/listings/map"' not in client.get("/size").data.decode()
 

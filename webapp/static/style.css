@@ -2876,52 +2876,16 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .blog-wall { transition: opacity .25s; }
 .blog-wall.wall-fade { opacity: 0; transition: none; }
 
-/* Listings: cards or table, with a small map alongside on a wide screen (templates/listings.html, static/side-map.js) */
+/* Listings: cards or table (templates/listings.html); the map is its own page, /listings/map */
 .listings-bar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
 .listings-count { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--muted); }
 .view-switch { display: inline-flex; align-self: flex-start; padding: 4px; gap: 4px; background: var(--card); border: 1px solid var(--line-strong); border-radius: 10px; }
 .view-switch a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 7px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 14px; }
 .view-switch a:not(.on):hover { background: var(--raised); color: var(--text); }
 .view-switch a.on { background: var(--accent); color: var(--ink); }
-.view-switch svg, .map-fab svg { width: 17px; height: 17px; fill: currentColor; }
-.view-switch svg .line, .map-fab svg .line { fill: none; stroke: currentColor; stroke-width: 2.3; stroke-linecap: round; }
-.listings-split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
-.listings-main { min-width: 0; }
-.side-map { display: none; }
-.map-fab { position: fixed; z-index: 1000; left: 50%; bottom: 18px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 22px; border-radius: 999px; background: var(--text); color: var(--ink); font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 10px 30px rgba(0, 0, 0, .6); }
-.map-fab:hover { color: var(--ink); background: #fff; }
-.listings-split + .map-fab { margin: 0; }
-@media (max-width: 999px) { .listings-split { padding-bottom: 64px; } }  /* room for the map button under the last ad */
-@media (min-width: 1000px) {
-  .listings-split { grid-template-columns: minmax(0, 1fr) 300px; }
-  .listings-split .listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .side-map { display: grid; gap: 10px; position: sticky; top: 16px; }
-  .map-fab { display: none; }
-}
-@media (min-width: 1100px) {
-  .listings-split { grid-template-columns: minmax(0, 1fr) 340px; }
-  .listings-split .listing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-.side-map-head { display: flex; justify-content: space-between; align-items: center; height: 26px; font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.side-map-head a { font: 600 14px var(--body); letter-spacing: 0; text-transform: none; text-decoration: none; }
-.side-map .ads-map { aspect-ratio: 3 / 4; }
-.side-map-top { display: grid; gap: 10px; }
-/* Table view on a wide screen: the map card ends level with the table. The table, the pager and the map are laid
-   out on one grid (the column wrapper steps aside), so the map's row is the table's and its legend sits by the pager. */
-@media (min-width: 1000px) {
-  .listings-split.table-view { row-gap: 16px; }
-  .listings-split.table-view .listings-main { display: contents; }
-  .listings-split.table-view .ad-table { grid-column: 1; grid-row: 1; }
-  .listings-split.table-view .table-pager { grid-column: 1; grid-row: 2; margin-top: 0; }
-  .listings-split.table-view .side-map { grid-column: 2; grid-row: 1 / span 2; grid-template-rows: subgrid; row-gap: 16px; align-self: stretch; position: static; }
-  .listings-split.table-view .side-map-top { grid-template-rows: auto 1fr; }
-  .listings-split.table-view .side-map .ads-map { aspect-ratio: auto; min-height: 320px; }
-  .listings-split.table-view .side-map .map-legend { align-self: start; }
-}
-.side-map .map-legend { font-size: 13px; gap: 6px 14px; }
-.side-map .map-pin { cursor: pointer; }
-/* the table: one compact line per ad, its columns fixed so it stays beside the small map */
+.view-switch svg { width: 17px; height: 17px; fill: currentColor; }
+.view-switch svg .line { fill: none; stroke: currentColor; stroke-width: 2.3; stroke-linecap: round; }
+/* the table: one compact line per ad, its columns fixed */
 .ad-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 14px; }
 .ad-table col.w-price { width: 108px; } .ad-table col.w-verdict { width: 168px; } .ad-table col.w-size { width: 56px; } .ad-table col.w-place { width: 168px; }
 .ad-table th { text-align: left; font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px; border-bottom: 1px solid var(--line-strong); background: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
