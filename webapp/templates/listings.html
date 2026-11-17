@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import listing_card, sponsored_tile, sponsored_side, photo, place_link, removed_banner, view_icon with context %}
+{% from "_macros.html" import listing_card, sponsored_tile, sponsored_side, photo, place_link, removed_banner, view_icon, site_mark, top_check with context %}
 {% block title %}{{ _('Listings') }} · Bikecheck{% endblock %}
 {% block body %}
 {# The listings in one place: every checked ad as cards or as a table (?view=table). The map of where they are
@@ -22,31 +22,32 @@
   </div>
   {% if cards %}
   {% if view == 'table' %}
-    {# One row per ad (its newest check); the bike opens the report, the place the big map there. #}
-    <table class="ad-table">
-      <colgroup><col><col class="w-price"><col class="w-verdict"><col class="w-size"><col class="w-place"></colgroup>
-      <thead><tr>
-        <th scope="col">{{ _('Bike') }}</th><th scope="col" class="num">{{ _('Asking price') }}</th><th scope="col">{{ _('Price verdict') }}</th>
-        <th scope="col" class="c-size">{{ _('Size') }}</th><th scope="col" class="c-place">{{ _('Place') }}</th>
-      </tr></thead>
-      <tbody>
+    {# One row per ad (its newest check): a big photo, the bike and the seller's own title, then where, the size,
+       the day and the site; the price, its verdict and the check that stands out most on the right.
+       The name opens the report (the whole row is clickable through it), the place the map there. #}
+    <ul class="ad-list">
       {% for (row, r), day in rows_shown %}
       {% set status = r.value.status if r.model else 'unknown' %}
-      <tr>
-        <td class="c-bike"><a class="t-bike" href="{{ url_for('report', check_id=row.id) }}">
-          <span class="t-thumb{{ '' if row.photos else ' catalogue' }}">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{{ removed_banner(row) }}</span>
-          <span class="t-text">
-            <span class="t-name"{% if r.model %} title="“{{ row.title }}”"{% endif %}>{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</span>
+      <li class="ad-row">
+        <span class="ad-row-photo{{ '' if row.photos else ' catalogue' }}">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{{ removed_banner(row) }}</span>
+        <span class="ad-row-text">
+          <a class="ad-row-name" href="{{ url_for('report', check_id=row.id) }}">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</a>
+          {% if r.model %}<span class="ad-row-title" title="{{ row.title }}">“{{ split_title(row.title).name }}”</span>{% endif %}
+          <span class="ad-row-meta">
+            {% if row.location %}<span class="ad-row-place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ place_link(row.location, row.listing_url) }}</span>{% endif %}
+            {% if r.claims.size %}<span>{{ _('Size') }} {{ r.claims.size }}</span>{% endif %}
+            <span>{{ day }}{% if row.times_checked > 1 %}<span class="t-times" title="{{ _('This ad: {n}× checked', n=row.times_checked) }}">{{ row.times_checked }}×</span>{% endif %}</span>
+            {{ site_mark(row.listing_url) }}
           </span>
-        </a></td>
-        <td class="num c-price"><b>{{ row.asking_price|eur if row.asking_price else '–' }}</b></td>
-        <td class="c-verdict" title="{{ r.value.headline if r.model else _('No matching model yet') }}"><span class="t-verdict {{ status }}"><b class="map-dot {{ status }}"></b>{{ r.value.headline if r.model else _('No matching model yet') }}</span></td>
-        <td class="c-size">{{ r.claims.size or '–' }}</td>
-        <td class="c-place">{% if row.location %}{{ place_link(row.location, row.listing_url) }}{% else %}–{% endif %}<span class="t-day">{{ day }}{% if row.times_checked > 1 %}<span class="t-times" title="{{ _('This ad: {n}× checked', n=row.times_checked) }}">{{ row.times_checked }}×</span>{% endif %}</span></td>
-      </tr>
+        </span>
+        <span class="ad-row-price">
+          <b>{{ row.asking_price|eur if row.asking_price else '–' }}</b>
+          <span class="verdict-pill {{ status }}">{{ r.value.headline if r.model else _('No matching model yet') }}</span>
+          {% if r.model %}{{ top_check(r) }}{% endif %}
+        </span>
+      </li>
       {% endfor %}
-      </tbody>
-    </table>
+    </ul>
     {% if pager %}
     <nav class="map-pager table-pager" aria-label="{{ _('Pages') }}">
       <a class="map-pager-step" href="{{ pager.prev or '' }}"{% if not pager.prev %} aria-disabled="true"{% endif %}>← {{ _('Previous') }}</a>

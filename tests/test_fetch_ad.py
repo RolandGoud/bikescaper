@@ -458,12 +458,12 @@ def test_listings_table_shows_one_row_per_ad(tmp_path):
     conn.commit()
     client = app.test_client()
     page = client.get("/listings?view=table&lang=en").data.decode()
-    assert page.count('<td class="c-bike">') == 2
+    assert page.count('class="ad-row"') == 2
     assert "Utrecht" in page and "€2.450" in page and "This ad: 2× checked" in page
     assert '<a href="/listings?view=table" class="on" aria-current="page">' in page
     assert 'class="listing-card"' not in page and 'id="side-map"' not in page and '<a href="/listings/map">' in page
     cards = client.get("/listings?lang=en").data.decode()
-    assert cards.count('class="listing-card"') == 2 and '<td class="c-bike">' not in cards
+    assert cards.count('class="listing-card"') == 2 and 'class="ad-row"' not in cards
     # The old list of every check now opens the table.
     old = client.get("/checks")
     assert old.status_code == 301 and old.headers["Location"].endswith("/listings?view=table")
@@ -479,11 +479,11 @@ def test_listings_table_comes_in_pages_of_ten(tmp_path):
     conn.commit()
     client = app.test_client()
     first = client.get("/listings?view=table&lang=en").data.decode()
-    assert first.count('<td class="c-bike">') == 10 and "nr 22" in first and "nr 12" not in first
+    assert first.count('class="ad-row"') == 10 and "nr 22" in first and "nr 12" not in first
     assert 'href="/listings?view=table&amp;page=2"' in first and 'aria-current="page">1</a>' in first
     last = client.get("/listings?view=table&page=3&lang=en").data.decode()
-    assert last.count('<td class="c-bike">') == 3 and "nr 0" in last
-    assert client.get("/listings?view=table&page=99").data.decode().count('<td class="c-bike">') == 3
+    assert last.count('class="ad-row"') == 3 and "nr 0" in last
+    assert client.get("/listings?view=table&page=99").data.decode().count('class="ad-row"') == 3
     cards = client.get("/listings?lang=en").data.decode()
     assert cards.count('class="listing-card"') == 23 and "table-pager" not in cards
 

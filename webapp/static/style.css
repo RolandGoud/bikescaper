@@ -870,6 +870,9 @@ select { max-width: 100%; }
 .duo .ad-side img { width: 100%; height: 100%; object-fit: cover; }
 .duo .ad-side img.flip { transform: scaleX(-1); }
 .duo .ad-side img.whole { object-fit: contain; }  /* not lined up: the whole photo, so the bike isn't cut off */
+/* On a listing card the ad side starts at 60% (static/duo.js): a photo that isn't lined up fills that side, cropped,
+   instead of shrinking to the whole tile with empty bands beside it and the bike behind the catalogue half. */
+.listing-card .duo .ad-side img.whole { position: absolute; left: 0; top: 0; width: 70%; height: 100%; object-fit: cover; }
 /* Round a photo drawn whole or smaller: the same photo, blurred and covering the tile, instead of flat bars. */
 .duo .ad-side.fill { overflow: hidden; }
 .duo .ad-side.fill::before { content: ""; position: absolute; inset: -24px; background: var(--ad) center / cover; filter: blur(18px) brightness(.8); }
@@ -2943,51 +2946,41 @@ a.blog-cat:hover { color: var(--cat); background: var(--faint); }
 .view-switch a.on { background: var(--accent); color: var(--ink); }
 .view-switch svg { width: 17px; height: 17px; fill: currentColor; }
 .view-switch svg .line { fill: none; stroke: currentColor; stroke-width: 2.3; stroke-linecap: round; }
-/* the table: one compact line per ad, its columns fixed */
-.ad-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 14px; }
-.ad-table col.w-price { width: 108px; } .ad-table col.w-verdict { width: 168px; } .ad-table col.w-size { width: 56px; } .ad-table col.w-place { width: 168px; }
-.ad-table th { text-align: left; font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px; border-bottom: 1px solid var(--line-strong); background: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ad-table td { padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ad-table th:first-child, .ad-table td:first-child { padding-left: 12px; }
-.ad-table th:last-child, .ad-table td:last-child { padding-right: 12px; }
-.ad-table tbody tr:last-child td { border-bottom: 0; }
-.ad-table tbody tr:hover td { background: var(--raised); }
-.ad-table .num { text-align: right; font-variant-numeric: tabular-nums; }
-.ad-table .c-price b { color: var(--text); }
-.t-bike { display: flex; align-items: center; gap: 10px; min-width: 0; text-decoration: none; color: var(--text); }
-.t-bike:hover { color: var(--text); }
-.t-bike:hover .t-name { color: var(--link-hover); }
-/* A seller's photo fills its thumbnail; a catalogue photo (a bike on white) sits on the photo grey. */
-.t-thumb { position: relative; flex: none; width: 48px; height: 32px; border-radius: 4px; background: var(--raised); overflow: hidden; display: block; }
-.t-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.t-thumb.catalogue { background: var(--photo-bg); }
-.t-thumb.catalogue img { object-fit: contain; }
-.t-thumb > span:not(.removed-banner) { display: none; }  /* "no photo yet" doesn't fit */
-.t-thumb .removed-banner { top: auto; right: 0; bottom: 0; left: 0; width: auto; padding: 0; transform: none; }
-.t-thumb .removed-banner > span { font-size: 7px; letter-spacing: 0; }
-.t-text { display: block; min-width: 0; overflow: hidden; }
-.t-name { display: block; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.t-verdict { font-weight: 600; }
-.t-verdict .map-dot { display: inline-block; width: 8px; height: 8px; margin-right: 6px; }
-.t-verdict.ok { color: var(--ok); } .t-verdict.warn { color: var(--warn); } .t-verdict.bad { color: var(--bad); } .t-verdict.unknown { color: var(--unknown); }
-.t-day::before { content: " · "; }
+/* The table view: one row per ad, a big photo, the bike and its facts, the price and verdict on the right. */
+.ad-list { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.ad-row { position: relative; display: grid; grid-template-columns: 168px minmax(0, 1fr) auto; align-items: center; gap: 18px; padding: 12px 16px 12px 12px; border-bottom: 1px solid var(--line); }
+.ad-row:last-child { border-bottom: 0; }
+.ad-row:hover { background: var(--raised); }
+/* A seller's photo fills its frame; a catalogue photo (a bike on white) sits on the photo grey. */
+.ad-row-photo { position: relative; display: block; width: 168px; aspect-ratio: 3 / 2; border-radius: 8px; overflow: hidden; background: var(--raised); }
+.ad-row-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ad-row-photo.catalogue { background: var(--photo-bg); }
+.ad-row-photo.catalogue img { object-fit: contain; }
+.ad-row-photo > span:not(.removed-banner) { display: none; }  /* "no photo yet" doesn't fit */
+.ad-row-photo .removed-banner { top: auto; right: 0; bottom: 0; left: 0; width: auto; padding: 2px 0; transform: none; }
+.ad-row-photo .removed-banner > span { font-size: 10px; }
+.ad-row-text { display: grid; gap: 8px; min-width: 0; }
+.ad-row-name { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-row-name::after { content: ""; position: absolute; inset: 0; }  /* the whole row opens the report */
+.ad-row:hover .ad-row-name { color: var(--link-hover); }
+.ad-row-title { font-style: italic; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-row-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 13px; color: var(--muted); }
+.ad-row-place { display: inline-flex; align-items: center; gap: 4px; }
+.ad-row-place svg { width: 13px; height: 13px; flex: none; }
+.ad-row-meta .place-link { position: relative; z-index: 1; }  /* above the row's link */
+.ad-row-price { display: grid; justify-items: end; gap: 8px; text-align: right; }
+.ad-row-price > b { font-size: 24px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ad-row-price .verdict-pill { font-size: 13px; padding: 4px 9px; }
 .t-times { display: inline-block; margin-left: 6px; padding: 0 5px; border-radius: 4px; background: var(--raised); color: var(--text); font: 600 11px var(--mono); }
-/* Narrower (and beside the small map up to 1200px), the table folds into a short block per ad:
-   photo, name, verdict and price, place and day. */
-@media (max-width: 1199px) {
-  .ad-table thead, .ad-table colgroup { display: none; }
-  .ad-table, .ad-table tbody { display: block; }
-  .ad-table tr { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; grid-template-areas: "p n n" "p v pr" "p m m"; gap: 0 12px; padding: 8px 12px; border-bottom: 1px solid var(--line); }
-  .ad-table tbody tr:last-child { border-bottom: 0; }
-  .ad-table td, .ad-table td:first-child, .ad-table td:last-child { display: block; padding: 0; border: 0; }
-  .ad-table tbody tr:hover td { background: none; }
-  .ad-table td.c-bike, .ad-table .c-bike .t-bike { display: contents; }
-  .ad-table .t-thumb { grid-area: p; width: 64px; height: 44px; align-self: center; }
-  .ad-table .t-text { grid-area: n; }
-  .ad-table .c-price { grid-area: pr; align-self: center; }
-  .ad-table .c-verdict { grid-area: v; align-self: center; font-size: 13px; }
-  .ad-table td.c-size { display: none; }
-  .ad-table .c-place { grid-area: m; font-size: 13px; }
+/* On a phone: the photo beside the bike, the price and verdict on one line under it. */
+@media (max-width: 640px) {
+  .ad-row { grid-template-columns: 112px minmax(0, 1fr); gap: 10px 12px; padding: 10px 12px 10px 10px; }
+  .ad-row-photo { width: 112px; align-self: start; }
+  .ad-row-name { font-size: 16px; white-space: normal; }
+  .ad-row-text { gap: 5px; }
+  .ad-row-meta { gap: 2px 10px; font-size: 12px; }
+  .ad-row-price { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-items: start; gap: 8px; }
+  .ad-row-price > b { font-size: 20px; margin-right: auto; }
 }
 .table-pager { margin-top: 16px; }
 .table-pager .pager-gap { align-self: end; padding: 0 2px 6px; color: var(--muted); font-family: var(--mono); }
