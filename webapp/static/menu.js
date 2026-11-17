@@ -26,3 +26,16 @@ document.addEventListener("keydown", (e) => {
   setMenu(false);
   dropdowns.forEach((tools) => setTools(tools, false));
 });
+
+// Brand cards (groupsets page, size finder): a click or tap starts the sprint animation, kept through the
+// navigation. With a mouse the hover already runs the road; on a phone the tap is the only cue.
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".brand-cards a");
+  if (!card) return;
+  card.classList.add("go");
+  // A plain click that would load a new page at once: give the sprint a third of a second first. (The groupsets
+  // page fetches and morphs instead, and has already claimed the click.)
+  if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  setTimeout(() => { window.location.href = card.href; }, 350);
+});

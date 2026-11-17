@@ -1544,6 +1544,30 @@ select { max-width: 100%; }
 .brand-series i.dot { flex: none; width: 6px; height: 6px; border-radius: 50%; -webkit-mask: none; mask: none; }
 .brand-series i:last-child, .brand-series b { opacity: 1; color: var(--bc); background-color: var(--bc); }
 .brand-series b { background: none; font-size: 12px; font-style: italic; white-space: nowrap; }
+/* Breakaway: on hover (or a tap, which sets .go) the faded corner logo repeats and scrolls past like scenery, a
+   dashed road line runs along the bottom, and the logo leans forward. A click is the sprint: the scenery and
+   the dashes speed up and the logo jumps ahead. Still with reduced motion. */
+.brand-cards a { -webkit-tap-highlight-color: transparent; }
+.brand-cards a::before { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; opacity: 0; transition: opacity .3s; pointer-events: none;
+  background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--bc) 70%, transparent) 0 18px, transparent 18px 34px); }
+.brand-corner { transition: opacity .3s; }
+.brand-cards .pill-logo { transform-origin: left center; transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.brand-corner { --road: 230px; }  /* one logo's width on the road, also the scroll's loop */
+.brand-cards a:is(:hover, :focus-visible, .go) .brand-corner { right: -400px; width: 1200px; opacity: .22;
+  -webkit-mask: var(--logo) 0 bottom / var(--road) auto repeat-x; mask: var(--logo) 0 bottom / var(--road) auto repeat-x; animation: road 1.1s linear infinite; }
+.brand-cards a:is(:hover, :focus-visible, .go)::before { opacity: 1; animation: road-dash .35s linear infinite; }
+.brand-cards a:is(:hover, :focus-visible, .go) .pill-logo { transform: skewX(-12deg) translateX(8px); }
+.brand-cards a.go .brand-corner { animation-duration: .3s; opacity: .35; }
+.brand-cards a.go::before { animation-duration: .1s; }
+.brand-cards a.go .pill-logo { animation: sprint .4s cubic-bezier(.3, 0, .2, 1) forwards; }
+@keyframes road { from { -webkit-mask-position: 0 bottom; mask-position: 0 bottom; } to { -webkit-mask-position: calc(-1 * var(--road)) bottom; mask-position: calc(-1 * var(--road)) bottom; } }
+@keyframes road-dash { to { background-position: -34px 0; } }
+@keyframes sprint { 40% { transform: skewX(-18deg) translateX(40px); } 100% { transform: skewX(-14deg) translateX(22px); } }
+@media (prefers-reduced-motion: reduce) {
+  .brand-cards a::before, .brand-corner, .brand-cards .pill-logo { animation: none !important; transition: none !important; }
+  .brand-cards a:is(:hover, :focus-visible, .go) .brand-corner { right: -24px; width: 230px; -webkit-mask: var(--logo) right bottom / contain no-repeat; mask: var(--logo) right bottom / contain no-repeat; }
+  .brand-cards a:is(:hover, :focus-visible, .go) .pill-logo { transform: none; }
+}
 /* The size finder's brand step: the same cards, wrapping four to a row (two on a phone), each with the bike
    types the brand has and its model count in its colour along the bottom. */
 .size-brands { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -1573,7 +1597,7 @@ select { max-width: 100%; }
   .size-brands { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .size-brands a { height: 92px; padding: 12px 14px; justify-content: space-between; }
   .size-brands .pill-logo { width: 96px; height: 20px; }
-  .size-brands .brand-corner { display: block; width: 150px; height: 46px; right: -16px; bottom: -10px; }
+  .size-brands .brand-corner { display: block; width: 150px; height: 46px; right: -16px; bottom: -10px; --road: 150px; }
   .size-brands .brand-kinds i { display: none; }
   .size-brands .brand-kinds b { margin-left: 0; }
   .brand-ladders .ladder { padding: 0; margin: 0; }
