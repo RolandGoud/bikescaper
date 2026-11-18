@@ -638,3 +638,28 @@ def test_trek_reads_the_extra_product_numbers_without_wayback_listings(tmp_path,
     codes.write_text("# comment\n21553  Domane ALR 3 (2018)\n\n", encoding="utf-8")
     monkeypatch.setattr(history, "TREK_EXTRA_CODES", str(codes))
     assert history.trek_codes(None) == ["21553"]
+
+
+def test_trek_keeps_a_disc_twin_sold_the_same_year_apart(tmp_path, monkeypatch):
+    """Trek sold the 2018 Émonda SLR 8 (21713) and SLR 8 Disc (22010) side by side: two bikes, each with its own
+    sheet, while the Domane AL 2 Disc of 2019 is still the line the Domane AL 2 Gen 3 carries on."""
+    from brand_scrapers import history
+    monkeypatch.setattr(history, "ROOT", str(tmp_path))
+    monkeypatch.setattr(history, "recognised", lambda specs: 99)
+    monkeypatch.setattr(history, "save_photo", lambda *a, **k: "p.jpg")
+    monkeypatch.setattr(history, "colour_photos", lambda *a, **k: {})
+    made = {"21713": ("Émonda SLR 8", [2018]), "22010": ("Émonda SLR 8 Disc", [2018]),
+            "27000": ("Domane AL 2 Disc", [2019]), "30000": ("Domane AL 2 gen 3", [2020, 2021]),
+}
+    monkeypatch.setattr(history, "trek_product", lambda fetcher, code: {
+        "code": code, "name": made[code][0], "years": made[code][1], "years_from_photos": False,
+        "url": f"https://www.trekbikes.com/nl/nl_NL/p/{code}/", "sheet_years": None, "specs": {"Frame": code},
+        "colours": [], "colour_image_urls": {}, "image_url": None, "category": ""})
+    assert history.disc_twins([history.trek_product(None, c) for c in made]) == {"21713", "22010"}
+    made["40000"] = ("Émonda SLR 8", [2022])
+    models = [("Émonda SLR 8", "/p/21713/"), ("Émonda SLR 8 Disc", "/p/22010/"), ("Domane AL 2 gen 3", "/p/30000/")]
+    found = history.trek_collect(models, None, range(2018, 2022), list(made), listed=[])
+    assert found["Émonda SLR 8"]["2018"]["specs"] == {"Frame": "21713"}
+    assert found["Émonda SLR 8 Disc"]["2018"]["specs"] == {"Frame": "22010"}
+    assert sorted(found["Émonda SLR 8 Disc"]) == ["2018"]
+    assert sorted(found["Domane AL 2 gen 3"]) == ["2019", "2020", "2021"]

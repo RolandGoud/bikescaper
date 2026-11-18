@@ -1,6 +1,82 @@
 # Trek product numbers the Wayback listings lack, read by brand_scrapers/history.py trek --archived
+# "number sweep": found by asking Trek's product API for every number from 16000 to 31000 (November 2026)
 21553  Domane ALR 3 (2018)
 21559  FX Sport 4 (2018-2019)
 22632  Checkpoint SL 5 (2019), only listed on the Swedish site
 21713  Émonda SLR 8 (2018), check 216: no Wayback listing has it
 22010  Émonda SLR 8 Disc (2018), check 216: same line as 21713 for line_of(), so added by hand
+17311  Domane SLR 9 Disc (2017-2018), number sweep 16000-31000
+17352  Domane ALR 4 Disc (2017-2018), number sweep 16000-31000
+17440  Boone 7 Disc (2018-2019), number sweep 16000-31000
+17442  Crockett 7 Disc (2018), number sweep 16000-31000
+17456  Crockett 5 Disc (2018), number sweep 16000-31000
+17465  Boone 5 Disc (2018-2019), number sweep 16000-31000
+17496  Domane SL 5 Disc (2018), number sweep 16000-31000
+17497  Domane AL 3 (2018), number sweep 16000-31000
+21464  Domane SLR 8 Disc (2018), number sweep 16000-31000
+21465  Domane SL 8 Disc (2018), number sweep 16000-31000
+21466  Domane SL 5 (2018), number sweep 16000-31000
+21512  Émonda SL 5 (2018), number sweep 16000-31000
+21555  Domane AL 2 (2018), number sweep 16000-31000
+21565  Émonda ALR 5 (2018), number sweep 16000-31000
+21566  Émonda ALR 4 (2018), number sweep 16000-31000
+21571  Domane ALR 5 Disc (2018), number sweep 16000-31000
+21585  Madone 9.0 (2018), number sweep 16000-31000
+21596  Madone 9.5 (2018), number sweep 16000-31000
+21749  Madone 9.9 (2018), number sweep 16000-31000
+21750  Émonda SL 6 Pro (2018), number sweep 16000-31000
+21796  Émonda SL 6 (2018), number sweep 16000-31000
+21880  Émonda SLR 9 (2018), number sweep 16000-31000
+21950  Domane SLR 6 (2018), number sweep 16000-31000
+21961  Émonda SLR 6 (2018), number sweep 16000-31000
+21976  Émonda ALR 6 (2018), number sweep 16000-31000
+21978  Domane SL 6 (2018), number sweep 16000-31000
+21996  920 (2018-2021), number sweep 16000-31000
+22091  Émonda SL 4 (2018), number sweep 16000-31000
+22092  Émonda SL 7 (2018), number sweep 16000-31000
+22101  Domane SL 7 (2018), number sweep 16000-31000
+22104  Domane SL 6 Disc (2018), number sweep 16000-31000
+22107  Domane SLR 6 Disc (2018), number sweep 16000-31000
+22109  Émonda SL 6 Disc (2018-2019), number sweep 16000-31000
+22110  Émonda SL 7 Disc (2018-2019), number sweep 16000-31000
+22111  Émonda SLR 6 Disc (2018), number sweep 16000-31000
+22408  Domane SL 5 Gravel Disc (2018), number sweep 16000-31000
+22409  Domane ALR 5 Gravel Disc (2018), number sweep 16000-31000
+22687  Domane SLR 6 Gravel Disc (2018), number sweep 16000-31000
+23091  Domane SLR 9 Disc (2019), number sweep 16000-31000
+23092  Crockett 5 Disc (2019), number sweep 16000-31000
+23093  Crockett 7 Disc (2019), number sweep 16000-31000
+23148  Domane SLR 6 Disc (2019), number sweep 16000-31000
+23167  Domane SLR 7 Disc (2019), number sweep 16000-31000
+23183  Émonda SLR 7 Disc (2019), number sweep 16000-31000
+23184  Émonda SLR 9 Disc (2019), number sweep 16000-31000
+23228  Domane SL 7 Disc (2019), number sweep 16000-31000
+23389  Domane SL 6 Disc (2019), number sweep 16000-31000
+23391  Domane SL 5 Disc (2019), number sweep 16000-31000
+23527  Domane AL 4 (2019), number sweep 16000-31000
+23528  Domane AL 5 (2019), number sweep 16000-31000
+23656  Émonda ALR 4 (2019-2020), number sweep 16000-31000
+23657  Émonda ALR 4 Disc (2019), number sweep 16000-31000
+24013  Émonda SL 6 Pro (2019), number sweep 16000-31000
+24017  Émonda SLR 6 (2019), number sweep 16000-31000
+24122  Madone SLR 8 (2019), number sweep 16000-31000
+24123  Madone SLR 6 Disc (2019), number sweep 16000-31000
+24145  Émonda SLR 9 Disc AXS (2019), number sweep 16000-31000
+24164  Émonda ALR 5 (2019), number sweep 16000-31000
+24165  Madone SL 6 (2019), number sweep 16000-31000
+24219  Émonda SL 5 (2019-2020), number sweep 16000-31000
+24223  Domane SL 5 (2019), number sweep 16000-31000
+24247  Madone SLR 9 Disc (2019), number sweep 16000-31000
+25348  Domane SLR 8 Disc (2019), number sweep 16000-31000
+25349  Domane SLR 9 Disc AXS (2019), number sweep 16000-31000
+25350  Émonda SLR 6 Disc (2019), number sweep 16000-31000
+25352  Émonda SLR 8 Disc (2019), number sweep 16000-31000
+25354  Madone SLR 6 (2019), number sweep 16000-31000
+25355  Madone SLR 7 Disc (2019), number sweep 16000-31000
+25356  Madone SLR 8 Disc (2019), number sweep 16000-31000
+25357  Madone SLR 9 (2019), number sweep 16000-31000
+25358  Madone SLR 9 Disc AXS (2019), number sweep 16000-31000
+28014  Madone Speed Disc (2020), number sweep 16000-31000
+28037  Émonda SL 6 Disc (2020), number sweep 16000-31000
+28316  Domane SL 7 AXS (2020), number sweep 16000-31000
+28953  Émonda ALR 4 Disc (2020), number sweep 16000-31000
