@@ -399,6 +399,25 @@ def line_of(name):
     return compact(re.sub(r"\b(?:gen\s*\d+|disc)\b", " ", name.lower()))
 
 
+def disc_twins(products):
+    """The product numbers of rim- and disc-brake bikes Trek sold side by side under one name: the 2018 Émonda SLR 8
+    (21713) and Émonda SLR 8 Disc (22010). line_of() folds "Disc" away so one line runs across generations (the
+    Domane AL 2 Disc became the Domane AL 2 Gen 3), but twins sold in the same year are two bikes."""
+    twins = set()
+    for p in products:
+        for q in products:
+            if (("disc" in p["name"].lower()) != ("disc" in q["name"].lower()) and line_of(p["name"]) == line_of(q["name"])
+                    and generation(p["name"]) == generation(q["name"]) and set(p["years"]) & set(q["years"])):
+                twins |= {p["code"], q["code"]}
+    return twins
+
+
+def twin_key(p, twins):
+    """The line a product files under: line_of(), with a disc twin kept apart from its rim-brake sibling."""
+    disc = p["code"] in twins and "disc" in p["name"].lower()
+    return line_of(p["name"]) + ("disc" if disc else "")
+
+
 def generation(name):
     m = re.search(r"\bgen\s*(\d+)", name, re.I)
     return int(m.group(1)) if m else 0
@@ -444,12 +463,17 @@ def trek_collect(models, fetcher, years, codes, listed=None):
             p["years"] = sorted(set(p["years"]) | seen.get(p["code"], set()))
         p["years"] = sorted(set(p["years"]) | listed_years.get(p["code"], set()))
     log.info("Trek: %d archived bikes with a spec sheet", len(products))
+    twins = disc_twins(products)
     found, today = {}, date.today().isoformat()
     for name, _url in models:
-        line, gen = line_of(name), generation(name)
-        # Same line and no later generation than the model's own; for a year two bikes cover, the model's
-        # own name, then the newer generation, then disc.
-        mine = sorted((p for p in products if line_of(p["name"]) == line and not (gen and generation(p["name"]) > gen)),
+        line, gen, disc = line_of(name), generation(name), "disc" in name.lower()
+        # Half of a rim/disc pair itself (the 2018 Émonda SLR 7 Disc): only bikes with its own brakes, so the
+        # disc-only Émonda SL 7 of 2022 stays with the catalogue's Émonda SL 7.
+        paired = any(p["code"] in twins and compact(p["name"]) == compact(name) for p in products)
+        # Same line and no later generation than the model's own, and not the other half of a rim/disc pair; for
+        # a year two bikes cover, the model's own name, then the newer generation, then disc.
+        mine = sorted((p for p in products if line_of(p["name"]) == line and not (gen and generation(p["name"]) > gen)
+                       and not ((paired or p["code"] in twins) and ("disc" in p["name"].lower()) != disc)),
                       key=lambda p: (compact(p["name"]) == compact(name), generation(p["name"]), "disc" in p["name"].lower()))
         for p in mine:  # later (better) ones overwrite
             for year in p["years"]:
@@ -474,7 +498,8 @@ def trek_archived(cdx_folder, db_path, fetcher=None, years=range(FIRST_YEAR, dat
     the ones already in data/years/archived/Trek.json."""
     fetcher = fetcher or Fetcher(delay=1.0)
     conn = sqlite3.connect(db_path)
-    have = {line_of(n) for (n,) in conn.execute("SELECT name FROM models WHERE brand = 'Trek'")}
+    have_names = [n for (n,) in conn.execute("SELECT name FROM models WHERE brand = 'Trek'")]
+    have = {line_of(n) for n in have_names}
     kept = []
     if not cdx_folder:
         try:
@@ -483,13 +508,23 @@ def trek_archived(cdx_folder, db_path, fetcher=None, years=range(FIRST_YEAR, dat
         except (OSError, ValueError):
             kept = []
         have |= {line_of(b["name"]) for b in kept}
+        have_names += [b["name"] for b in kept]
     products = [p for p in (trek_product(fetcher, c) for c in trek_codes(cdx_folder)) if p and p["years"]
                 and recognised(p["specs"]) >= MIN_SPECS and not TREK_SKIP.search(p["name"])
                 and not TREK_STOCK.search(p["name"])]
+    # A rim/disc twin is new unless a bike of its own brake kind carries its line.
+    have_disc = {line_of(n) for n in have_names if "disc" in n.lower()}
+    have_rim = {line_of(n) for n in have_names if "disc" not in n.lower()}
+    twins = disc_twins(products)
     lines = {}
     for p in products:
-        if line_of(p["name"]) not in have:
-            lines.setdefault(line_of(p["name"]), []).append(p)
+        line = line_of(p["name"])
+        if p["code"] in twins:
+            new = line not in (have_disc if "disc" in p["name"].lower() else have_rim)
+        else:
+            new = line not in have
+        if new:
+            lines.setdefault(twin_key(p, twins), []).append(p)
     bikes = []
     for line, found in sorted(lines.items()):
         found.sort(key=lambda p: (p["years"][-1], generation(p["name"])), reverse=True)
@@ -502,8 +537,9 @@ def trek_archived(cdx_folder, db_path, fetcher=None, years=range(FIRST_YEAR, dat
             "years": sorted({y for p in found for y in p["years"]}), "price": None,
             "image": save_photo(fetcher, "Trek", slug, None, newest["image_url"], rel=f"Trek/archived/{slug}.jpg")})
         log.info("Trek archived: %s %s", newest["name"], bikes[-1]["years"])
-    sheets = trek_collect([(b["name"], b["url"]) for b in bikes], fetcher, years,
-                          sorted({p["code"] for found in lines.values() for p in found}))
+    # All the numbers read, not only the new lines': the rim-brake twin of a new Disc line (the 2018 Madone SLR 9
+    # next to the Madone SLR 9 Disc) keeps the Disc from taking a later, disc-only namesake's years.
+    sheets = trek_collect([(b["name"], b["url"]) for b in bikes], fetcher, years, sorted({p["code"] for p in products}))
     _save_archived("Trek", kept + bikes, sheets)
     return bikes
 
