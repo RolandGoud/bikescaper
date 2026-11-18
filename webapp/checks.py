@@ -3183,8 +3183,9 @@ def model_size_chart(model):
     own = model_charts().get(model.get("slug") or "")
     brand_chart = size_options(model["brand"])
     if own and own["source"] == "geometry":
-        # Only geometry published: the model's own sizes, with the rider heights of the brand's size guide.
-        sizes = {k: brand_chart[k] for k in own["sizes"] if k in brand_chart}
+        # Only geometry published: the model's own sizes, with the rider heights of the brand's size guide (a cm
+        # size the guide skips, like Specialized's 48, between its neighbours').
+        sizes = listed_sizes(own["sizes"], brand_chart)
     else:
         sizes = {k: (v["low"], v["high"]) for k, v in (own or {}).get("sizes", {}).items() if v.get("low")}
     sizes = dict(sorted(sizes.items(), key=lambda kv: _size_order(kv[0])))
