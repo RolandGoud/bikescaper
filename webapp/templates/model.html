@@ -331,7 +331,12 @@
   {% if siblings %}
   <section class="stack">
     <h2>{{ _('Other {family} models', family=m.name.split(' ')[0]) }}</h2>
-    <div class="model-grid">{% for s in siblings %}{{ model_card(s) }}{% endfor %}</div>
+    {# one card per build: the first eight (four on a phone), the rest behind a button #}
+    <div class="model-grid sibling-grid" id="sibling-builds">{% for s in siblings %}{{ model_card(s, price=s.shown) }}{% endfor %}</div>
+    {% if siblings|length > 4 %}
+    <button type="button" class="btn ghost sibling-more{{ ' phone-only' if siblings|length <= 8 }}" aria-controls="sibling-builds"
+            onclick="this.previousElementSibling.classList.add('all'); this.hidden = true">{{ _('Show all {n}', n=siblings|length) }}</button>
+    {% endif %}
   </section>
   {% endif %}
   {# Last on the page: what it sells for second-hand, and the ads matched to it. #}

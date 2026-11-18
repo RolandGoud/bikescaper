@@ -1264,13 +1264,18 @@ def create_app(db_path=None):
         build_groups = [build_group(level, group, model) for level, group in levels] if builds else []
         levels = levels if len(levels) > 1 else None
         own = checks.site_split(model)[0]
-        siblings = sorted(model_tiles([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m))
-                                       for m in models()
-                                       if checks.family_of(m["name"]) == checks.family_of(model["name"])
-                                       and m["brand"] == model["brand"] and m["id"] != model["id"]
-                                       and not (model["brand"] in checks.SITE_BUILD_BRANDS
-                                                and checks.site_split(m)[0] == own)]),
-                          key=lambda m: (m["price_eur"] or 0, m["name"]))  # shown as tiles, cheapest first
+        # The family's other models, one card per build (not one per model line): the bikes still on sale first,
+        # then the nearest in price to this one, so the builds a buyer would weigh against it come first.
+        here_price = checks.shown_price(model)[0]
+        siblings = sorted([dict(m, status=checks.catalogue_status(m)[0], tier=checks.model_tier(m),
+                                shown=checks.shown_price(m))
+                           for m in models()
+                           if checks.family_of(m["name"]) == checks.family_of(model["name"])
+                           and m["brand"] == model["brand"] and m["id"] != model["id"]
+                           and not (model["brand"] in checks.SITE_BUILD_BRANDS
+                                    and checks.site_split(m)[0] == own)],
+                          key=lambda m: (m["status"] != "current", m["shown"][0] is None,
+                                         abs((m["shown"][0] or 0) - (here_price or m["shown"][0] or 0)), m["name"]))
         size_chart = checks.model_size_chart(model)
         # ?height= lights up the sizes that fit it (size-fit.js does the same as you type, from this browser's height).
         height = request.args.get("height", type=int)

@@ -304,3 +304,17 @@ def test_a_tab_with_many_builds_picks_a_version_first(tmp_path):
     assert "Shimano 105 Di2" in sl and "This bike" in sl
     # the ALR has three builds: no second row
     assert 'data-for="ALR"' not in page
+
+
+def test_other_models_show_each_build(tmp_path):
+    # a Domane page lists the Domane+ builds one by one (not one Domane+ card), on sale first, nearest in price
+    # first, eight at a time with a button for the rest
+    path = str(tmp_path / "app.sqlite3")
+    seed.load(db.connect(path))
+    html = create_app(path).test_client().get("/models/trek-domane-sl-5-gen-5?lang=en").get_data(as_text=True)
+    grid = re.search(r'<div class="model-grid sibling-grid" id="sibling-builds">(.*?)</div>\s*<button', html, re.S).group(1)
+    slugs = re.findall(r'href="/models/([^"?]+)"', grid)
+    assert len(slugs) > 8 and all(s.startswith("trek-domane-plus-") for s in slugs)
+    assert slugs[0] == "trek-domane-plus-al-5"  # €3.299, the nearest to the SL 5's €2.499
+    assert "builds" not in grid and "€3,299" in grid.replace("€3.299", "€3,299")
+    assert f"Show all {len(slugs)}" in html

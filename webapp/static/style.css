@@ -795,6 +795,15 @@ h2 .count { font-size: 18px; font-weight: 600; }
 .model-card .foot-row { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
 /* Filter animation (models.js): a card that drops out fades where it was, underneath the cards gliding into place. */
 .model-grid .model-card { position: relative; z-index: 1; }
+/* The model page's other builds: eight cards, four on a phone, until "Show all" (model.html). */
+.sibling-grid:not(.all) > .model-card:nth-child(n+9) { display: none; }
+.sibling-more { align-self: center; }
+.sibling-more[hidden] { display: none !important; }
+.sibling-more.phone-only { display: none; }
+@media (max-width: 600px) {
+  .sibling-grid:not(.all) > .model-card:nth-child(n+5) { display: none; }
+  .sibling-more.phone-only:not([hidden]) { display: inline-flex; }
+}
 .model-card.leaving { position: fixed; z-index: 0; margin: 0; pointer-events: none; }
 .spec-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 28px 40px; align-items: start; }
 .spec-group h3 { font-family: var(--mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 8px; }
