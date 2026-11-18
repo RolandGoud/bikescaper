@@ -42,7 +42,7 @@ STATUS_LABELS = {"current": "Still sold", "discontinued": "Discontinued",
 MONTHS = {"nl": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],
           "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
 LEGAL_UPDATED = {"nl": "15 november 2026", "en": "15 November 2026"}  # change with the privacy text
-TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map
+TOWNS_PER_PAGE = 12  # towns per page of the list beside the listings map, and a picked town's ads per page
 TABLE_PER_PAGE = 10  # ads per page of the listings table (/listings?view=table)
 EXTERNAL_LINK = re.compile(r'<a\s[^>]*href="https?://[^>]*>')
 # Home hero backgrounds: openly licensed photos from Wikimedia Commons, one picked at random per visit.
@@ -1039,13 +1039,23 @@ def create_app(db_path=None):
         for pin in pins:  # each town's own address: the page with that town selected
             pin["link"] = url_for("listings_map", place=pin["place"], cc=pin["country"], **keep)
         selected = next((i for i, p in enumerate(pins) if focus and [p["lat"], p["lng"]] == list(focus[:2])), None)
-        # The town list comes in pages (?page=, busiest towns on page 1); a picked town opens on its own page,
-        # so "All places" goes back to where it is in the list.
-        pages = max(1, -(-len(pins) // TOWNS_PER_PAGE))
-        page = selected // TOWNS_PER_PAGE + 1 if selected is not None else min(max(number(request.args.get("page"), int) or 1, 1), pages)
-        page_urls = [url_for("listings_map", **keep, **({"page": n} if n > 1 else {})) for n in range(1, pages + 1)]
+        # The town list comes in pages (?page=, busiest towns on page 1), and so do a town's ads, as many to a page.
+        # With a town picked, ?page= is the page of its ads, and the town list stays on the page the town is on, so
+        # "All places" goes back to where it is in the list.
+        def pages_of(items):
+            return max(1, -(-len(items) // TOWNS_PER_PAGE))
+
+        def page_in(items):
+            return min(max(number(request.args.get("page"), int) or 1, 1), pages_of(items))
+
+        for pin in pins:
+            pin["page_urls"] = [url_for("listings_map", place=pin["place"], cc=pin["country"], **keep,
+                                        **({"page": n} if n > 1 else {})) for n in range(1, pages_of(pin["ads"]) + 1)]
+        page = selected // TOWNS_PER_PAGE + 1 if selected is not None else page_in(pins)
+        ad_page = page_in(pins[selected]["ads"]) if selected is not None else 1
+        page_urls = [url_for("listings_map", **keep, **({"page": n} if n > 1 else {})) for n in range(1, pages_of(pins) + 1)]
         return render_template("listings_map.html", pins=pins, nav="listings", selected=selected,
-                               page=page, page_urls=page_urls, per_page=TOWNS_PER_PAGE,
+                               page=page, ad_page=ad_page, page_urls=page_urls, per_page=TOWNS_PER_PAGE,
                                countries=countries, country=country, all_url=all_url)
 
     @app.route("/models")

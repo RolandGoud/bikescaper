@@ -7,6 +7,21 @@
 {% from "_macros.html" import view_icon %}
 {# A small flag in muted colours: the Netherlands in horizontal stripes, Belgium in vertical ones. #}
 {% macro flag(cc) %}<svg class="map-flag" viewBox="0 0 3 3" preserveAspectRatio="none" aria-hidden="true">{% if cc == 'BE' %}<rect width="1" height="3" fill="var(--flag-black)"/><rect x="1" width="1" height="3" fill="var(--flag-gold)"/><rect x="2" width="1" height="3" fill="var(--flag-red)"/>{% else %}<rect width="3" height="1" fill="var(--flag-red)"/><rect y="1" width="3" height="1" fill="var(--flag-white)"/><rect y="2" width="3" height="1" fill="var(--flag-blue)"/>{% endif %}</svg>{% endmacro %}
+{# The pager under the town list and under a town's ads, the same for both: which ones of how many show, then
+   ← 1 2 … 9 → with the first and last page, this one and one either side; a gap of one page shows that page instead
+   of "…", so the pager keeps to one line on a phone. The script below draws the same markup when it turns a page. #}
+{% macro pager(page, urls, total, count) %}
+{% set last = urls|length %}
+{% macro near(n) %}{{ 'y' if n == 1 or n == last or (n - page)|abs <= 1 or (n == 2 and page == 4) or (n == last - 1 and page == last - 3) }}{% endmacro %}
+<div class="map-pager" aria-label="{{ _('Pages') }}">
+  <span class="map-pager-count">{{ count|replace('{range}', '<b>%d–%d</b>' % ((page - 1) * per_page + 1, [total, page * per_page]|min))|replace('{total}', total|string)|safe }}</span>
+  <span class="map-pager-pages">
+    <a class="map-pager-step" data-page="{{ page - 1 }}" href="{{ urls[page - 2] if page > 1 else '' }}" aria-label="{{ _('Previous') }}"{% if page == 1 %} aria-disabled="true"{% endif %}>←</a>
+    {%- for url in urls %}{% if near(loop.index) %}<a href="{{ url }}" data-page="{{ loop.index }}"{% if loop.index == page %} aria-current="page"{% endif %}>{{ loop.index }}</a>{% elif near(loop.index - 1) %}<span class="map-pager-gap" aria-hidden="true">…</span>{% endif %}{% endfor -%}
+    <a class="map-pager-step" data-page="{{ page + 1 }}" href="{{ urls[page] if page < last else '' }}" aria-label="{{ _('Next') }}"{% if page == last %} aria-disabled="true"{% endif %}>→</a>
+  </span>
+</div>
+{% endmacro %}
 {# The Netherlands and Belgium as a grid of dots (webapp/static/benelux.json), one glowing pin per town with
    checked ads in the colour of its most urgent price verdict, and beside it the towns, most ads first.
    Picking a town (its pin or its name) shows only that town's ads and gives the page
@@ -55,11 +70,7 @@
         </a>
         {% endfor %}
         {% if page_urls|length > 1 %}
-        <div class="map-pager" aria-label="{{ _('Pages') }}">
-          <a class="map-pager-step" data-page="{{ page - 1 }}" href="{{ page_urls[page - 2] if page > 1 else '' }}"{% if page == 1 %} aria-disabled="true"{% endif %}>← {{ _('Previous') }}</a>
-          <span class="map-pager-pages">{% for url in page_urls %}<a href="{{ url }}" data-page="{{ loop.index }}"{% if loop.index == page %} aria-current="page"{% endif %}>{{ loop.index }}</a>{% endfor %}</span>
-          <a class="map-pager-step" data-page="{{ page + 1 }}" href="{{ page_urls[page] if page < page_urls|length else '' }}"{% if page == page_urls|length %} aria-disabled="true"{% endif %}>{{ _('Next') }} →</a>
-        </div>
+        {{ pager(page, page_urls, pins|length, _('{range} of {total} places')) }}
         {% endif %}
       </nav>
       {% endif %}
@@ -69,8 +80,9 @@
           <a class="map-back" href="{{ page_urls[loop.index0 // per_page] }}">← {{ _('All places') }}</a>
           <h2 class="map-town-name"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ pin.place }}<span class="muted">{{ pin.ads|length }}</span></h2>
         </div>
+        {% set town_page = ad_page if loop.index0 == selected else 1 %}
         {% for ad in pin.ads %}
-        <a class="map-ad" href="{{ ad.url }}">
+        <a class="map-ad" href="{{ ad.url }}" data-page="{{ loop.index0 // per_page + 1 }}"{% if loop.index0 // per_page + 1 != town_page %} hidden{% endif %}>
           <span class="map-ad-photo{{ ' catalogue' if ad.catalogue }}">{% if ad.photo %}<img src="{{ ad.photo }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% endif %}</span>
           <span class="map-ad-body">
             <span class="map-ad-top"><b>{{ ad.price or '–' }}</b><span class="map-verdict {{ ad.status }}">{{ ad.verdict }}</span></span>
@@ -79,6 +91,9 @@
           </span>
         </a>
         {% endfor %}
+        {% if pin.page_urls|length > 1 %}
+        {{ pager(town_page, pin.page_urls, pin.ads|length, _('{range} of {total} ads')) }}
+        {% endif %}
       </section>
       {% endfor %}
       {% if not pins %}
@@ -162,36 +177,62 @@
   });
 
   var townLinks = document.querySelectorAll(".map-index-town");
-  var pager = document.querySelector(".map-pager");
+  var countText = {places: {{ _('{range} of {total} places')|tojson }}, ads: {{ _('{range} of {total} ads')|tojson }}};
+  var adPage = {{ ad_page|tojson }}, shown = selected;
+  // The pager as the template's pager() macro draws it: the first and last page, this one and one either side,
+  // and "…" for the pages in between (a gap of one page shows that page).
+  function near(k, n, last) {
+    return k === 1 || k === last || Math.abs(k - n) <= 1 || (k === 2 && n === 4) || (k === last - 1 && n === last - 3);
+  }
+  function drawPager(el, n, urls, total, count) {
+    if (!el) return;
+    var last = urls.length, nums = "";
+    for (var k = 1; k <= last; k++) {
+      if (near(k, n, last)) nums += '<a href="' + urls[k - 1] + '" data-page="' + k + '"' + (k === n ? ' aria-current="page"' : "") + ">" + k + "</a>";
+      else if (near(k - 1, n, last)) nums += '<span class="map-pager-gap" aria-hidden="true">…</span>';
+    }
+    var row = el.querySelector(".map-pager-pages"), steps = row.querySelectorAll(".map-pager-step");
+    row.querySelectorAll(":scope > :not(.map-pager-step)").forEach(function (x) { x.remove(); });
+    steps[0].insertAdjacentHTML("afterend", nums);
+    [[steps[0], n - 1], [steps[1], n + 1]].forEach(function (s) {
+      var ok = s[1] >= 1 && s[1] <= last;
+      s[0].dataset.page = s[1];
+      s[0].setAttribute("href", ok ? urls[s[1] - 1] : "");
+      if (ok) s[0].removeAttribute("aria-disabled"); else s[0].setAttribute("aria-disabled", "true");
+    });
+    var range = "<b>" + ((n - 1) * perPage + 1) + "–" + Math.min(total, n * perPage) + "</b>";
+    el.querySelector(".map-pager-count").innerHTML = count.replace("{range}", range).replace("{total}", total);
+  }
   // Show one page of the town list.
   function turn(n) {
     page = n;
     townLinks.forEach(function (a) { a.hidden = +a.dataset.page !== n; });
-    if (!pager) return;
-    var last = pageUrls.length;
-    pager.querySelectorAll(".map-pager-pages a").forEach(function (a) {
-      if (+a.dataset.page === n) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
-    });
-    var steps = pager.querySelectorAll(".map-pager-step");
-    [[steps[0], n - 1], [steps[1], n + 1]].forEach(function (s) {
-      var ok = s[1] >= 1 && s[1] <= last;
-      s[0].dataset.page = s[1];
-      s[0].setAttribute("href", ok ? pageUrls[s[1] - 1] : "");
-      if (ok) s[0].removeAttribute("aria-disabled"); else s[0].setAttribute("aria-disabled", "true");
-    });
+    if (index) drawPager(index.querySelector(".map-pager"), n, pageUrls, pins.length, countText.places);
   }
-  // Show one town's ads (i) or, with null, the list of towns on its page; the map follows.
+  // Show one page of town i's ads.
+  function turnTown(i, n) {
+    adPage = n;
+    towns[i].querySelectorAll(".map-ad").forEach(function (a) { a.hidden = +a.dataset.page !== n; });
+    drawPager(towns[i].querySelector(".map-pager"), n, pins[i].page_urls, pins[i].ads.length, countText.ads);
+  }
+  // Show one town's ads (i, on page n) or, with null, the list of towns on page n; the map follows.
   function show(i, n) {
     if (index) index.hidden = i !== null;
     towns.forEach(function (t, j) { t.hidden = j !== i; });
     markers.forEach(function (m, j) { var e = m.getElement(); if (e) e.classList.toggle("on", j === i); });
     if (i === null) { turn(n || page); map.flyToBounds(home, {padding: [16, 16], duration: 0.5}); }
-    else { page = Math.floor(i / perPage) + 1; map.flyTo(markers[i].getLatLng(), Math.max(map.getZoom(), whole + 1), {duration: 0.5}); }
+    else {
+      page = Math.floor(i / perPage) + 1;
+      turnTown(i, n || 1);
+      if (i !== shown) map.flyTo(markers[i].getLatLng(), Math.max(map.getZoom(), whole + 1), {duration: 0.5});
+    }
+    shown = i;
   }
   // Picking a town or a page gives the page its own address, so it can be shared, bookmarked or gone back from.
   function go(i, n) {
-    var url = i === null ? pageUrls[(n || page) - 1] : pins[i].link;
-    if (location.pathname + location.search !== url) history.pushState({pin: i, page: n || page}, "", url);
+    n = n || (i === null ? page : 1);
+    var url = i === null ? pageUrls[n - 1] : pins[i].page_urls[n - 1];
+    if (location.pathname + location.search !== url) history.pushState({pin: i, page: n}, "", url);
     show(i, n);
     var list = document.querySelector(".map-towns");
     if (list.getBoundingClientRect().top < 0) list.scrollIntoView({behavior: "smooth"});
@@ -201,19 +242,23 @@
     var st = e.state || {};
     show(typeof st.pin === "number" ? st.pin : null, st.page || 1);
   });
-  history.replaceState({pin: selected, page: page}, "");
+  history.replaceState({pin: selected, page: selected !== null ? adPage : page}, "");
   townLinks.forEach(function (a) {
     var i = +a.dataset.pin;
     a.addEventListener("click", function (e) { e.preventDefault(); pick(i); });
     a.addEventListener("mouseenter", function () { var el = markers[i].getElement(); if (el) el.classList.add("hover"); });
     a.addEventListener("mouseleave", function () { var el = markers[i].getElement(); if (el) el.classList.remove("hover"); });
   });
-  if (pager) pager.addEventListener("click", function (e) {
-    var a = e.target.closest("a[data-page]");
+  // The pagers, of the town list and of each town's ads, turn without reloading.
+  document.querySelector(".map-towns").addEventListener("click", function (e) {
+    var a = e.target.closest(".map-pager a[data-page]");
     if (!a) return;
     e.preventDefault();
-    var n = +a.dataset.page;
-    if (n >= 1 && n <= pageUrls.length && n !== page) go(null, n);
+    var n = +a.dataset.page, town = a.closest(".map-town");
+    if (town) {
+      var i = +town.dataset.pin;
+      if (n >= 1 && n <= pins[i].page_urls.length && n !== adPage) go(i, n);
+    } else if (n >= 1 && n <= pageUrls.length && n !== page) go(null, n);
   });
   document.querySelectorAll(".map-back").forEach(function (a) {
     a.addEventListener("click", function (e) { e.preventDefault(); go(null, page); });
