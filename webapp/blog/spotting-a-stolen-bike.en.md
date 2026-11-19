@@ -1,6 +1,6 @@
 ---
 title: Spotting a stolen bike before you pay
-date: 2026-11-08
+date: 2026-11-07
 category: guides
 summary: Too cheap, no receipt, a seller who knows nothing about the bike. The warning signs, the registers to look up a frame number and what Dutch law says about handling stolen goods.
 stat: <60%

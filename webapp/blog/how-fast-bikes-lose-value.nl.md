@@ -1,6 +1,6 @@
 ---
 title: Hoe snel verliest een racefiets zijn waarde?
-date: 2026-11-15
+date: 2026-11-13
 category: market
 summary: Een kwart in het eerste jaar, daarna zo'n 12% per jaar. En waarom een fiets uit 2020 tweedehands goedkoper is dan je zou denken: de nieuwprijzen zijn sindsdien flink gestegen.
 stat: −25%

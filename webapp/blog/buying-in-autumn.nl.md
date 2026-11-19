@@ -1,6 +1,6 @@
 ---
 title: Een racefiets kopen in het najaar: zo pak je het slim aan
-date: 2026-11-01
+date: 2026-10-26
 category: seasonal
 summary: Het seizoen is voorbij, de nieuwe modeljaren liggen in de winkel en wie wil upgraden zet zijn oude fiets te koop. Waarom november een goede maand is om tweedehands te zoeken, en waar je op let.
 stat: 5

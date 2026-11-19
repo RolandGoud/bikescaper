@@ -1,6 +1,6 @@
 ---
 title: What a groupset tells you about a bike
-date: 2026-11-15
+date: 2026-11-09
 category: guides
 summary: Claris, 105, Ultegra, Dura-Ace: how to read a bike's class from its groupset, and why a ten-year-old Ultegra isn't a top groupset any more.
 stat: −1

@@ -1,6 +1,6 @@
 ---
 title: Wat kost een groepset je echt? De nieuwprijs van een fiets per groep
-date: 2026-11-08
+date: 2026-11-06
 category: market
 summary: Een fiets met 105 kost nieuw rond de €2.600, met Ultegra Di2 rond de €6.500 en met Dura-Ace Di2 boven de €10.000. Zo lees je een advertentie aan de groepset af.
 stat: +€1.400

@@ -1,6 +1,6 @@
 ---
 title: Een fietsadvertentie lezen: 7 dingen die je checkt voor je reageert
-date: 2026-11-01
+date: 2026-10-31
 category: guides
 summary: In meer dan de helft van de advertenties die we naliepen, klopte het bouwjaar niet met de foto's of de onderdelen. Zo lees je een advertentie op Marktplaats of 2dehands zoals wij dat doen.
 stat: 38/72

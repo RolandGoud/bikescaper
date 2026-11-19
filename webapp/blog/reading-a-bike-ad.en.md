@@ -1,6 +1,6 @@
 ---
 title: Reading a bike ad: 7 things to check before you reply
-date: 2026-11-01
+date: 2026-10-31
 category: guides
 summary: In more than half of the ads we went through, the model year didn't match the photos or the parts. How to read an ad on Marktplaats or 2dehands the way we do.
 stat: 38/72

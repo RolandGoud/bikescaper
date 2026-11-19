@@ -1,6 +1,6 @@
 ---
 title: Giant TCR Advanced: the affordable carbon racer, second-hand
-date: 2026-11-08
+date: 2026-11-05
 category: models
 model: Giant TCR
 summary: After Trek, the bike we check most. Advanced, Advanced Pro or Advanced SL, what "PC" means, and why a 2021 TCR cost much less than one today.

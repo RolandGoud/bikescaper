@@ -31,6 +31,13 @@ def test_every_article_is_in_both_languages_with_a_known_category():
     assert {c: len(d) for c, d in by_cat.items()} == {c: 3 for c in blog.CATEGORIES}
 
 
+def test_articles_are_spread_over_the_week():
+    # no two articles share a day, so the list doesn't show a batch published all at once
+    days = [versions["nl"]["date"] for versions in blog.load().values()]
+    assert len(days) == len(set(days))
+    assert len({d.weekday() for d in days}) >= 5
+
+
 def test_future_articles_stay_hidden():
     posts = {"a": {"nl": {"slug": "a", "date": date(2026, 1, 2), "category": "market"}},
              "b": {"nl": {"slug": "b", "date": date(2026, 1, 9), "category": "market"}}}

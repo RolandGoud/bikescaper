@@ -1,6 +1,6 @@
 ---
 title: What does a new road bike cost per brand? 1,136 prices compared
-date: 2026-11-01
+date: 2026-10-28
 category: market
 summary: From Cube to Factor, the median new price of 16 brands in our catalogue. Worth knowing before you judge a second-hand price.
 stat: 16

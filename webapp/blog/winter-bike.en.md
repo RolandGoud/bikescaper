@@ -1,6 +1,6 @@
 ---
 title: Buying a winter bike: what to look for
-date: 2026-11-08
+date: 2026-11-04
 category: seasonal
 summary: Salt, rain and mud wreck an expensive road bike. A second, cheap bike for winter is often smarter. What to look for, and which models from our catalogue fit the bill.
 stat: €690

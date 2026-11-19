@@ -1,6 +1,6 @@
 ---
 title: How fast does a road bike lose value?
-date: 2026-11-15
+date: 2026-11-13
 category: market
 summary: A quarter in the first year, then about 12% a year. And why a 2020 bike is worth less than you'd think: new prices have risen a lot since.
 stat: −25%

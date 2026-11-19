@@ -1,6 +1,6 @@
 ---
 title: What does a groupset really cost you? A bike's new price per groupset
-date: 2026-11-08
+date: 2026-11-06
 category: market
 summary: A bike with 105 costs about €2,600 new, with Ultegra Di2 about €6,500, and with Dura-Ace Di2 over €10,000. How to read an ad's price class from its groupset.
 stat: +€1,400

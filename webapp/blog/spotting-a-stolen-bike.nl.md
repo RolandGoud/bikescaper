@@ -1,6 +1,6 @@
 ---
 title: Een gestolen fiets herkennen voordat je betaalt
-date: 2026-11-08
+date: 2026-11-07
 category: guides
 summary: Te goedkoop, geen bon, een verkoper die niets van de fiets weet. De signalen, de registers waarin je een framenummer opzoekt en wat de wet zegt over heling.
 stat: <60%
