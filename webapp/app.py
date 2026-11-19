@@ -1125,9 +1125,14 @@ def create_app(db_path=None):
             m["matched"] = sum(len(matched.get(i, [])) for i in m.get("ids") or [m["id"]])  # a model's every build
         # One grid, cheapest first: the type is a filter and an icon on each tile, no longer a heading of its own
         groups = [("all", "Models", sorted(items, key=lambda m: (not m["price_eur"], m["price_eur"] or 0, m["brand"], m["name"])))]
-        # the brand menu: most bikes (as counted in the menu) first, ties alphabetical
-        brand_menu = sorted((b for b in BRANDS if b["scraper"]),
-                            key=lambda b: (-brand_counts.get(b["name"], 0), b["name"].lower()))
+        # the brand menu: the brand with the most ads checked first (every ad matched to one of its models, an ad
+        # checked again counting once, whatever the other filters), then most bikes in the menu, then alphabetical
+        brand_of = {m["id"]: m["brand"] for m in models()}
+        brand_ads = Counter()
+        for model_id, ads in matched.items():
+            brand_ads[brand_of.get(model_id)] += len(ads)
+        brand_menu = sorted((dict(b, ads=brand_ads.get(b["name"], 0)) for b in BRANDS if b["scraper"]),
+                            key=lambda b: (-b["ads"], -brand_counts.get(b["name"], 0), b["name"].lower()))
         return render_template("models.html", groups=[g for g in groups if g[2]], disciplines=[d for d in DISCIPLINES if d[0] not in HIDDEN_KINDS], brand_menu=brand_menu,
                                counts=counts, brand_counts=brand_counts, kind=kind, picked=picked, q=q, current=current, count=len(items),
                                model=model, model_menu=model_menu,
