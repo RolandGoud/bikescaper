@@ -8,7 +8,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 from xml.sax.saxutils import escape
 
-from . import ad_gone, checks
+from . import ad_emoji, ad_gone, checks
 from .i18n import gettext as _
 
 INK, MUTED, ACCENT = colors.HexColor("#111216"), colors.HexColor("#6B6B78"), colors.HexColor("#0E9F6E")
@@ -61,7 +61,7 @@ def build(listing, r, height=None, report_url=None):
     width = A4[0] - 36 * mm
     story = [_p("BIKECHECK · " + _("Check report").upper(), s["brand"]), Spacer(1, 6)]
 
-    story.append(_p(f"“{listing['title']}”", s["h1"]))
+    story.append(_p(f"“{ad_emoji.tame(listing['title'], listing)}”", s["h1"]))
     facts = [_("checked {date}", date=listing["created_at"][:10])]
     if listing.get("asking_price") is not None:
         facts.append(_("Asking {price}", price=eur(listing["asking_price"])))

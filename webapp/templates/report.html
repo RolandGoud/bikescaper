@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_macros.html" import photo, tier_badge, tier_move, aged_chip, part_icon %}
 {% from "_macros.html" import asking_box, duo_photo, matched_ads, compare_ads, place_link, site_name, site_logo, blog_cards with context %}
-{% block title %}{{ _('Check report') }}: {{ listing.title }} · Bikecheck{% endblock %}
+{% block title %}{{ _('Check report') }}: {{ listing.title|tame_emoji(listing) }} · Bikecheck{% endblock %}
 {% block body %}
 {% if is_admin() %}
 {# The edit mode, for a logged-in admin only: correct what the check matched and read from the ad. A value set here is
@@ -69,10 +69,10 @@
         {% set name = r.model.name|family_name %}{% set lead, _sp, rest = name.partition(' ') %}
         {% if logos.get(r.model.brand) %}<span class="stage-logo" role="img" aria-label="{{ r.model.brand }}" style="--logo: url('{{ url_for('static', filename=logos[r.model.brand]) }}')"></span>{% endif %}
         <h1>{% if not logos.get(r.model.brand) %}{{ r.model.brand }} {% else %}<span class="sr-only">{{ r.model.brand }} </span>{% endif %}{{ lead }}{% if rest %} <span class="acc">{{ rest }}</span>{% endif %}</h1>
-        <div class="stage-sub">“{{ listing.title }}”</div>
+        <div class="stage-sub">“{{ listing.title|tame_emoji(listing) }}”</div>
         {% else %}
         {% set lead, rest = ad_title(listing.title, r.model) %}
-        <h1 title="{{ _('Original ad title: {title}', title=listing.title) }}">{{ lead }}{% if rest %} <span class="acc">{{ rest }}</span>{% endif %}</h1>
+        <h1 title="{{ _('Original ad title: {title}', title=listing.title|tame_emoji(listing)) }}">{{ lead }}{% if rest %} <span class="acc">{{ rest }}</span>{% endif %}</h1>
         {% endif %}
       </div>
     </div>
@@ -162,9 +162,9 @@
       </div>{% endif %}
       <div class="ad-text">
         <span class="k">{{ _('Ad text')|upper }}{% if translated %} <span class="ad-text-lang">· {{ _('Translated from French')|upper }}</span>{% endif %}</span>
-        {% if translated %}<p class="ad-text-body" lang="{{ lang }}">{{ translated.text }}</p>
-        <details class="ad-text-original"><summary>{{ _('Show the original (French)') }}</summary><p lang="fr">{{ translated.original }}</p></details>
-        {% elif listing.description %}<p class="ad-text-body">{{ listing.description }}</p>{% else %}<p class="muted">{{ _('The ad has no text of its own.') }}</p>{% endif %}
+        {% if translated %}<p class="ad-text-body" lang="{{ lang }}">{{ translated.text|tame_emoji(listing) }}</p>
+        <details class="ad-text-original"><summary>{{ _('Show the original (French)') }}</summary><p lang="fr">{{ translated.original|tame_emoji(listing) }}</p></details>
+        {% elif listing.description %}<p class="ad-text-body">{{ listing.description|tame_emoji(listing) }}</p>{% else %}<p class="muted">{{ _('The ad has no text of its own.') }}</p>{% endif %}
         <div class="ad-text-foot">
           {% if listing.description %}<button class="ad-text-more" type="button" aria-expanded="false" hidden data-less="{{ _('Fold up') }} ▴">{{ _('Read the whole text') }} ▾</button>{% else %}<span></span>{% endif %}
           {% if site %}<a class="btn ghost site-link" href="{{ listing.listing_url }}" rel="noopener nofollow" aria-label="{{ _('Open the ad on {site}', site=site) }}">{% set logo = site_logo(site, light=True) %}{% if logo %}<img class="site-logo" src="{{ logo }}" alt="" height="20">{% else %}<span class="site-logo text">{{ site }}</span>{% endif %}<span aria-hidden="true">↗</span></a>
@@ -636,7 +636,7 @@
     <input type="hidden" name="year" value="{{ pk.set.year }}">
     <input type="hidden" name="colour" value="{{ pk.set.colour }}">
     <div class="pk-head"><h2 id="pk-title">{{ _('Choose our match') }}</h2>
-      <span class="pk-ad">{{ _('Ad') }}: <b>{{ listing.title }}</b>{% if listing.asking_price %} · {{ listing.asking_price|eur }}{% endif %}</span>
+      <span class="pk-ad">{{ _('Ad') }}: <b>{{ listing.title|tame_emoji(listing) }}</b>{% if listing.asking_price %} · {{ listing.asking_price|eur }}{% endif %}</span>
       <button class="pk-x" type="button" data-close aria-label="{{ _('Close') }}">×</button></div>
     <div class="pk-body">
       <div class="pk-rail">

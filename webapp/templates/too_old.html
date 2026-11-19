@@ -6,7 +6,7 @@
   <section class="card too-old">
     <div class="mono muted">{{ _('Not checked')|upper }}</div>
     <h1>{{ _('We have no data for bikes from before {year}', year=first_year) }}</h1>
-    <p class="ad-title">“{{ listing.title }}”</p>
+    <p class="ad-title">“{{ listing.title|tame_emoji(listing) }}”</p>
     {% set how = r.year.how if r.model and r.year else 'ad' %}
     <p>
       {% if how == 'purchase' or r.claims.year_is_purchase %}{{ _('The ad says it was bought in {year}, so it is a model from before {first}.', year=r.claims.year, first=first_year) }}

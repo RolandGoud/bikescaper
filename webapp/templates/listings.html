@@ -31,8 +31,8 @@
       <li class="ad-row">
         <span class="ad-row-photo{{ '' if row.photos else ' catalogue' }}">{% if row.photos %}<img src="{{ row.photos[0] }}" alt="" loading="lazy" referrerpolicy="no-referrer">{% else %}{{ photo(r.model) }}{% endif %}{{ removed_banner(row) }}</span>
         <span class="ad-row-text">
-          <a class="ad-row-name" href="{{ url_for('report', check_id=row.id) }}">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title }}{% endif %}</a>
-          {% if r.model %}<span class="ad-row-title" title="{{ row.title }}">“{{ split_title(row.title).name }}”</span>{% endif %}
+          <a class="ad-row-name" href="{{ url_for('report', check_id=row.id) }}">{% if r.model %}{{ r.model.brand }} {{ r.model.name|model_title }}{% else %}{{ row.title|tame_emoji(row) }}{% endif %}</a>
+          {% if r.model %}<span class="ad-row-title" title="{{ row.title|tame_emoji(row) }}">“{{ split_title(row.title|tame_emoji(row)).name }}”</span>{% endif %}
           <span class="ad-row-meta">
             {% if row.location %}<span class="ad-row-place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>{{ place_link(row.location, row.listing_url) }}</span>{% endif %}
             {% if r.claims.size %}<span>{{ _('Size') }} {{ r.claims.size }}</span>{% endif %}
