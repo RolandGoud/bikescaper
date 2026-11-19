@@ -879,9 +879,11 @@ select { max-width: 100%; }
 .duo .ad-side img { width: 100%; height: 100%; object-fit: cover; }
 .duo .ad-side img.flip { transform: scaleX(-1); }
 .duo .ad-side img.whole { object-fit: contain; }  /* not lined up: the whole photo, so the bike isn't cut off */
-/* On a listing card the ad side starts at 60% (static/duo.js): a photo that isn't lined up fills that side, cropped,
-   instead of shrinking to the whole tile with empty bands beside it and the bike behind the catalogue half. */
-.listing-card .duo .ad-side img.whole { position: absolute; left: 0; top: 0; width: 70%; height: 100%; object-fit: cover; }
+/* On a listing card the ad side starts at 60% (static/duo.js). A photo that isn't lined up, or that would be drawn
+   smaller than the tile to keep its bike whole, fills the ad's side, cropped, instead of a blurred band round it.
+   Its width follows the cut (the slant's top corner is at cut + 10%): 70% at the start so the bike isn't behind the
+   catalogue half, growing to the whole tile as the cut is slid right, so no empty strip ever shows past its edge. */
+.listing-card .duo .ad-side.fill img { position: absolute; left: 0 !important; top: 0 !important; width: clamp(70%, calc(var(--cut) + 10%), 100%) !important; height: 100% !important; object-fit: cover; }
 /* Round a photo drawn whole or smaller: the same photo, blurred and covering the tile, instead of flat bars. */
 .duo .ad-side.fill { overflow: hidden; }
 .duo .ad-side.fill::before { content: ""; position: absolute; inset: -24px; background: var(--ad) center / cover; filter: blur(18px) brightness(.8); }
