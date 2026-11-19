@@ -72,7 +72,7 @@ def test_pages_show_one_model_with_its_builds(tmp_path):
     assert not any("rameset" in t for t in titles)  # a frameset is the last level of its family, no tile
     assert " builds" in html and "New from €" not in html and "New €" not in html
     page = client.get("/models/ridley-noah-fast-3-0-shimano-ultegra-di2-2x12?lang=en").get_data(as_text=True)
-    pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"]+)"', page)
+    pills = re.findall(r'class="build-pill t\d( on)?" href="/models/([^"#]+)(?:#bw)?"', page)
     # the 13 builds on sale, and the retired Noah builds of earlier years (data/years/archived/Ridley.json)
     builds = checks.builds_of(_by_name(db.all_models(db.connect(app.config["DB_PATH"])),
                                        "Noah Fast 3.0 Shimano Ultegra Di2 2x12"), db.all_models(db.connect(app.config["DB_PATH"])))
@@ -334,3 +334,12 @@ def test_a_model_tile_opens_on_its_most_expensive_current_build(tmp_path):
     family = [m for m in models if checks.site_split(m)[0] == checks.site_split(tile)[0] and m["brand"] == "Trek"
               and checks.catalogue_status(m)[0] == "current" and not checks.is_frameset(m)]
     assert tile["price_eur"] == max(m["price_eur"] or 0 for m in family)
+
+
+def test_a_build_picked_in_the_wizard_reopens_it_on_that_build(tmp_path):
+    # a build pill opens its page with #bw, and that page then reopens the wizard on its level and version
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    page = app.test_client().get("/models/trek-emonda-sl-6-di2?lang=en").get_data(as_text=True)
+    assert re.search(r'class="build-pill[^"]*" href="/models/trek-emonda-[^"#]+#bw"', page)
+    assert "location.hash === '#bw'" in page
