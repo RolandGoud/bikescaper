@@ -283,6 +283,120 @@ def winter_values(lang):
                                      {"x0": x0, "x1": x1, "vmax": 1600, "age": 4}))
 
 
+# 9. Same groupset, aluminium and carbon frame (carbon-or-aluminium)
+CARBON_PAIRS = [("Cube Nuroad · GRX 610", 1299, 1999), ("Trek Domane · 105", 1799, 2499),
+                ("Giant Revolt · GRX 610", 1999, 2999), ("Orbea Terra · GRX 610", 1999, 2999),
+                ("Specialized Allez / Aethos · 105 Di2", 3950, 3200)]
+
+
+def carbon_premium(lang):
+    x0, x1, top, row = 260, W - 60, 44, 34
+    scale = lambda v: x0 + (x1 - x0) * v / 4500
+    h = top + row * len(CARBON_PAIRS) + 64
+    b = [t(16, 18, "Zelfde groep: nieuwprijs met aluminium en met carbon frame" if lang == "nl"
+           else "Same groupset: new price with an aluminium and a carbon frame", "cap")]
+    b += axis(x0, x1, top - 14, h - 58, 4000, 1000, lang, scale)
+    for i, (label, alu, carbon) in enumerate(CARBON_PAIRS):
+        y = top + i * row + 6
+        b.append(name_(x0 - 12, y, label, x0 - 16, brand_height=11))
+        b.append(f'<line x1="{scale(alu):.1f}" y1="{y}" x2="{scale(carbon):.1f}" y2="{y}" class="stem"/>')
+        b.append(f'<circle cx="{scale(alu):.1f}" cy="{y}" r="7" class="frame al"/>')
+        b.append(f'<circle cx="{scale(carbon):.1f}" cy="{y}" r="7" class="frame slr"/>')
+        diff = carbon - alu
+        b.append(t(scale(max(alu, carbon)) + 14, y + 4, ("+" if diff > 0 else "−") + eur(abs(diff), lang), "val"))
+    ly = h - 12
+    for k, (f, label) in enumerate([("al", "aluminium"), ("slr", "carbon")]):
+        lx = x0 + k * 160
+        b.append(f'<circle cx="{lx}" cy="{ly - 4}" r="6" class="frame {f}"/>')
+        b.append(t(lx + 12, ly, label, "tick"))
+    write("carbon-premium", lang, svg(h, b, "Carbon of aluminium" if lang == "nl" else "Carbon or aluminium"))
+
+
+# 10. The sizes of four bikes by rider height (frame-size-from-an-ad), from webapp/size_charts.json
+SIZE_BIKES = [("Trek Domane SL 5", [("XS", 143, 158), ("S", 158, 162), ("M", 162, 173), ("ML", 173, 179),
+                                     ("L", 179, 188), ("XL", 188, 199)]),
+              ("Canyon Endurace CF 7", [("3XS", 152, 158), ("2XS", 158, 164), ("XS", 164, 170), ("S", 170, 177),
+                                        ("M", 177, 184), ("L", 184, 191), ("XL", 191, 197), ("2XL", 197, 203)]),
+              ("Rose Backroad AL", [("2XS", 151, 161), ("XS", 162, 167), ("S", 168, 173), ("M", 174, 179),
+                                    ("ML", 180, 184), ("L", 185, 191), ("XL", 192, 194), ("2XL", 195, 202)]),
+              ("Cannondale CAAD14", [("48", 157, 165), ("51", 165, 175), ("54", 170, 180), ("56", 178, 185),
+                                     ("58", 183, 193), ("61", 188, 198)])]
+RIDER = 178
+
+
+def size_by_height(lang):
+    x0, x1, top, row = 190, W - 20, 44, 50
+    lo, hi = 140, 205
+    scale = lambda v: x0 + (x1 - x0) * (v - lo) / (hi - lo)
+    h = top + row * len(SIZE_BIKES) + 30
+    b = [t(16, 18, "Maat per lichaamslengte; groen = de maat voor 1,78 m" if lang == "nl"
+           else "Size by rider height; green = the size for 1.78 m", "cap")]
+    for v in range(140, 205, 10):
+        b.append(f'<line x1="{scale(v):.1f}" y1="{top - 14}" x2="{scale(v):.1f}" y2="{h - 26}" class="grid"/>')
+        b.append(t(scale(v), h - 8, f"{v} cm", "tick", "middle"))
+    for i, (label, sizes) in enumerate(SIZE_BIKES):
+        y = top + i * row + 8
+        b.append(name_(x0 - 12, y + 4, label, x0 - 16, brand_height=11))
+        for k, (name, a, z) in enumerate(sizes):
+            yy = y + (6 if k % 2 else -6) if label.startswith("Cannondale") else y
+            fit = a <= RIDER <= z
+            b.append(f'<rect x="{scale(a) + 1:.1f}" y="{yy - 7}" width="{scale(z) - scale(a) - 2:.1f}" height="14" rx="4" '
+                     f'style="fill:{"var(--accent)" if fit else "var(--line-strong)"};opacity:{1 if fit else 0.6}"/>')
+            b.append(t((scale(a) + scale(z)) / 2, yy - 11 if not label.startswith("Cannondale") or k % 2 == 0 else yy + 20,
+                       name, "tick", "middle"))
+    b.append(f'<line x1="{scale(RIDER):.1f}" y1="{top - 14}" x2="{scale(RIDER):.1f}" y2="{h - 26}" class="ref"/>')
+    write("size-by-height", lang, svg(h, b, "Framematen" if lang == "nl" else "Frame sizes"))
+
+
+# 11. The Endurace today: new price per build, by frame grade (canyon-endurace)
+ENDURACE = [("CF 6", 1849, "al"), ("CF 7", 2349, "al"), ("CF 7 Di2", 3049, "al"), ("CF SLX 7 Di2", 4549, "sl"),
+            ("CF SLX 8 Di2", 5599, "sl"), ("CF SLX 8 AXS Aero", 5599, "sl"), ("CFR Di2", 9149, "slr"),
+            ("CFR AXS", 9149, "slr")]
+
+
+def endurace_lineup(lang):
+    x0, x1, top, row = 190, W - 90, 40, 26
+    scale = lambda v: x0 + (x1 - x0) * v / 10000
+    h = top + row * len(ENDURACE) + 70
+    b = [t(16, 18, "Canyon Endurace nu: nieuwprijs per uitvoering" if lang == "nl" else "Canyon Endurace today: new price per build", "cap")]
+    b += axis(x0, x1, top - 10, h - 64, 10000, 2500, lang, scale)
+    for i, (name, p, frame) in enumerate(ENDURACE):
+        y = top + i * row + 8
+        b.append(t(x0 - 12, y + 4, "Endurace " + name, "lbl", "end"))
+        b.append(f'<line x1="{x0}" y1="{y}" x2="{scale(p):.1f}" y2="{y}" class="stem"/>')
+        b.append(f'<circle cx="{scale(p):.1f}" cy="{y}" r="7" class="frame {frame}"/>')
+        b.append(t(scale(p) + 12, y + 4, eur(p, lang), "val"))
+    ly = h - 12
+    for k, (f, label) in enumerate([("al", "CF"), ("sl", "CF SLX"), ("slr", "CFR")]):
+        lx = x0 + k * 150
+        b.append(f'<circle cx="{lx}" cy="{ly - 4}" r="6" class="frame {f}"/>')
+        b.append(t(lx + 12, ly, label, "tick"))
+    write("endurace-lineup", lang, svg(h, b, "Canyon Endurace"))
+
+
+# 12. What condition does to the fair price (storing-your-bike-over-winter): the value estimator's condition factors
+CONDITIONS = [("like-new", 1.05), (None, 1.0), ("used", 0.92), ("damaged", 0.6)]
+CONDITION_NAMES = {"nl": {"like-new": "Zo goed als nieuw", None: "Normaal gebruikt", "used": "Gebruikt", "damaged": "Beschadigd"},
+                   "en": {"like-new": "Like new", None: "Normal use", "used": "Used", "damaged": "Damaged"}}
+
+
+def condition_values(lang, new=2499, age=2):
+    x0, x1, top, row = 190, W - 40, 44, 34
+    scale = lambda v: x0 + (x1 - x0) * v / 2600
+    h = top + row * len(CONDITIONS) + 46
+    b = [t(16, 18, f"Eerlijke prijs na {age} jaar, nieuw {eur(new, lang)}, per staat" if lang == "nl"
+           else f"Fair price after {age} years, {eur(new, lang)} new, by condition", "cap")]
+    b += axis(x0, x1, top - 14, h - 40, 2500, 500, lang, scale)
+    for i, (key, c) in enumerate(CONDITIONS):
+        y = top + i * row + 6
+        mid = new * value_factor(age) * c
+        lo, hi = round(mid * 0.9, -1), round(mid * 1.1, -1)
+        b.append(t(x0 - 12, y + 4, CONDITION_NAMES[lang][key], "lbl", "end"))
+        b.append(f'<rect x="{scale(lo):.1f}" y="{y - 8}" width="{scale(hi) - scale(lo):.1f}" height="16" rx="8" class="band-bar"/>')
+        b.append(t(scale(hi) + 10, y + 4, f"{eur(lo, lang)} – {eur(hi, lang)}", "val"))
+    write("condition-values", lang, svg(h, b, "Staat en prijs" if lang == "nl" else "Condition and price"))
+
+
 def build(lang):
     nl = lang == "nl"
     brand_prices(lang)
@@ -314,6 +428,15 @@ def build(lang):
         ("Topstone Carbon 1 RLE", [(2023, 8999), (2024, 7799), (2025, 7799)])],
         "Topstone: nieuwprijs per modeljaar" if nl else "Topstone: new price per model year")
     winter_values(lang)
+    carbon_premium(lang)
+    size_by_height(lang)
+    endurace_lineup(lang)
+    years_chart("endurace-years", lang, [
+        ("CF SL 8 Di2", [(2019, 3399), (2020, 3299), (2021, 3599)]),
+        ("CF SL 8", [(2020, 2499), (2022, 2799)]),
+        ("CF 8", [(2020, 1999), (2021, 1999)])],
+        "Endurace: nieuwprijs per modeljaar" if nl else "Endurace: new price per model year")
+    condition_values(lang)
 
 
 if __name__ == "__main__":

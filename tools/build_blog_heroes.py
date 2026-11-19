@@ -42,6 +42,9 @@ SOURCES = {
     "revolt-badge": GIANT + "laiphrr9bgoc2a5u75qh/MY25Revolt2_ColorAAsphaltGreen-D5.jpg",
     "lock": COMMONS + "Manchester_-_bicycle_lock.jpg?width=3000",
     "snow": COMMONS + "Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg?width=3000",
+    "endurace-cf7": "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/"
+                    "dw0b5911b4/images/full/2026_FULL_/2026/2026_FULL_endurace_cf-7_4274_R076_P09.jpg"
+                    "?sw=3000&sfrm=png&q=90&bgcolor=FFFFFF",
 }
 CREDITS = {
     "lock": {"author": "Jorge Franganillo", "license": "CC BY 4.0",
@@ -49,7 +52,8 @@ CREDITS = {
     "snow": {"author": "Wilfredor", "license": "CC0",
              "url": "https://commons.wikimedia.org/wiki/File:Bike_on_a_snowy_street_in_Quebec_City_at_night.jpg"},
 }
-BRAND = {"trek-domane-slr9": "Trek", "trek-domane-sl6": "Trek", "topstone-c2": "Cannondale"}  # else Giant
+BRAND = {"trek-domane-slr9": "Trek", "trek-domane-sl6": "Trek", "topstone-c2": "Cannondale",
+         "endurace-cf7": "Canyon"}  # else Giant
 
 WARM, COOL, MINT, AMBER, ICE = (255, 226, 186), (190, 214, 255), (170, 255, 214), (255, 178, 104), (200, 225, 255)
 
@@ -472,8 +476,9 @@ HEROES = {
     "spotting-a-stolen-bike": dict(key="unsplash:gaeP0enIkiQ", cx=0.5, cy=0.55, width=0.95, light=(1150, -300),
                                    target=(834, 360), focus=(834, 340), base=0.32, gain=0.9, gamma=1.4,
                                    colour=(255, 214, 170), tint=(0.88, 0.95, 1.08), sat=0.7),
-    "what-a-groupset-tells-you": dict(key="unsplash:9mZVRcC9rN4", cx=0.5, cy=0.5, width=0.9, light=(400, -300),
-                                      target=(800, 420), focus=(800, 400), base=0.7, gain=0.7, colour=MINT, sat=0.85),
+    # Every hero shows a road bike (or a road bike's parts): the site is about road and gravel bikes.
+    "what-a-groupset-tells-you": dict(key="unsplash:xuCX7RLMoqU", cx=0.5, cy=0.5, width=0.9, light=(400, -300),
+                                      target=(700, 520), focus=(700, 520), base=0.6, gain=0.75, colour=MINT, sat=0.85),
     "trek-domane": dict(key="unsplash:nIdWCuL-61M", cx=0.5, cy=0.5, width=0.88, light=(1350, -300), target=(1160, 620),
                         focus=(1160, 640), base=0.55, gain=0.75, colour=AMBER, tint=(1.06, 1.0, 0.9)),
     "giant-tcr-advanced": dict(key="unsplash:ZZay7O20jgc", cx=0.55, cy=0.55, width=0.95, light=(1450, -250),
@@ -488,8 +493,18 @@ HEROES = {
     "winter-bike": dict(key="unsplash:HPpj2190tGs", cx=0.5, cy=0.58, width=0.95, light=(1100, -300), target=(800, 495),
                         focus=(800, 495), base=0.45, gain=0.8, gamma=1.3, colour=ICE, tint=(0.9, 0.96, 1.08), sat=0.75,
                         dust=300),
-    "selling-in-spring": dict(key="unsplash:oZUT7x06YvY", cx=0.55, cy=0.55, width=0.9, light=(500, -250),
-                              target=(1150, 600), focus=(1170, 600), base=0.6, gain=0.6, colour=WARM, gamma=1.25),
+    "selling-in-spring": dict(key="unsplash:R4lUCF2EBW0", cx=0.5, cy=0.55, width=0.95, light=(500, -250),
+                              target=(780, 520), focus=(780, 520), base=0.6, gain=0.6, colour=WARM, gamma=1.25),
+    "carbon-or-aluminium": dict(key="unsplash:WvmF3e-IhOk", cx=0.5, cy=0.52, width=0.95, light=(1200, -280),
+                                target=(800, 470), focus=(800, 470), base=0.45, gain=0.8, gamma=1.3, colour=WARM,
+                                sat=0.8),
+    "frame-size-from-an-ad": dict(key="unsplash:nCj0zBLIaAk", cx=0.5, cy=0.55, width=0.95, light=(1300, -250),
+                                  target=(800, 600), focus=(800, 600), base=0.55, gain=0.7, colour=AMBER, gamma=1.2),
+    "storing-your-bike-over-winter": dict(key="unsplash:Lw_dIP6tDnQ", cx=0.55, cy=0.5, width=0.95, light=(1100, -300),
+                                          target=(950, 450), focus=(950, 450), base=0.5, gain=0.75, colour=ICE,
+                                          tint=(0.92, 0.97, 1.06), sat=0.75),
+    "canyon-endurace": dict(key="unsplash:zVSNpsmKJgw", cx=0.5, cy=0.5, width=0.95, light=(1200, -300),
+                            target=(900, 500), focus=(900, 500), base=0.55, gain=0.75, colour=AMBER),
 }
 
 
@@ -504,6 +519,9 @@ MODELS = {
     "cannondale-topstone": dict(key="topstone-c2", word="TOPSTONE", brand_logo="cannondale.svg", size=240, tag="GRAVEL",
                                 scene=("unsplash:zEdh7yYIwBU", 0.45, 0.5, 0.95), ink=(190, 240, 90),
                                 accent=(255, 150, 80)),
+    "canyon-endurace": dict(key="endurace-cf7", word="ENDURACE", brand_logo="canyon.svg", size=230, tag="ENDURANCE",
+                            scene=("unsplash:zVSNpsmKJgw", 0.5, 0.5, 0.95), ink=(255, 120, 90),
+                            accent=(255, 214, 120)),
 }
 
 
