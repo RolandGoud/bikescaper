@@ -1,6 +1,7 @@
 """Spec sheets of earlier model years from the brands' own sites, as the Wayback Machine kept them, for the brands
-that no shop of ours covers: Canyon and Factor (sold only direct), and Specialized and Bianchi for the years and
-models Rutland Cycling and Sigma Sports (brand_scrapers/uk.py) don't have.
+that no shop of ours covers: Canyon and Factor (sold only direct), Specialized and Bianchi for the years and
+models Rutland Cycling and Sigma Sports (brand_scrapers/uk.py) don't have, and Scott (brand_scrapers/scott_archive.py
+reads its pages).
 
 The archive refuses our cloud machines, so the pages are read on a PC and saved as data/years/brandsites/raw.json
 ({"checked_on", "source", "models": {brand: {the site's name: {year: {archived_url, original_url, wayback_timestamp,
@@ -25,7 +26,7 @@ from datetime import datetime
 from . import mantel, uk
 from .common import ROOT, _LABEL_TO_KEY, clean, first_of_each, normalize_specs
 
-SOURCE = "The brands' own sites (canyon.com, specialized.com, bianchi.com, factorbikes.com), copies in the Wayback Machine"
+SOURCE = "The brands' own sites (canyon.com, specialized.com, bianchi.com, factorbikes.com, scott-sports.com), copies in the Wayback Machine"
 RAW = os.path.join(ROOT, "data", "years", "brandsites", "raw.json")
 GALLERY_MAX = 8  # photos per sheet besides the main one
 
@@ -42,6 +43,10 @@ LABELS = {
     "rearderailleur": "rear derailleur", "frontderailleur": "front derailleur", "tubolar": "tyres",
     # Factor
     "seat post": "seatpost",
+    # Scott (and its pages in other languages, which brand_scrapers/scott_archive.py translates to these)
+    "bb-set": "bottom bracket", "seat": "saddle", "h'stem": "stem", "approx weights in kg": "weight",
+    "approx weight in kg": "weight", "approx. weight": "weight", "hub (front)": "front hub", "hub (rear)": "rear hub",
+    "front disc rotor": "rotors", "front rim": "rims", "accessories": "extra's",
     # Specialized
     "front tire": "front tyre", "chainrings": "kettingblad", "tandwielen": "cassette", "voorrem": "rem",
 }
@@ -160,9 +165,12 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--raw", default=RAW)
     parser.add_argument("--no-photos", action="store_true", help="leave the photos out")
+    parser.add_argument("--brand", action="append", help="only this brand (repeatable); the others' files stay")
     args = parser.parse_args(argv)
     with open(args.raw, encoding="utf-8") as fh:
         raw = json.load(fh)
+    if args.brand:
+        raw = dict(raw, models={b: m for b, m in raw.get("models", {}).items() if b in args.brand})
     photos = None
     if not args.no_photos:
         from .common import Fetcher
