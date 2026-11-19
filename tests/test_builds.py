@@ -185,7 +185,7 @@ def test_a_build_without_a_groupset_shows_its_model_name_once(tmp_path):
     slug = conn.execute("SELECT slug FROM models WHERE name = 'Impulso Allroad'").fetchone()[0]
     page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
     pills = [re.sub(r"<[^>]+>", "", p) for p in re.findall(r'<a class="build-pill.*?</a>', page, re.S)]
-    allroad = page[page.index('data-level="Allroad">'):]
+    allroad = page[page.index('data-level="Allroad" hidden>'):]
     allroad = [re.sub(r"<[^>]+>", "", p) for p in re.findall(r'<a class="build-pill.*?</a>', allroad[:allroad.index("</div>")], re.S)]
     assert any(p.startswith("GRX 400") for p in allroad)
     assert any(re.match(r"Allroad\W", p) for p in allroad)  # the entry without a groupset: its level's name, once
@@ -221,10 +221,12 @@ def test_specialized_model_page_shows_the_levels_first(tmp_path):
     slug = conn.execute("SELECT slug FROM models WHERE name = 'Aethos 2 Expert - Shimano Ultegra Di2'").fetchone()[0]
     page = app.test_client().get(f"/models/{slug}?lang=nl").get_data(as_text=True)
     assert re.findall(r'class="level-tab[^"]*" data-level="([\w-]+)"', page) == ["Sport", "Comp", "Expert", "Pro", "S-Works", "Frameset"]
-    assert 'class="level-tab on" data-level="Expert"' in page  # the bike's own level is open
-    # the other levels' groupsets are there, hidden; a pill names the groupset only
-    assert '<div class="build-row" data-level="Comp" hidden>' in page and '<div class="build-row" data-level="Expert">' in page
-    expert = page[page.index('data-level="Expert">'):]
+    # on opening only the levels show, none picked yet; a dot marks the bike's own level
+    assert "level-tab on" not in page
+    assert re.search(r'data-level="Expert"[^>]*>Expert<small>\d+</small><span class="bw-me"', page)
+    # every level's groupsets are there, hidden until a level is picked; a pill names the groupset only
+    assert '<div class="build-row" data-level="Comp" hidden>' in page and '<div class="build-row" data-level="Expert" hidden>' in page
+    expert = page[page.index('<div class="build-row" data-level="Expert" hidden>'):]
     assert re.search(r'class="bp-name">Ultegra Di2\b', expert[:expert.index("</div>")])
     # a model without levels keeps one row of pills
     assert "level-tab" not in app.test_client().get("/models/ridley-x-ride-disc-shimano-grx-600-2x12?lang=nl").get_data(as_text=True)
@@ -270,7 +272,7 @@ def test_a_build_pill_shows_the_price_its_page_shows(tmp_path):
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/trek-emonda-alr-4?lang=nl").get_data(as_text=True)
-    row = page[page.index('data-level="ALR">'):]
+    row = page[page.index('data-level="ALR" hidden>'):]
     pills = [re.sub(r"<[^>]+>", " ", p).split() for p in re.findall(r'<a class="build-pill.*?</a>', row[:row.index("</div>")], re.S)]
     four = next(p for p in pills if "4" in p[:2])
     assert four[-1] == "€1.949*" and "–" not in four
@@ -287,19 +289,19 @@ def test_build_versions_and_groupsets():
 
 
 def test_a_tab_with_many_builds_picks_a_version_first(tmp_path):
-    # the Émonda SL has ten builds: its versions 5, 6 and 7 as a second row, open on this bike's 6, cheapest first
+    # the Émonda SL has eleven builds: its versions 4, 5, 6 and 7 as a second row, cheapest first
     app = create_app(str(tmp_path / "app.sqlite3"))
     seed.load(db.connect(app.config["DB_PATH"]))
     page = app.test_client().get("/models/trek-emonda-sl-6-di2?lang=en").get_data(as_text=True)
     row = page[page.index('class="build-versions" data-for="SL"'):]
     row = row[:row.index("</div>")]
-    assert re.findall(r'data-version="([^"]+)"', row) == ["5", "6", "7", "*"]
-    assert 'class="bv on" data-version="6"' in row
-    sl = page[page.index('class="build-row" data-level="SL">'):]
+    assert re.findall(r'data-version="([^"]+)"', row) == ["4", "5", "6", "7", "*"]
+    # nothing is picked on opening (the versions show once the SL is picked); a dot marks this bike's 6
+    assert "bv on" not in row and re.search(r'data-version="6"[^>]*>6<small>\d+</small><span class="bw-me"', row)
+    sl = page[page.index('class="build-row" data-level="SL" hidden>'):]
     pills = re.findall(r'<a class="build-pill[^"]*"[^>]*?data-version="(\w)"( data-gone)?( hidden)?>.*?class="bp-price">([^<]*)<', sl[:sl.index("</div>")], re.S)
-    shown = [(v, price) for v, _gone, hidden, price in pills if not hidden]
-    assert {v for v, _p in shown} == {"6"} and len(pills) == 10
-    prices = [int(re.sub(r"\D", "", p)) for _v, p in shown]
+    assert len(pills) == 11 and not any(hidden for _v, _g, hidden, _p in pills)  # the version picked filters them
+    prices = [int(re.sub(r"\D", "", p)) for _v, _g, _h, p in pills if re.search(r"\d", p)]
     assert prices == sorted(prices)
     assert "Shimano 105 Di2" in sl and "This bike" in sl
     # the ALR has three builds: no second row
@@ -318,3 +320,17 @@ def test_other_models_show_each_build(tmp_path):
     assert slugs[0] == "trek-domane-plus-al-5"  # €3.299, the nearest to the SL 5's €2.499
     assert "builds" not in grid and "€3,299" in grid.replace("€3.299", "€3,299")
     assert f"Show all {len(slugs)}" in html
+
+
+def test_a_model_tile_opens_on_its_most_expensive_current_build(tmp_path):
+    # the Madone tile on the models page links to the dearest complete bike still on sale, not the cheapest
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    html = app.test_client().get("/models?brand=Trek&lang=en").get_data(as_text=True)
+    slug = next(s for s in re.findall(r'class="model-card" href="/models/([^"?]+)"', html) if s.startswith("trek-madone"))
+    models = db.all_models(conn)
+    tile = next(m for m in models if m["slug"] == slug)
+    family = [m for m in models if checks.site_split(m)[0] == checks.site_split(tile)[0] and m["brand"] == "Trek"
+              and checks.catalogue_status(m)[0] == "current" and not checks.is_frameset(m)]
+    assert tile["price_eur"] == max(m["price_eur"] or 0 for m in family)
