@@ -18,11 +18,14 @@
     </nav>
   </header>
   {% if posts %}
-  {# A wall of tiles, each led by the article's one headline number over its hero. The newest is big; with a longer
-     list one more is wide, with a short (filtered) one the rest are wide, so the grid closes without gaps. #}
+  {# A wall of tiles, each led by the article's one headline number over its hero. The newest is big (4 cells of the
+     4-column grid); with a short (filtered) list the rest are wide; else as many as it takes are wide (2 cells) for
+     the grid to close without gaps: the 6th when one is needed, else the last ones. #}
+  {% set n = posts|length %}{% set wides = (1 - n) % 4 %}
   <div class="blog-wall">
     {% for p in posts %}
-    {% set size = 'big' if loop.first else ('wide' if posts|length <= 3 or loop.index == 6 else '') %}
+    {% set wide = n <= 3 or (loop.index == 6 if wides == 1 and n >= 6 else loop.revindex <= wides) %}
+    {% set size = 'big' if loop.first else ('wide' if wide else '') %}
     <article class="brick {{ size }} cat-{{ p.category }}">
       {# A model deep-dive's hero is a print-run poster: blurred on the wall, so the number reads over it; sharp on the article. #}
       {% if p.hero %}<img class="brick-img{{ ' soft' if p.category == 'models' }}" src="{{ url_for('static', filename=p.hero) }}" style="object-position: {{ p.hero_focus }}" alt="" loading="{{ 'eager' if loop.index <= 3 else 'lazy' }}">{% endif %}

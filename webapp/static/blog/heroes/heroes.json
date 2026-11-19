@@ -24,6 +24,43 @@
    "url": "https://unsplash.com/photos/a-man-riding-a-bike-through-a-lush-green-field-zEdh7yYIwBU?utm_source=bikecheck&utm_medium=referral"
   }
  },
+ "canyon-endurace": {
+  "focus": [
+   50,
+   56
+  ],
+  "source": "endurace-cf7",
+  "brand": "Canyon",
+  "credit": {
+   "author": "Michael Pointner",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/winding-road-through-misty-countryside-at-dawn-zVSNpsmKJgw?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "carbon-or-aluminium": {
+  "focus": [
+   50,
+   52
+  ],
+  "source": "unsplash:WvmF3e-IhOk",
+  "credit": {
+   "author": "Valentin Zickner",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-black-high-performance-road-bicycle-on-a-stand-indoors-WvmF3e-IhOk?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "frame-size-from-an-ad": {
+  "focus": [
+   50,
+   67
+  ],
+  "source": "unsplash:nCj0zBLIaAk",
+  "credit": {
+   "author": "Florian Kurrasch",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/person-riding-on-bicycle-on-road-nCj0zBLIaAk?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
  "giant-tcr-advanced": {
   "focus": [
    50,
@@ -87,14 +124,14 @@
  },
  "selling-in-spring": {
   "focus": [
-   73,
-   67
+   49,
+   58
   ],
-  "source": "unsplash:oZUT7x06YvY",
+  "source": "unsplash:R4lUCF2EBW0",
   "credit": {
-   "author": "Minna Autio",
+   "author": "Sebastian Pociecha",
    "license": "Unsplash License",
-   "url": "https://unsplash.com/photos/a-person-riding-a-bike-down-a-road-oZUT7x06YvY?utm_source=bikecheck&utm_medium=referral"
+   "url": "https://unsplash.com/photos/man-riding-bicycle-on-road-during-daytime-R4lUCF2EBW0?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "spotting-a-stolen-bike": {
@@ -107,6 +144,18 @@
    "author": "Abdulrahman Alhaidari",
    "license": "Unsplash License",
    "url": "https://unsplash.com/photos/a-bicycle-locked-to-a-rack-by-the-water-gaeP0enIkiQ?utm_source=bikecheck&utm_medium=referral"
+  }
+ },
+ "storing-your-bike-over-winter": {
+  "focus": [
+   59,
+   50
+  ],
+  "source": "unsplash:Lw_dIP6tDnQ",
+  "credit": {
+   "author": "Anton Savinov",
+   "license": "Unsplash License",
+   "url": "https://unsplash.com/photos/a-bicycle-on-a-table-in-a-bike-shop-Lw_dIP6tDnQ?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "trek-domane": {
@@ -124,14 +173,14 @@
  },
  "what-a-groupset-tells-you": {
   "focus": [
-   50,
-   44
+   44,
+   58
   ],
-  "source": "unsplash:9mZVRcC9rN4",
+  "source": "unsplash:xuCX7RLMoqU",
   "credit": {
-   "author": "Almas Salakhov",
+   "author": "Valentin Zickner",
    "license": "Unsplash License",
-   "url": "https://unsplash.com/photos/a-close-up-of-a-bikes-front-wheel-9mZVRcC9rN4?utm_source=bikecheck&utm_medium=referral"
+   "url": "https://unsplash.com/photos/modern-bicycles-rear-drivetrain-with-cassette-and-disc-brake-xuCX7RLMoqU?utm_source=bikecheck&utm_medium=referral"
   }
  },
  "winter-bike": {

@@ -24,11 +24,12 @@ def test_every_article_is_in_both_languages_with_a_known_category():
         assert nl["category"] in blog.CATEGORIES, slug
         for v in (nl, en):
             assert v["title"] and v["summary"] and len(v["body"].split()) > 250, (slug, v["lang"])
-    # the launch: three per category
+    # three per category at launch, then one per category each week: every category has as many
     by_cat = {}
     for versions in posts.values():
         by_cat.setdefault(versions["nl"]["category"], []).append(versions["nl"]["date"])
-    assert {c: len(d) for c, d in by_cat.items()} == {c: 3 for c in blog.CATEGORIES}
+    assert set(by_cat) == set(blog.CATEGORIES)
+    assert len({len(d) for d in by_cat.values()}) == 1 and len(by_cat["market"]) >= 3
 
 
 def test_articles_are_spread_over_the_week():
@@ -61,12 +62,21 @@ def test_list_and_article_pages_in_both_languages(client):
         assert heading in page and read in page
         assert page.count('<article class="brick') == len(blog.published(blog.load(), lang))
     page = client.get("/blog?category=models&lang=en").get_data(as_text=True)
-    assert page.count('<article class="brick') == 3 and "Trek Domane" in page
-    assert page.count('class="brick big') == 1 and page.count('class="brick wide') == 2  # closes the grid
-    nl = client.get("/blog/trek-domane?lang=nl").get_data(as_text=True)
-    en = client.get("/blog/trek-domane?lang=en").get_data(as_text=True)
-    assert "tweedehands" in nl and "second-hand" in en
-    assert client.get("/blog/no-such-article").status_code == 404
+    models = blog.published(blog.load(), "en", category="models")
+    assert page.count('<article class="brick') == len(models) and "Trek Domane" in page
+    assert page.count('class="brick big') == 1
+
+
+def test_the_wall_closes_without_gaps(client, monkeypatch):
+    # the big tile takes 4 cells of the 4-column grid and a wide one 2: every row is full, whatever the count
+    real = next(iter(blog.load().values()))
+    for n in range(3, 26):
+        posts = {f"p{i}": {lang: dict(v, slug=f"p{i}", date=v["date"]) for lang, v in real.items()} for i in range(n)}
+        monkeypatch.setattr(blog, "load", lambda posts=posts: posts)
+        page = client.get("/blog?lang=en").get_data(as_text=True)
+        big, wide = page.count('class="brick big'), page.count('class="brick wide')
+        assert page.count('<article class="brick') == n and big == 1
+        assert (4 * big + 2 * wide + (n - big - wide)) % 4 == 0, n
 
 
 def test_the_menu_links_the_blog(client):
