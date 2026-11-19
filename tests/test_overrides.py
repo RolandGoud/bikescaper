@@ -312,3 +312,13 @@ def test_a_year_set_by_hand_is_not_shown_as_the_ads_year(tmp_path, monkeypatch):
     report = checks.run_check(db.all_models(conn), dict(row, title=TITLE, overrides={"year": 2021}))
     assert report["ad_year"] == 2022 and report["year"]["year"] == 2021
     assert any(str(label) == "Year" and value == "2022" for label, value in report["facts"])
+
+
+def test_the_model_year_tile_shows_one_matched_year_not_a_range(tmp_path, monkeypatch):
+    """Roland, 19 Nov: the tile shows the year we matched, also when only the generation's years are known."""
+    app, client, url, check_id = setup(tmp_path, monkeypatch)
+    url = client.post("/check", data={"title": "Specialized Tarmac SL6 Tiagra", "asking_price": "1200",
+                                      "rider_height": "180"}).headers["Location"]
+    tile = client.get(url + "?lang=en").get_data(as_text=True).split('class="match-strip')[1]
+    tile = tile.split("MODEL YEAR")[1].split("</small>")[0]
+    assert "2019</b>" in tile and "–" not in tile.split("</b>")[0]
