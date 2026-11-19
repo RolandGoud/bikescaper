@@ -83,7 +83,7 @@
 {%- endmacro %}
 
 {% macro listing_card(row, r) -%}
-{% set ad = split_title(row.title) %}
+{% set ad = split_title(row.title|tame_emoji(row)) %}
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   <div class="tile-photo">

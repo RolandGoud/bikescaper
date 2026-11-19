@@ -24,7 +24,7 @@ from flask import (Flask, Response, abort, g, get_template_attribute, jsonify, r
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import photo_review as sell_review
-from . import ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, close_ads, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
+from . import ad_emoji, ad_gone, alerts, blog, ad_photos, ad_translate, ad_title, bike_fit, checks, close_ads, colour_match, daily_checks, db, fetch_ad, groupset_shops, groupsets, mail, photo_counts, photo_groupset, places, prices, recheck, report_pdf, scores, seed, seller, sponsored, stored_checks, updates
 from .i18n import DEFAULT_LANGUAGE, LANGUAGES, current_language, freeze, gettext, thaw
 from .reference import (BRAND_COLOURS, BRANDS, DISCIPLINES, GROUPSET_AGE_MAX_DROP, GROUPSET_AGE_STEP, GROUPSETS, SIZE_CHARTS,
                         TIER_EXAMPLES, TIERS)
@@ -320,6 +320,7 @@ def create_app(db_path=None):
         "Z.G.A.N." if (c := checks.ad_condition(d)) and c.strip(" .").lower() == "zo goed als nieuw" else c)
     app.jinja_env.filters["model_title"] = checks.model_title  # the model's name as shown: without "Shimano"
     app.jinja_env.globals["ad_title"] = ad_title.parts
+    app.jinja_env.filters["tame_emoji"] = ad_emoji.tame  # an ad thick with emoji shown without them (webapp/ad_emoji.py)
     app.jinja_env.filters["no_brand"] = ad_title.without_brand
     app.jinja_env.filters["drop_brand"] = ad_title.drop_brand  # a model name on a tile whose photo shows the brand
 
@@ -964,8 +965,8 @@ def create_app(db_path=None):
                                              "place": row["location"], "ads": []})
             pin["ads"].append({
                 "url": url_for("report", check_id=row["id"]),
-                "name": f"{model['brand']} {checks.model_title(model['name'])}" if model else row["title"],
-                "title": ad_title.without_brand(row["title"], model["brand"]) if model else None,
+                "name": f"{model['brand']} {checks.model_title(model['name'])}" if model else ad_emoji.tame(row["title"], row),
+                "title": ad_title.without_brand(ad_emoji.tame(row["title"], row), model["brand"]) if model else None,
                 "price": eur(row["asking_price"]) if row["asking_price"] else None,
                 "status": result["value"]["status"] if model else "unknown",
                 "verdict": str(result["value"]["headline"]) if model else gettext("No matching model yet"),

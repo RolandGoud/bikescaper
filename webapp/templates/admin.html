@@ -95,7 +95,7 @@
       {% for it in ranked[kind][order] %}
       {% set photo_why = reasons(it.photo_lost, _('photo') ~ ': ') %}{% set ad_why = reasons(it.ad_lost) %}
       <tr>
-        <td><a href="{{ url_for('report', check_id=it.listing.id) }}">{{ it.listing.title }}</a></td>
+        <td><a href="{{ url_for('report', check_id=it.listing.id) }}">{{ it.listing.title|tame_emoji(it.listing) }}</a></td>
         <td>{% if it.model %}{% if it.brand and it.brand != '?' %}{{ it.brand }} - {% endif %}{{ it.model.name|model_title }}{% else %}—{% endif %}</td>
         <td>{{ _(it.confidence) if it.confidence else '—' }}</td>
         <td class="why">{{ ((photo_why ~ ad_why) if kind == 'photo' else (ad_why ~ photo_why)) or '—' }}</td>
