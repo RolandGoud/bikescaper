@@ -140,3 +140,21 @@ def test_the_catalogue_has_no_search_field(tmp_path):
     seed.load(db.connect(path))
     page = create_app(path).test_client().get("/models?lang=nl").get_data(as_text=True)
     assert 'id="q"' not in page and 'class="search"' not in page
+
+
+def test_models_without_a_complete_bike_get_no_tile(tmp_path):
+    """Trek still sells the Crockett and 920 as framesets only: no tile for them among the bikes still sold, and
+    the count leaves them out. With the discontinued bikes on, the Crockett has its complete builds again."""
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    seed.load(db.connect(app.config["DB_PATH"]))
+    client = app.test_client()
+    html = client.get("/models?brand=Trek&lang=en").get_data(as_text=True)
+    cards = _cards(html)
+    assert cards and not any(c.startswith(("trek-crockett", "trek-920")) for c in cards)
+    assert f"{len(cards)} models from the brands" in html
+    assert not any("frameset" in c for c in cards)
+    everything = _cards(client.get("/models?brand=Trek&current=0&lang=en").get_data(as_text=True))
+    assert any(c.startswith("trek-crockett") for c in everything)
+    # the other brands' frameset-only models too (Cannondale's SuperSlice, Wilier's Superleggera)
+    all_brands = _cards(client.get("/models?lang=en").get_data(as_text=True))
+    assert all_brands and not any("frameset" in c for c in all_brands)

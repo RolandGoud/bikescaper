@@ -1073,7 +1073,9 @@ def create_app(db_path=None):
                  for m in models() if (not q or q in m["name"].lower())
                  and (not groupset or groupset_key(m) == groupset)]
         items = [m for m in items if (not current or m["status"] == "current") and m["discipline"] not in HIDDEN_KINDS]
-        items = model_tiles(items, tier)
+        # A model with only framesets in this list (Trek's Crockett and 920 once their complete bikes are no longer
+        # sold) gets no tile: a frameset shows under the tile of its complete bikes.
+        items = [m for m in model_tiles(items, tier) if m["complete"]]
         # each brand's count in the brand menu: what picking it would show with the other filters kept
         brand_counts = Counter(m["brand"] for m in items
                                if (not tier or has_tier(m, tier)) and (not kind or m["discipline"] == kind))
@@ -1191,22 +1193,28 @@ def create_app(db_path=None):
         """One tile per model for a brand that lists every build (and Trek every generation) as its own entry: a
         build on sale, of the picked spec tier if there is one, then the cheapest; with the number of builds and
         every build's tier (the tier filter keeps a model that has a build of that tier) and id (its ads are the
-        model's). Others stay as they are."""
-        tiles, labels, tiers, ids = {}, {}, {}, {}
+        model's). Others stay as they are. Each tile says whether it has a complete bike ("complete"), not only
+        framesets."""
+        tiles, labels, tiers, ids, complete = {}, {}, {}, {}, {}
         def tile_rank(m):
             return (bool(tier) and m["tier"] != tier, checks.catalogue_status(m)[0] != "current",
                     checks.is_frameset(m), m["price_eur"] or 1e9)  # a complete bike stands for the model
+        def is_complete(m):
+            return not checks.is_frameset(m) and m["discipline"] != "frames"  # BMC's "MOD" is a frameset too
         for m in items:
             if m["brand"] not in checks.SITE_BUILD_BRANDS:
-                tiles[("", m["id"])] = m
+                tiles[("", m["id"])] = dict(m, complete=is_complete(m) or any(
+                    is_complete(o) and checks.same_model(o, m) for o in items))
                 continue
             key = (m["brand"], checks.site_split(m)[0])
+            complete[key] = complete.get(key, False) or is_complete(m)
             labels.setdefault(key, set()).add(checks.build_label(m) or "")
             tiers.setdefault(key, set()).add(m.get("tier"))
             ids.setdefault(key, []).append(m["id"])
             if key not in tiles or tile_rank(m) < tile_rank(tiles[key]):
                 tiles[key] = m
-        return [dict(m, build_count=len(labels[key]), tiers=tiers[key], ids=ids[key]) if key in labels else m
+        return [dict(m, build_count=len(labels[key]), tiers=tiers[key], ids=ids[key], complete=complete[key])
+                if key in labels else m
                 for key, m in tiles.items()]
 
     def build_group(level, group, model):
