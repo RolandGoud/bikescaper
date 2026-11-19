@@ -1,6 +1,6 @@
 ---
 title: Wat kost een nieuwe racefiets per merk? 1.136 prijzen op een rij
-date: 2026-11-01
+date: 2026-10-28
 category: market
 summary: Van Cube tot Factor: de mediane nieuwprijs van 16 merken uit onze catalogus. Handig om te weten voordat je een tweedehands prijs beoordeelt.
 stat: 16

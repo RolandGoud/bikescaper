@@ -1,6 +1,6 @@
 ---
 title: Trek Domane second-hand: AL, SL or SLR, and what to pay
-date: 2026-11-01
+date: 2026-10-27
 category: models
 model: Trek Domane
 summary: The Domane is Trek's comfortable road bike and one of the bikes we check most. How to tell the versions apart and how to work out a fair price.

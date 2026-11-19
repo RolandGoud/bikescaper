@@ -1,6 +1,6 @@
 ---
 title: Trek Domane tweedehands: AL, SL of SLR, en wat je betaalt
-date: 2026-11-01
+date: 2026-10-27
 category: models
 model: Trek Domane
 summary: De Domane is de comfortabele racefiets van Trek en een van de fietsen die we het vaakst checken. Zo houd je de uitvoeringen uit elkaar en zo bepaal je een eerlijke prijs.

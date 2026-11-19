@@ -1,6 +1,6 @@
 ---
 title: Een winterfiets kopen: waar let je op?
-date: 2026-11-08
+date: 2026-11-04
 category: seasonal
 summary: Zout, regen en modder slopen een dure racefiets. Een tweede, goedkope fiets voor de winter is vaak slimmer. Waar je op let, en welke modellen uit onze catalogus geschikt zijn.
 stat: €690

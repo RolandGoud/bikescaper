@@ -1,6 +1,6 @@
 ---
 title: Buying a road bike in autumn: how to do it well
-date: 2026-11-01
+date: 2026-10-26
 category: seasonal
 summary: The season is over, the new model years are in the shops and riders who upgrade put their old bike up for sale. Why November is a good month to look second-hand, and what to watch.
 stat: 5

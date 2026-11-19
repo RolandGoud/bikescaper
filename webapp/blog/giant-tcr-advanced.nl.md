@@ -1,6 +1,6 @@
 ---
 title: Giant TCR Advanced: de betaalbare carbon racer, tweedehands bekeken
-date: 2026-11-08
+date: 2026-11-05
 category: models
 model: Giant TCR
 summary: Na Trek de fiets die we het vaakst checken. Advanced, Advanced Pro of Advanced SL, wat "PC" betekent, en waarom een TCR uit 2021 veel minder kostte dan nu.

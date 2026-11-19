@@ -1,6 +1,6 @@
 ---
 title: Wat de groepset zegt over het niveau van een fiets
-date: 2026-11-15
+date: 2026-11-09
 category: guides
 summary: Claris, 105, Ultegra, Dura-Ace: zo lees je aan de groep af in welke klasse een fiets valt, en waarom een Ultegra van tien jaar oud geen topgroep meer is.
 stat: −1

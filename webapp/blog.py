@@ -11,7 +11,8 @@ header between `---` lines:
     summary: One or two sentences for the list page and the search snippet.
     ---
 
-An article dated in the future stays hidden until that day, so posts can be written ahead. Optional header
+An article dated in the future stays hidden until that day, so posts can be written ahead. Give each article a
+day of its own, a random day of the week rather than the same day for a whole batch (tests/test_blog.py checks it). Optional header
 fields: `stat` and `stat_label`, the article's one headline number for the list page, and `hero`, a picture under
 webapp/static (default blog/heroes/<slug>.jpg). A model deep-dive can add `model: Trek Domane` (brand, then the
 start of the model name): a check report on a matching bike links it first (see `for_report`). The body is a small
