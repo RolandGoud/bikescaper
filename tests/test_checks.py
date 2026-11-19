@@ -873,6 +873,30 @@ def test_checked_ad_shows_its_own_photo_next_to_the_catalogue_photo(tmp_path):
     assert '<a class="open-photos" href="#ad-photos">Compare photos' in report and "Check photos" not in report
 
 
+def test_an_ad_whose_model_has_no_catalogue_photo_shows_its_own_photo(tmp_path):
+    """A 2dehands Tarmac SL6 matched to a model without a catalogue photo showed "[no photo yet]" on its card."""
+    app = create_app(str(tmp_path / "app.sqlite3"))
+    conn = db.connect(app.config["DB_PATH"])
+    seed.load(conn)
+    bare = next(m for m in db.all_models(conn) if not m["image"])
+    ad_photo = "https://images.2dehands.com/api/v1/x/images/aa/1?rule=eps_85.JPG"
+    conn.execute("INSERT INTO checks (title, asking_price, listing_url, photos) VALUES (?, ?, ?, ?)",
+                 ("Tarmac SL6 Disc 56 Di2 Ultegra 2020", 2399, "https://www.2dehands.be/v/fietsen/racefietsen/m1-tarmac",
+                  f'["{ad_photo}"]'))
+    conn.commit()
+    client = app.test_client()
+    client.post("/check/1/match", data={"model_id": bare["id"]})
+    shown = ad_photo.replace("&", "&amp;")
+    for url in ["/", "/listings"]:
+        page = client.get(url + "?lang=en").get_data(as_text=True)
+        card = page[page.index('class="listing-card"'):]
+        card = card[:card.index("</a>")]
+        assert 'class="photo ad-only"' in card and f'src="{shown}"' in card and "[no photo yet]" not in card, url
+    report = client.get("/check/1?lang=en").get_data(as_text=True)
+    stage = report[report.index('<section class="ad-stage'):]
+    assert "no-photo" not in stage[:60] and f'src="{shown}"' in stage[:stage.index('class="stage-text"')]
+
+
 @pytest.mark.parametrize("title, name, year, size, colour", [
     ("Trek Domane SL 6 Gen 4 2023 maat 56", "Domane SL 6 Gen 4", 2023, "56", None),
     ("Canyon Aeroad CF SLX 8 AXS 2021 maat L", "Aeroad CF SLX 8 AXS", 2021, "L", None),
