@@ -87,7 +87,10 @@
 {% set brand = r.model.brand if r.model else r.claims.brand %}
 <a class="listing-card" href="{{ url_for('report', check_id=row.id) }}">
   <div class="tile-photo">
-  {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model, row.id) }}{% else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
+  {# No catalogue photo of the matched model to slide to: the ad's own photo alone, rather than "no photo yet". #}
+  {% if row.photos and r.model and r.model.image %}{{ duo_photo(duo_pick(row.photos), r.model, row.id) }}
+  {%- elif row.photos %}<div class="photo ad-only"><img src="{{ duo_pick(row.photos) }}" alt="{{ _('Photo from the ad') }}" loading="lazy" referrerpolicy="no-referrer">{{ brand_mark(brand) }}</div>
+  {%- else %}<div class="photo">{{ photo(r.model) }}{{ brand_mark(brand) }}</div>{% endif %}
   {{ removed_banner(row) }}
   </div>
   <div class="body">

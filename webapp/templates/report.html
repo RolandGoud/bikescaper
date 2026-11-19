@@ -54,10 +54,11 @@
      the facts it gives, its text and the link to it. "Our match" under it holds what we made of it. #}
   {% set site = site_name(listing.listing_url) %}
   {% set g = gone(listing) %}
-  <section class="ad-stage{{ ' no-photo' if not (r.model and r.model.image) }}">
+  <section class="ad-stage{{ ' no-photo' if not (listing.photos or (r.model and r.model.image)) }}">
     {% set colour = r.photo_year.colour if r.photo_year else r.colourway.name if r.colourway else None %}
     {% if listing.photos and r.model and r.model.image %}<div class="head-duo">{{ duo_photo(duo_pick(listing.photos, r.model), r.model, listing.id, picked=True) }}</div>
-    {% elif r.model and r.model.image %}<div class="photo">{{ photo(r.model) }}</div>{% endif %}
+    {% elif r.model and r.model.image %}<div class="photo">{{ photo(r.model) }}</div>
+    {% elif listing.photos %}<div class="photo"><img src="{{ duo_pick(listing.photos) }}" alt="{{ _('Photo from the ad') }}" referrerpolicy="no-referrer"></div>{% endif %}
     {% if r.model and (r.photo_year or colour) %}
     <span class="photo-cap" title="{{ (_('the colour set by hand') if r.colour_set else _("the colour in the ad's photos") if r.colour_from_photos else _('the colour the ad names')) if colour }}">{% if colour and colour|swatch %}<i style="background: {{ colour|swatch }}"></i>{% endif %}{{ (_('Catalogue: the {year} model (closest to {wanted})', year=r.photo_year.year, wanted=r.photo_year.stand_in) if r.photo_year.stand_in else _('Catalogue: the {year} model', year=r.photo_year.year)) if r.photo_year else _('Catalogue') }}{% if colour %} · {{ colour }}{% endif %}</span>
     {% endif %}
