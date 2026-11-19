@@ -223,12 +223,16 @@
     <div class="ms-facts">
       {# The year: green when the ad's year falls in the years the model was sold; amber or red only for a real clash
          (before its launch, after it was replaced, an earlier generation). Doubts from the parts stay in the age tab. #}
-      {# Only the year the ad gives (check 218): with none, "Not known", whatever year the match goes by. #}
+      {# The year of the match: the year we go by (set by hand, the ad's, or estimated), or the range it was narrowed
+         to; the ad's own year stays in the ad card and the tooltip. Amber while the ad states no year. #}
+      {% set my = r.year.year if r.year else yr %}
+      {% set my_text = (r.year.first ~ '–' ~ r.year.last) if r.year and r.year.how in ('details', 'estimate', 'generation') and r.year.first and r.year.last and r.year.first != r.year.last else my %}
       <div tabindex="0" class="ms-check ms-fact {{ ys }}"><span class="k">{{ _('Model year')|upper }}</span>
-        {% if yr %}<b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ yr }}</b>
+        {% if my %}<b><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ my_text }}</b>
         {% else %}<b class="muted"><i aria-hidden="true">{{ {'ok': '✓', 'warn': '!', 'bad': '✕', 'unknown': '?'}[ys] }}</i>{{ _('Not known') }}</b>{% endif %}
-        {% set note = (_('No year in the ad') ~ ' · ' ~ _('Ask for the invoice or the serial number.') if not yr else r.year.note or (_('{year} fits this model', year=yr) if ys == 'ok' else ag.headline)) %}
-        {% if r.year and r.year.year != yr %}{% set note = note ~ ' · ' ~ _('We go by {year} for the price and the specs.', year=r.year.year) %}{% endif %}
+        {% if not yr %}{% set note = _('No year in the ad') ~ (' · ' ~ _('We go by {year} for the price and the specs.', year=my) if my else '') ~ ' · ' ~ _('Ask for the invoice or the serial number.') %}
+        {% elif my != yr %}{% set note = _('The ad says {year}', year=yr) ~ ' · ' ~ _('We go by {year} for the price and the specs.', year=my) %}
+        {% else %}{% set note = r.year.note or (_('{year} fits this model', year=yr) if ys == 'ok' else ag.headline) %}{% endif %}
         <small role="tooltip">{{ note }}</small></div>
       <div tabindex="0" class="ms-check ms-fact {{ 'ok' if shown_colour else 'unknown' }}"><span class="k">{{ _('Colour')|upper }} {{ lock('colour') }}</span>
         {% if shown_colour %}<b>{% if shown_colour|swatch_css %}<i class="sw" style="background: {{ shown_colour|swatch_css }}"></i>{% endif %}<span>{{ shown_colour }}</span></b>

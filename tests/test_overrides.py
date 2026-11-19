@@ -169,9 +169,9 @@ def test_the_match_card_always_has_a_colour_tile_and_the_ad_card_only_a_named_on
     assert json.loads(conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0]) == {"year": 2023, "colour": "Mat petrol"}
     page = client.get(url + "?lang=en").get_data(as_text=True).split('class="match-strip')[1]
     assert "Mat petrol" in page
-    # The ad names no year: the model year tile says so, not the year picked for the match (check 218).
+    # The ad names no year: the model year tile shows the year picked for the match, and says the ad gives none.
     year_tile = page.split("MODEL YEAR")[1].split("</small>")[0]
-    assert "2023</b>" not in year_tile and "Not known" in year_tile and "We go by 2023 for the price" in year_tile
+    assert "2023</b>" in year_tile and "No year in the ad" in year_tile and "We go by 2023 for the price" in year_tile
     assert "🔒" not in year_tile
     assert client.post(f"/check/{check_id}/override", data={"field": "match", "model": "", "year": "", "colour": ""}).status_code == 302
     assert conn.execute("SELECT overrides FROM checks WHERE id = ?", (check_id,)).fetchone()[0] is None
@@ -305,8 +305,9 @@ def test_a_year_set_by_hand_is_not_shown_as_the_ads_year(tmp_path, monkeypatch):
     page = client.get(url + "?lang=en").get_data(as_text=True)
     ad_card, match_card = page.split('class="match-strip')
     assert ">Year<" not in ad_card
+    # The match card's tile shows the matched year (Roland, 19 Nov), saying the ad gives none.
     year_tile = match_card.split("MODEL YEAR")[1].split("</small>")[0]
-    assert "Not known" in year_tile and "2022</b>" not in year_tile
+    assert "2022</b>" in year_tile and "No year in the ad" in year_tile and "Not known" not in year_tile
     # The ad's own year stays, also next to a different one set by hand.
     report = checks.run_check(db.all_models(conn), dict(row, title=TITLE, overrides={"year": 2021}))
     assert report["ad_year"] == 2022 and report["year"]["year"] == 2021

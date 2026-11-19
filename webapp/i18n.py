@@ -1418,6 +1418,7 @@ NL = {
     "{year}: check it": "{year}: controleer het",
     "{year} doesn’t fit this model": "{year} past niet bij dit model",
     "No year in the ad": "Geen jaar in de advertentie",
+    "The ad says {year}": "De advertentie zegt {year}",
     "mechanical": "mechanisch",
     "Shifting: {kind}": "Schakelen: {kind}",
     "The ad says {ad}, this model shifts {ours}": "De advertentie zegt {ad}, dit model schakelt {ours}",
