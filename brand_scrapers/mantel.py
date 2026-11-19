@@ -174,12 +174,13 @@ def match(brand, name, year, ours, key=key):
 
 def catalogue_names(brand, key=key, own=None):
     """{key: our name} of every model of the brand we know: scrapes, discontinued lines (the brand's and the other
-    shops' but `own`'s, which is being remade) and earlier-year sheets."""
+    shops' but `own`'s, which is being remade), the bikes only other country sites sell, and earlier-year sheets."""
     names = set()
     lines = [p for p in glob.glob(os.path.join(ROOT, "data", "years", "*", "lines", f"{brand}.json"))
              if not own or os.path.basename(os.path.dirname(os.path.dirname(p))) != own]
     for path in glob.glob(os.path.join(ROOT, "data", brand, "*.json")) + [
-            os.path.join(ROOT, "data", "years", "archived", f"{brand}.json")] + lines:
+            os.path.join(ROOT, "data", "years", "archived", f"{brand}.json"),
+            os.path.join(ROOT, "data", "years", "countries", f"{brand}.json")] + lines:
         try:
             with open(path, encoding="utf-8") as fh:
                 data = json.load(fh)
@@ -306,9 +307,12 @@ def main(argv=None, shop=MANTEL, raw_path=RAW, doc=None):
     parser = argparse.ArgumentParser(description=(doc or __doc__).split("\n")[0])
     parser.add_argument("--raw", default=raw_path)
     parser.add_argument("--no-photos", action="store_true", help="leave the photos out")
+    parser.add_argument("--brand", action="append", help="only this brand (repeatable); the others' files stay")
     args = parser.parse_args(argv)
     with open(args.raw, encoding="utf-8") as fh:
         raw = json.load(fh)
+    if args.brand:
+        raw = dict(raw, models={b: m for b, m in raw.get("models", {}).items() if b in args.brand})
     photos = None
     if not args.no_photos:
         from .history import save_photo
