@@ -1191,14 +1191,15 @@ def create_app(db_path=None):
 
     def model_tiles(items, tier=None):
         """One tile per model for a brand that lists every build (and Trek every generation) as its own entry: a
-        build on sale, of the picked spec tier if there is one, then the cheapest; with the number of builds and
+        build on sale, of the picked spec tier if there is one, then the most expensive; with the number of builds and
         every build's tier (the tier filter keeps a model that has a build of that tier) and id (its ads are the
         model's). Others stay as they are. Each tile says whether it has a complete bike ("complete"), not only
         framesets."""
         tiles, labels, tiers, ids, complete = {}, {}, {}, {}, {}
         def tile_rank(m):
+            # a complete bike on sale stands for the model: the most expensive, so the model opens on its top build
             return (bool(tier) and m["tier"] != tier, checks.catalogue_status(m)[0] != "current",
-                    checks.is_frameset(m), m["price_eur"] or 1e9)  # a complete bike stands for the model
+                    checks.is_frameset(m), -(m["price_eur"] or 0))
         def is_complete(m):
             return not checks.is_frameset(m) and m["discipline"] != "frames"  # BMC's "MOD" is a frameset too
         for m in items:
@@ -1229,7 +1230,7 @@ def create_app(db_path=None):
         if grade and grade.split("-")[0].lower() in level.lower():  # Canyon's "CF SLX" tab needs no "CF SLX" hint
             grade = None
         found = list(dict.fromkeys(b["version"] for b in rows if b["version"]))
-        versions, kind, picked = None, None, None
+        versions, kind, picked, own = None, None, None, None
         if len(group) > BUILD_VERSIONS_FROM and len(found) >= 2:
             kind = "generation" if all(v.startswith("SL") for v in found) else "version"
             # numbers low to high, generations newest first; the builds without a version last
@@ -1242,7 +1243,7 @@ def create_app(db_path=None):
             picked = own or versions[0][0]
         hint = " · ".join([gettext(m).lower() for m in materials] + ([grade] if grade else []))
         return {"level": level, "rows": rows, "hint": hint,
-                "versions": versions, "kind": kind, "picked": picked}
+                "versions": versions, "kind": kind, "picked": picked, "own": own}
 
     @app.route("/models/<slug>")
     def model_page(slug):

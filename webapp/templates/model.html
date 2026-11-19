@@ -75,39 +75,79 @@
     {# One row per build, cheapest first: a radio circle (this bike's is filled), its name, groupset, spec tier, model
        years and new price. A build the brand no longer sells is greyed out. #}
     {% macro build_pill(b, level='', hide=False) %}{% set on = (b|build_label) == here %}{% set label = b|build_label %}{% if level and label and label.startswith(level + ' ') %}{% set label = label[level|length + 1:] %}{% endif %}<a class="build-pill t{{ b.tier or 0 }}{{ ' on' if on }}" href="{{ url_for('model_page', slug=b.slug) }}"{% if on %} aria-current="page"{% endif %} data-version="{{ b.version or '-' }}"{% if b.gone %} data-gone{% endif %}{% if hide %} hidden{% endif %}><span class="bp-radio" aria-hidden="true"></span><b class="bp-name">{% if b|build_label and not level %}<span class="bp-model">{{ (b|model_base)|model_title }} </span>{% endif %}{{ (label or b|model_base)|model_title }}{% if on %} <span class="bp-here">{{ _('This bike') }}</span>{% endif %}</b> <span class="bp-gs">{{ b.groupset or '' }}</span> <span class="bp-tier">{% if b.tier %}<span class="tier-dot t{{ b.tier }}" title="{{ _('Spec tier {tier} of 5', tier=b.tier) }}">{{ _(tier_names[b.tier]) }}</span>{% endif %}</span> <span class="bp-years">{% if b.sold %}{{ b.sold[0] }}{% if b.sold[1] != b.sold[0] %}–{{ b.sold[1] or _('now') }}{% endif %}{% endif %}</span> <span class="bp-price">{{ (b.shown[0]|eur ~ ('*' if b.shown[1] else '')) if b.shown[0] else '–' }}</span></a>{% endmacro %}
-    {% if levels %}{# the levels first (Sport, Comp, Expert, Pro; Trek's ALR, SL, SLR), each with the frame its builds share #}
-    <div class="level-tabs">{% for g in build_groups %}<button type="button" class="level-tab{{ ' on' if g.level == here_level }}" data-level="{{ g.level }}" aria-pressed="{{ 'true' if g.level == here_level else 'false' }}"><span>{{ g.level or (m|model_base)|model_title }} <small>{{ g.rows|length }}</small></span>{% if g.hint %}<em>{{ g.hint }}</em>{% endif %}</button>{% endfor %}</div>
+    {% set vgroups = build_groups|selectattr('versions')|list %}
+    {% if levels or vgroups %}{# A wizard: the levels first (Trek's SL, SLR; Specialized's Sport, Comp, ...), then, for a level with many
+       builds, its versions (Trek's 5, 6, 7), then its builds. On opening only the first step's choices show; the
+       next step opens once one is picked, linked to that choice. A green dot marks this bike's level and version. #}
+    <div class="bw">
+    {% if levels %}<div class="bw-step" data-step="level"><span class="bw-dot" aria-hidden="true"></span><span class="bw-lab">{{ _('Series') }}</span>
+      <div class="bw-ct level-tabs">{% for g in build_groups %}<button type="button" class="level-tab" data-level="{{ g.level }}" aria-pressed="false"{% if g.hint %} title="{{ g.hint }}"{% endif %}>{{ g.level or (m|model_base)|model_title }}<small>{{ g.rows|length }}</small>{% if g.level == here_level %}<span class="bw-me" title="{{ _('This bike') }}"></span>{% endif %}</button>{% endfor %}<span class="bw-legend"><i></i>{{ _('This bike') }}</span></div>
+    </div>{% endif %}
+    {% if vgroups %}<div class="bw-step" data-step="version"><span class="bw-dot" aria-hidden="true"></span><span class="bw-lab">{{ _('Generation') if vgroups[0].kind == 'generation' else _('Version') }}</span>
+      <div class="bw-ct">{% if levels %}<span class="bw-wait">{{ _('Pick a series first') }}</span>{% endif %}
+      {% for g in vgroups %}<div class="build-versions" data-for="{{ g.level }}" role="group" aria-label="{{ _('Generation') if g.kind == 'generation' else _('Version') }}"{% if levels %} hidden{% endif %}>
+        {% for v, n in g.versions %}<button type="button" class="bv" data-version="{{ v }}" aria-pressed="false">{{ _('Other') if v == '-' else v }}<small>{{ n }}</small>{% if v == g.own %}<span class="bw-me" title="{{ _('This bike') }}"></span>{% endif %}</button>{% endfor %}
+        <button type="button" class="bv" data-version="*" aria-pressed="false">{{ _('All') }}<small>{{ g.rows|length }}</small></button>
+        {% if levels %}<span class="bw-ctx">{{ (m|model_base)|model_title }} {{ g.level }}{% if g.hint %} · {{ g.hint }}{% endif %}</span>{% endif %}
+      </div>{% endfor %}</div>
+    </div>{% endif %}
+    <div class="bw-step" data-step="build"><span class="bw-dot" aria-hidden="true"></span><span class="bw-lab">{{ _('Build') }}</span>
+      <div class="bw-ct"><span class="bw-wait" data-wait="level"{% if not levels %} hidden{% endif %}>{{ _('Pick a series first') }}</span><span class="bw-wait" data-wait="version"{% if levels %} hidden{% endif %}>{{ _('Pick a version first') }}</span>
+      <div class="bw-table" hidden>
     {% endif %}
-    {# A tab with many builds: their versions (Trek's 5, 6, 7; a Specialized generation) as a second row of choices #}
-    {% for g in build_groups if g.versions %}<div class="build-versions" data-for="{{ g.level }}" role="group" aria-label="{{ _('Generation') if g.kind == 'generation' else _('Version') }}"{% if levels and g.level != here_level %} hidden{% endif %}>
-      <span class="bv-k">{{ _('Generation') if g.kind == 'generation' else _('Version') }}</span>
-      {% for v, n in g.versions %}<button type="button" class="bv{{ ' on' if v == g.picked }}" data-version="{{ v }}" aria-pressed="{{ 'true' if v == g.picked else 'false' }}">{{ _('Other') if v == '-' else v }} <small>{{ n }}</small></button>{% endfor %}
-      <button type="button" class="bv" data-version="*" aria-pressed="false">{{ _('All') }} <small>{{ g.rows|length }}</small></button>
-    </div>{% endfor %}
     <div class="build-head" aria-hidden="true"><span></span><span>{{ _('Build') }}</span><span>{{ _('Groupset') }}</span><span>{{ _('Spec tier') }}</span><span>{{ _('Model years') }}</span><span>{{ _('New price') }} ↑</span></div>
-    {% for g in build_groups %}<div class="build-row"{% if levels %} data-level="{{ g.level }}"{% if g.level != here_level %} hidden{% endif %}{% endif %}>{% for b in g.rows %}{{ build_pill(b, g.level if levels else '', g.picked and (b.version or '-') != g.picked) }}{% endfor %}</div>{% endfor %}
+    {% for g in build_groups %}<div class="build-row"{% if levels %} data-level="{{ g.level }}" hidden{% endif %}>{% for b in g.rows %}{{ build_pill(b, g.level if levels else '') }}{% endfor %}</div>{% endfor %}
     {% if builds|selectattr('shown.1')|list %}<p class="small muted build-note">{{ _("* {brand}'s site gives no price for this build: the last known new price, from the German list price (TOUR/BIKE database).", brand=m.brand) }}</p>{% endif %}
+    {% if levels or vgroups %}</div></div></div></div>
     <script>
       (function () {
-        var nav = document.currentScript.closest('.builds');
-        {% if levels %}nav.querySelectorAll('.level-tab').forEach(function (tab) {
+        var nav = document.currentScript.closest('.builds'), level = null;
+        var steps = function (name) { return nav.querySelector('.bw-step[data-step="' + name + '"]'); };
+        var vstep = steps('version'), bstep = steps('build'), table = nav.querySelector('.bw-table');
+        function press(buttons, on) { buttons.forEach(function (b) { b.classList.toggle('on', b === on); b.setAttribute('aria-pressed', b === on); }); }
+        function state(step, s) { if (step) { step.classList.remove('done', 'active', 'idle'); step.classList.add(s); } }
+        function versions() { return nav.querySelector('.build-versions[data-for="' + CSS.escape(level || '') + '"]'); }
+        function show(version) {  // the builds of the picked level (and version)
+          var row = nav.querySelector('.build-row[data-level="' + CSS.escape(level || '') + '"]') || nav.querySelector('.build-row');
+          nav.querySelectorAll('.build-row').forEach(function (r) { r.hidden = r !== row; });
+          row.querySelectorAll('.build-pill').forEach(function (p) { p.hidden = !!version && version !== '*' && p.dataset.version !== version; });
+          table.hidden = false;
+          bstep.querySelectorAll('.bw-wait').forEach(function (w) { w.hidden = true; });
+          state(bstep, 'active');
+        }
+        function wait(which) {
+          table.hidden = true;
+          bstep.querySelectorAll('.bw-wait').forEach(function (w) { w.hidden = w.dataset.wait !== which; });
+          state(bstep, 'idle');
+        }
+        nav.querySelectorAll('.level-tab').forEach(function (tab) {
           tab.addEventListener('click', function () {
-            nav.querySelectorAll('.level-tab').forEach(function (t) { var on = t === tab; t.classList.toggle('on', on); t.setAttribute('aria-pressed', on); });
-            nav.querySelectorAll('.build-row[data-level]').forEach(function (row) { row.hidden = row.dataset.level !== tab.dataset.level; });
-            nav.querySelectorAll('.build-versions').forEach(function (vs) { vs.hidden = vs.dataset.for !== tab.dataset.level; });
+            level = tab.dataset.level;
+            press(nav.querySelectorAll('.level-tab'), tab);
+            state(steps('level'), 'done');
+            var vs = versions();
+            if (vstep) {
+              vstep.hidden = !vs;
+              vstep.querySelector('.bw-wait').hidden = true;
+              nav.querySelectorAll('.build-versions').forEach(function (v) { v.hidden = v !== vs; });
+            }
+            if (vs) { press(vs.querySelectorAll('.bv'), null); state(vstep, 'active'); wait('version'); }
+            else show(null);
           });
-        });{% endif %}
+        });
         nav.querySelectorAll('.build-versions').forEach(function (vs) {
           vs.querySelectorAll('.bv').forEach(function (btn) {
             btn.addEventListener('click', function () {
-              vs.querySelectorAll('.bv').forEach(function (b) { var on = b === btn; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
-              var row = nav.querySelector('.build-row[data-level="' + CSS.escape(vs.dataset.for) + '"]') || nav.querySelector('.build-row');
-              row.querySelectorAll('.build-pill').forEach(function (p) { p.hidden = btn.dataset.version !== '*' && p.dataset.version !== btn.dataset.version; });
+              level = vs.dataset.for; press(vs.querySelectorAll('.bv'), btn); state(vstep, 'done'); show(btn.dataset.version);
             });
           });
         });
+        state(steps('level'), 'active');
+        {% if levels %}state(vstep, 'idle');{% else %}state(vstep, 'active');{% endif %}
+        state(bstep, 'idle');
       })();
     </script>
+    {% endif %}
   </nav>
   {% endif %}
   <div class="block-head"><span>{{ _('The model') }}: {{ m.brand }} {{ m.name|model_title }}</span></div>
